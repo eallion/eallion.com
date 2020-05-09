@@ -1,0 +1,106 @@
+{{ define "head" }}
+  {{ if .Next -}}<link rel="prefetch" href="{{ .Next.Permalink }}">{{- end }}
+  {{ if .Prev -}}<link rel="prefetch" href="{{ .Prev.Permalink }}">{{- end }}
+{{ end }}
+
+{{ define "main" }}
+  {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
+  {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
+  
+  
+  {{ $PostCate := .File.Path | replaceRE ".*posts/(.*)/.*" "$1"}}
+  <div class="post {{ $PostCate }}">
+    {{ partial "breadcrumb.html" . }}
+  {{ if eq $PostCate "chat"}}
+      {{ .Render "chat"}}
+      <div class="post-content">
+        <a href="{{ .Permalink }}" rel="link"><img loading="lazy" class="post-avatar avatar" src=https://gravatar.loli.net/avatar/{{ md5 "fivemu@gmail.com" }} ></a>
+          {{ .Content }}
+      </div>
+  {{ else }}
+    <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
+    <div class="post-meta">
+      {{ if .Date | default nil }}
+        <span class="post-date">
+          {{ .Date.Format ($.Site.Params.DateFormatSingle | default "2006-01-02") }}
+        </span>
+
+        {{ if eq .Type $contentTypeName }}
+          {{ if $.Site.Params.LastModDisplay }}
+            {{ partial "lastmod.html" . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+        {{- if .Site.Params.valine.enable -}}
+        <span> / <span class="valine-comment-count" data-xid="{{ .URL | relURL }}">0</span> 评论 / <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> 阅读</span></span>
+        {{ end }}
+    </div>
+
+    {{ if .Params.feature }}
+      {{ if .Params.UseRelativeCover }}
+        <img loading='lazy' src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover" />
+      {{ else }}
+        <img loading='lazy' src="{{ .Params.feature | absURL }}" class="post-cover" />
+      {{ end }}
+    {{ end }}
+  
+    <div class="post-content">
+      {{ .Content }}
+      {{ .Render "path"}}
+    </div>
+  
+    {{ if .Params.toc }}
+      <div class="tocify">目录：{{- partial "toc.html" . -}}</div>
+    {{ end }}
+
+    {{ if .Params.tags }}
+      <span class="post-tags">
+        {{ range .Params.tags }}
+          #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
+        {{ end }}
+      </span>
+    {{ end }}
+  {{ end }}
+    <div class="clear"></div>
+    
+    {{ if eq .Type $.Site.Params.contentTypeName }}
+      {{ if or .Next .Prev }}
+        <div class="pagination">
+          <div class="pagination__title">
+            {{ if and .File .Site.Params.EditPath}}
+              <a class="pagination__title-h" href="https://github.com/lmm214/immmmm/edit/master/content/{{ replace .File.Path "\\" "/" }}" target="_blank" rel="noopener">阅读更多</a>
+            {{ else}}
+              <span class="pagination__title-h">阅读更多</span>
+            {{ end }}
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            {{ if .Next }}
+              <span class="button previous">
+                <a href="{{ .Next.Permalink }}">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">{{ .Next.Title }}</span>
+                </a>
+              </span>
+            {{ end }}
+            {{ if .Prev }}
+              <span class="button next">
+                <a href="{{ .Prev.Permalink }}">
+                  <span class="button__text">{{ .Prev.Title }}</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+
+
+    {{ if not (eq .Params.Comments "false") }}
+        {{ partial "comments.html" . }}
+    {{ end }}
+
+    </div>
+{{ end }}
