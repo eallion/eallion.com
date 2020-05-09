@@ -1,0 +1,73 @@
+baseURL  =  "https://eallion.com"
+languageCode = "zh-CN"
+DefaultContentLanguage = "zh-CN"
+title  =  "大大的小蜗牛"
+subtitle = "不问明天，悠然浪费"
+
+theme  =  "hello-friend"
+summaryLength = 140
+hasCJKLanguage = true
+# 每页显示的文章数量用于分页
+paginate =  20
+# rss 输出数量
+rssLimit = 5
+
+[permalinks]
+  posts = "/:filename/"
+  tags = "/tags/:slug/"
+
+[menu]
+  [[menu.main]]
+  name="归档"
+  url="/archives/"
+  weight="1"
+  [[menu.main]]
+  name="嘀咕"
+  url="/talk/"
+  weight="2"
+  [[menu.main]]
+  name="友链"
+  url="/links/"
+  weight="3"
+  [[menu.main]]
+  name="关于"
+  url="/about/"
+  weight="4"
+
+[params]
+  # dir name of your blog content (default is `content/posts`)
+  contentTypeName = "posts"
+  # "light" or "dark"
+  defaultTheme = "light"
+  # if you set this to 0, only submenu trigger will be visible
+  # showMenuItems = 4
+  # Enable to show reading time in minutes for posts
+  showReadingTime = false
+  logoText = "hello friend"
+
+  MenuMore = "更多"
+  DateFormatList = "2006-01-02 15:04:05"
+  DateFormatSingle = "2006-01-02 15:04:05"
+  ReadMore = "阅读全文"
+
+  EditPath = 'https://github.com/lmm214/immmmm/edit/master/content'
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+  unsafe = true
+
+[outputs]
+  home = ["Atom", "HTML","JSON"] # <domain>/atom.xml
+  page = ["HTML"]
+  
+[outputFormats.Atom]
+  mediatype = "application/rss"
+  baseName = "atom"
+
+[params.valine]
+	enable = true
+    appId = '8BvPJ6EeOAkQ4AFttNyYEfET-9Nh9j0Va'
+    appKey = 'FGQItPQDpoTal7yzzETx5vnK'
+    placeholder = '说点什么吧……'
+    visitor = true
