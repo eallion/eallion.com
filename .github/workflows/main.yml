@@ -42,9 +42,7 @@ jobs:
       - name: Setup OSS
         uses: manyuanrong/setup-ossutil@v1.0
         with:
-        # endpoint 可以去oss控制台上查看
-          endpoint: "oss-cn-shanghai.aliyuncs.com"
-        # 使用我们之前配置在secrets里面的accesskeys来配置ossutil
+          endpoint: "oss-accelerate.aliyuncs.com"
           access-key-id: ${{ secrets.ACCESS_KEY_ID }}
           access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
       - name: Deply To OSS
