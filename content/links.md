@@ -75,7 +75,7 @@ layout: 'posts'
 	
 {{< friend des=" " url="http://www.loveyu.org/" src="https://cdn.v2ex.com/gravatar/dfa8aa6cb4e689de87940bb0e451d750" name="恋 羽" >}}
 	
-{{< friend des=" " url="https://imjiuki.cn/" src="https://imjiuki.cn/usr/uploads/logo/blog-logo-dark.png" name="jiuki's blog" >}}
+{{< friend des=" " url="https://imjiuki.cn/" src="https://cdn.v2ex.com/gravatar/c466071ebfebd2d9bb43f11917dfe045" name="jiuki's blog" >}}
 	
 {{< friend des=" " url="https://qfsyj.com" src="https://cdn.v2ex.com/gravatar/4ba509f9ec541ab4d316299727b3e3ab" name="秦大叔" >}}
 	
