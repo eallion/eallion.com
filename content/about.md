@@ -1,39 +1,52 @@
 ---
 title: '关于'
-date: 2020-03-14 12:41:27
-layout: 'posts'
+date: 2006-04-14 00:00:00
+type: "about"
+layout: "about"
+comments: false
+author: 大大的小蜗牛
 ---
 
-安心唠唠嗑，聊聊家常~
+### About me：
+ - 双子，B型血，断掌，属虎。
+ - 已婚。
+ - 不高不矮，不胖不瘦。
+ - 先天性乐观。
+ - 随意但不随便。
+ - 小众而不小资。
+ - 亦正亦邪。
+ - 不是个好人但从来不做坏事。
+ - PS：佛系写博。
 
-### 博客程序
+### 格言：
 
-Hugo：<https://gohugo.io/>
+ - 机会总是垂青于有准备的人
+ - *Chance favors the prepared mind*
 
-Gridea：<https://gridea.dev/>
+### 职业：
 
-### 主题分享
+* 电子商务
 
-Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、[「Webstack」](https://github.com/lmm214/gridea-theme-webstack)、[「Breek」](https://github.com/lmm214/gridea-theme-breek)、[「Puti」](https://github.com/lmm214/gridea-theme-puti)
+    * 运营总监
+    * Full Stack Operator
 
-<!--more-->
+* 简历
+    * <i class="fa fa-linkedin-square"></i> [Linkedin](https://www.linkedin.com/in/eallion)
+    * <i class="fa fa-user"></i> [Qinchao](https://qin-chao.cn)
 
-### 维护项目
+### 联系方式：
 
-- 晒娃子博客：<https://i.immmmm.com/>
-- 教学工具导航: <https://edui.fun/>
-- 微信小程序「二小智造」
+ - E-mail：`echo -n "ZWFsbGlvbkBlYWxsaW9uLmNvbQo=" | base64 -d`
 
-### 工具推荐
+### Site info：
 
-- Mac 发图「uPic」：<https://github.com/gee1k/uPic>
-- 全平台发图「PicGo」：<https://github.com/Molunerfinn/PicGo>
-- 云存储管理客户端 「qiniuClient」: <https://github.com/willnewii/qiniuClient>
-- Chrome 新标签扩展「几枝」、HTML5视频速度控制「Video Speed Controller」、沉浸式阅读「简悦」
-
-### 欢迎打赏
-
-<figure>
-    <img src="https://lmm.elizen.me/wx.jpg" alt="微信打赏" />
-    <figcaption>微信打赏</figcaption>
-</figure>
+ - Title：大大的小蜗牛
+ - Description：A blog about *Charles 'eallion' Chin*
+ - Since：2006
+ - 域名：eallion.com
+ - 备案：浙ICP备16031768号-2
+ - 服务器：[阿里云](https://www.aliyun.com)
+ - 程序：[Hexo](https://hexo.io)
+ - 主题：[Butterfly](https://github.com/jerryc127/hexo-theme-butterfly)
+ - Copyright：[https://eallion.com/copyright](https://eallion.com/copyright)
+ - Privacy Policy：[https://eallion.com/privacy-policy](https://eallion.com/privacy-policy)
