@@ -11,4 +11,4 @@ date: "2019-05-25 15:08:00"
 
 这是NASA发起的项目，可以把你的名字发送到火星。
 
-![https://static.eallion.com/usr/uploads/2019/06/1284650872.png](https://static.eallion.com/usr/uploads/2019/06/1284650872.png!typecho.webp)
+![https://cdn.jsdelivr.net/gh/eallion/statics@blog/images/2019/06/1284650872.png](https://cdn.jsdelivr.net/gh/eallion/statics@blog/images/2019/06/1284650872.png)

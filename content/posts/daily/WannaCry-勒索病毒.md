@@ -7,7 +7,7 @@ slug: "WannaCry"
 date: "2017-05-15 11:04:00"
 ---
 
-<img src="https://static.eallion.com/usr/uploads/2017/05/15/3478243449.jpg!typecho.webp">
+<img src="https://cdn.jsdelivr.net/gh/eallion/statics@blog/images/2017/05/15/3478243449.jpg">
 
 这几天WannaCry勒索病毒肆虐，重灾区看起来恰恰是看来起知识水平更高的高校和政府部门，不得不让人感叹。
 
@@ -71,4 +71,4 @@ Win10 1703（15063）版本，默认没有控制面板的直接入口了。
 
 `开始` - `运行` - `输入“control”` - `Windows 防火墙` - `高级设置` - `入站规则` - `新建规则` - `端口` - `TCP` - `特定本地端口` - `输入“445”` - `阻止连接` - `取个名字`。
 
-![QQ五笔截图未命名.png](https://static.eallion.com/usr/uploads/2017/05/15/2504829206.png!typecho.webp)
+![QQ五笔截图未命名.png](https://cdn.jsdelivr.net/gh/eallion/statics@blog/images/2017/05/15/2504829206.png)
