@@ -14,7 +14,7 @@
   {{ if eq $PostCate "chat"}}
       {{ .Render "chat"}}
       <div class="post-content">
-        <a href="{{ .Permalink }}" rel="link"><img loading="lazy" class="post-avatar avatar" src=https://gravatar.loli.net/avatar/{{ md5 "fivemu@gmail.com" }} ></a>
+        <a href="{{ .Permalink }}" rel="link"><img loading="lazy" class="post-avatar avatar" src=https://gravatar.loli.net/avatar/{{ md5 "eallion@eallion.com" }} ></a>
           {{ .Content }}
       </div>
   {{ else }}
@@ -69,7 +69,7 @@
         <div class="pagination">
           <div class="pagination__title">
             {{ if and .File .Site.Params.EditPath}}
-              <a class="pagination__title-h" href="https://github.com/lmm214/immmmm/edit/master/content/{{ replace .File.Path "\\" "/" }}" target="_blank" rel="noopener">阅读更多</a>
+              <a class="pagination__title-h" href="https://github.com/eallion/hugo/edit/master/content/{{ replace .File.Path "\\" "/" }}" target="_blank" rel="noopener">阅读更多</a>
             {{ else}}
               <span class="pagination__title-h">阅读更多</span>
             {{ end }}
