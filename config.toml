@@ -2,7 +2,7 @@ baseURL  =  "https://eallion.com"
 languageCode = "zh-CN"
 DefaultContentLanguage = "zh-CN"
 title  =  "大大的小蜗牛"
-subtitle = "不问明天，悠然浪费"
+subtitle = "机会总是垂青于有准备的人"
 
 theme  =  "hello-friend"
 summaryLength = 140
@@ -10,7 +10,7 @@ hasCJKLanguage = true
 # 每页显示的文章数量用于分页
 paginate =  20
 # rss 输出数量
-rssLimit = 5
+rssLimit = 10
 
 [permalinks]
   posts = "/:filename/"
