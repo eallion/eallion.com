@@ -1,4 +1,5 @@
 ---
 title: "分享"
-type: "archives"
+slug: "share"
+date: "2006-04-14 00:00:00"
 ---

@@ -1,4 +1,5 @@
 ---
 title: "日志"
-type: "archives"
+slug: "daily"
+date: "2006-04-14 00:00:00"
 ---

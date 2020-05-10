@@ -1,4 +1,5 @@
 ---
 title: "运营"
-type: "archives"
+slug: "operation"
+date: "2006-04-14 00:00:00"
 ---

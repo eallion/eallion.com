@@ -3,6 +3,8 @@ languageCode = "zh-CN"
 DefaultContentLanguage = "zh-CN"
 title  =  "大大的小蜗牛"
 subtitle = "机会总是垂青于有准备的人"
+keywords = ""
+copyright = ""
 
 theme  =  "hello-friend"
 summaryLength = 140
@@ -13,26 +15,34 @@ paginate =  20
 rssLimit = 10
 
 [permalinks]
-  posts = "/:filename/"
+  posts = "/:slug/"
   tags = "/tags/:slug/"
 
 [menu]
   [[menu.main]]
-  name="归档"
-  url="/archives/"
+  name="嘀咕"
+  url="/posts/chat/"
   weight="1"
   [[menu.main]]
-  name="嘀咕"
-  url="/talk/"
+  name="观影"
+  url="/movies/"
   weight="2"
+  [[menu.main]]
+  name="相册"
+  url="/photos/"
+  weight="3"
+  [[menu.main]]
+  name="归档"
+  url="/archives/"
+  weight="4"
   [[menu.main]]
   name="友链"
   url="/links/"
-  weight="3"
+  weight="5"
   [[menu.main]]
   name="关于"
   url="/about/"
-  weight="4"
+  weight="6"
 
 [params]
   # dir name of your blog content (default is `content/posts`)
@@ -44,13 +54,14 @@ rssLimit = 10
   # Enable to show reading time in minutes for posts
   showReadingTime = false
   logoText = "hello friend"
+  logoHomeLink = "/"
 
   MenuMore = "更多"
   DateFormatList = "2006-01-02 15:04:05"
   DateFormatSingle = "2006-01-02 15:04:05"
   ReadMore = "阅读全文"
 
-  EditPath = 'https://github.com/lmm214/immmmm/edit/master/content'
+  EditPath = 'https://github.com/eallion/hugo/edit/master/content'
 
 [markup]
 [markup.goldmark]

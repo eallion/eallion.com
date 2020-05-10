@@ -1,20 +1,27 @@
 ---
 title: '友情链接'
-date: 2020-03-14 12:41:27
+date: 2006-04-14 22:18:00
 layout: 'posts'
 ---
 
-安心唠唠嗑，聊聊家常~
+
+以下链接为个人收藏和网友申请，排名不分先后。
+
+当然你也可以留言申请：
+> [https://eallion.com/guestbook](https://eallion.com/guestbook/)
+
+如果你对我的个人网址导航感兴趣，请访问：
+> [https://s.eallion.com](https://s.eallion.com)  
 
 ### 名人名站
 
-{{< friend des="" url="https://blog.shuiba.co" md5="ec9435af3f1cd6d7fca626d649928e7a" name="水八口记" >}}
+{{< friend des="" url="https://weibo.com/hanhan" md5="ec9435af3f1cd6d7fca626d649928e7a" name="韩 寒" >}}
 
 {{< friend des="" url="https://blog.fueis.com" md5="8739f7670165df16199e9eae4413e81b" name="小F" >}}
 
 {{< friend des="" url="http://xiaohudie.net" md5="62321464730fea19c80f2026aef08a53" name="小蝴蝶" >}}
 
-{{< friend des="" url="https://blog.elizen.me" md5="f65df4d87240feb1cb247857a621a48f" name="Elizen" >}}
+{{< friend des="" url="https://elizen.me" md5="f65df4d87240feb1cb247857a621a48f" name="Elizen" >}}
 
 {{< friend des="" url="https://fatesinger.com" md5="388b0c85beede5d94b978833e2a51965" name="大发贱志" >}}
 
@@ -54,6 +61,4 @@ layout: 'posts'
 
 {{< friend des="" url="https://imwgh.com/" md5="f27fba4d7d92056cf3db0e577761ad01" name="大大的小熊" >}}
 
-### 友情链接 
-
-{{< friend des="" url="https://blog.shuiba.co" md5="ec9435af3f1cd6d7fca626d649928e7a" name="水八口记" >}}
+{{< friend des="" url="https://eallion.com/" md5="c686821c00797f9390732f8fe2c82b5f" name="大大的小蜗牛" >}}

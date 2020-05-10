@@ -1,4 +1,5 @@
 ---
 title: "山贼"
-type: "archives"
+slug: "sz"
+date: "2006-04-14 00:00:00"
 ---

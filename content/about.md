@@ -2,8 +2,8 @@
 title: '关于'
 date: 2006-04-14 00:00:00
 type: "about"
-layout: "about"
-comments: false
+layout: "posts"
+comment: false
 author: 大大的小蜗牛
 ---
 

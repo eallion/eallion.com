@@ -1,4 +1,5 @@
 ---
 title: "代码"
-type: "archives"
+slug: "code"
+date: "2006-04-14 00:00:00"
 ---
