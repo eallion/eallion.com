@@ -19,3 +19,4 @@ bin-release/
 **/.DS_Store
 .favorites.json
 
+./public
