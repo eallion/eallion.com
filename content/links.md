@@ -15,27 +15,27 @@ layout: 'posts'
 
 ### 名人名站
 
-{{< friend des="作家、导演、赛车手"" url="https://weibo.com/hanhan"" src="https://cdn.eallion.com/statics/img/link/hanhan.jpg"" name="韩 寒" >}}
+{{< friend des="作家、导演、赛车手" url="https://weibo.com/hanhan" src="https://cdn.eallion.com/statics/img/link/hanhan.jpg" name="韩 寒" >}}
 
-{{< friend des="让keso去读IT行业，我们来读keso！"" url="https://twitter.com/keso"" src="https://cdn.eallion.com/statics/img/link/keso.jpg"" name="Keso" >}}
+{{< friend des="让keso去读IT行业，我们来读keso！" url="https://twitter.com/keso" src="https://cdn.eallion.com/statics/img/link/keso.jpg" name="Keso" >}}
 
-{{< friend des="Marc MERLIN's Home Page"" url="http://marc.merlins.org/"" src="https://cdn.eallion.com/statics/img/link/146_car_s.jpg"" name="Marc MERLIN" >}}
+{{< friend des="Marc MERLIN's Home Page" url="http://marc.merlins.org/" src="https://cdn.eallion.com/statics/img/link/146_car_s.jpg" name="Marc MERLIN" >}}
 
-{{< friend des="比尔 盖茨 GatesNotes"" url="https://www.gatesnotes.com"" src="https://cdn.eallion.com/statics/img/link/gatesnotes_badge.ico"" name="Bill Gates" >}}
+{{< friend des="比尔 盖茨 GatesNotes" url="https://www.gatesnotes.com" src="https://cdn.eallion.com/statics/img/link/gatesnotes_badge.ico" name="Bill Gates" >}}
 
-{{< friend des="The Aha Moments"" url="http://www.matrix67.com"" src="https://cdn.eallion.com/statics/img/friend_404.gif "" name="Matrix67 My Blog" >}}
+{{< friend des="The Aha Moments" url="http://www.matrix67.com" src="https://cdn.eallion.com/statics/img/friend_404.gif " name="Matrix67 My Blog" >}}
 
-{{< friend des="阮一峰的网络日志"" url="http://www.ruanyifeng.com/blog/"" src="https://cdn.eallion.com/statics/img/link/person2_s.jpg"" name="阮一峰的网络日志" >}}
+{{< friend des="阮一峰的网络日志" url="http://www.ruanyifeng.com/blog/" src="https://cdn.eallion.com/statics/img/link/person2_s.jpg" name="阮一峰的网络日志" >}}
 
-{{< friend des="PHP开发组核心成员, Zend顾问, PHP7主要开发者, Yaf, Yar, Yac等开源项目作者."" url="http://www.laruence.com/"" src="https://cdn.eallion.com/statics/img/link/avatar.jpg"" name="风雪之隅" >}}
+{{< friend des="PHP开发组核心成员, Zend顾问, PHP7主要开发者, Yaf, Yar, Yac等开源项目作者." url="http://www.laruence.com/" src="https://cdn.eallion.com/statics/img/link/avatar.jpg" name="风雪之隅" >}}
 
-{{< friend des="Typecho 开发者"" url="https://joyqi.com/"" src="https://cdn.v2ex.com/gravatar/8a8304a40ec366197242d3ea3e31baf9"" name="JoyQi" >}}
+{{< friend des="Typecho 开发者" url="https://joyqi.com/" src="https://cdn.v2ex.com/gravatar/8a8304a40ec366197242d3ea3e31baf9" name="JoyQi" >}}
 
-{{< friend des="Hexo 开发者"" url="https://zespia.tw/"" src="https://cdn.v2ex.com/gravatar/0c2e1fea502b8934820eacdfca778d8c"" name="Tommy Chen" >}}
+{{< friend des="Hexo 开发者" url="https://zespia.tw/" src="https://cdn.v2ex.com/gravatar/0c2e1fea502b8934820eacdfca778d8c" name="Tommy Chen" >}}
 
-{{< friend des="Google 大佬，Hugo 开发者"" url="https://spf13.com/"" src="https://cdn.v2ex.com/gravatar/e52bc145bc33c4d337698dd9f161ea89"" name="Hacking Management" >}}
+{{< friend des="Google 大佬，Hugo 开发者" url="https://spf13.com/" src="https://cdn.v2ex.com/gravatar/e52bc145bc33c4d337698dd9f161ea89" name="Hacking Management" >}}
 
-{{< friend des="Hexo 开发者"" url="https://skk.moe/"" src="https://cdn.v2ex.com/gravatar/41a3364a02be58036b64d11749ef4e6e"" name="Sukka" >}}
+{{< friend des="Hexo 开发者" url="https://skk.moe/" src="https://cdn.v2ex.com/gravatar/41a3364a02be58036b64d11749ef4e6e" name="Sukka" >}}
 
 ### 友情链接
 
