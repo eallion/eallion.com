@@ -38,7 +38,7 @@ jobs:
       #    webhook_url: ${{ secrets.WEBHOOK_URL }}
       #    webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
 
-      # 部署到阿里云 OSS
+      # 部署到阿里云 OSS 脚本1
       #- name: Setup OSS
       #  uses: manyuanrong/setup-ossutil@v1.0
       #  with:
@@ -47,3 +47,15 @@ jobs:
       #    access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
       #- name: Deply To OSS
       #  run: ossutil cp public oss://eallion-com/ -rf
+
+      # 部署到阿里云 OSS 脚本2
+      - name: Deploy
+        uses: saltbo/uptoc@master
+        with:
+          driver: oss
+          endpoint: oss-cn-shanghai.aliyuncs.com
+          bucket: eallion-test
+          dist: public
+        env:
+          UPTOC_UPLOADER_AK: ${{ secrets.ACCESS_KEY_ID }}
+          UPTOC_UPLOADER_SK: ${{ secrets.ACCESS_KEY_SECRET }}
