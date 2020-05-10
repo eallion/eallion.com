@@ -13,7 +13,8 @@ date: "2019-11-29 09:29:00"
 本文主要讲怎么把中英文之间怎么自动加上空格。
 
 Github上有2个项目：
-> [https://github.com/vinta/pangu.js](https://github.com/vinta/pangu.js "https://github.com/vinta/pangu.js")
+> [https://github.com/vinta/pangu.js](https://github.com/vinta/pangu.js "https://github.com/vinta/pangu.js")  
+
 >[https://github.com/mastermay/text-autospace.js](https://github.com/mastermay/text-autospace.js "https://github.com/mastermay/text-autospace.js")
 
 我选用了 `pangu.js `。
