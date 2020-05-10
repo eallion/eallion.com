@@ -85,4 +85,4 @@ jobs:
 ```
 ### 部署截图
 
-![](https://cdn.jsdelivr.net/gh/eallion/statics@blog/images/2019/12/20191228232334.png)
+![](https://cdn.jsdelivr.net/gh/eallion/hugo@gh-pages/images/2019/12/20191228232334.png)
