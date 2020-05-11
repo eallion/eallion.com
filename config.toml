@@ -3,8 +3,8 @@ languageCode = "zh-CN"
 DefaultContentLanguage = "zh-CN"
 title  =  "大大的小蜗牛"
 subtitle = "机会总是垂青于有准备的人"
-keywords = ""
-copyright = ""
+keywords = "蜗牛,大大的小蜗牛,eallion,snail,woniu,博客,代码,运营,电商,嘀咕,hugo,code"
+copyright = "2006-2020 eallion, All Rights Reserved."
 
 theme  =  "hello-friend"
 summaryLength = 140
@@ -77,8 +77,17 @@ rssLimit = 10
   baseName = "atom"
 
 [params.valine]
-	enable = true
+	enable = false
     appId = '8BvPJ6EeOAkQ4AFttNyYEfET-9Nh9j0Va'
     appKey = 'FGQItPQDpoTal7yzzETx5vnK'
     placeholder = '说点什么吧……'
     visitor = true
+
+[params.comment.disqus]
+  enable = "true"
+  proxy = "true"
+  shortname = "eallion"
+  api =  "https://disqus.skk.moe/disqus/"
+  apikey = "fF9m3DwDSmNQ2g5DIpuWElDaQTx1ofpMSSW8JeKaB2loVBExeInmMbaEGeLs7lOL"
+  admin = "eallion"
+  adminLabel = ""
