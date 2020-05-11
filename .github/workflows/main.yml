@@ -49,12 +49,12 @@ jobs:
       #  run: ossutil cp public oss://eallion-com/ -rf
 
       # 部署到阿里云 OSS 脚本2
-      - name: Deploy
+      - name: Deploy to OSS
         uses: saltbo/uptoc@master
         with:
           driver: oss
           endpoint: oss-accelerate.aliyuncs.com
-          bucket: eallion-test
+          bucket: eallion-com
           dist: public
         env:
           UPTOC_UPLOADER_AK: ${{ secrets.ACCESS_KEY_ID }}
