@@ -53,7 +53,7 @@ jobs:
         uses: saltbo/uptoc@master
         with:
           driver: oss
-          endpoint: oss-cn-shanghai.aliyuncs.com
+          endpoint: oss-accelerate.aliyuncs.com
           bucket: eallion-test
           dist: public
         env:
