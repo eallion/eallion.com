@@ -17,11 +17,36 @@
 
 ### 写新文章
 1、生成新文章
+
+- 嘀咕 分类
+```
+hugo new posts/chat/new_title.md
+```
+
+- 代码 分类
+```
+hugo new posts/code/new_title.md
+```
+
+- 日志 分类
 ```
 hugo new posts/daily/new_title.md
 ```
+
+- 运营 分类
+```
+hugo new posts/operation/new_title.md
+```
+
+- 分享 分类
+```
+hugo new posts/share/new_title.md
+```
+
 2、修改 Front matter:  
-`draft: true` 改为：`draft: false`
+`categories` 删除多余的分类    
+`draft: true` 改为：`draft: false`  
+`slug` 按需修改
 
 3、写文章  
 4、Push & auto deploy:
