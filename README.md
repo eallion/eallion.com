@@ -13,7 +13,7 @@
 
 ---
 
-# Myself tips
+# Myself tips （备忘录）:
 
 ### 写新文章
 1、生成新文章
