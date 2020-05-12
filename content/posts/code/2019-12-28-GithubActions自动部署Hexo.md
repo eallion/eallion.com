@@ -11,20 +11,45 @@ date: "2019-12-28 22:53:43"
 
 网上虽然有很多通过 Github Actions 自动部署 Hexo 的教程，但都有各种各样的问题。
 主要问题还是 Workflow 脚本没有写正确，比如插件部分。
-其他过程省略，这里只贴部署脚本：
 
-- 请确保添加的 `Secrets` 名字为 `ACTION_DEPLOY_KEY`
-- 这3个地方要改为自己的信息：
+#### 1、生成密钥对 （这个也不会的话，方法自行 Google）
+```
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/github-actions-deploy
+```
+然后会获得一个公钥和私钥。
+
+#### 2、在 GitHub Pages 所在的仓库中添加“公钥”
+
+找到仓库的 `Settings` - `Deploye keys` - `Add deploy key`
+- `Title` 填入：`ACTION_DEPLOY_KEY`  
+- `Key` 填入：`# 步骤1生成的密钥对中的公钥`  
+勾上 `Allow write access`
+
+#### 3、在存放 Hexo 源文件的仓库中添加“私钥”
+> PS: 跟步骤2中的仓库可能是同一个，也可能不是同一个。根据自己的选型设置。
+
+找到仓库的 `Settings` - `Secrets` - `Add a new secret`  
+- `Name` 填入：`ACTION_DEPLOY_KEY`  
+- `Value` 填入：`# 步骤1生成的密钥对中的私钥`
+
+#### 4、修改一下 Actions 脚本
+下文贴出的 Actions 的 Wordflows 脚本中，其中3个地方要改为自己的信息：
 ```
 git config --global user.name "eallion"
 git config --global user.email "eallion@eallion.com"
 git clone https://github.com/eallion/eallion.github.io .deploy_git
 ```
-- 插件部分可按自己实际用的插件删改，`npm ls --depth 0`可查看自己安装了哪些插件
-- 如果没有用到`hexo douban`插件，部署命令`hexo g && hexo douban && hexo deploy`可改为`hexo g -d`
+#### 5、其他注意事项
+- 脚本中插件部分可按自己实际用的插件删改，`npm ls --depth 0`可查看自己安装了哪些插件
+- 如果没有用到`hexo douban`插件，部署命令：  
+`hexo g && hexo douban && hexo deploy`可改为`hexo g -d`
 
 另外一个建议是，所使用的`theme`中的`主题目录`用`git subtree`添加为子项目去维护。
 这样在多环境多终端发布文章时，不会`clone`或`pull`一个空`theme`。
+
+#### 6、git push
+文章写好后，不需要在本地构建，只需要 `git push` 到 GitHub 仓库即可自动部署。
+其中部署方式在 Hexo 根目录的`_config.yml`中配置。
 
 ### 脚本配置：
 注意修改其中提到的几个地方
