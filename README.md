@@ -8,8 +8,11 @@
 
 # Any questions?
 
-> By Issue: [https://github.com/eallion/hugo/issues/new](https://github.com/eallion/hugo/issues/new)  
-> By Email: `echo -n "ZWFsbGlvbkBlYWxsaW9uLmNvbQo=" | base64 -d`
+- Issue:
+[https://github.com/eallion/hugo/issues/new](https://github.com/eallion/hugo/issues/new)  
+
+- Email: 
+`echo -n "ZWFsbGlvbkBlYWxsaW9uLmNvbQo=" | base64 -d`
 
 ---
 
