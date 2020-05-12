@@ -7,10 +7,10 @@ draft: false
 date: "2019-12-16 22:58:39"
 ---
 
-> 以 Git Pages + Coding Pages 为例
+> 以 GitHub Pages + Coding Pages 为例
 
 ### 准备工作：
-- 创建 Git Pages 仓库
+- 创建 GitHub Pages 仓库
 - 创建 Coding Pages 仓库
 - 申请 [Github token](https://github.com/settings/tokens/new)
 - 申请 Coding token 访问令牌
