@@ -23,8 +23,6 @@ jobs:
       - name: Build Hugo
         run: hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 
-      # Detail to see: https://immmmm.com/hugo-github-actions/
-
       - name: Deploy to GitHub
         uses: peaceiris/actions-gh-pages@v3
         with:
