@@ -1,8 +1,8 @@
 ---
-title: "Gridea git push 同步到多个仓库"
+title: "Gridea Hexo Hugo 等 git push 同步到多个仓库"
 categories: ["代码"]
 tags: ["hexo"]
-slug: "deploy-gridea-to-github-and-coding"
+slug: "deploy-to-github-and-coding"
 draft: false
 date: "2019-12-16 22:58:39"
 ---
@@ -10,21 +10,25 @@ date: "2019-12-16 22:58:39"
 > 以 Git Pages + Coding Pages 为例
 
 ### 准备工作：
-- 创建 Git Pages 仓库 [eallion.github.io](https://eallion.github.io)
-- 创建 Coding Pages 仓库 [eallion.coding.me](https://eallion.coding.me)
+- 创建 Git Pages 仓库
+- 创建 Coding Pages 仓库
 - 申请 [Github token](https://github.com/settings/tokens/new)
-- 申请 Coding token [访问令牌](https://dev.tencent.com/user/account/setting/tokens/new)
-- 在 Gridea 里配置好 Git Pages
+- 申请 Coding token 访问令牌
+- 如果是 Gridea,在 Gridea APP 里配置好 GitHug Pages
 
-### 配置 `.git/config`
-
+### 配置 `git remote`
+- 如果是 Gridea 需要在 `output` 设置
 ```
 cd ~/Documents/Gridea/output
-git remote set-url --add --push origin https://[Github 用户名]:[Github_token]@github.com/[Github 用户名]/[Github 仓库].git
-git remote set-url --add --push origin https://[Coding 用户名]:[Coding 访问令牌]@git.dev.tencent.com/[Coding 用户名]/[Coding 仓库].git
 ```
+- 如果是 Hexo Hugo 等，在博客根目录即可。
 
->  顺便说一下：`https://[Github 用户名]:[Github_token]@github.com/[Github 用户名]/[Github 仓库].git`这行代码，`git push` 免密码。
+然后输入以下命令：
+
+```
+git remote set-url --add --push origin https://github.com/eallion/gridea.git
+git remote set-url --add --push origin https://e.coding.net/eallion/gridea.git
+```
 
 输入：`git remote -v`，如果有如下提示，即有 2 条 (push) 代码，则说明配置正确：
 

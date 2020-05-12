@@ -12,6 +12,8 @@ date: "2019-12-28 22:53:43"
 网上虽然有很多通过 Github Actions 自动部署 Hexo 的教程，但都有各种各样的问题。
 主要问题还是 Workflow 脚本没有写正确，比如插件部分。
 
+### 步骤
+
 #### 1、生成密钥对 （这个也不会的话，方法自行 Google）
 ```
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/github-actions-deploy

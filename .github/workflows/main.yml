@@ -21,7 +21,7 @@ jobs:
           # extended: true
 
       - name: Build Hugo
-        run: hugo -D --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
+        run: hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 
       # Detail to see: https://immmmm.com/hugo-github-actions/
 
