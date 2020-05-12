@@ -77,11 +77,11 @@ rssLimit = 10
   baseName = "atom"
 
 [params.valine]
-	enable = false
-    appId = '8BvPJ6EeOAkQ4AFttNyYEfET-9Nh9j0Va'
-    appKey = 'FGQItPQDpoTal7yzzETx5vnK'
-    placeholder = '说点什么吧……'
-    visitor = true
+  enable = false
+  appId = '8BvPJ6EeOAkQ4AFttNyYEfET-9Nh9j0Va'
+  appKey = 'FGQItPQDpoTal7yzzETx5vnK'
+  placeholder = '说点什么吧……'
+  visitor = true
 
 [params.comment.disqus]
   enable = "true"
