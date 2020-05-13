@@ -12,14 +12,16 @@ layout: 'posts'
 我的友链信息：
 
 > Name: 大大的小蜗牛  
-> URL: https://eallion.com  
-> Avatar : https://secure.gravatar.com/avatar/c686821c00797f9390732f8fe2c82b5f  
+> URL: `https://eallion.com`  
+> Avatar : `https://secure.gravatar.com/avatar/c686821c00797f9390732f8fe2c82b5f`  
 > Description : 机会总是垂青于有准备的人  
 
 ### 名人名站
 
 {{< friend des="作家、赛车手、导演" url="https://weibo.com/hanhan" src="https://cdn.eallion.com/statics/img/link/hanhan.jpg" name="韩 寒" >}}
 	
+{{< friend des="歌手、演员，导演" url="https://www.instagram.com/jaychou/" src="https://cdn.eallion.com/statics/img/link/jay.jpg" name="周杰伦" >}}
+
 {{< friend des="IT评论人" url="https://twitter.com/keso" src="https://cdn.eallion.com/statics/img/link/keso.jpg" name="Keso" >}}
 	
 {{< friend des="大神" url="http://marc.merlins.org/" src="https://cdn.eallion.com/statics/img/link/146_car_s.jpg" name="Marc MERLIN" >}}
