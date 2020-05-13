@@ -110,7 +110,7 @@ unzip piwigo-*.zip
  - 数据库名
  - Piwogo 表名前缀**
 
-配置的时候，其实跟配置wordpress或typecho差不多的。
+配置的时候，其实跟配置 WordPress 或typecho差不多的。
 直接打开域名，如：http://eallionalbum.com
 程序会自动导向安装页面。
 安装的时候在填入管理员信息，要记下来：

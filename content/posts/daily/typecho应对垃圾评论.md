@@ -13,7 +13,7 @@ date: "2017-05-12 20:12:00"
 
 ## Akismet
 
-Akismet确实是一个神器，从Wordpress黄金时代开始，Akismet久经考验，功能强大，基于云功能，能防御大部分垃圾评论。
+Akismet确实是一个神器，从 WordPress 黄金时代开始，Akismet久经考验，功能强大，基于云功能，能防御大部分垃圾评论。
 跟Akismet差不多的还有Typepad。
 
 ## CommentFilter

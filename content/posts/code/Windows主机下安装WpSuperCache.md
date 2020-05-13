@@ -30,11 +30,11 @@ return false;
 4、到管理后台配置启用“Super Cache”插件。到插件的设置页会发现仍是空白。
 5、打开“/wp-content/wp-cache-config.php”查找“WPCACHEHOME” ，将那一行改正确。例如：
 <blockquote>
-define( 'WPCACHEHOME', ABSPATH . C:/Apache/htdocs/wordpress/wp-content/plugins/wp-super-cache/" );
+define( 'WPCACHEHOME', ABSPATH . C:/Apache/htdocs/ WordPress /wp-content/plugins/wp-super-cache/" );
 </blockquote>
 改成：
 <blockquote>
-define( 'WPCACHEHOME', "C:/Apache/htdocs/wordpress/wp-content/plugins/wp-super-cache/" );
+define( 'WPCACHEHOME', "C:/Apache/htdocs/ WordPress /wp-content/plugins/wp-super-cache/" );
 </blockquote>
 6、在管理后台配置生成Rewrite的规则。如果是Apache直接用其生成的.htaccess即可；如果是IIS则需要使用第三方的ISAPI Rewrite插件例如ISAPI_Rewrite 3.0，然后把Rewrite规则copy到插件的配置项中。
 7、可以不使用Super Cache的压缩功能，而用Apache和IIS自身的GZIP功能。
@@ -60,7 +60,7 @@ RewriteCond %{HTTP_HOST} ^blog.bluesky.cn$
 RewriteCond %{REQUEST_URI} !^.*//.*$
 RewriteCond %{REQUEST_METHOD} !=POST
 RewriteCond %{QUERY_STRING} !.*=.*
-RewriteCond %{HTTP:Cookie} !^.*(comment_author_|wordpress|wp-postpass_).*$
+RewriteCond %{HTTP:Cookie} !^.*(comment_author_| WordPress |wp-postpass_).*$
 RewriteCond %{DOCUMENT_ROOT}/wp-content/cache/supercache/%{HTTP_HOST}/$1/index.html -f
 RewriteRule ^(.*) /wp-content/cache/supercache/%{HTTP_HOST}/$1/index.html [L]
 RewriteCond %{HTTP_HOST} ^yourdomain.com$

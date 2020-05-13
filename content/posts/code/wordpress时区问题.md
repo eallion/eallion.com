@@ -1,9 +1,9 @@
 ---
-title: "wordpress时区问题"
+title: " WordPress 时区问题"
 categories: ["日志","分享"]
-tags: ["wordpress时区","时区"]
+tags: [" WordPress 时区","时区"]
 draft: false
-slug: "wordpress_timezone"
+slug: " WordPress _timezone"
 date: "2010-05-01 06:21:11"
 ---
 

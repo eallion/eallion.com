@@ -1,9 +1,9 @@
 ---
-title: "wordpress提交评论出现404错误的解决办法"
+title: " WordPress 提交评论出现404错误的解决办法"
 categories: ["日志"]
 tags: ["提交评论"]
 draft: false
-slug: "wordpress-comment-404"
+slug: " WordPress -comment-404"
 date: "2010-07-21 15:40:25"
 ---
 
@@ -17,7 +17,7 @@ date: "2010-07-21 15:40:25"
 又没有时间去排查情况<br />
 既然不能提交评论索性我就把它给关了<br />
 <br />
-今天无意在本地测试了一下wordpress的一个功能<br />
+今天无意在本地测试了一下 WordPress 的一个功能<br />
 配置好localhost环境<br />
 新建Mysql之后在各个数据表间大概浏览了一下<br />
 也没注意里面的情况就退出来了<br />
