@@ -11,7 +11,9 @@
 <!-- OG data -->
 {{ template "_internal/opengraph.html" . }}
 <!-- Google Analytics -->
-{{ template "_internal/google_analytics_async.html" . }}
+{{ if $.Site.GoogleAnalytics }}
+    {{ template "_internal/google_analytics_async.html" . }}
+{{ end }}
 <!-- RSS | JSON -->
 {{ range .AlternativeOutputFormats -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
