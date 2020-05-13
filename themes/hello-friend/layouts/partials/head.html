@@ -11,8 +11,10 @@
 <!-- OG data -->
 {{ template "_internal/opengraph.html" . }}
 <!-- Google Analytics -->
-{{ if $.Site.GoogleAnalytics }}
-    {{ template "_internal/google_analytics_async.html" . }}
+{{ if not .Site.IsServer }}
+    {{ if $.Site.GoogleAnalytics }}
+        {{ partial "analytics.html" . }}
+    {{ end }}
 {{ end }}
 <!-- RSS | JSON -->
 {{ range .AlternativeOutputFormats -}}
