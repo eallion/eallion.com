@@ -1,7 +1,7 @@
 ---
-title: "Typecho 迁移到 hugo"
+title: "Typecho 迁移到 Hugo 踩坑过程"
 categories: ["代码"]
-tags: ["hugo","blog"]
+tags: ["hugo","blog","Typecho","博客"]
 slug: "typecho-to-hugo"
 draft: false
 date: 2020-05-13T03:32:44+08:00
