@@ -90,3 +90,5 @@ rssLimit = 10
   apikey = "fF9m3DwDSmNQ2g5DIpuWElDaQTx1ofpMSSW8JeKaB2loVBExeInmMbaEGeLs7lOL"
   admin = "eallion"
   adminLabel = ""
+
+googleAnalytics = "UA-97690030-1"
