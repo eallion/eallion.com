@@ -4,14 +4,17 @@ date: 2006-04-14 22:18:00
 layout: 'posts'
 ---
 
-
 以下链接为个人收藏和网友申请，排名不分先后。
 
-当然你也可以留言申请：
-> [https://eallion.com/guestbook](https://eallion.com/guestbook/)
-
 如果你对我的个人网址导航感兴趣，请访问：
-> [https://s.eallion.com](https://s.eallion.com)  
+- [https://s.eallion.com](https://s.eallion.com)  
+
+我的友链信息：
+
+> Name: 大大的小蜗牛
+> URL: https://eallion.com
+> Avatar : https://secure.gravatar.com/avatar/c686821c00797f9390732f8fe2c82b5f
+> Description : 机会总是垂青于有准备的人
 
 ### 名人名站
 
@@ -79,7 +82,7 @@ layout: 'posts'
 
 {{< friend des="qfsyj.com" url="https://qfsyj.com" src="https://cdn.v2ex.com/gravatar/4ba509f9ec541ab4d316299727b3e3ab" name="秦大叔" >}}
 
-{{< friend des="orro.ro" url="https://orro.ro/" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="浮游笔记" >}}
+{{< friend des="fffou.com" url="https://fffou.com/" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="浮游笔记" >}}
 
 {{< friend des="fanghongxing.cn" url="https://fanghongxing.cn" src="https://cdn.v2ex.com/gravatar/84988a8cb4ea306f6e2b1bcf880081dc" name="十三姨爱我" >}}
 
