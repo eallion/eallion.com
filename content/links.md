@@ -11,10 +11,10 @@ layout: 'posts'
 
 我的友链信息：
 
-> Name: 大大的小蜗牛
-> URL: https://eallion.com
-> Avatar : https://secure.gravatar.com/avatar/c686821c00797f9390732f8fe2c82b5f
-> Description : 机会总是垂青于有准备的人
+> Name: 大大的小蜗牛  
+> URL: https://eallion.com  
+> Avatar : https://secure.gravatar.com/avatar/c686821c00797f9390732f8fe2c82b5f  
+> Description : 机会总是垂青于有准备的人  
 
 ### 名人名站
 
