@@ -75,3 +75,9 @@ Hugo 根目录的 `config.toml` 需要修改一下链接形式。（每个主题
 
 如果导出导入数据的时候用了其他的临时子域名之类的，到 Disqus 后台的 `Community` -> `Migration Tools` -> `Domian Migration Tool` -> `Start domain migration tool` 中修改域名。  
 如果修改 URL 则是用 URL map 功能映射。具体细节可以看官方文档 [URL Mapper](https://help.disqus.com/en/articles/1717129-url-mapper)。
+
+感谢：
+- [linx](https://llinx.me/post/typecho%E8%BF%81%E7%A7%BB%E5%88%B0hugo/)
+- [qianlongzt](https://github.com/qianlongzt/typecho-to-hugo)
+- [panxianhai](https://github.com/panxianhai/TypExport)
+- [sunxiyuan](https://github.com/sunxiyuan/ByeTyp)
