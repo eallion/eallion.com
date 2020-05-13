@@ -34,6 +34,7 @@ hugo new posts/share/new_title.md
 ```
 
 - 2、修改 Front matter:  
+
 `categories` 删除多余的分类    
 `draft: true` 改为：`draft: false`  
 `slug` 按需修改
