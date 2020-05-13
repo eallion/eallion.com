@@ -11,11 +11,7 @@
 <!-- OG data -->
 {{ template "_internal/opengraph.html" . }}
 <!-- Google Analytics -->
-{{ if not .Site.IsServer }}
-    {{ if $.Site.GoogleAnalytics }}
-        {{ partial "analytics.html" . }}
-    {{ end }}
-{{ end }}
+{{ partial "analytics.html" . }}
 <!-- RSS | JSON -->
 {{ range .AlternativeOutputFormats -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
