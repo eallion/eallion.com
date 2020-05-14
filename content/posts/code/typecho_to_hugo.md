@@ -51,7 +51,7 @@ Hugo 根目录的 `config.toml` 需要修改一下链接形式。（每个主题
 
 [TypExport](https://www.bilibili.com/video/BV1xC4y1W7qd) 已年久失修。我找到了 [ByeTyp](https://github.com/sunxiyuan/ByeTyp) 并 Fork 了一份。
 
-链接地址：[https://github.com/eallion/ByeTyp]
+链接地址：[https://github.com/eallion/ByeTyp](https://github.com/eallion/ByeTyp)
 
 用法：
 下载插件 [master.zip](https://github.com/eallion/ByeTyp/archive/master.zip) 解压，把目录名字改为 `ByeTyp` 然后上传至 Typecho 的插件目录，到 Typecho 后台启用插件，依次点击：控制台->数据导出->导出XML文件，下载并保存此文件。
