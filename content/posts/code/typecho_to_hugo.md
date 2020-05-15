@@ -1,5 +1,5 @@
 ---
-title: "Typecho 迁移到 Hugo 踩坑过程"
+title: "Typecho 迁移到 Hugo"
 categories: ["代码"]
 tags: ["hugo","blog","Typecho","博客"]
 slug: "typecho-to-hugo"
