@@ -84,7 +84,7 @@ layout: 'posts'
 
 {{< friend des="qfsyj.com" url="https://qfsyj.com" src="https://cdn.v2ex.com/gravatar/4ba509f9ec541ab4d316299727b3e3ab" name="秦大叔" >}}
 
-{{< friend des="fffou.com" url="https://fffou.com/" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="浮游笔记" >}}
+{{< friend des="fffou.com" url="https://fffou.com/" src="https://cdn.v2ex.com/gravatar/733d172a66e4dd6b6be94ca71d68e062" name="浮游笔记" >}}
 
 {{< friend des="fanghongxing.cn" url="https://fanghongxing.cn" src="https://cdn.v2ex.com/gravatar/84988a8cb4ea306f6e2b1bcf880081dc" name="十三姨爱我" >}}
 
