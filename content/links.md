@@ -11,12 +11,15 @@ layout: 'posts'
 
 我的友链信息：
 
-> Name: 大大的小蜗牛  
+> Title: 大大的小蜗牛  
 > URL: `https://eallion.com`  
 > Avatar : `https://secure.gravatar.com/avatar/c686821c00797f9390732f8fe2c82b5f`  
 > Description : 机会总是垂青于有准备的人  
+> English description : *Chance favors the prepared mind*
 
 ### 名人名站
+
+排名不分先后。
 
 {{< friend des="作家、赛车手、导演" url="https://weibo.com/hanhan" src="https://cdn.eallion.com/statics/img/link/hanhan.jpg" name="韩 寒" >}}
 	
