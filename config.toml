@@ -26,22 +26,55 @@ rssLimit = 10
   name="观影"
   url="/movies/"
   weight="2"
-  [[menu.main]]
-  name="相册"
-  url="/photos/"
-  weight="3"
+#  [[menu.main]]
+#  name="相册"
+#  url="/photos/"
+#  weight="3"
   [[menu.main]]
   name="归档"
   url="/archives/"
   weight="4"
   [[menu.main]]
+  name="分类"
+  weight="5"
+  [[menu.main]]
+  parent="分类"
+  name="日志"
+  url="/posts/daily/"
+  weight="1"
+  [[menu.main]]
+  parent="分类"
+  name="代码"
+  url="/posts/code/"
+  weight="2"
+  [[menu.main]]
+  parent="分类"
+  name="嘀咕"
+  url="/posts/chat/"
+  weight="3"
+  [[menu.main]]
+  parent="分类"
+  name="运营"
+  url="/posts/operation/"
+  weight="4"
+  [[menu.main]]
+  parent="分类"
+  name="分享"
+  url="/posts/share/"
+  weight="5"
+  [[menu.main]]
+  parent="分类"
+  name="山贼"
+  url="/posts/sz/"
+  weight="6"
+  [[menu.main]]
   name="友链"
   url="/links/"
-  weight="5"
+  weight="6"
   [[menu.main]]
   name="关于"
   url="/about/"
-  weight="6"
+  weight="7"
 
 [params]
   # dir name of your blog content (default is `content/posts`)
