@@ -20,7 +20,7 @@ rssLimit = 10
 [menu]
   [[menu.main]]
   name="日志"
-  url="/posts/chat/"
+  url="/posts/daily/"
   weight="1"
   [[menu.main]]
   name="嘀咕"
@@ -28,15 +28,15 @@ rssLimit = 10
   weight="2"
   [[menu.main]]
   name="代码"
-  url="/posts/chat/"
+  url="/posts/code/"
   weight="3"
   [[menu.main]]
   name="运营"
-  url="/posts/chat/"
+  url="/posts/operation/"
   weight="4"
   [[menu.main]]
   name="分享"
-  url="/movies/"
+  url="/posts/share/"
   weight="5"
   [[menu.main]]
   name="归档"
