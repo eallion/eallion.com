@@ -20,7 +20,7 @@ rssLimit = 10
 [menu]
   [[menu.main]]
   name="嘀咕"
-  url="/posts/chat/"
+  url="/talk/"
   weight="1"
   [[menu.main]]
   name="观影"
