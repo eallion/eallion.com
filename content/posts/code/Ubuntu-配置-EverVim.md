@@ -1,5 +1,5 @@
 ---
-title: "Ubuntu 配置 Guake  Oh-My-Zsh 和 EverVim"
+title: "Ubuntu 配置 EverVim"
 categories: ["代码"]
 tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]
 draft: false
