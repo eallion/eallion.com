@@ -48,7 +48,7 @@ jobs:
       #- name: Deply To OSS
       #  run: ossutil cp public oss://eallion-com/ -rf
 
-       部署到阿里云 OSS 脚本2
+      # 部署到阿里云 OSS 脚本2
       - name: Deploy to OSS
         uses: saltbo/uptoc@master
         with:
