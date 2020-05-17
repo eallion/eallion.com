@@ -48,14 +48,14 @@ jobs:
       #- name: Deply To OSS
       #  run: ossutil cp public oss://eallion-com/ -rf
 
-      # 部署到阿里云 OSS 脚本2
-      #- name: Deploy to OSS
-      #  uses: saltbo/uptoc@master
-      #  with:
-      #    driver: oss
-      #    endpoint: oss-cn-shanghai.aliyuncs.com
-      #    bucket: eallion-com
-      #    dist: public
-      #  env:
-      #    UPTOC_UPLOADER_AK: ${{ secrets.ACCESS_KEY_ID }}
-      #    UPTOC_UPLOADER_SK: ${{ secrets.ACCESS_KEY_SECRET }}
+       部署到阿里云 OSS 脚本2
+      - name: Deploy to OSS
+        uses: saltbo/uptoc@master
+        with:
+          driver: oss
+          endpoint: oss-cn-shanghai.aliyuncs.com
+          bucket: eallion-com
+          dist: public
+        env:
+          UPTOC_UPLOADER_AK: ${{ secrets.ACCESS_KEY_ID }}
+          UPTOC_UPLOADER_SK: ${{ secrets.ACCESS_KEY_SECRET }}
