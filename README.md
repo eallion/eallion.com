@@ -18,6 +18,15 @@
 
 # 备忘录:
 
+### Rerun GitHub Acions
+
+当没有新提交时， 通过 push empty commit 运行 GitHub Actions
+
+```
+git commit --allow-empty -m "Rerun GitHub Acions"
+git push
+```
+
 ### 写新文章
 - 1、生成新文章
 
