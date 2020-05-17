@@ -60,7 +60,7 @@ jobs:
         uses: saltbo/uptoc@master
         with:
           driver: oss
-          region: oss-cn-shanghai
+          region: cn-shanghai
           bucket: eallion-com
           dist: public
         env:
