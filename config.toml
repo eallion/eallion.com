@@ -26,10 +26,10 @@ rssLimit = 10
   name="观影"
   url="/movies/"
   weight="2"
-  [[menu.main]]
-  name="相册"
-  url="/photos/"
-  weight="3"
+  #[[menu.main]]
+  #name="相册"
+  #url="/photos/"
+  #weight="3"
   [[menu.main]]
   name="归档"
   url="/archives/"
@@ -42,6 +42,26 @@ rssLimit = 10
   name="关于"
   url="/about/"
   weight="6"
+  [[menu.main]]
+  name="日 志"
+  url="/posts/daily/"
+  weight="11"
+  [[menu.main]]
+  name="代 码"
+  url="/posts/code/"
+  weight="12"
+  [[menu.main]]
+  name="运 营"
+  url="/posts/operation/"
+  weight="13"
+  [[menu.main]]
+  name="分 享"
+  url="/posts/share/"
+  weight="14"
+  [[menu.main]]
+  name="山 贼"
+  url="/posts/sz/"
+  weight="15"
 
 [params]
   # dir name of your blog content (default is `content/posts`)
@@ -49,13 +69,13 @@ rssLimit = 10
   # "light" or "dark"
   defaultTheme = "light"
   # if you set this to 0, only submenu trigger will be visible
-  # showMenuItems = 4
+  showMenuItems = 5
   # Enable to show reading time in minutes for posts
   showReadingTime = false
   logoText = "hello friend"
   logoHomeLink = "/"
 
-  MenuMore = "更多"
+  MenuMore = "分类"
   DateFormatList = "2006-01-02 15:04:05"
   DateFormatSingle = "2006-01-02 15:04:05"
   ReadMore = "阅读全文"
