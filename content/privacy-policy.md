@@ -9,6 +9,8 @@ author: 大大的小蜗牛
 
 Effective date: May 08, 2019
 
+- [https://www.freeprivacypolicy.com/privacy/view/b8ce39626a8c320f89ea196e943a0c53](https://www.freeprivacypolicy.com/privacy/view/b8ce39626a8c320f89ea196e943a0c53)
+
 eallion.com ("us", "we", or "our") operates the https://eallion.com website (the "Service").
 
 This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. Our Privacy Policy  for eallion.com is created with the help of the [Free Privacy Policy Generator](https://www.freeprivacypolicy.com/free-privacy-policy-generator.php).
@@ -121,5 +123,3 @@ If you have any questions about this Privacy Policy, please contact us:
 
 *   By email: eallion@eallion.com
 *   By visiting this page on our website: https://eallion.com/guestbook
-
-> [https://www.freeprivacypolicy.com/privacy/view/b8ce39626a8c320f89ea196e943a0c53](https://www.freeprivacypolicy.com/privacy/view/b8ce39626a8c320f89ea196e943a0c53)
