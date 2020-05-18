@@ -16,7 +16,7 @@ sudo apt install vim python3-pip python3-dev exuberant-ctags cmake gcc g++
 ```
 安装 EverVim ：
 ```
-curl -sLf https://raw.githubusercontent.com/LER0ever/EverVim/master/Boot-EverVim.sh | bash
+curl -sLf https://raw.GitHubusercontent.com/LER0ever/EverVim/master/Boot-EverVim.sh | bash
 ```
 
 进 Vim 安装插件：

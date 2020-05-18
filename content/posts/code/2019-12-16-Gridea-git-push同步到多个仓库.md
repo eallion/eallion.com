@@ -2,7 +2,7 @@
 title: "Gridea Hexo Hugo 等 git push 同步到多个仓库"
 categories: ["代码"]
 tags: ["hexo"]
-slug: "deploy-to-github-and-coding"
+slug: "deploy-to-GitHub-and-coding"
 draft: false
 date: "2019-12-16 22:58:39"
 ---
@@ -12,7 +12,7 @@ date: "2019-12-16 22:58:39"
 ### 准备工作：
 - 创建 GitHub Pages 仓库
 - 创建 Coding Pages 仓库
-- 申请 [Github token](https://github.com/settings/tokens/new)
+- 申请 [GitHub token](https://github.com/settings/tokens/new)
 - 申请 Coding token 访问令牌
 - 如果是 Gridea,在 Gridea APP 里配置好 GitHug Pages
 

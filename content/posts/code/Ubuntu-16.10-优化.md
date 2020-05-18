@@ -281,7 +281,7 @@ cd ~
 sudo apt install git curl zsh
 ```
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.GitHubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 修改一下配置：
 ```bash

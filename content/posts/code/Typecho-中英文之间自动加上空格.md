@@ -12,7 +12,7 @@ date: "2019-11-29 09:29:00"
 所以决定统一调整一下格式，其中有一项就是把中英文之间自动加上空格。
 本文主要讲怎么把中英文之间怎么自动加上空格。
 
-Github上有2个项目：
+GitHub上有2个项目：
 > [https://github.com/vinta/pangu.js](https://github.com/vinta/pangu.js "https://github.com/vinta/pangu.js")  
 
 >[https://github.com/mastermay/text-autospace.js](https://github.com/mastermay/text-autospace.js "https://github.com/mastermay/text-autospace.js")
