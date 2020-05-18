@@ -1,5 +1,5 @@
 ---
-title: "博客迁移到Hugo"
+title: "博客迁移到 Hugo"
 categories: ["代码"]
 tags: ["hugo","blog"]
 slug: "hugo"

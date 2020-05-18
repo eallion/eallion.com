@@ -922,7 +922,8 @@ hr {
 }
 
 .footer a {
-	color: inherit
+	color: inherit;
+	text-decoration:none
 }
 
 .footer .copyright {
