@@ -27,8 +27,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.personal_token }} # 这里的 ACTIONS_DEPLOY_KEY 则是上面设置 Private Key的变量名
-          external_repository: eallion/statics
-          PUBLISH_BRANCH: public
+          external_repository: eallion/eallion.github.io
+          PUBLISH_BRANCH: master
           PUBLISH_DIR: ./public
           allow_empty_commit: true
           commit_message: ${{ GitHub.event.head_commit.message }}
@@ -50,21 +50,19 @@ jobs:
       #- name: Deply To OSS
       #  run: ossutil cp public oss://eallion-com/ -rf
 
-      # 部署前删掉一些无用文件
+      # 部署前删掉一些占用流量的无用文件
       - name: Delete images
         run: |
-          cd public
-          rm -rf images
-          cd ..
+          rm -rf public/images
 
       # 部署到阿里云 OSS 脚本2
-      - name: Deploy to OSS
-        uses: saltbo/uptoc@master
-        with:
-          driver: oss
-          region: cn-shanghai
-          bucket: eallion-com
-          dist: public
-        env:
-          UPTOC_UPLOADER_AK: ${{ secrets.ACCESS_KEY_ID }}
-          UPTOC_UPLOADER_SK: ${{ secrets.ACCESS_KEY_SECRET }}
+      #- name: Deploy to OSS
+      #  uses: saltbo/uptoc@master
+      #  with:
+      #    driver: oss
+      #    region: cn-shanghai
+      #    bucket: eallion-com
+      #    dist: public
+      #  env:
+      #    UPTOC_UPLOADER_AK: ${{ secrets.ACCESS_KEY_ID }}
+      #    UPTOC_UPLOADER_SK: ${{ secrets.ACCESS_KEY_SECRET }}
