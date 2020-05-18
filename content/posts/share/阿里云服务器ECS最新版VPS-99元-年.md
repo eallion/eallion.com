@@ -17,6 +17,6 @@ date: "2018-03-29 23:13:00"
 
 购买链接：[https://promotion.aliyun.com/ntms/act/group/team.html?group=cqXxeaOGqw](https://promotion.aliyun.com/ntms/act/group/team.html?group=cqXxeaOGqw)
 
-![https://promotion.aliyun.com/ntms/act/group/team.html?group=cqXxeaOGqw](https://cdn.jsdelivr.net/gh/eallion/statics@public/images/2018/03/29/4040239785.png)
+![https://promotion.aliyun.com/ntms/act/group/team.html?group=cqXxeaOGqw](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@master/images/2018/03/29/4040239785.png)
 
 

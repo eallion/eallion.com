@@ -32,17 +32,17 @@ git remote set-url --add --push origin https://e.coding.net/eallion/gridea.git
 
 输入：`git remote -v`，如果有如下提示，即有 2 条 (push) 代码，则说明配置正确：
 
-![](https://cdn.jsdelivr.net/gh/eallion/statics@public/images/2019/12/20191228231145.png)
+![](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@master/images/2019/12/20191228231145.png)
 
 ### DNS解析
 
 解析 CNAME 的时候，国内的解析到 Coding Pages, 国外的解析到 Git Pages.
 
-![](https://cdn.jsdelivr.net/gh/eallion/statics@public/images/2019/12/20191228231204.png)
+![](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@master/images/2019/12/20191228231204.png)
 
 如下图所示：
 
-![](https://cdn.jsdelivr.net/gh/eallion/statics@public/images/2019/12/20191228231217.png)
+![](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@master/images/2019/12/20191228231217.png)
 
 ### 同步
 配置好后，正常同步即可。
