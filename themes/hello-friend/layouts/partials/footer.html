@@ -29,14 +29,12 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.min.js" type="module"></script>
 <script>
   (function(u, c) {
-    var d = document, t = 'content', o = d.createElement(t),
-        s = d.spacingElementByClassName(t)[0];
+    var d = document, t = 'script', o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
     o.src = u;
     if (c) { o.addEventListener('load', function(e) { c(e); }); }
     s.parentNode.insertBefore(o, s);
-  })('//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js', function() {
-    document.addEventListener('DOMContentLoaded', () => {
-    pangu.autoSpacingPage();
+  })('//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.js', function() {
+    pangu.spacingPage();
   });
-  });
-</script>
+  </script>
