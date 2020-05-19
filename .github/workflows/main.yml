@@ -9,15 +9,14 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v1  # v2 does not have submodules option now
+      - uses: actions/checkout@v2
        # with:
        #   submodules: true
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 0.67.1
-          # latest
+          hugo-version: 'latest'
           # extended: true
 
       - name: Build Hugo
@@ -26,36 +25,19 @@ jobs:
       - name: Deploy to GitHub
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.personal_token }} # 这里的 ACTIONS_DEPLOY_KEY 则是上面设置 Private Key的变量名
+          personal_token: ${{ secrets.personal_token }}
           external_repository: eallion/eallion.github.io
           PUBLISH_BRANCH: master
           PUBLISH_DIR: ./public
           allow_empty_commit: true
           commit_message: ${{ GitHub.event.head_commit.message }}
-      
-      # 部署到腾宝塔服务器
-      #- name: Webhook
-      #  uses: distributhor/workflow-webhook@v1
-      #  env:
-      #    webhook_url: ${{ secrets.WEBHOOK_URL }}
-      #    webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
 
-      # 部署到阿里云 OSS 脚本1
-      #- name: Setup OSS
-      #  uses: manyuanrong/setup-ossutil@v1.0
-      #  with:
-      #    endpoint: "oss-accelerate.aliyuncs.com"
-      #    access-key-id: ${{ secrets.ACCESS_KEY_ID }}
-      #    access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
-      #- name: Deply To OSS
-      #  run: ossutil cp public oss://eallion-com/ -rf
+      # 部署前删掉一些无用文件以节省流量
+      #- name: Delete images
+      #  run: |
+      #    rm -rf public/images
 
-      # 部署前删掉一些占用流量的无用文件
-      - name: Delete images
-        run: |
-          rm -rf public/images
-
-      # 部署到阿里云 OSS 脚本2
+      # 部署到阿里云 OSS
       #- name: Deploy to OSS
       #  uses: saltbo/uptoc@master
       #  with:
