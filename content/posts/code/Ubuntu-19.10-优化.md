@@ -7,8 +7,8 @@ slug: "ubuntu1910"
 date: "2019-11-29 12:36:00"
 ---
 
-![Ubuntu 19.10](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@master/images/2019/11/2252212556.png)
-> 实机安装 桌面效果截图 [（查看大图）](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@master/images/2019/11/2252212556.png "（查看大图）")
+![Ubuntu 19.10](https://cdn.jsdelivr.net/gh/eallion/statics@public/images/2019/11/2252212556.png)
+> 实机安装 桌面效果截图 [（查看大图）](https://cdn.jsdelivr.net/gh/eallion/statics@public/images/2019/11/2252212556.png "（查看大图）")
 
 硬件环境：
 ```bash
