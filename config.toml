@@ -22,10 +22,10 @@ rssLimit = 10
   name="嘀咕"
   url="/talk/"
   weight="1"
-  [[menu.main]]
-  name="观影"
-  url="/movies/"
-  weight="2"
+  #[[menu.main]]
+  #name="观影"
+  #url="/movies/"
+  #weight="2"
   #[[menu.main]]
   #name="相册"
   #url="/photos/"
@@ -69,7 +69,7 @@ rssLimit = 10
   # "light" or "dark"
   defaultTheme = "light"
   # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 5
+  showMenuItems = 4
   # Enable to show reading time in minutes for posts
   showReadingTime = false
   logoText = "hello friend"
