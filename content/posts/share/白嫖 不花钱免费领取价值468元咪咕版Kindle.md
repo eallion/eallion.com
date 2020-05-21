@@ -12,7 +12,7 @@ date: 2020-05-20T17:26:26+08:00
 
 反正是白嫖嘛。四舍五入赚了一个亿。
 
-最近咪咕官方推出了一个"[天天爱阅读，kindle0元享](https://mp.weixin.qq.com/s/j97W913GZISLlZcVudvKXQ)"活动。  
+最近咪咕官方推出了一个“[天天爱阅读，kindle0元享](https://mp.weixin.qq.com/s/j97W913GZISLlZcVudvKXQ)”活动。  
 用户购买咪咕kindle后，参与咪咕阅读“天天爱阅读，kindle0元享”活动，连续打卡后按阶梯直接返现金奖励，连续打卡100天后，全额返还购机款。
 
 ### 购买链接：
