@@ -36,6 +36,7 @@ jobs:
       #- name: Delete images
       #  run: |
       #    rm -rf public/images
+      #    rm -rf public/photos
 
       # 部署到阿里云 OSS
       #- name: Deploy to OSS
