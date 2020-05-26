@@ -38,7 +38,7 @@ RAM: 3125MiB / 15716MiB
 
 ### 基础优化
 #### 1、换软件源
-在 Dash 里搜索 `软件和更新` ，依次点击 `Ubuntu软件` - `下载自` - `其他站点` - `中国`：
+在 Dash 里搜索 `软件和更新` ，依次点击 `Ubuntu软件` - `下载自` - `其他站点` - `中国`：  
 然后选择一个源服务器，推荐阿里云和清华：
 - mirrors.aliyun.com
 - mirrors.tuna.tsinghua.edu.cn
@@ -58,9 +58,9 @@ sudo apt-get install gnome-tweak-tool
 ```
 
 #### 4、去鼠标加速
-对于 FPS 玩家，尤其推荐去掉鼠标加速。
-4.1. 在 `GNOME Tweaks` 点击 `键盘和鼠标` 在 `鼠标`-`加速配置`里选择`Flat`。
-4.2. 在 `系统设置`里`设备`-`鼠标和触摸板`-`鼠标`-`鼠标速度`调节自己适应的鼠标速度。
+对于 FPS 玩家，尤其推荐去掉鼠标加速。  
+4.1. 在 `GNOME Tweaks` 点击 `键盘和鼠标` 在 `鼠标`-`加速配置`里选择`Flat`。  
+4.2. 在 `系统设置`里`设备`-`鼠标和触摸板`-`鼠标`-`鼠标速度`调节自己适应的鼠标速度。  
 
 #### 5、安装 Gdebi
 ```
@@ -85,9 +85,9 @@ sudo apt install gnome-shell-extensions
 > [https://extensions.gnome.org/extension/307/dash-to-dock/](https://extensions.gnome.org/extension/307/dash-to-dock/ "https://extensions.gnome.org/extension/307/dash-to-dock/") 
 
 #### 8、Hide Top Bar
-8.1 参考 7.1 ，如果已安装插件，略过此步。
-8.2 参考 7.2 ，如果已安装，略过此步。
-8.3 安装 Hide Top Bar
+8.1 参考 7.1 ，如果已安装插件，略过此步。  
+8.2 参考 7.2 ，如果已安装，略过此步。  
+8.3 安装 Hide Top Bar  
 > [https://extensions.gnome.org/extension/545/hide-top-bar/](https://extensions.gnome.org/extension/545/hide-top-bar/ "https://extensions.gnome.org/extension/545/hide-top-bar/")
 
 #### 9、安装五笔拼音
@@ -135,7 +135,7 @@ sudo hwclock --localtime --systohc #将时间更新到硬件上
 终端推荐安装 Guake ，又好看又方便：
 
 ##### 14.1. 安装 Guake ：
-直接安装的 Guake 版本不够新，而且中文显示不全。
+直接安装的 Guake 版本不够新，而且中文显示不全。  
 推荐源码安装：
 ```
 sudo apt update
@@ -264,7 +264,7 @@ python3 install.py --clang-completer
 ```
 
 #### 15、安装 Grub-customizer
-Grub-customizer 可以美化优化 Grub 引导界面。 
+Grub-customizer 可以美化优化 Grub 引导界面。   
 在 Ubuntu Software 软件中心搜索安装。
 
 #### 16、自动挂载硬盘
@@ -272,7 +272,7 @@ Grub-customizer 可以美化优化 Grub 引导界面。
 ```
 sudo blkid
 ```
-记录下UUID和Type。
+记录下UUID和Type。  
 16.2. 创建挂载目录
 ```
 cd ~
@@ -346,7 +346,7 @@ sudo apt install flameshot
 设置快捷键：（按键盘设置）
 ```
 #### 19、禁用HDMI默认音频输出
-当主机接有音响、耳机、HDMI设备的话，Ubuntu默认是采用HDMI输出音频。Ubuntu自带的声音设置修改后不能保存，下次又还原成默认的。
+当主机接有音响、耳机、HDMI设备的话，Ubuntu默认是采用HDMI输出音频。Ubuntu自带的声音设置修改后不能保存，下次又还原成默认的。  
 安装PulseAudio ：
 ```
 sudo apt install pavucontrol
