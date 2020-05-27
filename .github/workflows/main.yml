@@ -55,8 +55,8 @@ jobs:
         uses: saltbo/uptoc@master
         with:
           driver: cos
-          region: na-siliconvalley
-          bucket: ${{ secrets.COS_BUCKET }}
+          region: ap-shanghai
+          bucket: ${{ secrets.COS_CN_BUCKET }}
           dist: public
         env:
           UPTOC_UPLOADER_AK: ${{ secrets.SECRET_COS_ID }}
