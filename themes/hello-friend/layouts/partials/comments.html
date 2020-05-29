@@ -118,7 +118,7 @@
   {{- if .Site.Params.comment.disqus.enable -}}
     <div id="disqus_thread"></div>
       {{- if .Site.Params.comment.disqus.proxy -}}
-      <script src="https://cdn.jsdelivr.net/npm/disqusjs@1.2/dist/disqus.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js"></script>
       <script>
         var dsqjs = new DisqusJS({
           shortname: {{ .Site.Params.comment.disqus.shortname }},
