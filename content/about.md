@@ -36,7 +36,7 @@ author: 大大的小蜗牛
 
 ### 联系方式：
 
- - E-mail：`echo -n "ZWFsbGlvbkBlYWxsaW9uLmNvbQo=" | base64 -d`
+ - E-mail：`echo -n "ZWFsbGlvbnNAZ21haWwuY29t" | base64 -d`
 
 ### Site info：
 

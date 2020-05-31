@@ -13,7 +13,7 @@ layout: 'posts'
 
 > Title: 大大的小蜗牛  
 > URL: `https://eallion.com`  
-> Avatar : `https://cdn.v2ex.com/gravatar/c686821c00797f9390732f8fe2c82b5f`  
+> Avatar : `https://cdn.v2ex.com/gravatar/171e4c30959e8c077a6c58b958624b31`  
 > Description : 机会总是垂青于有准备的人  
 > English description : *Chance favors the prepared mind*
 
