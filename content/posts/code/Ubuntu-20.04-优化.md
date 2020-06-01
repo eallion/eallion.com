@@ -473,3 +473,8 @@ https://extensions.gnome.org/extension/750/openweather/
 ```
 https://extensions.gnome.org/extension/800/remove-dropdown-arrows/
 ```
+
+- Lunar Calendar 农历
+```
+https://extensions.gnome.org/extension/675/lunar-calendar/
+```
