@@ -129,7 +129,8 @@
           api: {{ .Site.Params.comment.disqus.api }},
           apikey: {{ .Site.Params.comment.disqus.apikey }},
           admin: {{ .Site.Params.comment.disqus.admin }},
-          adminLabel: {{ .Site.Params.comment.disqus.adminLabel }}
+          adminLabel: {{ .Site.Params.comment.disqus.adminLabel }},
+          nocomment: {{ .Site.Params.comment.disqus.nocomment }}
         });
       </script>
       {{- else -}}
