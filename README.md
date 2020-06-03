@@ -12,7 +12,7 @@
 [https://github.com/eallion/hugo/issues/new](https://github.com/eallion/hugo/issues/new)  
 
 - Email: 
-`echo -n "ZWFsbGlvbkBlYWxsaW9uLmNvbQo=" | base64 -d`
+`echo -n "ZWFsbGlvbnNAZ21haWwuY29t" | base64 -d`
 
 ---
 
