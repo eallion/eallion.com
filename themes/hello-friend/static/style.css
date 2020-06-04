@@ -41,7 +41,7 @@
 	cursor: pointer;
 	outline: none
 }
-
+.dark-theme {@import url(https://utteranc.es/stylesheets/themes/photon-dark/utterances.css);}
 .dark-theme .button,.dark-theme a.button,.dark-theme button {
 	background: #3b3d42;
 	background: var(--dark-background-secondary);

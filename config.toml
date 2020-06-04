@@ -116,5 +116,5 @@ rssLimit = 10
   enable = true
   repo="eallion/utterances"
   issueterm="url"
-  label="Commnets"
+  label="Comments"
   theme="github-light"
