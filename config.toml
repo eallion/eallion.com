@@ -103,7 +103,7 @@ rssLimit = 10
   visitor = true
 
 [params.comment.disqus]
-  enable = "true"
+  enable = false
   proxy = "true"
   shortname = "eallion"
   api =  "https://disqus.skk.moe/disqus/"
@@ -111,3 +111,10 @@ rssLimit = 10
   admin = "eallion"
   adminLabel = ""
   nocomment = ""
+
+[params.comment.utterances]
+  enable = true
+  repo="eallion/utterances"
+  issueterm="url"
+  label="Commnets"
+  theme="github-light"
