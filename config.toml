@@ -114,7 +114,7 @@ rssLimit = 10
 
 [params.comment.utterances]
   enable = true
-  repo="eallion/utterances"
+  repo="eallion/blog"
   issueterm="url"
   label="Comments"
   theme="github-light"
