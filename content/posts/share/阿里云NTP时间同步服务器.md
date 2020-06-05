@@ -46,7 +46,7 @@ IP地址也已失效。
 
  - **ntp.cloud.aliyuncs.com** 通用
 
-![aliyunvpcntp](https://cdn.jsdelivr.net/gh/eallion/statics@public/images/2017/05/29/1589433496.png)
+![aliyunvpcntp](https://cdn.jsdelivr.net/gh/eallion/blog@public/images/2017/05/29/1589433496.png)
 
 经典网络 内网：
 
@@ -68,7 +68,7 @@ IP地址也已失效。
 
 ### Windows测试NTP服务成功
 
-![Windows NTP](https://cdn.jsdelivr.net/gh/eallion/statics@public/images/2017/05/29/1972259171.png)
+![Windows NTP](https://cdn.jsdelivr.net/gh/eallion/blog@public/images/2017/05/29/1972259171.png)
 
 
 
