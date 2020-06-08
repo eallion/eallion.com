@@ -358,6 +358,18 @@ sudo apt install pavucontrol
 sudo apt install ubuntu-restricted-extras
 ```
 
+#### 21、Sudo 免密码
+
+常用私人电脑，是可以运行`sudo`免输密码的，公用电脑不建议这样设置。  
+```
+sudo vim /etc/sudoers
+```
+添加：
+```
+eallion ALL=(ALL:ALL) NOPASSWD: ALL
+```
+其中`eallion`替换成你自己的用户名。  
+
 ------------
 
 ### 安装常用软件
