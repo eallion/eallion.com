@@ -38,7 +38,7 @@ jobs:
       #  with:
       #    driver: oss
       #    region: cn-shanghai
-      #    bucket: eallion-com
+      #    bucket: ${{ secrets.bucket }}
       #    exclude: public/images,public/photos
       #    dist: public
       #  env:
