@@ -96,7 +96,7 @@ rssLimit = 10
   baseName = "atom"
 
 [params.valine]
-  enable = false
+  enable = true
   appId = '8BvPJ6EeOAkQ4AFttNyYEfET-9Nh9j0Va'
   appKey = 'FGQItPQDpoTal7yzzETx5vnK'
   placeholder = '说点什么吧……'
@@ -113,7 +113,7 @@ rssLimit = 10
   nocomment = ""
 
 [params.comment.utterances]
-  enable = true
+  enable = false
   repo="eallion/blog"
   issueterm="url"
   label="Comments"
