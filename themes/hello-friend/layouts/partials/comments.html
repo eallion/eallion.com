@@ -90,7 +90,28 @@
           "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png"
         } 
       });
+      function diyValine() {
+        jinrishici.load(function(result) {
+            var jrsc_plac =  result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin.dynasty + " · " + result.data.origin.author
+            document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
+        });
+      }
+      setTimeout(diyValine, 1000);
     }
+  </script>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
+  <script type="text/javascript" src='https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js'></script>
+  <script type="text/javascript">
+    jQuery(document).ready(function($){
+        if(window.location.hash){
+        	var checkExist = setInterval(function() {
+        		if ($(window.location.hash).length) {
+                $('html, body').animate({scrollTop: $(window.location.hash).offset().top-90}, 1000);
+                            clearInterval(checkExist);
+                        }
+                }, 100);
+        }
+    });
   </script>
   {{- end }}
   <!-- DisqusJS -->
