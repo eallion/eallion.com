@@ -96,14 +96,14 @@ rssLimit = 10
   baseName = "atom"
 
 [params.valine]
-  enable = true
+  enable = false
   appId = '8BvPJ6EeOAkQ4AFttNyYEfET-9Nh9j0Va'
   appKey = 'FGQItPQDpoTal7yzzETx5vnK'
   placeholder = '说点什么吧……'
   visitor = true
 
 [params.comment.disqus]
-  enable = false
+  enable = true
   proxy = "true"
   shortname = "eallion"
   api =  "https://disqus.skk.moe/disqus/"
