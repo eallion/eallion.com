@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/eallion
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://eallion.com
+  * I am eallion (https://keybase.io/eallion) on keybase.
+  * I have a public key with fingerprint EBE2 0AB9 24C2 A12C 6A3E  65BD BC4C A018 E368 547C
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101735a97edb3e6ab83252fc70f58cc45add6955b03ae65928004e9d99d1605e1b20a",
+      "fingerprint": "ebe20ab924c2a12c6a3e65bdbc4ca018e368547c",
+      "host": "keybase.io",
+      "key_id": "bc4ca018e368547c",
+      "kid": "0101735a97edb3e6ab83252fc70f58cc45add6955b03ae65928004e9d99d1605e1b20a",
+      "uid": "a5493108030c8a1422ab0f48bf3f1619",
+      "username": "eallion"
+    },
+    "service": {
+      "hostname": "eallion.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1591855092,
+  "expire_in": 157680000,
+  "prev": "ff1875cba2019c833879499449fac30f1e927a97152bf930be9d7c746e1831d3",
+  "seqno": 38,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMInAnicrVJbSBVBGD5aGR0q0oiw28NKNzSb2d3Z3TlQD0V3JLsIFqdOM7OzunnO
+7ml3PSUZFREE3ehKFN0Ie9EeguyhKNMEK8kuYCUWZJwuZFREUBRFs1IPQY89DfPP
+933/931M+4hBkWhO05Np94be7DmY09l6tDaytq/j82aJumadFNss1fCBgydN7geJ
+GtuUYhKAAOoKIljnJlW4RqihyEi2mA4sZDCmImKaGkaIAoVwDWHZAEDl2MTYhBpA
+HFIZEKlEsmynintpz3YCIcspF2OKZZXJBMpMI0IbUZMylREADa5oBlJ1JojVrh8y
+hDlKfF5qu2ImLokBe//A/2fftQNyBKlYgcAACmAGgaosEwos1aCWYkEN4hDoc88h
+KR6mI8mk7TrSlhJJDDM242GvYZC/AaXMTQlm2nMDl7lJ8VAdBGk/FhKDunSI3Mhp
+4rdGgtqOKVoUjAz3/HBBDAokC+xQFCIMDYQAlkskviltezxhhwikayIaAOEenhGS
+lgUNHTFKZAAxMxTF0LGKsapiizAFWJBjWRfFQSRTCyuAilZ0pqsah4YCTUUKU21w
+XCmmGMInqRKavl3lkKDW49KWthvxwZGcaCRvSG74vSLRYaP+fLqWKUN/zuxu6e87
+UnTgbP2wzgcPDhZ/mb7oy6rKA1/HXcvvXfru6vmIkSrKBK0XP3Xd7Bj9qL2u2T+z
+GGU/dD46FV8XjS6/laGHJjW8WV2Qv3TZvj1bp/Y+Xnsbd30/Aae+6G3NTnrftPD0
+xDIv93vb5IpdvUuKt/WdOz+2fO6FHe6gysSMVwur8191qydLmnPrnxcufvtyR6tz
+ePu+nuupWd274yvH3RruTBviv8ajGvq99WX36y9/2zCnrae4pnH/h9jd7Jw7O6ck
+y1bMLn8672f/VZjb0lk4ctWzUwvmJ6/8yB5vX1BR2bynsKVrzITj8WOX8ppGu/lH
+17wrz1uxpsBb9HZvwY144/iHH4t+AeEnROU=
+=d/Eq
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/eallion
+
+==================================================================
