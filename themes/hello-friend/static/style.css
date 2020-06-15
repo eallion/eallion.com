@@ -740,12 +740,19 @@ hr {
 	text-decoration: none
 }
 
+#all-tags {
+	word-break:break-all
+}
+
 #all-tags a{
 	font-size: 1.2rem;
 	text-decoration: none;
 	margin-right: 1rem;
 }
 @media (max-width:683px) {
+	#all-tags {
+		word-break:break-all
+	}
 	#all-tags a{
 		font-size: 0.95rem;
 		margin-right: 0.5rem;
