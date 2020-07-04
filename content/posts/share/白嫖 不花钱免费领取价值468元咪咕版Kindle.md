@@ -20,12 +20,12 @@ date: 2020-05-20T17:26:26+08:00
 > 天猫：[https://s.click.taobao.com/Cd3nyhv](https://s.click.taobao.com/Cd3nyhv)  
 > 京京：[https://u.jd.com/8fGveZ](https://u.jd.com/8fGveZ)  
 > 淘口令：复制$L5Mk1q6YKfU$打开手机淘宝立即下单  
-> 京京二维码：[点击查看二维码图片](https://cdn.jsdelivr.net/gh/eallion/blog@public/images/2020/05/kindleqr.png)  
+> 京京二维码：[点击查看二维码图片](https://cdn.jsdelivr.net/gh/eallion/blog@gh-pages/images/2020/05/kindleqr.png)  
 
 ### 完整说明，请看官方活动介绍：
 - [https://mp.weixin.qq.com/s/j97W913GZISLlZcVudvKXQ](https://mp.weixin.qq.com/s/j97W913GZISLlZcVudvKXQ)
 
-![](https://cdn.jsdelivr.net/gh/eallion/blog@public/images/2020/05/kindle.png)
+![](https://cdn.jsdelivr.net/gh/eallion/blog@gh-pages/images/2020/05/kindle.png)
 
 ### 福利！  
 PS：现在由于咪咕官方原因，所有的渠道468元都只能买单主机（无保护壳）。  
