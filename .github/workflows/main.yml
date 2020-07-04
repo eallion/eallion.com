@@ -27,7 +27,7 @@ jobs:
         with:
           personal_token: ${{ secrets.personal_token }}
           external_repository: eallion/blog
-          PUBLISH_BRANCH: public
+          PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./public
           allow_empty_commit: true
           commit_message: ${{ GitHub.event.head_commit.message }}
