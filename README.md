@@ -19,7 +19,7 @@
 # 备忘录:
 
 ### 主仓库
-> https://github.com/eallion/eallion.github.io
+> https://github.com/eallion/eallion.com
 
 ### 备用仓库
 > https://code.aliyun.com/hugo.git
@@ -93,8 +93,8 @@ git push
 
 - 文章中图片 URL：
 
-> `https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages/images` + `/year/month/` + `images_name.xxx`  
+> `https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@master/images` + `/year/month/` + `images_name.xxx`  
 
 - 如：
 
-> `https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages/images/2006/04/eallion.jpg`
+> `https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@master/images/2006/04/eallion.jpg`
