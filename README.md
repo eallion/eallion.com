@@ -18,7 +18,36 @@
 
 # 备忘录:
 
-### Rerun GitHub Acions
+### 主仓库
+> https://github.com/eallion/eallion.github.io
+
+### 备用仓库
+> https://code.aliyun.com/hugo.git
+
+### 架构备忘
+
+- 国内：通过阿里云`云效`部署至：阿里云 OSS + CDN
+- 境外：通过 GitHub Action 部署至 GitHub Pages
+
+### 阿里云云效部分命令
+```
+# 默认使用goproxy.cn
+export GOPROXY=https://goproxy.cn
+# input your command here
+git clone https://code.aliyun.com/eallion/gohugo.git
+cd gohugo
+dpkg -i hugo_latest.deb
+cd ..
+rm -rf gohugo
+hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
+find -maxdepth 1 -type d -not -name public -not -name "." -exec rm -rf {} \;
+find -maxdepth 1 -type f -exec rm {} \;
+rm -rf public/images
+rm -rf public/photos
+hugo version
+```
+
+### 通过空提交运行 GitHub Acions
 
 当没有新提交时， 通过 push empty commit 运行 GitHub Actions
 
