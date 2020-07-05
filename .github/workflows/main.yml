@@ -26,7 +26,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.personal_token }}
-          external_repository: eallion/blog
+          external_repository: eallion/eallion.github.io
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./public
           allow_empty_commit: true

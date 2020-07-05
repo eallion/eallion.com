@@ -3,8 +3,10 @@ languageCode = "zh-CN"
 DefaultContentLanguage = "zh-CN"
 title  =  "大大的小蜗牛"
 subtitle = "机会总是垂青于有准备的人"
-keywords = "蜗牛,大大的小蜗牛,eallion,snail,woniu,博客,代码,运营,电商,嘀咕,hugo,code"
-
+keywords = "蜗牛,大大的小蜗牛,eallion,snail,woniu,博客,代码,运营,电子商务,电商,嘀咕,hugo,code"
+description = "A blog about Charles 'eallion' Chin. 大大的小蜗牛的个人博客。"
+author = "Charles Chin"
+timezone = "Asia/Shanghai"
 theme  =  "hello-friend"
 summaryLength = 140
 hasCJKLanguage = true
@@ -97,8 +99,8 @@ rssLimit = 10
 
 [params.valine]
   enable = false
-  appId = '8BvPJ6EeOAkQ4AFttNyYEfET-9Nh9j0Va'
-  appKey = 'FGQItPQDpoTal7yzzETx5vnK'
+  appId = ''
+  appKey = ''
   placeholder = '说点什么吧……'
   visitor = true
 
