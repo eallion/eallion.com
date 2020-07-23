@@ -19,8 +19,6 @@ layout: 'posts'
 
 ### 名人名站
 
-排名不分先后。
-
 {{< friend des="作家、赛车手、导演" url="https://weibo.com/hanhan" src="https://cdn.eallion.com/statics/img/link/hanhan.jpg" name="韩 寒" >}}
 	
 {{< friend des="歌手、演员，导演" url="https://www.instagram.com/jaychou/" src="https://cdn.eallion.com/statics/img/link/jay.jpg" name="周杰伦" >}}
