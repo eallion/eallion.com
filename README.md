@@ -4,12 +4,12 @@
 > Chance favors the prepared mind.
 
 # Live demo:
-> [https://eallion.com](https://eallion.com)
+> <https://eallion.com>
 
 # Any questions?
 
 - Issue:
-[https://github.com/eallion/hugo/issues/new](https://github.com/eallion/hugo/issues/new)  
+<https://github.com/eallion/eallion.com/issues/new>
 
 - Email: 
 `echo -n "ZWFsbGlvbnNAZ21haWwuY29t" | base64 -d`
@@ -19,26 +19,26 @@
 # 备忘录:
 
 ### 主仓库
-> https://github.com/eallion/eallion.com
+> <https://github.com/eallion/eallion.com>
 
 ### 备用仓库
-> https://code.aliyun.com/hugo.git
+> <https://codeup.aliyun.com>
 
 ### 架构备忘
 
-- 国内：通过阿里云`云效`部署至：阿里云 OSS + CDN
+- 国内：通过阿里云云效 Codeup & Flow 部署至：阿里云 OSS + CDN
 - 境外：通过 GitHub Action 部署至 GitHub Pages
 
-### 阿里云云效部分命令
+### 添加阿里云云效 Codeup remote
 ```
-# 默认使用goproxy.cn
-export GOPROXY=https://goproxy.cn
-# input your command here
-git clone https://code.aliyun.com/eallion/gohugo.git
-cd gohugo
+git remote set-url --add --push origin https://codeup.aliyun.com/abcdefghijklmnopqrstuvwxyz/eallion/hugo.git
+```
+
+### 阿里云云效 Flow 部分命令
+```
+cd ../eallion_gohugo_????
 dpkg -i hugo_latest.deb
-cd ..
-rm -rf gohugo
+cd ../eallion_hugo_????
 hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 find -maxdepth 1 -type d -not -name public -not -name "." -exec rm -rf {} \;
 find -maxdepth 1 -type f -exec rm {} \;
