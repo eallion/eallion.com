@@ -41,7 +41,7 @@ author: 大大的小蜗牛
 
 ### 联系方式：
 
- - E-mail：`echo -n "ZWFsbGlvbnNAZ21haWwuY29tCg==" | base64 -d`
+ - E-mail：<eallions@gmail.com>
 
 ### Site info：
 
