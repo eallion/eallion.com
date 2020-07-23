@@ -7,6 +7,19 @@ comment: false
 author: 大大的小蜗牛
 ---
 
+---
+
+本博客现在随缘更新，佛性写博。
+
+自从简体中文网络环境越来越差，本博客已累计删除4000多篇废话和流水账。  
+现在本博客基本上不会写时事，不会写政治，不蹭热点，不玩梗，不会发表犀利刻薄的评论。偶尔会 UP 一些备忘录或小心得或无关紧要的随想。
+
+以为刚开始，实际已结束。怀念过去的黄金时代。
+
+多年以后，无论是现实还是网上的朋友，只要你来，我还在这里。
+
+---
+
 ### About me：
  - 双子，B型血，断掌，属虎。
  - 已婚。
@@ -16,27 +29,19 @@ author: 大大的小蜗牛
  - 小众而不小资。
  - 亦正亦邪。
  - 不是个好人但从来不做坏事。
- - PS：佛系写博。
 
 ### 格言：
 
- - 机会总是垂青于有准备的人
+ - 机会总是垂青于有准备的人 
  - *Chance favors the prepared mind*
 
 ### 职业：
 
-* 电子商务
-
-    * 运营总监
-    * Full Stack Operator
-
-* 简历
-    * [Linkedin](https://www.linkedin.com/in/eallion)
-    * [Qinchao](https://qin-chao.cn)
+* 电子商务运营 [（电子简历）](https://qin-chao.cn/)
 
 ### 联系方式：
 
- - E-mail：`echo -n "ZWFsbGlvbnNAZ21haWwuY29t" | base64 -d`
+ - E-mail：`echo -n "ZWFsbGlvbnNAZ21haWwuY29tCg==" | base64 -d`
 
 ### Site info：
 
@@ -45,8 +50,10 @@ author: 大大的小蜗牛
  - Since：2006
  - 域名：eallion.com
  - 备案：浙ICP备16031768号-2
- - 服务器：[阿里云](https://www.aliyun.com) OSS + CDN
+ - 服务器：[阿里云](https://www.aliyun.com) OSS + CDN / GitHub Pages
  - 程序：[Hugo](https://gohugo.io)
  - 主题：[Hello Friend](https://github.com/panr/hugo-theme-hello-friend)
  - Copyright：[https://eallion.com/copyright](https://eallion.com/copyright)
  - Privacy Policy：[https://eallion.com/privacy-policy](https://eallion.com/privacy-policy)
+
+---
