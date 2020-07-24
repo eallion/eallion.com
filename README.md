@@ -44,7 +44,6 @@ find -maxdepth 1 -type d -not -name public -not -name "." -exec rm -rf {} \;
 find -maxdepth 1 -type f -exec rm {} \;
 rm -rf public/images
 rm -rf public/photos
-hugo version
 ```
 
 ### 通过空提交运行 GitHub Acions
