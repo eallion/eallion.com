@@ -54,7 +54,7 @@ sudo apt upgrade
 
 #### 3、安装 GNOME Tweaks
 ```
-sudo apt-get install gnome-tweak-tool 
+sudo apt install gnome-tweak-tool 
 ```
 
 #### 4、去鼠标加速
@@ -69,7 +69,7 @@ sudo apt-get install gnome-tweak-tool
 
 或者
 ```
-sudo apt-get install imwheel
+sudo apt install imwheel
 ```
 
 #### 6、安装 Gdebi
@@ -108,29 +108,29 @@ sudo apt install fcitx-table-wbpy
 #### 11、Preload
 Preload 是一个后台运行的守护进程，它分析用户行为和频繁运行的应用，让你更快打开常用的软件。
 ```
-sudo apt-get install preload
+sudo apt install preload
 ```
 #### 12、安装 TLP 和 CPUFREQ（若有需要）
 减少过热和使用节能模式。
 ```
 sudo add-apt-repository ppa:linrunner/tlp
-sudo apt-get update
-sudo apt-get install tlp tlp-rdw
+sudo apt update
+sudo apt install tlp tlp-rdw
 sudo tlp start
 ```
 安装 CPUFREQ 指示器：
 ```
-sudo apt-get install indicator-cpufreq
+sudo apt install indicator-cpufreq
 ```
 重启你的电脑即可在指示器上选择 Powersave 模式。
 
 #### 13、提高 Apt 下载速度 Apt-fast
-apt-fast 是 apt-get 的一个 shell 脚本包装器，通过从多连接同时下载包来提升更新及包下载速度。 如果你经常使用终端以及 apt-get 来安装和更新包，你也许会想要试一试 apt-fast 。
+apt-fast 是 apt 的一个 shell 脚本包装器，通过从多连接同时下载包来提升更新及包下载速度。 如果你经常使用终端以及 apt 来安装和更新包，你也许会想要试一试 apt-fast 。
 安装 apt-fast：
 ```
 sudo add-apt-repository ppa:apt-fast/stable
-sudo apt-get update
-sudo apt-get install apt-fast
+sudo apt update
+sudo apt install apt-fast
 ```
 #### 14、双系统时间设置
 解决切换到 Windows 发现时间不对的问题。
