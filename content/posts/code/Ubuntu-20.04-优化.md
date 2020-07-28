@@ -52,7 +52,7 @@ sudo apt upgrade
 #### 2、系统设置
 在`系统设置`里按自己的习惯设置即可。
 
-####  3、安装 GNOME Tweaks
+#### 3、安装 GNOME Tweaks
 ```
 sudo apt-get install gnome-tweak-tool 
 ```
@@ -62,16 +62,26 @@ sudo apt-get install gnome-tweak-tool
 4.1. 在 `GNOME Tweaks` 点击 `键盘和鼠标` 在 `鼠标`-`加速配置`里选择`Flat`。  
 4.2. 在 `系统设置`里`设备`-`鼠标和触摸板`-`鼠标`-`鼠标速度`调节自己适应的鼠标速度。  
 
-#### 5、安装 Gdebi
+#### 5、鼠标滚轮速度
+下载安装 `MouseWheel`
+
+- https://github.com/muharemovic/MouseWheel
+
+或者
+```
+sudo apt-get install imwheel
+```
+
+#### 6、安装 Gdebi
 ```
 sudo apt install gdebi
 ```
 安装 deb 软件包时，可以用 GDebi 替换 Ubuntu 软件中心。
 
-#### 6、安装 Chrome
+#### 7、安装 Chrome
 > 下载地址：[https://www.google.com/chrome/](https://www.google.com/chrome/ "https://www.google.com/chrome/")
 
-#### 7、Dash to Dock
+#### 8、Dash to Dock
 7.1 浏览器安装插件 
 - Chrome :  [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep "GNOME Shell integration")
 - Firefox: [https://extensions.gnome.org](https://extensions.gnome.org/ "https://extensions.gnome.org/")  
@@ -84,23 +94,23 @@ sudo apt install gnome-shell-extensions
 7.3 安装 Dash to Dock
 > [https://extensions.gnome.org/extension/307/dash-to-dock/](https://extensions.gnome.org/extension/307/dash-to-dock/ "https://extensions.gnome.org/extension/307/dash-to-dock/") 
 
-#### 8、Hide Top Bar
+#### 9、Hide Top Bar
 8.1 参考 7.1 ，如果已安装插件，略过此步。  
 8.2 参考 7.2 ，如果已安装，略过此步。  
 8.3 安装 Hide Top Bar  
 > [https://extensions.gnome.org/extension/545/hide-top-bar/](https://extensions.gnome.org/extension/545/hide-top-bar/ "https://extensions.gnome.org/extension/545/hide-top-bar/")
 
-#### 9、安装五笔拼音
+#### 10、安装五笔拼音
 ```
 sudo apt install fcitx-table-wbpy
 ```
 
-#### 10、Preload
+#### 11、Preload
 Preload 是一个后台运行的守护进程，它分析用户行为和频繁运行的应用，让你更快打开常用的软件。
 ```
 sudo apt-get install preload
 ```
-#### 11、安装 TLP 和 CPUFREQ（若有需要）
+#### 12、安装 TLP 和 CPUFREQ（若有需要）
 减少过热和使用节能模式。
 ```
 sudo add-apt-repository ppa:linrunner/tlp
@@ -114,7 +124,7 @@ sudo apt-get install indicator-cpufreq
 ```
 重启你的电脑即可在指示器上选择 Powersave 模式。
 
-#### 12、提高 Apt 下载速度 Apt-fast
+#### 13、提高 Apt 下载速度 Apt-fast
 apt-fast 是 apt-get 的一个 shell 脚本包装器，通过从多连接同时下载包来提升更新及包下载速度。 如果你经常使用终端以及 apt-get 来安装和更新包，你也许会想要试一试 apt-fast 。
 安装 apt-fast：
 ```
@@ -122,19 +132,19 @@ sudo add-apt-repository ppa:apt-fast/stable
 sudo apt-get update
 sudo apt-get install apt-fast
 ```
-#### 13、双系统时间设置
+#### 14、双系统时间设置
 解决切换到 Windows 发现时间不对的问题。
 ```
 sudo apt install ntpdate
 sudo ntpdate ntp.aliyun.com #阿里云的时间服务器
 sudo hwclock --localtime --systohc #将时间更新到硬件上
 ```
-#### 14、 配置终端
+#### 15、配置终端
 > 参考：[https://eallion.com/ubuntuzsh](https://eallion.com/ubuntuzsh "https://eallion.com/ubuntuzsh")
 
 终端推荐安装 Guake ，又好看又方便：
 
-##### 14.1. 安装 Guake ：
+##### 15.1. 安装 Guake ：
 直接安装的 Guake 版本不够新，而且中文显示不全。  
 推荐源码安装：
 ```
@@ -152,7 +162,7 @@ sudo make install
 sudo apt install guake
 ```
 
-##### 14.2. 安装 Oh My Zsh ：
+##### 15.2. 安装 Oh My Zsh ：
 
 安装 Zsh：
 ```
@@ -237,7 +247,7 @@ plugins=( git extract fasd zsh-autosuggestions zsh-syntax-highlighting )
 source ~/.zshrc
 ```
 
-##### 14.3. 安装 EverVim ：
+##### 15.3. 安装 EverVim ：
 
 先安装依赖：
 ```
@@ -263,11 +273,11 @@ cd ~/.vim/bundle/YouCompleteMe
 python3 install.py --clang-completer
 ```
 
-#### 15、安装 Grub-customizer
+#### 16、安装 Grub-customizer
 Grub-customizer 可以美化优化 Grub 引导界面。   
 在 Ubuntu Software 软件中心搜索安装。
 
-#### 16、自动挂载硬盘
+#### 17、自动挂载硬盘
 16.1. 查看硬盘的 UUID 和 Type ：
 ```
 sudo blkid
@@ -298,7 +308,7 @@ UUID=0002AD	/home/eallion/Media	ntfs	defaults,uid=1000,gid=1000,umask=022	0	0
 ```
 如果不加 uid gid ，自动挂载后是 root 权限，可能无法读写。
 
-#### 17、安装 Openssh-Server
+#### 18、安装 Openssh-Server
 ```
 sudo apt install openssh-server
 ```
@@ -334,7 +344,7 @@ ChallengeResponseAuthentication yes
 ```
 Port 65537
 ```
-#### 18、火焰截图 Flameshot
+#### 19、火焰截图 Flameshot
 ```
 sudo apt install flameshot 
 ```
@@ -345,7 +355,7 @@ sudo apt install flameshot
 命令：flameshot gui
 设置快捷键：（按键盘设置）
 ```
-#### 19、禁用HDMI默认音频输出
+#### 20、禁用HDMI默认音频输出
 当主机接有音响、耳机、HDMI设备的话，Ubuntu默认是采用HDMI输出音频。Ubuntu自带的声音设置修改后不能保存，下次又还原成默认的。  
 安装PulseAudio ：
 ```
@@ -353,12 +363,12 @@ sudo apt install pavucontrol
 ```
 然后按`Super`键在`Dash`中打开`PulseAudio`，在`设备`选项卡中关闭HDMI即可。
 
-#### 20、安装附加软件包
+#### 21、安装附加软件包
 ```
 sudo apt install ubuntu-restricted-extras
 ```
 
-#### 21、Sudo 免密码
+#### 22、Sudo 免密码
 
 常用私人电脑，是可以运行`sudo`免输密码的，公用电脑不建议这样设置。  
 ```
@@ -489,4 +499,9 @@ https://extensions.gnome.org/extension/800/remove-dropdown-arrows/
 - Lunar Calendar 农历
 ```
 https://extensions.gnome.org/extension/675/lunar-calendar/
+```
+
+- MouseWheel
+```
+https://github.com/muharemovic/MouseWheel
 ```
