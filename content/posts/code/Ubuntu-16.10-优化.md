@@ -98,7 +98,7 @@ sudo apt remove libreoffice-common
 ----------
 
 ```bash
-sudo apt-get remove unity-webapps-common  
+sudo apt remove unity-webapps-common  
 ```
 
 9、解决“月月”显示错误
@@ -139,7 +139,7 @@ gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshel
 Tweak tool有两个，一个是unity-tweak-tool，一个是gnome-tweak-tool
 安装unity-tweak-tool后，Amazon图标会回来，我选择的是安装gnome-tweak-tool
 ```bash
-sudo apt-get install gnome-tweak-tool
+sudo apt install gnome-tweak-tool
 ```
 
 13、禁用房客Guest
@@ -357,8 +357,8 @@ indicator-sysmonitor=20 #网速指示器
 提高电池的寿命并且减少过热
 ```bash
 sudo add-apt-repository ppa:linrunner/tlp
-sudo apt-get update
-sudo apt-get install tlp tlp-rdw
+sudo apt update
+sudo apt install tlp tlp-rdw
 sudo tlp start
 ```
 
