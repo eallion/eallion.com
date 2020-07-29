@@ -13,7 +13,7 @@ layout: 'posts'
 
 > Title: 大大的小蜗牛  
 > URL: `https://eallion.com`  
-> Avatar : `https://gravatar.loli.net/avatar/171e4c30959e8c077a6c58b958624b31`  
+> Avatar : `https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31`  
 > Description : 机会总是垂青于有准备的人  
 > English description : *Chance favors the prepared mind*
 
@@ -35,17 +35,17 @@ layout: 'posts'
 	
 {{< friend des="PHP开发组核心成员" url="http://www.laruence.com/" src="https://cdn.eallion.com/statics/img/link/avatar.jpg" name="风雪之隅" >}}
 	
-{{< friend des="Typecho开发者" url="https://joyqi.com/" src="https://gravatar.loli.net/avatar/8a8304a40ec366197242d3ea3e31baf9" name="JoyQi" >}}
+{{< friend des="Typecho开发者" url="https://joyqi.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/8a8304a40ec366197242d3ea3e31baf9" name="JoyQi" >}}
 	
-{{< friend des="Hexo开发者" url="https://zespia.tw/" src="https://gravatar.loli.net/avatar/0c2e1fea502b8934820eacdfca778d8c" name="Tommy Chen" >}}
+{{< friend des="Hexo开发者" url="https://zespia.tw/" src="https://dn-qiniu-avatar.qbox.me/avatar/0c2e1fea502b8934820eacdfca778d8c" name="Tommy Chen" >}}
 	
-{{< friend des="Hugo开发者" url="https://spf13.com/" src="https://gravatar.loli.net/avatar/e52bc145bc33c4d337698dd9f161ea89" name="Hacking Management" >}}
+{{< friend des="Hugo开发者" url="https://spf13.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/e52bc145bc33c4d337698dd9f161ea89" name="Hacking Management" >}}
 	
-{{< friend des="Hexo开发成员" url="https://skk.moe/" src="https://gravatar.loli.net/avatar/41a3364a02be58036b64d11749ef4e6e" name="Sukka" >}}
+{{< friend des="Hexo开发成员" url="https://skk.moe/" src="https://dn-qiniu-avatar.qbox.me/avatar/41a3364a02be58036b64d11749ef4e6e" name="Sukka" >}}
 	
 ### 友情链接
 
-{{< friend des="sanyaosan.com" url="https://www.sanyaosan.com/" src="https://gravatar.loli.net/avatar/d86dc18560e3df8c2ac1970dd71abefd" name="伞耀伞" >}}
+{{< friend des="sanyaosan.com" url="https://www.sanyaosan.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/d86dc18560e3df8c2ac1970dd71abefd" name="伞耀伞" >}}
 
 {{< friend des="dalizhichuan.com" url="https://www.dalizhichuan.com/" src="https://cdn.eallion.com/statics/img/link/dalizhichuan.png" name="大利之川" >}}
 
@@ -57,48 +57,48 @@ layout: 'posts'
 
 {{< friend des="sirenyan.com" url="http://www.sirenyan.com/" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="斯人 言" >}}
 
-{{< friend des="charleschin.com" url="https://charleschin.com" src="https://gravatar.loli.net/avatar/9a7655675ef08ee179c48f2a829280bd" name="Charles Chin" >}}
+{{< friend des="charleschin.com" url="https://charleschin.com" src="https://dn-qiniu-avatar.qbox.me/avatar/9a7655675ef08ee179c48f2a829280bd" name="Charles Chin" >}}
 
 {{< friend des="yzmb.me" url="http://www.yzmb.me/" src="https://cdn.eallion.com/statics/img/link/mylogo.png" name="羽中漫步" >}}
 
 {{< friend des="blog.phpha.com" url="http://blog.phpha.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="天涯PHP博客" >}}
 
-{{< friend des="imnerd.org" url="http://imnerd.org/" src="https://gravatar.loli.net/avatar/a373282ace706850ed7edfab4161f9e4" name="怡红公子" >}}
+{{< friend des="imnerd.org" url="http://imnerd.org/" src="https://dn-qiniu-avatar.qbox.me/avatar/a373282ace706850ed7edfab4161f9e4" name="怡红公子" >}}
 
-{{< friend des="immmmm.com" url="https://immmmm.com" src="https://gravatar.loli.net/avatar/cb98b86aaebfb5f1ff6f5bfeec6105a4" name="木木木木木" >}}
+{{< friend des="immmmm.com" url="https://immmmm.com" src="https://dn-qiniu-avatar.qbox.me/avatar/cb98b86aaebfb5f1ff6f5bfeec6105a4" name="木木木木木" >}}
 
 {{< friend des="williamlong.info" url="https://www.williamlong.info/" src="https://www.williamlong.info/images/apple-touch-icon.png" name="月光博客" >}}
 
-{{< friend des="sunmingxia.com" url="http://www.sunmingxia.com/" src="https://gravatar.loli.net/avatar/aab6e5c5ceb1c1c2d92b35bb88dd013c?s=32&d=mm&r=g" name="太阳博客" >}}
+{{< friend des="sunmingxia.com" url="http://www.sunmingxia.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/aab6e5c5ceb1c1c2d92b35bb88dd013c?s=32&d=mm&r=g" name="太阳博客" >}}
 
 {{< friend des="songguowen.com" url="http://www.songguowen.com/" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="地球博客" >}}
 
-{{< friend des="yalanlife.net" url="http://yalanlife.net/" src="https://gravatar.loli.net/avatar/c7b16884b068cea25e55f7ee6707ec7f" name="雅岚文藝博客" >}}
+{{< friend des="yalanlife.net" url="http://yalanlife.net/" src="https://dn-qiniu-avatar.qbox.me/avatar/c7b16884b068cea25e55f7ee6707ec7f" name="雅岚文藝博客" >}}
 
-{{< friend des="camarts.app" url="https://camarts.app" src="https://gravatar.loli.net/avatar/4908087ffe0b81b49f741f5d6b14db60" name="Camarts" >}}
+{{< friend des="camarts.app" url="https://camarts.app" src="https://dn-qiniu-avatar.qbox.me/avatar/4908087ffe0b81b49f741f5d6b14db60" name="Camarts" >}}
 
 {{< friend des="zijim.com" url="http://zijim.com/" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="龙龙的博客" >}}
 
-{{< friend des="loveyu.org" url="http://www.loveyu.org/" src="https://gravatar.loli.net/avatar/dfa8aa6cb4e689de87940bb0e451d750" name="恋 羽" >}}
+{{< friend des="loveyu.org" url="http://www.loveyu.org/" src="https://dn-qiniu-avatar.qbox.me/avatar/dfa8aa6cb4e689de87940bb0e451d750" name="恋 羽" >}}
 
-{{< friend des="imjiuki.cn" url="https://imjiuki.cn/" src="https://gravatar.loli.net/avatar/c466071ebfebd2d9bb43f11917dfe045" name="jiuki's blog" >}}
+{{< friend des="imjiuki.cn" url="https://imjiuki.cn/" src="https://dn-qiniu-avatar.qbox.me/avatar/c466071ebfebd2d9bb43f11917dfe045" name="jiuki's blog" >}}
 
-{{< friend des="qfsyj.com" url="https://qfsyj.com" src="https://gravatar.loli.net/avatar/4ba509f9ec541ab4d316299727b3e3ab" name="秦大叔" >}}
+{{< friend des="qfsyj.com" url="https://qfsyj.com" src="https://dn-qiniu-avatar.qbox.me/avatar/4ba509f9ec541ab4d316299727b3e3ab" name="秦大叔" >}}
 
-{{< friend des="fffou.com" url="https://fffou.com/" src="https://gravatar.loli.net/avatar/733d172a66e4dd6b6be94ca71d68e062" name="浮游笔记" >}}
+{{< friend des="fffou.com" url="https://fffou.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/733d172a66e4dd6b6be94ca71d68e062" name="浮游笔记" >}}
 
-{{< friend des="fanghongxing.cn" url="https://fanghongxing.cn" src="https://gravatar.loli.net/avatar/84988a8cb4ea306f6e2b1bcf880081dc" name="十三姨爱我" >}}
+{{< friend des="fanghongxing.cn" url="https://fanghongxing.cn" src="https://dn-qiniu-avatar.qbox.me/avatar/84988a8cb4ea306f6e2b1bcf880081dc" name="十三姨爱我" >}}
 
 {{< friend des="tobehe.com" url="http://www.tobehe.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="饭特稀" >}}
 
-{{< friend des="wangdaodao.com" url="https://wangdaodao.com/" src="https://gravatar.loli.net/avatar/4a713ec085a4431f15a8da0942656713" name="王叨叨" >}}
+{{< friend des="wangdaodao.com" url="https://wangdaodao.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/4a713ec085a4431f15a8da0942656713" name="王叨叨" >}}
 
-{{< friend des="zhuiyibai.cn" url="https://www.zhuiyibai.cn" src="https://gravatar.loli.net/avatar/5483e75925f5c1b046d39d7b86cdedf1" name="追忆白" >}}
+{{< friend des="zhuiyibai.cn" url="https://www.zhuiyibai.cn" src="https://dn-qiniu-avatar.qbox.me/avatar/5483e75925f5c1b046d39d7b86cdedf1" name="追忆白" >}}
 
-{{< friend des="fity.cn" url="https://www.fity.cn/" src="https://gravatar.loli.net/avatar/ee5e5b48164e5362d8800c7364854d15" name="未来往事" >}}
+{{< friend des="fity.cn" url="https://www.fity.cn/" src="https://dn-qiniu-avatar.qbox.me/avatar/ee5e5b48164e5362d8800c7364854d15" name="未来往事" >}}
 
-{{< friend des="jiudao.net" url="https://jiudao.net/" src="https://gravatar.loli.net/avatar/75ab7cb11e241abf513f04182ab653a5" name="被遗忘的旧岛" >}}
+{{< friend des="jiudao.net" url="https://jiudao.net/" src="https://dn-qiniu-avatar.qbox.me/avatar/75ab7cb11e241abf513f04182ab653a5" name="被遗忘的旧岛" >}}
 
-{{< friend des="imwgh.com" url="https://imwgh.com/" src="https://gravatar.loli.net/avatar/f27fba4d7d92056cf3db0e577761ad01" name="大大的小熊" >}}
+{{< friend des="imwgh.com" url="https://imwgh.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/f27fba4d7d92056cf3db0e577761ad01" name="大大的小熊" >}}
 
 {{< friend des="biux.cn" url="https://biux.cn/" src="https://biux.cn/usr/themes/Akina/images/akinadeaava.jpg" name="猫咪Blog" >}}
