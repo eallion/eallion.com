@@ -278,22 +278,22 @@ Grub-customizer 可以美化优化 Grub 引导界面。
 在 Ubuntu Software 软件中心搜索安装。
 
 #### 17、自动挂载硬盘
-16.1. 查看硬盘的 UUID 和 Type ：
+17.1. 查看硬盘的 UUID 和 Type ：
 ```
 sudo blkid
 ```
 记录下UUID和Type。  
-16.2. 创建挂载目录
+17.2. 创建挂载目录
 ```
 cd ~
 sudo mkdir Files
 sudo chown -R eallion:eallion Files
 ```
-16.3. 查看自己的 uid gid
+17.3. 查看自己的 uid gid
 ```
 id eallion
 ```
-16.4. 编辑配置文件：
+17.4. 编辑配置文件：
 ```
 sudo vim /etc/fstab
 ```
