@@ -14,7 +14,7 @@
   {{ if eq $PostCate "chat"}}
       {{ .Render "chat"}}
       <div class="post-content">
-        <a href="{{ .Permalink }}" rel="link"><img loading="lazy" class="post-avatar avatar" src=https://gravatar.loli.net/avatar/{{ md5 "eallion@eallion.com" }} ></a>
+        <a href="{{ .Permalink }}" rel="link"><img loading="lazy" class="post-avatar avatar" src=https://dn-qiniu-avatar.qbox.me/avatar/{{ md5 "eallion@eallion.com" }} ></a>
           {{ .Content }}
       </div>
   {{ else }}
