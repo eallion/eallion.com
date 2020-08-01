@@ -82,4 +82,4 @@ Privacy Policy：[https://eallion.com/privacy-policy](https://eallion.com/privac
 
 ### 联系方式：
 
- - Email: `echo -n "ZWFsbGlvbkBlYWxsaW9uLmNvbQo=" | base64 -d`
+ - Email: <eallions@gmail.com>
