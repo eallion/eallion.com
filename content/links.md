@@ -49,7 +49,7 @@ layout: 'posts'
 
 {{< friend des="dalizhichuan.com" url="https://www.dalizhichuan.com/" src="https://cdn.eallion.com/statics/img/link/dalizhichuan.png" name="大利之川" >}}
 
-{{< friend des="fuzhixinling.com" url="https://www.fuzhixinling.com" src="https://cdn.eallion.com/statics/img/link/fuzhixinling.png" name="福至心灵" >}}
+{{< friend des="fuzhixinling.com" url="https://www.fuzhixinling.com" src="https://www.fuzhixinling.com/media/large/Avatar/CharlesChin.jpg" name="福至心灵" >}}
 
 {{< friend des="yangfuying.com" url="https://www.yangfuying.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="曼陀罗" >}}
 
