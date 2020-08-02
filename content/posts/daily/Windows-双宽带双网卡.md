@@ -15,7 +15,7 @@ date: "2017-05-17 11:52:00"
 还是GBE自适应千兆网卡。
 放在电脑上组成了双网卡。
 
-![222.png](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@master/images/2017/05/17/256815267.png)
+![222.png](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@main/images/2017/05/17/256815267.png)
 
 之所以最后选择了这样的方案。
 是因为去参考别人的教程的时候，发现他们都在讨论2M、4M的小水管。
@@ -29,7 +29,7 @@ date: "2017-05-17 11:52:00"
 只要把宽带属性的`高级TCP/IP设置`中的`自动跃点数`取消勾选，`接口跃点数`填入一个固定的数值，如：`20`
 不管数值设为多少，必须要2张网卡设置为同样的数值。
 
-![1111.png](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@master/images/2017/05/17/1204207163.png)
+![1111.png](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@main/images/2017/05/17/1204207163.png)
 
 这样设置好后，默认走电信流量。
 用这台主力电脑，可以无缝访问两个局域网。
@@ -37,7 +37,7 @@ date: "2017-05-17 11:52:00"
 
 去阿里云下载了一个Ubuntu镜像测试了一下速度。。。
 
-![下载速度.png](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@master/images/2017/05/17/249153887.png)
+![下载速度.png](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@main/images/2017/05/17/249153887.png)
 
 在CMD里用`route print`可以打印路由表，看看默认路由情况。
 用`route`命令还有更多高级的玩法。这里暂且不表。
@@ -46,4 +46,4 @@ date: "2017-05-17 11:52:00"
 这个更简单，没有什么技术含量，只需要硬件支持。
 千兆网卡、超六类网线、千兆LAN口交换机即可。
 
-![333.png](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@master/images/2017/05/17/4038504302.png)
+![333.png](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@main/images/2017/05/17/4038504302.png)
