@@ -12,7 +12,7 @@
 <https://github.com/eallion/eallion.com/issues/new>  
 
 - Email: 
-`echo -n "ZWFsbGlvbnNAZ21haWwuY29t" | base64 -d`
+`echo -n "ZWFsbGlvbnNAZ21haWwuY29tCg==" | base64 -d`
 
 # 写新文章
 > [Create new file](https://github.com/eallion/eallion.com/tree/master/content/posts/)
