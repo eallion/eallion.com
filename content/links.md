@@ -17,7 +17,7 @@ layout: 'posts'
 > Description : 机会总是垂青于有准备的人  
 > English description : *Chance favors the prepared mind*
 
-### 名人名站
+### 友情链接
 
 {{< friend des="作家、赛车手、导演" url="https://weibo.com/hanhan" src="https://cdn.eallion.com/statics/img/link/hanhan.jpg" name="韩 寒" >}}
 	
@@ -41,9 +41,9 @@ layout: 'posts'
 	
 {{< friend des="Hugo开发者" url="https://spf13.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/e52bc145bc33c4d337698dd9f161ea89" name="Hacking Management" >}}
 	
-{{< friend des="Hexo开发成员" url="https://skk.moe/" src="https://dn-qiniu-avatar.qbox.me/avatar/41a3364a02be58036b64d11749ef4e6e" name="Sukka" >}}
+{{< friend des="Hexo开发成员" url="https://blog.skk.moe/" src="https://cdn.jsdelivr.net/npm/skx@0.2.3/avatar/96x96.png" name="Sukka's Blog" >}}
 	
-### 友情链接
+---
 
 {{< friend des="sanyaosan.com" url="https://www.sanyaosan.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/d86dc18560e3df8c2ac1970dd71abefd" name="伞耀伞" >}}
 
