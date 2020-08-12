@@ -12,7 +12,7 @@
 <https://github.com/eallion/eallion.com/issues/new>
 
 - Email: 
-`echo -n "ZWFsbGlvbnNAZ21haWwuY29tCg==" | base64 -d`
+<eallions@gmail.com>
 
 ---
 
@@ -21,13 +21,14 @@
 ### 主仓库
 > <https://github.com/eallion/eallion.com>
 
-### 备用仓库
-> <https://codeup.aliyun.com>
-
 ### 架构备忘
 
-- 国内：通过阿里云云效 Codeup & Flow 部署至：阿里云 OSS + CDN
-- 境外：通过 GitHub Action 部署至 GitHub Pages
+- ~~国内：通过阿里云云效 Codeup & Flow 部署至：阿里云 OSS + CDN~~
+- 国内：通过 GitHub Action 部署至腾讯云 [CloudBase](https://cloud.tencent.com/product/tcb)
+- 境外：通过 GitHub Action 部署至 [GitHub Pages]()
+
+### CloudBase Actions
+- <https://github.com/TencentCloudBase/cloudbase-action>
 
 ### 添加阿里云云效 Codeup remote
 ```
