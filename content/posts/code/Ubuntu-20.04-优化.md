@@ -7,8 +7,8 @@ slug: "ubuntu2004"
 date: "2020-05-25 12:36:00"
 ---
 
-![Ubuntu 20.04](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@main/images/2020/05/ubuntu2004.png)
-> 实机安装 桌面效果截图 [（查看大图）](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@main/images/2020/05/ubuntu2004.png "（查看大图）")
+![Ubuntu 20.04](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages/images/2020/05/ubuntu2004.png)
+> 实机安装 桌面效果截图 [（查看大图）](https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages/images/2020/05/ubuntu2004.png "（查看大图）")
 
 硬件环境：
 ```bash
