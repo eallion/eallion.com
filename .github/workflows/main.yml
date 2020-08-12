@@ -40,7 +40,6 @@ jobs:
           secretKey: ${{ secrets.CLOUDBASE_SECRET_KEY }}
           envId: ${{ secrets.CLOUDBASE_ENV_ID }}
           staticSrcPath: public
-          staticIgnore: .git,.github,node_modules,public/images,public/photos
 
       # 部署到阿里云 OSS
       #- name: Deploy to OSS
