@@ -49,8 +49,8 @@ author: 大大的小蜗牛
  - Description：A blog about *Charles 'eallion' Chin*
  - Since：2006
  - 域名：eallion.com
- - 备案：浙ICP备16031768号-2
- - 服务器：[阿里云](https://www.aliyun.com) OSS + CDN / GitHub Pages
+ - 备案：`浙ICP备16031768号-2`
+ - 服务器：Tencent CloudBase / GitHub Pages
  - 程序：[Hugo](https://gohugo.io)
  - 主题：[Hello Friend](https://github.com/panr/hugo-theme-hello-friend)
  - Copyright：[https://eallion.com/copyright](https://eallion.com/copyright)
