@@ -101,4 +101,4 @@ layout: 'posts'
 
 {{< friend des="imwgh.com" url="https://imwgh.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/f27fba4d7d92056cf3db0e577761ad01" name="大大的小熊" >}}
 
-{{< friend des="biux.cn" url="https://biux.cn/" src="https://biux.cn/usr/themes/Akina/images/akinadeaava.jpg" name="猫咪Blog" >}}
+{{< friend des="biux.cn" url="https://biux.cn/" src="https://cdn.biux.cn/usr/uploads/logo.jpg" name="猫咪Blog" >}}
