@@ -225,7 +225,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 设置 Oh My Zsh ：
 ```
-vi ~/.zshrc
+vim ~/.zshrc
 ```
 
 需要修改如下几个地方：
