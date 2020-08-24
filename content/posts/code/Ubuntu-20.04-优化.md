@@ -373,11 +373,20 @@ sudo apt install ubuntu-restricted-extras
 
 常用私人电脑，是可以运行`sudo`免输密码的，公用电脑不建议这样设置。  
 ```
-sudo vim /etc/sudoers
+su - #进入超级用户模式
 ```
-添加：
+
 ```
-eallion ALL=(ALL:ALL) NOPASSWD: ALL
+vim /etc/sudoers
+```
+在`root    ALL=(ALL:ALL) ALL`下一行添加：
+```
+eallion ALL=(ALL:ALL) ALL
+```
+
+在`%sudo   ALL=(ALL:ALL) ALL`下一行添加：
+```
+eallion ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 其中`eallion`替换成你自己的用户名。  
 
