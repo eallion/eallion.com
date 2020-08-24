@@ -445,14 +445,14 @@ sudo snap install vlc
 sudo apt install virtualbox
 ```
 
-- Visual Studio Code
-```
-sudo snap install code --classic
-```
-
 - Slack 
 ```
 sudo snap install slack --classic
+```
+
+- Visual Studio Code
+```
+https://code.visualstudio.com/Download
 ```
 
 - Typora
