@@ -274,8 +274,9 @@ python3 install.py --clang-completer
 ```
 
 #### 16、安装 Grub-customizer
-Grub-customizer 可以美化优化 Grub 引导界面。   
-在 Ubuntu Software 软件中心搜索安装。
+```
+sudo apt install grub-customizer
+```
 
 #### 17、自动挂载硬盘
 17.1. 查看硬盘的 UUID 和 Type ：
@@ -445,9 +446,9 @@ sudo snap install code --classic
 sudo snap install slack --classic
 ```
 
-- QQ （ 2.0版的 Linux QQ 可用性还是很差，真的不想推荐 ）
+- Typora
 ```
-https://im.qq.com/linuxqq/index.html 
+https://typora.io/#linux
 ```
 
 - Dropbox
@@ -455,11 +456,25 @@ https://im.qq.com/linuxqq/index.html
 https://www.dropbox.com/install
 ```
 
+- Keybase
+```
+https://keybase.io/docs/the_app/install_linux
+```
+
+- QQ （ 2.0版的 Linux QQ 可用性还是很差，真的不想推荐 ）
+```
+https://im.qq.com/linuxqq/index.html 
+```
+
 - 网易云音乐
 ```
 https://music.163.com/#/download
 ```
 
+- MouseWheel
+```
+https://github.com/muharemovic/MouseWheel
+```
 
 ------------
 
@@ -501,7 +516,7 @@ https://extensions.gnome.org/extension/800/remove-dropdown-arrows/
 https://extensions.gnome.org/extension/675/lunar-calendar/
 ```
 
-- MouseWheel
+- Simple net speed
 ```
-https://github.com/muharemovic/MouseWheel
+https://extensions.gnome.org/extension/1085/simple-net-speed/
 ```
