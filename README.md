@@ -34,9 +34,6 @@
 - 国内：通过 GitHub Action 部署至腾讯云 [CloudBase](https://cloud.tencent.com/product/tcb)
 - 境外：通过 GitHub Action 部署至 [GitHub Pages](https://eallion.github.io/)
 
-### CloudBase Actions
-- <https://github.com/TencentCloudBase/cloudbase-action>
-
 ### 添加备用仓库 remote
 > default branch: `main`
 
@@ -78,6 +75,20 @@ git remote add origin https://gitee.com/eallion/eallion.git
 git add .
 git commit -m ${GIT_COMMIT}
 git push -f https://id:token@gitee.com/eallion/eallion.git HEAD:gh-pages
+```
+
+### CloudBase Actions
+> - <https://github.com/TencentCloudBase/cloudbase-action>
+
+```
+      - name: Deploy to Tencent CloudBase
+        id: deployStatic
+        uses: TencentCloudBase/cloudbase-action@v1.1.1
+        with:
+          secretId: ${{ secrets.CLOUDBASE_SECRET_ID }}
+          secretKey: ${{ secrets.CLOUDBASE_SECRET_KEY }}
+          envId: ${{ secrets.CLOUDBASE_ENV_ID }}
+          staticSrcPath: public
 ```
 
 ### Gitee Pages Free 自动部署 Actions
