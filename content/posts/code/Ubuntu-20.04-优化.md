@@ -157,12 +157,19 @@ cd guake
 make
 sudo make install
 ```
-如果需要直接安装：
+如果需要直接安装（版本比较旧）：
 ```
 sudo apt install guake
 ```
 
-##### 15.2. 安装 Oh My Zsh ：
+##### 15.2. 安装 Guake indicator
+```
+sudo add-apt-repository ppa:gun101/ppa
+sudo apt update
+sudo apt install guake-indicator
+```
+
+##### 15.3. 安装 Oh My Zsh ：
 
 安装 Zsh：
 ```
@@ -247,7 +254,7 @@ plugins=( git extract fasd zsh-autosuggestions zsh-syntax-highlighting )
 source ~/.zshrc
 ```
 
-##### 15.3. 安装 EverVim ：
+##### 15.4. 安装 EverVim ：
 
 先安装依赖：
 ```
