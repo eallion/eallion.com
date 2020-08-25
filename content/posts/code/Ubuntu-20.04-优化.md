@@ -410,11 +410,6 @@ sudo snap install authy --beta
 sudo snap install spotify
 ```
 
-- qBittorrent
-```
-sudo apt install qbittorrent
-```
-
 - Termius
 ```
 sudo snap install termius-app
@@ -468,6 +463,11 @@ https://www.dropbox.com/install
 - Keybase
 ```
 https://keybase.io/docs/the_app/install_linux
+```
+
+- qBittorrent Enhanced
+```
+https://github.com/c0re100/qBittorrent-Enhanced-Edition
 ```
 
 - QQ （ 2.0版的 Linux QQ 可用性还是很差，真的不想推荐 ）
