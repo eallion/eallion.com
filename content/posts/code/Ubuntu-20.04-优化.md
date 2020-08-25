@@ -495,10 +495,17 @@ https://github.com/muharemovic/MouseWheel
 
 ### 安装常用 Gnome Shell Extensions
 推荐一些常用的：
+```
+sudo apt install gnome-shell-extensions
+```
 
 - Dash to Dock
 ```
-https://extensions.gnome.org/extension/307/dash-to-dock/
+git clone https://github.com/micheleg/dash-to-dock.git
+cd dash-to-dock
+make
+make install
+sudo gnome-extensions disable ubuntu-dock@ubuntu.com
 ```
 
 - Applications Menu
@@ -527,6 +534,9 @@ https://extensions.gnome.org/extension/800/remove-dropdown-arrows/
 ```
 
 - Lunar Calendar 农历
+```
+sudo apt install gir1.2-lunar-date-2.0
+```
 ```
 https://extensions.gnome.org/extension/675/lunar-calendar/
 ```
