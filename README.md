@@ -19,19 +19,31 @@
 # 备忘录:
 
 ### 主仓库
-> <https://github.com/eallion/eallion.com>
+> <https://github.com/eallion/eallion.com>  
+
+### 备用仓库（多处备份）
+> 腾讯云 Coding： <https://e.coding.net/eallion/eallion.com/hugo.git>  
+> 码云 Gitee： <https://gitee.com/eallion/eallion.com>  
+> 阿里云 Codeup： <https://codeup.aliyun.com/eallion/hugo.git>  
 
 ### 架构备忘
 
 - ~~国内：通过阿里云云效 Codeup & Flow 部署至：阿里云 OSS + CDN~~
+- ~~国内：通过 Coding 部署至：[Gitee pages](https://eallion.gitee.io)~~
+- ~~国内：通过 Coding 部署至：[Coding pages](https://blog.eallion.com)~~
 - 国内：通过 GitHub Action 部署至腾讯云 [CloudBase](https://cloud.tencent.com/product/tcb)
 - 境外：通过 GitHub Action 部署至 [GitHub Pages](https://eallion.github.io/)
 
 ### CloudBase Actions
 - <https://github.com/TencentCloudBase/cloudbase-action>
 
-### 添加阿里云云效 Codeup remote
+### 添加备用仓库 remote
+> default branch: `main`
+
 ```
+git remote set-url --add --push origin https://github.com/eallion/eallion.com.git
+git remote set-url --add --push origin https://e.coding.net/eallion/eallion.com/hugo.git
+git remote set-url --add --push origin https://gitee.com/eallion/eallion.com.git
 git remote set-url --add --push origin https://codeup.aliyun.com/abcdefghijklmnopqrstuvwxyz/eallion/hugo.git
 ```
 
@@ -45,6 +57,42 @@ find -maxdepth 1 -type d -not -name public -not -name "." -exec rm -rf {} \;
 find -maxdepth 1 -type f -exec rm {} \;
 rm -rf public/images
 rm -rf public/photos
+```
+
+### Coding.net 流程部分命令
+```
+# Deploy to Coding Pages
+rm -rf .git
+cd public
+git init
+git remote add origin https://e.coding.net/eallion/eallion.com/public.git
+git add .
+git commit -m ${GIT_COMMIT}
+git push -f https://id:token@e.coding.net/eallion/eallion.com/public.git HEAD:master
+
+# Push public to Gitee Pages
+# Deploy with GitHub Actions
+rm -rf .git
+git init
+git remote add origin https://gitee.com/eallion/eallion.git
+git add .
+git commit -m ${GIT_COMMIT}
+git push -f https://id:token@gitee.com/eallion/eallion.git HEAD:gh-pages
+```
+
+### Gitee Pages Free 自动部署 Actions
+> https://github.com/marketplace/actions/gitee-pages-action
+
+```
+      - name: Build Gitee Pages
+        uses: yanglbme/gitee-pages-action@master
+        with:
+          # 注意替换为你的 Gitee 用户名
+          gitee-username: ${{ secrets.GITEE_USERNAME }}
+          # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
+          gitee-password: ${{ secrets.GITEE_PASSWORD }}
+          # 注意替换为你的 Gitee 仓库，仓库名严格区分大小写，请准确填写，否则会出错
+          gitee-repo: eallion/eallion
 ```
 
 ### 通过空提交运行 GitHub Acions
