@@ -41,7 +41,7 @@
 git remote set-url --add --push origin https://github.com/eallion/eallion.com.git
 git remote set-url --add --push origin https://e.coding.net/eallion/eallion.com/hugo.git
 git remote set-url --add --push origin https://gitee.com/eallion/eallion.com.git
-git remote set-url --add --push origin https://codeup.aliyun.com/abcdefghijklmnopqrstuvwxyz/eallion/hugo.git
+git remote set-url --add --push origin https://codeup.aliyun.com/id/eallion/hugo.git
 ```
 
 ### 阿里云云效 Flow 部分命令
