@@ -472,8 +472,8 @@ https://github.com/poplite/qBEE-Ubuntu-Packaging
 ```
 ```
 sudo add-apt-repository ppa:poplite/qbittorrent-enhanced
-sudo apt-get update
-sudo apt-get install qbittorrent-enhanced qbittorrent-enhanced-nox
+sudo apt update
+sudo apt install qbittorrent-enhanced qbittorrent-enhanced-nox
 ```
 
 - QQ （ 2.0版的 Linux QQ 可用性还是很差，真的不想推荐 ）
