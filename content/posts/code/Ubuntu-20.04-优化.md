@@ -44,7 +44,8 @@ RAM: 3125MiB / 15716MiB
 - mirrors.tuna.tsinghua.edu.cn
 
 ```
-sudo sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+sudo cp -r /etc/apt/sources.list /etc/apt/sources.list.bak
+sudo sed -i "s/\/\/.*archive.ubuntu.com/\/\/mirrors.aliyun.com/g;s/\/\/.*security.ubuntu.com/\/\/mirrors.aliyun.com/g" /etc/apt/sources.list
 ```
 
 然后 update 一下：
