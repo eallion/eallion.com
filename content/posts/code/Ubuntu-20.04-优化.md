@@ -468,6 +468,12 @@ https://keybase.io/docs/the_app/install_linux
 - qBittorrent Enhanced
 ```
 https://github.com/c0re100/qBittorrent-Enhanced-Edition
+https://github.com/poplite/qBEE-Ubuntu-Packaging
+```
+```
+sudo add-apt-repository ppa:poplite/qbittorrent-enhanced
+sudo apt-get update
+sudo apt-get install qbittorrent-enhanced qbittorrent-enhanced-nox
 ```
 
 - QQ （ 2.0版的 Linux QQ 可用性还是很差，真的不想推荐 ）
