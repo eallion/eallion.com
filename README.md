@@ -29,13 +29,13 @@
 ### 架构备忘
 
 - ~~国内：通过阿里云云效 Codeup & Flow 部署至：阿里云 OSS + CDN~~
-- ~~国内：通过 Coding 部署至：[Gitee pages](https://eallion.gitee.io)~~
-- ~~国内：通过 Coding 部署至：[Coding pages](https://blog.eallion.com)~~
+- ~~国内：通过 [Coding](https://coding.net/) 部署至：[Gitee pages](https://eallion.gitee.io)~~
+- ~~国内：通过 [Coding](https://coding.net/) 部署至：[Coding pages](https://blog.eallion.com)~~
 - 国内：通过 GitHub Action 部署至腾讯云 [CloudBase](https://cloud.tencent.com/product/tcb)
 - 境外：通过 GitHub Action 部署至 [GitHub Pages](https://eallion.github.io/)
 
 ### 添加备用仓库 remote
-> default branch: `main`
+> default branch: main
 
 ```
 git remote set-url --add --push origin https://github.com/eallion/eallion.com.git
@@ -78,7 +78,7 @@ git push -f https://id:token@gitee.com/eallion/eallion.git HEAD:gh-pages
 ```
 
 ### 腾讯云 CloudBase Actions
-> <https://github.com/TencentCloudBase/cloudbase-action>
+> <https://github.com/marketplace/actions/tencent-cloudbase-github-action>
 
 ```
       - name: Deploy to Tencent CloudBase
@@ -89,6 +89,22 @@ git push -f https://id:token@gitee.com/eallion/eallion.git HEAD:gh-pages
           secretKey: ${{ secrets.CLOUDBASE_SECRET_KEY }}
           envId: ${{ secrets.CLOUDBASE_ENV_ID }}
           staticSrcPath: public
+```
+
+### 部署到阿里云 OSS 的 Actions
+> <https://github.com/marketplace/actions/uptoc-action>
+```
+      - name: Deploy to OSS
+        uses: saltbo/uptoc@master
+        with:
+          driver: oss
+          region: cn-shanghai
+          bucket: ${{ secrets.bucket }}
+          exclude: public/images,public/photos
+          dist: public
+        env:
+          UPTOC_UPLOADER_AK: ${{ secrets.ACCESS_KEY_ID }}
+          UPTOC_UPLOADER_SK: ${{ secrets.ACCESS_KEY_SECRET }}
 ```
 
 ### Gitee Pages Free 自动部署 Actions
