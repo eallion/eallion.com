@@ -36,12 +36,13 @@
 
 ### 添加备用仓库 remote
 > default branch: main
+> remote url 传递 id:token 免输各个 git 仓库的账号密码
 
 ```
-git remote set-url --add --push origin https://github.com/eallion/eallion.com.git
-git remote set-url --add --push origin https://e.coding.net/eallion/eallion.com/hugo.git
-git remote set-url --add --push origin https://gitee.com/eallion/eallion.com.git
-git remote set-url --add --push origin https://codeup.aliyun.com/id/eallion/hugo.git
+git remote set-url --add --push origin https://id:token@github.com/eallion/eallion.com.git
+git remote set-url --add --push origin https://id:token@e.coding.net/eallion/eallion.com/hugo.git
+git remote set-url --add --push origin https://id:token@gitee.com/eallion/eallion.com.git
+git remote set-url --add --push origin https://id:token@codeup.aliyun.com/id/eallion/hugo.git
 ```
 
 ### 阿里云云效 Flow 部分命令
