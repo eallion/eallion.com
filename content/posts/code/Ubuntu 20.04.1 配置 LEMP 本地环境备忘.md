@@ -7,6 +7,10 @@ slug: "ubuntu2004lnmp"
 date: "2020-08-26 22:36:00"
 ---
 
+本文主要记录在 Ubuntu 20.04.1 Desktop 版本中配置 Nginx、Mysql、PHP、phpMyAdmin。
+
+提示：如果不太了解各项配置的意思，切勿在服务器生产环境中按本文配置！
+
 ### 安装 Nginx
 
 - 移除老旧或冲突软件
