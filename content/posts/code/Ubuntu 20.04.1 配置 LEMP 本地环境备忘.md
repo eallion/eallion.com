@@ -1,10 +1,10 @@
 ---
 title: "Ubuntu 20.04.1 配置 LNMP 本地环境备忘"
 categories: ["代码"]
-tags: ["Ubuntu","Nginx","Mysql","PHP","LNMP","LEMP"]
+tags: ["Ubuntu","Nginx","Mysql","PHP","LNMP"]
 draft: false
 slug: "ubuntu2004lnmp"
-date: "2020-08-26 22:36:00"
+date: 2020-08-26T03:47:38+08:00
 ---
 
 本文主要记录在 Ubuntu 20.04.1 Desktop 版本中配置 Nginx、Mysql、PHP、phpMyAdmin。
