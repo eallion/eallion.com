@@ -1,0 +1,144 @@
+---
+title: "Ubuntu 20.04.1 配置 LNMP 本地环境备忘"
+categories: ["代码"]
+tags: ["Ubuntu","Nginx","Mysql","PHP","LNMP","LEMP"]
+draft: false
+slug: "ubuntu2004lnmp"
+date: "2020-08-26 22:36:00"
+---
+
+### 安装 Nginx
+
+- 移除老旧或冲突软件
+```
+sudo apt purge apache2* php7.0* mysql* phpmyadmin*
+sudo apt autoremove
+sudo apt autoclean
+```
+> 如果不能用`*`完全移除，可输入`sudo apt purge apache2-`然后按`tab`键一个一个删除。奇怪的 bug。
+
+- 如果发生奇怪的事情，比如卸载`apache2`的时候把桌面或者设置都卸载了，趁重启前重装一下。
+
+```
+sudo apt install ubuntu-desktop
+sudo apt install gnome-control-center
+```
+
+- 查找并清除apache配置
+```
+whereis apache2
+sudo rm -rf /etc/apache2
+```
+- 移除MySQL的配置文件
+```
+sudo rm -rf /var/lib/mysql/
+sudo rm -rf /etc/mysql/
+```
+- 最后再查看apache2是否还有残留
+```
+dpkg -l | grep apache2*
+```
+- 安装 Nginx
+```
+sudo apt install nginx -y
+```
+
+### 安装 PHP
+
+```
+sudo apt install php7.4 -y
+sudo apt install php7.4-{common,curl,xsl,iconv,bcmath,bz2,intl,gd,mbstring,mysql,zip,fpm,cli,soap,redis,sqlite3} -y
+```
+
+### 安装 Mysql
+
+```
+sudo apt install mysql-server mysql-client libmysqlclient-dev -y
+```
+
+- 查看初始密码
+
+```
+sudo cat /etc/mysql/debian.cnf
+```
+
+### 安装 phpMyAdmin
+
+```
+sudo apt install phpmyadmin -y
+```
+
+- 修改验证方式
+
+```
+sudo mysql
+mysql> SELECT user,plugin,host FROM mysql.user WHERE user = 'root';
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '******';
+mysql> FLUSH PRIVILEGES;
+mysql> quit;
+```
+- 新建`pma`用户或者`controluser`改为`root`
+
+```
+sudo vim /etc/phpmyadmin/config.inc.php
+```
+
+```
+$cfg['Servers'][$i]['AllowNoPassword'] = TRUE;
+$cfg['Servers'][$i]['controluser'] = 'root';
+$cfg['Servers'][$i]['controlpass'] = '';
+```
+
+- 修改登录 PMA 用户为 `root`
+
+```
+sudo vim /etc/phpmyadmin/config-db.php
+```
+```
+$dbuser='root';
+```
+
+- 配置 Nginx 访问 phpMyAdmin
+
+```
+cd /etc/nginx/sites-available/
+sudo vim default
+```
+
+```
+location /phpmyadmin {
+    root /usr/share/;
+    index index.php;
+    try_files $uri $uri/ =404;
+
+location ~ ^/phpmyadmin/(doc|sql|setup)/ {
+    deny all;
+    }
+
+location ~ /phpmyadmin/(.+.php)${
+    fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+    # include snippets/fastcgi-php.conf;
+    }
+}
+```
+
+### 禁止开机启动
+
+```
+sudo systemctl disable nginx
+sudo systemctl disable mysql
+sudo systemctl disable php7.4-fpm
+#sudo systemctl disable apache2
+```
+
+### 需要用的时候手动打开
+
+```
+sudo systemctl start nginx
+sudo systemctl start mysql
+sudo systemctl start php7.4-fpm
+# or
+sudo service nginx start
+```
