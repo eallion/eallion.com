@@ -42,17 +42,17 @@ jobs:
           envId: ${{ secrets.CLOUDBASE_ENV_ID }}
           staticSrcPath: public
 
-#      # 通过 git remote 直接 push
-#      - name: Sync to Gitee
-#        uses: wearerequired/git-mirror-action@master
-#        env:
-#          # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
-#          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-#        with:
-#          # 注意替换为你的 GitHub 源仓库地址
-#          source-repo: "git@github.com:doocs/advanced-java.git"
-#          # 注意替换为你的 Gitee 目标仓库地址
-#          destination-repo: "git@gitee.com:Doocs/advanced-java.git"
+      ## 通过 git remote 直接 push
+      #- name: Sync to Gitee
+      #  uses: wearerequired/git-mirror-action@master
+      #  env:
+      #    # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
+      #    SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+      #  with:
+      #    # 注意替换为你的 GitHub 源仓库地址
+      #    source-repo: "git@github.com:doocs/advanced-java.git"
+      #    # 注意替换为你的 Gitee 目标仓库地址
+      #    destination-repo: "git@gitee.com:Doocs/advanced-java.git"
 
       - name: Build Gitee Pages
         uses: yanglbme/gitee-pages-action@master
@@ -64,7 +64,7 @@ jobs:
           # 注意替换为你的 Gitee 仓库，仓库名严格区分大小写，请准确填写，否则会出错
           gitee-repo: eallion/eallion
 
-      # 部署到阿里云 OSS
+      ## 部署到阿里云 OSS
       #- name: Deploy to OSS
       #  uses: saltbo/uptoc@master
       #  with:
@@ -77,7 +77,7 @@ jobs:
       #    UPTOC_UPLOADER_AK: ${{ secrets.ACCESS_KEY_ID }}
       #    UPTOC_UPLOADER_SK: ${{ secrets.ACCESS_KEY_SECRET }}
 
-      # 部署到腾讯云 COS
+      ## 部署到腾讯云 COS
       #- name: Deploy to COS
       #  uses: saltbo/uptoc@master
       #  with:
