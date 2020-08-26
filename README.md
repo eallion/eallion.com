@@ -23,7 +23,7 @@
 
 ### 备用仓库（多处备份）
 > 腾讯云 Coding： <https://e.coding.net/eallion/eallion.com/hugo.git>  
-> 码云 Gitee： <https://gitee.com/eallion/eallion.com>  
+> 码云 Gitee： <https://gitee.com/eallion/eallion.com.git>  
 > 阿里云 Codeup： <https://codeup.aliyun.com/eallion/hugo.git>  
 
 ### 架构备忘
