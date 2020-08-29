@@ -23,7 +23,7 @@ jobs:
       - name: Build Hugo
         run: hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 
-      - name: Deploy to GitHub
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.personal_token }}
