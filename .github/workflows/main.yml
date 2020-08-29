@@ -46,8 +46,8 @@ jobs:
         run: |
           cd public
           rm -rf .git
-          git config user.name "Charles Chin"
-          git config user.email eallions@gmail.com
+          git config --global user.name "Charles Chin"
+          git config --global user.email eallions@gmail.com
           git init
           git add .
           git commit -m ${{ GitHub.event.head_commit.message }}
