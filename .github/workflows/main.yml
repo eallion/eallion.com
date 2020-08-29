@@ -57,7 +57,7 @@ jobs:
           gitee-password: ${{ secrets.GITEE_PASSWORD }}
           gitee-repo: eallion/eallion
           branch: gh-pages
-          directory: /
+          # directory: /
           https: true
 
       ## 部署到阿里云 OSS
