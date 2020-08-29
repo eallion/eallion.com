@@ -14,6 +14,9 @@
 - Email: 
 <eallions@gmail.com>
 
+- Slack:
+<https://eallion.slack.com/archives/C016FNKM40K>
+
 ---
 
 # 备忘录:
