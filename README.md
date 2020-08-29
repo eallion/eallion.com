@@ -122,7 +122,7 @@ git push -f https://id:token@gitee.com/eallion/eallion.git HEAD:gh-pages
           gitee-password: ${{ secrets.GITEE_PASSWORD }}
           gitee-repo: eallion/eallion
           branch: gh-pages
-          directory: /
+          # directory: /
           https: true
 ```
 
