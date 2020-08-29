@@ -50,7 +50,7 @@ jobs:
           git config --global user.email eallions@gmail.com
           git init
           git add .
-          git commit -m ${{ GitHub.event.head_commit.message }}
+          git commit -m "${{ GitHub.event.head_commit.message }}"
           git push -f https://${{ secrets.GITEE_USERNAME }}:${{ secrets.GITEE_TOKEN }}@gitee.com/eallion/eallion.git HEAD:gh-pages
           cd ..
 
