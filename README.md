@@ -121,6 +121,9 @@ git push -f https://id:token@gitee.com/eallion/eallion.git HEAD:gh-pages
           gitee-username: ${{ secrets.GITEE_USERNAME }}
           gitee-password: ${{ secrets.GITEE_PASSWORD }}
           gitee-repo: eallion/eallion
+          branch: gh-pages
+          directory: /
+          https: true
 ```
 
 ### 通过空提交运行 GitHub Acions
