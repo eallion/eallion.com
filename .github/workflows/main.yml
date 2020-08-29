@@ -42,23 +42,23 @@ jobs:
           envId: ${{ secrets.CLOUDBASE_ENV_ID }}
           staticSrcPath: public
 
-      - name: Sync to Gitee
-        uses: wearerequired/git-mirror-action@master
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-        with:
-          source-repo: "git@github.com:eallion/eallion.github.io.git"
-          destination-repo: "git@gitee.com:eallion/eallion.git"
+      #- name: Sync to Gitee
+      #  uses: wearerequired/git-mirror-action@master
+      #  env:
+      #    SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+      #  with:
+      #    source-repo: "git@github.com:eallion/eallion.github.io.git"
+      #    destination-repo: "git@gitee.com:eallion/eallion.git"
 
-      - name: Build Gitee Pages
-        uses: yanglbme/gitee-pages-action@master
-        with:
-          gitee-username: ${{ secrets.GITEE_USERNAME }}
-          gitee-password: ${{ secrets.GITEE_PASSWORD }}
-          gitee-repo: eallion/eallion
-          branch: gh-pages
-          # directory: /
-          https: true
+      #- name: Build Gitee Pages
+      #  uses: yanglbme/gitee-pages-action@master
+      #  with:
+      #    gitee-username: ${{ secrets.GITEE_USERNAME }}
+      #    gitee-password: ${{ secrets.GITEE_PASSWORD }}
+      #    gitee-repo: eallion/eallion
+      #    branch: gh-pages
+      #    # directory: /
+      #    https: true
 
       ## 部署到阿里云 OSS
       #- name: Deploy to OSS
