@@ -43,6 +43,12 @@ jobs:
           staticSrcPath: public
 
       - name: Sync to Gitee
+      #  uses: wearerequired/git-mirror-action@master
+      #  env:
+      #    SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+      #  with:
+      #    source-repo: "git@github.com:eallion/eallion.github.io.git"
+      #    destination-repo: "git@gitee.com:eallion/eallion.git"
         run: |
           cd public
           rm -rf .git
@@ -53,13 +59,6 @@ jobs:
           git commit -m "${{ GitHub.event.head_commit.message }}"
           git push -f https://${{ secrets.GITEE_USERNAME }}:${{ secrets.GITEE_TOKEN }}@gitee.com/eallion/eallion.git HEAD:gh-pages
           cd ..
-
-      #  uses: wearerequired/git-mirror-action@master
-      #  env:
-      #    SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-      #  with:
-      #    source-repo: "git@github.com:eallion/eallion.github.io.git"
-      #    destination-repo: "git@gitee.com:eallion/eallion.git"
 
       - name: Build Gitee Pages
         uses: yanglbme/gitee-pages-action@master
