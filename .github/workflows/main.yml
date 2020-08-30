@@ -9,6 +9,11 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
+      - name: Setup timezone
+        uses: zcong1993/setup-timezone@master
+        with:
+          timezone: Asia/Shanghai
+          
       - uses: actions/checkout@v2
         with:
           submodules: true
