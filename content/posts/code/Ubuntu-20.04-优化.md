@@ -106,9 +106,19 @@ sudo apt install gnome-shell-extensions
 > [https://extensions.gnome.org/extension/545/hide-top-bar/](https://extensions.gnome.org/extension/545/hide-top-bar/ "https://extensions.gnome.org/extension/545/hide-top-bar/")
 
 #### 10、安装五笔拼音
+- 传统的 Fcitx 五笔拼音
 ```
 sudo apt install fcitx-table-wbpy
 ```
+
+- Fcitx5-rime 中州韵
+```
+sudo apt install fcitx5 fcitx5-pinyin fcitx5-chinese-addons fcitx5-frontend-gtk2 fcitx5-frontend-gtk3 fcitx5-frontend-qt5
+sudo add-apt-repository ppa:hosxy/test
+sudo apt update
+sudu apt install kde-config-fcitx5
+```
+> 安装 Kimpanel https://github.com/wengxt/gnome-shell-extension-kimpanel
 
 #### 11、Preload
 Preload 是一个后台运行的守护进程，它分析用户行为和频繁运行的应用，让你更快打开常用的软件。
