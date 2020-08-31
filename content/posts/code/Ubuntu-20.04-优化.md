@@ -301,6 +301,15 @@ python3 install.py --clang-completer
 ```
 sudo apt install grub-customizer
 ```
+如果独立显卡在引导界面开机黑屏：
+```
+sudo vim /etc/default/grub
+
+GRUB_CMDLINE_LINUX_DEFAULT="nomodeset quiet splash"
+GRUB_GFXMODE="auto"
+
+sudo update-grub
+```
 
 #### 17、自动挂载硬盘
 17.1. 查看硬盘的 UUID 和 Type ：
