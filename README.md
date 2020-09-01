@@ -38,7 +38,7 @@
 - 境外：通过 GitHub Action 部署至 [GitHub Pages](https://eallion.github.io/)
 
 ### 添加备用仓库 remote
-> default branch: main
+> default branch: main  
 > remote url 传递 id:token 免输各个 git 仓库的账号密码
 
 ```
@@ -168,12 +168,12 @@ git push
 ### 文章中图片处理方式
 - 图片存放目录：
 
-> Path/hugo/static/images/year/month/images_name.xxx
+> Hugo 目录的`static/images/`文件夹下（可按年月分类）。
 
 - 文章中图片 URL：
 
-> `https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages/images` + `/year/month/` + `images_name.xxx`  
+> `https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages/images` `+` `图片路径和名称`
 
 - 如：
 
-> `https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages/images/2006/04/eallion.jpg`
+> `https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages/images/2020/05/ubuntu2004.jpg`
