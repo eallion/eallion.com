@@ -105,6 +105,9 @@ $dbuser='root';
 - 配置 Nginx 访问 phpMyAdmin
 
 ```
+sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+```
+```
 cd /etc/nginx/sites-available/
 sudo vim default
 ```
