@@ -118,9 +118,9 @@ sudo add-apt-repository ppa:hosxy/test
 sudo apt update
 sudu apt install kde-config-fcitx5
 ```
-> 安装 Kimpanel： <https://github.com/wengxt/gnome-shell-extension-kimpanel>
-> 主题： <https://github.com/hosxy/Fcitx5-Material-Color>
-> 主题： <https://github.com/hosxy/Fcitx5-Materia-EXP>
+> 安装 Kimpanel： <https://github.com/wengxt/gnome-shell-extension-kimpanel>  
+> 主题： <https://github.com/hosxy/Fcitx5-Material-Color>  
+> 主题： <https://github.com/hosxy/Fcitx5-Materia-EXP>  
 
 #### 11、Preload
 Preload 是一个后台运行的守护进程，它分析用户行为和频繁运行的应用，让你更快打开常用的软件。
