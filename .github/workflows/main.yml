@@ -48,12 +48,13 @@ jobs:
           staticSrcPath: public
 
       - name: Sync to Gitee
-      #  uses: wearerequired/git-mirror-action@master
+      #  uses: eallion/git-mirror-action@master
       #  env:
       #    SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
       #  with:
-      #    source-repo: "git@github.com:eallion/eallion.github.io.git"
+      #    source-repo: "https://github.com/eallion/eallion.github.io.git"
       #    destination-repo: "git@gitee.com:eallion/eallion.git"
+      #    branch: "gh-pages"
         run: |
           cd public
           rm -rf .git
