@@ -172,8 +172,8 @@ git push
 
 - 文章中图片 URL：
 
-> `https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages/images` `+` `图片路径和名称`
+> `https://eallion.com/images` `+` `图片路径和名称`
 
 - 如：
 
-> `https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages/images/2020/05/ubuntu2004.jpg`
+> `https://eallion.com/images/2020/05/ubuntu2004.jpg`
