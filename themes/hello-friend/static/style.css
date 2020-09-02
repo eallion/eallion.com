@@ -563,9 +563,12 @@ pre code {
 }
 
 blockquote {
-	border-left: 2px solid;
-	margin: 40px;
-	padding: 10px 20px
+	/* border-left: 2px solid; */
+	margin: 10px 20px;
+	/* padding: 10px 20px; */
+	padding: 0 1em;
+	color: #6a737d;
+	border-left: .25em solid #dfe2e5
 }
 
 @media (max-width:683px) {
