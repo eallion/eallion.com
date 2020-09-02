@@ -103,6 +103,8 @@ sudu apt install kde-config-fcitx5
 > 主题： <https://github.com/hosxy/Fcitx5-Material-Color>  
 > 主题： <https://github.com/hosxy/Fcitx5-Materia-EXP>  
 
+- 其他输入法请自行 Google
+
 ### 10、Preload
 Preload 是一个后台运行的守护进程，它分析用户行为和频繁运行的应用，让你更快打开常用的软件。
 ```
@@ -380,7 +382,7 @@ sudo apt install ubuntu-restricted-extras
 
 常用私人电脑，是可以运行`sudo`免输密码的，公用电脑不建议这样设置。  
 ```
-su - #进入超级用户模式
+su - # 进入超级用户模式，注意后面的 `-` 。
 ```
 
 ```
@@ -402,34 +404,9 @@ eallion ALL=(ALL:ALL) NOPASSWD:ALL
 # 安装常用软件
 推荐一些常用的软件：
 
-- Telegram
-```
-sudo snap install telegram-desktop
-```
-
 - Authy
 ```
 sudo snap install authy --beta
-```
-
-- Spofity
-```
-sudo snap install spotify
-```
-
-- Termius
-```
-sudo snap install termius-app
-```
-
-- Gimp
-```
-sudo apt install gimp
-```
-
-- Steam
-```
-sudo apt install steam
 ```
 
 - Filezilla
@@ -437,14 +414,9 @@ sudo apt install steam
 sudo apt install filezilla
 ```
 
-- VLC
+- Gimp
 ```
-sudo snap install vlc
-```
-
-- Virtualbox
-```
-sudo apt install virtualbox
+sudo apt install gimp
 ```
 
 - Slack 
@@ -452,29 +424,56 @@ sudo apt install virtualbox
 sudo snap install slack --classic
 ```
 
-- PPA: qBittorrent Enhanced
+- Spofity
 ```
-sudo add-apt-repository ppa:poplite/qbittorrent-enhanced
-sudo apt update
-sudo apt install qbittorrent-enhanced qbittorrent-enhanced-nox
+sudo snap install spotify
 ```
 
+- Steam
+```
+sudo apt install steam
+```
 
-- Visual Studio Code （通过 Snap 仓库安装有中文输入 Bug 。）
+- Telegram
+```
+sudo snap install telegram-desktop
+```
 
-> <https://code.visualstudio.com/Download> 
+- Termius
+```
+sudo snap install termius-app
+```
 
-- Typora
-> <https://typora.io/#linux>
+- Virtualbox
+```
+sudo apt install virtualbox
+```
+
+- VLC
+```
+sudo snap install vlc
+```
+
+- Docker
+> <https://docs.docker.com/engine/install/ubuntu/>
 
 - Dropbox
 > <https://www.dropbox.com/install>
 
+- Hugo
+> <https://github.com/gohugoio/hugo/releases>
+
 - Keybase
 > <https://keybase.io/docs/the_app/install_linux>
 
-- Hugo
-> <https://github.com/gohugoio/hugo/releases>
+- MouseWheel
+> <https://github.com/muharemovic/MouseWheel>
+
+- Neteasy 网易云音乐
+> <https://music.163.com/#/download>
+
+- Nginx Mysql PHP
+> <https://eallion.com/ubuntu2004lnmp/>
 
 - qBittorrent Enhanced
 > <https://github.com/c0re100/qBittorrent-Enhanced-Edition>  
@@ -483,8 +482,9 @@ sudo apt install qbittorrent-enhanced qbittorrent-enhanced-nox
 - QQ
 > <https://im.qq.com/linuxqq/index.html>
 
-- 网易云音乐
-> <https://music.163.com/#/download>
+- Typora
+> <https://typora.io/#linux>
 
-- MouseWheel
-> <https://github.com/muharemovic/MouseWheel>
+- Visual Studio Code
+> 通过 Snap 仓库安装有中文输入 Bug 。  
+> <https://code.visualstudio.com/Download> 
