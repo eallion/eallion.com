@@ -170,10 +170,16 @@ git push
 
 > Hugo 目录的`static/images/`文件夹下（可按年月分类）。
 
-- 文章中图片 URL：
+- 文章中引用的图片 URL：
 
-> `https://eallion.com/images` `+` `图片路径和名称`
+> `https://images.eallion.com/images` `+` `图片路径和名称`
 
 - 如：
 
-> `https://eallion.com/images/2020/05/ubuntu2004.jpg`
+> `https://images.eallion.com/images/2020/05/ubuntu2004.jpg`
+
+### 相册展示的图片
+
+- 图片存放目录：
+
+> Hugo 目录的`static/photos/`文件夹下，相册页面会自动索引。
