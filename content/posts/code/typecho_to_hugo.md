@@ -39,7 +39,7 @@ Hugo 根目录的 `config.toml` 需要修改一下链接形式。（每个主题
   posts = "/:slug/" #修改这行为自己需要的形式
 ```
 然后文章的 Front matter 里需定义 slug ，如：
-![](https://eallion.com/images/2020/05/typechotohugo.png)
+![](https://images.eallion.com/images/2020/05/typechotohugo.png)
 
 ### 三、导入评论
 
