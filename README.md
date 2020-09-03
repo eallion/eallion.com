@@ -166,20 +166,29 @@ git push
 ```
 
 ### 文章中图片处理方式
+
+因为 jsDelivr 2020.08.15 的[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)，现在没有用 GitHub + jsDelivr 当图床了。
+
+现在写博客添加图片，需要手动添加图片地址。
+
+原方法依然可用，注意图片URL即可。
+
 - 图片存放目录：
 
 > Hugo 目录的`static/images/`文件夹下（可按年月分类）。
 
 - 文章中引用的图片 URL：
 
-> `https://images.eallion.com/images` `+` `图片路径和名称`
+> `https://eallion.com/images` `+` `图片路径和名称`
 
 - 如：
 
-> `https://images.eallion.com/images/2020/05/ubuntu2004.jpg`
+> `https://eallion.com/images/2020/05/ubuntu2004.jpg`
 
-### 相册展示的图片
+### 相册展示的照片
 
-- 图片存放目录：
+- 照片存放目录：
 
-> Hugo 目录的`static/photos/`文件夹下，相册页面会自动索引。
+> 照片需要上传至腾讯云COS。但是本博客没有开启相册页面，无须操作。
+
+> ~~Hugo 目录的`static/photos/`文件夹下，相册页面会自动索引。~~
