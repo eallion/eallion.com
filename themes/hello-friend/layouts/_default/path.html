@@ -1,4 +1,4 @@
 {{ if .Params.path }}
     {{$Path := .Params.path}}
-    <photos>{{- range (readDir (printf "%s%s" "./static/images/" $Path )) -}}<img class="avatar" loading='lazy' src="{{(printf "https://eallion.com/images/%s/%s" $Path .Name ) | absURL}}" />{{- end -}}</photos>
+    <photos>{{- range (readDir (printf "%s%s" "./static/images/" $Path )) -}}<img class="avatar" loading='lazy' src="{{(printf "https://images.eallion.com/images/%s/%s" $Path .Name ) | absURL}}" />{{- end -}}</photos>
 {{ end }}
