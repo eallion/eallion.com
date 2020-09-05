@@ -277,6 +277,8 @@ python3 install.py --clang-completer
 ```
 sudo apt install grub-customizer
 ```
+> Theme: <https://github.com/gustawho/grub2-theme-breeze>
+
 如果独立显卡在引导界面开机黑屏：
 ```
 sudo vim /etc/default/grub
