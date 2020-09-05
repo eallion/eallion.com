@@ -384,7 +384,7 @@ sudo apt install ubuntu-restricted-extras
 ### 24、Sudo 免密码
 
 常用私人电脑，是可以运行`sudo`免输密码的，公用电脑不建议这样设置。  
-# 进入超级用户模式，注意`su`后面的 `-` 。
+进入超级用户，注意`su`后面的 `-` 。
 ```
 su - 
 ```
