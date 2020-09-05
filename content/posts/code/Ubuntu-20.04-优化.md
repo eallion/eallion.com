@@ -142,7 +142,7 @@ sudo ntpdate ntp.aliyun.com #阿里云的时间服务器
 sudo hwclock --localtime --systohc #将时间更新到硬件上
 ```
 
-### 14、安装 Guake ：
+### 14、安装 Guake
 直接安装的 Guake 版本不够新，而且中文显示不全。  
 推荐源码安装：
 ```
@@ -247,7 +247,7 @@ plugins=( git extract fasd zsh-autosuggestions zsh-syntax-highlighting )
 source ~/.zshrc
 ```
 
-### 17、安装 EverVim ：
+### 17、安装 EverVim
 
 先安装依赖：
 ```
@@ -325,6 +325,7 @@ UUID=0002AD	/home/eallion/Media	ntfs	defaults,uid=1000,gid=1000,umask=022	0	0
 sudo apt install openssh-server
 ```
 配置Google Authenticator：（非必须，可选）
+**如果不打算用二次验证登录，不要执行下面的步骤**
 ```
 sudo apt install libpam-google-authenticator
 ```
@@ -383,8 +384,9 @@ sudo apt install ubuntu-restricted-extras
 ### 24、Sudo 免密码
 
 常用私人电脑，是可以运行`sudo`免输密码的，公用电脑不建议这样设置。  
+# 进入超级用户模式，注意`su`后面的 `-` 。
 ```
-su - # 进入超级用户模式，注意后面的 `-` 。
+su - 
 ```
 
 ```
@@ -476,6 +478,9 @@ sudo snap install vlc
 
 - Nginx Mysql PHP
 > <https://eallion.com/ubuntu2004lnmp/>
+
+- PicGo
+> <https://github.com/Molunerfinn/PicGo>
 
 - qBittorrent Enhanced
 > <https://github.com/c0re100/qBittorrent-Enhanced-Edition>  
