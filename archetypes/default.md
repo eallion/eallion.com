@@ -8,7 +8,8 @@ categories: ["分享"]
 categories: ["嘀咕","分享"]
 tags: ["hugo","blog"]
 slug: "{{ replace .Name "-" " " | title }}"
-draft: true
+draft: false
 date: {{ .Date }}
+toc: false
 ---
 
