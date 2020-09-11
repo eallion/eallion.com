@@ -534,7 +534,7 @@ git clone https://github.com/eallion/Big-Sur-Ubuntu.git
 
 ------------
 
-# 安装常用软件
+### 安装常用软件
 推荐一些常用的软件：
 
 - Authy
