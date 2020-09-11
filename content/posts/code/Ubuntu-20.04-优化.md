@@ -5,6 +5,7 @@ tags: ["Ubuntu","优化","美化","ZFS","gnome"]
 draft: false
 slug: "ubuntu2004"
 date: "2020-05-25 12:36:00"
+toc: true
 ---
 
 ![Ubuntu 20.04](https://images.eallion.com/images/2020/09/ubuntu-2004.png)
@@ -513,6 +514,20 @@ sudo apt install gnome-shell-extensions
 - [Places Status Indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
 - [Remove Dropdown Arrows](https://extensions.gnome.org/extension/800/remove-dropdown-arrows/)
 - [Simple net speed](https://extensions.gnome.org/extension/1085/simple-net-speed/)
+
+### 28、体验 macOS Big Sur 动态壁纸
+> <https://github.com/eallion/Big-Sur-Ubuntu>
+
+#### 28.1、下载 Big Sur
+```
+cd ~/Pictures
+git clone https://github.com/eallion/Big-Sur-Ubuntu.git
+```
+#### 28.2、设置  
+打开`Gnome Tweaks`  
+找到`外观`-`背景`  
+选择`/home/xx_username_xx/Pictures/Big-Sur-Ubuntu/focal.xml`文件  
+选择`Zoom`调整方式  
 
 ------------
 
