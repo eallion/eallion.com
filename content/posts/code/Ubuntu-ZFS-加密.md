@@ -13,7 +13,7 @@ Ubuntu 20.04 的安装镜像支持 ZFS 文件系统：
 ![](https://images.eallion.com/images/2020/09/install.png)
 
 本文是**安装后**加密 ZFS Home 目录的备忘教程。  
-另外有**安装前**加密 ZFS Root 文件系统的备忘教程。链接：[《Ubuntu ZFS 全盘加密 Root Boot》](https://eallion.com/ubuntu-zfs-root-encryption)
+另外有**安装前**加密 ZFS Root 文件系统的备忘教程。链接：[《Ubuntu ZFS 原生全盘加密》](https://eallion.com/ubuntu-zfs-root-encryption)
 
 ### 步骤：
 
