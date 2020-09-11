@@ -87,7 +87,10 @@ sudo apt install gdebi
 ```
 sudo apt install fcitx-table-wbpy
 ```
-> 主题： <https://github.com/Yucklys/fcitx-nord-skin>
+> 主题： 
+> <https://github.com/Yucklys/fcitx-nord-skin>
+> <https://github.com/Sakitami/fcitx-themes-package>
+
 
 - Fcitx5-rime 中州韵
 ```
