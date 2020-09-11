@@ -83,7 +83,7 @@ ENABLE_CORRECTION="true"
     ******
 COMPLETION_WAITING_DOTS="true"
     ******
-plugins=( git extract fasd zsh-autosuggestions zsh-syntax-highlighting )
+plugins=( git extract fasd zsh-autosuggestions zsh-syntax-highlighting docker docker-compose )
     ******
 ```
 
