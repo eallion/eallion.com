@@ -48,56 +48,52 @@ sudo apt install gnome-tweak-tool
 ### 5、鼠标滚轮速度
 下载安装 `MouseWheel`
 
-- https://github.com/muharemovic/MouseWheel
+> <https://github.com/muharemovic/MouseWheel>
 
-或者
+### 6、Sudo 免密码
+
+常用的个人电脑，是可以运行`sudo`免输密码的，公用电脑不建议这样设置。  
+进入超级用户，注意`su`后面的 `-` 。
 ```
-sudo apt install imwheel
+su - 
 ```
 
-### 6、安装 Gdebi
+```
+vim /etc/sudoers
+```
+在`root    ALL=(ALL:ALL) ALL`下一行添加：
+```
+eallion ALL=(ALL:ALL) ALL
+```
+
+在`%sudo   ALL=(ALL:ALL) ALL`下一行添加：
+```
+eallion ALL=(ALL:ALL) NOPASSWD:ALL
+```
+替换其中的`eallion`用户名。  
+
+### 7、安装 Gdebi
 ```
 sudo apt install gdebi
 ```
 安装 deb 软件包时，可以用 GDebi 替换 Ubuntu 软件中心。
 
-### 7、安装 Chrome
+### 8、安装 Chrome
 > 下载地址：[https://www.google.com/chrome/](https://www.google.com/chrome/ "https://www.google.com/chrome/")
-
-### 8、安装 Gnome Shell Extensions
-#### 8-1. 安装浏览器插件 
-- Chrome :  [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep "GNOME Shell integration")
-- Firefox: [https://extensions.gnome.org](https://extensions.gnome.org/ "https://extensions.gnome.org/")  
-
-#### 8-2. 安装 Gnome Shell Extensions
-```
-sudo apt install gnome-shell-extensions
-```
-
-#### 8-3. 安装扩展
-- [Applications Menu](https://extensions.gnome.org/extension/6/applications-menu/)
-- [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
-    - `sudo gnome-extensions disable ubuntu-dock@ubuntu.com`
-- [Hide Top Bar](https://extensions.gnome.org/extension/545/hide-top-bar/)
-- [Lunar Calendar 农历](https://extensions.gnome.org/extension/675/lunar-calendar/)
-    - `sudo apt install gir1.2-lunar-date-2.0`
-- [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
-- [Places Status Indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
-- [Remove Dropdown Arrows](https://extensions.gnome.org/extension/800/remove-dropdown-arrows/)
-- [Simple net speed](https://extensions.gnome.org/extension/1085/simple-net-speed/)
 
 ### 9、安装五笔拼音
 - 传统的 Fcitx 五笔拼音
 ```
 sudo apt install fcitx-table-wbpy
 ```
+> 主题： <https://github.com/Yucklys/fcitx-nord-skin>
 
 - Fcitx5-rime 中州韵
 ```
 sudo apt install fcitx5 fcitx5-pinyin fcitx5-chinese-addons fcitx5-frontend-gtk2 fcitx5-frontend-gtk3 fcitx5-frontend-qt5
-sudo add-apt-repository ppa:hosxy/test
+sudo add-apt-repository ppa:hosxy/fcitx5
 sudo apt update
-sudu apt install kde-config-fcitx5
+sudo apt install kde-config-fcitx5
 ```
 > 安装 Kimpanel： <https://github.com/wengxt/gnome-shell-extension-kimpanel>  
 > 主题： <https://github.com/hosxy/Fcitx5-Material-Color>  
@@ -110,7 +106,9 @@ Preload 是一个后台运行的守护进程，它分析用户行为和频繁运
 ```
 sudo apt install preload
 ```
-### 11、安装 TLP 和 CPUFREQ（若有需要）
+### 11、安装 TLP 和 CPUFREQ
+> 若有需要
+
 减少过热和使用节能模式。
 ```
 sudo add-apt-repository ppa:linrunner/tlp
@@ -127,7 +125,8 @@ sudo apt install indicator-cpufreq
 ### 12、提高 Apt 下载速度 Apt-fast
 > 现在的大宽带感觉不需要
 
-apt-fast 是 apt 的一个 shell 脚本包装器，通过从多连接同时下载包来提升更新及包下载速度。 如果你经常使用终端以及 apt 来安装和更新包，你也许会想要试一试 apt-fast 。
+apt-fast 是 apt 的一个 shell 脚本包装器，通过从多连接同时下载包来提升更新及包下载速度。   
+如果你经常使用终端以及 apt 来安装和更新包，你也许会想要试一试 apt-fast 。  
 安装 apt-fast：
 ```
 sudo add-apt-repository ppa:apt-fast/stable
@@ -162,8 +161,6 @@ sudo apt install guake
 
 ### 15、安装 Guake indicator
 ```
-sudo add-apt-repository ppa:gun101/ppa
-sudo apt update
 sudo apt install guake-indicator
 ```
 
@@ -238,7 +235,7 @@ ENABLE_CORRECTION="true"
     ******
 COMPLETION_WAITING_DOTS="true"
     ******
-plugins=( git extract fasd zsh-autosuggestions zsh-syntax-highlighting )
+plugins=( git extract fasd zsh-autosuggestions zsh-syntax-highlighting docker docker-compose)
     ******
 ```
 
@@ -273,20 +270,97 @@ cd ~/.vim/bundle/YouCompleteMe
 python3 install.py --clang-completer
 ```
 
-### 18、安装 Grub-customizer
+### 18、配置 Grub 引导
+#### 18.1、常规安装的 Ubuntu 配置 Grub
+
+用 Grub-customizer 即可
 ```
 sudo apt install grub-customizer
 ```
 > Theme: <https://github.com/gustawho/grub2-theme-breeze>
 
-如果独立显卡在引导界面开机黑屏：
+如果独立显卡在引导界面开机黑屏：将`nomodeset`加到`/etc/default/grub`即可。
+
+#### 18.2、ZFS 文件系统配置 Grub
+> [https://openzfs.github.io/openzfs-docs/Getting Started/Ubuntu/Ubuntu 20.04 Root on ZFS.html#step-5-grub-installation](https://openzfs.github.io/openzfs-docs/Getting%20Started/Ubuntu/Ubuntu%2020.04%20Root%20on%20ZFS.html#step-5-grub-installation)
+
+1、验证是否为 ZFS 文件系统：
+```
+sudo grub-probe /boot
+```
+
+2、刷新一下初始根磁盘：
+```
+sudo update-initramfs -c -k all
+```
+
+3、禁止内存清零：
 ```
 sudo vim /etc/default/grub
+```
+添加`init_on_alloc=0`参数到`GRUB_CMDLINE_LINUX_DEFAULT`里：
+```
+GRUB_CMDLINE_LINUX_DEFAULT="init_on_alloc=0"
+```
 
-GRUB_CMDLINE_LINUX_DEFAULT="nomodeset quiet splash"
-GRUB_GFXMODE="auto"
+4、一些建议的设置（非必要）
+```
+# GRUB_TIMEOUT_STYLE=hidden # 注释掉这一行
+GRUB_TIMEOUT=5
+GRUB_RECORDFAIL_TIMEOUT=5
+GRUB_CMDLINE_LINUX_DEFAULT="nomodeset init_on_alloc=0"
+GRUB_TERMINAL=console
+```
 
+5、更新配置
+```
 sudo update-grub
+```
+
+6、安装引导
+- BIOS 引导
+    ```
+    sudo grub-install $DISK
+    ```
+- UEFI 引导
+    ```
+    sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi \
+    --bootloader-id=ubuntu --recheck --no-floppy
+    ```
+- UEFI RaidZ(多个磁盘的话需要多次安装)
+    ```
+    sudo cp -a /boot/efi/EFI /boot/efi2
+    sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi2 \
+    --bootloader-id=ubuntu-2 --recheck --no-floppy
+    ```
+
+7、禁用`grub-initrd-fallback.service`：
+```
+sudo systemctl mask grub-initrd-fallback.service
+```
+
+8、修复文件系统挂载顺序
+```
+sudo mkdir /etc/zfs/zfs-list.cache
+sudo touch /etc/zfs/zfs-list.cache/bpool
+sudo touch /etc/zfs/zfs-list.cache/rpool
+sudo ln -s /usr/lib/zfs-linux/zed.d/history_event-zfs-list-cacher.sh /etc/zfs/zed.d
+sudo zed -F &
+```
+```
+sudo cat /etc/zfs/zfs-list.cache/bpool
+sudo cat /etc/zfs/zfs-list.cache/rpool
+```
+```
+sudo zfs set canmount=noauto bpool/BOOT/ubuntu_$UUID
+sudo zfs set canmount=noauto rpool/ROOT/ubuntu_$UUID
+```
+```
+fg
+Press Ctrl-C.
+```
+```
+sudo sed -Ei "s|/mnt/?|/|" /etc/zfs/zfs-list.cache/*
 ```
 
 ### 19、自动挂载硬盘
@@ -295,13 +369,13 @@ sudo update-grub
 sudo blkid
 ```
 记录下UUID和Type。  
-创建挂载目录
+创建挂载目录：
 ```
 cd ~
 sudo mkdir Files
 sudo chown -R eallion:eallion Files
 ```
-查看自己的 uid gid
+查看自己的 uid gid：
 ```
 id eallion
 ```
@@ -324,7 +398,7 @@ UUID=0002AD	/home/eallion/Media	ntfs	defaults,uid=1000,gid=1000,umask=022	0	0
 ```
 sudo apt install openssh-server
 ```
-配置Google Authenticator：（非必须，可选）
+配置Google Authenticator：（非必须，可选）  
 **如果不打算用二次验证登录，不要执行下面的步骤**
 ```
 sudo apt install libpam-google-authenticator
@@ -345,18 +419,12 @@ auth required pam_google_authenticator.so
 ```
 sudo vim /etc/ssh/sshd_config
 ```
-把
-```
-ChallengeResponseAuthentication no
-```
-改为：
 ```
 ChallengeResponseAuthentication yes
+
+Port 65537     # 修改自己想要的 SSH 端口
 ```
-修改自己想要的 SSH 端口：
-```
-Port 65537
-```
+
 ### 21、火焰截图 Flameshot
 ```
 sudo apt install flameshot 
@@ -369,7 +437,10 @@ sudo apt install flameshot
 设置快捷键：（按键盘设置）
 ```
 ### 22、禁用HDMI默认音频输出
-当主机接有音响、耳机、HDMI设备的话，Ubuntu默认是采用HDMI输出音频。Ubuntu自带的声音设置修改后不能保存，下次又还原成默认的。  
+> Ubuntu 20.04.1 好像没有这个问题了
+
+当主机接有音响、耳机、HDMI设备的话，Ubuntu默认是采用HDMI输出音频。  
+Ubuntu自带的声音设置修改后不能保存，下次又还原成默认的。  
 安装PulseAudio ：
 ```
 sudo apt install pavucontrol
@@ -381,27 +452,67 @@ sudo apt install pavucontrol
 sudo apt install ubuntu-restricted-extras
 ```
 
-### 24、Sudo 免密码
-
-常用私人电脑，是可以运行`sudo`免输密码的，公用电脑不建议这样设置。  
-进入超级用户，注意`su`后面的 `-` 。
-```
-su - 
-```
+### 24、安装 Docker
+> <https://docs.docker.com/engine/install/ubuntu/>
 
 ```
-vim /etc/sudoers
+sudo apt remove docker docker-engine docker.io containerd runc
+sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent oftware-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt install -y docker-ce docker-ce-cli containerd.io
 ```
-在`root    ALL=(ALL:ALL) ALL`下一行添加：
+检查是否安装成功：
 ```
-eallion ALL=(ALL:ALL) ALL
+docker version
+sudo docker run hello-world
+````
+安装 Docker Compose：
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.27.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+```
+Docker 属于高频操作，运行 Docker 时，免去 `sudo`
+> <https://docs.docker.com/engine/install/linux-postinstall/>
+
+```
+sudo groupadd docker
+sudo usermod -aG docker $USER
+reboot
+newgrp docker
+sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+sudo chmod g+rwx "$HOME/.docker" -R
 ```
 
-在`%sudo   ALL=(ALL:ALL) ALL`下一行添加：
+### 25、安装 Nginx Mysql PHP
+> 参考：<https://eallion.com/ubuntu2004lnmp/>
+
+### 26、ZFS 文件系统加密 Home 目录
+> 建议在安装之前加密硬盘 <https://eallion.com/ubuntu-zfs-root-encryption>  
+> 教程：<https://eallion.com/ubuntu-zfs-encryption>
+
+### 27、安装 Gnome Shell Extensions
+#### 27.1. 安装浏览器插件 
+- Chrome :  [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep "GNOME Shell integration")
+- Firefox: [https://extensions.gnome.org](https://extensions.gnome.org/ "https://extensions.gnome.org/")  
+
+#### 27.2. 安装 Gnome Shell Extensions
 ```
-eallion ALL=(ALL:ALL) NOPASSWD:ALL
+sudo apt install gnome-shell-extensions
 ```
-其中`eallion`替换成你自己的用户名。  
+
+#### 27.3. 安装扩展
+- [Applications Menu](https://extensions.gnome.org/extension/6/applications-menu/)
+- [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
+    - `sudo gnome-extensions disable ubuntu-dock@ubuntu.com`
+- [Hide Top Bar](https://extensions.gnome.org/extension/545/hide-top-bar/)
+- [Lunar Calendar 农历](https://extensions.gnome.org/extension/675/lunar-calendar/)
+    - `sudo apt install gir1.2-lunar-date-2.0`
+- [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
+- [Places Status Indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
+- [Remove Dropdown Arrows](https://extensions.gnome.org/extension/800/remove-dropdown-arrows/)
+- [Simple net speed](https://extensions.gnome.org/extension/1085/simple-net-speed/)
 
 ------------
 
@@ -423,16 +534,6 @@ sudo apt install filezilla
 sudo apt install gimp
 ```
 
-- Slack 
-```
-sudo snap install slack --classic
-```
-
-- Spofity
-```
-sudo snap install spotify
-```
-
 - Steam
 ```
 sudo apt install steam
@@ -440,12 +541,7 @@ sudo apt install steam
 
 - Telegram
 ```
-sudo snap install telegram-desktop
-```
-
-- Termius
-```
-sudo snap install termius-app
+sudo apt install telegram-desktop
 ```
 
 - Virtualbox
@@ -455,7 +551,7 @@ sudo apt install virtualbox
 
 - VLC
 ```
-sudo snap install vlc
+sudo apt install vlc
 ```
 
 - Docker
@@ -479,7 +575,7 @@ sudo snap install vlc
 - Nginx Mysql PHP
 > <https://eallion.com/ubuntu2004lnmp/>
 
-- PicGo
+- PicGo (snap install with `--danderous`)
 > <https://github.com/Molunerfinn/PicGo>
 
 - qBittorrent Enhanced
@@ -488,6 +584,15 @@ sudo snap install vlc
 
 - QQ
 > <https://im.qq.com/linuxqq/index.html>
+
+- Slack 
+> <https://slack.com/downloads/linux>
+
+- Spofity
+> <https://www.spotify.com/us/download/linux/>
+
+- Termius
+> <https://termius.com/linux>
 
 - Typora
 > <https://typora.io/#linux>
