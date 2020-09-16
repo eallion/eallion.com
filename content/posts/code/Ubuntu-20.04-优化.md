@@ -83,7 +83,7 @@ sudo apt install gdebi
 > 下载地址：[https://www.google.com/chrome/](https://www.google.com/chrome/ "https://www.google.com/chrome/")
 
 ### 9、安装 Fcitx 五笔拼音
-- 传统的 Fcitx 五笔拼音
+#### 9.1、 传统的 Fcitx 五笔拼音
 ```
 sudo apt install fcitx-table-wbpy
 ```
@@ -128,7 +128,7 @@ _ ——
 . 。
 ? ？
 ```
-- Fcitx5-rime 中州韵
+#### 9.2、 Fcitx5-rime 中州韵
 ```
 sudo apt install fcitx5 fcitx5-pinyin fcitx5-chinese-addons fcitx5-frontend-gtk2 fcitx5-frontend-gtk3 fcitx5-frontend-qt5
 sudo add-apt-repository ppa:hosxy/fcitx5
@@ -139,7 +139,8 @@ sudo apt install kde-config-fcitx5
 > 主题： <https://github.com/hosxy/Fcitx5-Material-Color>  
 > 主题： <https://github.com/hosxy/Fcitx5-Materia-EXP>  
 
-- 其他输入法请自行 Google，到目前为止，国产的那几个输入法Linux版都不太好用。
+#### 9.3、 其他输入法请自行 Google
+到目前为止，国产的那几个输入法Linux版都不太好用。
 
 ### 10、Preload
 Preload 是一个后台运行的守护进程，它分析用户行为和频繁运行的应用，让你更快打开常用的软件。
@@ -221,17 +222,25 @@ chsh -s /bin/zsh
 
 安装 Oh My Zsh ：
 
-以下3种方式选择1种：
+以下几种方式选择1种：
 
-```
-#1 Wget
-sh -c "$(wget -O- https://raw.GitHubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-#2 Curl
-sh -c "$(curl -fsSL https://raw.GitHubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-#3 Manual
-curl -Lo install.sh https://raw.GitHubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-sh install.sh
-```
+- Via curl
+    ```
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    ```
+- Via wget
+    ```
+    sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    ```
+- Via fetch
+    ```
+    sh -c "$(fetch -o - https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    ```
+- Manual inspection
+    ```
+    curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    sh install.sh
+    ```
 
 字体可以安装 Powerline ，但是推荐安装符号更全的 Ubuntu Nerd Font   或者 Knack Nerd Font Mono。在 Guake 里设置好。
 
