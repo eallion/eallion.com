@@ -87,11 +87,47 @@ sudo apt install gdebi
 ```
 sudo apt install fcitx-table-wbpy
 ```
-> 主题： 
-> <https://github.com/Yucklys/fcitx-nord-skin>
-> <https://github.com/Sakitami/fcitx-themes-package>
+> 主题： <https://github.com/Yucklys/fcitx-nord-skin>  
+> 主题： <https://github.com/Sakitami/fcitx-themes-package>
 
-
+自定义标点符号：
+```
+sudo vim ~/.config/fcitx/data/punc.mb.zh_CN
+```
+添加下面的符号，如果不符合习惯请自行修改。
+```
+~ ～
+` `
+! ！
+@ @
+# #
+$ ￥
+% ␣
+^ ……
+& ÷
+* *
+( （ ）
+) ()
+_ ——
+- －
++ +
+= =
+| |
+\ 、
+{ 『 』
+[ []
+} 〖 〗
+] 【 】
+: ：
+; ；
+" “ ”
+' ‘ ’
+< 《 》
+> <>
+, ，
+. 。
+? ？
+```
 - Fcitx5-rime 中州韵
 ```
 sudo apt install fcitx5 fcitx5-pinyin fcitx5-chinese-addons fcitx5-frontend-gtk2 fcitx5-frontend-gtk3 fcitx5-frontend-qt5
@@ -103,7 +139,7 @@ sudo apt install kde-config-fcitx5
 > 主题： <https://github.com/hosxy/Fcitx5-Material-Color>  
 > 主题： <https://github.com/hosxy/Fcitx5-Materia-EXP>  
 
-- 其他输入法请自行 Google
+- 其他输入法请自行 Google，到目前为止，国产的那几个输入法Linux版都不太好用。
 
 ### 10、Preload
 Preload 是一个后台运行的守护进程，它分析用户行为和频繁运行的应用，让你更快打开常用的软件。
