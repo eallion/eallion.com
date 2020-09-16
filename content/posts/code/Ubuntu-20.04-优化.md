@@ -82,7 +82,7 @@ sudo apt install gdebi
 ### 8、安装 Chrome
 > 下载地址：[https://www.google.com/chrome/](https://www.google.com/chrome/ "https://www.google.com/chrome/")
 
-### 9、安装五笔拼音
+### 9、安装 Fcitx 五笔拼音
 - 传统的 Fcitx 五笔拼音
 ```
 sudo apt install fcitx-table-wbpy
