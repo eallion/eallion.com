@@ -560,8 +560,12 @@ sudo apt install gnome-shell-extensions
     - `sudo apt install gir1.2-lunar-date-2.0`
 - [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
 - [Places Status Indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
+- [Remove Alt+Tab Delay v2](https://extensions.gnome.org/extension/2741/remove-alttab-delay-v2/)
 - [Remove Dropdown Arrows](https://extensions.gnome.org/extension/800/remove-dropdown-arrows/)
 - [Simple net speed](https://extensions.gnome.org/extension/1085/simple-net-speed/)
+- [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/)
+- [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
+- [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
 
 ### 28、体验 macOS Big Sur 动态壁纸
 > <https://github.com/eallion/Big-Sur-Ubuntu>
