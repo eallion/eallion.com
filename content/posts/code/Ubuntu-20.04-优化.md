@@ -293,31 +293,12 @@ plugins=( git extract fasd zsh-autosuggestions zsh-syntax-highlighting docker do
 source ~/.zshrc
 ```
 
-### 17、安装 EverVim
+### 17、安装 spf13-vim
 
-先安装依赖：
 ```
-sudo apt update
-sudo apt install vim python3-pip python3-dev exuberant-ctags cmake gcc g++
+curl http://j.mp/spf13-vim3 -L -o - | sh
 ```
-安装 EverVim ：
-```
-curl -sLf https://raw.GitHubusercontent.com/LER0ever/EverVim/master/Boot-EverVim.sh | bash
-```
-
-进 Vim 安装插件：
-```
-vim
-:PlugInstall
-```
-如果进 Vim 提示 Your ycmd is shut down ，需要安装 You Compute Me ：
-
-> 官方教程： [https://github.com/ycm-core/YouCompleteMe#linux-64-bit](https://github.com/ycm-core/YouCompleteMe#linux-64-bit)
-```
-sudo apt install build-essential cmake python3-dev
-cd ~/.vim/bundle/YouCompleteMe
-python3 install.py --clang-completer
-```
+> Ubuntu 配置 EverVim: <https://eallion.com/ubuntuevervim/>
 
 ### 18、配置 Grub 引导
 #### 18.1、常规安装的 Ubuntu 配置 Grub
