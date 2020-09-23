@@ -47,7 +47,7 @@ git remote set-url --add --push origin https://id:token@github.com/eallion/ealli
 git remote set-url --add --push origin https://id:token@e.coding.net/eallion/eallion.com/hugo.git
 git remote set-url --add --push origin https://id:token@gitee.com/eallion/eallion.com.git
 git remote set-url --add --push origin https://id:token@codeup.aliyun.com/id/eallion/hugo.git
-git remote set-url --add --push origin keybase://private/eallion/eallion
+git remote set-url --add --push origin keybase://private/eallion/eallion.com
 ```
 
 ### 阿里云云效 Flow 部分命令
