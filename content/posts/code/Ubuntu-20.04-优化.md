@@ -195,6 +195,8 @@ cd guake
 make
 sudo make install
 ```
+Ubuntu 20.04 默认终端的背景色：`#300a24`
+
 如果需要直接从软件仓库安装（版本比较旧）：
 ```
 sudo apt install guake
@@ -279,6 +281,8 @@ vim ~/.zshrc
     ******
 POWERLEVEL9K_MODE='nerdfont-complete'
 ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable disk_usage vcs newline)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
     ******
 ENABLE_CORRECTION="true"
     ******
