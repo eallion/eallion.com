@@ -22,7 +22,7 @@ rssLimit = 10
 [menu]
   [[menu.main]]
   name="嘀咕"
-  url="https://eallin.com/talk/"
+  url="https://eallion.com/talk/"
   weight="1"
   #[[menu.main]]
   #name="观影"
@@ -34,35 +34,35 @@ rssLimit = 10
   #weight="3"
   [[menu.main]]
   name="归档"
-  url="https://eallin.com/archives/"
+  url="https://eallion.com/archives/"
   weight="4"
   [[menu.main]]
   name="友链"
-  url="https://eallin.com/links/"
+  url="https://eallion.com/links/"
   weight="5"
   [[menu.main]]
   name="关于"
-  url="https://eallin.com/about/"
+  url="https://eallion.com/about/"
   weight="6"
   [[menu.main]]
   name="日志"
-  url="https://eallin.com/posts/daily/"
+  url="https://eallion.com/posts/daily/"
   weight="11"
   [[menu.main]]
   name="代码"
-  url="https://eallin.com/posts/code/"
+  url="https://eallion.com/posts/code/"
   weight="12"
   [[menu.main]]
   name="运营"
-  url="https://eallin.com/posts/operation/"
+  url="https://eallion.com/posts/operation/"
   weight="13"
   [[menu.main]]
   name="分享"
-  url="https://eallin.com/posts/share/"
+  url="https://eallion.com/posts/share/"
   weight="14"
   [[menu.main]]
   name="山贼"
-  url="https://eallin.com/posts/sz/"
+  url="https://eallion.com/posts/sz/"
   weight="15"
 
 [params]
