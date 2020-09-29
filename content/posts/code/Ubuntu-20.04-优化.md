@@ -627,6 +627,9 @@ sudo apt install vlc
 - Nginx Mysql PHP
 > <https://eallion.com/ubuntu2004lnmp/>
 
+- OBS
+> <https://obsproject.com/wiki/install-instructions#linux>
+
 - PicGo (snap install with `--danderous`)
 > <https://github.com/Molunerfinn/PicGo>
 
