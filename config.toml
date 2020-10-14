@@ -1,6 +1,6 @@
 baseURL  =  "https://eallion.com"
-languageCode = "zh-CN"
-DefaultContentLanguage = "zh-CN"
+languageCode = "zh-cn"
+DefaultContentLanguage = "zh-cn"
 title  =  "大大的小蜗牛"
 subtitle = "机会总是垂青于有准备的人"
 keywords = "蜗牛,大大的小蜗牛,eallion,snail,woniu,博客,代码,运营,电子商务,电商,嘀咕,hugo,code"
