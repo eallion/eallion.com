@@ -297,12 +297,13 @@ plugins=( git extract fasd zsh-autosuggestions zsh-syntax-highlighting docker do
 source ~/.zshrc
 ```
 
-### 17、安装 spf13-vim
+### 17、配置 Vim
 
-```
-curl http://j.mp/spf13-vim3 -L -o - | sh
-```
-> Ubuntu 配置 EverVim: <https://eallion.com/ubuntuevervim/>
+- spf13-vim
+    > <https://github.com/spf13/spf13-vim>
+- EverVim
+    > <https://github.com/LER0ever/EverVim>
+    > Ubuntu 配置 EverVim <https://eallion.com/ubuntuevervim/>
 
 ### 18、配置 Grub 引导
 #### 18.1、常规安装的 Ubuntu 配置 Grub
