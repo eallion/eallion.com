@@ -302,7 +302,7 @@ source ~/.zshrc
 - spf13-vim
     > <https://github.com/spf13/spf13-vim>
 - EverVim
-    > <https://github.com/LER0ever/EverVim>
+    > <https://github.com/LER0ever/EverVim>  
     > Ubuntu 配置 EverVim <https://eallion.com/ubuntuevervim/>
 
 ### 18、配置 Grub 引导
