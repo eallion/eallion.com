@@ -538,26 +538,6 @@ sudo apt install gnome-shell-extensions
 ```
 
 #### 27.3. 安装扩展
-- [AppIndicator and KStatusNotifierItem Support](https://extensions.gnome.org/extension/615/appindicator-support/)
-- [Applications Menu](https://extensions.gnome.org/extension/6/applications-menu/)
-- [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
-    - `sudo gnome-extensions disable ubuntu-dock@ubuntu.com`
-- [Panel Date Format](https://extensions.gnome.org/extension/3465/panel-date-format/)
-- [Hide Top Bar](https://extensions.gnome.org/extension/545/hide-top-bar/)
-- [Lunar Calendar 农历](https://extensions.gnome.org/extension/675/lunar-calendar/)
-    - `sudo apt install gir1.2-lunar-date-2.0`
-    - 启用前先禁用 Panel Date Format 扩展
-- [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
-- [Panel Date Format](https://extensions.gnome.org/extension/3465/panel-date-format/)
-- [Places Status Indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
-- [Remove Alt+Tab Delay v2](https://extensions.gnome.org/extension/2741/remove-alttab-delay-v2/)
-- [Remove Dropdown Arrows](https://extensions.gnome.org/extension/800/remove-dropdown-arrows/)
-- [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/)
-- [TopIcons Plus](https://extensions.gnome.org/extension/1031/topicons/)
-- [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
-- [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
-
-
 - [Applications Menu](https://extensions.gnome.org/extension/6/applications-menu/)
 - [Applications Overview Tooltip](https://extensions.gnome.org/extension/1071/applications-overview-tooltip/)
 - [Auto Move Windows](https://extensions.gnome.org/extension/16/auto-move-windows/)
