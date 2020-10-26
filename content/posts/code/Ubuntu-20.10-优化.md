@@ -92,13 +92,15 @@ sudo apt install vim \
 
 ### 5、去鼠标加速
 对于 FPS 玩家，尤其推荐去掉鼠标加速。  
-4.1. 在 `GNOME Tweaks` 点击 `键盘和鼠标` 在 `鼠标`-`加速配置`里选择`Flat`。  
-4.2. 在 `系统设置`里`设备`-`鼠标和触摸板`-`鼠标`-`鼠标速度`调节自己适应的鼠标速度。  
+5.1. 在 `GNOME Tweaks` 点击 `键盘和鼠标` 在 `鼠标`-`加速配置`里选择`Flat`。  
+5.2. 在 `系统设置`里`设备`-`鼠标和触摸板`-`鼠标`-`鼠标速度`调节自己适应的鼠标速度。  
 
 ### 6、安装显卡驱动
 在 Dash 里搜索`drive`，打开`附加驱动`，选择专有驱动。
 
 ### 7、下载个人配置
+基于 Linux 特性，备份配置文件即可。  
+我的部分配置备份于 GitHub：
 > <https://github.com/eallion/dotfiles>
 ```
 git clone https://github.com/eallion/dotfiles.git ~/Documents/dotfiles
@@ -120,7 +122,7 @@ im-config
 
 自定义标点符号：
 ```
-sudo vim ~/.config/fcitx/data/punc.mb.zh_CN
+wget -c https://raw.githubusercontent.com/eallion/dotfiles/master/Ubuntu/.config/fcitx/data/punc.mb.zh_CN -O ~/.config/fcitx/data/punc.mb.zh_CN
 ```
 按下面格式添加符号，如果不符合习惯请自行修改。
 ```
@@ -158,17 +160,17 @@ _ ——
 ```
 
 ### 9、双系统时间设置
-解决切换到 Windows 发现时间不对的问题。
+解决切换到 Windows 时间不对的问题。将本地时间更新到硬件上。
 ```
 sudo apt install ntpdate
-sudo ntpdate ntp.aliyun.com #阿里云的时间服务器，可用其他时间服务器替换
-sudo hwclock --localtime --systohc #将时间更新到硬件上
+sudo ntpdate ntp.aliyun.com # 阿里云的时间服务器，可用其他时间服务器替换
+sudo hwclock --localtime --systohc
 ```
 
-**前9步的发行完成后，建议重启一下!**
+**前9个步骤执行完成后，建议重启一下!**
 
 ### 10、安装 Guake
-直接安装的 Guake 版本不够新，而且中文显示不全。  
+通过软件仓库直接安装的 Guake 版本不够新，而且中文显示不全。  
 推荐源码安装：
 ```
 git clone https://github.com/Guake/guake.git ~/Documents/guake
@@ -179,7 +181,7 @@ sudo make install
 ```
 Ubuntu 20.10 默认终端的背景色：`#300a24`
 
-#### Guake indicator
+**Guake indicator**  
 如果有需要可安装 Guake indicator：
 ```
 sudo apt install guake-indicator
@@ -252,9 +254,9 @@ source ~/.zshrc
 
 ### 12、配置 Vim
 
-#### spf13-vim
+#### 12.1 spf13-vim
 > <https://github.com/spf13/spf13-vim>
-#### EverVim （推荐）
+#### 12.2 EverVim （推荐）
 > <https://github.com/LER0ever/EverVim>  
 > Ubuntu 配置 EverVim <https://eallion.com/ubuntuevervim/>
 
@@ -309,7 +311,7 @@ sudo blkid
 记录下`UUID`和`Type`。  
 创建挂载目录：
 ```
-mkdir -p ~/Files1 ~/Media1
+mkdir -p ~/Files ~/Media
 ```
 查看自己的 uid gid：
 ```
@@ -328,7 +330,7 @@ UUID=xxxx	/mount-folder	type	defaults	0	0
 UUID=xxxx	/home/eallion/Files	ntfs	defaults,uid=1000,gid=1000,umask=022	0	0
 UUID=xxxx	/home/eallion/Media	ntfs	defaults,uid=1000,gid=1000,umask=022	0	0
 ```
-如果不加 uid gid ，自动挂载后是 root 权限，可能无法读写。
+如果不加 uid gid ，自动挂载后可能是 root 权限，无法读写。
 
 ### 16、安装 PulseAudio Volume Control
 ```
@@ -337,12 +339,14 @@ sudo apt install pavucontrol
 
 ### 17、安装 Docker
 > <https://docs.docker.com/engine/install/ubuntu/>
+Ubuntu 20.10 暂时还没有官方源，使用 Ubuntu 20.04 的源替代。
+即：替换` $(lsb_release -cs) `为`focal`。
 
 ```
 sudo apt remove docker docker-engine docker.io containerd runc
 sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent oftware-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 sudo apt install -y docker-ce docker-ce-cli containerd.io
 ```
 检查是否安装成功：
@@ -369,6 +373,7 @@ sudo chmod g+rwx "$HOME/.docker" -R
 ```
 ### 18、安装 Gnome Shell Extensions
 #### 18.1. 安装浏览器插件 
+可以使用 Chrome 插件，如果登录了 Google 账号，有自动同步功能。
 - Chrome :  [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep "GNOME Shell integration")
 - Firefox: [https://extensions.gnome.org](https://extensions.gnome.org/ "https://extensions.gnome.org/")  
 
@@ -378,7 +383,7 @@ sudo apt install gnome-shell-extensions
 ```
 
 #### 18.3. 安装扩展
-> 以下插件按需启用
+> 以下扩展插件按需启用
 - [Applications Menu](https://extensions.gnome.org/extension/6/applications-menu/)
 - [Applications Overview Tooltip](https://extensions.gnome.org/extension/1071/applications-overview-tooltip/)
 - [Auto Move Windows](https://extensions.gnome.org/extension/16/auto-move-windows/)
@@ -393,14 +398,13 @@ sudo apt install gnome-shell-extensions
 - [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
 - [Lunar Calendar 农历](https://extensions.gnome.org/extension/675/lunar-calendar/)
     - `sudo apt install gir1.2-lunar-date-2.0`
-    - 启用前先禁用 Panel Date Format 扩展
 - [Native Window Placement](https://extensions.gnome.org/extension/18/native-window-placement/)
 - [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
 - [Places Status Indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
 - [Removable Drive Menu](https://extensions.gnome.org/extension/7/removable-drive-menu/)
 - [Remove Alt+Tab Delay v2](https://extensions.gnome.org/extension/2741/remove-alttab-delay-v2/)
 - [Remove Dropdown Arrows](https://extensions.gnome.org/extension/800/remove-dropdown-arrows/)
-    - 已集成在 [Unite](https://extensions.gnome.org/extension/1287/unite/) 里。
+    - [Unite](https://extensions.gnome.org/extension/1287/unite/) 里有此功能。
 - [Screenshot Window Sizer](https://extensions.gnome.org/extension/881/screenshot-window-sizer/)
 - [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/)
 - [Status Area Horizontal Spacing](https://extensions.gnome.org/extension/355/status-area-horizontal-spacing/)
@@ -415,28 +419,8 @@ sudo apt install gnome-shell-extensions
 - [windowNavigator](https://extensions.gnome.org/extension/10/windownavigator/)
 - [Workspace Indicator](https://extensions.gnome.org/extension/21/workspace-indicator/)
 
-### 19、体验 macOS Big Sur 动态壁纸
-实际上没什么卵用，个人也不太喜欢。  
-Gnome 桌面环境原生支持按时间自动切换壁纸的功能。  
-无论什么 Linux 发行版，只要使用 Gnome 桌面环境都可以使用此壁纸。  
-此套壁纸支持5K分辨率。
-Windows 可以使用 [WinDynamicDesktop](https://github.com/t1m0thyj/WinDynamicDesktop)。
-> <https://github.com/eallion/Big-Sur-Ubuntu>
 
-#### 19.1、下载 Big Sur
-```
-git clone https://github.com/eallion/Big-Sur-Ubuntu.git ~/Pictures/Big-Sur-Ubuntu
-```
-#### 19.2、设置  
-打开`Gnome Tweaks`  
-找到`外观`-`背景`  
-选择`groovy.xml`（文件在`/home/username/Pictures/Big-Sur-Ubuntu/groovy.xml`路径）  
-选择`Zoom`调整方式  
-
-------------
-
-
-### 20、火焰截图 Flameshot
+### 19、火焰截图 Flameshot
 ```
 sudo apt install flameshot 
 ```
@@ -447,6 +431,26 @@ sudo apt install flameshot
 命令：flameshot gui
 设置快捷键：（按键盘设置）
 ```
+
+### 20、体验 macOS Big Sur 动态壁纸
+实际上没什么卵用，个人也不太喜欢。  
+Gnome 桌面环境原生支持按时间自动切换壁纸的功能。  
+无论什么 Linux 发行版，只要使用 Gnome 桌面环境都可以使用此壁纸。  
+此套壁纸支持5K分辨率。
+Windows 可以使用 [WinDynamicDesktop](https://github.com/t1m0thyj/WinDynamicDesktop)。
+> <https://github.com/eallion/Big-Sur-Ubuntu>
+
+#### 20.1、下载 Big Sur
+```
+git clone https://github.com/eallion/Big-Sur-Ubuntu.git ~/Pictures/Big-Sur-Ubuntu
+```
+#### 20.2、设置  
+打开`Gnome Tweaks`  
+找到`外观`-`背景`  
+选择`groovy.xml`（文件在`/home/username/Pictures/Big-Sur-Ubuntu/groovy.xml`路径）  
+选择`Zoom`调整方式  
+
+------------
 
 # 安装软件
 
