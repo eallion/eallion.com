@@ -557,6 +557,43 @@ sudo apt install gnome-shell-extensions
 - [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
 - [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
 
+
+- [Applications Menu](https://extensions.gnome.org/extension/6/applications-menu/)
+- [Applications Overview Tooltip](https://extensions.gnome.org/extension/1071/applications-overview-tooltip/)
+- [Auto Move Windows](https://extensions.gnome.org/extension/16/auto-move-windows/)
+- [Clipboard Indicator](https://extensions.gnome.org/extension/779/clipboard-indicator/)
+- [Coverflow Alt-Tab](https://extensions.gnome.org/extension/97/coverflow-alt-tab/)
+- [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
+    - `sudo gnome-extensions disable ubuntu-dock@ubuntu.com`
+- [Desktop Icons](https://extensions.gnome.org/extension/1465/desktop-icons/)
+- [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
+- [Hide Top Bar](https://extensions.gnome.org/extension/545/hide-top-bar/)
+- [Horizontal workspaces](https://extensions.gnome.org/extension/2141/horizontal-workspaces/)
+- [Launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
+- [Lunar Calendar 农历](https://extensions.gnome.org/extension/675/lunar-calendar/)
+    - `sudo apt install gir1.2-lunar-date-2.0`
+    - 启用前先禁用 Panel Date Format 扩展
+- [Native Window Placement](https://extensions.gnome.org/extension/18/native-window-placement/)
+- [OpenWeather](https://extensions.gnome.org/extension/750/openweather/)
+- [Places Status Indicator](https://extensions.gnome.org/extension/8/places-status-indicator/)
+- [Removable Drive Menu](https://extensions.gnome.org/extension/7/removable-drive-menu/)
+- [Remove Alt+Tab Delay v2](https://extensions.gnome.org/extension/2741/remove-alttab-delay-v2/)
+- [Remove Dropdown Arrows](https://extensions.gnome.org/extension/800/remove-dropdown-arrows/)
+    - 已集成在 [Unite](https://extensions.gnome.org/extension/1287/unite/) 里。
+- [Screenshot Window Sizer](https://extensions.gnome.org/extension/881/screenshot-window-sizer/)
+- [Sound Input & Output Device Chooser](https://extensions.gnome.org/extension/906/sound-output-device-chooser/)
+- [Status Area Horizontal Spacing](https://extensions.gnome.org/extension/355/status-area-horizontal-spacing/)
+- [TopIcons Plus](https://extensions.gnome.org/extension/1031/topicons/)
+- [Tray Icons](https://extensions.gnome.org/extension/1503/tray-icons/)
+- [Ubuntu AppIndicators](https://extensions.gnome.org/extension/1301/ubuntu-appindicators/)
+- [Ubuntu Dock](https://extensions.gnome.org/extension/1300/ubuntu-dock/)
+- [Unite](https://extensions.gnome.org/extension/1287/unite/)
+- [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
+- [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
+- [Window List](https://extensions.gnome.org/extension/602/window-list/)
+- [windowNavigator](https://extensions.gnome.org/extension/10/windownavigator/)
+- [Workspace Indicator](https://extensions.gnome.org/extension/21/workspace-indicator/)
+
 ### 28、体验 macOS Big Sur 动态壁纸
 > <https://github.com/eallion/Big-Sur-Ubuntu>
 
