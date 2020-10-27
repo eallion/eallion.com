@@ -19,7 +19,7 @@ Linux 的创始人 Linus Torvalds 用的是 Fedora，所以也推荐使用 Fedor
 
 可能在网上有少部分伪大神对 Ubuntu 发表了一些错误言论，因而导致了一些人对 Ubuntu 的偏见。但是 Linux 系统一切皆文件，真正的大神眼里所有发行版都是一样的，只是包管理方式不同而已。另一点是不必过度迷信于 Archlinux、Gentoo 这种滚动更新发行版，日常使用的话维护成本和风险是有点高的，我连更稳定的 Debian Sid 也滚挂过，在你没有真正理解 Linux 之前，Ubuntu 绝对是正经学习和工作的首选。美化型选手、体验型选手、博客型选手这些人你当我没说，你开心就好。
 
-另外关于最近比较火的深度 Deepin 发行版，个人不推荐。推荐的人说的优点大多反而是缺点，而且系统稳定性和代码质量都不好。比 Deepin 美观的发行版也有不少。比如有的人推荐说 Deepin 可以很方便的运行 QQ 或者微信，本身我觉得在 Linux 下需要运行 QQ 或者微信就是一个伪需求，你都在用 Linux 了还束缚在 QQ 微信里而不去追求更自由的世界这本身就是一个问题，再说用 Wine 的方式运行一个软件，你干嘛不直接去用 Windows 呢，就算用盗版的也可以啊，在简体中文语境中 盗版 Windows 又不是个贬义词。近年也不少企业针对国产 Linux 开发了原生或套壳软件，但是软件质量真不高，“国产毒瘤”这样的标签还是有隐隐约约的影子，可能是因为补贴经费和政治任务才这么积极吧。
+另外关于最近比较火的深度 Deepin 发行版，个人不推荐。推荐的人说的优点大多反而是缺点，而且系统稳定性和代码质量都不好。比 Deepin 美观的发行版也有不少。比如有的人推荐说 Deepin 可以很方便的运行 QQ 或者微信，本身我觉得在 Linux 下需要运行 QQ 或者微信就是一个伪需求，你都在用 Linux 了还束缚在 QQ 微信里而不去追求更自由的世界这本身就是一个问题，再说用 Wine 的方式运行一个软件，你干嘛不直接去用 Windows 呢，就算用盗版的也可以啊，在简体中文语境中 盗版 Windows 又不是个贬义词。近年也有不少企业针对国产 Linux 开发了原生或套壳软件，但是软件质量真不高，“国产毒瘤”这样的标签还是有隐隐约约的影子，可能是因为补贴经费和政治任务才这么积极吧。
 
 我入 Ubuntu 的坑仅仅是因为当初喜欢 Ubuntu 的配色，然后因为习惯留在了 Debian 系。
 
@@ -57,7 +57,6 @@ sudo apt upgrade
 ### 3、Sudo 免密码
 
 常用的个人电脑，是可以运行`sudo`免输密码的，公用电脑不建议这样设置。  
-进入超级用户，注意`su`后面的 `-` 。
 ```
 su - 
 ```
@@ -96,7 +95,7 @@ sudo apt install vim \
 5.2. 在 `系统设置`里`设备`-`鼠标和触摸板`-`鼠标`-`鼠标速度`调节自己适应的鼠标速度。  
 
 ### 6、安装显卡驱动
-在 Dash 里搜索`drive`，打开`附加驱动`，选择专有驱动。
+如果是 Nvidia 独立显卡，在 Dash 里搜索`drive`，打开`附加驱动`，选择专有驱动。  
 
 ### 7、下载个人配置
 基于 Linux 特性，备份配置文件即可。  
@@ -187,7 +186,16 @@ Ubuntu 20.10 默认终端的背景色：`#300a24`
 sudo apt install guake-indicator
 ```
 
-### 11、安装 Oh My Zsh
+### 11、安装 Oh My Tmux
+> <https://github.com/gpakosz/.tmux>
+```
+cd
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local .
+```
+
+### 12、安装 Oh My Zsh
 > 参考：[https://eallion.com/ubuntuzsh](https://eallion.com/ubuntuzsh "https://eallion.com/ubuntuzsh")
 
 安装 Zsh：
@@ -252,11 +260,17 @@ wget -c https://raw.githubusercontent.com/eallion/dotfiles/master/Ubuntu/.zshrc 
 source ~/.zshrc
 ```
 
-### 12、配置 Vim
+如果安装时没有选择将 Zsh 作为默认 Shell，可以用下面的命令设置：
+```
+chsh -s /bin/zsh
+```
+查看当前所用的 Shell ： `echo $SHELL`。
 
-#### 12.1 spf13-vim
+### 13、配置 Vim
+
+#### 13.1 spf13-vim
 > <https://github.com/spf13/spf13-vim>
-#### 12.2 EverVim （推荐）
+#### 13.2 EverVim （推荐）
 > <https://github.com/LER0ever/EverVim>  
 > Ubuntu 配置 EverVim <https://eallion.com/ubuntuevervim/>
 
@@ -280,14 +294,6 @@ cd ~/.vim/bundle/YouCompleteMe
 python3 install.py --clang-completer
 ```
 
-### 13、安装 Oh My Tmux
-> <https://github.com/gpakosz/.tmux>
-```
-cd
-git clone https://github.com/gpakosz/.tmux.git
-ln -s -f .tmux/.tmux.conf
-cp .tmux/.tmux.conf.local .
-```
 ### 14、配置 Grub 引导
 
 Etx4 文件系统用 Grub-customizer 即可，Btrfs、ZFS等文件系统此软件无效。
@@ -383,7 +389,8 @@ sudo apt install gnome-shell-extensions
 ```
 
 #### 18.3. 安装扩展
-> 以下扩展插件按需启用
+> 以下扩展插件按需启用  
+> 安装完成后，按`Alt`+`F2`，输入`r`重启
 - [Applications Menu](https://extensions.gnome.org/extension/6/applications-menu/)
 - [Applications Overview Tooltip](https://extensions.gnome.org/extension/1071/applications-overview-tooltip/)
 - [Auto Move Windows](https://extensions.gnome.org/extension/16/auto-move-windows/)
@@ -421,6 +428,7 @@ sudo apt install gnome-shell-extensions
 
 
 ### 19、火焰截图 Flameshot
+需要设置快捷键，所以把火焰截图单独拿出来说。
 ```
 sudo apt install flameshot 
 ```
@@ -457,7 +465,7 @@ git clone https://github.com/eallion/Big-Sur-Ubuntu.git ~/Pictures/Big-Sur-Ubunt
 ### 安装常用软件
 推荐一些常用的软件：
 
-- Authy
+- Authy (snap)
 ```
 sudo snap install authy --beta
 ```
@@ -467,7 +475,7 @@ sudo snap install authy --beta
 sudo apt install filezilla
 ```
 
-- PhotoGIMP （GIMP）
+- PhotoGIMP （GIMP）(snap)
 ```
 sudo snap install photogimp
 ```
