@@ -465,7 +465,7 @@ git clone https://github.com/eallion/Big-Sur-Ubuntu.git ~/Pictures/Big-Sur-Ubunt
 ### 安装常用软件
 推荐一些常用的软件：
 
-- Authy (snap)
+- Authy (Snap)
 ```
 sudo snap install authy --beta
 ```
@@ -475,7 +475,7 @@ sudo snap install authy --beta
 sudo apt install filezilla
 ```
 
-- PhotoGIMP （GIMP）(snap)
+- PhotoGIMP （GIMP）（Snap）
 ```
 sudo snap install photogimp
 ```
@@ -514,6 +514,9 @@ sudo apt install vlc
 - Dropbox
 > <https://www.dropbox.com/install>
 
+- Go
+> <https://golang.org/doc/install>
+
 - Hugo
 > <https://github.com/gohugoio/hugo/releases>
 
@@ -528,6 +531,9 @@ sudo apt install vlc
 
 - Nginx Mysql PHP
 > <https://eallion.com/ubuntu2004lnmp/>
+
+- NVM
+> <https://github.com/nvm-sh/nvm>
 
 - OBS
 > <https://obsproject.com/wiki/install-instructions#linux>
