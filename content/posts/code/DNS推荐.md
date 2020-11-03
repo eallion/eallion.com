@@ -45,4 +45,5 @@ date: "2015-01-31 10:54:00"
 |UncensoredDNS| 91.239.100.100 |89.233.43.71|
 |Neustar| 156.154.70.1 |156.154.71.1|
 
+AdGuard Known DNS Providers: <https://kb.adguard.com/zh/general/dns-providers>
 全球所有DNS：<a href="https://public-dns.info/nameservers-all.txt" target="_blank">https://public-dns.info/nameservers-all.txt</a>
