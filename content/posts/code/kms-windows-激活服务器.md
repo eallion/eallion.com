@@ -1,5 +1,5 @@
 ---
-title: "Kms Windows 激活服务器"
+title: "KMS Windows 激活服务器"
 categories: ["代码"]
 tags: ["KMS","Windows","激活"]
 slug: "kms"
@@ -15,8 +15,8 @@ toc: false
 - [kms.eallion.com](https://kms.eallion.com)
 
 激活服务器部署在腾讯云香港轻量云服务器上，此网页能打开则表示激活服务可用。  
-只支持激活 VOL 版本的 Windows 和 Office。
-KMS 方式激活，激活一次其有效期只有 180 天，每隔一段时间系统会自动向 KMS 服务器请求续期。
+只支持激活 VOL 版本的 Windows 和 Office。  
+KMS 方式激活，激活一次其有效期只有 180 天，每隔一段时间系统会自动向 KMS 服务器请求续期。  
 
 ### 源码
 
@@ -30,7 +30,7 @@ KMS 方式激活，激活一次其有效期只有 180 天，每隔一段时间�
 - Office 2016 & 2019: <https://technet.microsoft.com/zh-cn/library/dn385360(v=office.16).aspx>
 
 ### 激活教程
-激活过程需要用管理员权限打开`CMD`命令提示符。 
+激活过程需要用管理员权限打开`CMD`命令提示符。   
 不同的版本，需要更换为对应的 ipk 密钥。
 
 - **激活 Windows**
