@@ -14,6 +14,7 @@ hasCJKLanguage = true
 paginate =  10
 # rss 输出数量
 rssLimit = 10
+uglyurls = true
 
 [permalinks]
   posts = "/:slug/"
