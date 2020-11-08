@@ -12,7 +12,7 @@
         appId: '{{ .Site.Params.valine.appId }}',
         appKey: '{{ .Site.Params.valine.appKey }}',
         placeholder: '{{ .Site.Params.valine.placeholder }}',
-        visitor: {{ .Site.Params.valine.visitor }},
+        visitor: '{{ .Site.Params.valine.visitor }}',
         requiredFields: ['mail'],
         emojiCDN: '//i0.hdslb.com/bfs/emote/',
         emojiMaps: {
@@ -189,7 +189,7 @@
         Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
       </noscript>
   {{- end -}}
-  
+
   <!-- Utterances -->
   {{- if .Site.Params.comment.utterances.enable -}}
     <script src="https://utteranc.es/client.js"
