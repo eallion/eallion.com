@@ -91,7 +91,16 @@ rssLimit = 10
 
 [outputs]
   home = ["Atom", "HTML","JSON"] # <domain>/atom.xml
-  page = ["HTML"]
+  page = ["HTML", "MarkDown"]
+
+[mediaTypes]
+  [mediaTypes."text/plain"]
+    suffixes = ["md"]
+
+[outputFormats.MarkDown]
+  mediaType = "text/plain"
+  isPlainText = true
+  isHTML = false
   
 [outputFormats.Atom]
   mediatype = "application/rss"
@@ -104,8 +113,14 @@ rssLimit = 10
   placeholder = '说点什么吧……'
   visitor = true
 
-[params.comment.disqus]
+[params.waline]
   enable = true
+  placeholder = '说点什么吧……'
+  serverURL = 'https://waline.eallion.com'
+  visitor = true
+
+[params.comment.disqus]
+  enable = false
   proxy = "true"
   shortname = "eallion"
   api =  "https://api.eallion.com/disqus/"
