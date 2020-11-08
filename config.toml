@@ -107,14 +107,14 @@ rssLimit = 10
   baseName = "atom"
 
 [params.valine]
-  enable = true
+  enable = false
   appId = ''
   appKey = ''
   placeholder = '说点什么吧……'
   visitor = true
 
 [params.waline]
-  enable = false
+  enable = true
   placeholder = '说点什么吧……'
   serverURL = 'https://waline-sandy.vercel.app'
   visitor = true
