@@ -705,6 +705,15 @@ hr {
 }
 
 .post-meta a{text-decoration: none;}
+.expired-tips {
+	margin: 10px 20px;
+    border: 1px solid #e2e2e2;
+    background-color: #ffffc0;
+    padding: 0 1em;
+    overflow: hidden;
+    color: #333;
+    border-left: .25em solid #fff000;
+}
 
 @media (max-width:683px) {
 	.post-meta {
