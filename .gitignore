@@ -21,3 +21,5 @@ bin-release/
 
 public
 public.*
+
+cloudbaserc.json
