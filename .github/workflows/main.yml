@@ -25,10 +25,12 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
-          # extended: true
+          extended: true
 
       - name: Build Hugo
-        run: hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
+        run: |
+          hugo version
+          hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
