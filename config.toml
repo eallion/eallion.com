@@ -14,7 +14,7 @@ hasCJKLanguage = true
 paginate =  10
 # rss 输出数量
 rssLimit = 10
-uglyurls = true
+# uglyurls = true
 
 [permalinks]
   posts = "/:slug/"
@@ -108,16 +108,16 @@ uglyurls = true
   baseName = "atom"
 
 [params.valine]
-  enable = true
+  enable = false
   appId = '8BvPJ6EeOAkQ4AFttNyYEfET-9Nh9j0Va'
   appKey = 'FGQItPQDpoTal7yzzETx5vnK'
   placeholder = '说点什么吧……'
   visitor = true
 
 [params.waline]
-  enable = false
+  enable = true
   placeholder = '说点什么吧……'
-  serverURL = 'https://waline-sandy.vercel.app'
+  serverURL = 'https://waline-test.vercel.app'
   visitor = true
 
 [params.comment.disqus]
