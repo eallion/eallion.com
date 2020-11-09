@@ -49,7 +49,7 @@ jobs:
           envId: ${{ secrets.CLOUDBASE_ENV_ID }}
           staticSrcPath: public
 
-      - name: Sync to Gitee
+      #- name: Sync to Gitee
       #  uses: eallion/git-mirror-action@master
       #  env:
       #    SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
@@ -57,26 +57,26 @@ jobs:
       #    source-repo: "https://github.com/eallion/eallion.github.io.git"
       #    destination-repo: "git@gitee.com:eallion/eallion.git"
       #    branch: "gh-pages"
-        run: |
-          cd public
-          rm -rf .git
-          git config --global user.name "Charles Chin"
-          git config --global user.email ${{ secrets.GITEE_EMAIL }}
-          git init
-          git add .
-          git commit -m "${{ GitHub.event.head_commit.message }}"
-          git push -f https://${{ secrets.GITEE_USERNAME }}:${{ secrets.GITEE_TOKEN }}@gitee.com/eallion/eallion.git HEAD:gh-pages
-          cd ..
+      #  run: |
+      #    cd public
+      #    rm -rf .git
+      #    git config --global user.name "Charles Chin"
+      #    git config --global user.email ${{ secrets.GITEE_EMAIL }}
+      #    git init
+      #    git add .
+      #    git commit -m "${{ GitHub.event.head_commit.message }}"
+      #    git push -f https://${{ secrets.GITEE_USERNAME }}:${{ secrets.GITEE_TOKEN }}@gitee.com/eallion/eallion.git HEAD:gh-pages
+      #    cd ..
 
-      - name: Build Gitee Pages
-        uses: yanglbme/gitee-pages-action@master
-        with:
-          gitee-username: ${{ secrets.GITEE_USERNAME }}
-          gitee-password: ${{ secrets.GITEE_PASSWORD }}
-          gitee-repo: eallion/eallion
-          branch: gh-pages
-          # directory: /
-          https: true
+      #- name: Build Gitee Pages
+      #  uses: yanglbme/gitee-pages-action@master
+      #  with:
+      #    gitee-username: ${{ secrets.GITEE_USERNAME }}
+      #    gitee-password: ${{ secrets.GITEE_PASSWORD }}
+      #    gitee-repo: eallion/eallion
+      #    branch: gh-pages
+      #    # directory: /
+      #    https: true
 
       ## 部署到阿里云 OSS
       #- name: Deploy to OSS
