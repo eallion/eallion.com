@@ -1330,6 +1330,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 }
 
 /* valine 1.4.5 评论样式 */
+/*
 .v *{box-sizing:border-box;}
 .v .cancel-reply{cursor:pointer;fill:#a9a9b3;text-align:right;position:absolute;right:12px;top:12px;margin:0;padding:0;z-index:99;}
 .v .cancel-reply:hover{fill:#4a4b50;}
@@ -1416,6 +1417,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .dark-theme .v .vcards .vcard .vcontent.expand:after{background:hsla(0,0%,6%,.86)}
 .dark-theme .v .cancel-reply{fill:#4a4b50;}
 .dark-theme .v .cancel-reply:hover{fill:#a9a9b3;}
+*/
 
 photos:after{
   content: ".";
