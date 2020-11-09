@@ -117,7 +117,7 @@ rssLimit = 10
 [params.waline]
   enable = true
   placeholder = '说点什么吧……'
-  serverURL = 'https://waline-test.vercel.app'
+  serverURL = 'https://waline.eallion.com'
   visitor = true
 
 [params.comment.disqus]
