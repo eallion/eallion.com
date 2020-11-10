@@ -13,8 +13,8 @@
         appKey: '{{ .Site.Params.valine.appKey }}',
         placeholder: '{{ .Site.Params.valine.placeholder }}',
         visitor: '{{ .Site.Params.valine.visitor }}',
-        requiredFields: ['mail'],
-        emojiCDN: '//i0.hdslb.com/bfs/emote/',
+        requiredFields: '{{ .Site.Params.valine.requiredFields }}',
+        emojiCDN: '{{ .Site.Params.valine.emojiCDN }}',
         emojiMaps: {
           "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
           "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
