@@ -104,6 +104,8 @@ rssLimit = 10
   appKey = 'FGQItPQDpoTal7yzzETx5vnK'
   placeholder = '说点什么吧……'
   visitor = true
+  requiredFields = "['nick','mail']"
+  emojiCDN = "//i0.hdslb.com/bfs/emote/"
 
 [params.waline]
   enable = false
