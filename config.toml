@@ -91,17 +91,8 @@ rssLimit = 10
   unsafe = true
 
 [outputs]
-  home = ["Atom", "HTML","JSON"] # <domain>/atom.xml
-  page = ["HTML", "MarkDown"]
-
-[mediaTypes]
-  [mediaTypes."text/plain"]
-    suffixes = ["md"]
-
-[outputFormats.MarkDown]
-  mediaType = "text/plain"
-  isPlainText = true
-  isHTML = false
+  home = ["Atom", "HTML", "JSON"] # <domain>/atom.xml
+  page = ["HTML"]
   
 [outputFormats.Atom]
   mediatype = "application/rss"
