@@ -106,13 +106,16 @@ rssLimit = 10
   visitor = true
 
 [params.waline]
-  enable = true
+  enable = false
   placeholder = "说点什么吧……"
   visitor = true
   path = "location.pathname"
   serverURL = "https://waline.eallion.com"
   requiredFields = "['nick','mail']"
   emojiCDN = "//i0.hdslb.com/bfs/emote/"
+
+[params.twikoo]
+  enable = true
 
 [params.comment.disqus]
   enable = false
