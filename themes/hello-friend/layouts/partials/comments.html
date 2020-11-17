@@ -94,18 +94,23 @@
 
   <!-- Waline -->
   {{- if .Site.Params.waline.enable -}}
-  <script src='https://cdn.jsdelivr.net/npm/@waline/client@0.1.2/dist/Waline.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/@waline/client@latest/dist/Waline.min.js'></script>
   <div class="pagination__title">
        <span class="pagination__title-h"><span class="vcount"></span>精彩评论</span>
        <hr />
   </div>
+
+  <span id="<Your/Path/Name>" class="leancloud_visitors">
+    <em class="post-meta-item-text">阅读量 </em>
+    <i class="leancloud-visitors-count"></i>
+</span>
+
   <div id="waline"></div>
   <script>
       new Waline({
         el: '#waline' ,
         placeholder: '{{ .Site.Params.waline.placeholder }}',
         visitor: '{{ .Site.Params.waline.visitor }}',
-        path: '{{ .Site.Params.waline.path }}',
         serverURL: '{{ .Site.Params.waline.serverURL }}',
         requiredFields: '{{ .Site.Params.waline.requiredFields }}',
         emojiCDN: '{{ .Site.Params.waline.emojiCDN }}',

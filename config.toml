@@ -111,8 +111,7 @@ rssLimit = 10
   enable = false
   placeholder = "说点什么吧……"
   visitor = true
-  path = "location.pathname"
-  serverURL = "https://waline.eallion.com"
+  serverURL = "https://waline-neon.vercel.app"
   requiredFields = "['nick','mail']"
   emojiCDN = "//i0.hdslb.com/bfs/emote/"
 
