@@ -1,128 +1,93 @@
 {{ define "main" }}
 <div class="post">
   <h2 class="post-title">{{.Title}}</h2>
-  <div class="post-content" id="app">
-    <p v-show="count == 0">别急，加载呢……</p>
-    <div v-show="count">
-    <p >总共嘀咕了 {{htmlUnescape "{{count}}" }} 条</p>
+  <p class="count">共嘀咕了<span class="count-data">0</span>条</p>
     <section class="timeline">
       <ul>
-        <li class="item" v-for="item in contents" v-cloak>
-          <div>
-            <p v-html='item.attributes.content'></p>
-            <i><time v-bind:datetime="item.attributes.time"><small>{{htmlUnescape "发布于 {{item.attributes.time}} 来自 「{{item.attributes.from}} 」"}}</small></time></i>
-          </div>
-        </li>
+        <div class="list">
+        </div>
       </ul>
     </section>
-    <div class="load-ctn">
-      <button class="load-btn" v-on:click="loadMore" v-if="contents" v-cloak>查看更多</button>
-      <p class="tip" v-else>别急，加载呢</p>
-    </div>
+    <div class="load">
+      <span class="button-load">加载更多</span>
   </div>
-  </div>
-</div>
-<style>
-  .timeline ul {margin:0;padding-bottom:2rem;}
-  .timeline ul li {background:#eaeaea;list-style-type:none;position:relative;width:2px;margin-left:20px;padding:10px 0 50px;}
-  .timeline ul li::after {content:'';position:absolute;left:50%;top:25px;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:inherit;}
-  .timeline ul li div {background:#eaeaea;border-radius:5px;position:relative;top:0;left:40px;width:670px;padding:8px 16px;}
-  .timeline ul li div p{margin:0;}
-  .timeline ul li div::before{content:'';position:absolute;top:10px;width:0;height:0;border-style:solid;left:-15px;border-width:8px 16px 8px 0;border-color:transparent #eaeaea transparent transparent;}
-  .dark-theme .timeline ul li,.dark-theme .timeline ul li div{background:#3b3d42;}
-  .dark-theme .timeline ul li div::before{border-color:transparent #3b3d42 transparent transparent;}
-  @media (max-width:860px) {
-    .timeline ul li{margin-left:0;}
-    .timeline ul li div{width:calc(100vw - 75px);left:30px;}
 
-  }
-</style>
-<link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
-{{ end }}
 
-{{ define "footer" }}
-{{$scratch := newScratch}}
-{{ range (where .Site.Pages "Kind" "page" )}}
-    {{$scratch.Add "total" .WordCount}}
-{{ end }}
+  <style>
+    .timeline ul {margin:0;padding-bottom:2rem;}
+    .timeline ul li {background:#eaeaea;list-style-type:none;position:relative;width:2px;margin-left:20px;padding:10px 0 50px;}
+    .timeline ul li::after {content:'';position:absolute;left:50%;top:25px;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:inherit;}
+    .timeline ul li div {background:#eaeaea;border-radius:5px;position:relative;top:0;left:40px;width:670px;padding:8px 16px;}
+    .timeline ul li div p{margin:0;}
+    .timeline ul li div::before{content:'';position:absolute;top:10px;width:0;height:0;border-style:solid;left:-15px;border-width:8px 16px 8px 0;border-color:transparent #eaeaea transparent transparent;}
+    .dark-theme .timeline ul li,.dark-theme .timeline ul li div{background:#3b3d42;}
+    .dark-theme .timeline ul li div::before{border-color:transparent #3b3d42 transparent transparent;}
+    @media (max-width:860px) {
+      .timeline ul li{margin-left:0;}
+      .timeline ul li div{width:calc(100vw - 75px);left:30px;}
+  
+    }
+  </style>
+    <link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
 
-<footer class="footer">
-  <div class="footer__inner">
-    <div class="copyright">
-      <span>共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇文章</span><span> {{$scratch.Get "total" }} 字</span>
-    </div>
-    {{ if $.Site.Copyright }}
-      <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
-    {{else}}
-      <div class="copyright">
-        <span>© {{ now.Year }} Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a> Theme by <a href="https://twitter.com/panr" target="_blank" rel="noopener">Panr</a></span>
-      </div>
-    {{end}}
-  </div>
-</footer>
+    <script src="https://imgcache.qq.com/qcloud/tcbjs/1.6.1/tcb.js"></script>
+    <script>
 
-<script type="text/javascript" src="https://static.eallion.com/assets/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
-<script type="text/javascript">
-    var {
-        Query
-    } = AV;
-    AV.init({
-        appId:"8BvPJ6EeOAkQ4AFttNyYEfET-9Nh9j0Va", //你的 leancloud 应用 id （设置-应用keys-AppID）
-        appKey:"FGQItPQDpoTal7yzzETx5vnK", //你的 leancloud 应用 AppKey （设置-应用keys-AppKey）
-        serverURLs: 'https://comment.eallion.com',
-    });
+        //初始化
+        const app = tcb.init({
+          env: 'eallion-160d1d' //这里是你的环境id
+        })
 
-    var query = new AV.Query('content');
+        app.auth({
+            persistence: "session"
+        }).anonymousAuthProvider().signIn().then(() => {
+            //定义数据对象
+            const db = app.database()
+            //选择数据表
+            const collection = db.collection('talks')
+            
+            /**
+             * 定义基本变量
+             * count | int, 数目
+             * per | int, 每页显示项目数
+             * page | int, 第几页
+             */
+            var count=0, per = 8,page = 1
 
-    var app = new Vue({
-        el:'#app',
-        data:{
-            isShow: true,
-            page:0,
-            count:0,
-            contents:[]
-        },
-        methods:{
-            loadMore:function(event) { 
-              getData(++this.page);
+            /**
+             * 获取数目
+             */
+            collection.count(function(err,res){
+                count = res.total
+                $('.count-data').text(count)
+                getList()
+            })
+
+            /**
+             * 封装获取数据函数
+             */
+            function getList(){
+                if((page-1)*per >= count){
+                    return
+                }
+                var date
+                collection.limit(per).skip((page-1)*per).orderBy('date','desc').get(function(err, res) {
+                    (res.data).forEach(item => {
+                        date = item.date
+                        $('.list').append('<li class="item"><div><p>'+item.content+'</p><p class="date"><i><small>'+date.getFullYear()+'年'+(date.getMonth()+1)+'月'+date.getDate()+'日 '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'</i></small></p></div></li>')
+                    });
+                    if(page*per >= count){
+                        $('.load').remove()
+                        return
+                    }
+                    page++
+                });
             }
-        }
-    })
 
-    function urlToLink(str) {
-        var re = /(http|ftp|https):\/\/[\w-]+(.[\w-]+)+([\w-.,@?^=%&:/~+#]*[\w-\@?^=%&/~+#])?/g;;
-
-        str = str.replace(re, function(website) {
-            return "<a href='" + website + "' target='_blank'> <i class='iconfont icon-lianjie-copy'></i>链接 </a>";
+            $('.button-load').click(function(){getList()})
+        }).catch(err => {
+            console.log(err)
         });
-        return str;
-    }
-
-    function getData(page = 0) {
-        query.descending('createdAt').skip(page * 20).limit(20).find().then(function(results) {
-            if (results.length == 0) {
-                alert('待续')
-            } else {
-                let resC = results;
-                reqData = false;
-                resC.forEach((i) => {
-                    let dateTmp = new Date(i.createdAt);
-                    i.attributes.time = `${dateTmp.getFullYear()}-${(dateTmp.getMonth() + 1) < 10 ? ('0' + (dateTmp.getMonth()+1)) :dateTmp.getMonth()+1}-${(dateTmp.getDate() + 1) < 10 ? ('0' + dateTmp.getDate()) :dateTmp.getDate()} ${(dateTmp.getHours() + 1) <= 10 ? ('0' + dateTmp.getHours()) :dateTmp.getHours()}:${(dateTmp.getMinutes() + 1) <= 10 ? ('0' + dateTmp.getMinutes()) :dateTmp.getMinutes()}`;
-                    i.attributes.content = urlToLink(i.attributes.content);
-                    i.attributes.from = i.attributes.from;
-                    app.contents.push(i);
-                })
-            }
-
-        }, function(error) {});
-    }
-
-    getData(0);
-
-    query.count().then(function(count) {
-        app.count = count;
-    }, function(error) {});
-</script>
+        
+      </script>
 {{ end }}
