@@ -74,7 +74,7 @@
                 collection.limit(per).skip((page-1)*per).orderBy('date','desc').get(function(err, res) {
                     (res.data).forEach(item => {
                         date = item.date
-                        $('.list').append('<li class="item"><div><p>'+item.content+'</p><p class="date"><i><small>'+date.getFullYear()+'年'+(date.getMonth()+1)+'月'+date.getDate()+'日 '+date.getHours()+':'+date.getMinutes()+':'+date.getSeconds()+'</i></small></p></div></li>')
+                        $('.list').append('<li class="item"><div><p>'+item.content+'</p><p class="date"><i><small>'+date.getFullYear()+'年'+(date.getMonth()+1)+'月'+date.getDate()+'日 '+date.getHours()+':'+date.getMinutes()+'</i></small></p></div></li>')
                     });
                     if(page*per >= count){
                         $('.load').remove()
