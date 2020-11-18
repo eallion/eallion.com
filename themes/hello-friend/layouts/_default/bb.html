@@ -1,6 +1,7 @@
 {{ define "main" }}
 <div class="post">
   <h2 class="post-title">{{.Title}}</h2>
+  <div class="post-content">
   <p class="count">共嘀咕了<span class="count-data">0</span>条</p>
     <section class="timeline">
       <ul>
@@ -9,8 +10,10 @@
       </ul>
     </section>
     <div class="load">
-      <span class="button-load">加载更多</span>
+      <button class="load-btn">加载更多</button>
+    </div>
   </div>
+</div>
   <style>
     .timeline ul {margin:0;padding-bottom:2rem;}
     .timeline ul li {background:#eaeaea;list-style-type:none;position:relative;width:2px;margin-left:20px;padding:10px 0 50px;}
