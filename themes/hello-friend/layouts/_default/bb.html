@@ -11,8 +11,6 @@
     <div class="load">
       <span class="button-load">加载更多</span>
   </div>
-
-
   <style>
     .timeline ul {margin:0;padding-bottom:2rem;}
     .timeline ul li {background:#eaeaea;list-style-type:none;position:relative;width:2px;margin-left:20px;padding:10px 0 50px;}
@@ -25,69 +23,60 @@
     @media (max-width:860px) {
       .timeline ul li{margin-left:0;}
       .timeline ul li div{width:calc(100vw - 75px);left:30px;}
-  
     }
   </style>
-    <link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
-
-    <script src="https://imgcache.qq.com/qcloud/tcbjs/1.6.1/tcb.js"></script>
-    <script>
-
-        //初始化
-        const app = tcb.init({
-          env: 'eallion-160d1d' //这里是你的环境id
+  <link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
+  <script src="https://imgcache.qq.com/qcloud/tcbjs/1.6.1/tcb.js"></script>
+  <script>
+    //初始化
+    const app = tcb.init({
+      env: 'eallion-160d1d' //这里是你的环境id
+    })
+    app.auth({
+        persistence: "session"
+    }).anonymousAuthProvider().signIn().then(() => {
+        //定义数据对象
+        const db = app.database()
+        //选择数据表
+        const collection = db.collection('talks')
+        /**
+         * 定义基本变量
+         * count | int, 数目
+         * per | int, 每页显示项目数
+         * page | int, 第几页
+         */
+        var count=0, per = 10,page = 1
+        /**
+         * 获取数目
+         */
+        collection.count(function(err,res){
+        count = res.total
+        $('.count-data').text(count)
+        getList()
         })
-
-        app.auth({
-            persistence: "session"
-        }).anonymousAuthProvider().signIn().then(() => {
-            //定义数据对象
-            const db = app.database()
-            //选择数据表
-            const collection = db.collection('talks')
-            
-            /**
-             * 定义基本变量
-             * count | int, 数目
-             * per | int, 每页显示项目数
-             * page | int, 第几页
-             */
-            var count=0, per = 10,page = 1
-
-            /**
-             * 获取数目
-             */
-            collection.count(function(err,res){
-                count = res.total
-                $('.count-data').text(count)
-                getList()
-            })
-
-            /**
-             * 封装获取数据函数
-             */
-            function getList(){
-                if((page-1)*per >= count){
-                    return
-                }
-                var date
-                collection.limit(per).skip((page-1)*per).orderBy('date','desc').get(function(err, res) {
-                    (res.data).forEach(item => {
-                        date = item.date
-                        $('.list').append('<li class="item"><div><p>'+item.content+'</p><p class="date"><i><small>'+date.getFullYear()+'年'+(date.getMonth()+1)+'月'+date.getDate()+'日 '+date.getHours()+':'+date.getMinutes()+'</i></small></p></div></li>')
-                    });
-                    if(page*per >= count){
-                        $('.load').remove()
-                        return
-                    }
-                    page++
-                });
+        /**
+         * 封装获取数据函数
+         */
+        function getList(){
+        if((page-1)*per >= count){
+            return
+        }
+        var date
+        collection.limit(per).skip((page-1)*per).orderBy('date','desc').get(function(err, res) {
+            (res.data).forEach(item => {
+            date = item.date
+            $('.list').append('<li class="item"><div><p>'+item.content+'</p><p class="date"><i><small>'+date.getFullYear()+'年'+(date.getMonth()+1)+'月'+date.getDate()+'日 '+date.getHours()+':'+date.getMinutes()+'</i></small></p></div></li>')
+            });
+            if(page*per >= count){
+            $('.load').remove()
+            return
             }
-
-            $('.button-load').click(function(){getList()})
-        }).catch(err => {
-            console.log(err)
+            page++
         });
-        
-      </script>
+        }
+        $('.button-load').click(function(){getList()})
+    }).catch(err => {
+        console.log(err)
+    });
+  </script>
 {{ end }}
