@@ -10,7 +10,7 @@
       </ul>
     </section>
     <div class="load">
-      <button class="load-btn">加载更多</button>
+      <button class="load-btn button-load">加载更多</button>
     </div>
   </div>
 </div>
@@ -48,7 +48,7 @@
          * per | int, 每页显示项目数
          * page | int, 第几页
          */
-        var count=0, per = 10,page = 1
+        var count=0, per = 8,page = 1
         /**
          * 获取数目
          */
@@ -68,7 +68,7 @@
         collection.limit(per).skip((page-1)*per).orderBy('date','desc').get(function(err, res) {
             (res.data).forEach(item => {
             date = item.date
-            $('.list').append('<li class="item"><div><p>'+item.content+'</p><p class="date"><i><small>'+date.getFullYear()+'年'+(date.getMonth()+1)+'月'+date.getDate()+'日 '+date.getHours()+':'+date.getMinutes()+'</i></small></p></div></li>')
+            $('.list').append('<li class="item"><div><p>'+item.content+'</p><p class="date"><i><small>'+date.getFullYear()+'年'+(date.getMonth()+1)+'月'+date.getDate()+'日 '+date.getHours()+':'+date.getMinutes()+' 来自「'+item.from+'」</i></small></p></div></li>')
             });
             if(page*per >= count){
             $('.load').remove()
