@@ -3,7 +3,7 @@ title: "富二代网红曹译文嘲讽打工人有感"
 categories: ["日志"]
 tags: ["曹译文","打工人","富二代","bilibili"]
 draft: false
-slug: "birth"
+slug: "caoyiwen"
 date: "2020-11-20 15:25:00"
 ---
 
