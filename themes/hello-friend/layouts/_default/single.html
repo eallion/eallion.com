@@ -38,6 +38,9 @@
         {{- if .Site.Params.waline.enable -}}
         <span> / <span class="valine-comment-count" data-xid="{{ .URL | relURL }}">0</span> 评论 / <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> 阅读</span></span>
         {{ end }}
+        {{- if .Site.Params.twikoo.enable -}}
+        <span> / <span id="twikoo_visitors">0</span> 阅读</span>
+        {{ end }}
     </div>
     {{ if eq .Type "posts" -}}
     {{ $ageDays := div (sub now.Unix .Date.Unix) 86400 }}
