@@ -141,24 +141,19 @@ git push
 - 1、生成新文章
 
 ```
-hugo new posts/chat/new_title.md
-
-hugo new posts/code/new_title.md
-
 hugo new posts/daily/new_title.md
-
-hugo new posts/operation/new_title.md
-
-hugo new posts/share/new_title.md
 ```
 
 - 2、修改 Front matter:  
 
 `categories` 删除多余的分类    
+`tags` 按需添加
 `draft: true` 改为：`draft: false`  
 `slug` 按需修改
 
-- 3、写文章  
+- 3、写文章 
+
+通过 Typora 或 VSCode 写文章
 
 - 4、Push & auto deploy:
 ```
