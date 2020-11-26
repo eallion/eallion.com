@@ -31,31 +31,6 @@
   </style>
   <link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:500&display=swap" media="print" onload="this.media='all'">
-  {{ end }}
-
-  {{ define "footer" }}
-  {{$scratch := newScratch}}
-  {{ range (where .Site.Pages "Kind" "page" )}}
-      {{$scratch.Add "total" .WordCount}}
-  {{ end }}
-
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="copyright">
-        <span>共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇文章</span><span> {{$scratch.Get "total" }} 字</span>
-      </div>
-      {{ if $.Site.Copyright }}
-        <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
-      {{else}}
-        <div class="copyright">
-          <span>Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>, Theme <a href="https://github.com/panr/hugo-theme-hello-friend">Hello-friend</a> by <a href="https://twitter.com/panr" target="_blank" rel="noopener">Panr</a></span>
-        </div>
-        <div class="copyright">
-          <span>&copy; {{ now.Year }} <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">浙ICP备16031768号-2</a></span>
-        </div>
-      {{end}}
-    </div>
-  </footer>
 
   <script type="text/javascript" src="https://imgcache.qq.com/qcloud/tcbjs/1.10.10/tcb.js"></script>
   <script>
