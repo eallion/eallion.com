@@ -83,7 +83,7 @@ rssLimit = 10
   DateFormatSingle = "2006-01-02 15:04:05"
   ReadMore = "阅读全文"
 
-  EditPath = 'https://github.com/eallion/eallion.com/edit/master/content'
+  EditPath = 'https://github.com/eallion/eallion.com/edit/main/content'
 
 [markup]
 [markup.goldmark]
