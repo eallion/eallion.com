@@ -174,11 +174,11 @@
   <!-- Twikoo -->
   {{- if .Site.Params.twikoo.enable -}}
   <div class="pagination__title">
-       <span class="pagination__title-h"><span class="vcount"></span>精彩评论</span>
-       <hr />
+    <span class="pagination__title-h">精彩评论</span>
+    <hr />
   </div>
   <div id="tcomment"></div>
-  <script src="https://cdn.jsdelivr.net/npm/twikoo@0.2.3/dist/twikoo.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/twikoo@0.2.4/dist/twikoo.all.min.js"></script>
   <script>twikoo.init({ envId: 'eallion-160d1d', el: '#tcomment' })</script>
   {{- end }}
 
