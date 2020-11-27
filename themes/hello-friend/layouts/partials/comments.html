@@ -1,4 +1,15 @@
-  <!-- valine -->
+  <!-- Twikoo -->
+  {{- if .Site.Params.twikoo.enable -}}
+  <div class="pagination__title">
+    <span class="pagination__title-h">精彩评论</span>
+    <hr />
+  </div>
+  <div id="tcomment"></div>
+  <script src="https://cdn.jsdelivr.net/npm/twikoo@0.2.5/dist/twikoo.all.min.js"></script>
+  <script>twikoo.init({ envId: 'eallion-160d1d', el: '#tcomment' })</script>
+  {{- end }}
+  
+ <!-- valine -->
   {{- if .Site.Params.valine.enable -}}
   <script src='https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.Pure.min.js'></script>
   <div class="pagination__title">
@@ -168,18 +179,6 @@
         } 
       });
   </script>
-  {{- end }}
-
-  
-  <!-- Twikoo -->
-  {{- if .Site.Params.twikoo.enable -}}
-  <div class="pagination__title">
-    <span class="pagination__title-h">精彩评论</span>
-    <hr />
-  </div>
-  <div id="tcomment"></div>
-  <script src="https://cdn.jsdelivr.net/npm/twikoo@0.2.4/dist/twikoo.all.min.js"></script>
-  <script>twikoo.init({ envId: 'eallion-160d1d', el: '#tcomment' })</script>
   {{- end }}
 
   <!-- DisqusJS -->
