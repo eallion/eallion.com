@@ -1437,7 +1437,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .el-button.tk-preview{border:none;}
 .el-input.is-active .el-input__inner, .el-input__inner:focus,.el-textarea__inner{border-color:#ccc !important;}
 .el-button {background: #434a56 !important;color: #fff !important;}
-.el-button--primary.is-disabled,.el-button--primary.is-disabled:active,.el-button--primary.is-disabled:focus{color: #FFF !important;background-color: #434a56 !important; border: 0px !important;border-color: #434a56 !important;}
+.el-button--primary,.el-button--primary:active,.el-button--primary:focus.el-button--primary.is-disabled,.el-button--primary.is-disabled:active,.el-button--primary.is-disabled:focus{color: #FFF !important;background-color: #434a56 !important; border: 0px !important;border-color: #434a56 !important;}
 .el-button:hover,.el-button--primary.is-disabled:hover{color: #FFF !important;background-color: #fff !important;border: 1px solid #434a56 !important;color: #434a56 !important;}
 .tk-action-icon svg{fill: #434a56 !important;}
 .tk-comments-title .tk-icon svg{fill: #434a56 !important;}
@@ -1448,7 +1448,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .dark-theme .el-button,.dark-theme .el-input__inner, .dark-theme .el-textarea__inner{color: silver !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
 .dark-theme .tk-meta-input .el-input .el-input-group__prepend{color: silver !important;background-color: #4a4b50 !important;border-color: #4a4b50 !important;}
 .dark-theme .el-button {background: #252627 !important;color: #ccc !important;}
-.dark-theme .el-button--primary.is-disabled,.dark-theme .el-button--primary.is-disabled:active,.dark-theme .el-button--primary.is-disabled:focus{color: #ccc !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
+.dark-theme .el-button--primary,.dark-theme .el-button--primary:active,.dark-theme .el-button--primary:focus.dark-theme .el-button--primary.is-disabled,.dark-theme .el-button--primary.is-disabled:active,.dark-theme .el-button--primary.is-disabled:focus{color: #ccc !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
 .dark-theme .el-button:hover,.dark-theme .el-button--primary.is-disabled:hover{color: #FFF !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
 .dark-theme .tk-action-icon svg{fill: #ccc !important;}
 .dark-theme .tk-comments-title .tk-icon svg{fill: #ccc !important;}
