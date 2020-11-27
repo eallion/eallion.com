@@ -1440,6 +1440,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .tk-action-icon svg{fill: #434a56 !important;}
 .tk-comments-title .tk-icon svg{fill: #ccc !important;}
 .tk-action-count{color: #434a56 !important;}
+.el-button:hover {background: #434a56 !important }
 
 .dark-theme .tk-expand{background:linear-gradient(rgba(38,42,56,0),#3b3d42) !important;}
 .dark-theme .el-button,.dark-theme .el-input__inner, .dark-theme .el-textarea__inner{color: silver !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
