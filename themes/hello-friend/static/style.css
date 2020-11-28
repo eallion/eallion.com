@@ -1425,6 +1425,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .tk-content{margin-top:0px !important;}
 .tk-content span{display:inline-block;}
 .tk-content p{margin: 0;}
+.tk-comment{margin-top: 17px !important;}
 .tk-comments-container .tk-avatar{margin-top:10px;}
 .tk-replies .tk-content span:first-child{visibility:hidden;}
 .tk-replies .tk-content span:first-child a{visibility:visible !important;margin-left: -2em;}
@@ -1443,7 +1444,9 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .tk-comments-title .tk-icon svg{fill: #434a56 !important;}
 .tk-action-count{color: #434a56 !important;}
 .tk-preview-container {margin-left: 3.5rem !important;}
+/* .el-loading-mask{background-color: #fff !important;} */
 
+/* .dark-theme .el-loading-mask{background-color: #292a2d !important;} */
 .dark-theme .tk-expand{background:linear-gradient(rgba(38,42,56,0),#3b3d42) !important;}
 .dark-theme .el-button,.dark-theme .el-input__inner, .dark-theme .el-textarea__inner{color: silver !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
 .dark-theme .tk-meta-input .el-input .el-input-group__prepend{color: silver !important;background-color: #4a4b50 !important;border-color: #4a4b50 !important;}
