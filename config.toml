@@ -102,7 +102,7 @@ rssLimit = 10
   enable = true
   placeholder = "说点什么吧……"
   visitor = true
-  serverURL = "https://talk.eallion.com"
+  serverURL = "https://waline.eallion.com"
   requiredFields = "['nick','mail']"
   emojiCDN = "//i0.hdslb.com/bfs/emote/"
 
