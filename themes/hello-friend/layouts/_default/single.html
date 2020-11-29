@@ -33,7 +33,8 @@
       {{ end }}
 
         {{- if .Site.Params.waline.enable -}}
-        <span> / <span class="valine-comment-count" data-xid="{{ .URL | relURL }}">0</span> 评论 / <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> 阅读</span></span>
+        {{$resp := getJSON "https://talk.eallion.com/comment?type=count&url=/" .Slug }}
+        <span> / <span class="comments-link"><a href="{{ .Permalink }}#comments" title="{{ .Title }}">{{- if gt $resp 0}}{{$resp}} 条评论{{else}}暂无评论{{end -}}</a></span> / <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> 阅读</span></span>
         {{ end }}
         {{- if .Site.Params.twikoo.enable -}}
         <span> / <span id="twikoo_visitors">0</span> 阅读</span>
