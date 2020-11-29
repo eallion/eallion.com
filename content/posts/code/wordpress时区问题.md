@@ -3,7 +3,7 @@ title: " WordPress 时区问题"
 categories: ["日志","分享"]
 tags: [" WordPress 时区","时区"]
 draft: false
-slug: " WordPress _timezone"
+slug: "WordPress_timezone"
 date: "2010-05-01 06:21:11"
 ---
 
