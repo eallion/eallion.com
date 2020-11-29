@@ -1,9 +1,9 @@
 ---
-title: " WordPress 提交评论出现404错误的解决办法"
+title: "WordPress 提交评论出现404错误的解决办法"
 categories: ["日志"]
 tags: ["提交评论"]
 draft: false
-slug: " WordPress -comment-404"
+slug: "WordPress-comment-404"
 date: "2010-07-21 15:40:25"
 ---
 
