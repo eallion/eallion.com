@@ -98,25 +98,16 @@ rssLimit = 10
   mediatype = "application/rss"
   baseName = "atom"
 
-[params.valine]
-  enable = false
-  appId = '8BvPJ6EeOAkQ4AFttNyYEfET-9Nh9j0Va'
-  appKey = 'FGQItPQDpoTal7yzzETx5vnK'
-  placeholder = '说点什么吧……'
-  visitor = true
-  requiredFields = "['nick','mail']"
-  emojiCDN = "//i0.hdslb.com/bfs/emote/"
-
 [params.waline]
-  enable = false
+  enable = true
   placeholder = "说点什么吧……"
   visitor = true
-  serverURL = "https://waline-neon.vercel.app"
+  serverURL = "https://talk.eallion.com"
   requiredFields = "['nick','mail']"
   emojiCDN = "//i0.hdslb.com/bfs/emote/"
 
 [params.twikoo]
-  enable = true
+  enable = false
 
 [params.comment.disqus]
   enable = false
