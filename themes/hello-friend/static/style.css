@@ -1466,6 +1466,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .v[data-class=v] a {color: #222 !important;}
 .v[data-class=v] a:hover {color: #66b1ff !important;}
 .v[data-class=v] .vcards .vcard .vh .vmeta .vat {color: #999999 !important;font-size: smaller !important; padding-right: 1.25em !important;}
+.v[data-class=v] .status-bar, .v[data-class=v] .veditor, .v[data-class=v] .vinput, .v[data-class=v] p, .v[data-class=v] pre code {color:#222 !important;}
 
 .dark-theme .v[data-class=v] .vbtn {font-size: 1em !important;	color:#999999 !important;border: 1px solid #4a4b50 !important;}
 .dark-theme .v[data-class=v] .vsys{color: #999999 !important;font-size: 0.875em !important;}
@@ -1479,7 +1480,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .dark-theme .v[data-class=v] .vcards .vcard .vh{border-bottom: 1px dashed #494a50 !important;}
 .dark-theme .v[data-class=v] .vcards .vcard:last-child .vh {border-bottom: none !important;}
 .dark-theme .v[data-class=v] .vcards .vcard .vquote {border-left: 1px dashed hsla(230, 4%, 30%, .5) !important;}
-.dark-theme .v[data-class=v] .status-bar, .v[data-class=v] .veditor, .v[data-class=v] .vinput, .v[data-class=v] p, .v[data-class=v] pre code {color:#a9a9b3 !important;}
+.dark-theme .v[data-class=v] .status-bar, .dark-theme .v[data-class=v] .veditor, .dark-theme .v[data-class=v] .vinput, .dark-theme .v[data-class=v] p, .dark-theme .v[data-class=v] pre code {color:#a9a9b3 !important;}
 
 photos:after{
   content: ".";
