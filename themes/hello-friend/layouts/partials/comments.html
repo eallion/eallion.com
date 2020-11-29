@@ -21,9 +21,10 @@
       new Waline({
         el: '#waline' ,
         placeholder: '{{ .Site.Params.waline.placeholder }}',
-        visitor: '{{ .Site.Params.waline.visitor }}',
         serverURL: '{{ .Site.Params.waline.serverURL }}',
         requiredFields: '{{ .Site.Params.waline.requiredFields }}',
+        visitor: true,
+        copyRight: false
       });
   </script>
   {{- end }}
