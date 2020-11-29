@@ -33,7 +33,7 @@
       {{ end }}
 
         {{- if .Site.Params.waline.enable -}}
-        {{$resp := getJSON "https://talk.eallion.com/comment?type=count&url=/" .Slug }}
+        {{$resp := getJSON "https://waline.eallion.com/comment?type=count&url=/" .Slug "/" }}
         <span> / <span class="comments-link"><a href="{{ .Permalink }}#waline" title="{{ .Title }}">{{- if gt $resp 0}}{{$resp}} 条评论{{else}}暂无评论{{end -}}</a></span> / <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> 阅读</span></span>
         {{ end }}
         {{- if .Site.Params.twikoo.enable -}}

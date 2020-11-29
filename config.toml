@@ -101,7 +101,6 @@ rssLimit = 10
 [params.waline]
   enable = true
   placeholder = "说点什么吧……"
-  visitor = true
   serverURL = "https://waline.eallion.com"
   requiredFields = "['nick','mail']"
   emojiCDN = "//i0.hdslb.com/bfs/emote/"
