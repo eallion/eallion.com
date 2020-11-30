@@ -187,7 +187,6 @@ a.read-more,a.read-more:active,a.read-more:hover {
 	fill: currentColor;
 	vertical-align:middle;
 	margin-left: 0.5em;
-	margin-right: -0.3em
 }
 @media (max-width:683px){
 	.post-meta-none {
