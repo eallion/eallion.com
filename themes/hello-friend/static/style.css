@@ -188,6 +188,7 @@ a.read-more,a.read-more:active,a.read-more:hover {
 	vertical-align:middle;
 	margin-left: 0.5em;
 }
+
 @media (max-width:683px){
 	.post-meta-none {
 		display: none !important;
