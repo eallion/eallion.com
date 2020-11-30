@@ -183,6 +183,19 @@ a.read-more,a.read-more:active,a.read-more:hover {
 	fill: currentColor
 }
 
+.post-meta-icon {
+	fill: currentColor;
+	vertical-align:middle;
+	margin-left: 0.5em;
+	margin-right: -0.3em
+}
+@media (max-width:683px){
+	.post-meta-none {
+		display: none !important;
+	}
+}
+
+
 .logo {
 	display: flex;
 	align-items: center;
@@ -700,8 +713,10 @@ hr {
 }
 
 .post-meta {
-	font-size: 1rem;
-	margin-bottom: 10px
+	font-size: 0.85rem;
+	margin-bottom: 10px;
+	display: inline-block;
+	vertical-align:middle
 }
 
 .post-meta a{text-decoration: none;}
@@ -714,12 +729,6 @@ hr {
     overflow: hidden;
     color: #333;
     border-left: .25em solid #fff000;
-}
-
-@media (max-width:683px) {
-	.post-meta {
-		font-size: .85rem
-	}
 }
 
 .post-avatar.avatar{width:48px;margin:8px 1rem 0 0;border-radius:50%;box-shadow: 0 12px 40px rgba(0,0,0,.15);float:left;}
@@ -1110,9 +1119,6 @@ hr {
 	font-size: 15px;
 	float: right;
 	opacity: .8
-}
-.post-meta-size {
-	font-weight: 700;
 }
 @media (max-width:683px) {
 	.archive__group-month-header {
