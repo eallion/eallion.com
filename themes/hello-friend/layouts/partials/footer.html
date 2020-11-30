@@ -21,13 +21,20 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="https://static.eallion.com/assets/main.min.js"></script>
-
 <script type="text/javascript" src='https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js'></script>
-<script type="text/javascript" src="https://static.eallion.com/assets/lately.min.js"></script>
+{{ if in (.Site.BaseURL | string) "http://localhost:1313/" }}
+<script type="text/javascript" src="{{ "main.js" | absURL }}"></script>
+<script type="text/javascript" src="{{ "waterfall.min.js" | absURL }}"></script>
+<script type="text/javascript" src="{{ "slimbox2.min.js" | absURL }}"></script>
+<script type="text/javascript" src="{{ "lately.min.js" | absURL }}"></script>
+<script type="text/javascript" src="{{ "all.js" | absURL }}"></script>
+{{ else }}
+<script type="text/javascript" src="https://static.eallion.com/assets/main.min.js"></script>
 <script type="text/javascript" src="https://static.eallion.com/assets/waterfall.min.js"></script>
 <script type="text/javascript" src="https://static.eallion.com/assets/slimbox2.min.js"></script>
+<script type="text/javascript" src="https://static.eallion.com/assets/lately.min.js"></script>
 <script type="text/javascript" src="https://static.eallion.com/assets/all.min.js"></script>
+{{ end }}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script>pangu.spacingElementByClassName('content');</script>

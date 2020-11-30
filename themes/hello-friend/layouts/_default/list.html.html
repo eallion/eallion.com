@@ -27,12 +27,20 @@
       <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
       <div class="post-meta">
         {{ if .Date }}
+          <span class="">发布于</span>
           <span class="post-date">
             {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
           </span>
         {{ end }}
+        
+        {{ if $.Site.Params.ShowReadingTime }}
+        <span class="post-read-time"
+          > / {{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span
+        >
+        {{ end }}
 
         {{ if .Params.tags }}
+        <span class=""> / Tags:</span>
         <span class="">
           {{ range .Params.tags }}
             #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
