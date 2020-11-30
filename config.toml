@@ -74,7 +74,8 @@ rssLimit = 10
   # if you set this to 0, only submenu trigger will be visible
   showMenuItems = 4
   # Enable to show reading time in minutes for posts
-  showReadingTime = false
+  showReadingTime = true
+  minuteReadingTime = "分钟阅读"
   logoText = "hello friend"
   logoHomeLink = "/"
 

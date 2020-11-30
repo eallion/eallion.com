@@ -21,8 +21,9 @@
     <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
     <div class="post-meta">
       {{ if .Date | default nil }}
-        <span class="post-date">
-          {{ .Date.Format ($.Site.Params.DateFormatSingle | default "2006-01-02") }}
+        <span class="">发布于</span>
+        <span class="">
+          {{ .Date.Format "2006.01.02" }}
         </span>
 
         {{ if eq .Type $contentTypeName }}
@@ -32,13 +33,19 @@
         {{ end }}
       {{ end }}
 
-        {{- if .Site.Params.waline.enable -}}
+      {{- if .Site.Params.waline.enable -}}
         {{$resp := getJSON "https://waline.eallion.com/comment?type=count&url=/" .Slug "/" }}
         <span> / <span class="comments-link"><a href="{{ .Permalink }}#waline" title="{{ .Title }}">{{- if gt $resp 0}}{{$resp}} 条评论{{else}}暂无评论{{end -}}</a></span> / <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> 阅读</span></span>
-        {{ end }}
-        {{- if .Site.Params.twikoo.enable -}}
+      {{ end }}
+      {{- if .Site.Params.twikoo.enable -}}
         <span> / <span id="twikoo_visitors">0</span> 阅读</span>
-        {{ end }}
+      {{ end }}
+
+      {{ if $.Site.Params.ShowReadingTime }}
+        <span class="post-read-time"
+          > / {{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span
+        >
+      {{ end }}
 
     </div>
     {{ if eq .Type "posts" -}}
@@ -66,6 +73,7 @@
 
     {{ if .Params.tags }}
       <span class="post-tags">
+      <span class="">Tags:</span>
         {{ range .Params.tags }}
           #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
         {{ end }}

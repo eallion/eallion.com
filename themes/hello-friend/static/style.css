@@ -1111,6 +1111,9 @@ hr {
 	float: right;
 	opacity: .8
 }
+.post-meta-size {
+	font-weight: 700;
+}
 @media (max-width:683px) {
 	.archive__group-month-header {
 		margin: 10px 0 0

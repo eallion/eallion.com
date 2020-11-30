@@ -9,9 +9,6 @@
 {{ else }}
 <link rel="stylesheet" href="https://static.eallion.com/assets/style.min.css">
 {{ end }}
-{{- if .Site.Params.comment.disqus.enable -}}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqusjs.css">
-{{- end -}}
 <link rel="shortcut icon" href="https://static.eallion.com/assets/favicon.ico">
 <!-- OG data -->
 {{ template "_internal/opengraph.html" . }}
