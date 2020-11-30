@@ -105,6 +105,7 @@ rssLimit = 10
   serverURL = "https://waline.eallion.com"
   requiredFields = "['nick','mail']"
   emojiCDN = "//i0.hdslb.com/bfs/emote/"
+  avatarCDN = "https://dn-qiniu-avatar.qbox.me/avatar/"
 
 [params.twikoo]
   enable = false
