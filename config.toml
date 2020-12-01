@@ -100,7 +100,7 @@ rssLimit = 10
   baseName = "atom"
 
 [params.waline]
-  enable = true
+  enable = false
   placeholder = "说点什么吧……"
   serverURL = "https://eallion-160d1d-1251347414.ap-shanghai.app.tcloudbase.com"
   requiredFields = "['nick','mail']"
@@ -108,7 +108,7 @@ rssLimit = 10
   avatarCDN = "https://dn-qiniu-avatar.qbox.me/avatar/"
 
 [params.MiniValine]
-  enable = false
+  enable = true
   backend = "waline"
   placeholder = "说点什么吧……"
   serverURLs = "https://eallion-160d1d-1251347414.ap-shanghai.app.tcloudbase.com"
