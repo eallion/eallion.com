@@ -18,6 +18,48 @@
       });
   </script>
   {{- end }}
+
+  <!-- MiniValine -->
+  {{- if .Site.Params.MiniValine.enable -}}
+  <div class="pagination__title">
+       <span class="pagination__title-h"><span class="vcount"></span>精彩评论</span>
+       <hr />
+  </div>
+  <div class="mvcomment"></div>
+  <script>
+  function load_minivaline() {
+      setTimeout(function() {
+          var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+          var src = 'https://cdn.jsdelivr.net/npm/minivaline@latest/dist/MiniValine.min.js'
+          var script = document.createElement('script')
+          script.setAttribute('type','text/javascript')
+          script.onload = function() {
+             pjax_minivaline()
+          }
+          script.setAttribute('src', src)
+          HEAD.appendChild(script)
+      }, 1);
+  };
+  function pjax_minivaline() {
+      if(!document.querySelectorAll(".mvcomment")[0])return;
+      new MiniValine({
+          el: '.mvcomment',
+          backend: 'waline',
+          serverURLs: 'https://waline.eallion.com',
+          placeholder: '说点什么吧……',
+          visitor: true,
+          closeFlag: true,
+          mode: 'xCss',
+          barrager: 0,
+          pathname: 'window.location.pathname'
+      });
+  }
+  load_minivaline();
+  document.addEventListener('pjax:complete', function () {
+      pjax_minivaline();
+  });
+  </script>
+  {{- end }}
   
   <!-- Twikoo -->
   {{- if .Site.Params.twikoo.enable -}}
