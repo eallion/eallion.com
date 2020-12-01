@@ -100,18 +100,18 @@ rssLimit = 10
   baseName = "atom"
 
 [params.waline]
-  enable = false
+  enable = true
   placeholder = "说点什么吧……"
-  serverURL = "https://eallion-160d1d-1251347414.ap-shanghai.app.tcloudbase.com"
+  serverURL = "https://waline.eallion.com"
   requiredFields = "['nick','mail']"
   emojiCDN = "//i0.hdslb.com/bfs/emote/"
   avatarCDN = "https://dn-qiniu-avatar.qbox.me/avatar/"
 
 [params.MiniValine]
-  enable = true
+  enable = false
   backend = "waline"
   placeholder = "说点什么吧……"
-  serverURLs = "https://eallion-160d1d-1251347414.ap-shanghai.app.tcloudbase.com"
+  serverURLs = "https://waline.eallion.com"
   requiredFields = "['nick','mail']"
   avatarCDN = "https://dn-qiniu-avatar.qbox.me/avatar/"
   mode = "xCss"

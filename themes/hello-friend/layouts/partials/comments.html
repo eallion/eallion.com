@@ -45,12 +45,17 @@
       new MiniValine({
           el: '.mvcomment',
           backend: 'waline',
-          serverURLs: 'https://eallion-160d1d-1251347414.ap-shanghai.app.tcloudbase.com',
+          serverURLs: 'https://waline.eallion.com',
           placeholder: '说点什么吧……',
           visitor: true,
           closeFlag: true,
           mode: 'xCss',
-          barrager: 0
+          lazyload: true,
+          barrager: 0,
+          tagMeta: ["管理员", "小伙伴", "访客"],
+          master: '171e4c30959e8c077a6c58b958624b31',
+          dark: true,
+          pathname: window.location.pathname
       });
   }
   load_minivaline();
