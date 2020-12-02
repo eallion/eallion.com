@@ -1429,6 +1429,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 
 /* twikoo 评论样式 */
 /* .tk-extras,.tk-row.actions .tk-action-icon,.tk-preview,.tk-content p a.at,.tk-tag .tk-tag-green{display: none !important;} */
+/*
 .tk-tag-green{display: none !important;}
 .tk-content{margin-top:0px !important;}
 .tk-content span{display:inline-block;}
@@ -1452,9 +1453,6 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .tk-comments-title .tk-icon svg{fill: #434a56 !important;}
 .tk-action-count{color: #434a56 !important;}
 .tk-preview-container {margin-left: 3.5rem !important;}
-/* .el-loading-mask{background-color: #fff !important;} */
-
-/* .dark-theme .el-loading-mask{background-color: #292a2d !important;} */
 .dark-theme .tk-expand{background:linear-gradient(rgba(38,42,56,0),#3b3d42) !important;}
 .dark-theme .el-button,.dark-theme .el-input__inner, .dark-theme .el-textarea__inner{color: silver !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
 .dark-theme .tk-meta-input .el-input .el-input-group__prepend{color: silver !important;background-color: #4a4b50 !important;border-color: #4a4b50 !important;}
@@ -1465,6 +1463,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .dark-theme .tk-comments-title .tk-icon svg{fill: #ccc !important;}
 .dark-theme .tk-action-count{color: #ccc !important;}
 .dark-theme .tk-preview-container {margin-left: 3.5rem !important;color: #ccc !important;background-color: #252627 !important;border: 1px solid #4a4b50 !important;}
+*/
 
 /* Waline 评论样式 */
 .v[data-class=v] .vbtn {font-size: 1em !important;}
@@ -1478,22 +1477,48 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .v[data-class=v] .vcards .vcard .vh .vmeta .vat:active,.v[data-class=v] .vcards .vcard .vh .vmeta .vat:hover {color: #66b1ff !important;font-size: smaller !important; padding-right: 1.25em !important;}
 .v[data-class=v] .status-bar, .v[data-class=v] .veditor, .v[data-class=v] .vinput, .v[data-class=v] p, .v[data-class=v] pre code {color:#222 !important;}
 .v[data-class=v] .vwrap .vheader .vinput:focus {border-bottom-color: #66b1ff !important}
-
+.v[data-class=v] .vsys {display: none !important;}
+.v[data-class=v] .status-bar, .v[data-class=v] .veditor, .v[data-class=v] .vinput, .v[data-class=v] p, .v[data-class=v] pre code {margin: 0 !important;}
+.v[data-class=v] .vcards .vcard .vquote {padding-left: 0 !important;border-left:none !important;}
+.v[data-class=v] .txt-right {padding-right: 1.25em !important;}
 .dark-theme .v[data-class=v] .vbtn {font-size: 1em !important;	color:#999999 !important;border: 1px solid #4a4b50 !important;}
 .dark-theme .v[data-class=v] .vsys{color: #999999 !important;font-size: 0.875em !important;}
 .dark-theme .v[data-class=v] .vcards .vcard .vh .vtime {color: #999999 !important;font-size: smaller !important;}
 .dark-theme .v[data-class=v] .vcards .vcard .vcontent {font-weight: 500 !important;font-size: 1rem !important; color: #fff !important;}
 .dark-theme .v[data-class=v] a {color: #a9a9b3 !important;}
 .dark-theme .v[data-class=v] a:hover {color: #66b1ff !important;}
-.dark-theme .v[data-class=v] .vcards .vcard .vh .vmeta .vat {color: #999999 !important;font-size: smaller !important; padding-right: 1.25em !important;}
 .dark-theme .v[data-class=v] .vwrap{border: 1px solid #4a4b50 !important;}
 .dark-theme .v[data-class=v] .vwrap .vheader .vinput{border-bottom: 1px dashed #494a50 !important;}
 .dark-theme .v[data-class=v] .vcards .vcard .vh{border-bottom: 1px dashed #494a50 !important;}
 .dark-theme .v[data-class=v] .vcards .vcard:last-child .vh {border-bottom: none !important;}
 .dark-theme .v[data-class=v] .vcards .vcard .vquote {border-left: 1px dashed hsla(230, 4%, 30%, .5) !important;}
+.dark-theme .v[data-class=v] .vcards .vcard .vh .vmeta .vat {color: #999999 !important;font-size: smaller !important; padding-right: 1.25em !important;}
+.dark-theme .v[data-class=v] .vcards .vcard .vh .vmeta .vat:active,.dark-theme .v[data-class=v] .vcards .vcard .vh .vmeta .vat:hover {color: #66b1ff !important;font-size: smaller !important; padding-right: 1.25em !important;}
 .dark-theme .v[data-class=v] .status-bar, .dark-theme .v[data-class=v] .veditor, .dark-theme .v[data-class=v] .vinput, .dark-theme .v[data-class=v] p, .dark-theme .v[data-class=v] pre code {color:#a9a9b3 !important;}
 .dark-theme .v[data-class=v] .vwrap .vheader .vinput:focus {border-bottom-color: #66b1ff !important}
 .dark-theme .v[data-class=v] .vbtn:active, .dark-theme .v[data-class=v] .vbtn:hover {color: #66b1ff !important;border-color: #66b1ff !important;}
+.dark-theme .v[data-class=v] .vcards .vcard .vquote {padding-left: 0 !important;border-left:none !important;}
+
+/* MiniValine 评论样式*/
+/*
+.MiniValine .info {text-align: left !important;}
+.MiniValine .info::before {border-top: none !important;}
+.MiniValine .info .col {padding: 5px !important;font-weight: 600 !important;font-size: 1.25em !important;}
+.MiniValine .info .col .count {padding: 0 2px !important;}
+.MiniValine .vbtn{background: none !important; border-radius:.45em !important; padding: .5em 1.75em !important; border: 1px solid rgba(85,85,85,.3) !important;}
+.MiniValine .vbtn:active,.MiniValine .vbtn:hover{background: none !important; color: #66b1ff !important; border-radius:.45em !important; border:1px solid #66b1ff !important;}
+.MiniValine .vlist .vcard .vcomment-body .vhead .vname {font-weight: bold !important;font-size: 1rem !important; color: #222 !important;}
+.MiniValine .vlist .vcard .vcomment-body .vhead .vname:hover {color: #66b1ff !important;}
+.MiniValine .vlist .vcard .vcomment-body .vhead .vsys {color: #555 !important;}
+.MiniValine .vlist .vcard .vcomment-body .vhead .msvg svg {fill:#555 !important;}
+.MiniValine .vlist .vcard .vcomment-body .vhead .msvg svg {color:#555 !important;}
+.MiniValine .vlist .vcard .vcomment-body .vhead .msvg i {color:#555 !important;}
+.MiniValine .vlist .vcard .vcomment-body .vhead .vtime {font-size: 0.875em !important;}
+.MiniValine .vlist .vcard .vcomment-body:hover .vat { background:none !important; font-weight: normal !important; font-size: 0.875em !important; color: #555 !important; border: 1px solid rgba(85,85,85,.3) !important;}
+.MiniValine .vlist .vcard .vcomment-body:hover .vat:hover{color:#66b1ff !important; border: 1px solid #66b1ff !important;}
+.MiniValine .vlist .vcard .vcomment-body .vat {border-radius:.35em !important; color: #fff !important; padding:.45em 1em !important;}
+.MiniValine .vlist .vcard .vcomment-body .text-wrapper .vcomment p {color: #222 !important;}
+*/
 
 photos:after{
   content: ".";
