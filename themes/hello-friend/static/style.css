@@ -1476,12 +1476,13 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .v[data-class=v] .vcards .vcard .vh .vmeta .vat {color: #999999 !important;font-size: smaller !important; padding-right: 1.25em !important;}
 .v[data-class=v] .vcards .vcard .vh .vmeta .vat:active,.v[data-class=v] .vcards .vcard .vh .vmeta .vat:hover {color: #66b1ff !important;font-size: smaller !important; padding-right: 1.25em !important;}
 .v[data-class=v] .status-bar, .v[data-class=v] .veditor, .v[data-class=v] .vinput, .v[data-class=v] p, .v[data-class=v] pre code {color:#222 !important;}
+.v[data-class=v] p img {width: 1.2em !important;height: 1.2em !important;display: inline-block !important;vertical-align: middle !important;}
 .v[data-class=v] .vwrap .vheader .vinput:focus {border-bottom-color: #66b1ff !important}
 .v[data-class=v] .vsys {display: none !important;}
 .v[data-class=v] .status-bar, .v[data-class=v] .veditor, .v[data-class=v] .vinput, .v[data-class=v] p, .v[data-class=v] pre code {margin: 0 !important;}
 .v[data-class=v] .vcards .vcard .vquote {padding-left: 0 !important;border-left:none !important;}
 .v[data-class=v] .txt-right {padding-right: 1.25em !important;}
-.v[data-class=v] textarea::placeholder{color: #999 !important;}
+.v[data-class=v] textarea::placeholder{text-align: center !important; color: #999 !important;}
 .dark-theme .v[data-class=v] .vbtn {font-size: 1em !important;	color:#999999 !important;border: 1px solid #4a4b50 !important;}
 .dark-theme .v[data-class=v] .vsys{color: #999999 !important;font-size: 0.875em !important;}
 .dark-theme .v[data-class=v] .vcards .vcard .vh .vtime {color: #999999 !important;font-size: smaller !important;}
@@ -1520,6 +1521,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .MiniValine .vlist .vcard .vcomment-body:hover .vat:hover{color:#66b1ff !important; border: 1px solid #66b1ff !important;}
 .MiniValine .vlist .vcard .vcomment-body .vat {border-radius:.35em !important; color: #fff !important; padding:.45em 1em !important;}
 .MiniValine .vlist .vcard .vcomment-body .text-wrapper .vcomment p {color: #222 !important;}
+.MiniValine .vinputs-area .textarea-wrapper textarea::placeholder {text-align: center !important; color: #999 !important;}
 */
 
 photos:after{
