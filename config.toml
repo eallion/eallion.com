@@ -101,9 +101,20 @@ rssLimit = 10
 
 [params.waline]
   enable = true
+  placeholder = "说点什么吧……"
+  serverURL = "https://eallion-160d1d-1251347414.ap-shanghai.app.tcloudbase.com/waline"
+  requiredFields = "['nick','mail']"
+  emojiCDN = "//i0.hdslb.com/bfs/emote/"
+  avatarCDN = "https://dn-qiniu-avatar.qbox.me/avatar/"
 
 [params.MiniValine]
   enable = false
+  backend = "waline"
+  placeholder = "说点什么吧……"
+  serverURLs = "https://eallion-160d1d-1251347414.ap-shanghai.app.tcloudbase.com/waline"
+  requiredFields = "['nick','mail']"
+  avatarCDN = "https://dn-qiniu-avatar.qbox.me/avatar/"
+  mode = "xCss"
 
 [params.twikoo]
   enable = false
@@ -111,6 +122,16 @@ rssLimit = 10
 [params.comment.disqus]
   enable = false
   proxy = "true"
+  shortname = "eallion"
+  api =  "https://disqus.skk.moe/disqus/"
+  apikey = "fF9m3DwDSmNQ2g5DIpuWElDaQTx1ofpMSSW8JeKaB2loVBExeInmMbaEGeLs7lOL"
+  admin = "eallion"
+  adminLabel = ""
+  nocomment = ""
 
 [params.comment.utterances]
   enable = false
+  repo="eallion/blog"
+  issueterm="url"
+  label="Comments"
+  theme="github-light"
