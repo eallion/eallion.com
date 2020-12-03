@@ -1481,6 +1481,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .v[data-class=v] .status-bar, .v[data-class=v] .veditor, .v[data-class=v] .vinput, .v[data-class=v] p, .v[data-class=v] pre code {margin: 0 !important;}
 .v[data-class=v] .vcards .vcard .vquote {padding-left: 0 !important;border-left:none !important;}
 .v[data-class=v] .txt-right {padding-right: 1.25em !important;}
+.v[data-class=v] textarea::placeholder{color: #999 !important;}
 .dark-theme .v[data-class=v] .vbtn {font-size: 1em !important;	color:#999999 !important;border: 1px solid #4a4b50 !important;}
 .dark-theme .v[data-class=v] .vsys{color: #999999 !important;font-size: 0.875em !important;}
 .dark-theme .v[data-class=v] .vcards .vcard .vh .vtime {color: #999999 !important;font-size: smaller !important;}
@@ -1498,6 +1499,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .dark-theme .v[data-class=v] .vwrap .vheader .vinput:focus {border-bottom-color: #66b1ff !important}
 .dark-theme .v[data-class=v] .vbtn:active, .dark-theme .v[data-class=v] .vbtn:hover {color: #66b1ff !important;border-color: #66b1ff !important;}
 .dark-theme .v[data-class=v] .vcards .vcard .vquote {padding-left: 0 !important;border-left:none !important;}
+.dark-theme .v[data-class=v] textarea::placeholder{color: #494a50 !important;}
 
 /* MiniValine 评论样式*/
 /*
