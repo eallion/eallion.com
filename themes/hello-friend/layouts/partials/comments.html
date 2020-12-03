@@ -9,12 +9,15 @@
   <script>
       new Waline({
         el: '#waline' ,
-        placeholder: '{{ .Site.Params.waline.placeholder }}',
-        serverURL: '{{ .Site.Params.waline.serverURL }}',
-        requiredFields: '{{ .Site.Params.waline.requiredFields }}',
-        avatarCDN: '{{ .Site.Params.waline.avatarCDN }}',
+        placeholder = '说点什么吧……',
+        serverURL = 'https://eallion-160d1d-1251347414.ap-shanghai.app.tcloudbase.com',
+        requiredFields = '["nick","mail"]',
+        emojiCDN = '//i0.hdslb.com/bfs/emote/',
+        avatarCDN = 'https://dn-qiniu-avatar.qbox.me/avatar/',
         visitor: true,
         copyRight: true
+
+
       });
   </script>
   {{- end }}
@@ -45,7 +48,7 @@
       new MiniValine({
           el: '.mvcomment',
           backend: 'waline',
-          serverURLs: 'https://waline.eallion.com',
+          serverURLs: 'https://eallion-160d1d-1251347414.ap-shanghai.app.tcloudbase.com',
           placeholder: '说点什么吧……',
           visitor: true,
           closeFlag: true,
@@ -83,16 +86,16 @@
       <script src="https://cdn.jsdelivr.net/npm/disqusjs@1.3/dist/disqus.js"></script>
       <script>
         var dsqjs = new DisqusJS({
-          shortname: {{ .Site.Params.comment.disqus.shortname }},
-          siteName: {{ .Site.Params.title }},
-          identifier: {{ if .Params.identifier }}{{ trim .Params.identifier "/" }}{{ else }}{{ trim .RelPermalink "/" }}{{end}},
-          url: {{ if .Params.identifier }}"{{ trim .Site.BaseURL "/" }}{{ .Params.identifier }}"{{ else }}{{ .Permalink }}{{end}},
-          title: {{ .Title }},
-          api: {{ .Site.Params.comment.disqus.api }},
-          apikey: {{ .Site.Params.comment.disqus.apikey }},
-          admin: {{ .Site.Params.comment.disqus.admin }},
-          adminLabel: {{ .Site.Params.comment.disqus.adminLabel }},
-          nocomment: {{ .Site.Params.comment.disqus.nocomment }}
+          shortname: 'eallion',
+          siteName: '{{ .Site.Params.title }}',
+          identifier: '{{ if .Params.identifier }}{{ trim .Params.identifier "/" }}{{ else }}{{ trim .RelPermalink "/" }}{{end}}',
+          url: '{{ if .Params.identifier }}"{{ trim .Site.BaseURL "/" }}{{ .Params.identifier }}"{{ else }}{{ .Permalink }}{{end}}',
+          title: '{{ .Title }}',
+          api: 'https://api.eallion.com/disqus/',
+          apikey: 'fF9m3DwDSmNQ2g5DIpuWElDaQTx1ofpMSSW8JeKaB2loVBExeInmMbaEGeLs7lOL',
+          admin: 'eallion',
+          adminLabel: '',
+          nocomment: ''
         });
       </script>
       {{- else -}}
@@ -106,10 +109,10 @@
   <!-- Utterances -->
   {{- if .Site.Params.comment.utterances.enable -}}
     <script src="https://utteranc.es/client.js"
-      repo="{{ .Site.Params.comment.utterances.repo }}"
-      issue-term="{{ .Site.Params.comment.utterances.issueterm }}"
-      label="{{ .Site.Params.comment.utterances.label }}"
-      theme="{{ .Site.Params.comment.utterances.theme }}"
+      repo="eallion/blog"
+      issueterm="url"
+      label="Comments"
+      theme="github-light"
       crossorigin="anonymous"
       async>
     </script>
