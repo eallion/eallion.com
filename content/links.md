@@ -2,6 +2,8 @@
 title: '友情链接'
 date: 2006-04-14 22:18:00
 layout: 'posts'
+type: 'page'
+Comments: true
 ---
 
 以下链接为个人收藏和网友申请，排名不分先后。

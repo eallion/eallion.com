@@ -3,7 +3,7 @@ title: '关于'
 date: 2006-04-14 00:00:00
 type: "about"
 layout: "posts"
-comment: false
+Comments: true
 author: 大大的小蜗牛
 ---
 
@@ -55,5 +55,3 @@ author: 大大的小蜗牛
  - 主题：[Hello Friend](https://github.com/panr/hugo-theme-hello-friend)
  - Copyright：[https://eallion.com/copyright](https://eallion.com/copyright)
  - Privacy Policy：[https://eallion.com/privacy-policy](https://eallion.com/privacy-policy)
-
----

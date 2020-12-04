@@ -3,7 +3,7 @@ title: 'Copyright'
 date: 2007-04-01 00:00:00
 type: "copyright"
 layout: "posts"
-comment: false
+Comments : false
 author: 大大的小蜗牛
 ---
 
