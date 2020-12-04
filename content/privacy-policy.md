@@ -3,7 +3,8 @@ title: 'Privacy Policy'
 date: 2019-05-08 21:42:00
 type: "privacy-policy"
 layout: "posts"
-comment: false
+type: "page"
+Comments: false
 author: 大大的小蜗牛
 ---
 

@@ -100,6 +100,7 @@
         {{ end }}
       </span>
     {{ end }}
+    <span class=""></span>
   {{ end }}
     <div class="clear"></div>
     
@@ -136,9 +137,10 @@
       {{ end }}
     {{ end }}
 
-
     {{ if not (eq .Params.Comments "false") }}
+      {{ if or (eq .Type $.Site.Params.contentTypeName) (.Params.Comments) }}
         {{ partial "comments.html" . }}
+      {{ end }}
     {{ end }}
 
     </div>

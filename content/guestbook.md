@@ -3,7 +3,7 @@ title: '留言板'
 date: 2011-01-22 11:27:00
 type: "guestbook"
 layout: "posts"
-comment: true
+Comments: true
 author: 大大的小蜗牛
 ---
 
