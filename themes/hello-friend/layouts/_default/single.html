@@ -100,7 +100,16 @@
         {{ end }}
       </span>
     {{ end }}
-    <span class=""></span>
+
+    {{ if or (eq .Type $.Site.Params.contentTypeName) (.Params.Comments) }}
+      <div class="post-copyright">
+        <p>本文发表于 {{ .Date.Format "2006年01月02日" }} ，共计{{ .WordCount }} 字 </p>
+        <p>本文链接：<a href="{{ .Permalink }}">{{ .Permalink }}</a></p>
+        <p>转载标题：<a href="{{ .Permalink }}">{{ .Title | markdownify }} - 大大的小蜗牛</a></p>
+        <p>作品采用：<a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by/4.0/deed.zh">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a> 进行许可</p>
+      </div>
+    {{ end }}
+
   {{ end }}
     <div class="clear"></div>
     
