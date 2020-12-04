@@ -762,6 +762,29 @@ hr {
 	text-decoration: none
 }
 
+.post-copyright {
+	background-color: var(--light-header);
+	margin: 0;
+    padding: 8px 0 8px 15px;
+    list-style: none;
+    margin-left: 0px;
+	border-radius: 4px;
+}
+
+.post-copyright p {
+	font-size: .8125rem;
+    word-break: break-all;
+	line-height: 1rem;
+}
+
+.post-copyright a {
+	text-decoration: none;
+}
+
+.dark-theme .post-copyright {
+	background-color: var(--dark-header);
+}
+
 #all-tags {
 	word-break:break-all
 }
