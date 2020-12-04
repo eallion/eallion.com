@@ -101,7 +101,7 @@
       </span>
     {{ end }}
 
-    {{ if or (eq .Type $.Site.Params.contentTypeName) (.Params.Comments) }}
+    {{ if eq .Type $.Site.Params.contentTypeName }}
       <div class="post-copyright">
         <p>本文发表于 {{ .Date.Format "2006年01月02日" }} ，共计{{ .WordCount }} 字 </p>
         <p>本文链接：<a href="{{ .Permalink }}">{{ .Permalink }}</a></p>
