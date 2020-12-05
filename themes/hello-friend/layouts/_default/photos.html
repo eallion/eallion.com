@@ -6,7 +6,7 @@
 <div class="page-photos">
   {{ range (readDir "./static/photos") }}
   <figure>
-    <img loading='lazy' src="https://images.eallion.com/photos/{{ .Name }}" alt="{{ .Name }}" />
+    <img loading='lazy' src="https://images.eallion.com/photos/{{ .Name }}!hugo.webp" alt="{{ .Name }}" />
     <figcaption>{{ .Name | replaceRE "(.*)[.].*" "$1"}}</figcaption>
   </figure>
   {{ end }}
