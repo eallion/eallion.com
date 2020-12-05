@@ -14,27 +14,13 @@
     </div>
   </div>
 </div>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&family=Noto+Serif+TC:wght@500&display=swap" media="print" onload="this.media='all'" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC&family=Noto+Serif+TC&display=swap" media="print" onload="this.media='all'" rel="stylesheet">
-  <style>
-    .post-content {font-family: 'Noto Serif SC','Noto Serif TC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;}
-    .timeline ul {margin:0;padding-bottom:2rem;}
-    .timeline ul li {background:#eaeaea;list-style-type:none;position:relative;width:2px;margin-left:20px;padding:10px 0 50px;}
-    .timeline ul li::after {content:'';position:absolute;left:50%;top:25px;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:inherit;}
-    .timeline ul li div {background:#eaeaea;border-radius:5px;position:relative;top:0;left:40px;width:670px;padding:8px 16px;}
-    .timeline ul li div p{margin:0;font-size: 17px;letter-spacing: 1px;color: #222;}
-    .timeline ul li div i small{color:#555;}
-    .timeline ul li div::before{content:'';position:absolute;top:10px;width:0;height:0;border-style:solid;left:-15px;border-width:8px 16px 8px 0;border-color:transparent #eaeaea transparent transparent;}
-    .dark-theme .timeline ul li,.dark-theme .timeline ul li div{background:#3b3d42;}
-    .dark-theme .timeline ul li div::before{border-color:transparent #3b3d42 transparent transparent;}
-    .dark-theme .timeline ul li div p{color:#a9a9b3;}
-    .dark-theme .timeline ul li div i small{color: #8a8a8a;}
-    @media (max-width:860px) {
-      .timeline ul li{margin-left:0;}
-      .timeline ul li div{width:calc(100vw - 75px);left:30px;}
-    }
-  </style>
-
+  {{ if in (.Site.BaseURL | string) "http://localhost:1313/" }}
+  <link rel="stylesheet" href="{{ "talk.css" | absURL }}">
+  {{ else }}
+  <link rel=stylesheet href=https://static.eallion.com/assets/talk.min.css>
+  {{ end }}
   <script type="text/javascript" src="https://imgcache.qq.com/qcloud/tcbjs/1.10.10/tcb.js"></script>
   <script>
     //初始化
@@ -74,7 +60,7 @@
         collection.limit(per).skip((page-1)*per).orderBy('date','desc').get(function(err, res) {
             (res.data).forEach(item => {
             date = item.date
-            $('.list').append('<li class="item"><div><p>'+item.content+'</p><i><time class="date"><small>发布于 '+date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+date.getHours()+':'+date.getMinutes()+' 来自「'+item.from+'」</small></time></i></div></li>')
+            $('.list').append('<li class="item"><div><p>'+item.content+'</p><time class="date"><small>'+`${(date.getHours() + 1) <= 12 ? '上午' : '下午'}`+`${(date.getHours() + 1) <= 10 ? ('0' + date.getHours()) : date.getHours()}`+':'+`${(date.getMinutes() + 1) <= 10 ? ('0' + date.getMinutes()) :date.getMinutes()}`+' · '+date.getFullYear()+'年'+(`${(date.getMonth() + 1) < 10 ? ('0' + (date.getMonth()+1)) :date.getMonth()+1}`)+'月'+`${(date.getDate() + 1) < 10 ? ('0' + date.getDate()) :date.getDate()}`+'日 '+' ·「'+item.from+'」</small></time></div></li>')
             });
             if(page*per >= count){
             $('.load').remove()
