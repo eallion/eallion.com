@@ -8,8 +8,8 @@ date: "2020-05-25 12:36:00"
 toc: true
 ---
 
-![Ubuntu 20.04](https://images.eallion.com/images/2020/09/ubuntu-2004.png)
-> 实机安装 桌面效果截图 [（查看大图）](https://images.eallion.com/images/2020/09/ubuntu-2004.png "（查看大图）")
+![Ubuntu 20.04](https://images.eallion.com/images/2020/09/ubuntu-2004.png!hugo.webp)
+> 实机安装 桌面效果截图 [（查看大图）](https://images.eallion.com/images/2020/09/ubuntu-2004.png!hugo.webp "（查看大图）")
 
 原来在用 [Ubuntu 19.10](https://eallion.com/ubuntu1910)，通过 `do-release-upgrade` 升级到 Ubuntu 20.04 后，因为一些配置出现了些奇怪的问题，索性重新安装了一次。记录一下安装优化过程。
 

@@ -44,11 +44,11 @@ IP地址也已失效。
 
 ### 阿里云ECS 内网测试成功
 
-![aliyunvpcntp](https://images.eallion.com/images/2017/05/29/1589433496.png)
+![aliyunvpcntp](https://images.eallion.com/images/2017/05/29/1589433496.png!hugo.webp)
 
 ### Windows 测试成功
 
-![Windows NTP](https://images.eallion.com/images/2017/05/29/1972259171.png)
+![Windows NTP](https://images.eallion.com/images/2017/05/29/1972259171.png!hugo.webp)
 
 
 

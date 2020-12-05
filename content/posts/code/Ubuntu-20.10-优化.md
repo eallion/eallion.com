@@ -25,8 +25,8 @@ Linux 的创始人 Linus Torvalds 用的是 Fedora，所以也推荐使用 Fedor
 
 服务器上推荐 Debian stable。在企业中的话，领导选什么服务器就用什么吧。
 
-![Ubuntu 20.10](https://images.eallion.com/images/2020/10/ubuntu2010.png)
-> 实机安装 桌面效果截图 [（查看大图）](https://images.eallion.com/images/2020/10/ubuntu2010.png "（查看大图）")
+![Ubuntu 20.10](https://images.eallion.com/images/2020/10/ubuntu2010.png!hugo.webp)
+> 实机安装 桌面效果截图 [（查看大图）](https://images.eallion.com/images/2020/10/ubuntu2010.png!hugo.webp "（查看大图）")
 
 最近搞挂了一块数据盘，刚好在 Ubuntu 20.10 的发行时间点，索性重装 Ubuntu。  
 本文主要为备忘。切勿照搬命令。建议最小化安装。
