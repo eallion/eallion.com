@@ -49,11 +49,6 @@ chmod -R 755 polr
 chown -R www:www polr
 ```
 
-因为业务需要，我fork了一份源码，并修改为中文版，如果有需要，可以克隆我的
-```bash
-git clone https://github.com/eallion/polr.git --depth=1 
-```
-
 2、用composer安装
 -------------
 
