@@ -91,7 +91,8 @@ git clone https://github.com/eallion/dotfiles.git ~/Documents/dotfiles
 恢复 Git Vim Tmux Fcitx 等配置。
 
 ### 8、安装输入法
-个人使用 Fcitx 五笔拼音。
+个人使用 Fcitx 五笔拼音
+#### 8.1、Fcitx 五笔拼音
 ```
 sudo apt install fcitx-table-wbpy
 ```
@@ -141,6 +142,37 @@ _ ——
 . 。
 ? ？
 ```
+
+#### 8.2、Fcitx5 五笔拼音
+安装：
+```
+sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-frontend-gtk2 fcitx5-frontend-gtk3 fcitx5-frontend-qt5
+````
+切换输入法：
+```
+im-config
+```
+安装 Psionics-Remix 主题（可选）
+> <https://github.com/xTpx/Psionics-Remix>
+```
+git clone https://github.com/xTpx/Psionics-Remix.git ~/.local/share/fcitx5/themes/Psionics-Remix
+```
+```
+vim ~/.config/fcitx5/conf/classicui.conf
+```
+配置主题：
+```
+ ***
+Theme=Psionics-Remix
+ ***
+```
+自定义快速输入:
+```
+sudo vim /usr/share/fcitx5/data/quickphrase.d/quick.mb
+```
+在文件中添加形如`input output`的代码，一行一条，即可实现添加快速输入辞典。  
+示例：要在快速输入中输入`ddrr`，在候选中显示`大大的小蜗牛`，只需在上述mb文件中添加一行`ddrr 大大的小蜗牛`即可。（注意空格）  
+> 友情提示：快速输入可以使用分号打开，Rime不支持快速输入。
 
 ### 9、双系统时间设置
 解决切换到 Windows 时间不对的问题。将本地时间更新到硬件上。
