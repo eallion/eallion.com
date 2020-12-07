@@ -104,3 +104,5 @@ Comments: true
 {{< friend des="imwgh.com" url="https://imwgh.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/f27fba4d7d92056cf3db0e577761ad01" name="大大的小熊" >}}
 
 {{< friend des="biux.cn" url="https://biux.cn/" src="https://biux.cn/usr/uploads/logo.jpg" name="猫咪Blog" >}}
+
+{{< friend des="人生在勤，不索何获" url="https://www.heson10.com" src="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png" name="黑石博客" >}}
