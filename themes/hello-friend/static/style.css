@@ -274,6 +274,30 @@ a.read-more,a.read-more:active,a.read-more:hover {
 	padding-right: 24px;
 }
 
+.talk {
+	display: none;
+}
+
+@media (max-width:683px) {
+	.talk {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		line-height: 1;
+		cursor: pointer;
+		padding: 10px;
+	}
+	.talk a {
+		text-decoration: none;
+	}
+}
+
+@media (max-width:319px) {
+	.talk {
+		display: none;
+	}
+}
+
 @media (max-width:683px) {
 	.menu {
 		position: absolute;
