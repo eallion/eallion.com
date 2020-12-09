@@ -2,12 +2,8 @@ baseURL  =  "https://eallion.com"
 languageCode = "zh-cn"
 DefaultContentLanguage = "zh-cn"
 title  =  "大大的小蜗牛"
-subtitle = "机会总是垂青于有准备的人"
-keywords = "蜗牛,大大的小蜗牛,eallion,snail,woniu,博客,代码,运营,电子商务,电商,嘀咕,hugo,code"
-description = "A blog about Charles 'eallion' Chin. 大大的小蜗牛的个人博客。"
-author = "Charles Chin"
-timezone = "Asia/Shanghai"
 theme  =  "hello-friend"
+timezone = "Asia/Shanghai"
 summaryLength = 140
 hasCJKLanguage = true
 # 每页显示的文章数量用于分页
@@ -19,6 +15,33 @@ rssLimit = 10
 [permalinks]
   posts = "/:slug/"
   tags = "/tags/:slug/"
+
+[params]
+  # dir name of your blog content (default is `content/posts`)
+  contentTypeName = "posts"
+  # "light" or "dark"
+  defaultTheme = "light"
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 4
+  # Enable to show reading time in minutes for posts
+  showReadingTime = true
+  minuteReadingTime = "分钟阅读"
+  logoText = "hello friend"
+  logoHomeLink = "/"
+
+  MenuMore = "分类"
+  DateFormatList = "2006-01-02 15:04:05"
+  DateFormatSingle = "2006-01-02 15:04:05"
+  ReadMore = "阅读全文"
+
+  EditPath = 'https://github.com/eallion/eallion.com/edit/main/content'
+  
+  title  =  "大大的小蜗牛"
+  subtitle = "机会总是垂青于有准备的人"
+  keywords = "蜗牛,大大的小蜗牛,eallion,snail,woniu,Charles,Chin,博客,静态博客,电商,代码,运营,电子商务,电商,嘀咕,hugo,code"
+  description = "A blog about Charles eallion Chin. 大大的小蜗牛的个人博客。—— 机会总是垂青于有准备的人"
+  author = "Charles Chin"
+  theme  =  "hello-friend"
 
 [menu]
   [[menu.main]]
@@ -65,26 +88,6 @@ rssLimit = 10
   name="山贼"
   url="https://eallion.com/posts/sz/"
   weight="15"
-
-[params]
-  # dir name of your blog content (default is `content/posts`)
-  contentTypeName = "posts"
-  # "light" or "dark"
-  defaultTheme = "light"
-  # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 4
-  # Enable to show reading time in minutes for posts
-  showReadingTime = true
-  minuteReadingTime = "分钟阅读"
-  logoText = "hello friend"
-  logoHomeLink = "/"
-
-  MenuMore = "分类"
-  DateFormatList = "2006-01-02 15:04:05"
-  DateFormatSingle = "2006-01-02 15:04:05"
-  ReadMore = "阅读全文"
-
-  EditPath = 'https://github.com/eallion/eallion.com/edit/main/content'
 
 [markup]
 [markup.goldmark]
