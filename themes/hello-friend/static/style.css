@@ -985,8 +985,7 @@ hr {
 	margin: 0 auto;
 	padding: 40px 20px;
 	flex-grow: 0;
-	color: #999;
-	color: var(--light-color-secondary)
+	color: #555
 }
 
 .dark-theme .footer {
