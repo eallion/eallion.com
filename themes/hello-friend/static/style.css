@@ -853,6 +853,20 @@ hr {
     position: absolute;
     left: -2em;
 }
+.post-content p {
+	text-indent: 2em;
+}
+
+.post-content blockquote p,.post-content ul li p {
+	text-indent: 0;
+}
+
+@media (max-width:683px) {
+	.post-content p {
+		text-indent: 0;
+	}
+}
+
 .post-cover {
 	border-radius: 8px;
 	margin: 40px -50px;
