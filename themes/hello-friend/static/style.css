@@ -808,12 +808,8 @@ hr {
 	text-decoration: underline;
 }
 
-.post-copyright p span,.post-copyright-icons,.post-copyright-icon {
+.post-copyright p span {
     vertical-align: middle;
-}
-
-.post-copyright-icon {
-	fill: currentColor;
 }
 
 .dark-theme .post-copyright {
