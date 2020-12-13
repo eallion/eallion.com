@@ -130,3 +130,14 @@ jQuery(document).ready(function ($) {
     $("<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' href='" + str + "'>《" + data.title + "》</a></h4><div class='rating'><div class='rating-star allstar" + db_star + "'></div><div class='rating-average'>" + data.rating + "</div></div><time class='post-preview--date'>作者：" + data.author + " </time><section style='max-height:75px;overflow:hidden;' class='post-preview--excerpt'>" + data.intro + "</section></div></div><img loading='lazy' class='post-preview--image' src=" + data.cover + "></div>").replaceAll(_this);
   }
 });
+
+// 回到顶部
+$('.to-top').toTop({
+  //options with default values
+  autohide: true,
+  offset: 420,
+  speed: 500,
+  position: true,
+  right: 15,
+  bottom: 30
+});
