@@ -1538,6 +1538,8 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .v[data-class=v] .vreply-wrapper textarea::placeholder{text-align: left !important; color: #999 !important;}
 .v[data-class=v] .vcards .vcard .vimg:hover {cursor: pointer !important; transform:rotate(360deg) !important;transition:transform 0.25s linear !important;}
 .v[data-class=v] code, .v[data-class=v] pre {background-color: var(--light-background-secondary) !important;}
+.v[data-class=v] .status-bar, .v[data-class=v] .veditor, .v[data-class=v] .vinput, .v[data-class=v] p {font-family: 'Noto Serif SC','Noto Serif TC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;}
+.v[data-class=v] pre code {font-family: 'JetBrains Mono',Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;}
 
 .dark-theme .v[data-class=v] .vbtn {font-size: 1em !important;	color:#999999 !important;border: 1px solid #4a4b50 !important;}
 .dark-theme .v[data-class=v] .vsys {display: none !important;}
