@@ -817,7 +817,8 @@ hr {
 }
 
 #all-tags {
-	word-break:break-all
+	word-break:break-all;
+	margin-top: 2rem;
 }
 
 #all-tags a{
@@ -826,9 +827,6 @@ hr {
 	margin-right: 1rem;
 }
 @media (max-width:683px) {
-	#all-tags {
-		word-break:break-all
-	}
 	#all-tags a{
 		font-size: 0.95rem;
 		margin-right: 0.5rem;
