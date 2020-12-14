@@ -4,13 +4,15 @@
 <meta name="keywords" content="{{ $.Site.Params.Keywords }},{{ with .Params.tags }}{{ delimit . "," }}{{ end }}"/>
 <meta name="referrer" content="never" />
 <link rel="canonical" href="{{ .Permalink }}" />
+<!-- 自己代理的 Google 字体 -->
+<link rel="stylesheet" href="https://static.eallion.com/fonts/fonts.css">
+
 {{ if in (.Site.BaseURL | string) "http://localhost:1313/" }}
 <link rel="stylesheet" href="{{ "style.css" | absURL }}">
 {{ else }}
 <link rel="stylesheet" href="https://static.eallion.com/assets/style.min.css">
 {{ end }}
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Noto+Serif+SC&family=Noto+Serif+TC&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
 <link rel="shortcut icon" href="https://static.eallion.com/assets/favicon.ico">
 <!-- OG data -->
 {{ template "_internal/opengraph.html" . }}
