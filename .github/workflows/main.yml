@@ -50,7 +50,7 @@ jobs:
           secretKey: ${{ secrets.CLOUDBASE_SECRET_KEY }}
           envId: ${{ secrets.CLOUDBASE_ENV_ID }}
           staticSrcPath: public
-          staitcIgnore: public/images,public/photos
+          staitcIgnore: public/images,public/photos,images,photos
 
       #- name: Sync to Gitee
       #  uses: eallion/git-mirror-action@master
