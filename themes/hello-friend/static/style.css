@@ -709,6 +709,51 @@ hr {
 	display: none
 }
 
+.index-talk {
+	width: 100%;
+	max-width: 800px;
+	text-align: left;
+	padding: 0 20px;
+	margin-top: -30px;
+}
+
+.index-talk-list {
+	background-color: var(--light-header);
+	border-radius: 4px;
+	display: block;
+}
+
+.index-talk-list span:hover {
+	cursor:pointer;
+}
+
+.index-talk-list p {
+	padding: 10px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+}
+
+.index-talk-list a {
+	text-decoration: none;
+	margin-left: -5px;
+}
+
+.index-talk-icon {
+	fill: currentColor;
+	vertical-align:middle;
+}
+
+.dark-theme .index-talk-list {
+	background-color: var(--dark-header);
+}
+
+@media (max-width:899px) {
+	.index-talk {
+		max-width: 660px
+	}
+}
+
 .post {
 	width: 100%;
 	max-width: 800px;
@@ -791,7 +836,6 @@ hr {
 	margin: 0;
     padding: 8px 0 8px 15px;
     list-style: none;
-    margin-left: 0px;
 	border-radius: 4px;
 }
 
@@ -833,10 +877,14 @@ hr {
 	}
 }
 .post-content {
-	font-family: 'Noto Serif SC','Noto Serif TC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
+	font-family: 'Noto Serif SC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
 	font-weight: 500;
 	margin-top: 0px; word-break:break-all;
 	min-height: 70px;
+}
+.index-talk {
+	font-family: 'Noto Serif SC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
+	font-weight: 500;
 }
 .post-content h3 {
 	position: relative;left: 2em;margin: 28px auto 18px!important;letter-spacing: 2px;
@@ -1583,7 +1631,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .v[data-class=v] .vreply-wrapper textarea::placeholder{text-align: left !important; color: #999 !important;}
 .v[data-class=v] .vcards .vcard .vimg:hover {cursor: pointer !important; transform:rotate(360deg) !important;transition:transform 0.25s linear !important;}
 .v[data-class=v] code, .v[data-class=v] pre {background-color: var(--light-background-secondary) !important;}
-.v[data-class=v] .status-bar, .v[data-class=v] .veditor, .v[data-class=v] .vinput, .v[data-class=v] p {font-family: 'Noto Serif SC','Noto Serif TC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;}
+.v[data-class=v] .status-bar, .v[data-class=v] .veditor, .v[data-class=v] .vinput, .v[data-class=v] p {font-family: 'Noto Serif SC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;}
 .v[data-class=v] pre code {font-family: 'JetBrains Mono',Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;}
 
 .dark-theme .v[data-class=v] .vbtn {font-size: 1em !important;	color:#999999 !important;border: 1px solid #4a4b50 !important;}
