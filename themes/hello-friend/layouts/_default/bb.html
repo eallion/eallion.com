@@ -14,7 +14,7 @@
     </div>
   </div>
 </div>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&family=Noto+Serif+TC:wght@500&display=swap" media="print" onload="this.media='all'" rel="stylesheet">
+  <link rel="preload stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&family=Noto+Serif+TC:wght@500&display=swap" media="print" onload="this.media='all'">
   <link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
   {{ if in (.Site.BaseURL | string) "http://localhost:1313/" }}
   <link rel="stylesheet" href="{{ "talk.css" | absURL }}">
