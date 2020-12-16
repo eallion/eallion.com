@@ -710,7 +710,7 @@ hr {
 }
 
 /* 首页嘀咕 index talk*/
-.index-talk{
+.index-talk {
 	width: 100%;
 	max-width: 800px;
 	text-align: left;
@@ -718,6 +718,7 @@ hr {
 	padding: 20px;
 	position: relative;
 }
+
 .popup {
 	background-color: var(--light-header);
 	border-radius: 8px;
@@ -751,6 +752,14 @@ hr {
 }
 
 .popup li p a:hover{
+	text-decoration:underline;
+}
+
+.index-talk-link {
+	text-decoration:none;
+}
+
+.index-talk-link:hover{
 	text-decoration:underline;
 }
 
