@@ -31,6 +31,8 @@
 <script type="text/javascript" src="{{ "lately.min.js" | absURL }}"></script>
 <script type="text/javascript" src="{{ "jquery.toTop.js" | absURL }}"></script>
 <script type="text/javascript" src="{{ "all.js" | absURL }}"></script>
+<script type="text/javascript" src="{{ "tcb.js" | absURL }}"></script>
+<script type="text/javascript" src="{{ "talk.js" | absURL }}"></script>
 {{ else }}
 <script type="text/javascript" src='https://static.eallion.com/assets/jquery.min.js'></script>
 <script type="text/javascript" src="https://static.eallion.com/assets/main.min.js"></script>
@@ -39,6 +41,10 @@
 <script type="text/javascript" src="https://static.eallion.com/assets/lately.min.js"></script>
 <script type="text/javascript" src="https://static.eallion.com/assets/jquery.toTop.min.js"></script>
 <script type="text/javascript" src="https://static.eallion.com/assets/all.min.js"></script>
+{{ end }}
+{{ if .IsHome }}
+<script type="text/javascript" src="https://imgcache.qq.com/qcloud/tcbjs/1.10.10/tcb.js"></script>
+<script type="text/javascript" src="https://static.eallion.com/assets/talk.min.js"></script>
 {{ end }}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
