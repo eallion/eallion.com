@@ -711,20 +711,26 @@ hr {
 
 /* 首页嘀咕 index talk*/
 .index-talk {
+	display: -webkit-flex; /* Safari */
+  	display: flex;
 	width: 100%;
-	max-width: 800px;
+	max-width: 760px;
 	text-align: left;
-	margin-top: -30px;
-	padding: 20px 20px 40px;
+	padding: 15px;
+	margin-bottom: 40px;
 	position: relative;
+	background-color: var(--light-header);
+	border-radius: 8px;
+}
+
+.index-talks {
+	display: block;
+	white-space: nowrap;
 }
 
 .popup {
-	background-color: var(--light-header);
-	border-radius: 8px;
-	display: block;
     margin: 0;
-    max-height: 65px;
+    max-height: 35px;
     overflow: hidden;
 }
 
@@ -735,6 +741,10 @@ hr {
 .popup li{
 	list-style:none;
 	margin-bottom:10px;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .popup li p{
@@ -746,12 +756,12 @@ hr {
 	overflow: hidden;
 }
 
-.popup li p a{
+.popup li a{
 	text-decoration:none;
 	font-size:16px;
 }
 
-.popup li p a:hover{
+.popup li a:hover{
 	text-decoration:underline;
 }
 
@@ -768,8 +778,8 @@ hr {
 	border:none;
 	position:absolute;
 	padding: 2px 5px;
-	top:20px;
-	right:20px;
+	top:0px;
+	right:0px;
 	color: var(--light-color);
 	border: var(--light-border-color);
 }
@@ -777,11 +787,11 @@ hr {
 .index-talk-icon {
 	fill: currentColor;
 	vertical-align:middle;
+	display: inline;
 }
 
 .dark-theme .popup {
 	color: var(--dark-color);
-	background-color: var(--dark-header);
 }
 
 .dark-theme .index-talk button{
@@ -792,10 +802,14 @@ hr {
 @media (max-width:899px) {
 	.index-talk {
 		max-width: 660px;
-		padding-top: 50px;
+		margin: 20px 0;
+		background-color: var(--light-header);
 	}
-	.index-talk button {
-		top: 50px;
+	.index-talks {
+		display: none;
+	}
+	.dark-theme .index-talk {
+		background-color: var(--dark-header);
 	}
 }
 
@@ -826,7 +840,8 @@ hr {
 	max-width: 800px;
 	text-align: left;
 	padding: 20px 20px 40px;
-	margin: 40px auto
+	margin: 0 auto;
+	margin-top: -20px;
 }
 .post:first-of-type{
 	margin:0 auto 40px;
@@ -1323,8 +1338,7 @@ hr {
 }
 
 .archive__post-title a {
-	color: #a9a9b3;
-	color: var(--dark-color);
+	color: var(--light-color);
 	display: block;
 	text-decoration: none
 }
