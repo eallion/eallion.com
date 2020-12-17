@@ -148,10 +148,10 @@ hugo new posts/daily/new_title.md
 
 2. 修改 Front matter:  
 
-`categories` 删除多余的分类    
-`tags` 按需添加
-`draft: true` 改为：`draft: false`  
-`slug` 按需修改
+- `categories` 删除多余的分类    
+- `tags` 按需添加
+- `draft: true` 改为：`draft: false`  
+- `slug` 按需修改
 
 3. 写文章 
 
@@ -170,34 +170,34 @@ git push
 ```
 hugo server -w -D -p 8080 -t hello-friend
 ```
-`hugo server` 把 Hugo 当作 Web 服务器，而非构建静态网页  
-`-w` 有文件变化立即刷新（默认开启）  
-`-D` 构建草稿，撰写新文章时很有用  
-`-p 8080` 端口+端口号（默认 1313）  
-`-t hello-friend` 使用 hello-friend 主题    
-`hugo --help` 查看所有命令  
+- `hugo server` 把 Hugo 当作 Web 服务器，而非构建静态网页  
+- `-w` 有文件变化立即刷新（默认开启）  
+- `-D` 构建草稿，撰写新文章时很有用  
+- `-p 8080` 端口+端口号（默认 1313）  
+- `-t hello-friend` 使用 hello-friend 主题    
+- `hugo --help` 查看所有命令  
 
-- 6. 本地构建
+6. 本地构建
 
 ```
 hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 ```
-`--cleanDestinationDir` 构建前先清理目标文件夹，即 public  
-`--forceSyncStatic` 强制同步 static 文件夹  
-`--gc` 构建后执行一些清理任务（删除掉一些没用的缓存文件）  
-`--ignoreCache` 构建时忽略缓存  
-`--minify` 压缩网页代码  
-`hugo --help` 查看所有命令  
+- `--cleanDestinationDir` 构建前先清理目标文件夹，即 public  
+- `--forceSyncStatic` 强制同步 static 文件夹  
+- `--gc` 构建后执行一些清理任务（删除掉一些没用的缓存文件）  
+- `--ignoreCache` 构建时忽略缓存  
+- `--minify` 压缩网页代码  
+- `hugo --help` 查看所有命令  
 
-- 7. 本地部署至腾讯云 CloudBase
+7. 本地部署至腾讯云 CloudBase
 ```
 cd gpm/github.com/eallion/eallion.com
 
 tcb hosting deploy public / -e TCB-envID
 ```
-`public` 本地 Hugo 静态网页文件（能过第 6 步的命令构建）  
-`/` CloudBase 静态托管的目录，一般部署至根目录`/`  
-`-e TCB-envID` CloudBase 的环境 ID   
+- `public` 本地 Hugo 静态网页文件（能过第 6 步的命令构建）  
+- `/` CloudBase 静态托管的目录，一般部署至根目录`/`  
+- `-e TCB-envID` CloudBase 的环境 ID   
 
 ### 文章中图片处理方式
 
