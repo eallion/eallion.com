@@ -9,8 +9,10 @@
   
   
   {{ $PostCate := .File.Path | replaceRE ".*posts/(.*)/.*" "$1"}}
+  
+  {{ partial "talks.html" . }}
+  
   <div class="post {{ $PostCate }}">
-    {{ partial "talks.html" . }}
     <!-- {{ partial "breadcrumb.html" . }} -->
   {{ if eq $PostCate "chat"}}
       {{ .Render "chat"}}
