@@ -715,7 +715,7 @@ hr {
 	max-width: 800px;
 	text-align: left;
 	margin-top: -30px;
-	padding: 20px;
+	padding: 20px 20px 40px;
 	position: relative;
 }
 
@@ -815,6 +815,10 @@ hr {
 @media (max-width:860px) {
   .timeline ul li{margin-left:0;}
   .timeline ul li div{width:calc(100vw - 75px);left:30px;}
+}
+
+.posts {
+	margin-top: -20px;
 }
 
 .post {
