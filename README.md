@@ -198,6 +198,7 @@ tcb hosting deploy public / -e TCB-envID
 `public` 本地 Hugo 静态网页文件（能过第 6 步的命令构建）
 `/` CloudBase 静态托管的目录，一般部署至根目录`/`
 `-e TCB-envID` CloudBase 的环境 ID 
+
 ### 文章中图片处理方式
 
 因为 jsDelivr 2020.08.15 的[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)，现在没有用 GitHub + jsDelivr 当图床了。
