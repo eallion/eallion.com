@@ -138,30 +138,59 @@ git push
 ```
 
 ### 写新文章
-- 1、生成新文章
+- 1. 生成新文章
 
 ```
 hugo new posts/daily/new_title.md
 ```
 
-- 2、修改 Front matter:  
+- 2. 修改 Front matter:  
 
 `categories` 删除多余的分类    
 `tags` 按需添加
 `draft: true` 改为：`draft: false`  
 `slug` 按需修改
 
-- 3、写文章 
+- 3. 写文章 
 
 通过 Typora 或 VSCode 写文章
 
-- 4、Push & auto deploy:
+- 4. Push & auto deploy:
+
 ```
 git add .
 git commit -m "Post new_title"
 git push
 ```
 
+- 5. 本地调试（~~或当作 Web service~~）
+
+```
+hugo server -w -D -p 8080 -t hello-friend
+```
+`hugo server` 把 Hugo 当作 Web 服务器，而非构建静态网页
+`-w` 当有文件变化立即刷新（默认开启）
+`-D` 构建草稿，撰写新文章时很有用
+`-p 8080` 端口+端口号
+`-t hello-friend` 使用 hello-friend 主题  
+
+- 6. 本地构建
+
+```
+hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
+```
+`hugo --help` 查看所有命令
+`cleanDestinationDir` 构建前先清理目标文件夹，即 public
+`forceSyncStatic` 强制同步 static 文件夹
+`gc` 构建后执行一些清理任务（删除掉一些没用的缓存文件）
+`ignoreCache` 构建时忽略缓存
+`minify` 压缩网页代码
+
+- 7. 本地部署
+```
+cd gpm/github.com/eallion/eallion.com/public
+tcb hosting deploy ./ / -e TCBenvID
+```
 ### 文章中图片处理方式
 
 因为 jsDelivr 2020.08.15 的[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)，现在没有用 GitHub + jsDelivr 当图床了。
