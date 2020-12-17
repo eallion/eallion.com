@@ -790,6 +790,10 @@ hr {
 	display: inline;
 }
 
+.dark-theme .index-talk {
+	background-color: var(--dark-header);
+}
+
 .dark-theme .popup {
 	color: var(--dark-color);
 }
