@@ -199,6 +199,27 @@ tcb hosting deploy public / -e TCB-envID
 - `/` CloudBase 静态托管的目录，一般部署至根目录`/`  
 - `-e TCB-envID` CloudBase 的环境 ID   
 
+### 静态文件（CSS、JS）
+> Update: 2020.12.18   
+> 从腾讯云换到了 jsDelivr
+
+静态文件放到了 [`eallion/static`](https://github.com/eallion/static) `main` 分支 
+
+- `assets` 目录： CSS，JS 静态文件
+```
+https://cdn.jsdelivr.net/gh/eallion/static@v1.0.0/assets/eallion.com/all.min.js
+```
+
+#### PS：刷新 CDN
+通过打 Tag 的方式刷新 jsDelivr 的 CDN
+`tag`对应`commit`
+```
+git tag vX.X.X
+git push origin vX.X.X
+
+# git push origin --tags # 推送所有 Tags
+```
+
 ### 文章中图片处理方式
 
 因为 jsDelivr 2020.08.15 的[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)，现在没有用 GitHub + jsDelivr 当图床了。
