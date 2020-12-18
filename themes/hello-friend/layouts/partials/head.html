@@ -5,19 +5,21 @@
 <meta name="referrer" content="never" />
 <link rel="canonical" href="{{ .Permalink }}" />
 <!-- 自己代理的 Google 字体 -->
+<!--
 <link rel="preconnect" href="https://static.eallion.com">
 <link rel="preload stylesheet" href="https://static.eallion.com/fonts/fonts.css" as="style" type="text/css" media="print" onload="this.media='all'">
-<!--
+-->
+
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="preload stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Noto+Serif+SC&display=swap" as="style" type="text/css" media="print" onload="this.media='all'">
--->
+
 {{ if in (.Site.BaseURL | string) "http://localhost:1313/" }}
 <link rel="stylesheet" href="{{ "style.css" | absURL }}">
 {{ else }}
-<link rel="preload stylesheet" href="https://static.eallion.com/assets/style.min.css" as="style" type="text/css">
+<link rel="preload stylesheet" href="https://cdn.jsdelivr.net/gh/eallion/static@v1.0.1/assets/eallion.com/style.min.css" as="style" type="text/css">
 {{ end }}
 
-<link rel="shortcut icon" href="https://static.eallion.com/assets/favicon.ico">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/eallion/static@v1.0.1/assets/eallion.com/favicon.ico">
 <!-- OG data -->
 {{ template "_internal/opengraph.html" . }}
 <!-- Google Analytics -->
