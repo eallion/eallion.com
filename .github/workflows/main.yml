@@ -42,14 +42,14 @@ jobs:
           allow_empty_commit: true
           commit_message: ${{ GitHub.event.head_commit.message }}
 
-      - name: Deploy to Tencent CloudBase
-        id: deployStatic
-        uses: TencentCloudBase/cloudbase-action@v1.1.1
-        with:
-          secretId: ${{ secrets.CLOUDBASE_SECRET_ID }}
-          secretKey: ${{ secrets.CLOUDBASE_SECRET_KEY }}
-          envId: ${{ secrets.CLOUDBASE_ENV_ID }}
-          staticSrcPath: public
+      #- name: Deploy to Tencent CloudBase
+      #  id: deployStatic
+      #  uses: TencentCloudBase/cloudbase-action@v1.1.1
+      #  with:
+      #    secretId: ${{ secrets.CLOUDBASE_SECRET_ID }}
+      #    secretKey: ${{ secrets.CLOUDBASE_SECRET_KEY }}
+      #    envId: ${{ secrets.CLOUDBASE_ENV_ID }}
+      #    staticSrcPath: public
 
       #- name: Sync to Gitee
       #  uses: eallion/git-mirror-action@master
