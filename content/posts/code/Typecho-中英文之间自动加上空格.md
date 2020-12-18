@@ -23,7 +23,7 @@ GitHub上有2个项目：
 **# 用法**：
 1、在`footer.php`中引入pangu.js：
 ```
-<script src="//cdn.eallion.com/static/pangu.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 ```
 
 （我加了白名单，请勿直接引用的我cdn。）
