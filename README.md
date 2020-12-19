@@ -18,12 +18,6 @@
 - Slack:
 <https://eallion.slack.com/archives/C016FNKM40K>
 
-# Lighthouse
-
-> [View result](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Feallion.com%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext#pwa)
-
-![](https://cdn.jsdelivr.com/gh/eallion/eallion.com/themes/hello-friend/static/lighthouse.gif)
-
 ---
 
 # 备忘录:
@@ -253,3 +247,8 @@ git push origin vX.X.X
 > 照片需要上传至腾讯云COS。但是本博客没有开启相册页面，无须操作。
 
 > ~~Hugo 目录的`static/photos/`文件夹下，相册页面会自动索引。~~
+
+
+### Lighthouse
+
+[View result](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Feallion.com%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext#pwa)
