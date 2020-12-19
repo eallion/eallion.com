@@ -18,6 +18,12 @@
 - Slack:
 <https://eallion.slack.com/archives/C016FNKM40K>
 
+# Lighthouse
+
+> [View result](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Feallion.com%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext#pwa)
+
+![](https://cdn.jsdelivr.com/gh/eallion/eallion.com/themes/hello-friend/static/lighthouse.gif)
+
 ---
 
 # 备忘录:
