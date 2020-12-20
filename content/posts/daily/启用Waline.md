@@ -37,7 +37,7 @@ toc: false
 
 ### Waline 简介
 
-Waline - 一款从 [Valine (opens new window)](https://valine.js.org/)衍生的带后端评论系统。可以将 Waline 等价成 With backend Valine.
+Waline - 一款从 [Valine](https://valine.js.org/) 衍生的带后端评论系统。可以将 Waline 等价成 With backend Valine。
 
 **Waline 特性**
 
