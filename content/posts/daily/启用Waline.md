@@ -42,15 +42,10 @@ Waline - 一款从 [Valine (opens new window)](https://valine.js.org/)衍生的�
 **Waline 特性**
 
 - 快速
-
 - 真·安全
-
 - Markdown 语法支持
-
 - 轻量易用
-
 - 免费部署
-
 - 多种部署部署方式和存储服务支持，每列选择一项多达 48 种部署方式任君选择
 
 | **客户端脚本** | **服务端部署** | **数据存储** |
@@ -91,8 +86,8 @@ A：**没有！** Waline 的设计理念就是一个后端程序，是一个网�
 
 A：作为正常博客使用，Vercel、CloudBase、Docker都是够的。
 
-- Vercel： 免费 100G/月（<https://vercel.com/pricing>）
-- CloudBase：免费 4万GBs/月、5万读操作数/天（<https://cloud.tencent.com/document/product/876/47816>）
+- Vercel： 免费 100G/月（[说明文档](https://vercel.com/pricing)）
+- CloudBase：免费 4万GBs/月、5万读操作数/天（[说明文档](https://cloud.tencent.com/document/product/876/47816)）
 - Docker / VPS：取决于自己的 VPS 额度
 
 > Q：这是不是软文？  
@@ -101,4 +96,4 @@ A：我也不知道算不算。这是我自愿写的，作者也没有给我广�
 
 > Q：有没有其他好东西推荐？  
 
-A：没有！就算你有发现，也不应该说出来，大家都懂得的。没有什么是国人玩不坏的。<https://eallion.com/talk/>
+A：没有！就算你有发现，也不应该说出来，大家都懂得的。没有什么是国人玩不坏的。
