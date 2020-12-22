@@ -67,7 +67,7 @@ Waline 有提供数据迁移助手。~~目前是一个隐藏界面，没有公�
 
 > <https://waline.js.org/migration/tool.html>
 
-支持从 4 种来源、3 种目标一共 12 种数据迁移方式。
+支持从 5 种来源、3 种目标一共 15 种数据迁移方式。
 
 | 来源    | 目标                                  |
 | ------- | ------------------------------------- |
@@ -75,6 +75,7 @@ Waline 有提供数据迁移助手。~~目前是一个隐藏界面，没有公�
 | Disqus  | CloudBase Waline                      |
 | Twikoo  | Waline MySQL/PostgreSQL/SQLite Waline |
 | Typecho |                                       |
+| Artalk  |                                       |
 
 ### 疑惑
 
