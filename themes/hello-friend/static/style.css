@@ -1707,7 +1707,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .v[data-class=v] .vcards .vcard .vh .vmeta .vat {color: #999999 !important;font-size: smaller !important; padding-right: 1.25em !important;}
 .v[data-class=v] .vcards .vcard .vh .vmeta .vat:active,.v[data-class=v] .vcards .vcard .vh .vmeta .vat:hover {color: #66b1ff !important;font-size: smaller !important; padding-right: 1.25em !important;}
 .v[data-class=v] .status-bar, .v[data-class=v] .veditor, .v[data-class=v] .vinput, .v[data-class=v] p, .v[data-class=v] pre code {color:#222 !important;}
-.v[data-class=v] p img {width: 1.2em !important;height: 1.2em !important;display: inline-block !important;vertical-align: middle !important;}
+.v[data-class=v] p img {display: inline-block !important;vertical-align: middle !important;}
 .v[data-class=v] .vwrap .vheader .vinput:focus {border-bottom-color: #66b1ff !important}
 .v[data-class=v] .status-bar, .v[data-class=v] .veditor, .v[data-class=v] .vinput, .v[data-class=v] p, .v[data-class=v] pre code {margin: 0 !important;}
 .v[data-class=v] .vcards .vcard .vquote {padding-left: 0 !important;border-left:none !important;}
