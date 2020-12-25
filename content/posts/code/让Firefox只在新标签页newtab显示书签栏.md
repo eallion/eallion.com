@@ -7,13 +7,17 @@ slug: "only-show-bookmark-in-newtab-in-firefox"
 date: "2019-05-19 00:45:00"
 ---
 
-> 更新 2：（2020.12.25）
+### 更新 3
+> 更新时间：2020.12.25
 
 Firefox Developer Edition （开发者版）默认支持在新标签页打开书签栏。
 
 ![](https://images.eallion.com/images/2020/12/firefox-dev.png!hugo.webp)
 
-> 更新 1：（2020.12.24）
+---
+
+### 更新 2
+> 更新时间：2020.12.24
 
 最新版的 Firefox （84.0.1 (64 位)）提供了一个配置，可以修改此功能。
 
@@ -31,9 +35,18 @@ Firefox Developer Edition （开发者版）默认支持在新标签页打开书
 
 ---
 
-**原文：**
+### 更新 1
+> 更新时间：2019.09.22  
+> 来自评论区：
 
->  Firefox 65版本以上亲测有效，低版本应该也可以。
+Firefox 69 需要在 `about:config` 里将 `toolkit.legacyUserProfileCustomizations.stylesheets` 设置为 `ture` 才有效。 
+因为 Firefox 69 默认已经不加载 `userChrome.css` 了。
+
+---
+
+### 原文：
+
+>  Firefox 65版本亲测有效，低版本应该也可以。
 
 因工作原因，除了主浏览器Chrome会用到多浏览器，常用的第二、三选择是Firefox和Yandex。
 但是Firefox的书签栏是继承全局设置的，关掉书签栏后新标签页也不会显示了。
