@@ -7,6 +7,34 @@ slug: "only-show-bookmark-in-newtab-in-firefox"
 date: "2019-05-19 00:45:00"
 ---
 
+> 更新 2：（2020.12.25）
+
+Firefox Developer Edition （开发者版）默认支持在新标签页打开书签栏。
+
+![](https://images.eallion.com/images/2020/12/firefox-dev.png!hugo.webp)
+
+> 更新 1：（2020.12.24）
+
+最新版的 Firefox （84.0.1 (64 位)）提供了一个配置，可以修改此功能。
+
+`browser.toolbars.bookmarks.visibility`
+
+此配置有 3 个值：`always`、`nerver`、`newtab`。
+
+即：总是显示书签、永不显示书签、仅在新标签页显示书签。
+
+**修改方法：**
+
+在 Firefox 地址栏输入`about:config`，搜索`browser.toolbars.bookmarks.visibility`，修改为`newtab`即可。
+
+![](https://images.eallion.com/images/2020/12/firefox-newtab.png!hugo.webp)
+
+---
+
+**原文：**
+
+>  Firefox 65版本以上亲测有效，低版本应该也可以。
+
 因工作原因，除了主浏览器Chrome会用到多浏览器，常用的第二、三选择是Firefox和Yandex。
 但是Firefox的书签栏是继承全局设置的，关掉书签栏后新标签页也不会显示了。
 Google一番后，发现可以通过自定义CSS来实现这一功能。
@@ -17,6 +45,7 @@ Google一番后，发现可以通过自定义CSS来实现这一功能。
 ```
 这里面有一个或多个目录，找到自己账号对应的目录，
 如：
+
 ```bash
 imaniceman123.default
 ```
@@ -30,40 +59,14 @@ chrome
 #main-window #PersonalToolbar {
   visibility: collapse !important;
 }
-
-#main-window[title^="无标题页"] #PersonalToolbar,
-#main-window[title^="about:home"] #PersonalToolbar,
-#main-window[title^="about:blank"] #PersonalToolbar,
-#main-window[title^="about:newtab"] #PersonalToolbar,
-#main-window[title^="New Tab"] #PersonalToolbar,
-#main-window[title^="Nightly"] #PersonalToolbar,
-#main-window[title^="Mozilla Firefox"] #PersonalToolbar,
-#main-window[title^="Firefox"] #PersonalToolbar,
-#main-window[title^="新标签页"] #PersonalToolbar,
-#main-window[title^="新标签页 - Nightly"] #PersonalToolbar,
-#main-window[title^="Firefox Developer Edition"] #PersonalToolbar
-#main-window[title^="Customize Firefox"] #PersonalToolbar {
+#main-window[title^="New Tab"] #PersonalToolbar {
   visibility: visible !important;
 }
 ```
 然后在Firefox浏览器的选项里打开显示书签栏。
 
-> PS：
-  
-如果你能准确的找到你自己的新标签页的 `title` ，上面这段代码可以简化。  
-比如我的新标签页叫“无标题页”：
-```css
-#main-window #PersonalToolbar {
-  visibility: collapse !important;
-}
+其中，双引号中的`"New Tab"`就是新标签的标签名字，比如中文版 Firefox 可能新标签页的名字叫做：``新标签页``，那引号里的内容就需要改为自己 Firefox 新标签页对应的名字。
 
-#main-window[title^="无标题页"] #PersonalToolbar {
-  visibility: visible !important;
-}
-```
-
-> 解释：  
+**解释：**
 
 这段CSS样式的意思是：在选项里是全局打开书签栏的，然后用自定义CSS隐藏了书签栏，但在特定的 `title` 页（如：新标签页）显示书签栏。
-
-*Firefox 65版本以上亲测有效，低版本应该也可以。
