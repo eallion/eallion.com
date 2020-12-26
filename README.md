@@ -1,6 +1,6 @@
 # A Hugo blog about *Charles 'eallion' Chin*
-![Deploy Hugo](https://github.com/eallion/hugo/workflows/Deploy%20Hugo/badge.svg)  
-[![构建状态](https://eallion.coding.net/badges/eallion/job/243839/main/build.svg)](https://eallion.coding.net/p/eallion/ci/job)
+![Deploy Hugo to GitHub Pages](https://github.com/eallion/eallion.com/workflows/Deploy%20Hugo%20to%20GitHub%20Pages/badge.svg)   
+[![构建状态](https://eallion.coding.net/badges/eallion/job/243839/build.svg)](https://eallion.coding.net/p/eallion/ci/job)
 
 > Chance favors the prepared mind.
 
