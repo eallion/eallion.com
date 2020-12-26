@@ -33,11 +33,12 @@
 
 ### 架构备忘
 
-- ~~国内：通过阿里云云效 Codeup & Flow 部署至：阿里云 OSS + CDN~~
-- ~~国内：通过 [Coding](https://coding.net/) 部署至：[Gitee pages](https://eallion.gitee.io)~~
-- ~~国内：通过 [Coding](https://coding.net/) 部署至：[Coding pages](https://blog.eallion.com)~~
-- 国内：通过 GitHub Action 部署至腾讯云 [CloudBase](https://cloud.tencent.com/product/tcb)
-- 境外：通过 GitHub Action 部署至 [GitHub Pages](https://eallion.github.io/)
+- ~~国内：通过阿里云云效 Codeup & Flow 部署至：阿里云 OSS + CDN~~ (2019.12.20) 
+- ~~国内：通过 [Coding](https://coding.net/) 部署至：[Gitee pages](https://eallion.gitee.io)~~ 
+- ~~国内：通过 [Coding](https://coding.net/) 部署至：[Coding pages](https://blog.eallion.com)~~ 
+- ~~国内：通过 GitHub Action 部署至腾讯云 [CloudBase](https://cloud.tencent.com/product/tcb)~~ (2020.08.12)
+- 国内：通过 [Coding](https://coding.net/) 部署至腾讯云 [COS](https://cloud.tencent.com/product/cos) + [CDN](https://cloud.tencent.com/product/cdn) (2020.12.27)
+- 境外：通过 GitHub Action 部署至 [GitHub Pages](https://eallion.github.io/) (2020.08.12)
 
 ### 添加备用仓库 remote
 > default branch: main  
@@ -63,27 +64,43 @@ rm -rf public/images
 rm -rf public/photos
 ```
 
-### Coding.net 流程部分命令
+### Coding.net 持续集成部分命令
 ```
-# Deploy to Coding Pages
-rm -rf .git
-cd public
-git init
-git remote add origin https://e.coding.net/eallion/eallion.com/public.git
-git add .
-git commit -m ${GIT_COMMIT}
-git push -f https://id:token@e.coding.net/eallion/eallion.com/public.git HEAD:master
-
-# Push public to Gitee Pages
-# Deploy with GitHub Actions
-rm -rf .git
-git init
-git remote add origin https://gitee.com/eallion/eallion.git
-git add .
-git commit -m ${GIT_COMMIT}
-git push -f https://id:token@gitee.com/eallion/eallion.git HEAD:gh-pages
+pipeline {
+  agent any
+  stages {
+    stage('检出') {
+      steps {
+        checkout([
+          $class: 'GitSCM',
+          branches: [[name: env.GIT_BUILD_REF]],
+          userRemoteConfigs: [[
+            url: env.GIT_REPO_URL,
+            credentialsId: env.CREDENTIALS_ID
+          ]]])
+        }
+      }
+      stage('Build Hugo') {
+        agent {
+          docker {
+            image 'monachus/hugo:latest'
+            reuseNode true
+          }
+        }
+        steps {
+          sh 'hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify'
+        }
+      }
+      stage('上传到 COS Bucket') {
+        steps {
+          sh 'coscmd config -a ${COS_SECRET_ID} -s ${COS_SECRET_KEY} -b ${COS_BUCKET_NAME} -r ${COS_BUCKET_REGION} -m 30'
+          sh 'coscmd upload -r ${COS_UPLOAD_FROM_PATH} /'
+          echo '部署成功！'
+        }
+      }
+    }
+  }
 ```
-
 ### 腾讯云 CloudBase Actions
 > <https://github.com/marketplace/actions/tencent-cloudbase-github-action>
 
@@ -155,7 +172,7 @@ hugo new posts/daily/new_title.md
 
 3. 写文章 
 
-通过 Typora 或 VSCode 写文章
+通过 Typora 或 VSCode 编辑文章
 
 4. Push & auto deploy:
 
