@@ -1,14 +1,21 @@
 # A Hugo blog about *Charles 'eallion' Chin*
-Deploy Hugo to GitHub Pages ![build](https://github.com/eallion/eallion.com/workflows/build/badge.svg)    
-Deploy Hugo to Tencent COS [![构建状态](https://eallion.coding.net/badges/eallion/job/243839/build.svg)](https://eallion.coding.net/p/eallion/ci/job)
 
 > Chance favors the prepared mind.
 
-# Live demo:
+### Live demo:
 
 > <https://eallion.com>
 
-# Any questions?
+### Build status
+
+- GitHub Pages
+  ![build](https://github.com/eallion/eallion.com/workflows/build/badge.svg?branch=main)   
+
+- Tencent COS
+  [![构建状态](https://eallion.coding.net/badges/eallion/job/243839/build.svg)](https://eallion.coding.net/p/eallion/ci/job)
+
+
+### Any questions?
 
 - Issue:
 <https://github.com/eallion/eallion.com/issues/new>
@@ -18,8 +25,6 @@ Deploy Hugo to Tencent COS [![构建状态](https://eallion.coding.net/badges/ea
 
 - Slack:
 <https://eallion.slack.com/archives/C016FNKM40K>
-
----
 
 # 备忘录:
 
