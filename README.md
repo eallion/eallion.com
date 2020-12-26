@@ -8,10 +8,10 @@
 
 ### Build status
 
-- GitHub Pages
+- GitHub Pages  
   ![build](https://github.com/eallion/eallion.com/workflows/build/badge.svg?branch=main)   
 
-- Tencent COS
+- Tencent COS  
   [![构建状态](https://eallion.coding.net/badges/eallion/job/243839/build.svg)](https://eallion.coding.net/p/eallion/ci/job)
 
 
