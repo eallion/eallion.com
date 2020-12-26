@@ -32,15 +32,15 @@ jobs:
           hugo version
           hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 
-      #- name: Deploy to GitHub Pages
-      #  uses: peaceiris/actions-gh-pages@v3
-      #  with:
-      #    personal_token: ${{ secrets.personal_token }}
-      #    external_repository: eallion/eallion.github.io
-      #    PUBLISH_BRANCH: gh-pages
-      #    PUBLISH_DIR: ./public
-      #    allow_empty_commit: true
-      #    commit_message: ${{ GitHub.event.head_commit.message }}
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.personal_token }}
+          external_repository: eallion/eallion.github.io
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./public
+          allow_empty_commit: true
+          commit_message: ${{ GitHub.event.head_commit.message }}
 
       #- name: Deploy to Tencent CloudBase
       #  id: deployStatic
@@ -93,15 +93,15 @@ jobs:
       #    UPTOC_UPLOADER_AK: ${{ secrets.ACCESS_KEY_ID }}
       #    UPTOC_UPLOADER_SK: ${{ secrets.ACCESS_KEY_SECRET }}
 
-      # 部署到腾讯云 COS
-      - name: Deploy to COS
-        uses: saltbo/uptoc@master
-        with:
-          driver: cos
-          region: ap-shanghai
-          bucket: ${{ secrets.COS_CN_BUCKET }}
-          exclude: public/images,public/photos
-          dist: public
-        env:
-          UPTOC_UPLOADER_AK: ${{ secrets.SECRET_COS_ID }}
-          UPTOC_UPLOADER_SK: ${{ secrets.SECRET_COS_KEY }}
+      ## 部署到腾讯云 COS
+      #- name: Deploy to COS
+      #  uses: saltbo/uptoc@master
+      #  with:
+      #    driver: cos
+      #    region: ap-shanghai
+      #    bucket: ${{ secrets.COS_CN_BUCKET }}
+      #    exclude: public/images,public/photos
+      #    dist: public
+      #  env:
+      #    UPTOC_UPLOADER_AK: ${{ secrets.SECRET_COS_ID }}
+      #    UPTOC_UPLOADER_SK: ${{ secrets.SECRET_COS_KEY }}
