@@ -474,7 +474,7 @@ body {
 	background-color: var(--light-background);
 	color: #222;
 	color: var(--light-color);
-	text-rendering: optimizeLegibility;
+	/* text-rendering: optimizeLegibility;*/
 	-webkit-overflow-scrolling: touch;
 	-webkit-text-size-adjust: 100%
 }
