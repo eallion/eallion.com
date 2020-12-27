@@ -16,10 +16,10 @@
 {{ if in (.Site.BaseURL | string) "http://localhost:1313/" }}
 <link rel="stylesheet" href="{{ "style.css" | absURL }}">
 {{ else }}
-<link rel="preload stylesheet" href="https://cdn.jsdelivr.net/gh/eallion/static@v1.0.2/assets/eallion.com/style.min.css" as="style" type="text/css">
+<link rel="preload stylesheet" href="https://cdn.jsdelivr.net/gh/eallion/static@v1.0.3/assets/eallion.com/style.min.css" as="style" type="text/css">
 {{ end }}
 
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/eallion/static@v1.0.2/assets/eallion.com/favicon.ico">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/eallion/static@v1.0.3/assets/eallion.com/favicon.ico">
 <!-- OG data -->
 {{ template "_internal/opengraph.html" . }}
 <!-- Google Analytics -->
