@@ -1,70 +1,151 @@
-{{ define "main" }}
-<div class="post">
-  <h2 class="post-title">{{.Title}}</h2>
-  <div class="post-content">
-  <p class="count">共嘀咕了<span class="count-data">0</span>条</p>
-    <section class="timeline">
-      <ul>
-        <div class="list">
+<!DOCTYPE html>
+<html lang="{{ $.Site.Language }}">
+  <head>
+      <title>{{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ else }}{{ .Title }} - {{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ end }}</title>
+    {{ partial "head.html" . }}
+  </head>
+  <body class="{{ if ne $.Site.Params.defaultTheme "light" -}} dark-theme {{- end -}}">
+    <div class="container">
+      {{ partial "header.html" . }}
+
+      <div class="content">
+        <div class="post">
+          <h2 class="post-title">{{.Title}}</h2>
+          <div class="post-content">
+          <p class="count">共嘀咕了<span class="count-data">0</span>条</p>
+            <section class="timeline">
+              <ul>
+                <div class="list">
+                </div>
+              </ul>
+            </section>
+            <div class="load">
+              <button class="load-btn button-load">加载更多</button>
+            </div>
+          </div>
         </div>
-      </ul>
-    </section>
-    <div class="load">
-      <button class="load-btn button-load">加载更多</button>
-    </div>
-  </div>
-</div>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TencentCloudBase/tcb-js-sdk@master/tcbjs/1.10.10/tcb.js"></script>
-  <script>
-    //初始化
-    const app = tcb.init({
-      env: 'eallion-8gkunp4re49bae66' //这里是你的环境id
-    })
-    app.auth({
-        persistence: "session"
-    }).anonymousAuthProvider().signIn().then(() => {
-        //定义数据对象
-        const db = app.database()
-        //选择数据表
-        const collection = db.collection('talks')
-        /**
-         * 定义基本变量
-         * count | int, 数目
-         * per | int, 每页显示项目数
-         * page | int, 第几页
-         */
-        var count=0, per = 10,page = 1
-        /**
-         * 获取数目
-         */
-        collection.count(function(err,res){
-        count = res.total
-        $('.count-data').text(count)
-        getList()
+      </div>
+
+      {{$scratch := newScratch}}
+      {{ range (where .Site.Pages "Kind" "page" )}}
+          {{$scratch.Add "total" .WordCount}}
+      {{ end }}
+      
+      <footer class="footer">
+        <div class="footer__inner">
+          <div class="copyright">
+            <span>共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇文章</span><span> {{$scratch.Get "total" }} 字</span>
+          </div>
+          {{ if $.Site.Copyright }}
+            <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
+          {{else}}
+            <div class="copyright">
+              <span>Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>, Theme <a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener">Hello-friend</a> by <a href="https://twitter.com/panr" target="_blank" rel="noopener">Panr</a></span>
+            </div>
+            <div class="copyright">
+              <span>&copy; {{ now.Year }} <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">浙ICP备16031768号-2</a></span>
+            </div>
+          {{end}}
+        </div>
+      </footer>
+      
+      <a class="to-top back-to-top"><svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg></a>
+      {{ if in (.Site.BaseURL | string) "http://localhost:1313/" }}
+      <script type="text/javascript" src="{{ "jquery.min.js" | absURL }}"></script>
+      <script type="text/javascript" src="{{ "main.js" | absURL }}"></script>
+      <script type="text/javascript" src="{{ "waterfall.min.js" | absURL }}"></script>
+      <script type="text/javascript" src="{{ "slimbox2.min.js" | absURL }}"></script>
+      <script type="text/javascript" src="{{ "lately.min.js" | absURL }}"></script>
+      <script type="text/javascript" src="{{ "jquery.toTop.js" | absURL }}"></script>
+      <script type="text/javascript" src="{{ "all.js" | absURL }}"></script>
+      {{ else }}
+      <script type="text/javascript" src='https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js'></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/eallion/static@v1.0.3/assets/eallion.com/main.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/eallion/static@v1.0.3/assets/eallion.com/waterfall.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/eallion/static@v1.0.3/assets/eallion.com/slimbox2.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/eallion/static@v1.0.3/assets/eallion.com/lately.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/eallion/static@v1.0.3/assets/eallion.com/jquery.toTop.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/eallion/static@v1.0.3/assets/eallion.com/all.min.js"></script>
+      {{ end }}
+
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TencentCloudBase/tcb-js-sdk@master/tcbjs/1.10.10/tcb.js"></script>
+      <script>
+        //初始化
+        const app = tcb.init({
+          env: 'eallion-8gkunp4re49bae66' //这里是你的环境id
         })
-        /**
-         * 封装获取数据函数
-         */
-        function getList(){
-        if((page-1)*per >= count){
-            return
-        }
-        var date
-        collection.limit(per).skip((page-1)*per).orderBy('date','desc').get(function(err, res) {
-            (res.data).forEach(item => {
-            date = item.date
-            $('.list').append('<li class="item"><div><p>'+item.content+'</p><time class="date"><small>'+`${(date.getHours() + 1) <= 12 ? '上午' : '下午'}`+`${(date.getHours() + 1) <= 10 ? ('0' + date.getHours()) : date.getHours()}`+':'+`${(date.getMinutes() + 1) <= 10 ? ('0' + date.getMinutes()) :date.getMinutes()}`+' · '+date.getFullYear()+'年'+(`${(date.getMonth() + 1) < 10 ? ('0' + (date.getMonth()+1)) :date.getMonth()+1}`)+'月'+`${(date.getDate() + 1) < 10 ? ('0' + date.getDate()) :date.getDate()}`+'日 '+' ·「'+item.from+'」</small></time></div></li>')
-            });
-            if(page*per >= count){
-            $('.load').remove()
-            return
+        app.auth({
+            persistence: "session"
+        }).anonymousAuthProvider().signIn().then(() => {
+            //定义数据对象
+            const db = app.database()
+            //选择数据表
+            const collection = db.collection('talks')
+            /**
+             * 定义基本变量
+             * count | int, 数目
+             * per | int, 每页显示项目数
+             * page | int, 第几页
+             */
+            var count=0, per = 10,page = 1
+            /**
+             * 获取数目
+             */
+            collection.count(function(err,res){
+            count = res.total
+            $('.count-data').text(count)
+            getList()
+            })
+            /**
+             * 封装获取数据函数
+             */
+            function getList(){
+            if((page-1)*per >= count){
+                return
             }
-            page++
+            var date
+            collection.limit(per).skip((page-1)*per).orderBy('date','desc').get(function(err, res) {
+                (res.data).forEach(item => {
+                date = item.date
+                content = urlToLink(item.content)
+                $('.list').append('<li class="item"><div><p>'+content+'</p><time class="date"><small>'+`${(date.getHours() + 1) <= 12 ? '上午' : '下午'}`+`${(date.getHours() + 1) <= 10 ? ('0' + date.getHours()) : date.getHours()}`+':'+`${(date.getMinutes() + 1) <= 10 ? ('0' + date.getMinutes()) :date.getMinutes()}`+' · '+date.getFullYear()+'年'+(`${(date.getMonth() + 1) < 10 ? ('0' + (date.getMonth()+1)) :date.getMonth()+1}`)+'月'+`${(date.getDate() + 1) < 10 ? ('0' + date.getDate()) :date.getDate()}`+'日 '+' ·「'+item.from+'」</small></time></div></li>')
+                });
+                if(page*per >= count){
+                $('.load').remove()
+                return
+                }
+                page++
+            });
+            }
+            $('.button-load').click(function(){getList()})
+        }).catch(err => {
+            console.log(err)
         });
+    
+        // 图片和链接
+        function urlToLink(str) {
+          var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
+          var re_forpic =/\bhttps?:\/\/.*?(\.gif|\.jpeg|\.png|\.jpg|\.bmp|\.webp)/g;
+          str =str.replace(re,function (website) {
+            return "<a href='" + website + "' target='_blank' rel='noopener'> <svg height='18' width='18' viewBox='0 0 20 20'> <path d='M16.469,8.924l-2.414,2.413c-0.156,0.156-0.408,0.156-0.564,0c-0.156-0.155-0.156-0.408,0-0.563l2.414-2.414c1.175-1.175,1.175-3.087,0-4.262c-0.57-0.569-1.326-0.883-2.132-0.883s-1.562,0.313-2.132,0.883L9.227,6.511c-1.175,1.175-1.175,3.087,0,4.263c0.288,0.288,0.624,0.511,0.997,0.662c0.204,0.083,0.303,0.315,0.22,0.52c-0.171,0.422-0.643,0.17-0.52,0.22c-0.473-0.191-0.898-0.474-1.262-0.838c-1.487-1.485-1.487-3.904,0-5.391l2.414-2.413c0.72-0.72,1.678-1.117,2.696-1.117s1.976,0.396,2.696,1.117C17.955,5.02,17.955,7.438,16.469,8.924 M10.076,7.825c-0.205-0.083-0.437,0.016-0.52,0.22c-0.083,0.205,0.016,0.437,0.22,0.52c0.374,0.151,0.709,0.374,0.997,0.662c1.176,1.176,1.176,3.088,0,4.263l-2.414,2.413c-0.569,0.569-1.326,0.883-2.131,0.883s-1.562-0.313-2.132-0.883c-1.175-1.175-1.175-3.087,0-4.262L6.51,9.227c0.156-0.155,0.156-0.408,0-0.564c-0.156-0.156-0.408-0.156-0.564,0l-2.414,2.414c-1.487,1.485-1.487,3.904,0,5.391c0.72,0.72,1.678,1.116,2.696,1.116s1.976-0.396,2.696-1.116l2.414-2.413c1.487-1.486,1.487-3.905,0-5.392C10.974,8.298,10.55,8.017,10.076,7.825'></path></svg>链接 </a>";
+          });
+          str =str.replace(re_forpic,function (imgurl) {
+            return "<a href='" + imgurl + "' rel='noopener' alt='slimbox2'><img loading='lazy' src='" + imgurl + "' /></a>";
+          });
+          return str;
         }
-        $('.button-load').click(function(){getList()})
-    }).catch(err => {
-        console.log(err)
-    });
-  </script>
-{{ end }}
+      </script>
+
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+      <script>pangu.spacingElementByClassName('content');</script>
+
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
