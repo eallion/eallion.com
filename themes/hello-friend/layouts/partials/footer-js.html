@@ -1,0 +1,25 @@
+{{ $mainjs := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint "sha256"}}
+{{ $waterfalljs := resources.Get "js/waterfall.min.js" | resources.Minify | resources.Fingerprint "sha256"}}
+{{ $slimbox2js := resources.Get "js/slimbox2.min.js" | resources.Minify | resources.Fingerprint "sha256"}}
+{{ $latelyjs := resources.Get "js/lately.min.js" | resources.Minify | resources.Fingerprint "sha256"}}
+{{ $toTopjs := resources.Get "js/jquery.toTop.js" | resources.Minify | resources.Fingerprint "sha256"}}
+{{ $alljs := resources.Get "js/all.js" | resources.Minify | resources.Fingerprint "sha256"}}
+
+<script type="text/javascript" src='https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js'></script>
+
+{{ if in (.Site.BaseURL | string) "http://localhost:1313/" }}
+<script type="text/javascript"  src="{{ $mainjs.Permalink }}" integrity="{{ $mainjs.Data.Integrity }}" crossorigin="anonymous"></script>
+<script type="text/javascript"  src="{{ $waterfalljs.Permalink }}" integrity="{{ $waterfalljs.Data.Integrity }}" crossorigin="anonymous"></script>
+<script type="text/javascript"  src="{{ $slimbox2js.Permalink }}" integrity="{{ $slimbox2js.Data.Integrity }}" crossorigin="anonymous"></script>
+<script type="text/javascript"  src="{{ $latelyjs.Permalink }}" integrity="{{ $latelyjs.Data.Integrity }}" crossorigin="anonymous"></script>
+<script type="text/javascript"  src="{{ $toTopjs.Permalink }}" integrity="{{ $toTopjs.Data.Integrity }}" crossorigin="anonymous"></script>
+<script type="text/javascript"  src="{{ $alljs.Permalink }}" integrity="{{ $alljs.Data.Integrity }}" crossorigin="anonymous"></script>
+{{ else }}
+<script src="https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages{{ $mainjs.RelPermalink }}" integrity="{{ $mainjs.Data.Integrity }}" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages{{ $waterfalljs.RelPermalink }}" integrity="{{ $waterfalljs.Data.Integrity }}" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages{{ $slimbox2js.RelPermalink }}" integrity="{{ $slimbox2js.Data.Integrity }}" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages{{ $latelyjs.RelPermalink }}" integrity="{{ $latelyjs.Data.Integrity }}" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages{{ $toTopjs.RelPermalink }}" integrity="{{ $toTopjs.Data.Integrity }}" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages{{ $alljs.RelPermalink }}" integrity="{{ $alljs.Data.Integrity }}" crossorigin="anonymous"></script>
+{{ end }}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TencentCloudBase/tcb-js-sdk@master/tcbjs/1.10.10/tcb.js"></script>
