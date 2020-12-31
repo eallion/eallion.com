@@ -21,11 +21,7 @@
 <link rel="preload stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Noto+Serif+SC&display=swap" as="style" type="text/css" media="print" onload="this.media='all'">
 
 {{ $maincss := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha256" }}
-{{ if in (.Site.BaseURL | string) "http://localhost:1313/" }}
-<link rel="stylesheet" href="{{ $maincss.Permalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
-{{ else }}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
-{{ end }}
+<link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
 
 <link rel="shortcut icon" href="{{ "favicon.ico" | absURL }}">
 <!-- OG data -->
