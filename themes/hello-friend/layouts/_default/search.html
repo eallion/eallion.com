@@ -24,10 +24,6 @@
 <script type="text/javascript" src='https://cdn.jsdelivr.net/npm/fuse-js-latest@3.1.0/dist/fuse.min.js'></script>
 
 {{ $searchjs := resources.Get "js/search.js" | resources.Minify | resources.Fingerprint "sha256"}}
-{{ if in (.Site.BaseURL | string) "http://localhost:1313/" }}
-<script src="{{ $searchjs.Permalink }}" integrity="{{ $searchjs.Data.Integrity }}" crossorigin="anonymous"></script>
-{{ else }}
-<script src="https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages{{ $searchjs.RelPermalink }}" integrity="{{ $searchjs.Data.Integrity }}" crossorigin="anonymous"></script>
-{{ end }}
+<script src="{{ $searchjs.RelPermalink }}" integrity="{{ $searchjs.Data.Integrity }}" crossorigin="anonymous"></script>
 
 {{ end }}
