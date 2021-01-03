@@ -1696,7 +1696,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .dark-theme .tk-preview-container {margin-left: 3.5rem !important;color: #ccc !important;background-color: #252627 !important;border: 1px solid #4a4b50 !important;}
 */
 
-/* Waline 评论样式 */
+/* Waline 评论样式 waline */
 .v[data-class=v] .vbtn {font-size: 1em !important;}
 .v[data-class=v] .vcards .vcard .vhead .vnick {font-weight: bold !important;font-size: 1rem !important;}
 .v[data-class=v] .vsys {display: none !important;}
@@ -1718,6 +1718,7 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .v[data-class=v] code, .v[data-class=v] pre {background-color: var(--light-background-secondary) !important;}
 .v[data-class=v] .status-bar, .v[data-class=v] .veditor, .v[data-class=v] .vinput, .v[data-class=v] p {font-family: 'Noto Serif SC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;}
 .v[data-class=v] pre code {font-family: 'JetBrains Mono',Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;}
+.v[data-class=v] .vleft {display: none !important;}
 
 .dark-theme .v[data-class=v] .vbtn {font-size: 1em !important;	color:#999999 !important;border: 1px solid #4a4b50 !important;}
 .dark-theme .v[data-class=v] .vsys {display: none !important;}
