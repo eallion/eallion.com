@@ -105,9 +105,6 @@ rssLimit = 10
 [params.waline]
   enable = true
 
-[params.MiniValine]
-  enable = false
-
 [params.twikoo]
   enable = false
 
