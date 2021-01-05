@@ -106,3 +106,5 @@ Comments: true
 {{< friend des="biux.cn" url="https://biux.cn/" src="https://biux.cn/usr/uploads/logo.jpg" name="猫咪Blog" >}}
 
 {{< friend des="heson10.com" url="https://www.heson10.com" src="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png" name="黑石博客" >}}
+
+{{< friend des="foolishfox.cn" url="https://foolishfox.cn/" src="https://sdn.geekzu.org/avatar/53bc457fbba563ce1ce80edda8310241?d=identicon" name="FF" >}}
