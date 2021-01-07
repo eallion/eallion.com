@@ -33,9 +33,10 @@
 
 ### 备用仓库（多处备份）
 > Keybase：<keybase://private/eallion/eallion.com>  
-> 腾讯云 Coding： <https://e.coding.net/eallion/eallion.com/hugo.git>  
+> Coding.net： <https://e.coding.net/eallion/eallion.com/hugo.git>  
 > 码云 Gitee： <https://gitee.com/eallion/eallion.com.git>  
-> 阿里云 Codeup： <https://codeup.aliyun.com/eallion/hugo.git>  
+> 阿里云 Codeup： <https://codeup.aliyun.com/eallion/hugo.git>    
+> 腾讯工蜂： <https://git.code.tencent.com/eallion/eallion.com.git>  
 
 ### 架构备忘
 
@@ -53,6 +54,7 @@
 ```
 git remote set-url --add --push origin https://id:token@github.com/eallion/eallion.com.git
 git remote set-url --add --push origin https://id:token@e.coding.net/eallion/eallion.com/hugo.git
+git remote set-url --add --push origin https://id:token@git.code.tencent.com/eallion/eallion.com.git
 git remote set-url --add --push origin https://id:token@gitee.com/eallion/eallion.com.git
 git remote set-url --add --push origin https://id:token@codeup.aliyun.com/id/eallion/hugo.git
 git remote set-url --add --push origin keybase://private/eallion/eallion
