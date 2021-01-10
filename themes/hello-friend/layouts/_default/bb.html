@@ -3,7 +3,6 @@
   <head>
       <title>{{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ else }}{{ .Title }} - {{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ end }}</title>
     {{ partial "head.html" . }}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css">
   </head>
   <body class="{{ if ne $.Site.Params.defaultTheme "light" -}} dark-theme {{- end -}}">
     <div class="container">
@@ -54,8 +53,6 @@
 
       {{ partial "footer-js.html" . }}
 
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
-
       <script>
         //初始化
         const app = tcb.init({
@@ -102,6 +99,7 @@
                 return
                 }
                 page++
+                $(".post-content a[rel!=link]:has(img)").slimbox();
             });
             }
             $('.button-load').click(function(){getList()})
