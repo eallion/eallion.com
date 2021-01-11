@@ -1,6 +1,6 @@
   <!-- Waline -->
   {{- if .Site.Params.waline.enable -}}
-  <script src='https://cdn.jsdelivr.net/npm/@waline/client@0.12.2/dist/Waline.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/@waline/client@0.14.0/dist/Waline.min.js'></script>
   <div class="pagination__title">
        <span class="pagination__title-h"><span class="vcount"></span>精彩评论</span>
        <hr />
@@ -14,6 +14,7 @@
         serverURL: 'https://tcb.eallion.com',
         placeholder: '\n「鹤鸣于九皋，声闻于野。他山之石，可以为错。」',
         requiredFields: ['nick'],
+        anonymous: true,
         langMode: {admin: '🅥 प्रशासक'},
         avatarCDN: 'https://sdn.geekzu.org/avatar/',
         emojiCDN: 'https://cdn.jsdelivr.net/gh/eallion/twemoji@main/simple/20x20/',
