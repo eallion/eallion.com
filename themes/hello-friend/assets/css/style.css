@@ -714,6 +714,7 @@ hr {
 	display: -webkit-flex; /* Safari */
   	display: flex;
 	width: 100%;
+	line-height: 2em;
 	max-width: 760px;
 	text-align: left;
 	padding: 15px;
@@ -815,6 +816,25 @@ hr {
 	.dark-theme .index-talk {
 		background-color: var(--dark-header);
 	}
+}
+
+.poem_sentence,.poem_info {
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+}
+
+.poem_info {
+	font-size: small;
+	font-style: italic;
+	line-height: 35px;
+	height: 100%;
+	max-width: 50%;
+	min-width: 20%;
+}
+
+.poem_info a {
+	text-decoration: none;
 }
 
 /* talks 嘀咕样式 */
