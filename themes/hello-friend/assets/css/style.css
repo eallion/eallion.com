@@ -833,7 +833,7 @@ hr {
 	min-width: 20%;
 }
 
-.poem_info a {
+.poem_info a, .index-talks a {
 	text-decoration: none;
 }
 
