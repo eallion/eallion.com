@@ -69,7 +69,7 @@
         jinrishici.load(function(result) {
           var sentence = document.querySelector("#poem_sentence")
           var info = document.querySelector("#poem_info")
-          sentence.innerHTML = '「'+result.data.content+'」'
+          sentence.innerHTML = '「 '+result.data.content+'」'
           info.innerHTML = '—— ' + '<a href="https://www.google.com/search?q=' + result.data.origin.author + ' ' + result.data.origin.title + '" target="_blank">' + result.data.origin.author + '《' + result.data.origin.title + '》' + '</a>'
         });
       </script>
