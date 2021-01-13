@@ -7,9 +7,11 @@ slug: "rime-wubi"
 date: "2019-04-19 15:45:00"
 ---
 
-1.在文件资源管理器中打开 `%AppData%\Rime` 进入[用户文件夹]  
-2.在目录中新建 `Custom_phrase.txt` ，输入以下内容：
-```
+> 最新更新：2021.01.13  [eallion/dotfiles](https://github.com/eallion/dotfiles/tree/master/Windows/Users/eallion/AppData/Roaming/Rime)
+
+1. 在文件资源管理器中打开 `%AppData%\Rime` 进入「用户文件夹」，或者通过右键点击任务栏图标进入「用户文件夹」。
+2. 在用户目录中新建 `Custom_phrase.txt` ，输入以下内容：
+```yaml
 # Rime table
 # coding: utf-8
 #@/db_name custom_phrase.txt
@@ -29,16 +31,25 @@ date: "2019-04-19 15:45:00"
 # no comment
 大大的小蜗牛	ddrr	1
 ```
+说明：
+- 格式为：`自定义短语` `短语编码` `排序`，如：`大大的小蜗牛	ddrr	1`
+- 格式中的`Tab`不能用空格代替
+- `# no comment` 之后的内容中`#`注释会失效
+- 不宜添加过多的自定义短语，若有大量自定义短语请用用户词典
 
-3.在 `build` 文件夹下打开 `wubi_pinyin.schema.yaml`  
-4.在 `translators` 里添加修改如下代码（多增少补）：
-```bash
-translators:
+
+3. 在「用户文件夹」中新建一个文件：`wubi_pinyin.custom.yaml`，一般新建一个跟正在使用的输入方案词典同名的`custom`文件。
+
+4. 在`wubi_pinyin.custom.yaml`里添加修改如下代码：
+```yaml
+patch:
+  engine/translators:
     - punct_translator
     - reverse_lookup_translator
+    - script_translator
     - table_translator@custom_phrase
     - table_translator
-custom_phrase: 
+  custom_phrase:
     dictionary: ""
     user_dict: custom_phrase
     db_class: stabledb
@@ -46,4 +57,50 @@ custom_phrase:
     enable_sentence: false
     initial_quality: 1
 ```
-5.开始菜单-小狼毫输入法-重新部署
+说明：不能出现多个`patch`，一个文件中只能出现一次`patch`，多余的需要注释掉。
+
+5. 重新部署输入法。
+
+> 附：部分自用设置
+```yaml
+patch:
+  punctuator/full_shape: # 自定义标点符号（覆盖默认设置）
+      "/" : "/"
+      "%" : "%"
+      "*" : "*"
+      "|" : "|"
+      "<": ["《", "<", "〈", "«", "‹"]
+      ">": ["》", ">", "〉", "»", "›"]
+
+  punctuator/half_shape:
+      "/" : "/"
+      "%" : "%"
+      "*" : "*"
+      "|" : "|"
+      "<": ["《", "<", "〈", "«", "‹"]
+      ">": ["》", ">", "〉", "»", "›"]
+
+  recognizer/patterns/reverse_lookup: # 关闭 ` 键的反查功能
+    'punctuator/full_shape/`': "`"
+    'punctuator/half_shape/`': "`"
+
+  translator/enable_user_dict: false # 关闭用户词典
+
+  "switches/@0/reset": 1 # 1 默认英文状态，0 默认中文状态
+
+  # 自定义短语 Custom_phrase.txt # Tab 不能用空格代替
+  engine/translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - script_translator
+    - table_translator@custom_phrase
+    - table_translator
+
+  custom_phrase:
+    dictionary: ""
+    user_dict: custom_phrase
+    db_class: stabledb
+    enable_completion: false
+    enable_sentence: false
+    initial_quality: 1
+```
