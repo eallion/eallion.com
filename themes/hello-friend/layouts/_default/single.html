@@ -75,7 +75,7 @@
     {{ if eq .Type "posts" -}}
     {{ $ageDays := div (sub now.Unix .Date.Unix) 86400 }}
       {{ if gt $ageDays 180 }}
-        <p class="expired-tips"> 提醒：本文最后更新于&nbsp;{{$ageDays}}&nbsp;天前，文中所描述的信息可能已发生改变，请谨慎使用。</p>
+        <p class="expired-tips"> 提醒：本文发布于&nbsp;{{$ageDays}}&nbsp;天前，文中所描述的信息可能已发生改变，请谨慎使用。</p>
       {{ end }}
     {{ end }}
     {{ if .Params.feature }}
