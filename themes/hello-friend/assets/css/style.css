@@ -837,6 +837,12 @@ hr {
 	text-decoration: none;
 }
 
+@media (max-width:899px) {
+	.poem_info { 
+		display: none;
+	}
+}
+
 /* talks 嘀咕样式 */
 .post-content {font-family: 'Noto Serif SC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;}
 .timeline ul {margin:0;padding-bottom:2rem;}
