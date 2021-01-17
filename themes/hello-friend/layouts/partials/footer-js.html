@@ -1,7 +1,7 @@
 {{ $mainjs := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint "sha256"}}
-{{ $waterfalljs := resources.Get "js/waterfall.min.js" | resources.Minify | resources.Fingerprint "sha256"}}
-{{ $slimbox2js := resources.Get "js/slimbox2.min.js" | resources.Minify | resources.Fingerprint "sha256"}}
-{{ $latelyjs := resources.Get "js/lately.min.js" | resources.Minify | resources.Fingerprint "sha256"}}
+{{ $waterfalljs := resources.Get "js/waterfall.js" | resources.Minify | resources.Fingerprint "sha256"}}
+{{ $slimbox2js := resources.Get "js/slimbox2.js" | resources.Minify | resources.Fingerprint "sha256"}}
+{{ $latelyjs := resources.Get "js/lately.js" | resources.Minify | resources.Fingerprint "sha256"}}
 {{ $toTopjs := resources.Get "js/jquery.toTop.js" | resources.Minify | resources.Fingerprint "sha256"}}
 {{ $alljs := resources.Get "js/all.js" | resources.Minify | resources.Fingerprint "sha256"}}
 
@@ -12,4 +12,3 @@
 <script type="text/javascript"  src="{{ $latelyjs.RelPermalink }}" integrity="{{ $latelyjs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script type="text/javascript"  src="{{ $toTopjs.RelPermalink }}" integrity="{{ $toTopjs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script type="text/javascript"  src="{{ $alljs.RelPermalink }}" integrity="{{ $alljs.Data.Integrity }}" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TencentCloudBase/tcb-js-sdk@master/tcbjs/1.10.10/tcb.js"></script>
