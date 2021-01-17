@@ -13,11 +13,12 @@ Comments: true
 
 我的友链信息：
 
-> Title: 大大的小蜗牛  
-> URL: `https://eallion.com`  
-> Avatar : `https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31`  
-> Description : 机会总是垂青于有准备的人  
-> English description : *Chance favors the prepared mind*
+> Title：大大的小蜗牛  
+> English title：eallion  
+> URL：`https://eallion.com`  
+> Avatar：`https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31`  
+> Description：机会总是垂青于有准备的人  
+> English description：*Chance favors the prepared mind*
 
 ### 友情链接
 
