@@ -709,72 +709,31 @@ hr {
 	display: none
 }
 
-/* 首页嘀咕 index talk*/
-.index-talk {
-	display: -webkit-flex; /* Safari */
-  	display: flex;
-	width: 100%;
-	line-height: 2em;
-	max-width: 760px;
-	text-align: left;
-	padding: 15px;
-	margin-bottom: 40px;
+/* 首页嘀咕样式 JSON 版 */
+#index-talk,.index-talk {
+	display:-webkit-flex;
+	display:flex;
+	width:100%;
+	line-height:2em;
+	height: 40px;
+	max-width:760px;
+	text-align:left;
+	padding: 5px 15px;
+	margin-bottom:3em;
 	position: relative;
 	background-color: var(--light-header);
-	border-radius: 8px;
+	border-radius:8px;
+	font-size:15px;
 }
 
-.index-talks {
-	display: block;
-	white-space: nowrap;
+#index-talk svg,.index-talk svg {
+	fill: currentColor;
+	vertical-align: middle;
+	display: inline;
+	margin-right:5px;
 }
 
-.popup {
-    margin: 0;
-    max-height: 35px;
-    overflow: hidden;
-}
-
-.popup span:hover {
-	cursor:pointer;
-}
-
-.popup li{
-	list-style:none;
-	margin-bottom:10px;
-	width: 100%;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-}
-
-.popup li p{
-	padding:0 10px;
-	margin-bottom:10px;	
-	width: 100%;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
-}
-
-.popup li a{
-	text-decoration:none;
-	font-size:16px;
-}
-
-.popup li a:hover{
-	text-decoration:underline;
-}
-
-.index-talk-link {
-	text-decoration:none;
-}
-
-.index-talk-link:hover{
-	text-decoration:underline;
-}
-
-.index-talk button{
+#index-talk button,.index-talk button {
 	font-size: 10px;
 	border:none;
 	position:absolute;
@@ -785,27 +744,46 @@ hr {
 	border: var(--light-border-color);
 }
 
+.talk-list {
+	margin: 0;
+	max-height: 35px;
+	overflow: hidden;
+}
+.talk-list li {
+	list-style: none;
+	margin-bottom: 10px;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.talk-list li a {
+	text-decoration: none;
+}
+
+.talk-list li a:hover {
+	text-decoration: underline;
+}
+
 .index-talk-icon {
 	fill: currentColor;
 	vertical-align:middle;
 	display: inline;
 }
 
-.dark-theme .index-talk {
+.dark-theme #index-talk,.dark-theme .index-talk {
 	background-color: var(--dark-header);
 }
 
-.dark-theme .popup {
-	color: var(--dark-color);
-}
 
-.dark-theme .index-talk button{
+.dark-theme #index-talk button,.dark-theme .index-talk button {
 	color: var(--dark-color);
 	border: var(--dark-border-color);
 }
 
 @media (max-width:899px) {
-	.index-talk {
+	#index-talk,.index-talk {
 		max-width: 660px;
 		margin: 20px 0;
 		background-color: var(--light-header);
@@ -813,11 +791,12 @@ hr {
 	.index-talks {
 		display: none;
 	}
-	.dark-theme .index-talk {
+	.dark-theme #index-talk.dark-theme .index-talk {
 		background-color: var(--dark-header);
 	}
 }
 
+/* 嘀咕页今日诗词 */
 .poem_sentence,.poem_info {
 	white-space:nowrap;
 	text-overflow:ellipsis;
@@ -827,7 +806,6 @@ hr {
 .poem_info {
 	font-size: small;
 	font-style: italic;
-	line-height: 35px;
 	height: 100%;
 	max-width: 50%;
 	min-width: 20%;
@@ -843,7 +821,7 @@ hr {
 	}
 }
 
-/* talks 嘀咕样式 */
+/* talks 嘀咕页样式 */
 .post-content {font-family: 'Noto Serif SC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;}
 .timeline ul {margin:0;padding-bottom:2rem;}
 .timeline ul li {background:#eaeaea;list-style-type:none;position:relative;width:2px;margin-left:20px;padding:10px 0 50px;}
