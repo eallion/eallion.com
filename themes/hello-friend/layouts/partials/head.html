@@ -25,7 +25,7 @@
 {{ $maincss := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
 
-<link rel="shortcut icon" href="{{ "favicon.ico" | absURL }}">
+<link rel="shortcut icon" href="https://static.eallion.com/favicon.ico">
 <!-- OG data -->
 {{ template "_internal/opengraph.html" . }}
 <!-- Google Analytics -->
