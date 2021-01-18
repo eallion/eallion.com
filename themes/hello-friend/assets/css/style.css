@@ -714,12 +714,12 @@ hr {
 	display:-webkit-flex;
 	display:flex;
 	width:100%;
-	line-height:2em;
-	height: 40px;
+	line-height:35px;
+	height: 45px;
 	max-width:760px;
 	text-align:left;
 	padding: 5px 15px;
-	margin-bottom:3em;
+	margin:20px 0;
 	position: relative;
 	background-color: var(--light-header);
 	border-radius:8px;
