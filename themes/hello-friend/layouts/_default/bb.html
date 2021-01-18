@@ -145,7 +145,7 @@
         // 图片和链接
         function urlToLink(str) {
           var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
-          var re_forpic =/\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpeg)|(png)|(jpg)|(bmp)|(webp))\S+/g;
+          var re_forpic =/\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(bmp)|(webp))\S+/g;
           str =str.replace(re_forpic,function (imgurl) {
             return "<a href='" + imgurl + "' rel='noopener'><img loading='lazy' src='" + imgurl + "' /></a>";
           });
