@@ -22,7 +22,7 @@ rssLimit = 10
   # "light" or "dark"
   defaultTheme = "light"
   # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 4
+  showMenuItems = 6
   # Enable to show reading time in minutes for posts
   showReadingTime = true
   minuteReadingTime = "分钟阅读"
@@ -48,14 +48,14 @@ rssLimit = 10
   name="嘀咕"
   url="https://eallion.com/talk/"
   weight="1"
-  #[[menu.main]]
-  #name="观影"
-  #url="/movies/"
-  #weight="2"
-  #[[menu.main]]
-  #name="相册"
-  #url="/photos/"
-  #weight="3"
+  [[menu.main]]
+  name="观影"
+  url="https://eallion.com/movies/"
+  weight="2"
+  [[menu.main]]
+  name="阅读"
+  url="https://eallion.com/books/"
+  weight="3"
   [[menu.main]]
   name="归档"
   url="https://eallion.com/archives/"
@@ -68,26 +68,30 @@ rssLimit = 10
   name="关于"
   url="https://eallion.com/about/"
   weight="6"
-  [[menu.main]]
-  name="日志"
-  url="https://eallion.com/posts/daily/"
-  weight="11"
-  [[menu.main]]
-  name="代码"
-  url="https://eallion.com/posts/code/"
-  weight="12"
-  [[menu.main]]
-  name="运营"
-  url="https://eallion.com/posts/operation/"
-  weight="13"
-  [[menu.main]]
-  name="分享"
-  url="https://eallion.com/posts/share/"
-  weight="14"
-  [[menu.main]]
-  name="山贼"
-  url="https://eallion.com/posts/sz/"
-  weight="15"
+  #[[menu.main]]
+  #name="相册"
+  #url="/photos/"
+  #weight="7"
+  #[[menu.main]]
+  #name="日志"
+  #url="https://eallion.com/posts/daily/"
+  #weight="11"
+  #[[menu.main]]
+  #name="代码"
+  #url="https://eallion.com/posts/code/"
+  #weight="12"
+  #[[menu.main]]
+  #name="运营"
+  #url="https://eallion.com/posts/operation/"
+  #weight="13"
+  #[[menu.main]]
+  #name="分享"
+  #url="https://eallion.com/posts/share/"
+  #weight="14"
+  #[[menu.main]]
+  #name="山贼"
+  #url="https://eallion.com/posts/sz/"
+  #weight="15"
 
 [markup]
 [markup.goldmark]
