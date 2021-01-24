@@ -1,11 +1,13 @@
 ---
 title: "阿里云NTP时间同步服务器"
-categories: ["分享"]
+categories: ["代码"]
 tags: ["时间","阿里云","ntp","时间同步"]
 draft: false
 slug: "aliyun-ntp"
 date: "2017-05-29 23:35:00"
 ---
+
+> 最新更新：2021.01.24
 
 ### 前言
 
@@ -20,8 +22,8 @@ IP地址也已失效。
 随手就去搜索了“阿里云 NTP”，
 结果还真有！
 
- - 公网：ntp.aliyun.com
- - 内网：ntp.cloud.aliyuncs.com
+ - 公网 NTP 服务器：`ntp.aliyun.com`
+ - 内网 NTP 服务器：`ntp.cloud.aliyuncs.com`
 
 ----------
 
@@ -33,7 +35,7 @@ IP地址也已失效。
 
 |经典网络内网|专有网络VPC内网|公网|
 |:-----|:--------|:-|
-|-|ntp.cloud.aliyuncs.com|ntp.aliyun.com|
+|-|**ntp.cloud.aliyuncs.com**|**ntp.aliyun.com**|
 |ntp1.cloud.aliyuncs.com|ntp7.cloud.aliyuncs.com|ntp1.aliyun.com|
 |ntp2.cloud.aliyuncs.com|ntp8.cloud.aliyuncs.com|ntp2.aliyun.com|
 |ntp3.cloud.aliyuncs.com|ntp9.cloud.aliyuncs.com|ntp3.aliyun.com|
@@ -41,6 +43,15 @@ IP地址也已失效。
 |ntp5.cloud.aliyuncs.com|ntp11.cloud.aliyuncs.com|ntp5.aliyun.com|
 |ntp6.cloud.aliyuncs.com|ntp12.cloud.aliyuncs.com|ntp6.aliyun.com|
 |-|-|ntp7.aliyun.com|
+
+### Linux 同步 NTP 时间
+以 Debian/Ubuntu 为例：
+```
+sudo apt install ntpdate
+sudo ntpdate ntp.aliyun.com
+
+# sudo hwclock --localtime --systohc # 将本地时间更新到硬件上
+```
 
 ### 阿里云ECS 内网测试成功
 
