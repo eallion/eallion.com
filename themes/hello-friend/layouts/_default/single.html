@@ -80,9 +80,9 @@
     {{ end }}
     {{ if .Params.feature }}
       {{ if .Params.UseRelativeCover }}
-        <img loading='lazy' src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover" />
+        <img loading='lazy' src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover" >
       {{ else }}
-        <img loading='lazy' src="{{ .Params.feature | absURL }}" class="post-cover" />
+        <img loading='lazy' src="{{ .Params.feature | absURL }}" class="post-cover" >
       {{ end }}
     {{ end }}
   
@@ -125,7 +125,7 @@
             {{ else}}
               <span class="pagination__title-h">阅读更多</span>
             {{ end }}
-            <hr />
+            <hr >
           </div>
           <div class="pagination__buttons">
             {{ if .Next }}
