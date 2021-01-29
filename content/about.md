@@ -9,9 +9,8 @@ author: 大大的小蜗牛
 
 ### 声明
 本人只活跃在`Twitter`、`GitHub`、`Telegram`、`Keybase`，其他同名账号绝非本人所有。  
-<https://s.eallion.com/#sns> 此导航代表我经常逛的社交平台，但不保证连接为本人。  
 唯一公开邮箱：`eallions@gmail.com`  
-OpenGPG 公钥之一： <https://keybase.io/eallion/pgp_keys.asc>  
+OpenPGP 公钥之一： <https://keybase.io/eallion/pgp_keys.asc>  
 
 本博客现在随缘更新，佛性写博。
 
@@ -39,10 +38,6 @@ OpenGPG 公钥之一： <https://keybase.io/eallion/pgp_keys.asc>
  - 机会总是垂青于有准备的人 
  - *Chance favors the prepared mind*
 
-### 职业：
-
-* 电子商务运营 [（电子简历）](https://qin-chao.cn/)
-
 ### 联系方式：
 
  - E-mail：<eallions@gmail.com>
@@ -57,5 +52,5 @@ OpenGPG 公钥之一： <https://keybase.io/eallion/pgp_keys.asc>
  - 服务器：Tencent COS + CDN / GitHub Pages
  - 程序：[Hugo](https://gohugo.io)
  - 主题：[Hello Friend](https://github.com/panr/hugo-theme-hello-friend)
- - Copyright：[https://eallion.com/copyright](https://eallion.com/copyright)
- - Privacy Policy：[https://eallion.com/privacy-policy](https://eallion.com/privacy-policy)
+ - Copyright：[https://eallion.com/copyright](https://eallion.com/copyright/)
+ - Privacy Policy：[https://eallion.com/privacy-policy](https://eallion.com/privacy-policy/)
