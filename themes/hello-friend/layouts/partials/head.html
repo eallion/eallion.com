@@ -1,13 +1,13 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta charset="UTF-8"/>
-<meta name="renderer" content="webkit"/>
-<meta name="force-rendering" content="webkit"/>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<meta name="force-rendering" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.Description }}{{ else }}{{ .Summary | plainify }}{{ end }}"/>
-<meta name="keywords" content="{{ $.Site.Params.Keywords }},{{ with .Params.tags }}{{ delimit . "," }}{{ end }}"/>
-<meta name="referrer" content="never" />
-<link rel="canonical" href="{{ .Permalink }}" />
+<meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.Description }}{{ else }}{{ .Summary | plainify }}{{ end }}">
+<meta name="keywords" content="{{ $.Site.Params.Keywords }},{{ with .Params.tags }}{{ delimit . "," }}{{ end }}">
+<meta name="referrer" content="same-origin" >
+<link rel="canonical" href="{{ .Permalink }}" >
 <!-- 自己代理的 Google 字体 -->
 <!--
 <link rel="preconnect" href="https://static.eallion.com">
@@ -32,5 +32,5 @@
 {{ partial "analytics.html" . }}
 <!-- RSS | JSON -->
 {{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" >` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 {{ end -}}

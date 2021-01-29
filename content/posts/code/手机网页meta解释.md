@@ -12,7 +12,7 @@ date: "2015-01-12 09:58:00"
 <meta content="yes" name="apple-mobile-web-app-capable">
 <meta content="black" name="apple-mobile-web-app-status-bar-style">
 <meta content="telephone=no" name="format-detection">
-<meta name="apple-itunes-app" content="app-id=432274380" />
+<meta name="apple-itunes-app" content="app-id=432274380">
 ```
 
 第一个meta标签表示：强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览；

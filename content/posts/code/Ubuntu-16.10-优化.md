@@ -84,7 +84,7 @@ sudo apt install sogoupinyin
 ```
 直接下载deb安装包：<a href="http://pinyin.sogou.com/linux/" target="_blank">http://pinyin.sogou.com/linux/</a>
 
-<br />
+<br>
 
 7、删除Libreoffice
 ---------------

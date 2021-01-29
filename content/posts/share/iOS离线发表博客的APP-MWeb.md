@@ -30,7 +30,7 @@ date: "2017-04-10 08:36:00"
      - 博客名称：eallion #会自动提取
 
 如果要正确使用API发表博客，请确保`<head> </head>`中有 
-`<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://eallion.com/action/xmlrpc?rsd" />` 
+`<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://eallion.com/action/xmlrpc?rsd">` 
 
 在模板的header.php里用 `<?php $this->header(); ?>` 会自动输出这些信息。
 进阶用法：`<?php $this->header("generator=&template=&keywords"); ?>`

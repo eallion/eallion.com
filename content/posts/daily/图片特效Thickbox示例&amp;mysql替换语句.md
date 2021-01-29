@@ -11,7 +11,7 @@ date: "2010-05-04 09:21:42"
 
 ```
 <a class="thickbox" href="https://images.eallion.com/images/before201012/.jpg">
-    <img src="https://images.eallion.com/images/before201012/.jpg"  />
+    <img src="https://images.eallion.com/images/before201012/.jpg" >
 </a>
 ```
 图片无法点击的效果
