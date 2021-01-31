@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>typecho on 大大的小蜗牛</title><link>https://eallion.com/tags/typecho/</link><description>Recent content in typecho on 大大的小蜗牛</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 13 May 2020 03:32:44 +0800</lastBuildDate><atom:link href="https://eallion.com/tags/typecho/index.xml" rel="self" type="application/rss+xml"/><item><title>Typecho 迁移到 Hugo</title><link>https://eallion.com/typecho-to-hugo/</link><pubDate>Wed, 13 May 2020 03:32:44 +0800</pubDate><guid>https://eallion.com/typecho-to-hugo/</guid><description>记录一下从 Typecho 迁移到 Hugo 的过程。 主要是折腾的URL，也就是 slug 和导入评论到 Disqus 的过程。 因为迁移文章时必须保留以前文章的 URL，不然会对自己产生很多不良的影响。 一、Typecho 导出文章 我 Fork 了一份 PHP 脚本，进行了一些修改，适合于像我这种链接形式为： https://example.com + slug 的博客进行导出。这样导出的 Markdown 博文，会在</description></item><item><title>typecho1.2 (18.10.23)新窗口打开链接</title><link>https://eallion.com/typecho-12-blank/</link><pubDate>Mon, 03 Jun 2019 12:00:00 +0000</pubDate><guid>https://eallion.com/typecho-12-blank/</guid><description>本博客主要是面向亚洲访客，简体中文访客。而中文用户是习惯于新窗口打开链接，所以我修改了一下代码。 推荐方法二 方法一： 网上搜索出来的关于typecho新窗口打开链接的文章，都是1.1或者是1.0甚至是更老的版 对于git安装的最新版没效果 自己动手研究一下，发现可以修改var/Hyper</description></item><item><title>iOS离线发表博客的APP MWeb</title><link>https://eallion.com/typecho-mweb/</link><pubDate>Mon, 10 Apr 2017 08:36:00 +0000</pubDate><guid>https://eallion.com/typecho-mweb/</guid><description>现在蹲在电脑前面的时间越来越少，但是手机都不会离身。 有时候出门在外，突然灵感迸发，如果没有及时记录下来，可能就永远也不会再回想起来了。 反正我自己就是这样的。 以前偶尔会用手机浏览器发表博客，但是手机浏览器的博客后台样式惨不忍睹啊。 最近终于找到了一款iOS上支持markdown的工具</description></item><item><title>Nginx typecho Access denied</title><link>https://eallion.com/nginx-typecho-access-denied/</link><pubDate>Sun, 19 Mar 2017 01:08:00 +0000</pubDate><guid>https://eallion.com/nginx-typecho-access-denied/</guid><description>今天重新配置服务器，又到遇到了这个问题。 当配置好站点，重写rewrite规则，做好优化，准备收工的时候，发现typecho的所有二给页面都打不开，显示Access denied. 官方已经给出了解决办法：http://docs.typecho.org/servers 主要就是要修改/etc/php</description></item><item><title>博客趋于稳定</title><link>https://eallion.com/type-final-echo/</link><pubDate>Fri, 14 Jan 2011 11:11:26 +0000</pubDate><guid>https://eallion.com/type-final-echo/</guid><description>因为前几天主机空间老是出故障 到今天才把博客弄好 差不多没有什么再要弄的了 就这样子吧 该弄的都弄了 再去模仿几个wp上的小品插件就可以了 比如显示评论者的浏览器操作系统什么的 博客启用了下列插件： AjaxComments - Typecho 内置嵌套评论專用 AutoBackup - Typecho 自动备份插件 CommentFilter - 评论过滤器 CommentToMail - 评论回复邮件提醒插件 Dewplayer - 小巧的mp3播</description></item><item><title>博客从 WordPress 换成typecho</title><link>https://eallion.com/typecho/</link><pubDate>Sat, 08 Jan 2011 04:45:29 +0000</pubDate><guid>https://eallion.com/typecho/</guid><description>&lt;p>我计划把博客从 WordPress 换成typecho&lt;br>
+没办法我就是爱折腾&lt;/p>
+&lt;p>而且我坦白的告诉你们&lt;br>
+WordPress 没有你们想像的那么好&lt;/p>
+&lt;p>我当初打算弄个独立博客玩玩的时候选中了 WordPress &lt;br>
+确实 WordPress 比其他的程序要好&lt;br>
+还要好得多&lt;br>
+但是个人感觉2.9.2是 WordPress 的极致了&lt;br>
+像一个分水岭&lt;br>
+2.9.2是个巅峰&lt;/p>
+&lt;p>是的，现在 WordPress 的功能越来越强大&lt;br>
+只是已经强大到让我越来越厌倦&lt;br>
+越来越慢的载入速度&lt;br>
+越来越高的负载要求&lt;br>
+乱七八糟的新功能&lt;br>
+很多东西可能我一辈子也用不上&lt;br>
+做为一个个人独立博客站点&lt;br>
+这些东西通通与我无关无关无关&lt;br>
+就跟中国飞速发展的GDP一样&lt;br>
+跟我没有关系&lt;br>
+我只是想写几个文字&lt;br>
+只是偶尔发几张图片&lt;br>
+就只是这样而已</description></item></channel></rss>
