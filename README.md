@@ -226,18 +226,11 @@ tcb hosting deploy public / -e TCB-envID
 
 ### 静态文件（CSS、JS）
 > Update: 2021.01.05 使用 Hugo 自带的 Asset minification  
-> Update: 2020.12.18 从腾讯云换到了 jsDelivr  
+> ~~Update: 2020.12.18 从腾讯云换到了 jsDelivr~~  
 
 ```
 {{ $maincss := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
-```
-
-静态文件放到了 [`eallion/static`](https://github.com/eallion/static) `main` 分支 
-
-- `assets` 目录： CSS，JS 静态文件
-```
-https://cdn.jsdelivr.net/gh/eallion/static@v1.0.0/assets/eallion.com/all.min.js
 ```
 
 #### PS：刷新 CDN
