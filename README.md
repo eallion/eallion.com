@@ -2,10 +2,6 @@
 
 > Chance favors the prepared mind.
 
-### Live demo:
-
-> <https://eallion.com>
-
 ### Build status
 
 - GitHub Pages  
@@ -14,6 +10,9 @@
 - Tencent COS  
   [![构建状态](https://eallion.coding.net/badges/eallion/job/243839/build.svg)](https://eallion.coding.net/p/eallion/ci/job)
 
+### Live demo:
+
+> <https://eallion.com>
 
 ### Any questions?
 
@@ -31,7 +30,7 @@
 ### 主仓库
 > <https://github.com/eallion/eallion.com>  
 
-### 备用仓库（多处备份）
+### 备份仓库
 > Keybase：<keybase://private/eallion/eallion.com>  
 > Coding.net： <https://e.coding.net/eallion/eallion.com/hugo.git>  
 > 码云 Gitee： <https://gitee.com/eallion/eallion.com.git>  
@@ -40,12 +39,13 @@
 
 ### 架构备忘
 
-- ~~国内：通过阿里云云效 Codeup & Flow 部署至：阿里云 OSS + CDN~~ (2019.12.20) 
-- ~~国内：通过 [Coding](https://coding.net/) 部署至：[Gitee pages](https://eallion.gitee.io)~~ 
-- ~~国内：通过 [Coding](https://coding.net/) 部署至：[Coding pages](https://blog.eallion.com)~~ 
-- ~~国内：通过 GitHub Action 部署至腾讯云 [CloudBase](https://cloud.tencent.com/product/tcb)~~ (2020.08.12)
-- 国内：通过 [Coding](https://coding.net/) 部署至腾讯云 [COS](https://cloud.tencent.com/product/cos) + [CDN](https://cloud.tencent.com/product/cdn) (2020.12.27)
-- 境外：通过 GitHub Action 部署至 [GitHub Pages](https://eallion.github.io/) (2020.08.12)
+> - ~~国内：通过阿里云云效 Codeup & Flow 部署至：阿里云 OSS + CDN~~ (2019.12.20) 
+> - ~~国内：通过 [Coding](https://coding.net/) 部署至：[Gitee pages](https://eallion.gitee.io)~~ 
+> - ~~国内：通过 [Coding](https://coding.net/) 部署至：[Coding pages](https://blog.eallion.com)~~ 
+> - ~~国内：通过 GitHub Action 部署至腾讯云 [CloudBase](https://cloud.tencent.com/product/tcb)~~ (2020.08.12)
+> - ~~境外：通过 GitHub Action 部署至 [GitHub Pages](https://eallion.github.io/)~~ (2020.08.12)
+
+- 通过 [Coding](https://coding.net/) 部署至腾讯云 [COS](https://cloud.tencent.com/product/cos) + [CDN](https://cloud.tencent.com/product/cdn) (2020.12.27)
 
 ### 添加备用仓库 remote
 > default branch: main  
@@ -241,6 +241,11 @@ https://cdn.jsdelivr.net/gh/eallion/static@v1.0.0/assets/eallion.com/all.min.js
 ```
 
 #### PS：刷新 CDN
+
+**新方式**：（CDN URL 不变）
+将`cdn.jsdelivr.net`改为 `purge.jsdelivr.net`，在浏览器中请求即可刷新 CDN。
+
+**旧方法**：
 通过打 Tag 的方式刷新 jsDelivr 的 CDN
 `tag`对应`commit`
 ```
