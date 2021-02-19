@@ -5,7 +5,7 @@ tags: ["Ubuntu","优化","美化","ZFS","gnome"]
 draft: false
 slug: "ubuntu2010"
 date: "2020-10-23 10:25:00"
-toc: true
+toc: false
 ---
 **安装 Ubuntu 后的 20 件事**
 
