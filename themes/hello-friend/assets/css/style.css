@@ -863,7 +863,7 @@ hr {
 }
 
 .posts {
-	margin-top: -20px;
+	margin-top: -20px !important;
 }
 
 .post {

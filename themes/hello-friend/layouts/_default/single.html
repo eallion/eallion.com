@@ -12,7 +12,7 @@
   
   {{ partial "talks.html" . }}
   
-  <div class="post {{ $PostCate }}">
+  <div class="posts post">
     <!-- {{ partial "breadcrumb.html" . }} -->
   {{ if eq $PostCate "chat"}}
       {{ .Render "chat"}}
