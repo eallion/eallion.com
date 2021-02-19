@@ -23,10 +23,10 @@ toc: false
 > <https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/>
 
 个人的备份源
-> <https://github.com/eallion/dotfiles/blob/master/Ubuntu/sources.list>
+> <https://raw.githubusercontent.com/eallion/dotfiles/ubuntu/sources.list>
 ```
 sudo mv /etc/apt/sources.list /etc/apt/sources.list.backup
-wget -c https://raw.githubusercontent.com/eallion/dotfiles/master/Ubuntu/sources.list -O /etc/apt/sources.list
+wget -c https://raw.githubusercontent.com/eallion/dotfiles/ubuntu/sources.list -O /etc/apt/sources.list
 ```
 
 然后 update 一下：
@@ -86,7 +86,7 @@ sudo apt install vim \
 我的部分配置备份于 GitHub：
 > <https://github.com/eallion/dotfiles>
 ```
-git clone https://github.com/eallion/dotfiles.git ~/Documents/dotfiles
+git clone https://github.com/eallion/dotfiles.git -b ubuntu ~/Documents/dotfiles
 ```
 恢复 Git Vim Tmux Fcitx 等配置。
 
@@ -106,7 +106,7 @@ im-config
 
 自定义标点符号：
 ```
-wget -c https://raw.githubusercontent.com/eallion/dotfiles/master/Ubuntu/.config/fcitx/data/punc.mb.zh_CN -O ~/.config/fcitx/data/punc.mb.zh_CN
+wget -c https://raw.githubusercontent.com/eallion/dotfiles/ubuntu/.config/fcitx/data/punc.mb.zh_CN -O ~/.config/fcitx/data/punc.mb.zh_CN
 ```
 按下面格式添加符号，如果不符合习惯请自行修改。
 ```
@@ -268,7 +268,7 @@ plugins=( git extract fasd zsh-autosuggestions zsh-syntax-highlighting docker do
 我个人的配置：
 ```
 rm ~/.zshrc
-wget -c https://raw.githubusercontent.com/eallion/dotfiles/master/Ubuntu/.zshrc -O ~/.zshrc
+wget -c https://raw.githubusercontent.com/eallion/dotfiles/ubuntu/.zshrc -O ~/.zshrc
 ```
 
 让配置生效：
