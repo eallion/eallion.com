@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-cn"><generator uri="https://gohugo.io/" version="0.80.0">Hugo</generator><title type="html">大大的小蜗牛</title><subtitle type="html">机会总是垂青于有准备的人</subtitle><link href="https://eallion.com/atom.xml" rel="self" type="application/rss+xml" title="atom"><link href="https://eallion.com/" rel="alternate" type="text/html" title="HTML"><link href="https://eallion.com/index.json" rel="alternate" type="application/json" title="JSON"><updated>2021-02-19T22:38:32+08:00</updated><id>https://eallion.com/atom.xml</id><entry><title type="html">劳动合同解除(终止)及赔偿一览表</title><link href="https://eallion.com/laborcontract/" rel="alternate" type="text/html"><id>https://eallion.com/laborcontract/</id><published>2021-01-13T14:40:28+08:00</published><updated>2021-01-13T14:40:28+08:00</updated><content type="html"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-cn"><generator uri="https://gohugo.io/" version="0.80.0">Hugo</generator><title type="html">大大的小蜗牛</title><subtitle type="html">机会总是垂青于有准备的人</subtitle><link href="https://eallion.com/atom.xml" rel="self" type="application/rss+xml" title="atom"><link href="https://eallion.com/" rel="alternate" type="text/html" title="HTML"><link href="https://eallion.com/index.json" rel="alternate" type="application/json" title="JSON"><updated>2021-02-19T23:00:40+08:00</updated><id>https://eallion.com/atom.xml</id><entry><title type="html">劳动合同解除(终止)及赔偿一览表</title><link href="https://eallion.com/laborcontract/" rel="alternate" type="text/html"><id>https://eallion.com/laborcontract/</id><published>2021-01-13T14:40:28+08:00</published><updated>2021-01-13T14:40:28+08:00</updated><content type="html"><![CDATA[<blockquote>
 <p>转需 / 备忘</p>
 </blockquote>
 <p>解除和终止都有结束的意思，在生活中并不会特意加以区分。可是当这两个词放在劳动法中，却会产生极大的不同。如果你一不小心弄错的话，就会产生不同的法律责任。</p>
@@ -510,10 +510,10 @@ cscript ospp.vbs /dstatusall
 </blockquote>
 <p>个人的备份源</p>
 <blockquote>
-<p><a href="https://github.com/eallion/dotfiles/blob/master/Ubuntu/sources.list">https://github.com/eallion/dotfiles/blob/master/Ubuntu/sources.list</a></p>
+<p><a href="https://raw.githubusercontent.com/eallion/dotfiles/ubuntu/sources.list">https://raw.githubusercontent.com/eallion/dotfiles/ubuntu/sources.list</a></p>
 </blockquote>
 <pre><code>sudo mv /etc/apt/sources.list /etc/apt/sources.list.backup
-wget -c https://raw.githubusercontent.com/eallion/dotfiles/master/Ubuntu/sources.list -O /etc/apt/sources.list
+wget -c https://raw.githubusercontent.com/eallion/dotfiles/ubuntu/sources.list -O /etc/apt/sources.list
 </code></pre><p>然后 update 一下：</p>
 <pre><code>sudo apt update
 sudo apt upgrade
@@ -551,7 +551,7 @@ sudo apt upgrade
 <blockquote>
 <p><a href="https://github.com/eallion/dotfiles">https://github.com/eallion/dotfiles</a></p>
 </blockquote>
-<pre><code>git clone https://github.com/eallion/dotfiles.git ~/Documents/dotfiles
+<pre><code>git clone https://github.com/eallion/dotfiles.git -b ubuntu ~/Documents/dotfiles
 </code></pre><p>恢复 Git Vim Tmux Fcitx 等配置。</p>
 <h3 id="8安装输入法">8、安装输入法</h3>
 <p>个人使用 Fcitx 五笔拼音</p>
@@ -564,7 +564,7 @@ sudo apt upgrade
 <p>配置默认输入法：</p>
 <pre><code>im-config
 </code></pre><p>自定义标点符号：</p>
-<pre><code>wget -c https://raw.githubusercontent.com/eallion/dotfiles/master/Ubuntu/.config/fcitx/data/punc.mb.zh_CN -O ~/.config/fcitx/data/punc.mb.zh_CN
+<pre><code>wget -c https://raw.githubusercontent.com/eallion/dotfiles/ubuntu/.config/fcitx/data/punc.mb.zh_CN -O ~/.config/fcitx/data/punc.mb.zh_CN
 </code></pre><p>按下面格式添加符号，如果不符合习惯请自行修改。</p>
 <pre><code>~ ～
 ` `
@@ -685,7 +685,7 @@ plugins=( git extract fasd zsh-autosuggestions zsh-syntax-highlighting docker do
     ******
 </code></pre><p>我个人的配置：</p>
 <pre><code>rm ~/.zshrc
-wget -c https://raw.githubusercontent.com/eallion/dotfiles/master/Ubuntu/.zshrc -O ~/.zshrc
+wget -c https://raw.githubusercontent.com/eallion/dotfiles/ubuntu/.zshrc -O ~/.zshrc
 </code></pre><p>让配置生效：</p>
 <pre><code>source ~/.zshrc
 </code></pre><p>如果安装时没有选择将 Zsh 作为默认 Shell，可以用下面的命令设置：</p>
