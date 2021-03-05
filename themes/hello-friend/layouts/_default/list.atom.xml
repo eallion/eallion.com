@@ -15,7 +15,7 @@
     {{ range $output_formats -}}
         {{- $rel := (or (and (eq "atom" (.Name | lower)) "self") "alternate") -}}
         {{ with $output_formats.Get .Name }}
-            {{ printf `<link href=%q rel=%q type=%q title=%q >` .Permalink $rel .MediaType.Type .Name | safeHTML }}
+            {{ printf `<link href=%q rel=%q type=%q title=%q />` .Permalink $rel .MediaType.Type .Name | safeHTML }}
         {{- end -}}
     {{- end }}
     <updated>{{ now.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</updated>
@@ -60,10 +60,10 @@
         {{ $page := . }}
         <entry>
             {{ printf `<title type="html"><![CDATA[%s]]></title>` .Title | safeHTML }}
-            <link href="{{ .Permalink }}" rel="alternate" type="text/html" >
+            <link href="{{ .Permalink }}" rel="alternate" type="text/html" />
             {{- range .Translations }}
                 {{- $link := printf "%s" .Permalink | safeHTML }}
-                {{- printf `<link href=%q rel="alternate" type="text/html" hreflang=%q >` $link .Lang | safeHTML }}
+                {{- printf `<link href=%q rel="alternate" type="text/html" hreflang=%q />` $link .Lang | safeHTML }}
             {{- end }}
             {{ with .Params.id }}
                 <id>{{ . | plainify }}</id>
@@ -89,7 +89,7 @@
                         {{ with site.GetPage (printf "/%s" $taxo) }}
                             {{ $taxonomy_page := . }}
                             {{ range $taxo_list }} <!-- Below, assuming pretty URLs -->
-                                <category scheme="{{ printf "%s%s" $taxonomy_page.Permalink (. | urlize) }}" term="{{ (. | urlize) }}" label="{{ . }}" >
+                                <category scheme="{{ printf "%s%s" $taxonomy_page.Permalink (. | urlize) }}" term="{{ (. | urlize) }}" label="{{ . }}" />
                             {{ end }}
                         {{ end }}
                     {{ end }}
