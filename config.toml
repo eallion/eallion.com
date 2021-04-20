@@ -48,14 +48,14 @@ rssLimit = 10
   name="嘀咕"
   url="https://eallion.com/talk/"
   weight="1"
-  [[menu.main]]
-  name="观影"
-  url="https://eallion.com/movies/"
-  weight="2"
-  [[menu.main]]
-  name="阅读"
-  url="https://eallion.com/books/"
-  weight="3"
+  #[[menu.main]]
+  #name="观影"
+  #url="https://eallion.com/movies/"
+  #weight="2"
+  #[[menu.main]]
+  #name="阅读"
+  #url="https://eallion.com/books/"
+  #weight="3"
   [[menu.main]]
   name="归档"
   url="https://eallion.com/archives/"
