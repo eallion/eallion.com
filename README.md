@@ -91,7 +91,7 @@ pipeline {
       stage('Build Hugo') {
         agent {
           docker {
-            image 'monachus/hugo:latest'
+            image 'envimate/hugo:latest'
             reuseNode true
           }
         }
