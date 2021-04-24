@@ -1,4 +1,4 @@
-{{ $mainjs := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint "sha256"}}
+{{ $mainjs := resources.Get "js/main.js" | resources.Fingerprint "sha256"}}
 {{ $waterfalljs := resources.Get "js/waterfall.js" | resources.Minify | resources.Fingerprint "sha256"}}
 {{ $slimbox2js := resources.Get "js/slimbox2.js" | resources.Minify | resources.Fingerprint "sha256"}}
 {{ $latelyjs := resources.Get "js/lately.js" | resources.Minify | resources.Fingerprint "sha256"}}
