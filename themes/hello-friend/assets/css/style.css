@@ -1597,6 +1597,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 }
 
 /* Waline 评论样式 waline */
+/* Waline Start */
 :root {
 	/* 字体大小 */
 	--waline-font-size: 16px;
@@ -1636,7 +1637,15 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 	/* 使用边框 */
 	--waline-border: 1px solid var(--waline-border-color);
 	--waline-box-shadow: none;
-  }
+}
+
+.v[data-class='v'] .vcontent p img[src^=https://cdn.jsdelivr.net/gh/eallion/twemoji@main/simple]
+{
+  width: 1em;
+  /* margin: 0.25em;*/
+}
+
+/* Waline End*/
 
 photos:after{
   content: ".";
