@@ -1639,10 +1639,12 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 	--waline-box-shadow: none;
 }
 
-.v[data-class='v'] .vcontent p img[src^=https://cdn.jsdelivr.net/gh/eallion/twemoji@main/simple]
+/* Waline 自定义表情大小调整 */
+.v[data-class='v'] .vcontent img[src^="https://cdn.jsdelivr.net/gh/eallion/twemoji@main/simple"]
 {
-  width: 1em;
-  /* margin: 0.25em;*/
+  width: 1.25em;
+  margin: 0.25em;
+  vertical-align: middle;
 }
 
 /* Waline End*/
