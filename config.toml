@@ -108,9 +108,11 @@ rssLimit = 10
 
 [params.waline]
   enable = true
+  version = '0.17.0'
 
 [params.twikoo]
   enable = false
+  version = '1.3.1'
 
 [params.disqus]
   enable = false
