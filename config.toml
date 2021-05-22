@@ -107,11 +107,11 @@ rssLimit = 10
   baseName = "atom"
 
 [params.waline]
-  enable = true
+  enable = false
   version = '0.17.0'
 
 [params.twikoo]
-  enable = false
+  enable = true
   version = '1.3.1'
 
 [params.disqus]
