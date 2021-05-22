@@ -1649,6 +1649,15 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 
 /* Waline End*/
 
+/* Twikoo Start*/
+.el-textarea__inner {
+	min-height: 8.75em !important;
+}
+.tk-extras {
+	display: none !important;
+}
+/* Twikoo End*/
+
 photos:after{
   content: ".";
   display: block;
