@@ -683,7 +683,7 @@ ol ol {
 	flex-direction: column;
 	flex: 1 auto;
 	align-items: center;
-	margin: 50px 0
+	margin-top: 50px
 }
 
 @media (max-width:683px) {
