@@ -5,17 +5,54 @@
 
 <footer class="footer">
   <div class="footer__inner">
+    <!--
+      Badge by：
+      - https://shields.io/
+      - https://github.com/yakeing/php_badge
+      - https://gitee.com/hamm/svg_badge_tool
+      - https://badg.vercel.app/
+    -->
+
+    <!--
     <div class="copyright">
       <span>共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇文章</span><span> {{$scratch.Get "total" }} 字</span>
     </div>
+    -->
     {{ if $.Site.Copyright }}
       <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
     {{else}}
       <div class="copyright">
-        <span>Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>, Theme <a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener">Hello-friend</a> by <a href="https://twitter.com/panr" target="_blank" rel="noopener">Panr</a></span>
+        <span>
+          <a href="https://eallion.com/archives/" target="_self">
+            <img src="https://4.vercel.app/static/Copyright/555/2006%20-%202021/d55f49">
+          </a>
+          <a href="https://eallion.com/about/" target="_self">
+            <img src="https://4.vercel.app/static/Author/555/eallion/FFA500?icon=heart">
+          </a>
+        </span>
       </div>
       <div class="copyright">
-        <span>&copy; {{ now.Year }} <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">浙ICP备16031768号-2</a></span>
+        <span>
+          <a href="https://gohugo.io/" target="_blank" rel="noopener">
+            <img src="https://4.vercel.app/static/Powered%20by/555/Hugo/FF4088?icon=language">
+          </a>
+          <a href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener">
+            <img src="https://4.vercel.app/github/tag/gohugoio/hugo">
+          </a>
+          <a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener">
+            <img src="https://4.vercel.app/static/Theme/555/Hello-friend/03a9f4?icon=github">
+          </a>
+          <a href="https://github.com/eallion/eallion.com/commits/main" target="_blank" rel="noopener">
+            <img src="https://badg.vercel.app/gitee/last-commit/eallion/eallion.com/main">
+          </a>
+        </span>
+      </div>
+      <div class="copyright">
+        <span>
+          <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">
+            <img src="https://4.vercel.app/static/ICP/555/浙ICP备16031768号-2/f75800">
+          </a>
+        </span>
       </div>
     {{end}}
   </div>
