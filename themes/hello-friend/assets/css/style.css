@@ -922,6 +922,10 @@ hr {
 	--shadow: 0 8px 20px var(--shadow-color);
 }
 
+.talk-title {
+	margin-top: -20px;
+}
+
 @media (max-width:683px) {
 	.post-title {
 		font-size: 2rem
