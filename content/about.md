@@ -33,7 +33,8 @@ author: 大大的小蜗牛
 
 本人只活跃在`Twitter`、`GitHub`、`Telegram`、`Keybase`，其他同名账号绝非本人所有。  
 唯一公开邮箱：`eallions@gmail.com`   
-OpenPGP 公钥之一： <https://keybase.io/eallion/pgp_keys.asc>  
+OpenPGP 公钥之一：   
+<a href="https://keybase.io/eallion/pgp_keys.asc" target="_blank"><img src="https://badgen.net/keybase/pgp/eallion"></a>
 
 本博客现在随缘更新，佛性写博。
 
