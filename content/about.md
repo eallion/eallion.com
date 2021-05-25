@@ -8,41 +8,31 @@ author: 大大的小蜗牛
 ---
 
 ### About me：
- - 双子，B型血，断掌，属虎。
- - 已婚。
- - 不高不矮，不胖不瘦。
- - 先天性乐观。
- - 随意但不随便。
- - 小众而不小资。
- - 亦正亦邪。
- - 不是个好人但从来不做坏事。
+- 双子，B型血，断掌，属虎。
+- 已婚。
+- 不高不矮，不胖不瘦。
+- 先天性乐观。
+- 随意但不随便。
+- 小众而不小资。
+- 亦正亦邪。
+- 不是个好人但从来不做坏事。
 
-### 格言：
+<!--
+- 机会总是垂青于有准备的人 
+- *Chance favors the prepared mind*
+-->
 
- - 机会总是垂青于有准备的人 
- - *Chance favors the prepared mind*
+### Reach me：
 
-### 联系方式：
+<a href="mailto:eallions@gmail.com" target="_blank" rel="noopener"><img src="https://4.vercel.app/static/Gmail/555/eallions@gmail.com/4285f4?icon=google"></a>
+<a href="https://t.me/eallion" target="_blank" rel="noopener"><img src="https://badg.vercel.app/badge/Telegram/eallion/cyan?color=32afed&icon=telegram"></a>
+<a href="https://twitter.com/eallion" target="_blank" rel="noopener"><img src="https://4.vercel.app/static/Twitter/555/eallion/1da1f2?icon=twitter"></a>
+<img src="https://4.vercel.app/static/Motto%3A/555/%E6%9C%BA%E4%BC%9A%E6%80%BB%E6%98%AF%E5%9E%82%E9%9D%92%E4%BA%8E%E6%9C%89%E5%87%86%E5%A4%87%E7%9A%84%E4%BA%BA/000/Chance%20favors%20the%20prepared%20mind/f90?icon=tag&iconcolor=fff&opacity=0.8">
 
- - E-mail：<eallions@gmail.com>
-
-### Site info：
-
- - Title：大大的小蜗牛
- - Description：A blog about *Charles 'eallion' Chin*
- - Since：2006
- - 域名：eallion.com
- - 备案：`浙ICP备16031768号-2`
- - 服务器：Tencent COS + CDN / GitHub Pages
- - 程序：[Hugo](https://gohugo.io)
- - 主题：[Hello Friend](https://github.com/panr/hugo-theme-hello-friend)
- - Copyright：[https://eallion.com/copyright](https://eallion.com/copyright/)
- - Privacy Policy：[https://eallion.com/privacy-policy](https://eallion.com/privacy-policy/)
-
-### 声明
+### Statement
 
 本人只活跃在`Twitter`、`GitHub`、`Telegram`、`Keybase`，其他同名账号绝非本人所有。  
-唯一公开邮箱：`eallions@gmail.com`  
+唯一公开邮箱：`eallions@gmail.com`   
 OpenPGP 公钥之一： <https://keybase.io/eallion/pgp_keys.asc>  
 
 本博客现在随缘更新，佛性写博。
@@ -53,3 +43,18 @@ OpenPGP 公钥之一： <https://keybase.io/eallion/pgp_keys.asc>
 以为刚开始，实际已结束。怀念过去的黄金时代。
 
 不过多年以后，无论是现实还是网上的朋友，只要你来，我还在这里。
+
+### Copyright
+- [https://eallion.com/copyright](https://eallion.com/copyright/)
+
+### Privacy Policy
+- [https://eallion.com/privacy-policy](https://eallion.com/privacy-policy/)
+
+### Services
+<img src="https://badg.vercel.app/badge/icon/Aliyun?icon=aliyun&label">
+<img src="https://badg.vercel.app/badge/icon/CloudBase?icon=terminal&label">
+<img src="https://badg.vercel.app/badge/icon/GitHub?icon=github&label">
+<img src="https://badg.vercel.app/badge/icon/Google?icon=google-plus&label">
+<img src="https://badg.vercel.app/badge/icon/Hugo?icon=terminal&label">
+<img src="https://badg.vercel.app/badge/icon/Tencent%20Cloud?icon=qq&label">
+<img src="https://badg.vercel.app/badge/icon/Upyun?icon=chrome&label">
