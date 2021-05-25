@@ -41,7 +41,7 @@ jQuery(document).ready(function ($) {
     var _b = $("<a></a>").attr("href", this.src);
     $(this).wrap(_b);
   })
-  $(".post-content a[rel!=link]:has(img)").slimbox();
+  $(".post-content a[rel!=link]:has(img:not(.non-box))").slimbox();
   //相对时间
   //$.lately({ 'target': '.post-date' });
   //文章toc固定

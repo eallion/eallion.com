@@ -24,17 +24,17 @@ author: 大大的小蜗牛
 
 ### Reach me：
 
-<a href="mailto:eallions@gmail.com" target="_blank" rel="noopener"><img src="https://4.vercel.app/static/Gmail/555/eallions@gmail.com/4285f4?icon=google"></a>
-<a href="https://t.me/eallion" target="_blank" rel="noopener"><img src="https://badg.vercel.app/badge/Telegram/eallion/cyan?color=32afed&icon=telegram"></a>
-<a href="https://twitter.com/eallion" target="_blank" rel="noopener"><img src="https://4.vercel.app/static/Twitter/555/eallion/1da1f2?icon=twitter"></a>
-<img src="https://4.vercel.app/static/Motto%3A/555/%E6%9C%BA%E4%BC%9A%E6%80%BB%E6%98%AF%E5%9E%82%E9%9D%92%E4%BA%8E%E6%9C%89%E5%87%86%E5%A4%87%E7%9A%84%E4%BA%BA/000/Chance%20favors%20the%20prepared%20mind/f90?icon=tag&iconcolor=fff&opacity=0.8">
+<a href="mailto:eallions@gmail.com" target="_blank" rel="noopener"><img class="avatar non-box" src="https://4.vercel.app/static/Gmail/555/eallions@gmail.com/4285f4?icon=google"></a>
+<a href="https://t.me/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://badg.vercel.app/badge/Telegram/eallion/cyan?color=32afed&icon=telegram"></a>
+<a href="https://twitter.com/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://4.vercel.app/static/Twitter/555/eallion/1da1f2?icon=twitter"></a>
+<img class="avatar non-box" src="https://4.vercel.app/static/Motto%3A/555/%E6%9C%BA%E4%BC%9A%E6%80%BB%E6%98%AF%E5%9E%82%E9%9D%92%E4%BA%8E%E6%9C%89%E5%87%86%E5%A4%87%E7%9A%84%E4%BA%BA/000/Chance%20favors%20the%20prepared%20mind/f90?icon=tag&iconcolor=fff&opacity=0.8">
 
 ### Statement
 
 本人只活跃在`Twitter`、`GitHub`、`Telegram`、`Keybase`，其他同名账号绝非本人所有。  
 唯一公开邮箱：`eallions@gmail.com`   
 OpenPGP 公钥之一：   
-<a href="https://keybase.io/eallion/pgp_keys.asc" target="_blank"><img src="https://badgen.net/keybase/pgp/eallion"></a>
+<a href="https://keybase.io/eallion/pgp_keys.asc" target="_blank"><img class="avatar non-box" src="https://badgen.net/keybase/pgp/eallion"></a>
 
 本博客现在随缘更新，佛性写博。
 

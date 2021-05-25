@@ -914,6 +914,8 @@ hr {
 
 .post-avatar.avatar{width:48px;margin:8px 1rem 0 0;border-radius:50%;box-shadow: 0 12px 40px rgba(0,0,0,.15);float:left;}
 
+.non-box {text-decoration: none} /* 无意义，随便填的一个属性充字数 */
+
 .post-title {
 	font-weight: 400;
 	font-size: 2.2rem;
