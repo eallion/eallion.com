@@ -1,6 +1,6 @@
 {
     "github": {
-      "silent": false
+      "silent": true
     },
     "build": {
       "env": {
