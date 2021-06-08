@@ -7,7 +7,7 @@ Comments: true
 author: 大大的小蜗牛
 ---
 
-### About me：
+### About me
 - 双子，B型血，断掌，属虎。
 - 已婚。
 - 不高不矮，不胖不瘦。
@@ -22,7 +22,7 @@ author: 大大的小蜗牛
 - *Chance favors the prepared mind*
 -->
 
-### Reach me：
+### Reach me
 
 <a href="mailto:eallions@gmail.com" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/eallions@gmail.com-4285f4?style=flat&labelColor=555&logo=gmail&label=Gmail&link=mailto:eallions@gmail.com"></a>
 <a href="https://twitter.com/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Twitter-@eallion-1da1f2?style=flat&labelColor=555555&logo=twitter&logoColor=1da1f2"></a>
@@ -55,27 +55,12 @@ OpenPGP 公钥之一：
 - [https://eallion.com/privacy-policy](https://eallion.com/privacy-policy/)
 
 ### Services
-<a href="https://www.aliyun.com" target="_blank" rel="noopener">
-    <img class="avatar non-box" alt="Aliyun" src="https://img.shields.io/badge/Aliyun-blue?style=flat&color=blue&labelColor=555&logo=Alibaba-Cloud">
-</a>
-<a href="https://cloud.tencent.com/product/tcb" target="_blank" rel="noopener">
-    <img class="avatar non-box" alt="Cloud Base" src="https://img.shields.io/badge/Cloud%20Base-blue?style=flat&color=blue&labelColor=555&logo=Google-Cloud">
-</a>
-<a href="https://www.github.com" target="_blank" rel="noopener">
-    <img class="avatar non-box" alt="GitHub" src="https://img.shields.io/badge/GitHub-blue?style=flat&color=blue&labelColor=555&logo=GitHub">
-</a>
-<a href="https://github.com/actions" target="_blank" rel="noopener">
-    <img class="avatar non-box" alt="GitHub Actions" src="https://img.shields.io/badge/GitHub%20Actions-blue?style=flat&logoColor=fff&color=blue&labelColor=555&logo=GitHub-Actions">
-</a>
-<a href="https://www.google.com" target="_blank" rel="noopener">
-    <img class="avatar non-box" alt="Google" src="https://img.shields.io/badge/Google-blue?style=flat&logoColor=ea4335&color=blue&labelColor=555&logo=Google">
-</a>
-<a href="https://gohugo.io" target="_blank" rel="noopener">
-    <img class="avatar non-box" alt="Hugo" src="https://img.shields.io/badge/Hugo-blue?style=flat&color=blue&labelColor=555&logo=Hugo">
-</a>
-<a href="https://cloud.tencent.com" target="_blank" rel="noopener">
-    <img class="avatar non-box" alt="Tencent Cloud" src="https://img.shields.io/badge/Tencent%20Cloud-blue?style=flat&color=blue&labelColor=555&logo=tencent-qq">
-</a>
-<a href="https://vercel.com" target="_blank" rel="noopener">
-    <img class="avatar non-box" alt="Vercel" src="https://img.shields.io/badge/Vercel-blue?style=flat&color=blue&labelColor=555&logo=Vercel">
-</a>
+
+<a href="https://www.aliyun.com" target="_blank" rel="noopener"><img class="avatar non-box" alt="Aliyun" src="https://img.shields.io/badge/Aliyun-blue?style=flat&color=blue&labelColor=555&logo=Alibaba-Cloud"></a>
+<a href="https://cloud.tencent.com/product/tcb" target="_blank" rel="noopener"><img class="avatar non-box" alt="Cloud Base" src="https://img.shields.io/badge/Cloud%20Base-blue?style=flat&color=blue&labelColor=555&logo=Google-Cloud"></a>
+<a href="https://www.github.com" target="_blank" rel="noopener"><img class="avatar non-box" alt="GitHub" src="https://img.shields.io/badge/GitHub-blue?style=flat&color=blue&labelColor=555&logo=GitHub"></a>
+<a href="https://github.com/actions" target="_blank" rel="noopener"><img class="avatar non-box" alt="GitHub Actions" src="https://img.shields.io/badge/GitHub%20Actions-blue?style=flat&logoColor=fff&color=blue&labelColor=555&logo=GitHub-Actions"></a>
+<a href="https://www.google.com" target="_blank" rel="noopener"><img class="avatar non-box" alt="Google" src="https://img.shields.io/badge/Google-blue?style=flat&logoColor=ea4335&color=blue&labelColor=555&logo=Google"></a>
+<a href="https://gohugo.io" target="_blank" rel="noopener"><img class="avatar non-box" alt="Hugo" src="https://img.shields.io/badge/Hugo-blue?style=flat&color=blue&labelColor=555&logo=Hugo"></a>
+<a href="https://cloud.tencent.com" target="_blank" rel="noopener"><img class="avatar non-box" alt="Tencent Cloud" src="https://img.shields.io/badge/Tencent%20Cloud-blue?style=flat&color=blue&labelColor=555&logo=tencent-qq"></a>
+<a href="https://vercel.com" target="_blank" rel="noopener"><img class="avatar non-box" alt="Vercel" src="https://img.shields.io/badge/Vercel-blue?style=flat&color=blue&labelColor=555&logo=Vercel"></a>
