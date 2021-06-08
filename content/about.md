@@ -44,17 +44,18 @@ OpenPGP 公钥之一：[`https://keybase.io/eallion/pgp_keys.asc`](https://keyba
 
 ### 联系方式
 
-<a href="mailto:eallions@gmail.com" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/eallions@gmail.com-4285f4?style=flat&labelColor=555&logo=gmail&label=Gmail&link=mailto:eallions@gmail.com&logoColor=fff"></a>
-<a href="https://twitter.com/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Twitter-@eallion-1da1f2?style=flat&labelColor=555&logo=twitter&logoColor=fff"></a>
-<a href="https://t.me/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Telegram-@eallion-32afed?style=flat&labelColor=555&logo=telegram&logoColor=fff"></a>
-<a href="https://keybase.io/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Keybase-@eallion-ff6f21?style=flat&labelColor=555&logo=Keybase&logoColor=fff"></a>
+<a href="mailto:eallions@gmail.com" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/eallions@gmail.com-4285f4?style=flat&color=EA4335&labelColor=555&logo=gmail&link=mailto:eallions@gmail.com&logoColor=EA4335"></a>
+<a href="https://twitter.com/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Twitter-@eallion-1da1f2?style=flat&color=1DA1F2&labelColor=555&logo=twitter&logoColor=1DA1F2"></a>
+<a href="https://github.com/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/GitHub-@eallion-ff6f21?style=flat&color=0366d6&labelColor=555&logo=GitHub&logoColor=181717"></a>
+<a href="https://t.me/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Telegram-@eallion-32afed?style=flat&color=26A5E4&labelColor=555&logo=telegram&logoColor=26A5E4"></a>
+<a href="https://keybase.io/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Keybase-@eallion-ff6f21?style=flat&color=33A0FF&labelColor=555&logo=Keybase&logoColor=ff6f21"></a>
 
 ### 鸣谢
 
-<img class="avatar non-box" alt="HTML" src="https://img.shields.io/badge/HTML5-blue?style=flat&color=blue&labelColor=555&logo=HTML5">
-<img class="avatar non-box" alt="CSS" src="https://img.shields.io/badge/CSS3-blue?style=flat&color=blue&labelColor=555&logo=CSS3">
-<img class="avatar non-box" alt="JS" src="https://img.shields.io/badge/JavaScript-blue?style=flat&color=blue&labelColor=555&logo=JavaScript">
-<a href="https://gohugo.io" target="_blank" rel="noopener"><img class="avatar non-box" alt="Hugo" src="https://img.shields.io/badge/Hugo-blue?style=flat&color=blue&labelColor=555&logo=Hugo"></a>  
+<img class="avatar non-box" alt="HTML" src="https://img.shields.io/badge/HTML5-blue?style=flat&color=E34F26&labelColor=555&logo=HTML5&logoColor=E34F26">
+<img class="avatar non-box" alt="CSS" src="https://img.shields.io/badge/CSS3-blue?style=flat&color=1572B6&labelColor=555&logo=CSS3&logoColor=1572B6">
+<img class="avatar non-box" alt="JS" src="https://img.shields.io/badge/JavaScript-blue?style=flat&color=F7DF1E&labelColor=555&logo=JavaScript&logoColor=F7DF1E">
+<a href="https://gohugo.io" target="_blank" rel="noopener"><img class="avatar non-box" alt="Hugo" src="https://img.shields.io/badge/Hugo-blue?style=flat&color=FF4088&labelColor=555&logo=Hugo&logoColor=FF4088"></a>  
 
 <a href="https://www.aliyun.com" target="_blank" rel="noopener"><img class="avatar non-box" alt="Aliyun" src="https://img.shields.io/badge/Aliyun-blue?style=flat&color=blue&labelColor=555&logo=Alibaba-Cloud&logoColor=fff"></a>
 <a href="https://cloud.tencent.com/product/tcb" target="_blank" rel="noopener"><img class="avatar non-box" alt="Cloud Base" src="https://img.shields.io/badge/CloudBase-blue?style=flat&color=blue&labelColor=555&logo=Windows-Terminal&logoColor=fff"></a>
