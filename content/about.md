@@ -7,7 +7,7 @@ Comments: true
 author: 大大的小蜗牛
 ---
 
-> 机会总是垂青于有准备的人!  
+> 『 [机会总是垂青于有准备的人!](https://en.wikipedia.org/wiki/Louis_Pasteur#Career)』 - *Louis Pasteur*
 
 - 双子，B型血，断掌，属虎。
 - 已婚。
@@ -17,6 +17,7 @@ author: 大大的小蜗牛
 - 小众而不小资。
 - 亦正亦邪。
 - 不是个好人但从来不做坏事。
+
 
 ### 声明
 
@@ -44,17 +45,17 @@ OpenPGP 公钥之一：[`https://keybase.io/eallion/pgp_keys.asc`](https://keyba
 
 ### 联系方式
 
-<a href="mailto:eallions@gmail.com" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/eallions@gmail.com-4285f4?style=flat&color=EA4335&labelColor=555&logo=gmail&link=mailto:eallions@gmail.com&logoColor=EA4335"></a>
-<a href="https://twitter.com/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Twitter-@eallion-1da1f2?style=flat&color=1DA1F2&labelColor=555&logo=twitter&logoColor=1DA1F2"></a>
-<a href="https://github.com/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/GitHub-@eallion-ff6f21?style=flat&color=0366d6&labelColor=555&logo=GitHub&logoColor=181717"></a>
-<a href="https://t.me/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Telegram-@eallion-32afed?style=flat&color=26A5E4&labelColor=555&logo=telegram&logoColor=26A5E4"></a>
-<a href="https://keybase.io/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Keybase-@eallion-ff6f21?style=flat&color=33A0FF&labelColor=555&logo=Keybase&logoColor=ff6f21"></a>
+<a href="mailto:eallions@gmail.com" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/eallions@gmail.com-blue?style=flat&labelColor=555&logo=gmail&link=mailto:eallions@gmail.com&logoColor=fff"></a>
+<a href="https://twitter.com/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Twitter-@eallion-blue?style=flat&labelColor=555&logo=twitter&logoColor=fff"></a>
+<a href="https://github.com/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/GitHub-@eallion-blue?style=flat&labelColor=555&logo=GitHub&logoColor=fff"></a>
+<a href="https://t.me/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Telegram-@eallion-blue?style=flat&labelColor=555&logo=telegram&logoColor=fff"></a>
+<a href="https://keybase.io/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Keybase-@eallion-blue?style=flat&labelColor=555&logo=Keybase&logoColor=fff"></a>
 
 ### 鸣谢
 
-<img class="avatar non-box" alt="HTML" src="https://img.shields.io/badge/HTML5-blue?style=flat&color=E34F26&labelColor=555&logo=HTML5&logoColor=E34F26">
-<img class="avatar non-box" alt="CSS" src="https://img.shields.io/badge/CSS3-blue?style=flat&color=1572B6&labelColor=555&logo=CSS3&logoColor=1572B6">
-<img class="avatar non-box" alt="JS" src="https://img.shields.io/badge/JavaScript-blue?style=flat&color=F7DF1E&labelColor=555&logo=JavaScript&logoColor=F7DF1E">
+<a href="https://html5.org/" target="_blank" rel="noopener"><img class="avatar non-box" alt="HTML" src="https://img.shields.io/badge/HTML5-blue?style=flat&color=E34F26&labelColor=555&logo=HTML5&logoColor=E34F26"></a>
+<a href="https://www.w3.org/Style/CSS/Overview.en.html" target="_blank" rel="noopener"><img class="avatar non-box" alt="CSS" src="https://img.shields.io/badge/CSS3-blue?style=flat&color=1572B6&labelColor=555&logo=CSS3&logoColor=1572B6"></a>
+<a href="https://www.javascript.com/" target="_blank" rel="noopener"><img class="avatar non-box" alt="JS" src="https://img.shields.io/badge/JavaScript-blue?style=flat&color=F7DF1E&labelColor=555&logo=JavaScript&logoColor=F7DF1E"></a>
 <a href="https://gohugo.io" target="_blank" rel="noopener"><img class="avatar non-box" alt="Hugo" src="https://img.shields.io/badge/Hugo-blue?style=flat&color=FF4088&labelColor=555&logo=Hugo&logoColor=FF4088"></a>  
 
 <a href="https://www.aliyun.com" target="_blank" rel="noopener"><img class="avatar non-box" alt="Aliyun" src="https://img.shields.io/badge/Aliyun-blue?style=flat&color=blue&labelColor=555&logo=Alibaba-Cloud&logoColor=fff"></a>
