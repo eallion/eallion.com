@@ -22,7 +22,11 @@ author: 大大的小蜗牛
 ### 声明
 
 本人只活跃在`Twitter`、`GitHub`、`Telegram`、`Keybase`，其他同名账号绝非本人所有。  
-唯一公开邮箱：`eallions@gmail.com`   
+- 唯一公开邮箱：`eallions@gmail.com`   
+- 私人邮箱：`e*****n@hotmail.com`、`e*n@pm.me`  
+- 弃用邮箱：~~`e*****n@eallion.com`~~、~~`@sina.com`~~、~~`@163.com`~~、~~`@sohu.com`~~  
+- 不活跃邮箱：~~`e*****n@qq.com`~~、~~`2*******8@qq.com`~~
+- 匿名邮箱：[`@altmails.com`](https://altmails.com)、[`@anonaddy.me`](https://anonaddy.com)、[`@relay.firefox.com`](https://relay.firefox.com)
 
 OpenPGP 公钥之一：[`https://keybase.io/eallion/pgp_keys.asc`](https://keybase.io/eallion/pgp_keys.asc)  
 
@@ -48,7 +52,7 @@ OpenPGP 公钥之一：[`https://keybase.io/eallion/pgp_keys.asc`](https://keyba
 <a href="mailto:eallions@gmail.com" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/eallions@gmail.com-blue?style=flat&labelColor=555&logo=gmail&link=mailto:eallions@gmail.com&logoColor=fff"></a>
 <a href="https://twitter.com/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Twitter-@eallion-blue?style=flat&labelColor=555&logo=twitter&logoColor=fff"></a>
 <a href="https://github.com/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/GitHub-@eallion-blue?style=flat&labelColor=555&logo=GitHub&logoColor=fff"></a>
-<a href="https://t.me/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Telegram-@eallion-blue?style=flat&labelColor=555&logo=telegram&logoColor=fff"></a>
+<a href="https://t.me/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/t.me-@eallion-blue?style=flat&labelColor=555&logo=telegram&logoColor=fff"></a>
 <a href="https://keybase.io/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Keybase-@eallion-blue?style=flat&labelColor=555&logo=Keybase&logoColor=fff"></a>
 
 ### 鸣谢
