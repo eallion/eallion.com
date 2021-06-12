@@ -36,8 +36,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.personal_token }}
-          external_repository: eallion/eallion.com
-          PUBLISH_BRANCH: gh-pages
+          external_repository: eallion/eallion.github.io
+          PUBLISH_BRANCH: main
           PUBLISH_DIR: ./public
           allow_empty_commit: true
           commit_message: ${{ GitHub.event.head_commit.message }}
