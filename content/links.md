@@ -45,8 +45,6 @@ Comments: true
 {{< friend des="Hugo开发者" url="https://spf13.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/e52bc145bc33c4d337698dd9f161ea89" name="Hacking Management" >}}
 	
 {{< friend des="Hexo开发成员" url="https://blog.skk.moe/" src="https://cdn.jsdelivr.net/npm/skx@0.2.3/avatar/96x96.png" name="Sukka's Blog" >}}
-	
----
 
 {{< friend des="sanyaosan.com" url="https://www.sanyaosan.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/d86dc18560e3df8c2ac1970dd71abefd" name="伞耀伞" >}}
 
@@ -109,3 +107,5 @@ Comments: true
 {{< friend des="heson10.com" url="https://www.heson10.com" src="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png" name="黑石博客" >}}
 
 {{< friend des="foolishfox.cn" url="https://foolishfox.cn/" src="https://sdn.geekzu.org/avatar/53bc457fbba563ce1ce80edda8310241?d=identicon" name="FF" >}}
+
+{{< friend des="keyiqingxin.cn" url="https://www.keyiqingxin.cn/" src="https://cdn.jsdelivr.net/gh/milkdue/cdn@1.1/img/avatar.jpg" name="可以清心" >}}
