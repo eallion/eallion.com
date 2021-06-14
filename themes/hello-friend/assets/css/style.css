@@ -1149,6 +1149,14 @@ hr {
 	color: #222
 }
 
+.footer img {
+	max-width: 100%;
+	height: auto;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+
 .dark-theme .footer {
 	color: #73747b;
 	color: var(--dark-color-secondary)
