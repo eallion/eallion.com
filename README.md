@@ -304,3 +304,5 @@ GLWT（祝你好运）公共许可证
 
 祝你好运及一帆风顺。
 ```
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_large)
