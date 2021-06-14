@@ -4,50 +4,34 @@
 
 ### Build status
 
-- GitHub Pages  
-  ![build](https://github.com/eallion/eallion.com/workflows/build/badge.svg?branch=main)   
-
-- Tencent COS  
-  [![构建状态](https://eallion.coding.net/badges/eallion/job/243839/build.svg)](https://eallion.coding.net/p/eallion/ci/job)
-
-### Live demo:
-
-> <https://eallion.com>
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/eallion/eallion.com/build?color=4ec100&style=flat-square)](https://github.com/eallion/eallion.com/actions/workflows/main.yml) [![构建状态](https://eallion.coding.net/badges/eallion/job/243839/build.svg)](https://eallion.coding.net/p/eallion/ci/job)
 
 ### Any questions?
 
-- Issue:
-<https://github.com/eallion/eallion.com/issues/new>
+[![GitHub issues](https://img.shields.io/github/issues/eallion/eallion.com?logo=GitHub&color=4ec100&style=flat-square)](https://github.com/eallion/eallion.com/issues/new) [![](https://img.shields.io/badge/eallions@gmail.com-4ec100?labelColor=555&logo=gmail&label=Gmail&link=mailto:eallions@gmail.com&logoColor=fff&style=flat-square)](mailto:eallions@gmail.com) [![](https://img.shields.io/badge/t.me-@eallion-4ec100?labelColor=555&logo=telegram&logoColor=fff&style=flat-square)](https://t.me/eallion)
 
-- Email: 
-<eallions@gmail.com>
-
-- Slack:
-<https://eallion.slack.com/archives/C016FNKM40K>
+### Live demo:
+- https://eallion.com  
+- https://eallion.gitee.io
+- https://eallion.github.io
+- https://eallion.netlify.app
+- https://eallion.pages.dev
+- https://eallion.vercel.app
+- https://eallion.web.app
 
 # 备忘录:
 
 ### 主仓库
-> <https://github.com/eallion/eallion.com>  
+> <https://github.com/eallion/eallion.com.git>  
 
 ### 备份仓库
-> Keybase：<keybase://private/eallion/eallion.com>  
+> Keybase：<keybase://private/eallion/eallion.com.git>  
 > Coding.net： <https://e.coding.net/eallion/eallion.com/hugo.git>  
 > 码云 Gitee： <https://gitee.com/eallion/eallion.com.git>  
 > 阿里云 Codeup： <https://codeup.aliyun.com/eallion/hugo.git>    
 > 腾讯工蜂： <https://git.code.tencent.com/eallion/eallion.com.git>  
 
-### 架构备忘
-
-> - ~~国内：通过阿里云云效 Codeup & Flow 部署至：阿里云 OSS + CDN~~ (2019.12.20) 
-> - ~~国内：通过 [Coding](https://coding.net/) 部署至：[Gitee pages](https://eallion.gitee.io)~~ 
-> - ~~国内：通过 [Coding](https://coding.net/) 部署至：[Coding pages](https://blog.eallion.com)~~ 
-> - ~~国内：通过 GitHub Action 部署至腾讯云 [CloudBase](https://cloud.tencent.com/product/tcb)~~ (2020.08.12)
-> - ~~境外：通过 GitHub Action 部署至 [GitHub Pages](https://eallion.github.io/)~~ (2020.08.12)
-
-- 通过 [Coding](https://coding.net/) 部署至腾讯云 [COS](https://cloud.tencent.com/product/cos) + [CDN](https://cloud.tencent.com/product/cdn) (2020.12.27)
-
-### 添加备用仓库 remote
+### 添加备份仓库 Remote
 > default branch: main  
 > remote url 传递 id:token 免输各个 git 仓库的账号密码
 
@@ -60,17 +44,12 @@ git remote set-url --add --push origin https://id:token@codeup.aliyun.com/id/eal
 git remote set-url --add --push origin keybase://private/eallion/eallion
 ```
 
-### 阿里云云效 Flow 部分命令
-```
-cd ../eallion_gohugo_????
-dpkg -i hugo_latest.deb
-cd ../eallion_hugo_????
-hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
-find -maxdepth 1 -type d -not -name public -not -name "." -exec rm -rf {} \;
-find -maxdepth 1 -type f -exec rm {} \;
-rm -rf public/images
-rm -rf public/photos
-```
+### 架构备忘
+- 国内：通过 [Coding](https://coding.net/) 部署至腾讯云 [COS](https://cloud.tencent.com/product/cos) + [CDN](https://cloud.tencent.com/product/cdn) (2020.12.27)
+- 境外：通过 GitHub Action 部署至 [GitHub Pages](https://eallion.github.io/) (2021.06.13)
+
+<details>
+<summary>CI/CD</summary>
 
 ### Coding.net 持续集成部分命令
 ```
@@ -109,54 +88,11 @@ pipeline {
     }
   }
 ```
-### 腾讯云 CloudBase Actions
-> <https://github.com/marketplace/actions/tencent-cloudbase-github-action>
-
-```
-      - name: Deploy to Tencent CloudBase
-        id: deployStatic
-        uses: TencentCloudBase/cloudbase-action@v1.1.1
-        with:
-          secretId: ${{ secrets.CLOUDBASE_SECRET_ID }}
-          secretKey: ${{ secrets.CLOUDBASE_SECRET_KEY }}
-          envId: ${{ secrets.CLOUDBASE_ENV_ID }}
-          staticSrcPath: public
-```
-
-### 部署到阿里云 OSS 的 Actions
-> <https://github.com/marketplace/actions/uptoc-action>
-```
-      - name: Deploy to OSS
-        uses: saltbo/uptoc@master
-        with:
-          driver: oss
-          region: cn-shanghai
-          bucket: ${{ secrets.bucket }}
-          exclude: public/images,public/photos
-          dist: public
-        env:
-          UPTOC_UPLOADER_AK: ${{ secrets.ACCESS_KEY_ID }}
-          UPTOC_UPLOADER_SK: ${{ secrets.ACCESS_KEY_SECRET }}
-```
-
-### Gitee Pages Free 自动部署 Actions
-> https://github.com/marketplace/actions/gitee-pages-action
-
-```
-      - name: Build Gitee Pages
-        uses: yanglbme/gitee-pages-action@master
-        with:
-          gitee-username: ${{ secrets.GITEE_USERNAME }}
-          gitee-password: ${{ secrets.GITEE_PASSWORD }}
-          gitee-repo: eallion/eallion
-          branch: gh-pages
-          # directory: /
-          https: true
-```
+</details>
 
 ### 通过空提交运行 GitHub Acions
 
-当没有新提交时， 通过 push empty commit 运行 GitHub Actions
+当没有新提交时， 通过 push empty commit 运行 GitHub Actions：
 
 ```
 git commit --allow-empty -m "Rerun GitHub Acions"
@@ -180,7 +116,7 @@ hugo new posts/daily/new_title.md
 
 3. 写文章 
 
-通过 Typora 或 VSCode 编辑文章
+通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑文章。
 
 4. Push & auto deploy:
 
@@ -214,45 +150,50 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 - `--minify` 压缩网页代码  
 - `hugo --help` 查看所有命令  
 
-7. 本地部署至腾讯云 CloudBase
-```
-cd gpm/github.com/eallion/eallion.com
-
-tcb hosting deploy public / -e TCB-envID
-```
-- `public` 本地 Hugo 静态网页文件（能过第 6 步的命令构建）  
-- `/` CloudBase 静态托管的目录，一般部署至根目录`/`  
-- `-e TCB-envID` CloudBase 的环境 ID   
-
 ### 静态文件（CSS、JS）
-> Update: 2021.01.05 使用 Hugo 自带的 Asset minification  
-> ~~Update: 2020.12.18 从腾讯云换到了 jsDelivr~~  
+> Update: 2021.01.05  
+
+因为本博客整站都在 CDN 上，所以静态文件没有再使用另外的 CDN 加速了。  
+现在使用了 Hugo 自带的 Asset minification。  
 
 ```
 {{ $maincss := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
 ```
 
+<details>
+<summary>Update: 2020.12.18</summary>
+
+2020.12.18 从腾讯云换到了 jsDelivr。  
+</details>
+
 #### PS：刷新 CDN
 
-**新方式**：（CDN URL 不变）
-将`cdn.jsdelivr.net`改为 `purge.jsdelivr.net`，在浏览器中请求即可刷新 CDN。
+将资源文件链接中的`cdn.jsdelivr.net`改为 `purge.jsdelivr.net`，在浏览器中请求即可刷新 CDN。
 
-**旧方法**：
-通过打 Tag 的方式刷新 jsDelivr 的 CDN
-`tag`对应`commit`
+<details>
+<summary>旧方法：</summary>
+
+通过打 Tag 的方式刷新 jsDelivr 的 CDN  
+`tag`对应`commit`  
 ```
 git tag vX.X.X
 git push origin vX.X.X
 
 # git push origin --tags # 推送所有 Tags
 ```
+</details>
 
 ### 文章中图片处理方式
 
 因为 jsDelivr 2020.08.15 的[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)，现在没有用 GitHub + jsDelivr 当图床了。
 
 现在写博客添加图片，需要手动添加图片地址。
+
+一般本博客优先使用腾讯云 COS，图床链接为：`https://images.eallion.com/`
+
+<details>
+<summary>原方法：</summary>
 
 原方法依然可用，注意图片URL即可。
 
@@ -267,7 +208,7 @@ git push origin vX.X.X
 - 如：
 
 > `https://eallion.com/images/2020/05/ubuntu2004.jpg`
-
+</details>
 ### 相册展示的照片
 
 - 照片存放目录：
@@ -282,6 +223,9 @@ git push origin vX.X.X
 [View result](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Feallion.com%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext#pwa)
 
 ### LICENSE
+<details>
+<summary>GLWT（祝你好运）公共许可证</summary>
+
 ```
 GLWT（祝你好运）公共许可证
 版权所有（C）每个人，除了作者
@@ -304,5 +248,6 @@ GLWT（祝你好运）公共许可证
 
 祝你好运及一帆风顺。
 ```
+</details>
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_large)
