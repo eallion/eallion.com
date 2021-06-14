@@ -5,7 +5,8 @@
 ### Build status
 
 - GitHub Pages  
-  ![build](https://github.com/eallion/eallion.com/workflows/build/badge.svg?branch=main)   
+  ![build](https://github.com/eallion/eallion.com/workflows/build/badge.svg?branch=main) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_shield)
+  
 
 - Tencent COS  
   [![构建状态](https://eallion.coding.net/badges/eallion/job/243839/build.svg)](https://eallion.coding.net/p/eallion/ci/job)
@@ -304,3 +305,5 @@ GLWT（祝你好运）公共许可证
 
 祝你好运及一帆风顺。
 ```
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_large)
