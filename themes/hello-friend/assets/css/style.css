@@ -238,6 +238,24 @@ a.read-more,a.read-more:active,a.read-more:hover {
 	animation: cursor 1s infinite
 }
 
+.changelog {
+	display: inline-block;
+}
+#HW_badge_cont {
+	display: inline-block !important;
+    height: 1em !important;
+    width: 1em !important;
+}
+#HW_badge {
+	top: 0 !important;
+	left: 0 !important;
+	background: #fe5186 !important;
+	height: 12px !important;
+    width: 12px !important;
+    line-height: 12px !important;
+    font-size: 11px !important;
+}
+
 @-webkit-keyframes cursor {
 	0% {
 		opacity: 0
@@ -780,7 +798,6 @@ hr {
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
-
 .talk-list li a {
 	text-decoration: none;
 }

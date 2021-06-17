@@ -62,7 +62,6 @@
 <a class="to-top back-to-top"><svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg></a>
 
 {{ partial "footer-js.html" . }}
-
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 <script>pangu.spacingElementByClassName('content');</script>
@@ -76,3 +75,24 @@
     });
   }
 </script>
+
+{{- if .Site.Params.headway.enable -}}
+<script>
+  // @see https://docs.headwayapp.co/widget for more configuration options.
+  var HW_config = {
+    selector: "{{ .Site.Params.headway.selector }}", // CSS selector where to inject the badge
+    account:  "{{ .Site.Params.headway.account }}",
+    translations: {
+    title: "📰 更新日志",
+    readMore: "阅读更多",
+    labels: {
+      "new": "🆕 更新",
+      "improvement": "✨ 改进",
+      "fix": "✔️ 修复"
+    },
+    footer: "Read more on Headwayapp 👉"
+  },
+  }
+</script>
+<script async src="https://cdn.headwayapp.co/widget.js"></script>
+{{ end }}
