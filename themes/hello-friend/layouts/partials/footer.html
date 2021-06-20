@@ -24,10 +24,10 @@
     {{else}}
       <div class="copyright">
         <span>
-          <a href="https://eallion.com/copyright/" target="_self">
+          <a href="/copyright/" target="_self">
             <img width="156" height="20" src="https://img.shields.io/badge/Copyright-%C2%A9%202006%20--%202021-blue?style=flat&labelColor=555&color=ea4335&cacheSeconds=31536000" alt="Copyright">
           </a>
-          <a href="https://eallion.com/" target="_self">
+          <a href="/" target="_self">
             <img width="150" height="20" src="https://img.shields.io/badge/大大的小蜗牛-eallion.com-blue?style=flat&labelColor=555&color=E95420&cacheSeconds=31536000" alt="Domain">
           </a>
           <a href="https://opensource.org/licenses/MIT/" target="_blank" rel="noopener">
@@ -74,7 +74,7 @@
   if ('serviceWorker' in navigator) {
     // Use the window load event to keep the page load performant
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('https://eallion.com/service-worker.js');
+      navigator.serviceWorker.register('/service-worker.js');
     });
   }
 </script>

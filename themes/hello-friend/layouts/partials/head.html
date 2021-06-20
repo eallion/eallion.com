@@ -9,8 +9,8 @@
 <meta name="referrer" content="same-origin" >
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fafafa"/>
-<link rel="manifest" href="https://eallion.com/manifest.json" />
-<link rel="apple-touch-icon" href="https://eallion.com/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="canonical" href="{{ .Permalink }}" >
 
 <link rel="preconnect" href="https://sdn.geekzu.org">
@@ -37,7 +37,7 @@
 <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) document.write('\x3Cscript id="_iealwn_js" data-outver="11" src="https://support.dmeng.net/ie-alert-warning/latest.js">\x3C/script>'); </script>
 
 {{ $maincss := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha256" }}
-<link rel="stylesheet" href="https://eallion.com{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
 
 <link rel="shortcut icon" href="https://eallion.com/favicon.ico">
 <!-- OG data -->
