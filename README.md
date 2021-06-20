@@ -255,15 +255,45 @@ git push origin vX.X.X
 
 ### Lighthouse
 
-[View result](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Feallion.com%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext#pwa)
+- [View result](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Feallion.com%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext#pwa).
 
 ### LICENSE
+
+This project is licensed under [MIT](https://opensource.org/licenses/MIT/) & [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN).
 <details>
-<summary>GLWT（祝你好运）公共许可证</summary>
+<summary>MIT license</summary>
 
 ```
-GLWT（祝你好运）公共许可证
-版权所有（C）每个人，除了作者
+MIT License
+
+Copyright (c) 2021 Charles Chin
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+</details>
+
+<details>
+<summary>GLWT Public License</summary>
+
+```
+GLWT（Good Luck With That，祝你好运）公共许可证
+版权所有 © 每个人，除了作者
 
 任何人都被允许复制、分发、修改、合并、销售、出版、再授权或
 任何其它操作，但风险自负。
@@ -275,13 +305,13 @@ GLWT（祝你好运）公共许可证
                 祝你好运公共许可证
             复制、分发和修改的条款和条件
 
-0 ：在不导致作者被指责或承担责任的情况下，你可以做任何你想
+ 0 ：在不导致作者被指责或承担责任的情况下，你可以做任何你想
 要做的事情。
 
 无论是在合同行为、侵权行为或其它因使用本软件产生的情形，作
 者不对任何索赔、损害承担责任。
 
-祝你好运及一帆风顺。
+祖宗保佑。
 ```
 </details>
 
