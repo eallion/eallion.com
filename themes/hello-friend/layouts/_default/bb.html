@@ -17,7 +17,7 @@
             </svg>
           </span>
           <ul class="talk-list">
-            <li class="item"><span class="index-talks">今日诗词：</span><span id="poem_sentence" class="poem_sentence">正在加载今日诗词......</span><span id="poem_info" class="poem_info"></span></li>
+            <li class="item"><span class="index-talks"><a href="https://gushi.ci/" target="_blank">古诗词</a>：</span><span id="gushici" class="poem_sentence">正在加载古诗词......</span><span id="poem_info" class="poem_info"></span></li>
           </ul>
           <button>关闭</button>
         </div>  
@@ -25,7 +25,8 @@
         <div class="post talk-title">
           <h2 class="post-title">{{.Title}}</h2>
           <div class="post-content">
-          <blockquote style="display:none;">我按我的兴趣写，你用你的智商读。我没有兴趣误导谁，嘀咕页面谢绝互动。</blockquote>
+            <blockquote class="hidden">我按我的兴趣写，你用你的智商读。我没有兴趣误导谁，嘀咕页面谢绝互动。</blockquote>
+            <blockquote class="hidden">独立域名：<a href="https://e5n.xyz/" target="_blank">https://e5n.xyz</a></blockquote>
           <p class="count">共嘀咕了<span class="count-data">0</span>条：</p>
             <section class="timeline">
               <ul>
@@ -101,14 +102,20 @@
       
       <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TencentCloudBase/tcb-js-sdk@master/tcbjs/1.10.10/tcb.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/buddys/qq-wechat-emotion-parser@master/dist/qq-wechat-emotion-parser.min.js"></script>
-      <script type="text/javascript" src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-      <script type="text/javascript">
-        jinrishici.load(function(result) {
-          var sentence = document.querySelector("#poem_sentence")
-          var info = document.querySelector("#poem_info")
-          sentence.innerHTML = '「 '+result.data.content+'」'
-          info.innerHTML = '—— ' + '<a href="https://www.google.com/search?q=' + result.data.origin.author + ' ' + result.data.origin.title + '" target="_blank">' + result.data.origin.author + '《' + result.data.origin.title + '》' + '</a>'
-        });
+
+      <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', 'https://v1.jinrishici.com/shuqing/youqing.json');
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            var data = JSON.parse(xhr.responseText);
+            var gushici = document.getElementById('gushici');
+            var poem_info = document.getElementById('poem_info');
+            gushici.innerHTML = '『' + '<a href="https://www.google.com/search?q=' + data.content + '" target="_blank">' +data.content + '</a>' + '』';
+            poem_info.innerHTML = '— ' + '<a href="https://www.google.com/search?q=' + data.author + ' ' + data.origin + '" target="_blank">' + data.author + '《' + data.origin + '》' + '</a>';
+          }
+        };
+        xhr.send();
       </script>
 
       <script type="text/javascript">
