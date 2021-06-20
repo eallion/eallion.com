@@ -71,10 +71,10 @@ sub   rsa2048 2020-06-11 [SA] [expires: 2028-06-09]
 
 ### 鸣谢
 
-<a href="https://html5.org/" target="_blank" rel="noopener"><img class="avatar non-box" alt="HTML" src="https://img.shields.io/badge/HTML5-blue?style=flat&color=E34F26&labelColor=555&logo=HTML5&logoColor=E34F26"></a>
-<a href="https://www.w3.org/Style/CSS/Overview.en.html" target="_blank" rel="noopener"><img class="avatar non-box" alt="CSS" src="https://img.shields.io/badge/CSS3-blue?style=flat&color=1572B6&labelColor=555&logo=CSS3&logoColor=1572B6"></a>
-<a href="https://www.javascript.com/" target="_blank" rel="noopener"><img class="avatar non-box" alt="JS" src="https://img.shields.io/badge/JavaScript-blue?style=flat&color=F7DF1E&labelColor=555&logo=JavaScript&logoColor=F7DF1E"></a>
-<a href="https://gohugo.io" target="_blank" rel="noopener"><img class="avatar non-box" alt="Hugo" src="https://img.shields.io/badge/Hugo-blue?style=flat&color=FF4088&labelColor=555&logo=Hugo&logoColor=FF4088"></a>  
+<a href="https://html5.org/" target="_blank" rel="noopener"><img class="avatar non-box" alt="HTML" src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white"></a>
+<a href="https://www.w3.org/Style/CSS/" target="_blank" rel="noopener"><img class="avatar non-box" alt="CSS" src="https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white"></a>
+<a href="https://www.javascript.com/" target="_blank" rel="noopener"><img class="avatar non-box" alt="JS" src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white"></a>
+<a href="https://gohugo.io" target="_blank" rel="noopener"><img class="avatar non-box" alt="Hugo" src="https://img.shields.io/badge/-Hugo-FF4088?style=flat&logo=Hugo&logoColor=white"></a>  
 
 <a href="https://www.aliyun.com" target="_blank" rel="noopener"><img class="avatar non-box" alt="Aliyun" src="https://img.shields.io/badge/Aliyun-blue?style=flat&color=blue&labelColor=555&logo=Alibaba-Cloud&logoColor=fff"></a>
 <a href="https://cloud.tencent.com/product/tcb" target="_blank" rel="noopener"><img class="avatar non-box" alt="Cloud Base" src="https://img.shields.io/badge/CloudBase-blue?style=flat&color=blue&labelColor=555&logo=Windows-Terminal&logoColor=fff"></a>
