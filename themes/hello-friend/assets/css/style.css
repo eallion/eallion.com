@@ -862,7 +862,7 @@ hr {
 }
 
 /* talks 嘀咕页样式 */
-.post-content {font-family: 'Noto Serif SC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;}
+.post-content {font-family: 'Noto Serif SC','Noto Serif TC',-apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;}
 .timeline ul {margin:0;padding-bottom:2rem;}
 .timeline ul li {background:#eaeaea;list-style-type:none;position:relative;width:2px;margin-left:20px;padding:10px 0 50px;}
 .timeline ul li::after {content:'';position:absolute;left:50%;top:25px;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:inherit;}
@@ -1013,13 +1013,13 @@ hr {
 	}
 }
 .post-content {
-	font-family: 'Noto Serif SC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
+	font-family: 'Noto Serif SC','Noto Serif TC',-apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
 	font-weight: 500;
 	margin-top: 0px; word-break:break-all;
 	min-height: 70px;
 }
 .index-talk {
-	font-family: 'Noto Serif SC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
+	font-family: 'Noto Serif SC','Noto Serif TC',-apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
 	font-weight: 500;
 }
 .post-content h3 {
