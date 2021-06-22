@@ -1284,6 +1284,10 @@ hr {
 	top: unset !important;
 }
 
+.noticeable-trigger-view {
+	top: -9px !important;
+}
+
 .terms {
 	width: 100%;
 	max-width: 800px;
