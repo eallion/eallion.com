@@ -121,7 +121,7 @@ rssLimit = 10
 [params.utterances]
   enable = false
 
-[params.headway]
-  enable = false
-  selector = '.changelog' # CSS selector where to inject the badge
-  account = '7egXpy'
+[params.changecrab]
+  enable = true
+  projectid = 'kKmUot'
+  selector = '.changebubble'

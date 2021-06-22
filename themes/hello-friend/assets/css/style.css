@@ -1257,7 +1257,7 @@ hr {
     -ms-user-select: none;
     user-select: none;
     width: 42px;
-    z-index: 1;
+    z-index: 50000001;
 }
 
 .dark-theme .back-to-top {
@@ -1274,6 +1274,14 @@ hr {
     height: 18px;
     margin: 12px auto 0;
     width: 18px;
+}
+
+.crabSide {
+	width:500px !important;
+	max-width: 95% !important;
+	max-height: 75% !important;
+	bottom:10px !important;
+	top: unset !important;
 }
 
 .terms {
