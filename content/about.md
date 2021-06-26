@@ -21,7 +21,7 @@ author: 大大的小蜗牛
 
 ### 声明
 
-本人只活跃在`Twitter`、`GitHub`、`Telegram`、`Keybase`，其他同名账号绝非本人所有。  
+本人只活跃在[`GitHub`](https://github.com/eallion)、[`Steam`](https://steamcommunity.com/id/eallion)、[`StackOverflow`](https://stackoverflow.com/users/story/11409594)上，其他同名账号绝非本人所有。  
 
 本博客现在随缘更新，佛性写博。
 
@@ -51,23 +51,14 @@ author: 大大的小蜗牛
 <a href="https://keybase.io/eallion/pgp_keys.asc" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/keybase/pgp/eallion?label=Keybase%20OpenPGP&logo=keybase&logoColor=fff&style=flat"></a>
 ```shell
 curl -L https://eallion.com/key | gpg --import
-
-$ gpg -k
-pub   rsa4096 2020-06-11 [SC]
-      EBE20AB924C2A12C6A3E65BDBC4CA018E368547C
-uid           [ unknown] Charles Chin <eallions@gmail.com>
-uid           [ unknown] Charles Chin <eallion@hotmail.com>
-sub   rsa2048 2020-06-11 [E] [expires: 2028-06-09]
-sub   rsa2048 2020-06-11 [SA] [expires: 2028-06-09]
 ```
 
 ### 社交
 
-<a href="mailto:eallions@gmail.com" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/eallions@gmail.com-blue?style=flat&labelColor=555&logo=gmail&link=mailto:eallions@gmail.com&logoColor=fff"></a>
-<a href="https://twitter.com/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Twitter-@eallion-blue?style=flat&labelColor=555&logo=twitter&logoColor=fff"></a>
+<a href="https://keybase.io/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Keybase-@eallion-blue?style=flat&labelColor=555&logo=Keybase&logoColor=fff"></a>
 <a href="https://github.com/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/GitHub-@eallion-blue?style=flat&labelColor=555&logo=GitHub&logoColor=fff"></a>
-<a href="https://t.me/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/t.me-@eallion-blue?style=flat&labelColor=555&logo=telegram&logoColor=fff"></a>
-<a href="https://keybase.io/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Keybase-@eallion-blue?style=flat&labelColor=555&logo=Keybase&logoColor=fff"></a> 
+<a href="https://steamcommunity.com/id/eallion" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/Steam-@eallion-blue?style=flat&labelColor=555&logo=Steam&logoColor=fff"></a>
+<a href="https://stackoverflow.com/users/story/11409594" target="_blank" rel="noopener"><img class="avatar non-box" src="https://img.shields.io/badge/StackOverflow-@eallion-blue?style=flat&labelColor=555&logo=stackoverflow&logoColor=fff"></a>
 
 ### 鸣谢
 
