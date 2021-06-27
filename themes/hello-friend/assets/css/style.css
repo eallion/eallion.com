@@ -62,7 +62,6 @@
 }
 
 .button.outline :hover,a.button.outline :hover,button.outline :hover {
-	-webkit-transform: none;
 	transform: none;
 	box-shadow: none
 }
@@ -434,7 +433,6 @@ a.read-more,a.read-more:active,a.read-more:hover {
 	display: inline-flex;
 	align-items: center;
 	margin-left: 3px;
-	-webkit-transform: rotate(90deg);
 	transform: rotate(90deg);
 	line-height: 1
 }
@@ -752,7 +750,6 @@ hr {
 
 /* 首页嘀咕样式 JSON 版 */
 #index-talk,.index-talk {
-	display:-webkit-flex;
 	display:flex;
 	width:100%;
 	line-height:2em;
@@ -1169,8 +1166,6 @@ hr {
 .footer img {
 	max-width: 100%;
 	height: auto;
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
 	border-radius: 0;
 }
 
@@ -1231,12 +1226,8 @@ hr {
 
 .back-to-top {
     background: var(--light-color);
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
     border-radius: 50%;
     bottom: 20px;
-    -webkit-box-shadow: 0 2px 5px 0 rgba(254,81,134,.26);
-    -moz-box-shadow: 0 2px 5px 0 rgba(254,81,134,.26);
     box-shadow: 0 2px 5px 0 rgba(254,81,134,.26);
     color: #fff;
     cursor: pointer;
@@ -1248,9 +1239,6 @@ hr {
     right: 20px;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
-    -webkit-transition: bottom .2s,opacity .2s;
-    -o-transition: bottom .2s,opacity .2s;
-    -moz-transition: bottom .2s,opacity .2s;
     transition: bottom .2s,opacity .2s;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -1262,8 +1250,6 @@ hr {
 
 .dark-theme .back-to-top {
 	background: var(--dark-color);
-    -webkit-box-shadow: 0 2px 5px 0 rgba(254,81,134,.26);
-    -moz-box-shadow: 0 2px 5px 0 rgba(254,81,134,.26);
     box-shadow: 0 2px 5px 0 rgba(254,81,134,.26);
     color: #222;
 }
