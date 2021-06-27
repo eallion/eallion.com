@@ -14,7 +14,7 @@
 - https://eallion.com  
 - https://eallion.gitee.io
 - https://eallion.github.io
-- https://eallion.gitlab.io/
+- https://eallion.gitlab.io
 - https://eallion.netlify.app
 - https://eallion.pages.dev
 - https://eallion.vercel.app
