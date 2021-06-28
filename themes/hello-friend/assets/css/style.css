@@ -1687,6 +1687,19 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .tk-admin-container {
 	position:fixed !important;z-index:999;
 }
+.OwO .OwO-body .OwO-items {
+	padding: 10px !important;
+}
+.OwO .OwO-body .OwO-items .OwO-item {
+	font-size: 18px !important;
+    line-height: 16px !important;
+    margin: 0 10px 10px !important;
+	padding: 5px 5px !important;
+	width: 25px !important;
+}
+.OwO .OwO-body .OwO-items .OwO-item {
+	width: 2em !important;
+}
 /* Twikoo End*/
 
 photos:after{
