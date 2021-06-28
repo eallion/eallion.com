@@ -127,5 +127,5 @@ rssLimit = 10
   selector = '.changebubble'
 
 [params.noticeable]
-  enable = true
+  enable = false
   id = "a0yLJIkjSFFgsQ1IIqT8"
