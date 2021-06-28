@@ -121,11 +121,6 @@ rssLimit = 10
 [params.utterances]
   enable = false
 
-[params.changecrab]
-  enable = false
-  projectid = 'kKmUot'
-  selector = '.changebubble'
-
 [params.noticeable]
   enable = false
   id = "a0yLJIkjSFFgsQ1IIqT8"

@@ -16,9 +16,7 @@
   <body class="{{ if ne $.Site.Params.defaultTheme "light" -}} dark-theme {{- end -}}">
     <div class="container">
       {{ partial "header.html" . }}
-
       <div class="content">
-
         <div class="index-talk">
           <span>🔊 </span>
           <ul class="talk-list">
@@ -26,7 +24,6 @@
           </ul>
           <button>关闭</button>
         </div>  
-
         <div class="post talk-title">
           <h2 class="post-title">{{.Title}}</h2>
           <div class="post-content">
@@ -45,7 +42,6 @@
           </div>
         </div>
       </div>
-
       {{$scratch := newScratch}}
       {{ range (where .Site.Pages "Kind" "page" )}}
           {{$scratch.Add "total" .WordCount}}
@@ -107,12 +103,10 @@
       </footer>
       
       <a class="to-top back-to-top"><svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg></a>
-
       {{ partial "footer-js.html" . }}
       
       <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TencentCloudBase/tcb-js-sdk@master/tcbjs/1.10.10/tcb.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/buddys/qq-wechat-emotion-parser@master/dist/qq-wechat-emotion-parser.min.js"></script>
-
       <script>
         var xhr = new XMLHttpRequest();
         xhr.open('get', 'https://v1.jinrishici.com/shuqing/youqing.json');
@@ -127,7 +121,6 @@
         };
         xhr.send();
       </script>
-
       <script type="text/javascript">
         $(function(){
           //点击关闭嘀咕 Widget
@@ -136,7 +129,6 @@
           });
         });
       </script>
-
       <script>
         //初始化
         const app = tcb.init({
@@ -214,7 +206,6 @@
           return str;
         }
       </script>
-
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
       <script type="text/javascript">pangu.spacingElementByClassName('content');</script>
@@ -228,19 +219,6 @@
           });
         }
       </script>
-
-      {{- if .Site.Params.changecrab.enable -}}
-      <script> 
-        changecrab_config = {
-          "projectid": "{{ .Site.Params.changecrab.projectid }}", 
-          "selector": "{{ .Site.Params.changecrab.selector }}", 
-          "type": "full", 
-          "emptycolor": 'rgb(208 208 208)', 
-          'activecolor': 'rgb(232 23 71)'
-        }; 
-      </script>
-      <script src="https://changecrab.com/embed/embed.js"></script>
-      {{ end }}
       {{- if .Site.Params.noticeable.enable -}}
       <script>
         !function(){'use strict';var e=['debug','destroy','do','help','identify','is','off','on','ready','render','reset','safe','set'];if(window.noticeable)console.warn('Noticeable SDK code snippet loaded more than once');else{var n=function(e){return function(){var n=Array.prototype.slice.call(arguments);return n.unshift(e),t.push(n),t}},t=window.noticeable=window.noticeable||[];!function(){for(var o=0;o<e.length;o++){var r=e[o];t[r]=n(r)}}(),function(){var e=document.createElement('script');e.async=!0,e.src='https://sdk.noticeable.io/l.js';var n=document.head;n.insertBefore(e,n.firstChild)}()}}();
