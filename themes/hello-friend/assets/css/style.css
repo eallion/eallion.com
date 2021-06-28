@@ -194,7 +194,6 @@ a.read-more,a.read-more:active,a.read-more:hover {
 	}
 }
 
-
 .logo {
 	display: flex;
 	align-items: center;
@@ -812,7 +811,6 @@ hr {
 .dark-theme #index-talk,.dark-theme .index-talk {
 	background-color: var(--dark-header);
 }
-
 
 .dark-theme #index-talk button,.dark-theme .index-talk button {
 	color: var(--dark-color);
