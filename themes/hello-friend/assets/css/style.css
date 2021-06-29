@@ -12,7 +12,8 @@
 	--dark-color-secondary: #73747b;
 	--dark-border-color: #4a4b50;
 	--phoneWidth: (max-width:684px);
-	--tabletWidth: (max-width:900px)
+	--tabletWidth: (max-width:900px);
+	--image-filter: grayscale(50%);
 }
 .button-container {
 	display: table;
@@ -472,6 +473,9 @@ img {
 	display: inline-block;
 	max-width: 100%
 }
+.dark-theme img {
+	filter: var(--image-filter);
+}
 img.center,img.left {
 	margin-right: auto
 }
@@ -550,6 +554,9 @@ blockquote p:first-of-type {
 }
 blockquote p:last-of-type {
 	margin-bottom: 0
+}
+.dark-theme blockquote {
+	border-left: .25em solid var(--dark-border-color);
 }
 table {
 	table-layout: fixed;
@@ -787,6 +794,13 @@ hr {
     overflow: hidden;
     color: #333;
     border-left: .25em solid #fff000;
+	border-radius: 5px;
+}
+.dark-theme .expired-tips {
+    border: 1px solid #54a3ff;
+    background-color: #3F729B;
+    color: #ddd;
+    border-left: .25em solid #54a3ff
 }
 .post-avatar.avatar{width:48px;margin:8px 1rem 0 0;border-radius:50%;box-shadow: 0 12px 40px rgba(0,0,0,.15);float:left;}
 .non-box {text-decoration: none} /* 无意义，随便填的一个属性充字数 */
@@ -841,6 +855,7 @@ hr {
 }
 .dark-theme .post-copyright {
 	background-color: var(--dark-header);
+	border-left: .25em solid var(--dark-border-color);
 }
 #all-tags {
 	word-break:break-all;
@@ -870,6 +885,9 @@ hr {
     color: #27ae60;
     position: absolute;
     left: -2em;
+}
+.dark-theme .post-content h3:before {
+    color: #54a3ff;
 }
 .post-cover {
 	border-radius: 8px;
