@@ -486,7 +486,7 @@ figure img{max-width:100%;border-radius:0;}
 	figure figcaption {width: 75%;}
 }
 code {
-	font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+	font-family: 'JetBrains Mono','Source Code Pro',Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
 	background: #eaeaea;
 	background: var(--light-background-secondary);
 	padding: 1px 6px;
@@ -1236,7 +1236,7 @@ hr {
 }
 code[class*=language-],pre[class*=language-] {
 	background: none;
-	font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
+	font-family: 'JetBrains Mono','Source Code Pro',Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
 	text-align: left;
 	word-spacing: normal;
 	word-break: break-word;
@@ -1462,7 +1462,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 	position:fixed !important;z-index:999;
 }
 .el-textarea__inner,.OwO {
-	font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+	font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",'Segoe UI',sans-serif,serif !important;
 }
 .OwO .OwO-body .OwO-items {
 	padding: 10px !important;
