@@ -28,7 +28,7 @@ A blog about Charles 'eallion' Chin.
 
 ### 隐私条款
 
-Privacy Policy：[https://eallion.com/privacy-policy](https://eallion.com/privacy-policy "https://eallion.com/privacy-policy")
+Privacy Policy：[https://eallion.com/privacy-policy](https://eallion.com/privacy-policy/ "https://eallion.com/privacy-policy/")
 
 
 ### 许可协议
