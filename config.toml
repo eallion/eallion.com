@@ -22,14 +22,15 @@ rssLimit = 10
   # "light" or "dark"
   defaultTheme = "light"
   # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 6
+  showMenuItems = 4
   # Enable to show reading time in minutes for posts
   showReadingTime = true
   minuteReadingTime = "分钟阅读"
+  # lastModDisplay = "更新："
   logoText = "hello friend"
   logoHomeLink = "/"
 
-  MenuMore = "分类"
+  MenuMore = "更多"
   DateFormatList = "2006-01-02 15:04:05"
   DateFormatSingle = "2006-01-02 15:04:05"
   ReadMore = "阅读全文"
@@ -44,54 +45,77 @@ rssLimit = 10
   theme  =  "hello-friend"
 
 [menu]
+  ## main menu
   [[menu.main]]
   name="嘀咕"
   url="https://eallion.com/talk/"
   weight="1"
-  #[[menu.main]]
-  #name="观影"
-  #url="https://eallion.com/movies/"
-  #weight="2"
-  #[[menu.main]]
-  #name="阅读"
-  #url="https://eallion.com/books/"
-  #weight="3"
   [[menu.main]]
   name="归档"
   url="https://eallion.com/archives/"
-  weight="4"
+  weight="2"
   [[menu.main]]
   name="友链"
   url="https://eallion.com/links/"
-  weight="5"
+  weight="3"
   [[menu.main]]
   name="关于"
   url="https://eallion.com/about/"
-  weight="6"
+  weight="4"
+
+  ## sub menu
+  [[menu.main]]
+  name="观影"
+  url="https://eallion.com/movies/"
+  weight="11"
+  [[menu.main]]
+  name="阅读"
+  url="https://eallion.com/books/"
+  weight="12"
   #[[menu.main]]
   #name="相册"
   #url="/photos/"
-  #weight="7"
-  #[[menu.main]]
-  #name="日志"
-  #url="https://eallion.com/posts/daily/"
-  #weight="11"
+  #weight="13"
+
+  ## more menu
+  [[menu.main]]
+  name="日记"
+  url="https://eallion.com/posts/daily/"
+  weight="21"
   #[[menu.main]]
   #name="代码"
   #url="https://eallion.com/posts/code/"
-  #weight="12"
+  #weight="22"
   #[[menu.main]]
   #name="运营"
   #url="https://eallion.com/posts/operation/"
-  #weight="13"
+  #weight="23"
   #[[menu.main]]
   #name="分享"
   #url="https://eallion.com/posts/share/"
-  #weight="14"
+  #weight="24"
   #[[menu.main]]
   #name="山贼"
   #url="https://eallion.com/posts/sz/"
-  #weight="15"
+  #weight="25"
+
+  ## external menu
+  [[menu.main]]
+  name="导航"
+  url="https://s.eallion.com/"
+  weight="31"
+  [[menu.main]]
+  name="版权"
+  url="https://eallion.com/copyright/"
+  weight="32"
+  [[menu.main]]
+  name="隐私"
+  url="https://eallion.com/privacy-policy/"
+  weight="33"
+  [[menu.main]]
+  name="订阅"
+  url="https://eallion.com/atom.xml"
+  weight="34"
 
 [markup]
 [markup.goldmark]
