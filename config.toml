@@ -10,6 +10,8 @@ hasCJKLanguage = true
 paginate =  10
 # rss 输出数量
 rssLimit = 10
+rssFullText = true
+rssImage = ""
 # uglyurls = true
 
 [permalinks]
@@ -123,10 +125,10 @@ rssLimit = 10
   unsafe = true
 
 [outputs]
-  home = ["Atom", "HTML", "JSON"] # <domain>/atom.xml
+  home = ["Atom", "HTML", "JSON"]
   page = ["HTML"]
   
-[outputFormats.Atom]
+[outputFormats.Atom] # <domain>/atom.xml
   mediatype = "application/rss"
   baseName = "atom"
 
