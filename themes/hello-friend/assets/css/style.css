@@ -889,6 +889,12 @@ hr {
 .dark-theme .post-content h3:before {
     color: #54a3ff;
 }
+.privacy-policy {
+    text-indent:2em;
+}
+.privacy-policy h2, .privacy-policy li {
+    text-indent:0;
+}
 .post-cover {
 	border-radius: 8px;
 	margin: 40px -50px;
