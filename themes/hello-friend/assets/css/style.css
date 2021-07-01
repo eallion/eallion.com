@@ -889,10 +889,10 @@ hr {
 .dark-theme .post-content h3:before {
     color: #54a3ff;
 }
-.privacy-policy {
+.privacy-policy, .page-copyright {
     text-indent:2em;
 }
-.privacy-policy h2, .privacy-policy li {
+.privacy-policy h2, .page-copyright h2, .privacy-policy li, .page-copyright li {
     text-indent:0;
 }
 .post-cover {
