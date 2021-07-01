@@ -18,7 +18,7 @@
   <div class="post-preview--meta" style="width:100%;">
     <div class="post-preview--middle">
       <h4 class="post-preview--title">
-        <a target="_blank" href="{{ .Permalink }}">{{ .Title }}</a>
+        <a target="_blank" href="{{ .Permalink }}" rel="noopener noreferrer">{{ .Title }}</a>
       </h4>
       <time class="post-preview--date">{{ .Date.Format ( default "2006-01-02") }}</time>
       {{ if .Params.tags }}
