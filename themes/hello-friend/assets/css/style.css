@@ -706,7 +706,8 @@ hr {
 @media (max-width:899px) {
 	#index-talk,.index-talk {
 		max-width: 660px;
-		margin: 20px 0;
+		margin-top: 20px;
+		margin-bottom: 0;
 		background-color: var(--light-header);
 	}
 	.index-talks {
@@ -769,6 +770,9 @@ hr {
 @media (max-width:899px) {
 	.post {
 		max-width: 660px
+	}
+	.posts {
+		margin-top: 0 !important;
 	}
 }
 .post:not(:last-of-type) {
