@@ -130,7 +130,7 @@ jobs:
 当没有新提交时， 通过 push empty commit 运行 GitHub Actions：
 
 ```
-git commit --allow-empty -m "Rerun GitHub Acions"
+git commit --allow-empty -m "👷build: rerun github acions"
 git push
 ```
 
@@ -195,8 +195,8 @@ hugo server -w -D -p 8080 -t hello-friend --bind 192.168.0.2 --baseURL 192.168.0
 6. **本地构建**
 
 本 Repo 已新增构建脚本：
-- Linux，运行 `bash build.sh`
-- Windows 双击 `build.sh`
+- Linux，通过终端命令运行 `bash build.sh`
+- Windows 鼠标双击运行 `build.bat`
 
 手动构建命令：
 ```
