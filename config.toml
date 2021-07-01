@@ -103,21 +103,21 @@ rssImage = ""
 
   ## external menu
   [[menu.main]]
-  name="导航"
-  url="https://s.eallion.com/"
-  weight="31"
-  [[menu.main]]
   name="版权"
   url="https://eallion.com/copyright/"
-  weight="32"
+  weight="31"
   [[menu.main]]
   name="隐私"
   url="https://eallion.com/privacy-policy/"
-  weight="33"
+  weight="32"
   [[menu.main]]
   name="订阅"
   url="https://eallion.com/atom.xml"
-  weight="34"
+  weight="33"
+  #[[menu.main]]
+  #name="导航"
+  #url="https://s.eallion.com/"
+  #weight="34"
 
 [markup]
 [markup.goldmark]
