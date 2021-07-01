@@ -413,7 +413,7 @@ html {
 body {
 	margin: 0;
 	padding: 0;
-	font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",'Segoe UI',sans-serif,serif;
+	font-family: -apple-system,BlinkMacSystemFont,"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji","Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",'Segoe UI',sans-serif,serif;
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 2.2;
@@ -1490,7 +1490,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 	position:fixed !important;z-index:999;
 }
 .el-textarea__inner,.OwO {
-	font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,"PingFang SC","Hiragino Sans GB","WenQuanYi Micro Hei","Microsoft Yahei",'Segoe UI',sans-serif,serif !important;
+	font-family: -apple-system,BlinkMacSystemFont,"Hiragino Sans GB","Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji","Helvetica Neue",Helvetica,Arial,"PingFang SC","WenQuanYi Micro Hei","Microsoft Yahei",'Segoe UI',sans-serif,serif !important;
 }
 .OwO .OwO-body .OwO-items {
 	padding: 10px !important;
@@ -1542,10 +1542,10 @@ photos .photo:last-child {
 }
 @media screen and (min-width: 860px) {
 	photos .photo {
-    	width: 245px;
-    	margin-right: 8px;
-    	margin-bottom: 8px;
-    	float: left;
+        width: 245px;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        float: left;
 	}
 }
 .page-photos figure{width:80%;margin:0 auto 3rem;}
