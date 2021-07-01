@@ -1,37 +1,37 @@
 ---
-title: 'Copyright'
-date: 2007-04-01 00:00:00
+title: '版权信息'
+date: 2021-07-01 00:00:00
 type: "copyright"
-layout: "posts"
+layout: "copyright"
 Comments : false
 author: 大大的小蜗牛
 ---
 
-### 网站标识
+## 网站标识
 
-#### 域名
+**域名**
 
-本站拥有唯一域名 `“eallion.com”` 、二级域名 `“www.eallion.com”` ，除此之外的相关相似域名皆为他人所有，与本人无关。
+本站拥有唯一域名 `eallion.com` 、二级域名 `www.eallion.com`。除此之外的相关、相似域名，除非由本人实名认证，或者备案在本人名下，否则皆为他人所有，或者被他人盗用信息，与本人无关。
 
-#### 备案
+**备案**
 
 域名 `“eallion.com”` 已获得个人性质的工信部备案，备案编号：<a href="http://beian.miit.gov.cn/" target="_blank">`浙ICP备16031768号-2`</a>，同时也进行了公安备案。
 
-#### 标题
+**标题**
 
 「大大的小蜗牛」
 
-#### 说明
+**说明**
 
 A blog about Charles 'eallion' Chin.
 
 
-### 隐私条款
+## 隐私条款
 
 Privacy Policy：[https://eallion.com/privacy-policy](https://eallion.com/privacy-policy/ "https://eallion.com/privacy-policy/")
 
 
-### 许可协议
+## 许可协议
 
 本站采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">『署名 - 非商业性使用 - 相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)』</a> 进行许可。
 
@@ -56,9 +56,9 @@ Privacy Policy：[https://eallion.com/privacy-policy](https://eallion.com/privac
  - 不提供担保。许可协议可能不会给与您意图使用的所必须的所有许可。例如，其他权利比如[形象权、隐私权或人格权](https://wiki.creativecommons.org/Considerations_for_licensors_and_licensees)可能限制您如何使用作品。
 
 
-### 版权声明
+## 版权声明
 
-&copy; 2006 - present, eallion.com, all rights reserved.
+©️ 2006 - present, Eallion.com, all rights reserved.
 
 本站遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">『署名 - 非商业性使用 - 相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)』</a> 。  
 
@@ -72,17 +72,15 @@ Privacy Policy：[https://eallion.com/privacy-policy](https://eallion.com/privac
 相关代码和服务继承原项目的license。
 
 
-### 特别声明
+## 特别声明
 
 <a href="https://wiki.creativecommons.org/Frequently_Asked_Questions#Do_Creative_Commons_licenses_affect_exceptions_and_limitations_to_copyright.2C_such_as_fair_dealing_and_fair_use.3F" target="_blank">例外</a>：本站出现的 **原创图片** 禁止转载。
 
 
-### 侵权声明
+## 侵权声明
 
-本站转载的原创性内容，都会在原创作者同意的情况下进行转载。但是不排除会有例外情况，如果本站侵权，请 [联系](#联系方式) 管理员删除。
+本站转载的原创性内容，都会在原创作者同意的情况下进行转载。但是不排除会有例外情况，如：授权到期；转载的内容中包含未经授权的内容。如果本站侵权，请联系管理员，本站管理员非常重视原创和开源精神，愿意积极配合删除。
 
-
-
-### 联系方式：
+## 联系方式：
 
  - Email: <eallions@gmail.com>
