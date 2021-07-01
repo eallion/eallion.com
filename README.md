@@ -136,45 +136,69 @@ git push
 
 ### 写新文章
 
-1. 生成新文章
+1. **生成新文章**
+
+通过 Hugo 命令 New 一篇新文章模板：
 
 ```
 hugo new posts/daily/new_title.md
 ```
 
-2. 修改 Front matter:  
+2. **编辑文章** 
 
-- `categories` 删除多余的分类    
-- `tags` 按需添加
+通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 New 出来的文章。
+
+3. **修改 Front matter**:  
+
+- `categories` 按需修改  
+- `tags` 按需修改  
+- `slug` 按需修改  
 - `draft: true` 改为：`draft: false`  
-- `slug` 按需修改
 
-3. 写文章 
-
-通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑文章。
-
-4. Push & auto deploy:
+4. **Push**:
 
 ```
 git add .
-git commit -m "Post new_title"
+git commit -m "📝add: a new post"
 git push
 ```
 
-5. 本地调试（~~Web Server~~）
+Push 后自动运行的 CI/CD：
+- GitHub Pages
+- Coding.net
+- CloudBase
+- GitLab CI
+- Firebase
+- Netlify
+- Vercel
+- Cloudflare Pages
+- Gitee
 
+5. **本地调试**（~~Web Server~~）
 ```
-hugo server -w -D -p 8080 -t hello-friend
+hugo server -wD
 ```
+个人常用：
+```
+hugo server -w -D -p 8080 -t hello-friend --bind 192.168.0.2 --baseURL 192.168.0.2
+```
+> 在浏览器中打开：http://192.168.0.2:8080
 - `hugo server` 把 Hugo 当作 Web 服务器，而非构建静态网页  
 - `-w` 有文件变化立即刷新（默认开启）  
 - `-D` 构建草稿，撰写新文章时很有用  
-- `-p 8080` 端口+端口号（默认 1313）  
-- `-t hello-friend` 使用 hello-friend 主题    
-- `hugo --help` 查看所有命令  
+- `-p 8080` 指定端口号 8080（默认 1313）  
+- `-t hello-friend` 使用 hello-friend 主题  
+- `--bind 192.168.0.2` 绑定 IP ，局域网其他设备 Debug 时很有用  
+- `--baseURL 192.168.0.2` 绑定域名（IP），局域网其他设备 Debug 时很有用  
+- `hugo server --help` 查看 server 所有命令  
 
-6. 本地构建
+6. **本地构建**
 
+本 Repo 已新增构建脚本：
+- Linux，运行 `bash build.sh`
+- Windows 双击 `build.sh`
+
+手动构建命令：
 ```
 hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 ```
@@ -249,14 +273,16 @@ git push origin vX.X.X
 
 - 照片存放目录：
 
-> 照片需要上传至腾讯云COS。但是本博客没有开启相册页面，无须操作。
+> 本博客没有开启相册页面，无须操作。
 
-> ~~Hugo 目录的`static/photos/`文件夹下，相册页面会自动索引。~~
+Hugo 目录的`static/photos/`文件夹下，相册页面会自动索引。白嫖的 jsDelivr CDN。
 
 
 ### Lighthouse
 
-- [View result](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Feallion.com%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext#pwa).
+Google Lighthouse 跑分，本博客长期维持在满分 100 分。
+
+- [查看跑分结果](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Feallion.com%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext#pwa)
 
 ### LICENSE
 
