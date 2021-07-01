@@ -34,11 +34,11 @@ author: 大大的小蜗牛
 
 ### 版权
 
-- [https://eallion.com/copyright](https://eallion.com/copyright/)  
+- [https://eallion.com/copyright/](https://eallion.com/copyright/)  
 
 ### 隐私
 
-- [https://eallion.com/privacy-policy](https://eallion.com/privacy-policy/)
+- [https://eallion.com/privacy-policy/](https://eallion.com/privacy-policy/)
 
 ### 联系
 
