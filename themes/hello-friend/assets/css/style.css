@@ -1073,7 +1073,8 @@ hr {
 .pagination {
   margin-top: 50px;
 }
-.pagination__title, .footer__title {
+.pagination__title,
+.footer__title {
   display: flex;
   text-align: center;
   position: relative;
@@ -1082,7 +1083,8 @@ hr {
 .footer__title {
   margin: 0 !important;
 }
-.pagination__title-h, .footer__title-h {
+.pagination__title-h,
+.footer__title-h {
   text-align: center;
   margin: 0 auto;
   padding: 5px 10px;
@@ -1096,13 +1098,15 @@ hr {
   letter-spacing: 0.1em;
   z-index: 1;
 }
-.dark-theme .pagination__title-h, .dark-theme .footer__title-h {
+.dark-theme .pagination__title-h,
+.dark-theme .footer__title-h {
   background: #292a2d;
   background: var(--dark-background);
   color: #73747b;
   color: var(--dark-color-secondary);
 }
-.pagination__title hr, .footer__title hr {
+.pagination__title hr,
+.footer__title hr {
   position: absolute;
   left: 0;
   right: 0;
