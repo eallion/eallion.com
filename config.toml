@@ -19,6 +19,7 @@ rssImage = ""
   tags = "/tags/:slug/"
 
 [params]
+  # copyright = ""
   # dir name of your blog content (default is `content/posts`)
   contentTypeName = "posts"
   # "light" or "dark"

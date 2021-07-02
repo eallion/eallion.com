@@ -56,19 +56,23 @@
           -->
           {{ if $.Site.Copyright }}
             <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
-          {{else}}
-          <div class="copyright">
-            <span>&copy; {{ now.Year }} <a href="https://eallion.com/copyright/" target="_self" rel="noopener noreferrer">eallion.com</a> 版权所有。</span>
-          </div>
-          <div class="copyright">
-            <span>知识共享 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener noreferrer">BY-NC-SA 4.0</a> | <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com" target="_blank" rel="noopener noreferrer">许可协议</a> | <a href="https://eallion.com/privacy-policy/" target="_self" rel="noopener noreferrer">隐私政策</a></span>
-          </div>
-          <div class="copyright">
-            <span>Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>, Themed by <a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener noreferrer">Hello-friend</a>, Hosted by <a href="https://cloud.tencent.com/product/tcb" target="_blank" rel="noopener noreferrer">CloudBase</a> & <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>.</span>
-          </div>
-          <div class="copyright">
-            <span><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备16031768号-2</a></span>
-          </div>
+            {{else}}
+            <div class="footer__title">
+              <span class="footer__title-h">✨</span>
+              <hr >
+            </div>
+            <div class="copyright">
+              <span>&copy; {{ now.Year }} <a href="https://eallion.com/copyright/" target="_self" rel="noopener noreferrer">eallion.com</a> 版权所有。</span>
+            </div>
+            <div class="copyright">
+              <span>知识共享 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener noreferrer">BY-NC-SA 4.0</a> | <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com" target="_blank" rel="noopener noreferrer">许可协议</a> | <a href="https://eallion.com/privacy-policy/" target="_self" rel="noopener noreferrer">隐私政策</a></span>
+            </div>
+            <div class="copyright">
+              <span>Powered by <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a>, Themed by <a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener noreferrer">Hello-friend</a>, Hosted by <a href="https://cloud.tencent.com/product/tcb" target="_blank" rel="noopener noreferrer">CloudBase</a> & <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>.</span>
+            </div>
+            <div class="copyright">
+              <span><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备16031768号-2</a></span>
+            </div>
           {{end}}
         </div>
       </footer>
