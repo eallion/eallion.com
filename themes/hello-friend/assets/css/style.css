@@ -1073,13 +1073,16 @@ hr {
 .pagination {
   margin-top: 50px;
 }
-.pagination__title {
+.pagination__title, .footer__title {
   display: flex;
   text-align: center;
   position: relative;
   margin: 60px 0;
 }
-.pagination__title-h {
+.footer__title {
+  margin: 0 !important;
+}
+.pagination__title-h, .footer__title-h {
   text-align: center;
   margin: 0 auto;
   padding: 5px 10px;
@@ -1093,13 +1096,13 @@ hr {
   letter-spacing: 0.1em;
   z-index: 1;
 }
-.dark-theme .pagination__title-h {
+.dark-theme .pagination__title-h, .dark-theme .footer__title-h {
   background: #292a2d;
   background: var(--dark-background);
   color: #73747b;
   color: var(--dark-color-secondary);
 }
-.pagination__title hr {
+.pagination__title hr, .footer__title hr {
   position: absolute;
   left: 0;
   right: 0;
@@ -1166,6 +1169,13 @@ hr {
   max-width: 800px;
   text-align: left;
 }
+/*
+.footer .copyright:first-of-type {
+  border-top: 1px solid #dcdcdc;
+  border-top: 1px solid var(--light-border-color);
+  padding-top: 20px;
+}
+*/
 .footer img {
   max-width: 100%;
   height: auto;
@@ -1193,13 +1203,13 @@ hr {
 .footer a:hover {
   color: #409eff;
 }
-.footer .copyright {
+.footer {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
     Arial, "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei",
     "Microsoft Yahei", "Segoe UI", sans-serif, serif;
   flex-direction: row;
   align-items: center;
-  font-size: 1rem;
+  font-size: 0.875em;
 }
 .footer .copyright div {
   margin: 0 3px;
