@@ -1213,7 +1213,7 @@ hr {
     "Microsoft Yahei", "Segoe UI", sans-serif, serif;
   flex-direction: row;
   align-items: center;
-  font-size: 0.875em;
+  font-size: 1em;
 }
 .footer .copyright div {
   margin: 0 3px;

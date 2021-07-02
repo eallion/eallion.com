@@ -5,11 +5,6 @@
 <footer class="footer">
   <div class="footer__inner">
     <!-- https://github.com/eallion/eallion.com/tree/16c9ebe6cd303d9029ced7eef7dfb780f63c4a0d -->
-    <!--
-    <div class="copyright">
-      <span>共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇文章</span><span>约 {{$scratch.Get "total" }} 字</span>
-    </div>
-    -->
     {{ if $.Site.Copyright }}
       <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
       {{else}}
@@ -18,10 +13,15 @@
         <hr >
       </div>
       <div class="copyright">
+        <span>共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇文章</span><span>约 {{$scratch.Get "total" }} 字</span>
+      </div>
+      <div class="copyright">
         <span>&copy; {{ now.Year }} <a href="https://eallion.com/copyright/" target="_self" rel="noopener noreferrer">eallion.com</a>, All Rights Reserved.</span>
       </div>
       <div class="copyright">
-        <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>, Themed by <a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener noreferrer">Hello Friend</a>, Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener noreferrer">BY-NC-SA 4.0</a> & <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com" target="_blank" rel="noopener noreferrer">MIT</a>.</span>
+        <!-- 
+        <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo v{{ .Site.Hugo.Version }}</a>, Themed by <a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener noreferrer">Hello Friend</a>, Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener noreferrer">BY-NC-SA 4.0</a> & <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com" target="_blank" rel="noopener noreferrer">MIT</a>, {{ if $.GitInfo }}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,6c-2.967,0-5.431,2.167-5.909,5H2v2h4.092c0.479,2.832,2.942,4.998,5.909,4.998s5.43-2.166,5.909-4.998H22v-2h-4.09 C17.432,8.167,14.968,6,12,6z M12,15.998c-2.205,0-3.999-1.794-3.999-3.999S9.795,8,12,8c2.206,0,4,1.794,4,3.999 S14.206,15.998,12,15.998z"></path></svg>[<a href="{{ .Site.Params.commit }}{{ .GitInfo.Hash }}" target="_blank" rel="noopener noreferrer">{{ substr .GitInfo.Hash 0 7 }}</a>]{{ end }}</span> -->
+        <span>基于 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo v{{ .Site.Hugo.Version }}</a> 的主题 <a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener noreferrer">Hello Friend</a> 构建{{ if $.GitInfo }} [<a href="{{ .Site.Params.commit }}{{ .GitInfo.Hash }}" target="_blank" rel="noopener noreferrer">{{ substr .GitInfo.Hash 0 7 }}</a>]{{ end }}，采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener noreferrer">BY-NC-SA 4.0</a> & <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com" target="_blank" rel="noopener noreferrer">MIT</a> 许可协议。</span>
       </div>
       <div class="copyright">
         <span><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备16031768号-2</a></span>

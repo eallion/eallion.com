@@ -14,6 +14,9 @@ rssFullText = true
 rssImage = ""
 # uglyurls = true
 
+enableEmoji = true
+enableGitInfo = true
+
 [permalinks]
   posts = "/:slug/"
   tags = "/tags/:slug/"
@@ -46,6 +49,7 @@ rssImage = ""
   description = "A blog about Charles eallion Chin. 大大的小蜗牛的个人博客。—— 机会总是垂青于有准备的人"
   author = "Charles Chin"
   theme  =  "hello-friend"
+  commit = "https://github.com/eallion/eallion.com/tree/"
 
 [menu]
   ## main menu
