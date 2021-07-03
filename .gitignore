@@ -23,3 +23,11 @@ public
 public.*
 
 cloudbaserc.json
+
+cosconf
+cos.conf
+.cos.conf
+
+ossconfig
+oss.config
+.oss.config
