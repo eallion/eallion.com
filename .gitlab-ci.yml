@@ -1,4 +1,7 @@
 # All available Hugo versions are listed here: https://gitlab.com/pages/hugo/container_registry
+before_script:
+  - apk add --update --no-cache git
+
 image: registry.gitlab.com/pages/hugo:latest
 
 variables:
@@ -6,13 +9,13 @@ variables:
 
 test:
   script:
-  - hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
+  - hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
   except:
   - main
 
 pages:
   script:
-  - hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
+  - hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
   artifacts:
     paths:
     - public
