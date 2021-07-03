@@ -57,7 +57,16 @@ git remote set-url --add --push origin keybase://private/eallion/eallion
 pipeline {
   agent any
   stages {
-    stage('检出') {
+    stage('Build Hugo') {
+      agent {
+        docker {
+          image 'envimate/hugo'
+          reuseNode true
+          registryUrl ''
+          args '-v /usr/bin/git:/usr/bin/git'
+        }
+
+      }
       steps {
         checkout([
           $class: 'GitSCM',
@@ -65,29 +74,22 @@ pipeline {
           userRemoteConfigs: [[
             url: env.GIT_REPO_URL,
             credentialsId: env.CREDENTIALS_ID
-          ]]])
-        }
+          ]],
+          extensions: [[$class:'CloneOption',depth:1,noTags:false,reference:'',shallow:true,timeout:30]],
+        ])
+        sh 'hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo'
+        echo 'Hugo built!'
       }
-      stage('Build Hugo') {
-        agent {
-          docker {
-            image 'envimate/hugo:latest'
-            reuseNode true
-          }
-        }
-        steps {
-          sh 'hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify'
-        }
-      }
-      stage('上传到 COS Bucket') {
-        steps {
-          sh 'coscmd config -a ${COS_SECRET_ID} -s ${COS_SECRET_KEY} -b ${COS_BUCKET_NAME} -r ${COS_BUCKET_REGION} -m 30'
-          sh 'coscmd upload -r ${COS_UPLOAD_FROM_PATH} /'
-          echo '部署成功！'
-        }
+    }
+    stage('COS Deploy') {
+      steps {
+        sh 'coscmd config -a ${COS_SECRET_ID} -s ${COS_SECRET_KEY} -b ${COS_BUCKET_NAME} -r ${COS_BUCKET_REGION} -m 30'
+        sh 'coscmd upload --delete --force -rs ${COS_UPLOAD_FROM_PATH} /'
+        echo 'COS Deploy'
       }
     }
   }
+}
 ```
 
 ### 同步到 Gitee 并自动部署 Gitee Pages
