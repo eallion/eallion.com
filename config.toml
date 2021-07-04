@@ -130,12 +130,20 @@ enableGitInfo = true
   unsafe = true
 
 [outputs]
-  home = ["Atom", "HTML", "JSON"]
+  home = ["Atom", "HTML", "JSON", "AMP",]
   page = ["HTML"]
   
 [outputFormats.Atom] # <domain>/atom.xml
   mediatype = "application/rss"
   baseName = "atom"
+
+[outputFormats.AMP]
+  mediaType = "text/html"
+  isPlainText = false
+  isHTML = true
+
+[params.mdwiew]
+  enable = true
 
 [params.waline]
   enable = false
