@@ -19,8 +19,6 @@
         <span>&copy; {{ now.Year }} <a href="https://eallion.com/copyright/" target="_self" rel="noopener noreferrer">eallion.com</a>, All Rights Reserved.</span>
       </div>
       <div class="copyright">
-        <!-- 
-        <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo v{{ .Site.Hugo.Version }}</a>, Themed by <a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener noreferrer">Hello Friend</a>, Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener noreferrer">BY-NC-SA 4.0</a> & <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com" target="_blank" rel="noopener noreferrer">MIT</a>, {{ if $.GitInfo }}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,6c-2.967,0-5.431,2.167-5.909,5H2v2h4.092c0.479,2.832,2.942,4.998,5.909,4.998s5.43-2.166,5.909-4.998H22v-2h-4.09 C17.432,8.167,14.968,6,12,6z M12,15.998c-2.205,0-3.999-1.794-3.999-3.999S9.795,8,12,8c2.206,0,4,1.794,4,3.999 S14.206,15.998,12,15.998z"></path></svg>[<a href="{{ .Site.Params.commit }}{{ .GitInfo.Hash }}" target="_blank" rel="noopener noreferrer">{{ substr .GitInfo.Hash 0 7 }}</a>]{{ end }}</span> -->
         <span>采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener noreferrer">BY-NC-SA 4.0</a> & <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com" target="_blank" rel="noopener noreferrer">MIT</a> 许可协议，基于 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo v{{ .Site.Hugo.Version }}</a> 的主题 <a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener noreferrer">Hello Friend</a> 构建 {{ if $.GitInfo }} [<a href="{{ .Site.Params.commit }}{{ .GitInfo.Hash }}" target="_blank" rel="noopener noreferrer">{{ substr .GitInfo.Hash 0 7 }}</a>]{{ end }}</span>
       </div>
       <div class="copyright">
@@ -29,11 +27,11 @@
     {{end}}
   </div>
 </footer>
-<a class="to-top back-to-top"><svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg></a>
+<a class="to-top back-to-top"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg></a>
 {{ partial "footer-js.html" . }}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
-<script>pangu.spacingElementByClassName('post-content');</script>
+<script>pangu.spacingElementByClassName('content');</script>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <script>
   // Check that service workers are registered
