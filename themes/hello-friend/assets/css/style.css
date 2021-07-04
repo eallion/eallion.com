@@ -702,6 +702,18 @@ hr {
 .dark-theme .cpmrzq {
   color: var(--dark-color) !important;
 }
+.bmdb__mark {
+  color: var(--light-background);
+  font-size: 1.3rem;
+  fill:rgb(255, 255, 255);
+}
+.bmdb__mark svg {
+  vertical-align:text-bottom;
+}
+.bmdb__mark:hover {
+  color: var(--light-color);
+  fill:rgba(0, 0, 0, 1);
+}
 /* 首页嘀咕样式 JSON 版 */
 #index-talk,
 .index-talk {
