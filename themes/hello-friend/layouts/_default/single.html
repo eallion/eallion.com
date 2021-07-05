@@ -17,15 +17,8 @@
     <div class="post-meta">
       {{ if .Date | default nil }}
       <span class="post-meta-date">
-        <span class="post-meta-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.8" stroke="#222" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-            <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-            <line x1="3" y1="6" x2="3" y2="19" />
-            <line x1="12" y1="6" x2="12" y2="19" />
-            <line x1="21" y1="6" x2="21" y2="19" />
-          </svg>
+        <span>
+            <i class='bx bxs-archive' ></i>
         </span>
         <span>
           {{ .Date.Format "2006年01月02日" }}
@@ -40,14 +33,9 @@
 
       {{- if .Site.Params.mdwiew.enable -}}
         <span class="post-meta-md post-meta-none">
-          <span class="post-meta-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-markdown" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.8" stroke="#222" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <rect x="3" y="5" width="18" height="14" rx="2" />
-              <path d="M7 15v-6l2 2l2 -2v6" />
-              <path d="M14 13l2 2l2 -2m-2 2v-6" />
-            </svg>
-          </span>
+          <span>
+              <i class='bx bxl-markdown' ></i>
+            </span>
           <span><a href="https://raw.githubusercontent.com/eallion/eallion.com/main/content/{{$PostDir}}/{{$PostName}}" target="_blank" rel="noopener noreferrer">查看 Markdown 版本</a></span>
         </span>
       {{ end }}
@@ -55,12 +43,8 @@
       {{ if $.Site.Params.ShowReadingTime }}
         <span class="post-read-time post-meta-none">
           <span class="post-meta-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.8" stroke="#222" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <circle cx="12" cy="12" r="9" />
-              <polyline points="12 7 12 12 15 15" />
-            </svg>
-          </span>
+            <i class='bx bxs-time' ></i>
+            </span>
           <span>{{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
           <span>，约 {{ .WordCount }} 字</span>
         </span>
@@ -69,12 +53,7 @@
       {{- if .Site.Params.waline.enable -}}
         <span class="post-meta-view">
           <span class="post-meta-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.8" stroke="#222" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <circle cx="12" cy="12" r="2" />
-              <path d="M12 19c-4 0 -7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7c-.42 .736 -.858 1.414 -1.311 2.033" />
-              <path d="M15 19l2 2l4 -4" />
-            </svg>
+            <i class='bx bxs-show' ></i>
           </span>
           <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> <span class="post-meta-none">次浏览</span></span>
         </span>
@@ -83,12 +62,7 @@
       {{- if .Site.Params.twikoo.enable -}}
         <span class="post-meta-view">
           <span class="post-meta-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke-width="1.8" stroke="#222" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <circle cx="12" cy="12" r="2" />
-              <path d="M12 19c-4 0 -7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7c-.42 .736 -.858 1.414 -1.311 2.033" />
-              <path d="M15 19l2 2l4 -4" />
-            </svg>
+            <i class='bx bxs-show' ></i>
           </span>
           <span id="twikoo_visitors">0</span> <span class="post-meta-none">次</span><span>浏览</span>
         </span>
