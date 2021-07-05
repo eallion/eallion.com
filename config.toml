@@ -4,8 +4,8 @@ DefaultContentLanguage = "zh-cn"
 title  =  "大大的小蜗牛"
 theme  =  "hello-friend"
 timezone = "Asia/Shanghai"
-summaryLength = 140
 hasCJKLanguage = true
+summaryLength = 226
 # 每页显示的文章数量用于分页
 paginate =  10
 # rss 输出数量
