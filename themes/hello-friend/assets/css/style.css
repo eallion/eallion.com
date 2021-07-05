@@ -194,7 +194,7 @@ a.read-more:hover {
 .post-meta-view svg,
 .post-meta-md svg {
     display: inline;
-    vertical-align: text-top;
+    vertical-align: middle;
 }
 .dark-theme .post-meta-date svg,
 .dark-theme .post-read-time svg,
@@ -696,7 +696,10 @@ hr {
     background: var(--dark-border-color);
 }
 .hidden {
-    display: none;
+    display: none !important;
+}
+.space {
+    margin-left: 0.25em !important;
 }
 /* douban 豆瓣 电影 读书*/
 .lXzCY {
