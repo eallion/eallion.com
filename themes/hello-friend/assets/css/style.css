@@ -105,7 +105,8 @@ a.read-more:hover {
   background: none;
   box-shadow: none;
   padding: 0;
-  margin: 20px 0 0;
+  margin-top: 20px;
+  margin-left: -3.5rem;
   font-weight: 700;
 }
 .dark-theme a.read-more,
@@ -186,8 +187,21 @@ a.read-more:hover {
 }
 .post-meta-icon {
   fill: currentColor;
-  vertical-align: middle;
-  margin-left: 0.5em;
+  margin-left: 0.5rem;
+}
+.post-meta-date svg,
+.post-read-time svg,
+.post-meta-view svg,
+.post-meta-md svg {
+  display: inline;
+  vertical-align: text-top;
+}
+.dark-theme .post-meta-date svg,
+.dark-theme .post-read-time svg,
+.dark-theme .post-meta-view svg,
+.dark-theme .post-meta-md svg,
+.dark-theme .read-more svg {
+  stroke: var(--dark-color) !important;
 }
 @media (max-width: 683px) {
   .post-meta-none {
@@ -705,14 +719,14 @@ hr {
 .bmdb__mark {
   color: var(--light-background);
   font-size: 1.3rem;
-  fill:rgb(255, 255, 255);
+  fill: rgb(255, 255, 255);
 }
 .bmdb__mark svg {
-  vertical-align:text-bottom;
+  vertical-align: text-bottom;
 }
 .bmdb__mark:hover {
   color: var(--light-color);
-  fill:rgba(0, 0, 0, 1);
+  fill: rgba(0, 0, 0, 1);
 }
 /* 首页嘀咕样式 JSON 版 */
 #index-talk,
@@ -1047,6 +1061,13 @@ hr {
 }
 .dark-theme .post-content h3:before {
   color: #54a3ff;
+}
+.post-index {
+  text-indent: 2em;
+}
+.post-index svg {
+  display:inline;
+  vertical-align:middle;
 }
 .privacy-policy,
 .page-copyright {
