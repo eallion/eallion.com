@@ -182,7 +182,7 @@ hugo server -wD
 ```
 个人常用：
 ```
-hugo server -w -D -p 8080 -t hello-friend --bind 192.168.0.2 --baseURL 192.168.0.2
+hugo server -w -D -p 8080 -t hello-friend --enableGitInfo --bind 192.168.0.2 --baseURL 192.168.0.2
 ```
 > 在浏览器中打开：http://192.168.0.2:8080
 - `hugo server` 把 Hugo 当作 Web 服务器，而非构建静态网页  
@@ -190,6 +190,7 @@ hugo server -w -D -p 8080 -t hello-friend --bind 192.168.0.2 --baseURL 192.168.0
 - `-D` 构建草稿，撰写新文章时很有用  
 - `-p 8080` 指定端口号 8080（默认 1313）  
 - `-t hello-friend` 使用 hello-friend 主题  
+- `-enableGitInfo` 开启 GitIifo  
 - `--bind 192.168.0.2` 绑定 IP ，局域网其他设备 Debug 时很有用  
 - `--baseURL 192.168.0.2` 绑定域名（IP），局域网其他设备 Debug 时很有用  
 - `hugo server --help` 查看 server 所有命令  
@@ -202,13 +203,14 @@ hugo server -w -D -p 8080 -t hello-friend --bind 192.168.0.2 --baseURL 192.168.0
 
 手动构建命令：
 ```
-hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
+hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
 ```
 - `--cleanDestinationDir` 构建前先清理目标文件夹，即 public  
 - `--forceSyncStatic` 强制同步 static 文件夹  
 - `--gc` 构建后执行一些清理任务（删除掉一些没用的缓存文件）  
 - `--ignoreCache` 构建时忽略缓存  
 - `--minify` 压缩网页代码  
+- `-enableGitInfo` 开启 GitIifo  
 - `hugo --help` 查看所有命令  
 
 ### 静态文件（CSS、JS）
