@@ -24,6 +24,8 @@ public.*
 
 cloudbaserc.json
 
+.trash
+
 cosconf
 cos.conf
 .cos.conf
