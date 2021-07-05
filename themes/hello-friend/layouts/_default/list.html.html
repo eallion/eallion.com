@@ -64,14 +64,13 @@ partial "talks.html" . }}
         <div class="post-content post-index">
             {{ if .Truncated }} {{ .Summary }}
             <span class="hdots"
-                ><a href="{{.RelPermalink}}"
-                    ><i class="bx bx-dots-horizontal-rounded"></i
-                    ><i class="bx bx-dots-horizontal-rounded"></i></a
+                ><i class="bx bx-dots-horizontal-rounded"></i
+                ><i class="bx bx-dots-horizontal-rounded"></i
             ></span>
             <div class="read-more-icon">
                 <a class="read-more button" href="{{.RelPermalink}}"
                     >{{ $.Site.Params.ReadMore | default "Read more" }}
-                    <i class='bx bxs-chevrons-right' ></i>
+                    <i class="bx bxs-chevrons-right"></i>
                 </a>
             </div>
             {{ else }} {{ .Content }} {{ .Render "path"}} {{ end }}
