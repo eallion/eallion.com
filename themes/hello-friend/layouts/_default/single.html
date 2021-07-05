@@ -10,7 +10,7 @@
   {{ $PostDir := path.Dir $FilePath }}
   {{ $PostName := path.Base $FilePath }}
   {{ partial "talks.html" . }}
-  
+
   <div class="posts post">
     <!-- {{ partial "breadcrumb.html" . }} -->
     <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
@@ -110,12 +110,12 @@
         <img loading='lazy' src="{{ .Params.feature | absURL }}" class="post-cover" >
       {{ end }}
     {{ end }}
-  
+
     <div class="post-content">
       {{ .Content }}
       {{ .Render "path"}}
     </div>
-  
+
     {{ if .Params.toc }}
       <div class="tocify">目录：{{- partial "toc.html" . -}}</div>
     {{ end }}
@@ -139,7 +139,7 @@
     {{ end }}
 
     <div class="clear"></div>
-    
+
     {{ if eq .Type $.Site.Params.contentTypeName }}
       {{ if or .Next .Prev }}
         <div class="pagination">
