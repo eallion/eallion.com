@@ -106,13 +106,19 @@ a.read-more:hover {
     box-shadow: none;
     padding: 0;
     margin-top: 20px;
-    margin-left: -3.5rem;
     font-weight: 700;
 }
 .dark-theme a.read-more,
 .dark-theme a.read-more:active,
 .dark-theme a.read-more:hover {
     background: none;
+}
+.read-more-icon {
+    text-indent: 0 !important;
+    margin-left: 0.5rem !important;
+}
+.read-more-icon i {
+    margin-left: 0.2rem !important;
 }
 .code-toolbar {
     margin-bottom: 20px;
@@ -182,26 +188,28 @@ a.read-more:hover {
     line-height: 1;
     cursor: pointer;
 }
-.theme-toggler {
+.theme-toggle i,
+.menu-trigger i,
+.search-trigger i,
+.menu__sub-inner-more-trigger-icon i {
     fill: currentColor;
+    font-size: 1.5rem !important;
 }
 .post-meta-icon {
     fill: currentColor;
     margin-left: 0.5rem;
 }
-.post-meta-date svg,
-.post-read-time svg,
-.post-meta-view svg,
-.post-meta-md svg {
-    display: inline;
-    vertical-align: middle;
+.post-meta-date,
+.post-read-time,
+.post-meta-view,
+.post-meta-md {
+    fill: currentColor;
+    margin-left: 0.5rem;
 }
-.dark-theme .post-meta-date svg,
-.dark-theme .post-read-time svg,
-.dark-theme .post-meta-view svg,
-.dark-theme .post-meta-md svg,
-.dark-theme .read-more svg {
-    stroke: var(--dark-color) !important;
+.copyright-meta i,
+.privacy-policy-meta i {
+    font-size: 1.5rem !important;
+    margin-left: 0.5rem !important;
 }
 @media (max-width: 683px) {
     .post-meta-none {
@@ -411,8 +419,8 @@ a.read-more:hover {
 .menu__sub-inner-more-trigger-icon {
     display: inline-flex;
     align-items: center;
-    margin-left: 3px;
-    transform: rotate(90deg);
+    margin-left: 0px;
+    /*transform: rotate(90deg);*/
     line-height: 1;
 }
 .menu__sub-inner-more-trigger-icon .greater-icon {
@@ -437,8 +445,6 @@ a.read-more:hover {
     background: rgba(0, 0, 0, 0.15);
 }
 .menu-trigger {
-    width: 24px;
-    height: 24px;
     fill: currentColor;
     margin-left: 10px;
     cursor: pointer;
@@ -455,7 +461,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
-        Arial, "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft Yahei", "Segoe UI", sans-serif, serif;
+        Arial, "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei",
+        "Microsoft Yahei", "Segoe UI", sans-serif, serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 2.2;
@@ -699,6 +706,11 @@ hr {
 .space {
     margin-left: 0.25em !important;
 }
+/* Boxicons*/
+.bx {
+    font-size: 1rem !important;
+    vertical-align: middle !important;
+}
 /* douban 豆瓣 电影 读书*/
 .lXzCY {
     margin-top: 20px !important;
@@ -725,6 +737,9 @@ hr {
 .bmdb__mark svg {
     vertical-align: text-bottom;
 }
+.bmdb__mark i {
+    font-size: 1.3rem !important;
+}
 .bmdb__mark:hover {
     color: var(--light-color);
     fill: rgba(0, 0, 0, 1);
@@ -744,6 +759,16 @@ hr {
     background-color: var(--light-header);
     border-radius: 8px;
     font-size: 15px;
+}
+#index-talk i,
+.index-talk i {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+    margin-right: 0.5rem !important;
+}
+.index-talk i {
+    display: inline !important;
+    vertical-align: text-bottom !important;
 }
 #index-talk svg,
 .index-talk svg {
@@ -1059,6 +1084,9 @@ hr {
     color: #27ae60;
     position: absolute;
     left: -2em;
+}
+.hdots i {
+    text-indent: 0 !important;
 }
 .dark-theme .post-content h3:before {
     color: #54a3ff;
@@ -1734,7 +1762,6 @@ div.code-toolbar > .toolbar span:hover {
     position: fixed !important;
     z-index: 999;
 }
-.el-textarea__inner,
 .emoji,
 .OwO-item {
     font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
@@ -2037,6 +2064,9 @@ photos .photo:last-child {
     fill: currentColor;
     width: 1.1rem;
     height: 1.1rem;
+}
+#searchBoxButton i {
+    font-size: 1.5rem !important;
 }
 .archive-item {
     padding: 10px 15px;

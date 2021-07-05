@@ -1,20 +1,31 @@
-{{ define "main" }}
-
-{{ partial "talks.html" . }}
+{{ define "main" }} {{ partial "talks.html" . }}
 
 <div class="posts post">
-  <h2 class="post-title">{{.Title}} <span class="bmdb__mark"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20,3H4C2.897,3,2,3.897,2,5v6v8c0,1.103,0.897,2,2,2h16c1.103,0,2-0.897,2-2v-8V5C22,3.897,21.103,3,20,3z M20.001,9 C20,9,20,9,20.001,9h-0.465l-2.667-4H20L20.001,9z M9.536,9L6.869,5h2.596l2.667,4H9.536z M14.536,9l-2.667-4h2.596l2.667,4H14.536 z M4,5h0.465l2.667,4H4V5z M4,19v-8h16l0.002,8H4z"></path><path d="M10 18L15.5 15 10 12z"></path></svg> 去<a href="https://bm.weajs.com/" target="_blank" rel="noopener noreferrer">[标记]</a>看过的电影</span></h2>
-  <div class="post-content"></div>
+    <h2 class="post-title">
+        {{.Title}}
+        <span class="bmdb__mark"
+            ><i class="bx bx-movie-play"></i> 去<a
+                href="https://bm.weajs.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >[标记]</a
+            >看过的电影</span
+        >
+    </h2>
+    <div class="post-content"></div>
 </div>
-<script type="text/javascript" src='https://cdn.jsdelivr.net/gh/iMuFeng/bmdb@3.3.0/dist/bmdb.js'></script>
+<script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/gh/iMuFeng/bmdb@3.3.0/dist/bmdb.js"
+></script>
 <script type="text/javascript">
     new Bmdb({
-      type: 'movie',
-      selector: '.post-content',
-      secret: 'wfT4l7rWEiLh5MLG2H6bql7sTqZ4V1PosGryMMvmapnVRWJh7vhnnO8JwqfsW8lf',
-      categories: '',
-      noMoreDataTips: '我就看了这么多……',
-      limit: 30
-    })
+        type: "movie",
+        selector: ".post-content",
+        secret: "wfT4l7rWEiLh5MLG2H6bql7sTqZ4V1PosGryMMvmapnVRWJh7vhnnO8JwqfsW8lf",
+        categories: "",
+        noMoreDataTips: "我就看了这么多……",
+        limit: 30,
+    });
 </script>
 {{ end }}

@@ -9,12 +9,12 @@
       {{ partial "header.html" . }}
       <div class="content">
         <div class="index-talk">
-          <span>🔊 </span>
+          <span><i class='bx bxs-quote-alt-left' ></i></span>
           <ul class="talk-list">
             <li class="item"><span class="index-talks"><a href="https://gushi.ci/" target="_blank" rel="noopener noreferrer">古诗词</a>：</span><span id="gushici" class="poem_sentence">正在加载古诗词......</span><span id="poem_info" class="poem_info"></span></li>
           </ul>
-          <button>❌</button>
-        </div>  
+          <button>×</button>
+        </div>
         <div class="post talk-title">
           <h2 class="post-title">{{.Title}}</h2>
           <div class="post-content">
@@ -37,7 +37,7 @@
       {{ range (where .Site.Pages "Kind" "page" )}}
           {{$scratch.Add "total" .WordCount}}
       {{ end }}
-      
+
       <footer class="footer">
         <div class="footer__inner">
         {{ if $.Site.Copyright }}
@@ -62,10 +62,10 @@
         {{end}}
         </div>
       </footer>
-      
-      <a class="to-top back-to-top"><svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg></a>
+
+      <a class="to-top back-to-top"><i class='bx bxs-chevron-up' ></i></a>
       {{ partial "footer-js.html" . }}
-      
+
       <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TencentCloudBase/tcb-js-sdk@master/tcbjs/1.10.10/tcb.js"></script>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/buddys/qq-wechat-emotion-parser@master/dist/qq-wechat-emotion-parser.min.js"></script>
       <script>
@@ -143,7 +143,7 @@
         }).catch(err => {
             console.log(err)
         });
-    
+
         // 图片和链接
         function urlToLink(str) {
           //去除<img>标签，留 src 链接

@@ -154,7 +154,7 @@ $(document).ready(function(){
         dataTime = '<span class="datatime">'+date+'</span>'
         talksHtml += '<li class="item item-'+(i+1)+'">'+dataTime+'： <a href="https://eallion.com/talk/" target="_blank" rel="noopener noreferrer">'+urlToLink(item.content)+'</a></li>'
       });
-      $('#index-talk').append('🔊 <ul class="talk-list">'+talksHtml+'</ul>')
+      $('#index-talk').append('<i class="bx bxl-twitter"></i> <ul class="talk-list">'+talksHtml+'</ul>')
       Lately({ 'target': '#index-talk .datatime' });
     });
     function urlToLink(str) {

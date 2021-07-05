@@ -3,7 +3,7 @@
 <meta name="renderer" content="webkit">
 <meta name="force-rendering" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
 <meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.Description }}{{ else }}{{ .Summary | plainify }}{{ end }}">
 <meta name="keywords" content="{{ $.Site.Params.Keywords }},{{ with .Params.tags }}{{ delimit . "," }}{{ end }}">
 <meta name="referrer" content="same-origin" >
@@ -15,6 +15,7 @@
 
 <link rel="preconnect" href="https://sdn.geekzu.org" crossorigin>
 <link rel="preconnect" href="https://img.shields.io" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
 <!-- Google Fonts -->
 <!--
@@ -43,6 +44,12 @@
 
 {{ $maincss := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
+
+<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css?display=swap" rel="stylesheet">
+<link rel='stylesheet' href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css?display=swap" media="print" onload="this.media='all'" >
+<noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css?display=swap" >
+</noscript>
 
 <link rel="shortcut icon" href="https://eallion.com/favicon.ico">
 <!-- OG data -->
