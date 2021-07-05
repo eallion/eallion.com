@@ -1,4 +1,6 @@
 ---
 title: "嘀咕"
-layout: "bb"
+layout: "talk"
+type: 'talk'
+Comments: false
 ---
