@@ -711,6 +711,9 @@ hr {
     font-size: 1rem !important;
     vertical-align: middle !important;
 }
+.bx-spin {
+    animation-duration: 31s !important;
+}
 /* douban 豆瓣 电影 读书*/
 .lXzCY {
     margin-top: 20px !important;
@@ -1152,7 +1155,6 @@ hr {
     padding: 5px 10px;
     background: #fff;
     background: var(--light-background);
-    color: #999;
     color: var(--light-color-secondary);
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -1162,10 +1164,11 @@ hr {
 }
 .dark-theme .pagination__title-h,
 .dark-theme .footer__title-h {
-    background: #292a2d;
     background: var(--dark-background);
-    color: #73747b;
     color: var(--dark-color-secondary);
+}
+.footer__title-h i {
+    font-size:1.5rem !important;
 }
 .pagination__title hr,
 .footer__title hr {
