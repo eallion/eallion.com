@@ -455,9 +455,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
-        Arial, "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei",
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji", "Microsoft Yahei", "Segoe UI", sans-serif, serif;
+        Arial, "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft Yahei", "Segoe UI", sans-serif, serif;
     font-size: 1rem;
     font-weight: 400;
     line-height: 2.2;
@@ -1737,11 +1735,10 @@ div.code-toolbar > .toolbar span:hover {
     z-index: 999;
 }
 .el-textarea__inner,
-.OwO {
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
-        Arial, "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei",
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji", "Microsoft Yahei", "Segoe UI", sans-serif, serif !important;
+.emoji,
+.OwO-item {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji", sans-serif, serif !important;
 }
 .OwO .OwO-body .OwO-items {
     padding: 10px !important;
