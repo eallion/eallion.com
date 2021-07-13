@@ -1,11 +1,11 @@
 {{ define "main" }}
 <div class="posts post">
-    <h2 class="post-title">{{.Title}}</h2>
+    <h2 class="post-title">{{ .Title }}</h2>
     <div class="post-meta">
         <span class="copyright-meta">
-            <span><i class="bx bx-copyright"></i></span>
+            <span><i class="iconfont icon-copyright"></i></span>
         </span>
-        <span class="space">更新时间：2021.07.01</span>
+        <span class="space meta__space">更新时间：2021.07.01</span>
     </div>
     <div class="post-content page-copyright">
         <h2 id="网站标识">网站标识</h2>
@@ -104,7 +104,7 @@
             </li>
         </ul>
         <h2 id="版权声明">版权声明</h2>
-        <p>©️ 2006 - present, Eallion.com, all rights reserved.</p>
+        <p>&copy; 2006 - present, eallion.com, all rights reserved.</p>
         <p>
             本站遵循
             <a
@@ -128,7 +128,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 >Hugo</a
-            >构建。
+            >构建：
         </p>
         <ul>
             <li>
@@ -138,12 +138,43 @@
                 (2020.12.27)
             </li>
             <li>
-                境外：通过 GitHub Action 部署至
-                <a href="https://eallion.github.io/">GitHub Pages</a>
+                境外：通过 GitHub Actions 部署至
+                <a href="https://github.com/eallion/eallion.github.io/"
+                    >GitHub Pages</a
+                >
                 (2021.06.13)
             </li>
         </ul>
-        <p>相关代码和服务继承原项目的license。</p>
+        <p>相关代码和服务继承原项目的 License：</p>
+        <ul>
+            <li>
+                Hugo：
+                <a
+                    href="https://github.com/gohugoio/hugo/blob/master/LICENSE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Apache License 2.0</a
+                >
+            </li>
+            <li>
+                Theme(Hello Friend)：
+                <a
+                    href="https://github.com/panr/hugo-theme-hello-friend/blob/master/LICENSE.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >MIT License</a
+                >
+            </li>
+            <li>
+                本站源码：
+                <a
+                    href="https://github.com/eallion/eallion.com/blob/main/LICENSE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >MIT License</a
+                >
+            </li>
+        </ul>
         <h2 id="特别声明">特别声明</h2>
         <p>
             <a

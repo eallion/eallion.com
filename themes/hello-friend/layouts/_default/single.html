@@ -4,12 +4,7 @@
 {{ end }}
 
 {{ define "main" }}
-  {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
-  {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
-  {{ $FilePath := .File.Path }}
-  {{ $PostDir := path.Dir $FilePath }}
-  {{ $PostName := path.Base $FilePath }}
-  {{ partial "talks.html" . }}
+  {{ $contentTypeName :=$.Site.Params.contentTypeName }}
 
   <div class="posts post">
     <!-- {{ partial "breadcrumb.html" . }} -->
@@ -18,53 +13,54 @@
       {{ if .Date | default nil }}
       <span class="post-meta-date">
         <span>
-            <i class='bx bxs-archive' ></i>
+            <i class="iconfont icon-archive"></i>
         </span>
         <span>
           {{ .Date.Format "2006年01月02日" }}
         </span>
       </span>
+      <!--
         {{ if eq .Type $contentTypeName }}
           {{ if $.Site.Params.LastModDisplay }}
             {{ partial "lastmod.html" . }}
           {{ end }}
         {{ end }}
+      -->
       {{ end }}
 
-      {{- if .Site.Params.mdwiew.enable -}}
-        <span class="post-meta-md post-meta-none">
+      {{- if .Site.Params.mdview.enable -}}
+        <span class="post-meta-md">
           <span>
-              <i class='bx bxl-markdown' ></i>
+            <i class="iconfont icon-markdown"></i>
             </span>
-          <span><a href="https://raw.githubusercontent.com/eallion/eallion.com/main/content/{{$PostDir}}/{{$PostName}}" target="_blank" rel="noopener noreferrer">查看 Markdown 版本</a></span>
+          <span><a href='{{ .Site.Params.mdview.ContentPath }}{{ replace .File.Path "\\" "/" }}' target="_blank" rel="noopener noreferrer">查看 Markdown 版本</a></span>
         </span>
       {{ end }}
 
       {{ if $.Site.Params.ShowReadingTime }}
-        <span class="post-read-time post-meta-none">
-          <span class="post-meta-icon">
-            <i class='bx bxs-time' ></i>
+        <span class="post-read-time">
+          <span>
+            <i class="iconfont icon-time-sort"></i>
             </span>
-          <span>{{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
-          <span>，约 {{ .WordCount }} 字</span>
+          <span>{{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span><span>，约 {{ .WordCount }} 字</span>
         </span>
       {{ end }}
 
       {{- if .Site.Params.waline.enable -}}
         <span class="post-meta-view">
-          <span class="post-meta-icon">
-            <i class='bx bxs-show' ></i>
+          <span>
+            <i class='iconfont icon-view'></i>
           </span>
-          <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> <span class="post-meta-none">次浏览</span></span>
+          <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> <span>次浏览</span></span>
         </span>
       {{ end }}
 
       {{- if .Site.Params.twikoo.enable -}}
         <span class="post-meta-view">
-          <span class="post-meta-icon">
-            <i class='bx bxs-show' ></i>
+          <span>
+            <i class='iconfont icon-view'></i>
           </span>
-          <span id="twikoo_visitors">0</span> <span class="post-meta-none">次</span><span>浏览</span>
+          <span id="twikoo_visitors">0</span> <span>次浏览</span>
         </span>
       {{ end }}
 
@@ -73,7 +69,7 @@
     {{ if eq .Type "posts" -}}
     {{ $ageDays := div (sub now.Unix .Date.Unix) 86400 }}
       {{ if gt $ageDays 180 }}
-        <p class="expired-tips"> 提醒：本文发布于&nbsp;{{$ageDays}}&nbsp;天前，文中所描述的信息可能已发生改变，请谨慎参考。</p>
+        <p class="expired-tips"> 提醒：本文发布于&nbsp;{{ $ageDays }}&nbsp;天前，文中所描述的信息可能已发生改变，请谨慎参考。</p>
       {{ end }}
     {{ end }}
 
@@ -87,7 +83,7 @@
 
     <div class="post-content">
       {{ .Content }}
-      {{ .Render "path"}}
+      {{ .Render "path" }}
     </div>
 
     {{ if .Params.toc }}
@@ -108,7 +104,7 @@
         <p>本文发表于 {{ .Date.Format "2006年01月02日" }} ，共计约 {{ .WordCount }} 字 </p>
         <p>本文链接：<a href="{{ .Permalink }}">{{ .Permalink }}</a></p>
         <p>转载标题：<a href="{{ .Permalink }}">《{{ .Title | markdownify }}》</a>- 大大的小蜗牛</p>
-        <p>作品采用：<a rel="license nofollow noopener noreferrer" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享（CC BY-NC-SA 4.0）许可协议</a>进行许可</p>
+        <p>作品采用：<a target="_blank" rel="license nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享（CC BY-NC-SA 4.0）许可协议</a>进行许可</p>
       </div>
     {{ end }}
 
@@ -118,10 +114,8 @@
       {{ if or .Next .Prev }}
         <div class="pagination">
           <div class="pagination__title">
-            {{ if and .File .Site.Params.EditPath}}
-              <a class="pagination__title-h" href="https://github.com/eallion/eallion.com/edit/main/content/{{ replace .File.Path "\\" "/" }}" target="_blank" rel="noopener noreferrer">阅读更多</a>
-            {{ else}}
-              <span class="pagination__title-h">阅读更多</span>
+            {{ if and .File .Site.Params.EditPath }}
+              <a class="pagination__title-h" href='{{ $.Site.Params.EditPath }}{{ replace .File.Path "\\" "/" | default "/" }}' target="_blank" rel="noopener noreferrer">阅读更多</a>
             {{ end }}
             <hr >
           </div>
@@ -129,7 +123,7 @@
             {{ if .Next }}
               <span class="button previous">
                 <a href="{{ .Next.Permalink }}">
-                  <span class="button__icon">←</span>
+                  <span class="button__icon"><i class="iconfont icon-left"></i></span>
                   <span class="button__text">{{ .Next.Title }}</span>
                 </a>
               </span>
@@ -138,7 +132,7 @@
               <span class="button next">
                 <a href="{{ .Prev.Permalink }}">
                   <span class="button__text">{{ .Prev.Title }}</span>
-                  <span class="button__icon">→</span>
+                  <span class="button__icon"><i class="iconfont icon-right"></i></span>
                 </a>
               </span>
             {{ end }}

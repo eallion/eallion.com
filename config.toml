@@ -7,7 +7,7 @@ timezone = "Asia/Shanghai"
 hasCJKLanguage = true
 summaryLength = 226
 # 每页显示的文章数量用于分页
-paginate =  10
+paginate = 8
 # rss 输出数量
 rssLimit = 10
 rssFullText = true
@@ -18,8 +18,8 @@ enableEmoji = true
 enableGitInfo = true
 
 [permalinks]
-  posts = "/:slug/"
-  tags = "/tags/:slug/"
+  posts = "/:slug/" # Don't miss the last slash: "/"
+  tags = "/tags/:slug/" # Don't miss the last slash: "/"
 
 [params]
   # copyright = ""
@@ -41,21 +41,107 @@ enableGitInfo = true
   DateFormatSingle = "2006-01-02 15:04:05"
   ReadMore = "阅读全文"
 
-  EditPath = 'https://github.com/eallion/eallion.com/edit/main/content'
-  
   title  =  "大大的小蜗牛"
   subtitle = "机会总是垂青于有准备的人"
   keywords = "蜗牛,大大的小蜗牛,eallion,snail,woniu,Charles,Chin,博客,静态博客,电商,代码,运营,电子商务,电商,嘀咕,hugo,code"
   description = "A blog about Charles eallion Chin. 大大的小蜗牛的个人博客。—— 机会总是垂青于有准备的人"
   author = "Charles Chin"
   theme  =  "hello-friend"
-  commit = "https://github.com/eallion/eallion.com/tree/"
+
+  GitRepo = "https://github.com/eallion/eallion.com"
+  Commit = "https://github.com/eallion/eallion.com/tree/" # Don't miss the last slash: "/"
+  EditPath = 'https://github.com/eallion/eallion.com/edit/main/content/' # Don't miss the last slash: "/"
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+  unsafe = true
+
+[outputs]
+  home = ["Atom", "HTML", "JSON", "AMP",]
+  page = ["HTML"]
+
+[outputFormats.Atom] # <domain>/atom.xml
+  mediatype = "application/rss"
+  baseName = "atom"
+
+[outputFormats.AMP]
+  mediaType = "text/html"
+  isPlainText = false
+  isHTML = true
+
+[params.mdview] # View original markdown of post on GitHub
+  enable = true
+  ContentPath = 'https://raw.githubusercontent.com/eallion/eallion.com/main/content/' # Don't miss the last slash: "/"
+
+[params.waline]
+  enable = false
+  version = '1.3.1'
+
+[params.twikoo]
+  enable = true
+  version = '1.4.1'
+
+[params.disqus]
+  enable = false
+  version = '1.3'
+
+[params.utterances]
+  enable = false
+
+[params.noticeable]
+  enable = false
+  id = "a0yLJIkjSFFgsQ1IIqT8"
+
+[params.fontawesome]
+  enable = false
+  version = "5.15.3"
+
+[params.iconfont]
+  enable = true
+  id = 'font_2661996_csumigyjz7t' # Pathname as 'font_2661996_csumigyjz7t' of '//at.alicdn.com/t/font_2661996_csumigyjz7t.css'.
+
+[Author]
+  name = "Charles Chin"
+  website = "https://eallion.com/"
+  # Alphabetically #
+  #bandcamp = "username"
+  #bitbucket = "username"
+  #douban = "username"
+  #douyin = "QRurl" QRurl as "https://cdn.example.com/douyin.png"
+  email = "eallions@gmail.com"
+  #facebook = "eallion"
+  github = "eallion"
+  #gitlab = "eallion"
+  #instagram = "eallion"
+  #itchio = "username"
+  #mastodon = "mastodon.social/@eallion"
+  #reddit = "eallion"
+  twitter = "eallion"
+  #linkedin = "eallion"
+  #paypal = "eallion"
+  #pinterest = "eallion"
+  #QQ = "NumbleID" # QQ NumID as 1008610010
+  #snapchat = "username"
+  stackoverflow = "11409594/eallion"
+  steam = "eallion"
+  telegram = "eallion"
+  #tieba = "username"
+  #tiktok = "QRurl" QRurl as "https://cdn.example.com/tiktok.png"
+  #youtube = "user/gnusupporter" # or channel/channelname
+  #soundcloud = "username"
+  spotify = "eallion"
+  #vk = "username"
+  #wechat = "QRurl" # QRurl as "https://cdn.example.com/wechat.png"
+  #weibo = "eallion"
+  #xing = "username"
+  #zhihu = "woniu"
 
 [menu]
   ## main menu
   [[menu.main]]
   name="嘀咕"
-  url="/talk/"
+  url="/talk/" # Don't miss the last slash: "/"
   weight="1"
   [[menu.main]]
   name="归档"
@@ -69,7 +155,6 @@ enableGitInfo = true
   name="关于"
   url="/about/"
   weight="4"
-
   ## sub menu
   [[menu.main]]
   name="观影"
@@ -79,33 +164,11 @@ enableGitInfo = true
   name="阅读"
   url="/books/"
   weight="12"
-  #[[menu.main]]
-  #name="相册"
-  #url="/photos/"
-  #weight="13"
-
   ## more menu
   [[menu.main]]
   name="日记"
   url="/posts/daily/"
   weight="21"
-  #[[menu.main]]
-  #name="代码"
-  #url="/posts/code/"
-  #weight="22"
-  #[[menu.main]]
-  #name="运营"
-  #url="/posts/operation/"
-  #weight="23"
-  #[[menu.main]]
-  #name="分享"
-  #url="/posts/share/"
-  #weight="24"
-  #[[menu.main]]
-  #name="山贼"
-  #url="/posts/sz/"
-  #weight="25"
-
   ## external menu
   [[menu.main]]
   name="版权"
@@ -119,47 +182,3 @@ enableGitInfo = true
   name="订阅"
   url="/atom.xml"
   weight="33"
-  #[[menu.main]]
-  #name="导航"
-  #url="https://s.eallion.com/"
-  #weight="34"
-
-[markup]
-[markup.goldmark]
-[markup.goldmark.renderer]
-  unsafe = true
-
-[outputs]
-  home = ["Atom", "HTML", "JSON", "AMP",]
-  page = ["HTML"]
-  
-[outputFormats.Atom] # <domain>/atom.xml
-  mediatype = "application/rss"
-  baseName = "atom"
-
-[outputFormats.AMP]
-  mediaType = "text/html"
-  isPlainText = false
-  isHTML = true
-
-[params.mdwiew]
-  enable = true
-
-[params.waline]
-  enable = false
-  version = '1.3.1'
-
-[params.twikoo]
-  enable = true
-  version = '1.4.0'
-
-[params.disqus]
-  enable = false
-  version = '1.3'
-
-[params.utterances]
-  enable = false
-
-[params.noticeable]
-  enable = false
-  id = "a0yLJIkjSFFgsQ1IIqT8"
