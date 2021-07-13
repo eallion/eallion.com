@@ -8,8 +8,8 @@ date: "2016-09-26 22:33:00"
 ---
 
 > 参考:
-> <a href="http://security.360.cn/cve/CVE-2016-6304/CN.html" target="_blank">http://security.360.cn/cve/CVE-2016-6304/CN.html</a>
-> <a href="https://www.openssl.org/news/secadv/20160922.txt" target="_blank">https://www.openssl.org/news/secadv/20160922.txt</a>
+> http://security.360.cn/cve/CVE-2016-6304/CN.html  
+> https://www.openssl.org/news/secadv/20160922.txt
 
 目前“Oneinstack”、“LNMP一键包”默认的OpenSSL版本都不是最新版，修复此漏洞需要重新编译。
 

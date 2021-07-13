@@ -4,8 +4,7 @@
 {{ end }}
 
 {{ define "main" }}
-  {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
-  {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
+  {{ $contentTypeName := $.Site.Params.contentTypeName }}
 
   {{ $PageContext := . }}
   {{ if .IsHome }}
@@ -45,7 +44,7 @@
         {{ .Summary }}
       </div>
       {{ if .Truncated }}
-        <div><a class="read-more button" href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore | default "Read more" }} →</a></div>
+        <div><a class="read-more button" href="{{ .RelPermalink }}">{{ $.Site.Params.ReadMore | default "Read more" }} →</a></div>
       {{ end }}
     </div>
     {{ end }}

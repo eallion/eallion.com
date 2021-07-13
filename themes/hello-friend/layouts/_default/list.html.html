@@ -4,14 +4,13 @@
 />{{- end }} {{ if .Paginator.HasNext -}}<link
     rel="prefetch"
     href="{{ .Paginator.Next.URL }}"
-/>{{- end }} {{ end }} {{ define "main" }} {{ $isntDefault := not (or (eq (trim
-$.Site.Params.contentTypeName " ") "posts") (eq (trim
-$.Site.Params.contentTypeName " ") "")) }} {{ $contentTypeName := cond
-$isntDefault (string $.Site.Params.contentTypeName) "posts" }} {{ $PageContext
-:= . }} {{ if .IsHome }} {{ $PageContext = .Site }} {{ end }} {{ $paginator :=
-.Paginate (where $PageContext.RegularPages "Type" $contentTypeName) }} {{
-partial "talks.html" . }}
-
+/>{{- end }} {{ end }} {{ define "main" }}
+{{ $contentTypeName := $.Site.Params.contentTypeName }}
+{{ $PageContext := . }}
+{{ if .IsHome }}
+    {{ $PageContext = .Site }}
+{{ end }}
+{{ $paginator := .Paginate (where $PageContext.RegularPages "Type" $contentTypeName) }}
 <div class="posts">
     {{ range $paginator.Pages }}
     <div class="post on-list">
@@ -22,14 +21,14 @@ partial "talks.html" . }}
             {{ if .Date }}
             <span class="post-meta-date">
                 <span>
-                    <i class="bx bxs-archive"></i>
+                    <i class="iconfont icon-archive"></i>
                 </span>
                 <span> {{ .Date.Format "2006年01月02日" }} </span>
             </span>
             {{ end }} {{ if $.Site.Params.ShowReadingTime }}
-            <span class="post-read-time post-meta-none">
-                <span class="post-meta-icon">
-                    <i class="bx bxs-time"></i>
+            <span class="post-read-time">
+                <span>
+                    <i class="iconfont icon-time-sort"></i>
                 </span>
                 <span
                     >{{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime |
@@ -39,17 +38,18 @@ partial "talks.html" . }}
             </span>
             {{ end }}
             <!--
-        {{ if .Params.tags }}
-        <span class="post-meta-none">
-          <i class='bx bxs-purchase-tag' ></i>
-        </span>
-        <span class="post-meta-none">
-          {{ range .Params.tags }}
-            #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
-          {{ end }}
-        </span>
-        {{ end }}
-        --></div>
+            {{ if .Params.tags }}
+            <span class="">
+                <i class='iconfont icon-time-tag' ></i>
+            </span>
+            <span class="">
+                {{ range .Params.tags }}
+                #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
+                {{ end }}
+            </span>
+            {{ end }}
+            -->
+        </div>
 
         {{ if .Params.feature }} {{ if .Params.UseRelativeCover }} <img
         loading='lazy' src="{{ (printf "%s%s" .Permalink .Params.feature ) }}"
@@ -64,16 +64,16 @@ partial "talks.html" . }}
         <div class="post-content post-index">
             {{ if .Truncated }} {{ .Summary }}
             <span class="hdots"
-                ><i class="bx bx-dots-horizontal-rounded"></i
-                ><i class="bx bx-dots-horizontal-rounded"></i
+                ><i class="iconfont icon-shenglvehao"></i
+                ><i class="iconfont icon-shenglvehao"></i
             ></span>
             <div class="read-more-icon">
-                <a class="read-more button" href="{{.RelPermalink}}"
+                <a class="read-more button" href="{{ .RelPermalink }}"
                     >{{ $.Site.Params.ReadMore | default "Read more" }}
-                    <i class="bx bxs-chevrons-right"></i>
+                    <i class="iconfont icon-chevrons-right"></i>
                 </a>
             </div>
-            {{ else }} {{ .Content }} {{ .Render "path"}} {{ end }}
+            {{ else }} {{ .Content }} {{ .Render "path" }} {{ end }}
         </div>
     </div>
     {{ end }} {{ partial "pagination.html" . }}

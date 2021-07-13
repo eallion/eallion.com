@@ -14,7 +14,7 @@
 <link rel="canonical" href="{{ .Permalink }}" >
 
 <link rel="preconnect" href="https://sdn.geekzu.org" crossorigin>
-<link rel="preconnect" href="https://img.shields.io" crossorigin>
+<link rel="preconnect" href="https://at.alicdn.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
 <!-- Google Fonts -->
@@ -45,11 +45,22 @@
 {{ $maincss := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
 
-<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css?display=swap" rel="stylesheet">
-<link rel='stylesheet' href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css?display=swap" media="print" onload="this.media='all'" >
+{{- if .Site.Params.fontawesome.enable -}}
+<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ .Site.Params.fontawesome.version }}/css/all.min.css?display=swap">
+<link rel='stylesheet' href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ .Site.Params.fontawesome.version }}/css/all.min.css?display=swap" media="print" onload="this.media='all'" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
 <noscript>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css?display=swap" >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ .Site.Params.fontawesome.version }}/css/all.min.css?display=swap" >
 </noscript>
+{{ end }}
+
+{{- if .Site.Params.iconfont.enable -}}
+<link rel="preload" href="//at.alicdn.com/t/{{ $.Site.Params.iconfont.id }}.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+{{ $iconfontcss := resources.Get "css/iconfont.css" | resources.Minify  }}
+<link rel="stylesheet" href="{{ $iconfontcss.RelPermalink }}" crossorigin="anonymous">
+<noscript>
+    <link rel="stylesheet" href="{{ $iconfontcss.RelPermalink }}">
+</noscript>
+{{ end }}
 
 <link rel="shortcut icon" href="https://eallion.com/favicon.ico">
 <!-- OG data -->

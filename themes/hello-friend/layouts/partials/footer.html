@@ -1,5 +1,5 @@
-{{$scratch := newScratch}} {{ range (where .Site.Pages "Kind" "page" )}}
-{{$scratch.Add "total" .WordCount}} {{ end }}
+{{ $scratch := newScratch }} {{ range (where .Site.Pages "Kind" "page" ) }}
+{{ $scratch.Add "total" .WordCount }} {{ end }}
 <footer class="footer">
     <div class="footer__inner">
         <!-- https://github.com/eallion/eallion.com/tree/16c9ebe6cd303d9029ced7eef7dfb780f63c4a0d -->
@@ -7,16 +7,27 @@
         <div class="copyright copyright--user">
             {{ $.Site.Copyright | safeHTML }}
         </div>
-        {{else}}
+        {{ else }}
         <div class="footer__title">
-            <span class="footer__title-h"><i class='bx bx-world bx-spin' ></i></span>
+            <span class="footer__title-h">
+                {{ range .Site.Data.hellofriend.social.social_icons }} {{- if isset $.Site.Author .id }}
+                <a
+                    href="{{ printf .url (index $.Site.Author .id) }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="{{ .title }}"
+                >
+                    <i class="{{ .icon }}"></i>
+                </a>
+                {{- end -}} {{ end }}
+            </span>
             <hr />
         </div>
-        <div class="copyright">
+        <div class="copyright words">
             <span
                 >共 {{ len (where .Site.RegularPages "Section" "posts") }}
                 篇文章</span
-            ><span>约 {{$scratch.Get "total" }} 字</span>
+            ><span>约 {{ $scratch.Get "total" }} 字</span>
         </div>
         <div class="copyright">
             <span
@@ -30,57 +41,80 @@
             >
         </div>
         <div class="copyright">
-            <span
-                >采用
-                <a
-                    href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >BY-NC-SA 4.0</a
-                >
-                &
-                <a
-                    href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >MIT</a
-                >
-                许可协议，基于
+            <span>
+                Powered by <i class="iconfont icon-Hugo"></i>
                 <a
                     href="https://gohugo.io/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >Hugo v{{ .Site.Hugo.Version }}</a
-                >
-                的主题
+                    >Hugo (v{{ .Site.Hugo.Version }})</a
+                >, Themed by
                 <a
                     href="https://github.com/panr/hugo-theme-hello-friend"
                     target="_blank"
                     rel="noopener noreferrer"
                     >Hello Friend</a
-                >
-                构建 {{ if $.GitInfo }} [<a
-                    href="{{ .Site.Params.commit }}{{ .GitInfo.Hash }}"
+                >, Made with <i class="iconfont icon-love"></i>
+                {{ if .GitInfo }}
+                by [<a
+                    href="{{ .Site.Params.Commit }}{{ .GitInfo.Hash }}"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >{{ substr .GitInfo.Hash 0 7 }}</a
-                >]{{ end }}</span
-            >
+                    >{{- .GitInfo.AbbreviatedHash -}}</a
+                >]{{- end -}}.
+            </span>
+        </div>
+        <div class="copyright">
+            <span>
+                Licensed under
+                <span>
+                    <a
+                        href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >BY-NC-SA 4.0</a
+                    ></span
+                >,
+                <span
+                    ><a
+                        href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >MIT</a
+                    ></span
+                >,
+                <span>
+                    <a
+                        href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Apache-2.0</a
+                    ></span
+                >.
+            </span>
         </div>
         <div class="copyright">
             <span
-                ><a
+                ><i class="iconfont icon-icp"></i>
+                <a
                     href="https://beian.miit.gov.cn/"
                     target="_blank"
                     rel="noopener noreferrer"
                     >浙ICP备16031768号-2</a
-                ></span
-            >
+                >
+                <i class="iconfont icon-privacy"></i>
+                <a
+                    href="https://eallion.com/privacy-policy/"
+                    target="_self"
+                    rel="noopener noreferrer"
+                    >隐私政策</a
+                >
+            </span>
         </div>
-        {{end}}
+        {{ end }}
     </div>
 </footer>
-<a class="to-top back-to-top"><i class="bx bxs-chevron-up"></i></a>
+<a class="to-top back-to-top"><i class="iconfont icon-up"></i></a>
 {{ partial "footer-js.html" . }}
 <script
     type="text/javascript"

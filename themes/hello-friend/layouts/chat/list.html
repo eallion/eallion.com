@@ -1,6 +1,6 @@
 {{ define "main" }}
   <div class="posts archive">
-    <h1 class="post-title">{{.Title}}</h1>
+    <h1 class="post-title">{{ .Title }}</h1>
     共计 {{ len (where .Site.RegularPages "Section" "posts") }} 篇日志
 123
     {{- range  (where (where .Site.Pages "Type" "in" "posts") "Kind" "page").GroupByDate "2006" }}
@@ -12,7 +12,7 @@
           <div class="archive__post">
           {{- range .Pages }}
           <div class="archive__post-title">
-            <a href="{{.Permalink}}">{{.Title}}<span class="post-date">{{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}</span></a>
+            <a href="{{ .Permalink }}">{{ .Title }}<span class="post-date">{{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}</span></a>
           </div>
           {{ end }}
           </div>

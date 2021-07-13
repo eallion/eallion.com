@@ -13,6 +13,12 @@ date: 2020-12-19T15:38:00+08:00
 toc: false
 ---
 
+> 更新：因为本博客部署在腾讯云，评论已启用 Twikoo
+
+> 更新：新开的腾讯云 CloudBase 的免费额度已不足以支撑评论系统的正常使用了。
+
+> 更新：QA：“没有什么是国人玩不坏的。”
+
 ### 前言
 
 经过一段时间的测试，现在本博客决定启用 Waline 评论系统。
@@ -88,7 +94,7 @@ A：**没有！** Waline 的设计理念就是一个后端程序，是一个网�
 A：作为正常博客使用，Vercel、CloudBase、Docker都是够的。
 
 - Vercel： 免费 100G/月（[说明文档](https://vercel.com/pricing)）
-- CloudBase：免费 4万GBs/月、5万读操作数/天（[说明文档](https://cloud.tencent.com/document/product/876/47816)）
+- CloudBase：免费 1000GBs/月、500读操作数/天（[说明文档](https://cloud.tencent.com/document/product/876/47816)）
 - Docker / VPS：取决于自己的 VPS 额度
 
 > Q：这是不是软文？  

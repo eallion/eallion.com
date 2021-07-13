@@ -78,7 +78,7 @@ jobs:
 
       - name: 配置 Git 环境
         env:
-          ACTION_DEPLOY_KEY: ${{secrets.ACTION_DEPLOY_KEY}}
+          ACTION_DEPLOY_KEY: ${{ secrets.ACTION_DEPLOY_KEY }}
         run: |
           mkdir -p ~/.ssh/
           echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa

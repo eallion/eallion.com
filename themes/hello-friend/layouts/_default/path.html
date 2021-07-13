@@ -1,4 +1,9 @@
-{{ if .Params.path }}
-    {{$Path := .Params.path}}
-    <photos>{{- range (readDir (printf "%s%s" "./static/images/" $Path )) -}}<img class="avatar" loading='lazy' src='{{(printf "https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages/images/%s/%s" $Path .Name ) | absURL}}' />{{- end -}}</photos>
+{{ if .Params.path }} {{ $Path := .Params.path }}
+<photos
+    >{{- range (readDir (printf "%s%s" "./static/images/" $Path )) -}}<img
+        class="avatar"
+        loading="lazy"
+        src='{{ (printf "https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages/images/%s/%s" $Path .Name ) | absURL }}'
+    />{{- end -}}</photos
+>
 {{ end }}
