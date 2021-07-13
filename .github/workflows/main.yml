@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: 0 22 * * 0
+    - cron: 0 16 * * *
 
 jobs:
   build-deploy:
@@ -15,17 +15,17 @@ jobs:
         uses: zcong1993/setup-timezone@master
         with:
           timezone: Asia/Shanghai
-          
+
       - uses: actions/checkout@v2
         with:
-          submodules: true
+          submodules: false
           fetch-depth: 1
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
-          extended: true
+          extended: false
 
       - name: Build Hugo
         run: |
@@ -40,7 +40,12 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./public
           allow_empty_commit: true
-          commit_message: ${{ GitHub.event.head_commit.message }}
+          # commit_message: ${{ GitHub.event.head_commit.message }}
+          full_commit_message: ${{ github.event.head_commit.message }}
+          cname: eallion.com
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
 
       #- name: Deploy to Firebase
       #  uses: lowply/deploy-firebase@v0.0.4
