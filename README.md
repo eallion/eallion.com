@@ -11,7 +11,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/eallion/eallion.com?logo=GitHub&color=4ec100&style=flat)](https://github.com/eallion/eallion.com/issues/new) [![](https://img.shields.io/badge/eallions@gmail.com-4ec100?labelColor=555&logo=gmail&label=Gmail&link=mailto:eallions@gmail.com&logoColor=fff&style=flat)](mailto:eallions@gmail.com) [![](https://img.shields.io/badge/t.me-@eallion-4ec100?labelColor=555&logo=telegram&logoColor=fff&style=flat)](https://t.me/eallion)
 
 ### Live demo:
-- https://eallion.com  
+- https://eallion.com
 - https://eallion.gitee.io
 - https://eallion.github.io
 - https://eallion.gitlab.io
@@ -23,26 +23,18 @@
 # 备忘录:
 
 ### 主仓库
-> <https://github.com/eallion/eallion.com.git>  
+> <https://github.com/eallion/eallion.com.git>
 
 ### 备份仓库
-> Keybase：<keybase://private/eallion/eallion.com.git>  
-> Coding.net： <https://e.coding.net/eallion/eallion.com/hugo.git>  
-> 码云 Gitee： <https://gitee.com/eallion/eallion.com.git>  
-> 阿里云 Codeup： <https://codeup.aliyun.com/eallion/hugo.git>    
-> 腾讯工蜂： <https://git.code.tencent.com/eallion/eallion.com.git>  
+> Coding.net： <https://e.coding.net/eallion/eallion.com/hugo.git>
 
 ### 添加备份仓库 Remote
-> default branch: main  
+> default branch: main
 > remote url 传递 id:token 免输各个 git 仓库的账号密码
 
 ```
 git remote set-url --add --push origin https://id:token@github.com/eallion/eallion.com.git
 git remote set-url --add --push origin https://id:token@e.coding.net/eallion/eallion.com/hugo.git
-git remote set-url --add --push origin https://id:token@git.code.tencent.com/eallion/eallion.com.git
-git remote set-url --add --push origin https://id:token@gitee.com/eallion/eallion.com.git
-git remote set-url --add --push origin https://id:token@codeup.aliyun.com/id/eallion/hugo.git
-git remote set-url --add --push origin keybase://private/eallion/eallion
 ```
 
 ### 架构备忘
@@ -146,16 +138,16 @@ git push
 hugo new posts/daily/new_title.md
 ```
 
-2. **编辑文章** 
+2. **编辑文章**
 
 通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 New 出来的文章。
 
-3. **修改 Front matter**:  
+3. **修改 Front matter**:
 
-- `categories` 按需修改  
-- `tags` 按需修改  
-- `slug` 按需修改  
-- `draft: true` 改为：`draft: false`  
+- `categories` 按需修改
+- `tags` 按需修改
+- `slug` 按需修改
+- `draft: true` 改为：`draft: false`
 
 4. **Push**:
 
@@ -185,15 +177,15 @@ hugo server -wD
 hugo server -w -D -p 8080 -t hello-friend --enableGitInfo --bind 192.168.0.2 --baseURL 192.168.0.2
 ```
 > 在浏览器中打开：http://192.168.0.2:8080
-- `hugo server` 把 Hugo 当作 Web 服务器，而非构建静态网页  
-- `-w` 有文件变化立即刷新（默认开启）  
-- `-D` 构建草稿，撰写新文章时很有用  
-- `-p 8080` 指定端口号 8080（默认 1313）  
-- `-t hello-friend` 使用 hello-friend 主题  
-- `-enableGitInfo` 开启 GitIifo  
-- `--bind 192.168.0.2` 绑定 IP ，局域网其他设备 Debug 时很有用  
-- `--baseURL 192.168.0.2` 绑定域名（IP），局域网其他设备 Debug 时很有用  
-- `hugo server --help` 查看 server 所有命令  
+- `hugo server` 把 Hugo 当作 Web 服务器，而非构建静态网页
+- `-w` 有文件变化立即刷新（默认开启）
+- `-D` 构建草稿，撰写新文章时很有用
+- `-p 8080` 指定端口号 8080（默认 1313）
+- `-t hello-friend` 使用 hello-friend 主题
+- `-enableGitInfo` 开启 GitIifo
+- `--bind 192.168.0.2` 绑定 IP ，局域网其他设备 Debug 时很有用
+- `--baseURL 192.168.0.2` 绑定域名（IP），局域网其他设备 Debug 时很有用
+- `hugo server --help` 查看 server 所有命令
 
 6. **本地构建**
 
@@ -205,19 +197,19 @@ hugo server -w -D -p 8080 -t hello-friend --enableGitInfo --bind 192.168.0.2 --b
 ```
 hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
 ```
-- `--cleanDestinationDir` 构建前先清理目标文件夹，即 public  
-- `--forceSyncStatic` 强制同步 static 文件夹  
-- `--gc` 构建后执行一些清理任务（删除掉一些没用的缓存文件）  
-- `--ignoreCache` 构建时忽略缓存  
-- `--minify` 压缩网页代码  
-- `-enableGitInfo` 开启 GitIifo  
-- `hugo --help` 查看所有命令  
+- `--cleanDestinationDir` 构建前先清理目标文件夹，即 public
+- `--forceSyncStatic` 强制同步 static 文件夹
+- `--gc` 构建后执行一些清理任务（删除掉一些没用的缓存文件）
+- `--ignoreCache` 构建时忽略缓存
+- `--minify` 压缩网页代码
+- `-enableGitInfo` 开启 GitIifo
+- `hugo --help` 查看所有命令
 
 ### 静态文件（CSS、JS）
-> Update: 2021.01.05  
+> Update: 2021.01.05
 
-因为本博客整站都在 CDN 上，所以静态文件没有再使用另外的 CDN 加速了。  
-现在使用了 Hugo 自带的 Asset minification。  
+因为本博客整站都在 CDN 上，所以静态文件没有再使用另外的 CDN 加速了。
+现在使用了 Hugo 自带的 Asset minification。
 
 ```
 {{ $maincss := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha256" }}
@@ -227,7 +219,7 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enabl
 <details>
 <summary>Update: 2020.12.18</summary>
 
-2020.12.18 从腾讯云换到了 jsDelivr。  
+2020.12.18 从腾讯云换到了 jsDelivr。
 </details>
 
 #### PS：刷新 CDN
@@ -237,8 +229,8 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enabl
 <details>
 <summary>旧方法：</summary>
 
-通过打 Tag 的方式刷新 jsDelivr 的 CDN  
-`tag`对应`commit`  
+通过打 Tag 的方式刷新 jsDelivr 的 CDN
+`tag`对应`commit`
 ```
 git tag vX.X.X
 git push origin vX.X.X
