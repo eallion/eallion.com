@@ -1073,7 +1073,7 @@ html:not([data-scroll="0"]) .header__talk button {
 @media (max-width: 683px) {
     .post-meta {
         font-size: 0.8rem;
-        margin: 0;
+        margin: 5px auto;
         padding: 0 0 0 5px;
         display: flex;
         justify-content: space-between;
