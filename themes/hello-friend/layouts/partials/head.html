@@ -46,7 +46,7 @@
 <link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
 
 {{- if .Site.Params.fontawesome.enable -}}
-<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ .Site.Params.fontawesome.version }}/css/all.min.css?display=swap">
+<link as="style" rel="stylesheet preload prefetch" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ .Site.Params.fontawesome.version }}/css/all.min.css?display=swap" type="text/css" crossorigin="anonymous">
 <link rel='stylesheet' href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ .Site.Params.fontawesome.version }}/css/all.min.css?display=swap" media="print" onload="this.media='all'" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
 <noscript>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ .Site.Params.fontawesome.version }}/css/all.min.css?display=swap" >
