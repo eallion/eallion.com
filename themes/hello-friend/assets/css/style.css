@@ -1012,6 +1012,10 @@ html:not([data-scroll="0"]) .header__talk button {
     border-width: 8px 16px 8px 0;
     border-color: transparent #eaeaea transparent transparent;
 }
+.timeline ul li img {
+    display:block;
+    max-height: 358px !important;
+}
 .dark-theme .timeline ul li,
 .dark-theme .timeline ul li div {
     background: #3b3d42;
@@ -1032,6 +1036,10 @@ html:not([data-scroll="0"]) .header__talk button {
     .timeline ul li div {
         width: calc(100vw - 75px);
         left: 30px;
+        max-width: 585px;
+    }
+    .timeline ul li img {
+        max-height: 170px !important;
     }
 }
 .posts {
