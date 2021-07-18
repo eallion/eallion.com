@@ -12,15 +12,8 @@
 
 ### Live demo:
 - https://eallion.com
-- https://eallion.gitee.io
-- https://eallion.github.io
-- https://eallion.gitlab.io
-- https://eallion.netlify.app
-- https://eallion.pages.dev
-- https://eallion.vercel.app
-- https://eallion.web.app
 
-# 备忘录:
+# 备忘录：
 
 ### 主仓库
 > <https://github.com/eallion/eallion.com.git>
@@ -124,9 +117,58 @@ jobs:
 当没有新提交时， 通过 push empty commit 运行 GitHub Actions：
 
 ```
-git commit --allow-empty -m "👷build: rerun github acions"
+git commit --allow-empty -m "build: rerun github acions"
 git push
 ```
+
+### 安装插件
+1. **安装插件**
+
+> 可将 `-g` 改为 `--save-dev` 或 `-D`
+
+```
+npm install -g commitizen
+npm install -g cz-conventional-changelog
+npm install -g conventional-changelog-cli
+npm install -g @commitlint/cli @commitlint/config-conventional
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+npm install -g husky
+npx husky install
+npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
+```
+
+2. **规范提交**
+```
+git add .
+git cz
+# git commit -m "docs: post a new blog"
+git push
+```
+
+Types:
+
+```
+feat 新功能
+fix Bug 修复
+docs 文档更新
+style 代码的格式，标点符号的更新
+refactor 代码重构
+perf 性能优化
+test 测试更新
+build 构建系统或者包依赖更新
+ci CI 配置，脚本文件等更新
+chore 非 src 或者 测试文件的更新
+revert commit 回退
+```
+
+3. **生成 ChangeLog**
+
+```
+conventional-changelog -p angular -i CHANGELOG.md -s -r 0
+```
+以上命令中参数`-p angular` 用来指定使用的 commit message 标准，参数-`i CHANGELOG.md` 表示从 CHANGELOG.md 读取 ChangeLog, `-s` 表示读写 ChangeLog 为同一文件。其中 `-r` 表示生成 ChangeLog 所需要使用的 release 版本数量，默认为 1，全部则是 0。
+
+> revert 前的一些历史改动手动备份在 [CHANGELOG.bak](CHANGELOG.bak)
 
 ### 写新文章
 
@@ -144,16 +186,17 @@ hugo new posts/daily/new_title.md
 
 3. **修改 Front matter**:
 
-- `categories` 按需修改
-- `tags` 按需修改
-- `slug` 按需修改
-- `draft: true` 改为：`draft: false`
+- `categories`（必填）按需修改
+- `tags`（必填）按需修改
+- `slug`（必填）按需修改
+- `draft: true`（必填）改为：`draft: false`
 
 4. **Push**:
 
 ```
 git add .
-git commit -m "📝add: a new post"
+git cz
+# git commit -m "add: a new post"
 git push
 ```
 
@@ -250,7 +293,7 @@ git push origin vX.X.X
 <details>
 <summary>原方法：</summary>
 
-原方法依然可用，注意图片URL即可。
+原方法依然可用，注意图片 URL 即可。
 
 - 图片存放目录：
 
