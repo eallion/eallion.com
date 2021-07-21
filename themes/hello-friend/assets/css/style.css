@@ -761,7 +761,7 @@ hr {
 .bx-spin {
     animation-duration: 31s !important;
 }
-/* douban 豆瓣 电影 读书*/
+/* douban 豆瓣 电影 读书 */
 .lXzCY {
     margin-top: 20px !important;
 }
@@ -996,6 +996,8 @@ html:not([data-scroll="0"]) .header__talk button {
     letter-spacing: 1px;
     color: #333;
     white-space: pre-wrap;
+    word-break: normal;
+    word-wrap: break-word;
 }
 .timeline ul li div small {
     color: rgb(91, 112, 131);
@@ -1013,7 +1015,7 @@ html:not([data-scroll="0"]) .header__talk button {
     border-color: transparent #eaeaea transparent transparent;
 }
 .timeline ul li img {
-    display:block;
+    display: block;
     max-height: 358px !important;
 }
 .dark-theme .timeline ul li,
