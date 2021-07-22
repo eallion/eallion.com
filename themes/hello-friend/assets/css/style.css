@@ -266,6 +266,10 @@ html:not([data-scroll="0"]) .dark-theme header {
         margin-left: 0 !important;
     }
 }
+.emoji {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji", sans-serif, serif;
+}
 .logo {
     display: flex;
     align-items: center;
@@ -1821,7 +1825,9 @@ div.code-toolbar > .toolbar span:hover {
     /*position: fixed !important;*/
     z-index: 999;
 }
-.emoji,
+.tk-content img {
+    display: block !important;
+}
 .OwO-item {
     font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji", sans-serif, serif !important;
