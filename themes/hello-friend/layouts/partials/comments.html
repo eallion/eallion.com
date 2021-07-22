@@ -207,6 +207,13 @@
     twikoo.init({
         envId: "eallion-8gkunp4re49bae66",
         el: "#tcomment",
+        onCommentLoaded: function () {
+            $(".tk-content img:not(.tk-avatar-img)").each(function () {
+                var _b = $("<a></a>").attr("href", this.src);
+                $(this).wrap(_b);
+            })
+            $(".tk-content a[rel!=link]:has(img)").slimbox();
+        }
     });
 </script>
 {{- end }}
