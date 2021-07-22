@@ -25,15 +25,14 @@ toc: false
     twikoo.init({
         // envId: "eallion-###",
         // el: "#tcomment",
-        ......
+        // ......
         onCommentLoaded: function () {
             $(".tk-content img:not(.tk-avatar-img)").each(function () {
                 var _b = $("<a></a>").attr("href", this.src);
                 $(this).wrap(_b);
             })
             $(".tk-content a[rel!=link]:has(img)").slimbox();
-        }, // 如果放在末尾，需要去掉这个逗号。
-        ......
+        }
     });
 </script>
 ```
