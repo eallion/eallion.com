@@ -270,6 +270,9 @@ html:not([data-scroll="0"]) .dark-theme header {
     font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji", sans-serif, serif;
 }
+.post-content .highlight {
+    line-height: 1.5;
+}
 .logo {
     display: flex;
     align-items: center;
@@ -1020,7 +1023,8 @@ html:not([data-scroll="0"]) .header__talk button {
 }
 .timeline ul li img {
     display: block;
-    max-height: 358px !important;
+    max-height: 300px !important;
+    max-width: 300px !important;
 }
 .dark-theme .timeline ul li,
 .dark-theme .timeline ul li div {
