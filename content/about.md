@@ -31,15 +31,18 @@ author: 大大的小蜗牛
 
 不过多年以后，无论是现实还是网上的朋友，只要你来，只要没人逼我离开，我就还在这里。
 
-### 版权
+> 2021.07.22
+> 本博客主要是在『[木木老师](https://immmmm.com/)』的二次开发的基础上再二次开发。因本人时间、精力、能力有限，没有完整的 ChangeLog ，修改过程并没有记录多少笔记，我都忘记改了些什么，现在就是让我自己复现我也做不到。起初我以为随便改改就能开始用了，没想到越改越多，越改越多，重构了很多破坏性的代码，代码越来越不友好。如果对本博客的代码或功能有需求的可以直接参考本博客完整的源码：[eallion/eallion.com](https://github.com/eallion/eallion.com)，当然直接问我我也会很乐意回答。
+
+### 版权信息
 
 -   [https://eallion.com/copyright/](https://eallion.com/copyright/)
 
-### 隐私
+### 隐私政策
 
 -   [https://eallion.com/privacy-policy/](https://eallion.com/privacy-policy/)
 
-### 联系
+### 联系方式
 
 -   唯一公开邮箱：`eallions@gmail.com`
 -   私人邮箱：`e*****n@hotmail.com`、`e*n@pm.me`
