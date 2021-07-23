@@ -13,17 +13,19 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="canonical" href="{{ .Permalink }}" >
 
-<link rel="preconnect" href="https://sdn.geekzu.org" crossorigin>
-<link rel="preconnect" href="https://at.alicdn.com" crossorigin>
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://sdn.geekzu.org" crossorigin="anonymous">
+<link rel="preconnect" href="https://at.alicdn.com" crossorigin="anonymous">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous">
+<link rel="preconnect" href="https://6561-eallion-8gkunp4re49bae66-1251347414.tcb.qcloud.la" crossorigin="anonymous">
+<link rel="preconnect" href="https://tcb-api.tencentcloudapi.com" crossorigin="anonymous">
 
 <!-- Google Fonts -->
 <!--
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Noto+Serif+SC&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Noto+Serif+SC&display=swap" media="print" onload="this.media='all'" >
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Noto+Serif+SC&display=swap" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Noto+Serif+SC&display=swap" media="print" onload="this.media='all'" crossorigin="anonymous">
 <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Noto+Serif+SC&display=swap" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Noto+Serif+SC&display=swap" crossorigin="anonymous">
 </noscript>
 -->
 
@@ -58,11 +60,11 @@
 {{ $iconfontcss := resources.Get "css/iconfont.css" | resources.Minify  }}
 <link rel="stylesheet" href="{{ $iconfontcss.RelPermalink }}" crossorigin="anonymous">
 <noscript>
-    <link rel="stylesheet" href="{{ $iconfontcss.RelPermalink }}">
+    <link rel="stylesheet" href="{{ $iconfontcss.RelPermalink }}" crossorigin="anonymous">
 </noscript>
 {{ end }}
 
-<link rel="shortcut icon" href="https://eallion.com/favicon.ico">
+<link rel="shortcut icon" href="https://eallion.com/favicon.ico" crossorigin="anonymous">
 <!-- OG data -->
 {{ template "_internal/opengraph.html" . }}
 <!-- Google Analytics -->
