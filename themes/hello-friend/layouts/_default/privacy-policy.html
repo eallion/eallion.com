@@ -53,65 +53,72 @@
 
         <div>
             <h2>我们可能收集的信息</h2>
-            <p>
-                我们提供服务时，可能会收集、储存和使用下列与您有关的信息。如果您不提供相关信息，可能无法注册成为我们的用户或无法享受我们提供的某些服务，或者无法达到相关服务拟达到的效果。
-            </p>
-            <p><strong>您提供的信息</strong></p>
+            <p>我们提供服务时，可能会收集、储存和使用下列与您有关的信息。</p>
             <ul>
-                <li>
-                    您在注册账户或使用我们的服务时，向我们提供的相关个人信息，例如电话号码、电子邮件或银行卡号等；
-                </li>
-                <li>
-                    您通过我们的服务向其他方提供的共享信息，以及您使用我们的服务时所储存的信息。
-                </li>
-            </ul>
-
-            <p><strong>其他方分享的您的信息</strong></p>
-            <ul>
-                <li>其他方使用我们的服务时所提供有关您的共享信息。</li>
-            </ul>
-
-            <p><strong>我们获取的您的信息</strong></p>
-            <p>您使用服务时我们可能收集如下信息：</p>
-            <ul>
-                <li>
-                    <strong>日志信息，</strong
-                    >指您使用我们的服务时，系统可能通过cookies、web
-                    beacon或其他方式自动采集的技术信息，包括：
-                </li>
+                <li>Google Analytics 会收集：</li>
                 <ul>
+                    <li>网络身份标识信息（浏览器UA、IP地址）</li>
+                    <li>位置信息</li>
                     <li>
-                        设备或软件信息，例如您的移动设备、网页浏览器或用于接入我们服务的其他程序所提供的配置信息、您的IP地址和移动设备所用的版本和设备识别码；
-                    </li>
-                    <li>
-                        在使用我们服务时搜索或浏览的信息，例如您使用的网页搜索词语、访问的社交媒体页面url地址，以及您在使用我们服务时浏览或要求提供的其他信息和内容详情；
-                    </li>
-                    <li>
-                        有关您曾使用的移动应用（APP）和其他软件的信息，以及您曾经使用该等移动应用和软件的信息；
-                    </li>
-                    <li>
-                        您通过我们的服务进行通讯的信息，例如曾通讯的账号，以及通讯时间、数据和时长；
-                    </li>
-                    <li>
-                        您通过我们的服务分享的内容所包含的信息（元数据），例如拍摄或上传的共享照片或录像的日期、时间或地点等。
+                        更多参考：<a
+                            href="https://support.google.com/analytics/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >https://support.google.com/analytics/</a
+                        >
                     </li>
                 </ul>
                 <li>
-                    <strong>位置信息，</strong
-                    >指您开启设备定位功能并使用我们基于位置提供的相关服务时，收集的有关您位置的信息，包括：
+                    Twikoo 评论系统基于您的<strong>主动提交</strong>会收集：
                 </li>
                 <ul>
+                    <li>昵称</li>
+                    <li>电子邮件地址 Email</li>
+                    <li>网络身份标识信息（浏览器 UA、IP地址）</li>
                     <li>
-                        您通过具有定位功能的移动设备使用我们的服务时，通过GPS或WiFi等方式收集的您的地理位置信息；
-                    </li>
-                    <li>
-                        您或其他用户提供的包含您所处地理位置的实时信息，例如您提供的账户信息中包含的您所在地区信息，您或其他人上传的显示您当前或曾经所处地理位置的共享信息，您或其他人共享的照片包含的地理标记信息；
-                    </li>
-                    <li>
-                        您可以通过关闭定位功能，停止对您的地理位置信息的收集。
+                        如果填入 QQ 号或 QQ 邮箱，会收集您的 QQ 号、QQ 头像和 QQ
+                        邮箱
                     </li>
                 </ul>
             </ul>
+            <p>如果您不提供相关信息，不影响浏览本站。</p>
+            <p><strong>以下是您浏览本站时提供的分开信息：</strong></p>
+            <table class="ptable">
+                <thead>
+                    <tr>
+                        <th class="pth">类型</th>
+                        <th>信息</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>IP地址</td>
+                        <td><div id="userAgentIp"></div></td>
+                    </tr>
+                    <tr>
+                        <td>国家</td>
+                        <td><div id="userAgentCountry"></div></td>
+                    </tr>
+                    <tr>
+                        <td>省份</td>
+                        <td><div id="userAgentRegion"></div></td>
+                    </tr>
+                    <tr>
+                        <td>城市</td>
+                        <td>
+                            <div id="userAgentCity"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>运营商</td>
+                        <td><div id="userAgentIsp"></div></td>
+                    </tr>
+                    <tr>
+                        <td>设备</td>
+                        <td><div id="userAgentDevice"></div></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <div>
@@ -356,5 +363,15 @@
         </div>
     </div>
 </div>
-
+{{ $privacyjs := resources.Get "js/privacy.js" | resources.Minify |
+resources.Fingerprint "sha256" }}
+<script
+    type="text/javascript"
+    src="{{ $privacyjs.RelPermalink }}"
+    integrity="{{ $privacyjs.Data.Integrity }}"
+    crossorigin="anonymous"
+></script>
+<script type="text/javascript">
+    getIpInfo();
+</script>
 {{ end }}

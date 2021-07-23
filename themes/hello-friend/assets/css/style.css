@@ -2206,3 +2206,11 @@ photos .photo:last-child {
         display: none;
     }
 }
+/* provicy table */
+.ptable {
+    width: 95%;
+    margin: 20px auto;
+}
+.pth {
+    width: 100px;
+}
