@@ -260,7 +260,7 @@ html:not([data-scroll="0"]) .dark-theme header {
         padding: 0 10px;
     }
     .search-scroll i {
-        font-size: 1rem !important;
+        display: none !important;
     }
     .menu-trigger {
         margin-left: 0 !important;
