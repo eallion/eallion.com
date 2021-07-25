@@ -754,6 +754,11 @@ hr {
 .hidden {
     display: none !important;
 }
+@media (max-width: 683px) {
+    .mhidden {
+        display: none !important;
+    }
+}
 .space {
     margin-left: 0.25em !important;
 }

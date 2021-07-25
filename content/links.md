@@ -1,8 +1,8 @@
 ---
 title: "友情链接"
-date: 2006-04-14 22:18:00
-layout: "posts"
-type: "page"
+date: 2021-07-21 17:20:00
+layout: "link"
+type: "link"
 Comments: false
 ---
 
@@ -10,7 +10,7 @@ Comments: false
 
 如果你对我的个人网址导航感兴趣，请访问：
 
--   [https://s.eallion.com](https://s.eallion.com)
+- [https://s.eallion.com](https://s.eallion.com)
 
 我的友链信息：
 
