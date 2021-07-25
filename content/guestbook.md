@@ -1,6 +1,6 @@
 ---
 title: '留言板'
-date: 2006-05-22 11:27:00
+date: "2006-04-14 00:00:00"
 type: "guestbook"
 layout: "posts"
 Comments: true
