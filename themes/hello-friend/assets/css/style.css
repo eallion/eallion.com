@@ -776,27 +776,30 @@ hr {
     animation-duration: 31s !important;
 }
 /* douban 豆瓣 电影 读书 */
-.lXzCY {
+.jjsmki {
     margin-top: 20px !important;
 }
-.cIKpxU {
+.jvCTkj {
     display: none !important;
 }
-.gnwqMi {
+.hydYaP {
     white-space: nowrap !important;
     text-overflow: ellipsis !important;
     overflow: hidden !important;
 }
-.dark-theme .fQobA-d a {
+.dark-theme .coRwWl a {
     color: var(--dark-color) !important;
 }
-.dark-theme .cpmrzq {
+.dark-theme .kbclIT {
     color: var(--dark-color) !important;
 }
 .bmdb__mark {
     color: var(--light-background);
     font-size: 1.3rem;
     fill: rgb(255, 255, 255);
+}
+.dark-theme .bmdb__mark {
+    color: var(--dark-background);
 }
 .bmdb__mark svg {
     vertical-align: text-bottom;
@@ -806,7 +809,9 @@ hr {
 }
 .bmdb__mark:hover {
     color: var(--light-color);
-    fill: rgba(0, 0, 0, 1);
+}
+.dark-theme .bmdb__mark:hover {
+    color: var(--dark-color);
 }
 /* 首页嘀咕样式 JSON 版 */
 .index-talk {
@@ -2251,7 +2256,7 @@ photos .photo:last-child {
 }
 .hitsAlgolia small {
     color: #5b7083 !important;
-    font-size: .875em !important;
+    font-size: 0.875em !important;
 }
 @media only screen and (max-width: 683px) {
     .searchAlgolia,
