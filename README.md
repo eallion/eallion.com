@@ -4,7 +4,7 @@
 
 ### Build status
 
-[![构建状态](https://eallion.coding.net/badges/eallion/job/243839/build.svg)](https://eallion.coding.net/p/eallion/ci/job) [![Build Hugo and Deploy](https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.com/actions/workflows/main.yml)
+[![构建状态](https://eallion.coding.net/badges/eallion/job/243839/main/build.svg)](https://eallion.coding.net/p/eallion/ci/job) [![Build Hugo and Deploy](https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.com/actions/workflows/main.yml)
 
 ### Any questions?
 
@@ -122,11 +122,15 @@ git push
 ```
 
 ### 安装插件
+
+新环境可选安装，没有必须安装的插件。
+
 1. **安装插件**
 
 > 可将 `-g` 改为 `--save-dev` 或 `-D`
 
 ```
+npm install --save-dev postcss
 npm install -g commitizen
 npm install -g cz-conventional-changelog
 npm install -g conventional-changelog-cli
