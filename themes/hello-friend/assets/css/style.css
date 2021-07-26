@@ -618,6 +618,7 @@ figure img {
     }
 }
 code {
+    font-feature-settings: normal;
     font-family: "JetBrains Mono", "Source Code Pro", Consolas, Monaco,
         Andale Mono, Ubuntu Mono, monospace;
     background: var(--light-background-secondary);
@@ -631,6 +632,7 @@ code {
     background: var(--dark-background-secondary);
 }
 pre {
+    font-feature-settings: normal;
     background: #212020;
     padding: 20px;
     border-radius: 8px;
