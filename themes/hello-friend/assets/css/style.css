@@ -1380,7 +1380,7 @@ html:not([data-scroll="0"]) .header__talk button {
     align-items: center;
     font-size: 0.875em;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 40px 0;
     flex-grow: 0;
     color: #222;
     width: 100%;
@@ -2220,4 +2220,46 @@ photos .photo:last-child {
 }
 .pth {
     width: 100px;
+}
+/* Algolia */
+.searchAlgolia,
+.paginationAlgolia,
+.hitsAlgolia {
+    width: 760px !important;
+    max-width: 760px !important;
+}
+.searchAlgolia {
+    min-height: 300px;
+    margin-top: 20px !important;
+    text-align: left;
+}
+.paginationAlgolia {
+    margin-top: 40px !important;
+    display: flex !important;
+    display: -webkit-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+.searchboxAlgolia {
+    margin-bottom: 20px !important;
+}
+.hitsAlgolia .algolia-content {
+    font-size: 1.2em !important;
+    line-height: 2.2 !important;
+}
+.hitsAlgolia small {
+    color: #5b7083 !important;
+    font-size: .875em !important;
+}
+@media only screen and (max-width: 683px) {
+    .searchAlgolia,
+    .paginationAlgolia,
+    .hitsAlgolia {
+        width: 95% !important;
+        max-width: 680px !important;
+    }
+    .hitsAlgolia,
+    .paginationAlgolia {
+        width: 100% !important;
+    }
 }

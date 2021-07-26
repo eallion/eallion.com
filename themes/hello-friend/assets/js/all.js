@@ -43,7 +43,7 @@ jQuery(document).ready(function ($) {
     $(".post-content a[rel!=link]:has(img:not(.non-box))").slimbox();
     //相对时间
     //$.lately({ 'target': '.post-date' });
-    //文章toc固定
+    //文章 toc 固定
     var nav = $(".tocify");
     if (nav.length > 0) {
         nav.removeClass("hide");
@@ -155,6 +155,7 @@ $(document).ready(function () {
     if ($("#index-talk").length > 0) {
         jsonUrl = "https://6561-eallion-8gkunp4re49bae66-1251347414.tcb.qcloud.la/json/talks.json"
         $.getJSON(jsonUrl + "?t=" + Date.parse(new Date()), function (res) {
+            var bberCount = res.count;
             var talksHtml = ''
             $.each(res.data, function (i, item) {
                 d = new Date(item.date)

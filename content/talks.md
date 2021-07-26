@@ -1,6 +1,6 @@
 ---
 title: "嘀咕"
-layout: "talk"
-type: 'talk'
+layout: "talks"
+type: 'talks'
 Comments: false
 ---
