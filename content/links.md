@@ -70,3 +70,4 @@ Comments: false
 {{< friend des="foolishfox.cn" url="https://foolishfox.cn/" src="https://sdn.geekzu.org/avatar/53bc457fbba563ce1ce80edda8310241?d=identicon" name="FF" >}}
 {{< friend des="keyiqingxin.cn" url="https://www.keyiqingxin.cn/" src="https://cdn.jsdelivr.net/gh/milkdue/cdn@1.1/img/avatar.jpg" name="可以清心" >}}
 {{< friend des="blog.zhheo.com" url="https://blog.zhheo.com/" src="https://blog.zhheo.com/img/avatar.png" name="Heo" >}}
+{{< friend des="bore.vip" url="https://bore.vip/" src="https://cdn.jsdelivr.net/gh/iwyang/pic/avatar.jpg" name="Bore’s Note" >}}
