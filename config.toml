@@ -1,0 +1,184 @@
+baseURL  =  "https://eallion.com"
+languageCode = "zh-cn"
+DefaultContentLanguage = "zh-cn"
+title  =  "大大的小蜗牛"
+theme  =  "hello-friend"
+timezone = "Asia/Shanghai"
+hasCJKLanguage = true
+summaryLength = 226
+# 每页显示的文章数量用于分页
+paginate = 8
+# rss 输出数量
+rssLimit = 10
+rssFullText = true
+rssImage = ""
+# uglyurls = true
+
+enableEmoji = true
+enableGitInfo = true
+
+[permalinks]
+  posts = "/:slug/" # Don't miss the last slash: "/"
+  tags = "/tags/:slug/" # Don't miss the last slash: "/"
+
+[params]
+  # copyright = ""
+  # dir name of your blog content (default is `content/posts`)
+  contentTypeName = "posts"
+  # "light" or "dark"
+  defaultTheme = "light"
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 4
+  # Enable to show reading time in minutes for posts
+  showReadingTime = true
+  minuteReadingTime = "分钟阅读"
+  # lastModDisplay = "更新："
+  logoText = "hello friend"
+  logoHomeLink = "/"
+
+  MenuMore = "更多"
+  DateFormatList = "2006-01-02 15:04:05"
+  DateFormatSingle = "2006-01-02 15:04:05"
+  ReadMore = "阅读全文"
+
+  title  =  "大大的小蜗牛"
+  subtitle = "机会总是垂青于有准备的人"
+  keywords = "蜗牛,大大的小蜗牛,eallion,snail,woniu,Charles,Chin,博客,静态博客,电商,代码,运营,电子商务,电商,嘀咕,hugo,code"
+  description = "A blog about Charles eallion Chin. 大大的小蜗牛的个人博客。—— 机会总是垂青于有准备的人"
+  author = "Charles Chin"
+  theme  =  "hello-friend"
+
+  GitRepo = "https://github.com/eallion/eallion.com"
+  Commit = "https://github.com/eallion/eallion.com/tree/" # Don't miss the last slash: "/"
+  EditPath = 'https://github.com/eallion/eallion.com/edit/main/content/' # Don't miss the last slash: "/"
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+  unsafe = true
+
+[outputs]
+  home = ["Atom", "HTML", "JSON", "AMP",]
+  page = ["HTML"]
+
+[outputFormats.Atom] # <domain>/atom.xml
+  mediatype = "application/rss"
+  baseName = "atom"
+
+[outputFormats.AMP]
+  mediaType = "text/html"
+  isPlainText = false
+  isHTML = true
+
+[params.mdview] # View original markdown of post on GitHub
+  enable = true
+  ContentPath = 'https://raw.githubusercontent.com/eallion/eallion.com/main/content/' # Don't miss the last slash: "/"
+
+[params.waline]
+  enable = false
+  version = '1.3.1'
+
+[params.twikoo]
+  enable = true
+  version = '1.4.1'
+
+[params.disqus]
+  enable = false
+  version = '1.3'
+
+[params.utterances]
+  enable = false
+
+[params.noticeable]
+  enable = false
+  id = "a0yLJIkjSFFgsQ1IIqT8"
+
+[params.fontawesome]
+  enable = false
+  version = "5.15.3"
+
+[params.iconfont]
+  enable = true
+  id = 'font_2661996_jdkkxqlqwwf' # Pathname as 'font_2661996_csumigyjz7t' of '//at.alicdn.com/t/font_2661996_csumigyjz7t.css'.
+
+[Author]
+  name = "Charles Chin"
+  website = "https://eallion.com/"
+  # Alphabetically #
+  #bandcamp = "username"
+  #bitbucket = "username"
+  #douban = "username"
+  #douyin = "QRurl" QRurl as "https://cdn.example.com/douyin.png"
+  email = "eallions@gmail.com"
+  #facebook = "eallion"
+  github = "eallion"
+  #gitlab = "eallion"
+  #instagram = "eallion"
+  #itchio = "username"
+  #mastodon = "mastodon.social/@eallion"
+  #reddit = "eallion"
+  twitter = "eallion"
+  #linkedin = "eallion"
+  #paypal = "eallion"
+  #pinterest = "eallion"
+  #QQ = "NumbleID" # QQ NumID as 1008610010
+  #snapchat = "username"
+  stackoverflow = "11409594/eallion"
+  steam = "eallion"
+  telegram = "eallion"
+  #tieba = "username"
+  #tiktok = "QRurl" QRurl as "https://cdn.example.com/tiktok.png"
+  #youtube = "user/gnusupporter" # or channel/channelname
+  #soundcloud = "username"
+  spotify = "eallion"
+  #vk = "username"
+  #wechat = "QRurl" # QRurl as "https://cdn.example.com/wechat.png"
+  #weibo = "eallion"
+  #xing = "username"
+  #zhihu = "woniu"
+
+[menu]
+  ## main menu
+  [[menu.main]]
+  name="嘀咕"
+  url="/talk/" # Don't miss the last slash: "/"
+  weight="1"
+  [[menu.main]]
+  name="归档"
+  url="/archives/"
+  weight="2"
+  [[menu.main]]
+  name="友链"
+  url="/links/"
+  weight="3"
+  [[menu.main]]
+  name="关于"
+  url="/about/"
+  weight="4"
+  ## sub menu
+  [[menu.main]]
+  name="观影"
+  url="/movies/"
+  weight="11"
+  [[menu.main]]
+  name="阅读"
+  url="/books/"
+  weight="12"
+  ## more menu
+  [[menu.main]]
+  name="日记"
+  url="/posts/daily/"
+  weight="21"
+  ## external menu
+  [[menu.main]]
+  name="版权"
+  url="/copyright/"
+  weight="31"
+  [[menu.main]]
+  name="隐私"
+  url="/privacy-policy/"
+  weight="32"
+  [[menu.main]]
+  name="订阅"
+  url="/atom.xml"
+  weight="33"

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="{{ $.Site.Language }}">
+<head>
+    <title>{{ if .IsHome }}{{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ else }}{{ .Title }} - {{ $.Site.Title }}{{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ end }}</title>
+    {{ partial "head.html" . }}
+</head>
+<body class="{{ if ne $.Site.Params.defaultTheme "light" -}} dark-theme {{- end -}}">
+    <div class="container">
+        <header id="header">
+            <span class="header__inner">
+                <a href="{{ if $.Site.Params.Logo.LogoHomeLink }}{{ $.Site.Params.Logo.LogoHomeLink }}{{ else }}{{ $.Site.BaseURL }}{{ end }}" class="logo">
+                    {{ if $.Site.Params.Logo.path }}
+                        <img src="{{ $.Site.Params.Logo.path }}" alt="{{ $.Site.Params.Logo.alt }}"/>
+                    {{ else }}
+                        <span class="logo__text">{{ $.Site.Title }}</span>
+                        <span class="logo__text logo__texts">:~$</span>
+                        <span class="logo__cursor"></span>
+                    {{ end }}
+                </a>
+                <span class="header__right">
+                    {{ if len $.Site.Menus }}
+                    <nav class="menu hidden">
+                        <ul class="menu__inner menu__inner--desktop">
+                            {{ if or $.Site.Params.showMenuItems (eq $.Site.Params.showMenuItems 0) }}
+                                {{ range first $.Site.Params.showMenuItems $.Site.Menus.main }}
+                                    {{ if not .HasChildren }}
+                                        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                                    {{ end }}
+                            {{ end }}
+                            {{ if gt (len $.Site.Menus.main) $.Site.Params.showMenuItems }}
+                            <li>
+                                <ul class="menu__sub-inner">
+                                    <li class="menu__sub-inner-more-trigger">
+                                        {{ $.Site.Params.MenuMore | default "Show more" }}
+                                        <span class="menu__sub-inner-more-trigger-icon"
+                                            >{{ partial "greater-icon.html" . }}</span
+                                        >
+                                    </li>
+                                    <li>
+                                        <ul class="menu__sub-inner-more hidden">
+                                            {{ range last (sub (len $.Site.Menus.main) $.Site.Params.showMenuItems) $.Site.Menus.main }}
+                                                {{ if not .HasChildren }}
+                                                    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                                                {{ end }}
+                                            {{ end }}
+                                            <li>
+                                                <a
+                                                    href="https://s.eallion.com/"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    >导航</a
+                                                >
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            {{ end }}
+                            {{ else }}
+                                {{ range $.Site.Menus.main }}
+                                    {{ if not .HasChildren }}
+                                        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                                    {{ end }}
+                                {{ end }}
+                            {{ end }}
+                            <li>
+                                <a href="/talks/" aria-label="Search" class="search-trigger"
+                                    ><i class="iconfont icon-search"></i
+                                ></a>
+                            </li>
+                        </ul>
+                        <ul class="menu__inner menu__inner--mobile">
+                            <li><span class="search-scroll"><a href="/talks/" aria-label="Search" class="search-trigger"><i class="iconfont icon-search"></i> 搜索</a></span></li>
+                            {{ range $.Site.Menus.main }}
+                                {{ if not .HasChildren }}
+                                    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+                                {{ end }}
+                            {{ end }}
+                            <li>
+                                <a
+                                    href="https://s.eallion.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >导航</a
+                                >
+                            </li>
+                        </ul>
+                    </nav>
+                    <span class="menu-trigger hidden">
+                        <i class="iconfont icon-menu"></i>
+                    </span>
+                    {{ end }}
+                    <span class="theme-toggle">
+                        <i class="iconfont icon-dark"></i>
+                    </span>
+                </span>
+            </span>
+        </header>
+    <div class="index-talk">
+        <span><i class='iconfont icon-line-quote'></i></span>
+        <ul class="talk-list">
+            <li class="item"><span class="index-talks"><a href="https://gushi.ci/" target="_blank" rel="noopener noreferrer">古诗词</a>：</span><span id="gushici" class="poem_sentence">正在加载古诗词......</span><span id="poem_info" class="poem_info"></span></li>
+        </ul>
+        <button>×</button>
+    </div>
+    <div class="content">
+        <div class="post talk-title">
+            <h2 class="post-title">{{ .Title }}</h2>
+            <div class="post-content">
+                <blockquote class="hidden">我按我的兴趣写，你用你的智商读。我没有兴趣误导谁，嘀咕页面谢绝互动。</blockquote>
+                <blockquote class="hidden">独立域名：<a href="https://e5n.co/" target="_blank" rel="noopener noreferrer">https://e5n.co</a></blockquote>
+                <p class="count">共嘀咕了<span class="count-data">0</span>条：</p>
+                <section class="timeline">
+                <ul>
+                    <div class="list"></div>
+                </ul>
+                </section>
+                <div class="load">
+                <button class="load-btn button-load">加载更多</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ $scratch := newScratch }}
+        {{ range (where .Site.Pages "Kind" "page" ) }}
+            {{ $scratch.Add "total" .WordCount }}
+        {{ end }}
+
+    <footer class="footer">
+        <div class="footer__inner">
+        {{ if $.Site.Copyright }}
+            <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
+        {{ else }}
+        <div class="footer__title">
+            <span class="footer__title-h">
+                {{ range .Site.Data.hellofriend.social.social_icons }} {{- if isset $.Site.Author .id }}
+                <a
+                    href="{{ printf .url (index $.Site.Author .id) }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="{{ .title }}"
+                >
+                    <i class="{{ .icon }}"></i>
+                </a>
+                {{- end -}} {{ end }}
+            </span>
+            <hr />
+        </div>
+        <div class="copyright words">
+            <span
+                >共 {{ len (where .Site.RegularPages "Section" "posts") }}
+                篇文章</span
+            ><span>约 {{ $scratch.Get "total" }} 字</span>
+        </div>
+        <div class="copyright">
+            <span
+                >&copy; {{ now.Year }}
+                <a
+                    href="https://eallion.com/copyright/"
+                    target="_self"
+                    rel="noopener noreferrer"
+                    >eallion.com</a
+                >, All Rights Reserved.</span
+            >
+        </div>
+        <div class="copyright">
+            <span>
+                Powered by <i class="iconfont icon-Hugo"></i>
+                <a
+                    href="https://gohugo.io/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Hugo (v{{ .Site.Hugo.Version }})</a
+                >, Themed by
+                <a
+                    href="https://github.com/panr/hugo-theme-hello-friend"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Hello Friend</a
+                >, Made with <i class="iconfont icon-love"></i>
+                {{ if .GitInfo }}
+                by [<a
+                    href="{{ .Site.Params.Commit }}{{ .GitInfo.Hash }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >{{- .GitInfo.AbbreviatedHash -}}</a
+                >]{{- end -}}.
+            </span>
+        </div>
+        <div class="copyright">
+            <span>
+                Licensed under
+                <span>
+                    <a
+                        href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >BY-NC-SA 4.0</a
+                    ></span
+                >,
+                <span
+                    ><a
+                        href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >MIT</a
+                    ></span
+                >,
+                <span>
+                    <a
+                        href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Apache-2.0</a
+                    ></span
+                >.
+            </span>
+        </div>
+        <div class="copyright">
+            <span
+                ><i class="iconfont icon-icp"></i>
+                <a
+                    href="https://beian.miit.gov.cn/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >浙ICP备16031768号-2</a
+                >
+                <i class="iconfont icon-privacy"></i>
+                <a
+                    href="https://eallion.com/privacy-policy/"
+                    target="_self"
+                    rel="noopener noreferrer"
+                    >隐私政策</a
+                >
+            </span>
+        </div>
+        {{ end }}
+        </div>
+    </footer>
+
+    <a class="to-top back-to-top"><i class="iconfont icon-up"></i></a>
+
+    {{ partial "footer-js.html" . }}
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TencentCloudBase/tcb-js-sdk@master/tcbjs/1.10.10/tcb.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/buddys/qq-wechat-emotion-parser@master/dist/qq-wechat-emotion-parser.min.js"></script>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', 'https://v1.jinrishici.com/shuqing/youqing.json');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+            var data = JSON.parse(xhr.responseText);
+            var gushici = document.getElementById('gushici');
+            var poem_info = document.getElementById('poem_info');
+            gushici.innerHTML = '『' + '<a href="https://www.google.com/search?q=' + data.content + '" target="_blank" rel="noopener noreferrer">' +data.content + '</a>' + '』';
+            poem_info.innerHTML = '— ' + '<a href="https://www.google.com/search?q=' + data.author + ' ' + data.origin + '" target="_blank" rel="noopener noreferrer">' + data.author + '《' + data.origin + '》' + '</a>';
+            }
+        };
+        xhr.send();
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            //点击关闭嘀咕 Widget
+            $('button').click(function(){
+            $(this).parents('.index-talk').remove();
+            });
+        });
+    </script>
+    <script>
+        //初始化
+        const app = tcb.init({
+          env: 'eallion-8gkunp4re49bae66' //这里是你的环境id
+        })
+        app.auth({
+            persistence: "none"
+        }).anonymousAuthProvider().signIn().then(() => {
+            //定义数据对象
+            const db = app.database()
+            //选择数据表
+            const collection = db.collection('talks')
+            /**
+             * 定义基本变量
+             * count | int, 数目
+             * per | int, 每页显示项目数
+             * page | int, 第几页
+             */
+            var count=0, per = 10,page = 1
+            /**
+             * 获取数目
+             */
+            collection.count(function(err,res){
+            count = res.total
+            $('.count-data').text(count)
+            getList()
+            })
+            /**
+             * 封装获取数据函数
+             */
+            function getList(){
+            if((page-1)*per >= count){
+                return
+            }
+            var date
+            collection.limit(per).skip((page-1)*per).orderBy('date','desc').get(function(err, res) {
+                (res.data).forEach(item => {
+                date = item.date
+                content = urlToLink(item.content)
+                $('.list').append('<li class="item"><div><p>'+content+'</p><time class="date"><small>'+`${(date.getHours() + 1) <= 12 ? '上午' : '下午'}`+`${(date.getHours() + 1) <= 10 ? ('0' + date.getHours()) : date.getHours()}`+':'+`${(date.getMinutes() + 1) <= 10 ? ('0' + date.getMinutes()) :date.getMinutes()}`+' · '+date.getFullYear()+'年'+(`${(date.getMonth() + 1) < 10 ? ('0' + (date.getMonth()+1)) :date.getMonth()+1}`)+'月'+`${(date.getDate() + 1) < 10 ? ('0' + date.getDate()) :date.getDate()}`+'日 '+' ·「'+item.from+'」</small></time></div></li>')
+                });
+                if(page*per >= count){
+                $('.load').remove()
+                return
+                }
+                page++
+                $(".post-content a[rel!=link]:has(img)").slimbox();//图片灯箱效果
+            });
+            }
+            $('.button-load').click(function(){getList()})
+        }).catch(err => {
+            console.log(err)
+        });
+
+        // 图片和链接
+        function urlToLink(str) {
+            //去除<img>标签，留 src 链接
+            var re_forimg =/\<[img|IMG].*?src=[\'|\"](https\:\/\/.*?(?:[\.jpg|\.jpeg|\.png|\.gif|\.webp|\.bmp]))[\'|\"].*?[\/]?>/g;
+            str =str.replace(re_forimg,'$1');
+            //去 ![]() 标签，留图片链接
+            var re_formd = /^!\[(.*)\]\((.*)\)/g;
+            str = str.replace(re_formd,'$2');
+            //处理图片链接，添加 a 标签共添加灯箱效果
+            var re_forpic =/\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(bmp)|(webp))/g;
+            str =str.replace(re_forpic,function (imgurl) {
+            return "<a href='" + imgurl + "' rel='noopener noreferrer'><img loading='lazy' src='" + imgurl + "' ></a>";
+            });
+            //处理普通链接，添加 a 标签供跳转
+            var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
+            str =str.replace(re,function (website) {
+            return "🔗<a href='" + website + "' target='_blank' rel='noopener noreferrer'>链接</a>";
+            });
+            //微信表情
+            str = qqWechatEmotionParser(str)
+            return str;
+        }
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+    <script type="text/javascript">pangu.spacingElementByClassName('post-content');</script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script>
+        // Check that service workers are registered
+        if ('serviceWorker' in navigator) {
+          // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+
+    {{- if .Site.Params.noticeable.enable -}}
+    <script>
+        !function(){'use strict';var e=['debug','destroy','do','help','identify','is','off','on','ready','render','reset','safe','set'];if(window.noticeable)console.warn('Noticeable SDK code snippet loaded more than once');else{var n=function(e){return function(){var n=Array.prototype.slice.call(arguments);return n.unshift(e),t.push(n),t}},t=window.noticeable=window.noticeable||[];!function(){for(var o=0;o<e.length;o++){var r=e[o];t[r]=n(r)}}(),function(){var e=document.createElement('script');e.async=!0,e.src='https://sdk.noticeable.io/l.js';var n=document.head;n.insertBefore(e,n.firstChild)}()}}();
+        noticeable.render('widget', '{{ .Site.Params.noticeable.id }}');
+    </script>
+    {{ end }}
+
+    </div>
+</body>
+</html>

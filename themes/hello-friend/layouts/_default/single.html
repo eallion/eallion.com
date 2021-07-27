@@ -1,0 +1,151 @@
+{{ define "head" }}
+  {{ if .Next -}}<link rel="prefetch" href="{{ .Next.Permalink }}">{{- end }}
+  {{ if .Prev -}}<link rel="prefetch" href="{{ .Prev.Permalink }}">{{- end }}
+{{ end }}
+
+{{ define "main" }}
+  {{ $contentTypeName :=$.Site.Params.contentTypeName }}
+
+  <div class="posts post">
+    <!-- {{ partial "breadcrumb.html" . }} -->
+    <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
+    <div class="post-meta">
+      {{ if .Date | default nil }}
+      <span class="post-meta-date">
+        <span>
+            <i class="iconfont icon-archive"></i>
+        </span>
+        <span>
+          {{ .Date.Format "2006年01月02日" }}
+        </span>
+      </span>
+      <!--
+        {{ if eq .Type $contentTypeName }}
+          {{ if $.Site.Params.LastModDisplay }}
+            {{ partial "lastmod.html" . }}
+          {{ end }}
+        {{ end }}
+      -->
+      {{ end }}
+
+      {{- if .Site.Params.mdview.enable -}}
+        <span class="post-meta-md">
+          <span>
+            <i class="iconfont icon-markdown"></i>
+            </span>
+          <span><a href='{{ .Site.Params.mdview.ContentPath }}{{ replace .File.Path "\\" "/" }}' target="_blank" rel="noopener noreferrer">查看 Markdown 版本</a></span>
+        </span>
+      {{ end }}
+
+      {{ if $.Site.Params.ShowReadingTime }}
+        <span class="post-read-time">
+          <span>
+            <i class="iconfont icon-time-sort"></i>
+            </span>
+          <span>{{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span><span>，约 {{ .WordCount }} 字</span>
+        </span>
+      {{ end }}
+
+      {{- if .Site.Params.waline.enable -}}
+        <span class="post-meta-view">
+          <span>
+            <i class='iconfont icon-view'></i>
+          </span>
+          <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> <span>次浏览</span></span>
+        </span>
+      {{ end }}
+
+      {{- if .Site.Params.twikoo.enable -}}
+        <span class="post-meta-view">
+          <span>
+            <i class='iconfont icon-view'></i>
+          </span>
+          <span id="twikoo_visitors">0</span> <span>次浏览</span>
+        </span>
+      {{ end }}
+
+    </div>
+
+    {{ if eq .Type "posts" -}}
+    {{ $ageDays := div (sub now.Unix .Date.Unix) 86400 }}
+      {{ if gt $ageDays 180 }}
+        <p class="expired-tips"> 提醒：本文发布于&nbsp;{{ $ageDays }}&nbsp;天前，文中所描述的信息可能已发生改变，请谨慎参考。</p>
+      {{ end }}
+    {{ end }}
+
+    {{ if .Params.feature }}
+      {{ if .Params.UseRelativeCover }}
+        <img loading='lazy' src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover" >
+      {{ else }}
+        <img loading='lazy' src="{{ .Params.feature | absURL }}" class="post-cover" >
+      {{ end }}
+    {{ end }}
+
+    <div class="post-content">
+      {{ .Content }}
+      {{ .Render "path" }}
+    </div>
+
+    {{ if .Params.toc }}
+      <div class="tocify">目录：{{- partial "toc.html" . -}}</div>
+    {{ end }}
+
+    {{ if .Params.tags }}
+      <span class="post-tags">
+      <span>Tags:</span>
+        {{ range .Params.tags }}
+          #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
+        {{ end }}
+      </span>
+    {{ end }}
+
+    {{ if eq .Type $.Site.Params.contentTypeName }}
+      <div class="post-copyright">
+        <p>本文发表于 {{ .Date.Format "2006年01月02日" }} ，共计约 {{ .WordCount }} 字 </p>
+        <p>本文链接：<a href="{{ .Permalink }}">{{ .Permalink }}</a></p>
+        <p>转载标题：<a href="{{ .Permalink }}">《{{ .Title | markdownify }}》</a>- 大大的小蜗牛</p>
+        <p>作品采用：<a target="_blank" rel="license nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享（CC BY-NC-SA 4.0）许可协议</a>进行许可</p>
+      </div>
+    {{ end }}
+
+    <div class="clear"></div>
+
+    {{ if eq .Type $.Site.Params.contentTypeName }}
+      {{ if or .Next .Prev }}
+        <div class="pagination">
+          <div class="pagination__title">
+            {{ if and .File .Site.Params.EditPath }}
+              <a class="pagination__title-h" href='{{ $.Site.Params.EditPath }}{{ replace .File.Path "\\" "/" | default "/" }}' target="_blank" rel="noopener noreferrer">阅读更多</a>
+            {{ end }}
+            <hr >
+          </div>
+          <div class="pagination__buttons">
+            {{ if .Next }}
+              <span class="button previous">
+                <a href="{{ .Next.Permalink }}">
+                  <span class="button__icon"><i class="iconfont icon-left"></i></span>
+                  <span class="button__text">{{ .Next.Title }}</span>
+                </a>
+              </span>
+            {{ end }}
+            {{ if .Prev }}
+              <span class="button next">
+                <a href="{{ .Prev.Permalink }}">
+                  <span class="button__text">{{ .Prev.Title }}</span>
+                  <span class="button__icon"><i class="iconfont icon-right"></i></span>
+                </a>
+              </span>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+
+    {{ if not (eq .Params.Comments "false") }}
+      {{ if or (eq .Type $.Site.Params.contentTypeName) (.Params.Comments) }}
+        {{ partial "comments.html" . }}
+      {{ end }}
+    {{ end }}
+
+    </div>
+{{ end }}
