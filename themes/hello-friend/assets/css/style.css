@@ -670,6 +670,7 @@ blockquote {
         padding: 10px;
     }
 }
+/*
 blockquote:before {
     content: "\201D";
     font-family: Georgia, serif;
@@ -678,6 +679,7 @@ blockquote:before {
     left: -40px;
     top: -20px;
 }
+*/
 blockquote p:first-of-type {
     margin-top: 0;
 }
