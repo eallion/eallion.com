@@ -1,10 +1,20 @@
-# [](https://github.com/eallion/eallion.com/compare/v1.0.6...v) (2021-07-18)
+# [1.0.0](https://github.com/eallion/eallion.com/compare/1.0.7...1.0.0) (2021-07-27)
+
+
+
+## [1.0.7](https://github.com/eallion/eallion.com/compare/v1.0.6...1.0.7) (2021-07-27)
 
 
 ### Bug Fixes
 
+* **blockquote:** remove :before of blockquote ([d46eae2](https://github.com/eallion/eallion.com/commit/d46eae258e6e9f98805427b700d433b371a6cd1b))
+* **bmdb:** fix bmdb something ([464ce49](https://github.com/eallion/eallion.com/commit/464ce494c1cc289734904cfd4ef59ee4afd78756)), closes [#3](https://github.com/eallion/eallion.com/issues/3)
 * **content:** typo ([8e52b6d](https://github.com/eallion/eallion.com/commit/8e52b6d333e72eddc46fc6a752aa8f9392e049bb))
 * **css:** fix a bug ([c9e9373](https://github.com/eallion/eallion.com/commit/c9e93731c73bc9f2b1bab5f5c1a72771bcc7cbc7))
+* **date:** fix lastmod date time ([8c48661](https://github.com/eallion/eallion.com/commit/8c486619d762f27e13f1e63299a30dd00199d6f6))
+* **img:** img display block ([c25291d](https://github.com/eallion/eallion.com/commit/c25291d9754132e8f45c2093cb3c7e2f22324c1e))
+* **img:** max height and width of talk img ([3e2aa3a](https://github.com/eallion/eallion.com/commit/3e2aa3afc2cdb71adab1e4a22d601949533e449c))
+* **index:** hide posts on index page ([7993f59](https://github.com/eallion/eallion.com/commit/7993f590a0cc874c32d278263c5e6c5a93e0ce0c))
 * **link:** fix a link discernible name ([f72bfc3](https://github.com/eallion/eallion.com/commit/f72bfc329f7289b30fc5abd91bdf629e582bff1b))
 * **talk:** fix go to top icon ([4c10599](https://github.com/eallion/eallion.com/commit/4c105995e556e3082cae8c127882961abef766ea))
 
@@ -13,10 +23,18 @@
 
 * **posts:** enable view plain markdown on github ([0bb4245](https://github.com/eallion/eallion.com/commit/0bb4245b77f60fd928ecf73f75818d795cc4e3fe))
 * **posts:** view plain markdown on github ([59965b2](https://github.com/eallion/eallion.com/commit/59965b280d9e2c6595a4e6eef5a69f448d9ff268))
+* **provicy:** show live ua on provicy page ([bcec7d6](https://github.com/eallion/eallion.com/commit/bcec7d682960bd4731af91f429e6a0b92ea5a0f9))
+* **talks:** demo add algolia search for talks ([ea0fdb9](https://github.com/eallion/eallion.com/commit/ea0fdb933066b347a5207e031f8cbcda33b52ff9))
+* **twikoo:** enable slimbox2 for twikoo img ([425f089](https://github.com/eallion/eallion.com/commit/425f089768d473878f22b8ef6b26d87c32997ad4))
+* **twikoo:** twikoo magic path ([98d6e87](https://github.com/eallion/eallion.com/commit/98d6e87cd24ed7807dade71d6b165f663b98d2eb))
 
 
 ### Performance Improvements
 
+* **bmdb:** iMuFeng/bmdb version bump to 3.4.0 ([e9f5298](https://github.com/eallion/eallion.com/commit/e9f52980dd1dfcccd188005072bf3bdb4451589c))
+* **cache:** disable cache ([d5b54a8](https://github.com/eallion/eallion.com/commit/d5b54a8502b48405338d4b7bb6419d88366c425f))
+* **link:** preload prefetch preconnect ([4d7a6dc](https://github.com/eallion/eallion.com/commit/4d7a6dca8f4e82aa8a4bf68150965a4cb7ec8ff4))
+* **sytle:** add font-feature-settings: normal to code and pre ([9149bef](https://github.com/eallion/eallion.com/commit/9149bef52da3bf73652950827e5463413f6eb6b4))
 * **talk:** persistence to none ([0f2a556](https://github.com/eallion/eallion.com/commit/0f2a556a6c5662e3d095f40a06e8d6852cf33f79))
 
 
