@@ -1,0 +1,78 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<meta name="force-rendering" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
+<meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.Description }}{{ else }}{{ .Summary | plainify }}{{ end }}">
+<meta name="keywords" content="{{ $.Site.Params.Keywords }},{{ with .Params.tags }}{{ delimit . "," }}{{ end }}">
+<meta name="referrer" content="same-origin" >
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fafafa"/>
+<link rel="manifest" href="/manifest.json" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="{{ .Permalink }}" >
+
+<link rel="preconnect" href="https://sdn.geekzu.org" crossorigin="anonymous">
+<link rel="preconnect" href="https://at.alicdn.com" crossorigin="anonymous">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous">
+<link rel="preconnect" href="https://6561-eallion-8gkunp4re49bae66-1251347414.tcb.qcloud.la" crossorigin="anonymous">
+<link rel="preconnect" href="https://tcb-api.tencentcloudapi.com" crossorigin="anonymous">
+
+<!-- Google Fonts -->
+<!--
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Noto+Serif+SC&display=swap" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Noto+Serif+SC&display=swap" media="print" onload="this.media='all'" crossorigin="anonymous">
+<noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&family=Noto+Serif+SC&display=swap" crossorigin="anonymous">
+</noscript>
+-->
+
+<!-- 自己代理的 Google 字体 -->
+<!--
+<link rel="preconnect" href="https://static.eallion.com">
+<link rel="preload stylesheet" href="https://static.eallion.com/fonts/fonts.css" as="style" type="text/css" media="print" onload="this.media='all'">
+-->
+
+<!-- 极客族加速 Google Fonts -->
+<!--
+<link rel="preconnect" href="https://fonts.geekzu.org">
+<link href="https://fonts.geekzu.org/css2?family=JetBrains+Mono:wght@300&family=Noto+Serif+SC&display=swap" rel="stylesheet">
+-->
+
+<!-- IE 弹窗提示 -->
+<script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) document.write('\x3Cscript id="_iealwn_js" data-outver="11" src="https://cdn.jsdelivr.net/npm/ie-alert-warning@1.1.1/latest.js">\x3C/script>'); </script>
+
+{{ $maincss := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
+
+{{- if .Site.Params.fontawesome.enable -}}
+<link as="style" rel="stylesheet preload prefetch" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ .Site.Params.fontawesome.version }}/css/all.min.css?display=swap" type="text/css" crossorigin="anonymous">
+<link rel='stylesheet' href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ .Site.Params.fontawesome.version }}/css/all.min.css?display=swap" media="print" onload="this.media='all'" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+<noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{ .Site.Params.fontawesome.version }}/css/all.min.css?display=swap" >
+</noscript>
+{{ end }}
+
+{{- if .Site.Params.iconfont.enable -}}
+<link rel="preload" href="//at.alicdn.com/t/{{ $.Site.Params.iconfont.id }}.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+{{ $iconfontcss := resources.Get "css/iconfont.css" | resources.Minify  }}
+<link rel="stylesheet" href="{{ $iconfontcss.RelPermalink }}" crossorigin="anonymous">
+<noscript>
+    <link rel="stylesheet" href="{{ $iconfontcss.RelPermalink }}" crossorigin="anonymous">
+</noscript>
+{{ end }}
+
+<link rel="shortcut icon" href="https://eallion.com/favicon.ico" crossorigin="anonymous">
+<!-- OG data -->
+{{ template "_internal/opengraph.html" . }}
+<!-- Google Analytics -->
+{{ partial "analytics.html" . }}
+<!-- RSS | JSON -->
+{{ range .AlternativeOutputFormats -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" >` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+{{ end -}}
