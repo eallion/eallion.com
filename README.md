@@ -121,59 +121,6 @@ git commit --allow-empty -m "build: rerun github acions"
 git push
 ```
 
-### 安装插件
-
-新环境可选安装，没有必须安装的插件。
-
-1. **安装插件**
-
-> 可将 `-g` 改为 `--save-dev` 或 `-D`
-
-```
-npm install --save-dev postcss
-npm install -g commitizen
-npm install -g cz-conventional-changelog
-npm install -g conventional-changelog-cli
-npm install -g @commitlint/cli @commitlint/config-conventional
-echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
-npm install -g husky
-npx husky install
-npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
-```
-
-2. **规范提交**
-```
-git add .
-git cz
-# git commit -m "docs: post a new blog"
-git push
-```
-
-Types:
-
-```
-feat 新功能
-fix Bug 修复
-docs 文档更新
-style 代码的格式，标点符号的更新
-refactor 代码重构
-perf 性能优化
-test 测试更新
-build 构建系统或者包依赖更新
-ci CI 配置，脚本文件等更新
-chore 非 src 或者 测试文件的更新
-revert commit 回退
-```
-
-3. **生成 ChangeLog**
-
-```
-conventional-changelog -p angular -i CHANGELOG.md -s -r 0
-```
-以上命令中参数`-p angular` 用来指定使用的 commit message 标准，参数-`i CHANGELOG.md` 表示从 CHANGELOG.md 读取 ChangeLog, `-s` 表示读写 ChangeLog 为同一文件。其中 `-r` 表示生成 ChangeLog 所需要使用的 release 版本数量，默认为 1，全部则是 0。
-
-> revert 前的一些历史改动手动备份在 [CHANGELOG.bak](CHANGELOG.bak)
-
 ### 写新文章
 
 1. **生成新文章**
@@ -268,6 +215,66 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enabl
 
 2020.12.18 从腾讯云换到了 jsDelivr。
 </details>
+
+### 清理 Git 仓库
+```
+git rm -r --cached .
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
+```
+
+### 安装插件
+
+新环境可选安装，没有必须安装的插件。
+
+1. **安装插件**
+
+> 可将 `-g` 改为 `--save-dev` 或 `-D`
+
+```
+npm install --save-dev postcss
+npm install -g commitizen
+npm install -g cz-conventional-changelog
+npm install -g conventional-changelog-cli
+npm install -g @commitlint/cli @commitlint/config-conventional
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+npm install -g husky
+npx husky install
+npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
+```
+
+2. **规范提交**
+```
+git add .
+git cz
+# git commit -m "docs: post a new blog"
+git push
+```
+
+Types:
+
+```
+feat 新功能
+fix Bug 修复
+docs 文档更新
+style 代码的格式，标点符号的更新
+refactor 代码重构
+perf 性能优化
+test 测试更新
+build 构建系统或者包依赖更新
+ci CI 配置，脚本文件等更新
+chore 非 src 或者 测试文件的更新
+revert commit 回退
+```
+
+3. **生成 ChangeLog**
+
+```
+conventional-changelog -p angular -i CHANGELOG.md -s -r 0
+```
+以上命令中参数`-p angular` 用来指定使用的 commit message 标准，参数-`i CHANGELOG.md` 表示从 CHANGELOG.md 读取 ChangeLog, `-s` 表示读写 ChangeLog 为同一文件。其中 `-r` 表示生成 ChangeLog 所需要使用的 release 版本数量，默认为 1，全部则是 0。
+
+> revert 前的一些历史改动手动备份在 [CHANGELOG.bak](CHANGELOG.bak)
 
 #### PS：刷新 CDN
 
