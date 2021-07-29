@@ -30,6 +30,7 @@ jobs:
       - name: Build Hugo
         run: |
           hugo version
+          bash githash.sh
           hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
 
       - name: Deploy to GitHub Pages
