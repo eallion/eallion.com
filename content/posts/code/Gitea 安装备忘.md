@@ -108,6 +108,9 @@ ports:
 
 所以需要利用 Nginx 反代实现域名访问 Gitea，不然需要添加端口号才能访问，如：`https://git.eallion.com:3000`，这样的带有端口号的 URL 不美观。  
 反代配置：  
+
+> 官方文档：<https://docs.gitea.io/zh-cn/reverse-proxies/>
+
 ```conf
 server
 {
@@ -120,9 +123,6 @@ server
 # ......
 
 # 反代 Gitea 配置
-
-# 官方文档：<https://docs.gitea.io/zh-cn/reverse-proxies/>
-
 location /
 {
     proxy_pass http://127.0.0.1:3000;
