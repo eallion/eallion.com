@@ -2252,9 +2252,12 @@ photos .photo:last-child {
 .searchboxAlgolia {
     margin-bottom: 20px !important;
 }
-.hitsAlgolia .algolia-content {
+.hitsAlgolia p {
     font-size: 1.2em !important;
     line-height: 2.2 !important;
+    white-space: pre-wrap !important;
+    word-break:break-all !important;
+    word-wrap: break-word !important;
 }
 .hitsAlgolia small {
     color: #5b7083 !important;
