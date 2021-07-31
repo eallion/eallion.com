@@ -22,23 +22,70 @@
 > Coding.net： <https://e.coding.net/eallion/eallion.com/hugo.git>
 
 ### 添加备份仓库 Remote
-> default branch: main
-> remote url 传递 id:token 免输各个 git 仓库的账号密码
+
+> Remote url 传递 id:token 免输各个 git 仓库的账号密码
 
 ```
 git remote set-url --add --push origin https://id:token@github.com/eallion/eallion.com.git
+git remote set-url --add --push origin https://id:token@git.eallion.com/eallion/eallion.com.git
 git remote set-url --add --push origin https://id:token@e.coding.net/eallion/eallion.com/hugo.git
 ```
 
 ### 架构备忘
+
 - 国内：通过 [Coding](https://coding.net/) 部署至腾讯云 [COS](https://cloud.tencent.com/product/cos) + [CDN](https://cloud.tencent.com/product/cdn) (2020.12.27)
 - 境外：通过 GitHub Action 部署至 [GitHub Pages](https://eallion.github.io/) (2021.06.13)
 
 <details>
-<summary>CI/CD</summary>
-
-### Coding.net 持续集成部分命令
-```
+<summary>CI/CD (Update:2021.07.31)</summary>
+GitHub Actions
+<pre>
+name: Build Hugo and Deploy
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: 0 16 * * *
+jobs:
+  build-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Setup timezone
+        uses: zcong1993/setup-timezone@master
+        with:
+          timezone: Asia/Shanghai
+      - uses: actions/checkout@v2
+        with:
+          submodules: false
+          fetch-depth: 1
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: false
+      - name: Build Hugo
+        run: |
+          hugo version
+          bash githash.sh
+          hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.personal_token }}
+          external_repository: eallion/eallion.github.io
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./public
+          allow_empty_commit: true
+          # commit_message: ${{ GitHub.event.head_commit.message }}
+          full_commit_message: ${{ github.event.head_commit.message }}
+          cname: eallion.com
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+</pre>
+Coding.net 持续集成部分命令
+<pre>
 pipeline {
   agent any
   stages {
@@ -50,7 +97,6 @@ pipeline {
           registryUrl ''
           args '-v /usr/bin/git:/usr/bin/git'
         }
-
       }
       steps {
         checkout([
@@ -62,6 +108,7 @@ pipeline {
           ]],
           extensions: [[$class:'CloneOption',depth:1,noTags:false,reference:'',shallow:true,timeout:30]],
         ])
+        sh 'bash githash.sh'
         sh 'hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo'
         echo 'Hugo built!'
       }
@@ -75,41 +122,7 @@ pipeline {
     }
   }
 }
-```
-
-### 同步到 Gitee 并自动部署 Gitee Pages
-```
-name: Sync to Gitee and Deploy
-
-on: page_build
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Sync to Gitee
-        uses: wearerequired/git-mirror-action@master
-        env:
-          # 注意在 Settings->Secrets 配置 GITEE_RSA_PRIVATE_KEY
-          SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-        with:
-          # 注意替换为你的 GitHub 源仓库地址
-           source-repo: git@github.com:eallion/eallion.github.io.git
-          # 注意替换为你的 Gitee 目标仓库地址
-           destination-repo: git@gitee.com:eallion/eallion.git
-
-      - name: Build Gitee Pages
-        uses: yanglbme/gitee-pages-action@main
-        with:
-          # 注意替换为你的 Gitee 用户名
-           gitee-username: eallion
-          # 注意在 Settings->Secrets 配置 GITEE_PASSWORD
-          gitee-password: ${{ secrets.GITEE_PASSWORD }}
-          # 注意替换为你的 Gitee 仓库，仓库名严格区分大小写，请准确填写，否则会出错
-           gitee-repo: eallion/eallion
-          # 要部署的分支，默认是 master，若是其他分支，则需要指定（指定的分支必须存在）
-          branch: gh-pages
-```
+</pre>
 </details>
 
 ### 通过空提交运行 GitHub Acions
@@ -133,7 +146,8 @@ hugo new posts/daily/new_title.md
 
 2. **编辑文章**
 
-通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 New 出来的文章。
+通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 New 出来的文章。  
+这篇文章在`content/posts/daily`目录下，文件名为：`new_title.md`。  
 
 3. **修改 Front matter**:
 
@@ -150,17 +164,6 @@ git cz
 # git commit -m "add: a new post"
 git push
 ```
-
-Push 后自动运行的 CI/CD：
-- GitHub Pages
-- Coding.net
-- CloudBase
-- GitLab CI
-- Firebase
-- Netlify
-- Vercel
-- Cloudflare Pages
-- Gitee
 
 5. **本地调试**（~~Web Server~~）
 ```
@@ -191,8 +194,8 @@ hugo server -w -D -p 8080 -t hello-friend --enableGitInfo --bind 192.168.0.2 --b
 ```
 hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
 ```
-- `--cleanDestinationDir` 构建前先清理目标文件夹，即 public
-- `--forceSyncStatic` 强制同步 static 文件夹
+- `--cleanDestinationDir` 构建前先清理目标目录，即 public
+- `--forceSyncStatic` 强制同步 static 目录
 - `--gc` 构建后执行一些清理任务（删除掉一些没用的缓存文件）
 - `--ignoreCache` 构建时忽略缓存
 - `--minify` 压缩网页代码
@@ -207,15 +210,17 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enabl
 
 ```
 {{ $maincss := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha256" }}
+
 <link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
 ```
 
-<details>
-<summary>Update: 2020.12.18</summary>
+### 刷新 jsDelivr 缓存
 
-2020.12.18 从腾讯云换到了 jsDelivr。
-</details>
-
+将资源文件链接中的`cdn.jsdelivr.net`改为 `purge.jsdelivr.net`，在浏览器中请求即可刷新 CDN。
+```git
+- https://cdn.jsdelivr.net/gh/eallion/eallion.github.io/style.css
++ https://purge.jsdelivr.net/gh/eallion/eallion.github.io/style.css
+```
 ### 清理 Git 仓库
 ```
 git rm -r --cached .
@@ -223,9 +228,9 @@ git reflog expire --expire=now --all
 git gc --prune=now --aggressive
 ```
 
-### 安装插件
+### 安装插件 (可选)
 
-新环境可选安装，没有必须安装的插件。
+新环境可选安装，若无必要可不用安装。
 
 1. **安装插件**
 
@@ -272,105 +277,59 @@ revert commit 回退
 ```
 conventional-changelog -p angular -i CHANGELOG.md -s -r 0
 ```
-以上命令中参数`-p angular` 用来指定使用的 commit message 标准，参数-`i CHANGELOG.md` 表示从 CHANGELOG.md 读取 ChangeLog, `-s` 表示读写 ChangeLog 为同一文件。其中 `-r` 表示生成 ChangeLog 所需要使用的 release 版本数量，默认为 1，全部则是 0。
+以上命令中参数`-p angular` 用来指定使用的 commit message 标准，参数-`i CHANGELOG.md` 表示从 `CHANGELOG.md` 读取 ChangeLog, `-s` 表示读写 ChangeLog 为同一文件。其中 `-r` 表示生成 ChangeLog 所需要使用的 release 版本数量，默认为 1，全部则是 0。
 
-> revert 前的一些历史改动手动备份在 [CHANGELOG.bak](CHANGELOG.bak)
+> revert 前的一些历史改动，手动备份在 [CHANGELOG.bak](CHANGELOG.bak)
 
-#### PS：刷新 CDN
+### 图片
 
-将资源文件链接中的`cdn.jsdelivr.net`改为 `purge.jsdelivr.net`，在浏览器中请求即可刷新 CDN。
+因为 jsDelivr 2020.08.15 的『[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)』，现在没有用 GitHub + jsDelivr 当图床了。  
 
-<details>
-<summary>旧方法：</summary>
+- **方法一**
 
-通过打 Tag 的方式刷新 jsDelivr 的 CDN
-`tag`对应`commit`
+手动添加图床。  
+现在写博客添加图片，需要手动添加图片地址。  
+一般本博客优先使用腾讯云 COS，图床链接为：`https://images.eallion.com/`  
+
+- **方法二**
+
+原方法。  
+直接把图片丢到 Hugo 仓库的`static/images/`目录下即可。  
+图片存放目录：  
+> Hugo 目录的`static/images/`目录下（可按年月分类）。  
+
+文章中引用的图片 URL：  
+> `https://eallion.com/images/1970/01/01.jpg`
+
+### 相册
+
+把照片放到 Hugo 仓库的`static/photos/`目录下，Hugo 会自动索引并生成相册页面。  
+如：  
+- <https://eallion.com/penta/>
+- <https://eallion.com/photos/>
+
+也可利用相册模板新建相册：
+```html
+<div class="page-photos">
+    <figure>
+        <img loading="lazy" src="https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages/photos/Focal-Fossa.png" alt="Focal-Fossa.png">
+        <figcaption>Focal-Fossa</figcaption>
+    </figure>
+</div>
 ```
-git tag vX.X.X
-git push origin vX.X.X
-
-# git push origin --tags # 推送所有 Tags
-```
-</details>
-
-### 文章中图片处理方式
-
-因为 jsDelivr 2020.08.15 的[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)，现在没有用 GitHub + jsDelivr 当图床了。
-
-现在写博客添加图片，需要手动添加图片地址。
-
-一般本博客优先使用腾讯云 COS，图床链接为：`https://images.eallion.com/`
-
-<details>
-<summary>原方法：</summary>
-
-原方法依然可用，注意图片 URL 即可。
-
-- 图片存放目录：
-
-> Hugo 目录的`static/images/`文件夹下（可按年月分类）。
-
-- 文章中引用的图片 URL：
-
-> `https://eallion.com/images` `+` `图片路径和名称`
-
-- 如：
-
-> `https://eallion.com/images/2020/05/ubuntu2004.jpg`
-</details>
-
-### 相册展示的照片
-
-- 照片存放目录：
-
-> 本博客没有开启相册页面，无须操作。
-
-Hugo 目录的`static/photos/`文件夹下，相册页面会自动索引。白嫖的 jsDelivr CDN。
-
 
 ### Lighthouse
 
 Google Lighthouse 跑分，本博客长期维持在满分 100 分。
 
-- [查看跑分结果](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Feallion.com%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext#pwa)
+- [查看实时跑分结果](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Feallion.com%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext#pwa)
 
 ### LICENSE
 
-This project is licensed under [MIT](https://opensource.org/licenses/MIT/) & [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN).
-<details>
-<summary>MIT license</summary>
-
-```
-MIT License
-
-Copyright (c) 2021 Charles Chin
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-</details>
-
-<details>
-<summary>GLWT Public License</summary>
-
+This project is licensed under [MIT](https://opensource.org/licenses/MIT/) & [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) & [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN).
 ```
 GLWT（Good Luck With That，祝你好运）公共许可证
-版权所有 © 每个人，除了作者
+版权所有© 每个人，除了作者
 
 任何人都被允许复制、分发、修改、合并、销售、出版、再授权或
 任何其它操作，但风险自负。
@@ -382,7 +341,7 @@ GLWT（Good Luck With That，祝你好运）公共许可证
                 祝你好运公共许可证
             复制、分发和修改的条款和条件
 
- 0 ：在不导致作者被指责或承担责任的情况下，你可以做任何你想
+0 ：在不导致作者被指责或承担责任的情况下，你可以做任何你想
 要做的事情。
 
 无论是在合同行为、侵权行为或其它因使用本软件产生的情形，作
@@ -390,6 +349,4 @@ GLWT（Good Luck With That，祝你好运）公共许可证
 
 祖宗保佑。
 ```
-</details>
-
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_large)
