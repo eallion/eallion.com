@@ -46,12 +46,13 @@
         instantsearch.widgets.hits({
             container: "#hits",
             attribute: "content",
+            escapeHTML: false,
             templates: {
                 empty: "我没有这样的嘀咕……",
                 item(item){
                     return `
                     <section class="timeline">
-                        <p class="algolia-content">${item._highlightResult.content.value}</p>
+                        <p>${item._highlightResult.content.value}</p>
                         <time class="date"><small>${item._highlightResult.date.value} ·「${item._highlightResult.from.value}」</small></time>
                     </section>
                     `;
