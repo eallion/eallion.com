@@ -21,7 +21,7 @@ Comments: false
 > Description：机会总是垂青于有准备的人  
 > English description：_Chance favors the prepared mind_
 
-申请友链请前往 [[关于](https://eallion.com/about/)] 页面留言或发邮件。
+申请友链请前往 [[关于](https://eallion.com/about/)] 页面留言 或 提交 [Issue](https://github.com/eallion/eallion.com/issues/new) 或 [发邮件](mailto:eallions@gmail.com)。
 
 ### 友情链接
 
