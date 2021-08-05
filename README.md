@@ -279,8 +279,6 @@ conventional-changelog -p angular -i CHANGELOG.md -s -r 0
 ```
 以上命令中参数`-p angular` 用来指定使用的 commit message 标准，参数-`i CHANGELOG.md` 表示从 `CHANGELOG.md` 读取 ChangeLog, `-s` 表示读写 ChangeLog 为同一文件。其中 `-r` 表示生成 ChangeLog 所需要使用的 release 版本数量，默认为 1，全部则是 0。
 
-> revert 前的一些历史改动，手动备份在 [CHANGELOG.bak](CHANGELOG.bak)
-
 ### 图片
 
 因为 jsDelivr 2020.08.15 的『[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)』，现在没有用 GitHub + jsDelivr 当图床了。  
