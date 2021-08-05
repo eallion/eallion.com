@@ -1,8 +1,16 @@
-# [1.0.0](https://github.com/eallion/eallion.com/compare/1.0.7...1.0.0) (2021-07-27)
+# [1.0.0](https://github.com/eallion/eallion.com/compare/v1.0.2...v1.0.0) (2021-08-05)
+
+
+### Bug Fixes
+
+* **conf:** fix timezone ([2646fdc](https://github.com/eallion/eallion.com/commit/2646fdc8a0d124b1d48f57b17475c3f123e4d103)), closes [#4](https://github.com/eallion/eallion.com/issues/4)
+* **footer:** use a shell script to display the last commit hash ([dba851d](https://github.com/eallion/eallion.com/commit/dba851d39444f95e2328bc07dae54dbe6b1117b6))
+* **talks:** fix algolia html escape ([539ef12](https://github.com/eallion/eallion.com/commit/539ef12332d5d12399093a45418cc121ccca5ab7))
+* **talk:** space ([620b7b7](https://github.com/eallion/eallion.com/commit/620b7b76804c864ac1f98bd997b482ac723ec112))
 
 
 
-## [1.0.7](https://github.com/eallion/eallion.com/compare/v1.0.6...1.0.7) (2021-07-27)
+## [1.0.2](https://github.com/eallion/eallion.com/compare/v1.0.1...v1.0.2) (2021-07-27)
 
 
 ### Bug Fixes
@@ -39,7 +47,7 @@
 
 
 
-## [1.0.6](https://github.com/eallion/eallion.com/compare/9233660b46693db4ccbc151c634244d97c922c92...v1.0.6) (2021-07-03)
+## [1.0.1](https://github.com/eallion/eallion.com/compare/v1.0.0...v1.0.1) (2021-07-03)
 
 
 ### Bug Fixes
@@ -83,6 +91,10 @@
 ### Reverts
 
 * 97f45a0a7c3665a1a0cfa94afbfc43a168ffe22b ([9d71609](https://github.com/eallion/eallion.com/commit/9d716091843beca40cd34e9b80851262889c47a9))
+
+
+
+# 1.0.0 (2020-05-10)
 
 
 
