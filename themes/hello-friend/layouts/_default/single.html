@@ -115,7 +115,7 @@
         <div class="pagination">
           <div class="pagination__title">
             {{ if and .File .Site.Params.EditPath }}
-              <a class="pagination__title-h" href='{{ $.Site.Params.EditPath }}{{ replace .File.Path "\\" "/" | default "/" }}' target="_blank" rel="noopener noreferrer">阅读更多</a>
+              <a class="pagination__title-h" href='{{ $.Site.Params.EditPath }}{{ replace .File.Path "\\" "/" | default "/" }}' target="_blank" rel="noopener noreferrer">全文完</a>
             {{ end }}
             <hr >
           </div>
