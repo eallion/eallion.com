@@ -90,14 +90,6 @@ pipeline {
   agent any
   stages {
     stage('Build Hugo') {
-      agent {
-        docker {
-          image 'envimate/hugo'
-          reuseNode true
-          registryUrl ''
-          args '-v /usr/bin/git:/usr/bin/git'
-        }
-      }
       steps {
         checkout([
           $class: 'GitSCM',
@@ -108,6 +100,7 @@ pipeline {
           ]],
           extensions: [[$class:'CloneOption',depth:1,noTags:false,reference:'',shallow:true,timeout:30]],
         ])
+        sh 'bash coding.sh'
         sh 'bash githash.sh'
         sh 'hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo'
         echo 'Hugo built!'
