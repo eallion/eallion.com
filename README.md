@@ -187,8 +187,8 @@ hugo server -w -D -p 8080 -t hello-friend --enableGitInfo --bind 192.168.0.2 --b
 6. **本地构建**
 
 本 Repo 已新增构建脚本：
-- Linux，通过终端命令运行 `bash build.sh`
-- Windows 鼠标双击运行 `build.bat`
+- Linux 🖥️通过终端命令运行 `bash build.sh`
+- Windows 🖱️双击鼠标运行 `build.bat`
 
 手动构建命令：
 ```
