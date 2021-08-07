@@ -7,6 +7,7 @@ else
   echo ".................."
   echo ". Public deleted ."
   echo ".................."
+  bash githash.sh
   hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
   echo ".............."
   echo ". Hugo built ."
