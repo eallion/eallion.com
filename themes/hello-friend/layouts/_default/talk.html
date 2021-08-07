@@ -177,14 +177,7 @@
                     target="_blank"
                     rel="noopener noreferrer"
                     >Hello Friend</a
-                >, Made with <i class="iconfont icon-love"></i>
-                {{ if .GitInfo }}
-                by [<a
-                    href="{{ .Site.Params.Commit }}{{ .GitInfo.Hash }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >{{- .GitInfo.AbbreviatedHash -}}</a
-                >]{{- end -}}.
+                >, Made with <span class="emoji">❤</span> {{ partial "githash.html" . }}
             </span>
         </div>
         <div class="copyright">
