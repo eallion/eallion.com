@@ -210,7 +210,7 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enabl
 ### 刷新 jsDelivr 缓存
 
 将资源文件链接中的`cdn.jsdelivr.net`改为 `purge.jsdelivr.net`，在浏览器中请求即可刷新 CDN。
-```git
+```diff
 - https://cdn.jsdelivr.net/gh/eallion/eallion.github.io/style.css
 + https://purge.jsdelivr.net/gh/eallion/eallion.github.io/style.css
 ```
