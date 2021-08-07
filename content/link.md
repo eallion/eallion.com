@@ -71,4 +71,4 @@ Comments: false
 {{< friend des="keyiqingxin.cn" url="https://www.keyiqingxin.cn/" src="https://cdn.jsdelivr.net/gh/milkdue/cdn@1.1/img/avatar.jpg" name="可以清心" >}}
 {{< friend des="blog.zhheo.com" url="https://blog.zhheo.com/" src="https://blog.zhheo.com/img/avatar.png" name="Heo" >}}
 {{< friend des="bore.vip" url="https://bore.vip/" src="https://cdn.jsdelivr.net/gh/iwyang/pic/avatar.jpg" name="Bore’s Note" >}}
-{{< friend des="blog.shiyuchan.cn" url="https://blog.shiyuchan.cn/" src="https://cdn.jsdelivr.net/gh/Karensky/qaq@master/2020/p/1589969872-1589504511463.png%22" name="辰旭博客" >}}
+{{< friend des="blog.shiyuchan.cn" url="https://blog.shiyuchan.cn/" src="https://cdn.jsdelivr.net/gh/Karensky/qaq@master/2020/p/1589969872-1589504511463.png" name="辰旭博客" >}}
