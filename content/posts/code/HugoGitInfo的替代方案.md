@@ -15,7 +15,7 @@ toc: false
 
 今天有人问我博客页脚`footer`里的 git hash 是怎么显示的，就是页面底部里的`69d6ffe`这一串数字。
 
-![footer](https://images.eallion.com/picgo/20210807221331.png)
+![footer](https://images.eallion.com/images/2021/08/footer.png)
 
 他遇到了跟我一样的坑，`.GitInfo`不能正确显示。
 
