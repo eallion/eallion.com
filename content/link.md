@@ -6,69 +6,65 @@ type: "link"
 Comments: false
 ---
 
-以下链接为个人收藏和网友申请，排名不分先后。
+### 友情链接
 
-如果你对我的个人网址导航感兴趣，请访问：
+{{< friend name="韩 寒" des="作家、赛车手、导演" url="https://weibo.com/hanhan" domain="weibo.com/hanhan" src="https://cdn.eallion.com/statics/img/link/hanhan.jpg" >}}
+{{< friend name="周杰伦" des="歌手、演员、导演" url="https://www.instagram.com/jaychou/" domain="instagram.com/jaychou" src="https://cdn.eallion.com/statics/img/link/jay.jpg" >}}
+{{< friend name="Keso" des="IT 评论人" url="https://twitter.com/keso" domain="twitter.com/keso" src="https://cdn.eallion.com/statics/img/link/keso.jpg" >}}
+{{< friend name="Marc MERLIN" des="大神" url="http://marc.merlins.org/" domain="marc.merlins.org" src="https://cdn.eallion.com/statics/img/link/146_car_s.jpg" >}}
+{{< friend name="Bill Gates" des="比尔盖茨" url="https://www.gatesnotes.com" domain="gatesnotes.com" src="https://cdn.eallion.com/statics/img/link/gatesnotes_badge.ico" >}}
+{{< friend name="Matrix67" des="数学博客" url="http://www.matrix67.com" domain="matrix67.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" >}}
+{{< friend name="阮一峰的网络日志" des="阮一峰" url="http://www.ruanyifeng.com/blog/" domain="ruanyifeng.com/blog" src="https://cdn.eallion.com/statics/img/link/person2_s.jpg" >}}
+{{< friend name="风雪之隅" des="PHP 开发组核心成员" url="http://www.laruence.com/" domain="laruence.com" src="https://cdn.eallion.com/statics/img/link/avatar.jpg" >}}
+{{< friend name="JoyQi" des="Typecho 开发者" url="https://joyqi.com/" domain="joyqi.com" src="https://dn-qiniu-avatar.qbox.me/avatar/8a8304a40ec366197242d3ea3e31baf9" >}}
+{{< friend name="Tommy Chen" des="Hexo 开发者" url="https://zespia.tw/" domain="zespia.tw" src="https://dn-qiniu-avatar.qbox.me/avatar/0c2e1fea502b8934820eacdfca778d8c" >}}
+{{< friend name="Hacking Management" des="Hugo 开发者" url="https://spf13.com/" domain="spf13.com" src="https://dn-qiniu-avatar.qbox.me/avatar/e52bc145bc33c4d337698dd9f161ea89" >}}
+{{< friend name="Sukka's Blog" des="Hexo 开发成员" url="https://blog.skk.moe/" domain="blog.skk.moe" src="https://cdn.jsdelivr.net/npm/skx@0.2.3/avatar/96x96.png" >}}
+{{< friend name="大利之川" des="大利之川" url="https://www.dalizhichuan.com/" domain="dalizhichuan.com" src="https://cdn.eallion.com/statics/img/link/dalizhichuan.png" >}}
+{{< friend name="福至心灵" des="福至心灵相册" url="https://www.fuzhixinling.com" domain="fuzhixinling.com" src="https://www.fuzhixinling.com/media/large/Avatar/CharlesChin.jpg" >}}
+{{< friend name="曼陀罗" des="曼陀罗的博客" url="https://www.yangfuying.com" domain="yangfuying.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" >}}
+{{< friend name="吉吉言吾" des="吉吉言吾的博客" url="https://www.qinzheyu.com" domain="qinzheyu.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" >}}
+{{< friend name="Charles Chin" des="charleschin.com" url="https://charleschin.com" domain="charleschin.com" src="https://dn-qiniu-avatar.qbox.me/avatar/9a7655675ef08ee179c48f2a829280bd" >}}
+{{< friend name="羽中漫步" des="羽中漫步" url="http://www.yzmb.me/" domain="yzmb.me" src="https://cdn.eallion.com/statics/img/link/mylogo.png" >}}
+{{< friend name="PHPHA" des="天涯 PHP 博客" url="http://blog.phpha.com" domain="blog.phpha.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" >}}
+{{< friend name="怡红公子" des="怡红公子的怡红院落" url="http://imnerd.org/" domain="imnerd.org" src="https://dn-qiniu-avatar.qbox.me/avatar/a373282ace706850ed7edfab4161f9e4" >}}
+{{< friend name="木木木木木" des="木木老师" url="https://immmmm.com" domain="immmmm.com" src="https://dn-qiniu-avatar.qbox.me/avatar/cb98b86aaebfb5f1ff6f5bfeec6105a4" >}}
+{{< friend name="月光博客" des="专注于互联网和搜索引擎的知名 IT 科技博客" url="https://www.williamlong.info/" domain="williamlong.info" src="https://www.williamlong.info/images/apple-touch-icon.png" >}}
+{{< friend name="太阳博客" des="孙老太的晚年" url="http://www.sunmingxia.com/" domain="sunmingxia.com" src="https://dn-qiniu-avatar.qbox.me/avatar/aab6e5c5ceb1c1c2d92b35bb88dd013c?s=32&d=mm&r=g" >}}
+{{< friend name="雅岚文藝博客" des="雅岚文藝博客" url="http://yalanlife.net/" domain="yalanlife.net" src="https://dn-qiniu-avatar.qbox.me/avatar/c7b16884b068cea25e55f7ee6707ec7f" >}}
+{{< friend name="秦大叔" des="不曾长大" url="https://qfsyj.com" domain="qfsyj.com" src="https://dn-qiniu-avatar.qbox.me/avatar/4ba509f9ec541ab4d316299727b3e3ab" >}}
+{{< friend name="浮游笔记" des="浮游笔记" url="https://fffou.com/" domain="fffou.com" src="https://dn-qiniu-avatar.qbox.me/avatar/733d172a66e4dd6b6be94ca71d68e062" >}}
+{{< friend name="十三姨爱我" des="踏遍青山人未老， 风景这边独好。" url="https://fanghongxing.cn" domain="fanghongxing.cn" src="https://dn-qiniu-avatar.qbox.me/avatar/84988a8cb4ea306f6e2b1bcf880081dc" >}}
+{{< friend name="王叨叨" des="无叨叨，不博客！不懂用户体验的前端不是好爸爸……" url="https://wangdaodao.com/" domain="wangdaodao.com" src="https://dn-qiniu-avatar.qbox.me/avatar/4a713ec085a4431f15a8da0942656713" >}}
+{{< friend name="追忆白" des="Just like old time!" url="https://www.zhuiyibai.cn" domain="zhuiyibai.cn" src="https://dn-qiniu-avatar.qbox.me/avatar/5483e75925f5c1b046d39d7b86cdedf1" >}}
+{{< friend name="未来往事" des="我愿像茶一样，把苦涩留在心底，散发出来的都是清香。" url="https://www.fity.cn/" domain="fity.cn" src="https://dn-qiniu-avatar.qbox.me/avatar/ee5e5b48164e5362d8800c7364854d15" >}}
+{{< friend name="被遗忘的旧岛" des="被遗忘的旧岛" url="https://jiudao.net/" domain="jiudao.net" src="https://dn-qiniu-avatar.qbox.me/avatar/75ab7cb11e241abf513f04182ab653a5" >}}
+{{< friend name="猫咪 Blog" des="分享各种游戏教程" url="https://biux.cn/" domain="biux.cn" src="https://biux.cn/usr/uploads/logo.jpg" >}}
+{{< friend name="黑石博客" des="人生在勤，不索何获。" url="https://www.heson10.com" domain="heson10.com" src="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png" >}}
+{{< friend name="FF" des="foolish fox" url="https://foolishfox.cn/" domain="foolishfox.cn" src="https://sdn.geekzu.org/avatar/53bc457fbba563ce1ce80edda8310241?d=identicon" >}}
+{{< friend name="可以清心" des="一个不会业务的前端攻城狮～" url="https://www.keyiqingxin.cn/" domain="keyiqingxin.cn" src="https://cdn.jsdelivr.net/gh/milkdue/cdn@1.1/img/avatar.jpg" >}}
+{{< friend name="Heo" des="爱折腾的设计师" url="https://blog.zhheo.com/" domain="blog.zhheo.com" src="https://blog.zhheo.com/img/avatar.png" >}}
+{{< friend name="Bore’s Note" des="博观而约取，厚积而薄发。" url="https://bore.vip/" domain="bore.vip" src="https://cdn.jsdelivr.net/gh/iwyang/pic/avatar.jpg" >}}
+{{< friend name="辰旭博客" des="山回路转不见君，雪上空留马行处。" url="https://blog.shiyuchan.cn/" domain="blog.shiyuchan.cn" src="https://cdn.jsdelivr.net/gh/Karensky/qaq@master/2020/p/1589969872-1589504511463.png" >}}
+
+---
+
+以上链接为个人收藏和网友申请，排名不分先后。
+
+申请友链请前往 [[关于](https://eallion.com/about/)] 页面留言 或 提交 [Issue](https://github.com/eallion/eallion.com/issues/new) 或 [发邮件](mailto:eallions@gmail.com)。  
+原则上接受个人原创类网站，欢迎交换友链且没有任何要求。  
+
+最开始出于收藏导航的目的，在友情链接页面添加了很多博客和网站，后来收集的内容越来越多，就专门建立了一个个人导航网站，如果你对我的个人网址导航感兴趣，请访问：
 
 - [https://s.eallion.com](https://s.eallion.com)
+
+我很懒，可能很久才有空整理一次友链。如果你发现我单方面删除了友链，或申请了没有及时通过，通过另外的渠道告知我一声，应该很快就有反馈。
 
 我的友链信息：
 
 > Title：大大的小蜗牛  
-> English title：eallion  
+> English title：eallion's blog  
 > URL：[`https://eallion.com`](https://eallion.com)  
 > [Avatar](https://github.com/eallion/eallion/tree/main/avatar)：[`https://cdn.jsdelivr.net/gh/eallion/eallion/avatar/eallion.png`](https://cdn.jsdelivr.net/gh/eallion/eallion/avatar/eallion.png)  
 > Description：机会总是垂青于有准备的人  
 > English description：_Chance favors the prepared mind_
-
-申请友链请前往 [[关于](https://eallion.com/about/)] 页面留言 或 提交 [Issue](https://github.com/eallion/eallion.com/issues/new) 或 [发邮件](mailto:eallions@gmail.com)。
-
-### 友情链接
-
-{{< friend des="作家、赛车手、导演" url="https://weibo.com/hanhan" src="https://cdn.eallion.com/statics/img/link/hanhan.jpg" name="韩 寒" >}}
-{{< friend des="歌手、演员，导演" url="https://www.instagram.com/jaychou/" src="https://cdn.eallion.com/statics/img/link/jay.jpg" name="周杰伦" >}}
-{{< friend des="IT 评论人" url="https://twitter.com/keso" src="https://cdn.eallion.com/statics/img/link/keso.jpg" name="Keso" >}}
-{{< friend des="大神" url="http://marc.merlins.org/" src="https://cdn.eallion.com/statics/img/link/146_car_s.jpg" name="Marc MERLIN" >}}
-{{< friend des="比尔盖茨" url="https://www.gatesnotes.com" src="https://cdn.eallion.com/statics/img/link/gatesnotes_badge.ico" name="Bill Gates" >}}
-{{< friend des="数学博客" url="http://www.matrix67.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="Matrix67 My Blog" >}}
-{{< friend des="阮一峰" url="http://www.ruanyifeng.com/blog/" src="https://cdn.eallion.com/statics/img/link/person2_s.jpg" name="阮一峰的网络日志" >}}
-{{< friend des="PHP 开发组核心成员" url="http://www.laruence.com/" src="https://cdn.eallion.com/statics/img/link/avatar.jpg" name="风雪之隅" >}}
-{{< friend des="Typecho 开发者" url="https://joyqi.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/8a8304a40ec366197242d3ea3e31baf9" name="JoyQi" >}}
-{{< friend des="Hexo 开发者" url="https://zespia.tw/" src="https://dn-qiniu-avatar.qbox.me/avatar/0c2e1fea502b8934820eacdfca778d8c" name="Tommy Chen" >}}
-{{< friend des="Hugo 开发者" url="https://spf13.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/e52bc145bc33c4d337698dd9f161ea89" name="Hacking Management" >}}
-{{< friend des="Hexo 开发成员" url="https://blog.skk.moe/" src="https://cdn.jsdelivr.net/npm/skx@0.2.3/avatar/96x96.png" name="Sukka's Blog" >}}
-{{< friend des="sanyaosan.com" url="https://www.sanyaosan.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/d86dc18560e3df8c2ac1970dd71abefd" name="伞耀伞" >}}
-{{< friend des="dalizhichuan.com" url="https://www.dalizhichuan.com/" src="https://cdn.eallion.com/statics/img/link/dalizhichuan.png" name="大利之川" >}}
-{{< friend des="fuzhixinling.com" url="https://www.fuzhixinling.com" src="https://www.fuzhixinling.com/media/large/Avatar/CharlesChin.jpg" name="福至心灵" >}}
-{{< friend des="yangfuying.com" url="https://www.yangfuying.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="曼陀罗" >}}
-{{< friend des="qinzheyu.com" url="https://www.qinzheyu.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="吉吉言吾" >}}
-{{< friend des="sirenyan.com" url="http://www.sirenyan.com/" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="斯人 言" >}}
-{{< friend des="charleschin.com" url="https://charleschin.com" src="https://dn-qiniu-avatar.qbox.me/avatar/9a7655675ef08ee179c48f2a829280bd" name="Charles Chin" >}}
-{{< friend des="yzmb.me" url="http://www.yzmb.me/" src="https://cdn.eallion.com/statics/img/link/mylogo.png" name="羽中漫步" >}}
-{{< friend des="blog.phpha.com" url="http://blog.phpha.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="天涯 PHP 博客" >}}
-{{< friend des="imnerd.org" url="http://imnerd.org/" src="https://dn-qiniu-avatar.qbox.me/avatar/a373282ace706850ed7edfab4161f9e4" name="怡红公子" >}}
-{{< friend des="immmmm.com" url="https://immmmm.com" src="https://dn-qiniu-avatar.qbox.me/avatar/cb98b86aaebfb5f1ff6f5bfeec6105a4" name="木木木木木" >}}
-{{< friend des="williamlong.info" url="https://www.williamlong.info/" src="https://www.williamlong.info/images/apple-touch-icon.png" name="月光博客" >}}
-{{< friend des="sunmingxia.com" url="http://www.sunmingxia.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/aab6e5c5ceb1c1c2d92b35bb88dd013c?s=32&d=mm&r=g" name="太阳博客" >}}
-{{< friend des="songguowen.com" url="http://www.songguowen.com/" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="地球博客" >}}
-{{< friend des="yalanlife.net" url="http://yalanlife.net/" src="https://dn-qiniu-avatar.qbox.me/avatar/c7b16884b068cea25e55f7ee6707ec7f" name="雅岚文藝博客" >}}
-{{< friend des="camarts.app" url="https://camarts.app" src="https://dn-qiniu-avatar.qbox.me/avatar/4908087ffe0b81b49f741f5d6b14db60" name="Camarts" >}}
-{{< friend des="zijim.com" url="http://zijim.com/" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="龙龙的博客" >}}
-{{< friend des="loveyu.org" url="http://www.loveyu.org/" src="https://dn-qiniu-avatar.qbox.me/avatar/dfa8aa6cb4e689de87940bb0e451d750" name="恋 羽" >}}
-{{< friend des="imjiuki.cn" url="https://imjiuki.cn/" src="https://dn-qiniu-avatar.qbox.me/avatar/c466071ebfebd2d9bb43f11917dfe045" name="jiuki's blog" >}}
-{{< friend des="qfsyj.com" url="https://qfsyj.com" src="https://dn-qiniu-avatar.qbox.me/avatar/4ba509f9ec541ab4d316299727b3e3ab" name="秦大叔" >}}
-{{< friend des="fffou.com" url="https://fffou.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/733d172a66e4dd6b6be94ca71d68e062" name="浮游笔记" >}}
-{{< friend des="fanghongxing.cn" url="https://fanghongxing.cn" src="https://dn-qiniu-avatar.qbox.me/avatar/84988a8cb4ea306f6e2b1bcf880081dc" name="十三姨爱我" >}}
-{{< friend des="tobehe.com" url="http://www.tobehe.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" name="饭特稀" >}}
-{{< friend des="wangdaodao.com" url="https://wangdaodao.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/4a713ec085a4431f15a8da0942656713" name="王叨叨" >}}
-{{< friend des="zhuiyibai.cn" url="https://www.zhuiyibai.cn" src="https://dn-qiniu-avatar.qbox.me/avatar/5483e75925f5c1b046d39d7b86cdedf1" name="追忆白" >}}
-{{< friend des="fity.cn" url="https://www.fity.cn/" src="https://dn-qiniu-avatar.qbox.me/avatar/ee5e5b48164e5362d8800c7364854d15" name="未来往事" >}}
-{{< friend des="jiudao.net" url="https://jiudao.net/" src="https://dn-qiniu-avatar.qbox.me/avatar/75ab7cb11e241abf513f04182ab653a5" name="被遗忘的旧岛" >}}
-{{< friend des="imwgh.com" url="https://imwgh.com/" src="https://dn-qiniu-avatar.qbox.me/avatar/f27fba4d7d92056cf3db0e577761ad01" name="大大的小熊" >}}
-{{< friend des="biux.cn" url="https://biux.cn/" src="https://biux.cn/usr/uploads/logo.jpg" name="猫咪 Blog" >}}
-{{< friend des="heson10.com" url="https://www.heson10.com" src="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png" name="黑石博客" >}}
-{{< friend des="foolishfox.cn" url="https://foolishfox.cn/" src="https://sdn.geekzu.org/avatar/53bc457fbba563ce1ce80edda8310241?d=identicon" name="FF" >}}
-{{< friend des="keyiqingxin.cn" url="https://www.keyiqingxin.cn/" src="https://cdn.jsdelivr.net/gh/milkdue/cdn@1.1/img/avatar.jpg" name="可以清心" >}}
-{{< friend des="blog.zhheo.com" url="https://blog.zhheo.com/" src="https://blog.zhheo.com/img/avatar.png" name="Heo" >}}
-{{< friend des="bore.vip" url="https://bore.vip/" src="https://cdn.jsdelivr.net/gh/iwyang/pic/avatar.jpg" name="Bore’s Note" >}}
-{{< friend des="blog.shiyuchan.cn" url="https://blog.shiyuchan.cn/" src="https://cdn.jsdelivr.net/gh/Karensky/qaq@master/2020/p/1589969872-1589504511463.png" name="辰旭博客" >}}
