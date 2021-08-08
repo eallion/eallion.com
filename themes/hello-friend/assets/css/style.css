@@ -2186,10 +2186,23 @@ photos .photo:last-child {
     width: 32%;
     margin: 1em 0;
 }
+.links-item a {
+    text-decoration: none;
+}
 @media only screen and (max-width: 683px) {
     .links-item {
         width: 49%;
+        margin:auto;
+        white-space: nowrap;
+        overflow: hidden;
+        position: relative;
     }
+}
+.links-item .link__des {
+    margin:auto;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
 }
 /* tocify */
 .tocify {

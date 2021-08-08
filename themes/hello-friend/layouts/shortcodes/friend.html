@@ -1,7 +1,8 @@
 {{ if .Get "url" }}
 <div class="archive-item links-item">
-	<img loading="lazy" class="archive-list-image" src={{ .Get "src" }}></img>
-	<a href={{ .Get "url" }}>{{ .Get "name" }}</a>
-	<span class="archive-item-meta">{{- if .Get "des" -}}{{- .Get "des" -}}{{- else -}}{{- .Get "url" -}}{{- end -}}</span>
+    <a href={{ .Get "url" }}><img loading="lazy" class="non-box archive-list-image" src={{ .Get "src" }}></a>
+    <a href={{ .Get "url" }}>{{ .Get "name" }}</a>
+    <a href={{ .Get "url" }}><span class="archive-item-meta">{{- if .Get "domain" -}}{{- .Get "domain" -}}{{- else -}}{{- .Get "url" | replaceRE "^https?://([^/]+).*" "$1" -}}{{- end -}}</span></a>
+    <span class="archive-item-meta link__des">{{- if .Get "des" -}}{{- .Get "des" -}}{{- else -}}{{- .Get "url" -}}{{- end -}}</span>
 </div>
 {{ end }}
