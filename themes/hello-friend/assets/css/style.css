@@ -830,6 +830,7 @@ hr {
     background-color: var(--light-header);
     border-radius: 8px;
     min-height: 45px;
+    transition:all 0.5s;
 }
 .index-talk i,
 .gusici__quote i {
@@ -889,6 +890,7 @@ html:not([data-scroll="0"]) .header__talk {
     right: 0;
     padding: 10px 0 10px 15px;
     font-style: italic;
+    transition:all 0.5s;
 }
 html:not([data-scroll="0"]) .header__talk i {
     font-size: 1rem !important;
