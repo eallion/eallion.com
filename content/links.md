@@ -14,11 +14,12 @@ Comments: false
 {{< friend name="Marc MERLIN" des="大神" url="http://marc.merlins.org/" domain="marc.merlins.org" src="https://cdn.eallion.com/statics/img/link/146_car_s.jpg" >}}
 {{< friend name="Bill Gates" des="比尔盖茨" url="https://www.gatesnotes.com" domain="gatesnotes.com" src="https://cdn.eallion.com/statics/img/link/gatesnotes_badge.ico" >}}
 {{< friend name="Matrix67" des="数学博客" url="http://www.matrix67.com" domain="matrix67.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" >}}
-{{< friend name="阮一峰的网络日志" des="阮一峰" url="http://www.ruanyifeng.com/blog/" domain="ruanyifeng.com/blog" src="https://cdn.eallion.com/statics/img/link/person2_s.jpg" >}}
+{{< friend name="阮一峰" des="阮一峰的网络日志" url="http://www.ruanyifeng.com/blog/" domain="ruanyifeng.com/blog" src="https://cdn.eallion.com/statics/img/link/person2_s.jpg" >}}
 {{< friend name="风雪之隅" des="PHP 开发组核心成员" url="http://www.laruence.com/" domain="laruence.com" src="https://cdn.eallion.com/statics/img/link/avatar.jpg" >}}
 {{< friend name="JoyQi" des="Typecho 开发者" url="https://joyqi.com/" domain="joyqi.com" src="https://dn-qiniu-avatar.qbox.me/avatar/8a8304a40ec366197242d3ea3e31baf9" >}}
 {{< friend name="Tommy Chen" des="Hexo 开发者" url="https://zespia.tw/" domain="zespia.tw" src="https://dn-qiniu-avatar.qbox.me/avatar/0c2e1fea502b8934820eacdfca778d8c" >}}
-{{< friend name="Hacking Management" des="Hugo 开发者" url="https://spf13.com/" domain="spf13.com" src="https://dn-qiniu-avatar.qbox.me/avatar/e52bc145bc33c4d337698dd9f161ea89" >}}
+{{< friend name="spf13" des="Hugo 开发者" url="https://spf13.com/" domain="spf13.com" src="https://dn-qiniu-avatar.qbox.me/avatar/e52bc145bc33c4d337698dd9f161ea89" >}}
+{{< friend name="Beps" des="Hugo 开发者" url="https://bep.is" domain="spf13.com" src="https://dn-qiniu-avatar.qbox.me/avatar/67d3f9eddc34d7649a92597c3978201f" >}}
 {{< friend name="Sukka's Blog" des="Hexo 开发成员" url="https://blog.skk.moe/" domain="blog.skk.moe" src="https://cdn.jsdelivr.net/npm/skx@0.2.3/avatar/96x96.png" >}}
 {{< friend name="大利之川" des="大利之川" url="https://www.dalizhichuan.com/" domain="dalizhichuan.com" src="https://cdn.eallion.com/statics/img/link/dalizhichuan.png" >}}
 {{< friend name="福至心灵" des="福至心灵相册" url="https://www.fuzhixinling.com" domain="fuzhixinling.com" src="https://www.fuzhixinling.com/media/large/Avatar/CharlesChin.jpg" >}}
