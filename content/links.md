@@ -8,26 +8,26 @@ Comments: false
 
 ### 友情链接
 
-{{< friend name="韩 寒" des="作家、赛车手、导演" url="https://weibo.com/hanhan" domain="weibo.com/hanhan" src="https://cdn.eallion.com/statics/img/link/hanhan.jpg" >}}
-{{< friend name="周杰伦" des="歌手、演员、导演" url="https://www.instagram.com/jaychou/" domain="instagram.com/jaychou" src="https://cdn.eallion.com/statics/img/link/jay.jpg" >}}
-{{< friend name="Keso" des="IT 评论人" url="https://twitter.com/keso" domain="twitter.com/keso" src="https://cdn.eallion.com/statics/img/link/keso.jpg" >}}
-{{< friend name="Marc MERLIN" des="大神" url="http://marc.merlins.org/" domain="marc.merlins.org" src="https://cdn.eallion.com/statics/img/link/146_car_s.jpg" >}}
-{{< friend name="Bill Gates" des="比尔盖茨" url="https://www.gatesnotes.com" domain="gatesnotes.com" src="https://cdn.eallion.com/statics/img/link/gatesnotes_badge.ico" >}}
-{{< friend name="Matrix67" des="数学博客" url="http://www.matrix67.com" domain="matrix67.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" >}}
-{{< friend name="阮一峰" des="阮一峰的网络日志" url="http://www.ruanyifeng.com/blog/" domain="ruanyifeng.com/blog" src="https://cdn.eallion.com/statics/img/link/person2_s.jpg" >}}
-{{< friend name="风雪之隅" des="PHP 开发组核心成员" url="http://www.laruence.com/" domain="laruence.com" src="https://cdn.eallion.com/statics/img/link/avatar.jpg" >}}
+{{< friend name="韩 寒" des="作家、赛车手、导演" url="https://weibo.com/hanhan" domain="weibo.com/hanhan" src="https://static.eallion.com/link/hanhan.jpg" >}}
+{{< friend name="周杰伦" des="歌手、演员、导演" url="https://www.instagram.com/jaychou/" domain="instagram.com/jaychou" src="https://static.eallion.com/link/jay.jpg" >}}
+{{< friend name="Keso" des="IT 评论人" url="https://twitter.com/keso" domain="twitter.com/keso" src="https://static.eallion.com/link/keso.jpg" >}}
+{{< friend name="Marc MERLIN" des="大神" url="http://marc.merlins.org/" domain="marc.merlins.org" src="https://static.eallion.com/link/146_car_s.jpg" >}}
+{{< friend name="Bill Gates" des="比尔盖茨" url="https://www.gatesnotes.com" domain="gatesnotes.com" src="https://static.eallion.com/link/gatesnotes_badge.ico" >}}
+{{< friend name="Matrix67" des="数学博客" url="http://www.matrix67.com" domain="matrix67.com" src="https://static.eallion.com/link/friend_404.gif" >}}
+{{< friend name="阮一峰" des="阮一峰的网络日志" url="http://www.ruanyifeng.com/blog/" domain="ruanyifeng.com/blog" src="https://static.eallion.com/link/person2_s.jpg" >}}
+{{< friend name="风雪之隅" des="PHP 开发组核心成员" url="http://www.laruence.com/" domain="laruence.com" src="https://static.eallion.com/link/avatar.jpg" >}}
 {{< friend name="JoyQi" des="Typecho 开发者" url="https://joyqi.com/" domain="joyqi.com" src="https://sdn.geekzu.org/avatar/8a8304a40ec366197242d3ea3e31baf9" >}}
 {{< friend name="Tommy Chen" des="Hexo 开发者" url="https://zespia.tw/" domain="zespia.tw" src="https://sdn.geekzu.org/avatar/0c2e1fea502b8934820eacdfca778d8c" >}}
 {{< friend name="spf13" des="Hugo 开发者" url="https://spf13.com/" domain="spf13.com" src="https://sdn.geekzu.org/avatar/e52bc145bc33c4d337698dd9f161ea89" >}}
 {{< friend name="Beps" des="Hugo 开发者" url="https://bep.is" domain="spf13.com" src="https://sdn.geekzu.org/avatar/67d3f9eddc34d7649a92597c3978201f" >}}
 {{< friend name="Sukka's Blog" des="Hexo 开发成员" url="https://blog.skk.moe/" domain="blog.skk.moe" src="https://cdn.jsdelivr.net/npm/skx@0.2.3/avatar/96x96.png" >}}
-{{< friend name="大利之川" des="大利之川" url="https://www.dalizhichuan.com/" domain="dalizhichuan.com" src="https://cdn.eallion.com/statics/img/link/dalizhichuan.png" >}}
+{{< friend name="大利之川" des="大利之川" url="https://www.dalizhichuan.com/" domain="dalizhichuan.com" src="https://static.eallion.com/link/dalizhichuan.png" >}}
 {{< friend name="福至心灵" des="福至心灵相册" url="https://www.fuzhixinling.com" domain="fuzhixinling.com" src="https://www.fuzhixinling.com/media/large/Avatar/CharlesChin.jpg" >}}
-{{< friend name="曼陀罗" des="曼陀罗的博客" url="https://www.yangfuying.com" domain="yangfuying.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" >}}
-{{< friend name="吉吉言吾" des="吉吉言吾的博客" url="https://www.qinzheyu.com" domain="qinzheyu.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" >}}
+{{< friend name="曼陀罗" des="曼陀罗的博客" url="https://www.yangfuying.com" domain="yangfuying.com" src="https://static.eallion.com/link/friend_404.gif" >}}
+{{< friend name="吉吉言吾" des="吉吉言吾的博客" url="https://www.qinzheyu.com" domain="qinzheyu.com" src="https://static.eallion.com/link/friend_404.gif" >}}
 {{< friend name="Charles Chin" des="charleschin.com" url="https://charleschin.com" domain="charleschin.com" src="https://sdn.geekzu.org/avatar/9a7655675ef08ee179c48f2a829280bd" >}}
-{{< friend name="羽中漫步" des="羽中漫步" url="http://www.yzmb.me/" domain="yzmb.me" src="https://cdn.eallion.com/statics/img/link/mylogo.png" >}}
-{{< friend name="PHPHA" des="天涯 PHP 博客" url="http://blog.phpha.com" domain="blog.phpha.com" src="https://cdn.eallion.com/statics/img/friend_404.gif" >}}
+{{< friend name="羽中漫步" des="羽中漫步" url="http://www.yzmb.me/" domain="yzmb.me" src="https://static.eallion.com/link/mylogo.png" >}}
+{{< friend name="PHPHA" des="天涯 PHP 博客" url="http://blog.phpha.com" domain="blog.phpha.com" src="https://static.eallion.com/link/friend_404.gif" >}}
 {{< friend name="怡红公子" des="怡红公子的怡红院落" url="http://imnerd.org/" domain="imnerd.org" src="https://sdn.geekzu.org/avatar/a373282ace706850ed7edfab4161f9e4" >}}
 {{< friend name="木木木木木" des="木木老师" url="https://immmmm.com" domain="immmmm.com" src="https://sdn.geekzu.org/avatar/cb98b86aaebfb5f1ff6f5bfeec6105a4" >}}
 {{< friend name="月光博客" des="专注于互联网和搜索引擎的知名 IT 科技博客" url="https://www.williamlong.info/" domain="williamlong.info" src="https://www.williamlong.info/images/apple-touch-icon.png" >}}
