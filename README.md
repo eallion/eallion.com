@@ -15,6 +15,177 @@
 
 # 备忘录：
 
+博客仓库结构：
+```
+.
+├── .editorconfig                           # Editor 格式化插件配置文件
+├── .gitattributes                          # 定义文件的属性
+├── .github                                 # GitHub Actions Workflow
+│   └── workflows                           
+│       ├── CODEOWNERS                      
+│       └── main.yml                        
+├── .gitignore                              # Ignore 文件
+├── .gitlab-ci.yml                          # GitLab 的 CI 配置文件
+├── .husky                                  # Husky 插件
+│   ├── _                                   
+│   │   ├── .gitignore                      
+│   │   └── husky.sh                        
+│   └── commit-msg                          
+├── CHANGELOG.md                            # 自动生成的 Changlog 文件
+├── GLWTPL                                  # GLWTPL 协议
+├── LICENSE                                 # LICENSE 许可协议
+├── README.md                               # Readme 说明文件
+├── archetypes                              # 生成 Hugo 文章的模板
+│   └── default.md                          
+├── autocorrect                             # 中英文自动排版插件
+├── build.sh                                # Linux 环境构建 Hugo 脚本
+├── coding.sh                               # 在 Coding.net CI 中用到的安装 Hugo 脚本
+├── commitlint.config.js                    # Git 规范提交插件的配置文件
+├── config.toml                             # Hugo 全站的配置文件
+├── content                                 # 存放 Hugo 文章的目录
+│   ├── _index.md                           
+│   ├── about.md                            # 关于页面
+│   ├── archives                            # 归档页面
+│   │   └── _index.md                       
+│   ├── book.md                             # 豆瓣阅读页面
+│   ├── books.md                            # 豆瓣阅读页面
+│   ├── copyright.md                        # 版权说明页面
+│   ├── film.md                             # 豆瓣电影页面
+│   ├── guestbook.md                        # 留言板页面
+│   ├── link.md                             # 友情链接页面
+│   ├── links.md                            # 友情链接页面
+│   ├── movie.md                            # 豆瓣电影页面
+│   ├── movies.md                           # 豆瓣电影页面
+│   ├── penta.md                            # LOL 五杀相册页面
+│   ├── photos.md                           # 相册页面
+│   ├── posts                               # 存放 Hugo 博客文章的目录
+│   │   ├── _index.md                       
+│   │   ├── code                            # 代码博客分类目录
+│   │   ├── daily                           # 日志博客分类目录
+│   │   ├── operation                       # 运营小记博客分类目录
+│   │   ├── share                           # 分享博客分类目录
+│   │   └── sz                              # 朋友山贼写的博客的目录
+│   ├── privacy-policy.md                   # 隐私条款页面
+│   ├── search.md                           # 博客搜索页面
+│   ├── tags                                # 博客 Tag 标签页面
+│   │   └── _index.md                       
+│   ├── talk.md                             # 嘀咕页面
+│   ├── talks.md                            # 嘀咕搜索页面 Algolia 版
+│   └── video.md                            # 豆瓣电影页面
+├── data                                    # 生成友情链接的数据
+│   └── hellofriend                         
+│       └── social.toml                     
+├── deploy.bat                              # Windows 本地部署博客的脚本
+├── deploy.sh                               # Linux 本地部署博客的脚本
+├── firebase.json                           # 用于 Firebase 的配置文件
+├── githash.sh                              # 获取最新一条 Git log hash 的脚本
+├── netlify.toml                            # 用于 Netlify 的配置文件
+├── package.json                            # NPM 包
+├── resources                               
+│   └── _gen                                
+│       ├── assets                          
+│       └── images                          
+├── static                                  # 构建时自动同步的静态文件
+│   ├── .well-known                         
+│   │   └── keybase.txt                     # 用于 Keybase 认证文件
+│   ├── 404.html                            # 404 页面
+│   ├── CNAME                               # GitHub Pages 绑定域名的 CNAME 文件
+│   ├── README.md                           # 用于 GitHub Pages 仓库的说明文件
+│   ├── android-chrome-192x192.png          # PWA
+│   ├── android-chrome-512x512.png          # PWA
+│   ├── apple-touch-icon.png                # PWA
+│   ├── favicon-16x16.png                   # PWA
+│   ├── favicon-32x32.png                   # PWA
+│   ├── favicon.ico                         # 博客图标
+│   ├── key                                 # 个人公钥
+│   ├── keybase.txt                         # 用于 Keybase 认证文件
+│   ├── manifest.json                       # PWA
+│   ├── mstile-150x150.png                  # PWA
+│   ├── penta                               # LOL 五杀相册页面
+│   ├── pgp_keys.asc                        # pgp keys
+│   ├── photos                              # 相册页面
+│   └── service-worker.js                   # PWA
+├── themes                                  # 主题目录
+│   └── hello-friend                        # Hello Friend 主题
+│       ├── README.md                       # 主题的说明
+│       ├── assets                          # 主题的静态资源目录
+│       │   ├── css                         # CSS
+│       │   │   ├── Bmdb.min.css            # Bmdb
+│       │   │   ├── iconfont.css            # iconfont
+│       │   │   ├── prism.css               # 代码高亮
+│       │   │   └── style.css               # 主样式
+│       │   └── js                          # JS
+│       │       ├── Bmdb.js                 # Bmdb
+│       │       ├── all.js                  # 新增的全部 JS
+│       │       ├── jquery.toTop.js         # Go to top 插件
+│       │       ├── lately.js               # 相对时间 JS 插件
+│       │       ├── lately.old.js           # 相对时间 JS 插件备份
+│       │       ├── main.js                 # 主 JS
+│       │       ├── prism.js                # 代码高亮
+│       │       ├── privacy.js              # ？
+│       │       ├── search.js               # 搜索
+│       │       ├── slimbox2.js             # 灯箱插件
+│       │       └── waterfall.js            # ？
+│       ├── layouts                         # 主题模板
+│       │   ├── _default                    # 默认模板
+│       │   │   ├── _markup                 
+│       │   │   │   └── render-image.html   # 渲染图片
+│       │   │   ├── about.html              # 关于页面
+│       │   │   ├── baseof.html             # 基础框架
+│       │   │   ├── books.html              # 豆瓣阅读页面
+│       │   │   ├── chat.html               # Chat 分类目录专用
+│       │   │   ├── copyright.html          # 版权信息模板
+│       │   │   ├── link.html               # 友情链接模板
+│       │   │   ├── list.atom.xml           # Atom RSS Feed 模板
+│       │   │   ├── list.html               # List 模板
+│       │   │   ├── list.html.html          # 主要的 List 模板
+│       │   │   ├── movies.html             # 豆瓣电影模板
+│       │   │   ├── path.html               # 读取相册目录的模板
+│       │   │   ├── penta.html              # LOL 五杀相册的模板
+│       │   │   ├── photos.html             # 相册模板
+│       │   │   ├── privacy-policy.html     # 隐私政策的模板
+│       │   │   ├── search.html             # 搜索模板
+│       │   │   ├── single.html             # 文章页面模板
+│       │   │   ├── talk.html               # 嘀咕页面模板
+│       │   │   ├── talks.html              # 嘀咕搜索 Algolia 模板
+│       │   │   └── terms.html              # Terms 模板
+│       │   ├── archives                    # 归档目录
+│       │   │   └── list.html               # 归档页面模板
+│       │   ├── chat                        # Chat 目录
+│       │   │   └── list.html               # Chat 模板
+│       │   ├── index.json                  # 构建时自动生成用于搜索的 json 文件
+│       │   ├── partials                    # 框架模板
+│       │   │   ├── analytics.html          # 统计代码模板
+│       │   │   ├── breadcrumb.html         # 文章头面包屑模板
+│       │   │   ├── comments.html           # 评论模板
+│       │   │   ├── footer-js.html          # 页脚压缩 JS 的模板
+│       │   │   ├── footer.html             # 页脚模板
+│       │   │   ├── githash.html            # 生成最新一条 Git log hash 的模板
+│       │   │   ├── greater-icon.html       # Menu 图标模板
+│       │   │   ├── head.html               # 页头模板
+│       │   │   ├── header.html             # Header 模板
+│       │   │   ├── lastmod.html            # 最新修改时间显示模板
+│       │   │   ├── logo.html               # LOGO 模板
+│       │   │   ├── menu.html               # Menu 模板
+│       │   │   ├── pagination.html         # 分页模板
+│       │   │   ├── talk.html               # 文章页引用面包屑样式的嘀咕模板
+│       │   │   ├── theme-icon.html         # 切换暗黑样式的模板
+│       │   │   └── toc.html                # 文章页 TOC 目录模板
+│       │   ├── shortcodes                  # 集成的 Shortcodes
+│       │   │   ├── code.html               # 代码
+│       │   │   ├── figure.html             # 相册
+│       │   │   ├── friend.html             # 友情链接
+│       │   │   ├── image.html              # 图片
+│       │   │   ├── imgproc.html            # 图片
+│       │   │   ├── link.html               # 引用链接
+│       │   │   └── music.html              # 音乐播放器
+│       │   └── tags                        # 标签
+│       │       └── list.html               # 标签 List
+│       └── theme.toml                      # 主题配置
+└── vercel.json                             # 用于 Vercel 的配置文件
+
+```
+
 ### 主仓库
 > <https://github.com/eallion/eallion.com.git>
 
