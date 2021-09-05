@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Version="0.87.0"
+Version="0.88.1"
 echo ${Version}
 mkdir hugo
 cd hugo
