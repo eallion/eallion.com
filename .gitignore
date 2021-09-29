@@ -35,5 +35,6 @@ oss.config
 .oss.config
 
 node_modules
+package-lock.json
 
 autocorrect
