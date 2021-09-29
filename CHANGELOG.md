@@ -1,12 +1,34 @@
-# [1.0.0](https://github.com/eallion/eallion.com/compare/v1.0.2...v1.0.0) (2021-08-05)
+# [Changelogs](https://github.com/eallion/eallion.com/compare/v1.0.3...v1.0.0) (2021-09-29)
+
+
+
+## [1.0.3](https://github.com/eallion/eallion.com/compare/v1.0.2...v1.0.3) (2021-09-29)
 
 
 ### Bug Fixes
 
+* **about:** add lazy loading ([70d8f6c](https://github.com/eallion/eallion.com/commit/70d8f6c6f38ae39250db4f42b3780ee84460daea))
+* **coding:** fix coding ci bash script ([dde391f](https://github.com/eallion/eallion.com/commit/dde391f6892b0b2a63a4bbfaf7300b9449b41959))
 * **conf:** fix timezone ([2646fdc](https://github.com/eallion/eallion.com/commit/2646fdc8a0d124b1d48f57b17475c3f123e4d103)), closes [#4](https://github.com/eallion/eallion.com/issues/4)
 * **footer:** use a shell script to display the last commit hash ([dba851d](https://github.com/eallion/eallion.com/commit/dba851d39444f95e2328bc07dae54dbe6b1117b6))
+* **link:** fix a avatar ([b0a0a1e](https://github.com/eallion/eallion.com/commit/b0a0a1e2750753488a3478cd6ee3cb73eaa0e32b))
+* **npm:** npm update ([5d8276c](https://github.com/eallion/eallion.com/commit/5d8276c8693ea3bed014ee0b7bc859091e96b2f7))
+* **post:** fix an img src url ([4b7567e](https://github.com/eallion/eallion.com/commit/4b7567e848fe81d46e554d4a148b0aa03e8ade1e))
+* **single:** fix text ([04eaea0](https://github.com/eallion/eallion.com/commit/04eaea0ab8256eae008d2fd005b1e56fa98bfdf1))
 * **talks:** fix algolia html escape ([539ef12](https://github.com/eallion/eallion.com/commit/539ef12332d5d12399093a45418cc121ccca5ab7))
 * **talk:** space ([620b7b7](https://github.com/eallion/eallion.com/commit/620b7b76804c864ac1f98bd997b482ac723ec112))
+
+
+### Features
+
+* **analytics:** add self hosted analytics umami ([8e82deb](https://github.com/eallion/eallion.com/commit/8e82deb6c08a5dbeb560dd4d0ba65f88f2d64067))
+* **npm:** add a script ([5a74c3e](https://github.com/eallion/eallion.com/commit/5a74c3e1c155f8082352f975cb33a0a25f6a1f68))
+
+
+### Performance Improvements
+
+* **header:** scroll animation ([26363cb](https://github.com/eallion/eallion.com/commit/26363cb7882ab1f545d789f9136bad87f8404924))
+* update githash shell script ([78d4a97](https://github.com/eallion/eallion.com/commit/78d4a97edab2b30f7156eff5935d75c22da23cea))
 
 
 
@@ -81,7 +103,7 @@
 
 ### Features
 
-* 嘀咕页面img表情和md表情的图片正则 ([f373cc0](https://github.com/eallion/eallion.com/commit/f373cc09b4047833e9a438dbdf6a6aa506d73eb2))
+* 嘀咕页面 img 表情和 md 表情的图片正则 ([f373cc0](https://github.com/eallion/eallion.com/commit/f373cc09b4047833e9a438dbdf6a6aa506d73eb2))
 * add noto serif tc for talk pages ([7389938](https://github.com/eallion/eallion.com/commit/7389938fe8e83e46a4c33fa1a65a6b0493798411))
 * change jinrishici api to gushi.ci ([d431a6e](https://github.com/eallion/eallion.com/commit/d431a6ea64f87cc3ca5dab851494459f97aa59d7))
 * enable changecrab ([66c1dfb](https://github.com/eallion/eallion.com/commit/66c1dfb4f01198ed85aaf38b3ed3ccbff5552b6c))
