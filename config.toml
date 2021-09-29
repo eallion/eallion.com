@@ -81,7 +81,7 @@ enableGitInfo = true
 
 [params.twikoo]
   enable = true
-  version = '1.4.8'
+  version = '1.4.9'
 
 [params.disqus]
   enable = false
