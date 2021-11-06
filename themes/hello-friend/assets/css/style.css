@@ -2274,6 +2274,14 @@ photos .photo:last-child {
     word-break:break-all !important;
     word-wrap: break-word !important;
 }
+.hitsAlgolia p em {
+    font-style: normal !important;
+    color: #f00 !important;
+    padding: 0 2px !important;
+    text-decoration-line: underline !important;
+    text-decoration-style: dashed !important;
+    text-decoration-thickness: 1px !important;
+}
 .hitsAlgolia small {
     color: #5b7083 !important;
     font-size: 0.875em !important;
