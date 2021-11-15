@@ -38,3 +38,5 @@ node_modules
 package-lock.json
 
 autocorrect
+
+.hugo_build.lock
