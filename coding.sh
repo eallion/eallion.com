@@ -2,6 +2,6 @@
 
 mkdir hugo
 cd hugo
-curl -fL "https://coding-public-generic.pkg.coding.net/public/downloads/hugo-linux-64bit.deb?version=0.89.3" -o hugo-linux-64bit-0.89.3.deb
-apt-get -y install ./hugo-linux-64bit-0.89.3.deb
+curl -fL "https://coding-public-generic.pkg.coding.net/public/downloads/hugo-linux-64bit.deb?version=0.89.4" -o hugo-linux-64bit-0.89.4.deb
+apt-get -y install ./hugo-linux-64bit-0.89.4.deb
 cd ..
