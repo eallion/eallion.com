@@ -410,6 +410,7 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 npm install -g husky
 npx husky install
 npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
+commitizen init cz-conventional-changelog --save --save-exact
 ```
 
 2. **规范提交**
