@@ -4,7 +4,7 @@
 
 ### Build status
 
-[![构建状态](https://eallion.coding.net/badges/eallion/job/243839/main/build.svg)](https://eallion.coding.net/p/eallion/ci/job) [![Build Hugo and Deploy](https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.com/actions/workflows/main.yml)
+[![构建状态](https://eallion.coding.net/badges/eallion/job/884628/build.svg)](https://eallion.coding.net/p/eallion/ci/job) [![Build Hugo and Deploy](https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.com/actions/workflows/main.yml)
 
 ### Any questions?
 
@@ -19,6 +19,15 @@
 ```
 .
 ├── .editorconfig                           # Editor 格式化插件配置文件
+├── .frontmatter                            # Frontmatter 插件
+│   └──content
+│       └──mediaDb.json
+│   └──templates
+│       ├──code.md
+│       ├──daily.md
+│       ├──operation.md
+│       ├──pages.md
+│       └──share.md
 ├── .gitattributes                          # 定义文件的属性
 ├── .github                                 # GitHub Actions Workflow
 │   └── workflows                           
@@ -78,6 +87,7 @@
 ├── deploy.bat                              # Windows 本地部署博客的脚本
 ├── deploy.sh                               # Linux 本地部署博客的脚本
 ├── firebase.json                           # 用于 Firebase 的配置文件
+├── frontmatter.json                        # Frontmatter 配置文件
 ├── githash.sh                              # 获取最新一条 Git log hash 的脚本
 ├── netlify.toml                            # 用于 Netlify 的配置文件
 ├── package.json                            # NPM 包
@@ -279,11 +289,27 @@ pipeline {
     }
     stage('COS Deploy') {
       steps {
-        sh 'coscmd config -a ${COS_SECRET_ID} -s ${COS_SECRET_KEY} -b ${COS_BUCKET_NAME} -r ${COS_BUCKET_REGION} -m 30'
-        sh 'coscmd upload --delete --force -rs ${COS_UPLOAD_FROM_PATH} /'
+        useCustomStepPlugin(key: 'coding-public:cos_upload', version: 'latest', params: [region:'${COS_BUCKET_REGION}',bucket:'${COS_BUCKET_NAME}',remote:'/',local:'public/',secret_id:'${COS_SECRET_ID}',secret_key:'${COS_SECRET_KEY}'])
         echo 'COS Deploy'
       }
     }
+#    stage('Tencent CloudBase Deploy') {
+#      agent {
+#        docker {
+#          reuseNode true
+#          registryUrl 'https://coding-public-docker.pkg.coding.net'
+#          image 'public/docker/nodejs:14'
+#          args '-v /root/.npm/:/root/.npm/'
+#        }
+#      }
+#      steps {
+#        sh 'npm i -g @cloudbase/cli'
+#        sh 'tcb login --apiKeyId ${TCB_SECRET_ID} --apiKey ${TCB_SECRET_KEY}'
+#        sh 'tcb hosting delete / -e ${TCB_SECRET_ENVID}'
+#        sh 'tcb hosting deploy public -e ${TCB_SECRET_ENVID}'
+#        echo 'CloudBase Deployed'
+#      }
+#    }
   }
 }
 </pre>
