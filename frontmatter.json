@@ -8,7 +8,7 @@
       "path": "d:/gpm/github.com/eallion/eallion.com/content/posts/daily"
     }
   ],
-  "frontMatter.content.autoUpdateDate": true,
+  "frontMatter.content.autoUpdateDate": false,
   "frontMatter.site.baseURL": "https://eallion.com",
   "frontMatter.taxonomy.categories": [
       "日志",
