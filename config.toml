@@ -73,7 +73,7 @@ enableGitInfo = true
 
 [params.mdview] # View original markdown of post on GitHub
   enable = true
-  ContentPath = 'https://raw.githubusercontent.com/eallion/eallion.com/main/content/' # Don't miss the last slash: "/"
+  ContentPath = 'https://git.eallion.com/eallion/eallion.com/raw/branch/main/content/' # Don't miss the last slash: "/"
 
 [params.waline]
   enable = false
