@@ -1,4 +1,22 @@
-# [Changelogs](https://github.com/eallion/eallion.com/compare/v1.0.3...v1.0.0) (2021-09-29)
+# [Changelogs](https://github.com/eallion/eallion.com/compare/v1.0.3...v1.0.0) (2021-12-19)
+
+
+### Bug Fixes
+
+* fix a typo ([0fb5a18](https://github.com/eallion/eallion.com/commit/0fb5a189a991df652ec5c4dbff6ffaf96e4d43a2))
+
+
+### Features
+
+* add a currency convert ([05a2abe](https://github.com/eallion/eallion.com/commit/05a2abe9b3a8edcfc9ce0215918e7a539817187b))
+* **algolia:** highlight for algolia search result ([548932f](https://github.com/eallion/eallion.com/commit/548932f543a99dbf163b5b5c5101622ae3feedd1))
+* enable frontmatter vscode extension ([cee3d05](https://github.com/eallion/eallion.com/commit/cee3d050a9bb017762bb69b8554003b9ee61be0e))
+
+
+### Performance Improvements
+
+* **frontmatter:** frontmatter setting perf ([8c59cdd](https://github.com/eallion/eallion.com/commit/8c59cdd53dadf18c8899d8ce1485f7f88f8f38fc))
+* **seo:** some seo setting for single post ([0473bc5](https://github.com/eallion/eallion.com/commit/0473bc5e31f96b99502913200dae96c59558d64c))
 
 
 
