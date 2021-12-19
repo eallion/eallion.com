@@ -216,7 +216,7 @@
     "@commitlint/config-conventional": "^12.1.4",
     "commitizen": "^4.2.4",
     "conventional-changelog-cli": "^2.1.1",
-    "cz-conventional-changelog": "^3.2.0",
+    "cz-conventional-changelog": "^3.3.0",
     "husky": "^7.0.1"
   },
   "husky": {
@@ -239,5 +239,10 @@
   "bugs": {
     "url": "https://github.com/eallion/eallion.com/issues"
   },
-  "homepage": "https://github.com/eallion/eallion.com#readme"
+  "homepage": "https://github.com/eallion/eallion.com#readme",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
