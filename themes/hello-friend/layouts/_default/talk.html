@@ -216,7 +216,7 @@
                     href="https://beian.miit.gov.cn/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >浙ICP备16031768号-2</a
+                    >浙 ICP 备 16031768 号-2</a
                 >
                 <i class="iconfont icon-privacy"></i>
                 <a
@@ -262,7 +262,7 @@
     <script>
         //初始化
         const app = tcb.init({
-          env: 'eallion-8gkunp4re49bae66' //这里是你的环境id
+          env: 'eallion-8gkunp4re49bae66' //这里是你的环境 id
         })
         app.auth({
             persistence: "none"
@@ -273,9 +273,9 @@
             const collection = db.collection('talks')
             /**
              * 定义基本变量
-             * count | int, 数目
-             * per | int, 每页显示项目数
-             * page | int, 第几页
+             * count | int，数目
+             * per | int，每页显示项目数
+             * page | int，第几页
              */
             var count=0, per = 10,page = 1
             /**
@@ -316,18 +316,18 @@
         // 图片和链接
         function urlToLink(str) {
             //去除<img>标签，留 src 链接
-            var re_forimg =/\<[img|IMG].*?src=[\'|\"](https\:\/\/.*?(?:[\.jpg|\.jpeg|\.png|\.gif|\.webp|\.bmp]))[\'|\"].*?[\/]?>/g;
+            var re_forimg =/\<[img|IMG].*?src=[\'|\"](https\:\/\/.*?(?:[\.jpg|\.jpeg|\.png|\.gif|\.webp|\.jfif|\.bmp]))[\'|\"].*?[\/]?>/g;
             str =str.replace(re_forimg,'$1');
             //去 ![]() 标签，留图片链接
             var re_formd = /^!\[(.*)\]\((.*)\)/g;
             str = str.replace(re_formd,'$2');
             //处理图片链接，添加 a 标签共添加灯箱效果
-            var re_forpic =/\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(bmp)|(webp))/g;
+            var re_forpic =/\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(jfif)|(bmp)|(webp))/g;
             str =str.replace(re_forpic,function (imgurl) {
             return "<a href='" + imgurl + "' rel='noopener noreferrer'><img loading='lazy' src='" + imgurl + "' ></a>";
             });
             //处理普通链接，添加 a 标签供跳转
-            var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
+            var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g;
             str =str.replace(re,function (website) {
             return "🔗<a href='" + website + "' target='_blank' rel='noopener noreferrer'>链接</a>";
             });
