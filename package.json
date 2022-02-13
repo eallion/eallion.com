@@ -190,7 +190,7 @@
     "tmp": "^0.0.33",
     "to-regex-range": "^5.0.1",
     "trim-newlines": "^3.0.1",
-    "trim-off-newlines": "^1.0.1",
+    "trim-off-newlines": "^1.0.3",
     "tslib": "^1.14.1",
     "type-fest": "^0.18.1",
     "uglify-js": "^3.13.10",
