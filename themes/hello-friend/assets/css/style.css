@@ -158,51 +158,12 @@ header {
 .dark-theme header {
     background: var(--dark-header);
 }
-html:not([data-scroll="0"]) header {
-    position: fixed;
-    top: 0;
-    background: var(--light-header);
-    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
-    padding: 5px;
-}
-html:not([data-scroll="0"]) .header__inner {
-    width: 860px;
-}
-html:not([data-scroll="0"]) .logo {
-    padding-left: 10px;
-}
-html:not([data-scroll="0"]) .theme-toggle {
-    padding: 0 50px 0 0;
-}
-html:not([data-scroll="0"]) .menu__inner--desktop {
-    display: none;
-}
-html:not([data-scroll="0"]) header .header__right {
-    color: #222b !important;
-}
-
-html:not([data-scroll="0"]) .dark-theme header .header__right {
-    color: #a9a9b3b3 !important;
-}
-html:not([data-scroll="0"]) .dark-theme header {
-    background: var(--dark-header);
-    box-shadow: 0 0 0.5em rgba(255, 255, 255, 0.1);
-}
 .header__right {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 @media (max-width: 683px) {
-    html:not([data-scroll="0"]) header {
-        box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
-        padding: 0 20px;
-        border-radius: 0 0 8px 8px;
-    }
-    html:not([data-scroll="0"]) .theme-toggle,
-    .theme-toggle {
-        padding-right: 5px;
-    }
     .header__right {
         flex-direction: row-reverse;
     }
@@ -307,10 +268,6 @@ html:not([data-scroll="0"]) .dark-theme header {
     border-radius: 1px;
     -webkit-animation: cursor 1s infinite;
     animation: cursor 1s infinite;
-}
-html:not([data-scroll="0"]) .logo__cursor,
-html:not([data-scroll="0"]) .logo__texts {
-    display: none;
 }
 .changelog {
     display: inline-block;
@@ -870,35 +827,6 @@ hr {
     font-size: 15px;
     min-height: 45px;
 }
-
-html:not([data-scroll="0"]) .header__talk {
-    position: fixed;
-    top: 0;
-    background: none;
-    box-shadow: none;
-    padding: 5px;
-    z-index: 1001;
-    margin: 0 auto;
-    min-height: unset;
-    border-radius: unset;
-    text-align: left;
-    left: 40%;
-    max-width: 600px;
-    text-align: left;
-    max-width: 600px;
-    left: 0;
-    right: 0;
-    padding: 10px 0 10px 15px;
-    font-style: italic;
-    /*transition:all 0.5s;*/
-}
-html:not([data-scroll="0"]) .header__talk i {
-    font-size: 1rem !important;
-    margin-right: 0.2rem !important;
-}
-html:not([data-scroll="0"]) .header__talk button {
-    display: none !important;
-}
 .talk-list,
 .gusici__list {
     margin: 0;
@@ -944,8 +872,6 @@ html:not([data-scroll="0"]) .header__talk button {
     .dark-theme .index-talk {
         background-color: var(--dark-header);
     }
-    html:not([data-scroll="0"]) .header__talk {
-        display: none;
     }
 }
 /* 嘀咕页今日诗词 */
