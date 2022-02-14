@@ -153,19 +153,19 @@ enableGitInfo = true
   url="/about/"
   weight="4"
   ## sub menu
-  [[menu.main]]
-  name="观影"
-  url="/movies/"
-  weight="11"
-  [[menu.main]]
-  name="阅读"
-  url="/books/"
-  weight="12"
+  #[[menu.main]]
+  #name="观影"
+  #url="/movies/"
+  #weight="11"
+  #[[menu.main]]
+  #name="阅读"
+  #url="/books/"
+  #weight="12"
   ## more menu
-  [[menu.main]]
-  name="日记"
-  url="/posts/daily/"
-  weight="21"
+  #[[menu.main]]
+  #name="日记"
+  #url="/posts/daily/"
+  #weight="21"
   ## external menu
   [[menu.main]]
   name="版权"
@@ -176,6 +176,6 @@ enableGitInfo = true
   url="/privacy-policy/"
   weight="32"
   [[menu.main]]
-  name="订阅"
+  name="RSS"
   url="/atom.xml"
   weight="33"
