@@ -165,7 +165,7 @@ $(document).ready(function () {
             });
             $('#index-talk').append('<i class="iconfont icon-twitter"></i> <ul class="talk-list">' + talksHtml + '</ul>')
             Lately({
-                'target': '#index-talk .datatime'
+                'target': '.datatime'
             });
         });
         function urlToLink(str) {
