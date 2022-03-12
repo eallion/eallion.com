@@ -855,6 +855,9 @@ hr {
     vertical-align: middle;
     display: inline;
 }
+.talk-list li:not(:first-child) {
+    display: none !important;
+}
 .dark-theme .index-talk {
     background-color: var(--dark-header);
 }
