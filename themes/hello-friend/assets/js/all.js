@@ -175,7 +175,7 @@ $(document).ready(function () {
                 return '🔗';
             });
             str = str.replace(re_forpic, function (imgurl) {
-                return '📷';
+                return '<span class=emoji>🖼︎</span>';
             });
             return str;
         }
