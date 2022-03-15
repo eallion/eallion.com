@@ -16,6 +16,7 @@ jQuery(document).ready(function ($) {
     });
     var t_img;
     var isLoad = true;
+
     function isImgLoad(callback) {
         $('photos img').each(function () {
             if (this.height === 0) {
@@ -123,6 +124,7 @@ jQuery(document).ready(function ($) {
             }
         }
     });
+
     function moiveShow(_this, ls_item) {
         var storage = localStorage.getItem(ls_item);
         var data = JSON.parse(storage);
@@ -131,6 +133,7 @@ jQuery(document).ready(function ($) {
         var db_star = Math.ceil(data.rating);
         $("<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' href='" + str + "' rel='noopener noreferrer'>《" + data.title + "》</a></h4><div class='rating'><div class='rating-star allstar" + db_star + "'></div><div class='rating-average'>" + data.rating + "</div></div><time class='post-preview--date'>导演：" + data.directors + " / 类型：" + data.genres + " / " + data.pubdate + "</time><section style='max-height:75px;overflow:hidden;' class='post-preview--excerpt'>" + data.intro + "</section></div></div><img loading='lazy' class='post-preview--image' src=" + data.cover + "></div>").replaceAll(_this);
     }
+
     function bookShow(_this, ls_item) {
         var storage = localStorage.getItem(ls_item);
         var data = JSON.parse(storage);
@@ -168,6 +171,7 @@ $(document).ready(function () {
                 'target': '.datatime'
             });
         });
+
         function urlToLink(str) {
             var re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g;
             var re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(bmp)|(jfif)|(webp))/g;
@@ -179,13 +183,33 @@ $(document).ready(function () {
             });
             return str;
         }
+
         function Roll() {
             var list_li = $('.talk-list li'),
                 cur_li = list_li.first(),
                 last_li = list_li.last();
             last_li.after(cur_li);
         };
-        setInterval(Roll, 3000);
+        // 设置滚动间隔时间
+        // 简单版本
+        // setInterval(Roll, 1000);
+
+        // 鼠标移入暂时滚动版本
+        var timer = null;
+
+        function startSetInterval() {
+            timer = setInterval(Roll, 3000);
+        }
+        // start function on page load
+        startSetInterval();
+
+        // hover behaviour
+        $('#index-talk').hover(function () {
+            clearInterval(timer);
+        }, function () {
+            startSetInterval();
+        });
+
         //点击关闭嘀咕 Widget
         $('button').click(function () {
             $(this).parents('#index-talk').remove();
