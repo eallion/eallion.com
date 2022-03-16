@@ -214,13 +214,9 @@
         {{ end }}
         </div>
     </footer>
-
-    <a href="javascript:void(0)" class="to-top back-to-top"><i class="iconfont icon-up"></i></a>
-
+    <div class="to-top back-to-top"><i class="iconfont icon-up"></i></div>
     {{ partial "footer-js.html" . }}
-
     <script src="//imgcache.qq.com/qcloud/tcbjs/1.10.10/tcb.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/buddys/qq-wechat-emotion-parser@master/dist/qq-wechat-emotion-parser.min.js"></script>
     <script>
         var xhr = new XMLHttpRequest();
         xhr.open('get', 'https://v1.jinrishici.com/shuqing/youqing.json');
@@ -316,7 +312,7 @@
             return "🔗<a href='" + website + "' target='_blank' rel='noopener noreferrer'>链接</a>";
             });
             //微信表情
-            str = qqWechatEmotionParser(str)
+            // str = qqWechatEmotionParser(str)
             return str;
         }
     </script>

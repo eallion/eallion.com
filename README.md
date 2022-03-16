@@ -47,7 +47,6 @@
 ├── archetypes                              # 生成 Hugo 文章的模板
 │   └── default.md                          
 ├── autocorrect                             # 中英文自动排版插件
-├── build.sh                                # Linux 环境构建 Hugo 脚本
 ├── coding.sh                               # 在 Coding.net CI 中用到的安装 Hugo 脚本
 ├── commitlint.config.js                    # Git 规范提交插件的配置文件
 ├── config.toml                             # Hugo 全站的配置文件
@@ -84,12 +83,8 @@
 ├── data                                    # 生成友情链接的数据
 │   └── hellofriend                         
 │       └── social.toml                     
-├── deploy.bat                              # Windows 本地部署博客的脚本
-├── deploy.sh                               # Linux 本地部署博客的脚本
-├── firebase.json                           # 用于 Firebase 的配置文件
 ├── frontmatter.json                        # Frontmatter 配置文件
 ├── githash.sh                              # 获取最新一条 Git log hash 的脚本
-├── netlify.toml                            # 用于 Netlify 的配置文件
 ├── package.json                            # NPM 包
 ├── resources                               
 │   └── _gen                                
@@ -192,7 +187,6 @@
 │       │   └── tags                        # 标签
 │       │       └── list.html               # 标签 List
 │       └── theme.toml                      # 主题配置
-└── vercel.json                             # 用于 Vercel 的配置文件
 
 ```
 
@@ -208,7 +202,6 @@
 
 ```
 git remote set-url --add --push origin https://id:token@github.com/eallion/eallion.com.git
-git remote set-url --add --push origin https://id:token@git.eallion.com/eallion/eallion.com.git
 git remote set-url --add --push origin https://id:token@e.coding.net/eallion/eallion.com/hugo.git
 ```
 
@@ -361,24 +354,20 @@ hugo server -wD
 ```
 个人常用：
 ```
-hugo server -w -D -p 8080 -t hello-friend --enableGitInfo --bind 192.168.0.2 --baseURL 192.168.0.2
+hugo server -w -D -p 8080 -t hello-friend --enableGitInfo --bind 192.168.0.5 --baseURL 192.168.0.5
 ```
-> 在浏览器中打开：http://192.168.0.2:8080
+> 在浏览器中打开：http://192.168.0.5:8080
 - `hugo server` 把 Hugo 当作 Web 服务器，而非构建静态网页
 - `-w` 有文件变化立即刷新（默认开启）
 - `-D` 构建草稿，撰写新文章时很有用
 - `-p 8080` 指定端口号 8080（默认 1313）
 - `-t hello-friend` 使用 hello-friend 主题
 - `-enableGitInfo` 开启 GitIifo
-- `--bind 192.168.0.2` 绑定 IP ，局域网其他设备 Debug 时很有用
-- `--baseURL 192.168.0.2` 绑定域名（IP），局域网其他设备 Debug 时很有用
+- `--bind 192.168.0.5` 绑定 IP ，局域网其他设备 Debug 时很有用
+- `--baseURL 192.168.0.5` 绑定域名（IP），局域网其他设备 Debug 时很有用
 - `hugo server --help` 查看 server 所有命令
 
 6. **本地构建**
-
-本 Repo 已新增构建脚本：
-- Linux 🖥️通过终端命令运行 `bash build.sh`
-- Windows 🖱️双击鼠标运行 `build.bat`
 
 手动构建命令：
 ```
@@ -509,9 +498,9 @@ conventional-changelog -p angular -i CHANGELOG.md -s -r 0
 
 ### Lighthouse
 
-Google Lighthouse 跑分，本博客长期维持在满分 100 分。
+Google Lighthouse 跑分。
 
-- [查看实时跑分结果](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Feallion.com%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext#pwa)
+- [查看跑分结果](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Feallion.github.io%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext)
 
 ### LICENSE
 

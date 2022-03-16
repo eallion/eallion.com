@@ -16,7 +16,7 @@
             <i class="iconfont icon-archive"></i>
         </span>
         <span>
-          {{ .Date.Format "2006年01月02日" }}
+          {{ .Date.Format "2006 年 01 月 02 日" }}
         </span>
       </span>
       <!--
@@ -33,7 +33,7 @@
           <span>
             <i class="iconfont icon-markdown"></i>
             </span>
-          <span><a href='{{ .Site.Params.mdview.ContentPath }}{{ replace .File.Path "\\" "/" }}' target="_blank" rel="noopener noreferrer">查看 Markdown 版本</a></span>
+          <span><a href='{{ .Site.Params.mdview.ContentPath }}{{ replace .File.Path "\\" "/" }}?download=false' target="_blank" rel="noopener noreferrer">查看 Markdown 版本</a></span>
         </span>
       {{ end }}
 
@@ -101,7 +101,7 @@
 
     {{ if eq .Type $.Site.Params.contentTypeName }}
       <div class="post-copyright">
-        <p>本文发表于 {{ .Date.Format "2006年01月02日" }} ，共计约 {{ .WordCount }} 字 </p>
+        <p>本文发表于 {{ .Date.Format "2006 年 01 月 02 日" }} ，共计约 {{ .WordCount }} 字 </p>
         <p>本文链接：<a href="{{ .Permalink }}">{{ .Permalink }}</a></p>
         <p>转载标题：<a href="{{ .Permalink }}">《{{ .Title | markdownify }}》</a>- 大大的小蜗牛</p>
         <p>作品采用：<a target="_blank" rel="license nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享（CC BY-NC-SA 4.0）许可协议</a>进行许可</p>
