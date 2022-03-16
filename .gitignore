@@ -39,3 +39,4 @@ node_modules
 autocorrect
 
 .hugo_build.lock
+package-lock.json
