@@ -54,9 +54,26 @@ enableGitInfo = true
   EditPath = 'https://github.com/eallion/eallion.com/edit/main/content/' # Don't miss the last slash: "/"
 
 [markup]
-[markup.goldmark]
-[markup.goldmark.renderer]
-  unsafe = true
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      linkifyProtocol = 'https'
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = 'github'
+      [markup.goldmark.parser.attribute]
+        block = false
+        title = true
+    [markup.goldmark.renderer]
+      hardWraps = true
+      unsafe = true
+      xhtml = false
 
 [outputs]
   home = ["Atom", "HTML", "JSON", "AMP",]

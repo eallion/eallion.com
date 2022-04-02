@@ -7,7 +7,6 @@ slug: "ubuntuzsh"
 date: "2019-11-27 01:08:00"
 ---
 
-
 ### 安装 Oh My Zsh ：
 
 安装 Zsh：
@@ -23,7 +22,7 @@ chsh -s /bin/zsh
 查看当前所用的 Shell ： `echo $SHELL`。
 
 安装 Oh My Zsh ：
-以下3种方式选择1种：
+以下 3 种方式选择 1 种：
 - via wget
 
 ```

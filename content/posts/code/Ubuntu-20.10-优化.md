@@ -171,7 +171,7 @@ Theme=Psionics-Remix
 sudo vim /usr/share/fcitx5/data/quickphrase.d/quick.mb
 ```
 在文件中添加形如`input output`的代码，一行一条，即可实现添加快速输入辞典。  
-示例：要在快速输入中输入`ddrr`，在候选中显示`大大的小蜗牛`，只需在上述 mb 文件中添加一行`ddrr 大大的小蜗牛`即可。（注意空格） 
+示例：要在快速输入中输入`ddrr`，在候选中显示`大大的小蜗牛`，只需在上述 mb 文件中添加一行`ddrr 大大的小蜗牛`即可。（注意空格）
 > 友情提示：快速输入可以使用分号打开，Rime 不支持快速输入。
 
 ### 9、双系统时间设置
@@ -442,7 +442,6 @@ sudo apt install gnome-shell-extensions
 - [windowNavigator](https://extensions.gnome.org/extension/10/windownavigator/)
 - [Workspace Indicator](https://extensions.gnome.org/extension/21/workspace-indicator/)
 
-
 ### 19、火焰截图 Flameshot
 需要设置快捷键，所以把火焰截图单独拿出来说。
 ```
@@ -471,7 +470,7 @@ git clone https://github.com/eallion/Big-Sur-Ubuntu.git ~/Pictures/Big-Sur-Ubunt
 #### 20.2、设置  
 打开`Gnome Tweaks`  
 找到`外观`-`背景`  
-选择`groovy.xml`（文件在`/home/username/Pictures/Big-Sur-Ubuntu/groovy.xml`路径） 
+选择`groovy.xml`（文件在`/home/username/Pictures/Big-Sur-Ubuntu/groovy.xml`路径）
 选择`Zoom`调整方式  
 
 ------------

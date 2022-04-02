@@ -7,7 +7,7 @@ slug: "ubuntu-wps-cant-input-chinese"
 date: "2016-05-28 18:32:00"
 ---
 
-wps文字不能输入中文解决
+wps 文字不能输入中文解决
 ```bash
 $ vi /usr/bin/wps      # 添加内容，字体标注
 ```
@@ -22,8 +22,7 @@ gTemplateExt=("wpt" "dot" "dotx")
 .......
 ```
 
-
-wps表格不能输入中文解决
+wps 表格不能输入中文解决
 ```bash
 $ vi /usr/bin/et      # 添加内容，字体标注
 ```
@@ -37,4 +36,4 @@ gOpt=
 ........
 ```
 
-原因：环境变量未正确设置，以上可以直接针对wps设置。
+原因：环境变量未正确设置，以上可以直接针对 wps 设置。

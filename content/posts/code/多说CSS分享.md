@@ -1,5 +1,5 @@
 ---
-title: "多说CSS分享"
+title: "多说 CSS 分享"
 categories: ["代码"]
 tags: ["多说","css","样式"]
 draft: false
@@ -12,7 +12,7 @@ date: "2015-01-12 10:07:00"
 设计达人：<a href="http://www.shejidaren.com/use-css3-to-create-a-beautiful-comment-ui.html" target="_blank">http://www.shejidaren.com/use-css3-to-create-a-beautiful-comment-ui.html</a>
 罗磊的独立博客：<a href="http://luolei.org/2012/08/duoshuo-css" target="_blank">http://luolei.org/2012/08/duoshuo-css</a>
 V说：<a href="http://www.vsay.cn/one-more-custom-css-lets-you-say-comments-city.html" target="_blank">http://www.vsay.cn/one-more-custom-css-lets-you-say-comments-city.html</a>
-沈超飞的IT博客：<a href="http://shenchaofei.cn/duoshuo-comment-box-css-custom/328.html" target="_blank">http://shenchaofei.cn/duoshuo-comment-box-css-custom/328.html</a>
+沈超飞的 IT 博客：<a href="http://shenchaofei.cn/duoshuo-comment-box-css-custom/328.html" target="_blank">http://shenchaofei.cn/duoshuo-comment-box-css-custom/328.html</a>
 
 ```css
 #ds-thread .ds-powered-by{font-size: 0px !important; padding: 0; }
@@ -37,8 +37,8 @@ V说：<a href="http://www.vsay.cn/one-more-custom-css-lets-you-say-comments-cit
 #ds-reset .ds-replybox a.ds-avatar,
 #ds-reset .ds-replybox .ds-avatar img { padding:0;width:50px !important;height:50px !important; border-radius:5px; }
 #ds-reset .ds-avatar img {width:32px !important;height:32px !important;border-radius:32px;box-shadow:0 1px 3px rgba(0, 0, 0, 0.22);
-							-webkit-transition:.4s all ease-in-out;-moz-transition:.4s all ease-in-out;-o-transition:.4s all ease-in-out;-ms-transition:.4s all ease-in-out;transition:.4s all ease-in-out;
-							}
+                            -webkit-transition:.4s all ease-in-out;-moz-transition:.4s all ease-in-out;-o-transition:.4s all ease-in-out;-ms-transition:.4s all ease-in-out;transition:.4s all ease-in-out;
+                            }
 .ds-post-self:hover .ds-avatar img {-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg);}
 
 #ds-thread #ds-reset .ds-comment-body {background:#6cbfee;padding:15px 15px 12px 32px;border-radius:5px; box-shadow:0 1px 2px rgba(0,0,0,.15), 0 1px 0 rgba(255,255,255,.75) inset;}
@@ -46,11 +46,11 @@ V说：<a href="http://www.vsay.cn/one-more-custom-css-lets-you-say-comments-cit
 #ds-thread #ds-reset .ds-comment-body p{color:#fff;}
 #ds-thread #ds-reset .ds-comment-body a{color:#fff;}
 #ds-thread #ds-reset .ds-comment-body a:hover{color:#fff;}
-#ds-thread #ds-reset	.ds-time {color:#fff;}
+#ds-thread #ds-reset    .ds-time {color:#fff;}
 #ds-thread #ds-reset .ds-comments a.ds-user-name {font-weight:bold;color:#fff !important;}
 #ds-thread #ds-reset .ds-comments a.ds-user-name:hover {color:#fff !important;}
 #ds-thread #ds-reset .ds-sync{display:none !important;}
-#ds-thread#ds-reset	{ border-radius: 5px;}
+#ds-thread#ds-reset    { border-radius: 5px;}
 
 #ds-thread #ds-reset #ds-hot-posts {border:0}
 #ds-reset #ds-hot-posts .ds-gradient-bg {background:none;}

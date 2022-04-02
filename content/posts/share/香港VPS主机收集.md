@@ -1,5 +1,5 @@
 ---
-title: "香港VPS主机收集"
+title: "香港 VPS 主机收集"
 categories: ["分享"]
 tags: ["服务器","vps","主机","香港"]
 draft: false
@@ -7,19 +7,18 @@ slug: "hk-vps"
 date: "2017-02-16 23:54:00"
 ---
 
-本博客用的是阿里云华东1区的ECS，去年有段时间因为某些原因需要用到香港的VPS，所以收集了一部分香港VPS主机。
-我不作任何的评价和推荐，只是给迷路的小伙伴另一种选择。有钱还是上阿里云腾讯云。（全带referral）
+本博客用的是阿里云华东 1 区的 ECS，去年有段时间因为某些原因需要用到香港的 VPS，所以收集了一部分香港 VPS 主机。
+我不作任何的评价和推荐，只是给迷路的小伙伴另一种选择。有钱还是上阿里云腾讯云。（全带 referral）
 
  - 阿里云：<a href="https://promotion.aliyun.com/ntms/act/ambassador/sharetouser.html?userCode=wuthb7tq&productCode=vm" target="_blank">云大使链接</a> 点击领券
  - 腾讯云：<a href="http://www.qcloud.com/redirect.php?redirect=1001&cps_key=1f05a4ef7955bfdbc954f3f0a115c2e3" target="_blank">推广链接</a>
 
 ----------
 
-
 - <a href="https://account-intl.aliyun.com/register/intl_register.htm?biz_params=%7B%22intl%22%3A%22%7B%5C%22referralCode%5C%22%3A%5C%22ht0kqk%5C%22%7D%22%7D" target="_blank">https://intl.aliyun.com/</a>（阿里云国际版）
 - <a href="https://www.diyvm.com/page.aspx?c=referral&u=62210" target="_blank">https://www.diyvm.com/page.aspx?c=referral&u=62210 </a>（DiyVM）
 - <a href="http://www.hostxen.com/page.aspx?c=referral&u=9166" target="_blank">http://www.hostxen.com/page.aspx?c=referral&u=9166 </a>（HostXen）
-- <a href="http://vcp.80vps.com/page.aspx?c=referral&u=85730" target="_blank">http://vcp.80vps.com/page.aspx?c=referral&u=85730 </a>（80主机）
+- <a href="http://vcp.80vps.com/page.aspx?c=referral&u=85730" target="_blank">http://vcp.80vps.com/page.aspx?c=referral&u=85730 </a>（80 主机）
 - <a href="https://www.fyzhuji.com/aff.php?aff=2442" target="_blank">https://www.fyzhuji.com/aff.php?aff=2442 </a>（枫叶主机）
 - <a href="http://my.vps2ez.com/page.aspx?c=referral&u=16330" target="_blank">http://my.vps2ez.com/page.aspx?c=referral&u=16330</a>（VPS2EZ）
 - <a href="http://my.henghost.com/aff.php?aff=931" target="_blank">http://my.henghost.com/aff.php?aff=931 </a>（恒创主机）

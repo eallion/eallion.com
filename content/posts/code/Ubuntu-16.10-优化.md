@@ -41,13 +41,11 @@ sudo apt update
 sudo apt upgrade
 ```
 
-
 3、安装 vim
 -------
 ```bash
 sudo apt install vim
 ```
-
 
 4、安装 Guake
 ---------
@@ -60,7 +58,6 @@ sudo apt install guake
 5、系统设置
 ------
 在`系统设置`里进行一些必要的设置，如：壁纸、电源、显示、亮度、隐私
-
 
 6、安装输入法
 -------
@@ -84,7 +81,7 @@ sudo apt install sogoupinyin
 ```
 直接下载 deb 安装包：<a href="http://pinyin.sogou.com/linux/" target="_blank">http://pinyin.sogou.com/linux/</a>
 
-<br>
+
 
 7、删除 Libreoffice
 ---------------

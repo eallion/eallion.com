@@ -1,5 +1,5 @@
 ---
-title: "Ubuntu禁用IPv6"
+title: "Ubuntu 禁用 IPv6"
 categories: ["日志"]
 tags: ["Ubuntu","ipv6","禁用"]
 draft: false
@@ -7,10 +7,10 @@ slug: "ubuntu-ipv6"
 date: "2013-05-04 18:02:00"
 ---
 
-记不住这几个命令，新装系统都要去google，索性放在这里好了。
-可以使用`ip a | grep inet6`，若没有结果则说明禁用IPv6成功。
+记不住这几个命令，新装系统都要去 google，索性放在这里好了。
+可以使用`ip a | grep inet6`，若没有结果则说明禁用 IPv6 成功。
 
-## 方法1、（推荐） ##
+### 方法 1、（推荐）
 先用命令`ifconfig`查看网卡信息，如`lo` `eth0` `enp0s3`，然后一个一个禁用
 
     echo "#disable ipv6" | sudo tee -a /etc/sysctl.conf
@@ -32,18 +32,18 @@ date: "2013-05-04 18:02:00"
 
 最后重启 `sudo sysctl -p` 生效。
 
-## 方法2、 ##
+### 方法 2、
 
     sudo vim /etc/default/grub
 查找包含"GRUBCMDLINELINUX"的行，并如下编辑：
 
     GRUB_CMDLINE_LINUX="ipv6.disable=1"
 
-同样可以加入名为"GRUBCMDLINELINUX_DEFAULT"的变量，这同样有用。保存并关闭文件，重新生成grub配置。
+同样可以加入名为"GRUBCMDLINELINUX_DEFAULT"的变量，这同样有用。保存并关闭文件，重新生成 grub 配置。
 
     sudo update-grub2
 
-## 方法3、 ##
+### 方法 3、
 
     sudo vim /etc/default/grub
 

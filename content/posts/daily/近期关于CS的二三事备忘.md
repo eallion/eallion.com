@@ -1,5 +1,5 @@
 ---
-title: "近期关于CS的二三事备忘"
+title: "近期关于 CS 的二三事备忘"
 categories: ["日志"]
 tags: ["CS","游戏","电子竞技","电竞"]
 draft: false
@@ -8,22 +8,22 @@ date: "2011-03-06 10:01:34"
 ---
 
 首先
-恭喜乌克兰的NaVi卫冕了IEM5全球总决赛的冠军
+恭喜乌克兰的 NaVi 卫冕了 IEM5 全球总决赛的冠军
 
-这次IEM5因为我自己作息时间的关系
-只看到了几场CS比赛的直播
+这次 IEM5 因为我自己作息时间的关系
+只看到了几场 CS 比赛的直播
 
 尤其是小组附加赛和三四名决赛没有看到直播
 多少有点遗憾
 在大型电子竞技比赛缺乏的淡季
 可是要等好几个月才有一场这样强队云集了盛宴啊
 
-当然，我会选择性的下载一些录像DEMO来看的
+当然，我会选择性的下载一些录像 DEMO 来看的
 
-以前我一直以为我是fnatic的fans
-可是自从f0rest转投SK之后
-我发现我居然成了SK的fans了
-所以，我可能还是f0rest的fans吧
+以前我一直以为我是 fnatic 的 fans
+可是自从 f0rest 转投 SK 之后
+我发现我居然成了 SK 的 fans 了
+所以，我可能还是 f0rest 的 fans 吧
 而且，喜欢一个明星比喜欢一个队伍要好
 这样你只会在乎这个明星比赛中的发挥
 而不那么在意这支队伍的成绩
@@ -33,14 +33,14 @@ date: "2011-03-06 10:01:34"
 就是韩国电子竞技行业发表了一个比较震撼的声明
 韩国电竞全面抵制美国的暴雪的游戏
 也就是抵制魔兽争霸，星际争霸
-然后几大韩国运营的赛事都力推CS
+然后几大韩国运营的赛事都力推 CS
 星际争霸和射箭在韩国，可就是相当于中国的乒乓球啊
 在韩国，一个一线的星际争霸职业玩家肯定比丁俊晖挣得要多
 
-而且三大电竞比赛之一的WCG的主要赞助商三星也是韩国企业
-看来WCG也会没有了WAR3了
+而且三大电竞比赛之一的 WCG 的主要赞助商三星也是韩国企业
+看来 WCG 也会没有了 WAR3 了
 这对电子竞技来说可真是个劫难
-当然对于CS来说这可是个福音
+当然对于 CS 来说这可是个福音
 不过我个人还是希望
 赛事举办方和游戏开发商之间要找到更合理的利益分配方案
 
@@ -66,18 +66,17 @@ date: "2011-03-06 10:01:34"
 “Creat in China”那才叫牛逼
 
 然后
-就是Valve官方一负责人在一个采访中
-模糊的透露了开发新的CS版本的计划
+就是 Valve 官方一负责人在一个采访中
+模糊的透露了开发新的 CS 版本的计划
 这是一件很值得期待的事情
-因为CSS太过于烂
-CSP又看似遥遥无期
-老化的CS1.6需要有优秀的团队竞技项目来替代的
+因为 CSS 太过于烂
+CSP 又看似遥遥无期
+老化的 CS1.6 需要有优秀的团队竞技项目来替代的
 
 最后
-就是最近我又开始玩CS了
-（当然，我只玩CS1.6，不玩混战，不玩1.5，不玩CSOL，不玩脑残CF）
+就是最近我又开始玩 CS 了
+（当然，我只玩 CS1.6，不玩混战，不玩 1.5，不玩 CSOL，不玩脑残 CF）
 状态时好时坏
 跟心情有关吧
 
-IEM5世界总决赛 NaVi vs redCode 现场众生相 （转自 <a href="http://v.pcgames.com.cn/video-38584.html" target="_blank">PCGames</a>）
-<embed src="http://flv.pcgames.com.cn/player/pcplayer_2.swf" flashVars="domain=pcgames&flv=pcgames/videocenter/interior/2011/03/03/152E1D8B2B8AA857.mp4&thumb=pcgames/videocenter/interior/2011/03/03/152E1D8B2B8AA857_480x360.jpg&id=38584&autoplay=false" allowScriptAccess="always" allowFullScreen="true" width="480" height="360" type="application/x-shockwave-flash"></embed>
+IEM5 世界总决赛 NaVi vs redCode 现场众生相（转自 <a href="http://v.pcgames.com.cn/video-38584.html" target="_blank">PCGames</a>）

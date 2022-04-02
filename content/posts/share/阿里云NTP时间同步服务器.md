@@ -1,5 +1,5 @@
 ---
-title: "阿里云NTP时间同步服务器"
+title: "阿里云 NTP 时间同步服务器"
 categories: ["代码"]
 tags: ["时间","阿里云","ntp","时间同步"]
 draft: false
@@ -11,12 +11,12 @@ date: "2017-05-29 23:35:00"
 
 ### 前言
 
-昨天安装了一台国内的Windows VPS
+昨天安装了一台国内的 Windows VPS
 安装好后发现时间不对，
 自动同步时间死活同步不了。
 
 搜索国家授时中心的服务器，
-IP地址也已失效。
+IP 地址也已失效。
 
 我也不知道是怎么想的，
 随手就去搜索了“阿里云 NTP”，
@@ -32,8 +32,7 @@ IP地址也已失效。
 > 2020-04-22，阿里云官方更新了文档
 > [https://help.aliyun.com/document_detail/92704.html](https://help.aliyun.com/document_detail/92704.html)
 
-
-|经典网络内网|专有网络VPC内网|公网|
+| 经典网络内网 | 专有网络 VPC 内网 | 公网 |
 |:-----|:--------|:-|
 |-|**ntp.cloud.aliyuncs.com**|**ntp.aliyun.com**|
 |ntp1.cloud.aliyuncs.com|ntp7.cloud.aliyuncs.com|ntp1.aliyun.com|
@@ -53,13 +52,12 @@ sudo ntpdate ntp.aliyun.com
 # sudo hwclock --localtime --systohc # 将本地时间更新到硬件上
 ```
 
-### 阿里云ECS 内网测试成功
+### 阿里云 ECS 内网测试成功
 
 ![aliyunvpcntp](https://images.eallion.com/images/2017/05/29/1589433496.png!hugo.webp)
 
 ### Windows 测试成功
 
 ![Windows NTP](https://images.eallion.com/images/2017/05/29/1972259171.png!hugo.webp)
-
 
 

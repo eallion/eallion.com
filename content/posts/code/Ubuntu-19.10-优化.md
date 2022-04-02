@@ -364,7 +364,6 @@ sudo apt install pavucontrol
 ```
 然后按`Super`键在`Dash`中打开`PulseAudio`，在`设备`选项卡中关闭 HDMI 即可。
 
-
 ------------
 
 ### 安装常用软件

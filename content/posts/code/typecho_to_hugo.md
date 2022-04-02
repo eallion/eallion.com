@@ -8,7 +8,7 @@ date: 2020-05-13T03:32:44+08:00
 ---
 
 记录一下从 Typecho 迁移到 Hugo 的过程。  
-主要是折腾的URL，也就是 slug 和导入评论到 Disqus 的过程。
+主要是折腾的 URL，也就是 slug 和导入评论到 Disqus 的过程。
 
 因为迁移文章时**必须**保留以前文章的 URL，不然会对自己产生很多不良的影响。
 
@@ -23,7 +23,7 @@ date: 2020-05-13T03:32:44+08:00
 
 用法：
 1. clone 或 下载 [master.zip](https://github.com/eallion/typecho-to-hugo/archive/master.zip)
-2. 修改 convert.php 中的 mysql 账号密码（第3行）
+2. 修改 convert.php 中的 mysql 账号密码（第 3 行）
 ```
 $db->connect('localhost','root','password','typecho');
 ```
@@ -48,7 +48,6 @@ Hugo 根目录的 `config.toml` 需要修改一下链接形式。（每个主题
 
 > **思路**：利用 WordPress 中转是踩坑之后的最佳解决方案。
 
-
 #### 3.1 从 Typecho 导出 WordPress 格式的数据
 
 [TypExport](https://www.bilibili.com/video/BV1xC4y1W7qd) 已年久失修。我找到了 [ByeTyp](https://github.com/sunxiyuan/ByeTyp) 。
@@ -56,7 +55,7 @@ Hugo 根目录的 `config.toml` 需要修改一下链接形式。（每个主题
 链接地址：[https://github.com/sunxiyuan/ByeTyp](https://github.com/sunxiyuan/ByeTyp)
 
 用法：
-下载插件 [master.zip](https://github.com/sunxiyuan/ByeTyp/archive/master.zip) 解压，把目录名字改为 `ByeTyp` 然后上传至 Typecho 的插件目录，到 Typecho 后台启用插件，依次点击：控制台->数据导出->导出XML文件，下载并保存此文件。
+下载插件 [master.zip](https://github.com/sunxiyuan/ByeTyp/archive/master.zip) 解压，把目录名字改为 `ByeTyp` 然后上传至 Typecho 的插件目录，到 Typecho 后台启用插件，依次点击：控制台->数据导出->导出 XML 文件，下载并保存此文件。
 
 #### 3.2 导入数据到 WordPress 
 
