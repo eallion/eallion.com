@@ -28,7 +28,7 @@ sudo apt install snap
 sudo snap set nextcloud ports.http=80 ports.https=443
 ```
 
-如果需要使用域名访问，除了把域名解析到服务器，还需要把域名添加到config：
+如果需要使用域名访问，除了把域名解析到服务器，还需要把域名添加到 config：
 
 config 配置文件在 `/var/snap/nextcloud/current/nextcloud/config`
 ```
@@ -39,14 +39,14 @@ vi config.php
 找到 `trusted_domains` 这一行，在 `array` 里面按格式添加域名，注意结尾的逗号。
 ```
 'trusted_domains' =>
-    	array (
-    		0 => '192.168.0.256',
-    		1 => 'eallion.com',
-    	),
+        array (
+            0 => '192.168.0.256',
+            1 => 'eallion.com',
+        ),
 ```
-如果需要配置https：
+如果需要配置 https：
 
-- Let's Encrypt证书
+- Let's Encrypt 证书
 
 ```
 sudo nextcloud.enable-https lets-encrypt
@@ -60,7 +60,7 @@ sudo nextcloud.enable-https self-signed
 ```
 
 - 购买的证书
-下载Apache格式的证书，上传至：`/var/snap/nextcloud/current/certs/custom`
+下载 Apache 格式的证书，上传至：`/var/snap/nextcloud/current/certs/custom`
 
 文件名改为：`cert.pem` `chain.pem ` `privkey.pem`
 

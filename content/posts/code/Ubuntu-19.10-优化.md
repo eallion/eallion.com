@@ -45,7 +45,7 @@ Live CD 的启动项也有 safe graphics 选项了，即不用手动添加 nomod
 
 ### 基础优化
 #### 1、换软件源
-在 Dash 里搜索 `软件和更新` ，依次点击 `Ubuntu软件` - `下载自` - `其他站点` - `中国`：  
+在 Dash 里搜索 `软件和更新` ，依次点击 `Ubuntu 软件` - `下载自` - `其他站点` - `中国`：  
 然后选择一个源服务器，推荐阿里云和清华：
 - mirrors.aliyun.com
 - mirrors.tuna.tsinghua.edu.cn
@@ -175,7 +175,7 @@ chsh -s /bin/zsh
 
 安装 Oh My Zsh ：
 
-以下3种方式选择1种：
+以下 3 种方式选择 1 种：
 - via wget
 
 ```
@@ -283,7 +283,7 @@ sudo apt install grub-customizer
 ```
 sudo blkid
 ```
-记录下UUID和Type。
+记录下 UUID 和 Type。
 
 16.2. 创建挂载目录
 ```
@@ -301,11 +301,11 @@ sudo vim /etc/fstab
 ```
 按格式添加：
 ```
-UUID=xxxx	/mount-folder	type	defaults	0	0
+UUID=xxxx    /mount-folder    type    defaults    0    0
 ```
 如：
 ```
-UUID=0002AC	/home/eallion/Files	ntfs	defaults,uid=1000,gid=1000,umask=022	0	0
+UUID=0002AC    /home/eallion/Files    ntfs    defaults,uid=1000,gid=1000,umask=022    0    0
 ```
 如果不加 uid gid ，自动挂载后是 root 权限，可能无法读写。
 
@@ -313,7 +313,7 @@ UUID=0002AC	/home/eallion/Files	ntfs	defaults,uid=1000,gid=1000,umask=022	0	0
 ```
 sudo apt install openssh-server
 ```
-配置Google Authenticator：（非必须，可选）
+配置 Google Authenticator：（非必须，可选）
 ```
 sudo apt install libpam-google-authenticator
 ```
@@ -356,13 +356,13 @@ sudo apt install flameshot
 命令：flameshot gui
 设置快捷键：（按键盘设置）
 ```
-#### 19、禁用HDMI默认音频输出
-当主机接有音响、耳机、HDMI设备的话，Ubuntu默认是采用HDMI输出音频。Ubuntu自带的声音设置修改后不能保存，下次又还原成默认的。  
-安装PulseAudio ：
+#### 19、禁用 HDMI 默认音频输出
+当主机接有音响、耳机、HDMI 设备的话，Ubuntu 默认是采用 HDMI 输出音频。Ubuntu 自带的声音设置修改后不能保存，下次又还原成默认的。  
+安装 PulseAudio ：
 ```
 sudo apt install pavucontrol
 ```
-然后按`Super`键在`Dash`中打开`PulseAudio`，在`设备`选项卡中关闭HDMI即可。
+然后按`Super`键在`Dash`中打开`PulseAudio`，在`设备`选项卡中关闭 HDMI 即可。
 
 
 ------------
@@ -435,7 +435,7 @@ sudo snap install slack --classic
 sudo apt install retext
 ```
 
-- QQ （ 2.0版的 Linux QQ 可用性还是很差，真的不想推荐 ）
+- QQ（ 2.0 版的 Linux QQ 可用性还是很差，真的不想推荐 ）
 ```
 https://im.qq.com/linuxqq/index.html 
 ```

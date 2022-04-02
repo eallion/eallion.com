@@ -1,7 +1,7 @@
 ---
 title: "Ubuntu 16.10 优化"
 categories: ["代码"]
-tags: ["Ubuntu","优化","ipv6","访客","ubuntu微信"]
+tags: ["Ubuntu","优化","ipv6","访客","ubuntu 微信"]
 draft: false
 slug: "ubuntu1610"
 date: "2016-10-13 22:30:00"
@@ -42,17 +42,17 @@ sudo apt upgrade
 ```
 
 
-3、安装vim
+3、安装 vim
 -------
 ```bash
 sudo apt install vim
 ```
 
 
-4、安装Guake
+4、安装 Guake
 ---------
 
-Guake是一个比较酷的终端，除了可以用来装B，其实也挺实用的。
+Guake 是一个比较酷的终端，除了可以用来装 B，其实也挺实用的。
 ```bash
 sudo apt install guake
 ```
@@ -65,7 +65,7 @@ sudo apt install guake
 6、安装输入法
 -------
 
-我用的是fcitx的五笔拼音
+我用的是 fcitx 的五笔拼音
 ```bash
 sudo apt install fcitx-table-wbpy
 ```
@@ -73,7 +73,7 @@ sudo apt install fcitx-table-wbpy
 ```bash
 sudo vim /etc/apt/sources.list.d/ubuntukylin.list
 ```
-加入ubuntu kylin的apt源：
+加入 ubuntu kylin 的 apt 源：
 ```bash
 deb http://archive.ubuntukylin.com:10006/ubuntukylin trusty main  
 ```
@@ -82,19 +82,19 @@ deb http://archive.ubuntukylin.com:10006/ubuntukylin trusty main
 sudo apt update  
 sudo apt install sogoupinyin 
 ```
-直接下载deb安装包：<a href="http://pinyin.sogou.com/linux/" target="_blank">http://pinyin.sogou.com/linux/</a>
+直接下载 deb 安装包：<a href="http://pinyin.sogou.com/linux/" target="_blank">http://pinyin.sogou.com/linux/</a>
 
 <br>
 
-7、删除Libreoffice
+7、删除 Libreoffice
 ---------------
 
-如果有需求，可以安装WPS，从官网下载deb包即可
+如果有需求，可以安装 WPS，从官网下载 deb 包即可
 ```bash
 sudo apt remove libreoffice-common  
 ```
 
-8、删除Amazon
+8、删除 Amazon
 ----------
 
 ```bash
@@ -114,7 +114,7 @@ gsettings set com.canonical.indicator.datetime time-format 'custom'
 gsettings set com.canonical.indicator.datetime custom-time-format '%Y年%m月%d日 %A%H:%M:%S'
 ```
 
-10、Unity显示的位置
+10、Unity 显示的位置
 ----------------
 
 下方显示：
@@ -133,16 +133,16 @@ gsettings set com.canonical.Unity.Launcher launcher-position Left
 gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true
 ```
 
-12、安装Tweak tool优化工具
+12、安装 Tweak tool 优化工具
 -------------------
 
-Tweak tool有两个，一个是unity-tweak-tool，一个是gnome-tweak-tool
-安装unity-tweak-tool后，Amazon图标会回来，我选择的是安装gnome-tweak-tool
+Tweak tool 有两个，一个是 unity-tweak-tool，一个是 gnome-tweak-tool
+安装 unity-tweak-tool 后，Amazon 图标会回来，我选择的是安装 gnome-tweak-tool
 ```bash
 sudo apt install gnome-tweak-tool
 ```
 
-13、禁用房客Guest
+13、禁用房客 Guest
 ------------
 
 编辑：
@@ -155,7 +155,7 @@ sudo vim /usr/share/lightdm/lightdm.conf.d/50-guest-wrapper.conf
 #guest-wrapper=/usr/lib/lightdm/lightdm-guest-session
 allow-guest=false
 ```
-14、禁用ipv6
+14、禁用 ipv6
 ---------
 
 1）、先查看你的网卡信息，并非所有网卡都叫`eth0`
@@ -188,23 +188,23 @@ sudo sysctl -p
 xset m 0 0
 ```
 或者把它写入开机启动。
-2）、我现在用的是另外一个方法，在 Ubuntu软件 里搜索`Mouse`，结果中选择`Keyboard and Mouse`安装，用这个GUI设置。这个方法更简便，重启或休眠后也不会失效。
+2）、我现在用的是另外一个方法，在 Ubuntu 软件 里搜索`Mouse`，结果中选择`Keyboard and Mouse`安装，用这个 GUI 设置。这个方法更简便，重启或休眠后也不会失效。
 
 16、自动挂载硬盘
 ---------
-我一共有3块硬盘，除了系统盘，还有2块数据盘，因工作娱乐原因，需要自动挂载。
-1）、查看硬盘的UUID和Type
+我一共有 3 块硬盘，除了系统盘，还有 2 块数据盘，因工作娱乐原因，需要自动挂载。
+1）、查看硬盘的 UUID 和 Type
 ```bash
 sudo blkid
 ```
-结果会显示:
+结果会显示：
 ```bash
 /dev/sda2: ...
 /dev/sdb5: LABEL="files" UUID="a1eaf999-b7dc-41e2-9314-5f4dec421db5" TYPE="ext4"
 ```
-记录下UUID和Type。
-2）、我会选择挂载到Home的Files文件夹下
-新建一个Files文件夹
+记录下 UUID 和 Type。
+2）、我会选择挂载到 Home 的 Files 文件夹下
+新建一个 Files 文件夹
 ```bash
 cd ~
 sudo mkdir Files
@@ -216,16 +216,16 @@ sudo vim /etc/fstab
 ```
 按格式添加：
 ```bash
-UUID=a1eaf999-b7dc-41e2-9314-5f4dec421db5	/home/eallion/Files	ext4	defaults	0	0
+UUID=a1eaf999-b7dc-41e2-9314-5f4dec421db5    /home/eallion/Files    ext4    defaults    0    0
 ```
 
-17、安装openssh-server
+17、安装 openssh-server
 -------------------
 
 ```bash
 sudo apt install openssh-server
 ```
-配置Google Authenticator：（非必须，可选）
+配置 Google Authenticator：（非必须，可选）
 ```bash
 sudo apt install libpam-google-authenticator
 ```
@@ -247,20 +247,20 @@ auth required pam_google_authenticator.so
 ```bash
 sudo vim /etc/ssh/sshd_config
 ```
-no改为yes
+no 改为 yes
 ```bash
 ChallengeResponseAuthentication yes
-Port 22222 #修改SSH端口
+Port 22222 #修改 SSH 端口
 ```
 
-18、安装Shadownsocks Qt5
+18、安装 Shadownsocks Qt5
 ---------------------
 ```bash
 sudo add-apt-repository ppa:hzwhuang/ss-qt5
 sudo apt update
 sudo apt install shadowsocks-qt5
 ```
-启动Shadowsocks Qt5的命令：
+启动 Shadowsocks Qt5 的命令：
 ```bash
 ss-qt5
 ```
@@ -274,7 +274,7 @@ sudo apt update
 sudo apt install indicator-sysmonitor
 ```
 
-20、配置Oh-My-Zsh
+20、配置 Oh-My-Zsh
 --------------
 ```bash
 cd ~
@@ -294,31 +294,31 @@ ZSH_THEME="ys" #主题
 plugins=(git sudo cp fasd ...) #插件
 ...
 ```
-21、安装VirtualBox
+21、安装 VirtualBox
 ---------------
 ```bash
 sudo apt install virtualbox
 ```
 也可以从官网下载最新版
 
-22、安装Google Chrome浏览器
+22、安装 Google Chrome 浏览器
 ---------------------
-如果喜欢Chromium，可以从软件中心安装
-但是我更喜欢Chrome，到<a href="https://dl.google.com/Linux/direct/google-chrome-stable_current_amd64.deb" target="_blank">https://chrome.google.com</a>可以下载最新版。
+如果喜欢 Chromium，可以从软件中心安装
+但是我更喜欢 Chrome，到<a href="https://dl.google.com/Linux/direct/google-chrome-stable_current_amd64.deb" target="_blank">https://chrome.google.com</a>可以下载最新版。
 
-23、安装GDebi
+23、安装 GDebi
 ----------
 
-安装deb软件包时，可以用GDebi替换Ubuntu软件中心。
+安装 deb 软件包时，可以用 GDebi 替换 Ubuntu 软件中心。
 ```bash
 sudo apt install gdebi
 ```
 
 24、安装微信
 -------
-可以直接在Chrome app里安装微信应用；
+可以直接在 Chrome app 里安装微信应用；
 
-也可以安装geeeeeeeeek提供的微信，这实质上跟Chrome应用是一回事。
+也可以安装 geeeeeeeeek 提供的微信，这实质上跟 Chrome 应用是一回事。
 <a href="https://github.com/geeeeeeeeek/electronic-wechat" target="_blank">https://github.com/geeeeeeeeek/electronic-wechat</a>
 前提是已经安装`git`、`Node.js`、`npm`
 ```bash
@@ -326,7 +326,7 @@ git clone https://github.com/geeeeeeeeek/electronic-wechat.git
 cd electronic-wechat
 npm install && npm start
 ```
-也可直接下载一个release版本：<a href="https://github.com/geeeeeeeeek/electronic-wechat/releases" target="_blank">electronic-wechat</a>
+也可直接下载一个 release 版本：<a href="https://github.com/geeeeeeeeek/electronic-wechat/releases" target="_blank">electronic-wechat</a>
 
 25、调整状态栏托盘图标顺序
 --------------
@@ -339,20 +339,20 @@ sudo vim /usr/share/indicator-application/ordering-override.keyfile
 [Ordering Index Overrides]
 nm-applet=1 #系统图标
 gnome-power-manager=2 #电池图标
-ibus=3 #ibus输入法
+ibus=3 #ibus 输入法
 gst-keyboard-xkb=4 
 gsd-keyboard-xkb=5
 netease-cloud-music=6 #网易云音乐
 electronic-wechat1=7 #微信
 Shadowsocks-Qt5=8 #SS
-fcitx-qimpanel=9 #fcitx输入法
-Nylas N11=10 #N1邮件客户端
-chrome_app_indicator_3=11 #Chrome图标
+fcitx-qimpanel=9 #fcitx 输入法
+Nylas N11=10 #N1 邮件客户端
+chrome_app_indicator_3=11 #Chrome 图标
 indicator-sysmonitor=20 #网速指示器
 ```
 具体参考：<a href="https://eallion.com/ubuntu-system-icon" target="_blank">https://eallion.com/ubuntu-system-icon</a>
 
-26、安装tlp
+26、安装 tlp
 --------
 提高电池的寿命并且减少过热
 ```bash
@@ -365,11 +365,11 @@ sudo tlp start
 27、主题图标推荐
 ---------
 Numix：<a href="https://numixproject.org/" target="_blank">https://numixproject.org</a>
-通过PPA安装：
+通过 PPA 安装：
 ```bash
 sudo add-apt-repository ppa:numix/ppa
 sudo apt update
 sudo apt install numix-gtk-theme
 sudo apt install numix-icon-theme-circle
 ```
-安装好之后，通过Tweak tool设置。
+安装好之后，通过 Tweak tool 设置。

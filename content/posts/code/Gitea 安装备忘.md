@@ -115,7 +115,7 @@ ports:
 server
 {
     listen 80;
-	listen 443 ssl http2;
+    listen 443 ssl http2;
     server_name git.eallion.com;
     
 # ......
@@ -144,10 +144,10 @@ location /
 
 如果是个人使用，预计 Gitea 的使用量会很小的话，可以使用 Sqlite3 数据库。  
 
-我这台 VPS 宿主机有 Mysql 环境，所以我的`docker-compose.yml` 没有拉取`db`镜像，而是直接使用了宿主机的 Mysql。（实际上使用 Docker compose 拉取数据库会更简单。）  
+我这台 VPS 宿主机有 Mysql 环境，所以我的`docker-compose.yml` 没有拉取`db`镜像，而是直接使用了宿主机的 Mysql。（实际上使用 Docker compose 拉取数据库会更简单。） 
 
 但是 Docker 的默认网络设置，访问 `localhost` 并不能访问到宿主机的 Mysql，所以需要在宿主机的 Mysql 里面授权 Gitea 的 IP 访问。  
-查看 Gitea 容器的 ID：（多余的步骤）  
+查看 Gitea 容器的 ID：（多余的步骤） 
 ```
 docker ps --format "table {{.ID}}\t{{.Names}}"
 ```

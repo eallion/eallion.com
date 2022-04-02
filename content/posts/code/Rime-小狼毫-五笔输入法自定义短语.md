@@ -21,10 +21,10 @@ date: "2019-04-19 15:45:00"
 #@/db_type tabledb
 #
 # 用於【五笔拼音】系列輸入方案
-# 【小狼毫】0.9.21 以上
+#【小狼毫】0.9.21 以上
 #
-# 請將該文件以UTF-8編碼保存爲
-# Rime用戶文件夾/custom_phrase.txt
+# 請將該文件以 UTF-8 編碼保存爲
+# Rime 用戶文件夾/custom_phrase.txt
 #
 # 碼表各字段以製表符（Tab）分隔
 # 順序爲：文字、編碼、權重（決定重碼的次序、可選）
@@ -32,10 +32,10 @@ date: "2019-04-19 15:45:00"
 # 雖然文本碼表編輯較爲方便，但不適合導入大量條目
 #
 # no comment
-大大的小蜗牛	ddrr	1
+大大的小蜗牛    ddrr    1
 ```
 说明：
-- 格式为：`自定义短语` `短语编码` `排序`，如：`大大的小蜗牛	ddrr	1`
+- 格式为：`自定义短语` `短语编码` `排序`，如：`大大的小蜗牛    ddrr    1`
 - 格式中的`Tab`不能用空格代替
 - `# no comment` 之后的内容中`#`注释会失效
 - 不宜添加过多的自定义短语，若有大量自定义短语请用用户词典
@@ -104,13 +104,13 @@ patch:
   # style/font_face: "Noto Sans SC"  # 字体名称，从记事本等处的系统字体对话框里能看到
   # style/font_point: 14     # 字號，只认数字的，不认「五號」、「小五」这样的
   speller/auto_select: false # 取消四码自动上屏
-  app_options/code.exe:  # VSCode里默认用英文输入程序名字全用小写字母
+  app_options/code.exe:  # VSCode 里默认用英文输入程序名字全用小写字母
     ascii_mode: true
 
   "switches/@0/reset": 1 # 1 默认英文状态，0 默认中文状态
   "key_binder/bindings":
-    - { when: has_menu, accept: semicolon, send: 2 } # 分号选择第2候选词
-    - { when: has_menu, accept: apostrophe, send: 3 } # 单引号选择第2候选词
+    - { when: has_menu, accept: semicolon, send: 2 } # 分号选择第 2 候选词
+    - { when: has_menu, accept: apostrophe, send: 3 } # 单引号选择第 2 候选词
 
   engine/filters:
     - simplifier

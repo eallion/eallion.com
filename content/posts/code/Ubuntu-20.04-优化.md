@@ -17,7 +17,7 @@ toc: false
 
 # 基础优化
 ### 1、换软件源
-在 Dash 里搜索 `软件和更新` ，依次点击 `Ubuntu软件` - `下载自` - `其他站点` - `中国`：  
+在 Dash 里搜索 `软件和更新` ，依次点击 `Ubuntu 软件` - `下载自` - `其他站点` - `中国`：  
 然后选择一个源服务器，推荐阿里云和清华：
 - mirrors.aliyun.com
 - mirrors.tuna.tsinghua.edu.cn
@@ -140,7 +140,7 @@ sudo apt install kde-config-fcitx5
 > 主题： <https://github.com/hosxy/Fcitx5-Materia-EXP>  
 
 #### 9.3、 其他输入法请自行 Google
-到目前为止，国产的那几个输入法Linux版都不太好用。
+到目前为止，国产的那几个输入法 Linux 版都不太好用。
 
 ### 10、Preload
 Preload 是一个后台运行的守护进程，它分析用户行为和频繁运行的应用，让你更快打开常用的软件。
@@ -224,7 +224,7 @@ chsh -s /bin/zsh
 
 安装 Oh My Zsh ：
 
-以下几种方式选择1种：
+以下几种方式选择 1 种：
 
 - Via curl
     ```
@@ -403,7 +403,7 @@ sudo sed -Ei "s|/mnt/?|/|" /etc/zfs/zfs-list.cache/*
 ```
 sudo blkid
 ```
-记录下UUID和Type。  
+记录下 UUID 和 Type。  
 创建挂载目录：
 ```
 cd ~
@@ -420,12 +420,12 @@ sudo vim /etc/fstab
 ```
 按格式添加：
 ```
-UUID=xxxx	/mount-folder	type	defaults	0	0
+UUID=xxxx    /mount-folder    type    defaults    0    0
 ```
 如：
 ```
-UUID=0002AC	/home/eallion/Files	ntfs	defaults,uid=1000,gid=1000,umask=022	0	0
-UUID=0002AD	/home/eallion/Media	ntfs	defaults,uid=1000,gid=1000,umask=022	0	0
+UUID=0002AC    /home/eallion/Files    ntfs    defaults,uid=1000,gid=1000,umask=022    0    0
+UUID=0002AD    /home/eallion/Media    ntfs    defaults,uid=1000,gid=1000,umask=022    0    0
 ```
 如果不加 uid gid ，自动挂载后是 root 权限，可能无法读写。
 
@@ -433,7 +433,7 @@ UUID=0002AD	/home/eallion/Media	ntfs	defaults,uid=1000,gid=1000,umask=022	0	0
 ```
 sudo apt install openssh-server
 ```
-配置Google Authenticator：（非必须，可选）  
+配置 Google Authenticator：（非必须，可选） 
 **如果不打算用二次验证登录，不要执行下面的步骤**
 ```
 sudo apt install libpam-google-authenticator
@@ -471,16 +471,16 @@ sudo apt install flameshot
 命令：flameshot gui
 设置快捷键：（按键盘设置）
 ```
-### 22、禁用HDMI默认音频输出
+### 22、禁用 HDMI 默认音频输出
 > Ubuntu 20.04.1 好像没有这个问题了
 
-当主机接有音响、耳机、HDMI设备的话，Ubuntu默认是采用HDMI输出音频。  
-Ubuntu自带的声音设置修改后不能保存，下次又还原成默认的。  
-安装PulseAudio ：
+当主机接有音响、耳机、HDMI 设备的话，Ubuntu 默认是采用 HDMI 输出音频。  
+Ubuntu 自带的声音设置修改后不能保存，下次又还原成默认的。  
+安装 PulseAudio ：
 ```
 sudo apt install pavucontrol
 ```
-然后按`Super`键在`Dash`中打开`PulseAudio`，在`设备`选项卡中关闭HDMI即可。
+然后按`Super`键在`Dash`中打开`PulseAudio`，在`设备`选项卡中关闭 HDMI 即可。
 
 ### 23、安装附加软件包
 ```

@@ -166,13 +166,13 @@ vim ~/.config/fcitx5/conf/classicui.conf
 Theme=Psionics-Remix
  ***
 ```
-自定义快速输入:
+自定义快速输入：
 ```
 sudo vim /usr/share/fcitx5/data/quickphrase.d/quick.mb
 ```
 在文件中添加形如`input output`的代码，一行一条，即可实现添加快速输入辞典。  
-示例：要在快速输入中输入`ddrr`，在候选中显示`大大的小蜗牛`，只需在上述mb文件中添加一行`ddrr 大大的小蜗牛`即可。（注意空格）  
-> 友情提示：快速输入可以使用分号打开，Rime不支持快速输入。
+示例：要在快速输入中输入`ddrr`，在候选中显示`大大的小蜗牛`，只需在上述 mb 文件中添加一行`ddrr 大大的小蜗牛`即可。（注意空格） 
+> 友情提示：快速输入可以使用分号打开，Rime 不支持快速输入。
 
 ### 9、双系统时间设置
 解决切换到 Windows 时间不对的问题。将本地时间更新到硬件上。
@@ -182,7 +182,7 @@ sudo ntpdate ntp.aliyun.com # 阿里云的时间服务器，可用其他时间�
 sudo hwclock --localtime --systohc
 ```
 
-**前9个步骤执行完成后，建议重启一下!**
+**前 9 个步骤执行完成后，建议重启一下！**
 
 ### 10、安装 Guake
 通过软件仓库直接安装的 Guake 版本不够新，而且中文显示不全。  
@@ -229,7 +229,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 下载、安装、配置字体：
 
 > 下载：[Ubuntu Nerd Font](https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Ubuntu/Regular/complete/Ubuntu%20Nerd%20Font%20Complete.ttf)  
-> 下载：[Knack Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/raw/v1.2.0/patched-fonts/Hack/Regular/complete/Knack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf) （推荐）
+> 下载：[Knack Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/raw/v1.2.0/patched-fonts/Hack/Regular/complete/Knack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf)（推荐）
 
 安装主题 Powerlevel9k ：
 ```
@@ -286,7 +286,7 @@ chsh -s /bin/zsh
 
 #### 13.1 spf13-vim
 > <https://github.com/spf13/spf13-vim>
-#### 13.2 EverVim （推荐）
+#### 13.2 EverVim（推荐）
 > <https://github.com/LER0ever/EverVim>  
 > Ubuntu 配置 EverVim <https://eallion.com/ubuntuevervim/>
 
@@ -312,7 +312,7 @@ python3 install.py --clang-completer
 
 ### 14、配置 Grub 引导
 
-Etx4 文件系统用 Grub-customizer 即可，Btrfs、ZFS等文件系统此软件无效。
+Etx4 文件系统用 Grub-customizer 即可，Btrfs、ZFS 等文件系统此软件无效。
 ```
 sudo apt install grub-customizer
 ```
@@ -345,12 +345,12 @@ sudo vim /etc/fstab
 ```
 按格式添加：
 ```
-UUID=xxxx	/mount-folder	type	defaults	0	0
+UUID=xxxx    /mount-folder    type    defaults    0    0
 ```
 如：
 ```
-UUID=xxxx	/home/eallion/Files	ntfs	defaults,uid=1000,gid=1000,umask=022	0	0
-UUID=xxxx	/home/eallion/Media	ntfs	defaults,uid=1000,gid=1000,umask=022	0	0
+UUID=xxxx    /home/eallion/Files    ntfs    defaults,uid=1000,gid=1000,umask=022    0    0
+UUID=xxxx    /home/eallion/Media    ntfs    defaults,uid=1000,gid=1000,umask=022    0    0
 ```
 如果不加 uid gid ，自动挂载后可能是 root 权限，无法读写。
 
@@ -460,7 +460,7 @@ sudo apt install flameshot
 实际上没什么卵用，个人也不太喜欢。  
 Gnome 桌面环境原生支持按时间自动切换壁纸的功能。  
 无论什么 Linux 发行版，只要使用 Gnome 桌面环境都可以使用此壁纸。  
-此套壁纸支持5K分辨率。
+此套壁纸支持 5K 分辨率。
 Windows 可以使用 [WinDynamicDesktop](https://github.com/t1m0thyj/WinDynamicDesktop)。
 > <https://github.com/eallion/Big-Sur-Ubuntu>
 
@@ -471,7 +471,7 @@ git clone https://github.com/eallion/Big-Sur-Ubuntu.git ~/Pictures/Big-Sur-Ubunt
 #### 20.2、设置  
 打开`Gnome Tweaks`  
 找到`外观`-`背景`  
-选择`groovy.xml`（文件在`/home/username/Pictures/Big-Sur-Ubuntu/groovy.xml`路径）  
+选择`groovy.xml`（文件在`/home/username/Pictures/Big-Sur-Ubuntu/groovy.xml`路径） 
 选择`Zoom`调整方式  
 
 ------------
