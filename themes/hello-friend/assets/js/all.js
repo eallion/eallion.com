@@ -546,4 +546,4 @@ Prism.plugins.NormalizeWhitespace.setDefaults({
 
 }());
 
-$( "code" ).addClass( "match-braces" );
+$( "code" ).addClass( "language-none match-braces" );
