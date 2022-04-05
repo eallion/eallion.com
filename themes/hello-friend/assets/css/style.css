@@ -2027,6 +2027,7 @@ pre[class*="language-"].line-numbers>code {
 
 div.code-toolbar {
     position: relative;
+    line-height: 1.5;
 }
 
 div.code-toolbar>.toolbar {
