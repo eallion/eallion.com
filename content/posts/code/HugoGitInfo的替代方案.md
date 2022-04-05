@@ -55,7 +55,7 @@ sed -i "s/69d6ffe319557706dcf4150e960e7b7e21a37d9f/$hash/g" themes/hello-friend/
 
 3. 在[`footer.html`](https://github.com/eallion/eallion.com/blob/main/themes/hello-friend/layouts/partials/footer.html#L57)需要显示 GitHash 的位置引用这模板：
 
-```go
+```
 {{ partial "githash.html" . }}
 ```
 
@@ -66,7 +66,7 @@ bash githash.sh
 hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
 ```
 GitHub Actions Workflows：
-```diff
+```diff-bash {.match-braces}
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
