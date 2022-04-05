@@ -1252,13 +1252,6 @@ hr {
     border-radius: 2px;
 }
 
-.dark-theme .expired-tips {
-    border: 1px solid #54a3ff;
-    background-color: #3f729b;
-    color: #ddd;
-    border-left: 0.25em solid #54a3ff;
-}
-
 .post-avatar.avatar {
     width: 48px;
     margin: 8px 1rem 0 0;
@@ -1895,19 +1888,25 @@ pre[class*="language-"] {
     padding: 1em;
     margin: 0.5em 0;
     overflow: auto;
+    background: #272822 !important;
 }
 
-:not(pre)>code[class*="language-"],
-pre[class*="language-"] {
-    background: #212020 !important;
+.dark-theme pre[class*="language-"] {
+    background: #1d1f18 !important;
+}
+
+:not(pre)>code {
+    background: var(--light-background-secondary) !important;
     color: inherit !important;
     border-radius: 8px;
-}
-
-:not(pre)>code[class*="language-"] {
     padding: 0.1em;
     border-radius: 0.3em;
     white-space: normal;
+}
+
+.dark-theme :not(pre)>code {
+    color: #adbac7 !important;
+    background: rgba(99,110,123,0.4) !important;
 }
 
 .token.block-comment,
