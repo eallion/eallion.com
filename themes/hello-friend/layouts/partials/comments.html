@@ -1,6 +1,6 @@
 <!-- Waline -->
 {{- if .Site.Params.waline.enable -}}
-<script src="https://lib.baomitu.com/waline/{{ .Site.Params.waline.version }}/Waline.min.js"></script>
+<script src="https://cdn.staticfile.org/waline/1.6.0/Waline.noStyle.min.js"></script>
 <div class="pagination__title">
     <span class="pagination__title-h"
         ><span class="vcount"></span>精彩评论</span
@@ -71,7 +71,7 @@
     <hr />
 </div>
 <div id="tcomment"></div>
-<script src="https://lib.baomitu.com/twikoo/{{ .Site.Params.twikoo.version }}/twikoo.all.min.js"></script>
+<script src="https://cdn.staticfile.org/twikoo/1.5.1/twikoo.all.min.js"></script>
 <!-- <script>window.TWIKOO_MAGIC_PATH="共用评论区的名称"</script> -->
 <script>
     twikoo.init({
@@ -95,9 +95,9 @@
     <span class="pagination__title-h">精彩评论</span>
     <hr />
 </div>
-<link href="//lib.baomitu.com/disqusjs/{{ .Site.Params.disqus.version }}/disqusjs.min.css" rel="stylesheet">
+<link href="//cdn.staticfile.org/disqusjs/{{ .Site.Params.disqus.version }}/disqusjs.min.css" rel="stylesheet">
 <div id="disqus_thread"></div>
-<script src="https://lib.baomitu.com/disqusjs/{{ .Site.Params.disqus.version }}/disqus.min.js"></script>
+<script src="https://cdn.staticfile.org/disqusjs/{{ .Site.Params.disqus.version }}/disqus.min.js"></script>
 <script>
     var dsqjs = new DisqusJS({
         shortname: "eallion",
