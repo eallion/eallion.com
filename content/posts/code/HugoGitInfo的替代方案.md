@@ -66,7 +66,7 @@ bash githash.sh
 hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
 ```
 GitHub Actions Workflows：
-```diff-bash {.match-braces}
+```diff
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
