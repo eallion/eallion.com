@@ -50,6 +50,8 @@
 
 {{ $maincss := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
+{{ $prismcss := resources.Get "css/prism.css" | resources.Minify | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $prismcss.RelPermalink }}" integrity="{{ $prismcss.Data.Integrity }}" crossorigin="anonymous">
 
 {{- if .Site.Params.iconfont.enable -}}
 <link rel="preload" as="font" href="//at.alicdn.com/t/{{ $.Site.Params.iconfont.id }}.woff2" type="font/woff2" crossorigin="anonymous">
