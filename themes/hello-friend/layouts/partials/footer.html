@@ -10,109 +10,73 @@
         {{ else }}
         <div class="footer__title">
             <span class="footer__title-h">
-                {{ range .Site.Data.hellofriend.social.social_icons }} {{- if isset $.Site.Author .id }}
-                <a
-                    href="{{ printf .url (index $.Site.Author .id) }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="{{ .title }}"
-                >
-                    <i class="{{ .icon }}"></i>
+                <a href="mailto:eallions@gmail.com" target="_blank" rel="noopener noreferrer" title="Email me">
+                    <span class="iconify-inline" data-icon="ant-design:mail-filled" data-width="32" data-height="32"></span>
                 </a>
-                {{- end -}} {{ end }}
+                <a href="https://github.com/eallion" target="_blank" rel="noopener noreferrer" title="GitHub">
+                    <span class="iconify-inline" data-icon="ant-design:github-filled" data-width="32" data-height="32"></span>
+                </a>
+                <a href="https://twitter.com/elonmusk" target="_blank" rel="noopener noreferrer" title="Twitter">
+                    <span class="iconify-inline" data-icon="entypo-social:twitter-with-circle" data-width="32" data-height="32"></span>
+                </a>
+                <a href="https://t.me/durov" target="_blank" rel="noopener noreferrer" title="Telegram">
+                    <span class="iconify-inline" data-icon="fa:telegram" data-width="32" data-height="32"></span>
+                </a>
+                <a href="https://steamcommunity.com/id/eallion" target="_blank" rel="noopener noreferrer" title="steam">
+                    <span class="iconify-inline" data-icon="fa-brands:steam" data-width="32" data-height="32"></span>
+                </a>
+                <a href="https://stackoverflow.com/users/11409594/eallion" target="_blank" rel="noopener noreferrer" title="StackOverflow">
+                    <span class="iconify-inline" data-icon="academicons:stackoverflow-square" data-width="32" data-height="32"></span>
+                </a>
+                <a href="https://open.spotify.com/user/eallion" target="_blank" rel="noopener noreferrer" title="Spotify">
+                    <span class="iconify-inline" data-icon="fa-brands:spotify" data-width="32" data-height="32"></span>
+                </a>
             </span>
             <hr />
         </div>
         <div class="copyright words">
-            <span
-                >共 {{ len (where .Site.RegularPages "Section" "posts") }}
-                篇文章</span
-            ><span>约 {{ $scratch.Get "total" }} 字</span>
+            <span>共 {{ len (where .Site.RegularPages "Section" "posts") }}
+                篇文章</span><span>约 {{ $scratch.Get "total" }} 字</span>
         </div>
         <div class="copyright">
-            <span
-                >&copy; {{ now.Year }}
-                <a
-                    href="https://eallion.com/copyright/"
-                    target="_self"
-                    rel="noopener noreferrer"
-                    >eallion.com</a
-                >, All Rights Reserved.</span
-            >
+            <span>&copy; {{ now.Year }}
+                <a href="https://eallion.com/copyright/" target="_self" rel="noopener noreferrer">eallion.com</a>, All Rights Reserved.</span>
         </div>
         <div class="copyright">
             <span>
-                Powered by <i class="iconfont icon-Hugo"></i>
-                <a
-                    href="https://gohugo.io/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Hugo (v{{ .Site.Hugo.Version }})</a
-                >, Themed by
-                <a
-                    href="https://github.com/panr/hugo-theme-hello-friend"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >Hello Friend</a
-                >, Made with <span class="emoji">❤</span> {{ partial "githash.html" . }}
+                Powered by <span class="iconify-inline" data-icon="file-icons:hugo"></span>
+                <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo (v{{ .Site.Hugo.Version }})</a>, Themed by
+                <a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener noreferrer">Hello Friend</a>, Made with <span class="emoji">❤</span> {{ partial "githash.html" . }}
             </span>
         </div>
         <div class="copyright">
             <span>
                 Licensed under
                 <span>
-                    <a
-                        href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >BY-NC-SA 4.0</a
-                    ></span
-                >,
-                <span
-                    ><a
-                        href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >MIT</a
-                    ></span
-                >,
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener noreferrer">BY-NC-SA 4.0</a></span>,
+                <span><a href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com" target="_blank" rel="noopener noreferrer">MIT</a></span>,
                 <span>
-                    <a
-                        href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >Apache-2.0</a
-                    ></span
-                >.
+                    <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com" target="_blank" rel="noopener noreferrer">Apache-2.0</a></span>.
             </span>
         </div>
         <div class="copyright">
-            <span
-                ><i class="iconfont icon-icp"></i>
-                <a
-                    href="https://beian.miit.gov.cn/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    >浙ICP备16031768号-2</a
-                >
-                <i class="iconfont icon-privacy"></i>
-                <a
-                    href="https://eallion.com/privacy-policy/"
-                    target="_self"
-                    rel="noopener noreferrer"
-                    >隐私政策</a
-                >
+            <span>
+                <span class="iconify-inline" data-icon="fa-brands:edge-legacy"></span>
+                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备16031768号-2</a>
+                <span class="iconify-inline" data-icon="bi:shield-exclamation"></span>
+                <a href="https://eallion.com/privacy-policy/" target="_self" rel="noopener noreferrer">隐私政策</a>
             </span>
         </div>
         {{ end }}
     </div>
 </footer>
-<div class="to-top back-to-top"><i class="iconfont icon-up"></i></div>
+<div class="to-top back-to-top"><span class="iconify-inline" data-icon="ant-design:up-outlined"></span></div>
 {{ partial "footer-js.html" . }}
 <script src="https://cdn.staticfile.org/instant.page/5.1.0/instantpage.min.js"></script>
 <script src="https://cdn.staticfile.org/pangu/4.0.7/pangu.min.js"></script>
 <script>
     pangu.spacingElementByClassName("content");
+
 </script>
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <script>
@@ -123,4 +87,5 @@
             navigator.serviceWorker.register("/service-worker.js");
         });
     }
+
 </script>

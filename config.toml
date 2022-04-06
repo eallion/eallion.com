@@ -98,46 +98,6 @@ enableGitInfo = true
   enable = true
   version = "1.3.0"
 
-[params.iconfont]
-  enable = true
-  id = 'font_2661996_jdkkxqlqwwf' # Pathname as 'font_2661996_csumigyjz7t' of '//at.alicdn.com/t/font_2661996_csumigyjz7t.css'.
-
-[Author]
-  name = "Charles Chin"
-  website = "https://eallion.com/"
-  # Alphabetically #
-  #bandcamp = "username"
-  #bitbucket = "username"
-  #douban = "username"
-  #douyin = "QRurl" QRurl as "https://cdn.example.com/douyin.png"
-  email = "eallions@gmail.com"
-  #facebook = "username"
-  github = "eallion"
-  #gitlab = "username"
-  #instagram = "username"
-  #itchio = "username"
-  #mastodon = "mastodon.social/@username"
-  #reddit = "username"
-  twitter = "elonmusk"
-  #linkedin = "username"
-  #paypal = "username"
-  #pinterest = "username"
-  #QQ = "NumbleID" # QQ NumID as 1008610010
-  #snapchat = "username"
-  stackoverflow = "11409594/eallion"
-  steam = "eallion"
-  telegram = "durov"
-  #tieba = "username"
-  #tiktok = "QRurl" QRurl as "https://cdn.example.com/tiktok.png"
-  #youtube = "user/gnusupporter" # or channel/channelname
-  #soundcloud = "username"
-  spotify = "eallion"
-  #vk = "username"
-  #wechat = "QRurl" # QRurl as "https://cdn.example.com/wechat.png"
-  #weibo = "username"
-  #xing = "username"
-  #zhihu = "username"
-
 [menu]
   ## main menu
   [[menu.main]]
