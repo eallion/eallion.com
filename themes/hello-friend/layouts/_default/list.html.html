@@ -21,14 +21,14 @@
             {{ if .Date }}
             <span class="post-meta-date">
                 <span>
-                    <i class="iconfont icon-archive"></i>
+                    <span class="iconify-inline" data-icon="bxs:archive"></span>
                 </span>
-                <span> {{ .Date.Format "2006年01月02日" }} </span>
+                <span> {{ .Date.Format "2006 年 01 月 02 日" }} </span>
             </span>
             {{ end }} {{ if $.Site.Params.ShowReadingTime }}
             <span class="post-read-time">
                 <span>
-                    <i class="iconfont icon-time-sort"></i>
+                    <span class="iconify-inline" data-icon="clarity:clock-solid-badged"></span>
                 </span>
                 <span
                     >{{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime |
@@ -63,14 +63,11 @@
 
         <div class="post-content post-index">
             {{ if .Truncated }} {{ .Summary }}
-            <span class="hdots"
-                ><i class="iconfont icon-shenglvehao"></i
-                ><i class="iconfont icon-shenglvehao"></i
-            ></span>
+            <span class="iconify-inline" data-icon="ant-design:ellipsis-outlined"></span><span class="iconify-inline" data-icon="ant-design:ellipsis-outlined"></span>
             <div class="read-more-icon">
                 <a class="read-more button" href="{{ .RelPermalink }}"
                     >{{ $.Site.Params.ReadMore | default "Read more" }}
-                    <i class="iconfont icon-chevrons-right"></i>
+                    <span class="iconify-inline" data-icon="ant-design:double-right-outlined"></span>
                 </a>
             </div>
             {{ else }} {{ .Content }} {{ .Render "path" }} {{ end }}
