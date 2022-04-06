@@ -13,7 +13,6 @@
     --dark-border-color: #4a4b50;
     --phoneWidth: (max-width: 684px);
     --tabletWidth: (max-width: 900px);
-    --image-filter: grayscale(50%);
 }
 
 .button-container {
@@ -640,7 +639,7 @@ img {
 }
 
 .dark-theme img {
-    filter: var(--image-filter);
+    filter: brightness(.8) contrast(1.2);
 }
 
 img.center,
@@ -942,20 +941,13 @@ hr {
     /* transition:all 0.5s;*/
 }
 
-.index-talk i,
-.gusici__quote i {
-    font-size: 1.5rem !important;
-    line-height: 2rem !important;
-    margin-right: 0.5rem !important;
-    display: inline !important;
-}
-
 .index-talk svg,
 .gusici__quote svg {
     fill: currentColor;
-    vertical-align: middle;
     display: inline;
-    margin-right: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
 }
 
 .index-talk button,
@@ -989,6 +981,7 @@ hr {
     margin: 0;
     max-height: 35px;
     overflow: hidden;
+    padding-left: 1.5em;
 }
 
 .talk-list li,
