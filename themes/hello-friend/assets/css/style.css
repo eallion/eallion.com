@@ -2700,6 +2700,13 @@ photos .photo:last-child {
     font-size: 0.875em !important;
 }
 
+.hitsAlgolia img {
+    display: block !important;
+    max-height: 300px !important;
+    max-width: 300px !important;
+    margin: 10px 0 !important;
+}
+
 @media only screen and (max-width: 683px) {
 
     .searchAlgolia,
