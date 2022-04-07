@@ -260,8 +260,14 @@ header {
         display: none !important;
     }
 
+    .header__inner{
+        padding-left: 30px !important;
+    }
+
     .menu-trigger {
-        margin-left: 0 !important;
+        position: absolute !important;
+        left: 10px !important;
+        vertical-align: middle !important;
     }
 }
 
@@ -409,7 +415,7 @@ header {
         z-index: 99;
         border: none;
         top: 50px;
-        right: 10px;
+        left: 10px;
     }
 
     .dark-theme .menu {
@@ -1243,9 +1249,18 @@ hr {
 .success-msg,
 .warning-msg,
 .error-msg {
-    margin: 6px 0;
+    margin: 20px 0 0 0;
     padding: 6px;
     border-radius: 3px 3px 3px 3px;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+.info-msg::-webkit-scrollbar,
+.success-msg::-webkit-scrollbar,
+.warning-msg::-webkit-scrollbar,
+.error-msg::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
 }
 
 .info-msg {
