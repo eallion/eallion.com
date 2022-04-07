@@ -1,18 +1,8 @@
 {{ define "main" }}
 <!-- Include only the reset -->
-<link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css"
-    integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8="
-    crossorigin="anonymous"
-/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/reset-min.css" />
 <!-- or include the full Satellite theme -->
-<link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css"
-    integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc="
-    crossorigin="anonymous"
-/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css" />
 <div class="posts searchPage searchAlgolia">
     <div id="searchbox" class="searchboxAlgolia">
         <!-- SearchBox widget will appear here -->
@@ -27,6 +17,7 @@
 <!-- Algolia for the search only version -->
 <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
+<script src="https://cdn.staticfile.org/moment.js/2.29.2/moment.min.js"></script>
 <script>
     const searchClient = algoliasearch(
         "ZHP6RM1ABL",
@@ -37,6 +28,70 @@
         indexName: "talk",
         searchClient,
     });
+
+    // autocorrect: false
+    moment.updateLocale('zh-cn', {
+        meridiem : function (hour, minute, isLowercase) {
+            if (hour < 6) {
+                return "凌晨";
+            } else if (hour < 9){
+                return "早上";
+            } else if (hour < 11 && minute < 30) {
+                return "上午";
+            } else if (hour < 13 && minute < 30) {
+                return "中午";
+            } else if (hour < 18) {
+                return "下午";
+            } else {
+                return "晚上";
+            }
+        }
+    });
+
+    // --- Define some custom helpers ---
+    const hitTemplate = function (hit) {
+        let date = "";
+        if (hit.date) {
+            date = moment(hit.date).format("a HH:mm · YYYY年MM月DD日 ");
+        }
+        const content = urlToLink(hit._highlightResult.content.value);
+        const from = hit._highlightResult.from.value;
+
+        //图片灯箱效果
+        $(".hitsAlgolia a[rel!=link]:has(img)").slimbox();
+
+        // 图片和链接
+        function urlToLink(str) {
+            //去除<img>标签，留 src 链接
+            var re_forimg =/\<[img|IMG].*?src=[\'|\"](https\:\/\/.*?(?:[\.jpg|\.jpeg|\.png|\.gif|\.webp|\.jfif|\.bmp]))[\'|\"].*?[\/]?>/g;
+            str =str.replace(re_forimg,'$1');
+            //去 ![]() 标签，留图片链接
+            var re_formd = /^!\[(.*)\]\((.*)\)/g;
+            str = str.replace(re_formd,'$2');
+            //处理图片链接，添加 a 标签共添加灯箱效果
+            var re_forpic =/\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(jfif)|(bmp)|(webp))/g;
+            str =str.replace(re_forpic,function (imgurl) {
+            return "<a href='" + imgurl + "' rel='noopener noreferrer'><img loading='lazy' src='" + imgurl + "' ></a>";
+            });
+            //多个换行符替换为一个
+            str = str.replace( /\n\n/g, "\n");
+            //处理普通链接，添加 a 标签供跳转
+            var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g;
+            str =str.replace(re,function (website) {
+            return "🔗<a href='" + website + "' target='_blank' rel='noopener noreferrer'>链接</a>";
+            });
+            //微信表情
+            // str = qqWechatEmotionParser(str)
+            return str;
+        }
+        return `
+            <section class="timeline">
+                <p>${content}</p>
+                <time class="date"><small>${date} ·「${from}」</small></time>
+            </section>
+        `;
+    };
+    // autocorrect: true
 
     search.addWidgets([
         instantsearch.widgets.searchBox({
@@ -49,14 +104,7 @@
             escapeHTML: false,
             templates: {
                 empty: "我没有这样的嘀咕……",
-                item(item){
-                    return `
-                    <section class="timeline">
-                        <p>${item._highlightResult.content.value}</p>
-                        <time class="date"><small>${item._highlightResult.date.value} ·「${item._highlightResult.from.value}」</small></time>
-                    </section>
-                    `;
-                }
+                item: hitTemplate,
             },
         }),
         instantsearch.widgets.pagination({
@@ -67,6 +115,7 @@
     ]);
 
     search.start();
+
 </script>
 
 {{ end }}
