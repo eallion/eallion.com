@@ -2566,8 +2566,22 @@ photos .photo:last-child {
     word-break: break-all;
 }
 
+.links {
+    max-width: 800px;
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: 33% 33% 33%;
+    -ms-grid-columns: 33% 33% 33%;
+    grid-template-rows: auto;
+    -ms-grid-row: auto;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+    justify-items: start;
+    align-items: center;
+}
+
 .links-item {
-    width: 32%;
+    width: 100%;
     margin: 1em 0;
 }
 
