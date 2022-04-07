@@ -4,7 +4,8 @@
 
 ### Build status
 
-[![构建状态](https://eallion.coding.net/badges/eallion/job/884628/build.svg)](https://eallion.coding.net/p/eallion/ci/job) [![Build Hugo and Deploy](https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.com/actions/workflows/main.yml)
+[![Build Hugo and Deploy](https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.com/actions/workflows/main.yml)  
+![GitHub](https://img.shields.io/github/license/eallion/eallion.com) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v1.0.4/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com)
 
 ### Any questions?
 
