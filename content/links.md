@@ -8,6 +8,7 @@ Comments: false
 
 ### 友情链接
 
+<div class="links">
 {{< friend name="韩 寒" des="作家、赛车手、导演" url="https://weibo.com/hanhan" domain="weibo.com/hanhan" src="https://static.eallion.com/link/hanhan.jpg" >}}
 {{< friend name="周杰伦" des="歌手、演员、导演" url="https://www.instagram.com/jaychou/" domain="instagram.com/jaychou" src="https://static.eallion.com/link/jay.jpg" >}}
 {{< friend name="Keso" des="IT 评论人" url="https://twitter.com/keso" domain="twitter.com/keso" src="https://static.eallion.com/link/keso.jpg" >}}
@@ -46,6 +47,7 @@ Comments: false
 {{< friend name="Heo" des="爱折腾的设计师" url="https://blog.zhheo.com/" domain="blog.zhheo.com" src="https://blog.zhheo.com/img/avatar.png" >}}
 {{< friend name="Bore’s Note" des="博观而约取，厚积而薄发。" url="https://bore.vip/" domain="bore.vip" src="https://cdn.jsdelivr.net/gh/iwyang/pic/avatar.jpg" >}}
 {{< friend name="辰旭博客" des="山回路转不见君，雪上空留马行处。" url="https://blog.shiyuchan.cn/" domain="blog.shiyuchan.cn" src="https://cdn.jsdelivr.net/gh/Karensky/qaq@master/2020/p/1589969872-1589504511463.png" >}}
+</div>
 
 ---
 
