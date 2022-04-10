@@ -164,7 +164,7 @@ $(document).ready(function () {
                 d = new Date(item.date)
                 date = d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
                 dataTime = '<span class="datatime">' + date + '</span>'
-                talksHtml += '<li class="item item-' + (i + 1) + '">' + dataTime + '： <a href="https://eallion.com/talk/" target="_blank" rel="noopener noreferrer">' + urlToLink(item.content) + '</a></li>'
+                talksHtml += '<li class="item item-' + (i + 1) + '">' + dataTime + '： <a href="https://eallion.com/talks/" target="_blank" rel="noopener noreferrer">' + urlToLink(item.content) + '</a></li>'
             });
             $('#index-talk').append('<span class="iconify-inline" data-icon="icon-park-outline:people-speak"></span> <ul class="talk-list">' + talksHtml + '</ul>')
             Lately({
