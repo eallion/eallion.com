@@ -35,8 +35,8 @@
             <hr />
         </div>
         <div class="copyright words">
-            <span>共 {{ len (where .Site.RegularPages "Section" "posts") }}
-                篇文章</span><span>约 {{ $scratch.Get "total" }} 字</span>
+            <span><a href="https://eallion.com/blog/" target="_blank">共 {{ len (where .Site.RegularPages "Section" "posts") }}
+                篇文章</a></span><span>约 {{ $scratch.Get "total" }} 字</span>
         </div>
         <div class="copyright">
             <span>&copy; {{ now.Year }}
