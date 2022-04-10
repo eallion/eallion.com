@@ -260,7 +260,7 @@ header {
         display: none !important;
     }
 
-    .header__inner{
+    .header__inner {
         padding-left: 30px !important;
     }
 
@@ -1255,6 +1255,7 @@ hr {
     white-space: nowrap;
     overflow-x: auto;
 }
+
 .info-msg::-webkit-scrollbar,
 .success-msg::-webkit-scrollbar,
 .warning-msg::-webkit-scrollbar,
@@ -1286,7 +1287,7 @@ hr {
 .info-msg svg,
 .success-msg svg,
 .warning-msg svg,
-.error-msg svg{
+.error-msg svg {
     margin: 0 12px 0 6px;
 }
 
