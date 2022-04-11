@@ -512,44 +512,12 @@ Prism.plugins.NormalizeWhitespace.setDefaults({
         "yang": "YANG"
     } /*]*/ ;
 
-    /* eslint-enable */
-
-    Prism.plugins.toolbar.registerButton('show-language', function (env) {
-        var pre = env.element.parentNode;
-        if (!pre || !/pre/i.test(pre.nodeName)) {
-            return;
-        }
-
-        /**
-         * Tries to guess the name of a language given its id.
-         *
-         * @param {string} id The language id.
-         * @returns {string}
-         */
-        function guessTitle(id) {
-            if (!id) {
-                return id;
-            }
-            return (id.substring(0, 1).toUpperCase() + id.substring(1)).replace(/s(?=cript)/, 'S');
-        }
-
-        var language = pre.getAttribute('data-language') || Languages[env.language] || guessTitle(env.language);
-
-        if (!language) {
-            return;
-        }
-        var element = document.createElement('span');
-        element.textContent = language;
-
-        return element;
-    });
-
 }());
 
 $( "code" ).addClass( "language-none match-braces" );
 
 !(function () {
-    var e, t, n, o, i, d, c, s, r, a, l;
+    var e, t, n, o, i, d, c, s;
     (e = document.querySelector(".container")),
     (t = document.querySelector(".menu")),
     (n = document.querySelector(".menu-trigger")),
