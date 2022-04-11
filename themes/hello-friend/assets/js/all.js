@@ -591,17 +591,33 @@ $( "code" ).addClass( "language-none match-braces" );
                 i &&
                 i.getBoundingClientRect().right > e.getBoundingClientRect().right &&
                 ((i.style.left = "auto"), (i.style.right = 0))
-        }),
-        (r = window.localStorage && window.localStorage.getItem("theme")),
-        (a = document.querySelector(".theme-toggle")),
-        (l = "dark" === r),
-        null !== r && document.body.classList.toggle("dark-theme", l),
-        a.addEventListener("click", function () {
-            document.body.classList.toggle("dark-theme"),
-                window.localStorage &&
-                window.localStorage.setItem(
-                    "theme",
-                    document.body.classList.contains("dark-theme") ? "dark" : "light"
-                )
         })
 })()
+
+function load() {
+    const button = document.querySelector(".theme-toggle");
+
+    // MediaQueryList object
+    const useDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+    // Toggles the "dark-theme" class based on if the media query matches
+    function toggleDarkMode(state) {
+      // Older browser don't support the second parameter in the
+      // classList.toggle method so you'd need to handle this manually
+      // if you need to support older browsers.
+        document.body.classList.toggle("dark-theme", state);
+    }
+
+    // Initial setting
+    toggleDarkMode(useDark.matches);
+
+    // Listen for changes in the OS settings
+    useDark.addListener((evt) => toggleDarkMode(evt.matches));
+
+    // Toggles the "dark-theme" class on click
+    button.addEventListener("click", () => {
+        document.body.classList.toggle("dark-theme");
+    });
+}
+
+window.addEventListener("DOMContentLoaded", load);
