@@ -31,7 +31,7 @@ jobs:
         run: |
           hugo version
           bash githash.sh
-          hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
+          hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
