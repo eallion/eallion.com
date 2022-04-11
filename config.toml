@@ -15,7 +15,7 @@ rssImage = ""
 # uglyurls = true
 
 enableEmoji = true
-enableGitInfo = true
+enableGitInfo = false
 
 [permalinks]
   posts = "/:slug/" # Don't miss the last slash: "/"
