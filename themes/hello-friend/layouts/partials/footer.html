@@ -1,5 +1,38 @@
 {{ $scratch := newScratch }} {{ range (where .Site.Pages "Kind" "page" ) }}
 {{ $scratch.Add "total" .WordCount }} {{ end }}
+{{$scratch := newScratch}}
+{{ range (where .Site.Pages "Kind" "page" )}}
+    {{$scratch.Add "total" .WordCount}}
+{{ end }}
+{{$totalWord := $scratch.Get "total" }}
+{{ $wowWord := div $totalWord 10000}}
+{{ $wowBook := "还在努力更新中...加油！加油啦！"}}
+{{ if ge $wowWord 40 }}{{$wowBook = "写完一本我国著名的四大名著了！"}}
+{{ else if ge $wowWord 35 }}{{$wowBook = "写完一本 东野圭吾 的《白夜行》了！"}}
+{{ else if ge $wowWord 34 }}{{$wowBook = "写完一本 雨果 的《巴黎圣母院》了！"}}
+{{ else if ge $wowWord 32 }}{{$wowBook = "写完一本 艾米莉·勃朗特 的《呼啸山庄》了！"}}
+{{ else if ge $wowWord 31 }}{{$wowBook = "写完一本 阿来 的《尘埃落定》了！"}}
+{{ else if ge $wowWord 30 }}{{$wowBook = "写完一本 茅盾 的《子夜》了！"}}
+{{ else if ge $wowWord 28 }}{{$wowBook = "写完一本 张炜 的《古船》了！"}}
+{{ else if ge $wowWord 25 }}{{$wowBook = "写完一本 钱钟书 的《围城》了！"}}
+{{ else if ge $wowWord 23 }}{{$wowBook = "写完一本 简·奥斯汀 的《傲慢与偏见》了！"}}
+{{ else if ge $wowWord 22 }}{{$wowBook = "写完一本 莫泊桑 的《一生》了！"}}
+{{ else if ge $wowWord 21 }}{{$wowBook = "写完一本 东野圭吾 的《解忧杂货店》了！"}}
+{{ else if ge $wowWord 20 }}{{$wowBook = "写完一本 巴金 的《寒夜》了！"}}
+{{ else if ge $wowWord 19 }}{{$wowBook = "写完一本 亚米契斯 的《爱的教育》了！"}}
+{{ else if ge $wowWord 18 }}{{$wowBook = "写完一本 沈从文 的《边城》了！"}}
+{{ else if ge $wowWord 17 }}{{$wowBook = "写完一本 马克·吐温 的《汤姆·索亚历险记》了！"}}
+{{ else if ge $wowWord 16 }}{{$wowBook = "写完一本 曹禺 的《日出》了！"}}
+{{ else if ge $wowWord 15 }}{{$wowBook = "写完一本 伯内特 的《秘密花园》了！"}}
+{{ else if ge $wowWord 14 }}{{$wowBook = "写完一本 史铁生 的《宿命的写作》了！"}}
+{{ else if ge $wowWord 13 }}{{$wowBook = "写完一本 曹禺 的《雷雨》了！"}}
+{{ else if ge $wowWord 12 }}{{$wowBook = "写完一本 余华 的《活着》了！"}}
+{{ else if ge $wowWord 11 }}{{$wowBook = "写完一本 鲁迅 的《彷徨》了！"}}
+{{ else if ge $wowWord 10 }}{{$wowBook = "写完一本 马克·吐温 的《王子与乞丐》了！"}}
+{{ else if ge $wowWord 9 }}{{$wowBook = "写完一本 林海音 的《城南旧事》了！"}}
+{{ else if ge $wowWord 7 }}{{$wowBook = "写完一本 鲁迅 的《呐喊》了！"}}
+{{ else if ge $wowWord 5 }}{{$wowBook = "写完一本 埃克苏佩里 的《小王子》了！"}}
+{{ end }}
 <footer class="footer">
     <div class="footer__inner">
         <!-- https://github.com/eallion/eallion.com/tree/16c9ebe6cd303d9029ced7eef7dfb780f63c4a0d -->
@@ -34,41 +67,19 @@
             </span>
             <hr />
         </div>
-        <div class="copyright words">
-            <span><a href="https://eallion.com/blog/" target="_blank">共 {{ len (where .Site.RegularPages "Section" "posts") }}
-                篇文章</a></span><span>约 {{ $scratch.Get "total" }} 字</span>
+        <div class="words">
+            <span>共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇文章</span><span>约 {{ $scratch.Get "total" }} 字</span><span>{{$wowBook | safeHTML }}</span>
         </div>
         <div class="copyright">
-            <span>&copy; {{ now.Year }}
-                <a href="https://eallion.com/copyright/" target="_self" rel="noopener noreferrer">eallion.com</a>, All Rights Reserved.</span>
-        </div>
-        <div class="copyright">
-            <span>
-                Powered by <span class="iconify-inline" data-icon="file-icons:hugo"></span>
-                <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo (v{{ .Site.Hugo.Version }})</a>, Themed by
-                <a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener noreferrer">Hello Friend</a>, Made with <span class="emoji">❤</span> {{ partial "githash.html" . }}
-            </span>
-        </div>
-        <div class="copyright">
-            <span>
-                Licensed under
-                <span>
-                    <span class="iconify-inline" data-icon="simple-icons:creativecommons"></span>
-                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener noreferrer">BY-NC-SA 4.0</a>
-                </span>,
-                <span>
-                    <span class="iconify-inline" data-icon="octicon:law-16"></span>
-                    <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com" target="_blank" rel="noopener noreferrer">MIT</a>
-                </span>.
-            </span>
-        </div>
-        <div class="copyright">
-            <span>
-                <span class="iconify-inline" data-icon="fa-brands:edge-legacy"></span>
-                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备16031768号-2</a>
-                <span class="iconify-inline" data-icon="bi:shield-exclamation"></span>
-                <a href="https://eallion.com/privacy-policy/" target="_self" rel="noopener noreferrer">隐私政策</a>
-            </span>
+            <div>
+                Copyright &copy; {{ now.Year }} <a href="https://eallion.com/copyright/" target="_self" rel="noopener noreferrer">eallion.com</a>.
+            </div>
+            <div>
+                Powered by <span class="iconify-inline" data-icon="file-icons:hugo"></span> <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo (v{{ .Site.Hugo.Version }})</a>, Theme <a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener noreferrer">Hello Friend</a>.
+            </div>
+            <div>
+                <span class="iconify-inline" data-icon="fa-brands:edge-legacy"></span> <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备16031768号-2</a>
+            </div>
         </div>
         {{ end }}
     </div>
