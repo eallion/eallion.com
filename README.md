@@ -96,7 +96,6 @@
 │       │   │   ├── menu.html               # Menu 模板
 │       │   │   ├── pagination.html         # 分页模板
 │       │   │   ├── talk.html               # 文章页引用面包屑样式的嘀咕模板
-│       │   │   ├── theme-icon.html         # 切换暗黑样式的模板
 │       │   │   └── toc.html                # 文章页 TOC 目录模板
 │       │   ├── shortcodes                  # 集成的 Shortcodes
 │       │   │   ├── code.html               # 代码
