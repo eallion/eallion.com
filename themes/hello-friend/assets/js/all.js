@@ -570,7 +570,8 @@ desktopMenuTrigger &&
         }
     });
 
-// Toggle theme
+/*
+// Theme original Toggle theme
 const getTheme = window.localStorage && window.localStorage.getItem("theme");
 const themeToggle = document.querySelector(".theme-toggle");
 const isDark = getTheme === "dark";
@@ -589,35 +590,68 @@ themeToggle.addEventListener("click", () => {
             document.body.classList.contains("dark-theme") ? "dark" : "light",
         );
 });
+*/
 
-/***
-function load() {
-    const button = document.querySelector(".theme-toggle");
+//color components/schema eureka
+function getcolorscheme() {
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    let element = document.getElementById('lightDarkMode');
+    let targetDiv = document.getElementById('lightDarkOptions');
+    let targets = targetDiv.getElementsByTagName('span');
+    let screen = document.getElementById('is-open');
 
-    // MediaQueryList object
-    const useDark = window.matchMedia("(prefers-color-scheme: dark)");
+    element.addEventListener('click', () => {
+        targetDiv.classList.toggle('hidden')
+        screen.classList.toggle('hidden')
+    })
 
-    // Toggles the "dark-theme" class based on if the media query matches
-    function toggleDarkMode(state) {
-        // Older browser don't support the second parameter in the
-        // classList.toggle method so you'd need to handle this manually
-        // if you need to support older browsers.
-        document.body.classList.toggle("dark-theme", state);
+    for (let target of targets) {
+        target.addEventListener('click', () => {
+            let targetName = target.getAttribute("name")
+            let icon = switchMode(targetName)
+            let old_icon = element.firstElementChild.getAttribute("data-icon")
+            element.firstElementChild.setAttribute("data-icon", icon)
+
+            localStorage.setItem("lightDarkMode", targetName)
+
+            targetDiv.classList.toggle('hidden')
+            screen.classList.toggle('hidden')
+        })
     }
+    screen.addEventListener('click', () => {
+        targetDiv.classList.toggle('hidden')
+        screen.classList.toggle('hidden')
+    })
 
-    // Initial setting
-    toggleDarkMode(useDark.matches);
-
-    // Listen for changes in the OS settings
-    useDark.addListener((evt) => toggleDarkMode(evt.matches));
-
-    // Toggles the "dark-theme" class on click
-    button.addEventListener("click", () => {
-        document.body.classList.toggle("dark-theme");
-    });
 }
 
-window.addEventListener("DOMContentLoaded", load);
-***/
+function switchMode(mode) {
+    let icon = ''
+    switch (mode) {
+        case 'Light':
+            window.matchMedia("(prefers-color-scheme: dark)").removeEventListener('change', switchDarkMode)
+            icon = 'akar-icons:sun-fill'
+            document.body.classList.remove('dark-theme')
+            break
+        case 'Dark':
+            window.matchMedia("(prefers-color-scheme: dark)").removeEventListener('change', switchDarkMode)
+            icon = 'akar-icons:moon-fill'
+            document.body.classList.add('dark-theme')
+            break
+        case 'Auto':
+            icon = 'bxs:adjust'
+            const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)")
+            switchDarkMode(isDarkMode)
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+            break
+    }
+    return icon
+}
 
-
+function switchDarkMode(e) {
+    if (e.matches) {
+        document.body.classList.add('dark-theme')
+    } else {
+        document.body.classList.remove('dark-theme')
+    }
+}
