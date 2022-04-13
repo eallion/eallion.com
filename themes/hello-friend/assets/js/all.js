@@ -514,54 +514,83 @@ Prism.plugins.NormalizeWhitespace.setDefaults({
 
 }());
 
-$( "code" ).addClass( "language-none match-braces" );
+$("code").addClass("language-none match-braces");
 
-!(function () {
-    var e, t, n, o, i, d, c, s;
-    (e = document.querySelector(".container")),
-    (t = document.querySelector(".menu")),
-    (n = document.querySelector(".menu-trigger")),
-    document.querySelector(".menu__inner--desktop"),
-        (o = document.querySelector(".menu__sub-inner-more-trigger")),
-        (i = document.querySelector(".menu__sub-inner-more")),
-        (d = getComputedStyle(document.body).getPropertyValue("--phoneWidth")),
-        (c = function () {
-            return window.matchMedia(d).matches
-        }),
-        (s = function () {
-            n && n.classList.toggle("hidden", !c()),
-                t && t.classList.toggle("hidden", c()),
-                i && i.classList.toggle("hidden", !c())
-        }),
-        t &&
-        t.addEventListener("click", function (e) {
-            return e.stopPropagation()
-        }),
-        i &&
-        i.addEventListener("click", function (e) {
-            return e.stopPropagation()
-        }),
-        s(),
-        document.body.addEventListener("click", function () {
-            c() || !i || i.classList.contains("hidden") ?
-                c() && !t.classList.contains("hidden") && t.classList.add("hidden") :
-                i.classList.add("hidden")
-        }),
-        window.addEventListener("resize", s),
-        n &&
-        n.addEventListener("click", function (e) {
-            e.stopPropagation(), t && t.classList.toggle("hidden")
-        }),
-        o &&
-        o.addEventListener("click", function (t) {
-            t.stopPropagation(),
-                i && i.classList.toggle("hidden"),
-                i &&
-                i.getBoundingClientRect().right > e.getBoundingClientRect().right &&
-                ((i.style.left = "auto"), (i.style.right = 0))
-        })
-})()
+// theme main js
+const container = document.querySelector(".container");
+const menu = document.querySelector(".menu");
+const mobileMenuTrigger = document.querySelector(".menu-trigger");
+const desktopMenu = document.querySelector(".menu__inner--desktop");
+const desktopMenuTrigger = document.querySelector(".menu__sub-inner-more-trigger");
+const menuMore = document.querySelector(".menu__sub-inner-more");
+const mobileQuery = getComputedStyle(document.body).getPropertyValue("--phoneWidth");
+const isMobile = () => window.matchMedia(mobileQuery).matches;
+const isMobileMenu = () => {
+    mobileMenuTrigger && mobileMenuTrigger.classList.toggle("hidden", !isMobile());
+    menu && menu.classList.toggle("hidden", isMobile());
+    menuMore && menuMore.classList.toggle("hidden", !isMobile());
+};
 
+// Common
+
+menu && menu.addEventListener("click", e => e.stopPropagation());
+menuMore && menuMore.addEventListener("click", e => e.stopPropagation());
+
+isMobileMenu();
+
+document.body.addEventListener("click", () => {
+    if (!isMobile() && menuMore && !menuMore.classList.contains("hidden")) {
+        menuMore.classList.add("hidden");
+    } else if (isMobile() && !menu.classList.contains("hidden")) {
+        menu.classList.add("hidden");
+    }
+});
+
+window.addEventListener("resize", isMobileMenu);
+
+// Mobile menu
+mobileMenuTrigger &&
+    mobileMenuTrigger.addEventListener("click", e => {
+        e.stopPropagation();
+        menu && menu.classList.toggle("hidden");
+    });
+
+// Desktop menu
+desktopMenuTrigger &&
+    desktopMenuTrigger.addEventListener("click", e => {
+        e.stopPropagation();
+        menuMore && menuMore.classList.toggle("hidden");
+
+        if (
+            menuMore &&
+            menuMore.getBoundingClientRect().right > container.getBoundingClientRect().right
+        ) {
+            menuMore.style.left = "auto";
+            menuMore.style.right = 0;
+        }
+    });
+
+// Toggle theme
+const getTheme = window.localStorage && window.localStorage.getItem("theme");
+const themeToggle = document.querySelector(".theme-toggle");
+const isDark = getTheme === "dark";
+// MediaQueryList object
+const useDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+if (getTheme !== null) {
+    document.body.classList.toggle("dark-theme", isDark);
+}
+
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
+    window.localStorage &&
+        window.localStorage.setItem(
+            "theme",
+            document.body.classList.contains("dark-theme") ? "dark" : "light",
+        );
+});
+
+/***
 function load() {
     const button = document.querySelector(".theme-toggle");
 
@@ -570,9 +599,9 @@ function load() {
 
     // Toggles the "dark-theme" class based on if the media query matches
     function toggleDarkMode(state) {
-      // Older browser don't support the second parameter in the
-      // classList.toggle method so you'd need to handle this manually
-      // if you need to support older browsers.
+        // Older browser don't support the second parameter in the
+        // classList.toggle method so you'd need to handle this manually
+        // if you need to support older browsers.
         document.body.classList.toggle("dark-theme", state);
     }
 
@@ -589,3 +618,6 @@ function load() {
 }
 
 window.addEventListener("DOMContentLoaded", load);
+***/
+
+
