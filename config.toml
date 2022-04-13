@@ -25,8 +25,8 @@ enableGitInfo = false
   # copyright = ""
   # dir name of your blog content (default is `content/posts`)
   contentTypeName = "posts"
-  # "light" or "dark"
-  defaultTheme = "light"
+  # "auto" "light" or "dark"
+  defaultTheme = "auto"
   # if you set this to 0, only submenu trigger will be visible
   showMenuItems = 4
   # Enable to show reading time in minutes for posts
