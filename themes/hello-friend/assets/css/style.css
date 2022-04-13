@@ -1482,9 +1482,8 @@ hr {
         "Microsoft Yahei", "Segoe UI", sans-serif, serif;
     flex-direction: row;
     align-items: center;
-    font-size: 0.875em;
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 30px 0 0;
     flex-grow: 0;
     color: #222;
     width: 100%;
@@ -1494,7 +1493,7 @@ hr {
 }
 
 .footer .words {
-    font-size: 1rem !important;
+    font-size: 1em !important;
 }
 
 .footer .attr_source {
@@ -1548,23 +1547,35 @@ hr {
     text-align: center;
 }
 
-.footer .copyright> :first-child:not(:only-child) {
+.footer .copyright {
+    padding: 20px 0 40px;
+}
+
+.footer .words> :first-child:not(:only-child) {
     border-right: 1px solid;
     padding-right: 10px;
     margin-right: 10px;
 }
 
-@media (max-width: 899px) {
-    .footer {
-        font-size: 0.85em;
-    }
+.footer .words> :last-child::before {
+    content: '，';
+}
 
+@media (max-width: 899px) {
     .footer .copyright {
         flex-direction: column;
     }
 
     .footer .copyright div {
         margin: 5px 0;
+    }
+
+    .footer .words> :last-child {
+        display:  block !important;
+    }
+
+    .footer .words> :last-child::before {
+        content: none;
     }
 }
 
