@@ -38,7 +38,6 @@
 ├── content                                 # 存放 Hugo 文章的目录
 ├── data                                    # 数据文件
 ├── frontmatter.json                        # Frontmatter 配置文件
-├── githash.sh                              # 获取最新一条 Git log hash 的脚本
 ├── resources                               # 存放资源文件
 ├── static                                  # 构建时自动同步的静态文件
 ├── themes                                  # 主题目录
@@ -89,7 +88,6 @@
 │       │   │   ├── comments.html           # 评论模板
 │       │   │   ├── footer-js.html          # 页脚压缩 JS 的模板
 │       │   │   ├── footer.html             # 页脚模板
-│       │   │   ├── githash.html            # 生成最新一条 Git log hash 的模板
 │       │   │   ├── greater-icon.html       # Menu 图标模板
 │       │   │   ├── head.html               # 页头模板
 │       │   │   ├── header.html             # Header 模板
@@ -167,7 +165,6 @@ jobs:
       - name: Build Hugo
         run: |
           hugo version
-          bash githash.sh
           hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -213,7 +210,6 @@ pipeline {
           extensions: [[$class:'CloneOption',depth:1,noTags:false,reference:'',shallow:true,timeout:30]],
         ])
         sh 'bash coding.sh'
-        sh 'bash githash.sh'
         sh 'hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify'
       }
     }
