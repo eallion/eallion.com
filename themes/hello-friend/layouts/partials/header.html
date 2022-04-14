@@ -16,15 +16,15 @@
                 let storageColorScheme = localStorage.getItem("lightDarkMode")
                 {{- if eq $.Site.Params.defaultTheme "light" }}
                 if ((storageColorScheme == 'Auto' && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
-                    document.body.classList.add('dark-theme')
+                    document.body.classList.add('dark')
                 }
                 {{- else if eq $.Site.Params.defaultTheme "dark" }}
                 if ((storageColorScheme == 'Auto' && window.matchMedia("(prefers-color-scheme: light)").matches) || storageColorScheme == "Light") {
-                    document.body.classList.remove('dark-theme')
+                    document.body.classList.remove('dark')
                 }
                 {{- else }}
                 if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
-                    document.body.classList.add('dark-theme')
+                    document.body.classList.add('dark')
                 }
                 {{- end }}
             </script>

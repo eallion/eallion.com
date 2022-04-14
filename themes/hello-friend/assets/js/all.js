@@ -616,13 +616,15 @@ function getcolorscheme() {
 
             targetDiv.classList.toggle('hidden')
             screen.classList.toggle('hidden')
+
+            let event = new Event('themeChanged');
+            document.dispatchEvent(event);
         })
     }
     screen.addEventListener('click', () => {
         targetDiv.classList.toggle('hidden')
         screen.classList.toggle('hidden')
     })
-
 }
 
 function switchMode(mode) {
@@ -631,12 +633,12 @@ function switchMode(mode) {
         case 'Light':
             window.matchMedia("(prefers-color-scheme: dark)").removeEventListener('change', switchDarkMode)
             icon = 'akar-icons:sun-fill'
-            document.body.classList.remove('dark-theme')
+            document.body.classList.remove('dark')
             break
         case 'Dark':
             window.matchMedia("(prefers-color-scheme: dark)").removeEventListener('change', switchDarkMode)
             icon = 'akar-icons:moon-fill'
-            document.body.classList.add('dark-theme')
+            document.body.classList.add('dark')
             break
         case 'Auto':
             icon = 'bxs:adjust'
@@ -650,8 +652,8 @@ function switchMode(mode) {
 
 function switchDarkMode(e) {
     if (e.matches) {
-        document.body.classList.add('dark-theme')
+        document.body.classList.add('dark')
     } else {
-        document.body.classList.remove('dark-theme')
+        document.body.classList.remove('dark')
     }
 }
