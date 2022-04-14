@@ -212,7 +212,7 @@ header {
     position: absolute;
     left: auto;
     right: 0;
-    top:1.5em;
+    top: 1.5em;
     padding: 0.5rem 0;
     background-color: var(--light-header);
     border-color: var(--light-header);
@@ -1618,7 +1618,7 @@ hr {
     }
 
     .footer .words> :last-child {
-        display:  block !important;
+        display: block !important;
     }
 
     .footer .words> :last-child::before {
@@ -2597,216 +2597,216 @@ photos .photo:last-child {
     }
 }
 
-body.dark-theme {
+body.dark {
     background-color: var(--dark-background);
     color: var(--dark-color);
 }
 
-body.dark-theme .button,
-body.dark-theme a.button,
-body.dark-theme button {
+.dark .button,
+.dark a.button,
+.dark button {
     background: var(--dark-background-secondary);
     color: inherit;
 }
 
-body.dark-theme .button.outline,
-body.dark-theme a.button.outline,
-body.dark-theme button.outline {
+.dark .button.outline,
+.dark a.button.outline,
+.dark button.outline {
     border-color: var(--dark-background-secondary);
     color: inherit;
 }
 
-body.dark-theme .code-toolbar .toolbar-item a {
+.dark .code-toolbar .toolbar-item a {
     background: var(--dark-background-secondary);
     color: inherit;
 }
 
-body.dark-theme header {
+.dark header {
     background: var(--dark-header);
 }
 
-body.dark-theme .menu__sub-inner-more {
+.dark .menu__sub-inner-more {
     background: var(--dark-background-secondary);
 }
 
-body.dark-theme .menu__inner .menu__sub-inner-more li:hover {
+.dark .menu__inner .menu__sub-inner-more li:hover {
     background: rgba(0, 0, 0, 0.15);
 }
 
-body.dark-theme img {
+.dark img {
     filter: brightness(0.8) contrast(1.2);
 }
 
-body.dark-theme code {
+.dark code {
     background: var(--dark-background-secondary);
 }
 
-body.dark-theme pre code {
+.dark pre code {
     color: inherit;
 }
 
-body.dark-theme blockquote {
+.dark blockquote {
     border-left: 0.25em solid var(--dark-border-color);
 }
 
-body.dark-theme th {
+.dark th {
     background: var(--dark-background-secondary);
 }
 
-body.dark-theme hr {
+.dark hr {
     background: var(--dark-border-color);
 }
 
-body.dark-theme .index-talk {
+.dark .index-talk {
     background-color: var(--dark-header);
 }
 
-body.dark-theme .index-talk button {
+.dark .index-talk button {
     color: var(--dark-color);
     border: var(--dark-border-color);
 }
 
-body.dark-theme .timeline ul li,
-body.dark-theme .timeline ul li div {
+.dark .timeline ul li,
+.dark .timeline ul li div {
     background: #3b3d42;
 }
 
-body.dark-theme .timeline ul li div::before {
+.dark .timeline ul li div::before {
     border-color: transparent #3b3d42 transparent transparent;
 }
 
-body.dark-theme .timeline ul li div p {
+.dark .timeline ul li div p {
     color: #a9a9b3;
 }
 
-body.dark-theme .timeline ul li div small {
+.dark .timeline ul li div small {
     color: rgb(136, 153, 166);
 }
 
-body.dark-theme .post:not(:last-of-type) {
+.dark .post:not(:last-of-type) {
     border-color: var(--dark-border-color);
 }
 
-body.dark-theme .post-copyright {
+.dark .post-copyright {
     background-color: var(--dark-header);
     border-left: 0.25em solid var(--dark-border-color);
 }
 
-body.dark-theme .post-content h3:before {
+.dark .post-content h3:before {
     color: #54a3ff;
 }
 
-body.dark-theme .pagination__title-h,
-body.dark-theme .footer__title-h {
+.dark .pagination__title-h,
+.dark .footer__title-h {
     background: var(--dark-background);
     color: var(--dark-color-secondary);
 }
 
-body.dark-theme .button {
+.dark .button {
     background: var(--dark-background-secondary);
 }
 
-body.dark-theme .footer .attr_source {
+.dark .footer .attr_source {
     background: var(--dark-header);
     color: var(--dark-color);
     border: 1px solid var(--dark-border-color);
 }
 
-body.dark-theme .footer {
+.dark .footer {
     color: var(--dark-color-secondary);
 }
 
-body.dark-theme .back-to-top {
+.dark .back-to-top {
     background: var(--dark-color);
     box-shadow: 0 2px 5px 0 rgba(254, 81, 134, 0.26);
     color: #222;
 }
 
-body.dark-theme .terms__term-count {
+.dark .terms__term-count {
     background: var(--dark-background-secondary);
 }
 
-body.dark-theme .archive__group-month:not(:last-of-type) {
+.dark .archive__group-month:not(:last-of-type) {
     border-color: var(--dark-border-color);
 }
 
-body.dark-theme .archive__group-year:not(:last-of-type) {
+.dark .archive__group-year:not(:last-of-type) {
     border-color: var(--dark-border-color);
 }
 
-body.dark-theme .archive__post:not(:last-of-type) {
+.dark .archive__post:not(:last-of-type) {
     border-color: var(--dark-border-color);
 }
 
-body.dark-theme pre[class*="language-"] {
+.dark pre[class*="language-"] {
     background: #1d1f18 !important;
 }
 
-body.dark-theme :not(pre)>code {
+.dark :not(pre)>code {
     color: #adbac7 !important;
     background: rgba(99, 110, 123, 0.4) !important;
 }
 
-body.dark-theme .post-preview {
+.dark .post-preview {
     background: #3b3d42;
 }
 
-body.dark-theme .breadcrumb {
+.dark .breadcrumb {
     background: var(--dark-header);
 }
 
-body.dark-theme .lightDarkModes:hover {
+.dark .lightDarkModes:hover {
     color: #fff;
 }
 
-body.dark-theme .lightDarkOptions {
+.dark .lightDarkOptions {
     background-color: var(--dark-header);
     border-color: var(--dark-header);
     border: thin solid var(--dark-header);
 }
 
-body.dark-theme .lightDarkOption:hover {
+.dark .lightDarkOption:hover {
     background-color: var(--dark-color);
     color: var(--dark-background);
 }
 
-body.dark-theme #searchBoxInput {
+.dark #searchBoxInput {
     background: #3b3d42;
 }
 
-body.dark-theme .ais-SearchBox-input,
-body.dark-theme .ais-Hits-item,
-body.dark-theme .ais-InfiniteHits-item {
+.dark .ais-SearchBox-input,
+.dark .ais-Hits-item,
+.dark .ais-InfiniteHits-item {
     background: var(--dark-header) !important;
     box-shadow: 0 0 0 1px rgb(255 255 255 / 5%), 0 1px 3px 0 rgb(255 255 255 / 15%) !important;
 }
 
-body.dark-theme .ais-SearchBox-form {
+.dark .ais-SearchBox-form {
     background-color: transparent !important;
 }
 
-body.dark-theme .ais-SearchBox-input {
+.dark .ais-SearchBox-input {
     border: 1px solid rgb(255 255 255 / 5%) !important;
 }
 
-body.dark-theme .ais-ClearRefinements-button:disabled[disabled],
-body.dark-theme .ais-GeoSearch-redo--disabled,
-body.dark-theme .ais-GeoSearch-reset--disabled,
-body.dark-theme .ais-InfiniteHits-loadMore:disabled[disabled],
-body.dark-theme .ais-InfiniteHits-loadPrevious:disabled[disabled],
-body.dark-theme .ais-Pagination-item--disabled .ais-Pagination-link,
-body.dark-theme .ais-VoiceSearch-button:disabled,
-body.dark-theme .ais-ClearRefinements-button,
-body.dark-theme .ais-GeoSearch-redo,
-body.dark-theme .ais-GeoSearch-reset,
-body.dark-theme .ais-HierarchicalMenu-showMore,
-body.dark-theme .ais-InfiniteHits-loadMore,
-body.dark-theme .ais-InfiniteHits-loadPrevious,
-body.dark-theme .ais-Menu-showMore,
-body.dark-theme .ais-Pagination-link,
-body.dark-theme .ais-RangeInput-submit,
-body.dark-theme .ais-RefinementList-showMore,
-body.dark-theme .ais-VoiceSearch-button {
+.dark .ais-ClearRefinements-button:disabled[disabled],
+.dark .ais-GeoSearch-redo--disabled,
+.dark .ais-GeoSearch-reset--disabled,
+.dark .ais-InfiniteHits-loadMore:disabled[disabled],
+.dark .ais-InfiniteHits-loadPrevious:disabled[disabled],
+.dark .ais-Pagination-item--disabled .ais-Pagination-link,
+.dark .ais-VoiceSearch-button:disabled,
+.dark .ais-ClearRefinements-button,
+.dark .ais-GeoSearch-redo,
+.dark .ais-GeoSearch-reset,
+.dark .ais-HierarchicalMenu-showMore,
+.dark .ais-InfiniteHits-loadMore,
+.dark .ais-InfiniteHits-loadPrevious,
+.dark .ais-Menu-showMore,
+.dark .ais-Pagination-link,
+.dark .ais-RangeInput-submit,
+.dark .ais-RefinementList-showMore,
+.dark .ais-VoiceSearch-button {
     background-color: var(--dark-header) !important;
     background-image: linear-gradient(360deg, var(--dark-header), var(--dark-background)) !important;
     border-color: rgb(255 255 255 / 5%) !important;
@@ -2814,7 +2814,7 @@ body.dark-theme .ais-VoiceSearch-button {
 }
 
 @media (max-width: 683px) {
-    body.dark-theme .menu {
+    .dark .menu {
         background: var(--dark-background-secondary);
     }
 }
