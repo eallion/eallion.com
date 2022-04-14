@@ -40,4 +40,3 @@ autocorrect
 
 .hugo_build.lock
 package-lock.json
-server.sh
