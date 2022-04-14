@@ -282,7 +282,7 @@ hugo server -wD
 ```
 个人常用：
 ```
-hugo server -w -D -p 8080 -t hello-friend --bind 192.168.0.5 --baseURL 192.168.0.5
+hugo server -w -D -p 8080 -t hello-friend --bind 192.168.0.5 --baseURL 192.168.0.5 --renderStaticToDisk
 ```
 > 在浏览器中打开：http://192.168.0.5:8080
 - `hugo server` 把 Hugo 当作 Web 服务器，而非构建静态网页
@@ -293,6 +293,7 @@ hugo server -w -D -p 8080 -t hello-friend --bind 192.168.0.5 --baseURL 192.168.0
 - `-enableGitInfo` 开启 GitIifo
 - `--bind 192.168.0.5` 绑定 IP ，局域网其他设备 Debug 时很有用
 - `--baseURL 192.168.0.5` 绑定域名（IP），局域网其他设备 Debug 时很有用
+- `--renderStaticToDisk` Hugo 0.97.0 新特性，从硬盘渲染静态文件，从内存渲染动态文件
 - `hugo server --help` 查看 server 所有命令
 
 6. **本地构建**
