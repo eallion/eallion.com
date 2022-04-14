@@ -35,7 +35,7 @@ toc: false
 
 除了向官方反馈此问题（可能不一定被采纳），也有另外的方法可以实现。我用了一个笨方法。符合我的理念，先能干活，再谈优化。希望有更好方法的朋友可以教教我。
 
-1. 在 Hugo 根目录新建一个脚本[`githash.sh`](https://github.com/eallion/eallion.com/blob/main/githash.sh)：
+1. 在 Hugo 根目录新建一个脚本[`githash.sh`](https://github.com/eallion/eallion.com/blob/fa9c9d0ed7a0db2e2c2967bb6e682debe48cac24/githash.sh)：
 
 ```bash
 #!/bin/bash
@@ -47,13 +47,13 @@ sed -i "s/69d6ffe319557706dcf4150e960e7b7e21a37d9f/$hash/g" themes/hello-friend/
 
 其中`69d6ffe319557706dcf4150e960e7b7e21a37d9f`是为了方便用脚本替换，随便写的一个字符串，与模板文件`githash.html`里的字符串对应即可。
 
-2. 在`theme/layouts/partials`目录新建一个[`githash.html`](https://github.com/eallion/eallion.com/blob/main/themes/hello-friend/layouts/partials/githash.html)模板文件：
+2. 在`theme/layouts/partials`目录新建一个[`githash.html`](https://github.com/eallion/eallion.com/blob/fa9c9d0ed7a0db2e2c2967bb6e682debe48cac24/themes/hello-friend/layouts/partials/githash.html)模板文件：
 
 ```html
 <a href="https://github.com/eallion/eallion.com/commit/69d6ffe319557706dcf4150e960e7b7e21a37d9f" target="_blank" rel="noopener noreferrer" >{{ substr "69d6ffe319557706dcf4150e960e7b7e21a37d9f" 0 7 }}</a>
 ```
 
-3. 在[`footer.html`](https://github.com/eallion/eallion.com/blob/main/themes/hello-friend/layouts/partials/footer.html#L57)需要显示 GitHash 的位置引用这模板：
+3. 在[`footer.html`](https://github.com/eallion/eallion.com/blob/fa9c9d0ed7a0db2e2c2967bb6e682debe48cac24/themes/hello-friend/layouts/partials/footer.html#L49)需要显示 GitHash 的位置引用这模板：
 
 ```
 {{ partial "githash.html" . }}
