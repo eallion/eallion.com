@@ -3,6 +3,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/reset-min.css" />
 <!-- or include the full Satellite theme -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css" />
+<!-- lightbox -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/lightbox2/2.11.3/css/lightbox.min.css" />
 <div class="posts searchPage searchAlgolia">
     <div id="searchbox" class="searchboxAlgolia">
         <!-- SearchBox widget will appear here -->
@@ -155,7 +157,7 @@
             //处理图片链接，添加 a 标签共添加灯箱效果
             var re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(jfif)|(bmp)|(webp))/g;
             str = str.replace(re_forpic, function (imgurl) {
-                return "<a href='" + imgurl + "' target='_blank' rel='noopener noreferrer'><img loading='lazy' src='" + imgurl + "' ></a>";
+                return '<a href="' + imgurl + '" data-lightbox="talks images"><img loading="lazy" src="' + imgurl + '" ></a>';
             });
             //多个换行符替换为一个
             str = str.replace(/\n\n/g, "\n");
@@ -207,5 +209,4 @@
     search.start();
 
 </script>
-
 {{ end }}
