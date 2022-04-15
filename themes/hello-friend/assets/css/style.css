@@ -1031,6 +1031,17 @@ hr {
 }
 
 /* talks 嘀咕页样式 */
+.timeline {
+    font-size: 1.2em!important;
+    line-height: 2.2!important;
+    word-break: break-all!important;
+    word-wrap: break-word!important;
+}
+
+.date {
+    display: block !important;
+}
+
 .timeline ul {
     margin: 0;
     padding-bottom: 2rem;
@@ -2551,6 +2562,10 @@ photos .photo:last-child {
     margin-bottom: 20px !important;
 }
 
+.ais-Hits-item:hover {
+    background: rgba(0, 0, 0, 0.03) !important
+}
+
 .hitsAlgolia p {
     font-size: 1.2em !important;
     line-height: 2.2 !important;
@@ -2570,7 +2585,7 @@ photos .photo:last-child {
 
 .hitsAlgolia small {
     color: #5b7083 !important;
-    font-size: 0.875em !important;
+    font-size: 0.8em !important;
 }
 
 .hitsAlgolia img {
@@ -2787,6 +2802,10 @@ body.dark {
 .dark .ais-InfiniteHits-item {
     background: var(--dark-header) !important;
     box-shadow: 0 0 0 1px rgb(255 255 255 / 5%), 0 1px 3px 0 rgb(255 255 255 / 15%) !important;
+}
+
+.dark .ais-Hits-item:hover{
+    background: rgba(255,255,255,0.03) !important;
 }
 
 .dark .ais-SearchBox-form {
