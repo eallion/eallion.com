@@ -1,6 +1,6 @@
 ---
 title: "Gitea 安装备忘"
-categories: ["日志"]
+categories: ["代码"]
 tags: 
   - git
   - gitea
