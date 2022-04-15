@@ -31,7 +31,7 @@ enableGitInfo = false
   showMenuItems = 4
   # Enable to show reading time in minutes for posts
   showReadingTime = true
-  minuteReadingTime = "分钟阅读"
+  minuteReadingTime = "分钟阅读时长"
   # lastModDisplay = "更新："
   logoText = "hello friend"
   logoHomeLink = "/"

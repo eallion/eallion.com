@@ -18,37 +18,28 @@
             <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
         </h1>
         <div class="post-meta">
+            {{ with .Params.categories }}
+            <span class="post-meta-categories">
+                <span class="iconify-inline" data-icon="bytesize:folder-open"></span>
+                <span>
+                    {{ range . }}
+                    <a href="{{ (urlize (printf "categories/%s" . )) | absURL }}/">{{ . }}</a>
+                    {{ end }}
+                </span>
+            </span>
+            {{ end }}
             {{ if .Date }}
             <span class="post-meta-date">
-                <span>
-                    <span class="iconify-inline" data-icon="bxs:archive"></span>
-                </span>
+                <span class="iconify-inline" data-icon="clarity:date-outline-badged"></span>
                 <span> {{ .Date.Format "2006 年 01 月 02 日" }} </span>
             </span>
-            {{ end }} {{ if $.Site.Params.ShowReadingTime }}
+            {{ end }}
+            {{ if $.Site.Params.ShowReadingTime }}
             <span class="post-read-time">
-                <span>
-                    <span class="iconify-inline" data-icon="clarity:clock-solid-badged"></span>
-                </span>
-                <span
-                    >{{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime |
-                    default "min read" }}</span
-                >
-                <span>，约 {{ .WordCount }} 字</span>
+                <span class="iconify-inline" data-icon="ant-design:clock-circle-outlined"></span>
+                <span>{{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
             </span>
             {{ end }}
-            <!--
-            {{ if .Params.tags }}
-            <span class="">
-                <i class='iconfont icon-time-tag' ></i>
-            </span>
-            <span class="">
-                {{ range .Params.tags }}
-                #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
-                {{ end }}
-            </span>
-            {{ end }}
-            -->
         </div>
 
         {{ if .Params.feature }} {{ if .Params.UseRelativeCover }} <img

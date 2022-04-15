@@ -258,9 +258,11 @@ header {
 .post-meta-date,
 .post-read-time,
 .post-meta-view,
-.post-meta-md {
-    fill: currentColor;
-    margin-left: 0.5rem;
+.post-meta-md,
+.post-meta-categories,
+.post-meta-word {
+    color: rgba(0,0,0,0.85);
+    margin: 0.5rem 1.5rem 0.5rem 0;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -271,10 +273,14 @@ header {
     .post-meta-date,
     .post-read-time,
     .post-meta-view,
-    .post-meta-md {
+    .post-meta-md,
+    .post-meta-word {
         flex: 50%;
         margin: 0;
         padding: 0;
+    }
+    .post-meta-categories {
+        display: none !important;
     }
 
     .search-scroll {
@@ -1154,9 +1160,7 @@ hr {
 
 .post-meta {
     font-size: 0.85rem;
-    margin-bottom: 10px;
-    display: inline-block;
-    vertical-align: middle;
+    display: flex;
 }
 
 .post-meta a {
@@ -1168,14 +1172,9 @@ hr {
         font-size: 0.8rem;
         margin: 5px auto;
         padding: 0 0 0 5px;
-        display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
         line-height: 1.5;
-    }
-
-    .post-meta i {
-        font-size: 0.85rem !important;
     }
 }
 
@@ -1331,7 +1330,6 @@ hr {
 .post-content h3 {
     position: relative;
     left: 2em;
-    margin: 28px auto 18px !important;
     letter-spacing: 2px;
 }
 
@@ -2694,6 +2692,16 @@ body.dark {
 
 .dark .post-content h3:before {
     color: #54a3ff;
+}
+
+
+.dark .post-meta-date,
+.dark .post-read-time,
+.dark .post-meta-view,
+.dark .post-meta-md,
+.dark .post-meta-categories,
+.dark .post-meta-word {
+    color: rgba(255,255,255,0.55)
 }
 
 .dark .pagination__title-h,
