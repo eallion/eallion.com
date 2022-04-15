@@ -13,3 +13,13 @@
 <script type="text/javascript" src="{{ $latelyjs.RelPermalink }}" integrity="{{ $latelyjs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ $toTopjs.RelPermalink }}" integrity="{{ $toTopjs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ $alljs.RelPermalink }}" integrity="{{ $alljs.Data.Integrity }}" crossorigin="anonymous"></script>
+{{ if .Params.lightbox }}
+<script src="https://cdn.staticfile.org/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<script>
+    lightbox.option({
+        'showImageNumberLabel': false,
+        'disableScrolling': true,
+        'wrapAround': false,
+    })
+</script>
+{{ end }}
