@@ -14,12 +14,38 @@
 <script type="text/javascript" src="{{ $toTopjs.RelPermalink }}" integrity="{{ $toTopjs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ $alljs.RelPermalink }}" integrity="{{ $alljs.Data.Integrity }}" crossorigin="anonymous"></script>
 {{ if .Params.lightbox }}
-<script src="https://cdn.staticfile.org/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<script src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 <script>
-    lightbox.option({
-        'showImageNumberLabel': false,
-        'disableScrolling': true,
-        'wrapAround': false,
-    })
+    $('[data-fancybox]').fancybox({
+        selector : '.ais-Hits-item a:visible',
+        loop: false,
+        arrows: false,
+        buttons: [
+            //"zoom",
+            //"share",
+            //"slideShow",
+            //"fullScreen",
+            //"download",
+            //"thumbs",
+            "close"
+        ],
+        infobar: false,
+        ideScrollbar: true,
+        lang: "zh",
+        i18n: {
+            zh: {
+                CLOSE: "关闭",
+                NEXT: "下一张",
+                PREV: "上一张",
+                ERROR: "不能加载图片，<br/>请稍后再试。",
+                PLAY_START: "播放幻灯片",
+                PLAY_STOP: "暂停幻灯片",
+                FULL_SCREEN: "全屏",
+                THUMBS: "缩略图",
+                DOWNLOAD: "下载",
+                SHARE: "分享",
+                ZOOM: "缩放"}
+        }
+    });
 </script>
 {{ end }}

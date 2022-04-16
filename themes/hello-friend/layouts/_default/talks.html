@@ -1,10 +1,11 @@
 {{ define "main" }}
 <!-- Include only the reset -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/reset-min.css" />
+<!-- reset.css within of the satellite.css -->
+<!-- <link rel="stylesheet" href="https://static.eallion.com/npm/instantsearch.css/7.4.5/themes/reset-min.css" /> -->
 <!-- or include the full Satellite theme -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css" />
-<!-- lightbox -->
-<link rel="stylesheet" href="https://cdn.staticfile.org/lightbox2/2.11.3/css/lightbox.min.css" />
+<link rel="stylesheet" href="https://static.eallion.com/npm/instantsearch.css/7.4.5/themes/satellite-min.css" />
+<!-- fancybox v3 -->
+<link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
 <div class="posts searchPage searchAlgolia">
     <div id="searchbox" class="searchboxAlgolia">
         <!-- SearchBox widget will appear here -->
@@ -17,8 +18,8 @@
     </div>
 </div>
 <!-- Algolia for the search only version -->
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4"></script>
+<script src="https://cdn.staticfile.org/algoliasearch/4.13.0/algoliasearch-lite.umd.min.js"></script>
+<script src="https://cdn.staticfile.org/instantsearch.js/4.40.4/instantsearch.production.min.js"></script>
 <script src="https://cdn.staticfile.org/moment.js/2.29.2/moment.min.js"></script>
 <script>
     const searchClient = algoliasearch(
@@ -157,7 +158,7 @@
             //处理图片链接，添加 a 标签共添加灯箱效果
             var re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(jfif)|(bmp)|(webp))/g;
             str = str.replace(re_forpic, function (imgurl) {
-                return '<a href="' + imgurl + '" data-lightbox="talks images"><img loading="lazy" src="' + imgurl + '" ></a>';
+                return '<a href="' + imgurl + '" data-fancybox><img src="' + imgurl + '" ></a>';
             });
             //多个换行符替换为一个
             str = str.replace(/\n\n/g, "\n");
@@ -207,6 +208,5 @@
     ]);
 
     search.start();
-
 </script>
 {{ end }}
