@@ -24,26 +24,24 @@
         {{ end }}
         {{ if .Date | default nil }}
         <span class="post-meta-date">
-            <span class="iconify-inline" data-icon="clarity:date-outline-badged"></span>
-            <span>
-                {{ .Date.Format "2006 年 01 月 02 日" }}
-            </span>
+            <span class="iconify-inline" data-icon="arcticons:calendar-proton-{{ dateFormat "1" .Date }}"></span>
+            <span>{{ .Date | time.Format ":date_long" }}</span>
         </span>
         {{ end }}
         {{- if .Site.Params.mdview.enable -}}
         <span class="post-meta-md">
             <span class="iconify-inline" data-icon="teenyicons:markdown-outline"></span>
-            <span><a href='{{ .Site.Params.mdview.ContentPath }}{{ replace .File.Path "\\" "/" }}?download=false' target="_blank" rel="noopener noreferrer">查看 Markdown 版本</a></span>
+            <span><a href='{{ .Site.Params.mdview.ContentPath }}{{ replace .File.Path "\\" "/" }}?download=false' target="_blank" rel="noopener noreferrer">{{ i18n "mdView"}}</a></span>
         </span>
         {{ end }}
         {{ if $.Site.Params.ShowReadingTime }}
         <span class="post-read-time">
             <span class="iconify-inline" data-icon="ant-design:clock-circle-outlined"></span>
-            <span>{{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
+            <span>{{ .ReadingTime }} {{ i18n "readingTime" }}</span>
         </span>
         <span class="post-meta-word">
             <span class="iconify-inline" data-icon="bi:pen"></span>
-            <span>约 {{ .WordCount }} 字</span>
+            <span>{{ .WordCount }} {{ i18n "wordCount" }}</span>
         </span>
         {{ end }}
 
@@ -102,7 +100,7 @@
 
     {{ if eq .Type $.Site.Params.contentTypeName }}
     <div class="post-copyright">
-        <p>本文发表于 {{ .Date.Format "2006 年 01 月 02 日" }} ，共计约 {{ .WordCount }} 字 </p>
+        <p>本文发表于 {{ .Date | time.Format ":date_long" }} ，共计约 {{ .WordCount }} 字 </p>
         <p>本文链接：<a href="{{ .Permalink }}">{{ .Permalink }}</a></p>
         <p>转载标题：<a href="{{ .Permalink }}">《{{ .Title | markdownify }}》</a>- 大大的小蜗牛</p>
         <p>作品采用：<a target="_blank" rel="license nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享（CC BY-NC-SA 4.0）许可协议</a>进行许可</p>
@@ -117,7 +115,7 @@
     <div class="pagination">
         <div class="pagination__title">
             {{ if and .File .Site.Params.EditPath }}
-            <a class="pagination__title-h" href='{{ $.Site.Params.EditPath }}{{ replace .File.Path "\\" "/" | default "/" }}' target="_blank" rel="noopener noreferrer">全文完</a>
+            <a class="pagination__title-h" href='{{ $.Site.Params.EditPath }}{{ replace .File.Path "\\" "/" | default "/" }}' target="_blank" rel="noopener noreferrer">{{ i18n "end" }}</a>
             {{ end }}
             <hr>
         </div>

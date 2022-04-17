@@ -44,7 +44,13 @@
         {{ .Summary }}
       </div>
       {{ if .Truncated }}
-        <div><a class="read-more button" href="{{ .RelPermalink }}">{{ $.Site.Params.ReadMore | default "Read more" }} →</a></div>
+      <span class="iconify-inline" data-icon="ant-design:ellipsis-outlined"></span><span class="iconify-inline" data-icon="ant-design:ellipsis-outlined"></span>
+      <div class="read-more-icon">
+          <a class="read-more button" href="{{ .RelPermalink }}">
+              {{ i18n "readMore" }}
+              <span class="iconify-inline" data-icon="ant-design:double-right-outlined"></span>
+          </a>
+      </div>
       {{ end }}
     </div>
     {{ end }}
