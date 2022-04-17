@@ -1,0 +1,26 @@
+readMore:
+  other: En savoir plus
+readingTime:
+  other: '{{ .Count }} min de lecture'
+toc:
+  other: Table des matières
+seriesOfPosts:
+  other: Séries d'articles
+previous:
+  other: Précédent
+next:
+  other: Suivant
+seeAlso:
+  other: Voir aussi
+recent:
+  other: Récent
+onThisPage:
+  other: Sur cette page
+editThisPage:
+  other: Éditer cette page
+light:
+  other: Mode jour
+dark:
+  other: Mode nuit
+auto:
+  other: Mode automatique

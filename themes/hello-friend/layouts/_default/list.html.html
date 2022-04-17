@@ -30,14 +30,14 @@
             {{ end }}
             {{ if .Date }}
             <span class="post-meta-date">
-                <span class="iconify-inline" data-icon="clarity:date-outline-badged"></span>
+                <span class="iconify-inline" data-icon="arcticons:calendar-proton-{{ dateFormat "1" .Date }}"></span>
                 <span> {{ .Date.Format "2006 年 01 月 02 日" }} </span>
             </span>
             {{ end }}
             {{ if $.Site.Params.ShowReadingTime }}
             <span class="post-read-time">
                 <span class="iconify-inline" data-icon="ant-design:clock-circle-outlined"></span>
-                <span>{{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
+                <span>{{ .ReadingTime }} {{ i18n "readingTime" }}</span>
             </span>
             {{ end }}
         </div>
@@ -56,8 +56,8 @@
             {{ if .Truncated }} {{ .Summary }}
             <span class="iconify-inline" data-icon="ant-design:ellipsis-outlined"></span><span class="iconify-inline" data-icon="ant-design:ellipsis-outlined"></span>
             <div class="read-more-icon">
-                <a class="read-more button" href="{{ .RelPermalink }}"
-                    >{{ $.Site.Params.ReadMore | default "Read more" }}
+                <a class="read-more button" href="{{ .RelPermalink }}">
+                    {{ i18n "readMore" }}
                     <span class="iconify-inline" data-icon="ant-design:double-right-outlined"></span>
                 </a>
             </div>

@@ -1,6 +1,6 @@
 baseURL  =  "https://eallion.com"
 languageCode = "zh-cn"
-DefaultContentLanguage = "zh-cn"
+DefaultContentLanguage = "zh"
 title  =  "大大的小蜗牛"
 theme  =  "hello-friend"
 timeZone = "Asia/Shanghai"
@@ -17,6 +17,8 @@ rssImage = ""
 enableEmoji = true
 enableGitInfo = false
 
+# disableKinds = ['home', 'page', 'section', 'taxonomy', 'term']
+
 [permalinks]
   posts = "/:slug/" # Don't miss the last slash: "/"
   tags = "/tags/:slug/" # Don't miss the last slash: "/"
@@ -31,15 +33,14 @@ enableGitInfo = false
   showMenuItems = 4
   # Enable to show reading time in minutes for posts
   showReadingTime = true
-  minuteReadingTime = "分钟阅读时长"
+  # minuteReadingTime = "分钟阅读时长"
   # lastModDisplay = "更新："
   logoText = "hello friend"
   logoHomeLink = "/"
 
-  MenuMore = "更多"
+  # Since v0.87.0 {{ .Date | time.Format ":date_long" }} is supported
   DateFormatList = "2006-01-02 15:04:05"
   DateFormatSingle = "2006-01-02 15:04:05"
-  ReadMore = "阅读全文"
 
   title  =  "大大的小蜗牛"
   subtitle = "机会总是垂青于有准备的人"
