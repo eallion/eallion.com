@@ -11,7 +11,9 @@ status=$(curl -sfL -w %{http_code} -o /dev/null ${url})
 
 if [[ "${status}" == 404 ]]; then
     curl -Lo hugo-linux-64bit-${version}.deb ${ghurl}
+    echo "⬇️ Downloaded from GitHub"
 else
     curl -fL ${url} -o hugo-linux-64bit-${version}.deb
+    echo "⬇️ Downloaded from Coding"
 fi
 apt-get -y install ./hugo-linux-64bit-${version}.deb

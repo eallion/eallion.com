@@ -13,9 +13,7 @@ What is that? (Τι είναι αυτό;) 2007
 
 Father and son are sitting on a bench. Suddenly a sparrow lands across them.
 
-<div class="iframe">
-    <iframe src="https://www.youtube-nocookie.com/embed/mNK6h1dfy2o?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+{{< youtube mNK6h1dfy2o >}}
 
 Cast
 Father: Nikos Zoiopoulos

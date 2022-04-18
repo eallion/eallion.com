@@ -2,122 +2,27 @@
 
 > Chance favors the prepared mind.
 
-### Build status
+### 🏗️Build status
 
 [![Build Hugo and Deploy](https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.com/actions/workflows/main.yml)  
 ![GitHub](https://img.shields.io/github/license/eallion/eallion.com) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v1.0.4/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com)
 
-### Any questions?
+### ❓Any questions?
 
 [![GitHub issues](https://img.shields.io/github/issues/eallion/eallion.com?logo=GitHub&color=4ec100&style=flat)](https://github.com/eallion/eallion.com/issues/new) [![](https://img.shields.io/badge/eallions@gmail.com-4ec100?labelColor=555&logo=gmail&label=Gmail&link=mailto:eallions@gmail.com&logoColor=fff&style=flat)](mailto:eallions@gmail.com) [![](https://img.shields.io/badge/t.me-@eallion-4ec100?labelColor=555&logo=telegram&logoColor=fff&style=flat)](https://t.me/eallion)
 
-### Live demo:
+### ✨Live demo:
 - https://eallion.com
 
 # 备忘录：
 
-博客仓库结构：
-```
-.
-├── .frontmatter                            # Frontmatter 插件
-│   └──content
-│       └──mediaDb.json
-│   └──templates
-│       ├──code.md
-│       ├──daily.md
-│       ├──operation.md
-│       ├──pages.md
-│       └──share.md
-├── CHANGELOG.md                            # 自动生成的 Changlog 文件
-├── LICENSE                                 # LICENSE 许可协议
-├── README.md                               # Readme 说明文件
-├── archetypes                              # 生成 Hugo 文章的模板
-│   └── default.md                          
-├── coding.sh                               # 在 Coding.net CI 中用到的安装 Hugo 脚本
-├── config.toml                             # Hugo 全站的配置文件
-├── content                                 # 存放 Hugo 文章的目录
-├── data                                    # 数据文件
-├── frontmatter.json                        # Frontmatter 配置文件
-├── resources                               # 存放资源文件
-├── static                                  # 构建时自动同步的静态文件
-├── themes                                  # 主题目录
-│   └── hello-friend                        # Hello Friend 主题
-│       ├── README.md                       # 主题的说明
-│       ├── assets                          # 主题的静态资源目录
-│       │   ├── css                         # CSS
-│       │   │   ├── prism.css               # 代码高亮
-│       │   │   └── style.css               # 主样式
-│       │   └── js                          # JS
-│       │       ├── all.js                  # 新增的全部 JS
-│       │       ├── jquery.toTop.js         # Go to top 插件
-│       │       ├── lately.js               # 相对时间 JS 插件
-│       │       ├── prism.js                # 代码高亮
-│       │       ├── privacy.js              # ？
-│       │       ├── search.js               # 搜索
-│       │       ├── slimbox2.js             # 灯箱插件
-│       │       └── waterfall.js            # ？
-│       ├── layouts                         # 主题模板
-│       │   ├── _default                    # 默认模板
-│       │   │   ├── _markup                 
-│       │   │   │   └── render-image.html   # 渲染图片
-│       │   │   ├── about.html              # 关于页面
-│       │   │   ├── baseof.html             # 基础框架
-│       │   │   ├── chat.html               # Chat 分类目录专用
-│       │   │   ├── copyright.html          # 版权信息模板
-│       │   │   ├── link.html               # 友情链接模板
-│       │   │   ├── list.atom.xml           # Atom RSS Feed 模板
-│       │   │   ├── list.html               # List 模板
-│       │   │   ├── list.html.html          # 主要的 List 模板
-│       │   │   ├── path.html               # 读取相册目录的模板
-│       │   │   ├── penta.html              # LOL 五杀相册的模板
-│       │   │   ├── photos.html             # 相册模板
-│       │   │   ├── privacy-policy.html     # 隐私政策的模板
-│       │   │   ├── search.html             # 搜索模板
-│       │   │   ├── single.html             # 文章页面模板
-│       │   │   ├── talk.html               # 嘀咕页面模板
-│       │   │   ├── talks.html              # 嘀咕搜索 Algolia 模板
-│       │   │   └── terms.html              # Terms 模板
-│       │   ├── archives                    # 归档目录
-│       │   │   └── list.html               # 归档页面模板
-│       │   ├── chat                        # Chat 目录
-│       │   │   └── list.html               # Chat 模板
-│       │   ├── index.json                  # 构建时自动生成用于搜索的 json 文件
-│       │   ├── partials                    # 框架模板
-│       │   │   ├── analytics.html          # 统计代码模板
-│       │   │   ├── breadcrumb.html         # 文章头面包屑模板
-│       │   │   ├── comments.html           # 评论模板
-│       │   │   ├── footer-js.html          # 页脚压缩 JS 的模板
-│       │   │   ├── footer.html             # 页脚模板
-│       │   │   ├── greater-icon.html       # Menu 图标模板
-│       │   │   ├── head.html               # 页头模板
-│       │   │   ├── header.html             # Header 模板
-│       │   │   ├── lastmod.html            # 最新修改时间显示模板
-│       │   │   ├── logo.html               # LOGO 模板
-│       │   │   ├── menu.html               # Menu 模板
-│       │   │   ├── pagination.html         # 分页模板
-│       │   │   ├── talk.html               # 文章页引用面包屑样式的嘀咕模板
-│       │   │   └── toc.html                # 文章页 TOC 目录模板
-│       │   ├── shortcodes                  # 集成的 Shortcodes
-│       │   │   ├── code.html               # 代码
-│       │   │   ├── figure.html             # 相册
-│       │   │   ├── friend.html             # 友情链接
-│       │   │   ├── image.html              # 图片
-│       │   │   ├── imgproc.html            # 图片
-│       │   │   ├── link.html               # 引用链接
-│       │   │   └── music.html              # 音乐播放器
-│       │   └── tags                        # 标签
-│       │       └── list.html               # 标签 List
-│       └── theme.toml                      # 主题配置
-
-```
-
-### 主仓库
+### 📦️主仓库
 > <https://github.com/eallion/eallion.com.git>
 
-### 备份仓库
-> Coding.net： <https://e.coding.net/eallion/eallion.com/hugo.git>
+### 📦️备份仓库
+> Coding.net：<https://e.coding.net/eallion/eallion.com/hugo.git>
 
-### 添加备份仓库 Remote
+### 🔀添加备份仓库 Remote
 
 > Remote url 传递 id:token 免输各个 git 仓库的账号密码
 
@@ -126,7 +31,7 @@ git remote set-url --add --push origin https://id:token@github.com/eallion/ealli
 git remote set-url --add --push origin https://id:token@e.coding.net/eallion/eallion.com/hugo.git
 ```
 
-### 架构备忘
+### 📝架构备忘
 
 - 国内：通过 [Coding](https://coding.net/) 部署至腾讯云 [COS](https://cloud.tencent.com/product/cos) + [CDN](https://cloud.tencent.com/product/cdn) (2020.12.27)
 - 境外：通过 GitHub Action 部署至 [GitHub Pages](https://eallion.github.io/) (2021.06.13)
@@ -236,7 +141,7 @@ pipeline {
 ```
 </details>
 
-### 通过空提交运行 GitHub Acions
+### 👷通过空提交运行 GitHub Acions
 
 当没有新提交时， 通过 push empty commit 运行 GitHub Actions：
 
@@ -245,7 +150,7 @@ git commit --allow-empty -m "build: rerun github acions"
 git push
 ```
 
-### 写新文章
+### ✏️写新文章
 
 1. **生成新文章**
 
@@ -310,7 +215,156 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 - `-enableGitInfo` 开启 GitIifo
 - `hugo --help` 查看所有命令
 
-### 静态文件（CSS、JS）
+### 🚀Shortcodes
+
+ - **`bilibili` 插入 B 站视频**
+
+```html
+{{< bilibili AV 号或 BV 号 >}}
+{{< bilibili AV 号或 BV 号 分 P 号 >}}
+```
+
+| Name | Value               | Description                           |
+| ---- | ------------------- | ------------------------------------- |
+| vid  | AV 号 / BV 号 [分 P 号]  | 必填参数。(Type: String) 视频资源 ID。 |
+
+
+ - **`code` 原始主题自带代码块**
+ 
+ 已弃用，一般都用 Markdown 自带语法。
+<pre>
+```html
+  // your code here
+```
+</pre>
+
+ - **`image` 图片**
+
+```html
+{{< image src="hello.png" alt="" position="" style="" >}}
+```
+
+| Name     | Value        | Description                                   |
+| :------- | :----------- | --------------------------------------------- |
+| src | string | 图片链接 |
+| alt | text | 图片描述 |
+| position | left(default) \| center \| right | 图片位置 |
+| style | border-radius: 8px; | 图片样式 |
+
+ - **`figure` 是`image` 的进阶版**
+
+```html
+{{< figure src="hello.png" alt="" position="" style="" caption="" captionPosition="" captionStyle=" >}}
+```
+
+| Name     | Value        | Description                                   |
+| :------- | :----------- | --------------------------------------------- |
+| src | string | 图片链接 |
+| alt | text | 图片描述 |
+| position | left(default) \| center \| right | 图片位置 |
+| style | border-radius: 8px; | 图片样式 |
+|caption|text| 图片标题 |
+|captionPosition|left \| center(default) \| right| 图片标题位置 |
+|captionStyle|color: red;| 图片标题样式 |
+    
+ - **`friend` 友情链接**
+
+```html
+{{< friend name="" des="" url="" domain="" src="avatar.png" >}}
+```
+
+| Name     | Value        | Description                                   |
+| :------- | :----------- | --------------------------------------------- |
+|name|text| 友链名称 |
+|des|text| 友链描述 |
+|url|website| 友链的链接 |
+|domain|domain| 友链的域名 |
+|src|icon url| 友链图标 |
+
+ - **`gist` GitHub Gist Embed**
+
+```html
+{{< gist id hash >}}
+```
+```html
+{{< gist id hash filename >}}
+```
+
+| Name     | Value        | Description                                   |
+| :------- | :----------- | --------------------------------------------- |
+| id | text | 填入 GitHub Gist UserID |
+| hash |text| 填入 Gist 代码片段的 Hash |
+| filename |text| 填入 Gist 代码片段的文件名 |
+
+注意事项：Gist 可能在中国大陆地区打不开。
+
+ - **`imgproc` 图片处理**
+ 
+```html
+{{< imgproc "hello.png" Resize "250x" center />}}
+```
+
+| Name     | Value        | Description                                   |
+| :------- | :----------- | --------------------------------------------- |
+|option|`Resize` `Fit` `Fill` `Crop` `Filter` `Exif`| 图片处理的参数 |
+|position|left \| center \| right| 位置 |
+
+参考：<https://gohugo.io/content-management/image-processing/>
+
+ - **`link` 本站文章内链**
+
+```html
+{{< link "blog" >}}
+```
+
+| Name     | Value        | Description                                   |
+| :------- | :----------- | --------------------------------------------- |
+|filename|text| 填入 Frontmatter 中的 `Slug` |
+
+ - **`music` 插入音乐**
+
+```html
+{{< music auto="https://music.163.com/#/playlist?id=60198" >}}
+```
+
+|Name               |Value      |Description|
+|:--------------------|:------------:|:----------|
+|auto            |options       |music link, support: `netease`, `tencent`, `xiami`|
+
+更多参数：[MetingJS](https://github.com/metowolf/MetingJS)
+
+ - **`video` 插入视频**
+ 
+```html
+<!-- just video src -->
+{{< video "./video.mp4">}}
+
+<!-- Other option -->
+{{< video src="./video.mp4" autoplay="true" poster="./video-poster.png" >}}
+```
+
+| Name     | Value          | Description                                     |
+| :------- | :------------- | ----------------------------------------------- |
+| src      | relative paths | 必填参数。(Type: String) 视频文件（相对）路径。 |
+| autoplay | true / false   | 可选参数。(Type: String) 自动播放。             |
+| poster   | relative paths | 可选参数。(Type: String) 视频封面（相对）路径。 |
+
+ - **`youtube` 插入 Youtube 视频**
+
+```html
+<!-- just video src -->
+{{< youtube jflq6vNcZyA >}}
+
+<!-- Other option -->
+{{< youtube id="jflq6vNcZyA" autoplay="true" >}}
+```
+
+| Name     | Value        | Description                                   |
+| :------- | :----------- | --------------------------------------------- |
+| id       | video id     | 必填参数。(Type: String) 视频 ID。             |
+| autoplay | true / false | 可选参数。(Type: String) 进入页面后自动播放。 |
+
+### 🗃️静态文件（CSS、JS）
 > Update: 2021.01.05
 
 因为本博客整站都在 CDN 上，所以静态文件没有再使用另外的 CDN 加速了。
@@ -322,21 +376,21 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 <link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
 ```
 
-### 刷新 jsDelivr 缓存
+### 🚨刷新 jsDelivr 缓存
 
 将资源文件链接中的`cdn.jsdelivr.net`改为 `purge.jsdelivr.net`，在浏览器中请求即可刷新 CDN。
 ```diff
 - https://cdn.jsdelivr.net/gh/eallion/eallion.github.io/style.css
 + https://purge.jsdelivr.net/gh/eallion/eallion.github.io/style.css
 ```
-### 清理 Git 仓库
+### 💥清理 Git 仓库
 ```
 git rm -r --cached .
 git reflog expire --expire=now --all
 git gc --prune=now --aggressive
 ```
 
-### 安装插件 (可选)
+### ➕安装插件 (可选)
 
 新环境可选安装，若无必要可不用安装。
 
@@ -388,7 +442,7 @@ conventional-changelog -p angular -i CHANGELOG.md -s -r 0
 ```
 以上命令中参数`-p angular` 用来指定使用的 commit message 标准，参数-`i CHANGELOG.md` 表示从 `CHANGELOG.md` 读取 ChangeLog, `-s` 表示读写 ChangeLog 为同一文件。其中 `-r` 表示生成 ChangeLog 所需要使用的 release 版本数量，默认为 1，全部则是 0。
 
-### 图片
+### 🖼️图片
 
 因为 jsDelivr 2020.08.15 的『[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)』，现在没有用 GitHub + jsDelivr 当图床了。  
 
@@ -402,16 +456,16 @@ conventional-changelog -p angular -i CHANGELOG.md -s -r 0
 
 原方法。  
 直接把图片丢到 Hugo 仓库的`static/images/`目录下即可。  
-图片存放目录：  
+图片存放目录：
 > Hugo 目录的`static/images/`目录下（可按年月分类）。  
 
-文章中引用的图片 URL：  
+文章中引用的图片 URL：
 > `https://eallion.com/images/1970/01/01.jpg`
 
-### 相册
+### 📷相册
 
 把照片放到 Hugo 仓库的`static/photos/`目录下，Hugo 会自动索引并生成相册页面。  
-如：  
+如：
 - <https://eallion.com/penta/>
 - <https://eallion.com/photos/>
 
@@ -425,13 +479,13 @@ conventional-changelog -p angular -i CHANGELOG.md -s -r 0
 </div>
 ```
 
-### Lighthouse
+### 💡Lighthouse
 
 Google Lighthouse 跑分。
 
 - [查看跑分结果](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Feallion.github.io%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext)
 
-### LICENSE
+### 📄LICENSE
 
 This project is licensed under [MIT](https://opensource.org/licenses/MIT/) & [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) & [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN).
 ```

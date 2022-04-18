@@ -1,37 +1,33 @@
-{{ $URL := .Get 0 }} {{ with .Site.GetPage $URL }} {{ with .Params.feature }} {{ $.Scratch.Set "feature" . }} {{ else }} {{ with findRE `!\[(.*?)\]\((.*?)\)` .RawContent }} {{ range first 1 . }} {{ $url := replaceRE `!\[(.*?)\]\((.*?)\)` "$2" . }} {{ $.Scratch.Set "feature" $url }} {{ end }} {{ else }} {{ $.Scratch.Set "feature" false }} {{ end }} {{ end }}
 
+{{ $related := where site.RegularPages "Type" "posts" }}
+{{ $related = where $related ".Params.slug" (printf "%s" (.Get 0)) }}
+{{ range first 1 $related }}
 <div class="post-preview">
-    <div class="post-preview--meta" style="width: 100%">
+    <div class="post-preview--meta" style="width:100%;">
         <div class="post-preview--middle">
             <h4 class="post-preview--title">
-                <a
-                    target="_blank"
-                    href="{{ .Permalink }}"
-                    rel="noopener noreferrer"
-                    >{{ .Title }}</a
-                >
+                <a target="_blank" href="{{ .Permalink }}">{{ .Title }}</a>
             </h4>
-            <time class="post-preview--date"
-                >{{ .Date.Format ( default "2006-01-02") }}</time
-            >
-            {{ if .Params.tags }}
-            <small>{{ range .Params.tags }}#{{ . }}&nbsp;{{ end }}</small>
+            {{ with .Params.categories }}
+            <small>
+                <span class="iconify-inline" data-icon="bytesize:folder-open"></span>
+                <span>
+                    {{ range . }}
+                    <a href="{{ (urlize (printf "categories/%s" . )) | absURL }}/">{{ . }}</a>
+                    {{ end }}
+                </span>
+            </small>
             {{ end }}
-            <section
-                style="max-height: 96px; overflow: hidden"
-                class="post-preview--excerpt"
-            >
+            {{ if .Date | default nil }}
+            <small>
+                <span class="iconify-inline" data-icon="arcticons:calendar-proton-{{ dateFormat "1" .Date }}"></span>
+                <span>{{ .Date | time.Format ":date_long" }}</span>
+            </small>
+            {{ end }}
+            <section style="max-height:96px;overflow:hidden;" class="post-preview--excerpt">
                 {{ .Summary | plainify }}
             </section>
         </div>
     </div>
-    {{ with ($.Scratch.Get "feature") }}
-    <img
-        rel="link"
-        loading="lazy"
-        class="post-preview--image avatar"
-        src="{{ . }}"
-    />
-    {{ end }}
 </div>
 {{ end }}
