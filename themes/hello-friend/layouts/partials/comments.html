@@ -1,4 +1,4 @@
-{{- if .Site.Params.disqus.enable -}}
+{{ if and (not .Site.IsServer) (.Site.Params.disqus.enable) }}
 <div class="pagination__title">
     <span class="pagination__title-h">{{ i18n "comments" }}</span>
     <hr />
@@ -48,4 +48,4 @@
     Please enable JavaScript to view the
     <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
 </noscript>
-{{- end -}}
+{{ end }}

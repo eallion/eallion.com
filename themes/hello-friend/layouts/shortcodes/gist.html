@@ -1,0 +1,19 @@
+{{ $gistID := (.Get 0) }}
+{{ $gistHash := (.Get 1) }}
+{{ $baseUrl := "https://gist.github.com" }}
+{{ $gistJson := getJSON $baseUrl "/" $gistID "/" $gistHash ".json" }}
+
+{{ $gistcss := resources.Get "css/gist.css" | resources.Minify | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $gistcss.RelPermalink }}" integrity="{{ $gistcss.Data.Integrity }}" crossorigin="anonymous">
+<style>
+    .gist td {
+        border: none !important;
+    }
+    .gist .blob-code {
+        padding-left: 2.5em !important;
+    }
+</style>
+<script>
+var gistDiv = {{ $gistJson.div }};
+document.write(gistDiv);
+</script>

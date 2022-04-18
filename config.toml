@@ -16,7 +16,10 @@ rssImage = ""
 
 enableEmoji = true
 enableGitInfo = false
-
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+  slug = 'slug'
 # disableKinds = ['home', 'page', 'section', 'taxonomy', 'term']
 
 [permalinks]

@@ -1363,12 +1363,24 @@ hr {
     margin-bottom: 20px;
 }
 
-.post-content iframe {
+.post-content iframe,
+.post-content video,
+.post-content .video-wrapper>iframe,
+.post-content .video-wrapper>video  {
     position: absolute;
-    height: 100%;
     width: 100%;
-    top: 0;
+    height: 100%;
     left: 0;
+    top: 0;
+    border: 0
+}
+
+.post-content .video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden
 }
 
 .hdots i {
