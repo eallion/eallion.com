@@ -933,6 +933,11 @@ hr {
     transform: translate(0, -50%);
 }
 
+.talk-list .item a svg {
+    position: relative;
+    transform: translate(0,0%);
+}
+
 .index-talk button,
 .gusici__quote button {
     font-size: 10px;
@@ -3122,6 +3127,9 @@ body.dark {
     color: #54a3ff;
 }
 
+.dark .archive__post-title a {
+    color: var(--dark-color);
+}
 
 .dark .post-meta-date,
 .dark .post-read-time,
@@ -3130,6 +3138,10 @@ body.dark {
 .dark .post-meta-categories,
 .dark .post-meta-word {
     color: rgba(255,255,255,0.55)
+}
+
+.dark a.read-more {
+    background: 0 0 !important;
 }
 
 .dark .pagination__title-h,
