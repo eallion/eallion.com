@@ -921,16 +921,23 @@ hr {
     background-color: var(--light-header);
     border-radius: 8px;
     min-height: 45px;
+    align-items: center;
     /* transition:all 0.5s;*/
 }
 
-.index-talk svg,
-.gusici__quote svg {
+.index-talk svg {
     fill: currentColor;
     display: inline;
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
+}
+
+.gusici__quote svg {
+    fill: currentColor;
+    position: relative;
+    margin-right: 0.5em;
+    transform: translate(0,0%);
 }
 
 .talk-list .item a svg {
@@ -951,6 +958,7 @@ hr {
 }
 
 .gusici__quote {
+    font-family: STSong,SimSun,NSimSun,Arial,sans-serif;
     display: flex;
     width: 100%;
     max-width: 760px;
@@ -1021,12 +1029,12 @@ hr {
 
 .poem_info {
     font-size: small;
-    font-style: italic;
     height: 100%;
     max-width: 50%;
     min-width: 20%;
 }
 
+.poem_sentence a,
 .poem_info a {
     text-decoration: none;
 }
@@ -2704,12 +2712,14 @@ photos .photo:last-child {
 
 /* algolia result content */
 .ais-Hits {
-    padding-top: 20px;
+    padding-top: 40px;
 }
 
+/*
 .ais-Hits-list {}
 
 .ais-Hits-item {}
+*/
 
 .timeline {
     display: flex;
