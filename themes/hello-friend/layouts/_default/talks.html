@@ -22,6 +22,21 @@
 <script src="https://cdn.staticfile.org/instantsearch.js/4.40.4/instantsearch.production.min.js"></script>
 <script src="https://cdn.staticfile.org/moment.js/2.29.2/moment.min.js"></script>
 <script>
+    // 今日诗词
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', 'https://v2.jinrishici.com/one.json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            var result = JSON.parse(xhr.responseText);
+            var gushici = document.getElementById('gushici');
+            var poem_info = document.getElementById('poem_info');
+            gushici.innerHTML = '<a href="https://www.google.com/search?q=' + result.data.content + '" target="_blank" rel="noopener noreferrer">' + result.data.content + '</a>';
+            poem_info.innerHTML = '<a href="https://www.google.com/search?q=' + result.data.origin.author + ' ' + result.data.origin.title + '" target="_blank" rel="noopener noreferrer">' + '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》' + '</a>';
+        }
+    };
+    xhr.send();
+</script>
+<script>
     const searchClient = algoliasearch(
         "ZHP6RM1ABL",
         "1d5887e05145f909a97929fe3d4f135a"
@@ -222,5 +237,6 @@
     ]);
 
     search.start();
+
 </script>
 {{ end }}
