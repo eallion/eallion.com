@@ -12,11 +12,11 @@
 
 <!-- JSON version -->
 
-{{ if .Params.gushici }}
+{{ if (isset .Params "gushici") }}
 <section class="index-talk header__talk"><button>×</button>
     <span class="iconify-inline" data-icon="icon-park-outline:people-speak"></span>
     <ul class="talk-list">
-        <li class="">
+        <li class="item">
             <span id="gushici" class="poem_sentence"></span><span id="poem_info" class="poem_info"></span>
         </li>
     </ul>
