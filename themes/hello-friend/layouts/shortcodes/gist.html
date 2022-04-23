@@ -6,6 +6,8 @@
 {{ $gistcss := resources.Get "css/gist.css" | resources.Minify | resources.Fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $gistcss.RelPermalink }}" integrity="{{ $gistcss.Data.Integrity }}" crossorigin="anonymous">
 <style>
+    .gist {
+        margin-top: 1.375em !important;}
     .gist td {
         border: none !important;
     }
@@ -13,7 +15,5 @@
         padding-left: 2.5em !important;
     }
 </style>
-<script>
-var gistDiv = {{ $gistJson.div }};
-document.write(gistDiv);
-</script>
+
+{{ $gistJson.div | safeHTML }}
