@@ -28,9 +28,11 @@
 <!-- End Cloudflare Web Analytics -->
 
 <!-- Self Hosted Umami -->
+{{ $woniutongjijs := resources.Get "js/woniutongji.js" | resources.Minify | resources.Fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $woniutongjijs.RelPermalink }}" integrity="{{ $woniutongjijs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script async defer
     data-website-id="e0828f38-9828-457f-b386-bb4764fd4619"
-    src="https://static.eallion.com/woniutongji.js"
+    src="{{ $woniutongjijs.RelPermalink }}"
     data-host-url="https://a.eallion.com"
     data-domains="eallion.com,www.eallion.com">
 </script>

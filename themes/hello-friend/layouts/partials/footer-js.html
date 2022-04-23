@@ -1,20 +1,28 @@
+{{ $jqueryjs := resources.Get "js/jquery.js" | resources.Minify | resources.Fingerprint "sha256" }}
 {{ $waterfalljs := resources.Get "js/waterfall.js" | resources.Minify | resources.Fingerprint "sha256" }}
 {{ $slimbox2js := resources.Get "js/slimbox2.js" | resources.Minify | resources.Fingerprint "sha256" }}
 {{ $latelyjs := resources.Get "js/lately.js" | resources.Minify | resources.Fingerprint "sha256" }}
 {{ $toTopjs := resources.Get "js/jquery.toTop.js" | resources.Minify | resources.Fingerprint "sha256" }}
 {{ $prismjs := resources.Get "js/prism.js" | resources.Minify | resources.Fingerprint "sha256" }}
+{{ $iconifyjs := resources.Get "js/iconify.js" | resources.Minify | resources.Fingerprint "sha256" }}
+{{ $instantpagejs := resources.Get "js/instantpage.js" | resources.Minify | resources.Fingerprint "sha256" }}
+{{ $pangujs := resources.Get "js/pangu.js" | resources.Minify | resources.Fingerprint "sha256" }}
 {{ $alljs := resources.Get "js/all.js" | resources.Minify | resources.Fingerprint "sha256" }}
 
-<script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.staticfile.org/iconify/2.2.1/iconify.min.js"></script>
+<script type="text/javascript" src="{{ $jqueryjs.RelPermalink }}" integrity="{{ $jqueryjs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ $prismjs.RelPermalink }}" integrity="{{ $prismjs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ $waterfalljs.RelPermalink }}" integrity="{{ $waterfalljs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ $slimbox2js.RelPermalink }}" integrity="{{ $slimbox2js.Data.Integrity }}" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ $latelyjs.RelPermalink }}" integrity="{{ $latelyjs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ $toTopjs.RelPermalink }}" integrity="{{ $toTopjs.Data.Integrity }}" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ $iconifyjs.RelPermalink }}" integrity="{{ $iconifyjs.Data.Integrity }}" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ $instantpagejs.RelPermalink }}" integrity="{{ $instantpagejs.Data.Integrity }}" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ $pangujs.RelPermalink }}" integrity="{{ $pangujs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ $alljs.RelPermalink }}" integrity="{{ $alljs.Data.Integrity }}" crossorigin="anonymous"></script>
+<script>pangu.spacingElementByClassName("content");</script>
 {{ if .Params.lightbox }}
-<script src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+{{ $fancyboxjs := resources.Get "js/jquery.fancybox.js" | resources.Minify | resources.Fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $fancyboxjs.RelPermalink }}" integrity="{{ $fancyboxjs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script>
     $('[data-fancybox]').fancybox({
         selector : '.ais-Hits-item a:visible',
