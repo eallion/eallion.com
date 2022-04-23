@@ -10,7 +10,7 @@
             </h4>
             {{ with .Params.categories }}
             <small>
-                <span class="iconify-inline" data-icon="bytesize:folder-open"></span>
+                {{ partial "iconify.html" (dict "prefix" "bytesize" "icon" "folder-open") }}
                 <span>
                     {{ range . }}
                     <a href="{{ (urlize (printf "categories/%s" . )) | absURL }}/">{{ . }}</a>
@@ -19,8 +19,7 @@
             </small>
             {{ end }}
             {{ if .Date | default nil }}
-            <small>
-                <span class="iconify-inline" data-icon="arcticons:calendar-proton-{{ dateFormat "1" .Date }}"></span>
+            <small>{{ partial "iconify.html" (dict "prefix" "akar-icons" "icon" "calendar") }}
                 <span>{{ .Date | time.Format ":date_long" }}</span>
             </small>
             {{ end }}

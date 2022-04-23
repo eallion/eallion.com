@@ -237,17 +237,26 @@ header {
 
 .lightDarkMode svg,
 .menu-trigger svg,
-.search-trigger svg {
+.lightDarkOption svg {
     fill: currentColor;
-    transform: scale(1.5);
+    bottom: -0.125em;
+    position: relative;
 }
 
-.lightDarkOption svg {
-    transform: scale(1) !important;
+.search-trigger svg {
+    bottom: -0.25em;
+    position: relative;
+}
+
+.lightDarkModes svg {
+    bottom: 0;
+    position: relative;
 }
 
 .menu__sub-inner-more-trigger:hover .menu__sub-inner-more-trigger-icon svg {
-    transform: rotateX(180deg);
+    -ms-transform: rotate(180deg) !important;
+    -webkit-transform: rotate(180deg) !important;
+    transform: rotate(180deg) !important;
 }
 
 .search-trigger {
@@ -265,9 +274,14 @@ header {
     margin: 0.5rem 1.5rem 0.5rem 0;
 }
 
-.post-meta-date svg {
-    stroke-width: 1.5;
-    transform: scale(1.1);
+.post-meta-date svg,
+.post-read-time svg,
+.post-meta-view svg,
+.post-meta-md svg,
+.post-meta-categories svg,
+.post-meta-word svg {
+    position: relative;
+    bottom: -0.125em;
 }
 
 @media (max-width: 683px) {
@@ -873,39 +887,6 @@ hr {
     animation-duration: 31s !important;
 }
 
-/* douban 豆瓣 电影 读书 */
-.jjsmki {
-    margin-top: 20px !important;
-}
-
-.jvCTkj {
-    display: none !important;
-}
-
-.hydYaP {
-    white-space: nowrap !important;
-    text-overflow: ellipsis !important;
-    overflow: hidden !important;
-}
-
-.bmdb__mark {
-    color: var(--light-background);
-    font-size: 1.3rem;
-    fill: rgb(255, 255, 255);
-}
-
-.bmdb__mark svg {
-    vertical-align: text-bottom;
-}
-
-.bmdb__mark i {
-    font-size: 1.3rem !important;
-}
-
-.bmdb__mark:hover {
-    color: var(--light-color);
-}
-
 /* 首页嘀咕样式 JSON 版 */
 .index-talk {
     display: flex;
@@ -929,15 +910,12 @@ hr {
     fill: currentColor;
     display: inline;
     position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
 }
 
 .gusici__quote svg {
     fill: currentColor;
     position: relative;
     margin-right: 0.5em;
-    transform: translate(0,0%);
 }
 
 .talk-list .item a svg {
@@ -1249,6 +1227,8 @@ hr {
 .warning-msg svg,
 .error-msg svg {
     margin: 0 12px 0 6px;
+    position: relative;
+    bottom: -0.125em;
 }
 
 .non-box {
@@ -1323,7 +1303,7 @@ hr {
 
 .icon-copyright {
     right: 60px;
-    top: 40px;
+    top: 60px;
     position: absolute;
     opacity: 0.1;
     transform: scale(11.5);
@@ -1407,7 +1387,8 @@ hr {
 
 .post-index svg {
     display: inline;
-    vertical-align: middle;
+    bottom: -0.125em;
+    position: relative;
 }
 
 .post-index pre {
@@ -1633,6 +1614,11 @@ hr {
 
 .footer .copyright {
     padding: 20px 0 40px;
+}
+
+.footer .copyright svg {
+    bottom: -0.125em;
+    position: relative;
 }
 
 .footer .words> :first-child:not(:only-child) {
@@ -2440,7 +2426,8 @@ photos .photo:last-child {
 }
 
 #searchBoxButton svg {
-    transform: scale(2);
+    position: absolute;
+    bottom: -0.125em;
 }
 
 .archive-item {

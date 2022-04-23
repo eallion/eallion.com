@@ -376,6 +376,14 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 <link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
 ```
 
+### 👍添加图标
+添加 Iconify 图标的方式：
+> <https://icon-sets.iconify.design/>
+
+```html
+{{ partial "iconify.html" (dict "prefix" "akar-icons" "icon" "moon-fill" "width" "16" "height" "16") }}
+```
+
 ### 🚨刷新 jsDelivr 缓存
 
 将资源文件链接中的`cdn.jsdelivr.net`改为 `purge.jsdelivr.net`，在浏览器中请求即可刷新 CDN。

@@ -4,7 +4,7 @@
         <span class="button previous">
             <a href="{{ .Paginator.Prev.URL }}">
                 <span class="button__icon"
-                    ><span class="iconify-inline" data-icon="ant-design:left-outlined"></span>
+                    >{{ partial "iconify.html" (dict "prefix" "ant-design" "icon" "left-outlined") }}
                 </span>
                 <span class="button__text">上 一 页</span>
             </a>
@@ -14,7 +14,7 @@
             <a href="{{ .Paginator.Next.URL }}">
                 <span class="button__text">下 一 页</span>
                 <span class="button__icon"
-                    ><span class="iconify-inline" data-icon="ant-design:right-outlined"></span>
+                    >{{ partial "iconify.html" (dict "prefix" "ant-design" "icon" "right-outlined") }}
                 </span>
             </a>
         </span>

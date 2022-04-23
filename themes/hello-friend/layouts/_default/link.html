@@ -5,7 +5,7 @@
     <h2 class="post-title">{{ .Title }}</h2>
     <div class="post-meta">
         <span class="friends-meta">
-            <span class="iconify-inline" data-icon="carbon:friendship"></span>
+            {{ partial "iconify.html" (dict "prefix" "carbon" "icon" "friendship") }}
             <span class="space meta__space">更新时间：2021.08.05</span>
         </span>
     </div>
