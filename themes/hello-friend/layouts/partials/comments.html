@@ -3,9 +3,11 @@
     <span class="pagination__title-h">{{ i18n "comments" }}</span>
     <hr />
 </div>
-<link href="//cdn.staticfile.org/disqusjs/{{ .Site.Params.disqus.version }}/disqusjs.min.css" rel="stylesheet">
+
+{{ $disqusjscss := resources.Get "css/disqusjs.css" | resources.Minify | resources.Fingerprint "sha256" }}
 <div id="disqus_thread"></div>
-<script src="https://cdn.staticfile.org/disqusjs/{{ .Site.Params.disqus.version }}/disqus.min.js"></script>
+{{ $disqusjs := resources.Get "js/disqus.js" | resources.Minify | resources.Fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $disqusjs.RelPermalink }}" integrity="{{ $disqusjs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script>
     var dsqjs = new DisqusJS({
         shortname: "eallion",

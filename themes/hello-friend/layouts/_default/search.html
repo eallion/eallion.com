@@ -11,13 +11,11 @@
 
     <div id="searchResult" class=""></div>
 </div>
-<script src="https://cdn.staticfile.org/fuse.js/6.5.3/fuse.min.js"></script>
+
+{{ $fusejs := resources.Get "js/fuse.js" | resources.Minify | resources.Fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $fusejs.RelPermalink }}" integrity="{{ $fusejs.Data.Integrity }}" crossorigin="anonymous"></script>
 
 {{ $searchjs := resources.Get "js/search.js" | resources.Minify | resources.Fingerprint "sha256" }}
-<script
-    src="{{ $searchjs.RelPermalink }}"
-    integrity="{{ $searchjs.Data.Integrity }}"
-    crossorigin="anonymous"
-></script>
+<script src="{{ $searchjs.RelPermalink }}" integrity="{{ $searchjs.Data.Integrity }}" crossorigin="anonymous"></script>
 
 {{ end }}
