@@ -16,15 +16,15 @@
 {{ $prismjs := resources.Get "js/prism.js" | resources.Minify | resources.Fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $prismjs.RelPermalink }}" integrity="{{ $prismjs.Data.Integrity }}" crossorigin="anonymous"></script>
 
-{{ $alljs := resources.Get "js/all.js" | resources.Minify | resources.Fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $alljs.RelPermalink }}" integrity="{{ $alljs.Data.Integrity }}" crossorigin="anonymous"></script>
-
 {{ $instantpagejs := resources.Get "js/instantpage.js" | resources.Minify | resources.Fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $instantpagejs.RelPermalink }}" integrity="{{ $instantpagejs.Data.Integrity }}" crossorigin="anonymous"></script>
 
 {{ $pangujs := resources.Get "js/pangu.js" | resources.Minify | resources.Fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $pangujs.RelPermalink }}" integrity="{{ $pangujs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script>pangu.spacingElementByClassName("content");</script>
+
+{{ $alljs := resources.Get "js/all.js" | resources.Minify | resources.Fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $alljs.RelPermalink }}" integrity="{{ $alljs.Data.Integrity }}" crossorigin="anonymous"></script>
 
 {{ if .Params.lightbox }}
 {{ $fancyboxjs := resources.Get "js/jquery.fancybox.js" | resources.Minify | resources.Fingerprint "sha256" }}

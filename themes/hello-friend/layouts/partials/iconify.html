@@ -1,2 +1,0 @@
-{{ $svg := resources.GetRemote (print "https://api.iconify.design/" .prefix "/" .icon ".svg?width=" (.width | default 16) "&height=" (.height | default 16) ) }}
-{{ $svg.Content | safeHTML }}

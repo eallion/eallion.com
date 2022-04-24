@@ -4,9 +4,14 @@
         <span class="header__right">
             {{ if len $.Site.Menus }} {{ partial "menu.html" . }}
             <span class="menu-trigger hidden">
-                {{ partial "iconify.html" (dict "prefix" "ant-design" "icon" "menu-outlined") }}
+                <span class="iconify-inline" data-icon="ant-design:menu-outlined"></span>
             </span>
             {{ end }}
+            <!--
+            <span class="theme-toggle">
+                <span class="iconify-inline" data-icon="fluent:dark-theme-20-regular"></span>
+            </span>
+            -->
             <script>
                 let storageColorScheme = localStorage.getItem("lightDarkMode")
                 {{- if eq $.Site.Params.defaultTheme "light" }}
@@ -26,18 +31,19 @@
             <div class="lightDarkMode">
                 <div class="lightDarkModes" id="lightDarkMode">
                     {{- if eq $.Site.Params.defaultTheme "dark" }}
-                    {{ partial "iconify.html" (dict "prefix" "akar-icons" "icon" "moon-fill"  "width" "22" "height" "22") }}
+                    <i class="iconify-inline" data-icon="akar-icons:moon-fill"></i>
                     {{- else if eq $.Site.Params.defaultTheme "light" }}
-                    {{ partial "iconify.html" (dict "prefix" "akar-icons" "icon" "sun-fill" "width" "22" "height" "20") }}
+                    <i class="iconify-inline" data-icon="akar-icons:sun-fill"></i>
                     {{- else }}
-                    {{ partial "iconify.html" (dict "prefix" "bxs" "icon" "adjust" "width" "22" "height" "22") }}
+                    <i class="iconify-inline" data-icon="bxs:adjust"></i>
                     {{- end }}
                 </div>
-                <div class="is-open hidden" id="is-open"></div>
+                <div class="is-open hidden" id="is-open">
+                </div>
                 <div class="lightDarkOptions hidden" id='lightDarkOptions'>
-                    <span class="lightDarkOption" name="Auto">{{ partial "iconify.html" (dict "prefix" "bxs" "icon" "adjust" "width" "16" "height" "16") }} {{ i18n "dark" }}</span>
-                    <span class="lightDarkOption" name="Light">{{ partial "iconify.html" (dict "prefix" "akar-icons" "icon" "sun-fill" "width" "16" "height" "16") }} {{ i18n "light" }}</span>
-                    <span class="lightDarkOption" name="Dark">{{ partial "iconify.html" (dict "prefix" "akar-icons" "icon" "moon-fill" "width" "16" "height" "16") }} {{ i18n "auto" }}</span>
+                    <span class="lightDarkOption" name="Auto"><i class="iconify-inline" data-icon="bxs:adjust"></i> {{ i18n "auto" }}</span>
+                    <span class="lightDarkOption" name="Light"><i class="iconify-inline" data-icon="akar-icons:sun-fill"></i> {{ i18n "light" }}</span>
+                    <span class="lightDarkOption" name="Dark"><i class="iconify-inline" data-icon="akar-icons:moon-fill"></i> {{ i18n "dark" }}</span>
                 </div>
             </div>
             <script>
@@ -45,21 +51,21 @@
                 let element = document.getElementById('lightDarkMode')
                 {{- if eq $.Site.Params.defaultTheme "light" }}
                 if (storageColorScheme == 'Auto') {
-                    element.firstElementChild.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><path fill="currentColor" d="M20.958 15.325c.204-.486-.379-.9-.868-.684a7.684 7.684 0 0 1-3.101.648c-4.185 0-7.577-3.324-7.577-7.425a7.28 7.28 0 0 1 1.134-3.91c.284-.448-.057-1.068-.577-.936C5.96 4.041 3 7.613 3 11.862C3 16.909 7.175 21 12.326 21c3.9 0 7.24-2.345 8.632-5.675Z"></path><path fill="currentColor" d="M15.611 3.103c-.53-.354-1.162.278-.809.808l.63.945a2.332 2.332 0 0 1 0 2.588l-.63.945c-.353.53.28 1.162.81.808l.944-.63a2.332 2.332 0 0 1 2.588 0l.945.63c.53.354 1.162-.278.808-.808l-.63-.945a2.332 2.332 0 0 1 0-2.588l.63-.945c.354-.53-.278-1.162-.809-.808l-.944.63a2.332 2.332 0 0 1-2.588 0l-.945-.63Z"></path></svg>'
+                    element.firstElementChild.setAttribute("data-icon", 'bxs:adjust')
                     document.addEventListener('DOMContentLoaded', () => {
                         window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
                     })
                 } else if (storageColorScheme == "Dark") {
-                    element.firstElementChild.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--akar-icons iconify-inline" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" style="vertical-align: -0.125em;" data-icon="akar-icons:moon-fill"><path fill="currentColor" d="M20.958 15.325c.204-.486-.379-.9-.868-.684a7.684 7.684 0 0 1-3.101.648c-4.185 0-7.577-3.324-7.577-7.425a7.28 7.28 0 0 1 1.134-3.91c.284-.448-.057-1.068-.577-.936C5.96 4.041 3 7.613 3 11.862C3 16.909 7.175 21 12.326 21c3.9 0 7.24-2.345 8.632-5.675Z"></path><path fill="currentColor" d="M15.611 3.103c-.53-.354-1.162.278-.809.808l.63.945a2.332 2.332 0 0 1 0 2.588l-.63.945c-.353.53.28 1.162.81.808l.944-.63a2.332 2.332 0 0 1 2.588 0l.945.63c.53.354 1.162-.278.808-.808l-.63-.945a2.332 2.332 0 0 1 0-2.588l.63-.945c.354-.53-.278-1.162-.809-.808l-.944.63a2.332 2.332 0 0 1-2.588 0l-.945-.63Z"></path></svg>'
+                    element.firstElementChild.setAttribute("data-icon", 'akar-icons:moon-fill')
                 }
                 {{- else if eq $.Site.Params.defaultTheme "dark" }}
                 if (storageColorScheme == 'Auto') {
-                    element.firstElementChild.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><path fill="currentColor" d="M20.958 15.325c.204-.486-.379-.9-.868-.684a7.684 7.684 0 0 1-3.101.648c-4.185 0-7.577-3.324-7.577-7.425a7.28 7.28 0 0 1 1.134-3.91c.284-.448-.057-1.068-.577-.936C5.96 4.041 3 7.613 3 11.862C3 16.909 7.175 21 12.326 21c3.9 0 7.24-2.345 8.632-5.675Z"></path><path fill="currentColor" d="M15.611 3.103c-.53-.354-1.162.278-.809.808l.63.945a2.332 2.332 0 0 1 0 2.588l-.63.945c-.353.53.28 1.162.81.808l.944-.63a2.332 2.332 0 0 1 2.588 0l.945.63c.53.354 1.162-.278.808-.808l-.63-.945a2.332 2.332 0 0 1 0-2.588l.63-.945c.354-.53-.278-1.162-.809-.808l-.944.63a2.332 2.332 0 0 1-2.588 0l-.945-.63Z"></path></svg>'
+                    element.firstElementChild.setAttribute("data-icon", 'bxs:adjust')
                     document.addEventListener('DOMContentLoaded', () => {
                         window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
                     })
                 } else if (storageColorScheme == "Light") {
-                    element.firstElementChild.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--akar-icons iconify-inline" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" style="vertical-align: -0.125em;" data-icon="akar-icons:sun-fill"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10Z"></path><path fill="currentColor" fill-rule="evenodd" d="M12 1a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V2a1 1 0 0 1 1-1ZM3.293 3.293a1 1 0 0 1 1.414 0l1.5 1.5a1 1 0 0 1-1.414 1.414l-1.5-1.5a1 1 0 0 1 0-1.414Zm17.414 0a1 1 0 0 1 0 1.414l-1.5 1.5a1 1 0 1 1-1.414-1.414l1.5-1.5a1 1 0 0 1 1.414 0ZM1 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H2a1 1 0 0 1-1-1Zm19 0a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1ZM6.207 17.793a1 1 0 0 1 0 1.414l-1.5 1.5a1 1 0 0 1-1.414-1.414l1.5-1.5a1 1 0 0 1 1.414 0Zm11.586 0a1 1 0 0 1 1.414 0l1.5 1.5a1 1 0 0 1-1.414 1.414l-1.5-1.5a1 1 0 0 1 0-1.414ZM12 20a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1Z" clip-rule="evenodd"></path></svg>'
+                    element.firstElementChild.setAttribute("data-icon", 'akar-icons:sun-fill')
                 }
                 {{- else }}
                 if (storageColorScheme == null || storageColorScheme == 'Auto') {
@@ -67,9 +73,9 @@
                         window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
                     })
                 } else if (storageColorScheme == "Light") {
-                    element.firstElementChild.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--akar-icons iconify-inline" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" style="vertical-align: -0.125em;" data-icon="akar-icons:sun-fill"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10Z"></path><path fill="currentColor" fill-rule="evenodd" d="M12 1a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V2a1 1 0 0 1 1-1ZM3.293 3.293a1 1 0 0 1 1.414 0l1.5 1.5a1 1 0 0 1-1.414 1.414l-1.5-1.5a1 1 0 0 1 0-1.414Zm17.414 0a1 1 0 0 1 0 1.414l-1.5 1.5a1 1 0 1 1-1.414-1.414l1.5-1.5a1 1 0 0 1 1.414 0ZM1 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H2a1 1 0 0 1-1-1Zm19 0a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1ZM6.207 17.793a1 1 0 0 1 0 1.414l-1.5 1.5a1 1 0 0 1-1.414-1.414l1.5-1.5a1 1 0 0 1 1.414 0Zm11.586 0a1 1 0 0 1 1.414 0l1.5 1.5a1 1 0 0 1-1.414 1.414l-1.5-1.5a1 1 0 0 1 0-1.414ZM12 20a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1Z" clip-rule="evenodd"></path></svg>'
+                    element.firstElementChild.setAttribute("data-icon", 'akar-icons:sun-fill')
                 } else if (storageColorScheme == "Dark") {
-                    element.firstElementChild.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--akar-icons iconify-inline" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" style="vertical-align: -0.125em;" data-icon="akar-icons:moon-fill"><path fill="currentColor" d="M20.958 15.325c.204-.486-.379-.9-.868-.684a7.684 7.684 0 0 1-3.101.648c-4.185 0-7.577-3.324-7.577-7.425a7.28 7.28 0 0 1 1.134-3.91c.284-.448-.057-1.068-.577-.936C5.96 4.041 3 7.613 3 11.862C3 16.909 7.175 21 12.326 21c3.9 0 7.24-2.345 8.632-5.675Z"></path><path fill="currentColor" d="M15.611 3.103c-.53-.354-1.162.278-.809.808l.63.945a2.332 2.332 0 0 1 0 2.588l-.63.945c-.353.53.28 1.162.81.808l.944-.63a2.332 2.332 0 0 1 2.588 0l.945.63c.53.354 1.162-.278.808-.808l-.63-.945a2.332 2.332 0 0 1 0-2.588l.63-.945c.354-.53-.278-1.162-.809-.808l-.944.63a2.332 2.332 0 0 1-2.588 0l-.945-.63Z"></path></svg>'
+                    element.firstElementChild.setAttribute("data-icon", 'akar-icons:moon-fill')
                 }
                 {{- end }}
 
