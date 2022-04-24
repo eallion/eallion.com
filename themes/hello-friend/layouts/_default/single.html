@@ -14,7 +14,7 @@
     <div class="post-meta">
         {{ with .Params.categories }}
         <span class="post-meta-categories">
-            {{ partial "iconify.html" (dict "prefix" "bytesize" "icon" "folder-open") }}
+            <span class="iconify-inline" data-icon="bytesize:folder-open"></span>
             <span>
                 {{ range . }}
                 <a href="{{ (urlize (printf "categories/%s" . )) | absURL }}/">{{ . }}</a>
@@ -24,35 +24,41 @@
         {{ end }}
         {{ if .Date | default nil }}
         <span class="post-meta-date">
-            <span>{{ partial "iconify.html" (dict "prefix" "akar-icons" "icon" "calendar") }}</span>
+            <span class="iconify-inline" data-icon="arcticons:calendar-proton-{{ dateFormat "1" .Date }}"></span>
             <span>{{ .Date | time.Format ":date_long" }}</span>
         </span>
         {{ end }}
         {{- if .Site.Params.mdview.enable -}}
         <span class="post-meta-md">
-            {{ partial "iconify.html" (dict "prefix" "teenyicons" "icon" "markdown-outline") }}
+            <span class="iconify-inline" data-icon="teenyicons:markdown-outline"></span>
             <span><a href='{{ .Site.Params.mdview.ContentPath }}{{ replace .File.Path "\\" "/" }}?download=false' target="_blank" rel="noopener noreferrer">{{ i18n "mdView"}}</a></span>
         </span>
         {{ end }}
         {{ if $.Site.Params.ShowReadingTime }}
         <span class="post-read-time">
-            {{ partial "iconify.html" (dict "prefix" "ant-design" "icon" "clock-circle-outlined") }}
+            <span class="iconify-inline" data-icon="ant-design:clock-circle-outlined"></span>
             <span>{{ .ReadingTime }} {{ i18n "readingTime" }}</span>
         </span>
         <span class="post-meta-word">
-            {{ partial "iconify.html" (dict "prefix" "bi" "icon" "pen") }}
+            <span class="iconify-inline" data-icon="bi:pen"></span>
             <span>{{ .WordCount }} {{ i18n "wordCount" }}</span>
         </span>
         {{ end }}
 
         {{- if .Site.Params.waline.enable -}}
         <span class="post-meta-view">
+            <span>
+                <i class='iconfont icon-view'></i>
+            </span>
             <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> <span>次浏览</span></span>
         </span>
         {{ end }}
 
         {{- if .Site.Params.twikoo.enable -}}
         <span class="post-meta-view">
+            <span>
+                <i class='iconfont icon-view'></i>
+            </span>
             <span id="twikoo_visitors">0</span> <span>次浏览</span>
         </span>
         {{ end }}
@@ -62,7 +68,7 @@
     {{ if eq .Type "posts" -}}
     {{ $ageDays := div (sub now.Unix .Date.Unix) 86400 }}
     {{ if gt $ageDays 180 }}
-    <div class="warning-msg">{{ partial "iconify.html" (dict "prefix" "entypo" "icon" "warning") }}提醒：本文发布于&nbsp;{{ $ageDays }}&nbsp;天前，文中所描述的信息可能已发生改变，请谨慎参考。</div>
+    <div class="warning-msg"><span class="iconify-inline" data-icon="entypo:warning"></span>提醒：本文发布于&nbsp;{{ $ageDays }}&nbsp;天前，文中所描述的信息可能已发生改变，请谨慎参考。</div>
     {{ end }}
     {{ end }}
 
@@ -98,7 +104,7 @@
         <p>本文链接：<a href="{{ .Permalink }}">{{ .Permalink }}</a></p>
         <p>转载标题：<a href="{{ .Permalink }}">《{{ .Title | markdownify }}》</a>- 大大的小蜗牛</p>
         <p>作品采用：<a target="_blank" rel="license nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享（CC BY-NC-SA 4.0）许可协议</a>进行许可</p>
-        <span class="icon-copyright">{{ partial "iconify.html" (dict "prefix" "ooui" "icon" "logo-cc") }}</span>
+        <span class="iconify icon-copyright" data-icon="ooui:logo-cc"></span>
     </div>
     {{ end }}
 
@@ -117,7 +123,7 @@
             {{ if .Next }}
             <span class="button previous">
                 <a href="{{ .Next.Permalink }}">
-                    <span class="button__icon">{{ partial "iconify.html" (dict "prefix" "ant-design" "icon" "left-outlined") }}</span>
+                    <span class="button__icon"><span class="iconify-inline" data-icon="ant-design:left-outlined"></span></span>
                     <span class="button__text">{{ .Next.Title }}</span>
                 </a>
             </span>
@@ -126,7 +132,7 @@
             <span class="button next">
                 <a href="{{ .Prev.Permalink }}">
                     <span class="button__text">{{ .Prev.Title }}</span>
-                    <span class="button__icon">{{ partial "iconify.html" (dict "prefix" "ant-design" "icon" "right-outlined") }}</span>
+                    <span class="button__icon"><span class="iconify-inline" data-icon="ant-design:right-outlined"></span></span>
                 </a>
             </span>
             {{ end }}

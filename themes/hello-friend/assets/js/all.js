@@ -166,7 +166,7 @@ $(document).ready(function () {
                 dataTime = '<span class="datatime">' + date + '</span>'
                 talksHtml += '<li class="item item-' + (i + 1) + '">' + dataTime + '： <a href="https://eallion.com/talks/" target="_blank" rel="noopener noreferrer">' + urlToLink(item.content) + '</a></li>'
             });
-            $('#index-talk').append('<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M19 20a7 7 0 1 0 0-14a7 7 0 0 0 0 14ZM33 8s2.25 4.5 0 10m7-14s4.5 8.1 0 18M4 40.8V42h30v-1.2c0-4.48 0-6.72-.872-8.432a8 8 0 0 0-3.496-3.496C27.92 28 25.68 28 21.2 28h-4.4c-4.48 0-6.72 0-8.432.872a8 8 0 0 0-3.496 3.496C4 34.08 4 36.32 4 40.8Z"/></svg> <ul class="talk-list">' + talksHtml + '</ul>')
+            $('#index-talk').append('<span class="iconify-inline" data-icon="icon-park-outline:people-speak"></span> <ul class="talk-list">' + talksHtml + '</ul>')
             Lately({
                 'target': '.datatime'
             });
@@ -176,10 +176,10 @@ $(document).ready(function () {
             var re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g;
             var re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(bmp)|(jfif)|(webp))/g;
             str = str.replace(re, function (website) {
-                return '<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z"/><path fill="currentColor" d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"/></svg>';
+                return '<span class="iconify-inline" data-icon="bx:link-external"></span>';
             });
             str = str.replace(re_forpic, function (imgurl) {
-                return '<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 16 16"><path fill="currentColor" d="M.002 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-12a2 2 0 0 1-2-2V3zm1 9v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71l-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12zm5-6.5a1.5 1.5 0 1 0-3 0a1.5 1.5 0 0 0 3 0z"/></svg>';
+                return '<span class="iconify-inline" data-icon="bi:image-fill"></span>';
             });
             //去掉 Share 标签
             var re_share = /(\#share)|(\#Share)/g;
@@ -613,7 +613,7 @@ function getcolorscheme() {
             let targetName = target.getAttribute("name")
             let icon = switchMode(targetName)
             let old_icon = element.firstElementChild.getAttribute("data-icon")
-            element.firstElementChild.innerHTML=icon
+            element.firstElementChild.setAttribute("data-icon", icon)
 
             localStorage.setItem("lightDarkMode", targetName)
 
@@ -635,16 +635,16 @@ function switchMode(mode) {
     switch (mode) {
         case 'Light':
             window.matchMedia("(prefers-color-scheme: dark)").removeEventListener('change', switchDarkMode)
-            icon = '<path fill="currentColor" d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10Z"></path><path fill="currentColor" fill-rule="evenodd" d="M12 1a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V2a1 1 0 0 1 1-1ZM3.293 3.293a1 1 0 0 1 1.414 0l1.5 1.5a1 1 0 0 1-1.414 1.414l-1.5-1.5a1 1 0 0 1 0-1.414Zm17.414 0a1 1 0 0 1 0 1.414l-1.5 1.5a1 1 0 1 1-1.414-1.414l1.5-1.5a1 1 0 0 1 1.414 0ZM1 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H2a1 1 0 0 1-1-1Zm19 0a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1ZM6.207 17.793a1 1 0 0 1 0 1.414l-1.5 1.5a1 1 0 0 1-1.414-1.414l1.5-1.5a1 1 0 0 1 1.414 0Zm11.586 0a1 1 0 0 1 1.414 0l1.5 1.5a1 1 0 0 1-1.414 1.414l-1.5-1.5a1 1 0 0 1 0-1.414ZM12 20a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1Z" clip-rule="evenodd"></path>'
+            icon = 'akar-icons:sun-fill'
             document.body.classList.remove('dark')
             break
         case 'Dark':
             window.matchMedia("(prefers-color-scheme: dark)").removeEventListener('change', switchDarkMode)
-            icon = '<path fill="currentColor" d="M20.958 15.325c.204-.486-.379-.9-.868-.684a7.684 7.684 0 0 1-3.101.648c-4.185 0-7.577-3.324-7.577-7.425a7.28 7.28 0 0 1 1.134-3.91c.284-.448-.057-1.068-.577-.936C5.96 4.041 3 7.613 3 11.862C3 16.909 7.175 21 12.326 21c3.9 0 7.24-2.345 8.632-5.675Z"></path><path fill="currentColor" d="M15.611 3.103c-.53-.354-1.162.278-.809.808l.63.945a2.332 2.332 0 0 1 0 2.588l-.63.945c-.353.53.28 1.162.81.808l.944-.63a2.332 2.332 0 0 1 2.588 0l.945.63c.53.354 1.162-.278.808-.808l-.63-.945a2.332 2.332 0 0 1 0-2.588l.63-.945c.354-.53-.278-1.162-.809-.808l-.944.63a2.332 2.332 0 0 1-2.588 0l-.945-.63Z"></path>'
+            icon = 'akar-icons:moon-fill'
             document.body.classList.add('dark')
             break
         case 'Auto':
-            icon = '<path fill="currentColor" d="M12 2C6.579 2 2 6.58 2 12s4.579 10 10 10s10-4.58 10-10S17.421 2 12 2zm0 17V5c3.829 0 7 3.169 7 7c0 3.828-3.171 7-7 7z"></path>'
+            icon = 'bxs:adjust'
             const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)")
             switchDarkMode(isDarkMode)
             window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)

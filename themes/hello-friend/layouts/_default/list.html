@@ -44,13 +44,11 @@
         {{ .Summary }}
       </div>
       {{ if .Truncated }}
-      {{/*  two ellipsis  */}}
-      {{ partial "iconify.html" (dict "prefix" "ant-design" "icon" "ellipsis-outlined") }}
-      {{ partial "iconify.html" (dict "prefix" "ant-design" "icon" "ellipsis-outlined") }}
+      <span class="iconify-inline" data-icon="ant-design:ellipsis-outlined"></span><span class="iconify-inline" data-icon="ant-design:ellipsis-outlined"></span>
       <div class="read-more-icon">
           <a class="read-more button" href="{{ .RelPermalink }}">
               {{ i18n "readMore" }}
-              {{ partial "iconify.html" (dict "prefix" "ant-design" "icon" "double-right-outlined") }}
+              <span class="iconify-inline" data-icon="ant-design:double-right-outlined"></span>
           </a>
       </div>
       {{ end }}

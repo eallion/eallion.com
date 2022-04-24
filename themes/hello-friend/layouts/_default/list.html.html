@@ -20,7 +20,7 @@
         <div class="post-meta">
             {{ with .Params.categories }}
             <span class="post-meta-categories">
-                {{ partial "iconify.html" (dict "prefix" "bytesize" "icon" "folder-open") }}
+                <span class="iconify-inline" data-icon="bytesize:folder-open"></span>
                 <span>
                     {{ range . }}
                     <a href="{{ (urlize (printf "categories/%s" . )) | absURL }}/">{{ . }}</a>
@@ -30,13 +30,13 @@
             {{ end }}
             {{ if .Date }}
             <span class="post-meta-date">
-                <span>{{ partial "iconify.html" (dict "prefix" "akar-icons" "icon" "calendar") }}</span>
+                <span class="iconify-inline" data-icon="arcticons:calendar-proton-{{ dateFormat "1" .Date }}"></span>
                 <span> {{ .Date.Format "2006 年 01 月 02 日" }} </span>
             </span>
             {{ end }}
             {{ if $.Site.Params.ShowReadingTime }}
             <span class="post-read-time">
-                {{ partial "iconify.html" (dict "prefix" "ant-design" "icon" "clock-circle-outlined") }}
+                <span class="iconify-inline" data-icon="ant-design:clock-circle-outlined"></span>
                 <span>{{ .ReadingTime }} {{ i18n "readingTime" }}</span>
             </span>
             {{ end }}
@@ -54,13 +54,11 @@
 
         <div class="post-content post-index">
             {{ if .Truncated }} {{ .Summary }}
-            {{/*  two ellipsis  */}}
-            {{ partial "iconify.html" (dict "prefix" "ant-design" "icon" "ellipsis-outlined") }}
-            {{ partial "iconify.html" (dict "prefix" "ant-design" "icon" "ellipsis-outlined") }}
+            <span class="iconify-inline" data-icon="ant-design:ellipsis-outlined"></span><span class="iconify-inline" data-icon="ant-design:ellipsis-outlined"></span>
             <div class="read-more-icon">
                 <a class="read-more button" href="{{ .RelPermalink }}">
                     {{ i18n "readMore" }}
-                    {{ partial "iconify.html" (dict "prefix" "ant-design" "icon" "double-right-outlined") }}
+                    <span class="iconify-inline" data-icon="ant-design:double-right-outlined"></span>
                 </a>
             </div>
             {{ else }} {{ .Content }} {{ .Render "path" }} {{ end }}
