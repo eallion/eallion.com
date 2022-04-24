@@ -3,10 +3,7 @@
 <!-- reset.css within of the satellite.css -->
 {{ $resetcss := resources.Get "css/reset.css" | resources.Minify | resources.Fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $resetcss.RelPermalink }}" integrity="{{ $resetcss.Data.Integrity }}" crossorigin="anonymous">
-<!-- fancybox v3 -->
-{{ $fancyboxcss := resources.Get "css/jquery.fancybox.css" | resources.Minify | resources.Fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ $fancyboxcss.RelPermalink }}" integrity="{{ $fancyboxcss.Data.Integrity }}" crossorigin="anonymous">
-<div class="posts searchPage searchAlgolia">
+<div class="posts post-content searchPage searchAlgolia">
     <div id="searchbox" class="searchboxAlgolia">
         <!-- SearchBox widget will appear here -->
     </div>
@@ -176,7 +173,7 @@
             //处理图片链接，添加 a 标签共添加灯箱效果
             var re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(jfif)|(bmp)|(webp))/g;
             str = str.replace(re_forpic, function (imgurl) {
-                return '<a href="' + imgurl + '" data-fancybox><img src="' + imgurl + '" ></a>';
+                return '<a href="' + imgurl + '"><img src="' + imgurl + '" ></a>';
             });
             //多个换行符替换为一个
             str = str.replace(/\n\n/g, "\n");

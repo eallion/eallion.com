@@ -18,16 +18,21 @@
 
 <link rel="preconnect" href="https://sdn.geekzu.org" crossorigin="anonymous">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous">
-<link rel="preconnect" href="https://6561-eallion-8gkunp4re49bae66-1251347414.tcb.qcloud.la" crossorigin="anonymous">
-<link rel="preconnect" href="https://tcb-api.tencentcloudapi.com" crossorigin="anonymous">
 
 <!-- IE 弹窗提示 -->
 <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) document.write('\x3Cscript id="_iealwn_js" data-outver="11" src="https://cdn.jsdelivr.net/npm/ie-alert-warning@1.1.1/latest.js">\x3C/script>'); </script>
 
+{{/*  main css  */}}
 {{ $maincss := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
+
+{{/*  prism css  */}}
 {{ $prismcss := resources.Get "css/prism.css" | resources.Minify | resources.Fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $prismcss.RelPermalink }}" integrity="{{ $prismcss.Data.Integrity }}" crossorigin="anonymous">
+
+<!-- fancybox v3 -->
+{{ $fancyboxcss := resources.Get "css/jquery.fancybox.css" | resources.Minify | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $fancyboxcss.RelPermalink }}" integrity="{{ $fancyboxcss.Data.Integrity }}" crossorigin="anonymous">
 
 <link rel="shortcut icon" href="/favicon.ico" crossorigin="anonymous">
 
