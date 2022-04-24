@@ -4,9 +4,6 @@
 {{ $waterfalljs := resources.Get "js/waterfall.js" | resources.Minify | resources.Fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $waterfalljs.RelPermalink }}" integrity="{{ $waterfalljs.Data.Integrity }}" crossorigin="anonymous"></script>
 
-{{ $slimbox2js := resources.Get "js/slimbox2.js" | resources.Minify | resources.Fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $slimbox2js.RelPermalink }}" integrity="{{ $slimbox2js.Data.Integrity }}" crossorigin="anonymous"></script>
-
 {{ $latelyjs := resources.Get "js/lately.js" | resources.Minify | resources.Fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $latelyjs.RelPermalink }}" integrity="{{ $latelyjs.Data.Integrity }}" crossorigin="anonymous"></script>
 
@@ -26,43 +23,8 @@
 <script type="text/javascript" src="{{ $pangujs.RelPermalink }}" integrity="{{ $pangujs.Data.Integrity }}" crossorigin="anonymous"></script>
 <script>pangu.spacingElementByClassName("content");</script>
 
-{{ $alljs := resources.Get "js/all.js" | resources.Minify | resources.Fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $alljs.RelPermalink }}" integrity="{{ $alljs.Data.Integrity }}" crossorigin="anonymous"></script>
-
-{{ if .Params.lightbox }}
 {{ $fancyboxjs := resources.Get "js/jquery.fancybox.js" | resources.Minify | resources.Fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $fancyboxjs.RelPermalink }}" integrity="{{ $fancyboxjs.Data.Integrity }}" crossorigin="anonymous"></script>
-<script>
-    $('[data-fancybox]').fancybox({
-        selector : '.ais-Hits-item a:visible',
-        loop: false,
-        arrows: false,
-        buttons: [
-            //"zoom",
-            //"share",
-            //"slideShow",
-            //"fullScreen",
-            //"download",
-            //"thumbs",
-            "close"
-        ],
-        infobar: false,
-        ideScrollbar: true,
-        lang: "zh",
-        i18n: {
-            zh: {
-                CLOSE: "关闭",
-                NEXT: "下一张",
-                PREV: "上一张",
-                ERROR: "不能加载图片，<br/>请稍后再试。",
-                PLAY_START: "播放幻灯片",
-                PLAY_STOP: "暂停幻灯片",
-                FULL_SCREEN: "全屏",
-                THUMBS: "缩略图",
-                DOWNLOAD: "下载",
-                SHARE: "分享",
-                ZOOM: "缩放"}
-        }
-    });
-</script>
-{{ end }}
+
+{{ $alljs := resources.Get "js/all.js" | resources.Minify | resources.Fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $alljs.RelPermalink }}" integrity="{{ $alljs.Data.Integrity }}" crossorigin="anonymous"></script>
