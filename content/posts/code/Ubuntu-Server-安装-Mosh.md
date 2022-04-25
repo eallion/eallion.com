@@ -7,17 +7,17 @@ slug: "mosh"
 date: "2019-11-24 16:12:00"
 ---
 
-服务端安装Mosh：
+服务端安装 Mosh：
 ```
 sudo apt install mosh
 ```
-客户端安装Mosh：
+客户端安装 Mosh：
 
 Ubuntu：
 ```
 sudo apt install mosh
 ```
-Ubuntu上也可以安装 Termius ，也支持 Mosh 连接。当服务器比较多时，Termius 比自带终端方便统一管理。
+Ubuntu 上也可以安装 Termius ，也支持 Mosh 连接。当服务器比较多时，Termius 比自带终端方便统一管理。
 
 手机端：
 
@@ -28,13 +28,13 @@ Ubuntu上也可以安装 Termius ，也支持 Mosh 连接。当服务器比较�
 
 > [https://mosh.org/#getting](https://mosh.org/#getting)
 
-Mosh通过UDP连接，服务端需要打开防火墙，开放 `60001` 端口，如果有多个连接，开放多个端口，如 `60002` 。
+Mosh 通过 UDP 连接，服务端需要打开防火墙，开放 `60001` 端口，如果有多个连接，开放多个端口，如 `60002` 。
 ```
 sudo iptables -I INPUT -p udp --dport 60001 -j ACCEPT
 ```
 如果云服务器有安全组，同时需要去云服务商后台在安全组中开放端口。
 
-Mosh支持很多选项，可以用 `mosh —help` 看到：
+Mosh 支持很多选项，可以用 `mosh —help` 看到：
 ```
 mosh --help 
 ```
@@ -42,7 +42,7 @@ Mosh 的连接方法：
 ```
 mosh USERNAME@IP
 ```
-假设你的服务器ip是 `114.114.114.114` ，用户名是 `root`：
+假设你的服务器 ip 是 `114.114.114.114` ，用户名是 `root`：
 ```
 mosh root@114.114.114.114
 ```
@@ -50,8 +50,9 @@ mosh root@114.114.114.114
 ```
 mosh -p 9527 root@114.114.114.114
 ```
-如果你修改过默认的SSH登录端口，如把`22`改成了`22222`
+如果你修改过默认的 SSH 登录端口，如把 `22` 改成了 `22222`
 ```
 mosh --ssh="ssh -p 22222" root@114.114.114.114
 ```
 Mosh 也支持 [Google Authenticator](https://eallion.com/ssh-google-authenticator) 二步验证。
+

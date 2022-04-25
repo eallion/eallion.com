@@ -23,7 +23,7 @@ toc: false
 - mirrors.tuna.tsinghua.edu.cn
 
 ```
-sudo cp -r /etc/apt/sources.list /etc/apt/sources.list.bak
+sudo cp -r /etc/apt/sources.list/etc/apt/sources.list.bak
 sudo sed -i "s/\/\/.*archive.ubuntu.com/\/\/mirrors.aliyun.com/g;s/\/\/.*security.ubuntu.com/\/\/mirrors.aliyun.com/g" /etc/apt/sources.list
 ```
 
@@ -34,7 +34,7 @@ sudo apt upgrade
 ```
 
 ### 2、系统设置
-在`系统设置`里按自己的习惯设置即可。
+在 `系统设置` 里按自己的习惯设置即可。
 
 ### 3、安装 GNOME Tweaks
 ```
@@ -43,8 +43,8 @@ sudo apt install gnome-tweak-tool
 
 ### 4、去鼠标加速
 对于 FPS 玩家，尤其推荐去掉鼠标加速。  
-4.1. 在 `GNOME Tweaks` 点击 `键盘和鼠标` 在 `鼠标`-`加速配置`里选择`Flat`。  
-4.2. 在 `系统设置`里`设备`-`鼠标和触摸板`-`鼠标`-`鼠标速度`调节自己适应的鼠标速度。  
+4.1. 在 `GNOME Tweaks` 点击 `键盘和鼠标` 在 `鼠标`-`加速配置` 里选择 `Flat`。  
+4.2. 在 `系统设置` 里 `设备`-`鼠标和触摸板`-`鼠标`-`鼠标速度` 调节自己适应的鼠标速度。  
 
 ### 5、鼠标滚轮速度
 下载安装 `MouseWheel`
@@ -53,8 +53,8 @@ sudo apt install gnome-tweak-tool
 
 ### 6、Sudo 免密码
 
-常用的个人电脑，是可以运行`sudo`免输密码的，公用电脑不建议这样设置。  
-进入超级用户，注意`su`后面的 `-` 。
+常用的个人电脑，是可以运行 `sudo` 免输密码的，公用电脑不建议这样设置。  
+进入超级用户，注意 `su` 后面的 `-` 。
 ```
 su - 
 ```
@@ -62,16 +62,16 @@ su -
 ```
 vim /etc/sudoers
 ```
-在`root    ALL=(ALL:ALL) ALL`下一行添加：
+在 `root    ALL=(ALL:ALL) ALL` 下一行添加：
 ```
 eallion ALL=(ALL:ALL) ALL
 ```
 
-在`%sudo   ALL=(ALL:ALL) ALL`下一行添加：
+在 `% sudo   ALL=(ALL:ALL) ALL` 下一行添加：
 ```
 eallion ALL=(ALL:ALL) NOPASSWD:ALL
 ```
-替换其中的`eallion`用户名。  
+替换其中的 `eallion` 用户名。  
 
 ### 7、安装 Gdebi
 ```
@@ -314,7 +314,7 @@ sudo apt install grub-customizer
 ```
 > Theme: <https://github.com/gustawho/grub2-theme-breeze>
 
-如果独立显卡在引导界面开机黑屏：将`nomodeset`加到`/etc/default/grub`即可。
+如果独立显卡在引导界面开机黑屏：将 `nomodeset` 加到 `/etc/default/grub` 即可。
 
 #### 18.2、ZFS 文件系统配置 Grub
 > [https://openzfs.github.io/openzfs-docs/Getting Started/Ubuntu/Ubuntu 20.04 Root on ZFS.html#step-5-grub-installation](https://openzfs.github.io/openzfs-docs/Getting%20Started/Ubuntu/Ubuntu%2020.04%20Root%20on%20ZFS.html#step-5-grub-installation)
@@ -333,7 +333,7 @@ sudo update-initramfs -c -k all
 ```
 sudo vim /etc/default/grub
 ```
-添加`init_on_alloc=0`参数到`GRUB_CMDLINE_LINUX_DEFAULT`里：
+添加 `init_on_alloc=0` 参数到 `GRUB_CMDLINE_LINUX_DEFAULT` 里：
 ```
 GRUB_CMDLINE_LINUX_DEFAULT="init_on_alloc=0"
 ```
@@ -362,14 +362,14 @@ sudo update-grub
     sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi \
     --bootloader-id=ubuntu --recheck --no-floppy
     ```
-- UEFI RaidZ(多个磁盘的话需要多次安装)
+- UEFI RaidZ (多个磁盘的话需要多次安装)
     ```
-    sudo cp -a /boot/efi/EFI /boot/efi2
+    sudo cp -a /boot/efi/EFI/boot/efi2
     sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi2 \
     --bootloader-id=ubuntu-2 --recheck --no-floppy
     ```
 
-7、禁用`grub-initrd-fallback.service`：
+7、禁用 `grub-initrd-fallback.service`：
 ```
 sudo systemctl mask grub-initrd-fallback.service
 ```
@@ -379,7 +379,7 @@ sudo systemctl mask grub-initrd-fallback.service
 sudo mkdir /etc/zfs/zfs-list.cache
 sudo touch /etc/zfs/zfs-list.cache/bpool
 sudo touch /etc/zfs/zfs-list.cache/rpool
-sudo ln -s /usr/lib/zfs-linux/zed.d/history_event-zfs-list-cacher.sh /etc/zfs/zed.d
+sudo ln -s /usr/lib/zfs-linux/zed.d/history_event-zfs-list-cacher.sh/etc/zfs/zed.d
 sudo zed -F &
 ```
 ```
@@ -434,7 +434,7 @@ UUID=0002AD    /home/eallion/Media    ntfs    defaults,uid=1000,gid=1000,umask=0
 sudo apt install openssh-server
 ```
 配置 Google Authenticator：（非必须，可选） 
-**如果不打算用二次验证登录，不要执行下面的步骤**
+** 如果不打算用二次验证登录，不要执行下面的步骤 **
 ```
 sudo apt install libpam-google-authenticator
 ```
@@ -480,7 +480,7 @@ Ubuntu 自带的声音设置修改后不能保存，下次又还原成默认的�
 ```
 sudo apt install pavucontrol
 ```
-然后按`Super`键在`Dash`中打开`PulseAudio`，在`设备`选项卡中关闭 HDMI 即可。
+然后按 `Super` 键在 `Dash` 中打开 `PulseAudio`，在 `设备` 选项卡中关闭 HDMI 即可。
 
 ### 23、安装附加软件包
 ```
@@ -506,7 +506,7 @@ sudo docker run hello-world
 ```
 sudo curl -L "https://github.com/docker/compose/releases/download/1.27.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose/usr/bin/docker-compose
 ```
 Docker 属于高频操作，运行 Docker 时，免去 `sudo`
 > <https://docs.docker.com/engine/install/linux-postinstall/>
@@ -583,10 +583,10 @@ cd ~/Pictures
 git clone https://github.com/eallion/Big-Sur-Ubuntu.git
 ```
 #### 28.2、设置  
-打开`Gnome Tweaks`  
-找到`外观`-`背景`  
-选择`/home/xx_username_xx/Pictures/Big-Sur-Ubuntu/focal.xml`文件  
-选择`Zoom`调整方式  
+打开 `Gnome Tweaks`  
+找到 `外观`-`背景`  
+选择 `/home/xx_username_xx/Pictures/Big-Sur-Ubuntu/focal.xml` 文件  
+选择 `Zoom` 调整方式  
 
 ------------
 
@@ -677,3 +677,4 @@ sudo apt install vlc
 - Visual Studio Code
 > 通过 Snap 仓库安装有中文输入 Bug 。  
 > <https://code.visualstudio.com/Download> 
+

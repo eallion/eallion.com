@@ -19,7 +19,7 @@ date: "2017-05-29 23:35:00"
 IP 地址也已失效。
 
 我也不知道是怎么想的，
-随手就去搜索了“阿里云 NTP”，
+随手就去搜索了 “阿里云 NTP”，
 结果还真有！
 
  - 公网 NTP 服务器：`ntp.aliyun.com`
@@ -59,5 +59,6 @@ sudo ntpdate ntp.aliyun.com
 ### Windows 测试成功
 
 ![Windows NTP](https://images.eallion.com/images/2017/05/29/1972259171.png!hugo.webp)
+
 
 

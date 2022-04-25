@@ -10,7 +10,7 @@ date: "2019-11-25 16:08:00"
 Nextcloud 官网提供了很多种安装方式，我选择通过 snap 安装。
 其实 Ubuntu server 已经内置了 Nextcloud ，安装的时候最后一步选上就可以了。
 
->官方项目地址：[https://github.com/nextcloud/nextcloud-snap](https://github.com/nextcloud/nextcloud-snap)
+> 官方项目地址：[https://github.com/nextcloud/nextcloud-snap](https://github.com/nextcloud/nextcloud-snap)
 
 ```
 sudo snap install nextcloud
@@ -62,7 +62,7 @@ sudo nextcloud.enable-https self-signed
 - 购买的证书
 下载 Apache 格式的证书，上传至：`/var/snap/nextcloud/current/certs/custom`
 
-文件名改为：`cert.pem` `chain.pem ` `privkey.pem`
+文件名改为：`cert.pem` `chain.pem` `privkey.pem`
 
 配置证书：
 ```
@@ -75,3 +75,4 @@ mkdir baskups
 nextcloud.export
 ```
 然后在 `/var/snap/nextcloud/common/backups/` 文件夹下就有最新的备份文件了。
+

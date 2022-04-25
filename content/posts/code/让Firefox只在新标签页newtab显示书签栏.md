@@ -1,5 +1,5 @@
 ---
-title: "让Firefox只在新标签页newtab显示书签栏"
+title: "让 Firefox 只在新标签页 newtab 显示书签栏"
 categories: ["代码"]
 tags: ["google","css","Firefox","书签","新标签页","newtab","bookmark"]
 draft: false
@@ -27,9 +27,9 @@ Firefox Developer Edition （开发者版）默认支持在新标签页打开书
 
 即：总是显示书签、永不显示书签、仅在新标签页显示书签。
 
-**修改方法：**
+** 修改方法：**
 
-在 Firefox 地址栏输入`about:config`，搜索`browser.toolbars.bookmarks.visibility`，修改为`newtab`即可。
+在 Firefox 地址栏输入 `about:config`，搜索 `browser.toolbars.bookmarks.visibility`，修改为 `newtab` 即可。
 
 ![](https://images.eallion.com/images/2020/12/firefox-newtab.png!hugo.webp)
 
@@ -46,15 +46,15 @@ Firefox 69 需要在 `about:config` 里将 `toolkit.legacyUserProfileCustomizati
 
 ### 原文：
 
->  Firefox 65版本亲测有效，低版本应该也可以。
+>  Firefox 65 版本亲测有效，低版本应该也可以。
 
-因工作原因，除了主浏览器Chrome会用到多浏览器，常用的第二、三选择是Firefox和Yandex。
-但是Firefox的书签栏是继承全局设置的，关掉书签栏后新标签页也不会显示了。
-Google一番后，发现可以通过自定义CSS来实现这一功能。
+因工作原因，除了主浏览器 Chrome 会用到多浏览器，常用的第二、三选择是 Firefox 和 Yandex。
+但是 Firefox 的书签栏是继承全局设置的，关掉书签栏后新标签页也不会显示了。
+Google 一番后，发现可以通过自定义 CSS 来实现这一功能。
 
-打开本地Firefox配置文件的目录：
+打开本地 Firefox 配置文件的目录：
 ```bash
-%userprofile%\AppData\Roaming\Mozilla\Firefox\Profiles
+% userprofile%\AppData\Roaming\Mozilla\Firefox\Profiles
 ```
 这里面有一个或多个目录，找到自己账号对应的目录，
 如：
@@ -72,14 +72,15 @@ chrome
 #main-window #PersonalToolbar {
   visibility: collapse !important;
 }
-#main-window[title^="New Tab"] #PersonalToolbar {
+#main-window [title^="New Tab"] #PersonalToolbar {
   visibility: visible !important;
 }
 ```
-然后在Firefox浏览器的选项里打开显示书签栏。
+然后在 Firefox 浏览器的选项里打开显示书签栏。
 
-其中，双引号中的`"New Tab"`就是新标签的标签名字，比如中文版 Firefox 可能新标签页的名字叫做：``新标签页``，那引号里的内容就需要改为自己 Firefox 新标签页对应的名字。
+其中，双引号中的 `"New Tab"` 就是新标签的标签名字，比如中文版 Firefox 可能新标签页的名字叫做：``新标签页``，那引号里的内容就需要改为自己 Firefox 新标签页对应的名字。
 
-**解释：**
+** 解释：**
 
-这段CSS样式的意思是：在选项里是全局打开书签栏的，然后用自定义CSS隐藏了书签栏，但在特定的 `title` 页（如：新标签页）显示书签栏。
+这段 CSS 样式的意思是：在选项里是全局打开书签栏的，然后用自定义 CSS 隐藏了书签栏，但在特定的 `title` 页（如：新标签页）显示书签栏。
+

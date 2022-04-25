@@ -1,7 +1,7 @@
 ---
 title: "博客从 WordPress 换成 typecho"
 categories: ["日志"]
-tags: ["blog"," WordPress ","博客","typecho"]
+tags: ["blog","WordPress","博客","typecho"]
 draft: false
 slug: "typecho"
 date: "2011-01-08 04:45:29"
@@ -29,7 +29,7 @@ date: "2011-01-08 04:45:29"
 跟我没有关系
 我只是想写几个文字
 只是偶尔发几张图片
-就只是这样而已<!--more-->
+就只是这样而已 <!--more-->
 很多东西只是写来自己看的
 我只是想自言自语
 表达，发泄，印证，标记，歌颂，回忆……
@@ -48,6 +48,7 @@ date: "2011-01-08 04:45:29"
 我也是因为一直没有找到理想的主题模板才没有转过去
 目前在本博客子目录做了一个 typecho DEMO
 而且从 WordPress 转到 typecho 很方便
-点进本页的朋友们可以顺便去看一下~
+点进本页的朋友们可以顺便去看一下～
 <a href="http://eallion.com/">http://eallion.com/</a>
+
 

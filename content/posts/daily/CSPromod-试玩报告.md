@@ -16,7 +16,7 @@ CSP 的团队发布了 CSP beta1.05
 那我就来说说我个人的试玩体验
 
 ### 科谱
-CS:P（Counter-Strike:Promod）（反恐精英职业版）<a href="http://www.cspromod.com" target="_blank">官网</a> <a href="http://baike.baidu.com/view/93641.htm" target="_blank">百科</a>
+CS:P（Counter-Strike:Promod）（反恐精英职业版）<a href="http://www.cspromod.com" target="_blank"> 官网 </a> <a href="http://baike.baidu.com/view/93641.htm" target="_blank"> 百科 </a>
 
 CS（Counter-Strike）起初只是 HL（Half-Life）的一个 MOD 扩展包
 后来没想到风声水起
@@ -25,7 +25,7 @@ CS1.6 是 CS 的巅峰，而且目前它依然是
 后来 Valve 自己开发过 CS:S 版本，但是很失败
 在 CS1.6 日渐老化的情况下但是又没有能取代它的游戏出现
 所以这个时候出现了一个团队
-CSPromod——用 CSS 的引擎，制作出 CS1.6 一样的游戏
+CSPromod—— 用 CSS 的引擎，制作出 CS1.6 一样的游戏
 
 到 2011 年 1 月 31 号，CSP 已经发布到 beta1.05 了
 
@@ -87,9 +87,9 @@ AWP 因为我是调成 CS1.6 的模式
 因为这两把枪都可以三连发
 说真的 famas 的三连发比 1.6 要好
 瞬间静步定位瞄头的话能找到很好的开枪节奏
-最主要的是那种——爆头的感觉很爽
+最主要的是那种 —— 爆头的感觉很爽
 但是 glock 的三连发真的很怪异
-那是真的“三连发”
+那是真的 “三连发”
 而不是像 1.6 那样一下发三颗子弹出来
 感觉怎么像是用双飞燕鼠标硬件三连发那样别扭啊
 
@@ -129,3 +129,4 @@ CS1.6 在 GUI 里一个命令可以绑定两个键
 期待更多的人加入到 CSP 的开发中来
 也希望开发者多听听职业选手的意见
 期待下一个版本更加进步
+

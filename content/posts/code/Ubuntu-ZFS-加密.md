@@ -12,15 +12,15 @@ date: 2020-09-11T22:37:13+08:00
 Ubuntu 20.04 的安装镜像支持 ZFS 文件系统：
 ![](https://images.eallion.com/images/2020/09/install.png!hugo.webp)
 
-本文是**安装后**加密 ZFS Home 目录的备忘教程。  
-另外有**安装前**加密 ZFS Root 文件系统的备忘教程。链接：[《Ubuntu ZFS 原生全盘加密》](https://eallion.com/ubuntu-zfs-root-encryption)
+本文是 ** 安装后 ** 加密 ZFS Home 目录的备忘教程。  
+另外有 ** 安装前 ** 加密 ZFS Root 文件系统的备忘教程。链接：[《Ubuntu ZFS 原生全盘加密》](https://eallion.com/ubuntu-zfs-root-encryption)
 
 ### 步骤：
 
 1、安装时创建一个随意的临时账号，或者安装完成后，新建一个临时管理员用户，暂且把这个账号叫做：`tempuser`，并把它设置为自动登录，此账号必须为管理员账号。  
 后面的步骤均在此临时账号下进行。
 
-2、注销或重启后，登录`tempuser`账号，重新创建一个长期使用的用户,比如我的账号叫：`eallion`
+2、注销或重启后，登录 `tempuser` 账号，重新创建一个长期使用的用户，比如我的账号叫：`eallion`
 
 3、查看 ZFS 数据集
 ```
@@ -31,7 +31,7 @@ sudo zfs list -r rpool
 返回值如图所示：
 ![](https://images.eallion.com/images/2020/09/rpoollist.png!hugo.webp)
 
-4、取消挂载新用户`eallion`的数据集
+4、取消挂载新用户 `eallion` 的数据集
 ```
 sudo zfs set mountpoint=none rpool/USERDATA/<yourdatasetname> 
 ```
@@ -41,7 +41,7 @@ sudo zfs set mountpoint=none rpool/USERDATA/eallion_c1doe6
 ```
 > 如果这一步遇到错误，如：target is busy，需要自行排错。比如我遇到的就是挂载了其他硬盘，导致不能取消数据集的挂载。
 
-5、给新用户`eallion`创建一个新的加密数据集
+5、给新用户 `eallion` 创建一个新的加密数据集
 ```
 sudo zfs create -o encryption=on -o keyformat=passphrase rpool/USERDATA/<yourusername>_encrypt
 ```
@@ -70,7 +70,7 @@ sudo mount -a
 sudo zfs list -r rpool -o name,encryption
 ```
 如图：  
-我用的是全盘加密，所以全部返回`aes-256-gcm`，  
+我用的是全盘加密，所以全部返回 `aes-256-gcm`，  
 如果只加密了 Home 目录，则其他目录返回的是 `None`。
 ![](https://images.eallion.com/images/2020/09/encryption.png!hugo.webp)
 
@@ -78,7 +78,7 @@ sudo zfs list -r rpool -o name,encryption
 ```
 sudo zfs set com.ubuntu.zsys:bootfs-datasets=rpool/ROOT/<nameofdataset> rpool/USERDATA/<yourusername>_encrypt
 ```
-例如：（**注意**：你的数据集不一定叫`ubuntu_rroyp0`，通过第`3`步可以查看。）
+例如：（** 注意 **：你的数据集不一定叫 `ubuntu_rroyp0`，通过第 `3` 步可以查看。）
 ```
 sudo zfs set com.ubuntu.zsys:bootfs-datasets=rpool/ROOT/ubuntu_rroyp0 rpool/USERDATA/eallion_encrypt
 ```
@@ -92,12 +92,12 @@ sudo chown <yourusername>:<yourusername> /home/<yourusername>
 sudo chown -R eallion:eallion /home/eallion
 ```
 
-11、安装 `ecryptfs-utils`加密交换空间 Swap
+11、安装 `ecryptfs-utils` 加密交换空间 Swap
 ```
 sudo apt install ecryptfs-utils
 sudo ecryptfs-setup-swap
 ```
-此时出现的一些错误提示例如`swapon: cannot open /dev/mapper/cryptswap1: No such file or device`可忽略。
+此时出现的一些错误提示例如 `swapon: cannot open /dev/mapper/cryptswap1: No such file or device` 可忽略。
 
 12、查看一下是否成功
 ```

@@ -15,7 +15,7 @@ date: "2010-11-05 00:32:00"
 当然，这个赛事的所有比赛都是在主舞台上进行
 包括脑残的穿越火线 CF
 这次赛事的主办方邀请了全球最强的八支队伍来比赛
-比赛赛制是<a href="http://baike.baidu.com/view/2633411.htm" target="_blank">BO1</a> <a href="http://baike.baidu.com/view/1981908.htm" target="_blank">双败赛制</a>
+比赛赛制是 < a href="http://baike.baidu.com/view/2633411.htm" target="_blank">BO1</a> <a href="http://baike.baidu.com/view/1981908.htm" target="_blank"> 双败赛制 </a>
 虽然每支队伍都允许经过两次失利才出局
 但是在强强对话中
 肯定每场比赛都会很关键
@@ -66,7 +66,8 @@ Loord 只是在发牢骚
 但这是竞技体育
 体育运动怎么能玷污上政治色彩呢
 我想
-估计现在出现在 HLTV 里的那句"Fucking Poland Fucking Loord"
-会跟"ni men deng zhe bei xue ba"一样出名了
+估计现在出现在 HLTV 里的那句 "Fucking Poland Fucking Loord"
+会跟 "ni men deng zhe bei xue ba" 一样出名了
 我只能说波兰这伙计很不职业
 这完全上升不到民族色彩的高度
+

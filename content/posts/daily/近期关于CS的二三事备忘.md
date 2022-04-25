@@ -61,9 +61,9 @@ date: "2011-03-06 10:01:34"
 
 现代世界的很多规则和执行标准
 很少很少很少有中国制造的
-而我们曾经无知的时候所津津乐道的“Made in China”
+而我们曾经无知的时候所津津乐道的 “Made in China”
 不过是西方国家瞧不起的低质劣质代工产品而已
-“Creat in China”那才叫牛逼
+“Creat in China” 那才叫牛逼
 
 然后
 就是 Valve 官方一负责人在一个采访中
@@ -80,3 +80,4 @@ CSP 又看似遥遥无期
 跟心情有关吧
 
 IEM5 世界总决赛 NaVi vs redCode 现场众生相（转自 <a href="http://v.pcgames.com.cn/video-38584.html" target="_blank">PCGames</a>）
+

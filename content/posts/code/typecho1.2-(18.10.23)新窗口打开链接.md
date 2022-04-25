@@ -15,20 +15,20 @@ date: "2019-06-03 12:00:00"
 
 网上搜索出来的关于 typecho 新窗口打开链接的文章，都是 1.1 或者是 1.0 甚至是更老的版
 对于 git 安装的最新版没效果
-自己动手研究一下，发现可以修改`var/HyperDown.php`这个文件可以实现
-大概是第 507 行，添加`target=\"_blank\" rel=\"nofollow\"`即可
+自己动手研究一下，发现可以修改 `var/HyperDown.php` 这个文件可以实现
+大概是第 507 行，添加 `target=\"_blank\"rel=\"nofollow\"` 即可
 效果如下：
 ```php
-        // link
-        $text = preg_replace_callback(
+        //link
+        $text = preg_replace_callback (
             "/\[((?:[^\]]|\\\\\]|\\\\\[)+?)\]\(((?:[^\)]|\\\\\)|\\\\\()+?)\)/",
             function ($matches) use ($self) {
-                $escaped = $self->parseInline(
-                    $self->escapeBracket($matches[1]),  '',  false, false
+                $escaped = $self->parseInline (
+                    $self->escapeBracket ($matches [1]),  '',  false, false
                 );
-                $url = $self->escapeBracket($matches[2]);
-                $url = $self->cleanUrl($url);
-                return $self->makeHolder("<a href=\"{$url}\" target=\"_blank\" rel=\"nofollow\">{$escaped}</a>");
+                $url = $self->escapeBracket ($matches [2]);
+                $url = $self->cleanUrl ($url);
+                return $self->makeHolder ("<a href=\"{$url}\"target=\"_blank\"rel=\"nofollow\">{$escaped}</a>");
             },
             $text
         );
@@ -39,14 +39,15 @@ date: "2019-06-03 12:00:00"
 在主题 `functions.php` 里加入代码：
 ```php
 // 新窗口打开链接
-function parseContent($obj){
-    $options = Typecho_Widget::widget('Widget_Options');
-    if(!empty($options->src_add) && !empty($options->cdn_add)){
-        $obj->content = str_ireplace($options->src_add,$options->cdn_add,$obj->content);
+function parseContent ($obj){
+    $options = Typecho_Widget::widget ('Widget_Options');
+    if (!empty ($options->src_add) && !empty ($options->cdn_add)){
+        $obj->content = str_ireplace ($options->src_add,$options->cdn_add,$obj->content);
     }
-    $obj->content = preg_replace("/<a href=\"([^\"]*)\">/i", "<a href=\"\\1\" target=\"_blank\" rel=\"nofollow\">", $obj->content);
-    echo trim($obj->content);
+    $obj->content = preg_replace ("/<a href=\"([^\"]*)\">/i","<a href=\"\\1\" target=\"_blank\" rel=\"nofollow\">", $obj->content);
+    echo trim ($obj->content);
 }
 ```
 再在主题 `post.php` 里把文章输出的代码改为自定义的，即：
-`<?php $this->content(); ?>` 改成 `<?php parseContent($this); ?>`
+`<?php $this->content (); ?>` 改成 `<?php parseContent ($this); ?>`
+

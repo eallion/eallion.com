@@ -27,13 +27,13 @@ KMS 方式激活，激活一次其有效期只有 180 天，每隔一段时间�
 
 - Windows: <https://docs.microsoft.com/zh-cn/windows-server/get-started/kmsclientkeys>
 - Office 2013: <https://technet.microsoft.com/zh-cn/library/dn385360.aspx>
-- Office 2016 & 2019: <https://technet.microsoft.com/zh-cn/library/dn385360(v=office.16).aspx>
+- Office 2016 & 2019: <https://technet.microsoft.com/zh-cn/library/dn385360 (v=office.16).aspx>
 
 ### 激活教程
-激活过程需要用管理员权限打开`CMD`命令提示符。   
+激活过程需要用管理员权限打开 `CMD` 命令提示符。   
 不同的版本，需要更换为对应的 ipk 密钥。
 
-- **激活 Windows**
+- ** 激活 Windows**
 ```
 slmgr.vbs -upk
 slmgr.vbs -ipk NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J
@@ -42,22 +42,22 @@ slmgr.vbs -ato
 slmgr.vbs -dlv
 ```
 
-- **激活 32 位 Office**
-> 需要找到`OSPP.VBS`文件所在的目录
+- ** 激活 32 位 Office**
+> 需要找到 `OSPP.VBS` 文件所在的目录
 ```
 cd \Program Files (x86)\Microsoft Office\Office16
-cscript ospp.vbs /sethst:kms.eallion.com
-cscript ospp.vbs /inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP
-cscript ospp.vbs /act
-cscript ospp.vbs /dstatusall
+cscript ospp.vbs/sethst:kms.eallion.com
+cscript ospp.vbs/inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP
+cscript ospp.vbs/act
+cscript ospp.vbs/dstatusall
 ```
 
-- **激活 64 位 Office**
-> 需要找到`OSPP.VBS`文件所在的目录
+- ** 激活 64 位 Office**
+> 需要找到 `OSPP.VBS` 文件所在的目录
 ```
 cd \Program Files\Microsoft Office\Office16
-cscript ospp.vbs /sethst:kms.eallion.com
-cscript ospp.vbs /inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP
-cscript ospp.vbs /act
-cscript ospp.vbs /dstatusall
+cscript ospp.vbs/sethst:kms.eallion.com
+cscript ospp.vbs/inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP
+cscript ospp.vbs/act
+cscript ospp.vbs/dstatusall
 ```

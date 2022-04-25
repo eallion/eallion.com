@@ -12,11 +12,11 @@ date: "2016-09-08 08:30:00"
 
 1、安装 <a href="https://5ch.in/ois" target="_blank">oneinstack</a>，如果只需要反代 Google，nginx 选择 y，其他全部选择 n;
 
-2、安装编译 Nginx，当前版本为 1.10.1，注意用`nginx -V`查看一下 Nginx 版本号
+2、安装编译 Nginx，当前版本为 1.10.1，注意用 `nginx -V` 查看一下 Nginx 版本号
 
     cd ~/oneinstack/src 
 
-#下载源码
+# 下载源码
 
 ```
 git clone https://github.com/cuber/ngx_http_google_filter_module 
@@ -25,7 +25,7 @@ wget http://mirrors.linuxeye.com/oneinstack/src/pcre-8.38.tar.gz
 wget http://mirrors.linuxeye.com/oneinstack/src/openssl-1.0.2h.tar.gz
 ```
 
-#解压
+# 解压
 
 ```
 tar xzf pcre-8.38.tar.gz
@@ -34,16 +34,16 @@ tar xzf nginx-1.10.1.tar.gz
 cd nginx-1.10.1
 ```
 
-#编译
+# 编译
 
 ```
 ./configure --prefix=/usr/local/nginx --user=www --group=www --with-http_stub_status_module --with-http_v2_module --with-http_ssl_module --with-ipv6 --with-http_gzip_static_module --with-http_realip_module --with-http_flv_module --with-openssl=../openssl-1.0.2h --with-pcre=../pcre-8.38 --with-pcre-jit --with-ld-opt='-ljemalloc' --add-module=../ngx_http_google_filter_module --add-module=../ngx_http_substitutions_filter_module
 
 make  #不需要 make install
 
-mv /usr/local/nginx/sbin/nginx{,_`date +%m%d`}  #备份现有 nginx
+mv /usr/local/nginx/sbin/nginx {,_`date +% m% d`}  #备份现有 nginx
 
-cp objs/nginx /usr/local/nginx/sbin/  #更新 nginx
+cp objs/nginx/usr/local/nginx/sbin/  #更新 nginx
 
 nginx -t  #检查 nginx 语法
 
@@ -108,3 +108,4 @@ vim /usr/local/nginx/conf/vhost/getgoogle.org.conf
 service nginx restart
 ```
 教程主要参考：<a href="https://5ch.in/ong" target="_blank">https://blog.linuxeye.com/449.html</a>
+

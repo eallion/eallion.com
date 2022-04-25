@@ -35,7 +35,7 @@ RAM: 9011MiB / 15717MiB
 因为这次新版本对性能的提升还是比较大的。
 最重要的是安装的时候可以选择 ZFS 文件系统。
 而且原生支持 Nvidia 显卡驱动了，安装时勾上即可。
-安装时可选择最小化安装，这样安装好后，系统里就没有那些 [#犀利而无用](https://twitter.com/search?q=%23%E7%8A%80%E5%88%A9%E8%80%8C%E6%97%A0%E7%94%A8)  的软件。
+安装时可选择最小化安装，这样安装好后，系统里就没有那些 [# 犀利而无用](https://twitter.com/search?q=%23% E7%8A%80% E5%88% A9% E8%80%8C% E6%97% A0% E7%94% A8)  的软件。
 Live CD 的启动项也有 safe graphics 选项了，即不用手动添加 nomodeset 避免黑屏。
 
 > 这篇文章吹爆了 Ubuntu 19.10 
@@ -57,7 +57,7 @@ sudo apt upgrade
 ```
 
 #### 2、系统设置
-在`系统设置`里按自己的习惯设置即可。
+在 `系统设置` 里按自己的习惯设置即可。
 
 ####  3、安装 GNOME Tweaks
 ```
@@ -66,8 +66,8 @@ sudo apt install gnome-tweak-tool
 
 #### 4、去鼠标加速
 对于 FPS 玩家，尤其推荐去掉鼠标加速。
-4.1. 在 `GNOME Tweaks` 点击 `键盘和鼠标` 在 `鼠标`-`加速配置`里选择`Flat`。  
-4.2. 在 `系统设置`里`设备`-`鼠标和触摸板`-`鼠标`-`鼠标速度`调节自己适应的鼠标速度。  
+4.1. 在 `GNOME Tweaks` 点击 `键盘和鼠标` 在 `鼠标`-`加速配置` 里选择 `Flat`。  
+4.2. 在 `系统设置` 里 `设备`-`鼠标和触摸板`-`鼠标`-`鼠标速度` 调节自己适应的鼠标速度。  
 
 #### 5、安装 Gdebi
 ```
@@ -195,7 +195,7 @@ sh install.sh
 
 字体可以安装 Powerline ，但是推荐安装符号更全的 Ubuntu Nerd Font   或者 Knack Nerd Font Mono。在 Guake 里设置好。
 
->下载：[Ubuntu Nerd Font](https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Ubuntu/Regular/complete/Ubuntu%20Nerd%20Font%20Complete.ttf)
+> 下载：[Ubuntu Nerd Font](https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Ubuntu/Regular/complete/Ubuntu%20Nerd%20Font%20Complete.ttf)
 > 下载：[Knack Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/raw/v1.2.0/patched-fonts/Hack/Regular/complete/Knack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf)
 
 下载后直接安装字体即可。
@@ -362,7 +362,7 @@ sudo apt install flameshot
 ```
 sudo apt install pavucontrol
 ```
-然后按`Super`键在`Dash`中打开`PulseAudio`，在`设备`选项卡中关闭 HDMI 即可。
+然后按 `Super` 键在 `Dash` 中打开 `PulseAudio`，在 `设备` 选项卡中关闭 HDMI 即可。
 
 ------------
 
@@ -438,3 +438,4 @@ sudo apt install retext
 ```
 https://im.qq.com/linuxqq/index.html 
 ```
+

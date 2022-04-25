@@ -7,7 +7,7 @@ slug: "ubuntu2010"
 date: "2020-10-23 10:25:00"
 toc: false
 ---
-**安装 Ubuntu 后的 20 件事**
+** 安装 Ubuntu 后的 20 件事 **
 
 ![Ubuntu 20.10](https://images.eallion.com/images/2020/10/ubuntu2010.png!hugo.webp)
 > 实机安装 桌面效果截图 [（查看大图）](https://images.eallion.com/images/2020/10/ubuntu2010.png!hugo.webp "（查看大图）")
@@ -25,7 +25,7 @@ toc: false
 个人的备份源
 > <https://raw.githubusercontent.com/eallion/dotfiles/ubuntu/sources.list>
 ```
-sudo mv /etc/apt/sources.list /etc/apt/sources.list.backup
+sudo mv /etc/apt/sources.list/etc/apt/sources.list.backup
 wget -c https://raw.githubusercontent.com/eallion/dotfiles/ubuntu/sources.list -O /etc/apt/sources.list
 ```
 
@@ -36,11 +36,11 @@ sudo apt upgrade
 ```
 
 ### 2、系统设置
-在`系统设置`里按自己的习惯设置即可。
+在 `系统设置` 里按自己的习惯设置即可。
 
 ### 3、Sudo 免密码
 
-常用的个人电脑，是可以运行`sudo`免输密码的，公用电脑不建议这样设置。  
+常用的个人电脑，是可以运行 `sudo` 免输密码的，公用电脑不建议这样设置。  
 ```
 su - 
 ```
@@ -48,14 +48,14 @@ su -
 ```
 nano /etc/sudoers
 ```
-在`root    ALL=(ALL:ALL) ALL`下一行添加：
-（`eallion`请替换成自己的用户名)
+在 `root    ALL=(ALL:ALL) ALL` 下一行添加：
+（`eallion` 请替换成自己的用户名)
 ```
 eallion ALL=(ALL:ALL) ALL
 ```
 
-在`%sudo   ALL=(ALL:ALL) ALL`下一行添加：
-（`eallion`请替换成自己的用户名)
+在 `% sudo   ALL=(ALL:ALL) ALL` 下一行添加：
+（`eallion` 请替换成自己的用户名)
 ```
 eallion ALL=(ALL:ALL) NOPASSWD:ALL
 ```
@@ -75,11 +75,11 @@ sudo apt install vim \
 
 ### 5、去鼠标加速
 对于 FPS 玩家，尤其推荐去掉鼠标加速。  
-5.1. 在 `GNOME Tweaks` 点击 `键盘和鼠标` 在 `鼠标`-`加速配置`里选择`Flat`。  
-5.2. 在 `系统设置`里`设备`-`鼠标和触摸板`-`鼠标`-`鼠标速度`调节自己适应的鼠标速度。  
+5.1. 在 `GNOME Tweaks` 点击 `键盘和鼠标` 在 `鼠标`-`加速配置` 里选择 `Flat`。  
+5.2. 在 `系统设置` 里 `设备`-`鼠标和触摸板`-`鼠标`-`鼠标速度` 调节自己适应的鼠标速度。  
 
 ### 6、安装显卡驱动
-如果是 Nvidia 独立显卡，在 Dash 里搜索`drive`，打开`附加驱动`，选择专有驱动。  
+如果是 Nvidia 独立显卡，在 Dash 里搜索 `drive`，打开 `附加驱动`，选择专有驱动。  
 
 ### 7、下载个人配置
 基于 Linux 特性，备份配置文件即可。  
@@ -170,8 +170,8 @@ Theme=Psionics-Remix
 ```
 sudo vim /usr/share/fcitx5/data/quickphrase.d/quick.mb
 ```
-在文件中添加形如`input output`的代码，一行一条，即可实现添加快速输入辞典。  
-示例：要在快速输入中输入`ddrr`，在候选中显示`大大的小蜗牛`，只需在上述 mb 文件中添加一行`ddrr 大大的小蜗牛`即可。（注意空格）
+在文件中添加形如 `input output` 的代码，一行一条，即可实现添加快速输入辞典。  
+示例：要在快速输入中输入 `ddrr`，在候选中显示 `大大的小蜗牛`，只需在上述 mb 文件中添加一行 `ddrr 大大的小蜗牛` 即可。（注意空格）
 > 友情提示：快速输入可以使用分号打开，Rime 不支持快速输入。
 
 ### 9、双系统时间设置
@@ -182,7 +182,7 @@ sudo ntpdate ntp.aliyun.com # 阿里云的时间服务器，可用其他时间�
 sudo hwclock --localtime --systohc
 ```
 
-**前 9 个步骤执行完成后，建议重启一下！**
+** 前 9 个步骤执行完成后，建议重启一下！**
 
 ### 10、安装 Guake
 通过软件仓库直接安装的 Guake 版本不够新，而且中文显示不全。  
@@ -320,7 +320,7 @@ Theme:
 > <https://github.com/sandesh236/sleek--themes>  
 > <https://github.com/gustawho/grub2-theme-breeze>
 
-如果 Nvidia 独立显卡在引导界面开机黑屏：将`nomodeset`加到`/etc/default/grub`即可。
+如果 Nvidia 独立显卡在引导界面开机黑屏：将 `nomodeset` 加到 `/etc/default/grub` 即可。
 ```
 GRUB_CMDLINE_LINUX_DEFAULT="nomodeset quiet splash"
 ```
@@ -330,7 +330,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="nomodeset quiet splash"
 ```
 sudo blkid
 ```
-记录下`UUID`和`Type`。  
+记录下 `UUID` 和 `Type`。  
 创建挂载目录：
 ```
 mkdir -p ~/Files ~/Media
@@ -362,7 +362,7 @@ sudo apt install pavucontrol
 ### 17、安装 Docker
 > <https://docs.docker.com/engine/install/ubuntu/>
 Ubuntu 20.10 暂时还没有官方源，使用 Ubuntu 20.04 的源替代。
-即：替换` $(lsb_release -cs) `为`focal`。
+即：替换 `$(lsb_release -cs)` 为 `focal`。
 
 ```
 sudo apt remove docker docker-engine docker.io containerd runc
@@ -380,7 +380,7 @@ sudo docker run hello-world
 ```
 sudo curl -L "https://github.com/docker/compose/releases/download/1.27.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose/usr/bin/docker-compose
 ```
 Docker 属于高频操作，运行 Docker 时，免去 `sudo`
 > <https://docs.docker.com/engine/install/linux-postinstall/>
@@ -406,7 +406,7 @@ sudo apt install gnome-shell-extensions
 
 #### 18.3. 安装扩展
 > 以下扩展插件按需启用  
-> 安装完成后，按`Alt`+`F2`，输入`r`重启
+> 安装完成后，按 `Alt`+`F2`，输入 `r` 重启
 - [Applications Menu](https://extensions.gnome.org/extension/6/applications-menu/)
 - [Applications Overview Tooltip](https://extensions.gnome.org/extension/1071/applications-overview-tooltip/)
 - [Auto Move Windows](https://extensions.gnome.org/extension/16/auto-move-windows/)
@@ -468,10 +468,10 @@ Windows 可以使用 [WinDynamicDesktop](https://github.com/t1m0thyj/WinDynamicD
 git clone https://github.com/eallion/Big-Sur-Ubuntu.git ~/Pictures/Big-Sur-Ubuntu
 ```
 #### 20.2、设置  
-打开`Gnome Tweaks`  
-找到`外观`-`背景`  
-选择`groovy.xml`（文件在`/home/username/Pictures/Big-Sur-Ubuntu/groovy.xml`路径）
-选择`Zoom`调整方式  
+打开 `Gnome Tweaks`  
+找到 `外观`-`背景`  
+选择 `groovy.xml`（文件在 `/home/username/Pictures/Big-Sur-Ubuntu/groovy.xml` 路径）
+选择 `Zoom` 调整方式  
 
 ------------
 
@@ -578,3 +578,4 @@ sudo apt install vlc
 - Visual Studio Code
 > 通过 Snap 仓库安装有中文输入 Bug 。  
 > <https://code.visualstudio.com/Download> 
+

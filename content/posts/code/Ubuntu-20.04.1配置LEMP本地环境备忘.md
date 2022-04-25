@@ -28,17 +28,17 @@ sudo apt install ubuntu-desktop
 sudo apt install gnome-control-center
 ```
 
-- 查找并清除apache配置
+- 查找并清除 apache 配置
 ```
 whereis apache2
 sudo rm -rf /etc/apache2
 ```
-- 移除MySQL的配置文件
+- 移除 MySQL 的配置文件
 ```
 sudo rm -rf /var/lib/mysql/
 sudo rm -rf /etc/mysql/
 ```
-- 最后再查看apache2是否还有残留
+- 最后再查看 apache2 是否还有残留
 ```
 dpkg -l | grep apache2*
 ```

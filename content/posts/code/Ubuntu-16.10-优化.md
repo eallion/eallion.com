@@ -11,26 +11,26 @@ date: "2016-10-13 22:30:00"
 ---------
 
 阿里云：<a href="http://mirrors.aliyun.com/" target="_blank">http://mirrors.aliyun.com</a>
-在`系统设置 - 软件和更新 - 下载自 - 选择下载服务器 - 中国 - mirrors.aliyun.com`选择
+在 `系统设置 - 软件和更新 - 下载自 - 选择下载服务器 - 中国 - mirrors.aliyun.com` 选择
 或者直接编辑：
 
 ```bash
-sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak #备份系统默认的软件源
+sudo mv /etc/apt/sources.list/etc/apt/sources.list.bak #备份系统默认的软件源
 sudo vim /etc/apt/sources.list
 ```
 添加：
 
 ```bash
-deb http://mirrors.aliyun.com/ubuntu/ yakkety main restricted
-deb http://mirrors.aliyun.com/ubuntu/ yakkety-updates main restricted
-deb http://mirrors.aliyun.com/ubuntu/ yakkety universe
-deb http://mirrors.aliyun.com/ubuntu/ yakkety-updates universe
-deb http://mirrors.aliyun.com/ubuntu/ yakkety multiverse
-deb http://mirrors.aliyun.com/ubuntu/ yakkety-updates multiverse
-deb http://mirrors.aliyun.com/ubuntu/ yakkety-backports main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ yakkety-security main restricted
-deb http://mirrors.aliyun.com/ubuntu/ yakkety-security universe
-deb http://mirrors.aliyun.com/ubuntu/ yakkety-security multiverse
+deb http://mirrors.aliyun.com/ubuntu/yakkety main restricted
+deb http://mirrors.aliyun.com/ubuntu/yakkety-updates main restricted
+deb http://mirrors.aliyun.com/ubuntu/yakkety universe
+deb http://mirrors.aliyun.com/ubuntu/yakkety-updates universe
+deb http://mirrors.aliyun.com/ubuntu/yakkety multiverse
+deb http://mirrors.aliyun.com/ubuntu/yakkety-updates multiverse
+deb http://mirrors.aliyun.com/ubuntu/yakkety-backports main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/yakkety-security main restricted
+deb http://mirrors.aliyun.com/ubuntu/yakkety-security universe
+deb http://mirrors.aliyun.com/ubuntu/yakkety-security multiverse
 ```
 
 2、Update
@@ -57,7 +57,7 @@ sudo apt install guake
 
 5、系统设置
 ------
-在`系统设置`里进行一些必要的设置，如：壁纸、电源、显示、亮度、隐私
+在 `系统设置` 里进行一些必要的设置，如：壁纸、电源、显示、亮度、隐私
 
 6、安装输入法
 -------
@@ -98,17 +98,17 @@ sudo apt remove libreoffice-common
 sudo apt remove unity-webapps-common  
 ```
 
-9、解决“月月”显示错误
+9、解决 “月月” 显示错误
 ------------
 
-在`时间和日期`设置里，选择年份和星期同时显示，月份则会出现“月月”两个月字。
+在 `时间和日期` 设置里，选择年份和星期同时显示，月份则会出现 “月月” 两个月字。
 解决方法：
   1）、不要选择显示星期或者年份
   2）、手动设置显示格式：
 
 ```bash
 gsettings set com.canonical.indicator.datetime time-format 'custom'
-gsettings set com.canonical.indicator.datetime custom-time-format '%Y年%m月%d日 %A%H:%M:%S'
+gsettings set com.canonical.indicator.datetime custom-time-format '% Y 年 % m 月 % d 日 % A% H:% M:% S'
 ```
 
 10、Unity 显示的位置
@@ -127,7 +127,7 @@ gsettings set com.canonical.Unity.Launcher launcher-position Left
 ---------
 
 ```bash
-gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true
+gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/launcher-minimize-window true
 ```
 
 12、安装 Tweak tool 优化工具
@@ -155,11 +155,11 @@ allow-guest=false
 14、禁用 ipv6
 ---------
 
-1）、先查看你的网卡信息，并非所有网卡都叫`eth0`
+1）、先查看你的网卡信息，并非所有网卡都叫 `eth0`
 ```bash
 ifconfig
 ```
-记录下网卡名字，比如我的，有`enp4s0f2`、`lo`、`wlp9s0b1`三个
+记录下网卡名字，比如我的，有 `enp4s0f2`、`lo`、`wlp9s0b1` 三个
 2）、编辑文件：
 ```bash
 sudo vim /etc/sysctl.conf
@@ -179,13 +179,13 @@ sudo sysctl -p
 
 15、设置鼠标加速度
 ----------
-注：`鼠标加速度`和`鼠标速度`是两个不同的概念
+注：`鼠标加速度` 和 `鼠标速度` 是两个不同的概念
 1）、命令：
 ```bash
 xset m 0 0
 ```
 或者把它写入开机启动。
-2）、我现在用的是另外一个方法，在 Ubuntu 软件 里搜索`Mouse`，结果中选择`Keyboard and Mouse`安装，用这个 GUI 设置。这个方法更简便，重启或休眠后也不会失效。
+2）、我现在用的是另外一个方法，在 Ubuntu 软件 里搜索 `Mouse`，结果中选择 `Keyboard and Mouse` 安装，用这个 GUI 设置。这个方法更简便，重启或休眠后也不会失效。
 
 16、自动挂载硬盘
 ---------
@@ -301,7 +301,7 @@ sudo apt install virtualbox
 22、安装 Google Chrome 浏览器
 ---------------------
 如果喜欢 Chromium，可以从软件中心安装
-但是我更喜欢 Chrome，到<a href="https://dl.google.com/Linux/direct/google-chrome-stable_current_amd64.deb" target="_blank">https://chrome.google.com</a>可以下载最新版。
+但是我更喜欢 Chrome，到 < a href="https://dl.google.com/Linux/direct/google-chrome-stable_current_amd64.deb" target="_blank">https://chrome.google.com</a > 可以下载最新版。
 
 23、安装 GDebi
 ----------
@@ -317,7 +317,7 @@ sudo apt install gdebi
 
 也可以安装 geeeeeeeeek 提供的微信，这实质上跟 Chrome 应用是一回事。
 <a href="https://github.com/geeeeeeeeek/electronic-wechat" target="_blank">https://github.com/geeeeeeeeek/electronic-wechat</a>
-前提是已经安装`git`、`Node.js`、`npm`
+前提是已经安装 `git`、`Node.js`、`npm`
 ```bash
 git clone https://github.com/geeeeeeeeek/electronic-wechat.git
 cd electronic-wechat
@@ -370,3 +370,4 @@ sudo apt install numix-gtk-theme
 sudo apt install numix-icon-theme-circle
 ```
 安装好之后，通过 Tweak tool 设置。
+

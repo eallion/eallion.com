@@ -55,7 +55,7 @@ netstat -anp | grep sshd
 
 至此，我们以后工作将在 PieTTY 的 linux 终端窗口中完成，即所有 linux 命令在这个窗口里输入和执行，
 下面我们正式开始：
-1、在 linux 系统中建立一个目录，我们先进入系统的/home 分区，然后建立一个新目录 hlds_l_4617（因为我下载的是 4617 版本的 cs1.6，所以用版本号以示区别），之后进入新建的目录，命令如下：
+1、在 linux 系统中建立一个目录，我们先进入系统的 /home 分区，然后建立一个新目录 hlds_l_4617（因为我下载的是 4617 版本的 cs1.6，所以用版本号以示区别），之后进入新建的目录，命令如下：
 ```
 cd /home
 mkdir hlds_l_4617
@@ -73,7 +73,7 @@ wget http://storefront.steampowered.com/download/hldsupdatetool.bin
 ```
 chmod 0755 hldsupdatetool.bin
 ```
-（注：如果你未用 chmod 命令给一个文件授权可执行，linux 系统会提示"Permission denied（无执行权限）"错误。 可见，linux 的安全机制确实是 windows2003 无法比拟的，所以即便一个病毒程序已经进入到 linxu 中，如果服务器的操作员不用 chmod 命令授予它可执行权限，那病毒程序也是无法发作的）
+（注：如果你未用 chmod 命令给一个文件授权可执行，linux 系统会提示 "Permission denied（无执行权限）" 错误。 可见，linux 的安全机制确实是 windows2003 无法比拟的，所以即便一个病毒程序已经进入到 linxu 中，如果服务器的操作员不用 chmod 命令授予它可执行权限，那病毒程序也是无法发作的）
 
 4、现在执行 hldsupdatetool.bin 程序，来释放出 steam 程序（steam 才是真正下载 cs1.6 服务器全部文件的关键程序），命令如下：
 ```
@@ -90,7 +90,7 @@ sh: uncompress: command not found
 ```
 此时请先执行下面命令，之后重新执行./hldsupdatetool.bin
 ```
-ln -s /usr/bin/gunzip /usr/bin/uncompress
+ln -s /usr/bin/gunzip/usr/bin/uncompress
 ```
 
 
@@ -100,8 +100,8 @@ ln -s /usr/bin/gunzip /usr/bin/uncompress
 ```
 
 参数说明：
-- -game cstrike ：这个参数告诉 steam 你要下载的是反恐精英 cs1.6（如果你需要下载的是【反恐精英－起源】那么把这个参数改为-game "Counter-Strike Source"）
-- -dir ：意思是将全部文件下载到当前目录，我们当前的目录是/home/hlds_l_4617
+- -game cstrike ：这个参数告诉 steam 你要下载的是反恐精英 cs1.6（如果你需要下载的是【反恐精英－起源】那么把这个参数改为 - game "Counter-Strike Source"）
+- -dir ：意思是将全部文件下载到当前目录，我们当前的目录是 /home/hlds_l_4617
 - -retry ：网络断线自动重新尝试下载，即断点续传
 
 现在你可以睡一觉或干点别的了，耐心等待它下载完成。
@@ -123,7 +123,7 @@ ln -s /usr/bin/gunzip /usr/bin/uncompress
 - -port 27015  玩家客户端登录端口
 - +maxplayers 32 允许的最大玩家数
 - +map de_dust2 启动时加载的地图
-- +sv_lan 0   为 0 时，允许互联网/局域网都可登录，为 1 时，只允许局域网登录
+- +sv_lan 0   为 0 时，允许互联网 / 局域网都可登录，为 1 时，只允许局域网登录
 - -noipx 不使用 ipx 网络协议
 - -nojoy 不支持摇杆
 - -nohltv   关闭视频广播
@@ -179,7 +179,7 @@ dproto 模块插件的伟大之处在于它并不修改原版 cs.16 服务端半
 2、安装测试 dproto 插件
 （一）、安装和测试 matamod 平台
 输入下面的命令，下载 Matemod 的 linux 版本：
-提示：我们当前所在的目录是/home/hlds_l_4617 ，文件将下载到当前目录
+提示：我们当前所在的目录是 /home/hlds_l_4617 ，文件将下载到当前目录
 ```
 wget http://prdownloads.sourceforge.net/metamod-p/metamod-p-1.19p32-linux_i586.tar.gz?download
 ```
@@ -242,7 +242,7 @@ cp metamod_i386.so cstrike/addons/metamod/dlls
 sudo vi cstrike/liblist.gam
 ```
 
-进入 vi 的文本编辑环境以后，按键盘上的"I"进入文本编辑模式：
+进入 vi 的文本编辑环境以后，按键盘上的 "I" 进入文本编辑模式：
 将 liblist.gam 中下面这一行：
 ```
 gamedll_linux "dlls/cs_i386.so"
@@ -262,9 +262,9 @@ gamedll_linux "addons/metamod/dlls/metamod_i386.so"
 gamedll_chain "dlls/cs_i386.so"
 gamedll_linux "addons/metamod/dlls/metamod_i386.so"
 ```
-修改后，按键盘上的'ESC'键回退到 vi 控制模式，然后输入命令 :wq ，然后【回车】，保存和退出。
+修改后，按键盘上的 'ESC' 键回退到 vi 控制模式，然后输入命令 :wq ，然后【回车】，保存和退出。
   
-（注：linux 下的文本编辑工具是 vi ，vi 有两种模式，编辑模式和控制模式，按'I'进入编辑模式，按'ESC'回退到 vi 控制模式，vi 编辑器的命令很强大也很灵活，这里不做论述，其详细使用方法请查看其他有关文献）
+（注：linux 下的文本编辑工具是 vi ，vi 有两种模式，编辑模式和控制模式，按 'I' 进入编辑模式，按 'ESC' 回退到 vi 控制模式，vi 编辑器的命令很强大也很灵活，这里不做论述，其详细使用方法请查看其他有关文献）
 
 接下来我们启动 hlds 服务端程序，看 metamod 是不是跟随 cs1.6 服务器一起启动了
 我们再次执行 hlds 启动命令：
@@ -312,12 +312,12 @@ http://www.v.bdjy.cn/out/download_oracle.jsp?db=nav_c_blobdata&id=1202
 sudo vi cstrike/addons/metamod/plugins.ini
 ```
 
-按键盘上的'I'键进入编辑模式，
+按键盘上的 'I' 键进入编辑模式，
 添加下面一行
 ```
 linux addons/dproto/dproto_i386.so
 ```
-然后按键盘上的'Esc'键回退到 vi 控制模式，输入:wq ，然后【回车】，保存退出
+然后按键盘上的 'Esc' 键回退到 vi 控制模式，输入:wq ，然后【回车】，保存退出
 
 你刚才创建的 plugins.ini 文件的绝对位置应该在：
 ```
@@ -340,12 +340,12 @@ linux addons/dproto/dproto_i386.so
 sudo vi hlds4617.sh
 ```
 
-按键盘上的'I'键进入 vi 编辑模式，然后将 hlds 的启动命令写进去：
+按键盘上的 'I' 键进入 vi 编辑模式，然后将 hlds 的启动命令写进去：
 ```
 ./hlds_run -console -game cstrike -condebug -insecure -pingboost 3 -port 27015 +maxplayers 32 +map de_dust2 +sv_lan 0 -noipx -nojoy -nohltv
 ```
 
-然后按键盘上的'Esc'键，回退到 vi 控制模式，输入:wq  ，然后【回车】，保存退出。
+然后按键盘上的 'Esc' 键，回退到 vi 控制模式，输入:wq  ，然后【回车】，保存退出。
 
 执行刚刚建立的这个批命令文件：
 ```
@@ -418,19 +418,19 @@ sudo service iptables restart
 关于 linux 下的 hlds4617 服务器性能（fps）的调整，使 hlds 服务器端达到 1000fps。
 
 若想使服务器端的 fps 达到 1000，这在 linux 系统下是十分容易做到的，其关键之处在于两个地方：
-1、是在启动命令中必须有-pingboost 3 参数（参照第一部分的启动参数）；
+1、是在启动命令中必须有 - pingboost 3 参数（参照第一部分的启动参数）；
 2、是需要在游戏中用管理员身份（不是 amxx 中的 op）执行 sys_ticrate 命令；
 3、如果跳 ping，控制方法是提高 hlds_run 的优先级。
 
 注意：此处讨论的是 hlds 服务器端的 fps 调整，服务器端的 fps 越高，玩家客户端（参数与服务器匹配）就越流畅。
-服务器 fps 并不是越高越好（根据服务器性能），而是“高且稳定为最好”。
+服务器 fps 并不是越高越好（根据服务器性能），而是 “高且稳定为最好”。
 
 影响服务器端 fps 的参数是 sys_ticrate（默认值 60）的值，我们需要结合 rcon stats 命令，来设置一个最佳的 sys_ticrate 的值，具体方法是：
 1、运行 cs 客户端，进入我们的服务器
-2、按键盘左上角的“`”键调出客户端控制台（rcon），rcon_password（服务器管理口令）使自己变为管理员身份（如图）
+2、按键盘左上角的 “`” 键调出客户端控制台（rcon），rcon_password（服务器管理口令）使自己变为管理员身份（如图）
   
 (注：管理口令在服务器端的 server.cfg 设置，如果没有设置，需在 server.cfg 中添加下面一行：
-rcon_password "12345678"//管理口令就是 12345678，你可以更改这个口令。
+rcon_password "12345678"// 管理口令就是 12345678，你可以更改这个口令。
 
 3、使用 rcon stats 命令，查看当前服务器的 fps 值。
 
@@ -439,7 +439,7 @@ rcon_password "12345678"//管理口令就是 12345678，你可以更改这个口
 实际运行中你可能会遇到服务器端 fps 不稳的情况，间或有跌到 800fps 甚至 500fps，对于这种情况，网友 weyoung 给出一个思路，你可以参照他提供的办法：
 
 如果出现跳 PING 现象，改变程序 HLDS 的优先级就可以了！
-//显示当前活动的进程，命令：
+// 显示当前活动的进程，命令：
 ```
 top
 ```
@@ -457,6 +457,7 @@ renice -10 3305
 top
 ```
 
-截图显示，hlds_run 进程优先级由 +10 改为-10，以此方法来提高 hlds 的优先级，使我们的 cs1.6 服务器 fps 高且稳定（注：linux 的进程优先级范围是－20，+19，数字越小，优先级越高）。
+截图显示，hlds_run 进程优先级由 +10 改为 - 10，以此方法来提高 hlds 的优先级，使我们的 cs1.6 服务器 fps 高且稳定（注：linux 的进程优先级范围是－20，+19，数字越小，优先级越高）。
 
 注意：图片显示的进程修改后的优先级是错的，应以教程文字为准。
+

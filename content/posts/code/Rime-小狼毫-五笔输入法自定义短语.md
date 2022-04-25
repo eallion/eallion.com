@@ -10,7 +10,7 @@ date: "2019-04-19 15:45:00"
 > 最新更新：2021.01.21  [eallion/dotfiles](https://github.com/eallion/dotfiles/tree/windows/Users/eallion/AppData/Roaming/Rime)
 
 ### 第一步： 
-在文件资源管理器中打开 `%AppData%\Rime` 进入「用户文件夹」，或者通过右键点击任务栏图标进入「用户文件夹」。
+在文件资源管理器中打开 `% AppData%\Rime` 进入「用户文件夹」，或者通过右键点击任务栏图标进入「用户文件夹」。
 
 ### 第二步： 
 在用户目录中新建 `Custom_phrase.txt` ，输入以下内容：
@@ -24,7 +24,7 @@ date: "2019-04-19 15:45:00"
 #【小狼毫】0.9.21 以上
 #
 # 請將該文件以 UTF-8 編碼保存爲
-# Rime 用戶文件夾/custom_phrase.txt
+# Rime 用戶文件夾 /custom_phrase.txt
 #
 # 碼表各字段以製表符（Tab）分隔
 # 順序爲：文字、編碼、權重（決定重碼的次序、可選）
@@ -36,15 +36,15 @@ date: "2019-04-19 15:45:00"
 ```
 说明：
 - 格式为：`自定义短语` `短语编码` `排序`，如：`大大的小蜗牛    ddrr    1`
-- 格式中的`Tab`不能用空格代替
-- `# no comment` 之后的内容中`#`注释会失效
+- 格式中的 `Tab` 不能用空格代替
+- `# no comment` 之后的内容中 `#` 注释会失效
 - 不宜添加过多的自定义短语，若有大量自定义短语请用用户词典
 
 ### 第三步： 
-在「用户文件夹」中新建一个文件：`wubi_pinyin.custom.yaml`，一般新建一个跟正在使用的输入方案词典同名的`custom`文件。
+在「用户文件夹」中新建一个文件：`wubi_pinyin.custom.yaml`，一般新建一个跟正在使用的输入方案词典同名的 `custom` 文件。
 
 ### 第四步： 
-在`wubi_pinyin.custom.yaml`里添加修改如下代码：
+在 `wubi_pinyin.custom.yaml` 里添加修改如下代码：
 ```yaml
 patch:
   engine/translators:
@@ -61,7 +61,7 @@ patch:
     enable_sentence: false
     initial_quality: 1
 ```
-说明：不能出现多个`patch`，一个文件中只能出现一次`patch`，多余的需要注释掉。
+说明：不能出现多个 `patch`，一个文件中只能出现一次 `patch`，多余的需要注释掉。
 
 ### 第五步： 
 重新部署输入法。
@@ -89,8 +89,8 @@ patch:
       ">": ["》", ">", "〉", "»", "›"]
 
   recognizer/patterns/reverse_lookup: # 关闭 ` 键的反查功能
-    'punctuator/full_shape/`': "`"
-    'punctuator/half_shape/`': "`"
+    'punctuator/full_shape/`':"`"
+    'punctuator/half_shape/`':"`"
 
   translator/enable_user_dict: false # 用户词典
   translator/enable_completion: false # 逐码提示
@@ -131,3 +131,4 @@ patch:
     enable_sentence: false # 是否开启自动造句
     initial_quality: 1000 # 优先级，如果想要自定义的词排在前面，这个值尽量设大一点
 ```
+

@@ -1,5 +1,5 @@
 ---
-title: "修改Ubuntu状态栏托盘图标顺序"
+title: "修改 Ubuntu 状态栏托盘图标顺序"
 categories: ["代码"]
 tags: ["Ubuntu","图标","托盘","状态栏"]
 draft: false
@@ -7,7 +7,7 @@ slug: "ubuntu-system-icon"
 date: "2016-10-17 04:32:00"
 ---
 
-状态栏托盘图标顺序，在`/usr/share/indicator-application/ordering-override.keyfile`修改：
+状态栏托盘图标顺序，在 `/usr/share/indicator-application/ordering-override.keyfile` 修改：
 
 直接修改这个文件会在所有用户中生效，如果只要在当前用户改变图标顺序，把这个文件复制到 `~/.local/share/indicators/application` 目录下就可以了：
 
@@ -40,15 +40,15 @@ gsd-keyboard-xkb=5
 [Ordering Index Overrides]
 nm-applet=1 #系统图标
 gnome-power-manager=2 #电池图标
-ibus=3 #ibus输入法
+ibus=3 #ibus 输入法
 gst-keyboard-xkb=4 
 gsd-keyboard-xkb=5
 netease-cloud-music=6 #网易云音乐
 electronic-wechat1=7 #微信
 Shadowsocks-Qt5=8 #SS
-fcitx-qimpanel=9 #fcitx输入法
-Nylas N11=10 #N1邮件客户端
-chrome_app_indicator_3=11 #Chrome图标
+fcitx-qimpanel=9 #fcitx 输入法
+Nylas N11=10 #N1 邮件客户端
+chrome_app_indicator_3=11 #Chrome 图标
 indicator-sysmonitor=20 #网速指示器
 ```
 
@@ -63,7 +63,7 @@ sudo vim icon.sh
 ```bash
 #!/bin/sh
  
-dbus-send --type=method_call --print-reply --dest=com.canonical.indicator.application /com/canonical/indicator/application/service com.canonical.indicator.application.service.GetApplications | grep "string" > /tmp/indicators.txt
+dbus-send --type=method_call --print-reply --dest=com.canonical.indicator.application/com/canonical/indicator/application/service com.canonical.indicator.application.service.GetApplications | grep "string" > /tmp/indicators.txt
  
 c=$(wc -l < /tmp/indicators.txt)
 i=$((c / 8))
@@ -100,3 +100,4 @@ string "nm-applet"
 修改完成后可以直接运行 `$restart unity-panel-service` 使改变生效，如果命令不可用，注销并重新登入即可。
 
 感谢：[http://www.slblog.net/2014/05/change-the-order-of-indicators-in-ubuntu-indicators-applet](http://www.slblog.net/2014/05/change-the-order-of-indicators-in-ubuntu-indicators-applet)
+

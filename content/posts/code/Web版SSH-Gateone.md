@@ -86,29 +86,29 @@ unix_socket_path = "/var/run/gateone.sock"
     ssl_auth = "none"
 log_file_max_size = 104857600
 session_timeout = "5d"
-command = "/opt/gateone/plugins/ssh/scripts/ssh_connect.py -S '/tmp/gateone/%SESSION%/%SHORT_SOCKET%' --sshfp -a '-oUserKnownHostsFile=%USERDIR%/%USER%/ssh/known_hosts'"
+command = "/opt/gateone/plugins/ssh/scripts/ssh_connect.py -S '/tmp/gateone/% SESSION%/% SHORT_SOCKET%' --sshfp -a '-oUserKnownHostsFile=% USERDIR%/% USER%/ssh/known_hosts'"
 ca_certs = None
 js_init = ""
 keyfile = "/etc/letsencrypt/live/su-root.top/privkey.pem" #    ssl 密钥
 log_file_prefix = "/opt/gateone/logs/webserver.log"
 ```
 
-`:wq`保存后，重新测试一下
+`:wq` 保存后，重新测试一下
 
 ```bash
 cd /opt/gateone
 ./gateone.py
 ```
-在浏览器中打开`https://ip:22222`即可使用。
+在浏览器中打开 `https://ip:22222` 即可使用。
 
 ### 4、配置 Nginx 代理端口
-如果使用`https://gateone.com:22222`这样的地址，不方便不美观也不容易记，如果用 Nginx 代理端口，就能使用 https://gateone.com 来使用了 Gateone 了。
+如果使用 `https://gateone.com:22222` 这样的地址，不方便不美观也不容易记，如果用 Nginx 代理端口，就能使用 https://gateone.com 来使用了 Gateone 了。
 ```bash
 sudo vim your/nginx/dir*******/su-root.top.conf
 ```
 修改为：
 
-#强制跳转到 https
+# 强制跳转到 https
 ```nginx
 server {
     listen 80;
@@ -130,7 +130,7 @@ server {
     ssl_stapling_verify on;
     server_name su-root.top www.su-root.top;
 
-#代理端口
+# 代理端口
     location / {
         proxy_pass_header Server;
         proxy_set_header Host $http_host;
@@ -145,3 +145,4 @@ server {
 }
 ```
 Link：<a href="https://su-root.top" target="_blank">https://su-root.top</a>
+

@@ -10,8 +10,8 @@ date: "2017-02-16 23:54:00"
 本博客用的是阿里云华东 1 区的 ECS，去年有段时间因为某些原因需要用到香港的 VPS，所以收集了一部分香港 VPS 主机。
 我不作任何的评价和推荐，只是给迷路的小伙伴另一种选择。有钱还是上阿里云腾讯云。（全带 referral）
 
- - 阿里云：<a href="https://promotion.aliyun.com/ntms/act/ambassador/sharetouser.html?userCode=wuthb7tq&productCode=vm" target="_blank">云大使链接</a> 点击领券
- - 腾讯云：<a href="http://www.qcloud.com/redirect.php?redirect=1001&cps_key=1f05a4ef7955bfdbc954f3f0a115c2e3" target="_blank">推广链接</a>
+ - 阿里云：<a href="https://promotion.aliyun.com/ntms/act/ambassador/sharetouser.html?userCode=wuthb7tq&productCode=vm" target="_blank"> 云大使链接 </a> 点击领券
+ - 腾讯云：<a href="http://www.qcloud.com/redirect.php?redirect=1001&cps_key=1f05a4ef7955bfdbc954f3f0a115c2e3" target="_blank"> 推广链接 </a>
 
 ----------
 
@@ -37,4 +37,5 @@ date: "2017-02-16 23:54:00"
 - <a href="https://www.conoha.jp/referral/?token=lDLYcAHsy2xTZshlzlSQorkx.MFJHHrKdAMsNIaLGovgDJQ_P_8-O74" target="_blank">https://www.conoha.jp/referral/?token=lDLYcAHsy2xTZshlzlSQorkx.MFJHHrKdAMsNIaLGovgDJQ_P_8-O74 </a>
 - <a href="http://www.ufovps.com/aff.php?aff=138" target="_blank">http://www.ufovps.com/aff.php?aff=138 </a>
 - <a href="https://www.moguhost.com/aff.php?aff=150" target="_blank">https://www.moguhost.com/aff.php?aff=150 </a>（蘑菇主机）
+
 

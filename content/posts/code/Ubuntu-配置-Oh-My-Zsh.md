@@ -42,7 +42,7 @@ sh install.sh
 
 字体可以安装 Powerline ，但是推荐安装符号更全的 Ubuntu Nerd Font 或者 Knack Nerd Font Mono。在 Guake 里设置好。
 
->下载：[Ubuntu Nerd Font ](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Ubuntu/Regular/complete/Ubuntu%20Nerd%20Font%20Complete.ttf)
+> 下载：[Ubuntu Nerd Font ](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Ubuntu/Regular/complete/Ubuntu%20Nerd%20Font%20Complete.ttf)
 > 下载：[Knack Nerd Font Mono](https://github.com/ryanoasis/nerd-fonts/raw/v1.2.0/patched-fonts/Hack/Regular/complete/Knack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf)
 
 下载后直接安装字体即可。
@@ -90,3 +90,4 @@ plugins=( git extract fasd zsh-autosuggestions zsh-syntax-highlighting docker do
 ```
 source ~/.zshrc
 ```
+

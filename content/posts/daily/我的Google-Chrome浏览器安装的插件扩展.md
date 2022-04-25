@@ -13,7 +13,7 @@ Google Chrome 常用插件做个记录备忘，以免像前几年一次重置账
 > 神器：
 
 1.<img src="https://images.eallion.com/images/2019/04/11/pic_001.png!hugo.webp"> [扩展管理器 Extension Manager](https://chrome.google.com/webstore/detail/gjldcdngmdknpinoemndlidpcabkggco)  
-*这个扩展可以一键开关其他扩展，简直是神器。*
+* 这个扩展可以一键开关其他扩展，简直是神器。*
 
 > 默认开启的扩展：
 
@@ -61,3 +61,4 @@ Google Chrome 常用插件做个记录备忘，以免像前几年一次重置账
 25.<img src="https://images.eallion.com/images/2019/04/11/pic_039.png!hugo.webp"> [有道云笔记网页剪报](https://chrome.google.com/webstore/detail/joinpgckiioeklibflapokicmndlcnef)  
 26.<img src="https://images.eallion.com/images/2019/04/11/pic_040.png!hugo.webp"> [违禁词检查](https://chrome.google.com/webstore/detail/hidcgccgkiamehonfofohinbaeefabmi)  
 27.<img src="https://images.eallion.com/images/2019/04/11/pic_041.png!hugo.webp"> [钦定字体](https://chrome.google.com/webstore/detail/lmjdabbpgabigbonekfpjhfgjekpnkge)  
+
