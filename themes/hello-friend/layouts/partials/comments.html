@@ -3,8 +3,6 @@
     <span class="pagination__title-h">{{ i18n "comments" }}</span>
     <hr />
 </div>
-
-{{ $disqusjscss := resources.Get "css/disqusjs.css" | resources.Minify | resources.Fingerprint "sha256" }}
 <div id="disqus_thread"></div>
 {{ $disqusjs := resources.Get "js/disqus.js" | resources.Minify | resources.Fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $disqusjs.RelPermalink }}" integrity="{{ $disqusjs.Data.Integrity }}" crossorigin="anonymous"></script>

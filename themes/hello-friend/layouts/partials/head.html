@@ -19,8 +19,8 @@
 <link rel="preconnect" href="https://sdn.geekzu.org" crossorigin="anonymous">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous">
 
-<!-- IE 弹窗提示 -->
-<script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) document.write('\x3Cscript id="_iealwn_js" data-outver="11" src="https://cdn.jsdelivr.net/npm/ie-alert-warning@1.1.1/latest.js">\x3C/script>'); </script>
+<!-- 所有 IE 访问都提示升级（包括 IE11、IE10、IE9、IE8、IE7、IE6），每次打开都提示升级 -->
+<script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) document.write('\x3Cscript id="_iealwn_js" data-outver="11" src="https://support.dmeng.net/ie-alert-warning/latest.js">\x3C/script>'); </script>
 
 {{/*  main css  */}}
 {{ $maincss := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint "sha256" }}
@@ -29,10 +29,6 @@
 {{/*  prism css  */}}
 {{ $prismcss := resources.Get "css/prism.css" | resources.Minify | resources.Fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $prismcss.RelPermalink }}" integrity="{{ $prismcss.Data.Integrity }}" crossorigin="anonymous">
-
-<!-- fancybox v3 -->
-{{ $fancyboxcss := resources.Get "css/jquery.fancybox.css" | resources.Minify | resources.Fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ $fancyboxcss.RelPermalink }}" integrity="{{ $fancyboxcss.Data.Integrity }}" crossorigin="anonymous">
 
 <link rel="shortcut icon" href="/favicon.ico" crossorigin="anonymous">
 
