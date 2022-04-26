@@ -176,20 +176,21 @@ hugo new posts/daily/new_title.md
 
 ```
 git add .
-git cz
-# git commit -m "add: a new post"
+git commit -m "docs: add a new post"
 git push
 ```
 
 5. **本地调试**（~~Web Server~~）
+
+已添加脚本：
 ```
-hugo server -wD
+./server.sh
 ```
-个人常用：
+脚本内容：
 ```
 hugo server -w -D -p 8080 -t hello-friend --bind 192.168.0.5 --baseURL 192.168.0.5 --renderStaticToDisk
 ```
-> 在浏览器中打开：http://192.168.0.5:8080
+> 运行脚本后会自动打开预览页面：http://192.168.0.5:8080
 - `hugo server` 把 Hugo 当作 Web 服务器，而非构建静态网页
 - `-w` 有文件变化立即刷新（默认开启）
 - `-D` 构建草稿，撰写新文章时很有用
@@ -231,7 +232,7 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 
  - **`code` 原始主题自带代码块**
  
- 已弃用，一般都用 Markdown 自带语法。
+**已弃用**，一般都用 Markdown 自带语法。
 <pre>
 ```html
   // your code here
@@ -403,43 +404,31 @@ git gc --prune=now --aggressive
 
 1. **安装插件**
 
-> 可将 `-g` 改为 `--save-dev` 或 `-D`
-
 ```
-npm install --save-dev postcss
-npm install -g commitizen
-npm install -g cz-conventional-changelog
-npm install -g conventional-changelog-cli
-npm install -g @commitlint/cli @commitlint/config-conventional
-echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
-npm install -g husky
-npx husky install
-npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
-commitizen init cz-conventional-changelog --save --save-exact
+npm install
 ```
 
 2. **规范提交**
 ```
 git add .
-git cz
-# git commit -m "docs: post a new blog"
+git commit -m "docs: post a new blog"
 git push
 ```
 
 Types:
 
 ```
-feat 新功能
-fix Bug 修复
-docs 文档更新
-style 代码的格式，标点符号的更新
-refactor 代码重构
-perf 性能优化
-test 测试更新
-build 构建系统或者包依赖更新
-ci CI 配置，脚本文件等更新
-chore 非 src 或者 测试文件的更新
-revert commit 回退
+feat        #新功能
+fix         #Bug 修复
+docs        #文档更新
+style       #代码的格式，标点符号的更新
+refactor    #代码重构
+perf        #性能优化
+test        #测试更新
+build       #构建系统或者包依赖更新
+ci CI       #配置，脚本文件等更新
+chore       #非 src 或者 测试文件的更新
+revert      #commit 回退
 ```
 
 3. **生成 ChangeLog**
@@ -447,7 +436,6 @@ revert commit 回退
 ```
 conventional-changelog -p angular -i CHANGELOG.md -s -r 0
 ```
-以上命令中参数`-p angular` 用来指定使用的 commit message 标准，参数-`i CHANGELOG.md` 表示从 `CHANGELOG.md` 读取 ChangeLog, `-s` 表示读写 ChangeLog 为同一文件。其中 `-r` 表示生成 ChangeLog 所需要使用的 release 版本数量，默认为 1，全部则是 0。
 
 ### 🖼️图片
 
