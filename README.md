@@ -366,7 +366,8 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 | autoplay | true / false | 可选参数。(Type: String) 进入页面后自动播放。 |
 
 ### 🗃️静态文件（CSS、JS）
-> Update: 2021.01.05
+
+> Update: 2022.04.27
 
 因为本博客整站都在 CDN 上，所以静态文件没有再使用另外的 CDN 加速了。
 现在使用了 Hugo 自带的 Asset minification。
@@ -377,7 +378,16 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 <link rel="stylesheet" href="{{ $maincss.RelPermalink }}" integrity="{{ $maincss.Data.Integrity }}" crossorigin="anonymous">
 ```
 
+> 更新：
+
+部分静态文件已经放到 CDN 上，另一部分用 Webpack 打包。
+```
+npm install
+npx webpack --mode production
+```
+
 ### 👍添加图标
+
 添加 Iconify 图标的方式：
 > <https://icon-sets.iconify.design/>
 ```html

@@ -1,8 +1,7 @@
 {{ define "main" }}
 <!-- Include only the reset -->
 <!-- reset.css within of the satellite.css -->
-{{ $resetcss := resources.Get "css/reset.css" | resources.Minify | resources.Fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ $resetcss.RelPermalink }}" integrity="{{ $resetcss.Data.Integrity }}" crossorigin="anonymous">
+{{/*  <link rel="stylesheet" href="https://static.eallion.com/npm/instantsearch.css/7.4.5/themes/reset-min.css" />  */}}
 <div class="posts post-content searchPage searchAlgolia">
     <div id="searchbox" class="searchboxAlgolia">
         <!-- SearchBox widget will appear here -->
@@ -15,12 +14,11 @@
     </div>
 </div>
 <!-- Algolia for the search only version -->
-{{ $algoliasearchlitejs := resources.Get "js/algoliasearch-lite.umd.js" | resources.Minify | resources.Fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $algoliasearchlitejs.RelPermalink }}" integrity="{{ $algoliasearchlitejs.Data.Integrity }}" crossorigin="anonymous"></script>
-{{ $instantsearchproductionjs := resources.Get "js/instantsearch.production.js" | resources.Minify | resources.Fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $instantsearchproductionjs.RelPermalink }}" integrity="{{ $instantsearchproductionjs.Data.Integrity }}" crossorigin="anonymous"></script>
-{{ $momentjs := resources.Get "js/moment.js" | resources.Minify | resources.Fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $momentjs.RelPermalink }}" integrity="{{ $momentjs.Data.Integrity }}" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://cdn.staticfile.org/algoliasearch/4.13.0/algoliasearch-lite.umd.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/instantsearch.js/4.40.5/instantsearch.production.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/moment.js/2.29.3/moment.min.js"></script>
+
 <script>
     // 今日诗词
     var xhr = new XMLHttpRequest();

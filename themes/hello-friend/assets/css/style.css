@@ -2373,17 +2373,19 @@ photos .photo:last-child {
 }
 
 .ais-SearchBox-submit {
-    top: 0.8em;
-    left: 68px;
+    top: 0.5em;
+    left: 4em;
+}
+
+.ais-SearchBox-submit svg {
+    transform: scale(1);
+    width: 1em;
+    height: 1em;
 }
 
 .ais-SearchBox-loadingIndicator {
     top: 0;
     right: 0.2em;
-}
-
-.ais-SearchBox-submitIcon {
-    transform: scale(1.5);
 }
 
 .ais-SearchBox-reset {
@@ -3979,7 +3981,7 @@ body.compensate-for-scrollbar {
  * Skipped minification because the original files appears to be already minified.
  * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
  */
-/*! DisqusJS - Default Theme | v1.3.0 | Sukka (https://skk.moe) | https://disqusjs.skk.moe | MIT License */
+/* DisqusJS - Default Theme | v1.3.0 | Sukka (https://skk.moe) | https://disqusjs.skk.moe | MIT License */
 #dsqjs * {
     margin: 0;
     padding: 0;

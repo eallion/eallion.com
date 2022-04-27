@@ -6,6 +6,7 @@ const browsers = require("browserslist");
 const cssnano = require("cssnano");
 const mixins = require("postcss-mixins");
 const autoprefixer = require('autoprefixer')
+const mqpacker = require('css-mqpacker')
 
 module.exports = () => ({
     plugins: [
@@ -19,6 +20,7 @@ module.exports = () => ({
         cssnano({
             preset: "default",
         }),
-        autoprefixer
+        autoprefixer,
+        mqpacker,
     ],
 });
