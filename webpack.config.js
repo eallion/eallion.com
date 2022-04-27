@@ -88,7 +88,9 @@ module.exports = (env, {
     plugins: [
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [
-                join("static/assets/css")
+                'static/assets/css/style.min.css',
+                'static/assets/css/fonts',
+                '!static/assets/css/algolia.min.css'
             ],
             cleanAfterEveryBuildPatterns: [
                 join("static/assets/css/style.js"),

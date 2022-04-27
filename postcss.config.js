@@ -27,6 +27,7 @@ module.exports = () => ({
             css: ['./themes/hello-friend/assets/css/style.css'],
             whitelist: ["html", "body"],
             whitelistPatternsChildren: [/^token/, /^pre/, /^code/],
+            rejected: true
         }),
     ],
 });
