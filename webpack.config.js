@@ -16,9 +16,7 @@ module.exports = (env, {
         modules: ["assets", "node_modules"],
     },
     entry: {
-        prism: join("themes","hello-friend","assets", "css", "prism.css"),
-        gist: join("themes","hello-friend","assets", "css", "gist.css"),
-        style: join("themes","hello-friend","assets", "css", "style.css"),
+        style: join("themes","hello-friend","assets", "css", "style.css")
     },
     output: {
         filename: "[name].js",
@@ -94,8 +92,6 @@ module.exports = (env, {
             ],
             cleanAfterEveryBuildPatterns: [
                 join("static/assets/css/style.js"),
-                join("static/assets/css/gist.js"),
-                join("static/assets/css/prism.js"),
             ],
             verbose: true,
         }),

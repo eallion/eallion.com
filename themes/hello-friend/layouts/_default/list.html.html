@@ -20,7 +20,9 @@
         <div class="post-meta">
             {{ with .Params.categories }}
             <span class="post-meta-categories">
-                <span class="iconify-inline" data-icon="bytesize:folder-open"></span>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-folderOpen"></use>
+                </svg>
                 <span>
                     {{ range . }}
                     <a href="{{ (urlize (printf "categories/%s" . )) | absURL }}/">{{ . }}</a>
@@ -30,13 +32,17 @@
             {{ end }}
             {{ if .Date }}
             <span class="post-meta-date">
-                <span class="iconify-inline" data-icon="arcticons:calendar-proton-{{ dateFormat "1" .Date }}"></span>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-rili{{ dateFormat "1" .Date }}"></use>
+                </svg>
                 <span> {{ .Date.Format "2006 年 01 月 02 日" }} </span>
             </span>
             {{ end }}
             {{ if $.Site.Params.ShowReadingTime }}
             <span class="post-read-time">
-                <span class="iconify-inline" data-icon="ant-design:clock-circle-outlined"></span>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-time"></use>
+                </svg>
                 <span>{{ .ReadingTime }} {{ i18n "readingTime" }}</span>
             </span>
             {{ end }}
@@ -54,11 +60,18 @@
 
         <div class="post-content post-index">
             {{ if .Truncated }} {{ .Summary }}
-            <span class="iconify-inline" data-icon="ant-design:ellipsis-outlined"></span><span class="iconify-inline" data-icon="ant-design:ellipsis-outlined"></span>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-shenglvehao"></use>
+            </svg>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-shenglvehao"></use>
+            </svg>
             <div class="read-more-icon">
                 <a class="read-more button" href="{{ .RelPermalink }}">
                     {{ i18n "readMore" }}
-                    <span class="iconify-inline" data-icon="ant-design:double-right-outlined"></span>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-chevrons-right"></use>
+                    </svg>
                 </a>
             </div>
             {{ else }} {{ .Content }} {{ .Render "path" }} {{ end }}
