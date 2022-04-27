@@ -4,12 +4,14 @@
         <span class="header__right">
             {{ if len $.Site.Menus }} {{ partial "menu.html" . }}
             <span class="menu-trigger hidden">
-                <span class="iconify-inline" data-icon="ant-design:menu-outlined"></span>
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-menu"></use>
+                </svg>
             </span>
             {{ end }}
             <!--
             <span class="theme-toggle">
-                <span class="iconify-inline" data-icon="fluent:dark-theme-20-regular"></span>
+                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-dark"></use></svg>
             </span>
             -->
             <script>
@@ -29,21 +31,21 @@
                 {{- end }}
             </script>
             <div class="lightDarkMode">
-                <div class="lightDarkModes" id="lightDarkMode">
+                <div class="lightDarkModes">
                     {{- if eq $.Site.Params.defaultTheme "dark" }}
-                    <i class="iconify-inline" data-icon="akar-icons:moon-fill"></i>
+                    <svg id="lightDarkMode" class="icon" aria-hidden="true"><use xlink:href="#icon-moon"></use></svg>
                     {{- else if eq $.Site.Params.defaultTheme "light" }}
-                    <i class="iconify-inline" data-icon="akar-icons:sun-fill"></i>
+                    <svg id="lightDarkMode" class="icon" aria-hidden="true"><use xlink:href="#icon-sun"></use></svg>
                     {{- else }}
-                    <i class="iconify-inline" data-icon="bxs:adjust"></i>
+                    <svg id="lightDarkMode" class="icon" aria-hidden="true"><use xlink:href="#icon-dark"></use></svg>
                     {{- end }}
                 </div>
                 <div class="is-open hidden" id="is-open">
                 </div>
                 <div class="lightDarkOptions hidden" id='lightDarkOptions'>
-                    <span class="lightDarkOption" name="Auto"><i class="iconify-inline" data-icon="bxs:adjust"></i> {{ i18n "auto" }}</span>
-                    <span class="lightDarkOption" name="Light"><i class="iconify-inline" data-icon="akar-icons:sun-fill"></i> {{ i18n "light" }}</span>
-                    <span class="lightDarkOption" name="Dark"><i class="iconify-inline" data-icon="akar-icons:moon-fill"></i> {{ i18n "dark" }}</span>
+                    <span class="lightDarkOption" name="Auto"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-dark"></use></svg> {{ i18n "auto" }}</span>
+                    <span class="lightDarkOption" name="Light"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-sun"></use></svg> {{ i18n "light" }}</span>
+                    <span class="lightDarkOption" name="Dark"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-moon"></use></svg> {{ i18n "dark" }}</span>
                 </div>
             </div>
             <script>
@@ -51,21 +53,25 @@
                 let element = document.getElementById('lightDarkMode')
                 {{- if eq $.Site.Params.defaultTheme "light" }}
                 if (storageColorScheme == 'Auto') {
-                    element.firstElementChild.setAttribute("data-icon", 'bxs:adjust')
+                    element.firstElementChild.setAttribute("xlink:href", '#icon-dark')
+                    element.firstElementChild.classList.add('icon')
                     document.addEventListener('DOMContentLoaded', () => {
                         window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
                     })
                 } else if (storageColorScheme == "Dark") {
-                    element.firstElementChild.setAttribute("data-icon", 'akar-icons:moon-fill')
+                    element.firstElementChild.setAttribute("xlink:href", '#icon-moon')
+                    element.firstElementChild.classList.add('icon')
                 }
                 {{- else if eq $.Site.Params.defaultTheme "dark" }}
                 if (storageColorScheme == 'Auto') {
-                    element.firstElementChild.setAttribute("data-icon", 'bxs:adjust')
+                    element.firstElementChild.setAttribute("xlink:href", '#icon-dark')
+                    element.firstElementChild.classList.add('icon')
                     document.addEventListener('DOMContentLoaded', () => {
                         window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
                     })
                 } else if (storageColorScheme == "Light") {
-                    element.firstElementChild.setAttribute("data-icon", 'akar-icons:sun-fill')
+                    element.firstElementChild.setAttribute("xlink:href", '#icon-sun')
+                    element.firstElementChild.classList.add('icon')
                 }
                 {{- else }}
                 if (storageColorScheme == null || storageColorScheme == 'Auto') {
@@ -73,9 +79,11 @@
                         window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
                     })
                 } else if (storageColorScheme == "Light") {
-                    element.firstElementChild.setAttribute("data-icon", 'akar-icons:sun-fill')
+                    element.firstElementChild.setAttribute("xlink:href", '#icon-sun')
+                    element.firstElementChild.classList.add('icon')
                 } else if (storageColorScheme == "Dark") {
-                    element.firstElementChild.setAttribute("data-icon", 'akar-icons:moon-fill')
+                    element.firstElementChild.setAttribute("xlink:href", '#icon-moon')
+                    element.firstElementChild.classList.add('icon')
                 }
                 {{- end }}
 

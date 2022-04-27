@@ -196,7 +196,7 @@ $(document).ready(function () {
                 dataTime = '<span class="datatime">' + date + '</span>'
                 talksHtml += '<li class="item item-' + (i + 1) + '">' + dataTime + '： <a href="https://eallion.com/talks/" target="_blank" rel="noopener noreferrer">' + urlToLink(item.content) + '</a></li>'
             });
-            $('#index-talk').append('<span class="iconify-inline" data-icon="icon-park-outline:people-speak"></span> <ul class="talk-list">' + talksHtml + '</ul>')
+            $('#index-talk').append('<svg class="icon" aria-hidden="true"><use xlink:href="#icon-line-quote"></use></svg> <ul class="talk-list">' + talksHtml + '</ul>')
             Lately({
                 'target': '.datatime'
             });
@@ -206,10 +206,10 @@ $(document).ready(function () {
             var re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g;
             var re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(bmp)|(jfif)|(webp))/g;
             str = str.replace(re, function (website) {
-                return '<span class="iconify-inline" data-icon="bx:link-external"></span>';
+                return '<svg class="icon" aria-hidden="true"><use xlink:href="#icon-link"></use></svg>';
             });
             str = str.replace(re_forpic, function (imgurl) {
-                return '<span class="iconify-inline" data-icon="bi:image-fill"></span>';
+                return '<svg class="icon" aria-hidden="true"><use xlink:href="#icon-image"></use>';
             });
             //去掉 Share 标签
             var re_share = /(\#share)|(\#Share)/g;
@@ -642,8 +642,9 @@ function getcolorscheme() {
         target.addEventListener('click', () => {
             let targetName = target.getAttribute("name")
             let icon = switchMode(targetName)
-            let old_icon = element.firstElementChild.getAttribute("data-icon")
-            element.firstElementChild.setAttribute("data-icon", icon)
+            let old_icon = element.firstElementChild.getAttribute("xlink:href")
+            element.firstElementChild.setAttribute("xlink:href", icon)
+            element.firstElementChild.classList.add('icon')
 
             localStorage.setItem("lightDarkMode", targetName)
 
@@ -665,16 +666,16 @@ function switchMode(mode) {
     switch (mode) {
         case 'Light':
             window.matchMedia("(prefers-color-scheme: dark)").removeEventListener('change', switchDarkMode)
-            icon = 'akar-icons:sun-fill'
+            icon = '#icon-sun'
             document.body.classList.remove('dark')
             break
         case 'Dark':
             window.matchMedia("(prefers-color-scheme: dark)").removeEventListener('change', switchDarkMode)
-            icon = 'akar-icons:moon-fill'
+            icon = '#icon-moon'
             document.body.classList.add('dark')
             break
         case 'Auto':
-            icon = 'bxs:adjust'
+            icon = '#icon-dark'
             const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)")
             switchDarkMode(isDarkMode)
             window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)

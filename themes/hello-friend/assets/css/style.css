@@ -1,3 +1,6 @@
+@import "./prism.css";
+@import "./iconfont.css";
+
 :root {
     --light-background: #fff;
     --light-background-secondary: #eaeaea;
@@ -236,9 +239,17 @@ header {
 
 .lightDarkMode svg,
 .menu-trigger svg,
-.search-trigger svg {
-    fill: currentColor;
-    transform: scale(1.5);
+.search-trigger svg,
+.lightDarkOption svg {
+    fill: var(--light-color);
+    transform: scale(1);
+}
+
+.dark .lightDarkMode svg,
+.dark .menu-trigger svg,
+.dark .search-trigger svg,
+.dark .lightDarkOption svg {
+    fill: var(--dark-color );
 }
 
 .lightDarkOption svg {
@@ -880,22 +891,21 @@ hr {
 }
 
 .index-talk svg {
-    fill: currentColor;
+    fill: var(--light-color);
     display: inline;
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
 }
 
+.dark .index-talk svg {
+    fill: var(--dark-color)
+}
+
 .gusici__quote svg {
     fill: currentColor;
     position: relative;
     margin-right: 0.5em;
-    transform: translate(0, 0%);
-}
-
-.talk-list .item a svg {
-    position: relative;
     transform: translate(0, 0%);
 }
 
@@ -1097,6 +1107,11 @@ hr {
 .warning-msg {
     color: #9f6000;
     background-color: #feefb3;
+}
+
+.warning-msg svg,
+.dark .warning-msg {
+    fill: #9f6000 !important;
 }
 
 .error-msg {
@@ -1346,9 +1361,10 @@ hr {
 }
 
 .footer__title-h svg {
-    margin: 0.875em 5px !important;
+    margin: 1.5em 0.75em !important;
     color: #555;
     line-height: 1.5;
+    transform: scale(2);
 }
 
 .pagination__title hr,
@@ -1549,8 +1565,12 @@ hr {
 
 .back-to-top svg {
     display: inline-block;
-    fill: currentColor;
+    fill: var(--light-background-secondary);
     vertical-align: middle !important;
+}
+
+.dark .back-to-top svg {
+    fill: var(--dark-background-secondary);
 }
 
 .noticeable-trigger-view {
@@ -2467,7 +2487,7 @@ photos .photo:last-child {
 }
 
 #searchBoxButton svg {
-    transform: scale(2);
+    transform: scale(1.5);
 }
 
 .archive-item {
@@ -4249,3 +4269,17 @@ body.compensate-for-scrollbar {
     cursor: pointer;
 }
 /* disqusjs css end */
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: var(--light-color);
+    color: var(--light-color);
+    overflow: hidden;
+}
+
+.dark .icon {
+    fill: var(--dark-color);
+    color: var(--dark-color);
+}
