@@ -3,8 +3,7 @@
 {{ $baseUrl := "https://gist.github.com" }}
 {{ $gistJson := getJSON $baseUrl "/" $gistID "/" $gistHash ".json" }}
 
-{{ $gistcss := resources.Get "css/gist.css" | resources.Minify | resources.Fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ $gistcss.RelPermalink }}" integrity="{{ $gistcss.Data.Integrity }}" crossorigin="anonymous">
+<link rel="stylesheet" href="/assets/css/gist.min.css" crossorigin="anonymous">
 <style>
     .gist {
         margin-top: 1.375em !important;}

@@ -12,17 +12,17 @@ module.exports = (env, {
     mode
 }) => ({
     resolve: {
-        extensions: [".js", ".css"],
+        extensions: [".css"],
         modules: ["assets", "node_modules"],
     },
     entry: {
-        main: [join("assets", "js", "menu.js"), join("assets", "js", "theme.js")],
-        prism: join("assets", "js", "prism.js"),
-        style: join("assets", "css", "style.css"),
+        prism: join("themes","hello-friend","assets", "css", "prism.css"),
+        gist: join("themes","hello-friend","assets", "css", "gist.css"),
+        style: join("themes","hello-friend","assets", "css", "style.css"),
     },
     output: {
         filename: "[name].js",
-        path: join("static/assets"),
+        path: join("static/assets/css"),
         publicPath: "",
     },
     performance: {
@@ -89,13 +89,19 @@ module.exports = (env, {
     },
     plugins: [
         new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [join("static/assets")],
-            cleanAfterEveryBuildPatterns: [join("static/assets/style.js")],
+            cleanOnceBeforeBuildPatterns: [
+                join("static/assets/css")
+            ],
+            cleanAfterEveryBuildPatterns: [
+                join("static/assets/css/style.js"),
+                join("static/assets/css/gist.js"),
+                join("static/assets/css/prism.js"),
+            ],
             verbose: true,
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].css",
-            chunkFilename: "[id].css",
+            filename: "[name].min.css",
+            chunkFilename: "[id].min.css",
         }),
     ],
 });
