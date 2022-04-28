@@ -253,6 +253,10 @@ header {
     fill: var(--dark-color );
 }
 
+.dark .lightDarkOption:hover svg {
+    fill: var(--light-color);
+}
+
 .menu__sub-inner-more-trigger:hover .menu__sub-inner-more-trigger-icon svg {
     transform: rotateX(180deg);
 }
