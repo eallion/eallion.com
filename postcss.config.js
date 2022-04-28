@@ -22,7 +22,8 @@ module.exports = () => ({
         mqpacker,
         purgecss({
             content: [
-                "./themes/hello-friend/layouts/**/*.html",
+                "themes/hello-friend/layouts/**/*.html",
+                "themes/hello-friend/assets/js/**/*.js",
             ],
             css: ['./themes/hello-friend/assets/css/style.css'],
             whitelist: ["html", "body"],
