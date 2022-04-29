@@ -236,7 +236,7 @@
 */
 
 .ais-SearchBox-input {
-    padding: 0.8em 1em;
+    padding: 0.8em 1em 0.8em 2.5em;
     width: 100%;
     background: #eaeaea;
     border-radius: 20px;
@@ -245,7 +245,6 @@
     color: inherit;
     border: 0;
     box-sizing: border-box;
-    padding-left: 2.5em;
 }
 
 .ais-SearchBox-input:focus,
@@ -267,7 +266,7 @@
 
 .ais-SearchBox-submit {
     top: 0.5em;
-    left: 4em;
+    left: 3.5em;
 }
 
 .ais-SearchBox-submit svg {
@@ -504,5 +503,9 @@
     .hitsAlgolia,
     .paginationAlgolia {
         width: 100% !important;
+    }
+
+    .searchboxAlgolia {
+        margin-top: 40px !important;
     }
 }
