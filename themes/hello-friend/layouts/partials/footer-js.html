@@ -6,7 +6,7 @@
 {{ if .Site.IsServer }}
 
 {{ $alljs := resources.Get "js/all.js" }}
-<script type="text/javascript" src="{{ $alljs.RelPermalink }}?debug" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ $alljs.RelPermalink }}?debug"></script>
 
 {{ else }}
 

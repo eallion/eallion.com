@@ -196,7 +196,7 @@ $(document).ready(function () {
                 dataTime = '<span class="datatime">' + date + '</span>'
                 talksHtml += '<li class="item item-' + (i + 1) + '">' + dataTime + '： <a href="https://eallion.com/talks/" target="_blank" rel="noopener noreferrer">' + urlToLink(item.content) + '</a></li>'
             });
-            $('#index-talk').append('<svg class="icon" aria-hidden="true"><use xlink:href="#icon-line-quote"></use></svg> <ul class="talk-list">' + talksHtml + '</ul>')
+            $('#index-talk').append('<ul class="talk-list">' + talksHtml + '</ul>')
             Lately({
                 'target': '.datatime'
             });
@@ -206,10 +206,10 @@ $(document).ready(function () {
             var re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g;
             var re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(bmp)|(jfif)|(webp))/g;
             str = str.replace(re, function (website) {
-                return '<svg class="icon" aria-hidden="true"><use xlink:href="#icon-link"></use></svg>';
+                return '🔗';
             });
             str = str.replace(re_forpic, function (imgurl) {
-                return '<svg class="icon" aria-hidden="true"><use xlink:href="#icon-image"></use>';
+                return '🌅';
             });
             //去掉 Share 标签
             var re_share = /(\#share)|(\#Share)/g;
@@ -231,7 +231,7 @@ $(document).ready(function () {
         var timer = null;
 
         function startSetInterval() {
-            timer = setInterval(Roll, 3000);
+            timer = setInterval(Roll, 9000000);
         }
         // start function on page load
         startSetInterval();
