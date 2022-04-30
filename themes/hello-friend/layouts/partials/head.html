@@ -25,16 +25,8 @@
 
 {{/*  main css  */}}
 
-{{ if .Site.IsServer }}
-
-{{ $stylecss := resources.Get "css/style.css" }}
-<link rel="stylesheet" href="{{ $stylecss.RelPermalink }}?debug" crossorigin="anonymous">
-
-{{ else }}
-
 <link rel="stylesheet" href="/assets/css/style.min.css?v=1.0.5" crossorigin="anonymous">
 
-{{ end }}
 
 <link rel="shortcut icon" href="/favicon.ico" crossorigin="anonymous">
 

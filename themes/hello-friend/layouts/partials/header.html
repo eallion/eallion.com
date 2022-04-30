@@ -33,7 +33,7 @@
             <div class="lightDarkMode">
                 <div class="lightDarkModes">
                     {{- if eq $.Site.Params.defaultTheme "dark" }}
-                    <svg id="lightDarkMode" class="icon" aria-hidden="true"><use xlink:href="#icon-moon"></use></svg>
+                    <svg id="lightDarkMode" class="icon" aria-hidden="true"><use xlink:href="#icon-md-moon"></use></svg>
                     {{- else if eq $.Site.Params.defaultTheme "light" }}
                     <svg id="lightDarkMode" class="icon" aria-hidden="true"><use xlink:href="#icon-sun"></use></svg>
                     {{- else }}
@@ -45,7 +45,7 @@
                 <div class="lightDarkOptions hidden" id='lightDarkOptions'>
                     <span class="lightDarkOption" name="Auto"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-dark"></use></svg> {{ i18n "auto" }}</span>
                     <span class="lightDarkOption" name="Light"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-sun"></use></svg> {{ i18n "light" }}</span>
-                    <span class="lightDarkOption" name="Dark"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-moon"></use></svg> {{ i18n "dark" }}</span>
+                    <span class="lightDarkOption" name="Dark"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-md-moon"></use></svg> {{ i18n "dark" }}</span>
                 </div>
             </div>
             <script>
@@ -59,7 +59,7 @@
                         window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
                     })
                 } else if (storageColorScheme == "Dark") {
-                    element.firstElementChild.setAttribute("xlink:href", '#icon-moon')
+                    element.firstElementChild.setAttribute("xlink:href", '#icon-md-moon')
                     element.firstElementChild.classList.add('icon')
                 }
                 {{- else if eq $.Site.Params.defaultTheme "dark" }}
@@ -82,7 +82,7 @@
                     element.firstElementChild.setAttribute("xlink:href", '#icon-sun')
                     element.firstElementChild.classList.add('icon')
                 } else if (storageColorScheme == "Dark") {
-                    element.firstElementChild.setAttribute("xlink:href", '#icon-moon')
+                    element.firstElementChild.setAttribute("xlink:href", '#icon-md-moon')
                     element.firstElementChild.classList.add('icon')
                 }
                 {{- end }}
