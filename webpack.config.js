@@ -90,7 +90,8 @@ module.exports = (env, {
             cleanOnceBeforeBuildPatterns: [
                 'static/assets/css/style.min.css',
                 'static/assets/css/fonts',
-                '!static/assets/css/algolia.min.css'
+                '!static/assets/css/algolia.min.css',
+                '!static/assets/css/gist.min.css'
             ],
             cleanAfterEveryBuildPatterns: [
                 join("static/assets/css/style.js"),
