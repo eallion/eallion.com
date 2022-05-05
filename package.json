@@ -27,6 +27,7 @@
     "css-loader": "^6.7.1",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^5.1.7",
+    "disqusjs": "^1.3.0",
     "file-loader": "^6.2.0",
     "mini-css-extract-plugin": "^2.6.0",
     "postcss": "^8.4.12",
