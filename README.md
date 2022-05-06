@@ -168,7 +168,7 @@ hugo new posts/daily/new_title.md
 3. **修改 Front matter**:
 
 - `categories`（必填）按需修改
-- `tags`（必填）按需修改
+- `tags`（必填）按需修改（约定：本博客单篇文章标签数上限为 4）
 - `slug`（必填）按需修改
 - `draft: true`（必填）改为：`draft: false`
 
