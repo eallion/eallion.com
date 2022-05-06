@@ -35,7 +35,7 @@
                 <svg class="icon" aria-hidden="true">
                     <use xlink:href="#icon-rili{{ dateFormat "1" .Date }}"></use>
                 </svg>
-                <span> {{ .Date.Format "2006 年 01 月 02 日" }} </span>
+                <span>{{ .Date.Format "2006 年 01 月 02 日" }}</span>
             </span>
             {{ end }}
             {{ if $.Site.Params.ShowReadingTime }}
