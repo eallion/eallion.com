@@ -37,6 +37,12 @@
     xhr.send();
 </script>
 <script>
+    var btn = document.getElementById('breadcrumb-gushici');
+    btn.onclick = function () {
+        this.remove();
+    };
+</script>
+<script>
     const searchClient = algoliasearch(
         "ZHP6RM1ABL",
         "1d5887e05145f909a97929fe3d4f135a"
