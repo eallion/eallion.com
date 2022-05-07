@@ -16,6 +16,10 @@
 
 # 备忘录：
 
+### ❗**注意**
+
+本项目❗不要使用`git merge dev`，而要使用`git cherry-pick hash`。
+
 ### 📦️主仓库
 > <https://github.com/eallion/eallion.com.git>
 
