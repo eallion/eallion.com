@@ -192,7 +192,7 @@ git push
 ```
 脚本内容：
 ```
-hugo server -w -D -p 8080 -t hello-friend --bind 192.168.0.5 --baseURL 192.168.0.5 --cleanDestinationDir --forceSyncStatic --ignoreCache --noHTTPCache
+hugo server -w -D -p 8080 -t hello-friend --bind 192.168.0.5 --baseURL 192.168.0.5 --contentDir example --cleanDestinationDir --forceSyncStatic --ignoreCache --noHTTPCache
 ```
 > 运行脚本后会自动打开预览页面：http://192.168.0.5:8080
 - `hugo server` 把 Hugo 当作 Web 服务器，而非构建静态网页
@@ -203,6 +203,7 @@ hugo server -w -D -p 8080 -t hello-friend --bind 192.168.0.5 --baseURL 192.168.0
 - `-enableGitInfo` 开启 GitIifo
 - `--bind 192.168.0.5` 绑定 IP ，局域网其他设备 Debug 时很有用
 - `--baseURL 192.168.0.5` 绑定域名（IP），局域网其他设备 Debug 时很有用
+- `--contentDir example` 指定文章目录`example`，默认为 `content`
 - `--cleanDestinationDir` 清空目标目录
 - `--forceSyncStatic` 强制同步静态文件
 - `--ignoreCache` 忽略缓存
