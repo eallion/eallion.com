@@ -160,7 +160,10 @@ pre[class*="language-"] {
     background: #444444 !important;
 }
 
-.dark :not(pre) > .dark code[class*="language-"],
+.dark :not(pre) > code[class*="language-"] {
+    background: #636e7b66 !important;
+}
+
 .dark pre[class*="language-"] {
     background: #1e1e1e !important;
 }
