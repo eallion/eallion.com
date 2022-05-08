@@ -1144,7 +1144,7 @@ hr {
     height: 130px;
     border: 5px solid #222;
     border-radius: 4px;
-    transform-origin: top right;
+    transform-origin: bottom right;
     transform: scale(0);
     opacity: 0;
     -webkit-transition: all .4s ease-in-out;
