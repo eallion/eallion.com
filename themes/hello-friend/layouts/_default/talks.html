@@ -187,12 +187,12 @@
             //处理普通链接，添加 a 标签供跳转
             var re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g;
             str = str.replace(re, function (website) {
-                return "<svg class='icon' aria-hidden='true'><use xlink:href='#icon-link'></use></svg><a href='" + website + "' target='_blank' rel='noopener noreferrer'>链接</a>";
+                return "<i class='iconfont icon-link'></i><a href='" + website + "' target='_blank' rel='noopener noreferrer'>链接</a>";
             });
             //去掉 Share 标签
             var re_share = /(\#share)|(\#Share)/g;
             str = str.replace(re_share, function (share) {
-                return "<svg class='icon' aria-hidden='true'><use xlink:href='#icon-fenxiang'></use></svg>";
+                return "<i class='iconfont icon-fenxiang'></i>";
             });
             //微信表情
             // str = qqWechatEmotionParser(str)

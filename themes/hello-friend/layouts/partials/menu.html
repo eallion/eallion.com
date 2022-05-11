@@ -29,17 +29,13 @@
         {{ end }} {{ end }} {{ end }}
 
         <li>
-            <a href="/search/" aria-label="Search" class="search-trigger"><svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-search"></use>
-                </svg></a>
+            <a href="/search/" aria-label="Search" class="search-trigger"><i class="iconfont icon-search"></i></a>
         </li>
     </ul>
 
     <ul class="menu__inner menu__inner--mobile">
 
-        <li><span class="search-scroll"><a href="/search/" aria-label="Search" class="search-trigger"><svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-search"></use>
-                    </svg> 搜索</a></span></li>
+        <li><span class="search-scroll"><a href="/search/" aria-label="Search" class="search-trigger"><i class="iconfont icon-search"></i> 搜索</a></span></li>
         {{ range $.Site.Menus.main }} {{ if not .HasChildren }}
         <li><a href="{{ .URL }}">{{ .Name }}</a></li>
         {{ end }} {{ end }}

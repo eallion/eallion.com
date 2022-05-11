@@ -4,16 +4,9 @@
         <span class="header__right">
             {{ if len $.Site.Menus }} {{ partial "menu.html" . }}
             <span class="menu-trigger hidden">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-menu"></use>
-                </svg>
+                <i class='iconfont icon-menu'></i>
             </span>
             {{ end }}
-            <!--
-            <span class="theme-toggle">
-                <svg class="icon" aria-hidden="true"><use xlink:href="#icon-dark"></use></svg>
-            </span>
-            -->
             <script>
                 let storageColorScheme = localStorage.getItem("lightDarkMode")
                 {{- if eq $.Site.Params.defaultTheme "light" }}
@@ -31,21 +24,21 @@
                 {{- end }}
             </script>
             <div class="lightDarkMode">
-                <div class="lightDarkModes">
+                <div id="lightDarkMode" class="lightDarkModes">
                     {{- if eq $.Site.Params.defaultTheme "dark" }}
-                    <svg id="lightDarkMode" class="icon" aria-hidden="true"><use xlink:href="#icon-md-moon"></use></svg>
+                    <i class='iconfont icon-md-moon'></i>
                     {{- else if eq $.Site.Params.defaultTheme "light" }}
-                    <svg id="lightDarkMode" class="icon" aria-hidden="true"><use xlink:href="#icon-sun"></use></svg>
+                    <i class='iconfont icon-sun'></i>
                     {{- else }}
-                    <svg id="lightDarkMode" class="icon" aria-hidden="true"><use xlink:href="#icon-dark"></use></svg>
+                    <i  class='iconfont icon-dark'></i>
                     {{- end }}
                 </div>
                 <div class="is-open hidden" id="is-open">
                 </div>
                 <div class="lightDarkOptions hidden" id='lightDarkOptions'>
-                    <span class="lightDarkOption" name="Auto"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-dark"></use></svg> {{ i18n "auto" }}</span>
-                    <span class="lightDarkOption" name="Light"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-sun"></use></svg> {{ i18n "light" }}</span>
-                    <span class="lightDarkOption" name="Dark"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-md-moon"></use></svg> {{ i18n "dark" }}</span>
+                    <span class="lightDarkOption" name="Auto"><i class='iconfont icon-dark'></i> {{ i18n "auto" }}</span>
+                    <span class="lightDarkOption" name="Light"><i class='iconfont icon-sun'></i> {{ i18n "light" }}</span>
+                    <span class="lightDarkOption" name="Dark"><i class='iconfont icon-md-moon'></i> {{ i18n "dark" }}</span>
                 </div>
             </div>
             <script>
@@ -53,25 +46,29 @@
                 let element = document.getElementById('lightDarkMode')
                 {{- if eq $.Site.Params.defaultTheme "light" }}
                 if (storageColorScheme == 'Auto') {
-                    element.firstElementChild.setAttribute("xlink:href", '#icon-dark')
-                    element.firstElementChild.classList.add('icon')
+                    element.firstElementChild.classList.remove('icon-sun')
+                    element.firstElementChild.setAttribute("data-icon", 'dark')
+                    element.firstElementChild.classList.add('icon-dark')
                     document.addEventListener('DOMContentLoaded', () => {
                         window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
                     })
                 } else if (storageColorScheme == "Dark") {
-                    element.firstElementChild.setAttribute("xlink:href", '#icon-md-moon')
-                    element.firstElementChild.classList.add('icon')
+                    element.firstElementChild.classList.remove('icon-sun')
+                    element.firstElementChild.setAttribute("data-icon", 'md-moon')
+                    element.firstElementChild.classList.add('icon-md-moon')
                 }
                 {{- else if eq $.Site.Params.defaultTheme "dark" }}
                 if (storageColorScheme == 'Auto') {
-                    element.firstElementChild.setAttribute("xlink:href", '#icon-dark')
-                    element.firstElementChild.classList.add('icon')
+                    element.firstElementChild.classList.remove('icon-md-moon')
+                    element.firstElementChild.setAttribute("data-icon", 'dark')
+                    element.firstElementChild.classList.add('icon-dark')
                     document.addEventListener('DOMContentLoaded', () => {
                         window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
                     })
                 } else if (storageColorScheme == "Light") {
-                    element.firstElementChild.setAttribute("xlink:href", '#icon-sun')
-                    element.firstElementChild.classList.add('icon')
+                    element.firstElementChild.classList.remove('icon-md-moon')
+                    element.firstElementChild.setAttribute("data-icon", 'sun')
+                    element.firstElementChild.classList.add('icon-sun')
                 }
                 {{- else }}
                 if (storageColorScheme == null || storageColorScheme == 'Auto') {
@@ -79,11 +76,13 @@
                         window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
                     })
                 } else if (storageColorScheme == "Light") {
-                    element.firstElementChild.setAttribute("xlink:href", '#icon-sun')
-                    element.firstElementChild.classList.add('icon')
+                    element.firstElementChild.classList.remove('icon-dark')
+                    element.firstElementChild.setAttribute("data-icon", 'sun')
+                    element.firstElementChild.classList.add('icon-sun')
                 } else if (storageColorScheme == "Dark") {
-                    element.firstElementChild.setAttribute("xlink:href", '#icon-md-moon')
-                    element.firstElementChild.classList.add('icon')
+                    element.firstElementChild.classList.remove('icon-dark')
+                    element.firstElementChild.setAttribute("data-icon", 'md-moon')
+                    element.firstElementChild.classList.add('icon-md-moon')
                 }
                 {{- end }}
 
