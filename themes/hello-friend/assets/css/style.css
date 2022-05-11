@@ -2311,17 +2311,6 @@ body.dark {
     color: var(--dark-background);
 }
 
-.icon {
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.125em;
-    fill: var(--light-color);
-    color: var(--light-color);
-    overflow: hidden;
-    margin: 0 0.25em;
-}
-
-.dark .icon {
-    fill: var(--dark-color);
-    color: var(--dark-color);
+.talks__date a {
+    text-decoration: none;
 }
