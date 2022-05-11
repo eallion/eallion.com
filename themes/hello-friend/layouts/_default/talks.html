@@ -166,7 +166,34 @@
         }
         const content = hit._highlightResult.content.value;
         const talks = urlToLink(content);
-        const from = hit._highlightResult.from.value;
+
+        // 处理发布来源
+        const fromValue = (hit._highlightResult.from.value).toLowerCase();
+        function getFrom(f) {
+            return {
+                'chrome': '<a href="https://chrome.google.com/webstore/detail/ispeak-bber%E6%97%B6%E5%85%89%E6%9C%BA/mmehomnjakoijcfmmofbmkaigcdkkbke" target="_blank" rel="noopener noreferrer">Chrome</a>',
+                'talker': '<a href="https://talk.eallion.com/" target="_blank" rel="noopener noreferrer">Talker</a>',
+                'android': '<a href="https://play.google.com/store/apps/details?id=ch.rmy.android.http_shortcuts" target="_blank" rel="noopener noreferrer">Android</a>',
+                'vscode': '<a href="https://marketplace.visualstudio.com/items?itemName=humao.rest-client" target="_blank" rel="noopener noreferrer">VS Code</a>',
+                'github': '<a href="https://github.com/eallion/" target="_blank" rel="noopener noreferrer">GitHub</a>',
+                'bilibili': '<a href="https://bilibili.com/" target="_blank" rel="noopener noreferrer">Bilibili</a>',
+                'utools': '<a href="https://github.com/imxw/uTools-scripts" target="_blank" rel="noopener noreferrer">uTools</a>',
+                'alfred': '<a href="https://immmmm.com/bb-by-alfred/" target="_blank" rel="noopener noreferrer">Alfred</a>',
+                'iphone': '<a href="https://www.icloud.com/shortcuts/3cfcbc36a6a24e0a8721bfeef8dfc6cf" target="_blank" rel="noopener noreferrer">iPhone</a>',
+                '微信': '<a href="http://mp.weixin.qq.com/profile?src=3&timestamp=1652263089&ver=1&signature=KsHNmTgeJ6AJ6qNsDFcsI*XO-NtUW588wxZEjiB26S76k6yo16AMndCl*t1bX94pV9JgoS1dHB2viLCPDd*iqQ==" target="_blank" rel="noopener noreferrer">微信</a>',
+                '豆瓣': '<a href="https://douban.com" target="_blank" rel="noopener noreferrer">豆瓣</a>',
+                '饭否': '<a href="https://fanfou.com" target="_blank" rel="noopener noreferrer">饭否</a>',
+                'telegram': '<a href="https://t.me/eallion_bot" target="_blank" rel="noopener noreferrer">Telegram</a>',
+                'twitter': '<a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">Twitter</a>',
+                'qq 空间 qzone.qq.com': '<a href="https://qzone.qq.com/" target="_blank" rel="noopener noreferrer">Qzone</a>',
+                '微博 weibo.com': '<a href="https://weibo.com" target="_blank" rel="noopener noreferrer">微博</a>',
+                '抖音': '<a href="https://douyin.com" target="_blank" rel="noopener noreferrer">抖音</a>',
+                '小红书': '<a href="https://www.xiaohongshu.com/" target="_blank" rel="noopener noreferrer">小红书</a>',
+                'tiktok': '<a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">TikTok</a>',
+                'instagram': '<a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>',
+            }[f]
+        }
+        const from = getFrom(fromValue) ? getFrom(fromValue) : fromValue;
 
         // 图片和链接
         function urlToLink(str) {

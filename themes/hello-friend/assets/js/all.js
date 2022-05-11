@@ -231,7 +231,7 @@ $(document).ready(function () {
         var timer = null;
 
         function startSetInterval() {
-            timer = setInterval(Roll, 9000000);
+            timer = setInterval(Roll, 3000);
         }
         // start function on page load
         startSetInterval();
