@@ -16,10 +16,6 @@
 
 # 备忘录：
 
-### ❗**注意**
-
-本项目❗不要使用`git merge dev`，而要使用`git cherry-pick hash`。
-
 ### 📦️主仓库
 > <https://github.com/eallion/eallion.com.git>
 
@@ -226,8 +222,10 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 - `hugo --help` 查看所有命令
 
 ### 🚀Shortcodes
+<details>
+    <summary> <code>bilibili</code> </summary>
 
- - **`bilibili` 插入 B 站视频**
+插入 B 站视频 
 
 ```html
 {{< bilibili AV 号或 BV 号 >}}
@@ -238,9 +236,12 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 | ---- | ------------------- | ------------------------------------- |
 | vid  | AV 号 / BV 号 [分 P 号]  | 必填参数。(Type: String) 视频资源 ID。 |
 
+</details>
 
- - **`code` 原始主题自带代码块**
- 
+<details>
+    <summary> <code>code</code> </summary>
+
+原始主题自带代码块。  
 **已弃用**，一般都用 Markdown 自带语法。
 <pre>
 ```html
@@ -248,7 +249,12 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 ```
 </pre>
 
- - **`image` 图片**
+</details>
+
+<details>
+    <summary> <code>image</code> </summary>
+
+插入图片
 
 ```html
 {{< image src="hello.png" alt="" position="" style="" >}}
@@ -261,7 +267,12 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 | position | left(default) \| center \| right | 图片位置 |
 | style | border-radius: 8px; | 图片样式 |
 
- - **`figure` 是`image` 的进阶版**
+</details>
+
+<details>
+    <summary> <code>figure</code> </summary>
+
+`figure` 是`image` 的进阶版
 
 ```html
 {{< figure src="hello.png" alt="" position="" style="" caption="" captionPosition="" captionStyle=" >}}
@@ -277,7 +288,12 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 |captionPosition|left \| center(default) \| right| 图片标题位置 |
 |captionStyle|color: red;| 图片标题样式 |
     
- - **`friend` 友情链接**
+</details>
+
+<details>
+    <summary> <code>friend</code> </summary>
+
+友情链接
 
 ```html
 {{< friend name="" des="" url="" domain="" src="avatar.png" >}}
@@ -290,8 +306,13 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 |url|website| 友链的链接 |
 |domain|domain| 友链的域名 |
 |src|icon url| 友链图标 |
+    
+</details>
 
- - **`gist` GitHub Gist Embed**
+<details>
+    <summary> <code>gist</code> </summary>
+
+GitHub Gist Embed
 
 ```html
 {{< gist id hash >}}
@@ -307,8 +328,13 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 | filename |text| 填入 Gist 代码片段的文件名 |
 
 注意事项：Gist 可能在中国大陆地区打不开。
+    
+</details>
 
- - **`imgproc` 图片处理**
+<details>
+    <summary> <code>imgproc</code> </summary>
+
+图片处理
  
 ```html
 {{< imgproc "hello.png" Resize "250x" center />}}
@@ -320,8 +346,13 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 |position|left \| center \| right| 位置 |
 
 参考：<https://gohugo.io/content-management/image-processing/>
+    
+</details>
 
- - **`link` 本站文章内链**
+<details>
+    <summary> <code>link</code> </summary>
+
+本站文章内链
 
 ```html
 {{< link "blog" >}}
@@ -330,8 +361,13 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 | Name     | Value        | Description                                   |
 | :------- | :----------- | --------------------------------------------- |
 |filename|text| 填入 Frontmatter 中的 `Slug` |
+    
+</details>
 
- - **`music` 插入音乐**
+<details>
+    <summary> <code>music</code> </summary>
+
+插入音乐
 
 ```html
 {{< music auto="https://music.163.com/#/playlist?id=60198" >}}
@@ -342,8 +378,13 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 |auto            |options       |music link, support: `netease`, `tencent`, `xiami`|
 
 更多参数：[MetingJS](https://github.com/metowolf/MetingJS)
+    
+</details>
 
- - **`video` 插入视频**
+<details>
+    <summary> <code>video</code> </summary>
+
+插入视频
  
 ```html
 <!-- just video src -->
@@ -358,8 +399,13 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 | src      | relative paths | 必填参数。(Type: String) 视频文件（相对）路径。 |
 | autoplay | true / false   | 可选参数。(Type: String) 自动播放。             |
 | poster   | relative paths | 可选参数。(Type: String) 视频封面（相对）路径。 |
+    
+</details>
 
- - **`youtube` 插入 Youtube 视频**
+<details>
+    <summary> <code>youtube</code> </summary>
+
+插入 Youtube 视频
 
 ```html
 <!-- just video src -->
@@ -373,6 +419,8 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 | :------- | :----------- | --------------------------------------------- |
 | id       | video id     | 必填参数。(Type: String) 视频 ID。             |
 | autoplay | true / false | 可选参数。(Type: String) 进入页面后自动播放。 |
+
+</details>
 
 ### 🗃️静态文件（CSS、JS）
 
@@ -396,6 +444,9 @@ npx webpack --mode production
 ```
 
 ### 👍添加图标
+
+> 目前博客使用的是 iconfont.cn 的图标。  
+> 下面方法可用，但构建性能极差。
 
 添加 Iconify 图标的方式：
 > <https://icon-sets.iconify.design/>
