@@ -14,9 +14,7 @@
 
 {{ if (isset .Params "gushici") }}
 <section id="breadcrumb-gushici" class="index-talk header__talk"><button>×</button>
-    <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-line-quote"></use>
-    </svg>
+    <i class="iconfont icon-line-quote"></i>
     <ul class="talk-list">
         <li class="item">
             <span id="gushiciTitle" class="poem_sentence"></span><span id="gushici" class="poem_sentence"></span><span id="poem_info" class="poem_info"></span>
@@ -24,5 +22,5 @@
     </ul>
 </section>
 {{ else }}
-<section id="index-talk" class="index-talk header__talk"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-line-quote"></use></svg><button>×</button></section>
+<section id="index-talk" class="index-talk header__talk"><i class="iconfont icon-line-quote"></i><button>×</button></section>
 {{ end }}

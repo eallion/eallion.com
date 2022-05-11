@@ -345,23 +345,22 @@ function getcolorscheme() {
         target.addEventListener('click', () => {
             let targetName = target.getAttribute("name")
             let icon = switchMode(targetName)
-            let old_icon = element.firstElementChild.getAttribute("xlink:href")
-            element.firstElementChild.setAttribute("xlink:href", icon)
-            element.firstElementChild.classList.add('icon')
+            let old_icon = element.firstElementChild.getAttribute("data-icon")
+            element.firstElementChild.setAttribute("data-icon", icon)
+            element.firstElementChild.classList.remove('icon-' + old_icon)
+            element.firstElementChild.classList.add('icon-' + icon)
 
             localStorage.setItem("lightDarkMode", targetName)
 
             targetDiv.classList.toggle('hidden')
             screen.classList.toggle('hidden')
-
-            let event = new Event('themeChanged');
-            document.dispatchEvent(event);
         })
     }
     screen.addEventListener('click', () => {
         targetDiv.classList.toggle('hidden')
         screen.classList.toggle('hidden')
     })
+
 }
 
 function switchMode(mode) {
@@ -369,16 +368,16 @@ function switchMode(mode) {
     switch (mode) {
         case 'Light':
             window.matchMedia("(prefers-color-scheme: dark)").removeEventListener('change', switchDarkMode)
-            icon = '#icon-sun'
+            icon = 'sun'
             document.body.classList.remove('dark')
             break
         case 'Dark':
             window.matchMedia("(prefers-color-scheme: dark)").removeEventListener('change', switchDarkMode)
-            icon = '#icon-md-moon'
+            icon = 'md-moon'
             document.body.classList.add('dark')
             break
         case 'Auto':
-            icon = '#icon-dark'
+            icon = 'dark'
             const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)")
             switchDarkMode(isDarkMode)
             window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)

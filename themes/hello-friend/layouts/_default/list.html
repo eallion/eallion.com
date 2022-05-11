@@ -46,18 +46,12 @@
             {{ .Summary }}
         </div>
         {{ if .Truncated }}
-        <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-shenglvehao"></use>
-        </svg>
-        <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-shenglvehao"></use>
-        </svg>
+        <i class="iconfont icon-shenglvehao"></i>
+        <i class="iconfont icon-shenglvehao"></i>
         <div class="read-more-icon">
             <a class="read-more button" href="{{ .RelPermalink }}">
                 {{ i18n "readMore" }}
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-chevrons-right"></use>
-                </svg>
+                <i class="iconfont icon-chevrons-right"></i>
             </a>
         </div>
         {{ end }}

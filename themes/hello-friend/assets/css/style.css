@@ -193,7 +193,7 @@ header {
     position: absolute;
     left: auto;
     right: 0;
-    top: 1.5em;
+    top: 2em;
     padding: 0.5rem 0;
     background-color: var(--light-header);
     border-color: var(--light-header);
@@ -235,7 +235,7 @@ header {
     fill: var(--light-color);
 }
 
-.menu__sub-inner-more-trigger:hover .menu__sub-inner-more-trigger-icon svg {
+.menu__sub-inner-more-trigger:hover .menu__sub-inner-more-trigger-icon i {
     transform: rotateX(180deg);
 }
 
@@ -877,7 +877,7 @@ hr {
     margin: 0;
     max-height: 35px;
     overflow: hidden;
-    padding-left: 1.5em;
+    padding-left: 0.5em;
 }
 
 .talk-list li,
@@ -1111,20 +1111,25 @@ hr {
     font-size: 1rem;
 }
 
-.post-tags a {
+.post-tags a,
+.post-share a {
     text-decoration: none;
+}
+
+.post-share a {
+    padding: 0 2px;
 }
 
 .tags::before {
     content: '# ';
 }
 
-.post-share svg,
+.post-share i,
 .post-share span {
     opacity: 0.5;
 }
 
-.post-share svg:hover {
+.post-share i:hover {
     opacity: 1;
     animation: ease-in-out 0.2s;
 }
@@ -1185,7 +1190,7 @@ hr {
     vertical-align: middle;
 }
 
-.icon-copyright {
+.icon-copyrights {
     right: 60px;
     top: 40px;
     position: absolute;
@@ -1348,11 +1353,9 @@ hr {
     z-index: 1;
 }
 
-.footer__title-h svg {
+.footer__title-h i {
     margin: 0.5em 0.25em !important;
     color: #222;
-    line-height: 1.5;
-    transform: scale(1);
     font-size: 2em;
 }
 
@@ -2078,6 +2081,10 @@ photos .photo:last-child {
 
 .talks__text p:last-child {
     margin-bottom: 0;
+}
+
+.talks__text i {
+    margin: 0 0.25em;
 }
 
 .talks__text:before {
