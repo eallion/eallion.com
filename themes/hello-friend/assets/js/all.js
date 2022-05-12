@@ -242,11 +242,6 @@ $(document).ready(function () {
         }, function () {
             startSetInterval();
         });
-
-        //点击关闭嘀咕 Widget
-        $('button').click(function () {
-            $(this).parents('#index-talk').remove();
-        });
     }
 });
 

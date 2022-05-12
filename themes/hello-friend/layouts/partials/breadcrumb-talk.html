@@ -13,14 +13,18 @@
 <!-- JSON version -->
 
 {{ if (isset .Params "gushici") }}
-<section id="breadcrumb-gushici" class="index-talk header__talk"><button>×</button>
+<section id="poem" class="index-talk header__talk">
     <i class="iconfont icon-line-quote"></i>
     <ul class="talk-list">
         <li class="item">
-            <span id="gushiciTitle" class="poem_sentence"></span><span id="gushici" class="poem_sentence"></span><span id="poem_info" class="poem_info"></span>
+            <span id="poemTitle" class="poem_sentence"></span><span id="poemSentence" class="poem_sentence"></span><span id="poem_info" class="poem_info"></span>
         </li>
     </ul>
+    <button type="button" onclick="return this.parentNode.remove();">×</button>
 </section>
 {{ else }}
-<section id="index-talk" class="index-talk header__talk"><i class="iconfont icon-line-quote"></i><button>×</button></section>
+<section id="index-talk" class="index-talk header__talk">
+    <i class="iconfont icon-line-quote"></i>
+    <button type="button" onclick="return this.parentNode.remove();">×</button>
+</section>
 {{ end }}

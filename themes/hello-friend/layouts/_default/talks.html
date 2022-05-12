@@ -18,7 +18,7 @@
 <script type="text/javascript" src="https://cdn.staticfile.org/algoliasearch/4.13.0/algoliasearch-lite.umd.min.js?v=4.13.0"></script>
 <script type="text/javascript" src="https://cdn.staticfile.org/instantsearch.js/4.40.5/instantsearch.production.min.js?v=4.40.5"></script>
 <script type="text/javascript" src="https://cdn.staticfile.org/moment.js/2.29.3/moment.min.js?v=2.29.3"></script>
-
+<script type="text/javascript" src="https://cdn.staticfile.org/pangu/4.0.7/pangu.min.js?v=4.0.7"></script>
 <script>
     // 今日诗词
     var xhr = new XMLHttpRequest();
@@ -26,21 +26,15 @@
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             var result = JSON.parse(xhr.responseText);
-            var title =  document.getElementById('gushiciTitle');
-            var gushici = document.getElementById('gushici');
+            var title =  document.getElementById('poemTitle');
+            var poemSentence = document.getElementById('poemSentence');
             var poem_info = document.getElementById('poem_info');
             title.innerHTML ='《<a href="https://www.google.com/search?q=' + result.data.origin.author + ' ' + result.data.origin.title + '" target="_blank" rel="noopener noreferrer">' + result.data.origin.title + '</a>》：';
-            gushici.innerHTML = '「<a href="https://www.google.com/search?q=' + result.data.content + '" target="_blank" rel="noopener noreferrer">' + result.data.content + '</a>」';
+            poemSentence.innerHTML = '「<a href="https://www.google.com/search?q=' + result.data.content + '" target="_blank" rel="noopener noreferrer">' + result.data.content + '</a>」';
             poem_info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author;
         }
     };
     xhr.send();
-</script>
-<script>
-    var btn = document.getElementById('breadcrumb-gushici');
-    btn.onclick = function () {
-        this.remove();
-    };
 </script>
 <script>
     const searchClient = algoliasearch(
@@ -159,14 +153,12 @@
 
     // --- Define some custom helpers ---
     const hitTemplate = function (hit) {
+        // moment twitter 插件处理相对时间
         let date = "";
         if (hit.date) {
             //format date with moment.js
             date = moment(hit.date).twitter();
         }
-        const content = hit._highlightResult.content.value;
-        const talks = urlToLink(content);
-
         // 处理发布来源
         const fromValue = (hit._highlightResult.from.value).toLowerCase();
         function getFrom(f) {
@@ -180,6 +172,7 @@
                 'utools': '<a href="https://github.com/imxw/uTools-scripts" target="_blank" rel="noopener noreferrer">uTools</a>',
                 'alfred': '<a href="https://immmmm.com/bb-by-alfred/" target="_blank" rel="noopener noreferrer">Alfred</a>',
                 'iphone': '<a href="https://www.icloud.com/shortcuts/3cfcbc36a6a24e0a8721bfeef8dfc6cf" target="_blank" rel="noopener noreferrer">iPhone</a>',
+                'ios': '<a href="https://www.icloud.com/shortcuts/3cfcbc36a6a24e0a8721bfeef8dfc6cf" target="_blank" rel="noopener noreferrer">iPhone</a>',
                 '微信': '<a href="http://mp.weixin.qq.com/profile?src=3&timestamp=1652263089&ver=1&signature=KsHNmTgeJ6AJ6qNsDFcsI*XO-NtUW588wxZEjiB26S76k6yo16AMndCl*t1bX94pV9JgoS1dHB2viLCPDd*iqQ==" target="_blank" rel="noopener noreferrer">微信</a>',
                 '豆瓣': '<a href="https://douban.com" target="_blank" rel="noopener noreferrer">豆瓣</a>',
                 '饭否': '<a href="https://fanfou.com" target="_blank" rel="noopener noreferrer">饭否</a>',
@@ -195,6 +188,10 @@
         }
         const from = getFrom(fromValue) ? getFrom(fromValue) : fromValue;
 
+        // 处理嘀咕正文
+        const content = hit._highlightResult.content.value;
+        const talksContent = urlToLink(content);
+        const talks = pangu.spacing(talksContent);
         // 图片和链接
         function urlToLink(str) {
             //去除<img>标签，留 src 链接
@@ -270,6 +267,5 @@
     ]);
 
     search.start();
-
 </script>
 {{ end }}
