@@ -1,8 +1,8 @@
 /*! purgecss start ignore */
 @import "./prism.css";
 @import "./disqusjs.css";
-@import "./jquery.fancybox.css";
 @import "./iconfont.css";
+@import "./baguetteBox.css";
 /*! purgecss end ignore */
 
 :root {
@@ -559,6 +559,7 @@ header {
 
 html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 *,
@@ -881,7 +882,8 @@ hr {
 }
 
 .talk-list li,
-.gusici__list li {
+.gusici__list li,
+.item {
     list-style: none;
     margin-bottom: 10px;
     width: 100%;
@@ -890,12 +892,29 @@ hr {
     overflow: hidden;
 }
 
+.item.sliding-now {
+    animation: talksUp 2s linear infinite forwards;
+    animation-delay: 2s;
+}
+
+@keyframes talksUp {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(calc(-4em - 1em));
+    }
+}
+
 .talk-list li a,
+.item a,
 .gusici__list li a {
     text-decoration: none;
 }
 
 .talk-list li a:hover,
+.item a:hover,
 .gusici__list li a:hover {
     text-decoration: underline;
 }
@@ -904,10 +923,6 @@ hr {
     fill: currentColor;
     vertical-align: middle;
     display: inline;
-}
-
-.talk-list li:not(:first-child) {
-    display: none !important;
 }
 
 @media (max-width: 899px) {
@@ -1045,20 +1060,15 @@ hr {
     background-color: #feefb3;
 }
 
-.warning-msg svg,
-.dark .warning-msg {
-    fill: #9f6000 !important;
-}
-
 .error-msg {
     color: #d8000c;
     background-color: #ffbaba;
 }
 
-.info-msg svg,
-.success-msg svg,
-.warning-msg svg,
-.error-msg svg {
+.info-msg i,
+.success-msg i,
+.warning-msg i,
+.error-msg i {
     margin: 0 12px 0 6px;
 }
 
@@ -1539,7 +1549,7 @@ hr {
     cursor: pointer;
     display: block;
     height: 40px;
-    opacity: 1;
+    opacity: 0;
     outline: 0;
     position: fixed;
     right: 20px;
@@ -1554,13 +1564,13 @@ hr {
     z-index: 50000001;
 }
 
-.back-to-top svg {
+.back-to-top i {
     display: inline-block;
     fill: var(--light-background-secondary);
     vertical-align: middle !important;
 }
 
-.dark .back-to-top svg {
+.dark .back-to-top i {
     fill: var(--dark-background-secondary);
 }
 

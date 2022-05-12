@@ -1,1 +1,5 @@
-<img loading='lazy' src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}"{{ end }} >
+<div class="gallery">
+    <a href="{{ .Destination | safeURL }}">
+        <img loading='lazy' src="{{ .Destination | safeURL }}" alt="{{ .Text }}" {{ with .Title }} title="{{ . }}"{{ end }} >
+    </a>
+</div>

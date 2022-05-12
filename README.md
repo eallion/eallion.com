@@ -440,7 +440,9 @@ GitHub Gist Embed
 部分静态文件已经放到 CDN 上，另一部分用 Webpack 打包。
 ```
 npm install
-npx webpack --mode production
+# or
+# npm update --save
+npm run build
 ```
 
 ### 👍添加图标
@@ -501,11 +503,19 @@ chore       #非 src 或者 测试文件的更新
 revert      #commit 回退
 ```
 
-3. **生成 ChangeLog**
+3. **Webpack**
 
 ```
-conventional-changelog -p angular -i CHANGELOG.md -s -r 0
+npm run build
 ```
+
+4. **生成 ChangeLog**
+
+```
+whatchanged --help
+```
+
+> or generate on [@release-lab/whatchanged](https://release-lab.github.io/?repo=https%3A%2F%2Fgithub.com%2Feallion%2Feallion.com&branch=main)
 
 ### 🖼️图片
 

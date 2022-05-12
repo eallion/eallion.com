@@ -90,6 +90,73 @@
                     getcolorscheme();
                 });
             </script>
+            <script>
+                // darkmode
+                function getcolorscheme() {
+                    let storageColorScheme = localStorage.getItem("lightDarkMode")
+                    let element = document.getElementById('lightDarkMode');
+                    let targetDiv = document.getElementById('lightDarkOptions');
+                    let targets = targetDiv.getElementsByTagName('span');
+                    let screen = document.getElementById('is-open');
+
+                    element.addEventListener('click', () => {
+                        targetDiv.classList.toggle('hidden')
+                        screen.classList.toggle('hidden')
+                    })
+
+                    for (let target of targets) {
+                        target.addEventListener('click', () => {
+                            let targetName = target.getAttribute("name")
+                            let icon = switchMode(targetName)
+                            let old_icon = element.firstElementChild.getAttribute("data-icon")
+                            element.firstElementChild.setAttribute("data-icon", icon)
+                            element.firstElementChild.classList.remove('icon-' + old_icon)
+                            element.firstElementChild.classList.add('icon-' + icon)
+
+                            localStorage.setItem("lightDarkMode", targetName)
+
+                            targetDiv.classList.toggle('hidden')
+                            screen.classList.toggle('hidden')
+                        })
+                    }
+                    screen.addEventListener('click', () => {
+                        targetDiv.classList.toggle('hidden')
+                        screen.classList.toggle('hidden')
+                    })
+
+                }
+
+                function switchMode(darkmode) {
+                    let icon = ''
+                    switch (darkmode) {
+                        case 'Light':
+                            window.matchMedia("(prefers-color-scheme: dark)").removeEventListener('change', switchDarkMode)
+                            icon = 'sun'
+                            document.body.classList.remove('dark')
+                            break
+                        case 'Dark':
+                            window.matchMedia("(prefers-color-scheme: dark)").removeEventListener('change', switchDarkMode)
+                            icon = 'md-moon'
+                            document.body.classList.add('dark')
+                            break
+                        case 'Auto':
+                            icon = 'dark'
+                            const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)")
+                            switchDarkMode(isDarkMode)
+                            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+                            break
+                    }
+                    return icon
+                }
+
+                function switchDarkMode(darkmodes) {
+                    if (darkmodes.matches) {
+                        document.body.classList.add('dark')
+                    } else {
+                        document.body.classList.remove('dark')
+                    }
+                }
+            </script>
         </span>
     </span>
 </header>
