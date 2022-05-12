@@ -1,8 +1,15 @@
 {{ if .Get "url" }}
+<script>
+    function imgError(image) {
+        image.onerror = "";
+        image.src = "https://images.eallion.com/link/friend_404.gif";
+        return true;
+    }
+</script>
 <div class="archive-item links-item">
-    <a href={{ .Get "url" }}><img loading="lazy" class="non-box archive-list-image" src={{ .Get "src" }}></a>
-    <a href={{ .Get "url" }}>{{ .Get "name" }}</a>
-    <a href={{ .Get "url" }}><span class="archive-item-meta">{{- if .Get "domain" -}}{{- .Get "domain" -}}{{- else -}}{{- .Get "url" | replaceRE "^https?://([^/]+).*" "$1" -}}{{- end -}}</span></a>
+    <a href={{ .Get "url" }} target="_blank" rel="noopener noreferrer"><img loading="lazy" class="non-box archive-list-image" src={{ .Get "src" }} onerror="imgError(this);"></a>
+    <a href={{ .Get "url" }} target="_blank" rel="noopener noreferrer">{{ .Get "name" }}</a>
+    <a href={{ .Get "url" }} target="_blank" rel="noopener noreferrer"><span class="archive-item-meta">{{- if .Get "domain" -}}{{- .Get "domain" -}}{{- else -}}{{- .Get "url" | replaceRE "^https?://([^/]+).*" "$1" -}}{{- end -}}</span></a>
     <span class="archive-item-meta link__des">{{- if .Get "des" -}}{{- .Get "des" -}}{{- else -}}{{- .Get "url" -}}{{- end -}}</span>
 </div>
 {{ end }}

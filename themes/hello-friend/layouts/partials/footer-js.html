@@ -1,4 +1,57 @@
-<script type="text/javascript" src="/assets/js/jquery.min.js?v=3.6.0"></script>
-<script type="text/javascript" src="/assets/js/jquery.fancybox.min.js?v=3.5.7"></script>
-<script type="text/javascript" src="/assets/js/prism.min.js?v=1.28.0"></script>
-<script type="text/javascript" src="/assets/js/all.min.js?v=1.0.5"></script>
+{{ if (isset .Params "lightbox") }}
+
+<script type="text/javascript" src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js?v=3.5.7"></script>
+<script>
+    var selector = ".post-content a[rel!=link]:has(img:not(.non-box))";
+    $('[data-fancybox="gallery"]').fancybox({
+        selector: selector,
+        loop: false,
+        arrows: false,
+        buttons: [
+            //"zoom",
+            //"share",
+            //"slideShow",
+            //"fullScreen",
+            //"download",
+            //"thumbs",
+            "close"
+        ],
+        infobar: false,
+        ideScrollbar: true,
+        lang: "zh",
+        i18n: {
+            zh: {
+                CLOSE: "关闭",
+                NEXT: "下一张",
+                PREV: "上一张",
+                ERROR: "不能加载图片，<br/>请稍后再试。",
+                PLAY_START: "播放幻灯片",
+                PLAY_STOP: "暂停幻灯片",
+                FULL_SCREEN: "全屏",
+                THUMBS: "缩略图",
+                DOWNLOAD: "下载",
+                SHARE: "分享",
+                ZOOM: "缩放"
+            }
+        }
+    });
+</script>
+{{ else }}
+
+<script type="text/javascript" src="/assets/prism.js?v=1.28.0"></script>
+<script type="text/javascript" src="/assets/baguetteBox.js?v=1.11.1"></script>
+<script>
+    window.addEventListener('load', function() {
+        baguetteBox.run('.gallery', {
+            // Custom options
+            buttons: false,
+            noScrollbars: true,
+            fullScreen: false
+        });
+    });
+</script>
+<script type="text/javascript" src="/assets/disqus.js?v=1.3.0"></script>
+
+{{ end }}
+
+<script type="text/javascript" src="/assets/main.js"></script>

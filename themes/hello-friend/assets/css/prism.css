@@ -1,7 +1,7 @@
 /* PrismJS 1.28.0
 https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+bash+diff+markup-templating+nginx+php+yaml */
-code[class*="language-"],
-pre[class*="language-"] {
+code,
+pre {
     color: currentColor !important;
     background: 0 0 !important;
     text-shadow: 0 1px #fff;
@@ -22,36 +22,36 @@ pre[class*="language-"] {
     -ms-hyphens: none;
     hyphens: none;
 }
-code[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection,
-pre[class*="language-"] ::-moz-selection,
-pre[class*="language-"]::-moz-selection {
+code ::-moz-selection,
+code::-moz-selection,
+pre ::-moz-selection,
+pre::-moz-selection {
     text-shadow: none;
     background: #b3d4fc !important;
 }
-code[class*="language-"] ::selection,
-code[class*="language-"]::selection,
-pre[class*="language-"] ::selection,
-pre[class*="language-"]::selection {
+code ::selection,
+code::selection,
+pre ::selection,
+pre::selection {
     text-shadow: none;
     background: #b3d4fc !important;
 }
 @media print {
-    code[class*="language-"],
-    pre[class*="language-"] {
+    code,
+    pre {
         text-shadow: none;
     }
 }
-pre[class*="language-"] {
+pre {
     padding: 1em;
     margin: 0.5em 0;
     overflow: auto;
 }
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
+:not(pre) > code,
+pre {
     background: #f5f2f0 !important;
 }
-:not(pre) > code[class*="language-"] {
+:not(pre) > code {
     padding: 0.1em 0.5em;
     border-radius: 0.3em;
     white-space: normal;
@@ -141,30 +141,30 @@ pre[class*="language-"] {
 
 /* prism darktheme */
 
-.dark code[class*="language-"],
-.dark pre[class*="language-"] {
+.dark code,
+.dark pre {
     color: currentColor !important;
     background: 0 0 !important;
     text-shadow: 0 1px #000;
 }
-.dark code[class*="language-"] ::-moz-selection,
-.dark code[class*="language-"]::-moz-selection,
-.dark pre[class*="language-"] ::-moz-selection,
-.dark pre[class*="language-"]::-moz-selection {
+.dark code ::-moz-selection,
+.dark code::-moz-selection,
+.dark pre ::-moz-selection,
+.dark pre::-moz-selection {
     background: #444444 !important;
 }
-.dark code[class*="language-"] ::selection,
-.dark code[class*="language-"]::selection,
-.dark pre[class*="language-"] ::selection,
-.dark pre[class*="language-"]::selection {
+.dark code ::selection,
+.dark code::selection,
+.dark pre ::selection,
+.dark pre::selection {
     background: #444444 !important;
 }
 
-.dark :not(pre) > code[class*="language-"] {
+.dark :not(pre) > code {
     background: #636e7b66 !important;
 }
 
-.dark pre[class*="language-"] {
+.dark pre {
     background: #1e1e1e !important;
 }
 
