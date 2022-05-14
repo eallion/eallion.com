@@ -1370,6 +1370,10 @@ hr {
     font-size: 2em;
 }
 
+.dark .footer__title-h i {
+    color: #73747b;
+}
+
 .pagination__title hr,
 .footer__title hr {
     position: absolute;
