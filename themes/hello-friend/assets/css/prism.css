@@ -1,7 +1,7 @@
 /* PrismJS 1.28.0
 https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+bash+diff+markup-templating+nginx+php+yaml */
-code,
-pre {
+code[class*="language-"],
+pre[class*="language-"] {
     color: currentColor !important;
     background: 0 0 !important;
     text-shadow: 0 1px #fff;
@@ -22,33 +22,33 @@ pre {
     -ms-hyphens: none;
     hyphens: none;
 }
-code ::-moz-selection,
-code::-moz-selection,
-pre ::-moz-selection,
-pre::-moz-selection {
+code[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+pre[class*="language-"]::-moz-selection {
     text-shadow: none;
     background: #b3d4fc !important;
 }
-code ::selection,
-code::selection,
-pre ::selection,
-pre::selection {
+code[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+pre[class*="language-"]::selection {
     text-shadow: none;
     background: #b3d4fc !important;
 }
 @media print {
-    code,
-    pre {
+    code[class*="language-"],
+    pre[class*="language-"] {
         text-shadow: none;
     }
 }
-pre {
+pre[class*="language-"] {
     padding: 1em;
     margin: 0.5em 0;
     overflow: auto;
 }
 :not(pre) > code,
-pre {
+pre[class*="language-"] {
     background: #f5f2f0 !important;
 }
 :not(pre) > code {
@@ -141,22 +141,22 @@ pre {
 
 /* prism darktheme */
 
-.dark code,
-.dark pre {
+.dark code[class*="language-"],
+.dark pre[class*="language-"] {
     color: currentColor !important;
     background: 0 0 !important;
     text-shadow: 0 1px #000;
 }
-.dark code ::-moz-selection,
-.dark code::-moz-selection,
-.dark pre ::-moz-selection,
-.dark pre::-moz-selection {
+.dark code[class*="language-"] ::-moz-selection,
+.dark code[class*="language-"]::-moz-selection,
+.dark pre[class*="language-"] ::-moz-selection,
+.dark pre[class*="language-"]::-moz-selection {
     background: #444444 !important;
 }
-.dark code ::selection,
-.dark code::selection,
-.dark pre ::selection,
-.dark pre::selection {
+.dark code[class*="language-"] ::selection,
+.dark code[class*="language-"]::selection,
+.dark pre[class*="language-"] ::selection,
+.dark pre[class*="language-"]::selection {
     background: #444444 !important;
 }
 
@@ -164,7 +164,7 @@ pre {
     background: #636e7b66 !important;
 }
 
-.dark pre {
+.dark pre[class*="language-"] {
     background: #1e1e1e !important;
 }
 

@@ -68,15 +68,28 @@ enableGitInfo = false
       taskList = true
       typographer = true
     [markup.goldmark.parser]
-      autoHeadingID = true
+      autoHeadingID = false
       autoHeadingIDType = 'github'
       [markup.goldmark.parser.attribute]
         block = false
-        title = true
+        title = false
     [markup.goldmark.renderer]
       hardWraps = true
       unsafe = true
       xhtml = false
+    [markup.highlight]
+      anchorLineNos = false
+      codeFences = true
+      guessSyntax = true
+      hl_Lines = ''
+      lineAnchors = ''
+      lineNoStart = 1
+      lineNos = false
+      lineNumbersInTable = true
+      noClasses = true
+      noHl = false
+      style = 'dracula'
+      tabWidth = 4
 
 [outputs]
   home = ["Atom", "HTML", "JSON", "AMP",]
