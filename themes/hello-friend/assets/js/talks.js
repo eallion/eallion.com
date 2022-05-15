@@ -80,8 +80,11 @@ if (this.status >= 200 && this.status < 400) {
         let dataTime = '<span class="datatime">' + date + '</span>';
         talksHtml += '<div class="item item-' + (i + 1) + '">' + dataTime + '： <a href="https://eallion.com/talks/" target="_blank" rel="noopener noreferrer">' + urlToLink(item.content) + '</a></div>';
     });
+
     // Inject the string html into the container parent element.
-    talksContainer.innerHTML = talksHtml;
+    if(talksContainer) {
+        talksContainer.innerHTML = talksHtml;
+    }
 }
     Lately({
         'target': '.datatime'
