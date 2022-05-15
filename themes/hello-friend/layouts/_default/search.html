@@ -12,7 +12,7 @@
     <div id="searchResult" class=""></div>
 </div>
 
-<script src="https://cdn.staticfile.org/fuse.js/6.5.3/fuse.min.js"></script>
+<script src="https://cdn.staticfile.org/fuse.js/6.6.2/fuse.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', async () => {
@@ -48,21 +48,21 @@
             maxPatternLength: 32,
             minMatchCharLength: 1,
             keys: [{
-                    name: "title",
-                    weight: 0.8
-                },
-                {
-                    name: "summary",
-                    weight: 0.5
-                },
-                {
-                    name: "tags",
-                    weight: 0.3
-                },
-                {
-                    name: "date",
-                    weight: 0.3
-                },
+                name: "title",
+                weight: 0.8
+            },
+            {
+                name: "summary",
+                weight: 0.5
+            },
+            {
+                name: "tags",
+                weight: 0.3
+            },
+            {
+                name: "date",
+                weight: 0.3
+            },
             ]
         };
 
@@ -83,10 +83,33 @@
         function render(items) {
             return items.map(item => {
                 item = item.item
+                getMonth = item.date
                 return `<div class="post on-list">
                       <h1 class="post-title"><a href="${item.permalink}">${item.title}</a></h1>
-                      <div class="post-meta"><span class="post-date">${item.date}</span> <span>#${item.tags}</span></div>
-                      <div class="post-content">${item.summary}</div>
+                      <div class="post-meta">
+                        <span class="post-meta-categories">
+                            <i class="iconfont icon-folderOpen"></i>
+                            <span>
+                                <a href="/categories/${item.categories}">${item.categories}</a>
+                            </span>
+                        </span>
+                          <span class="post-meta-date">
+                            <i class="iconfont icon-rili${item.month}"></i>
+                            <span>${item.date}</span>
+                          </span>
+                          <span class="post-read-time">
+                            <i class="iconfont icon-time"></i>
+                            <span>${item.readTime} 分钟阅读时长</span>
+                        </span>
+                      </div>
+                      <div class="post-content post-index">${item.summary}</div>
+                        <i class="iconfont icon-shenglvehao"></i><i class="iconfont icon-shenglvehao"></i>
+                      <div class="read-more-icon">
+                          <a class="read-more button" href="${item.permalink}">
+                              阅读全文
+                              <i class="iconfont icon-chevrons-right"></i>
+                          </a>
+                      </div>
                     </div>`
             }).join('')
         }
