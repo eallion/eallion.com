@@ -1899,7 +1899,7 @@ photos .photo:last-child {
 
 .search-box {
     position: relative;
-    margin-bottom: 20px;
+    margin: 30px 0 20px;
 }
 
 #searchBoxInput {

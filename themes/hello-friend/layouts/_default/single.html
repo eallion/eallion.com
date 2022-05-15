@@ -28,41 +28,22 @@
             <span>{{ .Date.Format "2006 年 01 月 02 日" }}</span>
         </span>
         {{ end }}
+        {{ if $.Site.Params.ShowReadingTime }}
+        <span class="post-read-time">
+            <i class="iconfont icon-time"></i>
+            <span>{{ .ReadingTime }} {{ i18n "readingTime" }}</span>
+        </span>
+        {{ end }}
         {{- if .Site.Params.mdview.enable -}}
         <span class="post-meta-md">
             <i class="iconfont icon-markdown"></i>
             <span><a href='{{ .Site.Params.mdview.ContentPath }}{{ replace .File.Path "\\" "/" }}?download=false' target="_blank" rel="noopener noreferrer">{{ i18n "mdView"}}</a></span>
         </span>
         {{ end }}
-        {{ if $.Site.Params.ShowReadingTime }}
-        <span class="post-read-time">
-            <i class="iconfont icon-time"></i>
-            <span>{{ .ReadingTime }} {{ i18n "readingTime" }}</span>
-        </span>
         <span class="post-meta-word">
             <i class="iconfont icon-bi"></i>
             <span>{{ .WordCount }} {{ i18n "wordCount" }}</span>
         </span>
-        {{ end }}
-
-        {{- if .Site.Params.waline.enable -}}
-        <span class="post-meta-view">
-            <span>
-                <i class="iconfont icon-view"></i>
-            </span>
-            <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> <span>次浏览</span></span>
-        </span>
-        {{ end }}
-
-        {{- if .Site.Params.twikoo.enable -}}
-        <span class="post-meta-view">
-            <span>
-                <i class="iconfont icon-view"></i>
-            </span>
-            <span id="twikoo_visitors">0</span> <span>次浏览</span>
-        </span>
-        {{ end }}
-
     </div>
 
     {{ if eq .Type "posts" -}}
