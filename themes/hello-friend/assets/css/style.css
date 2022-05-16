@@ -1992,8 +1992,10 @@ photos .photo:last-child {
 }
 
 @media only screen and (max-width: 683px) {
+    .links {
+        grid-template-columns:50% 50%;
+    }
     .links-item {
-        width: 49%;
         margin: auto;
         white-space: nowrap;
         overflow: hidden;
