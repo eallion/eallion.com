@@ -31,6 +31,7 @@ jobs:
         run: |
           hugo version
           hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
+          wget https://eallion.com/talks.json -O ./public/talks.json
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
