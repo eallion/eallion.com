@@ -1,4 +1,4 @@
-{{ if and (.Site.Params.disqus.enable) }}
+{{ if and (not .Site.IsServer) (.Site.Params.disqus.enable) }}
 <div class="pagination__title">
     <span class="pagination__title-h">{{ i18n "comments" }}</span>
     <hr />
@@ -19,33 +19,4 @@
     });
     disqusjs.render(document.getElementById('disqusjs'));
 </script>
-<script>
-    var disqus_config = function () {
-        this.page.url = '{{ if .Params.identifier }}"{{ trim .Site.BaseURL "/" }}{{ .Params.identifier }}"{{ else }}{{ .Permalink }}{{ end }}'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = '{{ if .Params.identifier }}{{ trim .Params.identifier "/" }}{{ else }}{{ trim .RelPermalink "/" }}{{ end }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-
-    (function () {
-        var d = document,
-            s = d.createElement('script');
-        s.src = 'https://eallion.disqus.com/embed.js'; // Replace SITE_URL with your site's URL
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-
-    // Disqus theme switching
-    document.addEventListener('themeChanged', function (e) {
-        if (document.readyState == 'complete') {
-            DISQUS.reset({
-                reload: true,
-                config: disqus_config
-            });
-        }
-    });
-</script>
-{{- $script := printf `<script defer src="https://%s.disqus.com/embed.js"></script>` .Site.Params.comment.disqus.shortname -}}
-<noscript>
-    Please enable JavaScript to view the
-    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
 {{ end }}
