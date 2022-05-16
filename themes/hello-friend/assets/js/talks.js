@@ -65,7 +65,7 @@
 }());
 
 // 嘀咕首页 Json 版
-let jsonUrl = "https://6561-eallion-8gkunp4re49bae66-1251347414.tcb.qcloud.la/json/talks.json" + "?t=" + Date.parse(new Date())
+let jsonUrl = "/talks.json" + "?t=" + Date.parse(new Date())
 let xhrTalks = new XMLHttpRequest();
 xhrTalks.open('get', jsonUrl, true);
 xhrTalks.onload = function(res) {
