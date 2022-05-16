@@ -215,7 +215,7 @@
 /* algolia search box */
 .searchAlgolia {
     min-height: 300px;
-    margin-top: 20px;
+    margin-top: 10px !important;
     text-align: left;
     width: 760px;
     max-width: 760px;
@@ -226,6 +226,12 @@
     margin-bottom: 20px;
     margin: 0 auto;
     padding-left: 50px;
+}
+
+@media (max-width: 899px) {
+    .searchAlgolia {
+        margin-top: 0px !important;
+    }
 }
 
 /*
