@@ -43,20 +43,25 @@
 <script type="text/javascript" src="https://cdn.staticfile.org/pangu/4.0.7/pangu.min.js?v=4.0.7"></script>
 <script>
     // 今日诗词
-    var xhr = new XMLHttpRequest();
-    xhr.open('get', 'https://v2.jinrishici.com/one.json', true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            var result = JSON.parse(xhr.responseText);
-            var title =  document.getElementById('poemTitle');
-            var poemSentence = document.getElementById('poemSentence');
-            var poem_info = document.getElementById('poem_info');
-            title.innerHTML ='《<a href="https://www.google.com/search?q=' + result.data.origin.author + ' ' + result.data.origin.title + '" target="_blank" rel="noopener noreferrer">' + result.data.origin.title + '</a>》：';
-            poemSentence.innerHTML = '「<a href="https://www.google.com/search?q=' + result.data.content + '" target="_blank" rel="noopener noreferrer">' + result.data.content + '</a>」';
-            poem_info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author;
-        }
-    };
-    xhr.send();
+    function getData() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', 'https://v2.jinrishici.com/one.json', true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                var result = JSON.parse(xhr.responseText);
+                var title =  document.getElementById('poemTitle');
+                var poemSentence = document.getElementById('poemSentence');
+                var poem_info = document.getElementById('poem_info');
+                title.innerHTML ='《<a href="https://www.google.com/search?q=' + result.data.origin.author + ' ' + result.data.origin.title + '" target="_blank" rel="noopener noreferrer">' + result.data.origin.title + '</a>》：';
+                poemSentence.innerHTML = '「<a href="https://www.google.com/search?q=' + result.data.content + '" target="_blank" rel="noopener noreferrer">' + result.data.content + '</a>」';
+                poem_info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author;
+            }
+        };
+        xhr.send();
+    }
+    // 每 10 秒刷新一次
+    // setInterval(getData, 1000*10);
+    window.onload = getData();
 </script>
 <script>
     const searchClient = algoliasearch(

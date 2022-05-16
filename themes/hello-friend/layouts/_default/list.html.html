@@ -51,17 +51,12 @@
             class="post-cover"
         />
         {{ end }} {{ end }}
-
-        <div class="post-content post-index">
-            {{ if .Truncated }} {{ .Summary }}
-            <i class="iconfont icon-shenglvehao"></i><i class="iconfont icon-shenglvehao"></i>
-            <div class="read-more-icon">
-                <a class="read-more button" href="{{ .RelPermalink }}">
-                    {{ i18n "readMore" }}
-                    <i class="iconfont icon-chevrons-right"></i>
-                </a>
-            </div>
-            {{ else }} {{ .Content }} {{ .Render "path" }} {{ end }}
+        <div class="post-content post-content-index">
+            {{ if .Truncated }}
+                {{ .Summary | safeHTML}}...
+            {{ else }}
+                {{ .Summary | safeHTML }} {{ .Render "path" }}...
+            {{ end }}
         </div>
     </div>
     {{ end }} {{ partial "pagination.html" . }}
