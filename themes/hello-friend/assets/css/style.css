@@ -985,8 +985,8 @@ hr {
     width: 100%;
     max-width: 800px;
     text-align: left;
-    padding: 20px;
-    margin: 20px auto;
+    padding: 20px 20px 40px 20px;
+    margin: 30px auto;
 }
 
 .post:first-of-type {
@@ -1010,6 +1010,7 @@ hr {
 .post-meta {
     font-size: 0.85rem;
     display: flex;
+    opacity: 0.75;
 }
 
 .post-meta a {
@@ -1093,6 +1094,7 @@ hr {
 @media (max-width: 683px) {
     .post-title {
         font-size: 2rem;
+        white-space: nowrap;
     }
 
     .talk-title {
@@ -1275,6 +1277,15 @@ hr {
     height: 0;
     padding-bottom: 56.25%;
     overflow: hidden;
+}
+
+.post-content-index {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* number of lines to show */
+            line-clamp: 5;
+    -webkit-box-orient: vertical;
 }
 
 .hdots i {
@@ -1492,6 +1503,7 @@ hr {
     justify-content: space-between;
     margin: 0 auto;
     max-width: 100%;
+    opacity: 0.75;
 }
 
 @media (max-width: 899px) {
