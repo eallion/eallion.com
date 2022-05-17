@@ -65,6 +65,7 @@
 }());
 
 // 嘀咕首页 Json 版
+// remote json https://6561-eallion-8gkunp4re49bae66-1251347414.tcb.qcloud.la/json/talks.json
 let jsonUrl = "/talks.json" + "?t=" + Date.parse(new Date())
 let xhrTalks = new XMLHttpRequest();
 xhrTalks.open('get', jsonUrl, true);
