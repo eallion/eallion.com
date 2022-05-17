@@ -83,7 +83,6 @@
         function render(items) {
             return items.map(item => {
                 item = item.item
-                getMonth = item.date
                 return `<div class="post on-list">
                       <h1 class="post-title"><a href="${item.permalink}">${item.title}</a></h1>
                       <div class="post-meta">
@@ -102,7 +101,7 @@
                             <span>${item.readTime} 分钟阅读时长</span>
                         </span>
                       </div>
-                      <div class="post-content post-content-index">${item.summary}...</div>
+                      <div class="post-content post-content-index">${item.content}...</div>
                     </div>`
             }).join('')
         }
