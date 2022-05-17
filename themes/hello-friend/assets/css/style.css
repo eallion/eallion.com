@@ -1517,8 +1517,12 @@ hr {
     text-decoration: none;
 }
 
-.footer a:hover {
-    color: #409eff;
+.footer .copyright .copyrights {
+    opacity: 0.75;
+}
+
+.footer .copyright .copyrights:hover {
+    opacity: 1;
 }
 
 .footer .copyright--user {
