@@ -333,10 +333,17 @@
         </div>
     </div>
 </div>
-<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
 <script type="text/javascript">
-    var cip = returnCitySN["cip"];
-    document.getElementById("userAgentIp").innerHTML = cip;
+    var userAgentIp = new XMLHttpRequest();
+    userAgentIp.open('get', 'https://v2.jinrishici.com/info');
+    userAgentIp.onreadystatechange = function () {
+        if (userAgentIp.readyState === 4) {
+            var result = JSON.parse(userAgentIp.responseText);
+            var cip = result.data.ip
+        document.getElementById("userAgentIp").innerHTML = cip;
+        }
+    }
+    userAgentIp.send();
 </script>
 <script type="text/javascript">
     var uaInfo = navigator.userAgent;
