@@ -1,17 +1,21 @@
 {{ define "main" }}
-<div class="posts archive">
+{{ $currentTag := .Title }}
+<div class="archive">
 
     <h1 class="post-title">标签：「{{ .Title }}」</h1>
+    <hr />
     {{- range (where (where .Pages "Type" "in" (slice "post" "posts")) "Kind"
     "page").GroupByDate "2006" }}
-    <div class="post archive__group-posts">
+    <div class="archive__group-posts">
         {{- range .Pages.GroupByDate "2006" }}
+        <h3>{{ .Key }}</h3>
         <div class="archive__group-month">
-            <h3>{{ .Key }}</h3>
             <div class="archive__post">
-                {{- range .Pages }}
+                {{ range .Pages }}
                 <div class="archive__post-title">
-                    <a href="{{ .Permalink }}">{{ .Title }}<span class="post-date">{{ .Date.Format (default "2006.01.02") }}</span></a>
+                    <a href="{{ .Permalink }}">{{ .Title }} (#<mark>{{ $currentTag }}</mark>)
+                        <span class="post-date">{{ .Date.Format (default "2006.01.02") }}</span>
+                    </a>
                 </div>
                 {{ end }}
             </div>
@@ -19,11 +23,12 @@
         {{- end }}
     </div>
     {{- end }}
-    <div id="all-tags">
+    {{/*  <div id="all-tags">
+        <hr />
         {{ range (first 20 $.Site.Taxonomies.tags.ByCount) }}
         <a href="/tags/{{ .Name | urlize }}">#{{ .Name }}<small>({{ .Count }})</small></a>
         {{- end -}}
-    </div>
+    </div>  */}}
 </div>
 <!--posts-group end-->
 {{ end }}
