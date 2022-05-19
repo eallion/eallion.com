@@ -3,6 +3,7 @@ title: "DNS 推荐"
 categories: ["日志","分享"]
 tags: ["dns","114dns","googledns","opendns"]
 draft: false
+Comments: true
 slug: "dns"
 date: "2015-01-31 10:54:00"
 ---

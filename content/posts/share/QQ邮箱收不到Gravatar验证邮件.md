@@ -3,6 +3,7 @@ title: "QQ 邮箱收不到 Gravatar 验证邮件"
 categories: ["分享"]
 tags: ["头像","gravatar","qq 邮箱","验证邮件"]
 draft: false
+Comments: true
 slug: "qq-email-dont-get-them-validation-email"
 date: "2015-01-30 11:24:00"
 ---

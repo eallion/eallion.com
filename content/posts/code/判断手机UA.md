@@ -3,6 +3,7 @@ title: "判断手机 UA"
 categories: ["代码"]
 tags: ["代码","php","ua","user agent","判断"]
 draft: false
+Comments: true
 slug: "judge-phone-ua"
 date: "2015-01-13 10:43:00"
 ---

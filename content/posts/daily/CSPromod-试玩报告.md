@@ -3,6 +3,7 @@ title: "CSPromod 试玩报告"
 categories: ["日志"]
 tags: ["CS","csmod","反恐精英","csp","cspromod"]
 draft: false
+Comments: true
 slug: "csp-report"
 date: "2011-02-01 12:00:00"
 ---

@@ -3,6 +3,7 @@ title: "阿里云服务器 ECS 最新版 VPS 99 元 / 年"
 categories: ["分享"]
 tags: ["服务器","vps","阿里云","ECS"]
 draft: false
+Comments: true
 slug: "aliyun99"
 date: "2018-03-29 23:13:00"
 ---
@@ -17,6 +18,6 @@ date: "2018-03-29 23:13:00"
 
 购买链接：[https://promotion.aliyun.com/ntms/act/group/team.html?group=cqXxeaOGqw](https://promotion.aliyun.com/ntms/act/group/team.html?group=cqXxeaOGqw)
 
-![https://promotion.aliyun.com/ntms/act/group/team.html?group=cqXxeaOGqw](https://images.eallion.com/images/2018/03/29/4040239785.png!hugo.webp)
+![https://promotion.aliyun.com/ntms/act/group/team.html?group=cqXxeaOGqw](https://images.eallion.com/images/2018/03/29/4040239785.png)
 
 

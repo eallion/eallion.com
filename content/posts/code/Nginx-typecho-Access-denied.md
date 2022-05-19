@@ -3,6 +3,7 @@ title: "Nginx typecho Access denied"
 categories: ["代码"]
 tags: ["typecho","nginx","access","denied","403"]
 draft: false
+Comments: true
 slug: "Nginx-typecho-access-denied"
 date: "2017-03-19 01:08:00"
 ---

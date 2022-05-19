@@ -3,6 +3,7 @@ title: "VeryCD 时代的结束？"
 categories: ["日志"]
 tags: ["verycd","ed2k","电驴","正版"]
 draft: false
+Comments: true
 slug: "verycd"
 date: "2011-01-31 14:29:43"
 ---

@@ -3,6 +3,7 @@ title: "i like Windows 8"
 categories: ["日志"]
 tags: ["win","windows","windows8","system","os"]
 draft: false
+Comments: true
 slug: "windows-8-pre"
 date: "2011-09-17 14:05:11"
 ---

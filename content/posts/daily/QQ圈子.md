@@ -3,6 +3,7 @@ title: "QQ 圈子"
 categories: ["日志"]
 tags: ["QQ","QQ 圈子"]
 draft: false
+Comments: true
 slug: "qq-quanzi"
 date: "2012-03-22 13:29:06"
 ---

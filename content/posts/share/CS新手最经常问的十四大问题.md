@@ -3,6 +3,7 @@ title: "CS 新手最经常问的十四大问题"
 categories: ["分享"]
 tags: ["CS","question","CS1.6"]
 draft: false
+Comments: true
 slug: "14_questions_about_cs"
 date: "2010-04-02 20:16:14"
 ---

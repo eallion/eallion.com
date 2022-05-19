@@ -3,6 +3,7 @@ title: "Shutter 中文乱码问题"
 categories: ["代码"]
 tags: ["中文","shutter","乱码"]
 draft: false
+Comments: true
 slug: "shutter-chinese-garbled"
 date: "2016-09-25 20:05:00"
 ---

@@ -3,6 +3,7 @@ title: "Ubuntu 鼠标加速度"
 categories: ["代码"]
 tags: ["鼠标","Ubuntu","加速度","鼠标加速","xset m 0"]
 draft: false
+Comments: true
 slug: "ubuntu-mouse-acceleration"
 date: "2016-09-06 23:30:00"
 ---
@@ -12,9 +13,9 @@ date: "2016-09-06 23:30:00"
 > 系统：Ubuntu 16.04.1 LTS 64bit
 > 鼠标：Zowie EC2 eVo CL
 
-1，在 Dashboard 里搜索:
+1，在 Dashboard 里搜索：
 
-> gnome-session-properties （启动应用程序）
+> gnome-session-properties（启动应用程序）
 
 2，点击添加：
 > 名称：随意写（如：setmouse）

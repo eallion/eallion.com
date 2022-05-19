@@ -3,6 +3,7 @@ title: "多说 CSS 分享"
 categories: ["代码"]
 tags: ["多说","css","样式"]
 draft: false
+Comments: true
 slug: "share-duoshuo-css"
 date: "2015-01-12 10:07:00"
 ---

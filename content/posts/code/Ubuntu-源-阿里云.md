@@ -3,6 +3,7 @@ title: "Ubuntu 源 阿里云"
 categories: ["代码"]
 tags: ["Ubuntu","阿里云","源","更新源"]
 draft: false
+Comments: true
 slug: "ubuntu-aliyun"
 date: "2016-09-24 15:32:00"
 ---

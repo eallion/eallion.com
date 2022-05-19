@@ -3,6 +3,7 @@ title: "Ubuntu 源 香港中文大学"
 categories: ["代码"]
 tags: ["Ubuntu","香港","源","更新源"]
 draft: false
+Comments: true
 slug: "ubuntu-source-in-hong-kong"
 date: "2016-09-24 16:05:00"
 ---

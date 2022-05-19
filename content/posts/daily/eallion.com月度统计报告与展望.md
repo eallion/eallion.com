@@ -3,6 +3,7 @@ title: "eallion.com 月度统计报告与展望"
 categories: ["日志"]
 tags: ["博客","统计","报告","分析","展望"]
 draft: false
+Comments: true
 slug: "statistical-report"
 date: "2011-02-03 00:00:00"
 ---

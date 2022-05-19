@@ -3,6 +3,7 @@ title: "Ubuntu 16.10 禁用 Guest 访客"
 categories: ["代码"]
 tags: ["Ubuntu","1610","guest","session","访客"]
 draft: false
+Comments: true
 slug: "ubuntu-1610-disabled-guest"
 date: "2016-10-12 02:42:00"
 ---

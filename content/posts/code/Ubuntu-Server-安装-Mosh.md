@@ -3,6 +3,7 @@ title: "Ubuntu Server 安装 Mosh"
 categories: ["代码"]
 tags: ["Ubuntu","server","vps","ssh","mosh"]
 draft: false
+Comments: true
 slug: "mosh"
 date: "2019-11-24 16:12:00"
 ---

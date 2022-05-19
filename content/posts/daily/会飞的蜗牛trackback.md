@@ -3,6 +3,7 @@ title: "会飞的蜗牛 trackback"
 categories: ["日志"]
 tags: []
 draft: false
+Comments: true
 slug: "flying-snail-trackback"
 date: "2011-01-31 12:28:36"
 ---

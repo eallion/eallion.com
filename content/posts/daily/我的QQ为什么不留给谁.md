@@ -3,6 +3,7 @@ title: "我的 QQ 为什么不留给谁"
 categories: ["日志"]
 tags: ["QQ","网络财产","虚拟财产"]
 draft: false
+Comments: true
 slug: "dropqq"
 date: "2011-04-23 13:20:43"
 ---

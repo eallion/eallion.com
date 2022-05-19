@@ -3,6 +3,7 @@ title: "新号韩服 LOL 定位赛"
 categories: ["日志"]
 tags: ["LOL","英雄联盟","韩服","定位赛"]
 draft: false
+Comments: true
 slug: "lol-positioning"
 date: "2015-08-19 12:27:00"
 ---

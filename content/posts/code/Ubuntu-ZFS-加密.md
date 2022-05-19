@@ -4,13 +4,14 @@ categories: ["代码"]
 tags: ["Ubuntu","ZFS","encryption","加密","Linux"]
 slug: "ubuntu-zfs-encryption"
 draft: false
+Comments: true
 date: 2020-09-11T22:37:13+08:00
 ---
 
 ### 前言
 
 Ubuntu 20.04 的安装镜像支持 ZFS 文件系统：
-![](https://images.eallion.com/images/2020/09/install.png!hugo.webp)
+![](https://images.eallion.com/images/2020/09/install.png)
 
 本文是 ** 安装后 ** 加密 ZFS Home 目录的备忘教程。  
 另外有 ** 安装前 ** 加密 ZFS Root 文件系统的备忘教程。链接：[《Ubuntu ZFS 原生全盘加密》](https://eallion.com/ubuntu-zfs-root-encryption)
@@ -29,7 +30,7 @@ sudo zfs list -r rpool
 记录下你要用到的用户名的数据集名称，每个人的快照名字都不一样。  
 比如我的：`eallion_c1doe6`  
 返回值如图所示：
-![](https://images.eallion.com/images/2020/09/rpoollist.png!hugo.webp)
+![](https://images.eallion.com/images/2020/09/rpoollist.png)
 
 4、取消挂载新用户 `eallion` 的数据集
 ```
@@ -72,7 +73,7 @@ sudo zfs list -r rpool -o name,encryption
 如图：  
 我用的是全盘加密，所以全部返回 `aes-256-gcm`，  
 如果只加密了 Home 目录，则其他目录返回的是 `None`。
-![](https://images.eallion.com/images/2020/09/encryption.png!hugo.webp)
+![](https://images.eallion.com/images/2020/09/encryption.png)
 
 9、让加密目录用上 ZFS 的自动快照功能，Grub 引导项中也能选择快照历史恢复系统。
 ```

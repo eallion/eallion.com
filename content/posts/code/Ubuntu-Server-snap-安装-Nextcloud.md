@@ -3,6 +3,7 @@ title: "Ubuntu Server snap 安装 Nextcloud"
 categories: ["代码"]
 tags: ["Ubuntu","server","网盘","nexecloud","snap"]
 draft: false
+Comments: true
 slug: "nextcloud"
 date: "2019-11-25 16:08:00"
 ---

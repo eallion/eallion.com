@@ -3,6 +3,7 @@ title: "备份工具 Duplicati"
 categories: ["代码"]
 tags: ["Ubuntu","备份","Duplicati"]
 draft: false
+Comments: true
 slug: "duplicati"
 date: "2019-11-25 22:30:00"
 ---

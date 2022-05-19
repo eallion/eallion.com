@@ -3,6 +3,7 @@ title: "LOL 全球总决赛 S5 开赛，支持 AHQ"
 categories: ["日志"]
 tags: ["LOL","英雄联盟","s5","全球总决赛"]
 draft: false
+Comments: true
 slug: "lols5"
 date: "2015-10-01 14:11:00"
 ---

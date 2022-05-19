@@ -3,6 +3,7 @@ title: "让 Firefox 只在新标签页 newtab 显示书签栏"
 categories: ["代码"]
 tags: ["google","css","Firefox","书签","新标签页","newtab","bookmark"]
 draft: false
+Comments: true
 slug: "only-show-bookmark-in-newtab-in-firefox"
 date: "2019-05-19 00:45:00"
 ---
@@ -10,16 +11,16 @@ date: "2019-05-19 00:45:00"
 ### 更新 3
 > 更新时间：2020.12.25
 
-Firefox Developer Edition （开发者版）默认支持在新标签页打开书签栏。
+Firefox Developer Edition（开发者版）默认支持在新标签页打开书签栏。
 
-![](https://images.eallion.com/images/2020/12/firefox-dev.png!hugo.webp)
+![](https://images.eallion.com/images/2020/12/firefox-dev.png)
 
 ---
 
 ### 更新 2
 > 更新时间：2020.12.24
 
-最新版的 Firefox （84.0.1 (64 位)）提供了一个配置，可以修改此功能。
+最新版的 Firefox（84.0.1 (64 位)）提供了一个配置，可以修改此功能。
 
 `browser.toolbars.bookmarks.visibility`
 
@@ -31,7 +32,7 @@ Firefox Developer Edition （开发者版）默认支持在新标签页打开书
 
 在 Firefox 地址栏输入 `about:config`，搜索 `browser.toolbars.bookmarks.visibility`，修改为 `newtab` 即可。
 
-![](https://images.eallion.com/images/2020/12/firefox-newtab.png!hugo.webp)
+![](https://images.eallion.com/images/2020/12/firefox-newtab.png)
 
 ---
 

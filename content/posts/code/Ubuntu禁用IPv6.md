@@ -3,6 +3,7 @@ title: "Ubuntu 禁用 IPv6"
 categories: ["日志"]
 tags: ["Ubuntu","ipv6","禁用"]
 draft: false
+Comments: true
 slug: "ubuntu-ipv6"
 date: "2013-05-04 18:02:00"
 ---

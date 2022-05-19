@@ -1,3 +1,5 @@
+<script type="text/javascript" src="/assets/main.js"></script>
+
 {{ if (isset .Params "lightbox") }}
 
 <script type="text/javascript" src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js?v=3.5.7"></script>
@@ -36,7 +38,9 @@
         }
     });
 </script>
-{{ else if not .IsHome}}
+
+{{ else if not .IsHome }}
+
 <script type="text/javascript" src="/assets/prism.js?v=1.28.0"></script>
 <script type="text/javascript" src="/assets/baguetteBox.js?v=1.11.1"></script>
 <script>
@@ -49,5 +53,29 @@
         });
     });
 </script>
+
 {{ end }}
-<script type="text/javascript" src="/assets/main.js"></script>
+
+{{/*  DisqusJS comment  */}}
+{{ if and (not .Site.IsServer) (.Site.Params.disqus.enable) }}
+{{ if .Params.Comments }}
+<script type="text/javascript" src="/assets/disqus.js?v=3.0.0"></script>
+<script>
+    const disqusjs = new DisqusJS({
+        shortname: "eallion",
+        siteName: "{{ .Site.Params.title }}",
+        identifier: '{{ if .Params.identifier }}{{ trim .Params.identifier "/" }}{{ else }}{{ trim .RelPermalink "/" }}{{ end }}',
+        url: '{{ if .Params.identifier }}"{{ trim .Site.BaseURL "/" }}{{ .Params.identifier }}"{{ else }}{{ .Permalink }}{{ end }}',
+        title: "{{ .Title }}",
+        api: "https://disqus.eallion.com/",
+        apikey: "fF9m3DwDSmNQ2g5DIpuWElDaQTx1ofpMSSW8JeKaB2loVBExeInmMbaEGeLs7lOL",
+        admin: "eallion",
+        adminLabel: "Spectator",
+        nocomment: "说点什么吧！你的评论也可一针见血！",
+    });
+    disqusjs.render(document.getElementById('disqusjs'));
+    // DisqusJS 3.0.0 新增了销毁实例的 destroy() 方法，你可以在 PJAX 跳转时直接调用它：
+    // disqusjs.destroy();
+</script>
+{{ end }}
+{{ end }}

@@ -3,6 +3,7 @@ title: "FOMO"
 categories: ["分享"]
 tags: ["FOMO","错失恐惧症"]
 draft: false
+Comments: true
 slug: "fomo"
 date: "2019-04-18 16:06:00"
 ---

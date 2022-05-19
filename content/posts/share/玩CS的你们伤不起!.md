@@ -3,6 +3,7 @@ title: "玩 CS 的你们伤不起！"
 categories: ["分享"]
 tags: ["CS","伤不起","咆哮体"]
 draft: false
+Comments: true
 slug: "shangbuqi"
 date: "2011-03-29 09:50:30"
 ---

@@ -3,6 +3,7 @@ title: "Web 版 SSH Gateone"
 categories: ["代码"]
 tags: ["nginx","gateone","ssh","web","shell"]
 draft: false
+Comments: true
 slug: "gateone"
 date: "2016-09-08 09:38:00"
 ---

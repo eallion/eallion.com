@@ -3,6 +3,7 @@ title: "Titanic IMAX 3D"
 categories: ["日志"]
 tags: ["爱情","电影","titanic","泰坦尼克号","铁达尼"]
 draft: false
+Comments: true
 slug: "titanic-imax"
 date: "2012-04-13 10:52:21"
 ---

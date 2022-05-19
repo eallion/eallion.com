@@ -8,6 +8,7 @@ tags:
   - server
 slug: "gitea"
 draft: false
+Comments: true
 date: 2021-07-30T01:21:11+08:00
 toc: false
 ---
@@ -156,7 +157,7 @@ docker ps --format "table {{.ID}}\t{{.Names}}"
 CONTAINER ID   IMAGE
 7f888888884e   gitea/gitea:latest
 ```
-查看 Gitea 容器的 IP：（假设容器 ID 为：`7f888888884e`）  
+查看 Gitea 容器的 IP：（假设容器 ID 为：`7f888888884e`） 
 ```
 docker exec -it 7f888888884e /bin/sh
 ```

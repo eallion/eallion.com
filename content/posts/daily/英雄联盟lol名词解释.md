@@ -3,18 +3,19 @@ title: "英雄联盟 lol 名词解释"
 categories: ["日志"]
 tags: ["LOL","英雄联盟","League of Legends"]
 draft: false
+Comments: true
 slug: "lol-shuyu"
 date: "2013-04-13 16:33:00"
 ---
 
-英雄联盟 lol（League of Legends）中有一些常用名词的简写:
+英雄联盟 lol（League of Legends）中有一些常用名词的简写：
 
 > AP 是指 法术伤害
 > AD 是指 物理伤害
 > ADC 是指 远程物理输出
 > DPS 是指 近战物理输出
 
-常用语句:
+常用语句：
 
 | 名词 | 释义 |
 |:---|:---|

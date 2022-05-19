@@ -3,13 +3,14 @@ title: "我的 steam 回来了"
 categories: ["日志"]
 tags: ["CS","封禁","账号","steam","解封","申诉"]
 draft: false
+Comments: true
 slug: "steam-back"
 date: "2011-01-23 08:00:00"
 ---
 
 （解释一下：<a href="http://baike.baidu.com/view/1325872.htm" target="_blank">Steam</a > 账号就是玩正版 CS 的东西。）
 
-今年我被封了无数个账号  （<a href="http://eallion.com/banned-account-list" target="_blank">here</a>）
+今年我被封了无数个账号 （<a href="http://eallion.com/banned-account-list" target="_blank">here</a>）
 其中最让人崩溃的就有我的 steam
 我玩了差不多十年的 CS
 你想想，你带着队友，上了网，吃着火锅还唱着歌，实然就被麻匪给封禁了……

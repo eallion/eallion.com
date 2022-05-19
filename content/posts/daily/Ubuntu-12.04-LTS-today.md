@@ -3,6 +3,7 @@ title: "Ubuntu 12.04 LTS today"
 categories: ["日志"]
 tags: ["CS","windows","Ubuntu","linux","google"]
 draft: false
+Comments: true
 slug: "ubuntu-12-04"
 date: "2012-04-26 08:41:31"
 ---

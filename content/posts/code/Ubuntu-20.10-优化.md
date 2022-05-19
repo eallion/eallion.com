@@ -3,14 +3,15 @@ title: "Ubuntu 20.10 优化"
 categories: ["代码"]
 tags: ["Ubuntu","优化","美化","ZFS","gnome"]
 draft: false
+Comments: true
 slug: "ubuntu2010"
 date: "2020-10-23 10:25:00"
 toc: false
 ---
 ** 安装 Ubuntu 后的 20 件事 **
 
-![Ubuntu 20.10](https://images.eallion.com/images/2020/10/ubuntu2010.png!hugo.webp)
-> 实机安装 桌面效果截图 [（查看大图）](https://images.eallion.com/images/2020/10/ubuntu2010.png!hugo.webp "（查看大图）")
+![Ubuntu 20.10](https://images.eallion.com/images/2020/10/ubuntu2010.png)
+> 实机安装 桌面效果截图 [（查看大图）](https://images.eallion.com/images/2020/10/ubuntu2010.png "（查看大图）")
 
 最近搞挂了一块数据盘，刚好在 Ubuntu 20.10 的发行时间点，索性重装 Ubuntu。  
 本文主要为备忘。切勿照搬命令。建议最小化安装。

@@ -3,6 +3,7 @@ title: "关于 Ubuntu"
 categories: ["代码"]
 tags: ["Ubuntu","Linux"]
 draft: false
+Comments: true
 slug: "talkaboutubuntu"
 date: "2020-10-23 10:24:00"
 toc: false

@@ -3,6 +3,7 @@ title: "Rime 小狼毫 五笔输入法自定义短语"
 categories: ["代码"]
 tags: ["rime","小狼毫","五笔","自定义","短语"]
 draft: false
+Comments: true
 slug: "rime-wubi"
 date: "2019-04-19 15:45:00"
 ---

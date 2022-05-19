@@ -3,6 +3,7 @@ title: "WCG Stupid"
 categories: ["日志"]
 tags: ["CS","wcg"]
 draft: false
+Comments: true
 slug: "wcg-stupid"
 date: "2012-03-29 15:10:05"
 ---

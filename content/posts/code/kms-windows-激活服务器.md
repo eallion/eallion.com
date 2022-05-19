@@ -4,6 +4,7 @@ categories: ["代码"]
 tags: ["KMS","Windows","激活"]
 slug: "kms"
 draft: false
+Comments: true
 date: 2020-11-04T12:51:22+08:00
 toc: false
 ---

@@ -3,6 +3,7 @@ title: "Typecho 中英文之间自动加上空格"
 categories: ["代码"]
 tags: ["空格","space","pangu"]
 draft: false
+Comments: true
 slug: "autospace"
 date: "2019-11-29 09:29:00"
 ---

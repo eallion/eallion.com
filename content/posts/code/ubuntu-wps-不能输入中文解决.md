@@ -3,6 +3,7 @@ title: "ubuntu wps 不能输入中文解决"
 categories: ["代码"]
 tags: ["Ubuntu","linux","wps","中文"]
 draft: false
+Comments: true
 slug: "ubuntu-wps-cant-input-chinese"
 date: "2016-05-28 18:32:00"
 ---

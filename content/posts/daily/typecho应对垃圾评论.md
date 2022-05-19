@@ -3,6 +3,7 @@ title: "typecho 应对垃圾评论"
 categories: ["日志"]
 tags: ["评论","留言","spam","垃圾评论"]
 draft: false
+Comments: true
 slug: "typecho-anti-spam"
 date: "2017-05-12 20:12:00"
 ---

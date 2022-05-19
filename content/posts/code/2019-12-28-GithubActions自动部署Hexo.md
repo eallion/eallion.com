@@ -4,6 +4,7 @@ categories: ["代码"]
 tags: ["hexo","GitHub","actions","deploy"]
 slug: "GitHub-actions-hexo-ci"
 draft: false
+Comments: true
 date: "2019-12-28 22:53:43"
 ---
 
@@ -14,7 +15,7 @@ date: "2019-12-28 22:53:43"
 
 ### 步骤
 
-#### 1、生成密钥对 （这个也不会的话，方法自行 Google）
+#### 1、生成密钥对（这个也不会的话，方法自行 Google）
 ```
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/GitHub-actions-deploy
 ```
@@ -112,5 +113,5 @@ jobs:
 ```
 ### 部署截图
 
-![](https://images.eallion.com/images/2019/12/20191228232334.png!hugo.webp)
+![](https://images.eallion.com/images/2019/12/20191228232334.png)
 

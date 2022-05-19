@@ -3,11 +3,12 @@ title: "WannaCry 勒索病毒"
 categories: ["日志"]
 tags: ["安全","wannacry","勒索","病毒","445"]
 draft: false
+Comments: true
 slug: "WannaCry"
 date: "2017-05-15 11:04:00"
 ---
 
-<img src="https://images.eallion.com/images/2017/05/15/3478243449.jpg!hugo.webp">
+<img src="https://images.eallion.com/images/2017/05/15/3478243449.jpg!">
 
 这几天 WannaCry 勒索病毒肆虐，重灾区看起来恰恰是看来起知识水平更高的高校和政府部门，不得不让人感叹。
 
@@ -42,7 +43,7 @@ Win10 的自带的 Defened 已经足够好用了啊！难道还有第三方的�
 打开系统自带的防火墙就行了。
 虽然上面说了不要安装国产安全软件，但是这里推荐一个安全软件：
 
-　　<a href="http://www.huorong.cn/" target="_blank"> 火绒 </a> <a href="http://www.huorong.cn/" target="_blank">http://www.huorong.cn</a>
+  <a href="http://www.huorong.cn/" target="_blank"> 火绒 </a> <a href="http://www.huorong.cn/" target="_blank">http://www.huorong.cn</a>
 
 我自己在用，感觉还行，很轻，很安静，不打扰。而且能自定义很多规则。能跟随用户成长。
 
@@ -71,5 +72,5 @@ Win10 1703（15063）版本，默认没有控制面板的直接入口了。
 
 `开始` - `运行` - `输入 “control”` - `Windows 防火墙` - `高级设置` - `入站规则` - `新建规则` - `端口` - `TCP` - `特定本地端口` - `输入 “445”` - `阻止连接` - `取个名字`。
 
-![QQ 五笔截图未命名.png!hugo.webp](https://images.eallion.com/images/2017/05/15/2504829206.png!hugo.webp)
+![QQ 五笔截图未命名.png](https://images.eallion.com/images/2017/05/15/2504829206.png)
 

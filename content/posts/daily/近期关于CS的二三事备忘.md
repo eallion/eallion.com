@@ -3,6 +3,7 @@ title: "近期关于 CS 的二三事备忘"
 categories: ["日志"]
 tags: ["CS","游戏","电子竞技","电竞"]
 draft: false
+Comments: true
 slug: "memorandum-on-the-cs"
 date: "2011-03-06 10:01:34"
 ---

@@ -4,13 +4,14 @@ categories: ["代码"]
 tags: ["Ubuntu","ZFS","encryption","加密","Linux"]
 slug: "ubuntu-zfs-root-encryption"
 draft: false
+Comments: true
 date: 2020-09-11T23:48:35+08:00
 ---
 
 ### 前言
 
 Ubuntu 20.04 的安装镜像支持 ZFS 文件系统（从 19.10 就开始支持了）：
-![](https://images.eallion.com/images/2020/09/install.png!hugo.webp)
+![](https://images.eallion.com/images/2020/09/install.png)
 
 但是如果选择此项安装时，默认就没有全盘加密功能了。  
 本文介绍如何安装 Ubuntu 到 ZFS 文件系统时使用原生加密。  
@@ -51,8 +52,8 @@ sudo vi /usr/share/ubiquity/zsys-setup
 
 4、运行 `ubiquity` 开始安装 Ubuntu。
 
-如图：（注意在 `rpool` 一行之前加入这些代码）  
-![](https://images.eallion.com/images/2020/09/zsys-setup.png!hugo.webp)
+如图：（注意在 `rpool` 一行之前加入这些代码）
+![](https://images.eallion.com/images/2020/09/zsys-setup.png)
 
 **Reference:**  
 <https://linsomniac.gitlab.io/post/2020-04-09-ubuntu-2004-encrypted-zfs/>

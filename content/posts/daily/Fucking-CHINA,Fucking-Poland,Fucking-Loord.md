@@ -3,6 +3,7 @@ title: "Loord 事件"
 categories: ["日志"]
 tags: ["China","CS","loord","Poland","WEM"]
 draft: false
+Comments: true
 slug: "loord"
 date: "2010-11-05 00:32:00"
 ---

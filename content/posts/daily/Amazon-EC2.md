@@ -3,6 +3,7 @@ title: "Amazon EC2"
 categories: ["日志"]
 tags: ["amazon","ec2","vps","vpn","免费"]
 draft: false
+Comments: true
 slug: "amazon-ec2"
 date: "2012-03-27 09:15:00"
 ---

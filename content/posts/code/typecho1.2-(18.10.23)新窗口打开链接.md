@@ -3,6 +3,7 @@ title: "typecho1.2 (18.10.23) 新窗口打开链接"
 categories: ["代码"]
 tags: ["typecho","代码","php","新窗口","blank"]
 draft: false
+Comments: true
 slug: "typecho-12-blank"
 date: "2019-06-03 12:00:00"
 ---

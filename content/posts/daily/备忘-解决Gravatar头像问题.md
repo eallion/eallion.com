@@ -3,6 +3,7 @@ title: "备忘 - 解决 Gravatar 头像问题"
 categories: ["日志"]
 tags: ["头像","多说","gravatar"]
 draft: false
+Comments: true
 slug: "problem-of-gravatar"
 date: "2015-01-23 16:33:00"
 ---

@@ -3,6 +3,7 @@ title: "cyx，一路走好"
 categories: ["日志"]
 tags: ["CS","cyx"]
 draft: false
+Comments: true
 slug: "cyx"
 date: "2010-07-29 19:11:10"
 ---

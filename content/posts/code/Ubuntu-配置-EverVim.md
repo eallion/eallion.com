@@ -3,6 +3,7 @@ title: "Ubuntu 配置 EverVim"
 categories: ["代码"]
 tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]
 draft: false
+Comments: true
 slug: "ubuntuevervim"
 date: "2019-11-27 03:08:00"
 ---

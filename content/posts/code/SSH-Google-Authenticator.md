@@ -3,6 +3,7 @@ title: "SSH Google Authenticator"
 categories: ["代码"]
 tags: ["Ubuntu","google","ssh","two factor","authenticator"]
 draft: false
+Comments: true
 slug: "ssh-google-authenticator"
 date: "2016-09-08 10:55:00"
 ---

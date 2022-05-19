@@ -3,6 +3,7 @@ title: "Ubuntu 配置 Oh-My-Zsh"
 categories: ["代码"]
 tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]
 draft: false
+Comments: true
 slug: "ubuntuzsh"
 date: "2019-11-27 01:08:00"
 ---

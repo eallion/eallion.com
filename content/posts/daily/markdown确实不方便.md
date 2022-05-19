@@ -3,6 +3,7 @@ title: "markdown 确实不方便"
 categories: ["日志"]
 tags: ["博客","markdown"]
 draft: false
+Comments: true
 slug: "markdown-really-inconvenient"
 date: "2015-01-19 09:40:00"
 ---

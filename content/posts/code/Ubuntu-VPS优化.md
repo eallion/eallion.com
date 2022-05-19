@@ -3,6 +3,7 @@ title: "Ubuntu VPS 优化"
 categories: ["代码"]
 tags: ["Ubuntu","vps","优化","主机","lnmp"]
 draft: false
+Comments: true
 slug: "ubuntu-vps-optimized"
 date: "2015-02-05 13:35:00"
 ---

@@ -7,6 +7,7 @@ tags:
   - Git
 slug: "githash"
 draft: false
+Comments: true
 date: 2021-08-06T22:05:05+08:00
 toc: false 
 ---

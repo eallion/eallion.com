@@ -3,6 +3,7 @@ title: "修改 Ubuntu 状态栏托盘图标顺序"
 categories: ["代码"]
 tags: ["Ubuntu","图标","托盘","状态栏"]
 draft: false
+Comments: true
 slug: "ubuntu-system-icon"
 date: "2016-10-17 04:32:00"
 ---

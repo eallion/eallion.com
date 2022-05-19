@@ -3,6 +3,7 @@ title: "Win7 老打印机驱动解决方案"
 categories: ["日志"]
 tags: ["WIN7","打印机","驱动","虚拟机","virtualbox"]
 draft: false
+Comments: true
 slug: "win7-printer"
 date: "2013-06-19 12:39:00"
 ---

@@ -3,6 +3,7 @@ title: "Win7 Sendto 文件夹"
 categories: ["代码"]
 tags: ["WIN7","sendto","系统","发送到"]
 draft: false
+Comments: true
 slug: "windows-7-sendto"
 date: "2015-01-14 10:58:00"
 ---

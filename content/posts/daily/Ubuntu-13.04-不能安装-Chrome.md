@@ -3,6 +3,7 @@ title: "Ubuntu 13.04 不能安装 Chrome"
 categories: ["日志"]
 tags: ["Ubuntu","Chrome","147","依赖","libudev0"]
 draft: false
+Comments: true
 slug: "ubuntu-13-04-chrome"
 date: "2013-05-04 14:17:21"
 ---

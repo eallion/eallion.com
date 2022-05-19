@@ -3,6 +3,7 @@ title: "博客从 WordPress 换成 typecho"
 categories: ["日志"]
 tags: ["blog","WordPress","博客","typecho"]
 draft: false
+Comments: true
 slug: "typecho"
 date: "2011-01-08 04:45:29"
 ---

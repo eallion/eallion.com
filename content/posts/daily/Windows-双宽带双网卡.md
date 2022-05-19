@@ -3,6 +3,7 @@ title: "Windows 双宽带双网卡"
 categories: ["日志"]
 tags: ["网络","双宽带","电信","移动","网卡"]
 draft: false
+Comments: true
 slug: "dualnic"
 date: "2017-05-17 11:52:00"
 ---
@@ -15,7 +16,7 @@ date: "2017-05-17 11:52:00"
 还是 GBE 自适应千兆网卡。
 放在电脑上组成了双网卡。
 
-![222.png!hugo.webp](https://images.eallion.com/images/2017/05/17/256815267.png!hugo.webp)
+![222.png](https://images.eallion.com/images/2017/05/17/256815267.png)
 
 之所以最后选择了这样的方案。
 是因为去参考别人的教程的时候，发现他们都在讨论 2M、4M 的小水管。
@@ -29,7 +30,7 @@ date: "2017-05-17 11:52:00"
 只要把宽带属性的 `高级 TCP/IP 设置` 中的 `自动跃点数` 取消勾选，`接口跃点数` 填入一个固定的数值，如：`20`
 不管数值设为多少，必须要 2 张网卡设置为同样的数值。
 
-![1111.png!hugo.webp](https://images.eallion.com/images/2017/05/17/1204207163.png!hugo.webp)
+![1111.png](https://images.eallion.com/images/2017/05/17/1204207163.png)
 
 这样设置好后，默认走电信流量。
 用这台主力电脑，可以无缝访问两个局域网。
@@ -37,7 +38,7 @@ date: "2017-05-17 11:52:00"
 
 去阿里云下载了一个 Ubuntu 镜像测试了一下速度。。。
 
-![下载速度.png!hugo.webp](https://images.eallion.com/images/2017/05/17/249153887.png!hugo.webp)
+![下载速度.png](https://images.eallion.com/images/2017/05/17/249153887.png)
 
 在 CMD 里用 `route print` 可以打印路由表，看看默认路由情况。
 用 `route` 命令还有更多高级的玩法。这里暂且不表。
@@ -46,5 +47,5 @@ date: "2017-05-17 11:52:00"
 这个更简单，没有什么技术含量，只需要硬件支持。
 千兆网卡、超六类网线、千兆 LAN 口交换机即可。
 
-![333.png!hugo.webp](https://images.eallion.com/images/2017/05/17/4038504302.png!hugo.webp)
+![333.png](https://images.eallion.com/images/2017/05/17/4038504302.png)
 

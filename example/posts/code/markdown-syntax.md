@@ -11,6 +11,7 @@ categories: ["日志"]
 date: 2019-03-11
 lastmod: 2019-03-11
 draft: false
+Comments: true
 weight: 100
 slug: markdown-syntax
 ---

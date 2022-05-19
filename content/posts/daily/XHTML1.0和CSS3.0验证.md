@@ -3,6 +3,7 @@ title: "XHTML1.0 和 CSS3.0 验证"
 categories: ["日志"]
 tags: ["xhtml","认证","验证","css3.0"]
 draft: false
+Comments: true
 slug: "authentication"
 date: "2010-11-07 06:11:40"
 ---

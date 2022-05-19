@@ -3,6 +3,7 @@ title: "如果我不能再 Play CS"
 categories: ["日志"]
 tags: ["CS","忧伤","忧愁"]
 draft: false
+Comments: true
 slug: "if-i-can-not-play-cs"
 date: "2011-02-28 07:57:46"
 ---

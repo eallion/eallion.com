@@ -3,6 +3,7 @@ title: "手机网页 meta 解释"
 categories: ["代码"]
 tags: ["代码","html","meta","标签"]
 draft: false
+Comments: true
 slug: "mobile-meta"
 date: "2015-01-12 09:58:00"
 ---

@@ -3,6 +3,7 @@ title: "Linux 架设 CS1.6 服务器教程"
 categories: ["分享"]
 tags: ["CS","Ubuntu","server","服务器","linux","red hat"]
 draft: false
+Comments: true
 slug: "linux-counter-strike-server"
 date: "2012-03-21 13:07:07"
 ---

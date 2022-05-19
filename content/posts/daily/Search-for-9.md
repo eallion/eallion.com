@@ -3,6 +3,7 @@ title: "Search for 9"
 categories: ["日志"]
 tags: ["爱","i love you","9"]
 draft: false
+Comments: true
 slug: "9"
 date: "2011-09-29 09:55:53"
 ---

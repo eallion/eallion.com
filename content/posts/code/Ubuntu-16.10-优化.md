@@ -3,6 +3,7 @@ title: "Ubuntu 16.10 优化"
 categories: ["代码"]
 tags: ["Ubuntu","优化","ipv6","访客","ubuntu 微信"]
 draft: false
+Comments: true
 slug: "ubuntu1610"
 date: "2016-10-13 22:30:00"
 ---

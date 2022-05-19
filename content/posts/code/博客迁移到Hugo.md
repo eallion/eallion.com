@@ -4,6 +4,7 @@ categories: ["代码"]
 tags: ["hugo","blog"]
 slug: "hugo"
 draft: false
+Comments: true
 date: 2020-05-11T04:43:56+08:00
 ---
 

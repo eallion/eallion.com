@@ -8,6 +8,7 @@ tags:
   - server
 slug: "gitea"
 draft: false
+Comments: true
 date: 2021-07-30T01:21:11+08:00
 weight: 3
 toc: false

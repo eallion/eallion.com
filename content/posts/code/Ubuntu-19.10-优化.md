@@ -3,12 +3,13 @@ title: "Ubuntu 19.10 优化"
 categories: ["代码"]
 tags: ["Ubuntu","优化","美化","ZFS","gnome"]
 draft: false
+Comments: true
 slug: "ubuntu1910"
 date: "2019-11-29 12:36:00"
 ---
 
-![Ubuntu 19.10](https://images.eallion.com/images/2019/11/2252212556.png!hugo.webp)
-> 实机安装 桌面效果截图 [（查看大图）](https://images.eallion.com/images/2019/11/2252212556.png!hugo.webp "（查看大图）")
+![Ubuntu 19.10](https://images.eallion.com/images/2019/11/2252212556.png)
+> 实机安装 桌面效果截图 [（查看大图）](https://images.eallion.com/images/2019/11/2252212556.png "（查看大图）")
 
 硬件环境：
 ```bash

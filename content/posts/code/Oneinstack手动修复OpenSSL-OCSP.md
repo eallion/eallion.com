@@ -3,11 +3,12 @@ title: "Oneinstack 手动修复 OpenSSL OCSP"
 categories: ["代码"]
 tags: ["oneinstack","nginx","openssl","ocsp","cve-2016-6304"]
 draft: false
+Comments: true
 slug: "oneinstack-repair-openssl-ocsp"
 date: "2016-09-26 22:33:00"
 ---
 
-> 参考:
+> 参考：
 > http://security.360.cn/cve/CVE-2016-6304/CN.html  
 > https://www.openssl.org/news/secadv/20160922.txt
 

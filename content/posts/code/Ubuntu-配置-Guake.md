@@ -3,6 +3,7 @@ title: "Ubuntu 配置 Guake"
 categories: ["代码"]
 tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]
 draft: false
+Comments: true
 slug: "ubuntuguake"
 date: "2019-11-27 02:08:00"
 ---

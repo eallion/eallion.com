@@ -3,6 +3,7 @@ title: "getcdn.org Aliyun CDN"
 categories: ["日志"]
 tags: ["阿里云","cdn","aliyun","网络分发"]
 draft: false
+Comments: true
 slug: "getcdn"
 date: "2016-09-12 00:55:00"
 ---

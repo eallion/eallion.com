@@ -3,6 +3,7 @@ title: "巴塞罗那 VS 北京国安"
 categories: ["日志"]
 tags: ["北京国安","巴塞罗那","足球"]
 draft: false
+Comments: true
 slug: "barcelona"
 date: "2010-08-09 00:00:02"
 ---

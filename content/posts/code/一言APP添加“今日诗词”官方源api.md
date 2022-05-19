@@ -3,6 +3,7 @@ title: "一言 APP 添加 “今日诗词” 官方源 api"
 categories: ["代码"]
 tags: ["app","一言","诗词","hitokoto","今日诗词"]
 draft: false
+Comments: true
 slug: "jinrishici-for-hitokoto"
 date: "2019-05-27 22:08:00"
 ---

@@ -3,6 +3,7 @@ title: "短链接 url 压缩程序 Polr"
 categories: ["代码"]
 tags: ["polr","url","shortener","压缩","短链接"]
 draft: false
+Comments: true
 slug: "polr-url-shortener"
 date: "2017-04-08 23:41:00"
 ---
@@ -26,7 +27,7 @@ date: "2017-04-08 23:41:00"
  - PHP >= 5.5.9
  - MariaDB or MySQL >= 5.5, SQLite 三个都可以
  - composer
- - PHP 扩展:
+ - PHP 扩展：
 
     - OpenSSL 
     - PDO 
