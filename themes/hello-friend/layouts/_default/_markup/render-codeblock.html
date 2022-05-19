@@ -1,7 +1,7 @@
 {{ $class := .Attributes.class | default ""    }}
 {{ $lang  := .Attributes.lang  | default .Type }}
 {{ if transform.CanHighlight $lang }}
-<div class="{{ $class }}">{{ highlight .Inner $lang }}</div>
+{{ highlight .Inner $lang }}
 {{else}}
-<pre><code class="language-none">{{.Inner}}</code></pre>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-none">{{.Inner}}</code></pre></div>
 {{end}}

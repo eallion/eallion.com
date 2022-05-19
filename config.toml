@@ -86,9 +86,9 @@ enableGitInfo = false
       lineNoStart = 1
       lineNos = false
       lineNumbersInTable = true
-      noClasses = true
+      noClasses = false
       noHl = false
-      style = 'dracula'
+      style = 'github'
       tabWidth = 4
 
 [outputs]
