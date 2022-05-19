@@ -1,22 +1,8 @@
-{{ if and (not .Site.IsServer) (.Site.Params.disqus.enable) }}
+{{ if   (.Site.Params.disqus.enable) }}
 <div class="pagination__title">
     <span class="pagination__title-h">{{ i18n "comments" }}</span>
     <hr />
 </div>
-<script type="text/javascript" src="/assets/disqus.js?v=3.0.0"></script>
 <div id="disqusjs"></div>
-<script>
-    const disqusjs = new DisqusJS({
-        shortname: "eallion",
-        siteName: "{{ .Site.Params.title }}",
-        identifier: '{{ if .Params.identifier }}{{ trim .Params.identifier "/" }}{{ else }}{{ trim .RelPermalink "/" }}{{ end }}',
-        url: '{{ if .Params.identifier }}"{{ trim .Site.BaseURL "/" }}{{ .Params.identifier }}"{{ else }}{{ .Permalink }}{{ end }}',
-        title: "{{ .Title }}",
-        api: "https://disqus.eallion.com/",
-        apikey: "fF9m3DwDSmNQ2g5DIpuWElDaQTx1ofpMSSW8JeKaB2loVBExeInmMbaEGeLs7lOL",
-        admin: "eallion",
-        adminLabel: "Spectator",
-    });
-    disqusjs.render(document.getElementById('disqusjs'));
-</script>
+{{/* DisqusJS Option on footer-js.html  */}}
 {{ end }}
