@@ -9,7 +9,6 @@
 {{ $contentTypeName :=$.Site.Params.contentTypeName }}
 
 <div class="posts post">
-    <!-- {{ partial "breadcrumb.html" . }} -->
     <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
     <div class="post-meta">
         {{ with .Params.categories }}
@@ -25,7 +24,7 @@
         {{ if .Date | default nil }}
         <span class="post-meta-date">
             <i class="iconfont icon-rili{{ dateFormat "1" .Date }}"></i>
-            <span>{{ .Date.Format "2006 年 01 月 02 日" }}</span>
+            <span>{{ .Date.Format "2006.01.02" }}</span>
         </span>
         {{ end }}
         {{ if $.Site.Params.ShowReadingTime }}

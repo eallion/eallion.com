@@ -1,14 +1,13 @@
-{{ define "head" }} {{ if .Paginator.HasPrev -}}<link
-    rel="prefetch"
-    href="{{ .Paginator.Prev.URL }}"
-/>{{- end }} {{ if .Paginator.HasNext -}}<link
-    rel="prefetch"
-    href="{{ .Paginator.Next.URL }}"
-/>{{- end }} {{ end }} {{ define "main" }}
+{{ define "head" }}
+    {{ if .Paginator.HasPrev -}}<link rel="prefetch" href="{{ .Paginator.Prev.URL }}" />{{- end }}
+    {{ if .Paginator.HasNext -}}<link rel="prefetch" href="{{ .Paginator.Next.URL }}" />{{- end }}
+{{ end }}
+
+{{ define "main" }}
 {{ $contentTypeName := $.Site.Params.contentTypeName }}
 {{ $PageContext := . }}
 {{ if .IsHome }}
-    {{ $PageContext = .Site }}
+{{ $PageContext = .Site }}
 {{ end }}
 {{ $paginator := .Paginate (where $PageContext.RegularPages "Type" $contentTypeName) }}
 <div class="posts">
@@ -23,15 +22,15 @@
                 <i class="iconfont icon-folderOpen"></i>
                 <span>
                     {{ range . }}
-                    <a href="{{ (urlize (printf "categories/%s" . )) | absURL }}/">{{ . }}</a>
+                    <a href="{{ (urlize (printf " categories/%s" . )) | absURL }}/">{{ . }}</a>
                     {{ end }}
                 </span>
             </span>
             {{ end }}
             {{ if .Date }}
             <span class="post-meta-date">
-                <i class="iconfont icon-rili{{ dateFormat "1" .Date }}"></i>
-                <span> {{ .Date.Format "2006 年 01 月 02 日" }} </span>
+                <i class="iconfont icon-rili{{ dateFormat " 1" .Date }}"></i>
+                <span> {{ .Date.Format "2006.01.02" }} </span>
             </span>
             {{ end }}
             {{ if $.Site.Params.ShowReadingTime }}
@@ -42,20 +41,15 @@
             {{ end }}
         </div>
 
-        {{ if .Params.feature }} {{ if .Params.UseRelativeCover }} <img
-        loading='lazy' src="{{ (printf "%s%s" .Permalink .Params.feature ) }}"
-        class="post-cover" > {{ else }}
-        <img
-            loading="lazy"
-            src="{{ .Params.feature | absURL }}"
-            class="post-cover"
-        />
+        {{ if .Params.feature }} {{ if .Params.UseRelativeCover }} <img loading='lazy' src="{{ (printf " %s%s"
+            .Permalink .Params.feature ) }}" class="post-cover"> {{ else }}
+        <img loading="lazy" src="{{ .Params.feature | absURL }}" class="post-cover" />
         {{ end }} {{ end }}
         <div class="post-content post-content-index">
             {{ if .Truncated }}
-                {{ .Summary | safeHTML}}...
+            {{ .Summary | safeHTML}}...
             {{ else }}
-                {{ .Summary | safeHTML }} {{ .Render "path" }}...
+            {{ .Summary | safeHTML }} {{ .Render "path" }}...
             {{ end }}
         </div>
     </div>

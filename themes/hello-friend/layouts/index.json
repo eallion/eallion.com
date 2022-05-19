@@ -1,5 +1,5 @@
 {{- $.Scratch.Add "index" slice -}}
 {{- range .Site.RegularPages -}}
-    {{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.tags "permalink" .Permalink "content" (.Plain | safeHTML) "date" (.Date.Format "2006 年 01 月 02 日") "month" (.Date.Month) "readTime" .ReadingTime "categories" .Params.categories ) -}}
+    {{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.tags "permalink" .Permalink "content" (.Plain | safeHTML) "date" (.Date.Format "2006.01.02") "month" (.Date.Month) "readTime" .ReadingTime "categories" .Params.categories ) -}}
 {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}
