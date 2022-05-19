@@ -1211,18 +1211,26 @@ hr {
     transform: scale(11.5);
 }
 
+#all-categories,
 #all-tags {
     word-break: break-all;
     margin-top: 2rem;
 }
 
+#all-categories a,
 #all-tags a {
     font-size: 1.2rem;
     text-decoration: none;
     margin-right: 1rem;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 4px 15px;
+    margin: 0 8px 8px 0;
+    border: 1px rgba(34,47,62,0.3) dashed;
 }
 
 @media (max-width: 683px) {
+    #all-categories,
     #all-tags a {
         font-size: 0.95rem;
         margin-right: 0.5rem;
