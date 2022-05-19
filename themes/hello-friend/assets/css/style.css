@@ -1215,6 +1215,10 @@ hr {
 #all-tags {
     word-break: break-all;
     margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 #all-categories a,
