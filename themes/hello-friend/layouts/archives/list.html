@@ -1,38 +1,26 @@
 {{ define "main" }}
-<div class="posts archive">
-    {{ partial "breadcrumb.html" . }}
+<div class="archive">
 
     <h1 class="post-title">{{ .Title }}</h1>
-    共计 {{ len (where .Site.RegularPages "Section" "posts") }} 篇日志
-    <!--
-    <div id="all-tags">
-      {{- range $name, $taxonomy := .Site.Taxonomies.tags -}}
-      <a href="/tags/{{ $name | urlize }}">#{{ $name }}<small>({{ .Count }})</small></a>
-      {{- end -}}
-    </div>
--->
-    {{- range (where (where .Site.Pages "Type" "in" "posts") "Kind"
-    "page").GroupByDate "2006" }}
-    <div class="post archive__group-posts">
-        {{- range .Pages.GroupByDate "2006-01" }}
-        <div class="archive__group-month">
-            <h3>{{ .Key }}</h3>
-            <div class="archive__post">
-                {{- range .Pages }}
-                <div class="archive__post-title">
-                    <a href="{{ .Permalink }}"
-                        >{{ .Title }}<span class="post-date"
-                            >{{ .Date.Format ($.Site.Params.DateFormatList |
-                            default "2006-01-02") }}</span
-                        ></a
-                    >
-                </div>
-                {{ end }}
+    共计 {{ len (where .Site.RegularPages "Section" "posts") }} 篇日志，每页 20 篇。
+    <hr />
+    {{ $paginator := (.Paginate (where .Site.RegularPages "Type" "in" "posts") 20 ) }}
+
+    {{- range $paginator.Pages.GroupByDate "2006" }}
+    <h3>{{ .Key }}</h3>
+    <div class="archive__group-month">
+        <div class="archive__post">
+            {{ range .Pages }}
+            <div class="archive__post-title">
+                <a href="{{ .Permalink }}">{{ .Title }}
+                    <span class="post-date">{{ .Date.Format (default "2006.01.02") }}</span>
+                </a>
             </div>
+            {{ end }}
         </div>
-        {{- end }}
     </div>
     {{- end }}
+    {{ partial "pagination-archives.html" . }}
 </div>
 <!--posts-group end-->
 {{ end }}
