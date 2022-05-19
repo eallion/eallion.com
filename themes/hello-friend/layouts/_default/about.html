@@ -29,9 +29,14 @@
         <p>
             本人只活跃在<a href="https://github.com/eallion"><code>GitHub</code></a>、<a href="https://steamcommunity.com/id/eallion"><code>Steam</code></a>、<a href="https://stackoverflow.com/users/story/11409594"><code>StackOverflow</code></a>上，其他同名账号绝非本人所有。
         </p>
+        <p>
+            本站拥有唯一域名 <code>eallion.com</code> 、二级域名
+            <code>www.eallion.com</code
+            >。除此之外的相关、相似域名，除非由本人实名认证，或者备案在本人名下，否则皆为他人所有，或者被他人盗用信息，与本人无关。
+        </p>
         <p>本博客现在随缘更新，佛性写博。</p>
         <p>
-            自从简体中文网络环境越来越差，本博客已累计删除 4000
+            自从简体中文网络环境越来越差，受网络监管和内容审查的影响，本博客已主动或被动删除 4000
             多篇废话和流水账。
             现在本博客基本上不会写时事，不会写政治，不蹭热点，不玩梗，不会发表犀利刻薄的评论。只会偶尔更新一些备忘录或小心得或无关紧要的随想。
         </p>
@@ -39,11 +44,9 @@
         <p>
             不过多年以后，无论是现实还是网上的朋友，只要你来，只要没人逼我离开，我就还在这里。
         </p>
-        <blockquote>
-            <p>
-                本博客保留了一部分单字文章，虽然只有一个字，但是每当看到内容时，十多二十年前的旧时光就会从脑海徐徐漂过，当时的情景、当时的感受历历在目，仿佛从未远去。
-            </p>
-        </blockquote>
+        <p>
+            本博客保留了一部分单字文章，虽然只有一个字，但是每当看到内容时，十多二十年前的旧时光就会从脑海徐徐漂过，当时的情景、当时的感受历历在目，仿佛从未远去。
+        </p>
         <h3 id="版权信息">版权信息</h3>
         <ul>
             <li>
@@ -60,10 +63,10 @@
         <ul>
             <li>唯一公开邮箱：<code>eallions@gmail.com</code></li>
             <li>
-                私人邮箱：<code>e*****n@hotmail.com</code>、<code>e*n@pm.me</code>
+                私人邮箱：<code>e*****n@hotmail.com</code>、<code>e*****n@eallion.com</code>、<code>e*n@pm.me</code>
             </li>
             <li>
-                弃用邮箱：<del><code>e*****n@eallion.com</code></del>、<del><code>@sina.com</code></del>、<del><code>@163.com</code></del>、<del><code>@sohu.com</code></del>
+                弃用邮箱：<del><code>@sina.com</code></del>、<del><code>@163.com</code></del>、<del><code>@sohu.com</code></del>
             </li>
             <li>
                 不活跃邮箱：<del><code>e*****n@qq.com</code></del>、<del><code>2*******8@qq.com</code></del>、<del><code>e*****n@icloud.com</code></del>
@@ -76,7 +79,7 @@
             <img loading="lazy" class="non-box" src="https://img.shields.io/keybase/pgp/eallion?label=Keybase%20OpenPGP&amp;logo=keybase&amp;logoColor=fff&amp;style=flat" alt="https://keybase.io/eallion/pgp_keys.asc" />
         </p>
         <div class="highlight">
-            <pre class="language-shell" tabindex="0"><code class="language-shell" data-lang="shell"><span class="token function">curl</span> -L https://eallion.com/key <span class="token operator">|</span> gpg --import</code></pre>
+            <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -L https://eallion.com/key <span class="p">|</span> gpg --import</span></span></code></pre>
         </div>
         <h3 id="状态">状态</h3>
         <p>
@@ -120,11 +123,6 @@
     </div>
 
     <div class="clear"></div>
-
-    {{ if not (eq .Params.Comments "false") }}
-    {{ if or (eq .Type $.Site.Params.contentTypeName) (.Params.Comments) }}
     {{ partial "comments.html" . }}
-    {{ end }}
-    {{ end }}
 </div>
 {{ end }}
