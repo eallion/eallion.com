@@ -71,7 +71,7 @@
     <div class="post-ext">
         {{ if .Params.tags }}
         <div class="post-tags">
-            <span>标签：</span>
+            <span><i class="iconfont icon-biaoqian"></i>标签：</span>
             {{ range first 4 .Params.tags }}
             <a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/" class="tags">{{ . }}</a>&nbsp;
             {{ end }}
