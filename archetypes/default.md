@@ -6,6 +6,7 @@ tags:
   - blog
 slug: "{{ replace .Name "-" " " | title }}"
 draft: true
+Comments: true
 date: {{ .Date }}
 toc: false
 ---
