@@ -26,19 +26,19 @@
             <div class="lightDarkMode">
                 <div id="lightDarkMode" class="lightDarkModes">
                     {{- if eq $.Site.Params.defaultTheme "dark" }}
-                    <i class='iconfont icon-md-moon'></i>
+                    <i class='iconfont icon-md-moon' data-icon='md-moon'></i>
                     {{- else if eq $.Site.Params.defaultTheme "light" }}
-                    <i class='iconfont icon-sun'></i>
+                    <i class='iconfont icon-sun' data-icon='sun'></i>
                     {{- else }}
-                    <i  class='iconfont icon-dark'></i>
+                    <i  class='iconfont icon-dark' data-icon='dark'></i>
                     {{- end }}
                 </div>
                 <div class="is-open hidden" id="is-open">
                 </div>
                 <div class="lightDarkOptions hidden" id='lightDarkOptions'>
-                    <span class="lightDarkOption" name="Auto"><i class='iconfont icon-dark'></i> {{ i18n "auto" }}</span>
-                    <span class="lightDarkOption" name="Light"><i class='iconfont icon-sun'></i> {{ i18n "light" }}</span>
-                    <span class="lightDarkOption" name="Dark"><i class='iconfont icon-md-moon'></i> {{ i18n "dark" }}</span>
+                    <span class="lightDarkOption" name="Auto"><i class='iconfont icon-dark' data-icon='dark'></i> {{ i18n "auto" }}</span>
+                    <span class="lightDarkOption" name="Light"><i class='iconfont icon-sun'data-icon='sun'></i> {{ i18n "light" }}</span>
+                    <span class="lightDarkOption" name="Dark"><i class='iconfont icon-md-moon'data-icon='md-moon'></i> {{ i18n "dark" }}</span>
                 </div>
             </div>
             <script>
