@@ -2353,6 +2353,17 @@ body.dark {
     color: var(--dark-background);
 }
 
+@keyframes iRotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+    }
+
+.icon-loading:before {
+    content: "\e65d";
+    animation: iRotation 3s linear infinite;
+    display: inline-block;
+}
+
 .talks__date a {
     text-decoration: none;
 }
