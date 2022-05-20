@@ -45,6 +45,7 @@ Comments: false
 {{< friend name="Heo" des="爱折腾的设计师" url="https://blog.zhheo.com/" domain="blog.zhheo.com" src="https://blog.zhheo.com/img/avatar.png" >}}
 {{< friend name="Bore’s Note" des="博观而约取，厚积而薄发。" url="https://bore.vip/" domain="bore.vip" src="https://cdn.jsdelivr.net/gh/iwyang/pic/avatar.jpg" >}}
 {{< friend name="辰旭博客" des="山回路转不见君，雪上空留马行处。" url="https://blog.shiyuchan.cn/" domain="blog.shiyuchan.cn" src="https://cdn.jsdelivr.net/gh/Karensky/qaq@master/2020/p/1589969872-1589504511463.png" >}}
+{{< friend name="冰剑" des="采用人工智能，各部分零件齐全，运转稳定，经三十多年的运行，属质量信得过产品。" url="https://digu.plus/" domain="digu.plus" src="https://digu.plus/images/avatar.jpg" >}}
 </div>
 
 ---
@@ -62,9 +63,10 @@ Comments: false
 
 我的友链信息：
 
-> Title：大大的小蜗牛  
-> English title：eallion's blog  
+> 标题：大大的小蜗牛  
 > URL：[`https://eallion.com`](https://eallion.com)  
-> [Avatar](https://github.com/eallion/eallion/tree/main/avatar)：[`https://cdn.jsdelivr.net/gh/eallion/eallion/avatar/eallion.png`](https://cdn.jsdelivr.net/gh/eallion/eallion/avatar/eallion.png)  
-> Description：机会总是垂青于有准备的人  
-> English description：_Chance favors the prepared mind_
+> Avatar：[`https://cdn.jsdelivr.net/gh/eallion/eallion/avatar/eallion.png`](https://cdn.jsdelivr.net/gh/eallion/eallion/avatar/eallion.png)  
+> Gravatar：[`https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31`](https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31)  
+> 描述：机会总是垂青于有准备的人  
+> Title：eallion's blog  
+> Description：_Chance favors the prepared mind_
