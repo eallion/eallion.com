@@ -1,29 +1,44 @@
-# A Hugo blog about *Charles 'eallion' Chin*
+<h1 align="center">A Hugo blog about Charles 'eallion' Chin</h1>
 
-> Chance favors the prepared mind.
+<p align="center">Chance favors the prepared mind.</p>
 
-### 🏗️Build status
-
+<p align="center">
+    <img src="static/eallion.jpg">
+</p>
+    
+<div align="center">
+    
 [![Build Hugo and Deploy](https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.com/actions/workflows/main.yml)  
-![GitHub](https://img.shields.io/github/license/eallion/eallion.com) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v1.0.4/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com) [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/9pjg.svg)](https://betteruptime.com/?utm_source=status_badge)
+    
+</div>
 
-### ❓Any questions?
-
+<div align="center">
+    
+![GitHub](https://img.shields.io/github/license/eallion/eallion.com) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v1.0.8/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com) [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/9pjg.svg)](https://betteruptime.com/?utm_source=status_badge)
+    
+</div>
+<div align="center"> 
+    
 [![GitHub issues](https://img.shields.io/github/issues/eallion/eallion.com?logo=GitHub&color=4ec100&style=flat)](https://github.com/eallion/eallion.com/issues/new) [![](https://img.shields.io/badge/eallions@gmail.com-4ec100?labelColor=555&logo=gmail&label=Gmail&link=mailto:eallions@gmail.com&logoColor=fff&style=flat)](mailto:eallions@gmail.com) [![](https://img.shields.io/badge/t.me-@eallion-4ec100?labelColor=555&logo=telegram&logoColor=fff&style=flat)](https://t.me/eallion)
+</div>
 
-### ✨Live demo:
-- https://eallion.com
+<div align="center"> 
+    
+✨DEMO: https://eallion.com ✨
+
+</div>
 
 # 备忘录：
 
 ### 📦️主仓库
 > <https://github.com/eallion/eallion.com.git>
 
-### 📦️备份仓库
+#### 备份仓库
 > Coding.net：<https://e.coding.net/eallion/eallion.com/hugo.git>
 
-### 🔀添加备份仓库 Remote
+#### 添加备份仓库 Remote
 
+> **Note**  
 > Remote url 传递 id:token 免输各个 git 仓库的账号密码
 
 ```
@@ -31,7 +46,16 @@ git remote set-url --add --push origin https://id:token@github.com/eallion/ealli
 git remote set-url --add --push origin https://id:token@e.coding.net/eallion/eallion.com/hugo.git
 ```
 
-### 📝架构备忘
+#### 通过空提交运行 GitHub Acions
+
+当没有新提交时， 通过 push empty commit 运行 GitHub Actions：
+
+```
+git commit --allow-empty -m "build: rerun github acions"
+git push
+```
+
+#### 架构备忘
 
 - 国内：通过 [Coding](https://coding.net/) 部署至腾讯云 [COS](https://cloud.tencent.com/product/cos) + [CDN](https://cloud.tencent.com/product/cdn) (2020.12.27)
 - 境外：通过 GitHub Action 部署至 [GitHub Pages](https://eallion.github.io/) (2021.06.13)
@@ -140,15 +164,6 @@ pipeline {
 }
 ```
 </details>
-
-### 👷通过空提交运行 GitHub Acions
-
-当没有新提交时， 通过 push empty commit 运行 GitHub Actions：
-
-```
-git commit --allow-empty -m "build: rerun github acions"
-git push
-```
 
 ### ✏️写新文章
 
@@ -447,6 +462,7 @@ npm run build
 
 ### 👍添加图标
 
+> **Warning**  
 > 目前博客使用的是 iconfont.cn 的图标。  
 > 下面方法可用，但构建性能极差。
 
