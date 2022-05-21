@@ -1530,11 +1530,12 @@ hr {
 }
 
 .footer .copyright .copyrights {
-    opacity: 0.75;
+    opacity: 1;
 }
 
 .footer .copyright .copyrights:hover {
     opacity: 1;
+    color:#000;
 }
 
 .footer .copyright--user {
