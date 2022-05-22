@@ -1657,6 +1657,12 @@ hr {
     margin: 0 auto;
 }
 
+@media (max-width: 683px) {
+    .archive {
+        padding: 20px 20px 40px;
+    }
+}
+
 .archive__group-month {
     display: flex;
     align-items: flex-start;
