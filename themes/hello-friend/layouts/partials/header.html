@@ -117,6 +117,10 @@
 
                             targetDiv.classList.toggle('hidden')
                             screen.classList.toggle('hidden')
+
+                            // for disqus theme
+                            let event = new Event('themeChanged');
+                            document.dispatchEvent(event);
                         })
                     }
                     screen.addEventListener('click', () => {
