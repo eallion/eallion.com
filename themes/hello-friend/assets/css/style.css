@@ -1094,7 +1094,12 @@ hr {
 @media (max-width: 683px) {
     .post-title {
         font-size: 2rem;
+    }
+
+    .post-title-index {
         white-space: nowrap;
+        max-width: 660px;
+        overflow: hidden;
     }
 
     .talk-title {
