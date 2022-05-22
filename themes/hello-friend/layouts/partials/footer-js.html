@@ -77,5 +77,29 @@
     // DisqusJS 3.0.0 新增了销毁实例的 destroy() 方法，你可以在 PJAX 跳转时直接调用它：
     // disqusjs.destroy();
 </script>
+<script>
+    var disqus_config = function () {
+        this.page.url = '{{ if .Params.identifier }}"{{ trim .Site.BaseURL "/" }}{{ .Params.identifier }}"{{ else }}{{ .Permalink }}{{ end }}'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = '{{ if .Params.identifier }}{{ trim .Params.identifier "/" }}{{ else }}{{ trim .RelPermalink "/" }}{{ end }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function () {
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://eallion.disqus.com/embed.js'; // Replace SITE_URL with your site's URL
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+
+    // Disqus theme switching
+    document.addEventListener('themeChanged', function (e) {
+        if (document.readyState == 'complete') {
+            DISQUS.reset({
+                reload: true,
+                config: disqus_config
+            });
+        }
+    });
+</script>
 {{ end }}
 {{ end }}
