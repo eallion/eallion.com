@@ -774,7 +774,7 @@ ol ol {
     flex: 1 auto;
     align-items: center;
     justify-content: center;
-    margin: 50px 0;
+    margin: 40px 0;
 }
 
 @media (max-width: 683px) {
