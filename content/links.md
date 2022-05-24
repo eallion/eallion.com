@@ -36,7 +36,6 @@ Comments: false
 {{< friend name="浮游笔记" des="浮游笔记" url="https://fffou.com/" domain="fffou.com" src="https://sdn.geekzu.org/avatar/733d172a66e4dd6b6be94ca71d68e062" >}}
 {{< friend name="十三姨爱我" des="踏遍青山人未老， 风景这边独好。" url="https://fanghongxing.cn" domain="fanghongxing.cn" src="https://sdn.geekzu.org/avatar/84988a8cb4ea306f6e2b1bcf880081dc" >}}
 {{< friend name="王叨叨" des="无叨叨，不博客！不懂用户体验的前端不是好爸爸……" url="https://wangdaodao.com/" domain="wangdaodao.com" src="https://sdn.geekzu.org/avatar/4a713ec085a4431f15a8da0942656713" >}}
-{{< friend name="追忆白" des="Just like old time!" url="https://www.zhuiyibai.cn" domain="zhuiyibai.cn" src="https://sdn.geekzu.org/avatar/5483e75925f5c1b046d39d7b86cdedf1" >}}
 {{< friend name="未来往事" des="我愿像茶一样，把苦涩留在心底，散发出来的都是清香。" url="https://www.fity.cn/" domain="fity.cn" src="https://sdn.geekzu.org/avatar/ee5e5b48164e5362d8800c7364854d15" >}}
 {{< friend name="被遗忘的旧岛" des="被遗忘的旧岛" url="https://jiudao.net/" domain="jiudao.net" src="https://sdn.geekzu.org/avatar/75ab7cb11e241abf513f04182ab653a5" >}}
 {{< friend name="黑石博客" des="人生在勤，不索何获。" url="https://www.heson10.com" domain="heson10.com" src="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png" >}}
