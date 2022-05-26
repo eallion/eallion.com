@@ -1,3 +1,8 @@
+<script type="text/javascript" src="/assets/main.js"></script>
+
+{{ if not (eq .Params.gushici true) }}
+
+<script>
 
 /**
  * Lately.js - Native JavaScript, only 800Byte but simple and easy to use Timeago plugin
@@ -126,3 +131,73 @@ if (this.status >= 200 && this.status < 400) {
       })()
 };
 xhrTalks.send();
+
+</script>
+
+{{ end }}
+
+{{/*  {{ if and (not .IsHome) (not (eq .Params.lightbox false)) }}  */}}
+{{ if (not .IsHome) }}
+
+<script type="text/javascript" src="/assets/baguetteBox.js?v=1.11.1"></script>
+<script>
+    window.addEventListener('load', function() {
+        baguetteBox.run('.gallery', {
+            // Custom options
+            buttons: false,
+            noScrollbars: true,
+            fullScreen: false,
+            filter: /.*/i
+        });
+    });
+</script>
+
+{{ end }}
+
+{{/*  DisqusJS comment  */}}
+{{ if and (not .Site.IsServer) (.Site.Params.disqus.enable) }}
+{{ if .Params.Comments }}
+<script type="text/javascript" src="/assets/disqus.js?v=3.0.0"></script>
+<script>
+    const disqusjs = new DisqusJS({
+        shortname: "eallion",
+        siteName: "{{ .Site.Params.title }}",
+        identifier: '{{ if .Params.identifier }}{{ trim .Params.identifier "/" }}{{ else }}{{ trim .RelPermalink "/" }}{{ end }}',
+        url: '{{ if .Params.identifier }}"{{ trim .Site.BaseURL "/" }}{{ .Params.identifier }}"{{ else }}{{ .Permalink }}{{ end }}',
+        title: "{{ .Title }}",
+        api: "https://disqus.eallion.com/",
+        apikey: "fF9m3DwDSmNQ2g5DIpuWElDaQTx1ofpMSSW8JeKaB2loVBExeInmMbaEGeLs7lOL",
+        admin: "eallion",
+        adminLabel: "Spectator",
+        nocomment: "说点什么吧！你的评论也可一针见血！",
+    });
+    disqusjs.render(document.getElementById('disqusjs'));
+    // DisqusJS 3.0.0 新增了销毁实例的 destroy() 方法，你可以在 PJAX 跳转时直接调用它：
+    // disqusjs.destroy();
+</script>
+<script>
+    var disqus_config = function () {
+        this.page.url = '{{ if .Params.identifier }}"{{ trim .Site.BaseURL "/" }}{{ .Params.identifier }}"{{ else }}{{ .Permalink }}{{ end }}'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = '{{ if .Params.identifier }}{{ trim .Params.identifier "/" }}{{ else }}{{ trim .RelPermalink "/" }}{{ end }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function () {
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://eallion.disqus.com/embed.js'; // Replace SITE_URL with your site's URL
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+
+    // Disqus theme switching
+    document.addEventListener('themeChanged', function (e) {
+        if (document.readyState == 'complete') {
+            DISQUS.reset({
+                reload: true,
+                config: disqus_config
+            });
+        }
+    });
+</script>
+{{ end }}
+{{ end }}

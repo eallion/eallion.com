@@ -1,8 +1,8 @@
 ---
 title: "嘀咕"
-layout: "talks"
-type: 'talks'
+layout: "talk"
+type: 'talk'
 Comments: false
-lightbox: true
+lightbox: false
 gushici: true
 ---

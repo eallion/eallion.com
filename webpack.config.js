@@ -17,7 +17,6 @@ module.exports = (env, { mode }) => ({
     entry: {
         main: [
             join("themes","hello-friend","assets", "js", "menu.js"),
-            join("themes","hello-friend","assets", "js", "talks.js"),
             join("themes","hello-friend","assets", "js", "totop.js")
         ],
         style: join("themes","hello-friend","assets", "css", "style.css")
