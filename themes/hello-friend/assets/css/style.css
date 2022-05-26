@@ -2097,6 +2097,17 @@ photos .photo:last-child {
     width: 100px;
 }
 
+.talks {
+    min-height: 300px;
+    text-align: left;
+    width: 760px;
+    max-width: 760px;
+}
+
+.talks ul {
+    margin-left: 0 !important;
+}
+
 .talks__avatar {
     flex-shrink: 0;
     width: 40px;
@@ -2480,4 +2491,146 @@ body.dark {
     background: #2d2d2d;
     font-family: Menlo, Bitstream Vera Sans Mono, DejaVu Sans Mono, Monaco, Consolas, monospace;
     border: 0 !important
+}
+.timeline {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 1.5em;
+}
+
+.dark .talks__text {
+    background: #3b3d42;
+}
+
+.dark .timeline:hover .talks__text {
+    background: #4a4b50 !important;
+}
+
+.dark .talks__text:before {
+    background: #3b3d42;
+}
+
+.dark .timeline:hover .talks__text:before {
+    background: #4a4b50 !important;
+}
+
+.dark .talks__meta small {
+    color: #73747b;
+}
+
+.dark .talks__verify {
+    color: #1d9bf0;
+    margin-left: 4px;
+}
+
+.dark .talks__id {
+    color: #71767b;
+}
+
+.dark .timeline img {
+    border: 1px solid #292a2d;
+}
+
+.talks__search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.talks__search p {
+    white-space: nowrap;
+}
+
+/* cloudbase talks search box */
+.search-talks {
+    position: relative;
+    background: #eaeaea;
+    height: 40px;
+    border-radius: 50px;
+}
+
+/* input */
+.search-input {
+    outline: none;
+    border: none;
+    background: none;
+    width: 0;
+    padding: 0;
+    color: #222;
+    float: left;
+    font-size: 16px;
+    transition: .3s;
+    line-height: 40px;
+}
+
+.search-input::placeholder {
+    color: #222;
+}
+
+/* icon */
+.search-btn {
+    color: #fff;
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background: #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.search-input:focus,
+.search-input:not(:placeholder-shown) {
+    width: 313px;
+    padding: 0 1em;
+}
+
+.search-talks:hover>.search-input {
+    width: 313px;
+    padding: 0 1em;
+}
+
+.search-talks:hover>.search-btn,
+.search-input:focus+.search-btn,
+.search-input:not(:placeholder-shown)+.search-btn {
+    background: #fff;
+    color: #222;
+    display: none;
+}
+
+.search-clear {
+    display: none;
+}
+
+.search-talks:hover>.search-clear,
+.search-input:focus+.search-clear,
+.search-input:not(:placeholder-shown)+.search-clear {
+    color: #fff;
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background: #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.dark .search-input,
+.dark .search-input::placeholder {
+    color: #a9a9b3;
+}
+
+.dark .search-talks,
+.dark .search-talks:hover>.search-clear,
+.dark .search-input:focus+.search-clear,
+.dark .search-input:not(:placeholder-shown)+.search-clear {
+    background: #3b3d42;
 }
