@@ -2667,6 +2667,7 @@ body.dark {
 }
 
 .loadDisqusjs i {
-    font-size: 6em;
+    font-size: 4em;
     opacity: 0.4;
+    margin-bottom: 20px;
 }
