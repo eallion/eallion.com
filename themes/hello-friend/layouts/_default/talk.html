@@ -196,7 +196,7 @@
         //处理图片链接，添加 a 标签并添加灯箱效果
         var re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(jfif)|(bmp)|(webp))/g;
         str = str.replace(re_forpic, function (imgurl) {
-            return '<div id="gallery" class="gallery"><a href="' + imgurl + '" target="_blank" rel="noopener noreferrer"><img src="' + imgurl + '"></a></div>';
+            return '<div id="gallery" class="gallery"><a href="' + imgurl + '"><img src="' + imgurl + '"></a></div>';
         });
         //多个换行符替换为一个
         str = str.replace(/\n\n/g, "\n");
@@ -274,6 +274,17 @@
                     return
                 }
                 page++
+
+                // baguetteBox 灯箱 Issue: #190
+                baguetteBox.destroy()
+                baguetteBox.run('.gallery', {
+                    // Custom options
+                    buttons: false,
+                    noScrollbars: true,
+                    fullScreen: false,
+                    filter: /.*/i
+                });
+
             });
         }
 
