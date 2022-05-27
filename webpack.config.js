@@ -109,6 +109,8 @@ module.exports = (env, { mode }) => ({
                 '!static/assets/algolia.min.css',
                 '!static/assets/gist.min.css',
                 '!static/assets/baguetteBox.js',
+                '!static/assets/moment.min.js',
+                '!static/assets/pangu.min.js',
                 '!static/assets/69d6ffe.js',
                 '!static/assets/disqus.js'
             ],
