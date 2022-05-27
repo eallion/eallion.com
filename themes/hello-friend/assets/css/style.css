@@ -2100,8 +2100,7 @@ photos .photo:last-child {
 .talks {
     min-height: 300px;
     text-align: left;
-    width: 760px;
-    max-width: 760px;
+    width: 100%;
 }
 
 .talks ul {
@@ -2492,6 +2491,7 @@ body.dark {
     font-family: Menlo, Bitstream Vera Sans Mono, DejaVu Sans Mono, Monaco, Consolas, monospace;
     border: 0 !important
 }
+
 .timeline {
     display: flex;
     flex-direction: row;
@@ -2635,4 +2635,16 @@ body.dark {
 .dark .search-input:not(:placeholder-shown)+.search-clear {
     background: #3b3d42;
     color: #a9a9b3;
+}
+
+@media (max-width: 899px) {
+
+    .search-input:focus,
+    .search-input:not(:placeholder-shown) {
+        width: 152px;
+    }
+
+    .search-talks:hover>.search-input {
+        width: 152px;
+    }
 }
