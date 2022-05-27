@@ -16,6 +16,7 @@
           </div>
     </div>
     <ul id="talks">
+        <!-- 嘀咕加载在这里 -->
     </ul>
     <div id="load-more">
         <button class="load-btn buttonLoad">加载更多</button>
@@ -43,8 +44,8 @@
     // setInterval(getData, 1000*10);
     window.onload = getData();
 </script>
-<script type="text/javascript" src="https://cdn.staticfile.org/moment.js/2.29.3/moment.min.js?v=2.29.3"></script>
-<script type="text/javascript" src="https://cdn.staticfile.org/pangu/4.0.7/pangu.min.js?v=4.0.7"></script>
+<script type="text/javascript" src="/assets/moment.min.js?v=2.29.3"></script>
+<script type="text/javascript" src="/assets/pangu.min.js?v=4.0.7"></script>
 <script type="text/javascript" src="//imgcache.qq.com/qcloud/cloudbase-js-sdk/1.7.1/cloudbase.js"></script>
 <script type="text/javascript" src="//imgcache.qq.com/qcloud/cloudbase-js-sdk/1.7.1/cloudbase.auth.js"></script>
 <script type="text/javascript" src="//imgcache.qq.com/qcloud/cloudbase-js-sdk/1.7.1/cloudbase.database.js"></script>
@@ -263,9 +264,16 @@
                     talksDate = moment(item.date).twitter()
                     fromValue = (item.from).toLowerCase()
                     talksFrom = getFrom(fromValue) ? getFrom(fromValue) : fromValue
+                    talkList = '<div class="talks__avatar"><img src="https://images.eallion.com/eallion.jpg" alt=""></div><div class="talks__content"><div class="talks__text"><div class="talks__userinfo"><div>Charles Chin</div><div><svg viewBox="0 0 24 24" aria-label="认证账号" class="talks__verify"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg></div><div class="talks__id">@eallion</div></div><p>' + talksContent + '</p></div><div class="talks__meta"><small class="talks__date">' + talksDate + ' · 来自「' + talksFrom + '」</small></div></div>'
                     var talks = document.getElementById('talks')
-                    talks.innerHTML += '<li class="timeline"><div class="talks__avatar"><img src="https://images.eallion.com/eallion.jpg" alt=""></div><div class="talks__content"><div class="talks__text"><div class="talks__userinfo"><div>Charles Chin</div><div><svg viewBox="0 0 24 24" aria-label="认证账号" class="talks__verify"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg></div><div class="talks__id">@eallion</div></div><p>' + talksContent + '</p></div><div class="talks__meta"><small class="talks__date">' + talksDate + ' · 来自「' + talksFrom + '」</small></div></div></li>'
+                    talks.innerHTML += ('<li class="timeline page-'+ page +'">' + talkList + '</li>')
                 });
+
+                if (page > 1) {
+                    var currentPage = document.querySelector('.timeline.page-' + page)
+                    window.scrollTo(0, currentPage.offsetTop - 20)
+                }
+
                 if (page * per >= count) {
                     var loadMore = document.getElementById('load-more')
                     if (loadMore.parentNode !== null) {
@@ -273,9 +281,10 @@
                       }
                     return
                 }
+
                 page++
 
-                // baguetteBox 灯箱 Issue: #190
+                // baguetteBox 灯箱 Issue: #190 先销毁再初始化
                 baguetteBox.destroy()
                 baguetteBox.run('.gallery', {
                     // Custom options
@@ -304,8 +313,9 @@
                     talksDate = moment(item.date).twitter()
                     fromValue = (item.from).toLowerCase()
                     talksFrom = getFrom(fromValue) ? getFrom(fromValue) : fromValue
+                    talkList = '<div class="talks__avatar"><img src="https://images.eallion.com/eallion.jpg" alt=""></div><div class="talks__content"><div class="talks__text"><div class="talks__userinfo"><div>Charles Chin</div><div><svg viewBox="0 0 24 24" aria-label="认证账号" class="talks__verify"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg></div><div class="talks__id">@eallion</div></div><p>' + talksContent + '</p></div><div class="talks__meta"><small class="talks__date">' + talksDate + ' · 来自「' + talksFrom + '」</small></div></div>'
                     var talks = document.getElementById('talks')
-                    talks.innerHTML += '<li class="timeline"><div class="talks__avatar"><img src="https://images.eallion.com/eallion.jpg" alt=""></div><div class="talks__content"><div class="talks__text"><div class="talks__userinfo"><div>Charles Chin</div><div><svg viewBox="0 0 24 24" aria-label="认证账号" class="talks__verify"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg></div><div class="talks__id">@eallion</div></div><p>' + talksContent + '</p></div><div class="talks__meta"><small class="talks__date">' + talksDate + ' · 来自「' + talksFrom + '」</small></div></div></li>'
+                    talks.innerHTML += ('<li class="timeline page-'+ page +'">' + talkList + '</li>')
               });
             });
         }
@@ -332,15 +342,14 @@
             }
           }
         })
-
     }).catch(err => {
         console.log(err)
     });
 </script>
 <script>
     function clearInput() {
-    const talkSearch = document.getElementById('talkSearch');
-    talkSearch.value = '';
+        const talkSearch = document.getElementById('talkSearch');
+        talkSearch.value = '';
     }
 </script>
 {{ end }}
