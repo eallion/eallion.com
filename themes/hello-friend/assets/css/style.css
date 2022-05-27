@@ -2567,6 +2567,7 @@ body.dark {
 
 .search-input::placeholder {
     color: #222;
+    opacity: 0.4;
 }
 
 /* icon */
@@ -2633,4 +2634,5 @@ body.dark {
 .dark .search-input:focus+.search-clear,
 .dark .search-input:not(:placeholder-shown)+.search-clear {
     background: #3b3d42;
+    color: #a9a9b3;
 }
