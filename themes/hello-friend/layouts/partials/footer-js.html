@@ -165,10 +165,14 @@ xhrTalks.send();
 {{ end }}
 
 {{/*  DisqusJS comment  */}}
-{{ if and (not .Site.IsServer) (.Site.Params.disqus.enable) }}
-{{ if .Params.Comments }}
-<script type="text/javascript" src="/assets/disqus.js?v=3.0.0"></script>
-<script>
+{{ if and .Site.Params.disqus.enable .Params.Comments }}
+<script defer>
+// lazyDisqus.js
+function callback() {
+    window.disqus_config = function () {
+        this.page.url = '{{ if .Params.identifier }}"{{ trim .Site.BaseURL "/" }}{{ .Params.identifier }}"{{ else }}{{ .Permalink }}{{ end }}';
+        this.page.identifier = '{{ if .Params.identifier }}{{ trim .Params.identifier "/" }}{{ else }}{{ trim .RelPermalink "/" }}{{ end }}';
+    }
     const disqusjs = new DisqusJS({
         shortname: "eallion",
         siteName: "{{ .Site.Params.title }}",
@@ -182,32 +186,48 @@ xhrTalks.send();
         nocomment: "说点什么吧！你的评论也可一针见血！",
     });
     disqusjs.render(document.getElementById('disqusjs'));
-    // DisqusJS 3.0.0 新增了销毁实例的 destroy() 方法，你可以在 PJAX 跳转时直接调用它：
-    // disqusjs.destroy();
-</script>
-<script>
-    var disqus_config = function () {
-        this.page.url = '{{ if .Params.identifier }}"{{ trim .Site.BaseURL "/" }}{{ .Params.identifier }}"{{ else }}{{ .Permalink }}{{ end }}'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = '{{ if .Params.identifier }}{{ trim .Params.identifier "/" }}{{ else }}{{ trim .RelPermalink "/" }}{{ end }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
+}
+/*
+function addStyle(url) {
+    var d = document.createElement('link');
+    d.rel = 'stylesheet';
+    d.href = url;
+    document.head.appendChild(d);
+}
+*/
+function addScript(url) {
+    var d = document.createElement('script');
+    d.src = url;
+    d.async = false;
+    document.body.appendChild(d);
+    d.onload = () => {
+        callback();
+    }
+}
 
-    (function () {
-        var d = document,
-            s = d.createElement('script');
-        s.src = 'https://eallion.disqus.com/embed.js'; // Replace SITE_URL with your site's URL
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
+function loadDisqus() {
+    addScript('/assets/disqus.js?v=3.0.0');
+    //addStyle('https://cdn.jsdelivr.net/npm/disqusjs@3.0/dist/browser/styles/disqusjs.css');
+}
 
-    // Disqus theme switching
-    document.addEventListener('themeChanged', function (e) {
-        if (document.readyState == 'complete') {
-            DISQUS.reset({
-                reload: true,
-                config: disqus_config
-            });
-        }
-    });
+var runningOnBrowser = typeof window !== "undefined";
+var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+function loadDisqusjs () {
+    if (!isBot && supportsIntersectionObserver) {
+        var disqus_observer = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+                loadDisqus();
+                disqus_observer.disconnect();
+            }
+        });
+        disqus_observer.observe(document.getElementById('disqusjs'));
+    } else {
+        loadDisqus();
+    }
+    var eButton = document.getElementById('loadDisqusjs');
+    eButton.remove();
+};
 </script>
-{{ end }}
 {{ end }}

@@ -2648,3 +2648,25 @@ body.dark {
         width: 152px;
     }
 }
+
+.loadDisqusjs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background: 0 0;
+}
+
+.loadDisqusjs span {
+    background: var(--light-background-secondary);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 8px 18px;
+}
+
+.loadDisqusjs i {
+    font-size: 6em;
+    opacity: 0.4;
+}
