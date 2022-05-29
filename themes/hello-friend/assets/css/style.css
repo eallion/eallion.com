@@ -161,81 +161,6 @@ header {
     display: none;
 }
 
-.lightDarkMode {
-    padding-top: 0;
-    position: relative;
-}
-
-.lightDarkModes {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    justify-content: center;
-}
-
-.lightDarkModes:hover {
-    color: var(--dark-color);
-}
-
-.is-open {
-    opacity: 0;
-    cursor: default;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    position: fixed;
-    z-index: 1000;
-}
-
-.lightDarkOptions {
-    position: absolute;
-    left: auto;
-    right: 0;
-    top: 2em;
-    padding: 0.5rem 0;
-    background-color: var(--light-header);
-    border-color: var(--light-header);
-    border-width: 1px;
-    border-radius: 0.25rem;
-    border: thin solid var(--light-header);
-    flex-direction: column;
-    cursor: pointer;
-    width: 8rem;
-    display: flex;
-    z-index: 1001;
-    font-size: 0.9em;
-}
-
-.lightDarkOption {
-    padding: 0.25rem;
-}
-
-.lightDarkOption:hover {
-    background-color: var(--dark-color);
-}
-
-.lightDarkMode svg,
-.menu-trigger svg,
-.search-trigger svg,
-.lightDarkOption svg {
-    fill: var(--light-color);
-    transform: scale(1);
-}
-
-.dark .lightDarkMode svg,
-.dark .menu-trigger svg,
-.dark .search-trigger svg,
-.dark .lightDarkOption svg {
-    fill: var(--dark-color);
-}
-
-.dark .lightDarkOption:hover svg {
-    fill: var(--light-color);
-}
-
 .menu__sub-inner-more-trigger:hover .menu__sub-inner-more-trigger-icon i {
     transform: rotateX(180deg);
 }
@@ -2363,19 +2288,82 @@ body.dark {
     background: var(--dark-header);
 }
 
+.lightDarkMode {
+    padding-top: 0;
+    position: relative;
+}
+
+.lightDarkModes:hover {
+    color: var(--dark-color);
+}
+
+.is-open {
+    opacity: 0;
+    cursor: default;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: fixed;
+    z-index: 1000;
+}
+
+.lightDarkOptions {
+    position: absolute;
+    left: auto;
+    right: 4px;
+    top: 2em;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    border: 1px solid #fff;
+    cursor: pointer;
+    z-index: 1001;
+    font-size: 0.9em;
+    box-shadow: 0 4px 10px rgba(0, 2, 4, .06), 0 0 1px rgba(0, 2, 4, .11);
+    line-height: 2;
+}
+
+.lightDarkOption {
+    padding: 0 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.lightDarkOption:first-child {
+    margin-top: 0.5em;
+}
+
+.lightDarkOption:last-child {
+    margin-bottom: 0.5em;
+}
+
+.lightDarkOption:hover {
+    background-color: var(--dark-color);
+}
+
+.lightDarkMode i {
+    margin-right: 0.25em;
+}
+
 .dark .lightDarkModes:hover {
     color: #fff;
 }
 
 .dark .lightDarkOptions {
-    background-color: var(--dark-header);
+    background-color: var(--dark-background-secondary);
     border-color: var(--dark-header);
     border: thin solid var(--dark-header);
+    box-shadow: 0 4px 10px rgb(169 169 179 / 6%), 0 0 1px rgb(169 169 179 / 11%);
 }
 
 .dark .lightDarkOption:hover {
-    background-color: var(--dark-color);
-    color: var(--dark-background);
+    background-color: var(--dark-background);
+    color: var(--dark-color);
 }
 
 @keyframes iRotation {
