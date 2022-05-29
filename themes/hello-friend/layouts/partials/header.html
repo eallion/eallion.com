@@ -8,7 +8,7 @@
             </span>
             {{ end }}
             <script>
-                let storageColorScheme = localStorage.getItem("lightDarkMode")
+                let storageColorScheme = localStorage.getItem('lightDarkMode')
                 {{- if eq $.Site.Params.defaultTheme "light" }}
                 if ((storageColorScheme == 'Auto' && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
                     document.body.classList.add('dark')
@@ -23,8 +23,8 @@
                 }
                 {{- end }}
             </script>
-            <div class="lightDarkMode">
-                <div id="lightDarkMode" class="lightDarkModes">
+            <div class='lightDarkMode'>
+                <div id='lightDarkMode' class="lightDarkModes">
                     {{- if eq $.Site.Params.defaultTheme "dark" }}
                     <i class='iconfont icon-md-moon' data-icon='md-moon'></i>
                     {{- else if eq $.Site.Params.defaultTheme "light" }}
@@ -47,27 +47,27 @@
                 {{- if eq $.Site.Params.defaultTheme "light" }}
                 if (storageColorScheme == 'Auto') {
                     element.firstElementChild.classList.remove('icon-sun')
-                    element.firstElementChild.setAttribute("data-icon", 'dark')
+                    element.firstElementChild.setAttribute('data-icon', 'dark')
                     element.firstElementChild.classList.add('icon-dark')
                     document.addEventListener('DOMContentLoaded', () => {
                         window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
                     })
                 } else if (storageColorScheme == "Dark") {
                     element.firstElementChild.classList.remove('icon-sun')
-                    element.firstElementChild.setAttribute("data-icon", 'md-moon')
+                    element.firstElementChild.setAttribute('data-icon', 'md-moon')
                     element.firstElementChild.classList.add('icon-md-moon')
                 }
                 {{- else if eq $.Site.Params.defaultTheme "dark" }}
                 if (storageColorScheme == 'Auto') {
                     element.firstElementChild.classList.remove('icon-md-moon')
-                    element.firstElementChild.setAttribute("data-icon", 'dark')
+                    element.firstElementChild.setAttribute('data-icon', 'dark')
                     element.firstElementChild.classList.add('icon-dark')
                     document.addEventListener('DOMContentLoaded', () => {
                         window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
                     })
                 } else if (storageColorScheme == "Light") {
                     element.firstElementChild.classList.remove('icon-md-moon')
-                    element.firstElementChild.setAttribute("data-icon", 'sun')
+                    element.firstElementChild.setAttribute('data-icon', 'sun')
                     element.firstElementChild.classList.add('icon-sun')
                 }
                 {{- else }}
@@ -77,11 +77,11 @@
                     })
                 } else if (storageColorScheme == "Light") {
                     element.firstElementChild.classList.remove('icon-dark')
-                    element.firstElementChild.setAttribute("data-icon", 'sun')
+                    element.firstElementChild.setAttribute('data-icon', 'sun')
                     element.firstElementChild.classList.add('icon-sun')
                 } else if (storageColorScheme == "Dark") {
                     element.firstElementChild.classList.remove('icon-dark')
-                    element.firstElementChild.setAttribute("data-icon", 'md-moon')
+                    element.firstElementChild.setAttribute('data-icon', 'md-moon')
                     element.firstElementChild.classList.add('icon-md-moon')
                 }
                 {{- end }}
@@ -93,7 +93,7 @@
             <script>
                 // darkmode
                 function getcolorscheme() {
-                    let storageColorScheme = localStorage.getItem("lightDarkMode")
+                    let storageColorScheme = localStorage.getItem('lightDarkMode')
                     let element = document.getElementById('lightDarkMode');
                     let targetDiv = document.getElementById('lightDarkOptions');
                     let targets = targetDiv.getElementsByTagName('span');
@@ -108,12 +108,12 @@
                         target.addEventListener('click', () => {
                             let targetName = target.getAttribute("name")
                             let icon = switchMode(targetName)
-                            let old_icon = element.firstElementChild.getAttribute("data-icon")
-                            element.firstElementChild.setAttribute("data-icon", icon)
+                            let old_icon = element.firstElementChild.getAttribute('data-icon')
+                            element.firstElementChild.setAttribute('data-icon', icon)
                             element.firstElementChild.classList.remove('icon-' + old_icon)
                             element.firstElementChild.classList.add('icon-' + icon)
 
-                            localStorage.setItem("lightDarkMode", targetName)
+                            localStorage.setItem('lightDarkMode', targetName)
 
                             targetDiv.classList.toggle('hidden')
                             screen.classList.toggle('hidden')
