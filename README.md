@@ -36,6 +36,11 @@
 #### 备份仓库
 > Coding.net：<https://e.coding.net/eallion/eallion.com/hugo.git>
 
+
+
+## [hugo contact form](https://fabform.io/a/hugo-contact-form)
+
+
 #### 添加备份仓库 Remote
 
 > **Note**  
