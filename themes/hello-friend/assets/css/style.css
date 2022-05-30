@@ -2659,3 +2659,47 @@ body.dark {
     opacity: 0.4;
     margin-bottom: 20px;
 }
+
+
+.talksBtn {
+    display: inline-block;
+    border-radius: 8px;
+    border: none;
+    background: #eaeaea;
+    text-align: center;
+    box-shadow: 0px 14px 56px -11px #eaeaea;
+    width: 10em;
+    padding: 1em;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.talksBtn:hover {
+    background: #eeeef1;
+    box-shadow: 0px 14px 56px -11px #eeeef1;
+}
+
+.talksBtn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.4s;
+}
+
+.talksBtn span:after {
+    content: '嘀 咕';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -2em;
+    transition: 0.7s;
+}
+
+.talksBtn:hover span {
+    padding: 0 2.75em 0 0;
+}
+
+.talksBtn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
