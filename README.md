@@ -28,6 +28,10 @@
 
 </div>
 
+<p align="center">
+    <a href="https://github.com/ankurparihar/readme-pagespeed-insights" target="_blank"><img src="static/lighthouse.svg"></a>
+</p>
+
 # 备忘录：
 
 ### 📦️主仓库
