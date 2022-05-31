@@ -2660,7 +2660,6 @@ body.dark {
     margin-bottom: 20px;
 }
 
-
 .talksBtn {
     display: inline-block;
     border-radius: 8px;
@@ -2672,6 +2671,7 @@ body.dark {
     padding: 1em;
     transition: all 0.4s;
     cursor: pointer;
+    font-size: 0.85em;
 }
 
 .talksBtn:hover {
@@ -2687,16 +2687,25 @@ body.dark {
 }
 
 .talksBtn span:after {
-    content: '嘀 咕';
+    content: '\e883';
+    font-size: 0.85em;
     position: absolute;
     opacity: 0;
-    top: 0;
+    top: -2px;
     right: -2em;
     transition: 0.7s;
+    transform: rotate(90deg);
+    animation: toggle 0.6s alternate infinite;
 }
 
+@keyframes toggle {
+    to {
+      transform: translateY(5px) rotate(90deg);
+    }
+  }
+
 .talksBtn:hover span {
-    padding: 0 2.75em 0 0;
+    padding: 0 2em 0 0;
 }
 
 .talksBtn:hover span:after {
