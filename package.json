@@ -29,7 +29,7 @@
     "css-mqpacker": "^7.0.0",
     "cssnano": "^5.1.9",
     "cz-conventional-changelog": "^3.3.0",
-    "disqusjs": "^1.3.0",
+    "disqusjs": "^3.0.1",
     "file-loader": "^6.2.0",
     "mini-css-extract-plugin": "^2.6.0",
     "postcss": "^8.4.14",
