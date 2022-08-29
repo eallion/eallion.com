@@ -34,7 +34,7 @@ Comments: false
 {{< friend name="雅岚文藝博客" des="雅岚文藝博客" url="http://yalanlife.net/" domain="yalanlife.net" src="https://sdn.geekzu.org/avatar/c7b16884b068cea25e55f7ee6707ec7f" >}}
 {{< friend name="秦大叔" des="不曾长大" url="https://qfsyj.com" domain="qfsyj.com" src="https://sdn.geekzu.org/avatar/4ba509f9ec541ab4d316299727b3e3ab" >}}
 {{< friend name="浮游笔记" des="浮游笔记" url="https://fffou.com/" domain="fffou.com" src="https://sdn.geekzu.org/avatar/733d172a66e4dd6b6be94ca71d68e062" >}}
-{{< friend name="十三姨爱我" des="踏遍青山人未老， 风景这边独好。" url="https://fanghongxing.cn" domain="fanghongxing.cn" src="https://sdn.geekzu.org/avatar/84988a8cb4ea306f6e2b1bcf880081dc" >}}
+{{< friend name="十三姨爱我" des="踏遍青山人未老，风景这边独好。" url="https://fanghongxing.cn" domain="fanghongxing.cn" src="https://sdn.geekzu.org/avatar/84988a8cb4ea306f6e2b1bcf880081dc" >}}
 {{< friend name="王叨叨" des="无叨叨，不博客！不懂用户体验的前端不是好爸爸……" url="https://wangdaodao.com/" domain="wangdaodao.com" src="https://sdn.geekzu.org/avatar/4a713ec085a4431f15a8da0942656713" >}}
 {{< friend name="未来往事" des="我愿像茶一样，把苦涩留在心底，散发出来的都是清香。" url="https://www.fity.cn/" domain="fity.cn" src="https://sdn.geekzu.org/avatar/ee5e5b48164e5362d8800c7364854d15" >}}
 {{< friend name="被遗忘的旧岛" des="被遗忘的旧岛" url="https://jiudao.net/" domain="jiudao.net" src="https://sdn.geekzu.org/avatar/75ab7cb11e241abf513f04182ab653a5" >}}
@@ -45,6 +45,7 @@ Comments: false
 {{< friend name="Bore’s Note" des="博观而约取，厚积而薄发。" url="https://bore.vip/" domain="bore.vip" src="https://cdn.jsdelivr.net/gh/iwyang/pic/avatar.jpg" >}}
 {{< friend name="辰旭博客" des="山回路转不见君，雪上空留马行处。" url="https://blog.shiyuchan.cn/" domain="blog.shiyuchan.cn" src="https://cdn.jsdelivr.net/gh/Karensky/qaq@master/2020/p/1589969872-1589504511463.png" >}}
 {{< friend name="冰剑" des="采用人工智能，各部分零件齐全，运转稳定，经三十多年的运行，属质量信得过产品。" url="https://digu.plus/" domain="digu.plus" src="https://digu.plus/images/avatar.jpg" >}}
+{{< friend name="ILY’s Blog" des="I Love Y" url="https://ily.cc/" domain="ily.cc" src="https://q2.qlogo.cn/g?b=qq&nk=1785255046&s=100" >}}
 </div>
 
 ---
