@@ -5,7 +5,7 @@ get_latest_release() {
 }
 
 version=$(get_latest_release)
-ghurl="https://download.fastgit.org/gohugoio/hugo/releases/download/v${version}/hugo_${version}_linux-amd64.deb"
+ghurl="https://github.com/gohugoio/hugo/releases/download/v${version}/hugo_${version}_linux-amd64.deb"
 url="https://coding-public-generic.pkg.coding.net/public/downloads/hugo-linux-amd64.deb?version=${version}"
 status=$(curl -sfL -w %{http_code} -o /dev/null ${url})
 
