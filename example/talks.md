@@ -1,7 +1,7 @@
 ---
 title: "嘀咕"
-layout: "talk"
-type: 'talk'
+layout: "memos"
+type: 'memos'
 Comments: false
 lightbox: false
 gushici: true
