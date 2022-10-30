@@ -518,7 +518,7 @@ refactor    #代码重构
 perf        #性能优化
 test        #测试更新
 build       #构建系统或者包依赖更新
-ci CI       #配置，脚本文件等更新
+ci          #配置，脚本文件等更新
 chore       #非 src 或者 测试文件的更新
 revert      #commit 回退
 ```
