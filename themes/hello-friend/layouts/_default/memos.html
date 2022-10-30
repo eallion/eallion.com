@@ -1,0 +1,333 @@
+{{ define "main" }}
+
+<div class="posts post post-content talks">
+    <h2 class="post-title">{{ .Title }}</h2>
+    <blockquote class="hidden">Keso：“我按我的兴趣写，你用你的智商读。我没有兴趣误导谁，嘀咕页面谢绝互动。”</blockquote>
+    <div class="talks__search">
+        <p class="count"><span class="hidden">共有 <span id="count-data">Total</span> 条 </span>Memos <span class="emoji">🎉</span></p>
+        <div class="search-talks">
+            <input type="text" class="search-input" id="talkSearch" placeholder="搜索功能重构中（假的）……">
+            <button class="search-btn">
+              <i class="iconfont icon-search"></i>
+            </button>
+            <button class="search-clear" onclick="clearInput()">
+              <i class="iconfont icon-clear"></i>
+            </button>
+          </div>
+    </div>
+    <div id="memos">
+        <!-- 嘀咕加载在这里 -->
+    </div>
+</div>
+<script>
+    // 今日诗词
+    function getData() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', 'https://v2.jinrishici.com/one.json', true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                var result = JSON.parse(xhr.responseText);
+                var title = document.getElementById('poemTitle');
+                var poemSentence = document.getElementById('poemSentence');
+                var poem_info = document.getElementById('poem_info');
+                title.innerHTML = '《<a href="https://www.google.com/search?q=' + result.data.origin.author + ' ' + result.data.origin.title + '" target="_blank" rel="noopener noreferrer">' + result.data.origin.title + '</a>》：';
+                poemSentence.innerHTML = '「<a href="https://www.google.com/search?q=' + result.data.content + '" target="_blank" rel="noopener noreferrer">' + result.data.content + '</a>」';
+                poem_info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author;
+            }
+        };
+        xhr.send();
+    }
+    // 每 10 秒刷新一次
+    // setInterval(getData, 1000*10);
+    window.onload = getData();
+</script>
+<script type="text/javascript" src="/assets/moment.min.js?v=2.29.3"></script>
+<script>
+    // 处理发布时间 moment.js
+    // moment.js locale
+    moment.updateLocale('zh-cn', {
+        meridiem: function (hour, minute, isLowercase) {
+            if (hour < 6) {
+                return "凌晨";
+            } else if (hour < 9) {
+                return "早上";
+            } else if (hour < 11 && minute < 30) {
+                return "上午";
+            } else if (hour < 13 && minute < 30) {
+                return "中午";
+            } else if (hour < 18) {
+                return "下午";
+            } else {
+                return "晚上";
+            }
+        }
+    });
+    // moment.js twitter plugin
+    (function () {
+        var day, formats, hour, initialize, minute, second, week;
+        second = 1e3;
+        minute = 6e4;
+        hour = 36e5;
+        day = 864e5;
+        week = 6048e5;
+        year = new Date().getFullYear();
+        formats = {
+            seconds: {
+                short: ' 秒前',
+                long: ' 秒前'
+            },
+            minutes: {
+                short: ' 分前',
+                long: ' 分前'
+            },
+            hours: {
+                short: ' 小时前',
+                long: ' 小时前'
+            },
+            days: {
+                short: ' 天前',
+                long: ' 天前'
+            }
+        };
+
+        initialize = function (moment) {
+            var twitterFormat;
+            twitterFormat = function (format) {
+                var diff, num, unit, unitStr;
+                diff = Math.abs(this.diff(moment()));
+                unit = null;
+                num = null;
+                if (diff <= second) {
+                    unit = 'seconds';
+                    num = 1;
+                } else if (diff < minute) {
+                    unit = 'seconds';
+                } else if (diff < hour) {
+                    unit = 'minutes';
+                } else if (diff < day) {
+                    unit = 'hours';
+                } else if (format === 'short') {
+                    if (diff < week) {
+                        unit = 'days';
+                    } else if (this.year() == year) {
+                        return this.format('MM月DD日，HH:mm • a ');
+                    } else {
+                        return this.format('YYYY年MM月DD日，HH:mm • a ');
+                    }
+                } else {
+                    return this.format('YYYY年MM月DD日，HH:mm • a ');
+                }
+                if (!(num && unit)) {
+                    num = moment.duration(diff)[unit]();
+                }
+                unitStr = unit = formats[unit][format];
+                if (format === 'long' && num > 1) {
+                    unitStr += 's';
+                }
+                return num + unitStr;
+            };
+            moment.fn.twitterLong = function () {
+                return twitterFormat.call(this, 'long');
+            };
+            moment.fn.twitter = moment.fn.twitterShort = function () {
+                return twitterFormat.call(this, 'short');
+            };
+            return moment;
+        };
+
+        if (typeof define === 'function' && define.amd) {
+            define('moment-twitter', ['moment'], function (moment) {
+                return this.moment = initialize(moment);
+            });
+        } else if (typeof module !== 'undefined') {
+            module.exports = initialize(require('moment'));
+        } else if (typeof window !== "undefined" && window.moment) {
+            this.moment = initialize(this.moment);
+        }
+
+    }).call(this);
+</script>
+<script type="text/javascript">
+    var bbMemos = {
+      memos : 'https://memos.eallion.com/' ,//修改为自己部署 Memos 的网址，末尾有 / 斜杠
+      limit : '10' ,//默认每次显示 10条
+      creatorId: '101' ,//默认为 101用户 https://demo.usememos.com/u/101
+      domId: '#memos',//默认为 #memos
+    }
+</script>
+<script>
+    /*
+Last Modified time : 20221021 21:32 by https://immmmm.com
+*/
+var bbMemo = {
+    memos: 'https://demo.usememos.com/',
+    limit: '10',
+    creatorId: '101',
+    domId: '#memos',
+}
+if(typeof(bbMemos) !=="undefined"){
+    for(var key in bbMemos) {
+      if(bbMemos[key]){
+        bbMemo[key] = bbMemos[key];
+      }
+    }
+}
+/*
+function loadCssCode(code){
+  var style = document.createElement('style');
+  style.type = 'text/css';
+  style.rel = 'stylesheet';
+  //for Chrome Firefox Opera Safari
+  style.appendChild(document.createTextNode(code));
+  //for IE
+  //style.styleSheet.cssText = code;
+  var head = document.getElementsByTagName('head')[0];
+  head.appendChild(style);
+}
+*/
+
+var limit = bbMemo.limit
+var memos = bbMemo.memos
+var bbUrl = memos+"api/memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL"
+var page = 1,offset = 0,nextLength = 0,nextDom='';
+var bbDom = document.querySelector(bbMemo.domId);
+var load = '<button class="load-btn button-load">努力加载中……</button>'
+if(bbDom){
+  bbDom.insertAdjacentHTML('afterend', load);
+  getFirstList() //首次加载数据
+  var btn = document.querySelector("button.button-load");
+  btn.addEventListener("click", function () {
+    btn.textContent= '努力加载中……';
+    updateHTMl(nextDom)
+    if(nextLength < limit){ //返回数据条数小于限制条数，隐藏
+      document.querySelector("button.button-load").remove()
+      return
+    }
+    getNextList()
+  });
+}
+function getFirstList(){
+  var bbUrl_first = bbUrl + "&limit=" + limit;
+  fetch(bbUrl_first).then(res => res.json()).then( resdata =>{
+    updateHTMl(resdata.data)
+    var nowLength = resdata.data.length
+    if(nowLength < limit){ //返回数据条数小于 limit 则直接移除“加载更多”按钮，中断预加载
+      document.querySelector("button.button-load").remove()
+      return
+    }
+    page++
+    offset = limit*(page-1)
+    getNextList()
+  });
+}
+//预加载下一页数据
+function getNextList(){
+  var bbUrl_next = bbUrl + "&limit=" + limit + "&offset=" + offset;
+  fetch(bbUrl_next).then(res => res.json()).then( resdata =>{
+    nextDom = resdata.data
+    nextLength = nextDom.length
+    page++
+    offset = limit*(page-1)
+    if(nextLength < 1){ //返回数据条数为 0 ，隐藏
+      document.querySelector("button.button-load").remove()
+      return
+    }
+  })
+}
+// 插入 html
+function updateHTMl(data){
+  var bbResult="",resultAll="";
+  const CODE_BLOCK_REG = /<p>```<\/p>(\S*?)\s([\s\S]*?)<p>```<\/p>(\n?)/g;
+  const TODO_LIST_REG = /- \[ \] ([\S ]+)(\n?)/g;
+  const DONE_LIST_REG = /- \[x\] ([\S ]+)(\n?)/g;
+  const ORDERED_LIST_REG = /(\d+)\. ([\S ]+)(\n?)/g;
+  const UNORDERED_LIST_REG = /[*-] ([\S ]+)(\n?)/g;
+  const PARAGRAPH_REG = /^([\S ]*)(\n?)/mg;
+  const TAG_REG = /#([^\s#]+?) /g;
+  const IMAGE_OLD_REG = /!\[.*?\]\(\/([a-z]\/[a-z]\/.+?)\)/g;
+  const IMAGE_REG = /!\[.*?\]\((.+?)\)/g;
+  const LINK_REG = /\[(.*?)\]\((.+?)\)/g;
+  const MARK_REG = /@\[([\S ]+?)\]\((\S+?)\)/g;
+  const BOLD_REG = /\*\*([\S ]+)\*\*/g;
+  const EMPHASIS_REG = /\*([\S ]+)\*/g;
+  const PLAIN_LINK_REG = /((ht|f)tps?:\/\/[\w\-]+\.[\w\-]+[\w\-\.,@?^=%&:\/~\+#]*[\w\-\@?^=%&\/~\+#]) /g;
+  const INLINE_CODE_REG = /`([\S ]+?)`/g;
+  const PLAIN_TEXT_REG = /([\S ]+)/g;
+
+  const QUOTE_REG = /> ([\S ]+)/mg;
+  const MARK_IMG_REG = /^(.*)(\n\!\[)/;
+
+  for(var i=0;i < data.length;i++){
+      //console.log(data[i].content)
+      var bbContREG = data[i].content
+        .replace(/([\u4e00-\u9fa5])([A-Za-z0-9?.,;[\]]+)/g, "$1 $2")
+        .replace(/([A-Za-z0-9?.,;[\]]+)([\u4e00-\u9fa5])/g, "$1 $2")
+        .replace(CODE_BLOCK_REG, "<pre lang='$1'>\n$2</pre>$3")
+        .replace(TODO_LIST_REG, "<p><span class='todo-block todo' data-value='TODO'></span>$1</p>$2")
+        .replace(DONE_LIST_REG, "<p><span class='todo-block done' data-value='DONE'>✓</span>$1</p>$2")
+        .replace(ORDERED_LIST_REG, "<span class='ol-block'>$1.</span>$2 $3")
+        .replace(UNORDERED_LIST_REG, "<span class='ul-block'>•</span>$1 $2")
+        .replace(QUOTE_REG, "<blockquote>$1</blockquote>")
+        .replace(PARAGRAPH_REG, "<p>$1</p>$2")
+        .replace(MARK_IMG_REG, "<p>$1</p>$2")
+        .replace(CODE_BLOCK_REG, "<pre lang='$1'>\n$2</pre>$3")
+        .replace(IMAGE_OLD_REG, "<div class='gallery'><a href='"+memos+"$1'><img loading='lazy' class='img old square' src='"+memos+"$1' alt=''/></a></div>")
+        .replace(IMAGE_REG, "<div class='gallery'><a href='$1'><img loading='lazy' class='img square' src='$1' alt=''/></a></div>")
+        .replace(MARK_REG, "<span class='memo-link-text' data-value='$2'>$1</span>")
+        .replace(BOLD_REG, "<strong>$1</strong>")
+        .replace(EMPHASIS_REG, "<em>$1</em>")
+        .replace(LINK_REG, "<a class='link' target='_blank' rel='noreferrer' href='$2'>$1</a>")
+        .replace(INLINE_CODE_REG, "<code>$1</code>")
+        .replace(PLAIN_LINK_REG, "<a class='link' target='_blank' rel='noreferrer' href='$1'>$1</a> ")
+        .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
+        .replace(PLAIN_TEXT_REG, "$1")
+      //console.log(bbContREG)
+      //解析内置资源文件
+      if(data[i].resourceList && data[i].resourceList.length > 0){
+        var resourceList = data[i].resourceList;
+        var imgUrl='',resUrl='',resImgLength = 0;
+        for(var j=0;j < resourceList.length;j++){
+          var restype = resourceList[j].type.slice(0,5);
+          if(restype == 'image'){
+            imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/></figure>'
+            resImgLength = resImgLength + 1
+          }
+          if(restype !== 'image'){
+            resUrl += '<a target="_blank" rel="noreferrer" href="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'">'+resourceList[j].filename+'</a>'
+          }
+        }
+        if(imgUrl){
+          var resImgGrid = ""
+          if(resImgLength !== 1){var resImgGrid = "grid grid-"+resImgLength}
+          bbContREG += '<div class="resimg '+resImgGrid+'">'+imgUrl+'</div></div>'
+        }
+        if(resUrl){
+          bbContREG += '<p class="datasource">'+resUrl+'</p>'
+        }
+      }
+      bbResult += '<li class="timeline"><div class="talks__avatar"><a href="https://memos.eallion.com/u/101" target="_blank"><img src="https://images.eallion.com/eallion.jpg" alt="eallion"></a></div><div class="talks__content"><div class="talks__text"><div class="talks__userinfo"><div>Charles Chin</div><div><svg viewBox="0 0 24 24" aria-label="认证账号" class="talks__verify"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg></div><div class="talks__id">@eallion</div></div><p>' + bbContREG + '</p></div><div class="talks__meta"><small class="talks__date">' + moment(data[i].createdTs * 1000).twitter() + ' · 来自「<a href="https://memos.eallion.com/" target="_blank">Memos</a>」</small></div></div></li>'
+  }// end for
+  var bbBefore = '<ul class="talks">'
+  var bbAfter = '</ul>'
+  resultAll = bbBefore + bbResult + bbAfter
+  bbDom.insertAdjacentHTML('beforeend', resultAll);
+  document.querySelector('button.button-load').textContent= '加载更多';
+  //图片灯箱
+  // baguetteBox 灯箱 Issue: #190 先销毁再初始化
+  baguetteBox.destroy()
+  baguetteBox.run('.gallery', {
+    // Custom options
+    buttons: false,
+    noScrollbars: true,
+    fullScreen: false,
+    filter: /.*/i
+  });
+}
+</script>
+<script>
+    function clearInput() {
+        const talkSearch = document.getElementById('talkSearch');
+        talkSearch.value = '';
+    }
+</script>
+{{ end }}

@@ -118,7 +118,7 @@ enableGitInfo = false
   ## main menu
   [[menu.main]]
   name="嘀咕"
-  url="/talks/" # Don't miss the last slash: "/"
+  url="/memos/" # Don't miss the last slash: "/"
   weight="1"
   [[menu.main]]
   name="归档"
