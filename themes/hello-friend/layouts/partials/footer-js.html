@@ -83,9 +83,10 @@ if (this.status >= 200 && this.status < 400) {
     let talksHtml = '';
     res.data.forEach(function(item, i) {
         let d = new Date(item.createdTs * 1000);
+        let id = item.id
         let date = d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
         let dataTime = '<span class="datatime">' + date + '</span>';
-        talksHtml += '<div class="item item-' + (i + 1) + '">' + dataTime + '： <a href="https://eallion.com/memos/" target="_blank" rel="noopener noreferrer">' + urlToLink(item.content) + '</a></div>';
+        talksHtml += '<div class="item item-' + (i + 1) + '">' + dataTime + '： <a href="https://memos.eallion.com/m/' + id + '" target="_blank" rel="noopener noreferrer">' + urlToLink(item.content) + '</a></div>';
     });
 
     // Inject the string html into the container parent element.
