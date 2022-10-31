@@ -283,9 +283,9 @@ function updateHTMl(data){
         .replace(MARK_REG, "<span class='memo-link-text' data-value='$2'>$1</span>")
         .replace(BOLD_REG, "<strong>$1</strong>")
         .replace(EMPHASIS_REG, "<em>$1</em>")
-        .replace(LINK_REG, "<a class='link' target='_blank' rel='noreferrer' href='$2'>$1</a>")
+        .replace(LINK_REG, "<a class='link' target='_blank' rel='noopener noreferrer' href='$2'>$1</a>")
         .replace(INLINE_CODE_REG, "<code>$1</code>")
-        .replace(PLAIN_LINK_REG, "<a class='link' target='_blank' rel='noreferrer' href='$1'>$1</a> ")
+        .replace(PLAIN_LINK_REG, "<a class='link' target='_blank' rel='noopener noreferrer' href='$1'>$1</a> ")
         .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
         .replace(PLAIN_TEXT_REG, "$1")
       //console.log(bbContREG)
@@ -300,7 +300,7 @@ function updateHTMl(data){
             resImgLength = resImgLength + 1
           }
           if(restype !== 'image'){
-            resUrl += '<a target="_blank" rel="noreferrer" href="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'">'+resourceList[j].filename+'</a>'
+            resUrl += '<a target="_blank" rel="noopener noreferrer" href="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'">'+resourceList[j].filename+'</a>'
           }
         }
         if(imgUrl){
