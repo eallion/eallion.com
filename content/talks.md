@@ -1,7 +1,7 @@
 ---
 title: "嘀咕"
-layout: "algoliaTalk"
-type: 'algoliaTalk'
+layout: "memos"
+type: 'memos'
 Comments: false
 lightbox: false
 gushici: true

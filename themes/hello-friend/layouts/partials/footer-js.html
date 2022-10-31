@@ -62,9 +62,17 @@
 })();
 
 // 嘀咕首页 Json 版
-// remote json https://6561-eallion-8gkunp4re49bae66-1251347414.tcb.qcloud.la/json/talks.json
+// remote json https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=10
+{{ if not .Site.IsServer }}
+
+let jsonUrl = "/memos.json" + "?t=" + Date.parse(new Date())
+
+{{ else }}
 
 let jsonUrl = "https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=10" + "&t=" + Date.parse(new Date())
+
+{{ end }}
+
 let xhrTalks = new XMLHttpRequest();
 xhrTalks.open('get', jsonUrl, true);
 xhrTalks.onload = function(res) {
@@ -89,17 +97,23 @@ if (this.status >= 200 && this.status < 400) {
 window.Lately && Lately.init({ target: '.datatime' });
 
 function urlToLink(str) {
-    var re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g;
-    var re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(bmp)|(jfif)|(webp))/g;
-    str = str.replace(re, function (website) {
-        return '🔗';
-    });
-    str = str.replace(re_forpic, function (imgurl) {
+    var PLAIN_LINK_REG = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g;
+    //var re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(bmp)|(jfif)|(webp))/g;
+    var LINK_REG = /\[(.*?)\]\((.+?)\)/g;
+    var IMAGE_OLD_REG = /!\[.*?\]\(\/([a-z]\/[a-z]\/.+?)\)/g;
+    var IMAGE_REG = /!\[.*?\]\((.+?)\)/g;
+    str = str.replace(IMAGE_OLD_REG, function (old_imgurl) {
         return '🌅';
     });
-    //去掉 Share 标签
-    var re_share = /(\#share)|(\#Share)/g;
-    str = str.replace(re_share, '');
+    str = str.replace(IMAGE_REG, function (imgurl) {
+        return '🌅';
+    });
+    str = str.replace(LINK_REG, function (website) {
+        return '🔗';
+    });
+    str = str.replace(PLAIN_LINK_REG, function (plain_link) {
+        return '🔗';
+    });
     return str;
 }
 // Lightest possible code
