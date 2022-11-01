@@ -33,6 +33,7 @@
 {{ else if ge $wowWord 7 }}{{$wowBook = "写完一本 鲁迅 的《呐喊》了！"}}
 {{ else if ge $wowWord 5 }}{{$wowBook = "写完一本 埃克苏佩里 的《小王子》了！"}}
 {{ end }}
+<link rel="stylesheet" href="https://local.eallion.com/dist/style.css">
 <footer class="footer">
     <div class="footer__inner">
         <!-- https://github.com/eallion/eallion.com/tree/16c9ebe6cd303d9029ced7eef7dfb780f63c4a0d -->
@@ -72,16 +73,16 @@
         </div>
         <div class="copyright">
             <div class="copyrights">
-                Copyright &copy; 2006 - {{ now.Year }} <a href="https://eallion.com/copyright/" target="_self" rel="noopener noreferrer">eallion.com</a>.
+                Copyright &copy; 2006 - {{ now.Year }} <span class="tooltip" data-tip="版权信息"><a href="https://eallion.com/copyright/" target="_self" rel="noopener noreferrer">eallion.com</a></span>.
             </div>
             <div class="copyrights">
-                Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer"><i class='iconfont icon-Hugo'></i> Hugo (v{{ .Site.Hugo.Version }})</a>, Theme <a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener noreferrer">Hello Friend</a>.
+                Powered by <span class="tooltip" data-tip="Hugo SSG"><a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer"><i class='iconfont icon-Hugo'></i> Hugo (v{{ .Site.Hugo.Version }})</a></span>, Theme <span class="tooltip" data-tip="Hugo Theme"><a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener noreferrer">Hello Friend</a></span>.
             </div>
             <div class="copyrights">
-                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer"><i class='iconfont icon-icp'></i> 浙ICP备16031768号-2</a>
-                <a href="https://eallion.com/atom.xml" target="_blank" rel="noopener noreferrer" aria-label="RSS 订阅链接" alt="RSS 订阅链接"><i class='iconfont icon-dingyue'></i></a>
-                <a href="https://github.com/eallion/eallion.com" target="_blank" rel="noopener noreferrer" aria-label="源代码" alt="源代码"><i class='iconfont icon-code'></i></a>
-                <a href="https://status.eallion.com/" target="_blank" rel="noopener noreferrer" aria-label="Status uptime 状态监控" alt="Status uptime 状态监控"><i class='iconfont icon-shujuzhongxin'></i></a>
+                <span class="tooltip" data-tip="ICP 备案信息"><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer"><i class='iconfont icon-icp'></i> 浙ICP备16031768号-2</a></span>
+                <span class="tooltip" data-tip="RSS Feed"><a href="https://eallion.com/atom.xml" target="_blank" rel="noopener noreferrer" aria-label="RSS 订阅链接" alt="RSS 订阅链接"><i class='iconfont icon-dingyue'></i></a></span>
+                <span class="tooltip" data-tip="GitHub Source"><a href="https://github.com/eallion/eallion.com" target="_blank" rel="noopener noreferrer" aria-label="源代码" alt="源代码"><i class='iconfont icon-code'></i></a></span>
+                <span class="tooltip" data-tip="Server Status"><a href="https://status.eallion.com/" target="_blank" rel="noopener noreferrer" aria-label="Status uptime 状态监控" alt="Status uptime 状态监控"><i class='iconfont icon-shujuzhongxin'></i></a></span>
             </div>
         </div>
         {{ end }}
