@@ -2665,6 +2665,15 @@ body.dark {
     color: #a9a9b3;
 }
 
+@media (max-width: 683px) {
+    .talks__search {
+        display: block !important;
+    }
+    .search-talks {
+        display: none !important;
+    }
+}
+
 @media (max-width: 899px) {
 
     .search-input:focus,
