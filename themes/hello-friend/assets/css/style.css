@@ -364,6 +364,10 @@ header {
     text-decoration: none;
 }
 
+.menu a:hover{
+    color: #54a3ff;
+}
+
 .menu__inner {
     display: flex;
     align-items: center;
@@ -1465,9 +1469,9 @@ hr {
     opacity: 1;
 }
 
-.footer .copyright .copyrights:hover {
+.footer .copyright .copyrights a:hover {
     opacity: 1;
-    color: #000;
+    color: #54a3ff;
 }
 
 .footer .copyright--user {
@@ -1956,6 +1960,10 @@ photos .photo:last-child {
     text-decoration: none;
 }
 
+.links-item a:hover {
+    color: #54a3ff;
+}
+
 @media only screen and (max-width: 683px) {
     .links {
         grid-template-columns: 50% 50%;
@@ -2095,6 +2103,18 @@ photos .photo:last-child {
 .timeline:hover .talks__text:before {
     background: #eeeef1 !important;
     z-index: -1;
+}
+
+.talks__text pre {
+    background-color: #fafafa;
+    padding: 1.2em 1em 0;
+    padding-bottom: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.talks__text code {
+    background: #fafafa;
 }
 
 .talks__meta {
@@ -2294,7 +2314,7 @@ body.dark {
 }
 
 .lightDarkModes:hover {
-    color: var(--dark-color);
+    color: #54a3ff;
 }
 
 .is-open {
@@ -2384,6 +2404,23 @@ body.dark {
 
 .talks__date a {
     text-decoration: none;
+}
+
+.talks__date a:hover {
+    color: #54a3ff;
+}
+
+.tag-span {
+    color: rgb(37 99 235 / 1);
+}
+
+.tag-span:hover{
+    color: #54a3ff;
+}
+
+.load-btn {
+    color: inherit;
+    margin-left: 50px;
 }
 
 .archives {
@@ -2529,6 +2566,7 @@ body.dark {
 
 .talks__search p {
     white-space: nowrap;
+    padding-left: 50px;
 }
 
 /* cloudbase talks search box */
