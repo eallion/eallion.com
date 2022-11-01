@@ -2113,6 +2113,7 @@ photos .photo:last-child {
     padding-bottom: 0;
     white-space: pre-wrap;
     word-wrap: break-word;
+    line-height: 1.2;
 }
 
 .talks__text code {
