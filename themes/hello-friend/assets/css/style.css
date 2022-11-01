@@ -362,6 +362,7 @@ header {
 
 .menu a {
     text-decoration: none;
+    transition: all .15s linear;
 }
 
 .menu a:hover{
@@ -1463,6 +1464,7 @@ hr {
 .footer a {
     color: inherit;
     text-decoration: none;
+    transition: all .15s linear;
 }
 
 .footer .copyright .copyrights {
@@ -2684,18 +2686,33 @@ body.dark {
     background: 0 0;
 }
 
+.dark .loadDisqusjs {
+    background: none !important;
+}
+
 .loadDisqusjs span {
     background: var(--light-background-secondary);
+    color: var(--light-color);
     border: 1px solid transparent;
     border-radius: 8px;
     cursor: pointer;
     padding: 8px 18px;
 }
 
+.dark .loadDisqusjs span {
+    background: var(--dark-background-secondary);
+    color: var(--dark-color);
+}
+
 .loadDisqusjs i {
     font-size: 4em;
     opacity: 0.4;
     margin-bottom: 20px;
+    color: var(--light-color);
+}
+
+.dark .loadDisqusjs i {
+    color: var(--dark-color);
 }
 
 .talksBtn {
