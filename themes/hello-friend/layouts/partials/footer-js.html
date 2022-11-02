@@ -115,6 +115,7 @@ function urlToLink(str) {
     str = str.replace(PLAIN_LINK_REG, function (plain_link) {
         return '🔗';
     });
+    str = str.replace('```', '');
     return str;
 }
 // Lightest possible code
