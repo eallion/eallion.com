@@ -4,7 +4,7 @@
     <h2 class="post-title">{{ .Title }}</h2>
     <blockquote class="hidden">Keso：“我按我的兴趣写，你用你的智商读。我没有兴趣误导谁，嘀咕页面谢绝互动。”</blockquote>
     <div class="talks__search">
-        <div class="count"><p><span class="hidden">等待 Memos 上游更新 API</span>共嘀咕了 <span id="count-data">Total 条 Memos <span class="emoji">🎉</span></p></div>
+        <div class="count"><p>共嘀咕了 <span id="memosCount">0</span> 条 Memos <span class="emoji">🎉</span></p></div>
         <div class="search-talks">
             <input type="text" class="search-input" id="talkSearch" placeholder="搜索功能重构中（假的）……">
             <button class="search-btn">
@@ -42,11 +42,20 @@
     window.onload = getData();
 </script>
 <script>
-//获取 Memos 总条数 (暂不可用 20221231)
-function getTotal() {
-    var totalUrl = 'https://demo.usememos.com/api/memo/amount?creatorId=101';
-    fetch(totalUrl).then(response => response.json()).then(json => console.log(json))
-};
+    //获取 Memos 总条数
+    function getTotal() {
+        var totalUrl = "https://memos.eallion.com/api/memo/amount?creatorId=101";
+        fetch(totalUrl).then(response => {
+            return response.json();
+        }).then(data => {
+            // console.log(data.data);
+            var memosCount = document.getElementById('memosCount');
+            memosCount.innerHTML = data.data;
+        }).catch(err => {
+            // Do something for an error here
+        });
+    };
+    window.onload = getTotal();
 </script>
 <script type="text/javascript" src="/assets/moment.min.js?v=2.29.3"></script>
 <script>
