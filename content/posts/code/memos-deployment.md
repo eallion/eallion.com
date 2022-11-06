@@ -4,6 +4,8 @@ categories: ["代码"]
 tags: 
   - 嘀咕
   - 哔哔
+  - Memos
+  - talk
 slug: "memos-deployment"
 draft: false
 Comments: true
