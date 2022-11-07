@@ -84,14 +84,19 @@ docker compose pull
 docker compose up -d --force-recreate
 ```
 
-3. **Nginx 反代**
+3. **升级 Memos**
+
+> 参考：<https://memos.eallion.com/m/5454>
+
+```bash
+docker compose pull && docker compose up -d --force-recreate
+```
+
+4. **Nginx 反代**
 
 如果打算对外提供 Memos 访问服务，就需要反代 Memos，一般都是用 Nginx，反代`5230`端口即可。
 
 ```nginx
-
-#PROXY-START/
-
 location ^~ /
 {
     proxy_pass http://127.0.0.1:5230;
@@ -101,31 +106,16 @@ location ^~ /
     proxy_set_header REMOTE-HOST $remote_addr;
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection $connection_upgrade;
-    # proxy_hide_header Upgrade;
-
     add_header X-Cache $upstream_cache_status;
-
-    #Set Nginx Cache
-    
-    
-    set $static_fileFZNIXxXy 0;
-    if ( $uri ~* "\.(gif|png|jpg|css|js|woff|woff2)$" )
-    {
-    	set $static_fileFZNIXxXy 1;
-    	expires 12h;
-        }
-    if ( $static_fileFZNIXxXy = 0 )
-    {
+    # cache
     add_header Cache-Control no-cache;
-    }
+    expires 12h;
 }
-
-#PROXY-END/
 ```
 
 一些主机管理面板提供可视化反代设置，那更简单。
 
-4. **备份数据**
+5. **备份数据**
 
 在第 1 步中的`docker-compose.yml`文件中，
 ```
