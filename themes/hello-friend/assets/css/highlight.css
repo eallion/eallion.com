@@ -10,7 +10,7 @@
 }
 
 .post-content pre {
-    font-family: "JetBrains Mono", "Source Code Pro", Consolas, Monaco,
+    font-family: "JetBrains Mono", "Noto Sans Mono", "Source Code Pro", "Fira Code", Consolas, Monaco,
         "Andale Mono", "Ubuntu Mono", monospace;
     font-size: 85%;
     text-align: left;
