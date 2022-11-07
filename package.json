@@ -1,6 +1,6 @@
 {
   "name": "eallion.com",
-  "version": "v1.0.9",
+  "version": "v1.1.0",
   "main": "index.js",
   "description": "A Hugo blog about Charles Chin. Theme hello-friend.",
   "author": "Charles Chin <@eallion> <eallions@gmail.com>",
