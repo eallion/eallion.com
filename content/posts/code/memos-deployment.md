@@ -185,6 +185,8 @@ Navicat 虽然收费，但是有 14 天的试用期，14 天足够用了？吧�
 
 打开导出的文件，按照格式添加以前的数据。
 
+![](https://images.eallion.com/images/2022/11/csv.png)
+
 然后在`表`上点右键导入就行了。
 
 最后把`memos_prod.db`文件上传到服务器上的`memos`文件夹，重启容器即可。
@@ -286,3 +288,5 @@ PS: 上面的版本用的是 XMLHttpRequest ，用 Fetch 命令来获取数据�
     window.onload = getTotal();
 </script>
 ```
+
+这一段就是用 Fetch 命令获取数据的。
