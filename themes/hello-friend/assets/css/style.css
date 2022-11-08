@@ -2506,6 +2506,10 @@ body.dark {
     color: #54a3ff;
 }
 
+.tag-span a {
+    text-decoration: none;
+}
+
 .load-btn {
     color: inherit;
     margin-left: 50px;
