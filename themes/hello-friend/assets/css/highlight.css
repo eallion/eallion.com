@@ -1,3 +1,7 @@
+pre code, code {
+    font-family: "JetBrains Mono", "Noto Sans Mono", "Source Code Pro", "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-size: 85%;
+}
 :not(pre)>code {
     background: #f5f2f0 !important;
     padding: 0.1em 0.5em;
@@ -10,9 +14,6 @@
 }
 
 .post-content pre {
-    font-family: "JetBrains Mono", "Noto Sans Mono", "Source Code Pro", "Fira Code", Consolas, Monaco,
-        "Andale Mono", "Ubuntu Mono", monospace;
-    font-size: 85%;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
