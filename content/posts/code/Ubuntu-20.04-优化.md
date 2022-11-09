@@ -435,7 +435,7 @@ UUID=0002AD    /home/eallion/Media    ntfs    defaults,uid=1000,gid=1000,umask=0
 sudo apt install openssh-server
 ```
 配置 Google Authenticator：（非必须，可选）
-** 如果不打算用二次验证登录，不要执行下面的步骤 **
+**如果不打算用二次验证登录，不要执行下面的步骤**
 ```
 sudo apt install libpam-google-authenticator
 ```

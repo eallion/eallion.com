@@ -13,7 +13,7 @@ toc: false
 
 个人长期使用过 Ubuntu、Debian、Gentoo，体验过 Fedora、Manjaro、Archlinux、Deepin 等流行的发行版最少的时间也有一周以上。
 
-关于推荐使用什么 Linux 发行版，如果你的目的是 “日常使用的 ** 桌面环境 **”，我依然首推 Ubuntu！ 
+关于推荐使用什么 Linux 发行版，如果你的目的是 “日常使用的 **桌面环境**”，我依然首推 Ubuntu！ 
 
 Linux 的创始人 Linus Torvalds 用的是 Fedora，所以也推荐使用 Fedora 。但是个人喜欢 Debian 系，而且出了问题 Google 一下很容易找到解决办法。
 

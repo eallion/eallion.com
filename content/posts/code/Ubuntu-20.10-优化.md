@@ -8,7 +8,7 @@ slug: "ubuntu2010"
 date: "2020-10-23 10:25:00"
 toc: false
 ---
-** 安装 Ubuntu 后的 20 件事 **
+**安装 Ubuntu 后的 20 件事**
 
 ![Ubuntu 20.10](https://images.eallion.com/images/2020/10/ubuntu2010.png)
 > 实机安装 桌面效果截图 [（查看大图）](https://images.eallion.com/images/2020/10/ubuntu2010.png "（查看大图）")
