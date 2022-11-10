@@ -739,9 +739,14 @@ hr {
 }
 
 /* 首页嘀咕样式 JSON 版 */
-.index-talk {
+#index-talk, .index-talk  {
     display: flex;
     flex: 1 auto;
+    align-items: center;
+    overflow: hidden;
+}
+
+.index-talk {
     font-size: 0.95em;
     width: 100%;
     max-width: 760px;
@@ -753,7 +758,6 @@ hr {
     background-color: var(--light-header);
     border-radius: 8px;
     min-height: 45px;
-    align-items: center;
     /* transition:all 0.5s;*/
 }
 
@@ -811,6 +815,10 @@ hr {
     padding-left: 0.5em;
 }
 
+.talk-wrap {
+    overflow: hidden;
+}
+
 .talk-list li,
 .gusici__list li,
 .item {
@@ -820,6 +828,7 @@ hr {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    max-width: 710px;
 }
 
 .item.sliding-now {
@@ -847,6 +856,11 @@ hr {
 .item a:hover,
 .gusici__list li a:hover {
     text-decoration: underline;
+}
+
+:not(pre) > .talk-list .item a code {
+    display: inline-block;
+    line-height: 1.4;
 }
 
 .index-talk-icon {
