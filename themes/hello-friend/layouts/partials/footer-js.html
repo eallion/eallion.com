@@ -1,9 +1,8 @@
 <script type="text/javascript" src="/assets/main.js"></script>
 
 {{ if not (eq .Params.gushici true) }}
-
 <script>
-/**
+    /**
  * Lately.js - Native JavaScript, only 800Byte but simple and easy to use Timeago plugin
  *
  * @name Lately.js
@@ -16,15 +15,15 @@
  *
  * Copyright (c) 2017, biji.io
  */
- (() => {
+(() => {
     window.Lately = new function () {
         this.lang = {
-            second: "秒",
-            minute: "分钟",
-            hour: "小时",
-            day: "天",
-            month: "个月",
-            year: "年",
+            second: " 秒",
+            minute: " 分钟",
+            hour: " 小时",
+            day: " 天",
+            month: " 个月",
+            year: " 年",
             ago: "前",
             error: "NaN"
         };
@@ -60,91 +59,48 @@
         }
     }
 })();
-
-// 嘀咕首页 Json 版
-// remote json https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=10
+</script>
+<script>
 {{ if not .Site.IsServer }}
-
+// 生产环境
 let jsonUrl = "/memos.json" + "?t=" + Date.parse(new Date())
-
 {{ else }}
-
-let jsonUrl = "https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=10" + "&t=" + Date.parse(new Date())
-
+// 开发环境
+let jsonUrl = "https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=1&offset=2" + "&t=" + Date.parse(new Date())
 {{ end }}
 
-let xhrTalks = new XMLHttpRequest();
-xhrTalks.open('get', jsonUrl, true);
-xhrTalks.onload = function(res) {
-if (this.status >= 200 && this.status < 400) {
-    let res = JSON.parse(this.response);
-    let talksCount = res.count;
-    let talksContainer = document.querySelector('#index-talk');
-    let talksHtml = '';
-    res.data.forEach(function(item, i) {
-        let d = new Date(item.createdTs * 1000);
-        let id = item.id
-        let date = d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
-        let dataTime = '<span class="datatime">' + date + '</span>';
-        talksHtml += '<div class="item item-' + (i + 1) + '">' + dataTime + '： <a href="https://memos.eallion.com/m/' + id + '" target="_blank" rel="noopener noreferrer">' + urlToLink(item.content) + '</a></div>';
-    });
-
-    // Inject the string html into the container parent element.
-    if(talksContainer) {
-        talksContainer.innerHTML = talksHtml;
-    }
-}
-
-window.Lately && Lately.init({ target: '.datatime' });
-
-function urlToLink(str) {
-    var PLAIN_LINK_REG = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g;
-    //var re_forpic = /\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpe?g)|(png)|(bmp)|(jfif)|(webp))/g;
-    var LINK_REG = /\[(.*?)\]\((.+?)\)/g;
-    var IMAGE_OLD_REG = /!\[.*?\]\(\/([a-z]\/[a-z]\/.+?)\)/g;
-    var IMAGE_REG = /!\[.*?\]\((.+?)\)/g;
-    str = str.replace(IMAGE_OLD_REG, function (old_imgurl) {
-        return '🌅';
-    });
-    str = str.replace(IMAGE_REG, function (imgurl) {
-        return '🌅';
-    });
-    str = str.replace(LINK_REG, function (website) {
-        return '🔗';
-    });
-    str = str.replace(PLAIN_LINK_REG, function (plain_link) {
-        return '🔗';
-    });
-    str = str.replace('```', '');
-    return str;
-}
-// Lightest possible code
-(function() {
-    // var t0 = performance.now();
-    setInterval(function() {
-        var parent = document.querySelector('.talk-list');
-        var slide = parent.querySelectorAll('.item');
-
-        for (var i = 0; i < slide.length; i++) {
-            var x = slide[i];
-            x.classList.toggle('sliding-now');
+    fetch(jsonUrl).then(res => res.json()).then( resdata =>{
+        var result = '',resultAll="",data = resdata.data
+        for(var i=0;i < data.length;i++){
+            var memosTime = new Date(data[i].createdTs * 1000).toLocaleString()
+            var memosContent = data[i].content
+            var newmemosContent = memosContent.replace(/```([\s\S]*?)```[\s]*/g,' <code>$1</code> ')    //全局匹配代码块
+            .replace(/`([\s\S ]*?)`[\s]*/g,' <code>$1</code> ')                                                                         //全局匹配内联代码块
+            .replace(/\!\[[\s\S]*?\]\([\s\S]*?\)/g,'🌅')                                                                                       //全局匹配图片
+            .replace(/\[[\s\S]*?\]\([\s\S]*?\)/g,'🔗')                                                                                         //全局匹配连接
+            .replace(/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g,'🔗')                                 //全局匹配纯文本连接
+            result += `<li class="item"><span class="datetime">${memosTime}</span>： <a href="https://eallion.com/memos/">${newmemosContent}</a></li>`;
         }
+        var memosDom = document.querySelector('#index-talk');
+        var memosBefore = `<i class="iconfont icon-line-quote"></i><div class="talk-wrap"><ul class="talk-list">`
+        var memosAfter = `</ul></div>`
+        resultAll = memosBefore + result + memosAfter
+        memosDom.innerHTML = resultAll;
 
+        // 相对时间： https://tokinx.github.io/lately/
+        window.Lately && Lately.init({ target: '.datetime' });
+
+    });
+    setInterval(function() {
+        for (var s, n = document.querySelector(".talk-list"), e = n.querySelectorAll(".item"), t = 0; t < e.length; t++)
         setTimeout(function() {
-            parent.appendChild(slide[0]);
-        }, 2000);
-
-        }, 2000);
-        // var t1 = performance.now();
-        // console.log("Carousel taking " + (t1 - t0) + " milliseconds.");
-      })()
-};
-xhrTalks.send();
+            n.appendChild(e[0])
+        },200000)
+    },200000)
 </script>
 
 {{ end }}
 
-{{/*  {{ if and (not .IsHome) (not (eq .Params.lightbox false)) }}  */}}
 {{ if (not .IsHome) }}
 
 <script type="text/javascript" src="/assets/baguetteBox.js?v=1.11.1" async></script>
