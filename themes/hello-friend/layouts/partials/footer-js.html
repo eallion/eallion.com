@@ -72,31 +72,36 @@ let jsonUrl = "https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL
     fetch(jsonUrl).then(res => res.json()).then( resdata =>{
         var result = '',resultAll="",data = resdata.data
         for(var i=0;i < data.length;i++){
-            var memosTime = new Date(data[i].createdTs * 1000).toLocaleString()
-            var memosContent = data[i].content
-            var newmemosContent = memosContent.replace(/```([\s\S]*?)```[\s]*/g,' <code>$1</code> ')    //全局匹配代码块
+            var talkTime = new Date(data[i].createdTs * 1000).toLocaleString()
+            var talkContent = data[i].content
+            var newtalkContent = talkContent.replace(/```([\s\S]*?)```[\s]*/g,' <code>$1</code> ')                //全局匹配代码块
             .replace(/`([\s\S ]*?)`[\s]*/g,' <code>$1</code> ')                                                                         //全局匹配内联代码块
             .replace(/\!\[[\s\S]*?\]\([\s\S]*?\)/g,'🌅')                                                                                       //全局匹配图片
             .replace(/\[[\s\S]*?\]\([\s\S]*?\)/g,'🔗')                                                                                         //全局匹配连接
             .replace(/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g,'🔗')                                 //全局匹配纯文本连接
-            result += `<li class="item"><span class="datetime">${memosTime}</span>： <a href="https://eallion.com/memos/">${newmemosContent}</a></li>`;
+            result += `<li class="item"><span class="datetime">${talkTime}</span>： <a href="https://eallion.com/memos/">${newtalkContent}</a></li>`;
         }
-        var memosDom = document.querySelector('#index-talk');
-        var memosBefore = `<i class="iconfont icon-line-quote"></i><div class="talk-wrap"><ul class="talk-list">`
-        var memosAfter = `</ul></div>`
-        resultAll = memosBefore + result + memosAfter
-        memosDom.innerHTML = resultAll;
+        var talkDom = document.querySelector('#index-talk');
+        var talkBefore = `<i class="iconfont icon-line-quote"></i><div class="talk-wrap"><ul class="talk-list">`
+        var talkAfter = `</ul></div>`
+        resultAll = talkBefore + result + talkAfter
+        talkDom.innerHTML = resultAll;
 
         // 相对时间： https://tokinx.github.io/lately/
         window.Lately && Lately.init({ target: '.datetime' });
 
     });
+
     setInterval(function() {
-        for (var s, n = document.querySelector(".talk-list"), e = n.querySelectorAll(".item"), t = 0; t < e.length; t++)
-        setTimeout(function() {
-            n.appendChild(e[0])
-        },2000)
-    },2000)
+        var talkWrap = document.querySelector(".talk-list");
+        var talkItem = talkWrap.querySelectorAll(".item");
+        for (i = 0 ; i < talkItem.length; i++) {
+            setTimeout(function() {
+                talkWrap.appendChild(talkItem[0]);
+            }, 2000);
+        }
+    }, 2000);
+
 </script>
 
 {{ end }}
