@@ -2,8 +2,8 @@
 
 # 优先运行 Firefox-devlopper
 if [ `command -v firefox-dev` ]; then
-    start firefox-dev -private-window "http://192.168.0.5:8080"
+    start firefox-dev -private-window "http://127.0.0.1:1313"
 else
-    start chrome -incognito "http://192.168.0.5:8080"
+    start chrome -incognito "http://127.0.0.1:1313"
 fi
-hugo server -w -D -p 8080 -t hello-friend --bind 192.168.0.5 --baseURL 192.168.0.5 --contentDir example --cleanDestinationDir --forceSyncStatic --ignoreCache --noHTTPCache
+hugo server -w -D -p 1313 -t hello-friend --bind 127.0.0.1 --baseURL 127.0.0.1 --contentDir example --forceSyncStatic --ignoreCache --noHTTPCache
