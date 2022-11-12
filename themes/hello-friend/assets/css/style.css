@@ -859,7 +859,6 @@ hr {
 }
 
 :not(pre) > .talk-list .item a code {
-    display: inline-block;
     line-height: 1.4;
 }
 
