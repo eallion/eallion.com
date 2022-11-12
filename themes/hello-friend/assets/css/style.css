@@ -2123,8 +2123,7 @@ photos .photo:last-child {
 
 .talks__text pre {
     background-color: #fafafa;
-    padding: 1.2em 1em 0;
-    padding-bottom: 0;
+    padding: 0 1em;
     white-space: pre-wrap;
     word-wrap: break-word;
     line-height: 1.2;
