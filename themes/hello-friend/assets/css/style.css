@@ -2055,26 +2055,51 @@ photos .photo:last-child {
     margin-left: 0 !important;
 }
 
-.talks__avatar {
-    flex-shrink: 0;
+.talks__content {
+    flex-grow: 1;
+    margin-left: 50px;
+    position: relative;
+    max-width: 100%;
+}
+
+.talks__content:before {
+    content: '';
+    position: absolute;
+    background: url('https://images.eallion.com/eallion.jpg') no-repeat;
+    background-size: contain;
     width: 40px;
     height: 40px;
     border-radius: 40px;
-    overflow: hidden;
-    margin: 10px 10px 0 0;
+    left: -50px;
+    top: 10px;
+    border: 0;
+    object-fit: cover;
 }
 
-.talks__avatar img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    margin: 0 !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-}
-
-.talks__content {
-    flex-grow: 1;
+@media (max-width: 683px) {
+    .talks__content {
+        margin-left: 0;
+    }
+    .talks__text:before {
+        display: none;
+    }
+    .talks__search p {
+        padding-left: 0;
+    }
+    .talks__userinfo {
+        margin-left: 30px;
+    }
+    .talks__content:before {
+    border-radius: 25px;
+    height: 25px;
+    width: 25px;
+    left: 15px;
+    top: 15px;
+    z-index: 100;
+    }
+    .load-btn {
+        margin-left: 0;
+    }
 }
 
 .talks__text {
@@ -2122,14 +2147,24 @@ photos .photo:last-child {
 
 .talks__text pre {
     background-color: #fafafa;
-    padding: 0 1em;
     white-space: pre-wrap;
     word-wrap: break-word;
-    line-height: 1.2;
+    line-height: 1.5rem;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.talks__text pre code {
+    flex-shrink: 0;
 }
 
 .talks__text code {
     background: #fafafa;
+}
+
+.dark .talks__text code {
+    background: none !important;
 }
 
 .talks__meta {
@@ -2167,6 +2202,9 @@ photos .photo:last-child {
 }
 
 .talks__id {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
+        Arial, "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei",
+        "Microsoft Yahei", "Segoe UI", sans-serif, serif;
     font-size: 0.875em;
     overflow-wrap: break-word;
     min-width: 0px;

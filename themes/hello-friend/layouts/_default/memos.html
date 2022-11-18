@@ -1,5 +1,26 @@
 {{ define "main" }}
 
+<style>
+    /* 自定义样式 */
+@font-face {
+    font-family: 'SmileySans';
+    /* CORS, 请下载字体自行部署 */
+    src: url('https://cdn.eallion.com/fonts/smiley-sans/1.0.0/SmileySans-Oblique.ttf.woff2');
+}
+
+@font-face {
+    font-family: 'NotoSerifSC';
+    /* CORS, 请下载字体自行部署 */
+    src: url('https://cdn.eallion.com/fonts/NotoSerifSC/2.001/NotoSerifSC.woff2');
+}
+h2, .talks__userinfo, .talks__search p {
+    font-family: 'SmileySans', sans-serif !important;
+}
+.talks__text p {
+    font-family: 'NotoSerifSC', sans-serif !important;
+}
+</style>
+
 <div class="posts post post-content talks">
     <h2 class="post-title">{{ .Title }}</h2>
     <blockquote class="hidden">Keso：“我按我的兴趣写，你用你的智商读。我没有兴趣误导谁，嘀咕页面谢绝互动。”</blockquote>
@@ -61,7 +82,9 @@
     window.onload = getTotal();
 
 </script>
-<script type="text/javascript" src="/assets/moment.min.js?v=2.29.3"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/marked/4.2.2/marked.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/pangu/4.0.7/pangu.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/moment.js/2.29.4/moment.min.js"></script>
 <script>
     // 处理发布时间 moment.js
     // moment.js locale
@@ -251,51 +274,54 @@ Last Modified time : 20221021 21:32 by https://immmmm.com
     function updateHTMl(data) {
         var bbResult = "",
             resultAll = "";
-        const CODE_BLOCK_REG = /<p>```<\/p>(\S*?)\s([\s\S]*?)<p>```<\/p>(\n?)/g;
-        const TODO_LIST_REG = /- \[ \] ([\S ]+)(\n?)/g;
-        const DONE_LIST_REG = /- \[x\] ([\S ]+)(\n?)/g;
-        const ORDERED_LIST_REG = /(\d+)\. ([\S ]+)(\n?)/g;
-        const UNORDERED_LIST_REG = /[*-] ([\S ]+)(\n?)/g;
-        const PARAGRAPH_REG = /^([\S ]*)(\n?)/mg;
-        const TAG_REG = /#([^\s#]+?) /g;
-        const IMAGE_OLD_REG = /!\[.*?\]\(\/([a-z]\/[a-z]\/.+?)\)/g;
-        const IMAGE_REG = /!\[.*?\]\((.+?)\)/g;
-        const LINK_REG = /\[(.*?)\]\((.+?)\)/g;
-        const MARK_REG = /@\[([\S ]+?)\]\((\S+?)\)/g;
-        const BOLD_REG = /\*\*([\S ]+)\*\*/g;
-        const EMPHASIS_REG = /\*([\S ]+)\*/g;
-        const PLAIN_LINK_REG = /((ht|f)tps?:\/\/[\w\-]+\.[\w\-]+[\w\-\.,@?^=%&:\/~\+#]*[\w\-\@?^=%&\/~\+#]) /g;
-        const INLINE_CODE_REG = /`([\S ]+?)`/g;
-        const PLAIN_TEXT_REG = /([\S ]+)/g;
-
-        const QUOTE_REG = /^>\s+(.+)(\n?)/mg;
-        const MARK_IMG_REG = /^(.*)(\n\!\[)/;
 
         for (var i = 0; i < data.length; i++) {
+            // Marked Options
+            marked.setOptions({
+                breaks: true,
+                smartypants: true,
+                langPrefix: 'language-'
+            });
+            // Marked Image
+            const renderer = {
+                image(href, title, text) {
+                    return `
+                        <div class="gallery">
+                            <a href="${href}"><img loading="lazy" class="img" src="${href}" alt="${text}"></a>
+                        </div>`;
+                    },
+                code(code, infostring, escaped){
+                    const language =  infostring ? infostring : 'none';
+                    return `<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-${language}" data-lang="${language}">${code}</code></pre></div>`;
+                }
+            };
+            const tagReg = {
+                name: 'tagReg',
+                level: 'inline',
+                start(src) { return src.match(/#/)?.index; },
+                tokenizer(src, tokens) {
+                    const rule = /#([^\s#]+?) /;
+                    const match = rule.exec(src);
+                    if (match) {
+                        return {
+                            type: 'tagReg',
+                            raw: match[0],
+                            tagReg: this.lexer.inlineTokens(match[1].trim()),
+                        };
+                    }
+                },
+                renderer(token) {
+                    return `<span class="tag-span"><a target="_blank" rel="noopener noreferrer" href="https://memos.eallion.com/u/101?tag=${this.parser.parseInline(token.tagReg)}">#${this.parser.parseInline(token.tagReg)}</a></span> `;
+                }
+            };
+
+            marked.use({ extensions: [tagReg] });
+            marked.use({ renderer });
+
             //console.log(data[i].content)
-            var bbContREG = data[i].content
-                .replace(/([\u4e00-\u9fa5])([A-Za-z0-9?.,;[\]]+)/g, "$1 $2")
-                .replace(/([A-Za-z0-9?.,;[\]]+)([\u4e00-\u9fa5])/g, "$1 $2")
-                .replace(CODE_BLOCK_REG, "<pre><code>\n$2</code></pre>$3")
-                .replace(TODO_LIST_REG, "<p><span class='todo-block todo' data-value='TODO'></span>$1</p>$2")
-                .replace(DONE_LIST_REG, "<p><span class='todo-block done' data-value='DONE'>✓</span>$1</p>$2")
-                .replace(ORDERED_LIST_REG, "<span class='ol-block'>$1.</span>$2 $3")
-                .replace(UNORDERED_LIST_REG, "<span class='ul-block'>•</span>$1 $2")
-                .replace(QUOTE_REG, "<blockquote>$1</blockquote>")
-                .replace(PARAGRAPH_REG, "<p>$1</p>$2")
-                .replace(MARK_IMG_REG, "<p>$1</p>$2")
-                .replace(CODE_BLOCK_REG, "<pre><code>\n$2</code></pre>$3")
-                .replace(IMAGE_OLD_REG, "<div class='gallery'><a href='" + memos + "$1'><img loading='lazy' class='img old square' src='" + memos + "$1' alt=''/></a></div>")
-                .replace(IMAGE_REG, "<div class='gallery'><a href='$1'><img loading='lazy' class='img square' src='$1' alt=''/></a></div>")
-                .replace(MARK_REG, "<span class='memo-link-text' data-value='$2'>$1</span>")
-                .replace(BOLD_REG, "<strong>$1</strong>")
-                .replace(EMPHASIS_REG, "<em>$1</em>")
-                .replace(LINK_REG, "<a class='link' target='_blank' rel='noopener noreferrer' href='$2'>$1</a>")
-                .replace(INLINE_CODE_REG, "<code>$1</code>")
-                .replace(PLAIN_LINK_REG, "<a class='link' target='_blank' rel='noopener noreferrer' href='$1'>$1</a> ")
-                .replace(TAG_REG, "<span class='tag-span'><a target='_blank' rel='noopener noreferrer' href='https://memos.eallion.com/u/101?tag=$1'>#$1</a></span> ")
-                .replace(PLAIN_TEXT_REG, "$1")
+            var bbContREG = marked.parse(pangu.spacing(data[i].content))
             //console.log(bbContREG)
+
             //解析内置资源文件
             if (data[i].resourceList && data[i].resourceList.length > 0) {
                 var resourceList = data[i].resourceList;
@@ -305,11 +331,11 @@ Last Modified time : 20221021 21:32 by https://immmmm.com
                 for (var j = 0; j < resourceList.length; j++) {
                     var restype = resourceList[j].type.slice(0, 5);
                     if (restype == 'image') {
-                        imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="' + memos + 'o/r/' + resourceList[j].id + '/' + resourceList[j].filename + '"/></figure>'
+                        imgUrl += '<a href="'+ memos + 'o/r/' + resourceList[j].id + '/' + resourceList[j].filename +' "><img class="img thumbnail-image" src="' + memos + 'o/r/' + resourceList[j].id + '/' + resourceList[j].filename + '"/></a>'
                         resImgLength = resImgLength + 1
                     }
                     if (restype !== 'image') {
-                        resUrl += '<a target="_blank" rel="noopener noreferrer" href="' + memos + 'o/r/' + resourceList[j].id + '/' + resourceList[j].filename + '">' + resourceList[j].filename + '</a>'
+                        resUrl += '<a href="' + memos + 'o/r/' + resourceList[j].id + '/' + resourceList[j].filename + '" target="_blank" download="' + resourceList[j].filename + '">' + resourceList[j].filename + '</a>'
                     }
                 }
                 if (imgUrl) {
@@ -317,13 +343,13 @@ Last Modified time : 20221021 21:32 by https://immmmm.com
                     if (resImgLength !== 1) {
                         var resImgGrid = "grid grid-" + resImgLength
                     }
-                    bbContREG += '<div class="resimg ' + resImgGrid + '">' + imgUrl + '</div></div>'
+                    bbContREG += '<div class="gallery ' + resImgGrid + '">' + imgUrl + '</div>'
                 }
                 if (resUrl) {
                     bbContREG += '<p class="datasource">' + resUrl + '</p>'
                 }
             }
-            bbResult += '<li class="timeline"><div class="talks__avatar"><a href="https://memos.eallion.com/u/101" target="_blank"><img src="https://images.eallion.com/eallion.jpg" alt="eallion"></a></div><div class="talks__content"><div class="talks__text"><div class="talks__userinfo"><div>Charles Chin</div><div><svg viewBox="0 0 24 24" aria-label="认证账号" class="talks__verify"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg></div><div class="talks__id">@eallion</div></div><p>' + bbContREG + '</p></div><div class="talks__meta"><small class="talks__date">' + moment(data[i].createdTs * 1000).twitter() + ' · 来自「<a href="https://memos.eallion.com/m/' + data[i].id + '" target="_blank">Memos</a>」</small></div></div></li>'
+            bbResult += '<li class="timeline"><div class="talks__content"><div class="talks__text"><div class="talks__userinfo"><div>Charles Chin</div><div><svg viewBox="0 0 24 24" aria-label="认证账号" class="talks__verify"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg></div><div class="talks__id">@eallion</div></div><p>' + bbContREG + '</p></div><div class="talks__meta"><small class="talks__date">' + moment(data[i].createdTs * 1000).twitter() + ' • 来自「<a href="https://memos.eallion.com/m/' + data[i].id + '" target="_blank">Memos</a>」</small></div></div></li>'
         } // end for
         var bbBefore = '<ul class="talks">'
         var bbAfter = '</ul>'
