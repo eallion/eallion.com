@@ -1,11 +1,11 @@
 ---
 title: "嘀咕（哔哔）Memos 简介"
 categories: ["代码"]
-tags: 
-  - 嘀咕
-  - 哔哔
-  - Memos
-  - talk
+tags:
+    - 嘀咕
+    - 哔哔
+    - Memos
+    - talk
 slug: "memos-deployment"
 draft: false
 Comments: true
@@ -17,47 +17,47 @@ toc: false
 
 本文介绍了 [Memos](https://github.com/usememos/memos) 的部署，数据导入，公告栏 API 调用，和 “ [嘀咕](https://eallion.com/memos/)” 页面通过 API 渲染 Memos。
 
-- 官网：<https://github.com/usememos/memos>
-- 部署实例：<https://memos.eallion.com>
-- 嘀咕页面：<https://eallion.com/memos>
+-   官网：<https://github.com/usememos/memos>
+-   部署实例：<https://memos.eallion.com>
+-   嘀咕页面：<https://eallion.com/memos>
 
 ### 前言
 
 > DEMO：<https://eallion.com/memos/>
 
 我从接触独立博客开始，就一直在博客的子栏目中部署了一个类似 [嘀咕](https://eallion.com/memos/) 的微博客。  
-最初的作用是备份 QQ空间、Twitter 和微博等。  
-最早用到的微博客程序是 PageCookery。甚至有点怀念……  
+最初的作用是备份 QQ 空间、Twitter 和微博等。  
+最早用到的微博客程序是 PageCookery。甚至有点怀念……
 
-现在在独立博客圈少部博主中流行的这种“B言B语”，最早来源于少数派上的一篇文章——[《保卫表达：用后端 BaaS 快速搭建专属无点赞评论版微博——b言b语》](https://sspai.com/post/60024)，“B言B语”也叫“废话胶囊”。  
+现在在独立博客圈少部博主中流行的这种“B 言 B 语”，最早来源于少数派上的一篇文章——[《保卫表达：用后端 BaaS 快速搭建专属无点赞评论版微博——b 言 b 语》](https://sspai.com/post/60024)，“B 言 B 语”也叫“废话胶囊”。
 
-由此也衍生出了：  
+由此也衍生出了：
 
-- [LeanCloud 版](https://github.com/daibor/nonsense.fun)（原版）  
-- [Golang 版](https://github.com/songquanpeng/microblog)  
-- [腾讯云 CloudBase 版](https://github.com/ibearye/talk)  
-- [木木老师修改版](https://immmmm.com/bb-by-wechat-pro/)  《「哔哔点啥」微信公众号 2.0》
-- [BBTalk](https://github.com/BBtalkJS/BBtalk)Vercel 版  
-- 我个人短暂修改使用过的 [Algolia](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/_default/algoliaTalk.html) 版。  
+-   [LeanCloud 版](https://github.com/daibor/nonsense.fun)（原版）
+-   [Golang 版](https://github.com/songquanpeng/microblog)
+-   [腾讯云 CloudBase 版](https://github.com/ibearye/talk)
+-   [木木老师修改版](https://immmmm.com/bb-by-wechat-pro/) 《「哔哔点啥」微信公众号 2.0》
+-   [BBTalk](https://github.com/BBtalkJS/BBtalk)Vercel 版
+-   我个人短暂修改使用过的 [Algolia](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/_default/algoliaTalk.html) 版。
 
-目前以上版本均可使用，不过可能有些版本的使用成本有点高。  
+目前以上版本均可使用，不过可能有些版本的使用成本有点高。
 
 今天要介绍的是另一个能提供类似功能的应用——[Memos](https://github.com/usememos/memos)  
-Memos 自己对标的竞品是 Flomo ，我们是不是把它用歪了？ 
+Memos 自己对标的竞品是 Flomo ，我们是不是把它用歪了？
 
 ### 部署 Memos
 
 > 前置条件：
-> 
-> 1. 一台 VPS 服务器或本地电脑（或 Docker SaaS 平台）  
-> 2. 一点点 WebStack 技能（Docker、Nginx）  
+>
+> 1. 一台 VPS 服务器或本地电脑（或 Docker SaaS 平台）
+> 2. 一点点 WebStack 技能（Docker、Nginx）
 
 安装`docker-compose-plugin`插件后，`docker compose`命令可以去掉中间的"`-`"，Docker Compose V1 版本已经结束生命周期。
 
 暂时不建议把 Memos 部署到网站二级目录，如：https://example.com/memos
 而应该部署到一个二级域名，如：https://memos.example.com
 
-1. **新建 `docker-compose.yml`**  
+1. **新建 `docker-compose.yml`**
 
 一般在准备用于 Memos 的域名的目录下新建`docker-compose.yml`文件：
 
@@ -71,14 +71,14 @@ vim docker-compose.yml
 ```yml
 version: "3.0"
 services:
-  memos:
-    image: neosmemo/memos
-    container_name: memos
-    volumes:
-      - ./memos/:/var/opt/memos
-    ports:
-      - 5230:5230
-    restart: always
+    memos:
+        image: neosmemo/memos
+        container_name: memos
+        volumes:
+            - ./memos/:/var/opt/memos
+        ports:
+            - 5230:5230
+        restart: always
 ```
 
 2. **启动 Memos**
@@ -90,7 +90,7 @@ docker compose up -d
 ```
 
 等待镜像拉取完成，Memos 就运行在服务器的`5230`端口了。  
-此时，打开`http://127.0.0.1:5230`就能访问 Memos 了。   
+此时，打开`http://127.0.0.1:5230`就能访问 Memos 了。  
 如果有公网 IP，那就打开`IP`+`端口`，如： `http://119.29.29.29:5230` 。
 用域名反代 IP 见下文第 4 点。
 常用的命令有：
@@ -228,7 +228,7 @@ sudo chown www:www memos_prod.db
 SQLite 数据管理工具有免费的 SQLiteStudio，也有收费的 Navicat 。
 Navicat 虽然收费，但是有 14 天的试用期，14 天足够用了？吧。
 
-打开 Navicat 后，连接 `memos_prod.db` 
+打开 Navicat 后，连接 `memos_prod.db`
 
 ![](https://images.eallion.com/images/2022/11/link_sqlite.png)
 
@@ -256,35 +256,38 @@ sudo chown www:www memos_prod.db
 
 ```css
 /*隐藏每条可见状态标签*/
-.user-banner-container>.username-container>.tag,
-.memo-wrapper>.memo-top-wrapper>.status-text-container>.status-text.public,
+.user-banner-container > .username-container > .tag,
+.memo-wrapper
+    > .memo-top-wrapper
+    > .status-text-container
+    > .status-text.public,
 .page-header .title-text {
     display: none !important;
 }
 
 /* 隐藏昵称后面的 MOD 字符 */
-.user-banner-container>.username-container>.tag {
+.user-banner-container > .username-container > .tag {
     display: none !important;
 }
 
 /*隐藏 大于10行的标签 By eallion*/
-.tags-wrapper>.tags-container .tag-item-container:nth-child(1n + 11) {
+.tags-wrapper > .tags-container .tag-item-container:nth-child(1n + 11) {
     display: none !important;
 }
 
 /*隐藏发布权限设置*/
-.memo-editor-container>.editor-header-container>.visibility-selector {
+.memo-editor-container > .editor-header-container > .visibility-selector {
     display: none !important;
 }
 
 /*统一标签、链接颜色为绿色*/
-.memo-content-wrapper>.memo-content-text .tag-span,
-.memo-content-wrapper>.memo-content-text .link {
+.memo-content-wrapper > .memo-content-text .tag-span,
+.memo-content-wrapper > .memo-content-text .link {
     color: rgb(22, 163, 74) !important;
 }
 
 /*修改 blockquote 为单引号*/
-.memo-content-wrapper>.memo-content-text blockquote {
+.memo-content-wrapper > .memo-content-text blockquote {
     font-family: KaiTi, STKaiti, STFangsong !important;
     margin: 0 0 0 1rem !important;
     padding: 0.25rem 2rem !important;
@@ -292,7 +295,7 @@ sudo chown www:www memos_prod.db
     border-left: 0 none !important;
 }
 
-.memo-content-wrapper>.memo-content-text blockquote::before {
+.memo-content-wrapper > .memo-content-text blockquote::before {
     line-height: 2rem !important;
     content: "“" !important;
     font-family: Georgia, serif !important;
@@ -318,7 +321,10 @@ sudo chown www:www memos_prod.db
         opacity: 0.8 !important;
     }
 
-    .memo-editor-container>.common-tools-wrapper>.btns-container>.confirm-btn {
+    .memo-editor-container
+        > .common-tools-wrapper
+        > .btns-container
+        > .confirm-btn {
         color: #000 !important;
     }
 }
@@ -341,50 +347,61 @@ sudo chown www:www memos_prod.db
 
 > 参考：<i class="iconfont icon-github"></i> [footer-js.html#L63-L105](https://github.com/eallion/eallion.com/blob/a4de74d8568c184335ccfdc9dbc612289c2fbcb5/themes/hello-friend/layouts/partials/footer-js.html#L63-L105)
 
-```html
+````html
 <!--引入相对时间 Lately 插件-->
 <script src="//tokinx.github.io/lately/lately.min.js"></script>
 
 <!--JS 处理 Memos API-->
 <script>
-let jsonUrl = "https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=1&offset=2" + "&t=" + Date.parse(new Date())
+    let jsonUrl =
+        "https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=1&offset=2" +
+        "&t=" +
+        Date.parse(new Date());
 
-    fetch(jsonUrl).then(res => res.json()).then( resdata =>{
-        var result = '',resultAll="",data = resdata.data
-        for(var i=0;i < data.length;i++){
-            var talkTime = new Date(data[i].createdTs * 1000).toLocaleString()
-            var talkContent = data[i].content
-            var newtalkContent = talkContent.replace(/```([\s\S]*?)```[\s]*/g,' <code>$1</code> ')  //全局匹配代码块
-            .replace(/`([\s\S ]*?)`[\s]*/g,' <code>$1</code> ')  //全局匹配内联代码块
-            .replace(/\!\[[\s\S]*?\]\([\s\S]*?\)/g,'🌅')  //全局匹配图片
-            .replace(/\[[\s\S]*?\]\([\s\S]*?\)/g,'🔗')  //全局匹配连接
-            .replace(/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g,'🔗')  //全局匹配纯文本连接
-            result += `<li class="item"><span class="datetime">${talkTime}</span>： <a href="https://eallion.com/memos/">${newtalkContent}</a></li>`;
-        }
-        var talkDom = document.querySelector('#memos');
-        var talkBefore = `<i class="iconfont icon-line-quote"></i><div class="talk-wrap"><ul class="talk-list">`
-        var talkAfter = `</ul></div>`
-        resultAll = talkBefore + result + talkAfter
-        talkDom.innerHTML = resultAll;
+    fetch(jsonUrl)
+        .then((res) => res.json())
+        .then((resdata) => {
+            var result = "",
+                resultAll = "",
+                data = resdata.data;
+            for (var i = 0; i < data.length; i++) {
+                var talkTime = new Date(
+                    data[i].createdTs * 1000
+                ).toLocaleString();
+                var talkContent = data[i].content;
+                var newtalkContent = talkContent
+                    .replace(/```([\s\S]*?)```[\s]*/g, " <code>$1</code> ") //全局匹配代码块
+                    .replace(/`([\s\S ]*?)`[\s]*/g, " <code>$1</code> ") //全局匹配内联代码块
+                    .replace(/\!\[[\s\S]*?\]\([\s\S]*?\)/g, "🌅") //全局匹配图片
+                    .replace(/\[[\s\S]*?\]\([\s\S]*?\)/g, "🔗") //全局匹配连接
+                    .replace(
+                        /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g,
+                        "🔗"
+                    ); //全局匹配纯文本连接
+                result += `<li class="item"><span class="datetime">${talkTime}</span>： <a href="https://eallion.com/memos/">${newtalkContent}</a></li>`;
+            }
+            var talkDom = document.querySelector("#memos");
+            var talkBefore = `<i class="iconfont icon-line-quote"></i><div class="talk-wrap"><ul class="talk-list">`;
+            var talkAfter = `</ul></div>`;
+            resultAll = talkBefore + result + talkAfter;
+            talkDom.innerHTML = resultAll;
 
-        // 相对时间
-        window.Lately && Lately.init({ target: '.datetime' });
-
-    });
+            // 相对时间
+            window.Lately && Lately.init({ target: ".datetime" });
+        });
 
     // 滚动效果
-    setInterval(function() {
+    setInterval(function () {
         var talkWrap = document.querySelector(".talk-list");
         var talkItem = talkWrap.querySelectorAll(".item");
-        for (i = 0 ; i < talkItem.length; i++) {
-            setTimeout(function() {
+        for (i = 0; i < talkItem.length; i++) {
+            setTimeout(function () {
                 talkWrap.appendChild(talkItem[0]);
             }, 2000);
         }
     }, 2000);
-
 </script>
-```
+````
 
 如果构建时，把 Memos 的 Json 数据保存到本地静态文件，性能还会更好。<i class="iconfont icon-github"></i> [workflows.yml#L34](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/.github/workflows/main.yml#L34)
 相对时间，用的 [Lately.js](https://tokinx.github.io/lately/) 插件：<i class="iconfont icon-github"></i> [footer-js.html#L91](https://github.com/eallion/eallion.com/blob/a4de74d8568c184335ccfdc9dbc612289c2fbcb5/themes/hello-friend/layouts/partials/footer-js.html#L91)
@@ -411,9 +428,9 @@ let jsonUrl = "https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL
 
 相对时间，用的是 [Moment.js](https://github.com/moment/moment/) Twitter 风格的插件：<i class="iconfont icon-github"></i> [memos.html#L60-L165](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/_default/memos.html#L60-L165)
 
-- 7 天内的发布时间显示为相对时间：`1 天前`
-- 本年内的时间不显示年份：`5月20日，13:14 • 中午`
-- 去年及之前的时间示为完整时间：`2010年10月10日，10:10 • 上午`
+-   7 天内的发布时间显示为相对时间：`1 天前`
+-   本年内的时间不显示年份：`5月20日，13:14 • 中午`
+-   去年及之前的时间显示为完整时间：`2010年10月10日，10:10 • 上午`
 
 全站图片灯箱效果用的是 [baguetteBox.js](https://github.com/feimosi/baguetteBox.js)插件: <i class="iconfont icon-github"></i> [memos.html#L331-L341](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/_default/memos.html#L331-L341)
 
@@ -448,14 +465,22 @@ let jsonUrl = "https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL
 
 > [https://memos.top](https://www.memos.top/)
 
-- Discuss in [Telegram](https://t.me/+-_tNF1k70UU4ZTc9) 👾
-- Docker Hub：<https://hub.docker.com/r/neosmemo/memos>
-- Docker Hub Nightly：<https://hub.docker.com/r/eallion/memos>
-- Moe Memos 客户端：<https://memos.moe/>
-- Memos-bber Chrome 扩展：<https://github.com/lmm214/memos-bber>
-- Memos 微信小程序：<https://github.com/Rabithua/memos_wmp>
-- Telegram Bot：<https://github.com/qazxcdswe123/telegramMemoBot>
-- [哔哔广场](https://immmmm.com/bbs-by-memos/)：<https://immmmm.com/bbs/>
-- [「分享」Android 使用 HTTP Shortcuts 录入笔记](https://github.com/usememos/memos/discussions/315)
-- [「分享」使用 iOS 快捷指令录入笔记，支持多图上传，支持标签选择](https://github.com/usememos/memos/discussions/52)
-- [「分享」在 Fly.io 平台上搭建 memos 并自动备份到 B2/S3](https://github.com/usememos/memos/discussions/451)
+-   Discuss in [Telegram](https://t.me/+-_tNF1k70UU4ZTc9) 👾
+-   Docker Hub：<https://hub.docker.com/r/neosmemo/memos>
+-   Docker Hub Nightly：<https://hub.docker.com/r/eallion/memos>
+-   Moe Memos 客户端：<https://memos.moe/>
+-   Memos-bber Chrome 扩展：<https://github.com/lmm214/memos-bber>
+-   Memos 微信小程序：<https://github.com/Rabithua/memos_wmp>
+-   Telegram Bot：<https://github.com/qazxcdswe123/telegramMemoBot>
+-   [哔哔广场](https://immmmm.com/bbs-by-memos/)：<https://immmmm.com/bbs/>
+-   [「分享」Android 使用 HTTP Shortcuts 录入笔记](https://github.com/usememos/memos/discussions/315)
+-   [「分享」使用 iOS 快捷指令录入笔记，支持多图上传，支持标签选择](https://github.com/usememos/memos/discussions/52)
+-   [「分享」在 Fly.io 平台上搭建 memos 并自动备份到 B2/S3](https://github.com/usememos/memos/discussions/451)
+
+### 一点点建议
+
+1. 发图尽量把图片传到第三方图床，（至少近期版本）别上传到 Memos 资源库。
+2. 附件也一样别传到 Memos 资源库，可以传到第三方网盘，贴上分享链接。
+3. 备份`memos_prod.db`数据库遵循两地三中心原则，多处备份，且是单向的。
+4. 如果你意识不到数据对你有多珍贵或重要，用 SaaS 服务即可，不用自建。
+5. 没有那么多人来看你的 Memos，自娱自乐即可。
