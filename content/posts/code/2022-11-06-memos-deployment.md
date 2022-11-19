@@ -422,7 +422,7 @@ sudo chown www:www memos_prod.db
 
 2. **JS 处理 API 数据**
 
-源码在这里：<i class="iconfont icon-github"></i> [memos.html](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/_default/memos.html)，因为时常有可能会更新变动，这里就不贴具体的 JS 代码了。
+源码在这里：<i class="iconfont icon-github"></i> [memos.html](https://github.com/eallion/eallion.com/blob/main/themes/hello-friend/layouts/_default/memos.html)，因为时常有可能会更新变动，这里就不贴具体的 JS 代码了。
 
 整体样式还真是自己捏出来的，不过大多也是借鉴了 Twitter 的元素。
 
