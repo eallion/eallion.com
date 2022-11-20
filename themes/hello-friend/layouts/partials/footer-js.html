@@ -108,17 +108,9 @@ let jsonUrl = "https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL
 
 {{ if (not .IsHome) }}
 
-<script type="text/javascript" src="/assets/baguetteBox.js?v=1.11.1" async></script>
+<script src="/assets/view-image.min.js"></script>
 <script>
-    window.addEventListener('load', function() {
-        baguetteBox.run('.gallery', {
-            // Custom options
-            buttons: false,
-            noScrollbars: true,
-            fullScreen: false,
-            filter: /.*/i
-        });
-    });
+    window.ViewImage && ViewImage.init('.content img');
 </script>
 
 {{ end }}
