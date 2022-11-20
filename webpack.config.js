@@ -102,17 +102,22 @@ module.exports = (env, { mode }) => ({
     plugins: [
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [
-                'static/assets/style.css',
+                '!static/assets/69d6ffe.js',
+                '!static/assets/algolia.min.css',
+                '!static/assets/disqus.js',
+                '!static/assets/gist.min.css',
+                '!static/assets/marked.min.js',
+                '!static/assets/memos.js',
+                '!static/assets/memos.min.js',
+                '!static/assets/moment.min.js',
+                '!static/assets/moment.twitter.js',
+                '!static/assets/moment.twitter.min.js',
+                '!static/assets/pangu.min.js',
+                '!static/assets/view-image.min.js',
+                'static/assets/fonts',
                 'static/assets/main.js',
                 'static/assets/prism.js',
-                'static/assets/fonts',
-                '!static/assets/algolia.min.css',
-                '!static/assets/gist.min.css',
-                '!static/assets/baguetteBox.js',
-                '!static/assets/moment.min.js',
-                '!static/assets/pangu.min.js',
-                '!static/assets/69d6ffe.js',
-                '!static/assets/disqus.js'
+                'static/assets/style.css'
             ],
             cleanAfterEveryBuildPatterns: [
                 join("static/assets/style.js"),

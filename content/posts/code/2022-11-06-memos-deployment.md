@@ -432,7 +432,7 @@ sudo chown www:www memos_prod.db
 -   本年内的时间不显示年份：`5月20日，13:14 • 中午`
 -   去年及之前的时间显示为完整时间：`2010年10月10日，10:10 • 上午`
 
-全站图片灯箱效果用的是 [baguetteBox.js](https://github.com/feimosi/baguetteBox.js)插件: <i class="iconfont icon-github"></i> [memos.html#L331-L341](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/_default/memos.html#L331-L341)
+全站图片灯箱效果用的是 [view-image.js](https://tokinx.github.io/ViewImage/)插件: <i class="iconfont icon-github"></i> [memos.html#L331-L341](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/_default/memos.html#L331-L341)
 
 ### API：获取 Memos 总条数
 
