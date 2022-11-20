@@ -113,7 +113,7 @@ function updateHTMl(data) {
 
     const TAG_REG = /#([^\s#]+?) /g;
     const B23_REG = /<a href="https:\/\/b23\.tv\/([a-z|A-Z|0-9]{7})\/">.*<\/a>/g;
-    const BILIBILI_REG = /<a href="https:\/\/www\.bilibili\.com\/video\/BV([a-z|A-Z|0-9]{10})\/">.*<\/a>/g;
+    const BILIBILI_REG = /<a\shref="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?">.*<\/a>/g;
     const YOUTUBE_REG = /<a href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\">.*<\/a>/g;
 
     // Marked Options
