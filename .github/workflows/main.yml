@@ -31,7 +31,6 @@ jobs:
         run: |
           hugo version
           hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
-          wget "https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=10" -O ./public/memos.json
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
