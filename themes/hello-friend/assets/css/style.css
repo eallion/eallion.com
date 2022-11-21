@@ -912,10 +912,6 @@ hr {
         left: 30px;
         max-width: 585px;
     }
-
-    .timeline img {
-        max-height: 170px !important;
-    }
 }
 
 .posts {
@@ -2219,7 +2215,7 @@ photos .photo:last-child {
 
 .timeline img {
     display: block;
-    max-height: 300px;
+    max-height: 50vh;
     margin: 10px 0;
     border-radius: 16px;
     border: 1px solid #cfd9de;
