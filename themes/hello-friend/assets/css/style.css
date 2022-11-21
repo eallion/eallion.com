@@ -3,6 +3,17 @@
 @import "./highlight.css";
 @import "./disqusjs.css";
 @import "./iconfont.css";
+.tag-span {
+    color: rgb(37 99 235 / 1);
+}
+
+.tag-span:hover{
+    color: #54a3ff;
+}
+
+.tag-span a {
+    text-decoration: none;
+}
 /*! purgecss end ignore */
 
 :root {
@@ -2060,7 +2071,7 @@ photos .photo:last-child {
 .talks__content:before {
     content: '';
     position: absolute;
-    background: url('https://images.eallion.com/eallion.jpg') no-repeat;
+    background: url('https://eallion.com/eallion.jpg') no-repeat;
     background-size: contain;
     width: 40px;
     height: 40px;
@@ -2541,18 +2552,6 @@ body.dark {
 
 .talks__date a:hover {
     color: #54a3ff;
-}
-
-.tag-span {
-    color: rgb(37 99 235 / 1);
-}
-
-.tag-span:hover{
-    color: #54a3ff;
-}
-
-.tag-span a {
-    text-decoration: none;
 }
 
 .load-btn {
