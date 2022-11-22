@@ -2065,6 +2065,7 @@ photos .photo:last-child {
     flex-grow: 1;
     margin-left: 50px;
     position: relative;
+    width: 100%;
     max-width: 100%;
 }
 

@@ -79,6 +79,7 @@ if (memoDom) {
 function getFirstList() {
     // 网站根目录静态文件 memos.json
     var memoUrl_first = localUrl + "?t=" + Date.parse(new Date());
+    //var memoUrl_first = remoteUrl + "&limit=10&offset=0";
     fetch(memoUrl_first).then(res => res.json()).then(resdata => {
         updateHTMl(resdata.data)
         var nowLength = resdata.data.length
@@ -149,7 +150,7 @@ function updateHTMl(data) {
             if (imgUrl) {
                 var resImgGrid = ""
                 if (resImgLength !== 1) { var resImgGrid = "grid grid-" + resImgLength }
-                memoContREG += '<div class="resimg ' + resImgGrid + '">' + imgUrl + '</div></div>'
+                memoContREG += '<div class="resimg ' + resImgGrid + '">' + imgUrl + '</div>'
             }
             if (resUrl) {
                 memoContREG += '<p class="datasource">' + resUrl + '</p>'
