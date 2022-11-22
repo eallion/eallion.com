@@ -615,7 +615,7 @@ function updateHTMl(data) {
                     resImgGrid +
                     '">' +
                     imgUrl +
-                    "</div></div>";
+                    "</div>";
             }
             if (resUrl) {
                 memoContREG += '<p class="datasource">' + resUrl + "</p>";
