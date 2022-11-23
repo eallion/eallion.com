@@ -23,12 +23,12 @@ window.onload = getData();
 
 //获取 Memos 总条数
 function getTotal() {
-    var totalUrl = "https://memos.eallion.com/api/memo/amount?creatorId=101";
+    var totalUrl = "https://static.eallion.com/memos.json" + "?t=" + Date.parse(new Date());
     fetch(totalUrl).then(response => {
         return response.json();
     }).then(data => {
         var memosCount = document.getElementById('memosCount');
-        memosCount.innerHTML = data.data;
+        memosCount.innerHTML = data.total;
     }).catch(err => {
         // Do something for an error here
     });
@@ -133,7 +133,7 @@ function updateHTMl(data) {
         memoContREG = marked.parse(pangu.spacing(memoContREG))
             .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//player.bilibili.com/player.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true' style='position:absolute;height:100%;width:100%;'></iframe></div>")
             .replace(YOUTUBE_REG, "<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>")
-            .replace(VIDEO_REG, "<div class='video-wrapper'><video controls width='720' class='video-player' preload='auto' webkit-playsinline='true' playsinline='true' x5-video-player-type='h5' x5-video-player-fullscreen='portraint'><source src='$1' type='video/$2'> <p>Your browser doesn't support HTML5 video. Here is a <a href='$1'>link to the video</a> instead.</p></video></div>")
+            .replace(VIDEO_REG, "<div class='video-wrapper' style='padding-bottom: 100%;'><video controls width='720' class='video-player' preload='auto' webkit-playsinline='true' playsinline='true' x5-video-player-type='h5' x5-video-player-fullscreen='portraint'><source src='$1' type='video/$2'> <p>Your browser doesn't support HTML5 video. Here is a <a href='$1'>link to the video</a> instead.</p></video></div>")
 
         //解析内置资源文件
         if (data[i].resourceList && data[i].resourceList.length > 0) {
