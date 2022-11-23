@@ -1,0 +1,11 @@
+.tag-span {
+    color: rgb(37 99 235 / 1);
+}
+
+.tag-span:hover{
+    color: #54a3ff;
+}
+
+.tag-span a {
+    text-decoration: none;
+}
