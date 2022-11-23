@@ -3,17 +3,7 @@
 @import "./highlight.css";
 @import "./disqusjs.css";
 @import "./iconfont.css";
-.tag-span {
-    color: rgb(37 99 235 / 1);
-}
-
-.tag-span:hover{
-    color: #54a3ff;
-}
-
-.tag-span a {
-    text-decoration: none;
-}
+@import "./memos.css";
 /*! purgecss end ignore */
 
 :root {
