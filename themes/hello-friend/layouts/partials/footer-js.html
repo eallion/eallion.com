@@ -61,24 +61,19 @@
 })();
 </script>
 <script>
-{{ if not .Site.IsServer }}
-// 生产环境
-let jsonUrl = "/memos.json" + "?t=" + Date.parse(new Date())
-{{ else }}
-// 开发环境
-let jsonUrl = "https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=1&offset=2" + "&t=" + Date.parse(new Date())
-{{ end }}
+let jsonUrl = "https://static.eallion.com/memos.json" + "?t=" + Date.parse(new Date())
 
     fetch(jsonUrl).then(res => res.json()).then( resdata =>{
         var result = '',resultAll="",data = resdata.data
         for(var i=0;i < data.length;i++){
             var talkTime = new Date(data[i].createdTs * 1000).toLocaleString()
             var talkContent = data[i].content
-            var newtalkContent = talkContent.replace(/```([\s\S]*?)```[\s]*/g,' <code>$1</code> ')                //全局匹配代码块
-            .replace(/`([\s\S ]*?)`[\s]*/g,' <code>$1</code> ')                                                                         //全局匹配内联代码块
-            .replace(/\!\[[\s\S]*?\]\([\s\S]*?\)/g,'🌅')                                                                                       //全局匹配图片
-            .replace(/\[[\s\S]*?\]\([\s\S]*?\)/g,'🔗')                                                                                         //全局匹配连接
-            .replace(/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g,'🔗')                                 //全局匹配纯文本连接
+            var newtalkContent = talkContent
+                .replace(/```([\s\S]*?)```[\s]*/g,' <code>$1</code> ')  //全局匹配代码块
+                .replace(/`([\s\S ]*?)`[\s]*/g,' <code>$1</code> ')  //全局匹配内联代码块
+                .replace(/\!\[[\s\S]*?\]\(([\s\S]*?)\)/g,"$1")  //全局匹配图片
+                .replace(/\[[\s\S]*?\]\(([\s\S]*?)\)/g,"$1")  //全局匹配连接
+                .replace(/<video [^>]*src=['"](.+?[^'"]\.(mp4|webm|ogv)+)[^>]*>/g,"$1")  //全局匹配连接
             result += `<li class="item"><span class="datetime">${talkTime}</span>： <a href="https://eallion.com/memos/">${newtalkContent}</a></li>`;
         }
         var talkDom = document.querySelector('#index-talk');
