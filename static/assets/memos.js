@@ -113,10 +113,16 @@ function updateHTMl(data) {
     var memoResult = "", resultAll = "";
 
     const TAG_REG = /#([^\s#]+?) /g;
-    const B23_REG = /<a href="https:\/\/b23\.tv\/([a-z|A-Z|0-9]{7})\/">.*<\/a>/g;
-    const BILIBILI_REG = /<a\shref="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?">.*<\/a>/g;
+    
     const YOUTUBE_REG = /<a href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\">.*<\/a>/g;
-    const VIDEO_REG = /<video [^>]*src=['"](.+?[^'"]\.(mp4|webm|ogv)+)[^>]*>/g;
+    const BILIBILI_REG = /<a\shref="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?">.*<\/a>/g;
+
+    //const B23_REG = /<a href="https:\/\/b23\.tv\/([a-z|A-Z|0-9]{7})\/">.*<\/a>/g;
+    //const DOUYIN_REG = //g;
+    //const DOUBAN_REG = //g;
+    //const MUSIC_REG = //g;
+    //const QQVIDEO_REG = //g;
+    //const YOUKU_REG = //g;
 
     // Marked Options
     marked.setOptions({
@@ -124,7 +130,6 @@ function updateHTMl(data) {
         smartypants: true,
         langPrefix: 'language-'
     });
-
     // Memos Content
     for (var i = 0; i < data.length; i++) {
         var memoContREG = data[i].content
@@ -133,7 +138,6 @@ function updateHTMl(data) {
         memoContREG = marked.parse(pangu.spacing(memoContREG))
             .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//player.bilibili.com/player.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true' style='position:absolute;height:100%;width:100%;'></iframe></div>")
             .replace(YOUTUBE_REG, "<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>")
-            .replace(VIDEO_REG, "<div class='video-wrapper' style='padding-bottom: 100%;'><video controls width='720' class='video-player' preload='auto' webkit-playsinline='true' playsinline='true' x5-video-player-type='h5' x5-video-player-fullscreen='portraint'><source src='$1' type='video/$2'> <p>Your browser doesn't support HTML5 video. Here is a <a href='$1'>link to the video</a> instead.</p></video></div>")
 
         //解析内置资源文件
         if (data[i].resourceList && data[i].resourceList.length > 0) {
