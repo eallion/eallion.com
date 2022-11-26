@@ -71,6 +71,15 @@
     background: #3b3d42;
 }
 
+.load-btn {
+    color: #222;
+    margin-left: 50px;
+}
+
+.dark .load-btn {
+    color: #a9a9b3;
+}
+
 @media (max-width:683px) {
     .post-preview {
         width: 95%;
@@ -82,6 +91,9 @@
 
     .post-preview--middle {
         line-height: 19px;
+    }
+    .load-btn {
+        margin-left: 0;
     }
 }
 
