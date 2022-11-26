@@ -23,7 +23,7 @@ window.onload = getData();
 
 //获取 Memos 总条数
 function getTotal() {
-    var totalUrl = "https://static.eallion.com/memos.json" + "?t=" + Date.parse(new Date());
+    var totalUrl = "https://api.eallion.com/memos/memos.json" + "?t=" + Date.parse(new Date());
     fetch(totalUrl).then(response => {
         return response.json();
     }).then(data => {
@@ -52,7 +52,7 @@ if (typeof (memos) !== "undefined") {
 
 var limit = memo.limit
 var memos = memo.host
-var localUrl = "https://static.eallion.com/memos.json"
+var localUrl = "https://api.eallion.com/memos/memos.json"
 var remoteUrl = memos + "api/memo?creatorId=" + memo.creatorId + "&rowStatus=NORMAL"
 var page = 1,
     offset = 10,
