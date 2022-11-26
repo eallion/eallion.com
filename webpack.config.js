@@ -42,7 +42,7 @@ module.exports = (env, { mode }) => ({
                 },
             },
             {
-                test: /\.(png|jpe?g|svg)$/,
+                test: /\.(png|jpe?g|webp|svg)$/,
                 type: "asset/resource",
                 generator: {
                     filename: "images/[name][ext]",
