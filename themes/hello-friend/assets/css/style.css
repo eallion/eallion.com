@@ -2016,9 +2016,6 @@ photos .photo:last-child {
     top: 15px;
     z-index: 100;
     }
-    .load-btn {
-        margin-left: 0;
-    }
 }
 
 .talks__text {
@@ -2461,11 +2458,6 @@ body.dark {
 
 .talks__date a:hover {
     color: #54a3ff;
-}
-
-.load-btn {
-    color: inherit;
-    margin-left: 50px;
 }
 
 .archives {
