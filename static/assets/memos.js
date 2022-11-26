@@ -78,8 +78,8 @@ if (memoDom) {
 // 渲染第一页（前 10 条）
 function getFirstList() {
     // 网站根目录静态文件 memos.json
-    var memoUrl_first = localUrl + "?t=" + Date.parse(new Date());
-    //var memoUrl_first = remoteUrl + "&limit=10&offset=0";
+    //var memoUrl_first = localUrl + "?t=" + Date.parse(new Date());
+    var memoUrl_first = "https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=1&offset=0";
     fetch(memoUrl_first).then(res => res.json()).then(resdata => {
         updateHTMl(resdata.data)
         var nowLength = resdata.data.length
@@ -113,15 +113,14 @@ function updateHTMl(data) {
     var memoResult = "", resultAll = "";
 
     const TAG_REG = /#([^\s#]+?) /g;
-    
-    const YOUTUBE_REG = /<a href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\">.*<\/a>/g;
-    const BILIBILI_REG = /<a\shref="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?">.*<\/a>/g;
 
+    const YOUTUBE_REG = /<a\shref="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\">.*<\/a>/g;
+    const BILIBILI_REG = /<a\shref="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?">.*<\/a>/g;
     //const B23_REG = /<a href="https:\/\/b23\.tv\/([a-z|A-Z|0-9]{7})\/">.*<\/a>/g;
     //const DOUYIN_REG = //g;
     //const DOUBAN_REG = //g;
     //const MUSIC_REG = //g;
-    //const QQVIDEO_REG = //g;
+    const QQVIDEO_REG = /<a\shref="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html">.*<\/a>/g;
     //const YOUKU_REG = //g;
 
     // Marked Options
@@ -133,11 +132,12 @@ function updateHTMl(data) {
     // Memos Content
     for (var i = 0; i < data.length; i++) {
         var memoContREG = data[i].content
-            .replace(TAG_REG, "<span class='tag-span'><a target='_blank' rel='noopener noreferrer' href='https://memos.eallion.com/u/101?tag=$1'>#$1</a></span> ")
+            .replace(TAG_REG, "<span class='tag-span'><a href='https://memos.eallion.com/u/101?tag=$1' target='_blank' rel='noopener noreferrer'>#$1</a></span> ")
 
         memoContREG = marked.parse(pangu.spacing(memoContREG))
             .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//player.bilibili.com/player.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true' style='position:absolute;height:100%;width:100%;'></iframe></div>")
             .replace(YOUTUBE_REG, "<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>")
+            .replace(QQVIDEO_REG, "<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>")
 
         //解析内置资源文件
         if (data[i].resourceList && data[i].resourceList.length > 0) {
