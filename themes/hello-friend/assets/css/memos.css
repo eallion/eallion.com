@@ -10,6 +10,14 @@
     text-decoration: none;
 }
 
+.talks__date .tooltip {
+    text-align: center;
+}
+
+.talks__date .tooltip::after, .talks__date .tooltip::before {
+    font-size: 12px;
+}
+
 .post-preview {
     max-width: 780px;
     height: 210px;
