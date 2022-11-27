@@ -119,7 +119,7 @@ function updateHTMl(data) {
     //const DOUBAN_REG = /<a\shref="https:\/\/(movie|book)\.douban\.com\/subject\/([0-9]+)\/">.*<\/a>/g;
     //const DOUYIN_REG = //g;
     const NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g;
-    const GITHUB_REG = /<a.*?href="https:\/\/github\.com\/(.*)".*?>.*?<\/a>/g;
+    //const GITHUB_REG = /<a.*?href="https:\/\/github\.com\/(.*)".*?>.*?<\/a>/g;
     const QQMUSIC_REG = /<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g;
     const QQVIDEO_REG = /<a.*?href="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g;
     const YOUKU_REG = /<a.*?href="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g;
@@ -137,9 +137,9 @@ function updateHTMl(data) {
             .replace(TAG_REG, "<span class='tag-span'><a href='https://memos.eallion.com/u/101?tag=$1' target='_blank' rel='noopener noreferrer'>#$1</a></span> ")
 
         memoContREG = marked.parse(pangu.spacing(memoContREG))
-            .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//player.bilibili.com/player.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true' style='position:absolute;height:100%;width:100%;'></iframe></div>")
+            .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//player.bilibili.com/player.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>")
             .replace(NETEASE_MUSIC_REG, "<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>")
-            .replace(GITHUB_REG, "<i class='iconfont icon-github'></i><a href='https://github.com/$1'target='_blank' rel='noopener noreferrer'>$1</a> ")
+            //.replace(GITHUB_REG, "<i class='iconfont icon-github'></i><a href='https://github.com/$1'target='_blank' rel='noopener noreferrer'>$1</a> ")
             .replace(QQMUSIC_REG, "<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>")
             .replace(QQVIDEO_REG, "<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>")
             .replace(YOUKU_REG, "<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>")
@@ -182,7 +182,7 @@ function updateHTMl(data) {
 //文章内显示豆瓣条目 https://immmmm.com/post-show-douban-item/
 function fetchDB() {
     var dbAPI = "https://api.eallion.com/";
-    var dbA = document.querySelectorAll(".timeline a[href*='douban.com/subject/']") || '';
+    var dbA = document.querySelectorAll(".timeline a[href*='douban.com/subject/']:not([rel='noreferrer'])") || '';
     if (dbA) {
         for (var i = 0; i < dbA.length; i++) {
             _this = dbA[i]
@@ -224,7 +224,7 @@ function movieShow(fetch_href, fetch_item) {
     var storage = localStorage.getItem(fetch_item);
     var data = JSON.parse(storage);
     var db_star = Math.ceil(data.rating);
-    var db_html = "<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' href='" + fetch_href + "'>《" + data.name + "》</a></h4><div class='rating'><div class='rating-star allstar" + db_star + "'></div><div class='rating-average'>" + data.rating + "</div></div><time class='post-preview--date'>导演：" + data.director + " / 类型：" + data.genre + " / " + data.year + "</time><section style='max-height:75px;overflow:hidden;' class='post-preview--excerpt'>" + data.intro.replace(/\s*/g, "") + "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.img + "></div>"
+    var db_html = "<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' rel='noreferrer' href='" + fetch_href + "'>《" + data.name + "》</a></h4><div class='rating'><div class='rating-star allstar" + db_star + "'></div><div class='rating-average'>" + data.rating + "</div></div><time class='post-preview--date'>导演：" + data.director + " / 类型：" + data.genre + " / " + data.year + "</time><section class='post-preview--excerpt'>" + data.intro.replace(/\s*/g, "") + "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.img + "></div>"
     var db_div = document.createElement("div");
     var qs_href = ".timeline a[href='" + fetch_href + "']"
     var qs_dom = document.querySelector(qs_href)
@@ -235,7 +235,7 @@ function bookShow(fetch_href, fetch_item) {
     var storage = localStorage.getItem(fetch_item);
     var data = JSON.parse(storage);
     var db_star = Math.ceil(data.rating.average);
-    var db_html = "<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' href='" + fetch_href + "'>《" + data.title + "》</a></h4><div class='rating'><div class='rating-star allstar" + db_star + "'></div><div class='rating-average'>" + data.rating.average + "</div></div><time class='post-preview--date'>作者：" + data.author + " </time><section style='max-height:75px;overflow:hidden;' class='post-preview--excerpt'>" + data.summary.replace(/\s*/g, "") + "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.images.medium + "></div>"
+    var db_html = "<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' rel='noreferrer' href='" + fetch_href + "'>《" + data.title + "》</a></h4><div class='rating'><div class='rating-star allstar" + db_star + "'></div><div class='rating-average'>" + data.rating.average + "</div></div><time class='post-preview--date'>作者：" + data.author + " </time><section class='post-preview--excerpt'>" + data.summary.replace(/\s*/g, "") + "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.images.medium + "></div>"
     var db_div = document.createElement("div");
     var qs_href = ".timeline a[href='" + fetch_href + "']"
     var qs_dom = document.querySelector(qs_href)
