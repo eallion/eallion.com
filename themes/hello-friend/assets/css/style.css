@@ -2076,11 +2076,11 @@ photos .photo:last-child {
 }
 
 .talks__text code {
-    background: #fafafa;
+    background: #fafafa !important;
 }
 
 .dark .talks__text code {
-    background: none !important;
+    background: #636e7b !important;
 }
 
 .talks__meta {
