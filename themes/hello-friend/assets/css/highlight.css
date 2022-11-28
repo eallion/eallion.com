@@ -10,7 +10,7 @@ pre code, code {
 }
 
 .dark :not(pre)>code {
-    background: #636e7b66 !important;
+    background: #636e7b !important;
 }
 
 .post-content pre {
@@ -470,7 +470,7 @@ pre code, code {
 
 .dark .post-content pre,
 .dark .chroma {
-    background-color: #636e7b66;
+    background-color: #636e7b;
 }
 
 .dark .chroma .err {
