@@ -43,14 +43,15 @@ code {
 
 .post-content pre,
 .post-content code {
-    background: #fafafa;
+    background: #fafafa !important;
 }
 
 .dark .post-content pre,
 .dark .post-content code {
-    background: #2d333b;
+    background: #2d333b !important;
 }
 
+pre code,
 pre code.hljs {
     display: block;
     overflow-x: auto;

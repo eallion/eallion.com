@@ -150,10 +150,9 @@
 
 .timeline img {
     display: block;
-    max-height: 50vh;
+    max-height: 96px;
     margin: 10px 0;
-    border-radius: 16px;
-    border: 1px solid #cfd9de;
+    border-radius: 5px;
 }
 
 
@@ -208,10 +207,6 @@
 
 .dark .talks__id {
     color: #71767b;
-}
-
-.dark .timeline img {
-    border: 1px solid #292a2d;
 }
 
 .talks__search {
@@ -505,6 +500,7 @@
 .post-preview--image {
     margin: 0 !important;
     height: 210px !important;
+    max-height: 210px !important;
     width: auto;
     float: right;
     border-radius: 0 !important;
