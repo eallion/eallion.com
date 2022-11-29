@@ -80,15 +80,15 @@ enableGitInfo = false
     [markup.highlight]
       anchorLineNos = false
       codeFences = true
-      guessSyntax = true
+      guessSyntax = false
       hl_Lines = ''
       lineAnchors = ''
       lineNoStart = 1
       lineNos = false
-      lineNumbersInTable = true
-      noClasses = false
-      noHl = false
-      style = 'github'
+      lineNumbersInTable = false
+      noClasses = true
+      noHl = true
+      style = ''
       tabWidth = 4
 
 [outputs]
