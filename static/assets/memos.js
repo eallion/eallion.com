@@ -3,7 +3,8 @@
 // 今日诗词
 function getData() {
     var xhr = new XMLHttpRequest();
-    xhr.open('get', 'https://v2.jinrishici.com/one.json', true);
+    // Proxy Jinrishici API
+    xhr.open('get', 'https://api.eallion.com/jinrishici/one.json', true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             var result = JSON.parse(xhr.responseText);
@@ -52,6 +53,7 @@ if (typeof (memos) !== "undefined") {
 
 var limit = memo.limit
 var memos = memo.host
+// Memos json self-hosted on Tencent COS + CDN
 var localUrl = "https://api.eallion.com/memos/memos.json"
 var remoteUrl = memos + "api/memo?creatorId=" + memo.creatorId + "&rowStatus=NORMAL"
 var page = 1,
@@ -114,12 +116,8 @@ function updateHTMl(data) {
 
     const TAG_REG = /#([^\s#]+?) /g;
 
-    //const B23_REG = /<a href="https:\/\/b23\.tv\/([a-z|A-Z|0-9]{7})\/">.*<\/a>/g;
     const BILIBILI_REG = /<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g;
-    //const DOUBAN_REG = /<a\shref="https:\/\/(movie|book)\.douban\.com\/subject\/([0-9]+)\/">.*<\/a>/g;
-    //const DOUYIN_REG = //g;
     const NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g;
-    //const GITHUB_REG = /<a.*?href="https:\/\/github\.com\/(.*)".*?>.*?<\/a>/g;
     const QQMUSIC_REG = /<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g;
     const QQVIDEO_REG = /<a.*?href="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g;
     const SPOTIFY_REG = /<a.*?href="https:\/\/open\.spotify\.com\/(track|album)\/([\s\S]+)".*?>.*<\/a>/g;
@@ -130,8 +128,13 @@ function updateHTMl(data) {
     marked.setOptions({
         breaks: true,
         smartypants: true,
-        langPrefix: 'language-'
+        langPrefix: 'language-',
+        highlight: function(code, lang) {
+            const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+            return hljs.highlight(code, { language }).value;
+        },
     });
+
     // Memos Content
     for (var i = 0; i < data.length; i++) {
         var memoContREG = data[i].content
@@ -140,7 +143,6 @@ function updateHTMl(data) {
         memoContREG = marked.parse(pangu.spacing(memoContREG))
             .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//player.bilibili.com/player.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>")
             .replace(NETEASE_MUSIC_REG, "<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>")
-            //.replace(GITHUB_REG, "<i class='iconfont icon-github'></i><a href='https://github.com/$1'target='_blank' rel='noopener noreferrer'>$1</a> ")
             .replace(QQMUSIC_REG, "<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>")
             .replace(QQVIDEO_REG, "<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>")
             .replace(SPOTIFY_REG, "<div class='spotify-wrapper'><iframe style='border-radius:12px' src='https://open.spotify.com/embed/$1/$2?utm_source=generator&theme=0' width='100%' frameBorder='0' allowfullscreen='' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture' loading='lazy'></iframe></div>")
@@ -178,6 +180,8 @@ function updateHTMl(data) {
     resultAll = memoBefore + memoResult + memoAfter
     memoDom.insertAdjacentHTML('beforeend', resultAll);
     fetchDB()
+    hljs.initHighlighting.called = false;
+    hljs.initHighlighting();
     document.querySelector('button.button-load').textContent = '加载更多';
 }
 

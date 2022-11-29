@@ -20,11 +20,11 @@
             <span id="poemTitle" class="poem_sentence"></span><span id="poemSentence" class="poem_sentence"></span><span id="poem_info" class="poem_info"></span>
         </li>
     </ul>
-    <button type="button" onclick="return this.parentNode.remove();">×</button>
+    <button type="button" class="closebtn" onclick="return this.parentNode.remove();">×</button>
 </section>
 {{ else }}
 <section class="index-talk header__talk">
-    <button type="button" onclick="return this.parentNode.remove();">×</button>
+    <button type="button" class="closebtn" onclick="return this.parentNode.remove();">×</button>
     <div id="index-talk"></div>
 </section>
 {{ end }}
