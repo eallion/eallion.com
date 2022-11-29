@@ -183,7 +183,7 @@ function updateHTMl(data) {
 
 //文章内显示豆瓣条目 https://immmmm.com/post-show-douban-item/
 function fetchDB() {
-    var dbAPI = "https://api.eallion.com/";
+    var dbAPI = "https://api.eallion.com/douban/";
     var dbA = document.querySelectorAll(".timeline a[href*='douban.com/subject/']:not([rel='noreferrer'])") || '';
     if (dbA) {
         for (var i = 0; i < dbA.length; i++) {
