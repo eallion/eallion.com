@@ -181,7 +181,7 @@
 
 .dark .talks__text pre,
 .dark .talks__text code {
-    background: #22272e;
+    background: #22272e !important;
 }
 
 .dark .timeline:hover .talks__text {
