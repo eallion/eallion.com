@@ -5,3 +5,8 @@
 .view-image-tools {
     display: none !important;
 }
+
+.twikoo .tk-admin-container {
+    position: fixed !important;
+    z-index: 1000 !important;
+}

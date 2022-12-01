@@ -23,9 +23,9 @@
     --dark-color: #a9a9b3;
     --dark-color-secondary: #73747b;
     --dark-border-color: #4a4b50;
-    --color-scrollbar: #54a3ff;
-    --color-scrollbar-hover: #1890ff;
-    --color-selection: #54a3ff;
+    --color-scrollbar: #409eff;
+    --color-scrollbar-hover: #54a3ff;
+    --color-selection: #409eff;
     --phoneWidth: (max-width: 684px);
     --tabletWidth: (max-width: 900px);
 }
@@ -403,7 +403,7 @@ header {
 }
 
 .menu a:hover {
-    color: #54a3ff;
+    color: #409eff;
 }
 
 .menu__inner {
@@ -1227,7 +1227,7 @@ hr {
 
 .post-content h3:before {
     content: "##";
-    color: #27ae60;
+    color: #409eff;
     position: absolute;
     left: -2em;
 }
@@ -1508,7 +1508,7 @@ hr {
 
 .footer .copyright .copyrights a:hover {
     opacity: 1;
-    color: #54a3ff;
+    color: #409eff;
 }
 
 .footer .copyright--user {
@@ -1665,7 +1665,7 @@ hr {
 }
 
 .archive__post-title a:hover {
-    color: #54a3ff;
+    color: #409eff;
 }
 
 .post-date {
@@ -1956,6 +1956,11 @@ photos .photo:last-child {
     width: 100px;
 }
 
+.closebtn {
+    background: var(--light-border-color);
+    border: 1px solid var(--light-border-color) !important;
+}
+
 body.dark {
     background-color: var(--dark-background);
     color: var(--dark-color);
@@ -1977,6 +1982,7 @@ body.dark {
 
 .dark .closebtn {
     background: var(--dark-background);
+    border: 1px solid #4a4b50 !important;
 }
 
 .dark header {
@@ -2026,7 +2032,7 @@ body.dark {
 }
 
 .dark .post-content h3:before {
-    color: #54a3ff;
+    color: #409eff;
 }
 
 .dark .archive__post-title a {
@@ -2148,7 +2154,7 @@ body.dark {
 
 .dark .tooltip::after {
     background: var(--dark-header);
-    color: #54a3ff;
+    color: #409eff;
 }
 
 .dark .back-to-top {
@@ -2182,7 +2188,7 @@ body.dark {
 }
 
 .lightDarkModes:hover {
-    color: #54a3ff;
+    color: #409eff;
 }
 
 .is-open {
@@ -2404,7 +2410,7 @@ body.dark {
 }
 
 .scroll-top {
-    --ghost-accent-color: #54a3ff;
+    --ghost-accent-color: #409eff;
     position: fixed;
     z-index: 50;
     padding: 0;
@@ -2436,7 +2442,7 @@ body.dark {
 .scroll-top .icon-tabler-arrow-up {
     position: absolute;
     stroke-width: 2px;
-    stroke: #27ae60;
+    stroke: #409eff;
 }
 
 .scroll-top svg path {
@@ -2444,7 +2450,7 @@ body.dark {
 }
 
 .scroll-top svg.progress-circle path {
-    stroke: #27ae60;
+    stroke: #409eff;
     stroke-width: 4;
     transition: all .4s ease;
 }
@@ -2459,7 +2465,7 @@ body.dark {
 }
 
 .dark .scroll-top {
-    --ghost-accent-color: #54a3ff;
+    --ghost-accent-color: #409eff;
     box-shadow: inset 0 0 0 2px #a9a9b3;
     color: #a9a9b3;
     background-color: #2d333b;
@@ -2467,11 +2473,11 @@ body.dark {
 
 
 .dark .scroll-top .icon-tabler-arrow-up {
-    stroke: #a9a9b3;
+    stroke: #409eff;
 }
 
 .dark .scroll-top svg.progress-circle path {
-    stroke: #2563eb;
+    stroke: #409eff;
 }
 
 .dark .scroll-top:hover {
