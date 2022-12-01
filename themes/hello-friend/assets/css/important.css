@@ -1,3 +1,35 @@
 .hidden {
     display: none !important;
 }
+
+
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--color-scrollbar);
+    -webkit-box-shadow: inset 1px 1px 0 var(--color-scrollbar);
+    box-shadow: inset 1px 1px 0 var(--color-scrollbar);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-scrollbar-hover);
+    -webkit-box-shadow: inset 1px 1px 0 var(--color-scrollbar-hover);
+    box-shadow: inset 1px 1px 0 var(--color-scrollbar-hover);
+}
+
+::-moz-selection {
+    background: var(--color-scrollbar);
+    color: var(--color-selection);
+    text-shadow: none
+}
+
+::selection {
+    background: var(--color-scrollbar);
+    color: var(--color-selection);
+    text-shadow: none
+}

@@ -1,3 +1,4 @@
+@charset "utf-8";
 /*! purgecss start ignore */
 /* @import "./prism.css"; */
 /* @import "./chroma.css"; */
@@ -22,8 +23,66 @@
     --dark-color: #a9a9b3;
     --dark-color-secondary: #73747b;
     --dark-border-color: #4a4b50;
+    --color-scrollbar: #54a3ff;
+    --color-scrollbar-hover: #1890ff;
+    --color-selection: #54a3ff;
     --phoneWidth: (max-width: 684px);
     --tabletWidth: (max-width: 900px);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--dark-color);
+    -webkit-box-shadow: inset 1px 1px 0 var(--dark-color);
+    box-shadow: inset 1px 1px 0 var(--dark-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--dark-color-secondary);
+    -webkit-box-shadow: inset 1px 1px 0 var(--dark-color-secondary);
+    box-shadow: inset 1px 1px 0 var(--dark-color-secondary);
+}
+
+::-moz-selection {
+    background: var(--dark-color-secondary);
+    color: var(--dark-color-secondary);
+    text-shadow: none
+}
+
+::selection {
+    background: var(--dark-color-secondary);
+    color: var(--dark-color-secondary);
+    text-shadow: none
+}
+
+.dark::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--color-scrollbar);
+    -webkit-box-shadow: inset 1px 1px 0 var(--color-scrollbar);
+    box-shadow: inset 1px 1px 0 var(--color-scrollbar);
+}
+
+.dark::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-scrollbar-hover);
+    -webkit-box-shadow: inset 1px 1px 0 var(--color-scrollbar-hover);
+    box-shadow: inset 1px 1px 0 var(--color-scrollbar-hover);
+}
+
+.dark::-moz-selection {
+    background: var(--color-scrollbar);
+    color: var(--color-selection);
+    text-shadow: none
+}
+
+.dark::selection {
+    background: var(--color-scrollbar);
+    color: var(--color-selection);
+    text-shadow: none
 }
 
 .button-container {
