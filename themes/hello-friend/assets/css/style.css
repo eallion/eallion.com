@@ -5,7 +5,8 @@
 @import "./disqusjs.css";
 @import "./iconfont.css";
 @import "./memos.css";
-@import "./gray.css";
+@import "./important.css";
+/* @import "./gray.css"; */
 /*! purgecss end ignore */
 
 :root {
