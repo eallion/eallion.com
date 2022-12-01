@@ -2371,6 +2371,7 @@ body.dark {
     justify-content: center;
     margin: 0 auto;
     background: 0 0;
+    padding-bottom: 2rem;
 }
 
 .dark .loadDisqusjs {
@@ -2435,7 +2436,7 @@ body.dark {
 .scroll-top .icon-tabler-arrow-up {
     position: absolute;
     stroke-width: 2px;
-    stroke: #333;
+    stroke: #27ae60;
 }
 
 .scroll-top svg path {
@@ -2443,7 +2444,7 @@ body.dark {
 }
 
 .scroll-top svg.progress-circle path {
-    stroke: #2563eb;
+    stroke: #27ae60;
     stroke-width: 4;
     transition: all .4s ease;
 }

@@ -114,6 +114,10 @@ enableGitInfo = false
   enable = true
   version = "3.0.1"
 
+[params.twikoo]
+  enable = true
+  version = "1.6.8"
+
 [menu]
   ## main menu
   [[menu.main]]

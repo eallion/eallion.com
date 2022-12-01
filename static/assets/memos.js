@@ -55,7 +55,8 @@ var limit = memo.limit
 var memos = memo.host
 // Memos json self-hosted on Tencent COS + CDN
 var localUrl = "https://api.eallion.com/memos/memos.json"
-var remoteUrl = memos + "api/memo?creatorId=" + memo.creatorId + "&rowStatus=NORMAL"
+var remoteUrl = "https://api.eallion.com/memos/api/memo?creatorId=" + memo.creatorId + "&rowStatus=NORMAL"
+//var remoteUrl = memos + "api/memo?creatorId=" + memo.creatorId + "&rowStatus=NORMAL"
 var page = 1,
     offset = 10,
     nextLength = 0,
@@ -81,7 +82,7 @@ if (memoDom) {
 function getFirstList() {
     // 网站根目录静态文件 memos.json
     var memoUrl_first = localUrl + "?t=" + Date.parse(new Date());
-    //var memoUrl_first = "https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=1&offset=0";
+    //var memoUrl_first = "https://api.eallion.com/memos/api/memo?creatorId=101&rowStatus=NORMAL&limit=1&offset=0";
     fetch(memoUrl_first).then(res => res.json()).then(resdata => {
         updateHTMl(resdata.data)
         var nowLength = resdata.data.length

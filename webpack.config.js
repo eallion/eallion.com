@@ -118,6 +118,7 @@ module.exports = (env, { mode }) => ({
                 '!static/assets/moment.twitter.js',
                 '!static/assets/moment.twitter.min.js',
                 '!static/assets/pangu.min.js',
+                '!static/assets/twikoo.min.js',
                 '!static/assets/view-image.min.js',
                 'static/assets/fonts',
                 'static/assets/main.js',
