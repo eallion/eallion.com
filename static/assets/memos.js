@@ -181,7 +181,7 @@ function updateHTMl(data) {
     memoDom.insertAdjacentHTML('beforeend', resultAll);
     fetchDB()
     hljs.initHighlighting.called = false;
-    hljs.initHighlighting();
+    hljs.highlightAll();
     document.querySelector('button.button-load').textContent = '加载更多';
 }
 
