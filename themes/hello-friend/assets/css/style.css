@@ -1497,9 +1497,13 @@ hr {
 }
 
 .footer a {
-    color: inherit;
+    color: #222;
     text-decoration: none;
     transition: all .15s linear;
+}
+
+.dark .footer a {
+    color: #73747b;
 }
 
 .footer .copyright .copyrights {
@@ -1528,6 +1532,20 @@ hr {
 
 .footer .words> :last-child::before {
     content: "，";
+}
+
+.upyun {
+    display: inline-block;
+}
+
+.upyun svg {
+    max-width: 100%;
+    vertical-align: -7px;
+    fill: #222;
+}
+
+.dark .upyun svg {
+    fill: #73747b;
 }
 
 @media (max-width: 899px) {
