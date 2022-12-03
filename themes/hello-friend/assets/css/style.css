@@ -1428,6 +1428,24 @@ hr {
     overflow: hidden;
 }
 
+.button.next,
+.button.previous {
+    max-width: 50%;
+    width: 50%;
+}
+
+.disabled {
+    pointer-events: none !important;
+}
+
+.button.next {
+    justify-content: end;
+}
+
+.button.previous {
+    justify-content: start;
+}
+
 .button.next .button__icon,
 .button.previous .button__icon {
     margin: 0 8px;

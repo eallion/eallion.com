@@ -115,11 +115,29 @@
                     <span class="button__text">{{ .Next.Title }}</span>
                 </a>
             </span>
+            {{ else }}
+            <span class="button previous disabled" disabled>
+                <a href="#">
+                    <span class="button__icon">
+                        <i class="iconfont icon-left"></i>
+                    </span>
+                    <span class="button__text">没有上一篇 🚫</span>
+                </a>
+            </span>
             {{ end }}
             {{ if .Prev }}
             <span class="button next">
                 <a href="{{ .Prev.Permalink }}">
                     <span class="button__text">{{ .Prev.Title }}</span>
+                    <span class="button__icon">
+                        <i class="iconfont icon-right"></i>
+                    </span>
+                </a>
+            </span>
+            {{ else }}
+            <span class="button next disabled" disabled>
+                <a href="#">
+                    <span class="button__text">🚫 没有下一篇</span>
                     <span class="button__icon">
                         <i class="iconfont icon-right"></i>
                     </span>
