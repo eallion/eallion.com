@@ -110,6 +110,9 @@ twikoo.init({
     el: '#tcomment',
     path: location.pathname,
     lang: 'zh-CN',
+    onCommentLoaded: function () {
+        hljs.highlightAll();
+    }
 })
 </script>
 {{ end }}

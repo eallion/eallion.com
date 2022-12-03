@@ -15,6 +15,7 @@ code {
     background: #2d333b !important;
 }
 
+.tk-content pre,
 .post-content pre {
     border-radius: 6px;
     -webkit-hyphens: none;
@@ -37,15 +38,20 @@ code {
     word-wrap: normal;
 }
 
+.tk-content pre code,
 .post-content pre code {
     flex-shrink: 0;
 }
 
+.tk-content pre,
+.tk-content code,
 .post-content pre,
 .post-content code {
     background: #fafafa !important;
 }
 
+.dark .tk-content pre,
+.dark .tk-content code,
 .dark .post-content pre,
 .dark .post-content code {
     background: #2d333b !important;
