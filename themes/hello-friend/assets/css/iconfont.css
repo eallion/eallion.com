@@ -1,5 +1,6 @@
 @font-face {
-    font-family: "iconfont"; /* Project id 2661996 */
+    font-family: "iconfont";
+    /* Project id 2661996 */
     src: url("fonts/iconfont.woff2") format("woff2"),
         url("fonts/iconfont.woff") format("woff"),
         url("fonts/iconfont.ttf") format("truetype");
@@ -11,6 +12,18 @@
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-comment-solid:before {
+    content: "\e691";
+}
+
+.icon-comment:before {
+    content: "\f286";
+}
+
+.icon-xiangxia:before {
+    content: "\e611";
 }
 
 .icon-disqus:before {
@@ -329,10 +342,6 @@
     content: "\e686";
 }
 
-.icon-youpaiyun:before {
-    content: "\e606";
-}
-
 .icon-keybase-fill:before {
     content: "\e607";
 }
@@ -351,6 +360,10 @@
 
 .icon-stackoverflow-fill:before {
     content: "\e609";
+}
+
+.icon-youpaiyun:before {
+    content: "\f186";
 }
 
 .icon-icp:before {

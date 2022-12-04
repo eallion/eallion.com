@@ -98,12 +98,17 @@
 
 .talks__meta {
     margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
 }
 
 .talks__meta small {
     font-size: 0.8em;
     font-weight: 500;
     color: #8186a2;
+    margin-left: 5px;
 }
 
 .talks__userinfo {
@@ -168,6 +173,25 @@
     flex-direction: row;
     flex-wrap: nowrap;
     margin-bottom: 1.5em;
+}
+
+.memos__comment {
+    margin-right: 5px;
+}
+
+.memos__comment button {
+    background: none;
+    margin:0;
+    padding: 0;
+    border: none;
+}
+
+.memos__comment button i {
+    color:#73747b;
+}
+
+.memos__comment:hover .icon-comment::before {
+    content: "\e691";
 }
 
 .dark .talks__text {
@@ -515,7 +539,8 @@
 
 .load-btn {
     color: #222;
-    margin-left: 50px;
+    margin: 0 auto;
+    padding: 10px 50px;
 }
 
 .dark .load-btn {
