@@ -9,12 +9,31 @@
                 <span class="button__text">上 一 页</span>
             </a>
         </span>
-        {{ end }} {{ if .Paginator.HasNext }}
+        {{ else }}
+        <span class="button previous disabled" disabled>
+            <a href="#">
+                <span class="button__icon">
+                    <i class="iconfont icon-about"></i>
+                </span>
+                <span class="button__text">已经是第一页了</span>
+            </a>
+        </span>
+        {{ end }}
+        {{ if .Paginator.HasNext }}
         <span class="button next">
             <a href="{{ .Paginator.Next.URL }}">
                 <span class="button__text">下 一 页</span>
                 <span class="button__icon">
                     <i class="iconfont icon-right"></i>
+                </span>
+            </a>
+        </span>
+        {{ else }}
+        <span class="button next disabled" disabled>
+            <a href="#">
+                <span class="button__text">已经是最后一页了</span>
+                <span class="button__icon">
+                    <i class="iconfont icon-about"></i>
                 </span>
             </a>
         </span>
