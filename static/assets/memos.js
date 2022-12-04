@@ -135,7 +135,12 @@ function updateHTMl(data) {
             return hljs.highlight(code, { language }).value;
         },
     });
-
+    const renderer = {
+        link(href, title, text) {
+            return `<a href='${href}' target='_blank' rel='noopener noreferrer'>${text}</a>`;
+        } // 链接新窗口
+    };
+    marked.use({ renderer });
     // Memos Content
     for (var i = 0; i < data.length; i++) {
         var memoContREG = data[i].content
