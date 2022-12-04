@@ -90,10 +90,10 @@ let jsonUrl = "https://api.eallion.com/memos/memos.json" + "?t=" + Date.parse(ne
 
 {{ if (not .IsHome) }}
 
-<script src="/assets/highlight.min.js?v=11.7.0"></script>
+<script type="text/javascript" src="/assets/highlight.min.js?v=11.7.0"></script>
 <script>hljs.highlightAll();</script>
 
-<script src="/assets/view-image.min.js?v=2.0.2"></script>
+<script type="text/javascript" src="/assets/view-image.min.js?v=2.0.2"></script>
 <script>
     window.ViewImage && ViewImage.init('.content img');
 </script>
@@ -103,7 +103,7 @@ let jsonUrl = "https://api.eallion.com/memos/memos.json" + "?t=" + Date.parse(ne
 
 {{/*  Twikoo comment  */}}
 {{ if and .Site.Params.twikoo.enable .Params.Comments }}
-<script src="/assets/twikoo.min.js?v=1.6.8"></script>
+<script type="text/javascript" src="/assets/twikoo.min.js?v=1.6.8"></script>
 <script>
 twikoo.init({
     envId: 'https://api.eallion.com/twikoo',
