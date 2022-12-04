@@ -10,3 +10,29 @@
     position: fixed !important;
     z-index: 1000 !important;
 }
+.OwO .OwO-logo {
+    width: 1.5rem !important;
+}
+
+.el-textarea__inner {
+    min-height: 150px !important;
+}
+
+.OwO .OwO-body .OwO-items .OwO-item {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji", sans-serif, serif !important;
+    font-size: 1.5rem !important;
+    padding-left: 0.25rem !important;
+    width: 2.5rem !important;
+    line-height: 1.2 !important;
+    margin: 0.25rem !important;
+}
+
+.dark .OwO .OwO-body {
+    background: #22272e !important;
+    border: 1px solid #409eff !important;
+}
+
+.dark .OwO .OwO-body .OwO-bar {
+    border-top: 1px solid #409eff !important;
+}
