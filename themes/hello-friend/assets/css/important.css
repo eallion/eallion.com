@@ -10,6 +10,11 @@
     position: fixed !important;
     z-index: 1000 !important;
 }
+
+.tk-actions, .tk-action-link {
+    cursor: pointer !important;
+}
+
 .OwO .OwO-logo {
     width: 1.5rem !important;
 }
