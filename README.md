@@ -34,7 +34,7 @@
 
 # 备忘录：
 
-### 📦️主仓库
+### 📦️ 主仓库
 > <https://github.com/eallion/eallion.com.git>
 
 #### 备份仓库
@@ -169,7 +169,7 @@ pipeline {
 ```
 </details>
 
-### ✏️写新文章
+### ✏️ 写新文章
 
 1. **生成新文章**
 
@@ -240,7 +240,43 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 - `-enableGitInfo` 开启 GitIifo
 - `hugo --help` 查看所有命令
 
-### 🚀Shortcodes
+### ✔️ Admonition
+
+添加了 [Mkdocs-Material](https://squidfunk.github.io/mkdocs-material/reference/admonitions/) 的 `Admonitions` 样式
+
+在 `Config.toml` 中开启：
+
+```toml
+[markup.goldmark.parser.attribute]
+    block = true
+    title = true
+```
+
+使用方法：(`blockquote` 语法)
+
+```
+> for
+> bar
+{.note}
+```
+
+支持的 Type：
+
+- {.note}
+- {.abstract}
+- {.info}
+- {.tip}
+- {.success}
+- {.question}
+- {.warning}
+- {.failure}
+- {.danger}
+- {.bug}
+- {.example}
+- {.quote}
+- {.copyright} // 只在本博客起作用
+
+### 🚀 Shortcodes
 <details>
     <summary> <code>bilibili</code> </summary>
 
@@ -251,9 +287,9 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 {{< bilibili AV 号或 BV 号 分 P 号 >}}
 ```
 
-| Name | Value               | Description                           |
-| ---- | ------------------- | ------------------------------------- |
-| vid  | AV 号 / BV 号 [分 P 号]  | 必填参数。(Type: String) 视频资源 ID。 |
+| Name | Value                   | Description                            |
+| ---- | ----------------------- | -------------------------------------- |
+| vid  | AV 号 / BV 号 [分 P 号] | 必填参数。(Type: String) 视频资源 ID。 |
 
 </details>
 
@@ -279,12 +315,12 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 {{< image src="hello.png" alt="" position="" style="" >}}
 ```
 
-| Name     | Value        | Description                                   |
-| :------- | :----------- | --------------------------------------------- |
-| src | string | 图片链接 |
-| alt | text | 图片描述 |
-| position | left(default) \| center \| right | 图片位置 |
-| style | border-radius: 8px; | 图片样式 |
+| Name     | Value                            | Description |
+| :------- | :------------------------------- | ----------- |
+| src      | string                           | 图片链接    |
+| alt      | text                             | 图片描述    |
+| position | left(default) \| center \| right | 图片位置    |
+| style    | border-radius: 8px;              | 图片样式    |
 
 </details>
 
@@ -297,15 +333,15 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 {{< figure src="hello.png" alt="" position="" style="" caption="" captionPosition="" captionStyle=" >}}
 ```
 
-| Name     | Value        | Description                                   |
-| :------- | :----------- | --------------------------------------------- |
-| src | string | 图片链接 |
-| alt | text | 图片描述 |
-| position | left(default) \| center \| right | 图片位置 |
-| style | border-radius: 8px; | 图片样式 |
-|caption|text| 图片标题 |
-|captionPosition|left \| center(default) \| right| 图片标题位置 |
-|captionStyle|color: red;| 图片标题样式 |
+| Name            | Value                            | Description  |
+| :-------------- | :------------------------------- | ------------ |
+| src             | string                           | 图片链接     |
+| alt             | text                             | 图片描述     |
+| position        | left(default) \| center \| right | 图片位置     |
+| style           | border-radius: 8px;              | 图片样式     |
+| caption         | text                             | 图片标题     |
+| captionPosition | left \| center(default) \| right | 图片标题位置 |
+| captionStyle    | color: red;                      | 图片标题样式 |
     
 </details>
 
@@ -318,13 +354,13 @@ hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
 {{< friend name="" des="" url="" domain="" src="avatar.png" >}}
 ```
 
-| Name     | Value        | Description                                   |
-| :------- | :----------- | --------------------------------------------- |
-|name|text| 友链名称 |
-|des|text| 友链描述 |
-|url|website| 友链的链接 |
-|domain|domain| 友链的域名 |
-|src|icon url| 友链图标 |
+| Name   | Value    | Description |
+| :----- | :------- | ----------- |
+| name   | text     | 友链名称    |
+| des    | text     | 友链描述    |
+| url    | website  | 友链的链接  |
+| domain | domain   | 友链的域名  |
+| src    | icon url | 友链图标    |
     
 </details>
 
@@ -340,11 +376,11 @@ GitHub Gist Embed
 {{< gist id hash filename >}}
 ```
 
-| Name     | Value        | Description                                   |
-| :------- | :----------- | --------------------------------------------- |
-| id | text | 填入 GitHub Gist UserID |
-| hash |text| 填入 Gist 代码片段的 Hash |
-| filename |text| 填入 Gist 代码片段的文件名 |
+| Name     | Value | Description                |
+| :------- | :---- | -------------------------- |
+| id       | text  | 填入 GitHub Gist UserID    |
+| hash     | text  | 填入 Gist 代码片段的 Hash  |
+| filename | text  | 填入 Gist 代码片段的文件名 |
 
 注意事项：Gist 可能在中国大陆地区打不开。
     
@@ -359,10 +395,10 @@ GitHub Gist Embed
 {{< imgproc "hello.png" Resize "250x" center />}}
 ```
 
-| Name     | Value        | Description                                   |
-| :------- | :----------- | --------------------------------------------- |
-|option|`Resize` `Fit` `Fill` `Crop` `Filter` `Exif`| 图片处理的参数 |
-|position|left \| center \| right| 位置 |
+| Name     | Value                                        | Description    |
+| :------- | :------------------------------------------- | -------------- |
+| option   | `Resize` `Fit` `Fill` `Crop` `Filter` `Exif` | 图片处理的参数 |
+| position | left \| center \| right                      | 位置           |
 
 参考：<https://gohugo.io/content-management/image-processing/>
     
@@ -377,9 +413,9 @@ GitHub Gist Embed
 {{< link "blog" >}}
 ```
 
-| Name     | Value        | Description                                   |
-| :------- | :----------- | --------------------------------------------- |
-|filename|text| 填入 Frontmatter 中的 `Slug` |
+| Name     | Value | Description                  |
+| :------- | :---- | ---------------------------- |
+| filename | text  | 填入 Frontmatter 中的 `Slug` |
     
 </details>
 
@@ -392,9 +428,9 @@ GitHub Gist Embed
 {{< music auto="https://music.163.com/#/playlist?id=60198" >}}
 ```
 
-|Name               |Value      |Description|
-|:--------------------|:------------:|:----------|
-|auto            |options       |music link, support: `netease`, `tencent`, `xiami`|
+| Name |  Value  | Description                                        |
+| :--- | :-----: | :------------------------------------------------- |
+| auto | options | music link, support: `netease`, `tencent`, `xiami` |
 
 更多参数：[MetingJS](https://github.com/metowolf/MetingJS)
     
@@ -436,12 +472,12 @@ GitHub Gist Embed
 
 | Name     | Value        | Description                                   |
 | :------- | :----------- | --------------------------------------------- |
-| id       | video id     | 必填参数。(Type: String) 视频 ID。             |
+| id       | video id     | 必填参数。(Type: String) 视频 ID。            |
 | autoplay | true / false | 可选参数。(Type: String) 进入页面后自动播放。 |
 
 </details>
 
-### 🗃️静态文件（CSS、JS）
+### 🗃️ 静态文件（CSS、JS）
 
 > Update: 2022.04.27
 
@@ -464,7 +500,7 @@ npm install
 npm run build
 ```
 
-### 👍添加图标
+### 👍 添加图标
 
 > **Warning**  
 > 目前博客使用的是 iconfont.cn 的图标。  
@@ -476,21 +512,21 @@ npm run build
 {{ partial "iconify.html" (dict "prefix" "akar-icons" "icon" "moon-fill" "width" "16" "height" "16") }}
 ```
 
-### 🚨刷新 jsDelivr 缓存
+### 🚨 刷新 jsDelivr 缓存
 
 将资源文件链接中的`cdn.jsdelivr.net`改为 `purge.jsdelivr.net`，在浏览器中请求即可刷新 CDN。
 ```diff
 - https://cdn.jsdelivr.net/gh/eallion/eallion.github.io/style.css
 + https://purge.jsdelivr.net/gh/eallion/eallion.github.io/style.css
 ```
-### 💥清理 Git 仓库
+### 💥 清理 Git 仓库
 ```
 git rm -r --cached .
 git reflog expire --expire=now --all
 git gc --prune=now --aggressive
 ```
 
-### ➕安装插件 (可选)
+### ➕ 安装插件 (可选)
 
 新环境可选安装，若无必要可不用安装。
 
@@ -537,7 +573,7 @@ whatchanged --help
 
 > or generate on [@release-lab/whatchanged](https://release-lab.github.io/?repo=https%3A%2F%2Fgithub.com%2Feallion%2Feallion.com&branch=main)
 
-### 🖼️图片
+### 🖼️ 图片
 
 因为 jsDelivr 2020.08.15 的『[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)』，现在没有用 GitHub + jsDelivr 当图床了。  
 
@@ -557,7 +593,7 @@ whatchanged --help
 文章中引用的图片 URL：
 > `https://eallion.com/images/1970/01/01.jpg`
 
-### 📷相册
+### 📷 相册
 
 把照片放到 Hugo 仓库的`static/photos/`目录下，Hugo 会自动索引并生成相册页面。  
 如：
@@ -574,13 +610,13 @@ whatchanged --help
 </div>
 ```
 
-### 💡Lighthouse
+### 💡 Lighthouse
 
 Google Lighthouse 跑分。
 
 - [查看跑分结果](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Feallion.github.io%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&category=pwa&utm_source=lh-chrome-ext)
 
-### 📄LICENSE
+### 📄 LICENSE
 
 This project is licensed under [MIT](https://opensource.org/licenses/MIT/) & [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) & [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN).
 ```
