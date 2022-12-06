@@ -17,9 +17,10 @@ toc: false
 
 本文介绍了 [Memos](https://github.com/usememos/memos) 的部署，数据导入，公告栏 API 调用，和 “ [嘀咕](https://eallion.com/memos/)” 页面通过 API 渲染 Memos。
 
--   官网：<https://github.com/usememos/memos>
--   部署实例：<https://memos.eallion.com>
--   嘀咕页面：<https://eallion.com/memos>
+- 官网：<https://github.com/usememos/memos>
+- 部署实例：<https://memos.eallion.com>
+- 嘀咕页面：<https://eallion.com/memos>
+- 搭建自己的静态页面：<https://memos.top>
 
 ### 前言
 
@@ -33,12 +34,12 @@ toc: false
 
 由此也衍生出了：
 
--   [LeanCloud 版](https://github.com/daibor/nonsense.fun)（原版）
--   [Golang 版](https://github.com/songquanpeng/microblog)
--   [腾讯云 CloudBase 版](https://github.com/ibearye/talk)
--   [木木老师修改版](https://immmmm.com/bb-by-wechat-pro/) 《「哔哔点啥」微信公众号 2.0》
--   [BBTalk](https://github.com/BBtalkJS/BBtalk)Vercel 版
--   我个人短暂修改使用过的 [Algolia](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/_default/algoliaTalk.html) 版。
+- [LeanCloud 版](https://github.com/daibor/nonsense.fun)（原版）
+- [Golang 版](https://github.com/songquanpeng/microblog)
+- [腾讯云 CloudBase 版](https://github.com/ibearye/talk)
+- [木木老师修改版](https://immmmm.com/bb-by-wechat-pro/) 《「哔哔点啥」微信公众号 2.0》
+- [BBTalk](https://github.com/BBtalkJS/BBtalk)Vercel 版
+- 我个人短暂修改使用过的 [Algolia](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/_default/algoliaTalk.html) 版。
 
 目前以上版本均可使用，不过可能有些版本的使用成本有点高。
 
@@ -54,14 +55,14 @@ Memos 自己对标的竞品是 Flomo ，我们是不是把它用歪了？
 
 安装`docker-compose-plugin`插件后，`docker compose`命令可以去掉中间的"`-`"，Docker Compose V1 版本已经结束生命周期。
 
-暂时不建议把 Memos 部署到网站二级目录，如：https://example.com/memos
-而应该部署到一个二级域名，如：https://memos.example.com
+暂时不建议把 Memos 部署到网站二级目录，如：<https://example.com/memos>
+而应该部署到一个二级域名，如：<https://memos.example.com>
 
 1. **新建 `docker-compose.yml`**
 
 一般在准备用于 Memos 的域名的目录下新建`docker-compose.yml`文件：
 
-```
+```bash
 cd /www/wwwroot/memos.example.com
 vim docker-compose.yml
 ```
@@ -81,7 +82,7 @@ services:
         restart: always
 ```
 
-2. **启动 Memos**
+1. **启动 Memos**
 
 启动 Memos
 
@@ -102,7 +103,7 @@ docker compose pull
 docker compose up -d --force-recreate
 ```
 
-3. **升级 Memos**
+1. **升级 Memos**
 
 > 参考：<https://memos.eallion.com/m/5454>
 
@@ -122,7 +123,7 @@ docker compose pull && docker compose up -d --force-recreate
 
 但是如果用了镜像加速服务，因为缓存的原因也可能有 `pull` 不到最新镜像的问题。
 
-4. **Nginx 反代**
+1. **Nginx 反代**
 
 如果打算对互联网提供 Memos 访问服务，就需要反代 Memos，一般都是用 Nginx，反代`5230`端口即可。
 
@@ -147,11 +148,11 @@ location ^~ /
 
 ![](https://images.eallion.com/picgo/202211171351152.png)
 
-5. **备份数据**
+1. **备份数据**
 
 在第 1 步中的`docker-compose.yml`文件中，
 
-```
+```yml
     volumes:
       - ./memos/:/var/opt/memos
 ```
@@ -159,7 +160,7 @@ location ^~ /
 这段就是数据持久化配置，如果不做数据持久化，Docker 容器重启后，所有 Memos 都会消失。
 “`:`”冒号前面的内容是物理宿主机上的目录，例子中对应的目录为：
 
-```
+```bash
 /www/wwwroot/memos.example.com/memos
 ```
 
@@ -176,13 +177,13 @@ location ^~ /
 先在 Memos 网页端随意发布一条 Memos，然后下载`memos_prod.db`文件，导出一个`.csv`文件作为模板。
 打开数据库：
 
-```
+```bash
 sqlite3 memos_prod.db
 ```
 
 打开数据库后导出`.csv`：
 
-```
+```bash
 sqlite> .headers on
 sqlite> .mode csv
 sqlite> .separator ','
@@ -202,13 +203,13 @@ sqlite> .quit
 保存后用命令导入到`memos_prod.db`这个 SQLite 数据库。
 先打开数据库：
 
-```
+```bash
 sqlite3 memos_prod.db
 ```
 
 打开数据库后导入：
 
-```
+```bash
 sqlite> .headers on
 sqlite> .mode csv
 sqlite> .separator ','
@@ -223,7 +224,7 @@ sqlite> .quit
 sudo chown www:www memos_prod.db
 ```
 
-2. **方法二：数据库管理工具**
+1. **方法二：数据库管理工具**
 
 SQLite 数据管理工具有免费的 SQLiteStudio，也有收费的 Navicat 。
 Navicat 虽然收费，但是有 14 天的试用期，14 天足够用了？吧。
@@ -339,7 +340,7 @@ sudo chown www:www memos_prod.db
 
 > 参考：<i class="iconfont icon-github"></i> [breadcrumb-talk.html#L26-L30](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/partials/breadcrumb-talk.html#L26-L30)
 
-```
+```html
 <div id="memos" class=""></div>
 ```
 
@@ -410,8 +411,8 @@ sudo chown www:www memos_prod.db
 
 > DEMO： <https://eallion.com/memos/>
 > DEMO： <https://memos.top/>
-
-> API: https://memos.example.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=10
+>
+> API: <https://memos.example.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=10>
 
 **更新**：已把 Memos 剥离出一个完整的应用，可独立部署，到 <i class="iconfont icon-github"></i> [eallion/memos.top](https://github.com/eallion/memos.top) 这个仓库下载部署到网站根目录即可。
 
@@ -452,7 +453,7 @@ sudo chown www:www memos_prod.db
 <script type="text/javascript" src="/assets/memos.js"></script>
 ```
 
-2. **JS 处理 API 数据**
+1. **JS 处理 API 数据**
 
 ```javascript
 // Memos API
@@ -645,21 +646,21 @@ function updateHTMl(data) {
 
 相对时间，用的是 [Moment.js](https://github.com/moment/moment/) Twitter 风格的插件：<i class="iconfont icon-github"></i> [memos.html#L60-L165](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/_default/memos.html#L60-L165)
 
--   7 天内的发布时间显示为相对时间：`1 天前`
--   本年内的时间不显示年份：`5月20日，13:14 • 中午`
--   去年及之前的时间显示为完整时间：`2010年10月10日，10:10 • 上午`
+- 7 天内的发布时间显示为相对时间：`1 天前`
+- 本年内的时间不显示年份：`5月20日，13:14 • 中午`
+- 去年及之前的时间显示为完整时间：`2010年10月10日，10:10 • 上午`
 
 全站图片灯箱效果用的是 [view-image.js](https://tokinx.github.io/ViewImage/)插件: <i class="iconfont icon-github"></i> [footer-js.html#L111-L114](https://github.com/eallion/eallion.com/blob/5fae62241bc85650fdd664c1fd22f9d0d20c069e/themes/hello-friend/layouts/partials/footer-js.html#L111-L114)
 
 ### API：获取 Memos 总条数
 
-> API: https://memos.example.com/api/memo/amount?creatorId=101
+> API: <https://memos.example.com/api/memo/amount?creatorId=101>
 
-```
+```html
 <span id="memosCount">0</span>
 ```
 
-```
+```html
 <script>
     //获取 Memos 总条数
     function getTotal() {
@@ -680,18 +681,18 @@ function updateHTMl(data) {
 
 ### Memos Awesome
 
--   <https://memos.top>
--   Discuss in [Telegram](https://t.me/+-_tNF1k70UU4ZTc9) 👾
--   Docker Hub：<https://hub.docker.com/r/neosmemo/memos>
--   Docker Hub Nightly：<https://hub.docker.com/r/eallion/memos>
--   Moe Memos 客户端：<https://memos.moe/>
--   Memos-bber Chrome 扩展：<https://github.com/lmm214/memos-bber>
--   Memos 微信小程序：<https://github.com/Rabithua/memos_wmp>
--   Telegram Bot：<https://github.com/qazxcdswe123/telegramMemoBot>
--   [哔哔广场](https://immmmm.com/bbs-by-memos/)：<https://immmmm.com/bbs/>
--   [「分享」Android 使用 HTTP Shortcuts 录入笔记](https://github.com/usememos/memos/discussions/315)
--   [「分享」使用 iOS 快捷指令录入笔记，支持多图上传，支持标签选择](https://github.com/usememos/memos/discussions/52)
--   [「分享」在 Fly.io 平台上搭建 memos 并自动备份到 B2/S3](https://github.com/usememos/memos/discussions/451)
+- <https://memos.top>
+- Discuss in [Telegram](https://t.me/+-_tNF1k70UU4ZTc9) 👾
+- Docker Hub：<https://hub.docker.com/r/neosmemo/memos>
+- Docker Hub Nightly：<https://hub.docker.com/r/eallion/memos>
+- Moe Memos 客户端：<https://memos.moe/>
+- Memos-bber Chrome 扩展：<https://github.com/lmm214/memos-bber>
+- Memos 微信小程序：<https://github.com/Rabithua/memos_wmp>
+- Telegram Bot：<https://github.com/qazxcdswe123/telegramMemoBot>
+- [哔哔广场](https://immmmm.com/bbs-by-memos/)：<https://immmmm.com/bbs/>
+- [「分享」Android 使用 HTTP Shortcuts 录入笔记](https://github.com/usememos/memos/discussions/315)
+- [「分享」使用 iOS 快捷指令录入笔记，支持多图上传，支持标签选择](https://github.com/usememos/memos/discussions/52)
+- [「分享」在 Fly.io 平台上搭建 memos 并自动备份到 B2/S3](https://github.com/usememos/memos/discussions/451)
 
 ### 一点点建议
 
