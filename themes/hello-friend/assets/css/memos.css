@@ -180,7 +180,7 @@
 }
 
 .memos__comment button {
-    background: none;
+    background: none !important;
     margin:0;
     padding: 0;
     border: none;
