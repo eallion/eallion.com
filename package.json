@@ -33,7 +33,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "disqusjs": "^3.0.2",
     "file-loader": "^6.2.0",
-    "mini-css-extract-plugin": "^2.7.1",
+    "mini-css-extract-plugin": "^2.7.2",
     "postcss": "^8.4.19",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.0.1",
