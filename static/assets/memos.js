@@ -37,7 +37,7 @@ function getTotal() {
 window.onload = getTotal();
 
 // Memos API
-var memo  = {
+var memo = {
     host: 'https://demo.usememos.com/',
     limit: '10',
     creatorId: '101',
@@ -130,7 +130,7 @@ function updateHTMl(data) {
         breaks: true,
         smartypants: true,
         langPrefix: 'language-',
-        highlight: function(code, lang) {
+        highlight: function (code, lang) {
             const language = hljs.getLanguage(lang) ? lang : 'plaintext';
             return hljs.highlight(code, { language }).value;
         },
@@ -140,8 +140,9 @@ function updateHTMl(data) {
             return `<a href='${href}' target='_blank' rel='noopener noreferrer'>${text}</a>`;
         } // 链接新窗口
     };
-    marked.use({ renderer });
+    // marked.use({ renderer }); //算了不加了
     // Memos Content
+
     for (var i = 0; i < data.length; i++) {
         var memoContREG = data[i].content
             .replace(TAG_REG, "<span class='tag-span'><a href='https://memos.eallion.com/u/101?tag=$1' target='_blank' rel='noopener noreferrer'>#$1</a></span> ")
@@ -183,7 +184,7 @@ function updateHTMl(data) {
 
     var memoBefore = '<ul class="talks">'
     var memoAfter = '</ul>'
-    resultAll = memoBefore + memoResult + memoAfter
+    resultAll = memoBefore + memoResult + memoAfter;
     memoDom.insertAdjacentHTML('beforeend', resultAll);
     fetchDB()
     hljs.initHighlighting.called = false;
