@@ -49,7 +49,7 @@
     {{ if eq .Type "posts" -}}
     {{ $ageDays := div (sub now.Unix .Date.Unix) 86400 }}
     {{ if gt $ageDays 180 }}
-    <div class="warning-msg"><i class="iconfont icon-warning-circle"></i>提醒：本文发布于&nbsp;{{ $ageDays }}&nbsp;天前，文中所描述的信息可能已发生改变，请谨慎参考。</div>
+    <blockquote class="warning"><p>提醒：本文发布于&nbsp;{{ $ageDays }}&nbsp;天前，文中所描述的信息可能已发生改变，请谨慎参考。</p></blockquote>
     {{ end }}
     {{ end }}
 

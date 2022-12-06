@@ -14,6 +14,50 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-quote:before {
+    content: "\e63c";
+}
+
+.icon-success:before {
+    content: "\e650";
+}
+
+.icon-tip:before {
+    content: "\e664";
+}
+
+.icon-warning:before {
+    content: "\e6aa";
+}
+
+.icon-danger:before {
+    content: "\e7e2";
+}
+
+.icon-note:before {
+    content: "\e627";
+}
+
+.icon-question:before {
+    content: "\e689";
+}
+
+.icon-bug:before {
+    content: "\e8e8";
+}
+
+.icon-failure:before {
+    content: "\e87c";
+}
+
+.icon-example:before {
+    content: "\e6f4";
+}
+
+.icon-abstract:before {
+    content: "\e606";
+}
+
 .icon-comment-solid:before {
     content: "\e691";
 }
