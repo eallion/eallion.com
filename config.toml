@@ -71,8 +71,8 @@ enableGitInfo = false
       autoHeadingID = false
       autoHeadingIDType = 'github'
       [markup.goldmark.parser.attribute]
-        block = false
-        title = false
+        block = true
+        title = true
     [markup.goldmark.renderer]
       hardWraps = true
       unsafe = true
