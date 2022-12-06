@@ -132,7 +132,7 @@ function updateHTMl(data) {
         langPrefix: 'language-',
         highlight: function (code, lang) {
             const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-            return hljs.highlight(code, { language }).value;
+            return hljs.highlight.toString(code, { language }).value;
         },
     });
     const renderer = {
@@ -140,7 +140,7 @@ function updateHTMl(data) {
             return `<a href='${href}' target='_blank' rel='noopener noreferrer'>${text}</a>`;
         } // 链接新窗口
     };
-    // marked.use({ renderer }); //算了不加了
+    // marked.use({ renderer }); // 算了不加了
     // Memos Content
 
     for (var i = 0; i < data.length; i++) {
@@ -188,6 +188,9 @@ function updateHTMl(data) {
     memoDom.insertAdjacentHTML('beforeend', resultAll);
     fetchDB()
     hljs.initHighlighting.called = false;
+    hljs.configure({
+        ignoreUnescapedHTML: true,
+    })
     hljs.highlightAll();
     document.querySelector('button.button-load').textContent = '加载更多';
 }
