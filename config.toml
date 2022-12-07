@@ -68,8 +68,9 @@ enableGitInfo = false
       taskList = true
       typographer = true
     [markup.goldmark.parser]
-      autoHeadingID = false
+      autoHeadingID = true
       autoHeadingIDType = 'github'
+      wrapStandAloneImageWithinParagraph = true
       [markup.goldmark.parser.attribute]
         block = true
         title = true
