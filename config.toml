@@ -119,6 +119,9 @@ enableGitInfo = false
   enable = true
   version = "1.6.8"
 
+[params.giscus]
+  enable = false
+
 [menu]
   ## main menu
   [[menu.main]]

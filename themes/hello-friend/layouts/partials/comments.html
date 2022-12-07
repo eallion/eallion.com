@@ -8,6 +8,28 @@
 <button id="loadDisqusjs" class="loadDisqusjs" onclick="loadDisqusjs();return false;remove(this)"><i class="iconfont icon-disqus"></i></button>
 {{/* DisqusJS Option on footer-js.html  */}}
 
+{{ end }}
+
+{{ if (.Site.Params.twikoo.enable) }}
 <div id="tcomment"></div>
+{{ end }}
+
+{{ if (.Site.Params.giscus.enable) }}
+<script src="https://giscus.app/client.js"
+        data-repo="eallion/eallion.com"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkyNjI2Njk1MDg="
+        data-category="giscus"
+        data-category-id="DIC_kwDOD6gExM4CS9eF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="/assets/giscus.css"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 
 {{ end }}
