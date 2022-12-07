@@ -4,8 +4,15 @@
     width: 100%;
 }
 
+.talks__text ul,
 .talks ul {
     margin-left: 0 !important;
+}
+
+.talks__text ul li {
+    margin-left: 1rem;
+    padding: 0;
+    list-style: inside;
 }
 
 .talks__content {
