@@ -1,9 +1,9 @@
 ---
 title: "耳洞"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["耳洞","耳钉"]
 draft: false
-Comments: true
 slug: "pierced-ears"
 date: "2011-06-14 09:11:45"
 ---
@@ -21,4 +21,3 @@ date: "2011-06-14 09:11:45"
 
 最近拿着一个耳钉一扎
 居然还好好的
-

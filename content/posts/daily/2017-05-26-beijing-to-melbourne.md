@@ -1,17 +1,17 @@
 ---
 title: "中国要建设北京到墨尔本的高铁？"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["宜万铁路","火车","高铁","隧道"]
 draft: false
-Comments: true
 slug: "beijing-to-melbourne"
 date: "2017-05-26 00:51:00"
 ---
 
 Q：最近网上有一段话，说是中国要建设北京到墨尔本的高铁，我知道这是谣言，但是有这种可能性吗？
 
-> <a href="https://www.zhihu.com/question/60240874" target="_blank">https://www.zhihu.com/question/60240874</a>  
-      
+> <a href="<<<https://www.zhihu.com/question/60240874>>>" target="_blank">https://www.zhihu.com/question/60240874</a>  
+
 A：
 
 早个几十年，谁也没有想到会有海底光缆。
@@ -33,5 +33,4 @@ A：
 
 > <a href="http://www.cnbeta.com/articles/tech/563297.htm" target="_blank"> 亚马逊发现用卡车转移数据比网络更快 通信技术 cnBeta.COM</a>
 
-> 原文：（自己转自己）<a href="https://www.zhihu.com/question/60240874/answer/174576720" target="_blank">https://www.zhihu.com/question/60240874/answer/174576720</a>
-
+> 原文：（自己转自己）<a href="<<<https://www.zhihu.com/question/60240874/answer/174576720>>>" target="_blank">https://www.zhihu.com/question/60240874/answer/174576720</a>

@@ -1,0 +1,3 @@
+[submodule "themes/DoIt"]
+	path = themes/DoIt
+	url = https://github.com/eallion/hugo-theme-doit.git

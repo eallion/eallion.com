@@ -1,9 +1,9 @@
 ---
 title: "我被封禁的几个重要账号"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["封禁", "总结", "日记", "杯具", "账号"]
 draft: false
-Comments: true
 slug: "banned-account-list"
 date: "2011-01-02 03:31:12"
 ---

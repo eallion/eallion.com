@@ -1,9 +1,9 @@
 ---
 title: "说不清楚的一些事"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["风","清楚","解释"]
 draft: false
-Comments: true
 slug: "some-of-the-things-that-is-not-clear"
 date: "2008-11-26 19:47:07"
 ---
@@ -15,9 +15,8 @@ date: "2008-11-26 19:47:07"
 不明白的人你说了他也不会明白...
 从不解释...
 我坚持...
- 
+
 最近也没什么事发生...
- 
+
 今天风蛮大...
 好大好大啊...
-

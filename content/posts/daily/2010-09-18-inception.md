@@ -1,9 +1,9 @@
 ---
 title: "简简单单地说下《盗梦空间》"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["inception","影评","梦中梦","梦境","盗梦空间","电影"]
 draft: false
-Comments: true
 slug: "inception"
 date: "2010-09-18 03:54:31"
 ---
@@ -99,4 +99,3 @@ Cobb 最后是回到了现实了
 我只能这样写：我很激动，我做了一个梦中梦
 
 PS：我把今日之前的我，都称之为小时候。
-

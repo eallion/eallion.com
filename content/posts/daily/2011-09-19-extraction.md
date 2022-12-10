@@ -1,9 +1,9 @@
 ---
 title: "拔牙"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["拔牙","虫牙","牙痛","牙洞","蛀牙"]
 draft: false
-Comments: true
 slug: "extraction"
 date: "2011-09-19 14:41:00"
 ---
@@ -31,5 +31,3 @@ date: "2011-09-19 14:41:00"
 流血流了整整一下午都没有止住
 也不能吃饭不能吃带渣的东西
 结果吃了两个周的苹果和香蕉
-
-

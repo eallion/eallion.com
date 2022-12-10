@@ -1,9 +1,9 @@
 ---
 title: "博客换回默认主题"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["blog","博客","主题","theme"]
 draft: false
-Comments: true
 slug: "default-theme"
 date: "2019-06-03 21:43:00"
 ---
@@ -36,7 +36,7 @@ date: "2019-06-03 21:43:00"
 也没有过度优化
 测试了一下速度还不错
 > cdn.eallion.com
- - css
- - js
- - images
 
+- css
+- js
+- images

@@ -1,9 +1,9 @@
 ---
 title: "认真去做一件事"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","工作狂","发呆","认真"]
 draft: false
-Comments: true
 slug: "seriously-do-something"
 date: "2008-11-16 00:33:58"
 ---
@@ -15,7 +15,6 @@ date: "2008-11-16 00:33:58"
 嗯啊...
 从来对待什么都是认真的...
 还好...
- 
+
 我不是个工作狂...
 但工作起来肯定狂...
-

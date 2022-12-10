@@ -1,9 +1,9 @@
 ---
 title: "不确定"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["选择"]
 draft: false
-Comments: true
 slug: "uncertain"
 date: "2011-04-25 15:20:30"
 ---
@@ -34,5 +34,3 @@ date: "2011-04-25 15:20:30"
 任何人都可以把我踩在地上，只要你没踩疼，你把我踩成照片了我都不会介意
 我坚信，我们所受的苦，只是种历练
 而眼中的泪，就是心中的彩虹。
-
-

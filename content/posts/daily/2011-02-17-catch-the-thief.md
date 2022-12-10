@@ -1,9 +1,9 @@
 ---
 title: "抓小偷记"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["小偷","抓小偷","偷车","贼","抓贼"]
 draft: false
-Comments: true
 slug: "catch-the-thief"
 date: "2011-02-17 04:25:00"
 ---
@@ -197,5 +197,3 @@ date: "2011-02-17 04:25:00"
 （关门打狗的道理，先把对方退路给断了）
 5，缺乏经验的时候机灵很重要
 （我还真没有在冬天脱鞋子追人的经历）
-
-

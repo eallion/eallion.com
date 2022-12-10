@@ -1,9 +1,9 @@
 ---
 title: "博客趋于稳定"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","插件","typecho"]
 draft: false
-Comments: true
 slug: "type-final-echo"
 date: "2011-01-14 11:11:26"
 ---
@@ -26,7 +26,7 @@ Google Code Prettify - Google 高亮代码
 HighSlide - 使用最新 HighSlide 全功能内核自动替换图片链接
 JustArchives - 日志归档插件
 Magike Editor - 简易编辑器，从 Magike 移植过来的
-MiniPlay1g1g-1g1g 迷你播放器，集搜索 & 输出 & 歌词显示功能 
+MiniPlay1g1g-1g1g 迷你播放器，集搜索 & 输出 & 歌词显示功能
 RandomArticleList- 随机显示文章列表
 Sitemap- 为博客生成 sitemap 文件。
 Smilies- 评论表情及贴图
@@ -52,7 +52,7 @@ tinyMCE Editor - 集成 tinyMCE 编辑器
 一种是 < a href="http://immmmm.com/latest-flickr-pictures-show.html" title="感谢 木木木木木 提供的技术" target="_blank"> 木木木木木 </a > 这里提到的
 一种是用了 < a href="http://www.jzwalk.com/archives/net/highslide-for-typecho" title="感谢 羽中 提供的技术" target="_blank"> 羽中 </a > 的 HighSlide 插件集成的相册功能
 两种方法切换着在用
-在看哪种方法更好一些 
+在看哪种方法更好一些
 不过两种相册都不会用到本地图片
 这大大的减小了主机的负担
 
@@ -80,4 +80,3 @@ tinyMCE Editor - 集成 tinyMCE 编辑器
 
 PS：本博客已经完全没考虑要兼容 IE6。
 但是本博客也没有一些很炫的特效，所以 IE6 下的显示效果也不是太烂。
-

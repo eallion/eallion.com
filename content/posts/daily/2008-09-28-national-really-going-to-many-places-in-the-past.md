@@ -1,9 +1,9 @@
 ---
 title: "国庆真打算过去很多地方"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["广州","武汉","国庆","西安"]
 draft: false
-Comments: true
 slug: "national-really-going-to-many-places-in-the-past"
 date: "2008-09-28 00:14:45"
 ---
@@ -18,4 +18,3 @@ date: "2008-09-28 00:14:45"
 跟立伟去西安... 也随意... 不过都是他同学... 我倒是一个不认识...
 10 月 25 号去去武汉... 看 JAY 的演唱会去... 那国庆就不去武汉了吧...
 搞不好最后还是得在学校呆七天...
-

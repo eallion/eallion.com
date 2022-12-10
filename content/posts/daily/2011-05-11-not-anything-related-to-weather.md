@@ -1,9 +1,9 @@
 ---
 title: "不是什么事情都跟天气有关"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["心情","日记","天气"]
 draft: false
-Comments: true
 slug: "not-anything-related-to-weather"
 date: "2011-05-11 09:58:37"
 ---
@@ -13,4 +13,3 @@ date: "2011-05-11 09:58:37"
 反复无常的情绪
 就像天气一样多变
 好吧，我承认我是陷落了
-

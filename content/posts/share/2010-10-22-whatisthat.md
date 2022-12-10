@@ -1,9 +1,9 @@
 ---
 title: "what is that?"
+authors: ["eallion"]
 categories: ["分享"]
 tags: ["感人","父母","父爱","那是什么"]
 draft: false
-Comments: true
 slug: "whatisthat"
 date: "2010-10-22 12:13:58"
 ---
@@ -27,4 +27,3 @@ Music by: Christos Triantafillou
 Sound by: Teo Babouris
 Mixed by: Kostas Varibobiotis
 Produced by: MovieTeller films
-

@@ -1,9 +1,9 @@
 ---
 title: "年度最新英文单词"
+authors: ["eallion"]
 categories: ["分享"]
 tags: ["中国英文","单词","合成词","年度","新词","网络语言","英文"]
 draft: false
-Comments: true
 slug: "chinglish"
 date: "2010-11-15 00:59:14"
 ---
@@ -42,4 +42,3 @@ non-talking 无聊、
 youcai-flower 有才华、
 eggcalm 蛋定、
 cockrock 鸡动。
-

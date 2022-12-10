@@ -1,9 +1,9 @@
 ---
 title: "今时不同往日"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["总结","日记","感慨"]
 draft: false
-Comments: true
 slug: "i-feel-im-nothing"
 date: "2011-01-19 09:30:43"
 ---
@@ -22,4 +22,3 @@ date: "2011-01-19 09:30:43"
 9，更孤辟了
 10，写东西的时候多了，但是写的内容肤浅琐碎流于表面了
 11，未完待续……
-

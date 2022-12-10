@@ -1,9 +1,9 @@
 ---
 title: "有关于工作"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","工作狂","未来","职业规划"]
 draft: false
-Comments: true
 slug: "aboutwork"
 date: "2010-04-03 19:08:18"
 ---
@@ -47,4 +47,3 @@ date: "2010-04-03 19:08:18"
 &nbsp;
 所以，说到底，当初自己的职业规划就是未来两年可以乱来。
 顺其自然，这就是我以后的工作方向。
-

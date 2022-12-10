@@ -1,9 +1,9 @@
 ---
 title: "愈久弥精"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["妈妈","姐姐","愈久弥精","女朋友"]
 draft: false
-Comments: true
 slug: "the-more-refined-hisamitsu"
 date: "2011-01-29 08:13:57"
 ---
@@ -51,4 +51,3 @@ date: "2011-01-29 08:13:57"
 跑题了吗？没有吧。（虽然我的初衷不是要写到这个来的）
 我想要一个姐姐想了 20 几年
 这应该是一个够久远，够陈年，够愈久弥精的话题吧
-

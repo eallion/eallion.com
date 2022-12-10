@@ -1,9 +1,9 @@
 ---
 title: "每周一歌"
+authors: ["eallion"]
 categories: []
 tags: []
 draft: false
-Comments: true
 slug: "music-per-weekly"
 date: "2011-01-17 09:56:28"
 ---
@@ -16,4 +16,3 @@ date: "2011-01-17 09:56:28"
 现在打算推出一个我个人喜欢的 <strong> 每周一歌 </strong>
 每个周五推出
 希望大家喜欢
-

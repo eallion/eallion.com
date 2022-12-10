@@ -1,9 +1,9 @@
 ---
 title: "不知道大家还去不去宜昌呢"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["宜昌"]
 draft: false
-Comments: true
 slug: "i-do-not-know-what-has-to-go-yichang"
 date: "2008-09-29 22:39:29"
 ---
@@ -13,4 +13,3 @@ date: "2008-09-29 22:39:29"
 我还给小明打了电话... 可是停机...
 去不成可以说一声可以说出来... 真的...
 现在搞得都不知道什么情况了....
-

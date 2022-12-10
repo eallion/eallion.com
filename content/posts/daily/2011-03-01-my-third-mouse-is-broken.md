@@ -1,9 +1,9 @@
 ---
 title: "我的第三个鼠标坏了"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","鼠标","IE3.0","蝰蛇","MX518"]
 draft: false
-Comments: true
 slug: "my-third-mouse-is-broken"
 date: "2011-03-01 08:03:09"
 ---
@@ -119,5 +119,3 @@ IE3.0 复刻版跟原版最大的区别就是
 毕竟不会再像以往那样疯狂的打 CS 了
 不过确实 Zowie 的有一款鼠标被我相中了
 等我发财了我就去买去
-
-

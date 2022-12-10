@@ -1,9 +1,9 @@
 ---
 title: "你好，小强"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["小强"]
 draft: false
-Comments: true
 slug: "but-do-not-be-afraid-you-do-not-want-to-kiss-you"
 date: "2011-09-08 22:55:53"
 ---
@@ -61,4 +61,3 @@ date: "2011-09-08 22:55:53"
 还有
 高跟鞋走得小脚痛痛
 该扔。
-

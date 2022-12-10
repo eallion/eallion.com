@@ -1,9 +1,9 @@
 ---
 title: "演唱会短评"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["演唱会"]
 draft: false
-Comments: true
 slug: "live-commentary"
 date: "2011-02-08 01:31:11"
 ---
@@ -13,4 +13,3 @@ date: "2011-02-08 01:31:11"
 
 我觉得华语乐坛开演唱会好的有
 五月天，周杰伦，刘德华，王菲，张惠妹
-

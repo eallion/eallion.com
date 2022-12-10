@@ -1,9 +1,9 @@
 ---
 title: "百度推广黑幕 - 一个百度推广从业者的视角"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["CCTV","百度","百度推广","baidu","关键词"]
 draft: false
-Comments: true
 slug: "ebaidu-com"
 date: "2011-08-19 14:33:27"
 ---
@@ -31,7 +31,7 @@ CCTV 接连抨击百度
 我 2009 年 11 月就职于宁波派桑网络有限公司绍兴分公司
 它是宁波绍兴地区官方授权代理百度推广的
 百度推广在各个地区都有推广代理公司
-这个公司在百度推广官网可以查到的 <a href="http://e.baidu.com/localservice/zhejiang/" target="_blank">http://e.baidu.com/localservice/</a>
+这个公司在百度推广官网可以查到的 <a href="<<<http://e.baidu.com/localservice/>>>zhejiang/" target="_blank">http://e.baidu.com/localservice/</a>
 但是现在宁波绍兴地区的代理商变成了盘石网络
 
 这些代理公司跟保险公司差不多
@@ -94,4 +94,3 @@ CCTV 接连抨击百度
 
 还有一点，百度对 SEO 做得好的企业网站，会时不时的人工干预屏蔽或者降权的
 所以个人网站或者一些组织的网站，优化的时候要尽量避开一些商业名词
-

@@ -1,9 +1,9 @@
 ---
 title: "各方媒体对于韩寒入围《时代》“全球最具影响力” 人物候选人的报道"
+authors: ["eallion"]
 categories: ["分享"]
 tags: ["全球最具影响力","时代","韩寒"]
 draft: false
-Comments: true
 slug: "hanhan_time"
 date: "2010-04-07 07:42:01"
 ---
@@ -47,8 +47,6 @@ date: "2010-04-07 07:42:01"
 
 过去一些政要、被树立为英雄模范的人物，一旦成为 “全球最具影响力人物” 候选人，都要受到国内舆论的一片赞扬。对于有争议的人物韩寒也有幸成为候选人，我们不妨也来点掌声，持观赏态度。笔者真诚祝愿韩寒能够从候选中脱颖而出，成功进入 100 强。
 
-稿源：荆楚网 <a href="http://focus.cnhubei.com/original/201004/t1058576.shtml" target="_blank">http://focus.cnhubei.com/original/201004/t1058576.shtml</a>
+稿源：荆楚网 <a href="<<<http://focus.cnhubei.com/original/201004/t1058576.shtml>>>" target="_blank">http://focus.cnhubei.com/original/201004/t1058576.shtml</a>
 
 作者：赵光瑞
-
-

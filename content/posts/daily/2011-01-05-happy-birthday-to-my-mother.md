@@ -1,9 +1,9 @@
 ---
 title: "妈妈 生日快乐"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["妈妈","父母","生日","生日快乐"]
 draft: false
-Comments: true
 slug: "happy-birthday-to-my-mother"
 date: "2011-01-05 12:02:55"
 ---
@@ -68,4 +68,3 @@ date: "2011-01-05 12:02:55"
 我想，妈妈会欣慰的吧
 我还想对我妈妈说一句：
 我爱你，祝您生日快乐。
-

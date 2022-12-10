@@ -1,9 +1,9 @@
 ---
 title: "Google 的自行车文化"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["骑行","google","bike","bicyle","企业文化"]
 draft: false
-Comments: true
 slug: "google-bike"
 date: "2013-04-26 09:43:00"
 ---
@@ -31,4 +31,3 @@ date: "2013-04-26 09:43:00"
   自行车文化甚至影响了高管们。公司的首席财务官 Patrick Pichette 自称是狂热的骑行者，他会从南湾镇的家里旅行 50 公里，与 SF2G 在教会区的咖啡馆会合，然后一起骑车去公司上班。
 
   图片来自 <a href="http://www.wired.com/wiredenterprise/2013/04/google-bikes/all/" target="_blank">Wired</a>
-

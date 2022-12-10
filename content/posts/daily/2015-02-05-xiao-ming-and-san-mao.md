@@ -1,9 +1,9 @@
 ---
 title: "小明与三毛"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["小明","三毛"]
 draft: false
-Comments: true
 slug: "xiao-ming-and-san-mao"
 date: "2015-02-05 10:35:00"
 ---
@@ -15,4 +15,3 @@ date: "2015-02-05 10:35:00"
 机灵一点的会说老三叫小明啊。
 
 但是，如果小明是个女孩呢？
-

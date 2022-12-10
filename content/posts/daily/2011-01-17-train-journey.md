@@ -1,9 +1,9 @@
 ---
 title: "其实我是比较喜欢坐火车"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["梦想","火车","站票","旅行"]
 draft: false
-Comments: true
 slug: "train-journey"
 date: "2011-01-17 08:30:13"
 ---
@@ -71,4 +71,3 @@ date: "2011-01-17 08:30:13"
 转一条别人的评论吧：
 <blockquote > 办好奥运有什么了不起的，办好亚运有什么了不起的，办好大运有什么了不起的，你什么时候把春运办好了，再来跟我们邀功吧！</blockquote>
 顺便祝千千万万归乡的游子一路平安
-

@@ -1,14 +1,14 @@
 ---
 title: "谷歌翻译"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["google","谷歌","翻译"]
 draft: false
-Comments: true
 slug: "gu-ge-fan-yi"
 date: "2013-11-18 12:31:00"
 ---
 
-<a href="http://translate.google.com/" target="_blank">http://translate.google.com/</a>
+<a href="<<<http://translate.google.com/>>>" target="_blank">http://translate.google.com/</a>
 段子一
 在 Google 翻译里输入：
 pv zk bschk pv zk pv bschk zk pv zk bschk pv zk pv bschk zk bschk pv bschk bschk pv kkkkkkkk bschk bschk bschk p zk bschk pv zk pv bschk zk p zk bsc bschk pv zk bschk p zk pv bschk zk pv zk zk bschk bschk bschk bschk bschk
@@ -46,4 +46,3 @@ Google 翻译好无辜：
 
 段子八
 หนี่มาบี หนี่มาบี หนี่สื้อด้าส่าบีซางบู้ฉี่อย่าซางบู้ฉี่ โหย่มู่โหย่อาโหย่มู่โหย่หนี่มาบี หนี่มาบี หนี่สื้อด้าส่าบีซางบู้ฉี่อย่าซางบู้ฉี่ โหย่มู่โหย่อาโหย่มู่โหย่
-

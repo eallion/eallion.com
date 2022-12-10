@@ -1,9 +1,9 @@
 ---
 title: "小悦悦"
+authors: ["eallion"]
 categories: ["日志","分享"]
 tags: ["小悦悦"]
 draft: false
-Comments: true
 slug: "little-yue-yue"
 date: "2011-10-26 11:08:00"
 ---
@@ -21,5 +21,3 @@ date: "2011-10-26 11:08:00"
 然后果断下车
 这是我第一次在这边称自己不是国人！
 你们能理解这种感觉么？
-
-

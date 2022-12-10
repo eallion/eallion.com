@@ -1,9 +1,9 @@
 ---
 title: "周杰伦：烟花易冷"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["烟花易冷"]
 draft: false
-Comments: true
 slug: "yanhuayileng"
 date: "2010-04-28 06:43:00"
 ---
@@ -41,4 +41,3 @@ date: "2010-04-28 06:43:00"
 城郊牧笛声 落在那座野村
 缘份落地生根是 我们
 伽蓝寺听雨声盼 永恒
-

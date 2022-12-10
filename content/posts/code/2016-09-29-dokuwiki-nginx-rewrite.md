@@ -1,9 +1,9 @@
 ---
 title: "Dokuwiki Nginx 伪静态"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["nginx","doku","dokuwiki","rewrite"]
 draft: false
-Comments: true
 slug: "dokuwiki-nginx-rewrite"
 date: "2016-09-29 19:25:00"
 ---
@@ -21,4 +21,3 @@ location /
         }
     }
 ```
-

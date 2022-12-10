@@ -1,15 +1,16 @@
 ---
 title: "Openssl 升级"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["升级","openssl"]
 draft: false
-Comments: true
 slug: "openssl-upgrade"
 date: "2016-09-29 16:47:00"
 ---
 
 升级 openssl 环境至 openssl-1.0.1g
 1、查看源版本
+
 ```bash
 openssl version -a
 ```
@@ -19,14 +20,19 @@ OpenSSL 1.0.1f 6 Jan 2014
 ```
 
 2、下载 openssl-1.0.2j.tar.gz
+
 ```bash
 wget https://www.openssl.org/source/openssl-1.0.2j.tar.gz
 ```
+
 3、更新 zlib
+
 ```bash
 apt install -y zlib
 ```
+
 4、解压安装
+
 ```bash
 tar zxf openssl-1.0.2j.tar.gz
 cd openssl-1.0.2j
@@ -50,4 +56,3 @@ openssl version -a
 ```bash
 OpenSSL 1.0.2j  26 Sep 2016
 ```
-

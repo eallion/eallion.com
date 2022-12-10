@@ -1,9 +1,9 @@
 ---
 title: "外星人"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["生命","外星人","宇宙","文明"]
 draft: false
-Comments: true
 slug: "wai-xing-ren"
 date: "2012-04-30 10:40:26"
 ---
@@ -66,5 +66,3 @@ date: "2012-04-30 10:40:26"
 一个水分子就像一个恒星（系）
 只有分子间的相对位置
 恒星在宇宙中的位置随机变化
-
-

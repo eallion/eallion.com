@@ -1,9 +1,9 @@
 ---
 title: "探讨我的健康网络生活"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["生活","网络","习惯"]
 draft: false
-Comments: true
 slug: "netwalking"
 date: "2011-02-10 20:46:22"
 ---
@@ -56,5 +56,3 @@ date: "2011-02-10 20:46:22"
 那么我只能加强我的时间管理来改善我的生活习惯了
 
 所以目前可行的方法是：减少面对电脑的时间
-
-

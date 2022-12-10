@@ -1,9 +1,9 @@
 ---
 title: "阿里云 NTP 时间同步服务器"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["时间","阿里云","ntp","时间同步"]
 draft: false
-Comments: true
 slug: "aliyun-ntp"
 date: "2017-05-29 23:35:00"
 ---
@@ -23,8 +23,8 @@ IP 地址也已失效。
 随手就去搜索了 “阿里云 NTP”，
 结果还真有！
 
- - 公网 NTP 服务器：`ntp.aliyun.com`
- - 内网 NTP 服务器：`ntp.cloud.aliyuncs.com`
+- 公网 NTP 服务器：`ntp.aliyun.com`
+- 内网 NTP 服务器：`ntp.cloud.aliyuncs.com`
 
 ----------
 
@@ -45,7 +45,9 @@ IP 地址也已失效。
 |-|-|ntp7.aliyun.com|
 
 ### Linux 同步 NTP 时间
+
 以 Debian/Ubuntu 为例：
+
 ```
 sudo apt install ntpdate
 sudo ntpdate ntp.aliyun.com
@@ -60,6 +62,3 @@ sudo ntpdate ntp.aliyun.com
 ### Windows 测试成功
 
 ![Windows NTP](https://images.eallion.com/images/2017/05/29/1972259171.png)
-
-
-

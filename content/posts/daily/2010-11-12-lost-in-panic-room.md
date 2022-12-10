@@ -1,9 +1,9 @@
 ---
 title: "密室之不可告人"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["不可告人","密室","影评","惊悚","推理","电影"]
 draft: false
-Comments: true
 slug: "lost-in-panic-room"
 date: "2010-11-12 12:12:00"
 ---
@@ -46,4 +46,3 @@ date: "2010-11-12 12:12:00"
 这部影片还是比较好的
 只是我比较挑剔
 3.5/5 分
-

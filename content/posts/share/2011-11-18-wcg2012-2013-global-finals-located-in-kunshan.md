@@ -1,9 +1,9 @@
 ---
 title: "WCG2012 &amp; 2013 @昆山"
+authors: ["eallion"]
 categories: ["分享"]
 tags: ["CS","wcg","电子竞技","昆山"]
 draft: false
-Comments: true
 slug: "wcg2012-2013-global-finals-located-in-kunshan"
 date: "2011-11-18 14:36:00"
 ---
@@ -31,4 +31,3 @@ date: "2011-11-18 14:36:00"
   昆山交通便捷、教育发达、国际化水平高。她位于江苏省东南部苏州市与上海市之间；北至东北与常熟市、太仓市两市相连，东至东南与上海嘉定、青浦两区交界，西与中新苏州工业园、吴江市接壤，南部水乡名镇周庄与浙江相通。总面积 921.3 平方公里。总人口 164.7 万（2010 年普查），其中户籍人口 73 万。
 <blockquote>    本文转载自：<a href="http://www.cnfrag.com/wcg-2012-2013-global-final-take-place-at-kunshan-in-china" target="_blank">cnFrag</a>
 </blockquote>
-

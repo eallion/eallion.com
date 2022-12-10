@@ -1,9 +1,9 @@
 ---
 title: "「我谈的话题没什么敏感的」"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["敏感","时政","水果"]
 draft: false
-Comments: true
 slug: "theres-nothing-sensitive-about-what-im-talking-about"
 date: "2019-06-08 19:33:00"
 ---
@@ -35,4 +35,3 @@ date: "2019-06-08 19:33:00"
 仅靠自己的收入也买不起房买不起车，
 甚至都吃不起水果了，
 突然发现连自己的小确幸都没有。
-

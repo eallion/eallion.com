@@ -1,9 +1,9 @@
 ---
 title: "工信部短信通知"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["电话","隐私","备案","工信部"]
 draft: false
-Comments: true
 slug: "notification"
 date: "2011-03-17 22:57:42"
 ---
@@ -59,5 +59,3 @@ date: "2011-03-17 22:57:42"
 你只能干着急
 不如索性不介意了
 落得个轻松
-
-

@@ -1,9 +1,9 @@
 ---
 title: "Linux 架设 CS1.6 服务器教程"
+authors: ["eallion"]
 categories: ["分享"]
 tags: ["CS","Ubuntu","server","服务器","linux","red hat"]
 draft: false
-Comments: true
 slug: "linux-counter-strike-server"
 date: "2012-03-21 13:07:07"
 ---
@@ -11,19 +11,22 @@ date: "2012-03-21 13:07:07"
 > 前言：由于 linux 系统的高性能和稳定性，非常适合作为 cs1.6 这种对服务器硬件要求较高的服务端，（服务器端可达到 1000fps），因此国外绝大多数的 cs1.6 服务器均采用 linux 做为服务器的操作系统。本文也只针对 linux 系统下架设 cs1.6 服务器及其扩展功能展开讨论，本文借鉴了网络上前人的经验，在此对他们无私的奉献表示感谢！这是本人第一次写 cs.16 服务器教程，难免存在疏漏或错误，希望各位同仁批评指正！
 （本文最初发表在点通论坛，如需转载，请注明出处！作者：<a href="http://www.dt-club.net/forum.php?mod=viewthread&tid=46567" target="_blank">disremember</a>）
 
-### 第一部分：
+### 第一部分
+
   将涉及到网络的一些基础知识，以及 linux 的系统一些必要的基本命令、远程登陆工具的下载和使用方法，有了这些基础知识，将会使我们能较为顺利地完成 cs.16 服务器在 linux 系统下的成功架设和调试。
 1、本文假设你已经具备有一台运行着的 linux 操作系统的服务器，并且掌握着 root 密码（我写教程的测试系统是 red hat linux 5.4）；
 2、这台服务器至少有一块网卡，网卡配置一个固定的局域网 ip 地址，例如：192.168.11.77
 3、这台服务器必须物理连接在你单位的局域网网络，其他机器能访问的到；
 4、（不是必须）为了让互联网上的玩家刷出你的服务器并能进入，你的路由器必须映射一个物理 ip 地址（即互联网 ip）到这台服务器，例如：219.148.149.87
 路由器做物理 ip 映射的方法是配置 nat 参数，以（思科 cisco3700）为例：
+
 ```
  ip nat inside source static 192.168.11.77 219.148.149.87
 ```
 
 5、为了不使接下来的工作出现困惑，我们建议暂时关闭 linux 防火墙，
 请在 linux 服务器上执行下面命令来暂时关闭防火墙：
+
 ```
 service iptables stop
 ```
@@ -39,6 +42,7 @@ service iptables stop
 如果登录失败，可能的原因有 3 个：
 第一个原因，是你在 PieTTY 里填入的 ip 或密码不正确，请核对你的参数是否正确，
 第二个原因，是 linux 服务器的 ssh 服务未启动，如果是这种情况，那就需要我们到那台 linux 服务器上，来手动启动 ssh 服务，启动 ssh 的命令是：
+
 ```
 /etc/init.d/sshd start
 ```
@@ -46,6 +50,7 @@ service iptables stop
 如果 ssh 正常启动，系统会提示....ok
 
 你可以使用下面命令来查看 ssh 服务是否已经工作了
+
 ```
 netstat -anp | grep sshd
 ```
@@ -57,6 +62,7 @@ netstat -anp | grep sshd
 至此，我们以后工作将在 PieTTY 的 linux 终端窗口中完成，即所有 linux 命令在这个窗口里输入和执行，
 下面我们正式开始：
 1、在 linux 系统中建立一个目录，我们先进入系统的 /home 分区，然后建立一个新目录 hlds_l_4617（因为我下载的是 4617 版本的 cs1.6，所以用版本号以示区别），之后进入新建的目录，命令如下：
+
 ```
 cd /home
 mkdir hlds_l_4617
@@ -64,6 +70,7 @@ cd hlds_l_4617
 ```
   
 2、输入下面命令下载 cs1.6 服务器专用下载工具
+
 ```
 wget http://storefront.steampowered.com/download/hldsupdatetool.bin
 ```
@@ -71,12 +78,15 @@ wget http://storefront.steampowered.com/download/hldsupdatetool.bin
 看到上面的画面提示，说明专用工具 hldsupdatetool.bin 已经下载完成了。
 
 3、给刚下载回来的 hldsupdatetool.bin 授予可执行权限，命令如下：
+
 ```
 chmod 0755 hldsupdatetool.bin
 ```
+
 （注：如果你未用 chmod 命令给一个文件授权可执行，linux 系统会提示 "Permission denied（无执行权限）" 错误。 可见，linux 的安全机制确实是 windows2003 无法比拟的，所以即便一个病毒程序已经进入到 linxu 中，如果服务器的操作员不用 chmod 命令授予它可执行权限，那病毒程序也是无法发作的）
 
 4、现在执行 hldsupdatetool.bin 程序，来释放出 steam 程序（steam 才是真正下载 cs1.6 服务器全部文件的关键程序），命令如下：
+
 ```
 ./hldsupdatetool.bin
 ```
@@ -86,37 +96,45 @@ chmod 0755 hldsupdatetool.bin
 命令执行的结果是，我们得到 steam 和 readme.txt 两个文件，其中 readme.txt 文件是说明文件，steam 是我们要得到的可执行文件。
 
 注意：在更高版本的 linux 系统中执行./hldsupdatetool.bin 时，可能会提示如下错误：
+
 ```
 sh: uncompress: command not found 
 ```
+
 此时请先执行下面命令，之后重新执行./hldsupdatetool.bin
+
 ```
 ln -s /usr/bin/gunzip/usr/bin/uncompress
 ```
 
-
 5。下面我们执行 steam 程序开始下载 cs1.6 服务端的全部文件（因为 valve 公司服务器在国外，所以在国内下载过程时间比较长，我的光纤网络也整整用了一个晚上，这个命令如下：
+
 ```
 ./steam -command update -game cstrike -dir . -retry
 ```
 
 参数说明：
+
 - -game cstrike ：这个参数告诉 steam 你要下载的是反恐精英 cs1.6（如果你需要下载的是【反恐精英－起源】那么把这个参数改为 - game "Counter-Strike Source"）
 - -dir ：意思是将全部文件下载到当前目录，我们当前的目录是 /home/hlds_l_4617
 - -retry ：网络断线自动重新尝试下载，即断点续传
 
 现在你可以睡一觉或干点别的了，耐心等待它下载完成。
-### 第二部分：
+
+### 第二部分
+
   讲述使用 hldsudatetool.bin 专用工具下载 hlds（cs1.6 服务端程序）最新版本，以及当前最新版本 4617（48 协议）的 hlds 服务端的安装与调试。（注：.bin 扩展名文件是 red hat linux 系统下的可执行程序，就像 win 系统下的.exe 程序一样）
 
 经过艰难而又漫长的下载过程，我们终于得到了 linux 下架设 cs.16 服务器全部服务端文件和 l 程序，令人激动的时刻即将来临，现在到了把它运行起来的时候了，我们将真正拥有属于我们自己的 cs.16 服务器了。
 
 执行启动命令：
+
 ```
 ./hlds_run -binary ./hlds_i686 -console -game cstrike -insecure -pingboost 3 -port 27015 +maxplayers 32 +map de_dust2 +sv_lan 0 -noipx -nojoy -nohltv
 ```
 
 参数说明：
+
 - hlds_i686 适用于 Inter 公司的 cpu，如果你服务器 cpu 是 AMD，请把参数改为：hlds_amd 或 hlds_amd64
 - -console  控制台模式
 - -insecure 屏蔽官方 AVC 反作弊（使 D 版客户端能登录）
@@ -139,6 +157,7 @@ scandir failed:/home/hlds_l_4617/valve/SAVE
 scandir failed:/home/hlds_l_4617/platform/SAVE
 
 说明缺少这 2 个目录未建立，请建立所需的目录
+
 ```
 mkdir /home/hlds_l_4617/valve/SAVE
 mkdir /home/hlds_l_4617/platform/SAVE
@@ -150,13 +169,15 @@ couldn't exec listip.cfg
 couldn't exec banned.cfg
 
 说明缺少这 2 个文件未建立，请建立它们:（空文件即可）
+
 ```
 sudo vi /home/hlds_l_4617/cstrike/listip.cfg
 sudo vi /home/hlds_l_4617/cstrike/banned.cfg
 ```
 
-说明：
+说明
 --------------------------------------------------------
+
 `listip.cfg` 存放的是踢出的玩家 ip
 `banned.cfg` 存放的是被管理员封禁的玩家 ip
 ---------------------------------------------------------
@@ -166,10 +187,12 @@ sudo vi /home/hlds_l_4617/cstrike/banned.cfg
 另外这台 cs1.6 服务器的 server.cfg（cs1.6 服务器配置文件）还是初始缺省值，以后还需要对其进行详细配置（请参考有关文献），以使这台 cs1.6 服务器性能达到最优化。
 
 现在按键盘上的 CTRL+C 来终止 cs.16 服务器运行， 接着做下面的工作。
-### 第三部分：
+
+### 第三部分
+
   这部分内容是关于 dproto 模块插件的，这个插件将解决老版本（47 协议）和新版本（48 协议）客户端的登录问题，经过安装配置和后，你的这台 cs1.6 服务器将允许 47/48 两种协议的 non-steam（D 版）客户端进入游戏。
 Crock 是个伟大的程序员，他用 c 语言以及他的聪明才智开发了 dproto 模块插件程序，打破了 valve 公司对 D 版 cs1.6 客户端的封锁，2008 年 12 月 Crock 最初把 dproto 插件发布在 cs.rin.ru 论坛上，经过不断的升级，目前版本是 0.3.7，他发表的论坛网址如下：
-<a href="http://cs.rin.ru/forum/viewtopic.php?f=29&t=52728" target="_blank">http://cs.rin.ru/forum/viewtopic.php?f=29&t=52728</a>
+<a href="<<<http://cs.rin.ru/forum/viewtopic.php?f=29&t=52728>>>" target="_blank">http://cs.rin.ru/forum/viewtopic.php?f=29&t=52728</a>
 
 dproto 模块插件的伟大之处在于它并不修改原版 cs.16 服务端半个字节，却能让低版本（47 协议）和高版本（48 协议）以及这两种协议的 D 版客户端都能进入升级后的 cs1.6 服务器，dproto 运行在 MetaMod 平台上，因而 dproto 不是破解程序而仅仅是合法的插件，Metamod 是 cs.16 服务端标准扩展平台，著名的反作弊插件 sxe、amxmodx 以及 valve 本公司的反作弊插件 VAC 也运行在这个平台上，
 
@@ -181,42 +204,47 @@ dproto 模块插件的伟大之处在于它并不修改原版 cs.16 服务端半
 （一）、安装和测试 matamod 平台
 输入下面的命令，下载 Matemod 的 linux 版本：
 提示：我们当前所在的目录是 /home/hlds_l_4617 ，文件将下载到当前目录
+
 ```
 wget http://prdownloads.sourceforge.net/metamod-p/metamod-p-1.19p32-linux_i586.tar.gz?download
 ```
 
 输入下面命令查看下载的文件名：
+
 ```
 ls
 ```
 
 `metamod-p-1.19p32-linux_i586.tar.gz` 这就是我们刚下载到的文件
 输入下面命令将该文件解压缩
+
 ```
 tar -zxvf metamod-p-1.19p32-linux_i586.tar.gz
 ```
 
-tar -zxvf 参数解释 
-- -z 是配合解压.GZ 的 
-- -x 解开一个包文件 
-- -v 显示详细信息 
+tar -zxvf 参数解释
+
+- -z 是配合解压.GZ 的
+- -x 解开一个包文件
+- -v 显示详细信息
 - `-f 必须，表示使用归档文件
 
 metamod 官方网站地址（备用）：
-http://metamod-p.sourceforge.net/
+<http://metamod-p.sourceforge.net/>
 
 然后查看一下解压结果：
+
 ```
 ls
 ```
 
-  
 metamod_i386.so 就是我们解压缩释放出来的 linux 可执行文件，
 现在我们终于得到了 metamod_i386.so，接着我们开始用它布置 metamod 平台
 
 布置 metamod 平台需要 2 个步骤：
 1。在 cstrike 目录里建立 metamod 存放目录，然后将 metamod_i386.so 复制到建好的目录里
 输入下列命令完成目录创建：
+
 ```
 mkdir cstrike/addons
 mkdir cstrike/addons/metamod
@@ -225,11 +253,13 @@ mkdir cstrike/addons/metamod/dlls
 
 创建好所需的目录后，将 metamod_i386.so 复制到 cstrike/addons/metamod/dlls 目录中
 输入复制命令：
+
 ```
 cp metamod_i386.so cstrike/addons/metamod/dlls
 ```
 
 命令执行后，metamod_i386.so 的绝对位置应该在：
+
 ```
 /home/hlds_l_4617/cstrike/addons/metamod/dlls/metamod_i386.so
 ```
@@ -239,36 +269,44 @@ cp metamod_i386.so cstrike/addons/metamod/dlls
 ../cstrike/liblist.gam
 
 输入 vi 命令来编辑 liblist.gam 配置文件
+
 ```
 sudo vi cstrike/liblist.gam
 ```
 
 进入 vi 的文本编辑环境以后，按键盘上的 "I" 进入文本编辑模式：
 将 liblist.gam 中下面这一行：
+
 ```
 gamedll_linux "dlls/cs_i386.so"
 ```
+
 修改为：
+
 ```
 gamedll_chain "dlls/cs_i386.so"
 ```
 
 然后在下面添加一行：
+
 ```
 gamedll_linux "addons/metamod/dlls/metamod_i386.so"
 ```
 
 修改后看起来应该是这样子的：
+
 ```
 gamedll_chain "dlls/cs_i386.so"
 gamedll_linux "addons/metamod/dlls/metamod_i386.so"
 ```
+
 修改后，按键盘上的 'ESC' 键回退到 vi 控制模式，然后输入命令 :wq ，然后【回车】，保存和退出。
   
 （注：linux 下的文本编辑工具是 vi ，vi 有两种模式，编辑模式和控制模式，按 'I' 进入编辑模式，按 'ESC' 回退到 vi 控制模式，vi 编辑器的命令很强大也很灵活，这里不做论述，其详细使用方法请查看其他有关文献）
 
 接下来我们启动 hlds 服务端程序，看 metamod 是不是跟随 cs1.6 服务器一起启动了
 我们再次执行 hlds 启动命令：
+
 ```
 ./hlds_run -console -game cstrike -condebug -insecure -pingboost 3 -port 27015 +maxplayers 32 +map de_dust2 +sv_lan 0 -noipx -nojoy -nohltv
 ```
@@ -282,7 +320,7 @@ gamedll_linux "addons/metamod/dlls/metamod_i386.so"
 （二）、安装和测试 dproto 插件
 由于 Crock 发布 dproto 插件的打包方式是.rar，所以我们需要先在 winXp 电脑上下载并解开压缩包，然后再将释放出的插件程序上传到 linux 服务器上，
 请在你的 winXp 电脑上下载 dproto 的最新版本：
-http://cs.rin.ru/forum/viewtopic.php?f=29&t=52728
+<http://cs.rin.ru/forum/viewtopic.php?f=29&t=52728>
 当前最新版本是 0.3.7，包文件名为 dproto_0_3_7.rar（包中含有 linux 和 windows 两种程序分别应用于这两种操作系统）
 
 解开压缩包以后，在文件夹中可以找到 dproto_i386.so 和一个 dproto.cfg 两个文件（不要修改 dproto.cfg 的内容），这两个文件是本教程需要的，
@@ -293,15 +331,17 @@ http://cs.rin.ru/forum/viewtopic.php?f=29&t=52728
 
 下面我们继续做我们该做的工作，
 1。在 linux 服务器上创建 dproto 工作目录
+
 ```
 mkdir cstrike/addons/dproto
 ```
 
 2。使用工具软件 SSHSecureShellClient v3.29 把 dproto_i386.so 和 dproto.cfg 上传到远程 linux 服务器的相应目录中
 SSHSecureShellClient v3.29 下载：
-http://www.v.bdjy.cn/out/download_oracle.jsp?db=nav_c_blobdata&id=1202
+<http://www.v.bdjy.cn/out/download_oracle.jsp?db=nav_c_blobdata&id=1202>
 
 上传后，dproto 相关的文件绝对位置应该是这样子的：
+
 ```
 /home/hlds_l_4617/cstrike/addons/dproto/dproto_i386.so
 /home/hlds_l_4617/cstrike/dproto.cfg
@@ -309,23 +349,29 @@ http://www.v.bdjy.cn/out/download_oracle.jsp?db=nav_c_blobdata&id=1202
 
 2。用 vi 为 metamod 平台创建 plugins.ini 配置文件，在 plugins.ini 中告诉 metamod 平台 dproto 的存在和位置。
 执行下面命令：
+
 ```
 sudo vi cstrike/addons/metamod/plugins.ini
 ```
 
 按键盘上的 'I' 键进入编辑模式，
 添加下面一行
+
 ```
 linux addons/dproto/dproto_i386.so
 ```
+
 然后按键盘上的 'Esc' 键回退到 vi 控制模式，输入:wq ，然后【回车】，保存退出
 
 你刚才创建的 plugins.ini 文件的绝对位置应该在：
+
 ```
 /home/hlds_l_4617/cstrike/addons/metamod/plugins.ini
 ```
+
 现在，你终于可以松下心来了，我们终于做好了所有的工作，一台实用的 cs1.6 服务器终于做好了，我们现在第三次启动 hlds 服务
 输入启动命令：
+
 ```
 ./hlds_run -console -game cstrike -condebug -insecure -pingboost 3 -port 27015 +maxplayers 32 +map de_dust2 +sv_lan 0 -noipx -nojoy -nohltv
 ```
@@ -337,11 +383,13 @@ linux addons/dproto/dproto_i386.so
 接下来你可能会遇到小问题，即当你关闭 PieTTY 终端窗口或关闭电脑，你服务器上的 cs.16 服务端程序也随之终止运行了，不用担心，你只需创建一个 linux 下的一个包含 hlds 启动命令的批处理文件，然后执行一下就解决问题了，
 方法如下：
 输入下列命令创建批命令文件（我们将这个批处理命令命名为 hlds4617.sh）
+
 ```
 sudo vi hlds4617.sh
 ```
 
 按键盘上的 'I' 键进入 vi 编辑模式，然后将 hlds 的启动命令写进去：
+
 ```
 ./hlds_run -console -game cstrike -condebug -insecure -pingboost 3 -port 27015 +maxplayers 32 +map de_dust2 +sv_lan 0 -noipx -nojoy -nohltv
 ```
@@ -349,6 +397,7 @@ sudo vi hlds4617.sh
 然后按键盘上的 'Esc' 键，回退到 vi 控制模式，输入:wq  ，然后【回车】，保存退出。
 
 执行刚刚建立的这个批命令文件：
+
 ```
 nohup ./hlds4617.sh &
 ```
@@ -356,12 +405,15 @@ nohup ./hlds4617.sh &
 （注意：不要少了命令最后面的 '&'）
 
 或者：
+
 ```
 ./hlds.sh &
 ```
 
 命令执行后，你可以退出 PieTTY 或关闭个人电脑了，而 cs.16 服务端程序将在那台 linux 服务器继续运行。
-### 第四部分：
+
+### 第四部分
+
 配置 linux 的防火墙，让你的 cs1.6 服务器注册到 valve 列表服务器，以便让玩家客户端刷出你的服务器。
 关于 cs.16 服务器所使用的端口及网络通讯协议，以及 linux 防火墙 iptables 的设置
 
@@ -379,6 +431,7 @@ cs1.6 服务器端运行以后，会开通一些端口，我们得使用一些�
   
 截图中的信息表示，hlds 启动使用了 27010 和 27013 两个端口（注意：你服务器的启动端口不一定与此相同），它们分别将你的 cs1.6 服务器注册到 valve 的两个列表服务器上（玩家客户端依赖这两个服务器刷出你的服），
 然后我们使用一个 linux 命令查看你的 cs1.6 服务器端还使用了哪些端口，输入下面命令：
+
 ```
 netstat -anp | grep hlds
 ```
@@ -392,11 +445,13 @@ netstat -anp | grep hlds
 
 下面我们通过修改 iptables 配置文件，来进行 linux 防火墙新规则配置
 执行命令：
+
 ```
 sudo vi /etc/sysconfig/iptables
 ```
 
 在文件末尾添加下列代码
+
 ```
 -A RH-Firewall-1-INPUT -m state --state NEW -m udp -p udp --dport 27010 -j ACCEPT
 -A RH-Firewall-1-INPUT -m state --state NEW -m udp -p udp --dport 27013 -j ACCEPT
@@ -404,17 +459,21 @@ sudo vi /etc/sysconfig/iptables
 -A RH-Firewall-1-INPUT -m state --state NEW -m udp -p udp --dport 26900 -j ACCEPT
 -A RH-Firewall-1-INPUT -j REJECT --reject-with icmp-host-prohibited COMMIT
 ```
+
 然后保存退出
 
 重启防火墙，使新规则生效
+
 ```
 sudo service iptables restart
 ```
 
-系统会提示...ok 
+系统会提示...ok
 
 到此，这台 cs1.6 服务器的防火墙配置完成了，以后可以放心的让它在互联网上运行了。
-### 第五部分：
+
+### 第五部分
+
 关于 Linux 下的 hlds4617 的性能（fps）的调整。让我们来实现传说中的 1000fps 的 cs1.6 服务器。
 关于 linux 下的 hlds4617 服务器性能（fps）的调整，使 hlds 服务器端达到 1000fps。
 
@@ -441,6 +500,7 @@ rcon_password "12345678"// 管理口令就是 12345678，你可以更改这个�
 
 如果出现跳 PING 现象，改变程序 HLDS 的优先级就可以了！
 // 显示当前活动的进程，命令：
+
 ```
 top
 ```
@@ -449,11 +509,13 @@ top
 你也可以使用 ps -e 命令查看所有进程（包括不活动的）
 
 若要将它优先级提高，执行下面命令：
+
 ```
 renice -10 3305
 ```
 
 然后再进程查看命令：
+
 ```
 top
 ```
@@ -461,4 +523,3 @@ top
 截图显示，hlds_run 进程优先级由 +10 改为 - 10，以此方法来提高 hlds 的优先级，使我们的 cs1.6 服务器 fps 高且稳定（注：linux 的进程优先级范围是－20，+19，数字越小，优先级越高）。
 
 注意：图片显示的进程修改后的优先级是错的，应以教程文字为准。
-

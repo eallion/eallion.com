@@ -1,9 +1,9 @@
 ---
 title: "新工作记要"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","记要"]
 draft: false
-Comments: true
 slug: "xin-gong-zuo-ji-yao"
 date: "2012-09-05 09:11:24"
 ---
@@ -27,4 +27,3 @@ date: "2012-09-05 09:11:24"
 学会做工作笔记 —— 计划与总结
 学会做项目管理
 注重细节
-

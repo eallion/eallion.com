@@ -1,9 +1,9 @@
 ---
 title: "Ubuntu 源 阿里云"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","阿里云","源","更新源"]
 draft: false
-Comments: true
 slug: "ubuntu-aliyun"
 date: "2016-09-24 15:32:00"
 ---
@@ -11,6 +11,7 @@ date: "2016-09-24 15:32:00"
 ```bash
 sudo vim /etc/apt/sources.list
 ```
+
 ```bash
 deb http://mirrors.aliyun.com/ubuntu/xenial main restricted
 deb http://mirrors.aliyun.com/ubuntu/xenial-updates main restricted
@@ -23,4 +24,3 @@ deb http://mirrors.aliyun.com/ubuntu/xenial-security main restricted
 deb http://mirrors.aliyun.com/ubuntu/xenial-security universe
 deb http://mirrors.aliyun.com/ubuntu/xenial-security multiverse
 ```
-

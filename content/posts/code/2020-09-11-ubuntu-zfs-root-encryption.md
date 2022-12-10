@@ -1,10 +1,10 @@
 ---
 title: "Ubuntu ZFS 原生全盘加密"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu", "ZFS", "encryption", "加密", "Linux"]
 slug: "ubuntu-zfs-root-encryption"
 draft: false
-Comments: true
 date: 2020-09-11T23:48:35+08:00
 ---
 

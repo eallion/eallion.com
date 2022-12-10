@@ -1,9 +1,9 @@
 ---
 title: "全城戒备"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["全城戒备","电影"]
 draft: false
-Comments: true
 slug: "city-under-siege"
 date: "2010-08-06 23:13:44"
 ---
@@ -57,4 +57,3 @@ date: "2010-08-06 23:13:44"
 所以最后舒淇中飞刀后我倒真希望她能活下来大团圆
 反正看完后觉得意外挺多
 不是我想象中的样子
-

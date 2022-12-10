@@ -1,9 +1,9 @@
 ---
 title: "家电决定生活"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["电脑","家电","空调","洗衣机","安定"]
 draft: false
-Comments: true
 slug: "jia-dian-jue-ding-sheng-huo"
 date: "2012-06-13 08:28:51"
 ---
@@ -19,5 +19,3 @@ date: "2012-06-13 08:28:51"
 
 这些家电突然让我感觉生活就这么安定下来了
 一直很乱的屋子也花了两天时间大扫除
-
-

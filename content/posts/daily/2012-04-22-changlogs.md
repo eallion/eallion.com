@@ -1,9 +1,9 @@
 ---
 title: "对博客的小改动"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","小记","改动","优化","代码"]
 draft: false
-Comments: true
 slug: "changlogs"
 date: "2012-04-22 00:36:11"
 ---
@@ -20,7 +20,7 @@ date: "2012-04-22 00:36:11"
 
  WordPress 可以直接用 “多说” 插件
 其他的程序可要自己调用通过代码了
-<a href="http://blog.duoshuo.com/2012/03/custom-release-candidate/" target="_blank">http://blog.duoshuo.com/2012/03/custom-release-candidate/</a>
+<a href="<<<http://blog.duoshuo.com/2012/03/custom-release-candidate/>>>" target="_blank">http://blog.duoshuo.com/2012/03/custom-release-candidate/</a>
 然后再对代码做一些简单的优化
 我还把 js 下载下来本地化了
 
@@ -43,7 +43,7 @@ date: "2012-04-22 00:36:11"
 就不显示插件而只显示一张图片
 <a href="http://www.jzwalk.com" target="_blank"> 羽中 </a > 同学说这个插件在 firefox3 下显示为一片空白
 这个我就没办法了
-插件地址：<a href="http://slidesjs.com/" target="_blank">http://slidesjs.com/</a>
+插件地址：<a href="<<<http://slidesjs.com/>>>" target="_blank">http://slidesjs.com/</a>
 
 博客还添加了一个文章关联插件 “友荐”
 就是打开文章页
@@ -51,7 +51,7 @@ date: "2012-04-22 00:36:11"
 会自动弹出 4 篇相关文章
 只对文章页有效
 过滤了首页和页面页
-<a href="http://www.ujian.cc/" target="_blank">http://www.ujian.cc/</a>
+<a href="<<<http://www.ujian.cc/>>>" target="_blank">http://www.ujian.cc/</a>
 
 博客的 “每日一句”
 是在模板里新建的一个 `function.php` 文件
@@ -62,7 +62,7 @@ date: "2012-04-22 00:36:11"
 <a href="http://www.binjoo.net/" target="_blank"> 冰剑 </a > 同学发布有一个插件
 我在插件的基础上改动了一些
 还很好用的
-<a href="http://www.binjoo.net/2011/02/slimbox2-for-typecho/" target="_blank">http://www.binjoo.net/2011/02/slimbox2-for-typecho/</a>
+<a href="<<<http://www.binjoo.net/2011/02/slimbox2-for-typecho/>>>" target="_blank">http://www.binjoo.net/2011/02/slimbox2-for-typecho/</a>
 
 音乐播放器集成的 < a href="http://www.1g1g.com" target="_blank"> 亦歌 </a>
 
@@ -90,4 +90,3 @@ date: "2012-04-22 00:36:11"
         小说：<a href="http://book.eallion.com/" target="_blank"> 指间的信仰 </a>
     </li>
 </ul>
-

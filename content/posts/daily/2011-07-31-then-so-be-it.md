@@ -1,9 +1,9 @@
 ---
 title: "那就这样吧"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["乌龟","那就这样吧","兔子"]
 draft: false
-Comments: true
 slug: "then-so-be-it"
 date: "2011-07-31 23:32:00"
 ---
@@ -132,4 +132,3 @@ date: "2011-07-31 23:32:00"
 嗯……
 就这样吧
 陪我到老。
-

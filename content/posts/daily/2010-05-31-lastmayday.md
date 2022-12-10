@@ -1,9 +1,9 @@
 ---
 title: "五月天 - 五月的最后一天"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["五月记事"]
 draft: false
-Comments: true
 slug: "lastmayday"
 date: "2010-05-31 21:30:20"
 ---
@@ -29,4 +29,3 @@ date: "2010-05-31 21:30:20"
 如果你在乎的东西，在别人那里一文不值，那这个人生就是个杯具。
 
 装不下芝华士，它默默倒一杯清茶。
-

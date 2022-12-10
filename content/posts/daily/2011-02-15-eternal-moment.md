@@ -1,9 +1,9 @@
 ---
 title: "将爱情进行到底"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["影评","爱情","电影","love","将爱"]
 draft: false
-Comments: true
 slug: "eternal-moment"
 date: "2011-02-15 08:52:46"
 ---
@@ -36,5 +36,3 @@ date: "2011-02-15 08:52:46"
 电影里感动我的倒是那一对对恋人跟我们娓娓道来
 我们其实需要的可能就是这样的小感动
 生活和爱情不都是要慢慢沉淀的迈
-
-

@@ -1,9 +1,0 @@
-<a href="https://twitter.com/intent/tweet?url={{ .Permalink | safeURL }}&text={{ .Title | plainify }}&via=https%3A%2F%2Feallion.com&hashtags=" target="_blank" rel="noopener noreferrer"><i class="iconfont icon-twitter"></i></a>
-<a href="http://www.facebook.com/sharer.php?u={{ .Permalink | safeURL }}" target="_blank" rel="noopener noreferrer"><i class="iconfont icon-facebook"></i></a>
-<a href="https://reddit.com/submit?url={{ .Permalink | safeURL }}&title={{ .Title | plainify }}" target="_blank" rel="noopener noreferrer"><i class="iconfont icon-reddit"></i></a>
-<a href="https://t.me/share/url?url={{ .Permalink | safeURL }}&text={{ .Title | plainify }}&to=" target="_blank" rel="noopener noreferrer"><i class="iconfont icon-telegram"></i></a>
-<!--<a href="http://www.douban.com/recommend/?url={{ .Permalink | safeURL }}&title={{ .Title | plainify }}" target="_blank" rel="noopener noreferrer"><i class="iconfont icon-douban"></i></a>-->
-<a href="http://service.weibo.com/share/share.php?url={{ .Permalink | safeURL }}&appkey=&title={{ .Title | plainify }}&pic=&ralateUid=" target="_blank" rel="noopener noreferrer"><i class="iconfont icon-weibo"></i></a>
-<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{ .Permalink | safeURL }}" target="_blank" rel="noopener noreferrer"><i class="iconfont icon-qzone"></i></a>
-<!--<a href="http://www.evernote.com/clip.action?url={{ .Permalink | safeURL }}&title={{ .Title | plainify }}" target="_blank" rel="noopener noreferrer"><i class="iconfont icon-evernote"></i></a>-->
-<span class="weixin"><i class="iconfont icon-weixin-circle"></i><img src="https://api.eallion.com/qrcode/?size=131&text={{ .Permalink | safeURL }}"></span>

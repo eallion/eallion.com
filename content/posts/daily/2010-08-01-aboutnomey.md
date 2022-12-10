@@ -1,9 +1,9 @@
 ---
 title: "钱是你大爷，钱你是大爷"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["有感","自言自语"]
 draft: false
-Comments: true
 slug: "aboutnomey"
 date: "2010-08-01 23:25:07"
 ---
@@ -57,4 +57,3 @@ ATM 更扯淡了
 平静的种点菜
 安度余生
 对了还要给妈妈讨个媳妇儿
-

@@ -1,9 +1,9 @@
 ---
 title: "春哥舒淇和苍老师"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["春哥","李宇春","舒淇","赵文卓","甄子丹"]
 draft: false
-Comments: true
 slug: "chun-ge-shu-qi-he-cang-lao-shi"
 date: "2012-04-09 13:02:38"
 ---
@@ -56,4 +56,3 @@ date: "2012-04-09 13:02:38"
 何况你只是个演戏的
 
 宁做一个脱光衣服的圣女，不要做一个穿着衣服的禽兽。
-

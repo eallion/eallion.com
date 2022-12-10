@@ -1,9 +1,9 @@
 ---
 title: "有些需要被我们记住的东西"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","回忆","往事","记忆","青春"]
 draft: false
-Comments: true
 slug: "to-be-remember"
 date: "2008-05-21 21:48:35"
 ---
@@ -142,4 +142,3 @@ CS 占去得更多
 也还花了一点点时间
 边聊还边写
 花了不少的时间
-

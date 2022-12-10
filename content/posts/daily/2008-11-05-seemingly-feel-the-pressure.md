@@ -1,9 +1,9 @@
 ---
 title: "貌似感受到压力"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["毕业","压力","随意"]
 draft: false
-Comments: true
 slug: "seemingly-feel-the-pressure"
 date: "2008-11-05 20:15:56"
 ---
@@ -24,4 +24,3 @@ date: "2008-11-05 20:15:56"
 对现在的生活认真的投入进去...
 压力无所谓...
 从来就很乐观心存希望...
-

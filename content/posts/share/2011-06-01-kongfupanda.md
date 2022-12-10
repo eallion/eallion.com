@@ -1,9 +1,9 @@
 ---
 title: "《功夫熊猫》是文化侵略吗"
+authors: ["eallion"]
 categories: ["分享"]
 tags: ["文化","熊猫","功夫熊猫","文化侵略","侵略"]
 draft: false
-Comments: true
 slug: "kongfupanda"
 date: "2011-06-01 14:34:24"
 ---
@@ -12,7 +12,7 @@ date: "2011-06-01 14:34:24"
 靠大熊猫吃饭的人有两种，一种是饲养员，一种是赵半狄。随着《功夫熊猫》续集在中国上映，这位 “熊猫艺术家” 又开始了他的抵制之路。
 赵半狄认为《功夫熊猫》是 “文化侵略”，而北大教授孔庆东更表示，“好莱坞不仅在赚你的钱，还要洗你的脑，还要征服你的心”，那么，究竟什么是文化侵略，赵半狄和他的支持者大概需要上一课。
 
-原文链接：<a href="http://view.news.qq.com/zt2011/wenhuaqinlue/index.htm" target="_blank">http://view.news.qq.com/zt2011/wenhuaqinlue/index.htm</a></blockquote>
+原文链接：<a href="<<<http://view.news.qq.com/zt2011/wenhuaqinlue/index.htm>>>" target="_blank">http://view.news.qq.com/zt2011/wenhuaqinlue/index.htm</a></blockquote>
 
 <strong > 一，抵制《功夫熊猫》的逻辑 </strong>
 
@@ -55,5 +55,3 @@ date: "2011-06-01 14:34:24"
 如果我们说中国文化最强大的唐朝，恰恰是与外来文化交流最多的时期，那么反对 “文化入侵” 者必定要回应：那是因为我们的文化比对方强势，我们可以 “入侵” 对方，如果强势的是对方，我们就吃亏了。其实，弱势文化更是必须和外界交流，否则只能越来越弱势，越来越经不起交流。80 年代一部香港电影《少林寺》影响全国，甚至引发社会问题，不少家长控诉电影误导孩子去河南学武，其实这部电影之所以引起这么大的轰动，很大程度上是因为我们从来没有接触过香港功夫片，这部电影对我们来说简直是横空出世。
 
 <strong > 结语 </strong>：我们不反对赵半狄抵制功夫熊猫，当然我们也不反对抵制赵半狄，我们只反对强迫我们接受或抵制。
-
-

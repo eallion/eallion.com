@@ -1,9 +1,9 @@
 ---
 title: "XHTML1.0 和 CSS3.0 验证"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["xhtml","认证","验证","css3.0"]
 draft: false
-Comments: true
 slug: "authentication"
 date: "2010-11-07 06:11:40"
 ---
@@ -37,4 +37,3 @@ CSS3.0 验证的时候
 所以
 我不会把闲心花在改 XHTML 和 CSS 这上面
 仅仅是为了去通过无聊的认证
-

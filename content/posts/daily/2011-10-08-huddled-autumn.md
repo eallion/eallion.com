@@ -1,9 +1,9 @@
 ---
 title: "秋风瑟缩"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["秋"]
 draft: false
-Comments: true
 slug: "huddled-autumn"
 date: "2011-10-08 11:22:36"
 ---
@@ -30,4 +30,3 @@ date: "2011-10-08 11:22:36"
 我就一直走一直走
 梦想有一节清静的火车
 载我去远方去未来
-

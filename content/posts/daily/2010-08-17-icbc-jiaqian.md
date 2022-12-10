@@ -1,9 +1,9 @@
 ---
 title: "如果我真取到了假钱"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["ATM","假钱","工行","残币"]
 draft: false
-Comments: true
 slug: "icbc-jiaqian"
 date: "2010-08-17 17:34:00"
 ---
@@ -45,4 +45,3 @@ date: "2010-08-17 17:34:00"
  要是有更多的人取到这样的钱呢？
  这种钱为什么会放到 ATM 里的？
  我草，我的疑问可不少。
-

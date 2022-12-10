@@ -1,9 +1,9 @@
 ---
 title: "玩 CS 的你们伤不起！"
+authors: ["eallion"]
 categories: ["分享"]
 tags: ["CS","伤不起","咆哮体"]
 draft: false
-Comments: true
 slug: "shangbuqi"
 date: "2011-03-29 09:50:30"
 ---
@@ -64,4 +64,3 @@ banip 啊！！！！各种 ban 啊！！！！！！
 
 总之玩 Counter-Strike 的！是上辈子坠落人间的折翼天屎啊！！！！！
 你们！！！！桑！！！不！！！！起！！！！！
-

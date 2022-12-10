@@ -1,9 +1,9 @@
 ---
 title: "我的 steam 回来了"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","封禁","账号","steam","解封","申诉"]
 draft: false
-Comments: true
 slug: "steam-back"
 date: "2011-01-23 08:00:00"
 ---
@@ -52,4 +52,3 @@ Steam 封我的理由给得光怪陆离
 我就把这种额外的眷顾当成奖赏吧
 
 嗯，顺便写了封感谢的信发过去了
-

@@ -1,9 +1,9 @@
 ---
 title: "中文文案排版指北"
+authors: ["eallion"]
 categories: []
 tags: []
 draft: false
-Comments: true
 slug: "chinese-copywriting-guidelines"
 date: "2019-12-02 17:44:00"
 ---
@@ -24,27 +24,27 @@ Other languages:
 
 <!-- vim-markdown-toc GFM -->
 
-* [空格](# 空格)
-    * [中英文之间需要增加空格](# 中英文之间需要增加空格)
-    * [中文与数字之间需要增加空格](# 中文与数字之间需要增加空格)
-    * [数字与单位之间无需增加空格](# 数字与单位之间无需增加空格)
-    * [全角标点与其他字符之间不加空格](# 全角标点与其他字符之间不加空格)
-    * [`-ms-text-autospace` to the rescue?](#-ms-text-autospace-to-the-rescue)
-* [标点符号](# 标点符号)
-    * [不重复使用标点符号](# 不重复使用标点符号)
-* [全角和半角](# 全角和半角)
-    * [使用全角中文标点](# 使用全角中文标点)
-    * [数字使用半角字符](# 数字使用半角字符)
-    * [遇到完整的英文整句、特殊名词，其內容使用半角标点](# 遇到完整的英文整句特殊名词其內容使用半角标点)
-* [名词](# 名词)
-    * [专有名词使用正确的大小写](# 专有名词使用正确的大小写)
-    * [不要使用不地道的缩写](# 不要使用不地道的缩写)
-* [争议](# 争议)
-    * [链接之间增加空格](# 链接之间增加空格)
-    * [简体中文使用直角引号](# 简体中文使用直角引号)
-* [工具](# 工具)
-* [谁在这样做？](# 谁在这样做)
-* [参考文献](# 参考文献)
+- [空格](# 空格)
+  - [中英文之间需要增加空格](# 中英文之间需要增加空格)
+  - [中文与数字之间需要增加空格](# 中文与数字之间需要增加空格)
+  - [数字与单位之间无需增加空格](# 数字与单位之间无需增加空格)
+  - [全角标点与其他字符之间不加空格](# 全角标点与其他字符之间不加空格)
+  - [`-ms-text-autospace` to the rescue?](#-ms-text-autospace-to-the-rescue)
+- [标点符号](# 标点符号)
+  - [不重复使用标点符号](# 不重复使用标点符号)
+- [全角和半角](# 全角和半角)
+  - [使用全角中文标点](# 使用全角中文标点)
+  - [数字使用半角字符](# 数字使用半角字符)
+  - [遇到完整的英文整句、特殊名词，其內容使用半角标点](# 遇到完整的英文整句特殊名词其內容使用半角标点)
+- [名词](# 名词)
+  - [专有名词使用正确的大小写](# 专有名词使用正确的大小写)
+  - [不要使用不地道的缩写](# 不要使用不地道的缩写)
+- [争议](# 争议)
+  - [链接之间增加空格](# 链接之间增加空格)
+  - [简体中文使用直角引号](# 简体中文使用直角引号)
+- [工具](# 工具)
+- [谁在这样做？](# 谁在这样做)
+- [参考文献](# 参考文献)
 
 <!-- vim-markdown-toc -->
 
@@ -120,7 +120,7 @@ Other languages:
 
 ### `-ms-text-autospace` to the rescue?
 
-Microsoft 有个 [`-ms-text-autospace`](http://msdn.microsoft.com/en-us/library/ie/ms531164 (v=vs.85).aspx) 的 CSS 属性可以实现自动为中英文之间增加空白。不过目前并未普及，另外在其他应用场景，例如 OS X、iOS 的用户界面目前并不存在这个特性，所以请继续保持随手加空格的习惯。
+Microsoft 有个 [`-ms-text-autospace`](<http://msdn.microsoft.com/en-us/library/ie/ms531164> (v=vs.85).aspx) 的 CSS 属性可以实现自动为中英文之间增加空白。不过目前并未普及，另外在其他应用场景，例如 OS X、iOS 的用户界面目前并不存在这个特性，所以请继续保持随手加空格的习惯。
 
 ## 标点符号
 
@@ -144,7 +144,7 @@ Microsoft 有个 [`-ms-text-autospace`](http://msdn.microsoft.com/en-us/library/
 
 ## 全角和半角
 
-不明白什么是全角（全形）与半角（半形）符号？请查看维基百科词条『[全角和半角](http://zh.wikipedia.org/wiki/% E5%85% A8% E5% BD% A2% E5%92%8C% E5%8D%8A% E5% BD% A2)』。
+不明白什么是全角（全形）与半角（半形）符号？请查看维基百科词条『[全角和半角](<http://zh.wikipedia.org/wiki/>% E5%85% A8% E5% BD% A2% E5%92%8C% E5%8D%8A% E5% BD% A2)』。
 
 ### 使用全角中文标点
 
@@ -306,7 +306,7 @@ Microsoft 有个 [`-ms-text-autospace`](http://msdn.microsoft.com/en-us/library/
 - [Punctuation - Oxford Dictionaries](http://www.oxforddictionaries.com/words/punctuation)
 - [Punctuation - The Purdue OWL](https://owl.english.purdue.edu/owl/section/1/6/)
 - [How to Use English Punctuation Corrently - wikiHow](http://www.wikihow.com/Use-English-Punctuation-Correctly)
-- [格式 - openSUSE](https://zh.opensuse.org/index.php?title=Help:% E6% A0% BC% E5% BC%8F)
-- [全角和半角 - 维基百科](http://zh.wikipedia.org/wiki/% E5%85% A8% E5% BD% A2% E5%92%8C% E5%8D%8A% E5% BD% A2)
-- [引号 - 维基百科](http://zh.wikipedia.org/wiki/% E5% BC%95% E8%99%9F)
-- [疑问惊叹号 - 维基百科](http://zh.wikipedia.org/wiki/% E7%96%91% E5%95%8F% E9% A9%9A% E5%98%86% E8%99%9F)
+- [格式 - openSUSE](<https://zh.opensuse.org/index.php?title=Help>:% E6% A0% BC% E5% BC%8F)
+- [全角和半角 - 维基百科](<http://zh.wikipedia.org/wiki/>% E5%85% A8% E5% BD% A2% E5%92%8C% E5%8D%8A% E5% BD% A2)
+- [引号 - 维基百科](<http://zh.wikipedia.org/wiki/>% E5% BC%95% E8%99%9F)
+- [疑问惊叹号 - 维基百科](<http://zh.wikipedia.org/wiki/>% E7%96%91% E5%95%8F% E9% A9%9A% E5%98%86% E8%99%9F)

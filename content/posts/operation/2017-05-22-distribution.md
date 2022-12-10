@@ -1,9 +1,9 @@
 ---
 title: "运营小记 - 快速铺货"
+authors: ["eallion"]
 categories: ["运营"]
 tags: ["淘宝","运营","天猫","淘宝助理","详情"]
 draft: false
-Comments: true
 slug: "distribution"
 date: "2017-05-22 11:28:00"
 ---
@@ -30,11 +30,11 @@ date: "2017-05-22 11:28:00"
 首先想到的是官方的工具 - 淘宝助理。
 毕竟还是有官方光环嘛。
 
-> 淘宝助理 <a href="https://zhuli.taobao.com/" target="_blank">https://zhuli.taobao.com</a>
+> 淘宝助理 <a href="<<<https://zhuli.taobao.com>>>/" target="_blank">https://zhuli.taobao.com</a>
 
 经测试 `6.0.5.0` 版本可以用，`6.1.0.1` 有 bug。
 
-### 步骤：
+### 步骤
 
  1. 先用一个主店，上传完整的宝贝信息，详情传到图片空间；
 
@@ -52,4 +52,3 @@ date: "2017-05-22 11:28:00"
     我遇到的报错是运费模板不符，到店铺后台设置一下，然后在淘宝助理中选择设置好的运费模板，并点击 `保存并上传` 即可。
 
  5. 如果图片空间授权失败，比如信誉没到 1 钻，可以导入 CSV 后，删除掉详情内容中的图片，再上传宝贝，然后到淘宝后台编辑更新宝贝详情页。
-

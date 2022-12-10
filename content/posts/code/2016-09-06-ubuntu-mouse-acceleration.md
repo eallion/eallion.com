@@ -1,9 +1,9 @@
 ---
 title: "Ubuntu 鼠标加速度"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["鼠标","Ubuntu","加速度","鼠标加速","xset m 0"]
 draft: false
-Comments: true
 slug: "ubuntu-mouse-acceleration"
 date: "2016-09-06 23:30:00"
 ---
@@ -25,4 +25,3 @@ date: "2016-09-06 23:30:00"
 3，`sudo reboot`
 
 更新：在 Ubuntu 软件里搜索 “Mouse”，找到 “Keyboard and Mouse"，安装即可。
-

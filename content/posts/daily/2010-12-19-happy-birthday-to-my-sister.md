@@ -1,9 +1,9 @@
 ---
 title: "妹妹 生日快乐"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["妹妹","生日","生日快乐"]
 draft: false
-Comments: true
 slug: "happy-birthday-to-my-sister"
 date: "2010-12-19 12:19:44"
 ---
@@ -119,4 +119,3 @@ date: "2010-12-19 12:19:44"
 大多数的孩子都会给我抱的
 哥我可是好人
 嗯，最后祝妹妹生日快乐。
-

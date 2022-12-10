@@ -1,9 +1,9 @@
 ---
 title: "巴塞罗那 VS 北京国安"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["北京国安","巴塞罗那","足球"]
 draft: false
-Comments: true
 slug: "barcelona"
 date: "2010-08-09 00:00:02"
 ---
@@ -64,4 +64,3 @@ date: "2010-08-09 00:00:02"
 就随便打的一些字
 仅以这种方式向萨翁致敬
 真希望天堂里也有奥运会
-

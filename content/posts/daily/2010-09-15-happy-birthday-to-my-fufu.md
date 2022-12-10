@@ -1,9 +1,9 @@
 ---
 title: "福福 生日快乐"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["生日","生日快乐","福福"]
 draft: false
-Comments: true
 slug: "happy-birthday-to-my-fufu"
 date: "2010-09-15 09:15:06"
 ---
@@ -16,4 +16,3 @@ date: "2010-09-15 09:15:06"
 但还是想当着你的面
 跟你说一声
 生日快乐。
-

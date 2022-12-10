@@ -1,9 +1,9 @@
 ---
 title: "markdown 确实不方便"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","markdown"]
 draft: false
-Comments: true
 slug: "markdown-really-inconvenient"
 date: "2015-01-19 09:40:00"
 ---
@@ -14,4 +14,3 @@ date: "2015-01-19 09:40:00"
 
 更新：20170505
 我自己来打脸，我不记得我还说过这样的话。我现在觉得 markdown 太好用了！
-

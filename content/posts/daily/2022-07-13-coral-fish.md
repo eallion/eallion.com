@@ -1,5 +1,6 @@
 ---
 title: "珊瑚鱼"
+authors: ["eallion"]
 categories: ["日志"]
 tags: 
   - 珊瑚鱼
@@ -8,9 +9,7 @@ tags:
   - 王刚
 slug: "coral-fish"
 draft: false
-Comments: true
 date: 2022-07-13T19:14:26+08:00
-toc: false
 ---
 
 「宽油帮」业余厨子来交作业了。  

@@ -1,9 +1,9 @@
 ---
 title: "玩儿呀玩儿"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["游戏","玩","找茬","大家来找茬"]
 draft: false
-Comments: true
 slug: "play-play-ah"
 date: "2011-07-24 23:14:05"
 ---
@@ -129,4 +129,3 @@ date: "2011-07-24 23:14:05"
 
 你呢？?
 打算怎么玩儿？？
-

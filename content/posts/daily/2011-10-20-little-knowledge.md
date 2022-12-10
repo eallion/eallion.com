@@ -1,9 +1,9 @@
 ---
 title: "略有见闻"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["老板","大师","书画","越中古迹图","曲水流觞"]
 draft: false
-Comments: true
 slug: "little-knowledge"
 date: "2011-10-20 15:04:35"
 ---
@@ -51,4 +51,3 @@ date: "2011-10-20 15:04:35"
 内心自然宁静下来
 他身上散发出来的气场就能感染身边的人
 举手投足皆是大师风范
-

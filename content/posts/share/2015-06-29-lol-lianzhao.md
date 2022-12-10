@@ -1,9 +1,9 @@
 ---
 title: "细数 LOL 先施法后闪现的迷之连招"
+authors: ["eallion"]
 categories: ["分享"]
 tags: ["LOL","英雄联盟","连招"]
 draft: false
-Comments: true
 slug: "lol-lianzhao"
 date: "2015-06-29 16:55:00"
 ---
@@ -43,4 +43,3 @@ date: "2015-06-29 16:55:00"
 17. 亚索：EQ + 闪现
 
 18. 赵信：R + 闪现
-

@@ -1,9 +1,9 @@
 ---
 title: "韩国宽带为何物美价廉"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["网易","专题","宽带","信息化","垄断"]
 draft: false
-Comments: true
 slug: "koreaninternet"
 date: "2011-01-24 08:15:00"
 ---
@@ -44,13 +44,12 @@ date: "2011-01-24 08:15:00"
 我觉得在做新闻这一块
 网易和新浪都比较有骨气
 而且去年网易还做了一件很有意义的事
-就是网易翻译的 < strong > 公开课 </strong> <a href="http://v.163.com/open" target="_blank">http://v.163.com/open</a>
+就是网易翻译的 < strong > 公开课 </strong> <a href="<<<http://v.163.com/open>>>" target="_blank">http://v.163.com/open</a>
 
-而搜狐就只知道做点小娱小乐的高清美剧了 <a href="http://tv.sohu.com/hdtv/" target="_blank">http://tv.sohu.com/hdtv</a>
+而搜狐就只知道做点小娱小乐的高清美剧了 <a href="<<<http://tv.sohu.com/hdtv>>>/" target="_blank">http://tv.sohu.com/hdtv</a>
 话说，我追《迷失》不能下载的那几天
 我也还是来这里看过两集《迷失》的～
 
 我简单的对我的网速做了个测试
 嗯，我还比较满意
 可是我这里是 50M 宽带，一个月要 3800（返利 1050）
-

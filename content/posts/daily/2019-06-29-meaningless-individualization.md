@@ -1,9 +1,9 @@
 ---
 title: "无意义的个性化"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["个性化","背景音乐","负优化"]
 draft: false
-Comments: true
 slug: "meaningless-individualization"
 date: "2019-06-29 12:20:42"
 ---
@@ -23,4 +23,3 @@ date: "2019-06-29 12:20:42"
 
 但我唯一不能接受的就是 ——
 自动播放的背景音乐
-

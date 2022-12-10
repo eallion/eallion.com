@@ -1,9 +1,9 @@
 ---
 title: "见证生命的奇迹，为升矿兄弟祈福！"
+authors: ["eallion"]
 categories: ["日志","分享"]
 tags: ["升矿","奇迹","生命","矿工","祈福"]
 draft: false
-Comments: true
 slug: "bestwishes4pitmans"
 date: "2010-04-08 08:08:43"
 ---
@@ -35,4 +35,3 @@ date: "2010-04-08 08:08:43"
  我们的心，也要和他们一起，共同喊出：
 
 坚强！
-

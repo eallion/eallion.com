@@ -1,9 +1,9 @@
 ---
 title: "无所谓无所畏惧"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["无所谓","畏惧","影响","改变"]
 draft: false
-Comments: true
 slug: "fear-does-not-matter"
 date: "2008-12-10 22:15:05"
 ---
@@ -13,4 +13,3 @@ date: "2008-12-10 22:15:05"
 面对什么都觉得还行...
 很难很难被影响...
 很难很难被改变...
-

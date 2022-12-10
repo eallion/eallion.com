@@ -1,9 +1,9 @@
 ---
 title: "自言自语 - 教师"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["教师","自言自语"]
 draft: false
-Comments: true
 slug: "teacherwow"
 date: "2010-05-05 09:33:15"
 ---
@@ -23,4 +23,3 @@ date: "2010-05-05 09:33:15"
 但是，从事教育这个职业的人，未必伟大。
 
 医生同理，警察同理。
-

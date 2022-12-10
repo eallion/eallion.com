@@ -1,10 +1,10 @@
 ---
 title: "Ubuntu ZFS 加密 Home 目录"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu", "ZFS", "encryption", "加密", "Linux"]
 slug: "ubuntu-zfs-encryption"
 draft: false
-Comments: true
 date: 2020-09-11T22:37:13+08:00
 ---
 
@@ -16,7 +16,7 @@ Ubuntu 20.04 的安装镜像支持 ZFS 文件系统：
 本文是 **安装后** 加密 ZFS Home 目录的备忘教程。  
 另外有 **安装前** 加密 ZFS Root 文件系统的备忘教程。链接：[《Ubuntu ZFS 原生全盘加密》](https://eallion.com/ubuntu-zfs-root-encryption)
 
-### 步骤：
+### 步骤
 
 1、安装时创建一个随意的临时账号，或者安装完成后，新建一个临时管理员用户，暂且把这个账号叫做：`tempuser`，并把它设置为自动登录，此账号必须为管理员账号。  
 后面的步骤均在此临时账号下进行。

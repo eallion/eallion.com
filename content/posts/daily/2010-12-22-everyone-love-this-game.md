@@ -1,9 +1,9 @@
 ---
 title: "各路巨星与 CS 的不解之缘"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS", "丁俊晖", "姚明", "朱启南", "韩寒"]
 draft: false
-Comments: true
 slug: "everyone-love-this-game"
 date: "2010-12-22 08:31:00"
 ---

@@ -1,9 +1,9 @@
 ---
 title: "Typecho 中英文之间自动加上空格"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["空格","space","pangu"]
 draft: false
-Comments: true
 slug: "autospace"
 date: "2019-11-29 09:29:00"
 ---
@@ -21,8 +21,9 @@ GitHub 上有 2 个项目：
 我选用了 `pangu.js`。
 （当然也有 PHP 版本的：[pangu.php](https://github.com/linclancey/pangu.php)）
 
-**# 用法 **：
+**# 用法**：
 1、在 `footer.php` 中引入 pangu.js：
+
 ```
 <script src="//cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
 ```
@@ -30,16 +31,19 @@ GitHub 上有 2 个项目：
 （我加了白名单，请勿直接引用的我 cdn。）
 
 2、在 `footer.php` 中加上：
+
 ```
 <script>pangu.spacingElementById ('main');</script>
 ```
 
 其中：
+
 ```
  pangu.spacingElementById ('main');
 ```
- 
+
 可以替换成：
+
 ```
   pangu.spacingElementById ('main');
   pangu.spacingElementByClassName ('comment');
@@ -47,6 +51,7 @@ GitHub 上有 2 个项目：
 ```
 
 PS：`pangu.js` CDN：
+
 ```
  #  jsDelivr
  <script src="https://cdn.jsdelivr.net/npm/pangu@4.0.7/dist/browser/pangu.min.js"></script>
@@ -57,4 +62,3 @@ PS：`pangu.js` CDN：
  # 75 团 baomitu
  <script  src="https://lib.baomitu.com/pangu/4.0.7/pangu.min.js"></script>
  ```
-

@@ -1,9 +1,9 @@
 ---
 title: "WordPress 提交评论出现 404 错误的解决办法"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["提交评论"]
 draft: false
-Comments: true
 slug: "WordPress-comment-404"
 date: "2010-07-21 15:40:25"
 ---
@@ -42,4 +42,3 @@ date: "2010-07-21 15:40:25"
 原来是不能提交留言啊
 很杯具
 这教育我们不要随便装卸插件是对的
-

@@ -1,9 +1,9 @@
 ---
 title: "《诸神之怒》"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["神","诸神之怒","peseus","帕修斯"]
 draft: false
-Comments: true
 slug: "wrath-of-the-titans"
 date: "2012-04-02 12:25:00"
 ---
@@ -41,4 +41,3 @@ date: "2012-04-02 12:25:00"
 其实神也许没有想像的那么强大吧
 不过我觉得人可以不信神，但必须要有信仰
 Peseus 的儿子就是他的信念……
-

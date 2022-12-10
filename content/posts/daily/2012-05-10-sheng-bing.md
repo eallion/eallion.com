@@ -1,9 +1,9 @@
 ---
 title: "生病"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["头晕","生病","过敏","肠胃炎","海鲜"]
 draft: false
-Comments: true
 slug: "sheng-bing"
 date: "2012-05-10 12:05:30"
 ---
@@ -18,4 +18,3 @@ date: "2012-05-10 12:05:30"
 
 吊了两天
 好了
-

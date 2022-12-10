@@ -1,9 +1,9 @@
 ---
 title: "2011 年 04 月 28 日"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记"]
 draft: false
-Comments: true
 slug: "yiqiedouhao"
 date: "2011-04-28 09:11:15"
 ---
@@ -15,4 +15,3 @@ date: "2011-04-28 09:11:15"
 5，今天早上骑别人的电动车，胎坏了，修。
 6，老婆，想你了。
 7，安好，勿念。
-

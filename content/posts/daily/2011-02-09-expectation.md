@@ -1,9 +1,9 @@
 ---
 title: "生活的交集与期望"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["思念","期望","交集"]
 draft: false
-Comments: true
 slug: "expectation"
 date: "2011-02-09 03:37:30"
 ---
@@ -34,5 +34,3 @@ date: "2011-02-09 03:37:30"
 我想说的是
 当我在思念一个人的时候
 可能她在做着另外的事……
-
-

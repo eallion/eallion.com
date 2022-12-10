@@ -1,10 +1,10 @@
 ---
 title: "Typecho 迁移到 Hugo"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["hugo", "blog", "Typecho", "博客"]
 slug: "typecho-to-hugo"
 draft: false
-Comments: true
 date: 2020-05-13T03:32:44+08:00
 ---
 
@@ -21,7 +21,7 @@ date: 2020-05-13T03:32:44+08:00
 
 > [https://github.com/eallion/typecho-to-hugo](https://github.com/eallion/typecho-to-hugo)
 
-** 注意：** 这并不是一个 Typecho 插件！
+**注意：** 这并不是一个 Typecho 插件！
 
 用法：
 
@@ -86,7 +86,7 @@ Hugo 根目录的 `config.toml` 需要修改一下链接形式。（每个主题
 
 感谢：
 
--   [linx](https://llinx.me/post/typecho% E8% BF%81% E7% A7% BB% E5%88% B0hugo/)
--   [qianlongzt](https://github.com/qianlongzt/typecho-to-hugo)
--   [panxianhai](https://github.com/panxianhai/TypExport)
--   [sunxiyuan](https://github.com/sunxiyuan/ByeTyp)
+- [linx](<https://llinx.me/post/typecho>%E8%BF%81%E7%A7%BB%E5%88%B0hugo/)
+- [qianlongzt](https://github.com/qianlongzt/typecho-to-hugo)
+- [panxianhai](https://github.com/panxianhai/TypExport)
+- [sunxiyuan](https://github.com/sunxiyuan/ByeTyp)

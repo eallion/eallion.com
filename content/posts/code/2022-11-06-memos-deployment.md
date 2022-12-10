@@ -1,5 +1,6 @@
 ---
 title: "嘀咕（哔哔）Memos 简介"
+authors: ["eallion"]
 categories: ["代码"]
 tags:
     - 嘀咕
@@ -8,9 +9,7 @@ tags:
     - talk
 slug: "memos-deployment"
 draft: false
-Comments: true
 date: 2022-11-06T16:30:22+08:00
-toc: false
 ---
 
 ### TL;DR

@@ -1,5 +1,6 @@
 ---
 title: "中文大约的确已经死了"
+authors: ["eallion"]
 categories: ["分享"]
 tags: 
     - 中文
@@ -9,9 +10,7 @@ tags:
     - 废话
 slug: "chinese-is-probably-dead"
 draft: true
-Comments: true
 date: 2022-05-20T21:12:09+08:00
-toc: false
 ---
 
 > 转载自微信公众号：[https://mp.weixin.qq.com/s/GZKMemoSIDtKBKOI6orVsQ](https://mp.weixin.qq.com/s/GZKMemoSIDtKBKOI6orVsQ)

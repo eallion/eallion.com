@@ -1,9 +1,9 @@
 ---
 title: "原来我也害怕独处"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记","睡觉","独处"]
 draft: false
-Comments: true
 slug: "unthinkable"
 date: "2011-01-18 10:26:02"
 ---
@@ -32,4 +32,3 @@ date: "2011-01-18 10:26:02"
 
 所以，我不困到不醒人事我是不会睡觉的
 但是，我很反感我最近的作息时间
-

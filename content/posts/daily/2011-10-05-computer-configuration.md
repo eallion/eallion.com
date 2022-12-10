@@ -1,15 +1,15 @@
 ---
 title: "电脑配置单"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","游戏","发烧","配置","电脑"]
 draft: false
-Comments: true
 slug: "computer-configuration"
 date: "2011-10-05 09:22:54"
 ---
 
 在中关村在线模拟攒机写了一套看中的游戏配置，看来要奋斗了。
-<a href="http://zj.zol.com.cn/diy/detail/7265781.html" title="ZOL 模拟攒机" target="_blank">http://zj.zol.com.cn/diy/detail/7265781.html</a><DIV>
+<a href="<<<http://zj.zol.com.cn/diy/detail/7265781.html>>>" title="ZOL 模拟攒机" target="_blank">http://zj.zol.com.cn/diy/detail/7265781.html</a><DIV>
 <TABLE style="BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; FONT-SIZE: 12px; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid" id=copyTbl cellSpacing=1>
 <TBODY>
 <TR>
@@ -119,4 +119,3 @@ date: "2011-10-05 09:22:54"
 <TD style="TEXT-ALIGN: center; WIDTH: 80px; HEIGHT: 35px; COLOR: #339900; BORDER-TOP: #dbe8f7 1px solid" align=middle><A style="COLOR: #339900" href="http://detail.zol.com.cn/141/140744/price.shtml" target=_blank>8 家商家 </A></TD></TR>
 <TR>
 <TD style="TEXT-ALIGN: right; PADDING-RIGHT: 20px; HEIGHT: 45px; BORDER-TOP: #dbe8f7 1px solid" colSpan=10 > 合计金额：<SPAN style="COLOR: #cc0000; FONT-SIZE: 22px; FONT-WEIGHT: bold">11998</SPAN> 元 </TD></TR></TBODY></TABLE></DIV>
-

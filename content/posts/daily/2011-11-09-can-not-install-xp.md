@@ -1,9 +1,9 @@
 ---
 title: "装不了 XP"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["电脑","笔记本","XP","WIN7","Ubuntu"]
 draft: false
-Comments: true
 slug: "can-not-install-xp"
 date: "2011-11-09 08:20:57"
 ---
@@ -42,4 +42,3 @@ Ubuntu 也是把挂载点选在分区里的
 好吧
 乖乖地滚回去用 Win7 吧
 一步一步从头开始重装了
-

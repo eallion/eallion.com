@@ -1,15 +1,15 @@
 ---
 title: "网络收支不平衡"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["域名","收入","空间","网络","网赚"]
 draft: false
-Comments: true
 slug: "imbalance"
 date: "2010-12-16 06:49:00"
 ---
 
 前天
-我在本站专门开了个广告页面 <a href="http://eallion.com/ads" target="_blank">http://eallion.com</a>
+我在本站专门开了个广告页面 <a href="<<<http://eallion.com>>>/ads" target="_blank">http://eallion.com</a>
 来展示百度网盟，谷歌 Adsense 以及淘宝推广的广告
 打从一开始
 我就没有计划在这个博客上放广告什么的
@@ -97,4 +97,3 @@ oh yeah
 最后 PS：
 我都把我的情况给公布了
 中国财政，你他妈的敢阳光点吗
-

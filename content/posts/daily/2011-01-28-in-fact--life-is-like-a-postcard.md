@@ -1,9 +1,9 @@
 ---
 title: "其实生活就像是寄明信片"
+authors: ["eallion"]
 categories: ["日志"]
 tags: []
 draft: false
-Comments: true
 slug: "in-fact--life-is-like-a-postcard"
 date: "2011-01-28 10:21:18"
 ---
@@ -12,4 +12,3 @@ date: "2011-01-28 10:21:18"
 有的人不屑
 有的人欣喜
 有的人漠然
-

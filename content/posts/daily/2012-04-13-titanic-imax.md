@@ -1,9 +1,9 @@
 ---
 title: "Titanic IMAX 3D"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["爱情","电影","titanic","泰坦尼克号","铁达尼"]
 draft: false
-Comments: true
 slug: "titanic-imax"
 date: "2012-04-13 10:52:21"
 ---
@@ -60,4 +60,3 @@ imax 的效果绝对是顶级的
 
 回想起来
 这些经历何尝不是一种浪漫
-

@@ -1,9 +1,9 @@
 ---
 title: "老公是最可爱的男人"
+authors: ["eallion"]
 categories: ["分享"]
 tags: ["老公","可爱"]
 draft: false
-Comments: true
 slug: "husband-is-the-most-lovely-man"
 date: "2008-05-23 18:43:07"
 ---
@@ -47,4 +47,3 @@ date: "2008-05-23 18:43:07"
 老公，就是那个让在家烧饭你看到天外下了雨，而丢下一切拿起伞去给他送伞的男人。
 
 女人，记住：老公，就是那个你舍不得给他亏吃的男人
-

@@ -1,9 +1,9 @@
 ---
 title: "关于友情链接"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","链接","友情链接"]
 draft: false
-Comments: true
 slug: "about-links"
 date: "2011-01-22 12:59:28"
 ---
@@ -47,6 +47,5 @@ date: "2011-01-22 12:59:28"
 而且也有不少我要经常去光顾的网站
 所以我觉得有必要专门弄个友情链接页面了
 
-所以就有了这个地址：<a href="http://eallion.com/links" target="_blank">http://eallion.com/links</a>
+所以就有了这个地址：<a href="<<<http://eallion.com/links>>>" target="_blank">http://eallion.com/links</a>
 于我来说，更多的是为了收集和方便回访吧
-

@@ -1,9 +1,9 @@
 ---
 title: "换空间"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["空间","备案","主机","香港","HOST"]
 draft: false
-Comments: true
 slug: "huan-kong-jian"
 date: "2012-05-19 15:40:18"
 ---
@@ -32,5 +32,3 @@ date: "2012-05-19 15:40:18"
 目前看来
 一切都还比较正常
 静观其变
-
-

@@ -1,9 +1,9 @@
 ---
 title: "一天推一天"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["现状","明天","今天"]
 draft: false
-Comments: true
 slug: "day-you-one-day"
 date: "2008-12-31 00:14:52"
 ---
@@ -13,4 +13,3 @@ date: "2008-12-31 00:14:52"
 安于现状...
 等到非走不可的时候...
 上路...
-

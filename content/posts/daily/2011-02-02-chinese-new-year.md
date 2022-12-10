@@ -1,9 +1,9 @@
 ---
 title: "春节"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["过年","春节","除夕"]
 draft: false
-Comments: true
 slug: "chinese-new-year"
 date: "2011-02-02 19:01:03"
 ---
@@ -65,4 +65,3 @@ date: "2011-02-02 19:01:03"
 只是能期待来年更好吧
 
 PS: 谢谢那些给我发短信和 QQ 消息的朋友。新年快乐。
-

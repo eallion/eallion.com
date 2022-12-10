@@ -1,9 +1,9 @@
 ---
 title: "Windows10 WinSock"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["dns","win10","windows10","winsock","打不开网页"]
 draft: false
-Comments: true
 slug: "windows10-winsock"
 date: "2015-11-17 21:28:00"
 ---
@@ -14,4 +14,3 @@ date: "2015-11-17 21:28:00"
 2、输入 `netsh winsock reset` ；
 3、输入 `netsh advfirewall reset`；
 4、重启电脑。
-

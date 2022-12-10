@@ -1,9 +1,9 @@
 ---
 title: "上大人"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["上大人","叶子牌","土家牌","棋牌","纸叶子"]
 draft: false
-Comments: true
 slug: "shangdaren"
 date: "2016-08-01 14:16:00"
 ---
@@ -52,4 +52,3 @@ date: "2016-08-01 14:16:00"
 大家聚，求娱乐，莫赌钱财；  
 人与人，诚相待，勿怀鬼胎；  
 这就是，劝世曲，八门牌彩。  
-

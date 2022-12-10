@@ -1,5 +1,6 @@
 ---
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
+authors: ["eallion"]
 categories: ["日志"]
 tags: 
   - hugo
@@ -8,5 +9,4 @@ slug: "{{ replace .Name "-" " " | title }}"
 draft: true
 Comments: true
 date: {{ .Date }}
-toc: false
 ---

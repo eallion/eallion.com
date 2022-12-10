@@ -1,9 +1,9 @@
 ---
 title: "去漳河走了一转"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["漳河","游玩"]
 draft: false
-Comments: true
 slug: "to-take-a-turn-zhanghe"
 date: "2008-10-05 19:31:02"
 ---
@@ -24,4 +24,3 @@ date: "2008-10-05 19:31:02"
 漳河啊...
 还行吧... 空气比较城里好多了...
 跟我们那差不多... 但还是要差...
-

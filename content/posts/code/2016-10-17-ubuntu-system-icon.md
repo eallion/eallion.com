@@ -1,9 +1,9 @@
 ---
 title: "修改 Ubuntu 状态栏托盘图标顺序"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","图标","托盘","状态栏"]
 draft: false
-Comments: true
 slug: "ubuntu-system-icon"
 date: "2016-10-17 04:32:00"
 ---
@@ -101,4 +101,3 @@ string "nm-applet"
 修改完成后可以直接运行 `$restart unity-panel-service` 使改变生效，如果命令不可用，注销并重新登入即可。
 
 感谢：[http://www.slblog.net/2014/05/change-the-order-of-indicators-in-ubuntu-indicators-applet](http://www.slblog.net/2014/05/change-the-order-of-indicators-in-ubuntu-indicators-applet)
-

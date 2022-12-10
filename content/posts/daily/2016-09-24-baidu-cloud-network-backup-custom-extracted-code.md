@@ -1,9 +1,9 @@
 ---
 title: "百度云网盘自定义提取码"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["百度","百度云网盘","网盘","提取码"]
 draft: false
-Comments: true
 slug: "baidu-cloud-network-backup-custom-extracted-code"
 date: "2016-09-24 12:52:00"
 ---
@@ -21,4 +21,3 @@ date: "2016-09-24 12:52:00"
 请按照教程一步一步的进行，否则可能会出现错误或失败！
 
 自定义的密码字符和必须为 4（一个字母或数字的字符数是 1，一个汉字的字符数是 3，因此如果密码中有一个汉字则只能加一个字母或数字），如：LAOD、1111、帅 B、老 D 等。
-

@@ -1,9 +1,9 @@
 ---
 title: "这些照片来自中国"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["中国缩影"]
 draft: false
-Comments: true
 slug: "chinesepic"
 date: "2010-07-31 14:33:00"
 ---
@@ -78,4 +78,3 @@ date: "2010-07-31 14:33:00"
     <p><img src="https://dulei.si/files/ea52ad276b3e7dc86478ce134047b6ee.jpg" alt=""></p>
     <p > 山西省民间有很多慈善育婴院，来帮助被父母抛弃的残疾婴儿 </p>
 </div>
-

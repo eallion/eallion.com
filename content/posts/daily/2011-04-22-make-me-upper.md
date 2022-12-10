@@ -1,9 +1,9 @@
 ---
 title: "一物昌，百事顺"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","心情","日记","原创"]
 draft: false
-Comments: true
 slug: "make-me-upper"
 date: "2011-04-22 20:22:28"
 ---
@@ -25,5 +25,3 @@ date: "2011-04-22 20:22:28"
 有一种破茧成蝶柳暗花明的感觉
 
 好吧，许个愿望，希望世界和平！
-
-

@@ -1,9 +1,9 @@
 ---
 title: "熟睡的时光"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["小说","恐怖","MP3","故事"]
 draft: false
-Comments: true
 slug: "listening-to-horror-stories--and-enron-sleep"
 date: "2008-11-09 01:01:21"
 ---
@@ -16,4 +16,3 @@ date: "2008-11-09 01:01:21"
 那已经是另一个晨昏...
 日复一日...
 安之若素...
-

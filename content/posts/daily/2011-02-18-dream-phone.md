@@ -1,9 +1,9 @@
 ---
 title: "理想中的手机"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["手机","iPhone","i6","android","翻盖"]
 draft: false
-Comments: true
 slug: "dream-phone"
 date: "2011-02-18 20:51:13"
 ---
@@ -82,4 +82,3 @@ Moto 有几款这样的手机
 我倒宁愿随身带一个 iPod touch 4
 然后如果非要电话的话搭配个 HTC G7 好了
 嗯，我就期待优秀的 Android+ 翻盖吧
-

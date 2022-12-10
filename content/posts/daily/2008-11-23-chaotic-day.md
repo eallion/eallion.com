@@ -1,9 +1,9 @@
 ---
 title: "混乱的日子"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["日子","混乱","稳定"]
 draft: false
-Comments: true
 slug: "chaotic-day"
 date: "2008-11-23 22:54:49"
 ---
@@ -18,4 +18,3 @@ date: "2008-11-23 22:54:49"
 一成不变...
 这样很稳定...
 可是这不是我想要的稳定...
-

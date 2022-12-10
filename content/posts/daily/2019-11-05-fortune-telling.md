@@ -1,9 +1,9 @@
 ---
 title: "算命"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["算命","八字"]
 draft: false
-Comments: true
 slug: "fortune-telling"
 date: "2019-11-05 14:45:00"
 ---
@@ -23,4 +23,3 @@ date: "2019-11-05 14:45:00"
 领会了什么叫作背时运。
 希望安稳度过这两年，
 时来运转。
-

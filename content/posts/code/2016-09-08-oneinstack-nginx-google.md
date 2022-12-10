@@ -1,9 +1,9 @@
 ---
 title: "Oneinstack Nginx 反代 Google"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["google","oneinstack","nginx","proxy"]
 draft: false
-Comments: true
 slug: "oneinstack-nginx-google"
 date: "2016-09-08 08:30:00"
 ---
@@ -53,9 +53,9 @@ service nginx restart
 
 要正确使用 ngx_http_google_filter_module 模块，需要依赖扩展：
 
->  - pcre 正则
->  - ngx_http_proxy_module 反向代理
->  - ngx_http_substitutions_filter_module 多重替换
+> - pcre 正则
+> - ngx_http_proxy_module 反向代理
+> - ngx_http_substitutions_filter_module 多重替换
 
 3、安装 Let's Encrypt，Oneinstack 已经集成了 Let's Encrypt
 
@@ -78,6 +78,7 @@ cd /root/oneinstack
 ```
 vim /usr/local/nginx/conf/vhost/getgoogle.org.conf
 ```
+
 ```
  server {
     listen 443 ssl http2;
@@ -104,9 +105,11 @@ vim /usr/local/nginx/conf/vhost/getgoogle.org.conf
      rewrite ^(.*)$ https://$host$1 permanent;
      }
 ```
+
 6、重启 Nginx
+
 ```
 service nginx restart
 ```
-教程主要参考：<a href="https://5ch.in/ong" target="_blank">https://blog.linuxeye.com/449.html</a>
 
+教程主要参考：<a href="https://5ch.in/ong" target="_blank"><https://blog.linuxeye.com/449.html></a>

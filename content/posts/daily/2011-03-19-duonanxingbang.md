@@ -1,9 +1,9 @@
 ---
 title: "有一类连日本人都不如的中国人"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["地震","日本","海啸","灾难"]
 draft: false
-Comments: true
 slug: "duonanxingbang"
 date: "2011-03-19 08:31:00"
 ---
@@ -54,5 +54,3 @@ date: "2011-03-19 08:31:00"
 中国遇到地震了首先要逃离的就是学校
 日本遇到地震了却都跑进学校避难
 日本人真傻
-
-

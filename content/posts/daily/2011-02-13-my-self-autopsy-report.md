@@ -1,9 +1,9 @@
 ---
 title: "我的自我解剖报告 - 性格色彩"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["测试","性格","自我"]
 draft: false
-Comments: true
 slug: "my-self-autopsy-report"
 date: "2011-02-13 18:33:06"
 ---
@@ -23,8 +23,9 @@ date: "2011-02-13 18:33:06"
 （以后会写其他的测试结果，比如九型人格什么的）
 
 ### FPA 性格色彩测试报告
+
 <table width="600" border="0" cellpadding="4" cellspacing="1" bgcolor="#FFFFFF">
-              <tr align="center" bgcolor="#F0F0F0"> 
+              <tr align="center" bgcolor="#F0F0F0">
                 <td bgcolor="#FFEEEE"><font color="#FF0000"> 红色： 9 分 </font></td>
                 <td bgcolor="#DFE8FF"><font color="#0033CC"> 蓝色： 7 分 </font></td>
                 <td bgcolor="#FFF4C8"><font color="#BFA804"> 黄色： 1 分 </font></td>
@@ -87,4 +88,3 @@ date: "2011-02-13 18:33:06"
 以团体为导向。
 创造稳定性。
 用自然低调的行事手法处理事务。
-

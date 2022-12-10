@@ -1,9 +1,9 @@
 ---
 title: "Win7 Sendto 文件夹"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["WIN7","sendto","系统","发送到"]
 draft: false
-Comments: true
 slug: "windows-7-sendto"
 date: "2015-01-14 10:58:00"
 ---
@@ -24,10 +24,10 @@ C:\users\eallion\AppData\Roaming\Microsoft\Windows\SendTo
 
 ```
 % APPDATA%\Microsoft\Windows\SendTo
-``` 
+```
 
 环境变量 `% APPDATA%` 的值为：
+
 ```
 C:\users\<username>\AppData\Roaming
 ```
-

@@ -1,9 +1,9 @@
 ---
 title: "奢侈和浪费"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["奢侈","浪费"]
 draft: false
-Comments: true
 slug: "luxurious"
 date: "2010-06-10 19:49:10"
 ---
@@ -23,4 +23,3 @@ date: "2010-06-10 19:49:10"
 但是如果你只花了二十块却剩下几个菜乱扔。
 
 我就觉得你真没教养。
-

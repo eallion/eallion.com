@@ -1,9 +1,9 @@
 ---
 title: "败了好多鼠标键盘"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["鼠标","键盘"]
 draft: false
-Comments: true
 slug: "mouse-and-keyboard"
 date: "2015-07-23 14:48:00"
 ---
@@ -21,4 +21,3 @@ SUMSANG PLEOMAX PKB-7000X
 Tt eSPORTS MEKA87
 SteelSeries 6Gv2
 Fuhlen FL8000
-

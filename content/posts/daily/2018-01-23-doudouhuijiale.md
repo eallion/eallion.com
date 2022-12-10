@@ -1,9 +1,9 @@
 ---
 title: "豆豆回家了"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["儿子","回家","豆豆"]
 draft: false
-Comments: true
 slug: "doudouhuijiale"
 date: "2018-01-23 09:31:00"
 ---
@@ -26,4 +26,3 @@ date: "2018-01-23 09:31:00"
 豆豆如果感冒的时候
 喝一点这样的水
 也许就会好
-

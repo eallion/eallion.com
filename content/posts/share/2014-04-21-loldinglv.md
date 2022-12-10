@@ -1,9 +1,9 @@
 ---
 title: "LOL 中 32 个经济学原理 游戏的迷人之处"
+authors: ["eallion"]
 categories: ["分享"]
 tags: ["游戏","定律","LOL","英雄联盟","原则","法则"]
 draft: false
-Comments: true
 slug: "loldinglv"
 date: "2014-04-21 12:43:00"
 ---
@@ -211,4 +211,3 @@ TOP1 零和守则
 却损害了身体，忘记了爱情。冷漠了亲情。冷漠了家乡的父亲母亲。
 1+（-1）=0
 各位好好想想吧。
-

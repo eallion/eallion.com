@@ -1,9 +1,9 @@
 ---
 title: "晚安，躁动。"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["夜","晚安"]
 draft: false
-Comments: true
 slug: "restlessness"
 date: "2011-07-16 14:45:09"
 ---
@@ -89,7 +89,6 @@ Q 挂着
 我只能自己
 自己再自己。
 
- 
 常常
 欲望来了
 不能说服。
@@ -106,7 +105,6 @@ Q 挂着
 因为安静滋生出的空洞 and 恐惧
 因为感性滋生出的任性 and 依赖。
 
- 
 我为今夜的较劲
 感到躁动
 感到抱歉。
@@ -134,4 +132,3 @@ VIP 了一把
 只能是笑。
 
  </strong>
-

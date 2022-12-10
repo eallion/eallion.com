@@ -1,9 +1,9 @@
 ---
 title: "当我格格不入"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["明白","格格不入"]
 draft: false
-Comments: true
 slug: "when-i-was-out-of-tune"
 date: "2008-11-08 01:24:26"
 ---
@@ -15,4 +15,3 @@ date: "2008-11-08 01:24:26"
 很少很少的人明白...
 这不是最重要的...
 最重要的是自己要明白...
-

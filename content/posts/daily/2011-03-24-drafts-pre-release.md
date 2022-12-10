@@ -1,9 +1,9 @@
 ---
 title: "草稿箱预发布"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["草稿","发布","定时","预发布"]
 draft: false
-Comments: true
 slug: "drafts-pre-release"
 date: "2011-03-24 18:47:19"
 ---
@@ -32,5 +32,3 @@ date: "2011-03-24 18:47:19"
 
 只是我坚信我可以好起来
 因为我可以看到美好生活的希望
-
-

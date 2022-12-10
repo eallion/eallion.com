@@ -1,9 +1,9 @@
 ---
 title: "《职来职往》"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","职来职往","职业","职场","求职"]
 draft: false
-Comments: true
 slug: "zhilaizhiwang"
 date: "2011-02-08 08:03:21"
 ---
@@ -42,5 +42,3 @@ CETV1 那个 < a href="http://baike.baidu.com/view/4503413.htm" target="_blank">
 特别是像 “徐若瑄”，黄蒙蒙这样外表靓丽内心坚强的女孩
 
 总的来说，这是一个不错的节目，持续关注一下……
-
-

@@ -1,9 +1,9 @@
 ---
 title: "运营小记 - 概率"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["运营","概率","百分比","售后","顾客"]
 draft: false
-Comments: true
 slug: "probability"
 date: "2017-05-25 13:43:00"
 ---
@@ -26,4 +26,3 @@ date: "2017-05-25 13:43:00"
 > 对我们来说这只是 1%，但对顾客来说，那却是 100%。
 
 这个观点，后来支付宝在 WP 事件中帮我验证了。。。
-

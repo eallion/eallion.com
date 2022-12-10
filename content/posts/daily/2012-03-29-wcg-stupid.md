@@ -1,9 +1,9 @@
 ---
 title: "WCG Stupid"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","wcg"]
 draft: false
-Comments: true
 slug: "wcg-stupid"
 date: "2012-03-29 15:10:05"
 ---
@@ -11,7 +11,7 @@ date: "2012-03-29 15:10:05"
 目前虽然还没有官方消息
 但最近炒得沸沸扬扬的 WCG 取消 PC 游戏启用手机游戏的事件
 似乎已成定局
-<a href="http://www.5eplay.com/2012/cs_0327/904.html" target="_blank">http://www.5eplay.com/2012/cs_0327/904.html</a>
+<a href="<<<http://www.5eplay.com/2012/cs_0327/904.html>>>" target="_blank">http://www.5eplay.com/2012/cs_0327/904.html</a>
 
 <a href="http://www.wcg.com" target="_blank">WCG</a> - World Cyber Games (<a href="http://baike.baidu.com/view/5608.htm" target="_blank"> 世界电子竞技大赛 </a>）
 
@@ -36,5 +36,3 @@ WCG 在 CS 方面犯傻也不是这一次了
 好像也没什么好写的
 
 不管怎么说，还是希望 WCG 慎重！GL
-
-

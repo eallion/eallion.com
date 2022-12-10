@@ -1,9 +1,9 @@
 ---
 title: "成功戒掉微博"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["微博","戒","网瘾"]
 draft: false
-Comments: true
 slug: "successfully-quit-microblogging"
 date: "2011-03-16 08:26:23"
 ---
@@ -31,5 +31,3 @@ QQ，QQ 空间，百度贴吧，Twitter，VeryCD，豆瓣，糗百，淘宝和 Q
 
 PS: @<a href="http://t.sina.com.cn/eallion" target="_blank"> 大大的小蜗牛 </a>
 PS: 腾讯把我 QQ 微博设置成只读，换句话说，就是把我的帐号给封了。
-
-

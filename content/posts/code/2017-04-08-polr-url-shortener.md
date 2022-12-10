@@ -1,43 +1,45 @@
 ---
 title: "短链接 url 压缩程序 Polr"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["polr","url","shortener","压缩","短链接"]
 draft: false
-Comments: true
 slug: "polr-url-shortener"
 date: "2017-04-08 23:41:00"
 ---
 
-> 开源项目地址：<a href="https://github.com/Cydrobolt/polr" target="_blank">https://github.com/Cydrobolt/polr</a>
+> 开源项目地址：<a href="<<<https://github.com/Cydrobolt/polr>>>" target="_blank">https://github.com/Cydrobolt/polr</a>
 
 案例：
-> - <a href="https://go.eallion.com" target="_blank">https://go.eallion.com</a>
-> - <a href="https://tk.ci" target="_blank">https://tk.ci</a>
-> - <a href="https://5ch.in" target="_blank">https://5ch.in</a>
+>
+> - <a href="<<<https://go.eallion.com>>>" target="_blank">https://go.eallion.com</a>
+> - <a href="<<<https://tk.ci>>>" target="_blank">https://tk.ci</a>
+> - <a href="<<<https://5ch.in>>>" target="_blank">https://5ch.in</a>
 
 我一直在用这个短链接压缩程序，最近刚好有朋友问到，就写一下教程。
 其实很简单，虚拟主机都能安装，但是推荐用 vps 安装，因为虚拟主机只能使用 1.5.1 版本。
 
 以 < a href="https://oneinstack.com/" target="_blank">Oneinstack</a> LNMP 为例
 
-服务器要求：
+服务器要求
 ------
 
- - Apache, nginx, IIS, or lighttpd (作者建议使用 Apache，我是使用的 Nginx)
- - PHP >= 5.5.9
- - MariaDB or MySQL >= 5.5, SQLite 三个都可以
- - composer
- - PHP 扩展：
+- Apache, nginx, IIS, or lighttpd (作者建议使用 Apache，我是使用的 Nginx)
+- PHP >= 5.5.9
+- MariaDB or MySQL >= 5.5, SQLite 三个都可以
+- composer
+- PHP 扩展：
 
-    - OpenSSL 
-    - PDO 
-    - php5-mysql
-    - Mbstring 
-    - Tokenizer 
-    - JSON 
+  - OpenSSL
+  - PDO
+  - php5-mysql
+  - Mbstring
+  - Tokenizer
+  - JSON
 
 1、下载源码
 ------
+
 ```bash
 # 切换到 root
 sudo su 
@@ -63,12 +65,15 @@ php composer.phar install --no-dev -o
 ------------
 
 如果没有 php5-fpm，则需要安装
+
 ```bash
 apt install php5-fpm
 # 配置网站配置文件
 vim /usr/local/nginx/conf/vhost/go.eallion.com.conf
 ```
+
 我的配置：
+
 ```bash
 upstream php {
     server unix:/var/run/php5-fpm.sock;
@@ -133,22 +138,28 @@ location ~ .*\.(js|css)?$ {
 
 4、准备 MySQL 数据库
 ------------
+
 ```bash
 CREATE DATABASE polrdatabasename;
 ```
+
 其实用 phpMyAdmin 更方便。
 
 5、安装
 ----
+
 先复制一个.env 文件
+
 ```bash
 cp .env.setup .env
 ```
+
 因为一直是在 root 账号下操作，安装之前再修改一下权限
+
 ```bash
 chown -R www:www /data/wwwroot/go.eallion.com/polr
 ```
-然后就可以在线安装了
-打开域名，如：<a href="https://go.eallion.com" target="_blank">https://go.eallion.com</a>
-会自动跳转到安装页面，按提示一步步完成就可以了。
 
+然后就可以在线安装了
+打开域名，如：<a href="<<<https://go.eallion.com>>>" target="_blank">https://go.eallion.com</a>
+会自动跳转到安装页面，按提示一步步完成就可以了。

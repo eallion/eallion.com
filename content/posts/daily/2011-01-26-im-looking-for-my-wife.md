@@ -1,9 +1,9 @@
 ---
 title: "我要找老婆"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["生活","老婆","日白","扯淡"]
 draft: false
-Comments: true
 slug: "im-looking-for-my-wife"
 date: "2011-01-26 17:50:14"
 ---
@@ -17,5 +17,3 @@ date: "2011-01-26 17:50:14"
 买衣服，像找老婆，得看质量
 买鞋子，像找老婆，得看耐磨度
 吃饭，像找老婆，得看合不合味口
-
-

@@ -1,9 +1,9 @@
 ---
 title: "全民脱险 —— 卡巴斯基向全体网民赠送高端安全软件"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["kis","卡巴斯基"]
 draft: false
-Comments: true
 slug: "kaspersky"
 date: "2010-11-04 08:15:52"
 ---
@@ -25,4 +25,3 @@ KIS 相当的不错
 而且这次本人激活 KIS 的时候
 发现不用重启就可以使用
 很进步嘛
-

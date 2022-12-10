@@ -1,9 +1,9 @@
 ---
 title: "为什么我会突然热情锐减"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["生活","激情","热情"]
 draft: false
-Comments: true
 slug: "myenthusiasm"
 date: "2011-02-10 02:41:00"
 ---
@@ -29,5 +29,3 @@ date: "2011-02-10 02:41:00"
 我觉得这样来消磨我的热情有点扯淡
 所以最近总是在反思
 我觉得首先应该从改变我的生活习惯入手
-
-

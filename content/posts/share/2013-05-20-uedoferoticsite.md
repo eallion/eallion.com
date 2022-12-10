@@ -1,9 +1,9 @@
 ---
 title: "请向情色网站学习：数据，创意以及高端品位！"
+authors: ["eallion"]
 categories: ["分享"]
 tags: ["高端","色情","网站","品味","用户体验"]
 draft: false
-Comments: true
 slug: "uedoferoticsite"
 date: "2013-05-20 12:00:00"
 ---
@@ -64,4 +64,3 @@ date: "2013-05-20 12:00:00"
 &nbsp;&nbsp; 那么你呢？是情色网站的十年黄金会员么？
 
 &nbsp;&nbsp; 是？会员账号借来使使。
-

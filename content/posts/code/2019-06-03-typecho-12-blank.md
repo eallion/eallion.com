@@ -1,9 +1,9 @@
 ---
 title: "typecho1.2 (18.10.23) 新窗口打开链接"
+authors: ["eallion"]
 categories: ["代码"]
 tags: ["typecho","代码","php","新窗口","blank"]
 draft: false
-Comments: true
 slug: "typecho-12-blank"
 date: "2019-06-03 12:00:00"
 ---
@@ -12,13 +12,14 @@ date: "2019-06-03 12:00:00"
 
 > 推荐方法二
 
-### 方法一：
+### 方法一
 
 网上搜索出来的关于 typecho 新窗口打开链接的文章，都是 1.1 或者是 1.0 甚至是更老的版
 对于 git 安装的最新版没效果
 自己动手研究一下，发现可以修改 `var/HyperDown.php` 这个文件可以实现
 大概是第 507 行，添加 `target=\"_blank\"rel=\"nofollow\"` 即可
 效果如下：
+
 ```php
         //link
         $text = preg_replace_callback (
@@ -38,6 +39,7 @@ date: "2019-06-03 12:00:00"
 ### 方法二：（不修改系统文件，利于升级）
 
 在主题 `functions.php` 里加入代码：
+
 ```php
 // 新窗口打开链接
 function parseContent ($obj){
@@ -49,6 +51,6 @@ function parseContent ($obj){
     echo trim ($obj->content);
 }
 ```
+
 再在主题 `post.php` 里把文章输出的代码改为自定义的，即：
 `<?php $this->content (); ?>` 改成 `<?php parseContent ($this); ?>`
-

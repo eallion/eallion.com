@@ -1,9 +1,9 @@
 ---
 title: "SK 获得 CPH CS:GO 挑战赛冠军"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","CS:GO","SK","ESC","Vavle"]
 draft: false
-Comments: true
 slug: "sk-cph-csgo-esc"
 date: "2012-04-05 09:26:17"
 ---
@@ -109,5 +109,3 @@ CS1.6 依然会存活很长一段时间
 CS:GO 也不会那么太快到来
 
 我爱 CS1.6，我更爱竞技！
-
-

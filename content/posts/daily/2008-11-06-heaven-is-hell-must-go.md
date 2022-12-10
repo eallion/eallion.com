@@ -1,9 +1,9 @@
 ---
 title: "是天堂是地狱都要走"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["天堂","地狱"]
 draft: false
-Comments: true
 slug: "heaven-is-hell-must-go"
 date: "2008-11-06 22:21:41"
 ---
@@ -15,7 +15,6 @@ date: "2008-11-06 22:21:41"
 慢慢的...
 也许很快的...
 什么都会好了...
- 
+
 总得一路走下去一直生活下去...
 是天堂是地狱都要走的...
-

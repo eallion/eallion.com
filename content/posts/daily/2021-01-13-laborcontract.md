@@ -1,5 +1,6 @@
 ---
 title: "劳动合同解除 (终止) 及赔偿一览表"
+authors: ["eallion"]
 categories: ["日志"]
 tags:
     - 劳动法
@@ -9,9 +10,7 @@ tags:
     - 法律
 slug: "laborcontract"
 draft: false
-Comments: true
 date: 2021-01-13T14:40:28+08:00
-toc: false
 ---
 
 > 转需 / 备忘

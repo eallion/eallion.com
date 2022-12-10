@@ -1,9 +1,9 @@
 ---
 title: "爸爸 生日快乐"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["父母","爸爸","生日","生日快乐"]
 draft: false
-Comments: true
 slug: "happy-birthday-to-my-father"
 date: "2010-09-26 09:26:16"
 ---
@@ -40,4 +40,3 @@ date: "2010-09-26 09:26:16"
 我在心里念了句生日快乐
 最终还是害羞得没有说出口
 嗯，生日快乐。
-

@@ -1,9 +1,9 @@
 ---
 title: "于今日某事有感"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记","有缘人","爱情","感想"]
 draft: false
-Comments: true
 slug: "feeling-something-today"
 date: "2011-01-27 22:24:45"
 ---
@@ -62,5 +62,3 @@ date: "2011-01-27 22:24:45"
 而爱，只是种态度
 
 呐，事实上，我还很羡慕记流水账记得很好的家伙。
-
-

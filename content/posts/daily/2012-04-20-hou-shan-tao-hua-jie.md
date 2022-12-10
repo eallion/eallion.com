@@ -1,9 +1,9 @@
 ---
 title: "吼山桃花节"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","吼山","桃花","春游","游记"]
 draft: false
-Comments: true
 slug: "hou-shan-tao-hua-jie"
 date: "2012-04-20 10:00:00"
 ---
@@ -29,4 +29,3 @@ date: "2012-04-20 10:00:00"
 我去的时候前面一组已经玩完了
 管理员说让我跟教官单挑
 哈哈，说真的，我还真不怕他
-

@@ -1,9 +1,9 @@
 ---
 title: "朋友小聚"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["过年","春节","聚会","麻将","喝酒"]
 draft: false
-Comments: true
 slug: "friends-gathering"
 date: "2011-02-06 17:00:21"
 ---
@@ -64,5 +64,3 @@ date: "2011-02-06 17:00:21"
 所以大家就散了
 然后约好晚上到我这里再娶
 朋友见面不好好的喝个酒那确实比较遗憾
-
-

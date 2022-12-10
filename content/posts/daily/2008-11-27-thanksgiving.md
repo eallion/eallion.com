@@ -1,9 +1,9 @@
 ---
 title: "感恩"
+authors: ["eallion"]
 categories: ["日志"]
 tags: ["感恩","感谢"]
 draft: false
-Comments: true
 slug: "thanksgiving"
 date: "2008-11-27 22:59:40"
 ---
@@ -16,8 +16,7 @@ date: "2008-11-27 22:59:40"
 要劳劳的记着...
 那些应该感谢的...
 所有...
- 
+
 这一年来的事蛮多...
 重要的不重要的都记下来...
 放在心里面...
-
