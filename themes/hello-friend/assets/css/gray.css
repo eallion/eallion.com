@@ -1,9 +1,0 @@
-body {
-    -webkit-filter: grayscale(100%) !important;
-    -moz-filter: grayscale(100%) !important;
-    -ms-filter: grayscale(100%) !important;
-    -o-filter: grayscale(100%) !important;
-    filter: grayscale(100%) !important;
-    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1) !important;
-    filter: gray !important;
-}

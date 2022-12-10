@@ -6,8 +6,8 @@ comment: false
 lightbox: false
 gushici: true
 aliases:
-    - /talk
-    - /talks
+    - /en/talk
+    - /en/talks
 ---
 
 <meta name="referrer" content="no-referrer">

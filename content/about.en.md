@@ -9,17 +9,15 @@ comment: true
 ![](https://images.eallion.com/eallion.jpg)
 
 我是大大的小蜗牛（AKA: Charles Chin）。
-本名没有什么内涵，略去不表。
+本名没有什么内涵，略去不表。  
 早年常居鲁迅故里，钟情于江南水乡。
 工作于电商之都。后为生计南下深港。
 
-最喜欢的一句话，得于叔叔手札——「机会总是垂青于有准备的人！」
+最喜欢的一句话，得于叔叔手札——「机会总是垂青于有准备的人！」  
 
 > [Chance favors the prepared mind.](https://en.wikipedia.org/wiki/Louis_Pasteur#Career) - _Louis Pasteur_
 
 浅显易懂，并无玄机。后得知出处，是为座右铭。
-
-### TL;DR
 
 * 双子，B 型血，断掌，属虎。
 * 已婚，有子。

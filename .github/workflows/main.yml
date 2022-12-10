@@ -16,21 +16,23 @@ jobs:
         with:
           timezone: Asia/Shanghai
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          submodules: false
+          submodules: true
           fetch-depth: 1
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
-          extended: false
+          extended: true
 
       - name: Build Hugo
         run: |
+          rm themes/DoIt -rf
+          git submodule update --remote --merge
           hugo version
-          hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify
+          hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
