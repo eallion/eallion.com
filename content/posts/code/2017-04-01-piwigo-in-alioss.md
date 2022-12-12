@@ -6,6 +6,7 @@ tags: ["阿里云","oss","piwigo","相册","挂载"]
 draft: false
 slug: "piwigo-in-alioss"
 date: "2017-04-01 12:03:00"
+lastmod: "2017-04-01 12:03:00"
 ---
 
 > 本文主要分为两部分：
@@ -17,7 +18,7 @@ date: "2017-04-01 12:03:00"
 一、挂载 OSS
 =======
 
-> 阿里云的官方 git 说明： <a href="<<<https://github.com/aliyun/ossfs>>>" target="_blank">https://github.com/aliyun/ossfs</a>
+> 阿里云的官方 git 说明： [https://github.com/aliyun/ossfs](https://github.com/aliyun/ossfs)
 
 我用的是 Ubuntu 16.04 64bit，推荐源码安装
 
@@ -78,7 +79,7 @@ ossfs eallionalbum /html/eallionalbum.com -ourl=http://oss-cn-hangzhou-internal.
 mount -l
 ```
 
-如果没有挂载成功，可以到 < a href="https://github.com/aliyun/ossfs" target="_blank"><https://github.com/aliyun/ossfs></a > 查找原因或提交 issue。
+如果没有挂载成功，可以到 [https://github.com/aliyun/ossfs](https://github.com/aliyun/ossfs) 查找原因或提交 issue。
 
 5、卸载（若有需要）
 --
@@ -91,13 +92,13 @@ fusermount -u /html/eallionalbum.com
 二、搭建 piwigo 相册
 ============
 
-中文官网：<a href="<<<http://cn.piwigo.org>>>/" target="_blank">http://cn.piwigo.org</a>，但中文官网的版本比较落后，建议切换到英文版。
+中文官网：[http://cn.piwigo.org](http://cn.piwigo.org/)，但中文官网的版本比较落后，建议切换到英文版。
 
 1、下载
 ----------
 
 国内主机还是建议下载源码安装，国外主机倒是可以下载 Netinstaller。
-官网：<a href="<<<http://piwigo.org/basics/downloads>>>" target="_blank">http://piwigo.org/basics/downloads</a>
+官网：[http://piwigo.org/basics/downloads](http://piwigo.org/basics/downloads)
 
 2、上传
 ----
@@ -126,7 +127,7 @@ unzip piwigo-*.zip
 - Piwogo 表名前缀 **
 
 配置的时候，其实跟配置 WordPress 或 typecho 差不多的。
-直接打开域名，如：<http://eallionalbum.com>
+直接打开域名，如：[http://eallionalbum.com](http://eallionalbum.com)
 程序会自动导向安装页面。
 安装的时候在填入管理员信息，要记下来：
 

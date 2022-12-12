@@ -6,6 +6,7 @@ tags: ["LOL","英雄联盟","连招"]
 draft: false
 slug: "lol-lianzhao"
 date: "2015-06-29 16:55:00"
+lastmod: "2015-06-29 16:55:00"
 ---
 
 01. 酒桶：E + 闪现

@@ -6,6 +6,7 @@ tags: ["hugo", "blog", "Typecho", "博客"]
 slug: "typecho-to-hugo"
 draft: false
 date: 2020-05-13T03:32:44+08:00
+lastmod: 2020-05-13T03:32:44+08:00
 ---
 
 记录一下从 Typecho 迁移到 Hugo 的过程。  
@@ -86,7 +87,6 @@ Hugo 根目录的 `config.toml` 需要修改一下链接形式。（每个主题
 
 感谢：
 
-- [linx](<https://llinx.me/post/typecho>%E8%BF%81%E7%A7%BB%E5%88%B0hugo/)
 - [qianlongzt](https://github.com/qianlongzt/typecho-to-hugo)
 - [panxianhai](https://github.com/panxianhai/TypExport)
 - [sunxiyuan](https://github.com/sunxiyuan/ByeTyp)

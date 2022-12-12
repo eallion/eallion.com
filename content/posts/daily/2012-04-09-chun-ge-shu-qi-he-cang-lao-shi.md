@@ -6,6 +6,7 @@ tags: ["春哥","李宇春","舒淇","赵文卓","甄子丹"]
 draft: false
 slug: "chun-ge-shu-qi-he-cang-lao-shi"
 date: "2012-04-09 13:02:38"
+lastmod: "2012-04-09 13:02:38"
 ---
 
 前段时间

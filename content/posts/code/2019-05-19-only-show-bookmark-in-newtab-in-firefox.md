@@ -6,6 +6,7 @@ tags: ["google","css","Firefox","书签","新标签页","newtab","bookmark"]
 draft: false
 slug: "only-show-bookmark-in-newtab-in-firefox"
 date: "2019-05-19 00:45:00"
+lastmod: "2019-05-19 00:45:00"
 ---
 
 ### 更新 3

@@ -6,6 +6,7 @@ tags: ["草稿","发布","定时","预发布"]
 draft: false
 slug: "drafts-pre-release"
 date: "2011-03-24 18:47:19"
+lastmod: "2011-03-24 18:47:19"
 ---
 
 最近没有心情 po 文字上来

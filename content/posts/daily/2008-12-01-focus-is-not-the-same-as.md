@@ -6,6 +6,7 @@ tags: ["重点","看清","放下"]
 draft: false
 slug: "focus-is-not-the-same-as"
 date: "2008-12-01 17:34:06"
+lastmod: "2008-12-01 17:34:06"
 ---
 
 重点不一样...

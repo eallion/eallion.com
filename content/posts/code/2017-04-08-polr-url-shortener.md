@@ -6,20 +6,21 @@ tags: ["polr","url","shortener","压缩","短链接"]
 draft: false
 slug: "polr-url-shortener"
 date: "2017-04-08 23:41:00"
+lastmod: "2017-04-08 23:41:00"
 ---
 
-> 开源项目地址：<a href="<<<https://github.com/Cydrobolt/polr>>>" target="_blank">https://github.com/Cydrobolt/polr</a>
+> 开源项目地址：[https://github.com/Cydrobolt/polr](https://github.com/Cydrobolt/polr)
 
 案例：
 >
-> - <a href="<<<https://go.eallion.com>>>" target="_blank">https://go.eallion.com</a>
-> - <a href="<<<https://tk.ci>>>" target="_blank">https://tk.ci</a>
-> - <a href="<<<https://5ch.in>>>" target="_blank">https://5ch.in</a>
+> - [https://go.eallion.com](https://go.eallion.com)
+> - [https://tk.ci](https://tk.ci)
+> - [https://5ch.in](https://5ch.in)
 
 我一直在用这个短链接压缩程序，最近刚好有朋友问到，就写一下教程。
 其实很简单，虚拟主机都能安装，但是推荐用 vps 安装，因为虚拟主机只能使用 1.5.1 版本。
 
-以 < a href="https://oneinstack.com/" target="_blank">Oneinstack</a> LNMP 为例
+以 [Oneinstack](https://oneinstack.com/) LNMP 为例
 
 服务器要求
 ------
@@ -161,5 +162,5 @@ chown -R www:www /data/wwwroot/go.eallion.com/polr
 ```
 
 然后就可以在线安装了
-打开域名，如：<a href="<<<https://go.eallion.com>>>" target="_blank">https://go.eallion.com</a>
+打开域名，如：[https://go.eallion.com](https://go.eallion.com)
 会自动跳转到安装页面，按提示一步步完成就可以了。

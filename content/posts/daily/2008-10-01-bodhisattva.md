@@ -6,6 +6,7 @@ tags: ["菩萨"]
 draft: false
 slug: "bodhisattva"
 date: "2008-10-01 20:23:00"
+lastmod: "2008-10-01 20:23:00"
 ---
 
 我记得我二叔生前常常跟我说一句话就是...

@@ -6,6 +6,7 @@ tags: ["测试","性格","自我"]
 draft: false
 slug: "my-self-autopsy-report"
 date: "2011-02-13 18:33:06"
+lastmod: "2011-02-13 18:33:06"
 ---
 
 <blockquote > 双子，B 型血，断掌，属虎。
@@ -33,8 +34,8 @@ date: "2011-02-13 18:33:06"
                 <td><strong > 总计： 30 分 </strong></td>
               </tr>
             </table>
-测试地址：<a href="http://www.fpaworld.net/fpatest/index.asp" target="_blank">http://www.fpaworld.net/fpatest/index.asp</a>
-我的测试结果为 “绿 + 红” <a href="http://www.fpaworld.net/blog/7/7.html" target="_blank">http://www.fpaworld.net/blog/7/7.html</a>
+测试地址：[http://www.fpaworld.net/fpatest/index.asp](http://www.fpaworld.net/fpatest/index.asp)
+我的测试结果为 “绿 + 红” [http://www.fpaworld.net/blog/7/7.html](http://www.fpaworld.net/blog/7/7.html)
 
 ### 绿色的天赋潜能：作为个体
 

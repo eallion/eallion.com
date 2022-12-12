@@ -6,6 +6,7 @@ tags: ["CS","csmod","反恐精英","csp","cspromod"]
 draft: false
 slug: "csp-report"
 date: "2011-02-01 12:00:00"
+lastmod: "2011-02-01 12:00:00"
 ---
 
 经过整整一年，刚好一年的时间
@@ -18,7 +19,7 @@ CSP 的团队发布了 CSP beta1.05
 
 ### 科谱
 
-CS:P（Counter-Strike:Promod）（反恐精英职业版）<a href="http://www.cspromod.com" target="_blank"> 官网 </a> <a href="http://baike.baidu.com/view/93641.htm" target="_blank"> 百科 </a>
+CS:P（Counter-Strike:Promod）（反恐精英职业版）[ 百科 ](http://www.cspromod.com)
 
 CS（Counter-Strike）起初只是 HL（Half-Life）的一个 MOD 扩展包
 后来没想到风声水起

@@ -6,6 +6,7 @@ tags: ["算命","八字"]
 draft: false
 slug: "fortune-telling"
 date: "2019-11-05 14:45:00"
+lastmod: "2019-11-05 14:45:00"
 ---
 
 国庆回老家的时候，

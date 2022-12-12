@@ -6,6 +6,7 @@ tags: ["过年","春节","聚会","麻将","喝酒"]
 draft: false
 slug: "friends-gathering"
 date: "2011-02-06 17:00:21"
+lastmod: "2011-02-06 17:00:21"
 ---
 
 有个朋友从武汉过来近年的

@@ -6,6 +6,7 @@ tags: ["心情","日记","天气"]
 draft: false
 slug: "not-anything-related-to-weather"
 date: "2011-05-11 09:58:37"
+lastmod: "2011-05-11 09:58:37"
 ---
 
 季节性的悲伤过

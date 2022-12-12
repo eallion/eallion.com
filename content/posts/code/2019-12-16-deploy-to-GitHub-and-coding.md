@@ -6,6 +6,7 @@ tags: ["hexo"]
 slug: "deploy-to-GitHub-and-coding"
 draft: false
 date: "2019-12-16 22:58:39"
+lastmod: "2019-12-16 22:58:39"
 ---
 
 > 以 GitHub Pages + Coding Pages 为例

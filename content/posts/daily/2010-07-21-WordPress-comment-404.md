@@ -6,6 +6,7 @@ tags: ["提交评论"]
 draft: false
 slug: "WordPress-comment-404"
 date: "2010-07-21 15:40:25"
+lastmod: "2010-07-21 15:40:25"
 ---
 
 本博客的评论重新启动
@@ -25,8 +26,9 @@ date: "2010-07-21 15:40:25"
 （包括出问题的 wp_comments 也没仔细查看）
 然后我就下载了服务器上的数据库导入到 localhost
 发现导入到一半的时候出现 1054 错误
-<blockquote>#1054 – Unknown column ‘comment_favicon_url’ in ‘field list’
-</blockquote>
+
+> #1054 – Unknown column ‘comment_favicon_url’ in ‘field list’
+
 然后我再到我服务器上的 phpmyadmin 里面检查了一下 wp_commnets 表
 这里面居然比健康的数据表多出 comment_favicon_url 这个字段
 备份数据库之后毫不犹豫的删除它

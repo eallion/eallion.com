@@ -6,6 +6,7 @@ tags: ["秋"]
 draft: false
 slug: "huddled-autumn"
 date: "2011-10-08 11:22:36"
+lastmod: "2011-10-08 11:22:36"
 ---
 
 有一年的秋天

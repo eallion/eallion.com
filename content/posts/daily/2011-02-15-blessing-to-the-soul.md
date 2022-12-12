@@ -6,6 +6,7 @@ tags: []
 draft: false
 slug: "blessing-to-the-soul"
 date: "2011-02-15 07:57:04"
+lastmod: "2011-02-15 07:57:04"
 ---
 
 ・・

@@ -6,6 +6,7 @@ tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]
 draft: false
 slug: "ubuntuevervim"
 date: "2019-11-27 03:08:00"
+lastmod: "2019-11-27 03:08:00"
 ---
 
 ### 安装 EverVim

@@ -6,10 +6,11 @@ tags: ["CS","Ubuntu","server","服务器","linux","red hat"]
 draft: false
 slug: "linux-counter-strike-server"
 date: "2012-03-21 13:07:07"
+lastmod: "2012-03-21 13:07:07"
 ---
 
 > 前言：由于 linux 系统的高性能和稳定性，非常适合作为 cs1.6 这种对服务器硬件要求较高的服务端，（服务器端可达到 1000fps），因此国外绝大多数的 cs1.6 服务器均采用 linux 做为服务器的操作系统。本文也只针对 linux 系统下架设 cs1.6 服务器及其扩展功能展开讨论，本文借鉴了网络上前人的经验，在此对他们无私的奉献表示感谢！这是本人第一次写 cs.16 服务器教程，难免存在疏漏或错误，希望各位同仁批评指正！
-（本文最初发表在点通论坛，如需转载，请注明出处！作者：<a href="http://www.dt-club.net/forum.php?mod=viewthread&tid=46567" target="_blank">disremember</a>）
+（本文最初发表在点通论坛，如需转载，请注明出处！作者：[disremember](http://www.dt-club.net/forum.php?mod=viewthread&tid=46567)）
 
 ### 第一部分
 
@@ -192,7 +193,7 @@ sudo vi /home/hlds_l_4617/cstrike/banned.cfg
 
   这部分内容是关于 dproto 模块插件的，这个插件将解决老版本（47 协议）和新版本（48 协议）客户端的登录问题，经过安装配置和后，你的这台 cs1.6 服务器将允许 47/48 两种协议的 non-steam（D 版）客户端进入游戏。
 Crock 是个伟大的程序员，他用 c 语言以及他的聪明才智开发了 dproto 模块插件程序，打破了 valve 公司对 D 版 cs1.6 客户端的封锁，2008 年 12 月 Crock 最初把 dproto 插件发布在 cs.rin.ru 论坛上，经过不断的升级，目前版本是 0.3.7，他发表的论坛网址如下：
-<a href="<<<http://cs.rin.ru/forum/viewtopic.php?f=29&t=52728>>>" target="_blank">http://cs.rin.ru/forum/viewtopic.php?f=29&t=52728</a>
+[http://cs.rin.ru/forum/viewtopic.php?f=29&t=52728](http://cs.rin.ru/forum/viewtopic.php?f=29&t=52728)
 
 dproto 模块插件的伟大之处在于它并不修改原版 cs.16 服务端半个字节，却能让低版本（47 协议）和高版本（48 协议）以及这两种协议的 D 版客户端都能进入升级后的 cs1.6 服务器，dproto 运行在 MetaMod 平台上，因而 dproto 不是破解程序而仅仅是合法的插件，Metamod 是 cs.16 服务端标准扩展平台，著名的反作弊插件 sxe、amxmodx 以及 valve 本公司的反作弊插件 VAC 也运行在这个平台上，
 
@@ -230,7 +231,7 @@ tar -zxvf 参数解释
 - `-f 必须，表示使用归档文件
 
 metamod 官方网站地址（备用）：
-<http://metamod-p.sourceforge.net/>
+[http://metamod-p.sourceforge.net/](http://metamod-p.sourceforge.net/)
 
 然后查看一下解压结果：
 
@@ -320,7 +321,7 @@ gamedll_linux "addons/metamod/dlls/metamod_i386.so"
 （二）、安装和测试 dproto 插件
 由于 Crock 发布 dproto 插件的打包方式是.rar，所以我们需要先在 winXp 电脑上下载并解开压缩包，然后再将释放出的插件程序上传到 linux 服务器上，
 请在你的 winXp 电脑上下载 dproto 的最新版本：
-<http://cs.rin.ru/forum/viewtopic.php?f=29&t=52728>
+[http://cs.rin.ru/forum/viewtopic.php?f=29&t=52728](http://cs.rin.ru/forum/viewtopic.php?f=29&t=52728)
 当前最新版本是 0.3.7，包文件名为 dproto_0_3_7.rar（包中含有 linux 和 windows 两种程序分别应用于这两种操作系统）
 
 解开压缩包以后，在文件夹中可以找到 dproto_i386.so 和一个 dproto.cfg 两个文件（不要修改 dproto.cfg 的内容），这两个文件是本教程需要的，
@@ -338,7 +339,7 @@ mkdir cstrike/addons/dproto
 
 2。使用工具软件 SSHSecureShellClient v3.29 把 dproto_i386.so 和 dproto.cfg 上传到远程 linux 服务器的相应目录中
 SSHSecureShellClient v3.29 下载：
-<http://www.v.bdjy.cn/out/download_oracle.jsp?db=nav_c_blobdata&id=1202>
+[http://www.v.bdjy.cn/out/download_oracle.jsp?db=nav_c_blobdata&id=1202](http://www.v.bdjy.cn/out/download_oracle.jsp?db=nav_c_blobdata&id=1202)
 
 上传后，dproto 相关的文件绝对位置应该是这样子的：
 

@@ -6,6 +6,7 @@ tags: ["吉他","琴行"]
 draft: false
 slug: "little-people-have-changed"
 date: "2008-10-06 22:57:18"
+lastmod: "2008-10-06 22:57:18"
 ---
 
 今天很郁闷很悲伤... 也许我都不知道为什么...

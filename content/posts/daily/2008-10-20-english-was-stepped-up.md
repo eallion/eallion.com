@@ -6,6 +6,7 @@ tags: ["CS","视频","英语","CSMTV"]
 draft: false
 slug: "english-was-stepped-up"
 date: "2008-10-20 22:54:44"
+lastmod: "2008-10-20 22:54:44"
 ---
 
 今天装了一个疯... 背了好几个单元的单词...

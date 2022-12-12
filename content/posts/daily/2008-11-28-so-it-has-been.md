@@ -6,6 +6,7 @@ tags: ["习惯","钱"]
 draft: false
 slug: "so-it-has-been"
 date: "2008-11-28 22:28:14"
+lastmod: "2008-11-28 22:28:14"
 ---
 
 只要出去一转...

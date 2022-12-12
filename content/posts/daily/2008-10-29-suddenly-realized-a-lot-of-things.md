@@ -6,6 +6,7 @@ tags: ["CS","感悟","悟"]
 draft: false
 slug: "suddenly-realized-a-lot-of-things"
 date: "2008-10-29 22:52:21"
+lastmod: "2008-10-29 22:52:21"
 ---
 
 突然悟到很多东西...

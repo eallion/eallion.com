@@ -6,6 +6,7 @@ tags: ["地震","地震预测"]
 draft: false
 slug: "dizhenyuce"
 date: "2010-05-27 07:01:00"
+lastmod: "2010-05-27 07:01:00"
 ---
 
 <strong>512 地震的真相：两个老科学家的血泪倾诉～</strong>

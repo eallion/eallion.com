@@ -6,14 +6,15 @@ tags: ["多说","css","样式"]
 draft: false
 slug: "share-duoshuo-css"
 date: "2015-01-12 10:07:00"
+lastmod: "2015-01-12 10:07:00"
 ---
 
 出色的自定义效果展示：
 
-设计达人：<a href="<<<http://www.shejidaren.com/use-css3-to-create-a-beautiful-comment-ui.html>>>" target="_blank">http://www.shejidaren.com/use-css3-to-create-a-beautiful-comment-ui.html</a>
-罗磊的独立博客：<a href="<<<http://luolei.org/2012/08/duoshuo-css>>>" target="_blank">http://luolei.org/2012/08/duoshuo-css</a>
-V 说：<a href="<<<http://www.vsay.cn/one-more-custom-css-lets-you-say-comments-city.html>>>" target="_blank">http://www.vsay.cn/one-more-custom-css-lets-you-say-comments-city.html</a>
-沈超飞的 IT 博客：<a href="<<<http://shenchaofei.cn/duoshuo-comment-box-css-custom/328.html>>>" target="_blank">http://shenchaofei.cn/duoshuo-comment-box-css-custom/328.html</a>
+设计达人：[http://www.shejidaren.com/use-css3-to-create-a-beautiful-comment-ui.html](http://www.shejidaren.com/use-css3-to-create-a-beautiful-comment-ui.html)
+罗磊的独立博客：[http://luolei.org/2012/08/duoshuo-css](http://luolei.org/2012/08/duoshuo-css)
+V 说：[http://www.vsay.cn/one-more-custom-css-lets-you-say-comments-city.html](http://www.vsay.cn/one-more-custom-css-lets-you-say-comments-city.html)
+沈超飞的 IT 博客：[http://shenchaofei.cn/duoshuo-comment-box-css-custom/328.html](http://shenchaofei.cn/duoshuo-comment-box-css-custom/328.html)
 
 ```css
 #ds-thread .ds-powered-by {font-size: 0px !important; padding: 0; }

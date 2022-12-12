@@ -6,6 +6,7 @@ tags: ["手机","iPhone","i6","android","翻盖"]
 draft: false
 slug: "dream-phone"
 date: "2011-02-18 20:51:13"
+lastmod: "2011-02-18 20:51:13"
 ---
 
 其实我真的很讨厌手机的
@@ -75,7 +76,7 @@ Moto 有几款这样的手机
 并不是我理想中的翻盖
 
 富士通有款手机很有趣（概念品）
-双触屏，Symbian+Android 双系统（<a href="http://bbs.blueshow.net/forum.php?mod=viewthread&tid=696888" target="_blank"> 查看细节 </a>）
+双触屏，Symbian+Android 双系统（[ 查看细节 ](http://bbs.blueshow.net/forum.php?mod=viewthread&tid=696888)）
 但是还是不是我想像中的手机
 
 其实我真不喜欢用手机

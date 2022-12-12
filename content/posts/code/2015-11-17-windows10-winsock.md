@@ -6,6 +6,7 @@ tags: ["dns","win10","windows10","winsock","打不开网页"]
 draft: false
 slug: "windows10-winsock"
 date: "2015-11-17 21:28:00"
+lastmod: "2015-11-17 21:28:00"
 ---
 
 如果 Win10 系统能上 QQ 但是打不开网页，浏览器提示 “DNS_PROBE_FINISHED_DXDOMAIN"或者"DNS_PROBE_PROSSIBLE", 在尝试了各种卫士管家的修复后，仍然打不开网页的话，有可能是 WinSock 出问题了。

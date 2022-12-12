@@ -6,6 +6,7 @@ tags: ["Ubuntu","google","ssh","two factor","authenticator"]
 draft: false
 slug: "ssh-google-authenticator"
 date: "2016-09-08 10:55:00"
+lastmod: "2016-09-08 10:55:00"
 ---
 
 我经常需要用 `SSH` 连加家到自己的电脑上，如果单独用密码验证，存在很多安全隐患，如果用密钥，又很麻烦，所以我选择的是用 Google 的双重验证。顺便换了一个非 22 端口。

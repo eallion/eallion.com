@@ -6,14 +6,15 @@ tags: ["民主","埃及","自由","游行","运动"]
 draft: false
 slug: "tribute-to-the-egyptian"
 date: "2011-02-12 02:34:00"
+lastmod: "2011-02-12 02:34:00"
 ---
 
-<blockquote > 半岛电视台的直播地址：<a href="http://www.youtube.com/aljazeeraenglish?feature=ticker" target="_blank">http://www.youtube.com/aljazeeraenglish</a></blockquote > 伟大的埃及人民经过 17 天的游行示威抗议
+<blockquote > 半岛电视台的直播地址：[http://www.youtube.com/aljazeeraenglish](http://www.youtube.com/aljazeeraenglish?feature=ticker)</blockquote > 伟大的埃及人民经过 17 天的游行示威抗议
 埃及人民终于自由了
 埃及终于要走上民主的道路了
 政权移交
 穆巴拉克滚蛋了
-（穆大爷，你就拿好你的方舟船票走吧 <a href="http://eallion.com/2012a" target="_blank"> 典故 </a>）
+（穆大爷，你就拿好你的方舟船票走吧 [典故](http://eallion.com/2012a)）
 
 要说什么呢，又能说什么呢
 看看中国广大屁民这傻逼样

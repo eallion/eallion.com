@@ -949,7 +949,7 @@ enableEmoji = true
     # Related content config
     # 相关文章推荐配置
     [params.page.related]
-      enable = true
+      enable = false
       count = 5
 
   # Sponsor config
@@ -1088,6 +1088,8 @@ enableEmoji = true
     guessSyntax = true
     lineNos = true
     lineNumbersInTable = true
+    lineNoStart = 1
+    tabWidth = 2
     # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
     # false 是必要的设置 (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
@@ -1128,6 +1130,9 @@ enableEmoji = true
   link = "https://eallion.com/copyright/"
   avatar = "/eallion.png"
   #gravatarEmail = ""
+
+[frontmatter]
+  lastmod = 'lastmod'
 
 # Sitemap config
 # 网站地图配置

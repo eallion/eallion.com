@@ -6,6 +6,7 @@ tags: ["博客","插件","typecho"]
 draft: false
 slug: "type-final-echo"
 date: "2011-01-14 11:11:26"
+lastmod: "2011-01-14 11:11:26"
 ---
 
 因为前几天主机空间老是出故障
@@ -37,35 +38,35 @@ Typecho Captcha- 验证码插件
 Links - 友情链接插件
 tinyMCE Editor - 集成 tinyMCE 编辑器
 
-<strong > 模板 </strong > 是用的 < a href="http://justs.me/" target="_blank"> 九尾博客 </a > 的 9ve-05
+<strong > 模板 </strong > 是用的 [九尾博客](http://justs.me/) 的 9ve-05
 但是原模板已经比较老了
 里面被我换掉了好多东西
 有几个板块甚至完全是我自己重新写的
 而且 CSS 里面自己也改了一半以上的吧
 暂时就定下来用这个吧
 基调是原模板的样子
-感谢原模板作者 < a href="http://justs.me/" target="_blank"> 九尾博客 </a>
+感谢原模板作者 [九尾博客](http://justs.me/)
 
 博客启用了 < strong > 相册 </strong > 页面
 这真是一个可有可无的页面
 相册用到了两种实现方式
-一种是 < a href="http://immmmm.com/latest-flickr-pictures-show.html" title="感谢 木木木木木 提供的技术" target="_blank"> 木木木木木 </a > 这里提到的
-一种是用了 < a href="http://www.jzwalk.com/archives/net/highslide-for-typecho" title="感谢 羽中 提供的技术" target="_blank"> 羽中 </a > 的 HighSlide 插件集成的相册功能
+一种是 [木木木木木](http://immmmm.com/latest-flickr-pictures-show.html) 这里提到的
+一种是用了 [羽中](http://www.jzwalk.com/archives/net/highslide-for-typecho) 的 HighSlide 插件集成的相册功能
 两种方法切换着在用
 在看哪种方法更好一些
 不过两种相册都不会用到本地图片
 这大大的减小了主机的负担
 
-导航页面还有一个 < a href="http://eallion.com/category/sz/" target="_blank"><strong > 山寨版山贼 </strong></a>
+导航页面还有一个 [ 山寨版山贼 </strong>](http://eallion.com/category/sz/)
 这是我一个朋友的页面
 是一个文艺小青年
 又帅又多金又靠谱反正各种好
 他会偶尔来更新几篇博客的
 欢迎大家随时来喷他
 
-<a href="http://t.eallion.com/" target="_blank"><strong > 微博 </strong></a > 和 < a href="http://s.eallion.com/" target="_blank"><strong > 个人导航 </strong></a > 页面完全是做的站外链接
+[ 个人导航 </strong>](http://t.eallion.com/) 页面完全是做的站外链接
 其中微博是我的个人微博
-这个微博用的是 < a href="http://www.pagecookery.com/" target="_blank">PageCookery</a > 程序
+这个微博用的是 [PageCookery](http://www.pagecookery.com/) 程序
 它几乎记录了我从开启那个微博以来所有 post 到网上各处的文字……
 鬼知道我当初是怎么想的
 也许是想记录给我的子子孙孙看吧

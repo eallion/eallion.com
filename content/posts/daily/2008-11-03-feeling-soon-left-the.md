@@ -6,6 +6,7 @@ tags: ["离开","毕业","伤怀"]
 draft: false
 slug: "feeling-soon-left-the"
 date: "2008-11-03 22:56:00"
+lastmod: "2008-11-03 22:56:00"
 ---
 
 今天下午去开班会...

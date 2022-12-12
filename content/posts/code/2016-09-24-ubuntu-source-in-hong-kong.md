@@ -6,6 +6,7 @@ tags: ["Ubuntu","香港","源","更新源"]
 draft: false
 slug: "ubuntu-source-in-hong-kong"
 date: "2016-09-24 16:05:00"
+lastmod: "2016-09-24 16:05:00"
 ---
 
 ```bash

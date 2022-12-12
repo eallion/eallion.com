@@ -6,6 +6,7 @@ tags: ["CS","CS:GO","SK","ESC","Vavle"]
 draft: false
 slug: "sk-cph-csgo-esc"
 date: "2012-04-05 09:26:17"
+lastmod: "2012-04-05 09:26:17"
 ---
 
 CS1.6 在游戏史上已成为难以超越的经典

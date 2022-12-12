@@ -6,6 +6,7 @@ tags: ["日记","睡觉","独处"]
 draft: false
 slug: "unthinkable"
 date: "2011-01-18 10:26:02"
+lastmod: "2011-01-18 10:26:02"
 ---
 
 <embed src="http://www.xiami.com/widget/0_24433/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>

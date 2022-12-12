@@ -6,6 +6,7 @@ tags: ["CS","鼠标","IE3.0","蝰蛇","MX518"]
 draft: false
 slug: "my-third-mouse-is-broken"
 date: "2011-03-01 08:03:09"
+lastmod: "2011-03-01 08:03:09"
 ---
 
 从我开始打 CS 以来

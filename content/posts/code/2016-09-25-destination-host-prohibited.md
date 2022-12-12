@@ -6,6 +6,7 @@ tags: ["Ubuntu","ssl","iptables","ufw","Destination"]
 draft: false
 slug: "destination-host-prohibited"
 date: "2016-09-25 00:19:00"
+lastmod: "2016-09-25 00:19:00"
 ---
 
 ```bash

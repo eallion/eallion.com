@@ -6,6 +6,7 @@ tags: ["Ubuntu","备份","Duplicati"]
 draft: false
 slug: "duplicati"
 date: "2019-11-25 22:30:00"
+lastmod: "2019-11-25 22:30:00"
 ---
 
  [Duplicati](https://www.duplicati.com/download) 备份工具支持主流的系统，包括：Windows、 Linux、 MacOS、 Synology 等。

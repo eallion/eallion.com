@@ -6,6 +6,7 @@ tags: ["中文","shutter","乱码"]
 draft: false
 slug: "shutter-chinese-garbled"
 date: "2016-09-25 20:05:00"
+lastmod: "2016-09-25 20:05:00"
 ---
 
 > Ubuntu 16.04.1 LTS 64bit

@@ -6,6 +6,7 @@ tags: ["火车","母亲","人民的名义","丁可"]
 draft: false
 slug: "my-mothers-train"
 date: "2017-04-20 09:58:00"
+lastmod: "2017-04-20 09:58:00"
 ---
 
 《母亲的专列》

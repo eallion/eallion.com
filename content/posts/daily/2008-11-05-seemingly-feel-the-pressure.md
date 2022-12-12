@@ -6,6 +6,7 @@ tags: ["毕业","压力","随意"]
 draft: false
 slug: "seemingly-feel-the-pressure"
 date: "2008-11-05 20:15:56"
+lastmod: "2008-11-05 20:15:56"
 ---
 
 从来不急...

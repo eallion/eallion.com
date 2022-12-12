@@ -6,6 +6,7 @@ tags: ["停电","停网"]
 draft: false
 slug: "stopping-power-network"
 date: "2008-10-22 14:37:36"
+lastmod: "2008-10-22 14:37:36"
 ---
 
 从昨天开始...

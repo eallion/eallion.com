@@ -6,6 +6,7 @@ tags: ["有感","自言自语"]
 draft: false
 slug: "aboutnomey"
 date: "2010-08-01 23:25:07"
+lastmod: "2010-08-01 23:25:07"
 ---
 
 今天跑了好几个银行

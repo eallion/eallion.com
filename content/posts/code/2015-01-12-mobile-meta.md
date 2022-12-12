@@ -6,6 +6,7 @@ tags: ["代码","html","meta","标签"]
 draft: false
 slug: "mobile-meta"
 date: "2015-01-12 09:58:00"
+lastmod: "2015-01-12 09:58:00"
 ---
 
 ```html

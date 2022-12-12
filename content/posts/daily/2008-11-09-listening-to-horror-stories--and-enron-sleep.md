@@ -6,6 +6,7 @@ tags: ["小说","恐怖","MP3","故事"]
 draft: false
 slug: "listening-to-horror-stories--and-enron-sleep"
 date: "2008-11-09 01:01:21"
+lastmod: "2008-11-09 01:01:21"
 ---
 
 每天晚上当四周漆黑一片...

@@ -6,9 +6,10 @@ tags: ["招聘","淘宝","天猫","客服","绍兴 E 网","美工"]
 draft: false
 slug: "wen-an-de-zhong-yao-xing"
 date: "2013-06-22 11:54:00"
+lastmod: "2013-06-22 11:54:00"
 ---
 
-我们这里有个本地消息平台 ——<a href="http://www.e0575.com" target="_blank"> 绍兴 E 网 </a>
+我们这里有个本地消息平台 ——[ 绍兴 E 网 ](http://www.e0575.com)
 一般租房啊、找工作啊、二手交易啊都在这里进行
 
 我朋友新店开张
@@ -28,8 +29,8 @@ date: "2013-06-22 11:54:00"
 谁说招聘信息不需要推广的？
 
 现分享招聘信息如下：
-<del><a href="<<<http://job.e0575.com/show.php?nId=1895198>>>" target="_blank">http://job.e0575.com/show.php?nId=1895198</a></del>（已删除）
-索芙特天诺专卖店（<a href="<<<https://softtotn.tmall.com>>>" target="_blank">https://softtotn.tmall.com</a>）位于袍江冠友集团内（洋江路与中兴大道交叉口，离客运中心不远）。
+<del>[http://job.e0575.com/show.php?nId=1895198](http://job.e0575.com/show.php?nId=1895198)</del>（已删除）
+索芙特天诺专卖店（[https://softtotn.tmall.com](https://softtotn.tmall.com)）位于袍江冠友集团内（洋江路与中兴大道交叉口，离客运中心不远）。
 
 现急需一名【打包客服主管】，限男生，最好是有淘宝卖家客服工作经历，无学历要求。
 主要工作是打包发货售后，打包流程很成熟，每天只需 3 个小时左右即可完成当天的打包工作。

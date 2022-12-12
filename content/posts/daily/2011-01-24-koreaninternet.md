@@ -6,10 +6,11 @@ tags: ["网易","专题","宽带","信息化","垄断"]
 draft: false
 slug: "koreaninternet"
 date: "2011-01-24 08:15:00"
+lastmod: "2011-01-24 08:15:00"
 ---
 
 <blockquote>《韩国宽带为何物美价廉》
-这是 < a href="http://www.163.com" target="_blank"><strong > 网易 </strong></a > 做的一个专题 <a href="http://discover.news.163.com/special/koreaninternet/" target="_blank">http://discover.news.163.com/special/koreaninternet</a></blockquote>
+这是 [http://discover.news.163.com/special/koreaninternet](http://www.163.com)</blockquote>
 里面的重点有这么几个：
 世界平均网速 230.3KB/s，中国 107.5KB/s，美国 575KB/s，韩国 2150.4KB/s
 1Mbps 带宽月费：中国 $11.8（80RMB 左右），美国 $3.3，韩国 $0.45（3RMB 左右）
@@ -38,15 +39,15 @@ date: "2011-01-24 08:15:00"
 就连电信跨省都那么难
 
 我记得我去年也转载过一篇网易的专题
-我站内搜索了一下 <a href="http://eallion.com/netease-black-brick-house-property-awards-in-the-first-quarter-2010" target="_blank"> 在这里 </a>
+我站内搜索了一下 [在这里](http://eallion.com/netease-black-brick-house-property-awards-in-the-first-quarter-2010)
 话说，很难有东西能让我看上眼再被转载的！
 
 我觉得在做新闻这一块
 网易和新浪都比较有骨气
 而且去年网易还做了一件很有意义的事
-就是网易翻译的 < strong > 公开课 </strong> <a href="<<<http://v.163.com/open>>>" target="_blank">http://v.163.com/open</a>
+就是网易翻译的 < strong > 公开课 </strong> [http://v.163.com/open](http://v.163.com/open)
 
-而搜狐就只知道做点小娱小乐的高清美剧了 <a href="<<<http://tv.sohu.com/hdtv>>>/" target="_blank">http://tv.sohu.com/hdtv</a>
+而搜狐就只知道做点小娱小乐的高清美剧了 [http://tv.sohu.com/hdtv](http://tv.sohu.com/hdtv/)
 话说，我追《迷失》不能下载的那几天
 我也还是来这里看过两集《迷失》的～
 

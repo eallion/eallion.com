@@ -6,6 +6,7 @@ tags: ["女人","爱情","条件"]
 draft: false
 slug: "really-a-lot-of-people-ask-me"
 date: "2008-12-03 18:52:00"
+lastmod: "2008-12-03 18:52:00"
 ---
 
 有人问我了...

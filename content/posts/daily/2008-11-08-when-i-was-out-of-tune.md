@@ -6,6 +6,7 @@ tags: ["明白","格格不入"]
 draft: false
 slug: "when-i-was-out-of-tune"
 date: "2008-11-08 01:24:26"
+lastmod: "2008-11-08 01:24:26"
 ---
 
 当我自己觉得跟别人不一样...

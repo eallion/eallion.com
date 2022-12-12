@@ -6,6 +6,7 @@ tags: ["圆规","画圆"]
 draft: false
 slug: "dont-do-compasses-to-draw-circles"
 date: "2015-01-23 11:24:00"
+lastmod: "2015-01-23 11:24:00"
 ---
 
 > 圆规为什么可以画圆？因为脚在走，心不变。

@@ -6,6 +6,7 @@ tags: ["苹果","平安夜","发财"]
 draft: false
 slug: "christmas-eve"
 date: "2008-10-24 21:33:25"
+lastmod: "2008-10-24 21:33:25"
 ---
 
 平安夜了...

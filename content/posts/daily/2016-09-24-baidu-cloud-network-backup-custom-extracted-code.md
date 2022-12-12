@@ -6,6 +6,7 @@ tags: ["百度","百度云网盘","网盘","提取码"]
 draft: false
 slug: "baidu-cloud-network-backup-custom-extracted-code"
 date: "2016-09-24 12:52:00"
+lastmod: "2016-09-24 12:52:00"
 ---
 
 在浏览器中打开百度云盘，选中需要分享的文件，然后点击分享按钮；

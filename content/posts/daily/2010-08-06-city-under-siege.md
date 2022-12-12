@@ -6,6 +6,7 @@ tags: ["全城戒备","电影"]
 draft: false
 slug: "city-under-siege"
 date: "2010-08-06 23:13:44"
+lastmod: "2010-08-06 23:13:44"
 ---
 
 看完今天首映的《全城戒备》

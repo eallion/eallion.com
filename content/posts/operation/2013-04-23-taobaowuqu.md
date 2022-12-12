@@ -6,10 +6,11 @@ tags: ["淘宝","营销","运营","推广","刷","直通车"]
 draft: false
 slug: "taobaowuqu"
 date: "2013-04-23 11:52:00"
+lastmod: "2013-04-23 11:52:00"
 ---
 
 <blockquote > 你为什么死在淘宝的路上？ 关于【刷】、【直通车】、【营销】。
-转自 < a href="http://www.paidai.com/" target="_blank"> 派代 </a>：<a href="http://bbs.paidai.com/topic/136114" target="_blank">http://bbs.paidai.com/topic/136114</a>  原作者：<a href="http://my.paidai.com/419250" target="_blank"> 七少 </a></blockquote> 我是七少，写这篇帖子，是由来已久的想法。入行有些时候了。还常常看见小卖家们和微小卖家们纠结没有方向，感到心酸。
+转自 [七少](http://www.paidai.com/)</blockquote> 我是七少，写这篇帖子，是由来已久的想法。入行有些时候了。还常常看见小卖家们和微小卖家们纠结没有方向，感到心酸。
 
  现在淘宝的情况是，初级卖家开篇就讨论刷。中级卖家没玩完了直通车。老手们天天研究营销手段。
 
@@ -111,4 +112,4 @@ date: "2013-04-23 11:52:00"
  谢谢！看的这么辛苦！
 
  你为什么死在淘宝的路上？——— 之几个做淘宝的【致命误区】
-　<a href="<<<http://bbs.paidai.com/topic/145704>>>" target="_blank">http://bbs.paidai.com/topic/145704</a>
+　[http://bbs.paidai.com/topic/145704](http://bbs.paidai.com/topic/145704)

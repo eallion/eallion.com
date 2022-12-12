@@ -6,6 +6,7 @@ tags: ["日记","有缘人","爱情","感想"]
 draft: false
 slug: "feeling-something-today"
 date: "2011-01-27 22:24:45"
+lastmod: "2011-01-27 22:24:45"
 ---
 
 我很羡慕那些可以写出婉转文字的人

@@ -6,6 +6,7 @@ tags: []
 draft: false
 slug: "in-fact--life-is-like-a-postcard"
 date: "2011-01-28 10:21:18"
+lastmod: "2011-01-28 10:21:18"
 ---
 
 有的人期待

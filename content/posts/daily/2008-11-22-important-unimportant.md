@@ -6,6 +6,7 @@ tags: ["重要","值得"]
 draft: false
 slug: "important-unimportant"
 date: "2008-11-22 23:04:30"
+lastmod: "2008-11-22 23:04:30"
 ---
 
 有些事...

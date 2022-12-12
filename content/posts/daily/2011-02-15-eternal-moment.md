@@ -6,6 +6,7 @@ tags: ["影评","爱情","电影","love","将爱"]
 draft: false
 slug: "eternal-moment"
 date: "2011-02-15 08:52:46"
+lastmod: "2011-02-15 08:52:46"
 ---
 
 《将爱》真不适合在情人节看

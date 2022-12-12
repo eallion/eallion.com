@@ -6,6 +6,7 @@ tags: ["博客","统计","报告","分析","展望"]
 draft: false
 slug: "statistical-report"
 date: "2011-02-03 00:00:00"
+lastmod: "2011-02-03 00:00:00"
 ---
 
 <blockquote > 本报告为本博客最近 30 天的百度统计报告，旨在帮忙我分析访客习惯，为来访的朋友提供更优质和人性化的阅读体验。</blockquote>

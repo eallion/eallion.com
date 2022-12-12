@@ -6,22 +6,23 @@ tags: ["全球最具影响力","时代","韩寒"]
 draft: false
 slug: "hanhan_time"
 date: "2010-04-07 07:42:01"
+lastmod: "2010-04-07 07:42:01"
 ---
 
-<a href="http://www.morningpost.com.cn/wenti/wyxw/2010-04-05/46737.shtml" target="_blank"> 北京晨报：韩寒进前十指日可待 </a>
+[ 北京晨报：韩寒进前十指日可待 ](http://www.morningpost.com.cn/wenti/wyxw/2010-04-05/46737.shtml)
 
-<a href="http://http://news.sohu.com/20100405/n271315907.shtml" target="_blank"> 广州日报：美刊评全球最具影响人物韩寒入榜 榜单遭到质疑 </a>
+[ 广州日报：美刊评全球最具影响人物韩寒入榜 榜单遭到质疑 ](http://http://news.sohu.com/20100405/n271315907.shtml)
 
-<a href="http://ent.ce.cn/main/ywq/pl/201004/05/t20100405_21232022.shtml" target="_blank"> 新华网：警惕美 "韩寒引领全球风潮" 论 </a>
+[ 新华网：警惕美 "韩寒引领全球风潮" 论 ](http://ent.ce.cn/main/ywq/pl/201004/05/t20100405_21232022.shtml)
 
-<a href="http://http://focus.cnhubei.com/original/201004/t1058576.shtml" target="_blank"> 荆楚网：赵光瑞：韩寒候选 “全球最具影响力人物” 的合理性 </a>
+[ 荆楚网：赵光瑞：韩寒候选 “全球最具影响力人物” 的合理性 ](http://http://focus.cnhubei.com/original/201004/t1058576.shtml)
 
-<a href="http://hlj.rednet.cn/c/2010/04/06/1934708.htm" target="_blank"> 红网：“韩寒们” 也应该属于这个 “时代” 的时尚 </a>
+[ 红网：“韩寒们” 也应该属于这个 “时代” 的时尚 ](http://hlj.rednet.cn/c/2010/04/06/1934708.htm)
 
-<a href="http://http://new.spn.com.cn/1/344265.shtml" target="_blank"> 睿商在线：韩寒入选《时代》是个社会 "杯具"</a>
+[ 睿商在线：韩寒入选《时代》是个社会 "杯具"](http://http://new.spn.com.cn/1/344265.shtml)
 
 <hr>
-<span style="font-weight: normal; font-size: 12px; color: #222222;"> 附：<span style="color: #f00;">《时代》官网投票地址 </span>：<span style="color: #f00;"><a href="http://www.time.com/time/specials/packages/article/0,28804,1972075_1972078_1972568,00.html" target="_blank"> 点击这里 </a></span>。
+<span style="font-weight: normal; font-size: 12px; color: #222222;"> 附：<span style="color: #f00;">《时代》官网投票地址 </span>：<span style="color: #f00;">[ 点击这里 ](http://www.time.com/time/specials/packages/article/0,28804,1972075_1972078_1972568,00.html)</span>。
  头像上面的红色指针拉到 100（超过 100 不能投），再填上验证码，然后点击红色的‘SUBMIT'。</span>
 <hr>
 
@@ -47,6 +48,6 @@ date: "2010-04-07 07:42:01"
 
 过去一些政要、被树立为英雄模范的人物，一旦成为 “全球最具影响力人物” 候选人，都要受到国内舆论的一片赞扬。对于有争议的人物韩寒也有幸成为候选人，我们不妨也来点掌声，持观赏态度。笔者真诚祝愿韩寒能够从候选中脱颖而出，成功进入 100 强。
 
-稿源：荆楚网 <a href="<<<http://focus.cnhubei.com/original/201004/t1058576.shtml>>>" target="_blank">http://focus.cnhubei.com/original/201004/t1058576.shtml</a>
+稿源：荆楚网 [http://focus.cnhubei.com/original/201004/t1058576.shtml](http://focus.cnhubei.com/original/201004/t1058576.shtml)
 
 作者：赵光瑞

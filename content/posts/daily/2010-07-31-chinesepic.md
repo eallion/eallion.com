@@ -6,9 +6,10 @@ tags: ["中国缩影"]
 draft: false
 slug: "chinesepic"
 date: "2010-07-31 14:33:00"
+lastmod: "2010-07-31 14:33:00"
 ---
 
-转载自：<a href="https://ta.md/1193/" target="_blank">ta.ma 人人都是艺术家 </a>
+转载自：[ta.ma 人人都是艺术家 ](https://ta.md/1193/)
 <div>
     <p><img src="https://dulei.si/files/43d29e24c3ba141bcd8474eec12bc9ea.jpg" alt=""></p>
     <p > 宁夏石嘴山湖滨工业园区高大的烟囱上粉尘从天而降，当地居民叫苦连天，他们出门就得做好防范措施 <span></span> <img

@@ -6,6 +6,7 @@ tags: ["电脑","家电","空调","洗衣机","安定"]
 draft: false
 slug: "jia-dian-jue-ding-sheng-huo"
 date: "2012-06-13 08:28:51"
+lastmod: "2012-06-13 08:28:51"
 ---
 
 现在年轻

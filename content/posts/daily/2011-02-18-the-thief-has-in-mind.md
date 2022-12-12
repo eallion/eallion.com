@@ -6,6 +6,7 @@ tags: ["小偷","做小偷","偷东西"]
 draft: false
 slug: "the-thief-has-in-mind"
 date: "2011-02-18 09:12:48"
+lastmod: "2011-02-18 09:12:48"
 ---
 
 前边写过一篇《抓小偷记》

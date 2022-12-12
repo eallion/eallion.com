@@ -6,6 +6,7 @@ tags: ["神","诸神之怒","peseus","帕修斯"]
 draft: false
 slug: "wrath-of-the-titans"
 date: "2012-04-02 12:25:00"
+lastmod: "2012-04-02 12:25:00"
 ---
 
 《阿凡达》刮起了 3D 风之后

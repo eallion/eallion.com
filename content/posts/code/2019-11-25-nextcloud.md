@@ -6,6 +6,7 @@ tags: ["Ubuntu","server","网盘","nexecloud","snap"]
 draft: false
 slug: "nextcloud"
 date: "2019-11-25 16:08:00"
+lastmod: "2019-11-25 16:08:00"
 ---
 
 Nextcloud 官网提供了很多种安装方式，我选择通过 snap 安装。

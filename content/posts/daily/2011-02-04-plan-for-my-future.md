@@ -6,6 +6,7 @@ tags: ["展望","计划","规划","变化"]
 draft: false
 slug: "plan-for-my-future"
 date: "2011-02-04 17:21:47"
+lastmod: "2011-02-04 17:21:47"
 ---
 
 因为没有回家过年耽搁

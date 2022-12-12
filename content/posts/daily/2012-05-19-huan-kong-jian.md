@@ -6,6 +6,7 @@ tags: ["空间","备案","主机","香港","HOST"]
 draft: false
 slug: "huan-kong-jian"
 date: "2012-05-19 15:40:18"
+lastmod: "2012-05-19 15:40:18"
 ---
 
 2010 年花了 10 块钱备案了这个域名
@@ -24,7 +25,7 @@ date: "2012-05-19 15:40:18"
 这样域名当然不能解析到国内了
 第一反应就是转移到香港空间
 选来选去
-选了 < a href="http://bloghost.cn" target="_blank">bloghost.cn</a > 的香港虚拟主机
+选了 [bloghost.cn](http://bloghost.cn) 的香港虚拟主机
 
 其实华域讯通也有香港空间
 不过他们家的子域名实在太少了

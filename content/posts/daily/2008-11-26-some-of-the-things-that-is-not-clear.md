@@ -6,6 +6,7 @@ tags: ["风","清楚","解释"]
 draft: false
 slug: "some-of-the-things-that-is-not-clear"
 date: "2008-11-26 19:47:07"
+lastmod: "2008-11-26 19:47:07"
 ---
 
 有些事...

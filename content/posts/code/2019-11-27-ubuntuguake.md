@@ -6,6 +6,7 @@ tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]
 draft: false
 slug: "ubuntuguake"
 date: "2019-11-27 02:08:00"
+lastmod: "2019-11-27 02:08:00"
 ---
 
 终端推荐安装 Guake ，又好看又方便：

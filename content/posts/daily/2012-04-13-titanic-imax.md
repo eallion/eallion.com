@@ -6,6 +6,7 @@ tags: ["爱情","电影","titanic","泰坦尼克号","铁达尼"]
 draft: false
 slug: "titanic-imax"
 date: "2012-04-13 10:52:21"
+lastmod: "2012-04-13 10:52:21"
 ---
 
 昨天晚上去柯桥的万达电影院

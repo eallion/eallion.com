@@ -6,6 +6,7 @@ tags: ["Ubuntu","vps","优化","主机","lnmp"]
 draft: false
 slug: "ubuntu-vps-optimized"
 date: "2015-02-05 13:35:00"
+lastmod: "2015-02-05 13:35:00"
 ---
 
 如果选用小内存的 Ubuntu VPS，而且只需要 LNMP 做 web 服务的话，可以如下优化：

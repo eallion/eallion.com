@@ -6,6 +6,7 @@ tags: ["妈妈","生日","生日快乐"]
 draft: false
 slug: "i-wish-my-mother-a-happy-birthday"
 date: "2008-12-28 23:55:43"
+lastmod: "2008-12-28 23:55:43"
 ---
 
 今天妈妈过生日...

@@ -6,6 +6,7 @@ tags: ["写作","灵感"]
 draft: false
 slug: "about-write"
 date: "2010-04-14 05:04:28"
+lastmod: "2010-04-14 05:04:28"
 ---
 
 写作对我来说。

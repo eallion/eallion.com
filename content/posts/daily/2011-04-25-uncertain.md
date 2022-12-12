@@ -6,6 +6,7 @@ tags: ["选择"]
 draft: false
 slug: "uncertain"
 date: "2011-04-25 15:20:30"
+lastmod: "2011-04-25 15:20:30"
 ---
 
 以前我说过一句话：

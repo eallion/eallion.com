@@ -10,13 +10,14 @@ tags:
 slug: "coral-fish"
 draft: false
 date: 2022-07-13T19:14:26+08:00
+lastmod: 2022-07-13T19:14:26+08:00
 ---
 
 「宽油帮」业余厨子来交作业了。  
 
 从第一次看到王刚老师的教程的时候就想做这个菜了。  
 
-> 教程：<https://www.youtube.com/watch?v=8GF3Di-WCv0>
+> 教程：[https://www.youtube.com/watch?v=8GF3Di-WCv0](https://www.youtube.com/watch?v=8GF3Di-WCv0)
 
 不过一直觉得比较麻烦，没有时间做，迟迟没有上手做。  
 直到昨天看到王刚老师发了一个「珊瑚鱼」的 POV 教程（[视频](https://www.youtube.com/watch?v=RO036m2jvK8)），发现这道菜主要耗费的时间是在刀工上，整个过程只需要半个小时左右。

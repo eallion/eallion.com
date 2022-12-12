@@ -6,6 +6,7 @@ tags: ["地震","日本","海啸","灾难"]
 draft: false
 slug: "duonanxingbang"
 date: "2011-03-19 08:31:00"
+lastmod: "2011-03-19 08:31:00"
 ---
 
 我一直在等韩寒来写日本地震

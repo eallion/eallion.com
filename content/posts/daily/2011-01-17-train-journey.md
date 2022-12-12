@@ -6,18 +6,19 @@ tags: ["梦想","火车","站票","旅行"]
 draft: false
 slug: "train-journey"
 date: "2011-01-17 08:30:13"
+lastmod: "2011-01-17 08:30:13"
 ---
 
-昨晚看到韩寒更新的 < a href="http://blog.sina.com.cn/s/blog_4701280b01017hr5.html" title="他人的生活" target="_blank">《他人的生活》</a>
+昨晚看到韩寒更新的 [《他人的生活》](http://blog.sina.com.cn/s/blog_4701280b01017hr5.html)
 确实有点心酸
-里面那个要站三天三夜要站 5000 多公里回家的 < a href="http://v.youku.com/v_show/id_XMjM2NDY1NjE2.html" title="62 小时 5000 公里，17 岁小伙春运归家路" target="_blank"> 小伙子 </a>
+里面那个要站三天三夜要站 5000 多公里回家的 [小伙子](http://v.youku.com/v_show/id_XMjM2NDY1NjE2.html)
 何尝不是我们的遭遇啊
 
-我在 < a href="http://eallion.com/aboutdream" title="有关于梦想" target="_blank"> 这里 </a > 说过
+我在 [这里](http://eallion.com/aboutdream) 说过
 我从小就希望坐般坐火车
 我想去草原想去看大海
 
-可是我们家乡 < a href="http://www.lc-news.com/newscenter/lcnews/Currentpolitics/201012/20101223154941_36865.html" target="_blank"> 今年才通火车 </a > 呀
+可是我们家乡 [今年才通火车](http://www.lc-news.com/newscenter/lcnews/Currentpolitics/201012/20101223154941_36865.html) 呀
 所以，我的那些梦想
 真的是在长大了
 才慢慢实现的

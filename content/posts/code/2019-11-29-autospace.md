@@ -6,6 +6,7 @@ tags: ["空格","space","pangu"]
 draft: false
 slug: "autospace"
 date: "2019-11-29 09:29:00"
+lastmod: "2019-11-29 09:29:00"
 ---
 
 以前写博客，不太注意排版细节，而且那个时候也还没有 Markdown。

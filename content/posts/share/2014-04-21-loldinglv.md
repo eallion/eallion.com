@@ -6,6 +6,7 @@ tags: ["游戏","定律","LOL","英雄联盟","原则","法则"]
 draft: false
 slug: "loldinglv"
 date: "2014-04-21 12:43:00"
+lastmod: "2014-04-21 12:43:00"
 ---
 
 TOP32 木桶理论

@@ -6,10 +6,11 @@ tags: ["高端","色情","网站","品味","用户体验"]
 draft: false
 slug: "uedoferoticsite"
 date: "2013-05-20 12:00:00"
+lastmod: "2013-05-20 12:00:00"
 ---
 
 <blockquote>[摘要] 他们的每一次改版，每一个小按钮的挪动，影响的是千万用户的心情。
-本文转自：<a href="http://www.maijiakan.com" target="_blank"> 卖家网 </a> <a href="http://www.maijiakan.com/detail/20130517/aljs/60379.htm" target="_blank">http://www.maijiakan.com/detail/20130517/aljs/60379.htm</a></blockquote>
+本文转自：[http://www.maijiakan.com/detail/20130517/aljs/60379.htm](http://www.maijiakan.com)</blockquote>
 
 &nbsp;&nbsp; 在一次苦逼产品经理同行聊天中，一位新晋 PM 动辄说要做一款跨时代的地图应用来强壮中国人，我开玩笑说还不如做一个好用的又不用翻墙的情色网站更能达到强壮中国人的目的。他对我怒目相向，仿佛我的话极大的侮辱了其智商和雄心。
 

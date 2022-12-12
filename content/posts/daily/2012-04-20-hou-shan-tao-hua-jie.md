@@ -6,6 +6,7 @@ tags: ["CS","吼山","桃花","春游","游记"]
 draft: false
 slug: "hou-shan-tao-hua-jie"
 date: "2012-04-20 10:00:00"
+lastmod: "2012-04-20 10:00:00"
 ---
 
 4 月 1 日去吼山看桃花了

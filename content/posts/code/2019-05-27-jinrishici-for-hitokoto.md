@@ -6,6 +6,7 @@ tags: ["app","一言","诗词","hitokoto","今日诗词"]
 draft: false
 slug: "jinrishici-for-hitokoto"
 date: "2019-05-27 22:08:00"
+lastmod: "2019-05-27 22:08:00"
 ---
 
 最近安装了一个在手机屏幕上随机显示一句的 app，最终选择了 [【一言 app】](https://www.coolapk.com/apk/com.hitokoto)

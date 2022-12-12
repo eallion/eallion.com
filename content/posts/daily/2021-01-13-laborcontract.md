@@ -11,6 +11,7 @@ tags:
 slug: "laborcontract"
 draft: false
 date: 2021-01-13T14:40:28+08:00
+lastmod: 2021-01-13T14:40:28+08:00
 ---
 
 > 转需 / 备忘

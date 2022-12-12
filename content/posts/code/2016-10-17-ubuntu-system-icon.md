@@ -6,6 +6,7 @@ tags: ["Ubuntu","图标","托盘","状态栏"]
 draft: false
 slug: "ubuntu-system-icon"
 date: "2016-10-17 04:32:00"
+lastmod: "2016-10-17 04:32:00"
 ---
 
 状态栏托盘图标顺序，在 `/usr/share/indicator-application/ordering-override.keyfile` 修改：

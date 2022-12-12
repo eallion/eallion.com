@@ -6,6 +6,7 @@ tags: ["等待","等"]
 draft: false
 slug: "so-what-feels-like-over-a-day"
 date: "2008-12-17 21:38:11"
+lastmod: "2008-12-17 21:38:11"
 ---
 
 感觉像是等什么的过了一天...

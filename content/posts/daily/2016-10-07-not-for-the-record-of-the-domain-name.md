@@ -6,6 +6,7 @@ tags: ["域名","备案","阿里云"]
 draft: false
 slug: "not-for-the-record-of-the-domain-name"
 date: "2016-10-07 10:45:00"
+lastmod: "2016-10-07 10:45:00"
 ---
 
 阿里云公告的暂无法进行网站备案的域名后缀：
@@ -65,4 +66,4 @@ date: "2016-10-07 10:45:00"
 - .me
 - .co
 
-核实域名后缀是否收录，可以在工信部网站进行查看。<http://www.miitbeian.gov.cn/>，登陆后点击右下角的 “公共查询”，再点击 “域名类型” 即可。
+核实域名后缀是否收录，可以在工信部网站进行查看。[http://www.miitbeian.gov.cn/](http://www.miitbeian.gov.cn/)，登陆后点击右下角的 “公共查询”，再点击 “域名类型” 即可。

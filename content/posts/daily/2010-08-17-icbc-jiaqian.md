@@ -6,6 +6,7 @@ tags: ["ATM","假钱","工行","残币"]
 draft: false
 slug: "icbc-jiaqian"
 date: "2010-08-17 17:34:00"
+lastmod: "2010-08-17 17:34:00"
 ---
 
 还好

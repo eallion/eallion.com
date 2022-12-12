@@ -6,6 +6,7 @@ tags: ["CS","忧伤","忧愁"]
 draft: false
 slug: "if-i-can-not-play-cs"
 date: "2011-02-28 07:57:46"
+lastmod: "2011-02-28 07:57:46"
 ---
 
 不是玩 CS 也不是打 CS

@@ -6,6 +6,7 @@ tags: ["Ubuntu","Linux"]
 draft: false
 slug: "talkaboutubuntu"
 date: "2020-10-23 10:24:00"
+lastmod: "2020-10-23 10:24:00"
 ---
 
 关于 Linux 和 Ubuntu 的一点愚见。

@@ -6,6 +6,7 @@ tags: ["Ubuntu","1610","guest","session","访客"]
 draft: false
 slug: "ubuntu-1610-disabled-guest"
 date: "2016-10-12 02:42:00"
+lastmod: "2016-10-12 02:42:00"
 ---
 
 修改：

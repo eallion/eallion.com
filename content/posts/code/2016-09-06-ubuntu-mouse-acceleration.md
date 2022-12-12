@@ -6,6 +6,7 @@ tags: ["鼠标","Ubuntu","加速度","鼠标加速","xset m 0"]
 draft: false
 slug: "ubuntu-mouse-acceleration"
 date: "2016-09-06 23:30:00"
+lastmod: "2016-09-06 23:30:00"
 ---
 
 我以前是玩 CS 的，对鼠标的灵敏度非常非常敏感，今天重装了一下笔记本的 Ubuntu，鼠标灵敏度一直不合手感。能用 “xset m 0” 来设置鼠标加速度，但关机重启后，设置又失效了。

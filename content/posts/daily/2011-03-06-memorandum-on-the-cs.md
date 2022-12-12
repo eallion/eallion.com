@@ -6,6 +6,7 @@ tags: ["CS","游戏","电子竞技","电竞"]
 draft: false
 slug: "memorandum-on-the-cs"
 date: "2011-03-06 10:01:34"
+lastmod: "2011-03-06 10:01:34"
 ---
 
 首先
@@ -80,4 +81,4 @@ CSP 又看似遥遥无期
 状态时好时坏
 跟心情有关吧
 
-IEM5 世界总决赛 NaVi vs redCode 现场众生相（转自 <a href="http://v.pcgames.com.cn/video-38584.html" target="_blank">PCGames</a>）
+IEM5 世界总决赛 NaVi vs redCode 现场众生相（转自 [PCGames](http://v.pcgames.com.cn/video-38584.html)）

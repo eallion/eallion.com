@@ -6,6 +6,7 @@ tags: ["淘宝","运营","天猫","淘宝助理","详情"]
 draft: false
 slug: "distribution"
 date: "2017-05-22 11:28:00"
+lastmod: "2017-05-22 11:28:00"
 ---
 
 ### 前言
@@ -30,7 +31,7 @@ date: "2017-05-22 11:28:00"
 首先想到的是官方的工具 - 淘宝助理。
 毕竟还是有官方光环嘛。
 
-> 淘宝助理 <a href="<<<https://zhuli.taobao.com>>>/" target="_blank">https://zhuli.taobao.com</a>
+> 淘宝助理 [https://zhuli.taobao.com](https://zhuli.taobao.com/)
 
 经测试 `6.0.5.0` 版本可以用，`6.1.0.1` 有 bug。
 
@@ -40,11 +41,11 @@ date: "2017-05-22 11:28:00"
 
  2. 到主店的图片空间，给其他的店铺授权使用图片，一个店可以授权 10 个店铺；
 
-![授权图片](https://images.eallion.com/images/2017/05/22/1548006662.png)
+![](https://images.eallion.com/images/2017/05/22/1548006662.png)
 
  3. 登录淘宝助理，同步宝贝，点击需要铺货的宝贝，勾选，导出 CSV；
 
-![导出 CSV](https://images.eallion.com/images/2017/05/22/647221550.png)
+![](https://images.eallion.com/images/2017/05/22/647221550.png)
 
  4. 登录需要铺货的淘宝助理，导入 CSV，勾选，上传宝贝。
 

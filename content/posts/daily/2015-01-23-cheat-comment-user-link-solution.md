@@ -6,6 +6,7 @@ tags: ["链接","新窗口","target","blank"]
 draft: false
 slug: "cheat-comment-user-link-solution"
 date: "2015-01-23 16:34:00"
+lastmod: "2015-01-23 16:34:00"
 ---
 
 Typecho 默认的评论用户链接不是在新窗口打开的，修改 \var\Widget\Abstract\ 夹下的 Comments.php 文件，找到 373 行左右的这句：

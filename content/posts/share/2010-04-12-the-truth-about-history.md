@@ -6,6 +6,7 @@ tags: ["历史","宋朝","强大的中国"]
 draft: false
 slug: "the-truth-about-history"
 date: "2010-04-12 07:30:56"
+lastmod: "2010-04-12 07:30:56"
 ---
 
 1.<strong > 秦始皇灭了六国，但并未统一中国，因为当时还有一个卫国。</strong>
@@ -116,4 +117,4 @@ PS: 由于唐朝错误的民族政策，产马地尽在蛮族之手，导致宋�
 <span style="color: #ff6600;"> 评价 </span>: 当我们的「专家」在不遗余力地为「康干盛世」大唱赞歌的时候，是否想到了有一个朝代正在默默地受着后人们无端的非议，而这个人民生活水平十几倍于「康干盛世」的朝代却正在人们尽情挥洒的刀笔之下「积贫积弱」着呢。
 本帖所列事实仅供参考，毕竟本人不是历史专业。有几位同学提供了不少有价值的资料，我在这里对各位表示感谢。
 
-原文：<a href="<<<http://daguoboyi.blog.sohu.com/147924919.html>>>" target="_blank">http://daguoboyi.blog.sohu.com/147924919.html</a>
+原文：[http://daguoboyi.blog.sohu.com/147924919.html](http://daguoboyi.blog.sohu.com/147924919.html)

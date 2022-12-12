@@ -6,6 +6,7 @@ tags: ["广州","武汉","国庆","西安"]
 draft: false
 slug: "national-really-going-to-many-places-in-the-past"
 date: "2008-09-28 00:14:45"
+lastmod: "2008-09-28 00:14:45"
 ---
 
 国庆真打算过去很多地方的...

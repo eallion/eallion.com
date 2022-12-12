@@ -6,6 +6,7 @@ tags: ["敏感","时政","水果"]
 draft: false
 slug: "theres-nothing-sensitive-about-what-im-talking-about"
 date: "2019-06-08 19:33:00"
+lastmod: "2019-06-08 19:33:00"
 ---
 
 「我谈的话题没什么敏感的」

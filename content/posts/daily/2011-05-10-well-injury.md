@@ -6,6 +6,7 @@ tags: ["好","痊愈"]
 draft: false
 slug: "well-injury"
 date: "2011-05-10 13:15:01"
+lastmod: "2011-05-10 13:15:01"
 ---
 
 手好了，可以打 CS 了，可以抱老婆了。

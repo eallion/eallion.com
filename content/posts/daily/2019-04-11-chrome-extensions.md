@@ -6,6 +6,7 @@ tags: ["插件","google","Chrome","浏览器","扩展"]
 draft: false
 slug: "chrome-extensions"
 date: "2019-04-11 00:17:00"
+lastmod: "2019-04-11 00:17:00"
 ---
 
 Google Chrome 常用插件做个记录备忘，以免像前几年一次重置账号后忘记需要哪些插件了。  

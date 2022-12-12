@@ -6,6 +6,7 @@ tags: ["hexo","GitHub","actions","deploy"]
 slug: "GitHub-actions-hexo-ci"
 draft: false
 date: "2019-12-28 22:53:43"
+lastmod: "2019-12-28 22:53:43"
 ---
 
 ### 前言

@@ -6,6 +6,7 @@ tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]
 draft: false
 slug: "ubuntuzsh"
 date: "2019-11-27 01:08:00"
+lastmod: "2019-11-27 01:08:00"
 ---
 
 ### 安装 Oh My Zsh

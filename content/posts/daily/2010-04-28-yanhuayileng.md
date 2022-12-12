@@ -6,6 +6,7 @@ tags: ["烟花易冷"]
 draft: false
 slug: "yanhuayileng"
 date: "2010-04-28 06:43:00"
+lastmod: "2010-04-28 06:43:00"
 ---
 
 繁华声 遁入空门 折煞了世人

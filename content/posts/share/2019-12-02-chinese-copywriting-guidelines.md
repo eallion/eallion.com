@@ -6,17 +6,23 @@ tags: []
 draft: false
 slug: "chinese-copywriting-guidelines"
 date: "2019-12-02 17:44:00"
+lastmod: "2019-12-02 17:44:00"
 ---
 
 # 中文文案排版指北
+[![devDependency Status](https://david-dm.org/mzlogin/chinese-copywriting-guidelines/dev-status.svg)](https://david-dm.org/mzlogin/chinese-copywriting-guidelines#info=devDependencies)
 
 统一中文文案、排版的相关用法，降低团队成员之间的沟通成本，增强网站气质。
 
+给本项目提建议和意见，或想与我交流，可关注微信公众号「闷骚的程序员」：
+
+<img src="https://cdn.jsdelivr.net/gh/mzlogin/mzlogin.github.io/assets/images/qrcode.jpg" style="width:120px;height:120px;" >
+
 Other languages:
 
-- [English](https://github.com/sparanoid/chinese-copywriting-guidelines/blob/master/README.en-US.md)
+- [English](README.en.md)
 - [Chinese Traditional](https://github.com/sparanoid/chinese-copywriting-guidelines)
-- [Chinese Simplified](https://github.com/mzlogin/chinese-copywriting-guidelines/blob/Simplified/README.md)
+- [Chinese Simplified](README.md)
 
 -----
 
@@ -24,27 +30,29 @@ Other languages:
 
 <!-- vim-markdown-toc GFM -->
 
-- [空格](# 空格)
-  - [中英文之间需要增加空格](# 中英文之间需要增加空格)
-  - [中文与数字之间需要增加空格](# 中文与数字之间需要增加空格)
-  - [数字与单位之间无需增加空格](# 数字与单位之间无需增加空格)
-  - [全角标点与其他字符之间不加空格](# 全角标点与其他字符之间不加空格)
-  - [`-ms-text-autospace` to the rescue?](#-ms-text-autospace-to-the-rescue)
-- [标点符号](# 标点符号)
-  - [不重复使用标点符号](# 不重复使用标点符号)
-- [全角和半角](# 全角和半角)
-  - [使用全角中文标点](# 使用全角中文标点)
-  - [数字使用半角字符](# 数字使用半角字符)
-  - [遇到完整的英文整句、特殊名词，其內容使用半角标点](# 遇到完整的英文整句特殊名词其內容使用半角标点)
-- [名词](# 名词)
-  - [专有名词使用正确的大小写](# 专有名词使用正确的大小写)
-  - [不要使用不地道的缩写](# 不要使用不地道的缩写)
-- [争议](# 争议)
-  - [链接之间增加空格](# 链接之间增加空格)
-  - [简体中文使用直角引号](# 简体中文使用直角引号)
-- [工具](# 工具)
-- [谁在这样做？](# 谁在这样做)
-- [参考文献](# 参考文献)
+- [中文文案排版指北](#中文文案排版指北)
+  - [目录](#目录)
+  - [空格](#空格)
+    - [中英文之间需要增加空格](#中英文之间需要增加空格)
+    - [中文与数字之间需要增加空格](#中文与数字之间需要增加空格)
+    - [数字与单位之间无需增加空格](#数字与单位之间无需增加空格)
+    - [全角标点与其他字符之间不加空格](#全角标点与其他字符之间不加空格)
+    - [`-ms-text-autospace` to the rescue?](#-ms-text-autospace-to-the-rescue)
+  - [标点符号](#标点符号)
+    - [不重复使用标点符号](#不重复使用标点符号)
+  - [全角和半角](#全角和半角)
+    - [使用全角中文标点](#使用全角中文标点)
+    - [数字使用半角字符](#数字使用半角字符)
+    - [遇到完整的英文整句、特殊名词，其內容使用半角标点](#遇到完整的英文整句特殊名词其內容使用半角标点)
+  - [名词](#名词)
+    - [专有名词使用正确的大小写](#专有名词使用正确的大小写)
+    - [不要使用不地道的缩写](#不要使用不地道的缩写)
+  - [争议](#争议)
+    - [链接之间增加空格](#链接之间增加空格)
+    - [简体中文使用直角引号](#简体中文使用直角引号)
+  - [工具](#工具)
+  - [谁在这样做？](#谁在这样做)
+  - [参考文献](#参考文献)
 
 <!-- vim-markdown-toc -->
 
@@ -62,15 +70,15 @@ Other languages:
 
 错误：
 
-> 在 LeanCloud 上，数据存储是围绕 `AVObject` 进行的。
+> 在LeanCloud上，数据存储是围绕`AVObject`进行的。
 
-> 在 LeanCloud 上，数据存储是围绕 `AVObject` 进行的。
+> 在 LeanCloud上，数据存储是围绕`AVObject` 进行的。
 
 完整的正确用法：
 
 > 在 LeanCloud 上，数据存储是围绕 `AVObject` 进行的。每个 `AVObject` 都包含了与 JSON 兼容的 key-value 对应的数据。数据是 schema-free 的，你不需要在每个 `AVObject` 上提前指定存在哪些键，只要直接设定对应的 key-value 即可。
 
-例外：「豆瓣 FM」等产品名词，按照官方所定义的格式书写。
+例外：「豆瓣FM」等产品名词，按照官方所定义的格式书写。
 
 ### 中文与数字之间需要增加空格
 
@@ -80,9 +88,9 @@ Other languages:
 
 错误：
 
-> 今天出去买菜花了 5000 元。
+> 今天出去买菜花了 5000元。
 
-> 今天出去买菜花了 5000 元。
+> 今天出去买菜花了5000元。
 
 ### 数字与单位之间无需增加空格
 
@@ -120,7 +128,7 @@ Other languages:
 
 ### `-ms-text-autospace` to the rescue?
 
-Microsoft 有个 [`-ms-text-autospace`](<http://msdn.microsoft.com/en-us/library/ie/ms531164> (v=vs.85).aspx) 的 CSS 属性可以实现自动为中英文之间增加空白。不过目前并未普及，另外在其他应用场景，例如 OS X、iOS 的用户界面目前并不存在这个特性，所以请继续保持随手加空格的习惯。
+Microsoft 有个 [`-ms-text-autospace`](http://msdn.microsoft.com/en-us/library/ie/ms531164(v=vs.85).aspx) 的 CSS 属性可以实现自动为中英文之间增加空白。不过目前并未普及，另外在其他应用场景，例如 OS X、iOS 的用户界面目前并不存在这个特性，所以请继续保持随手加空格的习惯。
 
 ## 标点符号
 
@@ -144,7 +152,7 @@ Microsoft 有个 [`-ms-text-autospace`](<http://msdn.microsoft.com/en-us/library
 
 ## 全角和半角
 
-不明白什么是全角（全形）与半角（半形）符号？请查看维基百科词条『[全角和半角](<http://zh.wikipedia.org/wiki/>% E5%85% A8% E5% BD% A2% E5%92%8C% E5%8D%8A% E5% BD% A2)』。
+不明白什么是全角（全形）与半角（半形）符号？请查看维基百科词条『[全角和半角](http://zh.wikipedia.org/wiki/%E5%85%A8%E5%BD%A2%E5%92%8C%E5%8D%8A%E5%BD%A2)』。
 
 ### 使用全角中文标点
 
@@ -156,13 +164,13 @@ Microsoft 有个 [`-ms-text-autospace`](<http://msdn.microsoft.com/en-us/library
 
 错误：
 
-> 嗨！你知道嘛？今天前台的小妹跟我说 "喵" 了哎！
+> 嗨! 你知道嘛? 今天前台的小妹跟我说 "喵" 了哎!
 
-> 嗨！你知道嘛？今天前台的小妹跟我说 "喵" 了哎！
+> 嗨!你知道嘛?今天前台的小妹跟我说"喵"了哎!
 
-> 核磁共振成像 (NMRI) 是什么原理都不知道？JFGI!
+> 核磁共振成像 (NMRI) 是什么原理都不知道? JFGI!
 
-> 核磁共振成像 (NMRI) 是什么原理都不知道？JFGI!
+> 核磁共振成像(NMRI)是什么原理都不知道?JFGI!
 
 ### 数字使用半角字符
 
@@ -172,7 +180,7 @@ Microsoft 有个 [`-ms-text-autospace`](<http://msdn.microsoft.com/en-us/library
 
 错误：
 
-> 这件蛋糕只卖 1000 元。
+> 这件蛋糕只卖 １０００ 元。
 
 例外：在设计稿、宣传海报中如出现极少量数字的情形时，为方便文字对齐，是可以使用全角数字的。
 
@@ -212,7 +220,7 @@ Microsoft 有个 [`-ms-text-autospace`](<http://msdn.microsoft.com/en-us/library
 
 > 使用 gitHub 登录
 
-> 使用 g ｲんĤЦ8 登录
+> 使用 gｲんĤЦ8 登录
 
 > 我们的客户有 github、foursquare、microsoft corporation、google、facebook, inc.。
 
@@ -222,7 +230,7 @@ Microsoft 有个 [`-ms-text-autospace`](<http://msdn.microsoft.com/en-us/library
 
 > 我们的客户有 gitHub、fourSquare、microSoft Corporation、google、faceBook, Inc.。
 
-> 我们的客户有 g ｲんĤЦ8、ｷ ouЯƧqu ﾑгє、๓เςг๏ร๏Ŧt ς๏гק๏гคtเ๏ภn、900913、ƒ4 ᄃëв๏๏к, IПᄃ.。
+> 我们的客户有 gｲんĤЦ8、ｷouЯƧquﾑгє、๓เςг๏ร๏Ŧt ς๏гק๏гคtเ๏ภn、900913、ƒ4ᄃëв๏๏к, IПᄃ.。
 
 注意：当网页中需要配合整体视觉风格而出现全部大写／小写的情形，HTML 中请使用标准的大小写规范进行书写；并通过 `text-transform: uppercase;`／`text-transform: lowercase;` 对表现形式进行定义。
 
@@ -238,7 +246,7 @@ Microsoft 有个 [`-ms-text-autospace`](<http://msdn.microsoft.com/en-us/library
 
 ## 争议
 
-以下用法略带有个人色彩，即：无论是否遵循下述规则，从语法的角度来讲都是 **正确** 的。
+以下用法略带有个人色彩，即：无论是否遵循下述规则，从语法的角度来讲都是**正确**的。
 
 ### 链接之间增加空格
 
@@ -250,15 +258,15 @@ Microsoft 有个 [`-ms-text-autospace`](<http://msdn.microsoft.com/en-us/library
 
 对比用法：
 
-> 请 [提交一个 issue](#) 并分配给相关同事。
+> 请[提交一个 issue](#) 并分配给相关同事。
 
-> 访问我们网站的最新动态，请 [点击这里](#) 进行订阅！
+> 访问我们网站的最新动态，请[点击这里](#)进行订阅！
 
 ### 简体中文使用直角引号
 
 用法：
 
->「老师，『有条不紊』的『紊』是什么意思？」
+> 「老师，『有条不紊』的『紊』是什么意思？」
 
 对比用法：
 
@@ -306,7 +314,7 @@ Microsoft 有个 [`-ms-text-autospace`](<http://msdn.microsoft.com/en-us/library
 - [Punctuation - Oxford Dictionaries](http://www.oxforddictionaries.com/words/punctuation)
 - [Punctuation - The Purdue OWL](https://owl.english.purdue.edu/owl/section/1/6/)
 - [How to Use English Punctuation Corrently - wikiHow](http://www.wikihow.com/Use-English-Punctuation-Correctly)
-- [格式 - openSUSE](<https://zh.opensuse.org/index.php?title=Help>:% E6% A0% BC% E5% BC%8F)
-- [全角和半角 - 维基百科](<http://zh.wikipedia.org/wiki/>% E5%85% A8% E5% BD% A2% E5%92%8C% E5%8D%8A% E5% BD% A2)
-- [引号 - 维基百科](<http://zh.wikipedia.org/wiki/>% E5% BC%95% E8%99%9F)
-- [疑问惊叹号 - 维基百科](<http://zh.wikipedia.org/wiki/>% E7%96%91% E5%95%8F% E9% A9%9A% E5%98%86% E8%99%9F)
+- [格式 - openSUSE](https://zh.opensuse.org/index.php?title=Help:%E6%A0%BC%E5%BC%8F)
+- [全角和半角 - 维基百科](http://zh.wikipedia.org/wiki/%E5%85%A8%E5%BD%A2%E5%92%8C%E5%8D%8A%E5%BD%A2)
+- [引号 - 维基百科](http://zh.wikipedia.org/wiki/%E5%BC%95%E8%99%9F)
+- [疑问惊叹号 - 维基百科](http://zh.wikipedia.org/wiki/%E7%96%91%E5%95%8F%E9%A9%9A%E5%98%86%E8%99%9F)

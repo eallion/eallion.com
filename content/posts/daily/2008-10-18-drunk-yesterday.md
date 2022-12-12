@@ -6,6 +6,7 @@ tags: ["生日","喝酒","醉"]
 draft: false
 slug: "drunk-yesterday"
 date: "2008-10-18 11:50:04"
+lastmod: "2008-10-18 11:50:04"
 ---
 
 ZS 过生...

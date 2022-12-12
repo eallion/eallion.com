@@ -6,10 +6,11 @@ tags: ["黑暗森林","绝地求生","pubg","吃鸡","三体"]
 draft: false
 slug: "dark-forest-pubg"
 date: "2017-11-18 13:49:00"
+lastmod: "2017-11-18 13:49:00"
 ---
 
 >《三体》中的黑暗森林法则成立吗？为什么？
-> <a href="<<<https://www.zhihu.com/question/20064068/answer/261673657>>>" target="_blank">https://www.zhihu.com/question/20064068/answer/261673657</a>
+> [https://www.zhihu.com/question/20064068/answer/261673657](https://www.zhihu.com/question/20064068/answer/261673657)
 
 成立。
 最近很火爆的吃鸡游戏（《绝对求生：大逃杀》），完美的诠释了这一切。
@@ -19,4 +20,4 @@ date: "2017-11-18 13:49:00"
 - 猜疑链。—— 无处不在。
 - 技术爆炸。—— 空投。
 
-- 关于：<a href="https://baike.baidu.com/view/5611138.htm" target="_blank"> 黑暗森林法则 </a> 、<a href="http://store.steampowered.com/app/578080/PLAYERUNKNOWNS_BATTLEGROUNDS/" target="_blank">《绝地求生：大逃杀》</a>*
+- 关于：[《绝地求生：大逃杀》](https://baike.baidu.com/view/5611138.htm)*

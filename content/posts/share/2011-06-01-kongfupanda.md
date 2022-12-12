@@ -6,13 +6,14 @@ tags: ["文化","熊猫","功夫熊猫","文化侵略","侵略"]
 draft: false
 slug: "kongfupanda"
 date: "2011-06-01 14:34:24"
+lastmod: "2011-06-01 14:34:24"
 ---
 
 <blockquote><strong > 导语 </strong>：
 靠大熊猫吃饭的人有两种，一种是饲养员，一种是赵半狄。随着《功夫熊猫》续集在中国上映，这位 “熊猫艺术家” 又开始了他的抵制之路。
 赵半狄认为《功夫熊猫》是 “文化侵略”，而北大教授孔庆东更表示，“好莱坞不仅在赚你的钱，还要洗你的脑，还要征服你的心”，那么，究竟什么是文化侵略，赵半狄和他的支持者大概需要上一课。
 
-原文链接：<a href="<<<http://view.news.qq.com/zt2011/wenhuaqinlue/index.htm>>>" target="_blank">http://view.news.qq.com/zt2011/wenhuaqinlue/index.htm</a></blockquote>
+原文链接：[http://view.news.qq.com/zt2011/wenhuaqinlue/index.htm](http://view.news.qq.com/zt2011/wenhuaqinlue/index.htm)</blockquote>
 
 <strong > 一，抵制《功夫熊猫》的逻辑 </strong>
 

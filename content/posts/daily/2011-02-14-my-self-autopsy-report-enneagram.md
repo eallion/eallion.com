@@ -6,6 +6,7 @@ tags: ["测试","性格","自我","报告"]
 draft: false
 slug: "my-self-autopsy-report-enneagram"
 date: "2011-02-14 01:06:58"
+lastmod: "2011-02-14 01:06:58"
 ---
 
 ### <span style="color:#006600"> 九型性格测试结果 </span>
@@ -51,7 +52,7 @@ date: "2011-02-14 01:06:58"
 然后还有 < strong > 五号智慧型 </strong > 和 < strong > 六号疑惑型 </strong></span>
 
 跟前两年我自己测试的结果不太一样
-测试地址：<a href="<<<http://www.cnenn.cn/html/jiuxingrengeceshi>>>/" target="_blank">http://www.cnenn.cn/html/jiuxingrengeceshi</a>
+测试地址：[http://www.cnenn.cn/html/jiuxingrengeceshi](http://www.cnenn.cn/html/jiuxingrengeceshi/)
 
 ### <span style="color:#006600"> 九号和平型性格特征介绍 </span>
 

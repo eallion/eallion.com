@@ -6,6 +6,7 @@ tags: ["雪","怀念"]
 draft: false
 slug: "those-who-do-not-fall-to-the-snow"
 date: "2009-01-03 23:40:00"
+lastmod: "2009-01-03 23:40:00"
 ---
 
 那些没有落到地上的雪...

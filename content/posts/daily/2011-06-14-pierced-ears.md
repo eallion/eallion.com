@@ -6,6 +6,7 @@ tags: ["耳洞","耳钉"]
 draft: false
 slug: "pierced-ears"
 date: "2011-06-14 09:11:45"
+lastmod: "2011-06-14 09:11:45"
 ---
 
 我刚生下来的时候

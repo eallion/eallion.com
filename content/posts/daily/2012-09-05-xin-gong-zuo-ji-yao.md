@@ -6,6 +6,7 @@ tags: ["工作","记要"]
 draft: false
 slug: "xin-gong-zuo-ji-yao"
 date: "2012-09-05 09:11:24"
+lastmod: "2012-09-05 09:11:24"
 ---
 
 不是面试的时候推销自己

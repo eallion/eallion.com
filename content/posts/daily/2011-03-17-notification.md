@@ -6,6 +6,7 @@ tags: ["电话","隐私","备案","工信部"]
 draft: false
 slug: "notification"
 date: "2011-03-17 22:57:42"
+lastmod: "2011-03-17 22:57:42"
 ---
 
 <blockquote > 今天收到一条来自 “工业和信息化部网站备案系统” 的短信：

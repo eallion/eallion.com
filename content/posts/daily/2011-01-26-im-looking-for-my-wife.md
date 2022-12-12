@@ -6,6 +6,7 @@ tags: ["生活","老婆","日白","扯淡"]
 draft: false
 slug: "im-looking-for-my-wife"
 date: "2011-01-26 17:50:14"
+lastmod: "2011-01-26 17:50:14"
 ---
 
 买电脑，像找老婆，得看配置

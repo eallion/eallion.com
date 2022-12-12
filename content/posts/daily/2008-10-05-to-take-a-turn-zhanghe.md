@@ -6,6 +6,7 @@ tags: ["漳河","游玩"]
 draft: false
 slug: "to-take-a-turn-zhanghe"
 date: "2008-10-05 19:31:02"
+lastmod: "2008-10-05 19:31:02"
 ---
 
 去漳河走了一转...

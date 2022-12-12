@@ -6,6 +6,7 @@ tags: ["父母","爸爸","生日","生日快乐"]
 draft: false
 slug: "happy-birthday-to-my-father"
 date: "2010-09-26 09:26:16"
+lastmod: "2010-09-26 09:26:16"
 ---
 
 去年爸爸过生日我在家里

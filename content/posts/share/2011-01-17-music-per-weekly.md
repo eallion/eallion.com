@@ -6,6 +6,7 @@ tags: []
 draft: false
 slug: "music-per-weekly"
 date: "2011-01-17 09:56:28"
+lastmod: "2011-01-17 09:56:28"
 ---
 
 博客里装了个亦歌插件

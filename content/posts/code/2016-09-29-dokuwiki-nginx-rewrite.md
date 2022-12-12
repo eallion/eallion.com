@@ -6,6 +6,7 @@ tags: ["nginx","doku","dokuwiki","rewrite"]
 draft: false
 slug: "dokuwiki-nginx-rewrite"
 date: "2016-09-29 19:25:00"
+lastmod: "2016-09-29 19:25:00"
 ---
 
 ```nginx

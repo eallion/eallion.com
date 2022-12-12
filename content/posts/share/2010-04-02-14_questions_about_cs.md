@@ -6,6 +6,7 @@ tags: ["CS","question","CS1.6"]
 draft: false
 slug: "14_questions_about_cs"
 date: "2010-04-02 20:16:14"
+lastmod: "2010-04-02 20:16:14"
 ---
 
   <strong>1。问：听说低分辨率爆头更容易耶！为了提高爆头率（或者准确度）是否需要降低分辨率？ </strong>

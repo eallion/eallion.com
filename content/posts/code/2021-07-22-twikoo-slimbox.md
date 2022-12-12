@@ -11,6 +11,7 @@ tags:
 slug: "twikoo-slimbox"
 draft: false
 date: 2021-07-22T21:23:55+08:00
+lastmod: 2021-07-22T21:23:55+08:00
 ---
 
 浏览 Twikoo 的开发者『[iMaeGoo](https://www.imaegoo.com/)』个人博客的时候，里面有一篇文章 [《集成 Twikoo 与 lightGallery 插件，实现评论图片的点击放大》](https://www.imaegoo.com/2021/twikoo-lightgallery/) 提到了 Twikoo 集成 lightGallery 灯箱插件。  

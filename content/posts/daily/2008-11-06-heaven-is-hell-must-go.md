@@ -6,6 +6,7 @@ tags: ["天堂","地狱"]
 draft: false
 slug: "heaven-is-hell-must-go"
 date: "2008-11-06 22:21:41"
+lastmod: "2008-11-06 22:21:41"
 ---
 
 这还不算最黑暗的日子...

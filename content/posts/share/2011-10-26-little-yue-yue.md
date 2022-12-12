@@ -6,9 +6,10 @@ tags: ["小悦悦"]
 draft: false
 slug: "little-yue-yue"
 date: "2011-10-26 11:08:00"
+lastmod: "2011-10-26 11:08:00"
 ---
 
-<a href="https://zh.wikipedia.org/zh-hans/% E5% B0%8F% E6%82% A6% E6%82% A6% E4% BA%8B% E4% BB% B6" target="_blank"> 小悦悦事件 </a>
+[ 小悦悦事件 ](https://zh.wikipedia.org/zh-hans/%E5%B0%8F%E6%82%A6%E6%82%A6%E4%BA%8B%E4%BB%B6)
 <strong > 本文转载：</strong>
 本人在国外读书
 今天早上在地铁上看报纸

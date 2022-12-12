@@ -6,6 +6,7 @@ tags: ["love","爱"]
 draft: false
 slug: "love-someone"
 date: "2011-05-31 13:13:18"
+lastmod: "2011-05-31 13:13:18"
 ---
 
 爱一个人，

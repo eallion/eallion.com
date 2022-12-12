@@ -6,6 +6,7 @@ tags: ["宜昌"]
 draft: false
 slug: "i-do-not-know-what-has-to-go-yichang"
 date: "2008-09-29 22:39:29"
+lastmod: "2008-09-29 22:39:29"
 ---
 
 昨天说得好好的都今天一起去宜昌后来就改成明天去...

@@ -6,6 +6,7 @@ tags: ["妈妈","父母","生日","生日快乐"]
 draft: false
 slug: "happy-birthday-to-my-mother"
 date: "2011-01-05 12:02:55"
+lastmod: "2011-01-05 12:02:55"
 ---
 
 早上的时候给妈妈打电话

@@ -6,6 +6,7 @@ tags: ["工作","感想","淘宝","商城","羽绒"]
 draft: false
 slug: "packaged-for-sale"
 date: "2011-09-02 14:46:00"
+lastmod: "2011-09-02 14:46:00"
 ---
 
 这一回

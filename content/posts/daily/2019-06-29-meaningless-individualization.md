@@ -6,6 +6,7 @@ tags: ["个性化","背景音乐","负优化"]
 draft: false
 slug: "meaningless-individualization"
 date: "2019-06-29 12:20:42"
+lastmod: "2019-06-29 12:20:42"
 ---
 
 个人网站本身就是表达个性的地方

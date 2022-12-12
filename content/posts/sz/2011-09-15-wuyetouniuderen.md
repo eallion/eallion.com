@@ -6,6 +6,7 @@ tags: ["山贼","日记","中西医","进口蜗牛","做卫生"]
 draft: false
 slug: "wuyetouniuderen"
 date: "2011-09-15 17:29:15"
+lastmod: "2011-09-15 17:29:15"
 ---
 
 很坏很坏的你

@@ -10,20 +10,21 @@ tags:
 slug: "memos-deployment"
 draft: false
 date: 2022-11-06T16:30:22+08:00
+lastmod: 2022-11-06T16:30:22+08:00
 ---
 
 ### TL;DR
 
 本文介绍了 [Memos](https://github.com/usememos/memos) 的部署，数据导入，公告栏 API 调用，和 “ [嘀咕](https://eallion.com/memos/)” 页面通过 API 渲染 Memos。
 
-- 官网：<https://github.com/usememos/memos>
-- 部署实例：<https://memos.eallion.com>
-- 嘀咕页面：<https://eallion.com/memos>
-- 搭建自己的静态页面：<https://memos.top>
+- 官网：[https://github.com/usememos/memos](https://github.com/usememos/memos)
+- 部署实例：[https://memos.eallion.com](https://memos.eallion.com)
+- 嘀咕页面：[https://eallion.com/memos](https://eallion.com/memos)
+- 搭建自己的静态页面：[https://memos.top](https://memos.top)
 
 ### 前言
 
-> DEMO：<https://eallion.com/memos/>
+> DEMO：[https://eallion.com/memos/](https://eallion.com/memos/)
 
 我从接触独立博客开始，就一直在博客的子栏目中部署了一个类似 [嘀咕](https://eallion.com/memos/) 的微博客。  
 最初的作用是备份 QQ 空间、Twitter 和微博等。  
@@ -54,8 +55,8 @@ Memos 自己对标的竞品是 Flomo ，我们是不是把它用歪了？
 
 安装`docker-compose-plugin`插件后，`docker compose`命令可以去掉中间的"`-`"，Docker Compose V1 版本已经结束生命周期。
 
-暂时不建议把 Memos 部署到网站二级目录，如：<https://example.com/memos>
-而应该部署到一个二级域名，如：<https://memos.example.com>
+暂时不建议把 Memos 部署到网站二级目录，如：[https://example.com/memos](https://example.com/memos)
+而应该部署到一个二级域名，如：[https://memos.example.com](https://memos.example.com)
 
 1. **新建 `docker-compose.yml`**
 
@@ -104,7 +105,7 @@ docker compose up -d --force-recreate
 
 1. **升级 Memos**
 
-> 参考：<https://memos.eallion.com/m/5454>
+> 参考：[https://memos.eallion.com/m/5454](https://memos.eallion.com/m/5454)
 
 Memos 官方提供的升级命令
 
@@ -332,12 +333,12 @@ sudo chown www:www memos_prod.db
 
 ### API：首页公告栏调用 Memos
 
-> API: <https://memos.example.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=10>
+> API: [https://memos.example.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=10](https://memos.example.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=10)
 
 以下代码示例，复制照搬的话不一定能用。
 首先需要一个 CSS 选择器来展示 Memos，ID 命名为 `memos` 好了。
 
-> 参考：<i class="iconfont icon-github"></i> [breadcrumb-talk.html#L26-L30](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/partials/breadcrumb-talk.html#L26-L30)
+> 参考：<i class="fab fa-github fa-fw"></i>[breadcrumb-talk.html#L26-L30](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/partials/breadcrumb-talk.html#L26-L30)
 
 ```html
 <div id="memos" class=""></div>
@@ -345,7 +346,7 @@ sudo chown www:www memos_prod.db
 
 然后用 JS 把 API 获取到的数据处理成 Json，再展示到 CSS 选择器里：
 
-> 参考：<i class="iconfont icon-github"></i> [footer-js.html#L63-L105](https://github.com/eallion/eallion.com/blob/a4de74d8568c184335ccfdc9dbc612289c2fbcb5/themes/hello-friend/layouts/partials/footer-js.html#L63-L105)
+> 参考：<i class="fab fa-github fa-fw"></i>[footer-js.html#L63-L105](https://github.com/eallion/eallion.com/blob/a4de74d8568c184335ccfdc9dbc612289c2fbcb5/themes/hello-friend/layouts/partials/footer-js.html#L63-L105)
 
 ````html
 <!--引入相对时间 Lately 插件-->
@@ -403,17 +404,17 @@ sudo chown www:www memos_prod.db
 </script>
 ````
 
-如果构建时，把 Memos 的 Json 数据保存到本地静态文件，性能还会更好。<i class="iconfont icon-github"></i> [workflows.yml#L34](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/.github/workflows/main.yml#L34)
-相对时间，用的 [Lately.js](https://tokinx.github.io/lately/) 插件：<i class="iconfont icon-github"></i> [footer-js.html#L91](https://github.com/eallion/eallion.com/blob/a4de74d8568c184335ccfdc9dbc612289c2fbcb5/themes/hello-friend/layouts/partials/footer-js.html#L91)
+如果构建时，把 Memos 的 Json 数据保存到本地静态文件，性能还会更好。<i class="fab fa-github fa-fw"></i>[workflows.yml#L34](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/.github/workflows/main.yml#L34)
+相对时间，用的 [Lately.js](https://tokinx.github.io/lately/) 插件：<i class="fab fa-github fa-fw"></i>[footer-js.html#L91](https://github.com/eallion/eallion.com/blob/a4de74d8568c184335ccfdc9dbc612289c2fbcb5/themes/hello-friend/layouts/partials/footer-js.html#L91)
 
 ### API：嘀咕独立页面展示 Memos
 
-> DEMO： <https://eallion.com/memos/>
-> DEMO： <https://memos.top/>
+> DEMO： [https://eallion.com/memos/](https://eallion.com/memos/)
+> DEMO： [https://memos.top/](https://memos.top/)
 >
-> API: <https://memos.example.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=10>
+> API: [https://memos.example.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=10](https://memos.example.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=10)
 
-**更新**：已把 Memos 剥离出一个完整的应用，可独立部署，到 <i class="iconfont icon-github"></i> [eallion/memos.top](https://github.com/eallion/memos.top) 这个仓库下载部署到网站根目录即可。
+**更新**：已把 Memos 剥离出一个完整的应用，可独立部署，到 <i class="fab fa-github fa-fw"></i>[eallion/memos.top](https://github.com/eallion/memos.top) 这个仓库下载部署到网站根目录即可。
 
 1. **放置 CSS 容器**
 
@@ -639,21 +640,21 @@ function updateHTMl(data) {
 }
 ```
 
-源码在这里：<i class="iconfont icon-github"></i> [memos.html](https://github.com/eallion/eallion.com/blob/main/themes/hello-friend/layouts/_default/memos.html)，可能时常会更新变动。
+源码在这里：<i class="fab fa-github fa-fw"></i>[memos.html](https://github.com/eallion/eallion.com/blob/main/themes/hello-friend/layouts/_default/memos.html)，可能时常会更新变动。
 
 整体样式还真是自己捏出来的，不过大多也是借鉴了 Twitter 的元素。
 
-相对时间，用的是 [Moment.js](https://github.com/moment/moment/) Twitter 风格的插件：<i class="iconfont icon-github"></i> [memos.html#L60-L165](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/_default/memos.html#L60-L165)
+相对时间，用的是 [Moment.js](https://github.com/moment/moment/) Twitter 风格的插件：<i class="fab fa-github fa-fw"></i>[memos.html#L60-L165](https://github.com/eallion/eallion.com/blob/30ff6b67c3c072994f8be957c3996e546b38131c/themes/hello-friend/layouts/_default/memos.html#L60-L165)
 
 - 7 天内的发布时间显示为相对时间：`1 天前`
 - 本年内的时间不显示年份：`5月20日，13:14 • 中午`
 - 去年及之前的时间显示为完整时间：`2010年10月10日，10:10 • 上午`
 
-全站图片灯箱效果用的是 [view-image.js](https://tokinx.github.io/ViewImage/)插件: <i class="iconfont icon-github"></i> [footer-js.html#L111-L114](https://github.com/eallion/eallion.com/blob/5fae62241bc85650fdd664c1fd22f9d0d20c069e/themes/hello-friend/layouts/partials/footer-js.html#L111-L114)
+全站图片灯箱效果用的是 [view-image.js](https://tokinx.github.io/ViewImage/)插件: <i class="fab fa-github fa-fw"></i>[footer-js.html#L111-L114](https://github.com/eallion/eallion.com/blob/5fae62241bc85650fdd664c1fd22f9d0d20c069e/themes/hello-friend/layouts/partials/footer-js.html#L111-L114)
 
 ### API：获取 Memos 总条数
 
-> API: <https://memos.example.com/api/memo/amount?creatorId=101>
+> API: [https://memos.example.com/api/memo/amount?creatorId=101](https://memos.example.com/api/memo/amount?creatorId=101)
 
 ```html
 <span id="memosCount">0</span>
@@ -680,15 +681,15 @@ function updateHTMl(data) {
 
 ### Memos Awesome
 
-- <https://memos.top>
+- [https://memos.top](https://memos.top)
 - Discuss in [Telegram](https://t.me/+-_tNF1k70UU4ZTc9) 👾
-- Docker Hub：<https://hub.docker.com/r/neosmemo/memos>
-- Docker Hub Nightly：<https://hub.docker.com/r/eallion/memos>
-- Moe Memos 客户端：<https://memos.moe/>
-- Memos-bber Chrome 扩展：<https://github.com/lmm214/memos-bber>
-- Memos 微信小程序：<https://github.com/Rabithua/memos_wmp>
-- Telegram Bot：<https://github.com/qazxcdswe123/telegramMemoBot>
-- [哔哔广场](https://immmmm.com/bbs-by-memos/)：<https://immmmm.com/bbs/>
+- Docker Hub：[https://hub.docker.com/r/neosmemo/memos](https://hub.docker.com/r/neosmemo/memos)
+- Docker Hub Nightly：[https://hub.docker.com/r/eallion/memos](https://hub.docker.com/r/eallion/memos)
+- Moe Memos 客户端：[https://memos.moe/](https://memos.moe/)
+- Memos-bber Chrome 扩展：[https://github.com/lmm214/memos-bber](https://github.com/lmm214/memos-bber)
+- Memos 微信小程序：[https://github.com/Rabithua/memos_wmp](https://github.com/Rabithua/memos_wmp)
+- Telegram Bot：[https://github.com/qazxcdswe123/telegramMemoBot](https://github.com/qazxcdswe123/telegramMemoBot)
+- [哔哔广场](https://immmmm.com/bbs-by-memos/)：[https://immmmm.com/bbs/](https://immmmm.com/bbs/)
 - [「分享」Android 使用 HTTP Shortcuts 录入笔记](https://github.com/usememos/memos/discussions/315)
 - [「分享」使用 iOS 快捷指令录入笔记，支持多图上传，支持标签选择](https://github.com/usememos/memos/discussions/52)
 - [「分享」在 Fly.io 平台上搭建 memos 并自动备份到 B2/S3](https://github.com/usememos/memos/discussions/451)

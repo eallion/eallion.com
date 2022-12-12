@@ -11,6 +11,7 @@ tags:
 slug: "chinese-is-probably-dead"
 draft: true
 date: 2022-05-20T21:12:09+08:00
+lastmod: 2022-05-20T21:12:09+08:00
 ---
 
 > 转载自微信公众号：[https://mp.weixin.qq.com/s/GZKMemoSIDtKBKOI6orVsQ](https://mp.weixin.qq.com/s/GZKMemoSIDtKBKOI6orVsQ)

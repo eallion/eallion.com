@@ -6,6 +6,7 @@ tags: ["blog","博客","主题","theme"]
 draft: false
 slug: "default-theme"
 date: "2019-06-03 21:43:00"
+lastmod: "2019-06-03 21:43:00"
 ---
 
 看到过不少很炫酷的个人网站  

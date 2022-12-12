@@ -6,10 +6,11 @@ tags: ["工作","职来职往","职业","职场","求职"]
 draft: false
 slug: "zhilaizhiwang"
 date: "2011-02-08 08:03:21"
+lastmod: "2011-02-08 08:03:21"
 ---
 
 某人给我发短信说：
-CETV1 那个 < a href="http://baike.baidu.com/view/4503413.htm" target="_blank">《职来职往》</a > 里的江海森很像迈克很友善
+CETV1 那个 [《职来职往》](http://baike.baidu.com/view/4503413.htm) 里的江海森很像迈克很友善
 哈哈，把我兴趣给勾起来了
 嗯，这个迈克就是《越狱》里的迈克，她喜欢越狱，我也很喜欢越狱
 

@@ -6,6 +6,7 @@ tags: ["奢侈","浪费"]
 draft: false
 slug: "luxurious"
 date: "2010-06-10 19:49:10"
+lastmod: "2010-06-10 19:49:10"
 ---
 
 我有很多异于常人的观点。

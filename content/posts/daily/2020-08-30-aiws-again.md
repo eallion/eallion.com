@@ -9,6 +9,7 @@ tags:
 slug: aiws-again
 draft: false
 date: 2020-08-30T12:19:31.000Z
+lastmod: 2020-08-30T12:19:31.000Z
 lastmod: '2021-11-21T07:49:48.165Z'
 ---
 

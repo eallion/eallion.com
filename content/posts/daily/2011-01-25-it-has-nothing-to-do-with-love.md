@@ -6,6 +6,7 @@ tags: ["爱情","喜欢","不喜欢","无关爱情"]
 draft: false
 slug: "it-has-nothing-to-do-with-love"
 date: "2011-01-25 05:20:25"
+lastmod: "2011-01-25 05:20:25"
 ---
 
 因为你不喜欢我  
@@ -120,4 +121,4 @@ date: "2011-01-25 05:20:25"
 甚至不知道我一直在默默奉献着  
 因为你一直都不懂……  
 
-原文：<a href="<<<http://tieba.baidu.com/f?kz=975953802>>>" target="_blank">http://tieba.baidu.com/f?kz=975953802</a>
+原文：[http://tieba.baidu.com/f?kz=975953802](http://tieba.baidu.com/f?kz=975953802)

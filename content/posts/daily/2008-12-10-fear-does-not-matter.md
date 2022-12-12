@@ -6,6 +6,7 @@ tags: ["无所谓","畏惧","影响","改变"]
 draft: false
 slug: "fear-does-not-matter"
 date: "2008-12-10 22:15:05"
+lastmod: "2008-12-10 22:15:05"
 ---
 
 无所谓无所畏惧...

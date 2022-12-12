@@ -6,6 +6,7 @@ tags: ["Ubuntu","阿里云","源","更新源"]
 draft: false
 slug: "ubuntu-aliyun"
 date: "2016-09-24 15:32:00"
+lastmod: "2016-09-24 15:32:00"
 ---
 
 ```bash

@@ -6,6 +6,7 @@ tags: ["dream","梦想","理想"]
 draft: false
 slug: "aboutdream"
 date: "2010-04-04 22:27:17"
+lastmod: "2010-04-04 22:27:17"
 ---
 
 前段时间，看了一部自拍的记录电影《待业青年》。

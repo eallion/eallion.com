@@ -6,6 +6,7 @@ tags: ["日记"]
 draft: false
 slug: "why-i-made-it-such-a-big-fire"
 date: "2011-11-26 20:30:19"
+lastmod: "2011-11-26 20:30:19"
 ---
 
 我为什么会发这么大的火呢

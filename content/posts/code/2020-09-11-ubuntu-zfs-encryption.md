@@ -6,6 +6,7 @@ tags: ["Ubuntu", "ZFS", "encryption", "加密", "Linux"]
 slug: "ubuntu-zfs-encryption"
 draft: false
 date: 2020-09-11T22:37:13+08:00
+lastmod: 2020-09-11T22:37:13+08:00
 ---
 
 ### 前言
@@ -138,4 +139,4 @@ sudo zfs destroy eallion1_123abc
 ```
 
 **Reference:**  
-<https://medium.com/@steinarlbergmyrvang/ubuntu-20-04-with-encrypted-home-f5ce490333cc>
+[https://medium.com/@steinarlbergmyrvang/ubuntu-20-04-with-encrypted-home-f5ce490333cc](https://medium.com/@steinarlbergmyrvang/ubuntu-20-04-with-encrypted-home-f5ce490333cc)

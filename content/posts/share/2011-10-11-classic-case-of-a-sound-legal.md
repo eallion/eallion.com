@@ -6,9 +6,12 @@ tags: ["法律","健全","案例","雪茄","律师"]
 draft: false
 slug: "classic-case-of-a-sound-legal"
 date: "2011-10-11 13:57:12"
+lastmod: "2011-10-11 13:57:12"
 ---
 
-<blockquote><a href="http://weibo.com/1984213677/xsdHkBsIp" target="_blank">@中国人保 </a> <a href="http://weibo.com/1984213677/xsdHkBsIp" target="_blank">http://weibo.com/1984213677/xsdHkBsIp</a></blockquote>  有个名叫 Charlotte 的北卡州的律师买了一盒极为稀有且昂贵的雪茄，还为雪茄投保了火险。
+> [http://weibo.com/1984213677/xsdHkBsIp](http://weibo.com/1984213677/xsdHkBsIp)
+
+  有个名叫 Charlotte 的北卡州的律师买了一盒极为稀有且昂贵的雪茄，还为雪茄投保了火险。
   结果他在一个月内把这些顶级雪茄抽完了，保险费一毛也还没缴，却提出要保险公司赔偿的要求。
   在申诉中，律师说雪茄在 “一连串的小火” 中受损。
   保险公司当然不愿意赔偿，理由是：此人是以正常方式抽完雪茄。

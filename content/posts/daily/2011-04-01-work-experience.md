@@ -6,6 +6,7 @@ tags: ["工作","日记","职业","纪念"]
 draft: false
 slug: "work-experience"
 date: "2011-04-01 09:58:38"
+lastmod: "2011-04-01 09:58:38"
 ---
 
 两年前的今天

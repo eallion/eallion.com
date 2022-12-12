@@ -6,6 +6,7 @@ tags: ["日记"]
 draft: false
 slug: "yiqiedouhao"
 date: "2011-04-28 09:11:15"
+lastmod: "2011-04-28 09:11:15"
 ---
 
 1，昨天朋友饭店开张，很热闹。

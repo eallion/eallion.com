@@ -6,6 +6,7 @@ tags: ["腾讯"]
 draft: false
 slug: "anothertest"
 date: "2010-03-28 12:56:53"
+lastmod: "2010-03-28 12:56:53"
 ---
 
 首先感谢国家。感谢党。

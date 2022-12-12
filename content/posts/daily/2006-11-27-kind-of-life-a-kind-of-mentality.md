@@ -6,6 +6,7 @@ tags: ["生活","心态"]
 draft: false
 slug: "kind-of-life-a-kind-of-mentality"
 date: "2006-11-27 09:52:40"
+lastmod: "2006-11-27 09:52:40"
 ---
 
 其实

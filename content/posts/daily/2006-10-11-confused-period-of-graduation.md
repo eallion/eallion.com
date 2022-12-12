@@ -6,6 +6,7 @@ tags: ["CS","吉他"]
 draft: false
 slug: "confused-period-of-graduation"
 date: "2006-10-11 03:40:01"
+lastmod: "2006-10-11 03:40:01"
 ---
 
 为了 CS，我放弃了好多。放弃了上一类大学的机会，放弃了找女朋友的机会，放弃了学吉他的机会……

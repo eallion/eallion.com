@@ -6,11 +6,12 @@ tags: ["xhtml","认证","验证","css3.0"]
 draft: false
 slug: "authentication"
 date: "2010-11-07 06:11:40"
+lastmod: "2010-11-07 06:11:40"
 ---
 
 我想
 我的博客是永远通不过 XHTML1.0 和 CSS3.0 验证了
-两个验证结果分别如下： <a href="http://validator.w3.org/check?uri=http://eallion.com&charset=(detect+automatically)&doctype=Inline&group=0" target="_blank">XHTML1.0</a> <a href="http://jigsaw.w3.org/css-validator/validator?uri=http://eallion.com&profile=css21&usermedium=all&warning=1&lang=zh-cn" target="_blank">CSS3.0</a>
+两个验证结果分别如下： [CSS3.0](http://validator.w3.org/check?uri=http://eallion.com&charset=(detect+automatically)&doctype=Inline&group=0)
 今天又试了一下
 把能改的全改了
 从原来最开始的几十个上百个错误

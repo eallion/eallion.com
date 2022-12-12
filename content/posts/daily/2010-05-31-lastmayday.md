@@ -6,6 +6,7 @@ tags: ["五月记事"]
 draft: false
 slug: "lastmayday"
 date: "2010-05-31 21:30:20"
+lastmod: "2010-05-31 21:30:20"
 ---
 
 这个月。

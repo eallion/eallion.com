@@ -6,6 +6,7 @@ tags: ["小强"]
 draft: false
 slug: "but-do-not-be-afraid-you-do-not-want-to-kiss-you"
 date: "2011-09-08 22:55:53"
+lastmod: "2011-09-08 22:55:53"
 ---
 
 下午出门

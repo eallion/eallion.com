@@ -6,6 +6,7 @@ tags: ["微博","戒","网瘾"]
 draft: false
 slug: "successfully-quit-microblogging"
 date: "2011-03-16 08:26:23"
+lastmod: "2011-03-16 08:26:23"
 ---
 
 让自己不去碰鼠标
@@ -29,5 +30,5 @@ QQ，QQ 空间，百度贴吧，Twitter，VeryCD，豆瓣，糗百，淘宝和 Q
 戒掉 twitter 也简单
 不去刻意的 SSH 就好
 
-PS: @<a href="http://t.sina.com.cn/eallion" target="_blank"> 大大的小蜗牛 </a>
+PS: @[ 大大的小蜗牛 ](http://t.sina.com.cn/eallion)
 PS: 腾讯把我 QQ 微博设置成只读，换句话说，就是把我的帐号给封了。

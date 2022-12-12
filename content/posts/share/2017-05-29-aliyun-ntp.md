@@ -6,6 +6,7 @@ tags: ["时间","阿里云","ntp","时间同步"]
 draft: false
 slug: "aliyun-ntp"
 date: "2017-05-29 23:35:00"
+lastmod: "2017-05-29 23:35:00"
 ---
 
 > 最新更新：2021.01.24
@@ -57,8 +58,8 @@ sudo ntpdate ntp.aliyun.com
 
 ### 阿里云 ECS 内网测试成功
 
-![aliyunvpcntp](https://images.eallion.com/images/2017/05/29/1589433496.png)
+![](https://images.eallion.com/images/2017/05/29/1589433496.png)
 
 ### Windows 测试成功
 
-![Windows NTP](https://images.eallion.com/images/2017/05/29/1972259171.png)
+![](https://images.eallion.com/images/2017/05/29/1972259171.png)

@@ -6,6 +6,7 @@ tags: ["重阳","李攀"]
 draft: false
 slug: "today-chongyang"
 date: "2008-10-07 21:17:02"
+lastmod: "2008-10-07 21:17:02"
 ---
 
 昨天就想着要给家里打个电话了...

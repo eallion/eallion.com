@@ -6,11 +6,12 @@ tags: ["oneinstack","nginx","openssl","ocsp","cve-2016-6304"]
 draft: false
 slug: "oneinstack-repair-openssl-ocsp"
 date: "2016-09-26 22:33:00"
+lastmod: "2016-09-26 22:33:00"
 ---
 
 > 参考：
-> <http://security.360.cn/cve/CVE-2016-6304/CN.html>  
-> <https://www.openssl.org/news/secadv/20160922.txt>
+> [http://security.360.cn/cve/CVE-2016-6304/CN.html](http://security.360.cn/cve/CVE-2016-6304/CN.html)  
+> [https://www.openssl.org/news/secadv/20160922.txt](https://www.openssl.org/news/secadv/20160922.txt)
 
 目前 “Oneinstack”、“LNMP 一键包” 默认的 OpenSSL 版本都不是最新版，修复此漏洞需要重新编译。
 
@@ -46,7 +47,7 @@ wget http://mirrors.linuxeye.com/oneinstack/src/nginx-1.10.1.tar.gz
 wget https://www.openssl.org/source/openssl-1.0.2j.tar.gz 
 ```
 
-（所有版本在这里 <a href="<<<https://www.openssl.org/source/>>>" target="_blank">https://www.openssl.org/source/</a> ）
+（所有版本在这里 [https://www.openssl.org/source/](https://www.openssl.org/source/) ）
 
 3、解压：
 

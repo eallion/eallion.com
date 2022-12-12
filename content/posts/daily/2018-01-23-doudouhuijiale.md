@@ -6,6 +6,7 @@ tags: ["儿子","回家","豆豆"]
 draft: false
 slug: "doudouhuijiale"
 date: "2018-01-23 09:31:00"
+lastmod: "2018-01-23 09:31:00"
 ---
 
 豆豆出生六个月以来

@@ -6,11 +6,12 @@ tags: ["不可告人","密室","影评","惊悚","推理","电影"]
 draft: false
 slug: "lost-in-panic-room"
 date: "2010-11-12 12:12:00"
+lastmod: "2010-11-12 12:12:00"
 ---
 
 今天一个人一不小心又跑去电影院看了场电影
 在时光网上看到这片子的影评还挺高的
-虽然看样子 < a href="http://www.mtime.com/movie/132049/comment.html" target="_blank"> 那些家伙 </a > 都是些枪手
+虽然看样子 [那些家伙](http://www.mtime.com/movie/132049/comment.html) 都是些枪手
 不过说起来
 国产推理影片也难能有这样一个及格的片子了
 我不写影评

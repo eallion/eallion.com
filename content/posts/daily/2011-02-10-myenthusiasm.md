@@ -6,6 +6,7 @@ tags: ["生活","激情","热情"]
 draft: false
 slug: "myenthusiasm"
 date: "2011-02-10 02:41:00"
+lastmod: "2011-02-10 02:41:00"
 ---
 
 我说我要拔一张我相中的 WordPress 的主题已经说了很久了

@@ -6,6 +6,7 @@ tags: ["typecho","mweb","ios","离线"]
 draft: false
 slug: "typecho-mweb"
 date: "2017-04-10 08:36:00"
+lastmod: "2017-04-10 08:36:00"
 ---
 
 现在蹲在电脑前面的时间越来越少，但是手机都不会离身。
@@ -16,7 +17,7 @@ date: "2017-04-10 08:36:00"
 
 最近终于找到了一款 iOS 上支持 markdown 的工具了。
 
-<a href="http://zh.mweb.im/" target="_blank">MWeb</a>
+[MWeb](http://zh.mweb.im/)
 
 使用 MWeb 离线发表博客的方法：
 
@@ -24,10 +25,10 @@ date: "2017-04-10 08:36:00"
  2. 发布服务选择 Metaweblog API
  3. 在 Metaweblog API 中填入博客信息
 
-     - 博客地址：<https://eallion.com> #你的博客首页
+     - 博客地址：[https://eallion.com](https://eallion.com) #你的博客首页
      - 账号：eallion #你的博客管理员用户名
      - 密码：111111 #你的账号的密码
-     - API 地址：<https://eallion.com/action/xmlrpc> #你的博客的 API
+     - API 地址：[https://eallion.com/action/xmlrpc](https://eallion.com/action/xmlrpc) #你的博客的 API
      - 博客名称：eallion #会自动提取
 
 如果要正确使用 API 发表博客，请确保 `<head> </head>` 中有

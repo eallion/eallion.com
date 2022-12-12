@@ -6,12 +6,13 @@ tags: ["google","oneinstack","nginx","proxy"]
 draft: false
 slug: "oneinstack-nginx-google"
 date: "2016-09-08 08:30:00"
+lastmod: "2016-09-08 08:30:00"
 ---
 
-> <a href="https://getgoogle.org" target="_blank">`GetGoogle.org`</a>
+> [`GetGoogle.org`](https://getgoogle.org)
 >（目前域名已经被墙，现在翻墙还是能够继续使用，但既然都能够翻墙了，也不需要用镜像来搜索了吧。：逃）
 
-1、安装 <a href="https://5ch.in/ois" target="_blank">oneinstack</a>，如果只需要反代 Google，nginx 选择 y，其他全部选择 n;
+1、安装 [oneinstack](https://5ch.in/ois)，如果只需要反代 Google，nginx 选择 y，其他全部选择 n;
 
 2、安装编译 Nginx，当前版本为 1.10.1，注意用 `nginx -V` 查看一下 Nginx 版本号
 
@@ -112,4 +113,4 @@ vim /usr/local/nginx/conf/vhost/getgoogle.org.conf
 service nginx restart
 ```
 
-教程主要参考：<a href="https://5ch.in/ong" target="_blank"><https://blog.linuxeye.com/449.html></a>
+教程主要参考：[https://blog.linuxeye.com/449.html](https://5ch.in/ong)

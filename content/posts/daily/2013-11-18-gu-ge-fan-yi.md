@@ -6,9 +6,10 @@ tags: ["google","谷歌","翻译"]
 draft: false
 slug: "gu-ge-fan-yi"
 date: "2013-11-18 12:31:00"
+lastmod: "2013-11-18 12:31:00"
 ---
 
-<a href="<<<http://translate.google.com/>>>" target="_blank">http://translate.google.com/</a>
+[http://translate.google.com/](http://translate.google.com/)
 段子一
 在 Google 翻译里输入：
 pv zk bschk pv zk pv bschk zk pv zk bschk pv zk pv bschk zk bschk pv bschk bschk pv kkkkkkkk bschk bschk bschk p zk bschk pv zk pv bschk zk p zk bsc bschk pv zk bschk p zk pv bschk zk pv zk zk bschk bschk bschk bschk bschk

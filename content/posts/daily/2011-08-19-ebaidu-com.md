@@ -6,15 +6,16 @@ tags: ["CCTV","百度","百度推广","baidu","关键词"]
 draft: false
 slug: "ebaidu-com"
 date: "2011-08-19 14:33:27"
+lastmod: "2011-08-19 14:33:27"
 ---
 
 CCTV 接连抨击百度
 
-  <a href="http://jingji.cntv.cn/20110815/107680.shtml" target="_blank">[经济与法] 百度：阳光背后的阴影（20110815）</a>
+  [[经济与法] 百度：阳光背后的阴影（20110815）](http://jingji.cntv.cn/20110815/107680.shtml)
 
-  <a href="http://jingji.cntv.cn/20110816/113398.shtml" target="_blank">[经济与法] 构建网络诚信在行动 —— 推广链接的真相（20110816）</a>
+  [[经济与法] 构建网络诚信在行动 —— 推广链接的真相（20110816）](http://jingji.cntv.cn/20110816/113398.shtml)
 
-  <a href="http://jingji.cntv.cn/20110817/116725.shtml" target="_blank">[经济与法] 百度，被什么蒙住了眼睛（20110817）</a>
+  [[经济与法] 百度，被什么蒙住了眼睛（20110817）](http://jingji.cntv.cn/20110817/116725.shtml)
 
 跟当年 CCTV 抹黑 Google 何其的相似啊
 结果 google 被迫撤离中国
@@ -24,14 +25,14 @@ CCTV 接连抨击百度
 是不是就要动用政策上的优势击垮百度
 然后组织搜索引擎国家队呢
 
-我觉得月光博客这篇博文写得不错 <a href="http://www.williamlong.info/archives/2775.html" target="_blank">《央视连续抨击百度推广黑幕》</a>
+我觉得月光博客这篇博文写得不错 [《央视连续抨击百度推广黑幕》](http://www.williamlong.info/archives/2775.html)
 
 好了，这些我都不去评论了
 我就说说我作为一个曾经的百度推广业务员眼中的百度推广吧
 我 2009 年 11 月就职于宁波派桑网络有限公司绍兴分公司
 它是宁波绍兴地区官方授权代理百度推广的
 百度推广在各个地区都有推广代理公司
-这个公司在百度推广官网可以查到的 <a href="<<<http://e.baidu.com/localservice/>>>zhejiang/" target="_blank">http://e.baidu.com/localservice/</a>
+这个公司在百度推广官网可以查到的 [http://e.baidu.com/localservice/](http://e.baidu.com/localservice/zhejiang/)
 但是现在宁波绍兴地区的代理商变成了盘石网络
 
 这些代理公司跟保险公司差不多

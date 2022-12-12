@@ -6,6 +6,7 @@ tags: ["生日","生日快乐","福福"]
 draft: false
 slug: "happy-birthday-to-my-fufu"
 date: "2010-09-15 09:15:06"
+lastmod: "2010-09-15 09:15:06"
 ---
 
 从第一眼看到你我就喜欢上你了

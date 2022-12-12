@@ -6,6 +6,7 @@ tags: ["梦","周公","解梦"]
 draft: false
 slug: "zhougongjiemeng"
 date: "2012-05-29 09:05:33"
+lastmod: "2012-05-29 09:05:33"
 ---
 
 昨天晚上做了很多梦

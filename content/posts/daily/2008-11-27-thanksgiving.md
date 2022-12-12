@@ -6,6 +6,7 @@ tags: ["感恩","感谢"]
 draft: false
 slug: "thanksgiving"
 date: "2008-11-27 22:59:40"
+lastmod: "2008-11-27 22:59:40"
 ---
 
 感谢父母...

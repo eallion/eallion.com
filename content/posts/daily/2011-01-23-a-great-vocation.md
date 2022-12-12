@@ -6,6 +6,7 @@ tags: ["小姐","杂谈","感想","社会"]
 draft: false
 slug: "a-great-vocation"
 date: "2011-01-23 04:21:11"
+lastmod: "2011-01-23 04:21:11"
 ---
 
 好久之前

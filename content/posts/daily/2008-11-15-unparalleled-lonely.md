@@ -6,6 +6,7 @@ tags: ["时间","寂寞","悲伤","发呆"]
 draft: false
 slug: "unparalleled-lonely"
 date: "2008-11-15 00:32:01"
+lastmod: "2008-11-15 00:32:01"
 ---
 
 突然发现...

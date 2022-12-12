@@ -6,6 +6,7 @@ tags: ["CS","游戏","魂斗罗","俄罗斯方块"]
 draft: false
 slug: "from-game-to-game"
 date: "2008-11-15 18:40:13"
+lastmod: "2008-11-15 18:40:13"
 ---
 
 最近总是喜欢回忆...

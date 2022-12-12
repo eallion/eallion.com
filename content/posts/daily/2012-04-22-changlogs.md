@@ -6,6 +6,7 @@ tags: ["博客","小记","改动","优化","代码"]
 draft: false
 slug: "changlogs"
 date: "2012-04-22 00:36:11"
+lastmod: "2012-04-22 00:36:11"
 ---
 
 一直在犹豫
@@ -20,7 +21,7 @@ date: "2012-04-22 00:36:11"
 
  WordPress 可以直接用 “多说” 插件
 其他的程序可要自己调用通过代码了
-<a href="<<<http://blog.duoshuo.com/2012/03/custom-release-candidate/>>>" target="_blank">http://blog.duoshuo.com/2012/03/custom-release-candidate/</a>
+[http://blog.duoshuo.com/2012/03/custom-release-candidate/](http://blog.duoshuo.com/2012/03/custom-release-candidate/)
 然后再对代码做一些简单的优化
 我还把 js 下载下来本地化了
 
@@ -41,9 +42,9 @@ date: "2012-04-22 00:36:11"
 用代码检测浏览器
 如果是 IE6 访问
 就不显示插件而只显示一张图片
-<a href="http://www.jzwalk.com" target="_blank"> 羽中 </a > 同学说这个插件在 firefox3 下显示为一片空白
+[ 羽中 ](http://www.jzwalk.com) 同学说这个插件在 firefox3 下显示为一片空白
 这个我就没办法了
-插件地址：<a href="<<<http://slidesjs.com/>>>" target="_blank">http://slidesjs.com/</a>
+插件地址：[http://slidesjs.com/](http://slidesjs.com/)
 
 博客还添加了一个文章关联插件 “友荐”
 就是打开文章页
@@ -51,7 +52,7 @@ date: "2012-04-22 00:36:11"
 会自动弹出 4 篇相关文章
 只对文章页有效
 过滤了首页和页面页
-<a href="<<<http://www.ujian.cc/>>>" target="_blank">http://www.ujian.cc/</a>
+[http://www.ujian.cc/](http://www.ujian.cc/)
 
 博客的 “每日一句”
 是在模板里新建的一个 `function.php` 文件
@@ -59,34 +60,34 @@ date: "2012-04-22 00:36:11"
 有兴趣的朋友可以模仿 verycd 的 title saying
 
 博客用的图片特效是 Slimbox2
-<a href="http://www.binjoo.net/" target="_blank"> 冰剑 </a > 同学发布有一个插件
+[ 冰剑 ](http://www.binjoo.net/) 同学发布有一个插件
 我在插件的基础上改动了一些
 还很好用的
-<a href="<<<http://www.binjoo.net/2011/02/slimbox2-for-typecho/>>>" target="_blank">http://www.binjoo.net/2011/02/slimbox2-for-typecho/</a>
+[http://www.binjoo.net/2011/02/slimbox2-for-typecho/](http://www.binjoo.net/2011/02/slimbox2-for-typecho/)
 
-音乐播放器集成的 < a href="http://www.1g1g.com" target="_blank"> 亦歌 </a>
+音乐播放器集成的 [亦歌](http://www.1g1g.com)
 
 其他一些基本信息：
 <ul>
     <li>
-        主机：<a href="http://www.vosent.com/" target="_blank"> 华域迅通 </a>
+        主机：[ 华域迅通 ](http://www.vosent.com/)
     </li>
     <li>
-        程序：<a href="http://typecho.org" target="_blank">Typecho</a>
+        程序：[Typecho](http://typecho.org)
     </li>
     <li>
-        主题：<a href="http://www.taiku.net/archives/neowin-for-typecho.html" target="_blank">NeoWin</a>
+        主题：[NeoWin](http://www.taiku.net/archives/neowin-for-typecho.html)
     </li>
     <li>
-        导航：<a href="http://s.eallion.com/" target="_blank"> 蜗牛个人导航 </a>
+        导航：[ 蜗牛个人导航 ](http://s.eallion.com/)
     </li>
     <li>
-        微博：<a href="http://t.eallion.com/" target="_blank"> 蜗牛的卢浮宫 </a>
+        微博：[ 蜗牛的卢浮宫 ](http://t.eallion.com/)
     </li>
     <li>
-        相册：<a href="http://tu.eallion.com/" target="_blank">Qc eallion Gallery</a>
+        相册：[Qc eallion Gallery](http://tu.eallion.com/)
     </li>
     <li>
-        小说：<a href="http://book.eallion.com/" target="_blank"> 指间的信仰 </a>
+        小说：[ 指间的信仰 ](http://book.eallion.com/)
     </li>
 </ul>

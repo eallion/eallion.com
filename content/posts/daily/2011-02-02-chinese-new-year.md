@@ -6,6 +6,7 @@ tags: ["过年","春节","除夕"]
 draft: false
 slug: "chinese-new-year"
 date: "2011-02-02 19:01:03"
+lastmod: "2011-02-02 19:01:03"
 ---
 
 现在外面到处都在放着鞭炮

@@ -6,6 +6,7 @@ tags: ["电脑","笔记本","XP","WIN7","Ubuntu"]
 draft: false
 slug: "can-not-install-xp"
 date: "2011-11-09 08:20:57"
+lastmod: "2011-11-09 08:20:57"
 ---
 
 前两天把新买的笔记本折腾得差不多了

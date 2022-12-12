@@ -6,6 +6,7 @@ tags: ["封禁", "总结", "日记", "杯具", "账号"]
 draft: false
 slug: "banned-account-list"
 date: "2011-01-02 03:31:12"
+lastmod: "2011-01-02 03:31:12"
 ---
 
 好吧，首先我想说

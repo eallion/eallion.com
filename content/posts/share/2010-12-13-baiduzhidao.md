@@ -6,10 +6,11 @@ tags: ["义乌","牛逼","百度","知道"]
 draft: false
 slug: "baiduzhidao"
 date: "2010-12-13 01:44:00"
+lastmod: "2010-12-13 01:44:00"
 ---
 
 来自百度知道的一个爆强回答，老话新说，有感触。enjoy。
- 链接地址：（可惜原答案已经被和谐）<a href="<<<http://zhidao.baidu.com/question/65058100.html>>>" target="_blank">http://zhidao.baidu.com/question/65058100.html</a>
+ 链接地址：（可惜原答案已经被和谐）[http://zhidao.baidu.com/question/65058100.html](http://zhidao.baidu.com/question/65058100.html)
 <h3>500 块钱在义乌怎么过？</h3>
 一块钱，
 去义乌老火车站找道上的兄弟买张 50 的假钞；

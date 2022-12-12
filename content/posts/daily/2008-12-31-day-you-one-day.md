@@ -6,6 +6,7 @@ tags: ["现状","明天","今天"]
 draft: false
 slug: "day-you-one-day"
 date: "2008-12-31 00:14:52"
+lastmod: "2008-12-31 00:14:52"
 ---
 
 今天推到明天...
