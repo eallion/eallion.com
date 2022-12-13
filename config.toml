@@ -23,6 +23,8 @@ enableGitInfo = true
 # 是否使用 emoji 代码
 enableEmoji = true
 
+ignoreFiles = ['data/douban']
+
 [languages]
   [languages.en]  
     contentDir = 'content/en'
@@ -48,7 +50,15 @@ enableEmoji = true
         name = "Memos"
         url = "/memos/"
         title = "Memos"
-        weight = 1
+        weight = "1"
+      [[languages.en.menu.main]]
+        identifier = "movie"
+        pre = ""
+        post = ""
+        name = "Watched"
+        url = "/movie/"
+        title = "DouBan Movie"
+        weight = "2"
       [[languages.en.menu.main]]
         identifier = "posts"
         # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
@@ -59,7 +69,7 @@ enableEmoji = true
         url = "/posts/"
         # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
         title = "All Article"
-        weight = 2
+        weight = "3"
       [[languages.en.menu.main]]
         identifier = "categories"
         pre = ""
@@ -67,7 +77,7 @@ enableEmoji = true
         name = "Cates"
         url = "/categories/"
         title = "Categories"
-        weight = 3
+        weight = "4"
       [[languages.en.menu.main]]
         identifier = "links"
         name="Friends"
@@ -75,7 +85,7 @@ enableEmoji = true
         post = ""
         url="/links/"
         title = "Friends links"
-        weight="4"
+        weight="5"
       [[languages.en.menu.main]]
         identifier = "about"
         pre = ""
@@ -83,7 +93,7 @@ enableEmoji = true
         name = "About"
         url = "/about/"
         title = "About me"
-        weight = "5"
+        weight = "6"
       [[languages.en.menu.main]]
         identifier = "github"
         pre = "<i class='fab fa-github fa-fw'></i>"
@@ -276,7 +286,15 @@ enableEmoji = true
         name = "嘀咕"
         url = "/memos/"
         title = "嘀咕 Memos"
-        weight = 1
+        weight = "1"
+      [[languages.zh-cn.menu.main]]
+        identifier = "movie"
+        pre = ""
+        post = ""
+        name = "观影"
+        url = "/movie/"
+        title = "豆瓣观影记录"
+        weight = "2"
       [[languages.zh-cn.menu.main]]
         identifier = "posts"
         # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
@@ -287,7 +305,7 @@ enableEmoji = true
         url = "/posts/"
         # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
         title = "所有文章"
-        weight = 2
+        weight = "3"
       [[languages.zh-cn.menu.main]]
         identifier = "categories"
         pre = ""
@@ -295,7 +313,7 @@ enableEmoji = true
         name = "分类"
         url = "/categories/"
         title = "博客分类"
-        weight = 3
+        weight = "4"
       [[languages.zh-cn.menu.main]]
         identifier = "links"
         name="友链"
@@ -303,7 +321,7 @@ enableEmoji = true
         post = ""
         url="/links/"
         title = "友情链接"
-        weight="4"
+        weight="5"
       [[languages.zh-cn.menu.main]]
         identifier = "about"
         pre = ""
@@ -311,7 +329,7 @@ enableEmoji = true
         name = "关于"
         url = "/about/"
         title = "关于我关于本站"
-        weight = "5"
+        weight = "6"
       [[languages.zh-cn.menu.main]]
         identifier = "github"
         pre = "<i class='fab fa-github fa-fw'></i>"
@@ -1132,7 +1150,7 @@ enableEmoji = true
   #gravatarEmail = ""
 
 [frontmatter]
-  lastmod = 'lastmod'
+  lastmod = [ 'lastmod', ':git', 'date']
 
 # Sitemap config
 # 网站地图配置

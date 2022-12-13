@@ -4,8 +4,10 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: 0 16 * * *
+#  schedule:
+#    - cron: 0 16 * * *
+  workflow_dispatch:
+  repository_dispatch:
 
 jobs:
   build-deploy:
@@ -44,78 +46,24 @@ jobs:
           allow_empty_commit: true
           # commit_message: ${{ GitHub.event.head_commit.message }}
           full_commit_message: ${{ github.event.head_commit.message }}
-          # cname: eallion.com
+          cname: eallion.com
           force_orphan: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
-      #- name: Deploy to Firebase
-      #  uses: lowply/deploy-firebase@v0.0.4
-      #  env:
-      #    FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-      #    FIREBASE_PROJECT: ${{ secrets.FIREBASE_PROJECT }}
-      #    TARGET_BRANCH: main
+      - name: Upload to Tencent COS
+        uses: zkqiang/tencent-cos-action@v0.1.0
+        with:
+          args: upload -rsf --delete ./public/ / 
+          secret_id: ${{ secrets.SECRET_COS_ID }}
+          secret_key: ${{ secrets.SECRET_COS_KEY }}
+          bucket: ${{ secrets.COS_CN_BUCKET }}
+          region: ap-shanghai
 
-      #- name: Deploy to Tencent CloudBase
-      #  id: deployStatic
-      #  uses: TencentCloudBase/cloudbase-action@v1.1.1
-      #  with:
-      #    secretId: ${{ secrets.CLOUDBASE_SECRET_ID }}
-      #    secretKey: ${{ secrets.CLOUDBASE_SECRET_KEY }}
-      #    envId: ${{ secrets.CLOUDBASE_ENV_ID }}
-      #    staticSrcPath: public
-
-      #- name: Sync to Gitee
-      #  uses: eallion/git-mirror-action@master
-      #  env:
-      #    SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-      #  with:
-      #    source-repo: "https://github.com/eallion/eallion.github.io.git"
-      #    destination-repo: "git@gitee.com:eallion/eallion.git"
-      #    branch: "gh-pages"
-      #  run: |
-      #    cd public
-      #    rm -rf .git
-      #    git config --global user.name "Charles Chin"
-      #    git config --global user.email ${{ secrets.GITEE_EMAIL }}
-      #    git init
-      #    git add .
-      #    git commit -m "${{ GitHub.event.head_commit.message }}"
-      #    git push -f https://${{ secrets.GITEE_USERNAME }}:${{ secrets.GITEE_TOKEN }}@gitee.com/eallion/eallion.git HEAD:gh-pages
-      #    cd ..
-
-      #- name: Build Gitee Pages
-      #  uses: yanglbme/gitee-pages-action@master
-      #  with:
-      #    gitee-username: ${{ secrets.GITEE_USERNAME }}
-      #    gitee-password: ${{ secrets.GITEE_PASSWORD }}
-      #    gitee-repo: eallion/eallion
-      #    branch: gh-pages
-      #    # directory: /
-      #    https: true
-
-      ## 部署到阿里云 OSS
-      #- name: Deploy to OSS
-      #  uses: saltbo/uptoc@master
-      #  with:
-      #    driver: oss
-      #    region: cn-shanghai
-      #    bucket: ${{ secrets.bucket }}
-      #    exclude: public/images,public/photos
-      #    dist: public
-      #  env:
-      #    UPTOC_UPLOADER_AK: ${{ secrets.ACCESS_KEY_ID }}
-      #    UPTOC_UPLOADER_SK: ${{ secrets.ACCESS_KEY_SECRET }}
-
-      # 部署到腾讯云 COS
-      #- name: Deploy to COS
-      #  uses: saltbo/uptoc@master
-      #  with:
-      #    driver: cos
-      #    region: ap-shanghai
-      #    bucket: ${{ secrets.COS_CN_BUCKET }}
-      ##    exclude: public/images,public/photos
-      #    dist: public
-      #  env:
-      #    UPTOC_UPLOADER_AK: ${{ secrets.SECRET_COS_ID }}
-      #    UPTOC_UPLOADER_SK: ${{ secrets.SECRET_COS_KEY }}
+      - name: Tencent CDN Purge
+        uses: keithnull/tencent-cloud-cdn-purge-cache@v1.0
+        env:
+          SECRET_ID: ${{ secrets.SECRET_COS_ID }}
+          SECRET_KEY: ${{ secrets.SECRET_COS_KEY }}
+          PATHS: "https://eallion.com/"
+          FLUSH_TYPE: "delete" # optional

@@ -1,0 +1,97 @@
+# .github/workflows/douban.yml
+name: Sync Douban Data
+on:
+  schedule:
+  - cron: "0 */6 * * *"
+#  watch:
+#    types: [started]
+
+  workflow_dispatch:
+
+jobs:
+  douban:
+    name: Douban Data Sync
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Sha256sums Check
+      run: |
+        SHA256SUM_OLD() {
+          sha256sum data/douban/movie.csv | gawk '{ print $1 }'
+        }
+        echo "SHA256SUM_OLD=$(SHA256SUM_OLD)" >> $GITHUB_ENV
+
+    - name: Fetch Movie Data CSV
+      uses: lizheming/doumark-action@master
+      with:
+        id: eallion
+        type: movie
+        format: csv
+        dir: ./data/douban
+
+    - name: Fetch Book Data CSV
+      uses: lizheming/doumark-action@master
+      with:
+        id: eallion
+        type: book
+        format: csv
+        dir: ./data/douban
+
+    - name: Fetch Movie Data JSON
+      uses: lizheming/doumark-action@master
+      with:
+        id: eallion
+        type: movie
+        format: json
+        dir: ./data/douban
+
+    - name: Fetch Book Data JSON
+      uses: lizheming/doumark-action@master
+      with:
+        id: eallion
+        type: book
+        format: json
+        dir: ./data/douban
+
+    - name: Git Add and Commit
+      uses: EndBug/add-and-commit@v9
+      with:
+        message: 'chore(data): update douban data'
+        add: './data/douban'
+
+    - name: Sha256sums Compare
+      run: |
+        SHA256SUM_NEW() {
+          sha256sum data/douban/movie.csv | gawk '{ print $1 }'
+        }
+        echo "SHA256SUM_NEW=$(SHA256SUM_NEW)" >> $GITHUB_ENV
+
+    - name: Show Sha256sums
+      run: |
+        echo ${{ env.SHA256SUM_OLD }}
+        echo ${{ env.SHA256SUM_NEW }}
+
+    - name: Aliyun Codeup Webhook
+      if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
+      uses: zzzze/webhook-trigger@master
+      with:
+          data: "{ }"
+          webhook_url: ${{ secrets.CODEUP_WEBHOOK_URL }}
+          options: "-H \"Content-Type: application/json\""
+
+    - name: Build Hugo and Deploy
+      if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
+      uses: peter-evans/repository-dispatch@v2
+      with:
+          event-type: "Build Hugo and Deploy"
+
+    #- name: Coding.net Webhook
+    #  if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
+    #  uses: zzzze/webhook-trigger@master
+    #  with:
+    #      user: ${{ secrets.CODING_WEBHOOK_TOKEN }}
+    #      data: "{\"ref\":\"main\",\"envs\":[{\"name\":\"COS_BUCKET_REGION\",\"value\":\"ap-shanghai\",\"sensitive\":0},{\"name\":\"COS_UPLOAD_FROM_PATH\",\"value\":\"public/\",\"sensitive\":0}]}"
+    #      webhook_url: ${{ secrets.CODING_WEBHOOK_URL }}
+    #      options: "-H \"Content-Type: application/json\""
