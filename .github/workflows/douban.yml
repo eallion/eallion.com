@@ -31,7 +31,15 @@ jobs:
         format: csv
         dir: ./data/douban
 
+    - name: Sha256sums Compare
+      run: |
+        SHA256SUM_NEW() {
+          sha256sum data/douban/movie.csv | gawk '{ print $1 }'
+        }
+        echo "SHA256SUM_NEW=$(SHA256SUM_NEW)" >> $GITHUB_ENV
+
     - name: Fetch Book Data CSV
+      if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
       uses: lizheming/doumark-action@master
       with:
         id: eallion
@@ -40,6 +48,7 @@ jobs:
         dir: ./data/douban
 
     - name: Fetch Movie Data JSON
+      if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
       uses: lizheming/doumark-action@master
       with:
         id: eallion
@@ -48,6 +57,7 @@ jobs:
         dir: ./data/douban
 
     - name: Fetch Book Data JSON
+      if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
       uses: lizheming/doumark-action@master
       with:
         id: eallion
@@ -56,36 +66,25 @@ jobs:
         dir: ./data/douban
 
     - name: Git Add and Commit
+      if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
       uses: EndBug/add-and-commit@v9
       with:
         message: 'chore(data): update douban data'
         add: './data/douban'
-
-    - name: Sha256sums Compare
-      run: |
-        SHA256SUM_NEW() {
-          sha256sum data/douban/movie.csv | gawk '{ print $1 }'
-        }
-        echo "SHA256SUM_NEW=$(SHA256SUM_NEW)" >> $GITHUB_ENV
-
-    - name: Show Sha256sums
-      run: |
-        echo ${{ env.SHA256SUM_OLD }}
-        echo ${{ env.SHA256SUM_NEW }}
-
-    - name: Aliyun Codeup Webhook
-      if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
-      uses: zzzze/webhook-trigger@master
-      with:
-          data: "{ }"
-          webhook_url: ${{ secrets.CODEUP_WEBHOOK_URL }}
-          options: "-H \"Content-Type: application/json\""
 
     - name: Build Hugo and Deploy
       if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
       uses: peter-evans/repository-dispatch@v2
       with:
           event-type: "Build Hugo and Deploy"
+
+#    - name: Aliyun Codeup Webhook
+#      if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
+#      uses: zzzze/webhook-trigger@master
+#      with:
+#          data: "{ }"
+#          webhook_url: ${{ secrets.CODEUP_WEBHOOK_URL }}
+#          options: "-H \"Content-Type: application/json\""
 
     #- name: Coding.net Webhook
     #  if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
