@@ -206,9 +206,9 @@ ignoreFiles = ['data/douban']
         Jsfiddle = ""
         Keybase = "eallion"
         Kickstarter = ""
-        Ko-Fi = "xxx"
+        Ko-Fi = ""
         Lastfm = ""
-        Liberapay = "xxx"
+        Liberapay = ""
         Linkedin = ""
         Linktree = ""
         Matrix = ""
@@ -228,7 +228,7 @@ ignoreFiles = ['data/douban']
         Slidershare = ""
         Snapchat = ""
         Soundcloud = ""
-        Spotify = "eallion"
+        Spotify = "91qyot69mzbkp5inpdgrp3jej"
         Stackoverflow = "11409594"
         Steam = "eallion"
         Strava = ""
@@ -248,13 +248,13 @@ ignoreFiles = ['data/douban']
         Youtubecustom = ""
         Youtubelegacy = ""
         Zhihu = "woniu"
-        RSS = true
+        RSS = false
         [languages.en.params.social.Mastodon]
-          id = ""
-          prefix = ""
+          id = "@eallion"
+          prefix = "https://mastodon.social"
         [languages.en.params.social.Diaspora]
-          id = ""
-          prefix = ""
+          #id = ""
+          #prefix = ""
       # Sponsor config
       [languages.en.params.sponsor]
         enable = true
@@ -447,7 +447,7 @@ ignoreFiles = ['data/douban']
         Liberapay = ""
         Linkedin = ""
         Linktree = ""
-        Mastodon = ""
+        Mastodon = "@eallion"
         Matrix = ""
         Medium = ""
         Mix = ""
@@ -465,7 +465,7 @@ ignoreFiles = ['data/douban']
         Slidershare = ""
         Snapchat = ""
         Soundcloud = ""
-        Spotify = ""
+        Spotify = "91qyot69mzbkp5inpdgrp3jej"
         Stackoverflow = "11409594"
         Steam = "eallion"
         Strava = ""
@@ -485,7 +485,7 @@ ignoreFiles = ['data/douban']
         Youtubecustom = ""
         Youtubelegacy = ""
         Zhihu = "woniu"
-        RSS = true
+        RSS = false
         # 赞助设置
       [languages.zh-cn.params.sponsor]
         enable = true
@@ -568,22 +568,22 @@ ignoreFiles = ['data/douban']
     # Hosted on (HTML format is supported)
     # 托管服务信息 (支持 HTML 格式)
     # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
-    hostedOn = '' 
+    hostedOn = '<a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a> 和 <a title="腾讯云 OSS + CDN" href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=1f05a4ef7955bfdbc954f3f0a115c2e3&from=console" target="_blank" rel="noopener noreffer">腾讯云 CDN</a>'
     # whether to show copyright info
     # 是否显示版权信息
     copyright = true
     # whether to show the author
     # 是否显示作者
-    author = true
+    author = false
     # site creation time
     # 网站创立年份
     since = 2006
     # ICP info only in China (HTML format is supported)
     # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
-    icp = "<i class='fas fa-balance-scale fa-fw'></i> <a href='https://beian.miit.gov.cn/' target='_blank' rel='noopener noreferrer'>浙ICP备16031768号-2</a>"
+    icp = "<i class='fas fa-balance-scale fa-fw'></i> <a title='ICP 备案号' href='https://beian.miit.gov.cn/' target='_blank' rel='noopener noreferrer'>浙ICP备16031768号-2</a> | <a title='GitHub 源码' href='https://github.com/eallion/eallion.com' target='_blank' rel='noopener noreferrer'><i class='fas fa-code fa-fw'></i></a> <a title='Server Status' href='https://status.eallion.com/' target='_blank' rel='noopener noreferrer'><i class='fas fa-database fa-fw'></i></a> <a title='RSS Feed' href='https://eallion.com/index.xml' target='_blank' rel='noopener noreferrer'><i class='fas fa-rss fa-fw'></i></a>"
     # license info (HTML format is supported)
     # 许可协议信息 (支持 HTML 格式)
-    license= '<i class="fab fa-creative-commons fa-fw"></i> <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">BY-NC-SA 4.0</a>'
+    license= "<a title='eallion.com 版权信息' href='https://eallion.com/copyright/' target='_blank' rel='noopener noreferrer'>eallion.com</a> All Rights Reserved."
 
   # Section (all posts) page config
   # Section (所有文章) 页面配置
@@ -1143,9 +1143,9 @@ ignoreFiles = ['data/douban']
 # Author config
 # 作者配置
 [author]
-  name = "eallion.com"
+  name = "Charles Chin"
   email = "eallions@gmail.com"
-  link = "https://eallion.com/copyright/"
+  link = "https://eallion.com/"
   avatar = "/eallion.png"
   #gravatarEmail = ""
 
