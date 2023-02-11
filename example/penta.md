@@ -6,6 +6,11 @@ comment: false
 
 {{< image src="https://images.eallion.com/penta/20230210-Viktor.png" alt="20230210-Viktor" caption="20230210-Viktor" >}}
 {{< image src="https://images.eallion.com/penta/20230210-Tryndamere.png" alt="20230210-Tryndamere" caption="20230210-Tryndamere" >}}
+{{< image src="https://images.eallion.com/penta/20221003-Jhin.jpg" alt="20221003-Jhin" caption="20221003-Jhin" >}}
+{{< image src="https://images.eallion.com/penta/20220930-Samira.jpg" alt="20220930-Samira" caption="20220930-Samira" >}}
+{{< image src="https://images.eallion.com/penta/20220927-Vayne.jpg" alt="20220927-Vayne" caption="20220927-Vayne" >}}
+{{< image src="https://images.eallion.com/penta/20220728-MissFortune2.jpg" alt="20220728-MissFortune" caption="20220728-MissFortune" >}}
+{{< image src="https://images.eallion.com/penta/20220728-MissFortune.jpg" alt="20220728-MissFortune" caption="20220728-MissFortune" >}}
 {{< image src="https://images.eallion.com/penta/20220311-Samira.jpg" alt="20220311-Samira" caption="20220311-Samira" >}}
 {{< image src="https://images.eallion.com/penta/20220311-Graves.jpg" alt="20220311-Graves" caption="20220311-Graves" >}}
 {{< image src="https://images.eallion.com/penta/20220223-Kha%27Zix.jpg" alt="20220223-Kha'Zix" caption="20220223-Kha'Zix" >}}
