@@ -14,8 +14,7 @@
 
 <div align="center">
 
-![](https://img.shields.io/badge/License-GLWT-green) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v2.0.0/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com) [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/9pjg.svg)](https://betteruptime.com/?utm_source=status_badge)
-
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_shield) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v2.0.0/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com) [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/9pjg.svg)](https://betteruptime.com/?utm_source=status_badge)
 </div>
 <div align="center">
 
@@ -36,7 +35,7 @@
 
 #### 备份仓库
 
-> Coding.net：<https://e.coding.net/eallion/eallion.com/hugo.git>
+> Coding.net：<https://e.coding.net/eallion/eallion/hugo.git>
 
 #### 添加备份仓库 Remote
 
@@ -45,7 +44,7 @@
 
 ```
 git remote set-url --add --push origin https://id:token@github.com/eallion/eallion.com.git
-git remote set-url --add --push origin https://id:token@e.coding.net/eallion/eallion.com/hugo.git
+git remote set-url --add --push origin https://id:token@e.coding.net/eallion/eallion/hugo.git
 ```
 
 #### 通过空提交运行 GitHub Acions
@@ -74,22 +73,24 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: 0 16 * * *
+#  schedule:
+#    - cron: 0 16 * * *
+  workflow_dispatch:
+  repository_dispatch:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Setup timezone
         uses: zcong1993/setup-timezone@master
         with:
           timezone: Asia/Shanghai
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          submodules: recursive
-          fetch-depth: 1
+          submodules: false
+          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -99,7 +100,8 @@ jobs:
 
       - name: Build Hugo
         run: |
-          hugo version
+          rm themes/DoIt -rf
+          git clone https://github.com/eallion/hugo-theme-doit.git themes/DoIt --single-branch
           hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
 
       - name: Deploy to GitHub Pages
@@ -112,10 +114,27 @@ jobs:
           allow_empty_commit: true
           # commit_message: ${{ GitHub.event.head_commit.message }}
           full_commit_message: ${{ github.event.head_commit.message }}
-          # cname: eallion.com
+          cname: eallion.com
           force_orphan: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Upload to Tencent COS
+        uses: zkqiang/tencent-cos-action@v0.1.0
+        with:
+          args: upload -rsf --delete ./public/ / 
+          secret_id: ${{ secrets.SECRET_COS_ID }}
+          secret_key: ${{ secrets.SECRET_COS_KEY }}
+          bucket: ${{ secrets.COS_CN_BUCKET }}
+          region: ap-shanghai
+
+      - name: Tencent CDN Purge
+        uses: keithnull/tencent-cloud-cdn-purge-cache@v1.0
+        env:
+          SECRET_ID: ${{ secrets.SECRET_COS_ID }}
+          SECRET_KEY: ${{ secrets.SECRET_COS_KEY }}
+          PATHS: "https://eallion.com/"
+          FLUSH_TYPE: "delete" # optional
 ```
 
 </details>
@@ -197,7 +216,7 @@ pipeline {
 
 本博客使用主题为：[DoIt](https://github.com/HEIGE-PCloud/DoIt)
 
-此次更新，主题使用 `git submodule` 的方式引入：
+此次更新，主题使用 `git submodule` 的方式引入，不破坏原主题任何文件结构，所有自定义样式不再在 Theme 目录下修改。
 
 ```
 git submodule add https://github.com/eallion/hugo-theme-doit.git themes/DoIt
@@ -209,10 +228,34 @@ git submodule add https://github.com/eallion/hugo-theme-doit.git themes/DoIt
 git submodule update --remote --merge
 ```
 
-自定义 CSS 在 [`_custom.scss`](<https://github.com/eallion/eallion.com/blob/main/assets/css/_custom.scss>)，所有自定义样式不再在 Theme 目录下修改：
+- 自定义 CSS 在 [`assets\css\_custom.scss`](<https://github.com/eallion/eallion.com/blob/main/assets/css/_custom.scss>)：
 
 ```
 https://github.com/eallion/eallion.com/blob/main/assets/css/_custom.scss
+```
+
+- 自定义 JS 在 [`assets\js\custom.js`](https://github.com/eallion/eallion.com/blob/main/assets/js/custom.js)：
+
+```
+https://github.com/eallion/eallion.com/blob/main/assets/js/custom.js
+```
+
+- 自定义模板，如嘀咕、豆瓣等页面，在 [`layouts\_defaut`](https://github.com/eallion/eallion.com/tree/main/layouts/_default)：
+
+```
+https://github.com/eallion/eallion.com/tree/main/layouts/_default
+```
+
+- 作者数据在 [`data\authors`](https://github.com/eallion/eallion.com/tree/main/data/authors)：
+
+```
+https://github.com/eallion/eallion.com/tree/main/data/authors
+```
+
+- 豆瓣观影数据在 [`data\douban`](https://github.com/eallion/eallion.com/tree/main/data/douban)：
+
+```
+https://github.com/eallion/eallion.com/tree/main/data/douban
 ```
 
 ### ✏️ 写新文章
@@ -316,13 +359,15 @@ git gc --prune=now --aggressive
 
 ### 💥 本地资源引用
 
+> [DoIt](https://github.com/HEIGE-PCloud/DoIt) 主题功能
+
 有三种方法来引用**图片**和**音乐**等本地资源:
 
 1. 使用[页面包](https://gohugo.io/content-management/page-bundles/)中的[页面资源](https://gohugo.io/content-management/page-resources/)。  
     你可以使用适用于 `Resources.GetMatch` 的值或者直接使用相对于当前页面目录的文件路径来引用页面资源.
-1. 将本地资源放在 **assets** 目录中，默认路径是 `/assets`。  
+2. 将本地资源放在 **assets** 目录中，默认路径是 `/assets`。  
    引用资源的文件路径是相对于`assets`目录的。  
-1. 将本地资源放在 **static** 目录中，默认路径是 `/static`。  
+3. 将本地资源放在 **static** 目录中，默认路径是 `/static`。  
    引用资源的文件路径是相对于`static`目录的。  
 
 引用的**优先级**符合以上的顺序.
@@ -356,21 +401,14 @@ git gc --prune=now --aggressive
 
 ### 📷 相册
 
-把照片放到 Hugo 仓库的`static/photos/`目录下，Hugo 会自动索引并生成相册页面。  
+相册页面可以用主题内置的 [`{{< figure >}}`](https://hugodoit.pages.dev/zh-cn/theme-documentation-built-in-shortcodes/#figure)、[`{{< image >}}`](<https://hugodoit.pages.dev/zh-cn/theme-documentation-extended-shortcodes/#image>) Shortcodes 生成。  
 如：
 
 - <https://eallion.com/penta/>
 - <https://eallion.com/photos/>
 
-也可利用相册模板新建相册：
-
-```html
-<div class="page-photos">
-    <figure>
-        <img loading="lazy" src="https://cdn.jsdelivr.net/gh/eallion/eallion.github.io@gh-pages/photos/Focal-Fossa.png" alt="Focal-Fossa.png">
-        <figcaption>Focal-Fossa</figcaption>
-    </figure>
-</div>
+```markdown
+{{< image src="https://images.eallion.com/penta/20150218-Shaco.jpg" alt="Shaco" caption="Shaco" >}}
 ```
 
 ### 📄 LICENSE
@@ -378,6 +416,8 @@ git gc --prune=now --aggressive
 This project is licensed under [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN).  
 Hugo is licensed under [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE).  
 Theme DoIt is licensed under [MIT](https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE).
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_large)
 
 ```
 GLWT（Good Luck With That，祝你好运）公共许可证
@@ -401,5 +441,3 @@ GLWT（Good Luck With That，祝你好运）公共许可证
 
 祖宗保佑。
 ```
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_large)
