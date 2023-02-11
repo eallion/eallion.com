@@ -10,7 +10,6 @@ comment: false
 
 <div class="links">
 {{< friend name="Charles Chin" bio="charleschin.com" url="https://charleschin.com" domain="charleschin.com" avatar="https://images.eallion.com/eallion.png" >}}
-{{< friend name="福至心灵" bio="福至心灵相册" url="https://www.fuzhixinling.com" domain="fuzhixinling.com" avatar="https://www.fuzhixinling.com/uploads/original/b8/e2/e79e6ee74c0e0663dbe19ca52b70.jpg" >}}
 {{< friend name="Matrix67" bio="数学博客" url="http://www.matrix67.com" domain="matrix67.com" avatar="/404.png" >}}
 {{< friend name="曼陀罗" bio="曼陀罗的博客" url="https://www.yangfuying.com" domain="yangfuying.com" avatar="https://www.yangfuying.com/favicon.ico" >}}
 {{< friend name="羽中漫步" bio="羽中漫步" url="http://www.yzmb.me/" domain="yzmb.me" avatar="https://sdn.geekzu.org/avatar/ffa9ac42c56fd4776ccef37c57664965" >}}
