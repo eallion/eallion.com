@@ -65,7 +65,7 @@ ignoreFiles = ['data/douban']
         pre = ""
         # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
         post = ""
-        name = "Archives"
+        name = "Blog"
         url = "/posts/"
         # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
         title = "All Article"
@@ -301,7 +301,7 @@ ignoreFiles = ['data/douban']
         pre = ""
         # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
         post = ""
-        name = "归档"
+        name = "博客"
         url = "/posts/"
         # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
         title = "所有文章"
@@ -316,7 +316,7 @@ ignoreFiles = ['data/douban']
         weight = "4"
       [[languages.zh-cn.menu.main]]
         identifier = "links"
-        name="友链"
+        name="友情链接"
         pre = ""
         post = ""
         url="/links/"
