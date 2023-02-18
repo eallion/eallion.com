@@ -4,6 +4,8 @@ date: "2006-04-14 00:00:00"
 comment: false
 ---
 
+{{< image src="https://images.eallion.com/penta/20230216-Akali.jpg" alt="20230216-Akali" caption="20230216-Akali" >}}
+{{< image src="https://images.eallion.com/penta/20230216-Kaisa.jpg" alt="20230216-Kaisa" caption="20230216-Kaisa" >}}
 {{< image src="https://images.eallion.com/penta/20230210-Viktor.png" alt="20230210-Viktor" caption="20230210-Viktor" >}}
 {{< image src="https://images.eallion.com/penta/20230210-Tryndamere.png" alt="20230210-Tryndamere" caption="20230210-Tryndamere" >}}
 {{< image src="https://images.eallion.com/penta/20221003-Jhin.jpg" alt="20221003-Jhin" caption="20221003-Jhin" >}}
