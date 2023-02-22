@@ -27,6 +27,7 @@ ignoreFiles = ['data/douban']
 
 [languages]
   [languages.en]  
+    title = "Charles Chin's Blog"
     contentDir = 'content/en'
     weight = 2
     # language code
@@ -52,30 +53,30 @@ ignoreFiles = ['data/douban']
         title = "Memos"
         weight = "1"
       [[languages.en.menu.main]]
-        identifier = "movie"
-        pre = ""
-        post = ""
-        name = "Watched"
-        url = "/movie/"
-        title = "DouBan Movie"
-        weight = "2"
-      [[languages.en.menu.main]]
         identifier = "posts"
         # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
         pre = ""
         # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
         post = ""
         name = "Blog"
-        url = "/posts/"
+        url = "/en/posts/"
         # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
         title = "All Article"
+        weight = "2"
+      [[languages.en.menu.main]]
+        identifier = "movie"
+        pre = ""
+        post = ""
+        name = "Watched"
+        url = "/movie/"
+        title = "DouBan Movie"
         weight = "3"
       [[languages.en.menu.main]]
         identifier = "categories"
         pre = ""
         post = ""
         name = "Cates"
-        url = "/categories/"
+        url = "/en/categories/"
         title = "Categories"
         weight = "4"
       [[languages.en.menu.main]]
@@ -176,7 +177,7 @@ ignoreFiles = ['data/douban']
         [languages.en.params.home.posts]
           enable = true
           # special amount of posts in each home posts page
-          paginate = 8
+          paginate = 10
       # Social config in home page
       [languages.en.params.social]
         Angellist = ""
@@ -288,14 +289,6 @@ ignoreFiles = ['data/douban']
         title = "嘀咕 Memos"
         weight = "1"
       [[languages.zh-cn.menu.main]]
-        identifier = "movie"
-        pre = ""
-        post = ""
-        name = "观影"
-        url = "/movie/"
-        title = "豆瓣观影记录"
-        weight = "2"
-      [[languages.zh-cn.menu.main]]
         identifier = "posts"
         # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
         pre = ""
@@ -305,6 +298,14 @@ ignoreFiles = ['data/douban']
         url = "/posts/"
         # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
         title = "所有文章"
+        weight = "2"
+      [[languages.zh-cn.menu.main]]
+        identifier = "movie"
+        pre = ""
+        post = ""
+        name = "观影"
+        url = "/movie/"
+        title = "豆瓣观影记录"
         weight = "3"
       [[languages.zh-cn.menu.main]]
         identifier = "categories"
@@ -412,7 +413,7 @@ ignoreFiles = ['data/douban']
         [languages.zh-cn.params.home.posts]
           enable = true
           # 主页每页显示文章数量
-          paginate = 8
+          paginate = 10
       # 主页的社交信息设置
       [languages.zh-cn.params.social]
         Angellist = ""

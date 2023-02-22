@@ -1,12 +1,12 @@
 ---
-title: "友情链接"
+title: "Friend links"
 date: "2006-04-14 00:00:00"
 layout: "links"
 type: "links"
 comment: false
 ---
 
-### 友情链接
+### Friend links
 
 <div class="links">
 {{< friend name="Charles Chin" bio="charleschin.com" url="https://charleschin.com" domain="charleschin.com" avatar="https://images.eallion.com/eallion.png" >}}
@@ -35,16 +35,14 @@ comment: false
 
 ---
 
-个人网址导航：
+My favorite sites：
 
 - [https://s.eallion.com](https://s.eallion.com)
 
-我的友链信息：
+My blog info：
 
-> 标题：大大的小蜗牛  
+> Title：eallion's blog
 > URL：[https://eallion.com](https://eallion.com)  
 > Avatar：[https://cdn.jsdelivr.net/gh/eallion/eallion/avatar/eallion.png](https://cdn.jsdelivr.net/gh/eallion/eallion/avatar/eallion.png)  
-> Gravatar：[https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31](https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31)  
-> 描述：机会总是垂青于有准备的人  
-> Title：eallion's blog  
+> Gravatar：[https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31](https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31)
 > Description：_Chance favors the prepared mind_
