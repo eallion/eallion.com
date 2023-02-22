@@ -1,5 +1,5 @@
 ---
-title: "观影"
+title: "Watched"
 layout: "movie"
 type: 'movie'
 comment: false

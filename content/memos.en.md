@@ -1,5 +1,5 @@
 ---
-title: "嘀咕"
+title: "Memos"
 layout: "memos"
 type: 'memos'
 comment: false

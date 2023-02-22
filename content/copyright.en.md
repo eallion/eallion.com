@@ -1,5 +1,5 @@
 ---
-title: "版权信息"
+title: "Copyright"
 date: "2006-04-14 00:00:00"
 type: "copyright"
 layout: "copyright"
@@ -7,6 +7,8 @@ comment: false
 ---
 
 <style>#comments {display:none !important}</style>
+
+> The copyright in Chinese.
 
 > 本站拥有唯一域名 eallion.com 、二级域名 www.eallion.com。
 

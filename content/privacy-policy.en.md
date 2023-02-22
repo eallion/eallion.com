@@ -1,5 +1,5 @@
 ---
-title: '隐私政策'
+title: 'Privacy Ppolicy'
 date: "2006-04-14 00:00:00"
 type: "privacy-policy"
 layout: "privacy-policy"
@@ -7,6 +7,8 @@ comment: false
 ---
 
 <style>#comments {display:none !important}</style>
+
+> The Privacy Ppolicy in Chinese.
 
 > 欢迎您访问我们的产品。
 
