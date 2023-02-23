@@ -2,8 +2,12 @@
 title: "我的五杀"
 date: "2006-04-14 00:00:00"
 comment: false
+aliases:
+    - /photo
+    - /photos
 ---
 
+{{< image src="https://images.eallion.com/penta/20230222-Tristana.png" alt="20230222-Tristana" caption="20230222-Tristana" >}}
 {{< image src="https://images.eallion.com/penta/20230216-Akali.jpg" alt="20230216-Akali" caption="20230216-Akali" >}}
 {{< image src="https://images.eallion.com/penta/20230216-Kaisa.jpg" alt="20230216-Kaisa" caption="20230216-Kaisa" >}}
 {{< image src="https://images.eallion.com/penta/20230210-Viktor.png" alt="20230210-Viktor" caption="20230210-Viktor" >}}
