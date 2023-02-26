@@ -1,7 +1,7 @@
 ---
 title: "运营小记 - 快速铺货"
 authors: ["eallion"]
-categories: ["运营"]
+categories: ["日志"]
 tags: ["淘宝","运营","天猫","淘宝助理","详情"]
 draft: false
 slug: "distribution"

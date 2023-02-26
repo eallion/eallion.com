@@ -1,7 +1,7 @@
 ---
 title: "运营小记 - 文案的重要性"
 authors: ["eallion"]
-categories: ["运营"]
+categories: ["日志"]
 tags: ["招聘","淘宝","天猫","客服","绍兴 E 网","美工"]
 draft: false
 slug: "wen-an-de-zhong-yao-xing"
@@ -9,7 +9,7 @@ date: "2013-06-22 11:54:00"
 lastmod: "2013-06-22 11:54:00"
 ---
 
-我们这里有个本地消息平台 ——[ 绍兴 E 网 ](http://www.e0575.com)
+我们这里有个本地消息平台 ——[绍兴 E 网](http://www.e0575.com)
 一般租房啊、找工作啊、二手交易啊都在这里进行
 
 我朋友新店开张

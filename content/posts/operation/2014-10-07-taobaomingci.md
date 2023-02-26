@@ -1,7 +1,7 @@
 ---
 title: "淘宝常用英文缩写名词解释"
 authors: ["eallion"]
-categories: ["运营"]
+categories: ["日志"]
 tags: ["淘宝","名词","术语","缩写"]
 draft: false
 slug: "taobaomingci"

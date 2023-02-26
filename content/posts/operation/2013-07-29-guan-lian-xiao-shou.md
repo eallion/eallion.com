@@ -1,7 +1,7 @@
 ---
 title: "运营小记 - 关联销售一例"
 authors: ["eallion"]
-categories: ["运营"]
+categories: ["日志"]
 tags: ["淘宝","电商","关联","销售","游泳"]
 draft: false
 slug: "guan-lian-xiao-shou"

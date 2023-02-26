@@ -1,7 +1,7 @@
 ---
 title: "打包出售 欲购从速"
 authors: ["eallion"]
-categories: ["运营"]
+categories: ["日志"]
 tags: ["工作","感想","淘宝","商城","羽绒"]
 draft: false
 slug: "packaged-for-sale"
