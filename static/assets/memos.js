@@ -22,12 +22,13 @@
 
 //获取 Memos 总条数
 function getTotal() {
-    var totalUrl = "https://api.eallion.com/memos/memos.json" + "?t=" + Date.parse(new Date());
-    fetch(totalUrl).then(response => {
-        return response.json();
-    }).then(data => {
-        var memosCount = document.getElementById('memosCount');
-        memosCount.innerHTML = data.total;
+    var totalUrl = 'https://memos.eallion.com/api/memo/stats?creatorId=101'
+    fetch(totalUrl).then(res => res.json()).then(resdata => {
+        if (resdata.data) {
+            var allnums = resdata.data.length
+            var memosCount = document.getElementById('memosCount');
+            memosCount.innerHTML = allnums;
+        }
     }).catch(err => {
         // Do something for an error here
     });
