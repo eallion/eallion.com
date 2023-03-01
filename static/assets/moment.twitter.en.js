@@ -3,17 +3,17 @@
 moment.updateLocale('zh-cn', {
     meridiem: function (hour, minute, isLowercase) {
         if (hour < 6) {
-            return "凌晨";
+            return "Before dawn";
         } else if (hour < 9) {
-            return "早上";
+            return "Early morning";
         } else if (hour < 11 && minute < 30) {
-            return "上午";
+            return "Morning";
         } else if (hour < 13 && minute < 30) {
-            return "中午";
+            return "Noon";
         } else if (hour < 18) {
-            return "下午";
+            return "Afternoon";
         } else {
-            return "晚上";
+            return "Evening";
         }
     }
 });
@@ -28,20 +28,20 @@ moment.updateLocale('zh-cn', {
     year = new Date().getFullYear();
     formats = {
         seconds: {
-            short: ' 秒前',
-            long: ' 秒前'
+            short: ' Seconds ago',
+            long: ' Seconds ago'
         },
         minutes: {
-            short: ' 分前',
-            long: ' 分前'
+            short: ' Minutes ago',
+            long: ' Minutes ago'
         },
         hours: {
-            short: ' 小时前',
-            long: ' 小时前'
+            short: ' Hours ago',
+            long: ' Hours ago'
         },
         days: {
-            short: ' 天前',
-            long: ' 天前'
+            short: ' Days ago',
+            long: ' Days ago'
         }
     };
 
@@ -65,12 +65,12 @@ moment.updateLocale('zh-cn', {
                 if (diff < week) {
                     unit = 'days';
                 } else if (this.year() == year) {
-                    return this.format('MM月DD日，HH:mm · a ');
+                    return this.format('MMM. DD，HH:mm · a ');
                 } else {
-                    return this.format('YYYY年MM月DD日，HH:mm · a ');
+                    return this.format('MMM. DD. YYYY，HH:mm · a ');
                 }
             } else {
-                return this.format('YYYY年MM月DD日，HH:mm · a ');
+                return this.format('MMM. DD. YYYY，HH:mm · a ');
             }
             if (!(num && unit)) {
                 num = moment.duration(diff)[unit]();
