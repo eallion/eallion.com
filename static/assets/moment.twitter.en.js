@@ -28,20 +28,20 @@ moment.updateLocale('zh-cn', {
     year = new Date().getFullYear();
     formats = {
         seconds: {
-            short: ' Seconds ago',
-            long: ' Seconds ago'
+            short: ' Sec',
+            long: ' Second'
         },
         minutes: {
-            short: ' Minutes ago',
-            long: ' Minutes ago'
+            short: ' Min',
+            long: ' Minute'
         },
         hours: {
-            short: ' Hours ago',
-            long: ' Hours ago'
+            short: ' Hr',
+            long: ' Hour'
         },
         days: {
-            short: ' Days ago',
-            long: ' Days ago'
+            short: ' D',
+            long: ' Day'
         }
     };
 
@@ -61,11 +61,11 @@ moment.updateLocale('zh-cn', {
                 unit = 'minutes';
             } else if (diff < day) {
                 unit = 'hours';
-            } else if (format === 'short') {
+            } else if (format === 'long') {
                 if (diff < week) {
                     unit = 'days';
                 } else if (this.year() == year) {
-                    return this.format('MMM. DD，HH:mm · a ');
+                    return this.format('MMM. DD. YYYY，HH:mm · a ');
                 } else {
                     return this.format('MMM. DD. YYYY，HH:mm · a ');
                 }
@@ -77,7 +77,9 @@ moment.updateLocale('zh-cn', {
             }
             unitStr = unit = formats[unit][format];
             if (format === 'long' && num > 1) {
-                unitStr += 's';
+                unitStr += 's ago';
+            } else {
+                unitStr += ' ago';
             }
             return num + unitStr;
         };

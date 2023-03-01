@@ -61,7 +61,7 @@ moment.updateLocale('zh-cn', {
                 unit = 'minutes';
             } else if (diff < day) {
                 unit = 'hours';
-            } else if (format === 'short') {
+            } else if (format === 'long') {
                 if (diff < week) {
                     unit = 'days';
                 } else if (this.year() == year) {
@@ -77,7 +77,7 @@ moment.updateLocale('zh-cn', {
             }
             unitStr = unit = formats[unit][format];
             if (format === 'long' && num > 1) {
-                unitStr += 's';
+                unitStr += '';
             }
             return num + unitStr;
         };
