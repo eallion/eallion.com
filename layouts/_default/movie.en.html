@@ -283,12 +283,12 @@
       {{$scratch.Set "genres" (union ($scratch.Get "genres") (split (index $movie 7) ","))}}
       {{end}}
       {{end}}
-      <div class="count"><blockquote>我的观影 <span class="emoji">🎬</span></blockquote></div>
+      <div class="count"><blockquote>Douban Watched Movies <span class="emoji">🎬</span></blockquote></div>
       <div class="sc-ksluID gFnzgG">
         <div class="genre sc-bdnxRM">
           <div class="genreIcon">
           <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="genres" data-method="contain"
-            data-value=""><i class="fas fa-list-ul"></i> 全部类型</a>
+            data-value=""><i class="fas fa-list-ul"></i> All Types</a>
           </div>
           <div class="genreList">
           {{range $genre := $scratch.Get "genres"}}
@@ -300,7 +300,7 @@
         <div class="genre sc-bdnxRM">
           <div class="genreIcon">
           <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="year" data-method="equal"
-            data-value=""><i class="fas fa-calendar-alt"></i> 全部年份</a>
+            data-value=""><i class="fas fa-calendar-alt"></i> All Years</a>
           </div>
           <div class="genreList">
           {{range $year := (seq 2022 -1 2009)}}
@@ -311,7 +311,7 @@
         </div>
         <div class="sc-bdnxRM">
           <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="star" data-method="equal"
-            data-value=""><i class="fas fa-star"></i> 全部评分</a>
+            data-value=""><i class="fas fa-star"></i> All Marks</a>
             <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal"
               data-value="5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5/5</a>
             <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal"
@@ -322,12 +322,12 @@
               data-value="2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> 2/5</a>
             <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal"
               data-value="1"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> 1/5</a>
-          <!--<a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal"
-            data-value="0">零星</a>-->
+            <!--<a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal"
+              data-value="0"> 0/5</a>-->
         </div>
         <div class="jvCTkj sort-by">
-          <a href="javascript:void 0;" class="sort-by-item active" data-order="time"><i class="fas fa-sort-amount-down"></i> 观影时间排序</a>
-          <a href="javascript:void 0;" class="sort-by-item" data-order="rating"><i class="fas fa-sort-numeric-down-alt"></i> 评分排序</a>
+          <a href="javascript:void 0;" class="sort-by-item active" data-order="time"><i class="fas fa-sort-amount-down"></i> Sort by watched time</a>
+          <a href="javascript:void 0;" class="sort-by-item" data-order="rating"><i class="fas fa-sort-numeric-down-alt"></i> Sort by stars</a>
         </div>
         <div class="sc-dIsUp fIuTG">
           {{range $idx, $movie := $movies}}

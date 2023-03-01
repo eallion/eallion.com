@@ -1,11 +1,12 @@
 ---
-title: "豆瓣观影"
+title: "Watched"
 layout: "movie"
 type: 'movie'
 comment: false
 toc: false
 aliases:
-    - /douban
-    - /movies
-    - /film
+    - /en/douban
+    - /en/movies
+    - /en/film
 ---
+
