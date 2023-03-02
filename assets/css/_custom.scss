@@ -6,8 +6,8 @@
 .single {
     .content {
         p {
-            line-height: 2 !important;
-            margin: 1rem 0 !important;
+            line-height: 2;
+            margin: 1rem 0;
         }
         blockquote {
             p {
@@ -734,8 +734,9 @@ $background-color_6: #78191b;
     border-radius: 8px;
     font-size: 1em;
     p {
-        margin: 0;
-        padding: 0;
+        margin: 0.5rem 0 !important;
+        padding: 0 !important;
+        line-height: 1.5 !important;
     }
     i {
         margin: 0 0.25em;
