@@ -38,32 +38,32 @@ jobs:
         }
         echo "SHA256SUM_NEW=$(SHA256SUM_NEW)" >> $GITHUB_ENV
 
-    - name: Fetch Book Data CSV
-      if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
-      uses: lizheming/doumark-action@master
-      with:
-        id: eallion
-        type: book
-        format: csv
-        dir: ./data/douban
+    # - name: Fetch Book Data CSV
+    #   if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
+    #   uses: lizheming/doumark-action@master
+    #   with:
+    #     id: eallion
+    #     type: book
+    #     format: csv
+    #     dir: ./data/douban
 
-    - name: Fetch Movie Data JSON
-      if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
-      uses: lizheming/doumark-action@master
-      with:
-        id: eallion
-        type: movie
-        format: json
-        dir: ./data/douban
+    # - name: Fetch Movie Data JSON
+    #   if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
+    #   uses: lizheming/doumark-action@master
+    #   with:
+    #     id: eallion
+    #     type: movie
+    #     format: json
+    #     dir: ./data/douban
 
-    - name: Fetch Book Data JSON
-      if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
-      uses: lizheming/doumark-action@master
-      with:
-        id: eallion
-        type: book
-        format: json
-        dir: ./data/douban
+    # - name: Fetch Book Data JSON
+    #   if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
+    #   uses: lizheming/doumark-action@master
+    #   with:
+    #     id: eallion
+    #     type: book
+    #     format: json
+    #     dir: ./data/douban
 
     - name: Git Add and Commit
       if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
