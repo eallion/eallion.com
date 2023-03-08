@@ -43,6 +43,9 @@ ignoreFiles = ['data/douban']
     # copyright description used only for seo schema
     copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
     # Menu config
+    [languages.en.params.header.title]
+      name = "Charles Chin:~$"
+      typeit = true
     [languages.en.menu]
       [[languages.en.menu.main]]
         identifier = "memos"
@@ -398,13 +401,13 @@ ignoreFiles = ['data/douban']
           # Gravatar 邮箱，用于优先在主页显示的头像
           # gravatarEmail = ""
           # 主页显示头像的 URL
-          avatarURL = "/eallion.png"
+          avatarURL = "https://eallion.com/eallion.png"
           # 主页显示的网站标题 (支持 HTML 格式)
-          title = "大大的小蜗牛"
+          title = "大大的小蜗牛的博客"
           # 主页显示的网站副标题
           subtitle = "机会总是垂青于有准备的人"
           # 是否为副标题显示打字机动画
-          typeit = true
+          typeit = false
           # 是否显示社交账号
           social = true
           # 免责声明 (支持 HTML 格式)

@@ -28,6 +28,10 @@ footer {
     }
 }
 
+.home .home-profile .home-disclaimer {
+    text-align: left;
+}
+
 $font-family_1: "Font Awesome 5 Free";
 $font-family_2: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif, serif;
 $font-family_3: STSong, SimSun, NSimSun, Arial, sans-serif;
@@ -659,6 +663,12 @@ $background-color_6: #78191b;
     }
 }
 
+#memos {
+    ul {
+        padding-left: 0 !important;
+    }
+}
+
 .talks {
     min-height: 300px;
     text-align: left;
@@ -741,37 +751,12 @@ $background-color_6: #78191b;
     i {
         margin: 0 0.25em;
     }
-    &:before {
-        content: "";
-        position: absolute;
-        top: 23px;
-        left: -7px;
-        width: 14px;
-        height: 14px;
-        transform: rotate(45deg);
-        border-radius: 3px;
-        background: #eaeaea;
-        z-index: -1;
-    }
 }
 .talks__content {
     flex-grow: 1;
     position: relative;
     width: 100%;
     max-width: 100%;
-    &:before {
-        content: "";
-        position: absolute;
-        background: url("../avatar.webp") no-repeat;
-        background-size: contain;
-        width: 40px;
-        height: 40px;
-        border-radius: 40px;
-        left: -50px;
-        top: 10px;
-        border: 0;
-        object-fit: cover;
-    }
 }
 .timeline {
     &:hover {
@@ -793,7 +778,6 @@ $background-color_6: #78191b;
     flex-direction: row;
     flex-wrap: nowrap;
     margin-bottom: 1.5em;
-    margin-right: 40px;
 }
 .talks__meta {
     margin: 0;
@@ -846,9 +830,12 @@ $background-color_6: #78191b;
 }
 .talks__date {
     a {
-        text-decoration: none;
+        color: $color_3 !important;
+        font-weight: 400;
+        font-size: 0.7rem;
+        text-decoration: none !important;
         &:hover {
-            color: $color_4;
+            color: $color_3 !important;
         }
     }
     .tooltip {
