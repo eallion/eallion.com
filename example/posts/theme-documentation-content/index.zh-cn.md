@@ -6,7 +6,6 @@ lastmod: 2020-03-04T16:30:05+08:00
 draft: false
 authors: ["Dillon", "PCloud"]
 description: "了解如何在 DoIt 主题中快速, 直观地创建和组织内容."
-featuredImage: "featured-image.webp"
 
 tags: ["content", "Markdown"]
 categories: ["documentation"]
@@ -236,6 +235,7 @@ resources:
 - name: featured-image-preview
   src: featured-image-preview.jpg
 ```
+
 {{< /admonition >}}
 
 ## 内容摘要
@@ -329,7 +329,7 @@ $$ c = \pm\sqrt{a^2 + b^2} $$
 默认的行内公式分割符是  `$`/`$` 和 `\\(`/`\\)`:
 
 ```markdown
-$ c = \pm\sqrt{a^2 + b^2} $ 和 \\( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \\)
+c = \pm\sqrt{a^2 + b^2} $ 和 \\( f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \\)
 ```
 
 呈现的输出效果如下:

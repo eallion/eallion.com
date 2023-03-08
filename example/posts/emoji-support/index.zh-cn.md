@@ -6,7 +6,6 @@ lastmod: 2019-10-01T17:55:28+08:00
 draft: false
 authors: ["Dillon"]
 description: "Hugo 和 DoIt 中的 Emoji 的用法指南."
-featuredImage: "featured-image.webp"
 
 tags: ["emoji"]
 categories: ["documentation"]

@@ -6,7 +6,6 @@ lastmod: 2020-03-04T15:58:26+08:00
 draft: false
 authors: ["Dillon", "PCloud"]
 description: "Find out how to create and organize your content quickly and intuitively in DoIt theme."
-featuredImage: "featured-image.webp"
 
 tags: ["content", "Markdown"]
 categories: ["documentation"]

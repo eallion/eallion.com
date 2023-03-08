@@ -8,8 +8,6 @@ authors: [Dillon, PCloud]
 author: "Dillon"
 authorLink: "https://dillonzq.com"
 description: "DoIt 主题在 Hugo 内置的 shortcode 的基础上提供多个扩展的 shortcode."
-featuredImage: "featured-image.webp"
-featuredImagePreview: "featured-image-preview.webp"
 series_weight: 4
 tags: ["shortcodes"]
 categories: ["documentation"]
@@ -1398,7 +1396,6 @@ console.log('Just DoIt!');
     友站的简介.
 
 一个 `friend` 示例:
-
 
 ```markdown
 {{</* friend "PCloud" "https://github.com/HEIGE-PCloud/" "https://avatars.githubusercontent.com/u/52968553?v=4" "This is PCloud~💤" */>}}

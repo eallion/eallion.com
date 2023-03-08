@@ -6,7 +6,6 @@ lastmod: 2019-10-01T17:55:28+08:00
 draft: false
 authors: ["Dillon"]
 description: "Guide to emoji usage in Hugo and DoIt."
-featuredImage: "featured-image.webp"
 
 tags: ["emoji"]
 categories: ["documentation"]

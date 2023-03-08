@@ -6,7 +6,6 @@ lastmod: 2020-01-01T16:45:40+08:00
 draft: false
 authors: ["Dillon"]
 description: "这篇文章展示了基本的 Markdown 语法和格式."
-featuredImage: "featured-image.webp"
 
 tags: ["Markdown", "HTML"]
 categories: ["documentation"]
@@ -87,6 +86,7 @@ John Gruber, Markdown 的作者如是说:
 ```html
 <h3 id="custom-id">一个很棒的标题</h3>
 ```
+
 {{< /admonition >}}
 
 ## 注释
@@ -225,7 +225,7 @@ _渲染为斜体_
 
 ~~**删除线和加粗**~~
 
-~~*删除线和斜体*~~
+~~_删除线和斜体_~~
 
 ~~***加粗, 斜体和删除线***~~
 
@@ -426,9 +426,9 @@ odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac 
 
 呈现的输出效果如下:
 
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
+* [x] Write the press release
+* [ ] Update the website
+* [ ] Contact the media
 
 ## 代码
 
@@ -488,9 +488,11 @@ odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac 
 使用 "围栏" <code>```</code> 来生成一段带有语言属性的代码块.
 
 {{< highlight markdown >}}
+
 ```markdown
 Sample text here...
 ```
+
 {{< / highlight >}}
 
 输出的 HTML 看起来像这样:
@@ -511,6 +513,7 @@ Sample text here...
 例如, 在以下 JavaScript 代码中应用语法高亮:
 
 {{< highlight markdown >}}
+
 ```js
 grunt.initConfig({
   assemble: {
@@ -531,6 +534,7 @@ grunt.initConfig({
   }
 };
 ```
+
 {{< / highlight >}}
 
 呈现的输出效果如下:

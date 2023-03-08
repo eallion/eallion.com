@@ -6,7 +6,6 @@ lastmod: 2021-05-10T16:21:41+01:00
 draft: false
 authors: ["PCloud"]
 description: "Guide to setup PWA in DoIt"
-featuredImage: "featured-image.webp"
 
 tags: ["PWA"]
 categories: ["Documentation"]

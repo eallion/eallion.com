@@ -6,7 +6,6 @@ lastmod: 2020-03-06T21:40:32+08:00
 draft: false
 authors: ["Dillon", "PCloud"]
 description: "探索 Hugo - DoIt 主题的全部内容和背后的核心概念."
-featuredImage: "featured-image.webp"
 
 tags: ["installation", "configuration"]
 categories: ["documentation"]

@@ -7,8 +7,6 @@ draft: false
 authors: [Dillon, PCloud]
 description: "DoIt theme provides multiple shortcodes on top of built-in ones in Hugo."
 resources:
-featuredImage: "featured-image.webp"
-featuredImagePreview: "featured-image-preview.webp"
 
 tags: ["shortcodes"]
 categories: ["documentation"]
@@ -1170,7 +1168,6 @@ The `music` shortcode has the following named parameters only applying to the ty
 * **list-max-height** *[optional]*
 
     Max height of the music list, the default value is `340px`.
-
 
 ## aplayer and audio
 
