@@ -1,3 +1,18 @@
+## v2.0.1 (2023-03-09)
+
+### New feature
+
+- home page news ticker with memos([`045c4bb`](https://github.com/eallion/eallion.com/commit/045c4bb4076ef451c381bacf5fc6a39c7a5182dc)) (by Charles Chin)
+- douban api and movie([`f3f4c9a`](https://github.com/eallion/eallion.com/commit/f3f4c9a82f2e60d95c46b0b16753dd73440a5585)) (by Charles Chin)
+
+### Bugs fixed
+
+- format memos time([`004a59d`](https://github.com/eallion/eallion.com/commit/004a59d55f1edd37a28d9d2090bbbc105db6fde8)) (by Charles Chin)
+- memos total count([`c9702de`](https://github.com/eallion/eallion.com/commit/c9702dea00cf683feb7cf29d731c2f9afd76bef2)) (by Charles Chin)
+- enable umami([`17f832d`](https://github.com/eallion/eallion.com/commit/17f832d47a8657419e081758451e68389f537b26)) (by Charles Chin)
+- umami url([`a1d2c25`](https://github.com/eallion/eallion.com/commit/a1d2c25f71ae53b58548df0782418437ef20e6a8)) (by Charles Chin)
+- fix errors([`6eb3bc2`](https://github.com/eallion/eallion.com/commit/6eb3bc2ba25691335ffc42efa283ca5d86315667)) (by Charles Chin)
+
 ## v2.0.0 (2022-12-12)
 
 ### New feature
