@@ -171,11 +171,11 @@ ignoreFiles = ['data/douban']
           # subtitle shown in home page
           subtitle = "Chance favors the prepared mind."
           # whether to use typeit animation for subtitle
-          typeit = true
+          typeit = false
           # whether to show social links
           social = true
           # disclaimer (HTML format is supported)
-          disclaimer = "<div class='poem'><span id='gushici' class='poem_sentence'>正在加载古诗词......</span><span id='poem_info' class='poem_info'></span></div>"
+          disclaimer = "<div id='ticker'></div>"
         # Home page posts
         [languages.en.params.home.posts]
           enable = true
@@ -403,7 +403,7 @@ ignoreFiles = ['data/douban']
           # 主页显示头像的 URL
           avatarURL = "https://eallion.com/eallion.png"
           # 主页显示的网站标题 (支持 HTML 格式)
-          title = "大大的小蜗牛的博客"
+          title = "大大的小蜗牛"
           # 主页显示的网站副标题
           subtitle = "机会总是垂青于有准备的人"
           # 是否为副标题显示打字机动画
@@ -411,7 +411,7 @@ ignoreFiles = ['data/douban']
           # 是否显示社交账号
           social = true
           # 免责声明 (支持 HTML 格式)
-          disclaimer = "<div class='poem'><span id='gushici' class='poem_sentence'>正在加载古诗词......</span><span id='poem_info' class='poem_info'></span></div>"
+          disclaimer = "<div id='ticker'></div>"
         # 主页文章列表
         [languages.zh-cn.params.home.posts]
           enable = true
@@ -442,7 +442,7 @@ ignoreFiles = ['data/douban']
         Goodreads = ""
         Googlescholar = ""
         Hackernews = ""
-        Instagram = ""
+        Instagram = "eallion"
         Jsfiddle = ""
         Keybase = "eallion"
         Kickstarter = ""
@@ -572,7 +572,7 @@ ignoreFiles = ['data/douban']
     # Hosted on (HTML format is supported)
     # 托管服务信息 (支持 HTML 格式)
     # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
-    hostedOn = '<a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a> 和 <a title="腾讯云 OSS + CDN" href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=1f05a4ef7955bfdbc954f3f0a115c2e3&from=console" target="_blank" rel="noopener noreffer">腾讯云 CDN</a>'
+    hostedOn = '<a title="Vercel" href="https://vercel.com/eallion" target="_blank" rel="noopener noreffer">Vercel</a> 和 <a title="腾讯云 OSS + CDN" href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=1f05a4ef7955bfdbc954f3f0a115c2e3&from=console" target="_blank" rel="noopener noreffer">腾讯云 CDN</a>'
     # whether to show copyright info
     # 是否显示版权信息
     copyright = true
