@@ -13,7 +13,7 @@ comment: false
 {{< friend name="羽中漫步" bio="羽中漫步" url="http://www.yzmb.me/" domain="yzmb.me" avatar="https://sdn.geekzu.org/avatar/ffa9ac42c56fd4776ccef37c57664965" >}}
 {{< friend name="PHPHA" bio="天涯 PHP 博客" url="http://blog.phpha.com" domain="blog.phpha.com" avatar="https://blog.phpha.com/favicon.ico" >}}
 {{< friend name="怡红公子" bio="怡红公子的怡红院落" url="http://imnerd.org/" domain="imnerd.org" avatar="https://sdn.geekzu.org/avatar/a373282ace706850ed7edfab4161f9e4" >}}
-{{< friend name="木木木木木" bio="木木老师" url="https://immmmm.com" domain="immmmm.com" avatar="https://sdn.geekzu.org/avatar/cb98b86aaebfb5f1ff6f5bfeec6105a4" >}}
+{{< friend name="木木木木木" bio="木木老师" url="https://immmmm.com" domain="immmmm.com" avatar="https://sdn.geekzu.org/avatar/ba83fa02fc4b2ba621514941307e21be" >}}
 {{< friend name="太阳博客" bio="孙老太的晚年" url="http://www.sunmingxia.com/" domain="sunmingxia.com" avatar="https://sdn.geekzu.org/avatar/aab6e5c5ceb1c1c2d92b35bb88dd013c?s=32&d=mm&r=g" >}}
 {{< friend name="雅岚文藝博客" bio="雅岚文藝博客" url="http://yalanlife.net/" domain="yalanlife.net" avatar="https://sdn.geekzu.org/avatar/c7b16884b068cea25e55f7ee6707ec7f" >}}
 {{< friend name="秦大叔" bio="不曾长大" url="https://qfsyj.com" domain="qfsyj.com" avatar="https://sdn.geekzu.org/avatar/4ba509f9ec541ab4d316299727b3e3ab" >}}
