@@ -1412,3 +1412,78 @@ code.hljs {
         }
     }
 }
+
+/* 首页嘀咕样式 JSON 版 */
+#ticker {
+    display: flex;
+    flex: 1 auto;
+    align-items: center;
+    line-height: 35px;
+    height: 45px;
+    max-width: 800px;
+    width: 96%;
+    text-align: left;
+    padding: 5px 15px;
+    margin: 20px 0;
+    position: relative;
+    border-radius: 8px;
+    font-size: 1rem;
+    overflow: hidden;
+    background: #eeeef1;
+}
+.home {
+    .home-profile {
+        .home-disclaimer {
+            padding: 0 !important;
+        }
+    }
+}
+.ticker-wrap {
+    overflow: hidden;
+    ul {
+        padding-left: 0.5rem;
+    }
+}
+.ticker-list {
+    margin: 0;
+    height: 35px;
+    li {
+        list-style: none;
+        margin-bottom: 10px;
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+.item {
+    list-style: none;
+    margin-bottom: 10px;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    code {
+        white-space: nowrap !important;
+    }
+}
+[theme="dark"] {
+    #ticker {
+        background: #2d333b !important;
+    }
+}
+[theme="black"] {
+    #ticker {
+        background: #2d333b !important;
+    }
+}
+.fa-github-alt {
+    &:before {
+        content: "\f09b" !important;
+    }
+}
+@media (max-width: 860px) {
+    #ticker {
+        width: 90%;
+    }
+}
