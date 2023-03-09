@@ -40,7 +40,7 @@ curl -L https://eallion.com/key | gpg --import
 
 ### Status
 
-![](https://img.shields.io/badge/License-GLWT-green) ![](https://img.shields.io/github/repo-size/eallion/eallion.com) ![](https://img.shields.io/github/v/tag/eallion/eallion.com) ![](https://img.shields.io/github/commits-since/eallion/eallion.com/v2.0.0/main) ![](https://img.shields.io/github/last-commit/eallion/eallion.com)
+![](https://img.shields.io/badge/License-GLWT-green) ![](https://img.shields.io/github/repo-size/eallion/eallion.com) ![](https://img.shields.io/github/v/tag/eallion/eallion.com) ![](https://img.shields.io/github/commits-since/eallion/eallion.com/v2.0.1/main) ![](https://img.shields.io/github/last-commit/eallion/eallion.com)
 
 ### Social network
 
