@@ -47,15 +47,6 @@ git remote set-url --add --push origin https://id:token@github.com/eallion/ealli
 git remote set-url --add --push origin https://id:token@e.coding.net/eallion/eallion/hugo.git
 ```
 
-#### 通过空提交运行 GitHub Acions
-
-当没有新提交时， 通过 push empty commit 运行 GitHub Actions：
-
-```
-git commit --allow-empty -m "build: rerun github acions"
-git push
-```
-
 #### 架构备忘
 
 - 国内：通过 [Coding](https://coding.net/) 部署至腾讯云 [COS](https://cloud.tencent.com/product/cos) + [CDN](https://cloud.tencent.com/product/cdn) (2020.12.27)
