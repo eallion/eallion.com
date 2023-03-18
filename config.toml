@@ -192,7 +192,7 @@ ignoreFiles = ['data/douban']
         Codepen = ""
         Deviantart = ""
         Devto = ""
-        Douban = "eallion"
+        Douban = ""
         Dribbble = ""
         Email = "eallions@gmail.com"
         Facebook = ""
@@ -428,7 +428,7 @@ ignoreFiles = ['data/douban']
         Codepen = ""
         Deviantart = ""
         Devto = ""
-        Douban = "eallion"
+        Douban = ""
         Dribbble = ""
         Email = "eallions@gmail.com"
         Facebook = ""
@@ -572,7 +572,7 @@ ignoreFiles = ['data/douban']
     # Hosted on (HTML format is supported)
     # 托管服务信息 (支持 HTML 格式)
     # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
-    hostedOn = '<a title="Vercel" href="https://vercel.com/eallion" target="_blank" rel="noopener noreffer">Vercel</a> 和 <a title="腾讯云 OSS + CDN" href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=1f05a4ef7955bfdbc954f3f0a115c2e3&from=console" target="_blank" rel="noopener noreffer">腾讯云</a>'
+    hostedOn = '<a title="腾讯云 OSS + CDN" href="https://cloud.tencent.com/act/cps/redirect?redirect=2446&cps_key=1f05a4ef7955bfdbc954f3f0a115c2e3&from=console" target="_blank" rel="noopener noreffer">腾讯云</a>'
     # whether to show copyright info
     # 是否显示版权信息
     copyright = true
