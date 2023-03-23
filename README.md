@@ -35,7 +35,7 @@
 
 #### 备份仓库
 
-> Coding.net：<https://e.coding.net/eallion/eallion/hugo.git>
+> Gitea：<https://git.eallion.com/eallion/eallion.com.git>
 
 #### 添加备份仓库 Remote
 
@@ -44,13 +44,12 @@
 
 ```
 git remote set-url --add --push origin https://id:token@github.com/eallion/eallion.com.git
-git remote set-url --add --push origin https://id:token@e.coding.net/eallion/eallion/hugo.git
 ```
 
 #### 架构备忘
 
-- 国内：通过 [Coding](https://coding.net/) 部署至腾讯云 [COS](https://cloud.tencent.com/product/cos) + [CDN](https://cloud.tencent.com/product/cdn) (2020.12.27)
-- 境外：通过 GitHub Action 部署至 [Vercel](https://vercel.com/) (2021.06.13)
+- 国内：部署至腾讯云 [COS](https://cloud.tencent.com/product/cos) + [CDN](https://cloud.tencent.com/product/cdn) (2020.12.27)
+- 境外：部署至 [Vercel](https://vercel.com/) (2021.06.13)
 
 <details>
 <summary>GitHub Actions</summary>
