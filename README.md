@@ -209,13 +209,19 @@ pipeline {
 
 此次更新，主题使用 `git submodule` 的方式引入，不破坏原主题任何文件结构，所有自定义样式不再在 Theme 目录下修改。
 
-```
+```bash
 git submodule add https://github.com/eallion/hugo-theme-doit.git themes/DoIt
 ```
 
-如果上游主题有更新，更新 submodule：
+> 克隆博客后同时克隆主题：
 
+```bash
+git submodule update --init --recursive
 ```
+
+如果上游主题有更新，更新主题 DoIt 的 submodule：
+
+```bash
 git submodule update --remote --merge
 ```
 
@@ -292,19 +298,18 @@ git push
 脚本内容：
 
 ```
-hugo server -w -D -p 8080 -t hello-friend --bind 192.168.0.5 --baseURL 192.168.0.5 --contentDir example --cleanDestinationDir --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production
+hugo server -w -D -p 1313 -t hello-friend --bind 0.0.0.0  --contentDir example --cleanDestinationDir --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production
 ```
 
-> 运行脚本后会自动打开预览页面：<http://192.168.0.5:8080>
+> 运行脚本后会自动打开预览页面：<http://127.0.0.1:1313>
 
 - `hugo server` 把 Hugo 当作 Web 服务器，而非构建静态网页
 - `-w` 有文件变化立即刷新（默认开启）
 - `-D` 构建草稿，撰写新文章时很有用
-- `-p 8080` 指定端口号 8080（默认 1313）
+- `-p 1313` 指定端口号 1313（默认 1313）
 - `-t hello-friend` 使用 hello-friend 主题
 - `-enableGitInfo` 开启 GitIifo
-- `--bind 192.168.0.5` 绑定 IP ，局域网其他设备 Debug 时很有用
-- `--baseURL 192.168.0.5` 绑定域名（IP），局域网其他设备 Debug 时很有用
+- `--bind 0.0.0.0` 绑定 IP ，局域网其他设备 Debug 时很有用
 - `--contentDir example` 指定文章目录`example`，默认为 `content`
 - `--cleanDestinationDir` 清空目标目录
 - `--forceSyncStatic` 强制同步静态文件
