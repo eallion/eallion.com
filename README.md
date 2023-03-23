@@ -29,6 +29,11 @@
 
 # 备忘录
 
+<div align="center">
+
+  <img src="static/assets/images/blog-flow.png">
+</div>
+
 ### 📦️ 主仓库
 
 > <https://github.com/eallion/eallion.com.git>
