@@ -396,13 +396,13 @@ function bookShow(fetch_href, fetch_item) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    let limit = 7;
+    let albumLimit = 6;
     var memoUrl = "https://api.eallion.com/memos/";
     //var creatorId = 101
-    //var galleryUrl = memoUrl+"api/memo?creatorId="+creatorId+"&rowStatus=NORMAL&limit="+limit+"&tag=相册"
+    //var galleryUrl = memoUrl+"api/memo?creatorId="+creatorId+"&rowStatus=NORMAL&albumLimit="+albumLimit+"&tag=相册"
     var galleryUrl =
-        memoUrl + "api/memo/all?rowStatus=NORMAL&tag=相册&limit=" + limit;
-    let nowNum = 1;
+        memoUrl + "api/memo/all?rowStatus=NORMAL&tag=相册&albumLimit=" + albumLimit;
+    let nowNum = 0;
     fetch(galleryUrl)
         .then((res) => res.json())
         .then((resdata) => {
@@ -416,7 +416,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 //解析 content 内 md 格式图片
                 if (imgs) {
                     imgs.forEach((item) => {
-                        if (nowNum < limit) {
+                        if (nowNum < albumLimit) {
                             nowNum++;
                             let img = item.replace(/!\[.*?\]\((.*?)\)/g, "$1"),
                                 time,
@@ -461,7 +461,7 @@ document.addEventListener("DOMContentLoaded", () => {
             //                 "/" +
             //                 resourceList[j].filename;
             //         }
-            //         if (restype == "image" && nowNum <= limit) {
+            //         if (restype == "image" && nowNum <= albumLimit) {
             //             nowNum++;
             //             result +=
             //                 '<div class="memos-photo"><img class="photo-img" loading="lazy" decoding="async" src="' +
