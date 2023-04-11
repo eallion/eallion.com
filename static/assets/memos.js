@@ -399,9 +399,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let albumLimit = 6;
     var memoUrl = "https://api.eallion.com/memos/";
     //var creatorId = 101
-    //var galleryUrl = memoUrl+"api/memo?creatorId="+creatorId+"&rowStatus=NORMAL&albumLimit="+albumLimit+"&tag=相册"
+    //var galleryUrl = memoUrl+"api/memo?creatorId="+creatorId+"&rowStatus=NORMAL&limit="+albumLimit+"&tag=相册"
     var galleryUrl =
-        memoUrl + "api/memo/all?rowStatus=NORMAL&tag=相册&albumLimit=" + albumLimit;
+        memoUrl + "api/memo/all?rowStatus=NORMAL&tag=相册&limit=" + albumLimit;
     let nowNum = 0;
     fetch(galleryUrl)
         .then((res) => res.json())
