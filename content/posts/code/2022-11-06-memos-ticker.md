@@ -21,8 +21,7 @@ lastmod: 2022-11-06T16:33:22+08:00
 - [Memos API 公告样式滚动效果](https://eallion.com/memos-ticker/)
 - [Memos API 获取总条数](https://eallion.com/memos-total-count/)
 
-本博客没有找到合适的位置放置公告栏，已暂时移动滚动公告效果。  
-DEMO 可参考我的个人导航：<https://s.eallion.com>
+> 效果参考首页
 
 1. 首先需要在网页上合适的位置放置一个 CSS 选择器来展示 Memos，ID 命名为 `memos` 好了。
 
