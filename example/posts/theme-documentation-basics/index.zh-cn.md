@@ -295,7 +295,7 @@ hugo
     hugo = true
     # {{< version 0.2.14 >}} 托管服务信息 (支持 HTML 格式)
     # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
-    hostedOn = '' 
+    hostedOn = ''
     # {{< version 0.2.0 >}} 是否显示版权信息
     copyright = true
     # {{< version 0.2.0 >}} 是否显示作者
@@ -468,8 +468,6 @@ hugo
     # "https://github.com/user/repo/issues/new?title=[bug]%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/user/repo/blob/main/{path}|"
     # {{< version 0.2.4 >}} 是否在 RSS 中显示全文内容
     rssFullText = false
-    # {{< version 0.2.11 >}} 页面样式 ("normal", "wide")
-    pageStyle = "normal"
     # {{< version 0.2.13 >}} 是否在文章开头显示系列导航
     seriesNavigation = true
     # {{< version 0.2.13 >}} 过时文章提示
@@ -721,7 +719,7 @@ hugo
     enable = false
     bio = "如果你觉得这篇文章对你有所帮助，欢迎赞赏~"
     link = "https://www.buymeacoffee.com" # 你的赞赏页面的地址
-    custom = "" # 自定义 HTML 
+    custom = "" # 自定义 HTML
 
   # {{< version 0.2.5 >}} TypeIt 配置
   [params.typeit]

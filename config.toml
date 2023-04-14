@@ -26,7 +26,7 @@ enableEmoji = true
 ignoreFiles = ['data/douban']
 
 [languages]
-  [languages.en]  
+  [languages.en]
     title = "Charles Chin's Blog"
     contentDir = 'content/en'
     weight = 2
@@ -667,9 +667,6 @@ ignoreFiles = ['data/douban']
     # whether to show the full text content in RSS
     # 是否在 RSS 中显示全文内容
     rssFullText = false
-    # Page style ("normal", "wide")
-    # 页面样式 ("normal", "wide")
-    pageStyle = "normal"
     # whether to enable series navigation
     # 是否使用系列导航
     seriesNavigation = true
