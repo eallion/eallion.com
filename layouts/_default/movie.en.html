@@ -11,13 +11,6 @@
 
 <meta name="referrer" content="no-referrer">
 
-{{- /* Page Style */ -}}
-{{- if eq $params.pageStyle "wide" -}}
-<script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "wide")</script>
-{{- else -}}
-<script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script>
-{{- end -}}
-
 <article class="page single">
   {{- /* Title */ -}}
   <h1 class="single-title animate__animated animate__flipInX">{{ .Title }}</h1>
@@ -194,7 +187,7 @@
 
       .dvtjjf:hover .fa-star::before {
         color: #ef3982;
-      } 
+      }
 
       [theme="dark"] .dvtjjf:hover .fa-star::before {
         color: #bdebfc;
