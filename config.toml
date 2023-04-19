@@ -1037,10 +1037,10 @@ ignoreFiles = ['data/douban']
       id = ""
     # Umami Analytics
     [params.analytics.umami]
-      data_website_id = "e0828f38-9828-457f-b386-bb4764fd4619"
-      src = "https://api.eallion.com/umami/69d6ffe.js?v=1.39.5"
+      data_website_id = "cbd4a67a-82e8-48ed-9d04-a0e4815466f0"
+      src = "https://api.eallion.com/umami/69d6ffe.js?v=2.0.0"
       data_host_url ="https://a.eallion.com"
-      data_domains = "eallion.com,www.eallion.com,eallion.github.io"
+      data_domains = "eallion.com,www.eallion.com"
     # Plausible Analytics
     [params.analytics.plausible]
       data_domain = ""
