@@ -8,7 +8,7 @@
 
 <div align="center">
 
-[![Build Hugo and Deploy](https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.com/actions/workflows/main.yml)  
+[![Build Hugo and Deploy](https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.com/actions/workflows/main.yml)
 
 </div>
 
@@ -44,7 +44,7 @@
 
 #### 添加备份仓库 Remote
 
-> **Note**  
+> **Note**
 > Remote url 传递 id:token 免输各个 git 仓库的账号密码
 
 ```
@@ -117,7 +117,7 @@ jobs:
       - name: Upload to Tencent COS
         uses: zkqiang/tencent-cos-action@v0.1.0
         with:
-          args: upload -rsf --delete ./public/ / 
+          args: upload -rsf --delete ./public/ /
           secret_id: ${{ secrets.SECRET_COS_ID }}
           secret_key: ${{ secrets.SECRET_COS_KEY }}
           bucket: ${{ secrets.COS_CN_BUCKET }}
@@ -225,8 +225,11 @@ git submodule update --init --recursive
 
 如果上游主题有更新，更新主题 DoIt 的 submodule：
 
-```bash
-git submodule update --remote --merge
+> 已更新脚本
+
+```diff
+- git submodule update --remote --merge
++ npm run update
 ```
 
 - 自定义 CSS 在 [`assets\css\_custom.scss`](<https://github.com/eallion/eallion.com/blob/main/assets/css/_custom.scss>)：
@@ -265,14 +268,17 @@ https://github.com/eallion/eallion.com/tree/main/data/douban
 
 通过 Hugo 命令 New 一篇新文章模板：
 
-```
-hugo new posts/daily/new_title.md
+> 已更新脚本
+
+```diff
+- hugo new posts/daily/new_title.md
++ npm run new
 ```
 
 2. **编辑文章**
 
-通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 New 出来的文章。  
-这篇文章在`content/posts/daily`目录下，文件名为：`new_title.md`。  
+通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 New 出来的文章。
+这篇文章在`content/posts/daily`目录下，文件名为：`new_title.md`。
 
 3. **修改 Front matter**:
 
@@ -295,8 +301,11 @@ git push
 
 已添加脚本：
 
-```
-./server.sh
+> 已更新脚本
+
+```diff
+- ./server.sh
++ npm run server
 ```
 
 脚本内容：
@@ -328,8 +337,11 @@ hugo server -w -D -p 1313 -t hello-friend --bind 0.0.0.0  --contentDir example -
 
 手动构建命令：
 
-```
-hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
+> 已更新脚本
+
+```diff
+- hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
++ npm run build
 ```
 
 - `--cleanDestinationDir` 构建前先清理目标目录，即 public
@@ -363,12 +375,12 @@ git gc --prune=now --aggressive
 
 有三种方法来引用**图片**和**音乐**等本地资源:
 
-1. 使用[页面包](https://gohugo.io/content-management/page-bundles/)中的[页面资源](https://gohugo.io/content-management/page-resources/)。  
+1. 使用[页面包](https://gohugo.io/content-management/page-bundles/)中的[页面资源](https://gohugo.io/content-management/page-resources/)。
     你可以使用适用于 `Resources.GetMatch` 的值或者直接使用相对于当前页面目录的文件路径来引用页面资源.
-2. 将本地资源放在 **assets** 目录中，默认路径是 `/assets`。  
-   引用资源的文件路径是相对于`assets`目录的。  
-3. 将本地资源放在 **static** 目录中，默认路径是 `/static`。  
-   引用资源的文件路径是相对于`static`目录的。  
+2. 将本地资源放在 **assets** 目录中，默认路径是 `/assets`。
+   引用资源的文件路径是相对于`assets`目录的。
+3. 将本地资源放在 **static** 目录中，默认路径是 `/static`。
+   引用资源的文件路径是相对于`static`目录的。
 
 引用的**优先级**符合以上的顺序.
 
@@ -381,27 +393,27 @@ git gc --prune=now --aggressive
 
 ### 🖼️ 图片
 
-因为 jsDelivr 2020.08.15 的『[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)』，现在没有用 GitHub + jsDelivr 当图床了。  
+因为 jsDelivr 2020.08.15 的『[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)』，现在没有用 GitHub + jsDelivr 当图床了。
 
 - **方法一**
 
-手动添加图床。  
-现在写博客添加图片，需要手动添加图片地址。  
-一般本博客优先使用腾讯云 COS，图床链接为：`https://images.eallion.com/`  
+手动添加图床。
+现在写博客添加图片，需要手动添加图片地址。
+一般本博客优先使用腾讯云 COS，图床链接为：`https://images.eallion.com/`
 
 - **方法二**
 
-原方法。  
-直接把图片丢到 Hugo 仓库的`static/images/`目录下即可。  
+原方法。
+直接把图片丢到 Hugo 仓库的`static/images/`目录下即可。
 图片存放目录：
-> Hugo 目录的`static/images/`目录下（可按年月分类）。  
+> Hugo 目录的`static/images/`目录下（可按年月分类）。
 
 文章中引用的图片 URL：
 > `https://eallion.com/images/1970/01/01.jpg`
 
 ### 📷 相册
 
-相册页面可以用主题内置的 [`{{< figure >}}`](https://hugodoit.pages.dev/zh-cn/theme-documentation-built-in-shortcodes/#figure)、[`{{< image >}}`](<https://hugodoit.pages.dev/zh-cn/theme-documentation-extended-shortcodes/#image>) Shortcodes 生成。  
+相册页面可以用主题内置的 [`{{< figure >}}`](https://hugodoit.pages.dev/zh-cn/theme-documentation-built-in-shortcodes/#figure)、[`{{< image >}}`](<https://hugodoit.pages.dev/zh-cn/theme-documentation-extended-shortcodes/#image>) Shortcodes 生成。
 如：
 
 - <https://eallion.com/penta/>
@@ -413,8 +425,8 @@ git gc --prune=now --aggressive
 
 ### 📄 LICENSE
 
-This project is licensed under [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN).  
-Hugo is licensed under [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE).  
+This project is licensed under [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN).
+Hugo is licensed under [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE).
 Theme DoIt is licensed under [MIT](https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE).
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_large)
