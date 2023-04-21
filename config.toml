@@ -896,6 +896,7 @@ ignoreFiles = ['data/douban']
         envId = "https://api.eallion.com/twikoo"
         region = ""
         path = ""
+        cloudbase = false # boolean : true / false. # 是否部署在腾讯云 CloudBase
         visitor = false
         commentCount = true
       # Vssue comment config (https://vssue.js.org//)
