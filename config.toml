@@ -99,12 +99,12 @@ ignoreFiles = ['data/douban']
         title = "About me"
         weight = "6"
       [[languages.en.menu.main]]
-        identifier = "github"
-        pre = "<i class='fab fa-github fa-fw'></i>"
+        identifier = "notbyai"
+        pre = "<img class='notbyai' src='https://images.eallion.com/Not-By-AI/US/Written%20By%20Human/SVG/Written-By-Human-Not-By-AI-Badge-white.svg' alt='Written by human, not by AI'>"
         post = ""
         name=""
-        url="https://github.com/eallion/eallion.com"
-        title = "GitHub"
+        url="https://notbyai.fyi"
+        title = "Written by human, not by AI"
         weight="9"
     [languages.en.params]
       # site description
@@ -335,12 +335,12 @@ ignoreFiles = ['data/douban']
         title = "关于我关于本站"
         weight = "6"
       [[languages.zh-cn.menu.main]]
-        identifier = "github"
-        pre = "<i class='fab fa-github fa-fw'></i>"
+        identifier = "notbyai"
+        pre = "<img class='notbyai' src='https://images.eallion.com/Not-By-AI/US/Written%20By%20Human/SVG/Written-By-Human-Not-By-AI-Badge-white.svg' alt='Written by human, not by AI'>"
         post = ""
         name=""
-        url="https://github.com/eallion/eallion.com"
-        title = "GitHub"
+        url="https://notbyai.fyi"
+        title = "Written by human, not by AI"
         weight="9"
     [languages.zh-cn.params]
       # 网站描述
