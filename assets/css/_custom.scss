@@ -101,21 +101,28 @@ $background-color_6: #78191b;
 #header-desktop {
     .header-wrapper {
         .menu {
-            .menu-item.language {
-                &::before {
-                    content: "\f1ab";
-                    font-family: $font-family_1;
-                    font-weight: 900;
-                    -moz-osx-font-smoothing: grayscale;
-                    -webkit-font-smoothing: antialiased;
-                    display: inline-block;
-                    font-style: normal;
-                    font-variant: normal;
-                    text-rendering: auto;
-                    line-height: 1;
-                    text-align: center;
-                    width: 1.25em;
-                    margin-right: 0.25rem;
+            .menu-item {
+                .language {
+                    &::before {
+                        content: "\f1ab";
+                        font-family: $font-family_1;
+                        font-weight: 900;
+                        -moz-osx-font-smoothing: grayscale;
+                        -webkit-font-smoothing: antialiased;
+                        display: inline-block;
+                        font-style: normal;
+                        font-variant: normal;
+                        text-rendering: auto;
+                        line-height: 1;
+                        text-align: center;
+                        width: 1.25em;
+                        margin-right: 0.25rem;
+                    }
+                }
+                .notbyai {
+                    // height: 1.666666rem;
+                    max-height: 42px !important;
+                    vertical-align: middle;
                 }
             }
         }
