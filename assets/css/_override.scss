@@ -2,3 +2,23 @@
 // Override Variables
 // 覆盖变量
 // ==============================
+
+// Global font family
+// @import url('https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/lxgwwenkaiscreenr.min.css');
+// $global-font-family: 'LXGW WenKai Screen R', system-ui, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei UI, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif !default;
+
+// Font family of the code
+/* jetbrains-mono-regular */
+// @font-face {
+//     font-family: 'JetBrains Mono';
+//     font-style: normal;
+//     font-weight: regular;
+//     src: url('//lib.baomitu.com/fonts/jetbrains-mono/jetbrains-mono-regular.eot'); /* IE9 Compat Modes */
+//     src: local('JetBrains Mono'), local('JetBrainsMono-Normal'),
+//          url('//lib.baomitu.com/fonts/jetbrains-mono/jetbrains-mono-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+//          url('//lib.baomitu.com/fonts/jetbrains-mono/jetbrains-mono-regular.woff2') format('woff2'), /* Super Modern Browsers */
+//          url('//lib.baomitu.com/fonts/jetbrains-mono/jetbrains-mono-regular.woff') format('woff'), /* Modern Browsers */
+//          url('//lib.baomitu.com/fonts/jetbrains-mono/jetbrains-mono-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+//          url('//lib.baomitu.com/fonts/jetbrains-mono/jetbrains-mono-regular.svg#JetBrainsMono') format('svg'); /* Legacy iOS */
+// }
+// $code-font-family: 'JetBrains Mono', monospace, Source Code Pro, Menlo, Consolas, Monaco, monospace, $global-font-family !default;
