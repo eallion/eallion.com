@@ -32,14 +32,10 @@ footer {
     text-align: left;
 }
 
-$font-family_1: "Font Awesome 5 Free";
-$font-family_2: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+$font-family-font-awesome: "Font Awesome 5 Free";
+$font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji", sans-serif, serif;
-$font-family_3: STSong, SimSun, NSimSun, Arial, sans-serif;
-$font-family_4: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
-    Arial, "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei",
-    "Microsoft Yahei", "Segoe UI", sans-serif, serif;
-$font-family_5: "JetBrains Mono", "Noto Sans Mono", "Source Code Pro",
+$code-font-family: "JetBrains Mono", "Noto Sans Mono", "Source Code Pro",
     "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 
 $color_1: #8186a2;
@@ -83,11 +79,11 @@ $background-color_5: #1b4721;
 $background-color_6: #78191b;
 
 .emoji {
-    font-family: $font-family_2;
+    font-family: $font-family-emoji;
 }
 
 .poem {
-    font-family: $font-family_3;
+    font-family: $global-font-family;
     span {
         display: block;
     }
@@ -105,7 +101,7 @@ $background-color_6: #78191b;
                 .language {
                     &::before {
                         content: "\f1ab";
-                        font-family: $font-family_1;
+                        font-family: $font-family-font-awesome;
                         font-weight: 900;
                         -moz-osx-font-smoothing: grayscale;
                         -webkit-font-smoothing: antialiased;
@@ -166,7 +162,7 @@ $background-color_6: #78191b;
     .OwO-body {
         .OwO-items {
             .OwO-item {
-                font-family: $font-family_2 !important;
+                font-family: $font-family-emoji !important;
                 font-size: 1.5rem !important;
                 padding-left: 0.25rem !important;
                 width: 2.5rem !important;
@@ -824,7 +820,7 @@ $background-color_6: #78191b;
     margin-left: 4px;
 }
 .talks__id {
-    font-family: $font-family_4;
+    font-family: $global-font-family;
     font-size: 0.875em;
     overflow-wrap: break-word;
     min-width: 0px;
@@ -1166,7 +1162,7 @@ $background-color_6: #78191b;
 }
 pre {
     code {
-        font-family: $font-family_5 !important;
+        font-family: $code-font-family !important;
         font-size: 0.875rem !important;
         padding: 1rem 0 !important;
     }
@@ -1177,7 +1173,7 @@ pre {
     }
 }
 code {
-    font-family: $font-family_5 !important;
+    font-family: $code-font-family !important;
     font-size: 0.875rem !important;
 }
 :not(pre) {
