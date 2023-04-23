@@ -504,7 +504,7 @@ ignoreFiles = ['data/douban']
   title = "大大的小蜗牛"
   # DoIt theme version
   # DoIt 主题版本
-  version = "0.3.X"
+  version = "0.4.X"
   # site default theme ("light", "dark", "black", "auto")
   # 网站默认主题 ("light", "dark", "black", "auto")
   defaultTheme = "auto"
