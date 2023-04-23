@@ -6,7 +6,7 @@
     "scripts": {
         "build": "hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo",
         "server": "start http://127.0.0.1:1313 && hugo server -w -D -p 1313 -t DoIt --bind 0.0.0.0 --contentDir example --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo",
-        "new": "node example/posts/post_title_prompt.js",
+        "new": "node scripts/post_title_prompt.js",
         "preview": "start http://127.0.0.1:1313 && hugo server -w -D -p 1313 -t DoIt --bind 0.0.0.0 --contentDir content --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo",
         "update": "git submodule update --remote --merge"
     },
