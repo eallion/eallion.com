@@ -8,7 +8,8 @@
         "server": "start http://127.0.0.1:1313 && hugo server -w -D -p 1313 -t DoIt --bind 0.0.0.0 --contentDir example --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo",
         "new": "node scripts/post_title_prompt.js",
         "preview": "start http://127.0.0.1:1313 && hugo server -w -D -p 1313 -t DoIt --bind 0.0.0.0 --contentDir content --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo",
-        "update": "git submodule update --remote --merge"
+        "update": "git submodule update --remote --merge",
+        "start": "start http://127.0.0.1:1313 && hugo server -w -D -p 1313 -t DoIt --bind 0.0.0.0 --contentDir example --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo"
     },
     "repository": {
         "type": "git",
