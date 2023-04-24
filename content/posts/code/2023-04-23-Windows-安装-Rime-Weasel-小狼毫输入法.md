@@ -139,6 +139,9 @@ Rime 输入法引擎的一大特点就是支持高度自定义。
 - 格式中的 `Tab` 不能用空格代替
 - `# no comment` 之后的内容中 `#` 注释会失效
 - 不宜添加过多的自定义短语，若有大量自定义短语请用用户词典
+- 同样的编码，权重越大，排名越靠前
+
+![](https://images.eallion.com/images/2023/04/rime_bianma.png)
 
 #### 步骤3. 新建 `wubi_pinyin.custom.yaml`
 
