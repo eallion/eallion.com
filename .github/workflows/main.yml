@@ -64,5 +64,5 @@ jobs:
         env:
           SECRET_ID: ${{ secrets.SECRET_COS_ID }}
           SECRET_KEY: ${{ secrets.SECRET_COS_KEY }}
-          PATHS: "https://eallion.com/"
+          PATHS: "https://eallion.com/,https://www.eallion.com/"
           FLUSH_TYPE: "delete" # optional
