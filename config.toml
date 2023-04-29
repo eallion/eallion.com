@@ -58,7 +58,7 @@ ignoreFiles = ['data/douban']
       [[languages.en.menu.main]]
         identifier = "posts"
         # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-        pre = ""
+        pre = "<i class='fas fa-blog'></i>"
         # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
         post = ""
         name = "Blog"
@@ -68,7 +68,7 @@ ignoreFiles = ['data/douban']
         weight = "2"
       [[languages.en.menu.main]]
         identifier = "movie"
-        pre = ""
+        pre = "<i class='fas fa-film'></i>"
         post = ""
         name = "Watched"
         url = "/movie/"
@@ -76,7 +76,7 @@ ignoreFiles = ['data/douban']
         weight = "3"
       [[languages.en.menu.main]]
         identifier = "categories"
-        pre = ""
+        pre = "<i class='fas fa-stream'></i>"
         post = ""
         name = "Cates"
         url = "/en/categories/"
@@ -85,26 +85,26 @@ ignoreFiles = ['data/douban']
       [[languages.en.menu.main]]
         identifier = "links"
         name="Friends"
-        pre = ""
+        pre = "<i class='fas fa-users'></i>"
         post = ""
         url="/links/"
         title = "Friends links"
         weight="5"
       [[languages.en.menu.main]]
         identifier = "about"
-        pre = ""
+        pre = "<i class='fas fa-info'></i>"
         post = ""
         name = "About"
         url = "/about/"
         title = "About me"
         weight = "6"
       [[languages.en.menu.main]]
-        identifier = "notbyai"
-        pre = "<img class='notbyai' src='https://images.eallion.com/Not-By-AI/US/Written%20By%20Human/SVG/Written-By-Human-Not-By-AI-Badge-white.svg' alt='Written by human, not by AI'>"
+        identifier = "Favorite"
+        pre = "<i class='fas fa-globe'></i>"
         post = ""
         name=""
-        url="https://notbyai.fyi"
-        title = "Written by human, not by AI"
+        url="https://s.eallion.com/"
+        title = "Favorite Sites"
         weight="9"
     [languages.en.params]
       # site description
@@ -294,7 +294,7 @@ ignoreFiles = ['data/douban']
       [[languages.zh-cn.menu.main]]
         identifier = "posts"
         # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-        pre = ""
+        pre = "<i class='fas fa-blog'></i>"
         # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
         post = ""
         name = "博客"
@@ -304,7 +304,7 @@ ignoreFiles = ['data/douban']
         weight = "2"
       [[languages.zh-cn.menu.main]]
         identifier = "movie"
-        pre = ""
+        pre = "<i class='fas fa-film'></i>"
         post = ""
         name = "观影"
         url = "/movie/"
@@ -312,7 +312,7 @@ ignoreFiles = ['data/douban']
         weight = "3"
       [[languages.zh-cn.menu.main]]
         identifier = "categories"
-        pre = ""
+        pre = "<i class='fas fa-stream'></i>"
         post = ""
         name = "分类"
         url = "/categories/"
@@ -321,26 +321,26 @@ ignoreFiles = ['data/douban']
       [[languages.zh-cn.menu.main]]
         identifier = "links"
         name="友情链接"
-        pre = ""
+        pre = "<i class='fas fa-users'></i>"
         post = ""
         url="/links/"
         title = "友情链接"
         weight="5"
       [[languages.zh-cn.menu.main]]
         identifier = "about"
-        pre = ""
+        pre = "<i class='fas fa-info'></i>"
         post = ""
         name = "关于"
         url = "/about/"
         title = "关于我关于本站"
         weight = "6"
       [[languages.zh-cn.menu.main]]
-        identifier = "notbyai"
-        pre = "<img class='notbyai' src='https://images.eallion.com/Not-By-AI/US/Written%20By%20Human/SVG/Written-By-Human-Not-By-AI-Badge-white.svg' alt='Written by human, not by AI'>"
+        identifier = "Favorite"
+        pre = "<i class='fas fa-globe'></i>"
         post = ""
         name=""
-        url="https://notbyai.fyi"
-        title = "Written by human, not by AI"
+        url="https://s.eallion.com/"
+        title = "蜗牛个人导航"
         weight="9"
     [languages.zh-cn.params]
       # 网站描述
@@ -565,7 +565,7 @@ ignoreFiles = ['data/douban']
     enable = true
     # Custom content (HTML format is supported)
     # 自定义内容 (支持 HTML 格式)
-    custom = ''
+    custom = '<a href="https://notbyai.fyi" target="_blank" rel="noopener noreffer"><img class="notbyai" src="https://images.eallion.com/Not-By-AI/US/Written%20By%20Human/SVG/Written-By-Human-Not-By-AI-Badge-white.svg" alt="Written by human, not by AI"> <img class="notbyai" src="https://images.eallion.com/Not-By-AI/US/Produced%20By%20Human/SVG/Produced-By-Human-Not-By-AI-Badge-white.svg" alt="Produced by human, not by AI"></a>'
     # whether to show Hugo and theme info
     # 是否显示 Hugo 和主题信息
     hugo = true
