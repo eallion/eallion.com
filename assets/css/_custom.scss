@@ -1604,3 +1604,36 @@ $color_album: #fff;
         height: 171px;
     }
 }
+
+.language-diff {
+    .gd {
+        color: #82071e !important;
+        background-color: #ffebe9;
+    }
+    .gi {
+        color: #116329 !important;
+        background-color: #dafbe1;
+    }
+
+    &[theme="dark"] {
+        .gd {
+            color: #ffd8d3 !important;
+            background-color: #78191b;
+        }
+        .gi {
+            color: #b4f1b4 !important;
+            background-color: #1b4721;
+        }
+    }
+
+    &[theme="black"] {
+        .gd {
+            color: #ffdcd7 !important;
+            background-color: #67060c;
+        }
+        .gi {
+            color: #aff5b4 !important;
+            background-color: #033a16;
+        }
+    }
+}
