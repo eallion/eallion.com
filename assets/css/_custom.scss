@@ -1675,3 +1675,15 @@ $color_album: #fff;
         }
     }
 }
+
+.atk-comment>.atk-main>.atk-body>.atk-content br {
+    display: none !important;
+}
+.atk-editor-plug-emoticons>.atk-grp-wrap>.atk-grp>.atk-item {
+    font-family: "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji",sans-serif,serif !important;
+}
+
+.artalk pre code, .atk-layer-wrap pre code {
+    padding: 10px 15px !important;
+    border-radius: 6px !important;
+}
