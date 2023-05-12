@@ -855,6 +855,12 @@ ignoreFiles = ['data/douban']
         # imageUploader = false
         # highlighter = false
         # texRenderer = false
+      # Artalk comment config (https://artalk.js.org)
+      # Artalk 评论系统设置 (https://artalk.js.org)
+      [params.page.comment.artalk]
+        enable = true
+        server = "https://api.eallion.com/artalk/"
+        site = "eallion"
       # Facebook comment config (https://developers.facebook.com/docs/plugins/comments)
       # Facebook 评论系统设置 (https://developers.facebook.com/docs/plugins/comments)
       [params.page.comment.facebook]
@@ -892,7 +898,7 @@ ignoreFiles = ['data/douban']
       # Twikoo comment config (https://twikoo.js.org/)
       # Twikoo comment 评论系统设置 (https://twikoo.js.org/)
       [params.page.comment.twikoo]
-        enable = true
+        enable = false
         envId = "https://api.eallion.com/twikoo"
         region = ""
         path = ""
