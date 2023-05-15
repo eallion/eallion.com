@@ -1,0 +1,62 @@
+# Menu config
+# 菜单配置
+
+[[main]]
+  identifier = "memos"
+  pre = "<i class='fab fa-twitter'></i>"
+  post = ""
+  name = "嘀咕"
+  url = "/memos/"
+  title = "嘀咕 Memos"
+  weight = "1"
+[[main]]
+  identifier = "posts"
+  # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+  pre = "<i class='fas fa-blog'></i>"
+  # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+  post = ""
+  name = "博客"
+  url = "/posts/"
+  # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
+  title = "所有文章"
+  weight = "2"
+[[main]]
+  identifier = "movie"
+  pre = "<i class='fas fa-film'></i>"
+  post = ""
+  name = "观影"
+  url = "/movie/"
+  title = "豆瓣观影记录"
+  weight = "3"
+[[main]]
+  identifier = "categories"
+  pre = "<i class='fas fa-stream'></i>"
+  post = ""
+  name = "分类"
+  url = "/categories/"
+  title = "博客分类"
+  weight = "4"
+[[main]]
+  identifier = "links"
+  name="友情链接"
+  pre = "<i class='fas fa-users'></i>"
+  post = ""
+  url="/links/"
+  title = "友情链接"
+  weight="5"
+[[main]]
+  identifier = "about"
+  pre = "<i class='fas fa-info'></i>"
+  post = ""
+  name = "关于"
+  url = "/about/"
+  title = "关于我关于本站"
+  weight = "6"
+[[main]]
+  identifier = "Favorite"
+  pre = "<i class='fas fa-globe'></i>"
+  post = ""
+  name=""
+  url="https://s.eallion.com/"
+  title = "蜗牛个人导航"
+  weight="9"

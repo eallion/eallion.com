@@ -123,12 +123,25 @@ $background-color_6: #78191b;
         }
     }
 }
+
 .single {
     .post-meta {
         .author {
             a {
                 margin-left: 0.25rem;
             }
+        }
+    }
+}
+
+.single .content {
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+        .header-mark::before {
+            content: "#";
         }
     }
 }
@@ -1433,7 +1446,7 @@ code.hljs {
     display: flex;
     flex: 1 auto;
     align-items: center;
-    line-height: 35px;
+    line-height: 35px !important;
     height: 45px;
     max-width: 800px;
     width: 96%;
@@ -1644,7 +1657,7 @@ $color_album: #fff;
         margin: 0;
         font-size: 85%;
         white-space: break-spaces;
-        background-color: rgba(175,184,193,0.2);
+        background-color: rgba(175, 184, 193, 0.2);
         border-radius: 6px;
     }
 
@@ -1676,14 +1689,15 @@ $color_album: #fff;
     }
 }
 
-.atk-comment>.atk-main>.atk-body>.atk-content br {
+.atk-comment > .atk-main > .atk-body > .atk-content br {
     display: none !important;
 }
-.atk-editor-plug-emoticons>.atk-grp-wrap>.atk-grp>.atk-item {
-    font-family: "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji",sans-serif,serif !important;
+.atk-editor-plug-emoticons > .atk-grp-wrap > .atk-grp > .atk-item {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif, serif !important;
 }
 
-.artalk pre code, .atk-layer-wrap pre code {
+.artalk pre code,
+.atk-layer-wrap pre code {
     padding: 10px 15px !important;
     border-radius: 6px !important;
 }
