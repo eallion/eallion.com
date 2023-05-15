@@ -1,0 +1,62 @@
+# Menu config
+# 菜单配置
+
+[[main]]
+  identifier = "memos"
+  pre = "<i class='fab fa-twitter'></i>"
+  post = ""
+  name = "Memos"
+  url = "/memos/"
+  title = "Memos"
+  weight = "1"
+[[main]]
+  identifier = "posts"
+  # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+  pre = "<i class='fas fa-blog'></i>"
+  # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+  post = ""
+  name = "Blog"
+  url = "/en/posts/"
+  # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
+  title = "All Article"
+  weight = "2"
+[[main]]
+  identifier = "movie"
+  pre = "<i class='fas fa-film'></i>"
+  post = ""
+  name = "Watched"
+  url = "/movie/"
+  title = "DouBan Movie"
+  weight = "3"
+[[main]]
+  identifier = "categories"
+  pre = "<i class='fas fa-stream'></i>"
+  post = ""
+  name = "Cates"
+  url = "/en/categories/"
+  title = "Categories"
+  weight = "4"
+[[main]]
+  identifier = "links"
+  name="Friends"
+  pre = "<i class='fas fa-users'></i>"
+  post = ""
+  url="/links/"
+  title = "Friends links"
+  weight="5"
+[[main]]
+  identifier = "about"
+  pre = "<i class='fas fa-info'></i>"
+  post = ""
+  name = "About"
+  url = "/about/"
+  title = "About me"
+  weight = "6"
+[[main]]
+  identifier = "Favorite"
+  pre = "<i class='fas fa-globe'></i>"
+  post = ""
+  name=""
+  url="https://s.eallion.com/"
+  title = "Favorite Sites"
+  weight="9"

@@ -59,7 +59,7 @@ Weasel 中文名叫“小狼毫”，是 Windows 上的输入法名称。对应�
 
 ### 安装
 
-以前记录过：[《Rime 小狼毫 五笔输入法自定义短语》](<https://eallion.com/rime-wubi/>)，现在记录下如何完整安装小狼毫。
+以前记录过：《[Rime 小狼毫 五笔输入法自定义短语](<https://eallion.com/rime-wubi/>)》，现在记录下如何完整安装小狼毫。
 
 Weasel 没有提供 Scoop 安装脚本，需要下载安装包安装：<https://rime.im/download/>
 
@@ -102,7 +102,7 @@ Weasel 没有提供 Scoop 安装脚本，需要下载安装包安装：<https://
 Rime 输入法引擎的一大特点就是支持高度自定义。
 
 我分享的 dotfiles 配置文件仓库中有备份，可以直接复制使用：[<i class="fab fa-github-alt fa-fw"></i>eallion/dotfiles](https://github.com/eallion/dotfiles/tree/windows/Users/eallion/AppData/Roaming/Rime)
-这里照抄一下以前的博客：[《Rime 小狼毫 五笔输入法自定义短语》](<https://eallion.com/rime-wubi/>)
+这里照抄一下以前的博客：《[Rime 小狼毫 五笔输入法自定义短语](<https://eallion.com/rime-wubi/>)》
 
 #### 步骤1. 用户文件夹
 
