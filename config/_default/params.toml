@@ -520,13 +520,13 @@ cacheRemoteImages = false
 # Site verification code for Google/Bing/Yandex/Pinterest/Baidu
 # 网站验证代码，用于 Google/Bing/Yandex/Pinterest/Baidu
 [verification]
-  google = "MQ8DNu27ayX6B_4ObiEDK09vGr1fdy7kOAnbd09hJk4"
-  bing = ""
-  yandex = ""
-  pinterest = ""
-  baidu = ""
-  so = ""
-  sogou = ""
+  google = "9Mvl_9FEM5JphVmp-u9ljtlChFohWuBBFjlSS89QKVU"
+  bing = "68A03C00DAFAD54E3739A8D372D9371B"
+  yandex = "ff49a8cfbbaad423"
+  pinterest = "b9e3534b99f9bd82f3b8688a1fa122a8"
+  baidu = "ZWIiTFJWJkGQ11ZJ"
+  so = "05afe845fd64ce6966deadce74479b5b"
+  sogou = "58U7GJdDFk"
 
 # Site SEO config
 # 网站 SEO 配置
