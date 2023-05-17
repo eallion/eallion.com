@@ -748,12 +748,11 @@ $background-color_6: #78191b;
     }
 }
 .talks__text {
-    ul {
+    ul,ol  {
         margin-left: 0 !important;
         li {
-            margin-left: 1rem;
+            margin-left: 2rem;
             padding: 0;
-            list-style: inside;
         }
     }
     position: relative;
