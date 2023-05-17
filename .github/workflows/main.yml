@@ -50,10 +50,26 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
+      - name: Algolia uploader
+        uses: wangchucheng/algolia-uploader@master
+        with:
+          app_id: ${{ secrets.ALGOLIA_APPID }}
+          admin_key: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+          index_name: eallion
+          index_file_path: public/index.json
+
+      - name: Algolia uploader English
+        uses: wangchucheng/algolia-uploader@master
+        with:
+          app_id: ${{ secrets.ALGOLIA_APPID }}
+          admin_key: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+          index_name: "eallion_blog_en"
+          index_file_path: public/en/index.json
+
       - name: Upload to Tencent COS
         uses: zkqiang/tencent-cos-action@v0.1.0
         with:
-          args: upload -rsf --delete ./public/ / 
+          args: upload -rsf --delete ./public/ /
           secret_id: ${{ secrets.SECRET_COS_ID }}
           secret_key: ${{ secrets.SECRET_COS_KEY }}
           bucket: ${{ secrets.COS_CN_BUCKET }}

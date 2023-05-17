@@ -28,7 +28,7 @@ keywords = ["eallion", "Charles", "chin", "blog", "Hugo", "蜗牛", "大大的�
   enable = true
   # type of search engine ("algolia", "fuse")
   # 搜索引擎的类型 ("algolia", "fuse")
-  type = "fuse"
+  type = "algolia"
   # max index length of the chunked content
   # 文章内容最长索引长度
   contentLength = 4000
@@ -48,9 +48,9 @@ keywords = ["eallion", "Charles", "chin", "blog", "Hugo", "蜗牛", "大大的�
   # 是否在搜索索引中使用基于 baseURL 的绝对路径
   absoluteURL = false
   [search.algolia]
-    index = "zh_cn_index"
-    appID = "5YGRNRQK1G"
-    searchKey = "0ff6874805de24b84aa1d5ebccad56cd"
+    index = "eallion"
+    appID = "UIYUIFMJAW"
+    searchKey = "6d69a1276d37f570210831b222bcb123"
   [search.fuse]
     # https://fusejs.io/api/options.html
     isCaseSensitive = false
