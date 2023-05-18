@@ -163,9 +163,9 @@ function updateHTMl(data) {
         return localLink
             ? html
             : html.replace(
-                  /^<a /,
-                  `<a target="_blank" rel="noreferrer noopener nofollow" `
-              );
+                    /^<a /,
+                    `<a target="_blank" rel="noreferrer noopener nofollow" `
+                );
     };
     marked.use({ renderer });
 
@@ -267,7 +267,6 @@ function updateHTMl(data) {
         ignoreUnescapedHTML: true,
     });
     hljs.highlightAll();
-    lightGallery(document.getElementById("lightgallery"));
     document.querySelector("button.button-load").textContent = "加载更多";
 }
 
