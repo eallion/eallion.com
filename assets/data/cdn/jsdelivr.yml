@@ -1,18 +1,18 @@
 prefix:
   libFiles: https://cdn.jsdelivr.net/npm/
-  # simple-icons@5.21.1 https://github.com/simple-icons/simple-icons
+  # simple-icons@8.14.0 https://github.com/simple-icons/simple-icons
   simpleIcons: https://cdn.jsdelivr.net/npm/simple-icons@v8.14.0/icons/
 libFiles:
-  # algoliasearch@4.11.0 https://github.com/algolia/algoliasearch-client-javascript
+  # algoliasearch@4.17.0 https://github.com/algolia/algoliasearch-client-javascript
   algoliasearchJS: algoliasearch@4.17.0/dist/algoliasearch.umd.min.js
   # animate.css@4.1.1 https://github.com/daneden/animate.css
   animateCSS: animate.css@4.1.1/animate.min.css
   # aplayer@1.10.1 https://github.com/MoePlayer/APlayer
   aplayerCSS: aplayer@1.10.1/dist/APlayer.min.css
   aplayerJS: aplayer@1.10.1/dist/APlayer.min.js
-  # autocomplete.js@0.38.0 https://github.com/algolia/autocomplete.js
+  # autocomplete.js@0.38.1 https://github.com/algolia/autocomplete.js
   autocompleteJS: autocomplete.js@0.38.1/dist/autocomplete.min.js
-  # clipboard.js@2.0.8 https://github.com/zenorocha/clipboard.js
+  # clipboard.js@2.0.11 https://github.com/zenorocha/clipboard.js
   clipboardJS: clipboard@2.0.11/dist/clipboard.min.js
   # cookieconsent@3.1.1 https://github.com/osano/cookieconsent
   cookieconsentCSS: cookieconsent@3.1.1/build/cookieconsent.min.css
@@ -22,8 +22,8 @@ libFiles:
   echartsMacaronsJS: echarts@5.4.2/theme/macarons.min.js
   # fontawesome-free@5.15.4 https://github.com/FortAwesome/Font-Awesome
   fontawesomeFreeCSS: '@fortawesome/fontawesome-free@5.15.4/css/all.min.css'
-  # fusejs@6.4.6 https://github.com/krisk/fuse
-  fuseJS: fuse.js@6.6.2/dist/fuse.min.js
+  # fusejs@6.6.2 https://github.com/krisk/fuse
+  fuseJS: fuse.js@6.6.2/dist/fuse.min.jss
   # gitalk@1.7.2 https://github.com/gitalk/gitalk
   gitalkCSS: gitalk@1.7.2/dist/gitalk.min.css
   gitalkJS: gitalk@1.7.2/dist/gitalk.min.js
@@ -35,7 +35,7 @@ libFiles:
   katexCopyTexJS: katex@0.16.7/dist/contrib/copy-tex.min.js
   katexMhchemJS: katex@0.16.7/dist/contrib/mhchem.min.js
   # lightgallery.js@1.4.0 https://github.com/sachinchoolur/lightgallery.js
-  # lg-thumbnail.js@1.4.0 https://github.com/sachinchoolur/lg-thumbnail.js
+  # lg-thumbnail.js@1.2.0 https://github.com/sachinchoolur/lg-thumbnail.js
   # lg-zoom.js@1.3.0 https://github.com/sachinchoolur/lg-zoom.js
   lightgalleryCSS: lightgallery.js@1.4.0/dist/css/lightgallery.min.css
   lightgalleryJS: lightgallery.js@1.4.0/dist/js/lightgallery.min.js
@@ -52,19 +52,19 @@ libFiles:
   normalizeCSS: normalize.css@8.0.1/normalize.min.css
   # object-fit-images@3.2.4 https://github.com/fregante/object-fit-images
   objectFitImagesJS: object-fit-images@3.2.4/dist/ofi.min.js
-  # sharer.js@0.4.2 https://github.com/ellisonleao/sharer.js
+  # sharer.js@0.5.1 https://github.com/ellisonleao/sharer.js
   sharerJS: sharer.js@0.5.1/sharer.min.js
-  # twemoji@13.1.0 https://github.com/twitter/twemoji
+  # twemoji@14.0.2 https://github.com/twitter/twemoji
   twemojiJS: twemoji@14.0.2/dist/twemoji.min.js
-  # twikoo@1.4.11 https://github.com/imaegoo/twikoo
+  # twikoo@1.6.16 https://github.com/imaegoo/twikoo
   twikooAllJS: twikoo@1.6.16/dist/twikoo.all.min.js
-  # twikoo@1.6.11 https://github.com/imaegoo/twikoo
+  # twikoo@1.6.16 https://github.com/imaegoo/twikoo
   twikooJS: twikoo@1.6.16/dist/twikoo.min.js
-  # typeit@7.0.4 https://github.com/alexmacarthur/typeit
+  # typeit@8.7.1 https://github.com/alexmacarthur/typeit
   typeitJS: typeit@8.7.1/dist/typeit.min.js
   # valine@1.4.16 https://github.com/xCss/Valine
   valineJS: valine@1.4.16/dist/Valine.min.js
-  # vue@v2.6.14 https://github.com/vuejs/vue
+  # vue@v2.7.14 https://github.com/vuejs/vue
   vueRuntimeJS: vue@2.7.14/dist/vue.runtime.min.js
   # vssue@1.4.8 https://github.com/meteorlxy/vssue
   vssueBitbucketJS: vssue@1.4.8/dist/vssue.bitbucket.min.js
@@ -73,7 +73,7 @@ libFiles:
   vssueGithubJS: vssue@1.4.8/dist/vssue.github.min.js
   vssueGitlabJS: vssue@1.4.8/dist/vssue.gitlab.min.js
   vssueCSS: vssue@1.4.8/dist/vssue.min.css
-  # waline@2.3.2 https://github.com/walinejs/waline
+  # waline@2.15.5 https://github.com/walinejs/waline
   walineJS: "@waline/client@2.15.5/dist/waline.js"
   walineCSS: "@waline/client@2.15.5/dist/waline.css"
   # tablesort@5.3.0 https://github.com/tristen/tablesort
