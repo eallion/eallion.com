@@ -1,0 +1,97 @@
+{
+    "localBasePath": "./assets/lib",
+    "dependencies": [
+        {
+            "name": "katex",
+            "version": "0.16.7",
+            "files": [
+                {
+                    "remote": "dist/katex.min.js",
+                    "local": "katex/katex.min.js"
+                },
+                {
+                    "remote": "dist/katex.min.css",
+                    "local": "katex/katex.min.css"
+                },
+                {
+                    "remote": "dist/contrib/auto-render.min.js",
+                    "local": "katex/auto-render.min.js"
+                },
+                {
+                    "remote": "dist/contrib/copy-tex.min.js",
+                    "local": "katex/copy-tex.min.js"
+                },
+                {
+                    "remote": "dist/contrib/mhchem.min.js",
+                    "local": "katex/mhchem.min.js"
+                }
+            ]
+        },
+        {
+            "name": "echarts",
+            "version": "5.4.2",
+            "files": [
+                {
+                    "remote": "dist/echarts.min.js",
+                    "local": "echarts/echarts.min.js"
+                },
+                {
+                    "remote": "theme/macarons.min.js",
+                    "local": "echarts/macarons.min.js"
+                }
+            ]
+        },
+        {
+            "name": "algoliasearch",
+            "version": "4.11.0",
+            "files": [
+                {
+                    "remote": "dist/algoliasearch-lite.umd.js",
+                    "local": "algoliasearch/algoliasearch-lite.umd.min.js"
+                }
+            ]
+        },
+        {
+            "name": "autocomplete.js",
+            "version": "0.38.1",
+            "files": [
+                {
+                    "remote": "dist/autocomplete.min.js",
+                    "local": "autocomplete/autocomplete.min.js"
+                }
+            ]
+        },
+        {
+            "name": "artalk",
+            "version": "2.5.5",
+            "files": [
+                {
+                    "remote": "dist/Artalk.js",
+                    "local": "artalk/Artalk.js"
+                },
+                {
+                    "remote": "theme/ArtalkLite.js",
+                    "local": "artalk/ArtalkLite.js"
+                },
+                {
+                    "remote": "theme/Artalk.css",
+                    "local": "artalk/Artalk.css"
+                },
+                {
+                    "remote": "theme/ArtalkLite.css",
+                    "local": "artalk/ArtalkLite.css"
+                }
+            ]
+        },
+        {
+            "name": "fuse.js",
+            "version": "6.6.2",
+            "files": [
+                {
+                    "remote": "dist/fuse.min.js",
+                    "local": "fuse/fuse.min.js"
+                }
+            ]
+        }
+    ]
+}
