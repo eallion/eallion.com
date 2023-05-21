@@ -43,7 +43,7 @@
         },
         {
             "name": "algoliasearch",
-            "version": "4.17.0",
+            "version": "4.11.0",
             "files": [
                 {
                     "remote": "dist/algoliasearch-lite.umd.js",
@@ -52,7 +52,7 @@
             ]
         },
         {
-            "name": "autocomplete",
+            "name": "autocomplete.js",
             "version": "0.38.1",
             "files": [
                 {
@@ -84,7 +84,7 @@
             ]
         },
         {
-            "name": "fuse",
+            "name": "fuse.js",
             "version": "6.6.2",
             "files": [
                 {
