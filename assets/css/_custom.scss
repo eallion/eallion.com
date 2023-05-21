@@ -17,6 +17,19 @@
     }
 }
 
+.single {
+    .post-footer {
+        .post-info {
+            .post-info-line {
+                .post-info-share {
+                    display: inline-flex;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
+
 .special .single-title,
 .archive .single-title {
     text-align: left;
@@ -25,6 +38,13 @@
 footer {
     .footer-container {
         line-height: 1.8 !important;
+
+        .footer-line .notbyai {
+            display: inline-flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
     }
 }
 
@@ -113,11 +133,6 @@ $background-color_6: #78191b;
                         width: 1.25em;
                         margin-right: 0.25rem;
                     }
-                }
-                .notbyai {
-                    // height: 1.666666rem;
-                    max-height: 42px !important;
-                    vertical-align: middle;
                 }
             }
         }
@@ -748,7 +763,8 @@ $background-color_6: #78191b;
     }
 }
 .talks__text {
-    ul,ol  {
+    ul,
+    ol {
         margin-left: 0 !important;
         li {
             margin-left: 2rem;

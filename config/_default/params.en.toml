@@ -78,6 +78,9 @@ keywords = ["eallion", "Charles", "chin", "blog", "Hugo", "蜗牛", "大大的�
     # URL of avatar shown in home page
     # 主页显示头像的 URL
     avatarURL = "https://eallion.com/eallion.png"
+    # URL the avatar links to
+    # 头像的链接指向的 URL
+    avatarLinkURL = "https://eallion.com/about/"
     # title shown in home page (HTML format is supported)
     # 主页显示的网站标题 (支持 HTML 格式)
     title = "Charles Chin's Blog"
