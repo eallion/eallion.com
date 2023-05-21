@@ -29,6 +29,9 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+      - name: Update deps
+        uses: Hugo-DoIt/update-dependencies@v0.3.1
+
       - name: Build Hugo
         run: |
           rm themes/DoIt -rf
