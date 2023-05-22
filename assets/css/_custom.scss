@@ -2,6 +2,50 @@
 // Custom style
 // 自定义样式
 // ==============================
+$font-family-font-awesome: "Font Awesome 5 Free";
+$font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif, serif;
+$code-font-family: "JetBrains Mono", "Noto Sans Mono", "Source Code Pro", "Fira Code", Consolas, Monaco, "Andale Mono",
+    "Ubuntu Mono", monospace;
+
+$color_1: #8186a2;
+$color_2: #1d9bf0;
+$color_3: #536471;
+$color_4: #54a3ff;
+$color_5: #73747b;
+$color_6: #71767b;
+$color_7: #222;
+$color_8: #fff;
+$color_9: #a9a9b3;
+$color_10: #999;
+$color_11: #777;
+$color_12: #24292e;
+$color_13: #d73a49;
+$color_14: #6f42c1;
+$color_15: #005cc5;
+$color_16: #032f62;
+$color_17: #e36209;
+$color_18: #6a737d;
+$color_19: #22863a;
+$color_20: #735c0f;
+$color_21: #b31d28;
+$color_22: #adbac7;
+$color_23: #f47067;
+$color_24: #dcbdfb;
+$color_25: #6cb6ff;
+$color_26: #96d0ff;
+$color_27: #f69d50;
+$color_28: #768390;
+$color_29: #8ddb8c;
+$color_30: #316dca;
+$color_31: #eac55f;
+$color_32: #b4f1b4;
+$color_33: #ffd8d3;
+$background-color_1: #eaeaea;
+$background-color_2: #2d333b;
+$background-color_3: #f0fff4;
+$background-color_4: #ffeef0;
+$background-color_5: #1b4721;
+$background-color_6: #78191b;
 
 .single {
     .content {
@@ -51,51 +95,6 @@ footer {
 .home .home-profile .home-disclaimer {
     text-align: left;
 }
-
-$font-family-font-awesome: "Font Awesome 5 Free";
-$font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif, serif;
-$code-font-family: "JetBrains Mono", "Noto Sans Mono", "Source Code Pro", "Fira Code", Consolas, Monaco, "Andale Mono",
-    "Ubuntu Mono", monospace;
-
-$color_1: #8186a2;
-$color_2: #1d9bf0;
-$color_3: #536471;
-$color_4: #54a3ff;
-$color_5: #73747b;
-$color_6: #71767b;
-$color_7: #222;
-$color_8: #fff;
-$color_9: #a9a9b3;
-$color_10: #999;
-$color_11: #777;
-$color_12: #24292e;
-$color_13: #d73a49;
-$color_14: #6f42c1;
-$color_15: #005cc5;
-$color_16: #032f62;
-$color_17: #e36209;
-$color_18: #6a737d;
-$color_19: #22863a;
-$color_20: #735c0f;
-$color_21: #b31d28;
-$color_22: #adbac7;
-$color_23: #f47067;
-$color_24: #dcbdfb;
-$color_25: #6cb6ff;
-$color_26: #96d0ff;
-$color_27: #f69d50;
-$color_28: #768390;
-$color_29: #8ddb8c;
-$color_30: #316dca;
-$color_31: #eac55f;
-$color_32: #b4f1b4;
-$color_33: #ffd8d3;
-$background-color_1: #eaeaea;
-$background-color_2: #2d333b;
-$background-color_3: #f0fff4;
-$background-color_4: #ffeef0;
-$background-color_5: #1b4721;
-$background-color_6: #78191b;
 
 .emoji {
     font-family: $font-family-emoji;
@@ -253,17 +252,17 @@ $background-color_6: #78191b;
         }
     }
     .talks__text {
-        background: #2d333b !important;
+        background: #22272e !important;
         &:not(pre) {
             > code {
-                background: #22272e !important;
+                background: #2d333b !important;
             }
         }
         pre {
-            background: #22272e !important;
+            background: #2d333b !important;
         }
         code {
-            background: #22272e !important;
+            background: #2d333b !important;
         }
         &:before {
             background: #2d333b !important;
@@ -272,9 +271,20 @@ $background-color_6: #78191b;
     .timeline {
         &:hover {
             .talks__text {
-                background: #3b3d42 !important;
+                background: #2d333b !important;
+                &:not(pre) {
+                    > code {
+                        background: #22272e !important;
+                    }
+                }
+                pre {
+                    background: #22272e !important;
+                }
+                code {
+                    background: #22272e !important;
+                }
                 &:before {
-                    background: #3b3d42 !important;
+                    background: #2d333b !important;
                 }
             }
         }
@@ -329,19 +339,7 @@ $background-color_6: #78191b;
     .load-btn {
         color: $color_9 !important;
         background: #2d333b !important;
-    }
-    &:not(pre) {
-        > code {
-            background: #2d333b !important;
-        }
-    }
-    .talks {
-        pre {
-            background: #2d333b !important;
-        }
-        code {
-            background: #2d333b !important;
-        }
+        border: 2px solid #a9a9b3 !important;
     }
     .hljs {
         color: $color_22 !important;
@@ -479,17 +477,17 @@ $background-color_6: #78191b;
         }
     }
     .talks__text {
-        background: #2d333b !important;
+        background: #22272e !important;
         &:not(pre) {
             > code {
-                background: #22272e !important;
+                background: #2d333b !important;
             }
         }
         pre {
-            background: #22272e !important;
+            background: #2d333b !important;
         }
         code {
-            background: #22272e !important;
+            background: #2d333b !important;
         }
         &:before {
             background: #2d333b !important;
@@ -498,9 +496,20 @@ $background-color_6: #78191b;
     .timeline {
         &:hover {
             .talks__text {
-                background: #3b3d42 !important;
+                background: #2d333b !important;
+                &:not(pre) {
+                    > code {
+                        background: #22272e !important;
+                    }
+                }
+                pre {
+                    background: #22272e !important;
+                }
+                code {
+                    background: #22272e !important;
+                }
                 &:before {
-                    background: #3b3d42 !important;
+                    background: #2d333b !important;
                 }
             }
         }
@@ -555,6 +564,7 @@ $background-color_6: #78191b;
     .load-btn {
         color: $color_9 !important;
         background: #2d333b !important;
+        border: 2px solid #a9a9b3 !important;
     }
     &:not(pre) {
         > code {
@@ -763,6 +773,12 @@ $background-color_6: #78191b;
     }
 }
 .talks__text {
+    & .hidden {
+        display: none;
+    }
+    & .artalk {
+        margin-top: 1rem;
+    }
     ul,
     ol {
         margin-left: 0 !important;
@@ -829,6 +845,7 @@ $background-color_6: #78191b;
     display: flex;
     font-weight: 700;
     align-items: center;
+    line-height: 2;
 }
 .talks__verify {
     margin-left: 2px;
@@ -861,26 +878,41 @@ $background-color_6: #78191b;
     font-weight: 400;
     margin-left: 4px;
 }
-.talks__date {
+
+.talks_comments {
+    margin-top: 0.75rem;
+
     a {
-        color: $color_3 !important;
-        font-weight: 400;
-        font-size: 0.7rem;
-        text-decoration: none !important;
-        &:hover {
-            color: $color_3 !important;
-        }
+        color: $color_6 !important;
+        font-size: 0.875rem;
+        cursor: pointer;
     }
-    .tooltip {
-        text-align: center;
-        &::after {
-            font-size: 12px;
-        }
-        &::before {
-            font-size: 12px;
-        }
+
+    .fa-comment-dots {
+        margin-left: 0;
     }
 }
+
+.talks__date a {
+    color: $color_3 !important;
+    font-weight: 400;
+    font-size: 0.7rem;
+    text-decoration: none !important;
+
+    &:hover {
+        color: $color_3 !important;
+    }
+}
+
+.talks__date .tooltip {
+    text-align: center;
+
+    &::after,
+    &::before {
+        font-size: 12px;
+    }
+}
+
 .memos__comment {
     margin-right: 5px;
     button {
@@ -900,6 +932,7 @@ $background-color_6: #78191b;
         }
     }
 }
+
 .talks__search {
     display: flex;
     flex-direction: row;
@@ -1128,6 +1161,7 @@ $background-color_6: #78191b;
     border: 0;
     border-radius: 8px;
     cursor: pointer;
+    border: 2px solid $color_7;
 }
 .post-content {
     .spotify-wrapper {
@@ -1716,3 +1750,8 @@ $color_album: #fff;
     padding: 10px 15px !important;
     border-radius: 6px !important;
 }
+
+.atk-dropdown-wrap .atk-dropdown-item {
+    margin-left: 0 !important;
+}
+
