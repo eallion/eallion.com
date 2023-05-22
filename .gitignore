@@ -41,3 +41,5 @@ autocorrect
 .hugo_build.lock
 
 settings.json
+
+resources/_gen/
