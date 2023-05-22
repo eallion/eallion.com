@@ -1498,7 +1498,6 @@ code.hljs {
     line-height: 35px !important;
     height: 45px;
     max-width: 800px;
-    width: 96%;
     text-align: left;
     padding: 5px 15px;
     margin: 20px 0;
@@ -1557,11 +1556,6 @@ code.hljs {
 .fa-github-alt {
     &:before {
         content: "\f09b" !important;
-    }
-}
-@media (max-width: 860px) {
-    #ticker {
-        width: 90%;
     }
 }
 
