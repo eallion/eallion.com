@@ -368,13 +368,6 @@ cacheRemoteImages = false
       # imageUploader = false
       # highlighter = false
       # texRenderer = false
-    # Artalk comment config (https://artalk.js.org)
-    # Artalk 评论系统设置 (https://artalk.js.org)
-    [page.comment.artalk]
-      enable = true
-      server = "https://api.eallion.com/artalk/"
-      site = "eallion"
-      lite = true
     # Facebook comment config (https://developers.facebook.com/docs/plugins/comments)
     # Facebook 评论系统设置 (https://developers.facebook.com/docs/plugins/comments)
     [page.comment.facebook]
@@ -454,6 +447,17 @@ cacheRemoteImages = false
       lightTheme = "light"
       darkTheme = "dark"
       dataLang = "en"
+    # artalk comment config (https://artalk.js.org/guide/frontend/config.html)
+    # artalk comment 评论系统设置 (https://artalk.js.org/guide/frontend/config.html)
+    [page.comment.artalk]
+      enable = true
+      server = "https://api.eallion.com/artalk/"
+      site = "eallion"
+      lite = true
+      katex = false
+      lightbox = false
+      pageview = true
+      commentCount = true
   # Third-party library config
   # 第三方库配置
   [page.library]
