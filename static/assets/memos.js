@@ -271,24 +271,32 @@ function updateHTMl(data) {
     document.querySelector("button.button-load").textContent = "加载更多";
 }
 
-function loadArtalk(memo_id){
-    const commentDiv = document.getElementById('memo_'+memo_id);
-    const commentBtn = document.getElementById('btn_memo_'+memo_id);
-    if(commentDiv.classList.contains('hidden')){
+function loadArtalk(memo_id) {
+    const commentDiv = document.getElementById('memo_' + memo_id);
+    const commentBtn = document.getElementById('btn_memo_' + memo_id);
+    if (commentDiv.classList.contains('hidden')) {
         commentDiv.classList.remove('hidden');
         commentBtn.innerHTML = '收起评论<i class="fas fa-level-up-alt"></i>';
-        new Artalk({
-            el: '#memo_' + memo_id,  // 绑定元素的 Selector
-            pageKey: '/m/'+memo_id,  // 固定链接 (留空自动获取)
-            pageTitle: '',  // 页面标题 (留空自动获取)
-            server: 'https://api.eallion.com/artalk/',  // 后端地址
-            site: 'memos',  // 在后端中创建的站点名
+        const artalk = new Artalk({
+            el: '#memo_' + memo_id,
+            pageKey: '/m/' + memo_id,
+            pageTitle: '',
+            server: 'https://api.eallion.com/artalk/',
+            site: 'memos',
+            darkMode: 'auto'
         });
-    }
-    else{
+        function setArtalkTheme() {
+            const theme = document.body.getAttribute('theme');
+            artalk.setDarkMode(theme === 'dark');
+        }
+        setArtalkTheme();
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            setArtalkTheme();
+        });
+        } else {
         commentDiv.classList.add('hidden');
         commentBtn.innerHTML = '评论';
-    }
+        }
 }
 
 //文章内显示豆瓣条目 https://immmmm.com/post-show-douban-item/
