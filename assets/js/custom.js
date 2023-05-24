@@ -76,13 +76,16 @@ if (document.querySelector('#ticker')) {
         for (var i = 0; i < data.length; i++) {
             var tickerTime = new Date(data[i].createdTs * 1000).toLocaleString()
             var tickerContent = data[i].content
-            var newtickerContent = tickerContent
+            const escapeHtml = (unsafe) => {
+                return unsafe.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
+            }
+            var newtickerContent = escapeHtml(tickerContent)
                 .replace(/```([\s\S]*?)```[\s]*/g, ' <code>$1</code> ') //全局匹配代码块
                 .replace(/`([\s\S ]*?)`[\s]*/g, ' <code>$1</code> ') //全局匹配内联代码块
                 .replace(/\!\[[\s\S]*?\]\(([\s\S]*?)\)/g, "$1") //全局匹配图片
                 .replace(/\[[\s\S]*?\]\(([\s\S]*?)\)/g, "$1") //全局匹配连接
                 .replace(/<video [^>]*src=['"](.+?[^'"]\.(mp4|webm|ogv)+)[^>]*>/g, "$1")  //全局匹配连接
- result += `<li class="item"><span class="datetime">${tickerTime}</span>：<a href="https://eallion.com/memos/">${newtickerContent}</a></li>`;
+            result += `<li class="item"><span class="datetime">${tickerTime}</span>：<a href="https://eallion.com/memos/">${newtickerContent}</a></li>`;
         }
         var tickerDom = document.querySelector('#ticker');
         var tickerBefore = `<i class='fab fa-twitter'></i><div class="ticker-wrap"><ul class="ticker-list">`
