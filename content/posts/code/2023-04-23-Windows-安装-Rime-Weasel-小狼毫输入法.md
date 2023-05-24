@@ -8,7 +8,6 @@ tags:
   - weasel
   - 小狼毫
   - 五笔
-  - 五笔拼音
 slug: "weasel"
 draft: false
 Comments: true
