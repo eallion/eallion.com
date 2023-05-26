@@ -43,6 +43,23 @@
 <script type="text/javascript" src="/assets/memos.min.js"></script>
 <script type="text/javascript" src="/assets/highlight.min.js?v=11.7.0"></script>
 <script type="text/javascript" src="/assets/view-image.min.js?v=2.0.2"></script>
+
+{{- /* Artalk Comment System */ -}}
+{{ $ArtalkCSS := resources.Get "lib/artalk/ArtalkLite.css" | resources.Minify | resources.Fingerprint "sha256" }}
+<link href="{{ $ArtalkCSS.RelPermalink }}" rel="stylesheet" integrity="{{ $ArtalkCSS.Data.Integrity }}" crossorigin="anonymous"></link>
+{{ $ArtalkJS := resources.Get "lib/artalk/ArtalkLite.js" | resources.Minify | resources.Fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $ArtalkJS.RelPermalink }}" integrity="{{ $ArtalkJS.Data.Integrity }}" crossorigin="anonymous"></script>
+<script>
+    window.onload = function() {
+        Artalk.loadCountWidget({
+            server: 'https://api.eallion.com/artalk/',
+            site: 'memos',
+            pvEl: '#ArtalkPV',
+            countEl: '#ArtalkCount',
+        });
+    }
+</script>
+
 <script>
     window.ViewImage && ViewImage.init('.content img');
 </script>
