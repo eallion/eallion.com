@@ -15,11 +15,12 @@ lastmod: 2022-11-06T16:34:22+08:00
 
 ### Memos 简介系列
 
-- [Memos 简介](https://eallion.com/memos-deployment/)
-- [Memos 手动导入数据](https://eallion.com/memos-import/)
-- [Memos API 调用渲染页面](https://eallion.com/memos-api/)
-- [Memos API 公告样式滚动效果](https://eallion.com/memos-ticker/)
-- [Memos API 获取总条数](https://eallion.com/memos-total-count/)
+- 《[Memos 简介](https://eallion.com/memos-deployment/)》
+- 《[Memos 手动导入数据](https://eallion.com/memos-import/)》
+- 《[Memos API 调用渲染页面](https://eallion.com/memos-api/)》
+- 《[Memos API 公告样式滚动效果](https://eallion.com/memos-ticker/)》
+- 《[Memos API 获取总条数](https://eallion.com/memos-total-count/)》
+- 《[Memos 配置 Artalk 评论系统](https://eallion.com/artalk_for_memos/)》
 
 ***更新**：Memos 官方 `amount` API 已弃用。（[Issues #1214](https://github.com/usememos/memos/issues/1214)）
 
