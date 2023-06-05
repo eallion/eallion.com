@@ -47,16 +47,10 @@ a.time-text:after { content: ' 评论 💬 '; }
 
 ```js
 // Artalk comments
-// 用 JS 向页面中插入 CSS
-window.onload = function() {
-  if (window.location.href.indexOf('/m/') !== -1) {
-    document.head.innerHTML += '<link rel="stylesheet" href="Artalk.min.css" type="text/css"/>';
-  }
-};
 // 用 JS 向页面中插入 JS
 function addArtalkJS() { 
     var memosArtalk = document.createElement("script");
-    memosArtalk.src = `Artalk.min.js`;
+    memosArtalk.src = `https://cdn.staticfile.org/artalk/2.5.5/Artalk.min.js`;
     var artakPos = document.getElementsByTagName("script")[0];
     artakPos.parentNode.insertBefore(memosArtalk, artakPos);
 };
@@ -74,6 +68,10 @@ function startArtalk() {
             addArtalkJS()
             if(memoAt){
                 clearInterval(start)
+                var cssLink = document.createElement("link");
+                cssLink.rel = "stylesheet";
+                cssLink.href = "https://api.eallion.com/artalk/dist/ArtalkLite.css";
+                document.head.appendChild(cssLink);
                 memoAt.insertAdjacentHTML('afterend', '<div id="Comments"></div>');
                 setTimeout(function() {
                     Artalk.init({
