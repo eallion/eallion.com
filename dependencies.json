@@ -43,7 +43,7 @@
         },
         {
             "name": "algoliasearch",
-            "version": "4.17.2",
+            "version": "4.18.0",
             "files": [
                 {
                     "remote": "dist/algoliasearch-lite.umd.js",
