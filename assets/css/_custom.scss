@@ -1477,17 +1477,28 @@ code.hljs {
     }
 }
 
-.tag-span i {
-    margin-right: 0;
-}
+.tag-span {
+    background-color: rgba(37, 99, 235, 0.15);
+    padding: 0 5px;
+    border-radius: 3px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    display: inline-block;
+    width: auto;
+    cursor: pointer;
 
-.tag-span a::before {
-    content: "\f292";
-    font-weight: 900;
-    font-family: "Font Awesome 5 Free";
-    text-align: center;
-    width: 1.25em;
-    margin-right: 0.125rem;
+    i {
+        margin-right: 0;
+    }
+
+    a::before {
+        content: "\f292";
+        font-weight: 900;
+        font-family: "Font Awesome 5 Free";
+        text-align: center;
+        width: 1.25em;
+        margin-right: 0.125rem;
+    }
 }
 
 /* 首页嘀咕样式 JSON 版 */
