@@ -25,7 +25,7 @@ date: 2023-05-25T22:13:35+08:00
 > TODO：
 
 - [x] 解决 Memos 后台界面错乱问题（已解决）
-- [ ] Memos 应用上的暗黑模式适配
+- [x] Memos 应用上的暗黑模式适配（[木木老师顺手就解决了](https://me.edui.fun/m/1628)）
 
 在木木老师《[Memos x Twikoo](https://immmmm.com/memos-with-twikoo/)》和拾月老师《[单页 Memos 添加 Artalk 评论，无限接近微博](https://www.skyue.com/23051422.html)》的启发之下。
 给 [Memos 嘀咕页面](https://eallion.com/memos/) 和 [Memos 应用](https://memos.eallion.com/m/5668) 添加了 Artalk 评论系统。
@@ -39,6 +39,26 @@ date: 2023-05-25T22:13:35+08:00
 ```css
 a.time-text:after { content: ' 评论 💬 '; }
 .atk-main-editor { margin-top: 20px; }
+.dark .artalk{
+  --at-color-font: #fff;
+  --at-color-deep: #e7e7e7;
+  --at-color-sub: #e7e7e7;
+  --at-color-grey: #fff;
+  --at-color-meta: #fff;
+  --at-color-border: #2d3235;
+  --at-color-light: #687a86;
+  --at-color-bg: #1e2224;
+  --at-color-bg-transl: rgba(30, 34, 36, .95);
+  --at-color-bg-grey: #46494e;
+  --at-color-bg-grey-transl: rgba(8, 8, 8, .95);
+  --at-color-bg-light: rgba(29, 161, 242, .1);
+  --at-color-main: #0083ff;
+  --at-color-red: #ff5652;
+  --at-color-pink: #fa5a57;
+  --at-color-yellow: #ff7c37;
+  --at-color-green: #4caf50;
+  --at-color-gradient: linear-gradient(180deg, transparent, rgba(30, 34, 36, 1))
+}
 ```
 
 ### 自定义脚本
@@ -70,7 +90,7 @@ function startArtalk() {
                 clearInterval(start)
                 var cssLink = document.createElement("link");
                 cssLink.rel = "stylesheet";
-                cssLink.href = "https://api.eallion.com/artalk/dist/ArtalkLite.css";
+                cssLink.href = "https://cdn.staticfile.org/artalk/2.5.5/Artalk.min.css";
                 document.head.appendChild(cssLink);
                 memoAt.insertAdjacentHTML('afterend', '<div id="Comments"></div>');
                 setTimeout(function() {
