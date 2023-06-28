@@ -152,18 +152,19 @@ function insertAIDiv(selector) {
 
   const aiTitleTextDiv = document.createElement('div');
   aiTitleTextDiv.className = 'tianliGPT-title-text';
-  aiTitleTextDiv.textContent = 'AI摘要';
+  aiTitleTextDiv.textContent = 'AI 摘要';
   aiTitleDiv.appendChild(aiTitleTextDiv);
 
-  const aiTagDiv = document.createElement('div');
-  aiTagDiv.className = 'tianliGPT-tag';
-  aiTagDiv.id = 'tianliGPT-tag';
-  aiTagDiv.textContent = 'TianliGPT';
-  aiTitleDiv.appendChild(aiTagDiv);
+//   const aiTagDiv = document.createElement('div');
+//   aiTagDiv.className = 'tianliGPT-tag';
+//   aiTagDiv.id = 'tianliGPT-tag';
+//   aiTagDiv.textContent = 'TianliGPT';
+//   aiTitleDiv.appendChild(aiTagDiv);
 
   const aiExplanationDiv = document.createElement('div');
-  aiExplanationDiv.className = 'tianliGPT-explanation';
-  aiExplanationDiv.innerHTML = '生成中...' + '<span class="blinking-cursor"></span>';
+  aiExplanationDiv.setAttribute('id', 'tianliGPT-explanation');
+  aiExplanationDiv.className = 'tianliGPT-explanation typeit';
+  aiExplanationDiv.innerHTML = ' ';
   aiDiv.appendChild(aiExplanationDiv); // 将 tianliGPT-explanation 插入到 aiDiv，而不是 aiTitleDiv
 
   // 将创建的元素插入到目标元素的顶部
@@ -260,21 +261,33 @@ var tianliGPT = {
     }
 }
 
-
 }
 
 function runTianliGPT() {
   insertAIDiv(tianliGPT_postSelector);
   const content = tianliGPT.getTitleAndContent();
   if (content) {
-    console.log('TianliGPT本次提交的内容为：' + content);
+    console.log('TianliGPT 本次提交的内容为：' + content);
   }
   tianliGPT.fetchTianliGPT(content).then(summary => {
     const aiExplanationDiv = document.querySelector('.tianliGPT-explanation');
-    aiExplanationDiv.innerHTML = summary;
-  })
-}
 
+    // 清空 aiExplanationDiv 的内容
+    aiExplanationDiv.innerHTML = '';
+
+    // 将 summary 插入 aiExplanationDiv
+    //aiExplanationDiv.innerHTML = summary;
+
+    // 创建 TypeIt 实例并开始打字机效果
+    new TypeIt("#tianliGPT-explanation", {
+      strings: [summary],
+      speed: 50,
+      waitUntilVisible: true,
+    }).go();
+  });
+
+
+}
 function checkURLAndRun() {
   if (typeof tianliGPT_postURL === "undefined") {
     runTianliGPT(); // 如果没有设置自定义 URL，则直接执行 runTianliGPT() 函数
