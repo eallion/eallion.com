@@ -1659,6 +1659,9 @@ $color_album: #fff;
     .memos-photo-wrapper {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+    .memos-photo-wrapper > *:nth-child(n+4) {
+        display: none;
+    }
     .memos-photo {
         height: 201px;
     }
@@ -1666,6 +1669,9 @@ $color_album: #fff;
 @media only screen and (max-width: 479px) {
     .memos-photo-wrapper {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .memos-photo-wrapper > *:nth-child(n+3) {
+        display: none;
     }
     .memos-photo {
         height: 171px;
