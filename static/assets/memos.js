@@ -255,7 +255,7 @@ function updateHTMl(data) {
             moment(data[i].createdTs * 1000).twitterLong() +
             "</a></small></div><p>" +
             memoContREG +
-            "</p><div class='talks_comments'><a onclick=\"loadArtalk(\'" + memo_id + "\')\"><i class='fas fa-comment-dots fa-fw'></i><span id='btn_memo_" + memo_id + "'>评论</span> (<span id='ArtalkCount' data-page-key='/m/" + memo_id + "'>0</span>)</a></div><div id='memo_" + memo_id + "' class='artalk hidden'></div></div></li>";
+            "</p><div class='talks_comments'><a class='artalk-div' onclick=\"loadArtalk(\'" + memo_id + "\',event)\"><i class='fas fa-comment-dots fa-fw'></i><span id='btn_memo_" + memo_id + "'>评论</span> (<span id='ArtalkCount' data-page-key='/m/" + memo_id + "'>0</span>)</a></div><div id='memo_" + memo_id + "' class='artalk hidden'></div></div></li>";
     }
 
     var memoBefore = '<ul class="talks">';
@@ -271,12 +271,29 @@ function updateHTMl(data) {
     document.querySelector("button.button-load").textContent = "加载更多";
 }
 
-function loadArtalk(memo_id) {
+let activeDiv = null;
+
+function loadArtalk(memo_id, event) {
+    event.preventDefault();
+
     const commentDiv = document.getElementById('memo_' + memo_id);
     const commentBtn = document.getElementById('btn_memo_' + memo_id);
+    const commentId = document.getElementById(memo_id);
+
     if (commentDiv.classList.contains('hidden')) {
+        // 关闭当前已展开的 div 元素
+        if (activeDiv) {
+            activeDiv.classList.add('hidden');
+            // 修改按钮文本
+            const activeBtnId = activeDiv.id.replace('memo_', 'btn_memo_');
+            const activeBtn = document.getElementById(activeBtnId);
+            activeBtn.innerHTML = '评论';
+        }
+
         commentDiv.classList.remove('hidden');
         commentBtn.innerHTML = '收起评论<i class="fas fa-level-up-alt"></i>';
+        activeDiv = commentDiv;
+
         const artalk = new Artalk({
             el: '#memo_' + memo_id,
             pageKey: '/m/' + memo_id,
@@ -285,18 +302,31 @@ function loadArtalk(memo_id) {
             site: 'memos',
             darkMode: 'auto'
         });
+
         function setArtalkTheme() {
             const theme = document.body.getAttribute('theme');
             artalk.setDarkMode(theme === 'dark');
         }
+
         setArtalkTheme();
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
             setArtalkTheme();
         });
-        } else {
+
+        // 获取 commentId 的位置
+        const commentIdPosition = commentId.getBoundingClientRect().top + window.pageYOffset;
+        // 计算偏移量
+        const offset = commentIdPosition - 3.5 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+        // 将页面滚动到 commentId 的位置加上偏移量
+        window.scrollTo({
+            top: offset,
+            behavior: 'smooth'
+        });
+    } else {
         commentDiv.classList.add('hidden');
         commentBtn.innerHTML = '评论';
-        }
+        activeDiv = null;
+    }
 }
 
 //文章内显示豆瓣条目 https://immmmm.com/post-show-douban-item/
