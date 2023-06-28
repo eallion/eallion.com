@@ -2014,7 +2014,12 @@ $color_album: #fff;
     border: var(--style-border-always);
     font-size: 15px;
     line-height: 1.4;
-    display: flex;
+    display: inline-block;
+    width: 100%;
+}
+
+.tianliGPT-explanation span {
+    margin-left: 0.25rem;
 }
 
 .tianliGPT-suggestions {
