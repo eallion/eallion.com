@@ -30,6 +30,7 @@ comment: false
 {{< friend name="空白生活" bio="koobai" url="https://koobai.com/" domain="koobai.com" avatar="https://cravatar.cn/avatar/3b3d336a7d389b7ae8531cbe177ae9b7" >}}
 {{< friend name="wananaiko" bio="前产品经理，现在是 UI/UX" url="https://wananaiko.com/" domain="wananaiko.com" avatar="https://thirdqq.qlogo.cn/g?b=sdk&k=7AFd0gic7wVsNg2ToQrQU2w&s=140&t=1583250600" >}}
 {{< friend name="归臧" bio="UI & UX Design" url="https://nuoea.com/" domain="nuoea.com" avatar="https://cravatar.cn/avatar/020d365ea2596ef6d516143bb0552704" >}}
+{{< friend name="东评西就" bio="小饿,专注科技互联网、社交媒体运营" url="https://dongjunke.cn" domain="dongjunke.cn" avatar="https://pic.yunshusong.cn/upic/20230204122856.jpg" >}}
 </div>
 
 ---
