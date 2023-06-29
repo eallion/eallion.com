@@ -1,0 +1,308 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+
+{{- define "content" -}}
+{{- $params := .Scratch.Get "params" -}}
+{{- $toc := $params.toc -}}
+{{- if eq $toc true -}}
+{{- $toc = .Site.Params.page.toc | default dict -}}
+{{- else if eq $toc false -}}
+{{- $toc = dict "enable" false -}}
+{{- end -}}
+
+{{ $goods := getJSON "data/goods/goods.json" }}
+
+<style>
+/* goods-------- start*/
+@font-face {
+font-family: DINPro;
+    src: url(/fonts/DINPro.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --code-bg: rgb(245, 245, 245);
+}
+
+#goods {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    margin-bottom: 1rem;
+}
+
+.goods-container {
+    /* height: 326px; */
+    list-style: none;
+    border-radius: 8px;
+    background: var(--code-bg);
+    padding: 16px;
+    overflow: hidden;
+    border: 1px solid var(--light-background-secondary);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+}
+
+.dark .goods-container {
+    border: 1px solid var(--dark-background-secondary);
+}
+
+.goods-image {
+    min-height: 164px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.goods-image img {
+    width: 80%;
+    margin: 0 auto;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.goods-image:hover img {
+    transform: scale(1.1);
+}
+
+.goods-title {
+    font-size: 0.875rem;
+    margin: 0;
+    transition: 0.5s;
+}
+
+.goods-title a {
+    font-size: 0.875rem;
+    text-decoration: none;
+}
+
+.goods-price {
+    font-family: DINPro,monospace !important;
+    color: #999;
+    font-size: 0.875rem;
+    line-height: 1.4rem;
+}
+
+.goods-note {
+    color: #999;
+    font-size: 0.875rem;
+    line-height: 1.3rem;
+}
+
+.goods-report-coupon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.goods-coupon,.goods-report {
+    color: #999;
+    background: -webkit-gradient(linear,left top,right top,color-stop(0,#eaeaea ),to(#ccc));
+    background: linear-gradient(90deg,#eaeaea ,#ccc);
+    font-size: 12px;
+    border-radius: 0 10px 10px;
+    display: inline-block;
+    padding: 1px 10px;
+    margin-top: 5px;
+}
+
+.goods-coupon {
+    margin-left: 0.5rem;
+}
+
+.goods-coupon a,
+.goods-report a {
+    color: #999 !important;
+}
+
+.goods-coupon:hover a,
+.goods-report:hover a {
+    color: #fff !important;
+}
+
+.goods-coupon:hover,.goods-report:hover {
+    color: #fff;
+    background: -webkit-gradient(linear, left top, right top, color-stop(0, #ff6a2c), to(#ff3f3e));
+    background: linear-gradient(90deg, #ff6a2c,#ff3f3e);
+}
+
+.goods-coupon:hover,.goods-coupon:hover a {
+    cursor: help !important;
+}
+
+.goods-report-empty:hover {
+    color: #999 !important;
+    background: -webkit-gradient(linear,left top,right top,color-stop(0,#eaeaea ),to(#ccc));
+    background: linear-gradient(90deg,#eaeaea ,#ccc);
+    cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+    .goods-title {
+        font-size: 0.875rem;
+        margin: 0 10px !important;
+        transition: 0.5s;
+    }
+
+    .goods-price {
+        margin: 0 10px 0 10px;
+    }
+
+    .goods-image img {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .goods-note {
+        line-height: 1.3rem;
+        margin: 8px 10px 0 10px;
+    }
+
+    .goods-title {
+        font-size: 0.875rem;
+        margin: 0 auto;
+        line-height: 1.5rem;
+    }
+
+    .goods-title a {
+        font-size: 0.875rem;
+        text-decoration: none;
+        box-shadow: none;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 900px) {
+    .goods-quanju {
+        font-size: 0;
+        width: 106%;
+    }
+
+    .goods-title {
+        font-size: 0.875rem;
+        margin: 0 auto;
+        line-height: 1.5rem;
+        transition: 0.5s;
+    }
+
+    .goods-title a {
+        font-size: 0.875rem;
+        text-decoration: none;
+        box-shadow: none;
+    }
+}
+
+@media (min-width: 900px) {
+    .goods-quanju {
+        font-size: 0;
+        width: 106%;
+    }
+
+    .goods-note {
+        font-size: 0.875rem;
+        line-height: 1.3rem;
+        margin-top: 0.5rem;
+    }
+
+    .goods-image img {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .goods-container.img-hide img {
+        transition: transform 0.2s ease-in-out;
+        cursor: pointer;
+    }
+
+    .goods-container.img-hide:hover img {
+        transform: scale(1.1);
+    }
+
+    .goods-title {
+        font-size: 16px;
+        margin: 0 auto;
+        line-height: 1.6rem;
+        transition: 0.5s;
+    }
+
+    .goods-title a {
+        font-size: 16px;
+        text-decoration: none;
+        box-shadow: none;
+        transition: 0.5s;
+    }
+}
+
+[theme="dark"] {
+    --code-bg: #3b3d42;
+
+    .goods-coupon,
+    .goods-report {
+        color: #999;
+        background: -webkit-gradient(linear, left top, right top, color-stop(0, #2d333b), to(#333));
+        background: linear-gradient(90deg, #2d333b, #333);
+    }
+
+    .goods-coupon:hover,
+    .goods-report:hover {
+        color: #fff;
+        background: -webkit-gradient(linear, left top, right top, color-stop(0, #ff6a2c), to(#ff3f3e));
+        background: linear-gradient(90deg, #ff6a2c, #ff3f3e);
+    }
+
+}
+
+[theme="black"] {
+    --code-bg: #3b3d42;
+
+    .goods-coupon,
+    .goods-report {
+        color: #999;
+        background: -webkit-gradient(linear, left top, right top, color-stop(0, #2d333b), to(#333));
+        background: linear-gradient(90deg, #2d333b, #333);
+    }
+
+    .goods-coupon:hover,
+    .goods-report:hover {
+        color: #fff;
+        background: -webkit-gradient(linear, left top, right top, color-stop(0, #ff6a2c), to(#ff3f3e));
+        background: linear-gradient(90deg, #ff6a2c, #ff3f3e);
+    }
+}
+/* goods -------- end */
+</style>
+<article class="page single special">
+    <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
+    <div id="content" class="content goods">
+        <div class="count">
+            <blockquote>好物推荐 <span class="emoji">💄</span> 部分链接可能带有 aff 推广，不喜可删！或直接搜券👉<a href="https://www.kubaicai.com/" target="_blank" rel="noreferrer noopener nofollow">www.kubaicai.com <i class="fas fa-external-link-alt fa-xs"></i></a></blockquote>
+        </div>
+        {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+        <div id="goods">
+            {{ range $goods.good}}
+            <div class="goods-container img-hide">
+                <div class="goods-image">
+                    <a class="lightgallery" href="{{ .image }}" title="{{ .image }}" data-thumbnail="{{ .image }}">
+                        <img loading="lazy" decoding="async" src="{{ .image }}" alt="{{ .image }}">
+                    </a>
+                </div>
+                <div class="goods-price">{{ .price }}</div>
+                <div class="goods-title"><a href="{{ .link }}" target="_blank" rel="noreferrer noopener nofollow">{{ .title }}</a></div>
+                <div class="goods-report-coupon-btn">
+                    {{ if or (not .report) (eq .report "") }}
+                    <div class="goods-report goods-report-empty">
+                        试用报告
+                    </div>
+                    {{ else }}
+                    <div class="goods-report">
+                        <a href="{{ .report }}" target="_blank" rel="noreferrer noopener nofollow">试用报告</a>
+                    </div>
+                    {{ end }}
+                    <div class="goods-coupon"><i class="fas fa-ad fa-lg"></i> <a href="https://www.kubaicai.com/?r=/l/jdlist&kw={{ .title }}&t=223&origin_id=" target="_blank" rel="noreferrer noopener nofollow">搜搜优惠券？</a></div>
+                </div>
+                <div class="goods-note">{{ .note | safeHTML }}</div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</article>
+
+{{ end }}
