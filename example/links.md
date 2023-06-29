@@ -4,6 +4,8 @@ date: "2006-04-14 00:00:00"
 layout: "links"
 type: "links"
 comment: false
+aliases:
+    - /link
 ---
 
 <div class="links">
