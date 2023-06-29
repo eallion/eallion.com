@@ -4,6 +4,9 @@ date: "2006-04-14 00:00:00"
 type: "privacy-policy"
 layout: "privacy-policy"
 comment: false
+aliases:
+    - /en/privacy
+    - /en/privacypolicy
 ---
 
 <style>#comments {display:none !important}</style>
@@ -21,7 +24,7 @@ comment: false
 
 **您使用或继续使用我们的服务，即意味着同意我们按照本《隐私政策》收集、使用、储存和分享您的相关信息。**
 
-如对本《隐私政策》或相关事宜有任何问题，请通过 eallions@gmail.com 与我们联系。
+如对本《隐私政策》或相关事宜有任何问题，请通过 <eallions@gmail.com> 与我们联系。
 
 本隐私政策帮助您了解以下内容：
 
