@@ -2049,8 +2049,8 @@ $color_album: #fff;
 
 .blinking-cursor {
     background-color: var(--heo-main);
-    width: 10px;
-    height: 16px;
+    width: 2px;
+    height: 15px;
     display: inline-block;
     vertical-align: middle;
     animation: blinking-cursor 0.5s infinite;

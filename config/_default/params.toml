@@ -472,6 +472,7 @@ cacheRemoteImages = false
       # someCSS = "https://cdn.example.com/some.css"
     [page.library.js]
       custom = "js/custom.min.js"
+      pangu = "js/pangu.min.js"
       # someJavaScript = "some.js"
       # [page.library.js.someOtherJavaScript]
       #   src = "someOther.js"
