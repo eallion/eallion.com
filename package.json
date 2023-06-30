@@ -29,7 +29,7 @@
     },
     "homepage": "https://github.com/eallion/eallion.com#readme",
     "dependencies": {
-        "axios": "^1.3.6",
+        "axios": "^1.4.0",
         "fs": "^0.0.1-security",
         "generate-changelog": "^1.8.0"
     }
