@@ -1,0 +1,64 @@
+{{- partial "init.html" . -}}
+
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title>
+        {{- block "title" . }}{{ .Site.Title }}{{ end -}}
+    </title>
+
+    {{- partial "head/meta.html" . -}}
+    {{- partial "head/link.html" . -}}
+    {{- partial "head/seo.html" . -}}
+
+    <!-- <script src="//instant.page/5.2.0" defer type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script> -->
+    <script type="text/javascript" src="/assets/instantpage-5.2.0.js" type="module" defer></script>
+</head>
+
+<body header-desktop="{{ .Site.Params.header.desktopMode }}" header-mobile="{{ .Site.Params.header.mobileMode }}">
+    {{- /* Check theme isDark before body rendering */ -}}
+    {{- $theme := .Site.Params.defaulttheme -}}
+    <script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark'); window.theme = theme;   window.isDark = window.theme !== 'light' }
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('{{ $theme }}' === 'light' || '{{ $theme }}' === 'dark' || '{{ $theme }}' === 'black') setTheme('{{ $theme }}'), saveTheme('{{ $theme }}'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+        window.switchThemeEventSet = new Set()
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div>
+
+    {{- /* Body wrapper */ -}}
+    <div class="wrapper">
+        {{- partial "header.html" . -}}
+        <main class="main">
+            <div class="container">
+                {{- block "content" . }}{{ end -}}
+            </div>
+        </main>
+        {{- partial "footer.html" . -}}
+    </div>
+
+    <div id="fixed-buttons">
+        {{- /* top button */ -}}
+        <a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="{{ T `backToTop` }}">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a>
+
+        {{- /* comment button */ -}}
+        <a href="#" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div>
+
+    {{- /* Load JavaScript scripts and CSS */ -}}
+    {{- partial "assets.html" . -}}
+</body>
+
+</html>
