@@ -1,3 +1,107 @@
+/* Grid CSS for memos editor */
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -0.5rem;
+    margin-left: -0.5rem;
+}
+
+.col-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.mb-3,
+.my-3 {
+    margin-bottom: 1rem !important;
+}
+
+.p-1 {
+    padding: 0.25rem !important;
+}
+
+.p-3 {
+    padding: 1rem !important;
+}
+
+.text-sm {
+    font-size: 1rem !important;
+}
+
+.pt-3,
+.py-3 {
+    padding-top: 1rem !important;
+}
+
+.mr-2,
+.mx-2 {
+    margin-right: 0.5rem !important;
+}
+
+.mt-2,
+.my-2 {
+    margin-top: 0.5rem !important;
+}
+
+.border-t {
+    border-top: 1px solid var(--light-border-color);
+}
+
+.pr-2,
+.px-2 {
+    padding-right: 0.5rem !important;
+}
+
+.pl-2,
+.px-2 {
+    padding-left: 0.5rem !important;
+}
+
+.pb-1,
+.py-1 {
+    padding-bottom: 0.25rem !important;
+}
+
+.pt-1,
+.py-1 {
+    padding-top: 0.25rem !important;
+}
+
+.mr-3,
+.mx-3 {
+    margin-right: 1rem !important;
+}
+
+.pr-3,
+.px-3 {
+    padding-right: 1rem !important;
+}
+
+.pl-3,
+.px-3 {
+    padding-left: 1rem !important;
+}
+
+.d-flex {
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+.flex-fill {
+    -ms-flex: 1 1 auto !important;
+    flex: 1 1 auto !important;
+}
+
+.justify-content-end {
+    -ms-flex-pack: end !important;
+    justify-content: flex-end !important;
+}
+
+/* Grid CSS End */
+
 #memos ul,
 #memos ol {
     padding-left: 0 !important;
@@ -1122,67 +1226,184 @@
     background-color: #78191b !important;
 }
 
-/* 首页嘀咕样式 JSON 版 */
-#ticker {
-    display: flex;
-    flex: 1 auto;
+.greyQuote blockquote {
+    display: flex !important;
     align-items: center;
-    line-height: 35px !important;
-    height: 45px;
-    max-width: 800px;
-    text-align: left;
-    padding: 5px 15px;
-    margin: 20px 0;
+    justify-content: space-between;
+}
+
+/* Memos Editor */
+.load-memos-editor {
     position: relative;
-    border-radius: 8px;
-    font-size: 1rem;
-    overflow: hidden;
-    background: #eeeef1;
+    margin-right: 1rem;
 }
 
-.home .home-profile .home-disclaimer {
-    padding: 0 !important;
+.editIcon button,
+.memos-open-api-submit button,
+.editor-submit button,
+.memos-editor-tools .button,
+.editor-selector select {
+    position: relative;
+    display: flex;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 0.33rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: all 0.3s linear;
+    transition: all 0.3s linear;
 }
 
-.ticker-wrap {
-    overflow: hidden;
+.editIcon button.outline {
+    border-color: #ccc;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0.25rem;
 }
 
-.ticker-wrap ul {
-    padding-left: 0.5rem;
+.editIcon button.outline:hover {
+    background-color: #ccc;
+    cursor: pointer;
 }
 
-.ticker-list {
-    margin: 0;
-    height: 35px;
+.memos-editor {
+    margin-top: 2rem;
 }
 
-.ticker-list li {
-    list-style: none;
-    margin-bottom: 10px;
+.memos-editor-body {
+    display: flex;
+    border-radius: 0.33rem;
+    background-color: #eaeaea;
+    flex-direction: column;
+}
+
+.memos-editor-content {
+    display: flex;
+    min-height: 5rem;
+    border: 1px solid #e1e1e1;
+    border-radius: 0.25rem;
+}
+
+.memos-editor-content .memos-editor-inputer {
+    overflow-x: hidden;
+    overflow-y: clip;
+    padding: 0;
     width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    background-color: #eeeef1;
+    white-space: pre-wrap;
+    line-height: 2rem;
+    resize: none;
+    overflow-wrap: anywhere;
+    word-break: normal;
 }
 
-.item {
-    list-style: none;
-    margin-bottom: 10px;
-    width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+.memos-editor-content textarea:focus,
+.memos-editor-content textarea:not(:placeholder-shown) {
+    background-image: none;
 }
 
-.item code {
-    white-space: nowrap !important;
+.memos-editor-content textarea {
+    padding: 0.5rem !important;
+    border-radius: 0.25rem;
+    background-image: url("https://v2.jinrishici.com/one.svg?font-size=18");
+    background-position: calc(1rem) calc(1rem);
+    background-repeat: no-repeat;
 }
 
-[theme="dark"] #ticker {
-    background: #2d333b !important;
+.memos-editor-tools {
+    display: flex;
+    flex-direction: column;
 }
 
-[theme="black"] #ticker {
-    background: #2d333b !important;
+.memos-editor-tools .action-btn {
+    padding: 0.25rem;
+    line-height: 1;
 }
+
+.memos-editor-tools .memos-tag-list {
+    display: flex;
+    line-height: 2;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.memos-editor-tools .memos-tag {
+    position: relative;
+}
+
+.memos-editor-tools .memos-tag a {
+    flex: 1;
+}
+
+.memos-editor-tools i {
+    color: #777;
+    width: 1rem;
+}
+
+.memos-editor-footer {
+    line-height: 1;
+}
+
+.memos-editor-footer,
+.memos-editor-option {
+    display: flex;
+    align-items: center;
+}
+
+.memos-editor-option input {
+    outline: none;
+    border-color: #ccc;
+    border-width: 1px;
+    border-radius: 0.33rem;
+    background-color: #eeeef1;
+    box-shadow: none;
+    transition: all 0.3s linear;
+}
+
+.memos-editor-content textarea:focus,
+.memos-editor-content textarea:active,
+.memos-editor-content textarea:hover,
+.memos-editor-option input:focus,
+.memos-editor-option input:active,
+.memos-editor-option input:hover {
+    background-color: #fff;
+}
+
+.editor-submit button.primary,
+.memos-open-api-submit button.primary {
+    color: #fff;
+    background-color: #2d96bd;
+}
+
+.editor-submit button.primary:hover,
+.memos-open-api-submit button.primary:hover {
+    background-color: #ef3982;
+    box-shadow: 0px 5px 20px -3px rgba(239, 57, 130, 0.5);
+}
+
+.memos-editor-tools .button.outline,
+.editor-selector select.outline {
+    border-color: #ccc;
+    background: transparent;
+    box-shadow: none;
+}
+
+.border-t {
+    border-top: 1px solid #e1e1e1;
+    margin-top: 1rem;
+}
+
+.d-none {
+    display: none !important;
+}
+
+/* Memos Editor End */

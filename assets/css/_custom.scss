@@ -73,11 +73,6 @@ $background-color_6: #78191b;
         }
     }
 
-    .special .single-title,
-    .archive .single-title {
-        text-align: left;
-    }
-
     .post-meta {
         .author {
             a {
@@ -101,6 +96,13 @@ $background-color_6: #78191b;
     .content .friend-link-div {
         width: 100%;
     }
+}
+
+.single .single-title,
+.special .single-title,
+.special .single-subtitle,
+.archive .single-title {
+    text-align: left !important;
 }
 
 .home .home-profile .home-disclaimer {
