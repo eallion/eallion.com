@@ -17,10 +17,17 @@
     <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
     <div id="content" class="content">
         <div class="greyQuote">
-            <blockquote>There are <span id="memosCount"><i class="fas fa-spinner fa-pulse"></i></span> Twitter flavored <a href="https://memos.eallion.com/" target="_blank" rel="noreferrer noopener nofollow">Memos</a> <span class="emoji">🎉</span></blockquote>
+            <blockquote>
+                <div class="memosCount">There are <span id="memosCount"><i class="fas fa-spinner fa-pulse"></i></span> Twitter flavored <a href="https://memos.eallion.com/" target="_blank" rel="noreferrer noopener nofollow">Memos</a> <span class="emoji">🎉</span></div>
+                <div class="editIcon">
+                    <button id="editIcon" class="load-memos-editor outline p-1" type="button" aria-label="Memos">
+                        <i class="far fa-edit fa-xs"></i>
+                    </button>
+                </div>
+            </blockquote>
         </div>
-        <div id="album"></div>
         <div id="memos">
+            <div id="album"></div>
             <!-- 嘀咕加载在这里 -->
         </div>
     </div>
@@ -43,6 +50,7 @@
 <script type="text/javascript" src="/assets/memos.min.js"></script>
 <script type="text/javascript" src="/assets/highlight.min.js?v=11.7.0"></script>
 <script type="text/javascript" src="/assets/view-image.min.js?v=2.0.2"></script>
+<script type="text/javascript" src="/assets/coco-message.min.js?v=2.0.3"></script>
 
 {{- /* Artalk Comment System */ -}}
 {{ $ArtalkCSS := resources.Get "lib/artalk/ArtalkLite.css" | resources.Minify | resources.Fingerprint "sha256" }}
