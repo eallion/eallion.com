@@ -272,7 +272,7 @@ font-family: DINPro;
 <article class="page single special">
     <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
     <div id="content" class="content goods">
-        <div class="count">
+        <div class="greyQuote">
             <blockquote>好物推荐 <span class="emoji">💄</span> 部分链接可能带有 aff 推广，不喜可删！或直接搜券👉<a href="https://www.kubaicai.com/" target="_blank" rel="noreferrer noopener nofollow">www.kubaicai.com <i class="fas fa-external-link-alt fa-xs"></i></a></blockquote>
         </div>
         {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
