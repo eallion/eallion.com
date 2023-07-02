@@ -550,17 +550,6 @@ footer {
         transform: translateY(5px) rotate(90deg);
     }
 }
-.atk-comment {
-    > .atk-main {
-        > .atk-body {
-            > .atk-content {
-                br {
-                    display: none !important;
-                }
-            }
-        }
-    }
-}
 .atk-editor-plug-emoticons {
     > .atk-grp-wrap {
         > .atk-grp {
