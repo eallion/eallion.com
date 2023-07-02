@@ -549,14 +549,12 @@ document.addEventListener("DOMContentLoaded", () => {
 // var editIcon = '<button class="load-memos-editor outline p-1"><i class="iconfont iconedit-square"></i></button>';
 var memosDom = document.querySelector("#memos");
 var editIcon =  document.querySelector(".editIcon");
-document.body.insertAdjacentHTML('afterend', editIcon);
 
-var editorCont = '<div class="memos-editor animate__animated animate__fadeIn d-none col-12"><div class="memos-editor-body mb-3 p-3"><div class="memos-editor-inner animate__animated animate__fadeIn"><div class="memos-editor-content"><textarea class="memos-editor-inputer text-sm" rows="1" placeholder="&nbsp;"></textarea></div><div class="memos-editor-tools pt-3"><div class="d-flex"><div class="button outline action-btn tag-btn mr-2"><i class="fas fa-hashtag fa-sm"></i></div><div class="button outline action-btn todo-btn mr-2"><i class="fas fa-list fa-sm"></i></div><div class="button outline action-btn code-btn mr-2"><i class="fas fa-code fa-sm"></i></div><div class="button outline action-btn mr-2 link-btn"><i class="fas fa-link fa-sm"></i></div><div class="button outline action-btn image-btn" onclick="this.lastElementChild.click()"><i class="fas fa-images fa-sm"></i><input class="memos-upload-image-input d-none" type="file" accept="image/*"></div></div><div class="d-flex flex-fill"><div class="memos-tag-list d-none mt-2 animate__animated animate__fadeIn"></div></div></div><div class="memos-editor-footer border-t pt-3 mt-3"><div class="editor-selector mr-2"><select class="select-memos-value outline px-2 py-1"><option value="PUBLIC">所有人可见</option><option value="PROTECTED">仅登录可见</option><option value="PRIVATE">仅自己可见</option></select></div><div class="editor-submit d-flex flex-fill justify-content-end"><button class="primary submit-memos-btn px-3 py-1">记下</button></div></div></div><div class="memos-editor-option animate__animated animate__fadeIn"><input name="memos-api-url" class="memos-open-api-input input-text flex-fill mr-3 px-2 py-1" type="text" value="" maxlength="120" placeholder="输入 OpenAPI （仅保存在本地 localStorage）"><div class="memos-open-api-submit"><button class="primary submit-openapi-btn px-3 py-1">保存</button></div></div></div></div>';
+var editorCont = '<div class="memos-editor animate__animated animate__fadeIn d-none col-12"><div class="memos-editor-body mb-3 p-3"><div class="memos-editor-inner animate__animated animate__fadeIn"><div class="memos-editor-content"><textarea class="memos-editor-inputer text-sm" rows="1" placeholder="任何想法……"></textarea></div><div class="memos-editor-tools pt-3"><div class="d-flex"><div class="button outline action-btn tag-btn mr-2"><i class="fas fa-hashtag fa-sm"></i></div><div class="button outline action-btn todo-btn mr-2"><i class="fas fa-list fa-sm"></i></div><div class="button outline action-btn code-btn mr-2"><i class="fas fa-code fa-sm"></i></div><div class="button outline action-btn mr-2 link-btn"><i class="fas fa-link fa-sm"></i></div><div class="button outline action-btn image-btn" onclick="this.lastElementChild.click()"><i class="fas fa-images fa-sm"></i><input class="memos-upload-image-input d-none" type="file" accept="image/*"></div></div><div class="d-flex flex-fill"><div class="memos-tag-list d-none mt-2 animate__animated animate__fadeIn"></div></div></div><div class="memos-editor-footer border-t pt-3 mt-3"><div class="editor-selector mr-2"><select class="select-memos-value outline px-2 py-1"><option value="PUBLIC">所有人可见</option><option value="PROTECTED">仅登录可见</option><option value="PRIVATE">仅自己可见</option></select></div><div class="editor-submit d-flex flex-fill justify-content-end"><button class="primary submit-memos-btn px-3 py-1">记下</button></div></div></div><div class="memos-editor-option animate__animated animate__fadeIn"><input name="memos-api-url" class="memos-open-api-input input-text flex-fill mr-3 px-2 py-1" type="text" value="" maxlength="120" placeholder="输入 OpenAPI （仅保存在本地 localStorage）"><div class="memos-open-api-submit"><button class="primary submit-openapi-btn px-3 py-1">保存</button></div></div></div></div>';
 memosDom.insertAdjacentHTML('afterbegin', editorCont);
 
 var memosEditorInner = document.querySelector(".memos-editor-inner");
 var memosEditorOption = document.querySelector(".memos-editor-option");
-
 
 var taglistBtn = document.querySelector(".tag-btn");
 var todoBtn = document.querySelector(".todo-btn");
@@ -579,7 +577,7 @@ function getEditIcon() {
     var memosContent = '', memosVisibility = '', memosResource = [];
     var memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
     var memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
-    var getEditor = window.localStorage && window.localStorage.getItem("nuoea-memos-editor");
+    var getEditor = window.localStorage && window.localStorage.getItem("memos-editor-display");
     var isHide = getEditor === "hide";
     memosTextarea.addEventListener('input', (e) => {
         memosTextarea.style.height = 'inherit';
@@ -594,8 +592,8 @@ function getEditIcon() {
     loadEditorBtn.addEventListener("click", function () {
         getEditor != "show" ? hasMemosOpenId() : ''
         document.querySelector(".memos-editor").classList.toggle("d-none");
-        window.localStorage && window.localStorage.setItem("nuoea-memos-editor", document.querySelector(".memos-editor").classList.contains("d-none") ? "hide" : "show");
-        getEditor = window.localStorage && window.localStorage.getItem("nuoea-memos-editor");
+        window.localStorage && window.localStorage.setItem("memos-editor-display", document.querySelector(".memos-editor").classList.contains("d-none") ? "hide" : "show");
+        getEditor = window.localStorage && window.localStorage.getItem("memos-editor-display");
     });
 
     taglistBtn.addEventListener("click", function () {

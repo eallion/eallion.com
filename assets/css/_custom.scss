@@ -580,6 +580,17 @@ footer {
         margin-left: 0 !important;
     }
 }
+.atk-main-editor>.atk-header input {
+    border-width: 1px !important;
+    border-bottom-color: rgba(238, 238, 238, 0.5) !important;
+}
+[theme="dark"] .atk-main-editor>.atk-header input {
+        border-bottom-color: rgba(69, 69, 69, 0.5) !important;
+    }
+
+[theme="black"] .atk-main-editor>.atk-header input {
+        border-bottom-color: rgba(69, 69, 69, 0.5) !important;
+    }
 // Artalk End
 
 // TianliGPT Start
