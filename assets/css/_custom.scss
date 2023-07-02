@@ -166,6 +166,24 @@ footer {
 .icp {
     display: block !important;
 }
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .friend-link {
+    width: 49%;
+    margin-bottom: 10px;
+  }
+  .single .content .friend-link-div {
+    width: 100%;
+  }
+  @media (max-width: 480px)  {
+    .friend-link {
+        width: 98%;
+      }
+  }
 .view-image-tools {
     display: none !important;
 }
