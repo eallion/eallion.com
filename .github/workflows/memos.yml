@@ -1,0 +1,34 @@
+name: Upload memos to Algolia
+
+on:
+#  push:
+#    branches:
+#      - main
+  schedule:
+    - cron: 0 16 * * *
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses: actions/checkout@v3
+        with:
+          submodules: false
+          fetch-depth: 0
+
+      - name: Fetch Memos JSON
+        run: |
+          data_url="https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL"
+          output_file="memos.json"
+          curl -s "$data_url" | jq '.data[] | {objectID: .id, date: (.createdTs | strftime("%Y-%m-%d")), content, uri: ("https://memos.eallion.com/m/" + (.id | tostring)), title: (.content | rtrimstr("\n") | .[ :20])}' | jq -s '.' > "$output_file"
+
+      - name: Algolia uploader
+        uses: wangchucheng/algolia-uploader@master
+        with:
+          app_id: ${{ secrets.ALGOLIA_APPID }}
+          admin_key: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+          index_name: memos
+          index_file_path: memos.json
