@@ -125,21 +125,19 @@ function getNextList() {
 
 // 插入 html
 function updateHTMl(data) {
-    var memoResult = "",
-        resultAll = "";
+    var memoResult = "", resultAll = "";
 
     const TAG_REG = /#([^\s#]+)/;
 
-    const NETEASE_MUSIC_REG =
-        /<a\shref="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g;
-    const QQMUSIC_REG =
-        /<a\shref="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g;
-    const SPOTIFY_REG =
-        /<a\shref="https:\/\/open\.spotify\.com\/(track|album)\/([\s\S]+)".*?>.*<\/a>/g;
-    // const BILIBILI_REG = /<a\shref="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g;
-    // const QQVIDEO_REG = /<a\shref="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g;
-    // const YOUKU_REG = /<a\shref="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g;
-    // const YOUTUBE_REG = /<a\shref="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;
+    const IMG_REG = /\!\[(.*?)\]\((.*?)\)/g;
+    // LINK_REG = /\[(.*?)\]\((.*?)\)/g;
+    NETEASE_MUSIC_REG = /<a\shref="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g;
+    QQMUSIC_REG = /<a\shref="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g;
+    BILIBILI_REG = /(?:https?:\/\/www\.bilibili\.com\/video\/|[<a\s]href="https?:\/\/www\.bilibili\.com\/video\/)(av[0-9a-zA-Z]+|BV[0-9a-zA-Z]+)/g;
+    //  SPOTIFY_REG = /<a\shref="https:\/\/open\.spotify\.com\/(track|album)\/([\s\S]+)".*?>.*<\/a>/g;
+    //  QQVIDEO_REG = /<a\shref="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g;
+    //  YOUKU_REG = /<a\shref="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g;
+    //  YOUTUBE_REG = /<a\shref="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;
 
     // Marked Options
     marked.setOptions({
@@ -156,118 +154,103 @@ function updateHTMl(data) {
     const renderer = new marked.Renderer();
     const linkRenderer = renderer.link;
     renderer.link = (href, title, text) => {
-        const localLink = href.startsWith(
-            `${location.protocol}//${location.hostname}`
-        );
+        const localLink = href.startsWith(`${location.protocol}//${location.hostname}`);
         const html = linkRenderer.call(renderer, href, title, text);
-        return localLink
-            ? html
-            : html.replace(
-                /^<a /,
-                `<a target="_blank" rel="noreferrer noopener nofollow" `
-            );
+        return localLink ? html : html.replace(/^<a /, `<a target="_blank" rel="noreferrer noopener nofollow" `);
     };
+
     marked.use({ renderer });
 
     // Memos Content
 
     for (var i = 0; i < data.length; i++) {
         var memo_id = data[i].id;
-        var memoContREG = data[i].content.replace(
-            TAG_REG,
-            "<span class='tag-span'><a>$1</a></span> "
-        );
-        memoContREG = marked
-            .parse(memoContREG)
+        var memoContREG = data[i].content
+            .replace(TAG_REG, "<span class='tag-span'><a>$1</a></span> ")
+            .replace(IMG_REG, '')
+        //.replace(LINK_REG, '<a class="primary" href="$2" target="_blank">$1</a>')
+
+        memoContREG = marked.parse(memoContREG)
             // New way to spacing at the end of this file
             //.parse(pangu.spacing(memoContREG))
-            .replace(
-                NETEASE_MUSIC_REG,
-                "<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>"
-            )
-            .replace(
-                QQMUSIC_REG,
-                "<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>"
-            )
-            .replace(
-                SPOTIFY_REG,
-                "<div class='spotify-wrapper'><iframe style='border-radius:12px' src='https://open.spotify.com/embed/$1/$2?utm_source=generator&theme=0' width='100%' frameBorder='0' allowfullscreen='' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture' loading='lazy'></iframe></div>"
-            );
-        //.replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true' autoplay='false'></iframe></div>")
+            .replace(NETEASE_MUSIC_REG, "<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>")
+            .replace(QQMUSIC_REG, "<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>")
+            .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0&autoplay=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true' autoplay='false'></iframe></div>")
+        //.replace(SPOTIFY_REG, "<div class='spotify-wrapper'><iframe style='border-radius:12px' src='https://open.spotify.com/embed/$1/$2?utm_source=generator&theme=0' width='100%' frameBorder='0' allowfullscreen='' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture' loading='lazy'></iframe></div>");
         //.replace(QQVIDEO_REG, "<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>")
         //.replace(YOUKU_REG, "<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>")
         //.replace(YOUTUBE_REG, "<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>")
 
+        //解析 content 内 md 格式图片
+        var loadUrl = memo.loadUrl;
+        var IMG_ARR = data[i].content.match(IMG_REG);
+        var IMG_STR = String(IMG_ARR).replace(/[,]/g, '');
+        if (IMG_ARR) {
+            var bbContIMG = IMG_STR.replace(IMG_REG, '<img loading="lazy" src="$2">')
+            memoContREG += '<div class="memos-image-wrapper"><div class="memos-images">' + bbContIMG + '</div></div>'
+        }
+
+        //标签
+        var tagArr = data[i].content.match(TAG_REG);
+        var bbContTag = '';
+        if (tagArr) {
+            bbContTag = String(tagArr[0]).replace(/[#]/g, '');
+        } else {
+            bbContTag = '动态';
+        };
+
         //解析内置资源文件
         if (data[i].resourceList && data[i].resourceList.length > 0) {
             var resourceList = data[i].resourceList;
-            var imgUrl = "",
-                resUrl = "",
-                resImgLength = 0;
+            var imgUrl = '', resUrl = '', resImgLength = 0;
             for (var j = 0; j < resourceList.length; j++) {
-                var resType = resourceList[j].type.slice(0, 5);
-                if (resType == "image") {
-                    imgUrl +=
-                        '<img loading="lazy" src="' +
-                        memosHost +
-                        "o/r/" +
-                        resourceList[j].id +
-                        "/" +
-                        resourceList[j].filename +
-                        '"/>';
-                    resImgLength = resImgLength + 1;
+                var restype = resourceList[j].type.slice(0, 5)
+                var resexlink = resourceList[j].externalLink
+                var resLink = '', fileId = ''
+                if (resexlink) {
+                    resLink = resexlink
+                } else {
+                    fileId = resourceList[j].publicId || resourceList[j].filename
+                    resLink = memos + 'o/r/' + resourceList[j].id + '/' + fileId
                 }
-                if (resType !== "image") {
-                    resUrl +=
-                        '<a target="_blank" rel="noreferrer" href="' +
-                        memosHost +
-                        "o/r/" +
-                        resourceList[j].id +
-                        "/" +
-                        resourceList[j].filename +
-                        '">' +
-                        resourceList[j].filename +
-                        "</a>";
+                if (restype == 'image') {
+                    imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="' + resLink + '"/></figure>'
+                    resImgLength = resImgLength + 1
+                }
+                if (restype !== 'image') {
+                    resUrl += '<a target="_blank" rel="noreferrer" href="' + resLink + '">' + resourceList[j].filename + '</a>'
                 }
             }
             if (imgUrl) {
-                var resImgGrid = "";
-                if (resImgLength !== 1) {
-                    var resImgGrid = "grid grid-" + resImgLength;
-                }
-                memoContREG +=
-                    '<div class="resimg ' +
-                    resImgGrid +
-                    '">' +
-                    imgUrl +
-                    "</div>";
+                var resImgGrid = ""
+                if (resImgLength !== 1) { var resImgGrid = "grid grid-" + resImgLength }
+                memoContREG += '<div class="resimg ' + resImgGrid + '">' + imgUrl + '</div>'
             }
             if (resUrl) {
-                memoContREG += '<p class="datasource">' + resUrl + "</p>";
+                memoContREG += '<p class="datasource">' + resUrl + '</p>'
             }
         }
-        memoResult +=
-            '<li id="' +
-            memo_id +
-            '" class="timeline"><div class="talks__content"><div class="talks__text"><div class="talks__userinfo"><div>Charles Chin</div><div><svg viewBox="0 0 24 24" aria-label="认证账号" class="talks__verify"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg></div><div class="talks__id">@eallion · </div><small class="talks__date"><a href="https://memos.eallion.com/m/' +
-            memo_id +
-            '" target="_blank">' +
-            moment(data[i].createdTs * 1000).twitterLong() +
-            "</a></small></div><p>" +
-            memoContREG +
-            "</p><div class='talks_comments'><a class='artalk-div' onclick=\"loadArtalk(\'" + memo_id + "\',event)\"><i class='fas fa-comment-dots fa-fw'></i><span id='btn_memo_" + memo_id + "'>评论</span> (<span id='ArtalkCount' data-page-key='/m/" + memo_id + "'>0</span>)</a></div><div id='memo_" + memo_id + "' class='artalk hidden'></div></div></li>";
+
+        var twitterIcon = '<svg viewBox="0 0 24 24" aria-label="认证账号" class="talks__verify"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg>'
+
+        memoResult += '<li id="' + memo_id + '" class="timeline"><div class="talks__content"><div class="talks__text"><div class="talks__userinfo"><div>Charles Chin</div><div>' + twitterIcon + '</div><div class="talks__id">@eallion · </div><small class="talks__date"><a href="https://memos.eallion.com/m/' + memo_id + '" target="_blank">' + moment(data[i].createdTs * 1000).twitterLong() + "</a></small></div>" + memoContREG + "<div class='talks_comments'><a class='artalk-div' onclick=\"loadArtalk(\'" + memo_id + "\',event)\"><i class='fas fa-comment-dots fa-fw'></i><span id='btn_memo_" + memo_id + "'>评论</span> (<span id='ArtalkCount' data-page-key='/m/" + memo_id + "'>0</span>)</a></div><div id='memo_" + memo_id + "' class='artalk hidden'></div></div></li>";
     }
 
     var memoBefore = '<ul class="talks">';
     var memoAfter = "</ul>";
     resultAll = memoBefore + memoResult + memoAfter;
     memoDom.insertAdjacentHTML("beforeend", resultAll);
+
+    // douban
     fetchDB();
+
+    // highlight.js
     hljs.initHighlighting.called = false;
     hljs.configure({
         ignoreUnescapedHTML: true,
     });
     hljs.highlightAll();
+
     document.querySelector("button.button-load").textContent = "加载更多";
 }
 
@@ -452,7 +435,9 @@ function bookShow(fetch_href, fetch_item) {
     qs_dom.parentNode.replaceChild(db_div, qs_dom);
     db_div.innerHTML = db_html;
 }
+// 豆瓣结束
 
+// Memos 总数
 document.addEventListener("DOMContentLoaded", () => {
     let albumLimit = 6;
     var memoUrl = "https://api.eallion.com/memos/";
@@ -543,12 +528,13 @@ document.addEventListener("DOMContentLoaded", () => {
             window.Lately && Lately.init({ target: ".photo-time" });
         });
 });
+// Memos 总数结束
 
 // Memos editor
 // var memosDom = document.querySelector(memosData.dom);
 // var editIcon = '<button class="load-memos-editor outline p-1"><i class="iconfont iconedit-square"></i></button>';
 var memosDom = document.querySelector("#memos");
-var editIcon =  document.querySelector(".editIcon");
+var editIcon = document.querySelector(".editIcon");
 
 var editorCont = '<div class="memos-editor animate__animated animate__fadeIn d-none col-12"><div class="memos-editor-body mb-3 p-3"><div class="memos-editor-inner animate__animated animate__fadeIn"><div class="memos-editor-content"><textarea class="memos-editor-inputer text-sm" rows="1" placeholder="任何想法……"></textarea></div><div class="memos-editor-tools pt-3"><div class="d-flex"><div class="button outline action-btn tag-btn mr-2"><i class="fas fa-hashtag fa-sm"></i></div><div class="button outline action-btn todo-btn mr-2"><i class="fas fa-list fa-sm"></i></div><div class="button outline action-btn code-btn mr-2"><i class="fas fa-code fa-sm"></i></div><div class="button outline action-btn mr-2 link-btn"><i class="fas fa-link fa-sm"></i></div><div class="button outline action-btn image-btn" onclick="this.lastElementChild.click()"><i class="fas fa-images fa-sm"></i><input class="memos-upload-image-input d-none" type="file" accept="image/*"></div></div><div class="d-flex flex-fill"><div class="memos-tag-list d-none mt-2 animate__animated animate__fadeIn"></div></div></div><div class="memos-editor-footer border-t pt-3 mt-3"><div class="editor-selector mr-2"><select class="select-memos-value outline px-2 py-1"><option value="PUBLIC">所有人可见</option><option value="PROTECTED">仅登录可见</option><option value="PRIVATE">仅自己可见</option></select></div><div class="editor-submit d-flex flex-fill justify-content-end"><button class="primary submit-memos-btn px-3 py-1">记下</button></div></div></div><div class="memos-editor-option animate__animated animate__fadeIn"><input name="memos-api-url" class="memos-open-api-input input-text flex-fill mr-3 px-2 py-1" type="text" value="" maxlength="120" placeholder="输入 OpenAPI （仅保存在本地 localStorage）"><div class="memos-open-api-submit"><button class="primary submit-openapi-btn px-3 py-1">保存</button></div></div></div></div>';
 memosDom.insertAdjacentHTML('afterbegin', editorCont);

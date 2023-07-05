@@ -235,12 +235,12 @@
     z-index: -1;
 }
 
-.timeline img {
+/* .timeline img {
     display: inline-block;
     max-height: 96px;
     margin: 10px 10px 10px 0;
     border-radius: 5px;
-}
+} */
 
 .talks__meta {
     margin: 0;
@@ -1230,6 +1230,39 @@
     display: flex !important;
     align-items: center;
     justify-content: space-between;
+}
+
+/* memos images */
+
+.memos-images {
+    margin-left: 10px;
+    width: 362px;
+}
+
+.memos-images img {
+    display: inline-block !important;
+    object-fit: cover;
+    height: 110px;
+    width: 110px;
+    margin: 0 10px 10px 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    animation: fadeIn 1s;
+    transition: all 0.4s ease-in-out;
+}
+.memos-images img:hover {
+    transform: scale(1.1);
+}
+.memos-images img:only-child {
+    height: initial; /*相当于删除已设置的某一属性*/
+    width: initial;
+    max-width: 230px;
+    max-height: 230px;
+    height: 110px;
+    width: 110px;
+}
+.memos-images img:nth-child(2):nth-last-child(3) {
+    margin-right: 110px;
 }
 
 /* Memos Editor */
