@@ -186,8 +186,8 @@ function updateHTMl(data) {
         var IMG_ARR = data[i].content.match(IMG_REG);
         var IMG_STR = String(IMG_ARR).replace(/[,]/g, '');
         if (IMG_ARR) {
-            var bbContIMG = IMG_STR.replace(IMG_REG, '<img loading="lazy" src="$2">')
-            memoContREG += '<div class="memos-image-wrapper"><div class="memos-images">' + bbContIMG + '</div></div>'
+            var bbContIMG = IMG_STR.replace(IMG_REG, '<div class="memos-images"><img loading="lazy" src="$2"></div>')
+            memoContREG += '<div class="memos-image-wrapper">' + bbContIMG + '</div>'
         }
 
         //标签
