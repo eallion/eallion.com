@@ -1,0 +1,46 @@
+{{- $options := cond .IsNamedParams (.Get "src") (.Get 0) | dict "Src" -}}
+{{- $options = cond .IsNamedParams (.Get "alt") (.Get 1) | .Page.RenderString | dict "Alt" | merge $options -}}
+{{- $caption := cond .IsNamedParams (.Get "caption") (.Get 2) | .Page.RenderString -}}
+{{- $options = dict "Caption" $caption | merge $options -}}
+{{- $champion := cond .IsNamedParams (.Get "champion") (.Get 3) -}}
+{{- $date := cond .IsNamedParams (.Get "date") (.Get 4) -}}
+{{- $options = dict "Champion" $champion | merge $options -}}
+{{- $options = dict "Date" $date | merge $options -}}
+
+{{- if .IsNamedParams -}}
+    {{- $options = dict "Title" (.Get "title") | merge $options -}}
+    {{- $options = dict "SrcSmall" (.Get "src_s") | merge $options -}}
+    {{- $options = dict "SrcLarge" (.Get "src_l") | merge $options -}}
+    {{- $options = dict "Height" (.Get "height") | merge $options -}}
+    {{- $options = dict "Width" (.Get "width") | merge $options -}}
+    {{- $options = .Get "linked" | ne false | dict "Linked" | merge $options -}}
+    {{- $options = dict "Rel" (.Get "rel") | merge $options -}}
+{{- else -}}
+    {{- $options = cond $caption true false | dict "Linked" | merge $options -}}
+{{- end -}}
+
+{{- $options = dict "Resources" .Page.Resources | merge $options -}}
+
+
+<figure{{ with cond $.IsNamedParams ($.Get "class") "" }} class="{{ . }}"{{ end }}>
+    {{- partial "plugin/image.html" $options -}}
+    <div class="pentas">
+    {{- with $champion -}}
+        <span class="champion">
+            <img src="https://game.gtimg.cn/images/lol/act/img/champion/{{- . | safeHTML -}}.png">
+        </span>
+    {{- end -}}
+    {{- with $caption -}}
+        <span class="caption">
+            {{- . | safeHTML -}}
+        </span>
+    {{- end -}}
+    </div>
+
+    {{- with $date -}}
+        <div class="date">
+            <span>Penta On: </span>
+            <span class="dateText">{{- . | safeHTML -}}</span>
+        </div>
+    {{- end -}}
+</figure>

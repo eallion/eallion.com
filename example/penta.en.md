@@ -1,15 +1,15 @@
 ---
-title: "我的五杀"
+title: "My Penta"
 date: "2006-04-14 00:00:00"
 comment: false
 aliases:
-    - /photo
-    - /photos
+    - /en/photo
+    - /en/photos
 ---
 
 <!-- LOL 英雄头像 API <https://lol.qq.com/cguide/Guide/PublicResources/Images.html#%E9%9D%9E%E7%82%AB%E5%BD%A9%E7%9A%AE%E8%82%A4> -->
 
-> 我的 LOL 五杀。有 TGP（WeGame）后才开始记录的自动五杀截图。
+> My LOL penta kill. Screenshot record after TGP (aka: WeGame).
 
 <div class="penta">
 {{< penta src="https://images.eallion.com/penta/20230704-Talon.jpg" alt="20230704-Talon" champion="Talon" date="2023/07/04" caption="刀锋之影 泰隆" >}}
