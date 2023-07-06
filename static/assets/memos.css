@@ -1233,37 +1233,104 @@
 }
 
 /* memos images */
+.memos-image-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 390px;
+}
 
 .memos-images {
-    margin-left: 10px;
-    width: 362px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2%;
+    border-radius: 0.25rem;
 }
+
 
 .memos-images img {
     display: inline-block !important;
     object-fit: cover;
-    height: 110px;
-    width: 110px;
-    margin: 0 10px 10px 0;
-    border-radius: 0.25rem;
     cursor: pointer;
     animation: fadeIn 1s;
     transition: all 0.4s ease-in-out;
 }
+
 .memos-images img:hover {
     transform: scale(1.1);
 }
-.memos-images img:only-child {
-    height: initial; /*相当于删除已设置的某一属性*/
-    width: initial;
-    max-width: 230px;
-    max-height: 230px;
-    height: 110px;
-    width: 110px;
+
+/*  3张图片  */
+.memos-images:nth-child(1):nth-last-child(3),
+.memos-images:nth-child(2):nth-last-child(2),
+.memos-images:nth-child(3):nth-last-child(1) {
+    width: 32%;
+    padding-bottom: 32%;
 }
-.memos-images img:nth-child(2):nth-last-child(3) {
-    margin-right: 110px;
+
+/*  间隔  */
+.memos-images:nth-child(2):nth-last-child(2),
+.memos-images:nth-child(3):nth-last-child(1) {
+    margin-left: 2%;
 }
+
+.memos-images:not(:nth-child(1):nth-last-child(1)) img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*  2张图片  */
+.memos-images:nth-child(1):nth-last-child(2),
+.memos-images:nth-child(2):nth-last-child(1),
+/*  4张图片  */
+.memos-images:nth-child(1):nth-last-child(4),
+.memos-images:nth-child(2):nth-last-child(3),
+.memos-images:nth-child(3):nth-last-child(2),
+.memos-images:nth-child(4):nth-last-child(1) {
+    width: 32%;
+    padding-bottom: 32%;
+}
+
+/* 每行的两张图片中间间隔2%的宽度 */
+/*  2张图片  */
+.memos-images:nth-child(2):nth-last-child(1),
+/*  4张图片  */
+.memos-images:nth-child(2):nth-last-child(3),
+.memos-images:nth-child(4):nth-last-child(1) {
+    margin-left: 2%;
+}
+
+/*  5张以上图片  */
+.memos-images:nth-child(n + 5),
+.memos-images:nth-child(1):nth-last-child(n + 5),
+.memos-images:nth-child(1):nth-last-child(n + 5) ~ .memos-images {
+    width: 32%;
+    padding-bottom: 32%;
+}
+
+.memos-images:nth-child(n + 5):not(:nth-child(3n + 1)),
+.memos-images:nth-child(1):nth-last-child(n + 5) ~ .memos-images:not(:nth-child(3n + 1)) {
+    margin-left: 2%;
+}
+
+/* 只有一张图片 */
+.memos-images:nth-child(1):last-child {
+    width: 32%;
+    padding-bottom: 32%;
+    position: relative;
+}
+
+.memos-images:nth-child(1):last-child img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* memos-image End */
 
 /* Memos Editor */
 .load-memos-editor {
@@ -1498,6 +1565,7 @@
 [theme="dark"] .border-t {
     border-top: 1px solid #1e1e1e;
 }
+
 [theme="black"] .editIcon button.outline {
     border-color: #22272e;
 }
