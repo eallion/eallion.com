@@ -127,13 +127,12 @@ function getNextList() {
 function updateHTMl(data) {
     var memoResult = "", resultAll = "";
 
-    const TAG_REG = /#([^\s#]+)/;
-
-    const IMG_REG = /\!\[(.*?)\]\((.*?)\)/g;
+    const TAG_REG = /#([^\s#]+)/,
+    IMG_REG = /\!\[(.*?)\]\((.*?)\)/g,
     // LINK_REG = /\[(.*?)\]\((.*?)\)/g;
-    NETEASE_MUSIC_REG = /<a\shref="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g;
-    QQMUSIC_REG = /<a\shref="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g;
-    BILIBILI_REG = /(?:https?:\/\/www\.bilibili\.com\/video\/|[<a\s]href="https?:\/\/www\.bilibili\.com\/video\/)(av[0-9a-zA-Z]+|BV[0-9a-zA-Z]+)/g;
+    NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g,
+    QQMUSIC_REG = /<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g,
+    BILIBILI_REG = /<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g;
     //  SPOTIFY_REG = /<a\shref="https:\/\/open\.spotify\.com\/(track|album)\/([\s\S]+)".*?>.*<\/a>/g;
     //  QQVIDEO_REG = /<a\shref="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g;
     //  YOUKU_REG = /<a\shref="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g;
@@ -165,8 +164,7 @@ function updateHTMl(data) {
 
     for (var i = 0; i < data.length; i++) {
         var memo_id = data[i].id;
-        var memoContREG = data[i].content
-            .replace(TAG_REG, "<span class='tag-span'><a>$1</a></span> ")
+        var memoContREG = data[i].content.replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
             .replace(IMG_REG, '')
         //.replace(LINK_REG, '<a class="primary" href="$2" target="_blank">$1</a>')
 
@@ -175,7 +173,7 @@ function updateHTMl(data) {
             //.parse(pangu.spacing(memoContREG))
             .replace(NETEASE_MUSIC_REG, "<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>")
             .replace(QQMUSIC_REG, "<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>")
-            .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true' autoplay='false'></iframe></div>")
+            .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>")
         //.replace(SPOTIFY_REG, "<div class='spotify-wrapper'><iframe style='border-radius:12px' src='https://open.spotify.com/embed/$1/$2?utm_source=generator&theme=0' width='100%' frameBorder='0' allowfullscreen='' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture' loading='lazy'></iframe></div>");
         //.replace(QQVIDEO_REG, "<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>")
         //.replace(YOUKU_REG, "<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>")
@@ -186,18 +184,18 @@ function updateHTMl(data) {
         var IMG_ARR = data[i].content.match(IMG_REG);
         var IMG_STR = String(IMG_ARR).replace(/[,]/g, '');
         if (IMG_ARR) {
-            var bbContIMG = IMG_STR.replace(IMG_REG, '<div class="memos-images"><img loading="lazy" src="$2" data-action="zoom"></div>')
-            memoContREG += '<div class="memos-image-wrapper">' + bbContIMG + '</div>'
+            var memosContIMG = IMG_STR.replace(IMG_REG, '<div class="memos-images"><img loading="lazy" src="$2" data-action="zoom"></div>')
+            memoContREG += '<div class="memos-image-wrapper">' + memosContIMG + '</div>'
         }
 
-        //标签
-        var tagArr = data[i].content.match(TAG_REG);
-        var bbContTag = '';
-        if (tagArr) {
-            bbContTag = String(tagArr[0]).replace(/[#]/g, '');
-        } else {
-            bbContTag = '动态';
-        };
+        // //标签
+        // var tagArr = data[i].content.match(TAG_REG);
+        // var bbContTag = '';
+        // if (tagArr) {
+        //     bbContTag = String(tagArr[0]).replace(/[#]/g, '');
+        // } else {
+        //     bbContTag = '动态';
+        // };
 
         //解析内置资源文件
         if (data[i].resourceList && data[i].resourceList.length > 0) {
