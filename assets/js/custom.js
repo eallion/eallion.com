@@ -116,8 +116,8 @@ if (document.querySelector('#ticker')) {
 let tianliGPT_postSelector = '.page.single:not(.special) .content';
 let tianliGPT_key = 'p2g82vX2AvOP9vjbGdDC';
 
-//console.log("\n %c Post-Abstract-AI 开源博客文章摘要AI生成工具 %c https://github.com/zhheo/Post-Abstract-AI \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
-let tianliGPTIsRunning = false;
+console.log("\n %c Post-Abstract-AI 开源博客文章摘要AI生成工具 %c https://github.com/zhheo/Post-Abstract-AI \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
+var tianliGPTIsRunning = false;
 
 function insertAIDiv(selector) {
     // 首先移除现有的 "post-TianliGPT" 类元素（如果有的话）
@@ -226,8 +226,8 @@ var tianliGPT = {
         if (tianliGPT_key === "5Q5mpqRK5DkwT1X9Gi5e") {
             return "请购买 key 使用，如果你能看到此条内容，则说明代码安装正确。";
         }
-
-        const apiUrl = `https://summary.tianli0.top/?content=${encodeURIComponent(content)}&key=${encodeURIComponent(tianliGPT_key)}`;
+        var url = window.location.href;
+        const apiUrl = `https://summary.tianli0.top/?content=${encodeURIComponent(content)}&key=${encodeURIComponent(tianliGPT_key)}&url=${encodeURIComponent(url)}`;
         const timeout = 20000; // 设置超时时间（毫秒）
 
         try {
@@ -271,29 +271,19 @@ var tianliGPT = {
             return;
         }
         tianliGPTIsRunning = true;
-        const typingDelay = 31;
+        const typingDelay = 25;
         const waitingTime = 1000;
         const punctuationDelayMultiplier = 6;
 
         element.style.display = "block";
         element.innerHTML = "生成中..." + '<span class="blinking-cursor"></span>';
 
-        let animationRunning = false;
+        let animationRunning = true;
         let currentIndex = 0;
         let initialAnimation = true;
-
-        function isInViewport(el) {
-            const rect = el.getBoundingClientRect();
-            return (
-                rect.top >= 0 &&
-                rect.left >= 0 &&
-                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-        }
         let lastUpdateTime = performance.now();
 
-        function type() {
+        const animate = () => {
             if (currentIndex < text.length && animationRunning) {
                 const currentTime = performance.now();
                 const timeDiff = currentTime - lastUpdateTime;
@@ -317,64 +307,26 @@ var tianliGPT = {
                             '<span class="blinking-cursor"></span>'; // 在文本后面添加光标动画
                         element.style.display = "block";
                         tianliGPTIsRunning = false;
+                        observer.disconnect();// 暂停监听
                     }
                 }
-                requestAnimationFrame(type);
+                requestAnimationFrame(animate);
             }
         }
 
-        function checkVisibility() {
-            if (isInViewport(element)) {
-                if (!animationRunning) {
-                    animationRunning = true;
-                    if (initialAnimation) {
-                        setTimeout(() => {
-                            type();
-                            initialAnimation = false;
-                        }, waitingTime);
-                    } else {
-                        type();
-                    }
-                }
-            } else {
-                animationRunning = false;
+        // 使用IntersectionObserver对象优化ai离开视口后暂停的业务逻辑，提高性能
+        const observer = new IntersectionObserver((entries) => {
+            let isVisible = entries[0].isIntersecting;
+            animationRunning = isVisible; // 标志变量更新
+            if (animationRunning && initialAnimation) {
+                setTimeout(() => {
+                    requestAnimationFrame(animate);
+                }, 200);
             }
-        }
+        }, { threshold: 0 });
+        let post_ai = document.querySelector('.post-TianliGPT');
+        observer.observe(post_ai);//启动新监听
 
-        window.addEventListener('scroll', checkVisibility);
-        window.addEventListener('resize', checkVisibility);
-
-        function checkVisibility() {
-            if (isInViewport(element)) {
-                if (!animationRunning) {
-                    animationRunning = true;
-                    if (initialAnimation) {
-                        setTimeout(() => {
-                            type();
-                            initialAnimation = false;
-                        }, waitingTime);
-                    } else {
-                        type();
-                    }
-                }
-            } else {
-                animationRunning = false;
-            }
-        }
-
-        window.addEventListener('scroll', checkVisibility);
-        window.addEventListener('resize', checkVisibility);
-
-        // 使用 setInterval 添加定时器，周期性检查元素可见性
-        const visibilityCheckInterval = setInterval(checkVisibility, 500);
-
-        // 当动画完成后，清除定时器
-        if (!tianliGPTIsRunning) {
-            clearInterval(visibilityCheckInterval);
-        }
-
-        // Trigger initial visibility check
-        checkVisibility();
     },
 }
 
