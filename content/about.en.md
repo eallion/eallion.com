@@ -6,7 +6,7 @@ layout: "about"
 comment: false
 ---
 
-![](https://images.eallion.com/eallion.jpg)
+<img src="https://images.eallion.com/eallion.jpg" alt="eallion">
 
 My name is Charles Chin (AKA: 大大的小蜗牛).
 

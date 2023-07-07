@@ -280,9 +280,7 @@
             {{ range $goods.good}}
             <div class="goods-container img-hide">
                 <div class="goods-image">
-                    <a class="lightgallery" href="{{ .image }}" title="{{ .image }}" data-thumbnail="{{ .image }}">
-                        <img loading="lazy" decoding="async" src="{{ .image }}" alt="{{ .image }}">
-                    </a>
+                    <img loading="lazy" decoding="async" src="{{ .image }}" alt="{{ .image }}" data-action="zoom">
                 </div>
                 <div class="goods-price">{{ .price }}</div>
                 <div class="goods-title"><a href="{{ .link }}" target="_blank" rel="noreferrer noopener nofollow">{{ .title_en | default .title }}</a></div>

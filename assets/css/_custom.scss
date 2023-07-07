@@ -60,6 +60,9 @@ $background-color_6: #78191b;
                 margin: 0.5rem 0 !important;
             }
         }
+        .friend-link-info p {
+            margin: 0 !important;
+        }
     }
 
     .post-footer {
@@ -476,30 +479,34 @@ footer {
     display: inline-block;
 }
 
-//五杀页面
+// 五杀页面
 .penta {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 5px;
-    margin-top: 1rem;
+    gap: 10px;
+    margin-top: 2rem;
 
     @media (min-width: 768px) {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    figure {
+    // 最小样式适用于 Samsung Galaxy S8 +
+    @media (max-width: 359px) {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .screenshot {
         position: relative;
         overflow: hidden;
+        border-radius: 0.25rem;
         width: 100%;
         height: 100%;
-        margin: 1rem 0 !important;
 
         img {
             display: inline-block !important;
             max-width: 100%;
-            max-height: 63.5%;
-            border-radius: 0.25rem;
+            max-height: 100%;
             width: 100%;
             height: 100% !important;
             cursor: pointer;
@@ -515,13 +522,20 @@ footer {
 
     .pentas {
         display: flex;
+        flex-flow: column;
         justify-content: center;
         align-items: center;
         margin: 0;
-        margin-top: 1rem;
-        line-height: 1;
+        margin-bottom: 0.5rem;
 
-        .champion {
+        .champions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .champAvatar {
             line-height: 1;
             margin-right: 0.25rem;
 
@@ -538,26 +552,43 @@ footer {
                 }
             }
         }
-    }
 
-    .caption {
-        font-size: 0.875rem;
+        .caption {
+            font-size: 0.875rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            max-width: 100%;
+        }
     }
 
     .date {
+        font-family: $code-font-family;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.5rem;
+        font-size: 0.75rem;
         opacity: 0.5;
 
         .dateText {
-            font-family: $code-font-family;
             margin-left: 0.125rem;
         }
     }
-}
 
+    [theme="dark"] {
+        .screenshot img,
+        .champAvatar img {
+            opacity: 0.7;
+        }
+    }
+
+    [theme="black"] {
+        .screenshot img,
+        .champAvatar img {
+            opacity: 0.7;
+        }
+    }
+}
 // 主题新增 End
 
 /* 首页嘀咕样式 JSON 版 */

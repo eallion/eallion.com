@@ -138,7 +138,7 @@ cacheRemoteImages = false
   twemoji = false
   # whether to enable lightgallery
   # 是否使用 lightgallery
-  lightgallery = true
+  lightgallery = false
   # whether to enable the ruby extended syntax
   # 是否使用 ruby 扩展语法
   ruby = true
@@ -462,6 +462,7 @@ cacheRemoteImages = false
   # 第三方库配置
   [page.library]
     [page.library.css]
+      zoom = "css/zoom-vanilla.min.css"
       # someCSS = "some.css"
       # [page.library.css.someOtherCSS]
       #   src = "someOther.css"
@@ -473,6 +474,7 @@ cacheRemoteImages = false
     [page.library.js]
       custom = "js/custom.min.js"
       pangu = "js/pangu.min.js"
+      zoom = "js/zoom-vanilla.min.js"
       # someJavaScript = "some.js"
       # [page.library.js.someOtherJavaScript]
       #   src = "someOther.js"
@@ -620,7 +622,7 @@ cacheRemoteImages = false
 [compatibility]
   # whether to use Polyfill.io to be compatible with older browsers
   # 是否使用 Polyfill.io 来兼容旧式浏览器
-  polyfill = true
+  polyfill = false
   # whether to use object-fit-images to be compatible with older browsers
   # 是否使用 object-fit-images 来兼容旧式浏览器
   objectFit = true
