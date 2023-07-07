@@ -21,26 +21,29 @@
 
 {{- $options = dict "Resources" .Page.Resources | merge $options -}}
 
-
-<figure{{ with cond $.IsNamedParams ($.Get "class") "" }} class="{{ . }}"{{ end }}>
-    {{- partial "plugin/image.html" $options -}}
-    <div class="pentas">
-    {{- with $champion -}}
-        <span class="champion">
-            <img src="https://game.gtimg.cn/images/lol/act/img/champion/{{- . | safeHTML -}}.png">
+<!-- 这是根据 image 全新添加的 shortcode -->
+<div class="pentas">
+    <div class="screenshot">
+        <img {{ with cond $.IsNamedParams ($.Get "src") "" }} src="{{ . }}"{{ end }} alt="{{ $champion}}" data-action="zoom">
+    </div>
+    <div class="champions">
+        {{- with $champion -}}
+        <span class="champAvatar">
+            <img src="https://game.gtimg.cn/images/lol/act/img/champion/{{ . }}.png" alt="{{ $champion}}">
         </span>
-    {{- end -}}
-    {{- with $caption -}}
+        {{- end -}}
+        {{- with $caption -}}
         <span class="caption">
             {{- . | safeHTML -}}
         </span>
-    {{- end -}}
+        {{- end -}}
     </div>
 
     {{- with $date -}}
-        <div class="date">
-            <span>Penta On: </span>
-            <span class="dateText">{{- . | safeHTML -}}</span>
-        </div>
+    <div class="date">
+        <span>Penta On: </span>
+        <span class="dateText">{{- . | safeHTML -}}</span>
+    </div>
     {{- end -}}
-</figure>
+
+</div>
