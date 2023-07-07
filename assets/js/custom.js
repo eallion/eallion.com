@@ -116,7 +116,7 @@ if (document.querySelector('#ticker')) {
 let tianliGPT_postSelector = '.page.single:not(.special) .content';
 let tianliGPT_key = 'p2g82vX2AvOP9vjbGdDC';
 
-console.log("\n %c Post-Abstract-AI 开源博客文章摘要AI生成工具 %c https://github.com/zhheo/Post-Abstract-AI \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
+// console.log("\n %c Post-Abstract-AI 开源博客文章摘要AI生成工具 %c https://github.com/zhheo/Post-Abstract-AI \n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;")
 var tianliGPTIsRunning = false;
 
 function insertAIDiv(selector) {
@@ -298,13 +298,9 @@ var tianliGPT = {
                     currentIndex++;
 
                     if (currentIndex < text.length) {
-                        element.innerHTML =
-                            pangu.spacing(text.slice(0, currentIndex)) +
-                            '<span class="blinking-cursor"></span>';
+                        element.innerHTML = text.slice(0, currentIndex) + '<span class="blinking-cursor"></span>';
                     } else {
-                        element.innerHTML =
-                            pangu.spacing(text) +
-                            '<span class="blinking-cursor"></span>'; // 在文本后面添加光标动画
+                        element.innerHTML = text + '<span class="blinking-cursor"></span>';
                         element.style.display = "block";
                         tianliGPTIsRunning = false;
                         observer.disconnect();// 暂停监听
@@ -334,7 +330,7 @@ function runTianliGPT() {
     insertAIDiv(tianliGPT_postSelector);
     const content = tianliGPT.getTitleAndContent();
     if (content) {
-        console.log('TianliGPT本次提交的内容为：' + content);
+        //console.log('TianliGPT本次提交的内容为：' + content);
     }
     tianliGPT.fetchTianliGPT(content).then(summary => {
         tianliGPT.aiShowAnimation(summary);
@@ -373,7 +369,7 @@ checkURLAndRun();
 
 // TianliGPT End
 
-document.addEventListener("DOMContentLoaded", () => {
-    // listen to any DOM change and automatically perform spacing via MutationObserver()
-    pangu.autoSpacingPage();
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//     // listen to any DOM change and automatically perform spacing via MutationObserver()
+//     pangu.autoSpacingPage();
+// });

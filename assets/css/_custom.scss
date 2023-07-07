@@ -359,6 +359,19 @@ code.hljs {
 // 覆盖主题样式 End
 
 // 主题新增 Start
+.heti {
+    max-width: 100% !important;
+}
+
+.heti i[class*=fa] {
+    font-style: normal !important;
+}
+
+.heti a:hover {
+    padding-block-end: 0 !important;
+    border-block-end-width: 0 !important;
+}
+
 footer {
     .footer-container {
         line-height: 1.8 !important;
