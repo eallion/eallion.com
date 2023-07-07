@@ -241,7 +241,7 @@ function updateHTMl(data) {
 
     // douban
     fetchDB();
-
+    hetiSpacing();
     // highlight.js
     hljs.initHighlighting.called = false;
     hljs.configure({
@@ -720,8 +720,10 @@ function setMemoTag(e) {
 }
 // Memos Editor End
 
-// Pangu.js
-document.addEventListener("DOMContentLoaded", () => {
-    // listen to any DOM change and automatically perform spacing via MutationObserver()
-    pangu.autoSpacingPage();
-});
+// heti
+function hetiSpacing() {
+    // console.assert(document.readyState === 'complete')
+
+    // Make sure it runs **after** dom ready
+    new Heti('.heti').autoSpacing()
+}
