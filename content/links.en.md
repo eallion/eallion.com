@@ -48,3 +48,14 @@ My blog info：
 > Avatar：[https://cdn.jsdelivr.net/gh/eallion/eallion/avatar/eallion.png](https://cdn.jsdelivr.net/gh/eallion/eallion/avatar/eallion.png)  
 > Gravatar：[https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31](https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31)
 > Description：_Chance favors the prepared mind_
+
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        var avatarImage = document.querySelector('.friend-link-avatar img');
+            if (avatarImage) {
+                avatarImage.addEventListener('error', function() {
+                    avatarImage.src = 'https://eallion.com/404.png';
+                });
+            }
+    });
+</script>

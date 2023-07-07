@@ -50,3 +50,14 @@ aliases:
 > 描述：机会总是垂青于有准备的人  
 > Title：eallion's blog  
 > Description：_Chance favors the prepared mind_
+
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+        var avatarImage = document.querySelector('.friend-link-avatar img');
+            if (avatarImage) {
+                avatarImage.addEventListener('error', function() {
+                    avatarImage.src = 'https://eallion.com/404.png';
+                });
+            }
+    });
+</script>
