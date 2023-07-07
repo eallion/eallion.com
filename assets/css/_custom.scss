@@ -591,6 +591,14 @@ footer {
 }
 // 主题新增 End
 
+// zoom-vanilla
+[theme="dark"] .zoom-overlay {
+    background: #292a2d;
+}
+[theme="black"] .zoom-overlay {
+    background: #000;
+}
+
 /* 首页嘀咕样式 JSON 版 */
 #ticker {
     display: flex;
