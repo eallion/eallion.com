@@ -12,6 +12,7 @@
 <meta name="referrer" content="no-referrer">
 <link rel="stylesheet" href="/assets/APlayer.min.css?v=1.10.1">
 <link rel="stylesheet" href="/assets/memos.min.css?v=2023.07.02">
+<link rel="stylesheet" href="/assets/plyr.css?v=3.7.8">
 
 <article class="page single special">
     <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
@@ -50,6 +51,7 @@
 <script type="text/javascript" src="/assets/memos.min.js"></script>
 <script type="text/javascript" src="/assets/highlight.min.js?v=11.7.0"></script>
 <script type="text/javascript" src="/assets/coco-message.min.js?v=2.0.3"></script>
+<script type="text/javascript" src="/assets/plyr.polyfilled.js?v=3.7.8"></script>
 
 {{- /* Artalk Comment System */ -}}
 {{ $ArtalkCSS := resources.Get "lib/artalk/ArtalkLite.css" | resources.Minify | resources.Fingerprint "sha256" }}
