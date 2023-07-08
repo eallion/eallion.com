@@ -640,6 +640,9 @@ footer {
 
 .ticker-wrap ul {
     padding-left: 0.5rem;
+    margin-block-start: 0 !important;
+    margin-block-end: 0 !important;
+    padding-inline-start: 0 !important;
 }
 
 .ticker-list {
