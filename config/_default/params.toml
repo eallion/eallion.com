@@ -462,7 +462,7 @@ cacheRemoteImages = false
   # 第三方库配置
   [page.library]
     [page.library.css]
-      heti = "css/heti.min.css"
+      #heti = "css/heti.min.css"
       zoom = "css/zoom-vanilla.min.css"
       # someCSS = "some.css"
       # [page.library.css.someOtherCSS]
@@ -474,8 +474,8 @@ cacheRemoteImages = false
       # someCSS = "https://cdn.example.com/some.css"
     [page.library.js]
       custom = "js/custom.min.js"
-      heti = "js/heti-addon.min.js"
-      #pangu = "js/pangu.min.js"
+      #heti = "js/heti-addon.min.js"
+      pangu = "js/pangu.min.js"
       zoom = "js/zoom-vanilla.min.js"
       # someJavaScript = "some.js"
       # [page.library.js.someOtherJavaScript]

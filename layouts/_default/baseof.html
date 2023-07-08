@@ -38,7 +38,7 @@
     <div class="wrapper">
         {{- partial "header.html" . -}}
         <main class="main">
-            <div class="container heti">
+            <div class="container">
                 {{- block "content" . }}{{ end -}}
             </div>
         </main>
@@ -59,12 +59,6 @@
 
     {{- /* Load JavaScript scripts and CSS */ -}}
     {{- partial "assets.html" . -}}
-
-    <!-- 赫蹏（hètí）是专为中文内容展示设计的排版样式增强 https://github.com/sivan/heti -->
-    <script>
-        const heti = new Heti('.heti');
-        heti.autoSpacing();
-    </script>
 </body>
 
 </html>

@@ -298,9 +298,9 @@ var tianliGPT = {
                     currentIndex++;
 
                     if (currentIndex < text.length) {
-                        element.innerHTML = text.slice(0, currentIndex) + '<span class="blinking-cursor"></span>';
+                        element.innerHTML = pangu.spacing(text.slice(0, currentIndex)) + '<span class="blinking-cursor"></span>';
                     } else {
-                        element.innerHTML = text + '<span class="blinking-cursor"></span>';
+                        element.innerHTML = pangu.spacing(text) + '<span class="blinking-cursor"></span>';
                         element.style.display = "block";
                         tianliGPTIsRunning = false;
                         observer.disconnect();// 暂停监听
@@ -369,7 +369,7 @@ checkURLAndRun();
 
 // TianliGPT End
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     // listen to any DOM change and automatically perform spacing via MutationObserver()
-//     pangu.autoSpacingPage();
-// });
+document.addEventListener("DOMContentLoaded", () => {
+    // listen to any DOM change and automatically perform spacing via MutationObserver()
+    pangu.autoSpacingPage();
+});
