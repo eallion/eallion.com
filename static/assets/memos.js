@@ -241,7 +241,10 @@ function updateHTMl(data) {
 
     // douban
     fetchDB();
-    hetiSpacing();
+
+    // heti
+    //hetiSpacing();
+
     // highlight.js
     hljs.initHighlighting.called = false;
     hljs.configure({
