@@ -174,7 +174,7 @@ function updateHTMl(data) {
             .replace(NETEASE_MUSIC_REG, "<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>")
             .replace(QQMUSIC_REG, "<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>")
             .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>")
-            .replace(YOUTUBE_REG, "<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>")
+            .replace(YOUTUBE_REG, "<div class='video-wrapper'><div class='plyr__video-embed' id='plyr'><iframe src='https://www.youtube.com/embed/$1?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1' allowfullscreen allowtransparency></iframe></div></div>")
             //.replace(SPOTIFY_REG, "<div class='spotify-wrapper'><iframe style='border-radius:12px' src='https://open.spotify.com/embed/$1/$2?utm_source=generator&theme=0' width='100%' frameBorder='0' allowfullscreen='' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture' loading='lazy'></iframe></div>");
             //.replace(QQVIDEO_REG, "<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>")
             //.replace(YOUKU_REG, "<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>")
@@ -241,10 +241,9 @@ function updateHTMl(data) {
 
     // douban
     fetchDB();
-
     // heti
     //hetiSpacing();
-
+    initializeYoutubePlayer()
     // highlight.js
     hljs.initHighlighting.called = false;
     hljs.configure({
@@ -729,4 +728,10 @@ function hetiSpacing() {
 
     // Make sure it runs **after** dom ready
     new Heti('.heti').autoSpacing()
+}
+
+function initializeYoutubePlayer() {
+    const playerYoutube = new Plyr('#plyr', {
+        noCookie: false, rel: 0, showinfo: 0, iv_load_policy: 3, modestbranding: 1
+    });
 }
