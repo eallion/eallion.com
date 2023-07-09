@@ -212,7 +212,7 @@ function updateHTMl(data) {
                     resLink = memos + 'o/r/' + resourceList[j].id + '/' + fileId
                 }
                 if (restype == 'image') {
-                    imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="' + resLink + '"/></figure>'
+                    imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="' + resLink + '"  data-action="zoom"/></figure>'
                     resImgLength = resImgLength + 1
                 }
                 if (restype !== 'image') {
@@ -400,9 +400,7 @@ function movieShow(fetch_href, fetch_item) {
         data.year +
         "</time><section class='post-preview--excerpt'>" +
         data.intro.replace(/\s*/g, "") +
-        "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" +
-        data.img +
-        "></div>";
+        "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.img +"  data-action='zoom'></div>";
     var db_div = document.createElement("div");
     var qs_href = ".timeline a[href='" + fetch_href + "']";
     var qs_dom = document.querySelector(qs_href);
@@ -426,9 +424,7 @@ function bookShow(fetch_href, fetch_item) {
         data.author +
         " </time><section class='post-preview--excerpt'>" +
         data.summary.replace(/\s*/g, "") +
-        "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" +
-        data.images.medium +
-        "></div>";
+        "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.images.medium + "  data-action='zoom'></div>";
     var db_div = document.createElement("div");
     var qs_href = ".timeline a[href='" + fetch_href + "']";
     var qs_dom = document.querySelector(qs_href);
@@ -507,13 +503,10 @@ document.addEventListener("DOMContentLoaded", () => {
             //         if (restype == "image" && nowNum <= albumLimit) {
             //             nowNum++;
             //             result +=
-            //                 '<div class="memos-photo"><img class="photo-img" loading="lazy" decoding="async" src="' +
-            //                 resLink +
-            //                 '"/><span class="photo-title">' +
-            //                 galleryTitle +
-            //                 '</span><span class="photo-time">' +
-            //                 galleryTime +
-            //                 "</span></div>";
+            //                 '<div class="memos-photo"><img class="photo-img" loading="lazy" decoding="async" src="' + resLink +'"  data-action="zoom"/>
+            //                      <span class="photo-title">' + galleryTitle + '</span>
+            //                      <span class="photo-time">' + galleryTime + '</span>
+            //                 </div>';
             //         }
             //     }
             // }
