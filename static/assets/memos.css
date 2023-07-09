@@ -480,6 +480,12 @@
     border-bottom-left-radius: 0 !important;
 }
 
+@media (max-width: 683px) {
+    .post-preview--image {
+        display: none !important;
+    }
+}
+
 .load-btn {
     color: #222;
     margin: 0 auto;
@@ -1245,7 +1251,6 @@
     margin-bottom: 2%;
     border-radius: 0.25rem;
 }
-
 
 .memos-images img {
     display: inline-block !important;
