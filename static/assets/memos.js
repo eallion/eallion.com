@@ -400,7 +400,7 @@ function movieShow(fetch_href, fetch_item) {
         data.year +
         "</time><section class='post-preview--excerpt'>" +
         data.intro.replace(/\s*/g, "") +
-        "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.img +"  data-action='zoom'></div>";
+        "</section></div></div></div>";
     var db_div = document.createElement("div");
     var qs_href = ".timeline a[href='" + fetch_href + "']";
     var qs_dom = document.querySelector(qs_href);
@@ -424,7 +424,7 @@ function bookShow(fetch_href, fetch_item) {
         data.author +
         " </time><section class='post-preview--excerpt'>" +
         data.summary.replace(/\s*/g, "") +
-        "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.images.medium + "  data-action='zoom'></div>";
+        "</section></div></div></div>";
     var db_div = document.createElement("div");
     var qs_href = ".timeline a[href='" + fetch_href + "']";
     var qs_dom = document.querySelector(qs_href);
