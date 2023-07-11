@@ -9,374 +9,93 @@
 {{- $toc = dict "enable" false -}}
 {{- end -}}
 
-<meta name="referrer" content="no-referrer">
+<link rel="stylesheet" href="/assets/movie.css?v=2023.07.11">
+
+{{ $movies := getJSON "data/neodb/movie.json" }}
 
 <article class="page single special">
-  {{- /* Title */ -}}
-  <h1 class="single-title animate__animated animate__flipInX">{{ .Title }}</h1>
-
-  {{- /* Subtitle */ -}}
-  {{- with $params.subtitle -}}
-  <h2 class="single-subtitle">{{ . }}</h2>
-  {{- end -}}
-
-  {{- /* Content */ -}}
-  <div class="content" id="content">
-    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome |
-    partial "function/content.html" | safeHTML -}}
-
-    <style>
-        .single .single-title {
-          text-align: left;
-        }
-        .gFnzgG,
-        .gFnzgG * {
-          box-sizing: border-box
-        }
-
-        .fIuTG {
-          display: flex;
-          flex-wrap: wrap;
-          margin: 0 -2%;
-          background: 0 0;
-          line-height: 100%
-        }
-
-        .dfdORB {
-          width: 16%;
-          margin: 0 2% 30px;
-          padding: 0;
-          font-size: 15px
-        }
-
-        .dfdORB a {
-          text-decoration: none
-        }
-        @keyframes fadeIn {
-          0% {
-          opacity: 0;
-          }
-          100% {
-          opacity: 1;
-          }
-       }
-
-        .dfdORB img{
-          cursor: pointer;
-          -o-object-fit: cover;
-          object-fit: cover;
-          animation: fadeIn 1s;
-          transition: all 0.4s ease-in-out;
-        }
-
-        .dfdORB:hover img {
-          transform: scale(1.1);
-        }
-
-        .kMthTr {
-          margin-top: 12px;
-          line-height: 1.3;
-          max-height: 2.6rem;
-          overflow: hidden
-        }
-
-        .eysHZq {
-          display: flex;
-          -webkit-box-align: center;
-          align-items: center;
-          margin-top: 5px;
-          min-height: 16px;
-          line-height: 1
-        }
-
-        .HPRth {
-          position: relative;
-          min-height: 87px;
-          overflow: hidden;
-          color: transparent;
-          box-shadow: 0 4px 10px rgba(0,2,4,.06),0 0 1px rgba(0,2,4,.11);
-        }
-
-        .HPRth:hover {
-          box-shadow: rgb(48 55 66 / 30%) 0 1rem 2.1rem
-        }
-
-        .jcTaHb {
-          display: flex;
-          -webkit-box-align: center;
-          align-items: center
-        }
-
-        .lhtmRw {
-          margin-right: 1px;
-          width: 12px;
-          height: 12px;
-          color: #fccd59
-        }
-
-        .gaztka {
-          margin-right: 1px;
-          width: 12px;
-          height: 12px;
-          color: #eee
-        }
-
-        .iibjPt {
-          margin-left: 5px;
-          color: #555;
-          font-size: 14px
-        }
-
-        .jvCTkj {
-          margin-bottom: 20px
-        }
-
-        .kEoOHR {
-          display: inline-block;
-          margin-right: 15px;
-          text-decoration: none;
-          color: #157efb
-        }
-
-        .kEoOHR .fas {
-          min-width: 18px;
-          text-align: center;
-        }
-
-        .dvtjjf:not(:empty) {
-          display: inline-block;
-          color: #555;
-          text-decoration: none;
-          padding: 0 5px
-        }
-
-        .dvtjjf.active {
-          background: rgba(85, 85, 85, .1)
-        }
-
-        .hide {
-          display: none
-        }
-
-        .sort-by {
-          text-align: left;
-        }
-
-        .sort-by-item {
-          margin-left: 10px;
-          padding: 0 5px;
-          line-height: 20px
-        }
-
-        .sort-by-item.active {
-          background: rgba(85, 85, 85, .1)
-        }
-
-        .sort-by-item svg {
-          margin-right: 5px
-        }
-
-        .sc-hKFxyN img {
-          max-width: 100% !important;
-          height: auto !important;
-          display: block !important;
-          vertical-align: middle !important;
-          margin: 0 auto !important;
-        }
-
-        .sc-bdnxRM {
-          margin-bottom: 1rem;
-        }
-
-        .genre {
-          display: flex;
-        }
-
-        .genreIcon {
-          white-space: nowrap;
-        }
-
-        .genreList {
-          margin-left: 5px;
-        }
-
-        .dvtjjf .fa-star::before {
-          color: #ffc107;
-          min-width: 18;
-        }
-
-        .dvtjjf:hover .fa-star::before {
-          color: #ef3982;
-        }
-
-        [theme="dark"] .dvtjjf:hover .fa-star::before {
-          color: #bdebfc;
-        }
-
-        [theme="black"] .dvtjjf:hover .fa-star::before {
-          color: #bdebfc;
-        }
-
-        @media(min-width:1024px) {
-          .lg\:col-span-6 {
-            grid-column: span 6/span 6 !important
-          }
-
-          .lg\:col-start-2 {
-            grid-column-start: 2 !important
-          }
-        }
-
-        @media (max-width:550px) {
-
-          .jcTaHb,
-          .sc-bdnxRM {
-            display: none
-          }
-        }
-      </style>
-    <script type="text/javascript">
-      function search(e) {
-        document.querySelectorAll('.dfdORB').forEach(item => item.classList.add('hide'));
-        document.querySelector(`.dvtjjf.active[data-search="${e.target.dataset.search}"]`)?.classList.remove('active');
-        if (e.target.dataset.value) {
-          e.target.classList.add('active');
-        }
-        const searchItems = document.querySelectorAll('.dvtjjf.active');
-        const attributes = Array.from(searchItems, searchItem => {
-          const property = `data-${searchItem.dataset.search}`;
-          const logic = searchItem.dataset.method === 'contain' ? '*' : '^';
-          const value = searchItem.dataset.method === 'contain' ? `${searchItem.dataset.value}` : searchItem.dataset.value;
-          return `[${property}${logic}='${value}']`;
-        });
-        const selector = `.dfdORB${attributes.join('')}`;
-        document.querySelectorAll(selector).forEach(item => item.classList.remove('hide'));
-      }
-      window.addEventListener('click', function (e) {
-        if (e.target.classList.contains('sc-gtsrHT')) {
-          e.preventDefault();
-          search(e);
-        }
-      });
-      function sort(e) {
-        const sortBy = e.target.dataset.order;
-        const style = document.createElement('style');
-        style.classList.add('sort-order-style');
-        document.querySelector('style.sort-order-style')?.remove();
-        document.querySelector('.sort-by-item.active')?.classList.remove('active');
-        e.target.classList.add('active');
-        if (sortBy === 'rating') {
-          const movies = Array.from(document.querySelectorAll('.dfdORB'));
-          movies.sort((movieA, movieB) => {
-            const ratingA = parseFloat(movieA.dataset.rating) || 0;
-            const ratingB = parseFloat(movieB.dataset.rating) || 0;
-            if (ratingA === ratingB) {
-              return 0;
-            }
-            return ratingA > ratingB ? -1 : 1;
-          });
-          const stylesheet = movies.map((movie, idx) => `.dfdORB[data-rating="${movie.dataset.rating}"] { order: ${idx}; }`).join('\r\n');
-          style.innerHTML = stylesheet;
-          document.body.appendChild(style);
-        }
-      }
-      window.addEventListener('click', function (e) {
-        if (e.target.classList.contains('sort-by-item')) {
-          e.preventDefault();
-          sort(e);
-        }
-      });
-    </script>
-    <div class="lg:col-start-2 lg:col-span-6">
-      {{$movies := getCSV "," "data/douban/movie.csv" }}
-      {{$scratch := newScratch}}
-      {{$scratch.Add "genres" slice}}
-      {{range $idx, $movie := $movies}}
-      {{if ne $idx 0}}
-      {{$scratch.Set "genres" (union ($scratch.Get "genres") (split (index $movie 7) ","))}}
-      {{end}}
-      {{end}}
-      <div class="greyQuote">
-        <blockquote>Douban Watched Movies <span class="emoji">🎬</span></blockquote>
-      </div>
-      <div class="sc-ksluID gFnzgG">
-        <div class="genre sc-bdnxRM">
-          <div class="genreIcon">
-          <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="genres" data-method="contain"
-            data-value=""><i class="fas fa-list-ul"></i> All Types</a>
-          </div>
-          <div class="genreList">
-          {{range $genre := $scratch.Get "genres"}}
-          <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="genres" data-method="contain"
-            data-value="{{$genre}}">{{$genre}}</a>
-          {{end}}
+    <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
+    <div id="content" class="content movies">
+        <div class="greyQuote">
+            <blockquote>My <a href="https://neodb.social/users/eallion@mastodon.social/" target="_blank" rel="noreferrer noopener nofollow">Watched Movie</a>, From: <a href="https://neodb.social/users/eallion@mastodon.social/" target="_blank" rel="noreferrer noopener nofollow">NeoDB</a> <span class="emoji">🎬</span> </blockquote>
         </div>
+        {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+
+        <div class="sort-by-items">
+            <a href="javascript:void 0;" class="sort-by-item active" data-order="time"><i class="fas fa-sort-amount-down"></i> Sort by Watched</a>
+            <a href="javascript:void 0;" class="sort-by-item" data-order="rating"><i class="fas fa-sort-numeric-down-alt"></i> Sort by Rating</a>
+            <a href="javascript:void 0;" class="sort-by-item" data-order="count"><i class="fas fa-sort-alpha-down-alt"></i> Sort by Count</a>
         </div>
-        <div class="genre sc-bdnxRM">
-          <div class="genreIcon">
-          <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="year" data-method="equal"
-            data-value=""><i class="fas fa-calendar-alt"></i> All Years</a>
-          </div>
-          <div class="genreList">
-          {{range $year := (seq 2022 -1 2009)}}
-          <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="year" data-method="equal"
-            data-value="{{$year}}">{{$year}}</a>
-          {{end}}
-          </div>
+
+        <div class="movie">
+
+            {{ range $movies.data }}
+            {{ $title := .item.display_title }}
+            {{ $rating := .item.rating }}
+
+            <div class="movies sorting" data-marked="{{ .created_time }}" data-year='{{  dateFormat "2006-01-02 15:04:05" .created_time }}' data-star="{{ .rating_grade }}" data-rating="{{ .item.rating }}" data-count="{{ .item.rating_count }}">
+                    <div class="cover">
+                        <img class="cover_image_url" src="{{ .item.cover_image_url }}" loading="lazy" data-action="zoom" alt="{{ .item.display_title }}">
+                    </div>
+                    <div class="title">
+                        <a href="{{ index .item.external_resources 1 " url" }}" target="_blank"  rel="noreferrer noopener nofollow">{{ $title }}</a>
+                    </div>
+                    <div class="rating">
+                        {{ range $star := (seq 0 2 8) }}
+                        {{ if gt $rating $star }}
+                        <span>
+                            <svg viewBox="0 0 24 24" width="24" height="24" class="stars">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path fill="currentColor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z">
+                                </path>
+                            </svg>
+                        </span>
+                        {{ else }}
+                        <span>
+                            <svg viewBox="0 0 24 24" width="24" height="24" class="stars white">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path fill="currentcolor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z"></path>
+                            </svg>
+                        </span>
+                        {{ end }}
+                        {{ end }}
+                        {{ $rating }}
+                        <!-- ( 共 {{ .item.rating_count }} 人评分) -->
+                    </div>
+                    <div class="referrer">
+                        <span class="neodb">
+                            <a href="https://neodb.social{{ .item.url }}" target="_blank" rel="noreferrer noopener nofollow">
+                                <img src="/assets/images/movie/neodbsocial.jpg" loading="lazy" alt="NeoDB">
+                            </a>
+                        </span>
+
+                        {{ range .item.external_resources }}
+                        <span class="external-resource">
+                            <a href="{{ .url }}" target="_blank" rel="noreferrer noopener nofollow">
+                                {{ if (in .url "imdb") }}
+                                    <img src="/assets/images/movie/imdb.png" loading="lazy" alt="IMDb">
+                                {{ else if (in .url "themoviedb") }}
+                                    <img src="/assets/images/movie/tmdb.png" loading="lazy" alt="TMDB">
+                                {{ else if (in .url "douban") }}
+                                    <img src="/assets/images/movie/douban.png" loading="lazy" alt="豆瓣">
+                                {{ else }}
+                                <a href="https://www.google.com/search?q={{ $title }}" target="_blank" rel="noreferrer noopener nofollow">
+                                    <img src="/assets/images/movie/google.png" loading="lazy" alt="Google">
+                                </a>
+                                {{ end }}
+                            </a>
+                        </span>
+                    {{ end }}
+
+                    </div>
+            </div>
+            {{ end }}
+
         </div>
-        <div class="sc-bdnxRM">
-          <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="star" data-method="equal"
-            data-value=""><i class="fas fa-star"></i> All Marks</a>
-            <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal"
-              data-value="5"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5/5</a>
-            <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal"
-              data-value="4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> 4/5</a>
-            <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal"
-              data-value="3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> 3/5</a>
-            <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal"
-              data-value="2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> 2/5</a>
-            <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal"
-              data-value="1"><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> 1/5</a>
-            <!--<a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal"
-              data-value="0"> 0/5</a>-->
-        </div>
-        <div class="jvCTkj sort-by">
-          <a href="javascript:void 0;" class="sort-by-item active" data-order="time"><i class="fas fa-sort-amount-down"></i> Sort by watched time</a>
-          <a href="javascript:void 0;" class="sort-by-item" data-order="rating"><i class="fas fa-sort-numeric-down-alt"></i> Sort by stars</a>
-        </div>
-        <div class="sc-dIsUp fIuTG">
-          {{range $idx, $movie := $movies}}
-          {{if ne $idx 0 }}
-          <div class="sc-gKAaRy dfdORB" data-year="{{index $movie 11}}" data-star="{{index $movie 8}}"
-            data-rating="{{index $movie 6}}" data-genres="{{index $movie 7}}">
-            <a rel="link" href="{{index $movie 5}}" target="_blank">
-              <div class="sc-hKFxyN HPRth">
-                <div class="lazyload-wrapper ">
-                    <img class="avatar" src='https://images.eallion.com/images/douban/cover/{{ trim (replace (index $movie 5) "https://movie.douban.com/subject/" "") "/" }}.webp' referrer-policy="no-referrer" loading="lazy" alt="{{index $movie 1}}">
-                </div>
-              </div>
-              <div class="sc-iCoGMd kMthTr">{{index $movie 1}}</div>
-              <div class="sc-fujyAs eysHZq">
-                <span class="sc-jSFjdj jcTaHb">
-                  {{range $star := (seq 0 2 8)}}
-                  <svg viewBox="0 0 24 24" width="24" height="24"
-                    class="sc-dlnjwi {{if gt (index $movie 6) $star}}lhtmRw{{else}}gaztka{{end}}">
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                    <path fill="currentColor"
-                      d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z">
-                    </path>
-                  </svg>
-                  {{end}}
-                </span>
-                <span class="sc-pNWdM iibjPt">{{index $movie 6}}</span>
-              </div>
-            </a>
-          </div>
-          {{end}}
-          {{end}}
-        </div>
-      </div>
+
     </div>
-  </div>
 </article>
-{{- end -}}
+
+<script type="text/javascript" src="/assets/movie.js?v=2023.07.11"></script>
+
+{{ end }}
