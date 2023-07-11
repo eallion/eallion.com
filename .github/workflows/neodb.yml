@@ -81,10 +81,6 @@ jobs:
         # 把所有数据合并成一个文件
         jq -c -s '{data: map(.data[]) | unique | sort_by(.created_time) | reverse, pages: map(.pages)[0], count: map(.count)[0]}' *.json > movie.json
 
-        # 更新 NeoDB 数据
-        rm data/neodb/movie.json
-        cp movie.json data/neodb/movie.json
-
     # 把修改后的数据提交到 GitHub 仓库
     - name: Git Add and Commit
       if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
