@@ -15,13 +15,15 @@ date: 2023-07-11T23:15:21+08:00
 
 ### 1. 注册 Neodb 账号
 
-注册 NeoDB 账号前，需要注册一个 Mastodon 长毛象宇宙的账号，有很多实例可以注册。然后用 Mastodon 账号就可以登录 NeoDB 了。比如我就注册在 [mastodon.social](https://mastodon.social/@eallion) ，我以前还自建过 Mastodon，不过没必要。最新的 NeoDB 似乎已经可以绑定邮箱登录了。
+注册 NeoDB 账号前，需要注册一个 Mastodon 长毛象宇宙的账号，有很多实例可以注册。然后用 Mastodon 账号就可以登录 NeoDB 了。最新的 NeoDB 似乎已经可以绑定邮箱登录了。
 注册 Mastodon 和 NeoDB 这些都是小事情，暂时略过，默认任何人都会了。
+比如我就注册在 [mastodon.social](https://mastodon.social/@eallion) ，我以前还自建过 Mastodon，不过没必要。
 
 ### 2. 生成 NeoDB 的 Token
 
 NeoDB 官方开发者中心有 [How to authorize](https://neodb.social/developer/) 教程，按教程一步一步来就可以。
 但是有人问到，我这里就翻译一下。
+为什么要生成 Access Token，因为临时的 Test Token 有效期很短。
 
 #### 2.1. 进入开发者中心
 
@@ -43,7 +45,7 @@ NeoDB 官方开发者中心有 [How to authorize](https://neodb.social/developer
 
 #### 2.3. 获取 `AUTH_CODE`
 
-通过浏览器访问下面的 URL，注册修改成自己的参数：
+通过浏览器访问下面的 URL，注意修改成自己的参数：
 
 ```
 https://neodb.social/oauth/authorize/?response_type=code&client_id=CLIENT_ID&redirect_uri=https://example.org/callback
@@ -58,7 +60,7 @@ https://neodb.social/oauth/authorize/?response_type=code&client_id=CLIENT_ID&red
 
 ![](https://images.eallion.com/images/2023/07/authorize.png)
 
-访问后会在浏览器地址栏返回一个带有 `code` 的 URL。记住这个 `code` 的值，别管 404 或其他报错。
+访问后，点击 `确认授权` ，会在浏览器地址栏返回一个带有 `code` 的 URL。记住这个 `code` 的值，别管 404 或其他报错。
 
 ![](https://images.eallion.com/images/2023/07/code.png)
 

@@ -26,6 +26,8 @@ jobs:
         else
           echo "jq is already installed."
         fi
+        # 把当前目录保存到环境变量中
+        echo "WORK_DIR=$(pwd)" >> $GITHUB_ENV
 
     # 获取本地现有文件的标记数
     - name: Get Current Count
@@ -65,7 +67,9 @@ jobs:
         #从 movie1.json 中提取 pages 字段的值
         pages=$(jq '.pages' movie1.json)
 
-        cd data/neodb
+        # 个人使用，新建 WorkDIR ，排除 vercel.json 和 package.json 等
+        mkdir neodb
+        cd neodb
 
         # 循环下载文件，因为 page 1 已经下载过了，从 2 开始
         for ((i=1; i<=$pages; i++)); do
@@ -80,6 +84,9 @@ jobs:
 
         # 把所有数据合并成一个文件
         jq -c -s '{data: map(.data[]) | unique | sort_by(.created_time) | reverse, pages: map(.pages)[0], count: map(.count)[0]}' *.json > movie.json
+
+        # 更新 NeoDB 数据
+        cp -f movie.json ${{ env.WORK_DIR }}/data/neodb/
 
     # 把修改后的数据提交到 GitHub 仓库
     - name: Git Add and Commit
