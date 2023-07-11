@@ -60,12 +60,15 @@ jobs:
 
     # 下载所有数据
     - name: Get All NeoDB Count
+      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
       run: |
         #从 movie1.json 中提取 pages 字段的值
         pages=$(jq '.pages' movie1.json)
 
+        cd data/neodb
+
         # 循环下载文件，因为 page 1 已经下载过了，从 2 开始
-        for ((i=2; i<=$pages; i++)); do
+        for ((i=1; i<=$pages; i++)); do
           url="https://neodb.social/api/me/shelf/complete?category=movie&page=$i"
           filename="movie$i.json"
 
@@ -84,6 +87,7 @@ jobs:
 
     # 把修改后的数据提交到 GitHub 仓库
     - name: Git Add and Commit
+      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
       uses: EndBug/add-and-commit@v9
       with:
         message: 'chore(data): update neodb data'
@@ -91,6 +95,7 @@ jobs:
 
     # 调用另外的 GitHub Actions 构建 Hugo
     - name: Build Hugo and Deploy
+      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
       uses: peter-evans/repository-dispatch@v2
       with:
           event-type: "Build Hugo and Deploy"
