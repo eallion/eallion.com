@@ -1,5 +1,5 @@
 ---
-title: "豆瓣观影"
+title: "观影记录"
 layout: "movie"
 type: 'movie'
 comment: false
