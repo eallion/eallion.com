@@ -32,13 +32,37 @@
             {{ range $movies.data }}
             {{ $title := .item.display_title }}
             {{ $rating := .item.rating }}
+            {{ $movie_url := .item.url }}
+            {{ $cover := .item.cover_image_url }}
+            {{ $cover_name := path.Base $cover }}
 
             <div class="movies sorting" data-marked="{{ .created_time }}" data-year='{{  dateFormat "2006-01-02 15:04:05" .created_time }}' data-star="{{ .rating_grade }}" data-rating="{{ .item.rating }}" data-count="{{ .item.rating_count }}">
                     <div class="cover">
-                        <img class="cover_image_url" src="{{ .item.cover_image_url }}" loading="lazy" data-action="zoom" alt="{{ .item.display_title }}">
+                        <div class="cover__container">
+                            {{ range .item.external_resources }}
+                                {{ if (in .url "douban") }}
+                                    <a href="{{ .url }}" target="_blank" rel="noreferrer noopener nofollow"><img class="cover_image_url" src="https://images.eallion.com/images/neodb/{{ $cover_name }}" loading="lazy" alt="{{ $title }}"></a>
+                                {{ end }}
+                            {{ end }}
+                        </div>
                     </div>
                     <div class="title">
-                        <a href="{{ index .item.external_resources 1 " url" }}" target="_blank"  rel="noreferrer noopener nofollow">{{ $title }}</a>
+                        {{ $hasDouban := false }}
+                        {{ range .item.external_resources }}
+                            {{ if (in .url "douban") }}
+                                {{ $hasDouban = true }}
+                                <a href="{{ .url }}" target="_blank" rel="noreferrer noopener nofollow">
+                                    {{ $title }}
+                                </a>
+                                {{ end }}
+                            {{ end }}
+
+                            {{ if not $hasDouban }}
+                                <a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">
+                                    {{ $title }}
+                                </a>
+                            {{ end }}
+
                     </div>
                     <div class="rating">
                         {{ range $star := (seq 0 2 8) }}
@@ -64,29 +88,27 @@
                     </div>
                     <div class="referrer">
                         <span class="neodb">
-                            <a href="https://neodb.social{{ .item.url }}" target="_blank" rel="noreferrer noopener nofollow">
+                            <a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">
                                 <img src="/assets/images/movie/neodbsocial.jpg" loading="lazy" alt="NeoDB">
                             </a>
                         </span>
 
                         {{ range .item.external_resources }}
-                        <span class="external-resource">
-                            <a href="{{ .url }}" target="_blank" rel="noreferrer noopener nofollow">
-                                {{ if (in .url "imdb") }}
-                                    <img src="/assets/images/movie/imdb.png" loading="lazy" alt="IMDb">
-                                {{ else if (in .url "themoviedb") }}
-                                    <img src="/assets/images/movie/tmdb.png" loading="lazy" alt="TMDB">
-                                {{ else if (in .url "douban") }}
-                                    <img src="/assets/images/movie/douban.png" loading="lazy" alt="豆瓣">
-                                {{ else }}
-                                <a href="https://www.google.com/search?q={{ $title }}" target="_blank" rel="noreferrer noopener nofollow">
-                                    <img src="/assets/images/movie/google.png" loading="lazy" alt="Google">
-                                </a>
-                                {{ end }}
-                            </a>
-                        </span>
-                    {{ end }}
+                            {{ $parsedURL := urls.Parse .url }}
+                            {{ $host := $parsedURL.Hostname }}
+                            {{ $title := .title }}
+                                <span class="external-resource">
+                                    <a href="{{ .url }}" target="_blank" rel="noreferrer noopener nofollow">
+                                        <img src="/assets/images/movie/{{ $host }}.png" loading="lazy" alt="{{ $title }}">
+                                    </a>
+                                </span>
+                        {{ end }}
 
+                        <!-- <span class="rottentomatoes">
+                            <a href="http://www.google.com/search?hl=en&q={{ $title }}+rotten+tomatoes&btnI=I" target="_blank" rel="noreferrer noopener nofollow">
+                                <img src="/assets/images/movie/www.rottentomatoes.com.png" loading="lazy" alt="NeoDB">
+                            </a>
+                        </span> -->
                     </div>
             </div>
             {{ end }}

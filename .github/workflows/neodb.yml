@@ -88,6 +88,33 @@ jobs:
         # 更新 NeoDB 数据
         cp -f movie.json ${{ env.WORK_DIR }}/data/neodb/
 
+    - name: Download NeoDB Cover
+      run: |
+        # 检查 movie 目录是否存在，如果不存在则创建
+        if [ ! -d "movie" ]; then
+          mkdir movie
+        fi
+
+        # 读取本地的 movie.json 文件内容
+        json=$(cat data/neodb/movie.json)
+
+        # 提取图片 URL
+        image_urls=$(echo "$json" | jq -r '.data[].item.cover_image_url')
+
+        # 遍历图片 URL 并下载图片
+        for url in $image_urls; do
+          filename=$(basename "$url")
+          filepath="data/neodb/cover/$filename"
+          # 检查文件是否已存在
+          if [ -f "$filepath" ]; then
+            echo "Skipping $filename - File already exists"
+          else
+            # 使用 curl 命令下载图片
+            curl -o "$filepath" "$url"
+            echo "Downloaded $filename"
+          fi
+        done
+
     # 把修改后的数据提交到 GitHub 仓库
     - name: Git Add and Commit
       if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
@@ -102,3 +129,12 @@ jobs:
       uses: peter-evans/repository-dispatch@v2
       with:
           event-type: "Build Hugo and Deploy"
+
+    - name: Upload Cover to Tencent COS
+      uses: zkqiang/tencent-cos-action@v0.1.0
+      with:
+        args: upload -rs ./data/cover/ /images/neodb/
+        secret_id: ${{ secrets.SECRET_COS_ID }}
+        secret_key: ${{ secrets.SECRET_COS_KEY }}
+        bucket: ${{ secrets.COS_CDN_BUCKET }}
+        region: ap-shanghai
