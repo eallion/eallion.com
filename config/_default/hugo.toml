@@ -27,4 +27,4 @@ enableEmoji = true
 # 忽略一些构建错误
 # ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
-ignoreFiles = ['data/douban']
+ignoreFiles = ['data/douban', 'data/neodb/cover']
