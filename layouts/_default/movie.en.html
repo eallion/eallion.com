@@ -41,7 +41,7 @@
                         <div class="cover__container">
                             {{ range .item.external_resources }}
                                 {{ if (in .url "douban") }}
-                                    <a href="{{ .url }}" target="_blank" rel="noreferrer noopener nofollow"><img class="cover_image_url" src="https://images.eallion.com/images/neodb/{{ $cover_name }}" loading="lazy" alt="{{ $title }}"></a>
+                                    <a href="{{ .url }}" target="_blank" rel="noreferrer noopener nofollow"><img alt="{{ $title }}" class="lazy" src="/assets/images/movie/movie.png" loading="lazy" data-src="https://images.eallion.com/images/neodb/{{ $cover_name }}"></a>
                                 {{ end }}
                             {{ end }}
                         </div>
@@ -67,7 +67,7 @@
                     <div class="rating">
                         {{ range $star := (seq 0 2 8) }}
                         {{ if gt $rating $star }}
-                        <span>
+                        <span class="rating_star">
                             <svg viewBox="0 0 24 24" width="24" height="24" class="stars">
                                 <path fill="none" d="M0 0h24v24H0z"></path>
                                 <path fill="currentColor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z">
@@ -75,7 +75,7 @@
                             </svg>
                         </span>
                         {{ else }}
-                        <span>
+                        <span class="rating_star">
                             <svg viewBox="0 0 24 24" width="24" height="24" class="stars white">
                                 <path fill="none" d="M0 0h24v24H0z"></path>
                                 <path fill="currentcolor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z"></path>
@@ -83,8 +83,17 @@
                         </span>
                         {{ end }}
                         {{ end }}
-                        {{ $rating }}
-                        <!-- ( 共 {{ .item.rating_count }} 人评分) -->
+                        <span class="rating_star">{{ $rating }}</span>
+                    <div class="rating_count hidden">
+                        <span>
+                            <svg viewBox="0 0 24 24" width="24" height="24" class="stars">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path fill="currentColor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z">
+                                </path>
+                            </svg>
+                        </span>
+                        <span><a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">About {{ .item.rating_count }} Rating</a></span>
+                    </div>
                     </div>
                     <div class="referrer">
                         <span class="neodb">
@@ -118,6 +127,13 @@
     </div>
 </article>
 
+<script type="text/javascript" src="/assets/lazyload.iife.min.js?v=17.8.3"></script>
 <script type="text/javascript" src="/assets/movie.js?v=2023.07.11"></script>
+
+<script>
+    var lazyLoadInstance = new LazyLoad({
+        // Your custom settings go here
+    });
+</script>
 
 {{ end }}

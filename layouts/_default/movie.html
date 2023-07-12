@@ -41,7 +41,7 @@
                         <div class="cover__container">
                             {{ range .item.external_resources }}
                                 {{ if (in .url "douban") }}
-                                    <a href="{{ .url }}" target="_blank" rel="noreferrer noopener nofollow"><img class="cover_image_url" src="https://images.eallion.com/images/neodb/{{ $cover_name }}" loading="lazy" alt="{{ $title }}"></a>
+                                    <a href="{{ .url }}" target="_blank" rel="noreferrer noopener nofollow"><img alt="{{ $title }}" class="lazy" src="/assets/images/movie/movie.png" loading="lazy" data-src="https://images.eallion.com/images/neodb/{{ $cover_name }}"></a>
                                 {{ end }}
                             {{ end }}
                         </div>
@@ -92,7 +92,7 @@
                                 </path>
                             </svg>
                         </span>
-                        <span><a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">共 {{ .item.rating_count }} 人评分</a></span>
+                        <span><a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">约 {{ .item.rating_count }} 人评分</a></span>
                     </div>
                     </div>
                     <div class="referrer">
@@ -127,6 +127,13 @@
     </div>
 </article>
 
+<script type="text/javascript" src="/assets/lazyload.iife.min.js?v=17.8.3"></script>
 <script type="text/javascript" src="/assets/movie.js?v=2023.07.11"></script>
+
+<script>
+    var lazyLoadInstance = new LazyLoad({
+        // Your custom settings go here
+    });
+</script>
 
 {{ end }}
