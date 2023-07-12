@@ -67,7 +67,7 @@
                     <div class="rating">
                         {{ range $star := (seq 0 2 8) }}
                         {{ if gt $rating $star }}
-                        <span>
+                        <span class="rating_star">
                             <svg viewBox="0 0 24 24" width="24" height="24" class="stars">
                                 <path fill="none" d="M0 0h24v24H0z"></path>
                                 <path fill="currentColor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z">
@@ -75,7 +75,7 @@
                             </svg>
                         </span>
                         {{ else }}
-                        <span>
+                        <span class="rating_star">
                             <svg viewBox="0 0 24 24" width="24" height="24" class="stars white">
                                 <path fill="none" d="M0 0h24v24H0z"></path>
                                 <path fill="currentcolor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z"></path>
@@ -83,8 +83,17 @@
                         </span>
                         {{ end }}
                         {{ end }}
-                        {{ $rating }}
-                        <!-- ( 共 {{ .item.rating_count }} 人评分) -->
+                        <span class="rating_star">{{ $rating }}</span>
+                    <div class="rating_count hidden">
+                        <span>
+                            <svg viewBox="0 0 24 24" width="24" height="24" class="stars">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path fill="currentColor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z">
+                                </path>
+                            </svg>
+                        </span>
+                        <span><a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">共 {{ .item.rating_count }} 人评分</a></span>
+                    </div>
                     </div>
                     <div class="referrer">
                         <span class="neodb">

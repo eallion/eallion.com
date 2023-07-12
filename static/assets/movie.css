@@ -119,6 +119,18 @@
     text-align: left;
 }
 
+.rating_count {
+    display: flex;
+    text-align: left;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.rating_star.hidden,
+.rating_count.hidden {
+    display: none;
+}
+
 .sort-by-item.active {
     background: rgba(85,85,85,.1);
 }

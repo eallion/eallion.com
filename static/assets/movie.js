@@ -61,7 +61,22 @@ function sort(e) {
         });
 
         // 生成排序样式表
-        const stylesheet = movies.map((movie, idx) => `.sorting[data-rating="${movie.dataset.rating}"] { order: ${idx}; }`).join('\r\n');
+        const stylesheet = movies.map((movie, idx) => {
+            const ratingStarElements = movie.querySelectorAll('.rating_star');
+            ratingStarElements.forEach((ratingStarElement) => {
+                if (ratingStarElement.classList.contains('hidden')) {
+                    ratingStarElement.classList.remove('hidden');
+                }
+            });
+
+            const ratingCountElement = movie.querySelector('.rating_count');
+            if (ratingCountElement && !ratingCountElement.classList.contains('hidden')) {
+                ratingCountElement.classList.add('hidden');
+            }
+
+            return `.sorting[data-rating="${movie.dataset.rating}"] { order: ${idx}; }`;
+        }).join('\r\n');
+
         style.innerHTML = stylesheet;
         document.body.appendChild(style);
     } else if (sortBy === 'count') {
@@ -78,11 +93,59 @@ function sort(e) {
         });
 
         // 生成排序样式表
-        const stylesheet = movies.map((movie, idx) => `.sorting[data-count="${movie.dataset.count}"] { order: ${idx}; }`).join('\r\n');
+        const stylesheet = movies.map((movie, idx) => {
+            const ratingStarElements = movie.querySelectorAll('.rating_star');
+            ratingStarElements.forEach((ratingStarElement) => {
+                if (!ratingStarElement.classList.contains('hidden')) {
+                    ratingStarElement.classList.add('hidden');
+                }
+            });
+
+            const ratingCountElement = movie.querySelector('.rating_count');
+            if (ratingCountElement && ratingCountElement.classList.contains('hidden')) {
+                ratingCountElement.classList.remove('hidden');
+            }
+
+            return `.sorting[data-count="${movie.dataset.count}"] { order: ${idx}; }`;
+        }).join('\r\n');
+
+        style.innerHTML = stylesheet;
+        document.body.appendChild(style);
+    } else if (sortBy === 'time') {
+        const movies = Array.from(document.querySelectorAll('.sorting'));
+
+        // 根据观影时间进行排序
+        movies.sort((movieA, movieB) => {
+            const timeA = parseInt(movieA.dataset.time) || 0;
+            const timeB = parseInt(movieB.dataset.time) || 0;
+            if (timeA === timeB) {
+                return 0;
+            }
+            return timeA > timeB ? -1 : 1;
+        });
+
+        // 生成排序样式表
+        const stylesheet = movies.map((movie, idx) => {
+            const ratingStarElements = movie.querySelectorAll('.rating_star');
+            ratingStarElements.forEach((ratingStarElement) => {
+                if (ratingStarElement.classList.contains('hidden')) {
+                    ratingStarElement.classList.remove('hidden');
+                }
+            });
+
+            const ratingCountElement = movie.querySelector('.rating_count');
+            if (ratingCountElement && !ratingCountElement.classList.contains('hidden')) {
+                ratingCountElement.classList.add('hidden');
+            }
+
+            return `.sorting[data-time="${movie.dataset.time}"] { order: ${idx}; }`;
+        }).join('\r\n');
+
         style.innerHTML = stylesheet;
         document.body.appendChild(style);
     }
 }
+
 
 window.addEventListener('click', function (e) {
     if (e.target.classList.contains('sort-by-item')) {
