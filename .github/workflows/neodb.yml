@@ -112,6 +112,7 @@ jobs:
             # 使用 curl 命令下载图片
             curl -o "$filepath" "$url"
             echo "Downloaded $filename"
+            echo "REMOTE_COUNT=''" >> $GITHUB_ENV
           fi
         done
 
@@ -132,9 +133,10 @@ jobs:
 
     # 把海报上传到腾讯云
     - name: Upload Cover to Tencent COS
+      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
       uses: zkqiang/tencent-cos-action@v0.1.0
       with:
-        args: upload -rs ./data/cover/ /images/neodb/
+        args: upload -rs ./data/neodb/cover/ /images/neodb/
         secret_id: ${{ secrets.SECRET_COS_ID }}
         secret_key: ${{ secrets.SECRET_COS_KEY }}
         bucket: ${{ secrets.COS_CDN_BUCKET }}
