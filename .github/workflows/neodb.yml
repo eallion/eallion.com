@@ -130,6 +130,7 @@ jobs:
       with:
           event-type: "Build Hugo and Deploy"
 
+    # 把海报上传到腾讯云
     - name: Upload Cover to Tencent COS
       uses: zkqiang/tencent-cos-action@v0.1.0
       with:
