@@ -124,7 +124,7 @@ function getNextList() {
 }
 
 // 插入 html
-function updateHTMl(data) {
+async  function updateHTMl(data) {
     var memoResult = "", resultAll = "";
 
     const TAG_REG = /#([^\s#]+)/,
@@ -164,6 +164,41 @@ function updateHTMl(data) {
 
     for (var i = 0; i < data.length; i++) {
         var memo_id = data[i].id;
+
+        let relatedHtml = ""; // 初始化 relatedHtml
+
+        if (data[i].relationList && data[i].relationList.length > 0) {
+            var relationList = data[i].relationList;
+
+            // 使用 Promise.all 和 async/await 等待所有异步操作完成
+            await Promise.all(
+                relationList.map(async (relation) => {
+                    var relatedMemoId = relation.relatedMemoId;
+                    let relatedHtmlContent = "";
+
+                    if (relatedMemoId) {
+                        var res = await fetch(
+                            "https://api.eallion.com/memos/api/memo/" + relatedMemoId
+                        );
+                        var resdata = await res.json();
+
+                        const IMG_REG = /\!\[(.*?)\]\((.*?)\)/g;
+                        const LINK_REG = /\[(.*?)\]\((.*?)\)/g;
+                        const relatedContent = resdata.data.content
+                            .replace(IMG_REG, "")
+                            .replace(LINK_REG, '<a class="primary" href="$2" target="_blank">$1</a>');
+
+                        relatedHtmlContent = `<div class='relationList'><div class='relationWrapper'><div class='relationIcon'><i class='fas fa-paperclip fa-fw'></i></div><div class='relationContent'><a href='https://memos.eallion.com/m/${relatedMemoId}' target="_blank" rel="noopener noreferrer">${relatedContent}</a></div></div></div>`;
+                    }
+
+                    return relatedHtmlContent; // 返回 relatedHtmlContent 的值
+                })
+            ).then((relatedHtmlContentArr) => {
+                // 在 Promise.all 完成后，可以访问 relatedHtmlContentArr 数组中的所有值，并根据需要进行处理
+                relatedHtml = relatedHtmlContentArr.join(""); // 将 relatedHtmlContentArr 中的值连接成一个字符串
+            });
+        }
+
         var memoContREG = data[i].content.replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
             .replace(IMG_REG, '')
         //.replace(LINK_REG, '<a class="primary" href="$2" target="_blank">$1</a>')
@@ -231,7 +266,8 @@ function updateHTMl(data) {
 
         var twitterIcon = '<svg viewBox="0 0 24 24" aria-label="认证账号" class="talks__verify"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg>'
 
-        memoResult += '<li id="' + memo_id + '" class="timeline"><div class="talks__content"><div class="talks__text"><div class="talks__userinfo"><div>Charles Chin</div><div>' + twitterIcon + '</div><div class="talks__id">@eallion · </div><small class="talks__date"><a href="https://memos.eallion.com/m/' + memo_id + '" target="_blank">' + moment(data[i].createdTs * 1000).twitterLong() + "</a></small></div>" + memoContREG + "<div class='talks_comments'><a class='artalk-div' onclick=\"loadArtalk(\'" + memo_id + "\',event)\"><i class='fas fa-comment-dots fa-fw'></i><span id='btn_memo_" + memo_id + "'>评论</span> (<span id='ArtalkCount' data-page-key='/m/" + memo_id + "'>0</span>)</a></div><div id='memo_" + memo_id + "' class='artalk hidden'></div></div></li>";
+        memoResult += '<li id="' + memo_id + '" class="timeline"><div class="talks__content"><div class="talks__text"><div class="talks__userinfo"><div>Charles Chin</div><div>' + twitterIcon + '</div><div class="talks__id">@eallion · </div><small class="talks__date"><a href="https://memos.eallion.com/m/' + memo_id + '" target="_blank">' + moment(data[i].createdTs * 1000).twitterLong() + '</a></small></div>' + memoContREG + relatedHtml + '<div class="talks_comments"><a class="artalk-div" onclick="loadArtalk(\'' + memo_id + '\',event)"><i class="fas fa-comment-dots fa-fw"></i><span id="btn_memo_' + memo_id + '">评论</span> (<span id="ArtalkCount" data-page-key="/m/' + memo_id + '">0</span>)</a></div><div id="memo_' + memo_id + '" class="artalk hidden"></div></div></li>';
+
     }
 
     var memoBefore = '<ul class="talks">';

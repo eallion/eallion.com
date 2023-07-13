@@ -460,7 +460,7 @@ footer {
 .greyQuote {
     blockquote {
         border-left: 0.5rem solid #555 !important;
-        background-color: $background-color_1 !important;
+        background-color: #f4f4f5 !important;
         padding: 1rem 0 1rem 1rem !important;
         border-top-left-radius: 0.25rem !important;
         border-top-right-radius: 0.5rem !important;
@@ -777,10 +777,10 @@ footer {
     --heo-lighttext: var(--heo-main);
     --heo-secondtext: rgba(60, 60, 67, 0.8);
     --heo-scrollbar: rgba(60, 60, 67, 0.4);
-    --heo-card-btn-bg: #edf0f7;
+    --heo-card-btn-bg: #f5f5f5;
     --heo-post-blockquote-bg: #fafcff;
     --heo-post-tabs-bg: #f2f5f8;
-    --heo-secondbg: #f1f3f8;
+    --heo-secondbg: #f5f5f5;
     --heo-shadow-nav: 0 5px 12px -5px rgba(102, 68, 68, 0.05);
     --heo-card-bg: #fff;
     --heo-card-bg-op: var(--heo-black-op);
@@ -819,10 +819,10 @@ footer {
     --heo-lighttext: var(--heo-main);
     --heo-secondtext: rgba(60, 60, 67, 0.8);
     --heo-scrollbar: rgba(60, 60, 67, 0.4);
-    --heo-card-btn-bg: #edf0f7;
+    --heo-card-btn-bg: #f5f5f5;
     --heo-post-blockquote-bg: #fafcff;
     --heo-post-tabs-bg: #f2f5f8;
-    --heo-secondbg: #f1f3f8;
+    --heo-secondbg: #f5f5f5;
     --heo-shadow-nav: 0 5px 12px -5px rgba(102, 68, 68, 0.05);
     --heo-card-bg: #fff;
     --heo-card-bg-op: var(--heo-black-op);
@@ -861,10 +861,10 @@ footer {
     --heo-lighttext: var(--heo-theme);
     --heo-secondtext: #a1a2b8;
     --heo-scrollbar: rgba(200, 200, 223, 0.4);
-    --heo-card-btn-bg: #30343f;
+    --heo-card-btn-bg: #272C34;
     --heo-post-blockquote-bg: #000;
     --heo-post-tabs-bg: #121212;
-    --heo-secondbg: #30343f;
+    --heo-secondbg: #272C34;
     --heo-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4);
     --heo-card-bg: #1d1e22;
     --heo-card-bg-op: var(--heo-white-op);
@@ -903,10 +903,10 @@ footer {
     --heo-lighttext: var(--heo-theme);
     --heo-secondtext: #a1a2b8;
     --heo-scrollbar: rgba(200, 200, 223, 0.4);
-    --heo-card-btn-bg: #30343f;
+    --heo-card-btn-bg: #272C34;
     --heo-post-blockquote-bg: #000;
     --heo-post-tabs-bg: #121212;
-    --heo-secondbg: #30343f;
+    --heo-secondbg: #272C34;
     --heo-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4);
     --heo-card-bg: #1d1e22;
     --heo-card-bg-op: var(--heo-white-op);
