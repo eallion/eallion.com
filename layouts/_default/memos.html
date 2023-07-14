@@ -57,16 +57,6 @@
 <link href="{{ $ArtalkCSS.RelPermalink }}" rel="stylesheet" integrity="{{ $ArtalkCSS.Data.Integrity }}" crossorigin="anonymous"></link>
 {{ $ArtalkJS := resources.Get "lib/artalk/ArtalkLite.js" | resources.Minify | resources.Fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $ArtalkJS.RelPermalink }}" integrity="{{ $ArtalkJS.Data.Integrity }}" crossorigin="anonymous"></script>
-<script>
-    window.onload = function() {
-        Artalk.loadCountWidget({
-            server: 'https://api.eallion.com/artalk/',
-            site: 'memos',
-            pvEl: '#ArtalkPV',
-            countEl: '#ArtalkCount',
-        });
-    }
-</script>
 
 <script>
     window.ViewImage && ViewImage.init('.content img');
