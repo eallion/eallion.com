@@ -77,15 +77,15 @@ jobs:
     - name: Get All NeoDB Count
       if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
       run: |
-        #从 movie1.json 中提取 pages 字段的值
+        #从 json 中提取 pages 字段的值
         pages=$(jq '.pages' movie1.json)
+        tv_pages=$(jq '.pages' tv1.json)
 
         # 个人使用，新建 WorkDIR ，排除 vercel.json 和 package.json 等
         mkdir neodb
         cd neodb
 
         # 下载 Movie 分类
-        # 循环下载文件，因为 page 1 已经下载过了，从 2 开始
         for ((i=1; i<=$pages; i++)); do
           url="https://neodb.social/api/me/shelf/complete?category=movie&page=$i"
           filename="movie$i.json"
