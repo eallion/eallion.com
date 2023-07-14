@@ -529,7 +529,14 @@
     border: 0;
     border-radius: 8px;
     cursor: pointer;
-    border: 2px solid #222;
+    border: 1px solid #f4f4f5;
+    width: 100%;
+    background: #f5f5f5;
+}
+
+.load-btn:hover {
+    border-color: #e5e7eb;
+    transition: all 0.4s ease-in-out;
 }
 
 .post-content .spotify-wrapper > iframe {
@@ -871,8 +878,13 @@
 
 [theme="dark"] .load-btn {
     color: #a9a9b3 !important;
-    background: #2d333b !important;
-    border: 2px solid #a9a9b3 !important;
+    background: #22272e !important;
+    border: 1px solid #22272e !important;
+}
+
+[theme="dark"] .load-btn:hover {
+    border-color: #333 !important;
+    transition: all 0.4s ease-in-out;
 }
 
 [theme="dark"] .hljs {
@@ -1116,8 +1128,13 @@
 
 [theme="black"] .load-btn {
     color: #a9a9b3 !important;
-    background: #2d333b !important;
-    border: 2px solid #a9a9b3 !important;
+    background: #22272e !important;
+    border: 1px solid #292a2d !important;
+}
+
+[theme="black"] .load-btn:hover {
+    border-color: #333 !important;
+    transition: all 0.4s ease-in-out;
 }
 
 [theme="black"]:not(pre) > code {

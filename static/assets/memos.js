@@ -184,7 +184,7 @@ async  function updateHTMl(data) {
 
                         const IMG_REG = /\!\[(.*?)\]\((.*?)\)/g;
                         const LINK_REG = /\[(.*?)\]\((.*?)\)/g;
-                        const relatedContent = resdata.data.content
+                        const relatedContent = escapeHtml(resdata.data.content)
                             .replace(IMG_REG, "")
                             .replace(LINK_REG, '<a class="primary" href="$2" target="_blank">$1</a>');
 
@@ -294,6 +294,13 @@ async  function updateHTMl(data) {
     });
 
     document.querySelector("button.button-load").textContent = "加载更多";
+}
+
+function escapeHtml(html) {
+    var textNode = document.createTextNode(html);
+    var div = document.createElement("div");
+    div.appendChild(textNode);
+    return div.innerHTML;
 }
 
 // 增加 Artalk 评论按钮
