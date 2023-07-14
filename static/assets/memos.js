@@ -266,7 +266,7 @@ async  function updateHTMl(data) {
 
         var twitterIcon = '<svg viewBox="0 0 24 24" aria-label="认证账号" class="talks__verify"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg>'
 
-        memoResult += '<li id="' + memo_id + '" class="timeline"><div class="talks__content"><div class="talks__text"><div class="talks__userinfo"><div>Charles Chin</div><div>' + twitterIcon + '</div><div class="talks__id">@eallion · </div><small class="talks__date"><a href="https://memos.eallion.com/m/' + memo_id + '" target="_blank">' + moment(data[i].createdTs * 1000).twitterLong() + '</a></small></div>' + memoContREG + relatedHtml + '<div class="talks_comments"><a class="artalk-div" onclick="loadArtalk(\'' + memo_id + '\',event)"><i class="fas fa-comment-dots fa-fw"></i><span id="btn_memo_' + memo_id + '">评论</span> (<span id="ArtalkCount" data-page-key="/m/' + memo_id + '">0</span>)</a></div><div id="memo_' + memo_id + '" class="artalk hidden"></div></div></li>';
+        memoResult += '<li id="' + memo_id + '" class="timeline"><div class="talks__content"><div class="talks__text"><div class="talks__userinfo"><div>Charles Chin</div><div>' + twitterIcon + '</div><div class="talks__id">@eallion · </div><small class="talks__date"><a href="https://memos.eallion.com/m/' + memo_id + '" target="_blank">' + moment(data[i].createdTs * 1000).twitterLong() + '</a></small></div>' + memoContREG + relatedHtml + '<div class="talks_comments"><a class="artalk-div" onclick="loadArtalk(\'' + memo_id + '\',event)"><i class="fas fa-comment-dots fa-fw"></i><span id="btn_memo_' + memo_id + '">评论</span> (<span id="ArtalkCount" data-page-key="/m/' + memo_id + '"></span>)</a></div><div id="memo_' + memo_id + '" class="artalk hidden"></div></div></li>';
 
     }
 
@@ -275,11 +275,9 @@ async  function updateHTMl(data) {
     resultAll = memoBefore + memoResult + memoAfter;
     memoDom.insertAdjacentHTML("beforeend", resultAll);
 
-    // douban
-    fetchDB();
-    // heti
-    //hetiSpacing();
+    // Youtube Plyr
     initializeYoutubePlayer()
+
     // highlight.js
     hljs.initHighlighting.called = false;
     hljs.configure({
@@ -287,9 +285,18 @@ async  function updateHTMl(data) {
     });
     hljs.highlightAll();
 
+    // 加载评论数
+    Artalk.loadCountWidget({
+        server: 'https://api.eallion.com/artalk/',
+        site: 'memos',
+        pvEl: '#ArtalkPV',
+        countEl: '#ArtalkCount',
+    });
+
     document.querySelector("button.button-load").textContent = "加载更多";
 }
 
+// 增加 Artalk 评论按钮
 let activeDiv = null;
 
 function loadArtalk(memo_id, event) {
@@ -347,127 +354,6 @@ function loadArtalk(memo_id, event) {
         activeDiv = null;
     }
 }
-
-//文章内显示豆瓣条目 https://immmmm.com/post-show-douban-item/
-function fetchDB() {
-    var dbAPI = "https://api.eallion.com/douban/";
-    var dbA =
-        document.querySelectorAll(
-            ".timeline a[href*='douban.com/subject/']:not([rel='noreferrer'])"
-        ) || "";
-    if (dbA) {
-        for (var i = 0; i < dbA.length; i++) {
-            _this = dbA[i];
-            var dbHref = _this.href;
-            var db_reg =
-                /^https\:\/\/(movie|book)\.douban\.com\/subject\/([0-9]+)\/?/;
-            var db_type = dbHref.replace(db_reg, "$1");
-            var db_id = dbHref.replace(db_reg, "$2").toString();
-            if (db_type == "movie") {
-                var this_item = "movie" + db_id;
-                var url = dbAPI + "movies/" + db_id;
-                if (
-                    localStorage.getItem(this_item) == null ||
-                    localStorage.getItem(this_item) == "undefined"
-                ) {
-                    fetch(url)
-                        .then((res) => res.json())
-                        .then((data) => {
-                            let fetch_item = "movies" + data.sid;
-                            let fetch_href =
-                                "https://movie.douban.com/subject/" +
-                                data.sid +
-                                "/";
-                            localStorage.setItem(
-                                fetch_item,
-                                JSON.stringify(data)
-                            );
-                            movieShow(fetch_href, fetch_item);
-                        });
-                } else {
-                    movieShow(dbHref, this_item);
-                }
-            } else if (db_type == "book") {
-                var this_item = "book" + db_id;
-                var url = dbAPI + "v2/book/id/" + db_id;
-                if (
-                    localStorage.getItem(this_item) == null ||
-                    localStorage.getItem(this_item) == "undefined"
-                ) {
-                    fetch(url)
-                        .then((res) => res.json())
-                        .then((data) => {
-                            let fetch_item = "book" + data.id;
-                            let fetch_href =
-                                "https://book.douban.com/subject/" +
-                                data.id +
-                                "/";
-                            localStorage.setItem(
-                                fetch_item,
-                                JSON.stringify(data)
-                            );
-                            bookShow(fetch_href, fetch_item);
-                        });
-                } else {
-                    bookShow(dbHref, this_item);
-                }
-            }
-        } // for end
-    }
-}
-function movieShow(fetch_href, fetch_item) {
-    var storage = localStorage.getItem(fetch_item);
-    var data = JSON.parse(storage);
-    var db_star = Math.ceil(data.rating);
-    var db_html =
-        "<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' rel='noreferrer' href='" +
-        fetch_href +
-        "'>《" +
-        data.name +
-        "》</a></h4><div class='rating'><div class='rating-star allstar" +
-        db_star +
-        "'></div><div class='rating-average'>" +
-        data.rating +
-        "</div></div><time class='post-preview--date'>导演：" +
-        data.director +
-        " / 类型：" +
-        data.genre +
-        " / " +
-        data.year +
-        "</time><section class='post-preview--excerpt'>" +
-        data.intro.replace(/\s*/g, "") +
-        "</section></div></div></div>";
-    var db_div = document.createElement("div");
-    var qs_href = ".timeline a[href='" + fetch_href + "']";
-    var qs_dom = document.querySelector(qs_href);
-    qs_dom.parentNode.replaceChild(db_div, qs_dom);
-    db_div.innerHTML = db_html;
-}
-function bookShow(fetch_href, fetch_item) {
-    var storage = localStorage.getItem(fetch_item);
-    var data = JSON.parse(storage);
-    var db_star = Math.ceil(data.rating.average);
-    var db_html =
-        "<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' rel='noreferrer' href='" +
-        fetch_href +
-        "'>《" +
-        data.title +
-        "》</a></h4><div class='rating'><div class='rating-star allstar" +
-        db_star +
-        "'></div><div class='rating-average'>" +
-        data.rating.average +
-        "</div></div><time class='post-preview--date'>作者：" +
-        data.author +
-        " </time><section class='post-preview--excerpt'>" +
-        data.summary.replace(/\s*/g, "") +
-        "</section></div></div></div>";
-    var db_div = document.createElement("div");
-    var qs_href = ".timeline a[href='" + fetch_href + "']";
-    var qs_dom = document.querySelector(qs_href);
-    qs_dom.parentNode.replaceChild(db_div, qs_dom);
-    db_div.innerHTML = db_html;
-}
-// 豆瓣结束
 
 // Memos 总数
 document.addEventListener("DOMContentLoaded", () => {
@@ -559,7 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 // Memos 总数结束
 
-// Memos editor
+// Memos editor 内嵌发布框
 // var memosDom = document.querySelector(memosData.dom);
 // var editIcon = '<button class="load-memos-editor outline p-1"><i class="iconfont iconedit-square"></i></button>';
 var memosDom = document.querySelector("#memos");
@@ -751,14 +637,7 @@ function setMemoTag(e) {
 }
 // Memos Editor End
 
-// heti
-function hetiSpacing() {
-    // console.assert(document.readyState === 'complete')
-
-    // Make sure it runs **after** dom ready
-    new Heti('.heti').autoSpacing()
-}
-
+// Youtube Plyr
 function initializeYoutubePlayer() {
     const playerYoutube = new Plyr('#plyr', {
         noCookie: false, rel: 0, showinfo: 0, iv_load_policy: 3, modestbranding: 1
