@@ -35,6 +35,8 @@
             {{ $movie_url := .item.url }}
             {{ $cover := .item.cover_image_url }}
             {{ $cover_name := path.Base $cover }}
+            {{ $cate_movie := "movie" }}
+            {{ $cate_tv := "tv" }}
 
             <div class="movies sorting" data-marked="{{ .created_time }}" data-year='{{  dateFormat "2006-01-02 15:04:05" .created_time }}' data-star="{{ .rating_grade }}" data-rating="{{ .item.rating }}" data-count="{{ .item.rating_count }}">
                     <div class="cover">
@@ -65,6 +67,7 @@
 
                     </div>
                     <div class="rating">
+
                         {{ range $star := (seq 0 2 8) }}
                         {{ if gt $rating $star }}
                         <span class="rating_star">
@@ -96,6 +99,11 @@
                     </div>
                     </div>
                     <div class="referrer">
+                        {{ if eq .item.category $cate_movie }}
+                        <i class="fas fa-film fa-fw"></i>
+                        {{ else if eq .item.category $cate_tv }}
+                        <i class="fas fa-tv fa-xs"></i>
+                        {{ end }}
                         <span class="neodb">
                             <a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">
                                 <img src="/assets/images/movie/neodbsocial.jpg" loading="lazy" alt="NeoDB">
