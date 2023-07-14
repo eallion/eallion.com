@@ -9,7 +9,7 @@
 {{- $toc = dict "enable" false -}}
 {{- end -}}
 
-<link rel="stylesheet" href="/assets/movie.css?v=2023.07.11">
+<link rel="stylesheet" href="/assets/movie.min.css?v=2023.07.11">
 
 {{ $movies := getJSON "data/neodb/movie.json" }}
 
@@ -22,9 +22,9 @@
         {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
 
         <div class="sort-by-items">
-            <a href="javascript:void 0;" class="sort-by-item active" data-order="time"><i class="fas fa-sort-amount-down"></i> Sort by Watched</a>
-            <a href="javascript:void 0;" class="sort-by-item" data-order="rating"><i class="fas fa-sort-numeric-down-alt"></i> Sort by Rating</a>
-            <a href="javascript:void 0;" class="sort-by-item" data-order="count"><i class="fas fa-sort-alpha-down-alt"></i> Sort by Count</a>
+            <a href="javascript:void 0;" class="sort-by-item active" data-order="time"><i class="fas fa-sort-amount-down"></i> Watched Time</a>
+            <a href="javascript:void 0;" class="sort-by-item" data-order="rating"><i class="fas fa-sort-numeric-down-alt"></i> Rating</a>
+            <a href="javascript:void 0;" class="sort-by-item" data-order="count"><i class="fas fa-sort-alpha-down-alt"></i> Count</a>
         </div>
 
         <div class="movie">
@@ -92,7 +92,7 @@
                                 </path>
                             </svg>
                         </span>
-                        <span><a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">About {{ .item.rating_count }} Rating</a></span>
+                        <span><a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">{{ .item.rating_count }} Ratings</a></span>
                     </div>
                     </div>
                     <div class="referrer">
@@ -128,7 +128,7 @@
 </article>
 
 <script type="text/javascript" src="/assets/lazyload.iife.min.js?v=17.8.3"></script>
-<script type="text/javascript" src="/assets/movie.js?v=2023.07.11"></script>
+<script type="text/javascript" src="/assets/movie.min.js?v=2023.07.11"></script>
 
 <script>
     var lazyLoadInstance = new LazyLoad({

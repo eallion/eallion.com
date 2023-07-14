@@ -124,6 +124,8 @@
     text-align: left;
     justify-content: flex-start;
     align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .rating_star.hidden,
