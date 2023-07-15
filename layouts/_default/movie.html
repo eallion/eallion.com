@@ -17,14 +17,14 @@
     <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
     <div id="content" class="content movies">
         <div class="greyQuote">
-            <blockquote>我的 <a href="https://neodb.social/users/eallion@mastodon.social/" target="_blank" rel="noreferrer noopener nofollow">观影</a> 记录，数据来自 <a href="https://neodb.social/users/eallion@mastodon.social/" target="_blank" rel="noreferrer noopener nofollow">NeoDB</a> <span class="emoji">🎬</span> </blockquote>
+            <blockquote>{{ T `movie_quote` | safeHTML }}</blockquote>
         </div>
         {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
 
         <div class="sort-by-items">
-            <a href="javascript:void 0;" class="sort-by-item active" data-order="time"><i class="fas fa-sort-amount-down"></i> 观影时间</a>
-            <a href="javascript:void 0;" class="sort-by-item" data-order="rating"><i class="fas fa-sort-numeric-down-alt"></i> NeoDB 评分</a>
-            <a href="javascript:void 0;" class="sort-by-item" data-order="count"><i class="fas fa-sort-alpha-down-alt"></i> 评分人数</a>
+            <a href="javascript:void 0;" class="sort-by-item active" data-order="time"><i class="fas fa-sort-amount-down"></i> {{ T `movie_time` }}</a>
+            <a href="javascript:void 0;" class="sort-by-item" data-order="rating"><i class="fas fa-sort-numeric-down-alt"></i> {{ T `movie_rating` }}</a>
+            <a href="javascript:void 0;" class="sort-by-item" data-order="count"><i class="fas fa-sort-alpha-down-alt"></i> {{ T `movie_count` }}</a>
         </div>
 
         <div class="movie">
@@ -95,7 +95,7 @@
                                 </path>
                             </svg>
                         </span>
-                        <span><a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">{{ .item.rating_count }} 人评分</a></span>
+                        <span><a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">{{ .item.rating_count }} {{ T `movie_count_text` }}</a></span>
                     </div>
                     </div>
                     <div class="referrer">

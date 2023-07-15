@@ -1,5 +1,5 @@
 ---
-title: "Watched"
+title: "NeoDB Watched"
 layout: "movie"
 type: 'movie'
 comment: false

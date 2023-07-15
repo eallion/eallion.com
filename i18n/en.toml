@@ -252,3 +252,32 @@ other = "CHANGED"
 [deleted]
 other = "DELETED"
 # === shortcodes/version.html ===
+
+# === Custom ===
+
+[album_quote]
+other = "My Album with Memos Tag <code>#相册</code>."
+
+[goods_quote]
+other ="Goods Enhanced for a Better Life <span class='emoji'>💄</span> More Coupon👉<a href='https://www.kubaicai.com/' target='_blank' rel='noreferrer noopener nofollow'>www.kubaicai.com <i class='fas fa-external-link-alt fa-xs'></i></a>"
+
+[memos_quote]
+other = "There are <span id='memosCount'><i class='fas fa-spinner fa-pulse'></i></span> Twitter flavored <a href='https://memos.eallion.com/' target='_blank' rel='noreferrer noopener nofollow'>Memos</a> <span class='emoji'>🎉</span>"
+
+[memos_loadbtn]
+other = "Load More"
+
+[movie_quote]
+other = "My <a href='https://neodb.social/users/eallion@mastodon.social/' target='_blank' rel='noreferrer noopener nofollow'>Watched Movie</a>, From: <a href='https://neodb.social/users/eallion@mastodon.social/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB</a> <span class='emoji'>🎬</span>"
+
+[movie_time]
+other ="Watched Time"
+
+[movie_rating]
+other ="Rating"
+
+[movie_count]
+other ="Count"
+
+[movie_count_text]
+other ="Counts"

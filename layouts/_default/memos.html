@@ -19,7 +19,7 @@
     <div id="content" class="content">
         <div class="greyQuote">
             <blockquote>
-                <div class="memosCount">共嘀咕了 <span id="memosCount"><i class="fas fa-spinner fa-pulse"></i></span> 条 <a href="https://memos.eallion.com/" target="_blank" rel="noreferrer noopener nofollow">Memos</a> <span class="emoji">🎉</span></div>
+                <div class="memosCount">{{ T `memos_quote` | safeHTML }}</div>
                 <div class="editIcon">
                     <button id="editIcon" class="load-memos-editor outline p-1" type="button" aria-label="Memos">
                         <i class="far fa-edit fa-xs"></i>
@@ -28,7 +28,7 @@
             </blockquote>
         </div>
         <div id="memos">
-            <div id="album"></div>
+            <div id="gallery"></div>
             <!-- 嘀咕加载在这里 -->
         </div>
     </div>
@@ -58,9 +58,6 @@
 {{ $ArtalkJS := resources.Get "lib/artalk/ArtalkLite.js" | resources.Minify | resources.Fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $ArtalkJS.RelPermalink }}" integrity="{{ $ArtalkJS.Data.Integrity }}" crossorigin="anonymous"></script>
 
-<script>
-    window.ViewImage && ViewImage.init('.content img');
-</script>
 
 <script>
     // Meting API self-hosted

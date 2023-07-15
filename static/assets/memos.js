@@ -67,13 +67,13 @@ var page = 1,
     nextLength = 0,
     nextDom = "";
 var memoDom = document.querySelector(memo.domId);
-var load = '<button class="load-btn button-load">努力加载中……</button>';
+var load = '<button class="load-btn button-load">Loading……</button>';
 if (memoDom) {
     memoDom.insertAdjacentHTML("afterend", load);
     getFirstList(); //首次加载数据
     var btn = document.querySelector("button.button-load");
     btn.addEventListener("click", function () {
-        btn.textContent = "努力加载中……";
+        btn.textContent = "Loading......";
         updateHTMl(nextDom);
         if (nextLength < limit) {
             //返回数据条数小于限制条数，隐藏
@@ -293,7 +293,13 @@ async  function updateHTMl(data) {
         countEl: '#ArtalkCount',
     });
 
-    document.querySelector("button.button-load").textContent = "加载更多";
+    let button = document.querySelector("button.button-load");
+
+    if (window.location.href.includes("/en/memos")) {
+        button.textContent = "Load more";
+    } else {
+        button.textContent = "加载更多";
+    }
 }
 
 function escapeHtml(html) {
@@ -362,7 +368,7 @@ function loadArtalk(memo_id, event) {
     }
 }
 
-// Memos 总数
+// Memos 相册
 document.addEventListener("DOMContentLoaded", () => {
     let albumLimit = 6;
     var memoUrl = "https://api.eallion.com/memos/";
@@ -394,9 +400,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 time = tmp.split(" ")[0];
                                 title = tmp.split(" ")[1];
                             } else title = tmp;
-                            result += `<div class="memos-photo"><img class="photo-img" loading='lazy' decoding="async" src="${img}" data-action="zoom">`;
+                            result += `<div class="memos-photo"><img class="photo-img" loading='lazy' decoding="async" src="${img}"  data-action="zoom">`;
                             title
-                                ? (result += `<a href="https://memos.eallion.com/m/${id}" target="_blank" rel="noreferrer noopener nofollow"><span class="photo-title">${title}</span></a>`)
+                                ? (result += `<a href="https://eallion.com/album/" target="_blank" rel="noreferrer noopener nofollow"><span class="photo-title">${title}</span></a>`)
                                 : "";
                             time
                                 ? (result += `<span class="photo-time">${time}</span>`)
@@ -440,7 +446,7 @@ document.addEventListener("DOMContentLoaded", () => {
             //     }
             // }
 
-            var galleryDom = document.querySelector("#album");
+            var galleryDom = document.querySelector("#gallery");
             var galleryBefore = `<div class="memos-photo-wrapper">`;
             var galleryAfter = `</div>`;
             resultAll = galleryBefore + result + galleryAfter;
@@ -450,7 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.Lately && Lately.init({ target: ".photo-time" });
         });
 });
-// Memos 总数结束
+// Memos 相册结束
 
 // Memos editor 内嵌发布框
 // var memosDom = document.querySelector(memosData.dom);

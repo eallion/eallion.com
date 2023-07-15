@@ -1,0 +1,82 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+
+{{- define "content" -}}
+{{- $params := .Scratch.Get "params" -}}
+{{- $toc := $params.toc -}}
+{{- if eq $toc true -}}
+{{- $toc = .Site.Params.page.toc | default dict -}}
+{{- else if eq $toc false -}}
+{{- $toc = dict "enable" false -}}
+{{- end -}}
+
+<meta name="referrer" content="no-referrer">
+<link rel="stylesheet" href="/assets/album.min.css?v=2023.07.15">
+
+<article class="page single special">
+    <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
+    <div id="content" class="content">
+        <div class="greyQuote">
+            <blockquote>
+                {{ T `album_quote` | safeHTML }}
+            </blockquote>
+        </div>
+        <div id="album">
+        </div>
+    </div>
+</article>
+
+<script type="text/javascript" src="/assets/waterfall.min.js?v=1.0.2"></script>
+<!-- 相册照片数量太少，暂时不引用 -->
+<!-- <script type="text/javascript" src="/assets/imgStatus.min.js?v=0.1.1"></script> -->
+<script>
+    var galleryUrl = "https://api.eallion.com/memos/api/memo/all?rowStatus=NORMAL&tag=相册";
+    let nowNum = 0;
+    fetch(galleryUrl)
+        .then((res) => res.json())
+        .then((resdata) => {
+            var result = "",
+                resultAll = "",
+                data = resdata.data;
+            for (var i = 0; i < data.length; i++) {
+                var galleryTitle = data[i].content.replace("#相册 ", "");
+                var id = data[i].id;
+                var imgs = galleryTitle.match(/\!\[(.*?)\s*(.*?)\]\((.*?)\)/g);
+                //解析 content 内 md 格式图片
+                if (imgs) {
+                    imgs.forEach((item) => {
+                        nowNum++;
+                        let img = item.replace(/!\[.*?\]\((.*?)\)/g, "$1"),
+                            time,
+                            title,
+                            tmp = item.replace(/!\[(.*?)\]\(.*?\)/g, "$1");
+                        if (tmp.indexOf(" ") != -1) {
+                            time = tmp.split(" ")[0];
+                            title = tmp.split(" ")[1];
+                        } else title = tmp;
+                        result += `<div class="album_wrapper"><a href="https://memos.eallion.com/m/${id}" target="_blank" rel="noreferrer noopener nofollow"><img class="photo-img" loading='lazy' decoding="async" src="${img}"></a>`;
+                        title
+                            ? (result += `<span class="photo-title">${title}</span>`)
+                            : "";
+                        time
+                            ? (result += `<span class="photo-time">${time}</span>`)
+                            : "";
+                        result += `</div>`;
+
+                    });
+                }
+            }
+
+            var galleryDom = document.querySelector("#album");
+            var galleryBefore = `<div class="album">`;
+            var galleryAfter = `</div>`;
+            resultAll = galleryBefore + result + galleryAfter;
+            galleryDom.innerHTML = resultAll;
+
+            // 数据渲染完成,调用瀑布流
+            waterfall(document.querySelector('.album_wrapper'));
+            // 相对时间
+            window.Lately && Lately.init({ target: ".photo-time" });
+        });
+</script>
+
+{{- end -}}

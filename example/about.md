@@ -46,6 +46,34 @@ comment: true
 
 > 本博客保留了一部分单字文章，虽然只有一个字，但是每当看到内容时，十多二十年前的旧时光就会从脑海徐徐漂过，当时的情景、当时的感受历历在目，仿佛从未远去。
 
+### Card
+
+* [https://about.eallion.com](https://about.eallion.com/)
+
+### Memos 嘀咕
+
+* [https://eallion.com/memos/](https://eallion.com/memos/)
+
+### Memos 相册
+
+* [https://eallion.com/album/](https://eallion.com/album/)
+
+### 观影记录
+
+* [https://eallion.com/movie/](https://eallion.com/movie/)
+
+### 好物分享
+
+* [https://eallion.com/goods/](https://eallion.com/goods/)
+
+### 个人网址导航
+
+* [https://s.eallion.com/](https://s.eallion.com/)
+
+### LOL Penta
+
+* [https://eallion.com/penta/](https://eallion.com/penta/)
+
 ### 版权信息
 
 * [https://eallion.com/copyright/](https://eallion.com/copyright/)
