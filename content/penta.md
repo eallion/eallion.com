@@ -3,8 +3,8 @@ title: "我的五杀"
 date: "2006-04-14 00:00:00"
 comment: false
 aliases:
-    - /photo
-    - /photos
+    - /5sha
+    - /wusha
 ---
 
 <!-- LOL 英雄头像 API <https://lol.qq.com/cguide/Guide/PublicResources/Images.html#%E9%9D%9E%E7%82%AB%E5%BD%A9%E7%9A%AE%E8%82%A4> -->

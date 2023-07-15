@@ -251,3 +251,31 @@ other = "更改"
 other = "删除"
 # === shortcodes/version.html ===
 
+# === 自定义 ===
+
+[album_quote]
+other = "我的相册。通过 Memos Tag <code>#相册</code> 引用。"
+
+[goods_quote]
+other ="好物推荐 <span class='emoji'>💄</span> 部分链接可能带有 aff 推广，不喜可删！或直接搜券👉<a href='https://www.kubaicai.com/' target='_blank' rel='noreferrer noopener nofollow'>www.kubaicai.com <i class='fas fa-external-link-alt fa-xs'></i></a>"
+
+[memos_quote]
+other = "共嘀咕了 <span id='memosCount'><i class='fas fa-spinner fa-pulse'></i></span> 条 <a href='https://memos.eallion.com/' target='_blank' rel='noreferrer noopener nofollow'>Memos</a> <span class='emoji'>🎉</span>"
+
+[memos_loadbtn]
+other = "加载更多"
+
+[movie_quote]
+other = "我的 <a href='https://neodb.social/users/eallion@mastodon.social/' target='_blank' rel='noreferrer noopener nofollow'>观影</a> 记录，数据来自 <a href='https://neodb.social/users/eallion@mastodon.social/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB</a> <span class='emoji'>🎬</span>"
+
+[movie_time]
+other ="观影时间"
+
+[movie_rating]
+other ="NeoDB 评分"
+
+[movie_count]
+other ="评分人数"
+
+[movie_count_text]
+other ="人评分"

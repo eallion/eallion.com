@@ -14,7 +14,35 @@ Motto:
 
 > [Chance favors the prepared mind.](https://en.wikipedia.org/wiki/Louis_Pasteur#Career) - _Louis Pasteur_
 
-### Copright
+### Card
+
+* [https://about.eallion.com](https://about.eallion.com/)
+
+### Memos
+
+* [https://eallion.com/memos/](https://eallion.com/memos/)
+
+### Memos Album
+
+* [https://eallion.com/album/](https://eallion.com/album/)
+
+### Watched
+
+* [https://eallion.com/movie/](https://eallion.com/movie/)
+
+### Goods
+
+* [https://eallion.com/goods/](https://eallion.com/goods/)
+
+### My Favorites
+
+* [https://s.eallion.com/](https://s.eallion.com/)
+
+### LOL Penta
+
+* [https://eallion.com/penta/](https://eallion.com/penta/)
+
+### Copyright
 
 * [https://eallion.com/en/copyright/](https://eallion.com/en/copyright/)
 
