@@ -1,5 +1,7 @@
 ---
 title: "我的五杀"
+layout: "penta"
+type: 'penta'
 date: "2006-04-14 00:00:00"
 comment: false
 aliases:
