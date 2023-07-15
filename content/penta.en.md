@@ -11,8 +11,6 @@ aliases:
 
 <!-- LOL 英雄头像 API <https://lol.qq.com/cguide/Guide/PublicResources/Images.html#%E9%9D%9E%E7%82%AB%E5%BD%A9%E7%9A%AE%E8%82%A4> -->
 
-> My LOL penta kill. Screenshot record after TGP (aka: WeGame).
-
 <div class="penta">
 {{< penta src="https://images.eallion.com/penta/20230704-Talon.jpg" alt="20230704-Talon" champion="Talon" date="2023/07/04" caption="刀锋之影 泰隆" >}}
 {{< penta src="https://images.eallion.com/penta/20230624-Ezreal.jpg" alt="20230624-Ezreal" champion="Ezreal" date="2023/06/24" caption="探险家 伊泽瑞尔" >}}
