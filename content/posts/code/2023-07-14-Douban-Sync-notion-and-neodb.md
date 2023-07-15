@@ -60,6 +60,6 @@ NeoDB 是 FOSS 应用，它做不下去了，我就去给她捐钱，就去给�
 ![](https://images.eallion.com/images/2023/07/douban_backup_neodb_visibility.png)
 
 2. Notion 的 Integration 已经升级了。
-   原博客中提到的方法也不太准确了，邀请 Integration 机器人到自己的 Database 的时候，不是在 `Share` 里了，而是按到了右上角 `•••` 中的 `Connections` 里了。
+   原博客中提到的方法也不太准确了，邀请 Integration 机器人到自己的 Database 的时候，不是在 `Share` 里了，而是搬到了右上角 `•••` 中的 `Connections` 里了。
 
 ![](https://images.eallion.com/images/2023/07/notion_integration.png)
