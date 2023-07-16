@@ -1,7 +1,7 @@
 // ==============================
 // Custom style
 // 自定义样式
-// 包含：覆盖主题、主题新增、Artalk 自定义、TianliGPT。
+// 包含：覆盖主题、主题新增、Artalk 自定义、‍AI 摘要。
 // ==============================
 $font-family-font-awesome: "Font Awesome 5 Free";
 $font-family-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Android Emoji", "EmojiSymbols", "EmojiOne Mozilla", "Twemoji Mozilla", "Segoe UI Symbol", "Noto Color Emoji Compat", "emoji", "noto-emojipedia-fallback";
@@ -619,364 +619,55 @@ footer {
 }
 // Artalk End
 
-// TianliGPT Start
-:root {
-    --heo-white: #fff;
-    --heo-white-op: rgba(255, 255, 255, 0.2);
-    --heo-black: #000;
-    --heo-black-op: rgba(0, 0, 0, 0.2);
-    --heo-none: #00000000;
-    --heo-gray: #999999;
-    --heo-gray-op: #9999992b;
-    --heo-vip: #e5a80d;
-    --heo-main: var(--heo-theme);
-    --heo-main-op: var(--heo-theme-op);
-    --heo-main-op-deep: var(--heo-theme-op-deep);
-    --heo-main-none: var(--heo-theme-none);
-    --heo-shadow-theme: 0 8px 12px -3px var(--heo-theme-op);
-    --heo-shadow-blackdeep: 0 2px 16px -3px rgba(0, 0, 0, 0.15);
-    --heo-shadow-main: 0 8px 12px -3px var(--heo-main-op);
-    --heo-shadow-blue: 0 8px 12px -3px rgba(40, 109, 234, 0.2);
-    --heo-shadow-white: 0 8px 12px -3px rgba(255, 255, 255, 0.2);
-    --heo-shadow-black: 0 0 12px 4px rgba(0, 0, 0, 0.05);
-    --heo-shadow-yellow: 0px 38px 77px -26px rgba(255, 201, 62, 0.12);
-    --heo-shadow-red: 0 8px 12px -3px #ee7d7936;
-    --heo-shadow-green: 0 8px 12px -3px #87ee7936;
-    --heo-logo-color: linear-gradient(215deg, #4584ff 0%, #cf0db9 100%);
-    --heo-snackbar-time: 5s;
-    //--heo-theme: #425aef;
-    --heo-theme: #2d96bd;
-    --heo-theme-op: #4259ef23;
-    --heo-theme-op-deep: #4259efdd;
-    --heo-theme-none: #4259ef01;
-    --heo-blue: #425aef;
-    --heo-red: #f04a63;
-    --heo-pink: #ff7c7c;
-    --heo-green: #57bd6a;
-    --heo-yellow: #c28b00;
-    --heo-yellow-op: #d99c001a;
-    --heo-orange: #e38100;
-    --heo-fontcolor: #363636;
-    --heo-background: #f7f9fe;
-    --heo-reverse: #000;
-    --heo-maskbg: rgba(255, 255, 255, 0.6);
-    --heo-maskbgdeep: rgba(255, 255, 255, 0.85);
-    --heo-hovertext: var(--heo-main);
-    --heo-ahoverbg: #f7f7fa;
-    --heo-lighttext: var(--heo-main);
-    --heo-secondtext: rgba(60, 60, 67, 0.8);
-    --heo-scrollbar: rgba(60, 60, 67, 0.4);
-    --heo-card-btn-bg: #f5f5f5;
-    --heo-post-blockquote-bg: #fafcff;
-    --heo-post-tabs-bg: #f2f5f8;
-    --heo-secondbg: #f5f5f5;
-    --heo-shadow-nav: 0 5px 12px -5px rgba(102, 68, 68, 0.05);
-    --heo-card-bg: #fff;
-    --heo-card-bg-op: var(--heo-black-op);
-    --heo-card-bg-none: rgba(255, 255, 255, 0);
-    --heo-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --heo-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --heo-card-border: #e3e8f7;
-    --heo-shadow-border: 0 8px 16px -4px #2c2d300c;
-    --style-border: 1px solid var(--heo-card-border);
-    --style-border-always: 1px solid var(--heo-card-border);
-    --style-border-hover: 1px solid var(--heo-main);
-    --style-border-hover-always: 1px solid var(--heo-main);
-    --style-border-dashed: 1px dashed var(--heo-theme-op);
-    --style-border-forever: 2px solid var(--heo-main);
-}
-
-[data-theme="light"] {
-    --heo-theme: #425aef;
-    --heo-theme-op: #4259ef23;
-    --heo-theme-op-deep: #4259efdd;
-    --heo-theme-none: #4259ef01;
-    --heo-blue: #425aef;
-    --heo-red: #f04a63;
-    --heo-pink: #ff7c7c;
-    --heo-green: #57bd6a;
-    --heo-yellow: #c28b00;
-    --heo-yellow-op: #d99c001a;
-    --heo-orange: #e38100;
-    --heo-fontcolor: #363636;
-    --heo-background: #f7f9fe;
-    --heo-reverse: #000;
-    --heo-maskbg: rgba(255, 255, 255, 0.6);
-    --heo-maskbgdeep: rgba(255, 255, 255, 0.85);
-    --heo-hovertext: var(--heo-main);
-    --heo-ahoverbg: #f7f7fa;
-    --heo-lighttext: var(--heo-main);
-    --heo-secondtext: rgba(60, 60, 67, 0.8);
-    --heo-scrollbar: rgba(60, 60, 67, 0.4);
-    --heo-card-btn-bg: #f5f5f5;
-    --heo-post-blockquote-bg: #fafcff;
-    --heo-post-tabs-bg: #f2f5f8;
-    --heo-secondbg: #f5f5f5;
-    --heo-shadow-nav: 0 5px 12px -5px rgba(102, 68, 68, 0.05);
-    --heo-card-bg: #fff;
-    --heo-card-bg-op: var(--heo-black-op);
-    --heo-card-bg-none: rgba(255, 255, 255, 0);
-    --heo-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --heo-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --heo-card-border: #e3e8f7;
-    --heo-shadow-border: 0 8px 16px -4px #2c2d300c;
-    --style-border: 1px solid var(--heo-card-border);
-    --style-border-always: 1px solid var(--heo-card-border);
-    --style-border-hover: 1px solid var(--heo-main);
-    --style-border-hover-always: 1px solid var(--heo-main);
-    --style-border-dashed: 1px dashed var(--heo-theme-op);
-    --style-border-forever: 2px solid var(--heo-main);
-}
-
-[theme="dark"] {
-    --heo-theme: #2d96bd;
-    --heo-theme-op: #f2b94b23;
-    --heo-theme-op-deep: #f2b94bdd;
-    --heo-theme-none: #f2b94b00;
-    --heo-blue: #0084ff;
-    --heo-red: #ff3842;
-    --heo-pink: #d44040;
-    --heo-green: #3e9f50;
-    --heo-yellow: #ffc93e;
-    --heo-yellow-op: #ffc93e30;
-    --heo-orange: #ff953e;
-    --heo-fontcolor: #f7f7fa;
-    --heo-background: #18171d;
-    --heo-reverse: #fff;
-    --heo-maskbg: rgba(0, 0, 0, 0.6);
-    --heo-maskbgdeep: rgba(0, 0, 0, 0.85);
-    --heo-hovertext: #0a84ff;
-    --heo-ahoverbg: #fff;
-    --heo-lighttext: var(--heo-theme);
-    --heo-secondtext: #a1a2b8;
-    --heo-scrollbar: rgba(200, 200, 223, 0.4);
-    --heo-card-btn-bg: #272C34;
-    --heo-post-blockquote-bg: #000;
-    --heo-post-tabs-bg: #121212;
-    --heo-secondbg: #272C34;
-    --heo-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4);
-    --heo-card-bg: #1d1e22;
-    --heo-card-bg-op: var(--heo-white-op);
-    --heo-card-bg-none: #1d1b2600;
-    --heo-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --heo-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --heo-card-border: #3d3d3f;
-    --heo-shadow-border: 0 8px 16px -4px #00000050;
-    --style-border: 1px solid var(--heo-card-border);
-    --style-border-always: 1px solid var(--heo-card-border);
-    --style-border-hover: 1px solid var(--heo-theme);
-    --style-border-hover-always: 1px solid var(--heo-theme);
-    --style-border-dashed: 1px dashed var(--heo-theme-op);
-    --style-border-forever: 2px solid var(--heo-lighttext);
-}
-
-[theme="black"] {
-    --heo-theme: #2d96bd;
-    --heo-theme-op: #f2b94b23;
-    --heo-theme-op-deep: #f2b94bdd;
-    --heo-theme-none: #f2b94b00;
-    --heo-blue: #0084ff;
-    --heo-red: #ff3842;
-    --heo-pink: #d44040;
-    --heo-green: #3e9f50;
-    --heo-yellow: #ffc93e;
-    --heo-yellow-op: #ffc93e30;
-    --heo-orange: #ff953e;
-    --heo-fontcolor: #f7f7fa;
-    --heo-background: #18171d;
-    --heo-reverse: #fff;
-    --heo-maskbg: rgba(0, 0, 0, 0.6);
-    --heo-maskbgdeep: rgba(0, 0, 0, 0.85);
-    --heo-hovertext: #0a84ff;
-    --heo-ahoverbg: #fff;
-    --heo-lighttext: var(--heo-theme);
-    --heo-secondtext: #a1a2b8;
-    --heo-scrollbar: rgba(200, 200, 223, 0.4);
-    --heo-card-btn-bg: #272C34;
-    --heo-post-blockquote-bg: #000;
-    --heo-post-tabs-bg: #121212;
-    --heo-secondbg: #272C34;
-    --heo-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4);
-    --heo-card-bg: #1d1e22;
-    --heo-card-bg-op: var(--heo-white-op);
-    --heo-card-bg-none: #1d1b2600;
-    --heo-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --heo-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
-    --heo-card-border: #3d3d3f;
-    --heo-shadow-border: 0 8px 16px -4px #00000050;
-    --style-border: 1px solid var(--heo-card-border);
-    --style-border-always: 1px solid var(--heo-card-border);
-    --style-border-hover: 1px solid var(--heo-theme);
-    --style-border-hover-always: 1px solid var(--heo-theme);
-    --style-border-dashed: 1px dashed var(--heo-theme-op);
-    --style-border-forever: 2px solid var(--heo-lighttext);
-}
-
-/* AI */
-.post-TianliGPT {
-    background: var(--heo-secondbg);
-    border-radius: 12px;
-    padding: 12px;
+// AI summary Start
+.post-ai {
+    background: #f5f5f5;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
     line-height: 1.3;
-    border: var(--style-border-always);
-    margin: 16px 0;
+    border: 1px solid #cfe6f3;
+    margin: 1rem 0;
 }
 
-@media screen and (max-width: 768px) {
-    .post-TianliGPT {
-        margin-top: 22px;
-    }
-}
-
-.tianliGPT-title {
+.ai-title {
     display: flex;
-    color: var(--heo-lighttext);
-    border-radius: 8px;
+    color: #2d96bd;
+    border-radius: 0.5rem;
     align-items: center;
-    padding: 0 12px;
+    padding: 0 0.25rem;
     cursor: default;
     user-select: none;
 }
 
-.tianliGPT-title-text {
+.ai-title-icon {
+    width: 20px;
+    height: auto;
+    margin-right: 0.25rem;
+}
+
+.ai-title-text {
     font-weight: bold;
-    margin-left: 8px;
+    margin-left: 0.25rem;
     line-height: 1;
 }
 
-.tianliGPT-explanation {
-    margin-top: 12px;
-    padding: 8px 12px;
-    background: var(--heo-card-bg);
-    border-radius: 8px;
-    border: var(--style-border-always);
-    font-size: 15px;
+.ai-explanation {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    border: 1px solid #cfe6f3;
+    font-size: 0.95rem;
     line-height: 1.4;
     display: inline-block;
     width: 100%;
 }
 
-.tianliGPT-explanation span {
-    margin-left: 0.25rem;
+.ai-explanation span {
+    margin-left: 0.5rem;
 }
 
-.tianliGPT-suggestions {
-    display: flex;
-    flex-wrap: wrap;
+.ai-explanation-content {
+    display: none !important;
 }
-
-.tianliGPT-suggestions .tianliGPT-suggestions-item {
-    margin-top: 12px;
-    padding: 8px 12px;
-    background: var(--heo-card-bg);
-    border-radius: 8px 8px 8px 0;
-    border: var(--style-border-always);
-    font-size: 15px;
-    line-height: 1.4;
-    display: flex;
-    width: fit-content;
-    margin-right: 12px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.tianliGPT-suggestions .tianliGPT-suggestions-item:hover {
-    background: var(--heo-main);
-    color: var(--heo-white);
-}
-
-.blinking-cursor {
-    background-color: var(--heo-main);
-    width: 2px;
-    height: 15px;
-    display: inline-block;
-    vertical-align: middle;
-    animation: blinking-cursor 0.5s infinite;
-    -webkit-animation: blinking-cursor 0.5s infinite;
-    margin-left: 4px;
-}
-
-@keyframes blinking-cursor {
-    0% {
-        opacity: 1;
-    }
-
-    40% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-
-    90% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-.tianliGPT-tag {
-    font-size: 12px;
-    background-color: var(--heo-lighttext);
-    color: var(--heo-card-bg);
-    font-weight: bold;
-    border-radius: 4px;
-    margin-left: auto;
-    line-height: 1;
-    padding: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.tianliGPT-tag:hover {
-    background: var(--heo-fontcolor);
-    color: var(--heo-card-bg);
-}
-
-ins.adsbygoogle {
-    margin: 16px 0;
-    background: var(--heo-card-bg);
-    border-radius: 12px;
-    overflow: hidden;
-    border: var(--style-border-always);
-}
-
-#tianliGPT-Toggle {
-    font-size: 12px;
-    background: var(--heo-lighttext);
-    color: var(--heo-card-bg);
-    padding: 4px;
-    border-radius: 4px;
-    margin-left: 6px;
-    transform: scale(0.8);
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: bold;
-}
-
-#tianliGPT-Toggle:hover {
-    background: var(--heo-fontcolor);
-    color: var(--heo-card-bg);
-}
-
-.tianliGPT-title-icon {
-    width: 20px;
-    height: 20px;
-}
-
-.tianliGPT-title-icon svg {
-    width: 20px;
-    height: 20px;
-    fill: var(--heo-main);
-}
-
-.tianliGPT-title-icon svg path {
-    fill: var(--heo-main);
-}
-// TianliGPT End
+// AI summary End
