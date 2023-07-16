@@ -29,14 +29,14 @@
 <!-- 相册照片数量太少，暂时不引用 -->
 <!-- <script type="text/javascript" src="/assets/imgStatus.min.js?v=0.1.1"></script> -->
 <script>
-    var galleryUrl = "https://api.eallion.com/memos/api/memo/all?rowStatus=NORMAL&tag=相册";
+    var galleryUrl = "https://api.eallion.com/memos/api/v1/memo/all?rowStatus=NORMAL&tag=相册";
     let nowNum = 0;
     fetch(galleryUrl)
         .then((res) => res.json())
         .then((resdata) => {
             var result = "",
                 resultAll = "",
-                data = resdata.data;
+                data = resdata;
             for (var i = 0; i < data.length; i++) {
                 var galleryTitle = data[i].content.replace("#相册 ", "");
                 var id = data[i].id;
