@@ -4,7 +4,7 @@ authors: ["eallion"]
 categories: ["代码"]
 tags: ["typecho","nginx","access","denied","403"]
 draft: false
-slug: "Nginx-typecho-access-denied"
+slug: "nginx-typecho-access-denied"
 date: "2017-03-19 01:08:00"
 lastmod: "2017-03-19 01:08:00"
 ---

@@ -3,7 +3,7 @@ title: "Gridea Hexo Hugo 等 git push 同步到多个仓库"
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["hexo"]
-slug: "deploy-to-GitHub-and-coding"
+slug: "deploy-to-github-and-coding"
 draft: false
 date: "2019-12-16 22:58:39"
 lastmod: "2019-12-16 22:58:39"

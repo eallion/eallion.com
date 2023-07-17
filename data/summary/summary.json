@@ -3,26 +3,26 @@
     {
       "title": "2010 年 12 月 15 日 雪景",
       "slug": "snows",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章描述了作者在 2010 年 12 月 15 日所经历的雪景。作者提到，下雪之前天空只有几点零星的白天，没人预料到会下这么大的雪。作者认为家乡可能下得更大。文章还提到了关于地址设定和程序错误的问题，并以数字花园用爱发电作为结尾。"
     },
     {
       "title": "2011 向左，2010 向右",
       "slug": "goodbye2010",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对 2010 年的回顾和对 2011 年的期望。他认为自己在过去一年中太过于为别人而活，失去了自我。他希望新的一年能更加积极阳光，并将经历和感悟当成财富。最后，他表示不再傻逼地诉说苦难，祝大家新年快乐。"
     },
     {
       "title": "2011 年 01 月 06 日 又下雪了",
       "slug": "20110106",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章描述了作者在 2011 年 1 月 6 日下雪的情景。作者回忆小时候喜欢雪，但现在觉得喜欢雪的人越来越多，变得俗气和浮躁。最后提到了博客换平台和妈妈生日快乐。"
     },
     {
       "title": "2011 年 04 月 15 日",
       "slug": "reveal",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于 2011 年 4 月 15 日的一篇日记，提到了 AI 摘要接口失联、数字花园和爱发电等内容。"
     },
     {
       "title": "2011 年 04 月 21 日",
@@ -45,14 +45,14 @@
     {
       "title": "2011 年 8 月 9 日",
       "slug": "20110809",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在 2011 年 8 月 9 日的一天的经历。他提到了 AI 摘要接口失联、找工作以及算命等话题。他还谈到自己相信神圣，无论是有神论者还是无神论者都应该敬畏神圣。最后，文章提到了一个关于百度推广黑幕的话题。"
     },
     {
       "title": "2011.05.22",
       "slug": "birth",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章提到了一个日期，2011 年 5 月 22 日。文章内容很短，只有几个字的标题和一句话。其中提到了 AI 摘要接口暂时失联，并祝福生日快乐。"
     },
     {
       "title": "2011.5.20 13:14",
@@ -63,8 +63,8 @@
     {
       "title": "2012",
       "slug": "2012",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对 2012 年的回顾和总结。他在这一年中经历了很多事情，认识到社会现实和金钱的重要性，并养成了事业心。他在工作上遇到了挫折，但通过休息和思考后找到了新的方向。下半年，他选择创业并找到一份理想的工作，也更加清楚自己的价值。最后，作者期待着来年能够有所突破。"
     },
     {
       "title": "360 前端静态资源库",
@@ -75,8 +75,8 @@
     {
       "title": "500 块钱在义乌怎么过（爆强）",
       "slug": "baiduzhidao",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了一个关于如何在义乌用 500 块钱过上爆强生活的回答。作者提出一系列方法，包括购买假钞、打电话找零、购买黄盘等，最后通过投资和经商赚取大量财富，并最终成为中国第一大门户网站并获得巨额收入。"
     },
     {
       "title": "512 地震的真相：两个老科学家的血泪倾诉",
@@ -105,8 +105,8 @@
     {
       "title": "CSPromod 试玩报告",
       "slug": "csp-report",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "CSPromod 是一个反恐精英职业版的游戏，使用 CSS 引擎制作出类似 CS1.6 的体验。它在平衡性、GUI 定制化和枪械设计方面有所改进，但仍不能完全替代 CS1.6。试玩者对 AK、M4、Deagle 等武器进行了评价，并提到了一些 BUG。总体来说，CSP1.05 比之前的版本有很大进步，如果 Valve 开发的 CS2 再次让玩家失望，那么 CSP 可能成为电竞主流。期待更多人参与 CSP 开发并听取职业选手意见以实现更大进步。"
     },
     {
       "title": "DNS 推荐",
@@ -118,7 +118,7 @@
       "title": "Destination Host Prohibited",
       "slug": "destination-host-prohibited",
       "generated": true,
-      "summary": "这篇文章介绍了如何解决\"Destination Host Prohibited\"的问题。问题出现的原因是由于服务器上的iptables配置导致的。文章给出的解决方法是检查filter表中的FORWARD链，查看是否包含有相关的行，如果有则删除该行。作者提供了删除该行的命令示例。"
+      "summary": "这篇文章介绍了如何解决“Destination Host Prohibited”的问题。问题出现的原因是由于服务器上的iptables配置导致的。文章给出的解决方法是检查filter表中的FORWARD链，查看是否包含有相关的行，如果有则删除该行。作者提供了删除该行的命令示例。"
     },
     {
       "title": "Dokuwiki Nginx 伪静态",
@@ -177,8 +177,8 @@
     {
       "title": "LOL 中 32 个经济学原理 游戏的迷人之处",
       "slug": "loldinglv",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了 LOL 游戏中的 32 个经济学原理，包括木桶理论、破窗理论、手表原理等。这些原理在游戏中有着具体的应用，如团队合作、角色定位和资源分配等方面。通过对这些原理的认识和运用，可以提高游戏技巧和胜率。同时，文章也指出了一些常见问题和现象，并给出了相应的解决方法或建议。总之，LOL 游戏中经济学原理的运用是其迷人之处之一。"
     },
     {
       "title": "LOL 全球总决赛 S5 开赛，支持 AHQ",
@@ -189,8 +189,8 @@
     {
       "title": "LPL2015 开赛",
       "slug": "lpl2015",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了 LOL 游戏中的 32 个经济学原理，包括木桶理论、破窗理论、手表原理等。这些原理在游戏中有着具体的应用，如团队合作、角色定位和资源分配等方面。通过对这些原理的认识和运用，玩家可以提高自己在游戏中的竞技水平，并取得更好的成绩。同时，文章也指出了一些常见问题和错误观念，如喷子行为、不合适的角色选择等，在游戏中应该避免这些问题以保持良好的团队氛围和个人发展。"
     },
     {
       "title": "Linux 架设 CS1.6 服务器教程",
@@ -201,8 +201,8 @@
     {
       "title": "Loord 事件",
       "slug": "loord",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了在杭州的全球总决赛中，波兰队员 Loord 因网络问题发表不当言论引起中国玩家的愤怒。中国玩家纷纷在各个平台上谩骂，并组团到国外网站上继续抨击。然而，作者提醒大家不要忘记之前中国队对日本队的侮辱行为，竞技体育应该远离政治色彩。最后，作者认为波兰队员的行为是不职业且没有涉及民族问题。"
     },
     {
       "title": "Memos API 公告样式滚动效果",
@@ -243,14 +243,14 @@
     {
       "title": "My2011",
       "slug": "my2011",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章总结了作者在 2011 年的一些经历和感受，包括吃老婆饼、个人经济负增长、身体健康等。作者还提到写软件抢到火车票、旅行电影观看等活动，并表达了对未来的期望和挑战。"
     },
     {
       "title": "My2012",
       "slug": "my2012",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于作者在 2012 年的计划和打算，包括结婚、远行、观看演唱会和电影等。同时提到了数字花园和纳税人的问题。"
     },
     {
       "title": "NeoDB API 创建观影页面",
@@ -266,9 +266,9 @@
     },
     {
       "title": "Nginx typecho Access denied",
-      "slug": "Nginx-typecho-access-denied",
-      "generated": false,
-      "summary": ""
+      "slug": "nginx-typecho-access-denied",
+      "generated": true,
+      "summary": "文章讲述了在重新配置服务器时遇到的问题，即无法打开 typecho 的二级页面，显示 Access denied。官方给出了解决办法：修改 php.ini 文件中的 cgi.fix_pathinfo 为 1，并重启 php 和 nginx。"
     },
     {
       "title": "Oneinstack Nginx 反代 Google",
@@ -280,7 +280,7 @@
       "title": "Oneinstack 手动修复 OpenSSL OCSP",
       "slug": "oneinstack-repair-openssl-ocsp",
       "generated": true,
-      "summary": "这篇文章介绍了如何手动修复Oneinstack中的OpenSSL OCSP漏洞。作者建议不要使用\"openssl version\"命令查看版本号，而要使用\"nginx -V\"命令。然后根据nginx版本号，下载相应的nginx和openssl源码，在编译nginx时修改参数\"--with-openssl=../openssl-1.0.2j\"。"
+      "summary": "这篇文章介绍了如何手动修复Oneinstack中的OpenSSL OCSP漏洞。作者建议不要使用“openssl version”命令查看版本号，而要使用“nginx -V”命令。然后根据nginx版本号，下载相应的nginx和openssl源码，在编译nginx时修改参数“--with-openssl=../openssl-1.0.2j”。"
     },
     {
       "title": "Openssl 升级",
@@ -291,20 +291,20 @@
     {
       "title": "QQ 不是为了谁而隐身",
       "slug": "stealth",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对于 QQ 隐身功能的使用习惯和感受。作者表示自己很少上 QQ，但是习惯将 QQ 设置为隐身状态。他认为能够整天玩 QQ 已经是一种奢侈的生活方式。虽然他的好友数量不多，但仍然充值会员享受福利。曾经迷恋过群聊天，现在怀念那些时光。最后，作者解释自己选择隐身只是因为不想被打扰而已。"
     },
     {
       "title": "QQ 圈子",
       "slug": "qq-quanzi",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了 QQ 圈子的功能和影响力。通过六度分隔理论，我们可以认识世界上任何一个人。作者以自己认识科比为例，展示了 QQ 圈子中朋友关系的连结。他发现在自己 50 个好友中，却有 1798 个圈子好友，包括朋友的亲戚、同学和同事等。作者还提到，在 QQ 圈子里可以找到明星和其他感兴趣的人，并强调了 QQ 对于用户来说是不可或缺的应用程序。最后，文章讨论了隐私问题，并指出隐私本身是虚假概念。"
     },
     {
       "title": "QQ 群",
       "slug": "qq-group",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了一个无聊的 QQ 群，其中的人们失去了与 AI 摘要接口的联系。"
     },
     {
       "title": "QQ 邮箱收不到 Gravatar 验证邮件",
@@ -345,8 +345,8 @@
     {
       "title": "Titanic IMAX 3D",
       "slug": "titanic-imax",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者去柯桥的万达电影院观看《泰坦尼克号 3D》imax 版的经历。虽然路程较远，但是天气晴好，风徐徐。不料途中突降大雨，作者冒雨前进。到达电影院后发现座无虚席，观众们有人感动、哭泣、欢乐和笑声不断。回想起十多年前初次观看《泰坦尼克号》，再次进入电影院仍然被感动到，并对 IMAX 效果赞赏。结束时，夜空闪耀着星星，春天的风从身边吹过，在回家的路上与妻子分享这段浪漫经历，并计划将来与女儿分享此事。"
     },
     {
       "title": "Twikoo 集成 Slimbox2 灯箱插件",
@@ -381,8 +381,8 @@
     {
       "title": "Ubuntu 16.04 LTS",
       "slug": "ubuntu-1604-lts",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "Ubuntu 16.04 LTS 正式发布，提供在线升级方式。"
     },
     {
       "title": "Ubuntu 16.10 优化",
@@ -490,7 +490,7 @@
       "title": "Ubuntu 鼠标加速度",
       "slug": "ubuntu-mouse-acceleration",
       "generated": true,
-      "summary": "这篇文章介绍了作者在重新安装Ubuntu系统后遇到的鼠标灵敏度问题。作者提到尝试使用命令\"xset m 0\"来调整鼠标加速度，但在关机重启后设置失效。由于网上关于鼠标加速度设置的信息不全面，作者记录下了配置方法并分享给读者，以便日后参考。最后，作者提到在Ubuntu软件中搜索\"Mouse\"，安装\"Keyboard and Mouse\"模块可解决此问题。"
+      "summary": "这篇文章介绍了作者在重新安装Ubuntu系统后遇到的鼠标灵敏度问题。作者提到尝试使用命令“xset m 0”来调整鼠标加速度，但在关机重启后设置失效。由于网上关于鼠标加速度设置的信息不全面，作者记录下了配置方法并分享给读者，以便日后参考。最后，作者提到在Ubuntu软件中搜索“Mouse”，安装“Keyboard and Mouse”模块可解决此问题。"
     },
     {
       "title": "Umami Docker 部署及优化",
@@ -501,20 +501,20 @@
     {
       "title": "VeryCD 时代的结束？",
       "slug": "verycd",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "腾讯近期专题报道取缔 VeryCD 等网站，引发争议。文章作者表示自己是忠实的 VeryCD 用户，认为正版在中国只是伪概念。他指责迅雷用户不理解分享精神，并批评政府行动病态和劣根性。他还提到自己想下载《社交网络》电影却无法找到合适的地方。最后质问取缔 VeryCD 的理由是什么。"
     },
     {
       "title": "WCG Stupid",
       "slug": "wcg-stupid",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了世界电子竞技大赛（WCG）取消 PC 游戏启用手机游戏的事件。作者认为 WCG 一直以来都是最专业和品牌效应最好的电竞比赛，但近年来出现了一些不明智的决策，如使用 CS:CZ 版本和 CS:S 等。文章呼吁 WCG 慎重考虑，并希望其能够继续发展。"
     },
     {
       "title": "WCG2012 &amp; 2013 @昆山",
       "slug": "wcg2012-2013-global-finals-located-in-kunshan",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "WCG2012 和 WCG2013 世界总决赛将在中国昆山举办。昆山是中国经济实力最强的县级市，连续多年被评为全国百强县之首。她交通便捷、教育发达、国际化水平高。这也是继 2009 年成都成功举办后，WCG 再次在中国举办。往届比赛分别在韩国、美国、新加坡等地举行。"
     },
     {
       "title": "WannaCry 勒索病毒",
@@ -537,8 +537,8 @@
     {
       "title": "Win7 老打印机驱动解决方案",
       "slug": "win7-printer",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了一个解决方案，用于在 Win7 系统中使用老的打印机驱动。作者发现自带的驱动效果不好，官方也没有提供适配 Win7 的驱动。最初尝试将打印机安装在 XP 系统上并共享给其他人使用，但存在不便之处。后来作者想到了一个办法，在虚拟机中安装 XP 系统，并将打印机共享给 Win7 使用。这个方法被证明是有效的。"
     },
     {
       "title": "Windows 双宽带双网卡",
@@ -560,15 +560,15 @@
     },
     {
       "title": "WordPress 提交评论出现 404 错误的解决办法",
-      "slug": "WordPress-comment-404",
-      "generated": false,
-      "summary": ""
+      "slug": "wordpress-comment-404",
+      "generated": true,
+      "summary": "文章介绍了解决 WordPress 提交评论出现 404 错误的方法。作者在本地测试 WordPress 功能时，发现数据库中多出一个字段导致错误，经过删除该字段后成功修复评论功能。分析原因可能是安装插件后未自动清理数据库所致。作者提醒读者不要随意安装和卸载插件。"
     },
     {
       "title": "XHTML1.0 和 CSS3.0 验证",
       "slug": "authentication",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者的博客无法通过 XHTML1.0 和 CSS3.0 验证，尽管他已经努力改正错误。其中两个地方出现的错误是音乐插件和新浪订阅，但由于这些都是其他网站上的内容，作者无法修改。此外，作者还提到了一个关于字体的问题，并表示不愿意将其更改为 Microsoft YaHei。最后，作者认为自己没有必要花时间去通过这些无聊的验证。"
     },
     {
       "title": "Xshell 4 注册码",
@@ -585,14 +585,14 @@
     {
       "title": "cyx，一路走好",
       "slug": "cyx",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章概括：德国 Mouz 明星选手 cyx 不幸逝世，给 CS 界带来巨大打击。他的离世让人们惋惜和震惊，对于中国玩家而言是个重要偶像。他在比赛中展现出了卓越的枪法和技术，深受其他职业选手的模仿和参考。cyx 的去世也让人回忆起其他英年早逝的优秀玩家。无论如何，我们都向 cyx 致敬，并祈愿他们一路走好。"
     },
     {
       "title": "eallion.com 月度统计报告与展望",
       "slug": "statistical-report",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "本报告为 eallion.com 博客最近 30 天的百度统计报告，分析了访客习惯和网页设计。发现使用 1440*900 分辨率最多，主流浏览器仍然是 IE、Chrome 和 Firefox。访问者以 Windows XP 用户居多，国内访问集中在沿海地区。作者坚持页面简洁和内容原创，并表示会回访留言的朋友。"
     },
     {
       "title": "getcdn.org Aliyun CDN",
@@ -603,8 +603,8 @@
     {
       "title": "i like Windows 8",
       "slug": "windows-8-pre",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是作者正在使用 Windows 8 操作系统，并对其表示喜欢，但该系统没有中文输入法。作者认为 Windows 8 和 Windows Phone 8 不如 Chrome OS 和 Android 好用。"
     },
     {
       "title": "iOS 离线发表博客的 APP MWeb",
@@ -615,8 +615,8 @@
     {
       "title": "markdown 确实不方便",
       "slug": "markdown-really-inconvenient",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者尝试使用 markdown 写博客的经历，一开始不习惯并觉得不方便，但后来改变了看法，认为 markdown 很好用。"
     },
     {
       "title": "typecho 应对垃圾评论",
@@ -628,7 +628,7 @@
       "title": "typecho1.2 (18.10.23) 新窗口打开链接",
       "slug": "typecho-12-blank",
       "generated": true,
-      "summary": "这篇文章介绍了一个关于typecho博客平台的修改方法。作者想要实现新窗口打开链接的功能，他在代码中添加了一行代码(target=\"_blank\" rel=\"nofollow\")来实现这个效果。推荐方法二是修改var/HyperDown.php文件，在代码的第507行添加相应的代码。然后在主题的functions.php文件和post.php文件中进行相应的改动。作者表示此方法适用于typecho1.2版本。"
+      "summary": "这篇文章介绍了一个关于typecho博客平台的修改方法。作者想要实现新窗口打开链接的功能，他在代码中添加了一行代码(target=“_blank” rel=“nofollow”)来实现这个效果。推荐方法二是修改var/HyperDown.php文件，在代码的第507行添加相应的代码。然后在主题的functions.php文件和post.php文件中进行相应的改动。作者表示此方法适用于typecho1.2版本。"
     },
     {
       "title": "ubuntu wps 不能输入中文解决",
@@ -639,14 +639,14 @@
     {
       "title": "what is that?",
       "slug": "whatisthat",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个父亲和儿子坐在长椅上，突然一只麻雀落在他们中间的故事。这是一部由 Constantin Pilavios 执导、Nikos & Constantin Pilavios 编剧的电影，摄影师是 Zoe Manta，音乐由 Christos Triantafillou 创作，声音由 Teo Babouris 负责，混音则是 Kostas Varibobiotis 完成。该电影由 MovieTeller films 制作。"
     },
     {
       "title": "“忙”- 是不是 “心” 已 “亡”",
       "slug": "mang",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了忙碌的生活是否导致人们失去了内心的平静和希望。作者描述了自己曾经面对邪恶和困难时坚定不移的决心，但现在却只能在梦中找到美好和未来。他表示希望永远不要站起来，并回顾了过去十年为忘记一个人所花费的时间。最后提到日本地震海啸，并展示了一些表情图片。"
     },
     {
       "title": "《功夫熊猫》是文化侵略吗",
@@ -663,14 +663,14 @@
     {
       "title": "《母亲的专列》",
       "slug": "my-mothers-train",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了一位母亲第一次乘坐火车旅行的经历，她躺在软卧上像根火柴，享受着平静和安详。作者和兄弟姐妹陪伴母亲远行，窗外风景匆匆而过。最后到达终点站时，他们看到高高的烟囱和数字花园。"
     },
     {
       "title": "《职来职往》",
       "slug": "zhilaizhiwang",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "《职来职往》是一档让人深受启发的节目，通过选手们的经历和选择展示了职业规划的重要性。其中有小学毕业生表现出色，证明学历并不是决定成功与否的唯一因素；也有高学历但品行差劲的选手，凸显了家教修养对于一个人的重要性。每期节目都有主打选手给观众留下深刻印象，特别是外表靓丽内心坚强的女孩。总体而言，《职来职往》是一档值得关注和持续追踪的好节目。"
     },
     {
       "title": "《诸神之怒》",
@@ -693,8 +693,8 @@
     {
       "title": "一只救了 32 条人命的搜救犬牺牲了",
       "slug": "agreatdog",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "一只搜救犬在救援过程中牺牲，已经救出了 32 人。战士们感到伤心，其中一个战士抱着狗哭泣。"
     },
     {
       "title": "一天推一天",
@@ -705,38 +705,38 @@
     {
       "title": "一封信",
       "slug": "amail",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者忽略自己的理想，直到完全记不起。然后提到朋友要组乐队和走创作路线，作者支持他们。最后提到自己有小小的梦想一直存在。"
     },
     {
       "title": "一批域名到期",
       "slug": "domain-names",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了一批域名即将到期，作者决定将这些域名转移到阿里云进行续费，每个省下 10 元。"
     },
     {
       "title": "一日不如一日",
       "slug": "day-as-day",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个标题为 “一日不如一日” 的故事，日期是 2008 年 12 月 12 日。文章提到 AI 摘要接口暂时失联，表达了时间过得很快的感叹。同时也提到距离过年的时间越来越近。"
     },
     {
       "title": "一日无事",
       "slug": "day-without-incident",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了 AI 摘要接口失联的情况，提醒人们不要过于关注小事，放松心情度过平静的一天。"
     },
     {
       "title": "一物昌，百事顺",
       "slug": "make-me-upper",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者最近没有写博客，但仍然认真对待写作。他强调博客应该是为自己而写，记录生活和心情。作者经历了一段波折期，但现在看来好像已经度过难关，并感到破茧成蝶的喜悦。最后，他希望世界和平。"
     },
     {
       "title": "一直这样吗",
       "slug": "so-it-has-been",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "这篇文章描述了作者多年来出门后钱财总是减少的情况，无论是 50 还是 500 都一样。"
     },
     {
       "title": "一言 APP 添加 “今日诗词” 官方源 api",
@@ -747,14 +747,14 @@
     {
       "title": "上大人",
       "slug": "shangdaren",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个仙界的人物丘乙己化身为凡人，与一位孝顺的女子相爱并结婚。他们过着幸福美满的生活，养育子女，并受到众人喜爱和尊敬。文章强调了家庭和谐、孝道、亲情以及诚信等价值观念，并呼吁大家追求幸福而不是贪图金钱。"
     },
     {
       "title": "上帝的援助",
       "slug": "godblessyou",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一位神父在洪水中坚持守护教堂，相信上帝会来救他。然而，当救生员、警察和直升机前来营救时，神父都拒绝了，并最终被淹死。上帝在天堂里告诉他已经派出了两艘小艇和一架直升机去救他，但他没有接受援助。这个故事暗示人们应该珍惜身边的援助与帮助，并不要过分依赖上帝的干预。"
     },
     {
       "title": "不如跳舞",
@@ -771,26 +771,26 @@
     {
       "title": "不知所谓，，，，",
       "slug": "13",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于一个人在专栏中描述了自己观察到的一些奇特景象，如腐烂的圣女果和爬满小蛆虫的画面。作者认为即使是这些不知所谓的美，也有其独特之处。此外，作者还表达了对朋友开设专栏的支持和赞赏。"
     },
     {
       "title": "不知道大家还去不去宜昌呢",
       "slug": "i-do-not-know-what-has-to-go-yichang",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章提到了作者计划去宜昌旅游，但由于票务问题和通讯失联，无法确定是否能够如期前往。同时，文章还提到了国庆节期间人们计划去其他地方旅游的情况。"
     },
     {
       "title": "不确定",
       "slug": "uncertain",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了选择和命运的关系。作者认为人生充满了选择，但这些选择都是被命运安排好的。因此，作者将自己看得很低，任何人都可以踩在地上。作者相信苦难只是历练，眼泪是心中的彩虹。"
     },
     {
       "title": "不要做圆规画圆",
       "slug": "dont-do-compasses-to-draw-circles",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了不要做圆规画圆的观点。作者认为，如果你是直尺，就应该画直线；而如果你是圆心，就会停在原地。文章提醒人们方向错了就应该停下来重新思考，并呼吁读者不要浪费时间在肤浅的语录上。"
     },
     {
       "title": "且试天下",
@@ -801,8 +801,8 @@
     {
       "title": "世茂影城 电子商务",
       "slug": "shi-mao-ying-cheng-dian-zi-shang-wu",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了世茂影城的电子商务业务。"
     },
     {
       "title": "两年工作经历",
@@ -820,25 +820,25 @@
       "title": "中国需要网络特区吗？",
       "slug": "china-web-special-zone",
       "generated": true,
-      "summary": "这篇文章介绍了中国IT业高管对于政府网络监管的不满，并提出了将深圳设为互联网监管特区的建议。与此同时，文章对比了他们与谷歌事件的态度差异，认为他们更加\"理性、建设性\"。文章认为在中国建立特区可能会导致对权力的依赖，而不一定能够形成独立的文化品质。尽管特区具有透风和试验的性质，但信息严控对于IT产业前景具有负面影响。文章也指出了政府对网络监管的政治化，而忽视了产业发展的问题。"
+      "summary": "这篇文章介绍了中国IT业高管对于政府网络监管的不满，并提出了将深圳设为互联网监管特区的建议。与此同时，文章对比了他们与谷歌事件的态度差异，认为他们更加“理性、建设性”。文章认为在中国建立特区可能会导致对权力的依赖，而不一定能够形成独立的文化品质。尽管特区具有透风和试验的性质，但信息严控对于IT产业前景具有负面影响。文章也指出了政府对网络监管的政治化，而忽视了产业发展的问题。"
     },
     {
       "title": "中文大约的确已经死了",
       "slug": "chinese-is-probably-dead",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章指出，现代中文越来越低幼化、敏感化、缺乏创造力和充斥废话。作者认为这是因为成年人接受了这种低龄化的表达方式。他呼吁保护中文的严肃性和力量，并反思中文失去创造力的问题。最后，作者引用姜文的观点，认为年轻人推崇的东西往往是老年人创造和引领的，暗示中文之所以死亡可能与其过早地被年轻化有关。"
     },
     {
       "title": "中文文案排版指北",
       "slug": "chinese-copywriting-guidelines",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "本文介绍了统一中文文案、排版的相关用法，包括空格的使用规则、标点符号的正确使用、数字和单位之间的空格等。同时提到了一些特殊情况下的例外，如产品名词书写格式、全角和半角符号的区别以及大小写相关用法。最后还给出了参考链接供读者深入学习。"
     },
     {
       "title": "为了六级的一切",
       "slug": "for-all-six",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对于参加英语六级考试的犹豫和不确定感，以及他之前没有计划学习英语的想法。然而，由于突然听说可以报名参加六级考试，作者决定尝试一下。虽然时间紧迫且可能过不了这个难关，但作者还是希望能找到动力并努力备考。最后，作者提到自己本来打算在这个学期补习其他课程和学习新东西，但现在似乎都要花在准备六级上了。"
     },
     {
       "title": "为什么我会突然热情锐减",
@@ -849,8 +849,8 @@
     {
       "title": "为日本地震海啸默哀",
       "slug": "rip-japan",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章概括：文章介绍了 2011 年日本地震海啸的情况，以及日本红十字会对中国援助的历史。同时，还提到了日本在灾后展现出的有序、镇静和高度组织的态度，并且分享了一些关于日本企业和民众自愿提供帮助的事例。最后强调了国家形象与人民精神之间的联系。"
     },
     {
       "title": "为爱而哭",
@@ -867,20 +867,20 @@
     {
       "title": "也许我正打算写小说呢",
       "slug": "writing",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对青春的思考和回忆，以及他想要用各种方式记录下自己的青春。他认为青春就像一张白纸，可以涂上五颜六色的色彩。同时，他也提到了人们在不同阶段对于青春和人生的感慨与追求。最后，作者表示自己要珍惜现在的时光，并将这些回忆写成小说留存下来。"
     },
     {
       "title": "也说小姐",
       "slug": "a-great-vocation",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者与隔壁的小姐谈人生和理想的故事。"
     },
     {
       "title": "二月二",
       "slug": "er-yue-er",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在二月二这一天早上起来爬山烧香拜佛，感叹香炉峰的美景和香火旺盛。中午聚餐喝酒后剪了个龙头求签，待解的签文是关于坚持信心的。最后提到数字花园用爱发电。"
     },
     {
       "title": "于今日某事有感",
@@ -891,8 +891,8 @@
     {
       "title": "五月天 - 五月的最后一天",
       "slug": "lastmayday",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "五月的最后一天，作者回顾了这个月发生的许多事情，包括成为舅舅、过生日、回到故乡利川等。他在这个月经历了悲伤和开心，并且明白了一些道理：有些事情需要亲身经历并不断努力，而有些事情则应该随遇而安。如果你在别人眼中毫无价值，那么人生就像是倒满清茶却装不下芝华士酒一样令人沮丧。"
     },
     {
       "title": "亲爱的亲爱的",
@@ -909,8 +909,8 @@
     {
       "title": "人在长大，生活在进步",
       "slug": "growth",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在网络发展初期的经历，从最开始找免费域名和空间到学会使用虚拟主机建立网站。随着收入增长，作者开始买卖域名，并转向使用 VPS 建站。文章以此为例说明人在成长过程中不断进步的生活状态。"
     },
     {
       "title": "亿万富翁女儿情迷穷渔夫",
@@ -921,14 +921,14 @@
     {
       "title": "今天重阳",
       "slug": "today-chongyang",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "今天是重阳节，我想给家里打个电话。父母都还好，但大姐搬家了。李攀的事情让人震惊，我们无能为力，他被判刑了。或许这也是件好事，可以接受教育，希望他以后会变得更好。"
     },
     {
       "title": "今时不同往日",
       "slug": "i-feel-im-nothing",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "现在的我与过去不同，冬天怕冷、感慨多、发呆多、没以前洒脱。不能随心所欲，作息规律但不正常，运动少了。不必打 CS，更孤独。写东西多但肤浅琐碎流于表面。未完待续..."
     },
     {
       "title": "从游戏到游戏",
@@ -939,26 +939,26 @@
     {
       "title": "他们都登上了 2012 方舟了吗",
       "slug": "2012a",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容概括：多位国家领导人相继辞职，原因是他们都登上了 2012 方舟。"
     },
     {
       "title": "会飞的蜗牛 trackback",
       "slug": "flying-snail-trackback",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个关于资源利用和竞争的故事。作者通过比喻挖井和打猎的方法，说明在任何竞争中都需要综合运气、技巧和策略。同时，他提到人们拥有看不见的资源，如时间成本和知识储备。最后，作者表示应该写一篇文章给对方发 trackback 过来，并表达了数字花园用爱发电的理念。"
     },
     {
       "title": "伤好了",
       "slug": "well-injury",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者伤好后的喜悦心情，可以重新开始打游戏、抱老婆。他表示身体和精神都恢复了，天气也变好了。最后提到博客也会变得更好。"
     },
     {
       "title": "何去何从",
       "slug": "go",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了作者即将离开并面临何去何从的问题。他考虑过去深圳，但也感受到压力。"
     },
     {
       "title": "佛性写博",
@@ -987,20 +987,20 @@
     {
       "title": "你的孩子其实不是你的孩子",
       "slug": "yourchirld",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了孩子不是父母的私有财产，而是独立个体。他们来到这个世界是因为自身的渴望，借助父母而存在，并拥有自己的思想和灵魂。父母可以给予孩子爱和庇护，但不能强加自己的意愿。孩子像箭一样从弓中射出，代表着未来之路。父母应该欣然接受孩子成长并支持他们飞翔，在彼此间保持稳定与平衡的关系。"
     },
     {
       "title": "你看，豆豆会发光！",
       "slug": "doudou",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了一种名为豆豆的物体，它能够发光。但是由于 AI 摘要接口失联，无法获取更多详细信息。"
     },
     {
       "title": "你那点痛算什么",
       "slug": "suansm",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "这篇文章描述了世界上许多人面临的困境和痛苦。其中包括盲人渴望看到亲人、孤儿希望有个母亲、患病者无法自理、被贩卖的儿童沦为乞讨工具等。此外，还提到每天有成千上万的人死于饥饿、意外事故或冤案，并揭示了一些残障者生活中的不幸遭遇。通过对这些困境的描述，文章试图唤起读者对他们所面临问题的关注和同情心。"
     },
     {
       "title": "依旧",
@@ -1011,8 +1011,8 @@
     {
       "title": "保爷",
       "slug": "baoye",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在利川方言中的 “保爷” 一词的意义，以及他与三个保爷之间的关系。其中一个是他幼时闯上水碗成为干爹的张瓢匠，另一个是一口井，最后一个是杀猪匠。作者相信命运和定数，并感谢这三个保爷对他生活带来的庇佑。"
     },
     {
       "title": "修改 Ubuntu 状态栏托盘图标顺序",
@@ -1023,8 +1023,8 @@
     {
       "title": "修改代码一定要做笔记",
       "slug": "change-logs",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章强调了修改代码时一定要做好笔记的重要性。作者在修改博客评论显示信息时遇到问题，花费了很多时间来定位错误，最后发现是修改了系统文件。作者认为即使是小的代码改动也应该养成注释和笔记的习惯。"
     },
     {
       "title": "倒霉的一天",
@@ -1047,26 +1047,26 @@
     {
       "title": "做小偷记",
       "slug": "the-thief-has-in-mind",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章是关于作者回忆自己做小偷的经历。他写了一篇《抓小偷记》，记录了自己所干的坏事。"
     },
     {
       "title": "停电停网",
       "slug": "stopping-power-network",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于作者回忆自己做小偷的经历，描述了他所干的坏事和对手机的渴望。"
     },
     {
       "title": "免费送阿里云虚拟主机",
       "slug": "free-aliyun-host",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "阿里云论坛推出免费送虚拟主机活动，但只限新用户领取。分享链接：https://promotion.aliyun.com/ntms/act/freeall.html"
     },
     {
       "title": "免费领取咪咕版 Kindle",
       "slug": "kindle",
       "generated": true,
-      "summary": "这篇文章介绍了一个名为\"天天爱阅读，kindle0元享\"的活动，用户购买咪咕版Kindle后，参与活动，连续打卡100天后将全额返还购机款。文章还提供了购买链接和购买渠道的信息，以及如何获取额外的保护套和返现的方法。请注意文章中提到的活动和购买信息。"
+      "summary": "这篇文章介绍了一个名为“天天爱阅读，kindle0元享”的活动，用户购买咪咕版Kindle后，参与活动，连续打卡100天后将全额返还购机款。文章还提供了购买链接和购买渠道的信息，以及如何获取额外的保护套和返现的方法。请注意文章中提到的活动和购买信息。"
     },
     {
       "title": "全城戒备",
@@ -1077,8 +1077,8 @@
     {
       "title": "全民脱险 —— 卡巴斯基向全体网民赠送高端安全软件",
       "slug": "kaspersky",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "卡巴斯基实验室发起 “全民脱险” 活动，向网民赠送高端安全软件。用户只需在活动网站提交邮箱地址和验证码，即可免费获得一年版产品，并通过分享功能让亲友也受到保护。激活码有效且使用期限为一年，该软件被认为相当不错且无需重启即可使用。"
     },
     {
       "title": "关不上的关心",
@@ -1101,8 +1101,8 @@
     {
       "title": "关于人民币升值前因后果（权威扫盲贴）",
       "slug": "revaluation",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了人民币升值的前因后果。文章指出，中国加入 WTO 后，吸引了大量外资和技术进入中国市场，导致人民币汇率过低。然而，在全球经济复苏的背景下，人民币升值成为必要措施。文章还分析了人民币升值对于发达国家和中国的影响，并提出了解决金融危机和不平衡贸易问题的建议。最后，文章呼吁实现公平、有尊严的生活，并强调产业革命是未来发展的关键。"
     },
     {
       "title": "关于友情链接",
@@ -1113,14 +1113,14 @@
     {
       "title": "关于那些情事",
       "slug": "violations-of-those",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对于情感事务的思考和感受，他认为自己对待别人太重要，却往往自己受伤。他觉得寂寞不是因为一个人而是想一个人才会有的。他也提到了国庆打算去很多地方旅行。"
     },
     {
       "title": "其实也没什么",
       "slug": "actually-no",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者最近发现自己处理事情不好，容易忘记并导致误会产生。作者一直看自己很低微，随意且不解释。但这是个坏习惯。"
     },
     {
       "title": "其实我是比较喜欢坐火车",
@@ -1131,20 +1131,20 @@
     {
       "title": "其实生活就像是寄明信片",
       "slug": "in-fact--life-is-like-a-postcard",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "这篇文章讲述了生活就像寄明信片一样，有人期待、不屑、欣喜或漠然。"
     },
     {
       "title": "养了两条鱼",
       "slug": "two-fish",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者养了两条鱼的经历。他买回来的时候，其中一条金鱼生病了，另一条是黑色的杂种鱼。虽然状态不好，但作者还是决定好好养着它们。以前他有很多鱼时觉得麻烦，现在没有了反而想再养两条。他还提到自己有很多饲料要用掉才能浪费，并且表达了想养吃其他鱼的大型食肉鱼的念头。最后，作者表示如果把这条小鱼喂大并吃掉，则自己也算是吃过很多其他小鱼了。"
     },
     {
       "title": "再次同步到 QQ 空间测试",
       "slug": "anothertest",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了一个关于再次同步到 QQ 空间测试的消息。"
     },
     {
       "title": "再说评论",
@@ -1155,8 +1155,8 @@
     {
       "title": "写博客的你们伤不起！",
       "slug": "shangbuqi2",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了写博客的困难和挫折，包括平台关闭、服务器问题、付费等。作者表达了对于写博客的辛苦和不被理解的感受，并以咆哮体来表达自己的情绪。最后呼吁读者珍惜并尊重写博客的人们。"
     },
     {
       "title": "冬夏 4 年，天下安定",
@@ -1179,8 +1179,8 @@
     {
       "title": "几个严肃的词",
       "slug": "somewords",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了几个严肃的词：博客、记者、信仰、知识分子和爱国。作者认为这些词代表着深度思考、寻求真相、非工具性的信仰以及智慧传播等重要价值观。他强调保持对这些词的敬意，因为它们在当今社会中变得稀缺。"
     },
     {
       "title": "几部电影",
@@ -1215,14 +1215,14 @@
     {
       "title": "劳动合同解除 (终止) 及赔偿一览表",
       "slug": "laborcontract",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "劳动合同解除和终止的区别及赔偿金一览表。劳动合同解除是双方协商、劳动者单方或用人单位单方解除，不需要支付经济补偿金；而劳动合同终止是由法定事由导致的，如期满、死亡等情况，无需支付赔偿金。根据具体条件和期限，提前通知或违约时是否需要支付赔偿金有所不同。此外，在某些特殊情形下不能解除或需逾期终止，并可能产生赔偿金。"
     },
     {
       "title": "千古绝对",
       "slug": "qian-gu-jue-dui",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了一首对联《千古绝对》，并提到了网络小说《极品家丁》中作者写的诗词和对联。同时，还提到了数字花园项目以及时运不济的表情图片预览。"
     },
     {
       "title": "午夜偷牛的人",
@@ -1269,14 +1269,14 @@
     {
       "title": "原来我也害怕独处",
       "slug": "unthinkable",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对独处的害怕和不喜欢，睡觉前总是告诉自己要怎样做事情，但醒来后心情又会改变。坐着、站着、走着时作者会冷静沉默安静，只有忙碌才能避免胡思乱想。即使没事可做也会找事做或者发呆喝水来淡化内心的东西。虽然不困但也不愿意去睡觉。最近作息时间令人反感。"
     },
     {
       "title": "去年今日",
       "slug": "lastxmas",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者回忆起去年的圣诞节时的心情，当时他站在桥上给很多人发祝福短信，但只有几个人回复。现在他手机里只存着 4 个号码，并且没有收到任何短信。作者表示以前遇到不开心的事情会装作成熟，而现在更加不愿意说出来。然后他鼓励自己要坚强、达观和宽容，不要忘记最初的梦想和目标。最后祝大家圣诞快乐。"
     },
     {
       "title": "去有风的地方",
@@ -1287,20 +1287,20 @@
     {
       "title": "去漳河走了一转",
       "slug": "to-take-a-turn-zhanghe",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者去漳河游玩的经历，但只在码头周围转了一圈，并没有坐船或去观岛。作者原本计划国庆节去宜昌，但因为朋友们不去了，所以也就没去成。作者还提到自己有恐高症，想要尝试蹦极跳。最后提到漳河的空气比城市好些，但仍然有差距。"
     },
     {
       "title": "友子",
       "slug": "tomoko",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者思念一个名叫友子的人，他们之间的关系像追逐游戏一样。文章提到了数字花园和用爱发电等词语，暗示着友子在作者心中具有特殊意义。"
     },
     {
       "title": "反季旅游的必要性",
       "slug": "the-need-for-off-season-tourism",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了反季旅游的必要性。作者提到，冬天的三亚人满为患，因此选择在非繁忙季节旅行可以避免拥挤和高昂的费用。反季旅游也能够体验不同的气候和景观，并且享受更加宁静和放松的环境。总之，反季旅游是一种有必要性且值得尝试的方式。"
     },
     {
       "title": "吃包子不兴喝粥的",
@@ -1317,8 +1317,8 @@
     {
       "title": "各方媒体对于韩寒入围《时代》“全球最具影响力” 人物候选人的报道",
       "slug": "hanhan_time",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "韩寒入围《时代》“全球最具影响力” 人物候选人引发媒体报道和争议。有媒体认为他进前十指日可待，也有质疑榜单合理性的声音。文章分析了韩寒作为候选人的合理性，并提到他在中国社会中的影响力和知名度。同时，文章呼吁观众持观赏态度并祝愿韩寒能成功进入 100 强。"
     },
     {
       "title": "各路巨星与 CS 的不解之缘",
@@ -1329,8 +1329,8 @@
     {
       "title": "向埃及人民致敬",
       "slug": "tribute-to-the-egyptian",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "埃及人民经过 17 天的示威抗议，成功推翻穆巴拉克政权。文章批评中国居民对自由和民主的冷漠，并回顾了中国历史上的压迫事件。最后提到了法国、意大利和中国都有游行要求领导下台的情况。"
     },
     {
       "title": "启用 Waline",
@@ -1341,20 +1341,20 @@
     {
       "title": "吼山桃花节",
       "slug": "hou-shan-tao-hua-jie",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了作者参观吼山桃花节的经历。他描述了到达吼山时人们陆续回来的情景，还提到了学校组织春游的场面。作者在吼山感受到历史洪流，并提及了一个真人 CS 俱乐部。最后，文章还提到了对博客进行小改动和评论关闭通知中心等内容。"
     },
     {
       "title": "周公解梦",
       "slug": "zhougongjiemeng",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者昨晚做的三个梦，分别是被追杀、洗澡和眼睛流血。根据周公解梦的解释，被追到意味着被杀，而洗澡则代表身体健康。眼睛流血预示着身体会很健康。"
     },
     {
       "title": "周杰伦：烟花易冷",
       "slug": "yanhuayileng",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "周杰伦的歌曲《烟花易冷》表达了人事易分、情感深沉的主题。"
     },
     {
       "title": "命贱一点有好处",
@@ -1389,14 +1389,14 @@
     {
       "title": "回家",
       "slug": "return-home",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个人回家的故事，他在回家的路上经历了很多事情，学到了很多东西。他决定独自承受这些困难，并默默地继续前行。最后，他成功回到了家中，并表达出想要消失的心愿。"
     },
     {
       "title": "因为你不喜欢我",
       "slug": "it-has-nothing-to-do-with-love",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个人因为对方不喜欢自己而产生的种种纠结和痛苦，包括经常关注对方的动态、给对方发短信、揣测对方与他人的关系等。作者表达了自己在心里默默付出却得不到回应的无奈和伤感。"
     },
     {
       "title": "国内外 161 个社交图标分享",
@@ -1443,8 +1443,8 @@
     {
       "title": "备忘 - 解决评论用户链接问题",
       "slug": "cheat-comment-user-link-solution",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了解决评论用户链接问题的方法，通过修改 Typecho 默认的 Comments.php 文件中的代码实现在新窗口打开链接。"
     },
     {
       "title": "备案",
@@ -1473,8 +1473,8 @@
     {
       "title": "多说即将关闭",
       "slug": "duoshuo",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "多说评论系统因公司业务调整即将关闭，用户可在 6 月 1 日前导出站点评论数据。感谢多说为公益项目坚持并提供方便的评论系统，希望他们一切顺利。其他替代品有网易云跟贴等。"
     },
     {
       "title": "夜空中最亮的星",
@@ -1491,8 +1491,8 @@
     {
       "title": "奢侈和浪费",
       "slug": "luxurious",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了奢侈和浪费的区别。作者认为奢侈是一种本事，可以享受高品质的生活，但不能浪费资源。举例来说，作者不反对花钱吃一顿价值 2000 元的饭菜，只要吃得干净利索。然而，如果只花 20 元却将剩下的食物随意扔掉，则被视为没有教养。"
     },
     {
       "title": "奥巴马更改演说时间 给《迷失》大结局让路",
@@ -1521,8 +1521,8 @@
     {
       "title": "好日子",
       "slug": "good-day",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于作者过上了幸福的生活，他提到了一些家人和朋友的近况，包括妹妹过生日、弟弟去当兵、母亲过生日等。他还提到自己回家参加朋友的婚礼，并感谢朋友们对自己的关心和帮助。最后，他表示要努力创业并享受这个美好的时光。"
     },
     {
       "title": "如果在绍兴遇见你",
@@ -1533,20 +1533,20 @@
     {
       "title": "如果我不能再 Play CS",
       "slug": "if-i-can-not-play-cs",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对于玩 CS 游戏的热爱和依赖，认为 CS 是他生活中重要的一部分。他将 CS 技巧视为自己肌肉里的本能反应，而且大部分回忆和快乐都来自于这个游戏。同时，作者也表达了对找不到女朋友的悲剧感叹，并幻想过找一个玩得好 CS 的女孩。最后，作者提到自己在做两件有意义的事情：玩 CS 和写独立博客。"
     },
     {
       "title": "如果我真取到了假钱",
       "slug": "icbc-jiaqian",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在取款机上取到一张假钱的经历。尽管这张钱只是缺了一个角，但作者决定去银行咨询并存入该钱，以免给别人带来麻烦。然而，ATM 不认可这种残币，导致作者无法存入。他对于为什么每天都有很多人排队等候的问题感到困惑，并担心如果更多人遇到同样情况会怎样处理。最后，作者表示自己还有很多疑问和困惑。"
     },
     {
       "title": "妈妈 生日快乐",
       "slug": "happy-birthday-to-my-mother",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者给妈妈打电话祝她生日快乐，但因为各种原因无法回家。作者感叹自己不能陪伴在母亲身边的遗憾，同时表达了对母亲的爱和感激之情。作者决定给母亲买礼物，并希望家人过得越来越好。最后，作者向母亲表达了自己的爱意并祝她生日快乐。"
     },
     {
       "title": "妹妹 生日快乐",
@@ -1557,8 +1557,8 @@
     {
       "title": "娜的留言",
       "slug": "na-message",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个人回忆起与同学的美好时光，并表达对他们的敬佩和祝福。作者提到自己小时候班里有一位聪明的同学，成绩优秀且活跃参与各种活动。然而，毕业后大家分开了，失去联系。作者在工作中常常想起那些趣事，并感叹童年时光已经过去。最后，作者向这位老同学表达了祝福并希望他每天都能开心面对生活。"
     },
     {
       "title": "孙燕姿关于AI孙燕姿的回复",
@@ -1569,8 +1569,8 @@
     {
       "title": "孤独真的能毁掉一个人吗？",
       "slug": "lonely",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对孤独的理解和经历。他认为，孤独是当所有人都在享受假意有趣的过程时，你已经看到了无趣结局的感觉。而导致孤独的原因是，你知道哪些事才能有一个有趣结局，但这些事只适合一个人去做。作者曾追求合群，并努力满足他人期望，但当他展示真实自我的时候被背离。于是他开始学着与自己成为朋友，并选择接纳孤独。最后作者表示，在千万种方式中，他愿将自己交给孤独以拥有自由。"
     },
     {
       "title": "学历重要吗",
@@ -1581,32 +1581,32 @@
     {
       "title": "孩子们，他们来自未来吗？",
       "slug": "haizimen",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个发生在利川的残忍事件，作者对此感到痛心，并批评社会和政府对孩子们的漠视。他思考凶手是否来自未来，穿越时空修正历史。最后，作者希望能回到幼儿园时光里重新开始。"
     },
     {
       "title": "安魂曲",
       "slug": "requiem",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者每天经过小区时听到的安魂曲，以及对逝者的祝福。作者虔诚地希望他们一路走好，不像其他人那样愁眉苦脸。有时候在楼下会看到老人晒太阳，他们沧桑而安详。然而，在某段时间里，作者对治丧曲很厌恶，并感到内心烦躁和不安。但现在这些音乐只是平淡无奇的存在，转变过程已成为日记中的回忆。"
     },
     {
       "title": "家电决定生活",
       "slug": "jia-dian-jue-ding-sheng-huo",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "这篇文章讲述了家电对生活的影响，作者分享了自己购买台式机、洗衣机、空调和饮水机后感受到的生活安定。他还提到花时间打扫屋子，以及数字花园项目。"
     },
     {
       "title": "密室之不可告人",
       "slug": "lost-in-panic-room",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者去电影院看一部推理片的经历。虽然影评很高，但放映厅里只有作者一个人。故事剧情简单，发展按部就班，观众参与度低，细节少。结尾不好，像偶像片而非推理片。总体来说还可以，但作者比较挑剔给 3.5/5 分评价。"
     },
     {
       "title": "富足的时间 肤浅的生活",
       "slug": "imsnail",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个富足的时间和肤浅的生活，以及作者对未来、过往和爱情的思考。"
     },
     {
       "title": "对博客的小改动",
@@ -1623,20 +1623,20 @@
     {
       "title": "小小的物是人非",
       "slug": "little-people-have-changed",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者感到郁闷和悲伤，喝酒独自度过时被同学夸大。他听到舞指琴行改名为非耳，并想起高中时的音乐表演。他愤怒地想给一个男人一巴掌，回忆起当年的音乐老师和女粉丝。最后，作者感叹事物在变化中带来些许伤感，与音乐无关。"
     },
     {
       "title": "小悦悦",
       "slug": "little-yue-yue",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在国外读书时，在地铁上遇到一位老太太询问为什么不救小悦悦的事情。作者因无法找到借口解释，只好说自己是日本人并下车。文章表达了作者对于小悦悦事件的感受和困惑。"
     },
     {
       "title": "小明与三毛",
       "slug": "xiao-ming-and-san-mao",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个谜语，小明的妈妈有三个儿子，老大叫大毛，老二叫二毛，请问老三叫什么。答案是小明。"
     },
     {
       "title": "山",
@@ -1647,32 +1647,32 @@
     {
       "title": "工作状态慢慢回来了",
       "slug": "sense-back",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者工作状态逐渐恢复的情况，他一直在思考计划和策划方案，寻找灵感。他很久没有这种工作状态了，连游戏也有好几个版本没玩过。"
     },
     {
       "title": "工信部短信通知",
       "slug": "notification",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "工信部短信通知，用户收到注销网站的消息。文章讲述个人信息被盗用的现象普遍存在，个人隐私已不复存在。作者曾在一家网络公司发现内部系统有大量老板和企业负责人电话资料，这些资料可能是从外面购买或者直接从工商局获取。无论在互联网行业还是传统销售行业，新鲜的个人信息都很受欢迎。作者认为不必过于担心自己的隐私泄露，因为无法阻止他人盗用信息。"
     },
     {
       "title": "巴塞罗那 VS 北京国安",
       "slug": "barcelona",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了巴塞罗那对阵北京国安的比赛。作者表示对比赛结果没有过多期望，只是当作一场秀去欣赏。然而，巴萨很快就取得领先，并最终以 4-0 获胜。虽然比赛有些沉闷，但也有一些出彩的瞬间。文章结尾提到了三年前两队交手时的比分，并预言巴萨还会进球，结果果真如此。整篇文章写得较为杂乱，表达了作者对足球和奥运会的喜爱之情。"
     },
     {
       "title": "干洗店姐妹",
       "slug": "964",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了干洗店里的两个姐妹，但由于内容太短，无法得知具体内容。"
     },
     {
       "title": "平安夜",
       "slug": "christmas-eve",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对平安夜的不喜欢，他们收到朋友送的苹果，并祝愿朋友们发财。"
     },
     {
       "title": "年小月半大",
@@ -1689,8 +1689,8 @@
     {
       "title": "幼儿园",
       "slug": "nursery",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章由于内容太短，无法得知具体内容。"
     },
     {
       "title": "当我不说话的时候，我在说什么",
@@ -1701,14 +1701,14 @@
     {
       "title": "当我格格不入",
       "slug": "when-i-was-out-of-tune",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者感觉自己与他人不同，无法融入群体的心情。他希望有人能理解他，但很少有人能明白。最重要的是，他自己要明白这一点。"
     },
     {
       "title": "很准的星座特质",
       "slug": "constellation",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个关于双子座男生的特质和经历。他聪明、帅气，但控制欲强，导致女友离开。后来女友回来了，但他却折磨她和自己。双子男性格幽默健谈，善于隐藏真实想法，并对喜欢的人紧张而不自来熟。大多数双子男都爱说话、搞笑、开朗、快热，易嫉妒且霸道孩子气。如果有一个双子男人时而撒娇时而教育你，并在各方面展现出对你的爱意，则请相信他是真心爱你的。"
     },
     {
       "title": "快递安全吗",
@@ -1725,14 +1725,14 @@
     {
       "title": "情人节快乐",
       "slug": "valentines-day",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于情人节快乐的祝福和感谢，以及作者对爱、幸福和长久之情的表达。"
     },
     {
       "title": "想。",
       "slug": "thought",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对某人的思念和想念之情，表达了自己对这个人的爱意以及希望能与其交流的渴望。同时，文章也提到了作者感受到的失落和困惑，因为这个人似乎对他保持着距离。整篇文章充满了矛盾和复杂的情感。"
     },
     {
       "title": "愈久弥精",
@@ -1755,8 +1755,8 @@
     {
       "title": "感同身受",
       "slug": "empathy",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个人想要安慰另一个人的故事。虽然作者不知道如何开口，但他能感同身受对方的痛苦，并希望能让对方快乐起来。最后，文章提到数字花园和用爱发电的理念。"
     },
     {
       "title": "感恩",
@@ -1767,8 +1767,8 @@
     {
       "title": "感觉像是等什么的过了一天",
       "slug": "so-what-feels-like-over-a-day",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者一天的经历，他感觉像是在等待着什么。早上醒来后感到有点难受，但这只是小问题。作者认为今天与以往不同，这种感觉与人有关。文章提到数字花园和用爱发电的概念。"
     },
     {
       "title": "感觉马上就要离开了",
@@ -1797,8 +1797,8 @@
     {
       "title": "我以为",
       "slug": "i-think",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章描述了作者对很多事情的期望与现实之间的差距。作者以为可以改变，但最终发现一切还是如旧。有些人让作者感到失望，而那些本该交好的人却对作者恶意相待。同时，有些时光被认为可以留下来，但只剩下了时间拉长后的影子。"
     },
     {
       "title": "我们都不是真的懒",
@@ -1815,14 +1815,14 @@
     {
       "title": "我喜欢的人和喜欢我的人",
       "slug": "mychoose",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了选择结婚时，喜欢的人和喜欢自己的人之间的抉择。作者认为应该选择喜欢的人，并表示有信心让对方也喜欢上自己。同时，提醒不要以为找到一个喜欢自己的人就可以任意对待对方，缘分是奇妙而注定的。"
     },
     {
       "title": "我很庆幸我不喜欢打牌",
       "slug": "im-glad-i-do-not-like-playing-cards",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "这篇文章讲述了作者庆幸自己不喜欢打牌的原因。"
     },
     {
       "title": "我时常想起我的妈妈",
@@ -1833,14 +1833,14 @@
     {
       "title": "我是在炫耀我的悲伤吗",
       "slug": "sorrow",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者身体不适，流鼻血、头晕等症状，但又感到饥饿却没有胃口。作者自嘲地说自己是个悲情小人物，需要自己做粥来解决问题。虽然这些伤病只是小事，但作者感叹今年发生的事情太多了。最后，作者表示要继续工作，并呼吁读者不要围观。"
     },
     {
       "title": "我爱她",
       "slug": "i-love-her",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对某个人的深深爱意，他们不能在一起时心会痛。作者决定彻底地爱她，即使分开也只有偶尔相见的机会。他觉得这种纯粹的爱是悲哀的，但他愿意义无反顾地去爱。如果想到她不在身边，就感觉像被针扎一样痛苦。虽然心里空了，但那份爱仍然流淌在骨髓中。"
     },
     {
       "title": "我爸是李刚",
@@ -1887,14 +1887,14 @@
     {
       "title": "我终于也变成了我讨厌的人了",
       "slug": "caodan",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者变成了自己曾经讨厌的人，感到无奈和绝望。同时提到数字花园和用爱发电等内容。"
     },
     {
       "title": "我被封禁的几个重要账号",
       "slug": "banned-account-list",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者被封禁的几个重要账号，包括腾讯微博、百度联盟和 steam 账号。作者对于这些账号的重要性感到失望和无奈，并描述了被封禁后的心情变化。同时，作者也提到了其他小网站和论坛账号被封的经历，并表达了对于这种不顺遂的感受。最后，作者以喜欢女人但得不到回应来比喻自己与这些账号之间的关系。"
     },
     {
       "title": "我要找老婆",
@@ -1923,8 +1923,8 @@
     {
       "title": "打包出售 欲购从速",
       "slug": "packaged-for-sale",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在一家羽绒服装公司工作，突然被告知该公司被收购。作者选择跟随商铺到新公司就职，发现新公司更正规、系统化，并能学到很多东西，对未来创业有帮助。"
     },
     {
       "title": "抓小偷记",
@@ -1935,20 +1935,20 @@
     {
       "title": "抽烟那点事儿",
       "slug": "smoking",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对抽烟的态度和习惯，他只抽一半的烟，并认为抽烟是自然、随机的行为。作者父母开明，从小就接受喝酒和抽烟，使得他在这方面有健康的行为习惯。他最喜欢黄鹤楼和芙蓉王两种香烟。虽然没有戒烟需求，但作者认为如果身体条件允许、经济条件允许且能带来快乐，就没必要戒烟。最后提到草原上牛群排放二氧化碳量最大。"
     },
     {
       "title": "拔凉拔凉的本命年",
       "slug": "fml2010",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "本文讲述了作者在本命年遇到的种种不顺和对过年的期望。文章中提到今年天气寒冷，购买电热毯来取暖；回忆起去年过年时用冷水洗澡的经历；因各种原因无法回家与父母团聚，想念妈妈和奶奶；希望过个热闹红火的新年，并表示要将一切不顺都烧成灰。最后，作者认为明年再说，一切会好转。"
     },
     {
       "title": "拔牙",
       "slug": "extraction",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者拔牙的经历。左边上面的大牙被虫蛀，痛了几个月后决定拔掉。挂号时得到一个 “2” 的号码，取药时得到一个 “1888” 的吉利号码。作者还提到在 07 年中秋节后也曾拔过一次智齿，那次非常疼痛并流血很久。最后作者只能吃苹果和香蕉两周来养口。"
     },
     {
       "title": "换空间",
@@ -1971,14 +1971,14 @@
     {
       "title": "摆摊记",
       "slug": "baitan",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者第一次摆摊的经历。他早早来到市场占位置，但发现好位置都被别人占光了。最终找到一个较差的位置开始摆摊，生意逐渐好转。然而，对面也有竞争者出现，不得不再次搬迁。最后，在购物高峰期只能搬到路口继续经营。作者卖的是 “回头糕” 等食品。"
     },
     {
       "title": "收获",
       "slug": "shou-huo",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个关于收获的故事，主要内容包括人们在摸索前进的道路上需要努力和摸索，以及与成功人士交流可以带来启发。同时还提到了迷茫和踏青等话题。"
     },
     {
       "title": "改革开放 40 年 大民大国 40 年 40 本书",
@@ -1996,7 +1996,7 @@
       "title": "故思",
       "slug": "so-think",
       "generated": true,
-      "summary": "这篇文章介绍了一个名为\"大大的小蜗牛\"的人，他们生活在红尘中的一粒微尘中。他们失去了故乡、旅程以及内心的生机。窗外飘落的风絮，远近婆娑的风景，是他们雪白的过去、炉火温暖的记忆、伴随着他们成长的伙伴、以及童年的时光。他们身处远方，心中已死。"
+      "summary": "这篇文章介绍了一个名为“大大的小蜗牛”的人，他们生活在红尘中的一粒微尘中。他们失去了故乡、旅程以及内心的生机。窗外飘落的风絮，远近婆娑的风景，是他们雪白的过去、炉火温暖的记忆、伴随着他们成长的伙伴、以及童年的时光。他们身处远方，心中已死。"
     },
     {
       "title": "整整两年的光阴",
@@ -2007,8 +2007,8 @@
     {
       "title": "新三板挂牌上市条件",
       "slug": "neeq",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了新三板挂牌上市的条件，包括存续满两年、主营业务突出、企业治理结构健全等要求。同时也提到了新三板上市的条件，如满足存续两年、主营业务突出、注册地址在高新园区等。这些条件有助于提高公司融资能力和股份流动性，并促进企业规范发展和增值。"
     },
     {
       "title": "新号韩服 LOL 定位赛",
@@ -2019,14 +2019,14 @@
     {
       "title": "新工作记要",
       "slug": "xin-gong-zuo-ji-yao",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了在新工作中要不停地推销自己，同时也要对公司进行考量并做出决定。作者强调工作态度要认真，并将每一项工作都当成自己的事业去做。此外，还提到了学会做工作笔记、计划与总结以及项目管理的重要性。最后，文章还提到了摆摊记和表情图片预览等内容。"
     },
     {
       "title": "无与伦比的寂寞",
       "slug": "unparalleled-lonely",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对寂寞的感受和思考，认为时间比寂寞更加无法逾越。"
     },
     {
       "title": "无意义的个性化",
@@ -2037,8 +2037,8 @@
     {
       "title": "无所事事",
       "slug": "nothing",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者因为公司并入另一家公司而变得无所事事，整天没有事情可做，只能听从组织安排。作者感到非常无聊。"
     },
     {
       "title": "无所谓无所畏惧",
@@ -2049,44 +2049,44 @@
     {
       "title": "时运不济",
       "slug": "shiyunbuji",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了时运不好的情况下，除了感叹之外，更需要努力。"
     },
     {
       "title": "春哥舒淇和苍老师",
       "slug": "chun-ge-shu-qi-he-cang-lao-shi",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个微博上的争吵事件，涉及到春哥、舒淇和苍老师。作者表达了对赵文卓的支持，并批评了舒淇装清高和苍老师受挑衅时的回应。同时，作者称赞李宇春坚强面对网络暴力并取得进步，认为她之所以红火是因为真正喜欢她的人投票支持。最后，作者指出其他明星粉丝多数只是脑残粉而已。"
     },
     {
       "title": "春节",
       "slug": "chinese-new-year",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在春节期间感冒，无法回家过年的心情。他描述了去年过年时自己独自炒饭和今年生日时一个人吃长寿面的场景，并流露出内心脆弱却不轻易外露的特点。最后，他感谢给他发信息祝福的朋友，并表达对新年更好的期待。"
     },
     {
       "title": "昨天喝醉了... 貌似...",
       "slug": "drunk-yesterday",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者昨天喝醉后的一些模糊记忆，包括喝了几瓶啤酒和二锅头，感觉有点醉，但清醒后应该要回忆起来。"
     },
     {
       "title": "是天堂是地狱都要走",
       "slug": "heaven-is-hell-must-go",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者面对黑暗日子的坚强态度，认为无论是天堂还是地狱都要继续前行生活。"
     },
     {
       "title": "晚安，躁动。",
       "slug": "restlessness",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在深夜躁动不安的心情，无法入睡。他选择听歌、写日记来平息内心的不安，但却发现自己常常中途停留，无法坚持到达目标。他感叹习惯的力量强大，同时也意识到自己对一些并不需要却想要的东西产生了较劲。作者思考如何去安慰自己、填补内心空洞，并表达了对这种躁动感到抱歉。最后，他笑着面对这个黑暗而微妙的夜晚。"
     },
     {
       "title": "智能手机",
       "slug": "unsmartphone",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了智能手机对人们的影响。作者认为，不再使用苹果和安卓手机后，他变得更加精神焕发，有更多时间思考和学习。文章提出了一个问题：智能手机是让我们越来越傻还是越来越聪明？"
     },
     {
       "title": "暂无法备案的域名后缀",
@@ -2103,14 +2103,14 @@
     {
       "title": "有一类连日本人都不如的中国人",
       "slug": "duonanxingbang",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了日本地震中日本人表现出的高度民族素质，与中国部分网民幸灾乐祸形成鲜明对比。作者批评这些人缺乏善良、包容和爱心，并认为他们的言行导致政府限制言论自由。文章指出，地震不仅关系到政治，还涉及自然、经济、生态等多个方面。同时，作者也提到了中国文化断层和信仰缺失所带来的灾难，并呼吁更加重视传统美德的传承。最后，文章以日本人在地震中选择躲进学校避难作为对比，暗示其愚蠢之处。"
     },
     {
       "title": "有些需要被我们记住的东西",
       "slug": "to-be-remember",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者回忆起过去的一些事情，包括对爱情、友谊和音乐的执着追求，以及对网络游戏 CS 和其他网游的热爱。作者认为这些经历都是真挚而强烈的感情体验，并且时间可以洗涤一切，沉淀记忆。最后，作者表示自己会等待适合时机再表达自己的想法和感受。"
     },
     {
       "title": "有关于写作",
@@ -2121,38 +2121,38 @@
     {
       "title": "有关于工作",
       "slug": "aboutwork",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者一年来的工作经历和对工作的思考。作者认为男人要更专业才能出色地完成工作，而他之前上学时逃课导致他在工作中难以做到专业。作者不喜欢销售，但也意识到它可以锻炼能力。他向往快递这种相对安定又有流浪感觉的工作方式，并希望保持激情和追求进步。作者尝试过多种职业，最后决定顺其自然、放松心态并继续探索未来两年的职业规划。"
     },
     {
       "title": "有关于梦想",
       "slug": "aboutdream",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者小时候和现在的梦想，以及对梦想的思考。作者曾有过追求电脑知识、写传世之作等不同梦想，但后来认为这些都是扯淡。现在的梦想变得简单，只希望能抽时间打游戏和看剧。文章表达了每个人都有自己的梦想，并呼吁读者回忆起最初的梦想。"
     },
     {
       "title": "有种生活，有种心态",
       "slug": "kind-of-life-a-kind-of-mentality",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在高二时心灵受创，对生活失去信心和希望。他曾计划转学但被家人阻止，导致一切改变。最近进行的心理测试显示他有明显的心理问题。现在他对生活没有兴趣，只喜欢上网玩 CS 游戏。他觉得恋爱是幼稚可笑的事情，只想找一个会打 CS 的女孩子作为伴侣。读书对他来说已经不重要了，甚至曾考虑自杀。然而，他仍相信世界上存在真爱，并喜欢看疲子蔡的书籍。"
     },
     {
       "title": "朋友小聚",
       "slug": "friends-gathering",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "朋友们从不同地方聚会，但时间晚了找不到吃饭的地方。最后他们在烧烤摊包下来吃饭，然后打牌、喝酒。作者困了就睡觉，和朋友开玩笑说小时候梦想成真了。第二天早上有人还在打牌，大家散去约好晚上再见面。"
     },
     {
       "title": "未来半年计划（2011.02-2011.06）",
       "slug": "plan-for-my-future",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对未来半年的计划安排。作者打算在这段时间里继续帮朋友看店，同时学习驾照、网络知识和各行业新知识。他还向往去西藏旅行，并强调生活不应被过于详细地规划。最后，作者提出了一个问题：我唯一确定的是我的不确定吗？"
     },
     {
       "title": "来年愿望",
       "slug": "in-the-coming-year-wish",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者回顾过去一年的失败和堕落，认识到自己不够努力。他希望明年能实现一个更大的愿望，买一辆价值 20 万以上的车。"
     },
     {
       "title": "极品家丁",
@@ -2187,20 +2187,20 @@
     {
       "title": "流年",
       "slug": "liu-nian",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了时光的流逝和岁月的易逝。作者通过描述自己每天穿城而过，静思流年的场景，表达了对时间流逝的感慨。"
     },
     {
       "title": "消失",
       "slug": "disappear",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对于消失的想法，认为消失比较好，可以避免受伤害。"
     },
     {
       "title": "淘宝客服绩效考核方案",
       "slug": "kpioftaobao",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "淘宝客服绩效考核方案包括底薪、晚班补贴、提成和奖金。提成根据个人销售额和旺旺转化率计算，KPI 系数也会影响提成。奖金分为团队奖金和个人奖金，根据销售额超过过去 3 个月平均值的比例给予不同金额的奖励。"
     },
     {
       "title": "淘宝常用英文缩写名词解释",
@@ -2217,8 +2217,8 @@
     {
       "title": "混乱的日子",
       "slug": "chaotic-day",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章描述了作者的生活状态，他感到自己的日子很混乱，每天都是一成不变的样子。虽然这种稳定让人感到安心，但并不是作者所期望的。他希望能够改变现状，追求更有意义和充实的生活。"
     },
     {
       "title": "漂流瓶",
@@ -2229,26 +2229,26 @@
     {
       "title": "演唱会短评",
       "slug": "live-commentary",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了最近几场演唱会的视频，其中华语乐坛的五月天、周杰伦、刘德华、王菲和张惠妹的演唱会给观众带来了很大的震撼和享受。"
     },
     {
       "title": "烧烤记",
       "slug": "shaokao",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者第一次自助烧烤的经历。他买了肉串和蔬菜，到湖边开始烤。由于没有酒精，点火困难，后来换上铁签才成功。虽然经历几个失败的成品，但最终进入佳境。不过在清理时被烧烤架割伤了手指。"
     },
     {
       "title": "熟睡的时光",
       "slug": "listening-to-horror-stories--and-enron-sleep",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者每天晚上听恐怖故事入睡，然后在另一个晨昏醒来。他习惯了这样的生活，感到安之若素。"
     },
     {
       "title": "爱一个人",
       "slug": "love-someone",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "爱一个人，要了解、开解、道歉、道谢；认错改错；体贴体谅；接受不忍受；宽容不纵容；支持不支配；慰问不质问；倾诉不控诉。难忘而非遗忘，彼此交流而非凡事交代。默默祈求而非多要求。浪漫但勿浪费，牵手勿轻易放手。"
     },
     {
       "title": "爱丽丝梦游仙境症",
@@ -2259,26 +2259,26 @@
     {
       "title": "爱啦啦",
       "slug": "la-la-love",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了一首歌曲《爱啦啦》，描述了一个女孩对男友的深情表达和希望被娶的心愿。她承认自己有点孩子气，但只要和他在一起就感到甜蜜。尽管男友有时不讲道理，但她仍然深爱着他并原谅他的坏脾气。最后，她表示会一直想念他，并希望能够成为他的妻子。"
     },
     {
       "title": "爱子七不责",
       "slug": "7things",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了爱子七不责的原则，即在特定情况下不要责备孩子。这包括在公众场合给予孩子尊严，在孩子已经感到愧悔后不再责备他们，在晚上睡觉前和正吃饭时避免责备，以及在孩子高兴、哭泣或生病时都应给予关爱而非指责。这些原则旨在保护孩子的身心健康。"
     },
     {
       "title": "爱笑的眼睛",
       "slug": "eyes",
-      "generated": false,
+      "generated": true,
       "summary": ""
     },
     {
       "title": "爸爸 生日快乐",
       "slug": "happy-birthday-to-my-father",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者发现自己喜欢的眼睛类型，并举例说明。他描述了这种眼睛给他带来的豁然开朗的感觉，就像是迷茫中看到一道光明。他提到了美剧《LOST》和《实习医生格蕾》中角色的眼睛，以及对董卿和徐熙颜的喜爱。最后，作者为自己之前的忧伤感到可耻。"
     },
     {
       "title": "特质",
@@ -2295,14 +2295,14 @@
     {
       "title": "玩 CS 的你们伤不起！",
       "slug": "shangbuqi",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了玩 CS 游戏的人在游戏中遇到的各种困难和挑战，从新手到高手的过程，并调侃了一些常见的错误操作和糗事。最后提醒玩家们要小心被误认为作弊并需要解释自己没有使用外挂。整篇文章以夸张幽默的方式表达对 CS 玩家们辛苦付出和经历的理解与赞叹。"
     },
     {
       "title": "玩儿呀玩儿",
       "slug": "play-play-ah",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者曾经玩过一个游戏，每天花几个小时练习眼力找茬。作者认真对待这个不高级的网络游戏，而不是学习时那样刻苦劲头。在游戏中遇到开挂的人引发了一些思考，虽然有人为了得到虚荣心而刷分，但作者选择沉默并退出了游戏。后来再次进入游戏场景时感受到了变化，并下载挂机进行轻松玩耍。最后提出生命是否也是一场游戏，并问读者打算如何玩儿人生。"
     },
     {
       "title": "珊瑚鱼",
@@ -2313,26 +2313,26 @@
     {
       "title": "珍惜",
       "slug": "treasure",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章提醒人们要珍惜身边的人和事物，因为有时候会遇到失去的情况。"
     },
     {
       "title": "理想中的手机",
       "slug": "dream-phone",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对手机的喜好和理想中的手机的设想。作者提到自己喜欢过几款手机，包括 Panasonic x500、Nokia 5320、步步高 i6 和 iPhone。他表示对实体键盘有需求，并希望能够上网看小说。虽然不喜欢发短信，但仍然对手机有简单的要求：能打电话、发短信和上网。最后，作者表达了期待一款 Android + 翻盖手机的愿望，并认为目前市面上还没有符合他理想中手机要求的产品。"
     },
     {
       "title": "生如夏花",
       "slug": "eallion",
       "generated": true,
-      "summary": "这篇文章介绍了一个名为\"生如夏花 - 大大的小蜗牛\"的故事。故事发生在1986年5月22日的一个夏天傍晚，主人公在这个时刻出生。"
+      "summary": "这篇文章介绍了一个名为“生如夏花 - 大大的小蜗牛”的故事。故事发生在1986年5月22日的一个夏天傍晚，主人公在这个时刻出生。"
     },
     {
       "title": "生活的交集与期望",
       "slug": "expectation",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了春节期间人们的不同生活状态和行为，有走亲戚、回娘家、上班、旅行、玩乐等。作者认为这些人的生活没有交集，每个人都在做着自己的事情。他提到当他思念一个人时，可能对方正在忙于其他事情。"
     },
     {
       "title": "生病",
@@ -2367,20 +2367,20 @@
     {
       "title": "电脑配置单",
       "slug": "computer-configuration",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了一套游戏电脑的配置单，包括 CPU、主板、内存、硬盘、显卡等各个配件的品牌型号和价格。"
     },
     {
       "title": "略",
       "slug": "slightly",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章就说了略，其他的什么也没说。"
     },
     {
       "title": "略有见闻",
       "slug": "little-knowledge",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者跟随老板去人才市场招聘的经历，其中有一个应聘者虽然工作能力优秀但被王总认为有一些不足之处。通过这个故事，作者领悟到在成熟企业和成功经营者眼中，即使是微小的缺点也是不能容忍的。接着，作者又描述了自己与书画大师蔡云飞老师见面的情景，并赞美他的作品和气质。整篇文章强调了对细节和专业素养的重视以及追求卓越的态度。"
     },
     {
       "title": "白粽肉粽及端午快乐安康",
@@ -2409,8 +2409,8 @@
     {
       "title": "百度推广黑幕 - 一个百度推广从业者的视角",
       "slug": "ebaidu-com",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章揭露了百度推广的黑幕，从一个百度推广从业者的视角出发。文章指出，百度推广代理公司通过电话营销方式获取客户资源，新员工面临巨大压力和困境。在这种情况下，一些从业者会采取不正当手段来满足客户需求，并透露了一些违规操作。此外，文章还提到了百度推广中烧钱现象以及对 SEO 优化企业网站的人工干预等问题。"
     },
     {
       "title": "皮蛋瘦肉粥",
@@ -2421,8 +2421,8 @@
     {
       "title": "盘古开天",
       "slug": "pangu",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了盘古开天的神话故事，描述了盘古在混沌中诞生并开辟天地的过程。他身体各部分化为不同的自然元素，如眼睛成为太阳和月亮，血液成为江河等。文章还提到了其他相关神话故事，如女娲补天。"
     },
     {
       "title": "真的很多人问我了",
@@ -2433,8 +2433,8 @@
     {
       "title": "真相实事与认知",
       "slug": "practical-and-cognitive-truth",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "本文是一篇草稿，没有任何内容。真相实事与认知。"
     },
     {
       "title": "眼跳",
@@ -2451,20 +2451,20 @@
     {
       "title": "祝妈妈生日快乐.!",
       "slug": "i-wish-my-mother-a-happy-birthday",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者无法回家陪伴妈妈过生日的遗憾，表达了对妈妈的感激和祝福。同时，也提到了父母低调过生日的习惯以及他们为家庭付出的辛苦。作者表示明年一定会回去陪伴妈妈，并强调这是一个特别重要且独一无二属于她母亲的日子。"
     },
     {
       "title": "神是什么？（节选）",
       "slug": "what-is-god",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了神的概念，探究了人类对神的想象和崇拜。通过一个真实故事，说明了人们如何将外来文明视为神，并进行宗教仪式。文章提出，虽然现代观点不承认神存在，但早期人类创造神灵可能有一定依据。最后指出，无论多么离奇的神话都能找到现实与愿望中的原始素材。"
     },
     {
       "title": "神韵",
       "slug": "charm",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对于明星徐熙颜和 S.H.E 成员 Hebe 的喜爱，特别是对于她们眼睛中所展现出的神韵和个人魅力的欣赏。作者认为这种神韵不是因为喜欢明星而产生的，而是因为明星本身具备了这样一种特质才会引起关注和喜爱。"
     },
     {
       "title": "福福 生日快乐",
@@ -2475,8 +2475,8 @@
     {
       "title": "福至心灵",
       "slug": "blessing-to-the-soul",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "本文是一篇草稿。福至心灵。"
     },
     {
       "title": "离开",
@@ -2487,20 +2487,20 @@
     {
       "title": "秋风瑟缩",
       "slug": "huddled-autumn",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在秋天目睹同学被欺负后感到悲凉，同时描述了林间飘落的大叶子和阳光的明灭。有一位女生匆匆经过，书香四溢。作者想起年华易老，看着枯黄的不死草思考人生。太阳下山时，天边出现红艳色彩。作者默默盯着远方，并希望能有一条路可以一直走向未来的梦想之地。"
     },
     {
       "title": "突然悟到很多东西",
       "slug": "suddenly-realized-a-lot-of-things",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者通过打 CS 游戏，突然悟到了很多东西。他在数字花园中用爱发电，并感觉自己即将离开武汉。"
     },
     {
       "title": "突然觉得又很伤感",
       "slug": "i-suddenly-felt-sad-and-very",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者突然感到伤感和失落，与季节无关。不知道是什么引起这种情绪的原因。"
     },
     {
       "title": "童心皆可爱",
@@ -2511,8 +2511,8 @@
     {
       "title": "笔记本",
       "slug": "notebook",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了作者购买的一台笔记本电脑，并详细描述了他在三天内对电脑进行的各种操作和配置。最后，他提到这台笔记本是 ACER 品牌的 4755 型号。"
     },
     {
       "title": "笨拙",
@@ -2523,38 +2523,38 @@
     {
       "title": "等待",
       "slug": "wait",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在等待中花费了太多时间和精力，但往往没有什么结果。他意识到自己是在等待时已经过去了。"
     },
     {
       "title": "简单说明 [新主机空间 域名备案]",
       "slug": "explain",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者原本使用美国主机的经历，但由于敏感词被墙，不得不更换主机。作者选择了三艾网络的主机，并解决了伪静态问题。文章还提到作者的博客因为转发韩寒的博文而受到和谐影响，导致部分页面无法打开。最后，作者通过在本地模拟 PHP 环境删除数据库中相关文章来解决问题，并表示以后会偶尔写一些心情小文。"
     },
     {
       "title": "简简单单地说下《盗梦空间》",
       "slug": "inception",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "《盗梦空间》是一部引起争议的电影。文章作者认为观众对该片评价两极分化，豆瓣等网站上的评分也存在水分。作者自称理清了剧情和科学性，但仍纠结于开放式结尾。他提到小萝莉造镜子的情节给他带来哲学思考，并感谢电影给了他一个梦中梦具象表达的机会。"
     },
     {
       "title": "算命",
       "slug": "fortune-telling",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "国庆回老家，找退休算命先生算命。他说我的八字大，预测了三年的运势，并给了我一道符。去年、今年都不顺利，希望安稳渡过这两年。"
     },
     {
       "title": "糕糕写给蛋蛋的信",
       "slug": "egg-pudding-cake-a-letter-addressed-to",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对蛋蛋的道歉和后悔，回忆了他们在一起的美好时光。作者承认自己是个赌徒，欺骗了蛋蛋，并表达了对她的深深爱意和愿意改过自新的决心。最后，作者希望能够得到原谅并重新开始，即使不能成为恋人也希望能保持友谊。"
     },
     {
       "title": "索芙特天诺专卖店",
       "slug": "softtotn",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了索芙特天诺专卖店的信息，该店铺在天猫上销售化妆品。"
     },
     {
       "title": "纳税人的钱去哪了",
@@ -2565,8 +2565,8 @@
     {
       "title": "纳闷",
       "slug": "wonder",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "最近换了签名和头像，却引起了很多人的打探和抗议。某女子使用严厉手段威逼利诱，导致后果严重。蜗牛感到困惑和愁闷。"
     },
     {
       "title": "细数 LOL 先施法后闪现的迷之连招",
@@ -2583,8 +2583,8 @@
     {
       "title": "续期",
       "slug": "renewal",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于博客续期的问题。虽然作者最近没有更新博客，但他认为这个博客不能不存在。同时，文章还提到了一些其他的信息，如 AI 摘要接口失联和 WCG2012 & 2013 活动等。"
     },
     {
       "title": "网易房产专题 2010 烂砖奖第一季",
@@ -2595,8 +2595,8 @@
     {
       "title": "网络收支不平衡",
       "slug": "imbalance",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在网络上的收支不平衡情况。他发现自己在网络方面的开支相对于收入来说很大，包括手机费、QQ 会员费等。同时还列举了支付宝交易和网站相关的域名注册和主机空间费用。最后总结出投入金额远大于收入金额，表达了对这种不平衡状况的无奈和希望能够改变的心情。"
     },
     {
       "title": "网警如何抓人",
@@ -2637,8 +2637,8 @@
     {
       "title": "联系方式",
       "slug": "contact",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于作者对联系方式的偏好和习惯。作者不喜欢发短信、聊 QQ，更喜欢打电话或写信来沟通。他有四个手机号码，但都呼转了，并且只存了父母和妹妹的号码在通讯录里。他觉得能给他打电话的人，他肯定可以听出声音并识别身份。最后提到了《盗梦空间》电影和爸爸生日快乐表情图片预览等其他话题。"
     },
     {
       "title": "聚会",
@@ -2655,8 +2655,8 @@
     {
       "title": "自行车",
       "slug": "bicycle",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了作者购买山地车的经历，虽然遇到了一些问题，但仍然对骑行充满热情。"
     },
     {
       "title": "自言自语 - 台湾",
@@ -2667,44 +2667,44 @@
     {
       "title": "自言自语 - 命中著定",
       "slug": "zhu",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者对刘著的支持和欣赏，认为他是一个真实、有才华且坦然面对困难的人。作者通过观察刘著在社交媒体上的表现和态度来得出这个结论，并表示自己并非杰伦粉丝。最后提到了数字花园网站以及用爱发电的口号。"
     },
     {
       "title": "自言自语 - 教师",
       "slug": "teacherwow",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "教师是光荣职业，但并非所有从事教育的人都伟大。医生、警察也一样。"
     },
     {
       "title": "致周杰伦《转》",
       "slug": "to-jay",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章是一篇致周杰伦的信，作者回顾了自己十年来对周杰伦音乐的喜爱和关注。文章指出近几张专辑中噱头过多，创意不足，并批评了最新专辑缺乏质感和概念。作者认为周杰伦现在更注重商业化而非创作，导致专辑整体质量下降。同时，作者也提到了对于 MV、演唱会等方面的失望，并希望周杰伦能够重新专心于音乐创作。"
     },
     {
       "title": "舍友照相",
       "slug": "roommate-photo",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "小明和舍友决定一起照相，因为毕业后可能很少有机会在一起。虽然小明本人不喜欢照相和摆 pose，觉得很假，但是他们想要留下这些珍贵的时光回忆。特别提到了他们去漳河玩的那天，还找陈用拿手机拍照。"
     },
     {
       "title": "英语",
       "slug": "englishs",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了一个关于英语的问题，但具体内容无法确定。"
     },
     {
       "title": "英语学习正式开始",
       "slug": "started-learning-english",
       "generated": true,
-      "summary": "这篇文章介绍了一个名叫\"大大的小蜗牛\"的人开始学习英语。他并不在乎能否通过英语六级考试，只是希望先学起来。他鼓励自己说\"GL\"，表示要加油。"
+      "summary": "这篇文章介绍了一个名叫“大大的小蜗牛”的人开始学习英语。他并不在乎能否通过英语六级考试，只是希望先学起来。他鼓励自己说“GL”，表示要加油。"
     },
     {
       "title": "英语得加紧了",
       "slug": "english-was-stepped-up",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章提到了作者对于学习英语的重要性的认识，他感觉自己英语实力太差，想要加紧学习。同时，他还提到了自己原本想学计算机方面的知识，但由于时间和精力有限而放弃。最后，作者还透露了与朋友之间因为一些事情而产生的矛盾，并表示不敢告诉她真相。"
     },
     {
       "title": "英雄联盟 lol 名词解释",
@@ -2727,26 +2727,26 @@
     {
       "title": "草稿箱预发布",
       "slug": "drafts-pre-release",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了作者使用草稿箱预发布功能的经历，他保存了很多内容，并设置了定时发布时间。虽然生活中遇到困难，但作者相信自己可以好起来。"
     },
     {
       "title": "莫名其妙",
       "slug": "baffling",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个关于 AI 摘要接口失联的事件，但具体细节和原因并未提及。"
     },
     {
       "title": "落单",
       "slug": "982",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了主人公在孤独和苦难中挣扎的故事。他感到生活无望，渴望逃离市俗和肮脏的环境。他对自己内心、身体和欲望感到厌恶，并开始后悔和纠葛。然而，他发现自己无法摆脱这些困境，最终接受了苦难成为一种快乐的状态。最后，主人公决定背起行礼离开一切与之相关的人和事物，坚守着自己的孤独快乐。"
     },
     {
       "title": "蕴藉",
       "slug": "recall",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了生命的蕴藉不在于经历过多少痛苦或快乐，而是在老去时能够拥有回忆并与爱人分享。"
     },
     {
       "title": "蜂蜜的 10 大真相",
@@ -2775,8 +2775,8 @@
     {
       "title": "见证生命的奇迹，为升矿兄弟祈福！",
       "slug": "bestwishes4pitmans",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "山西王家岭煤矿发生透水事故，114 名矿工被困。已成功获救 114 人，38 人仍在井下。文章呼吁大家为他们祈福并表达对矿工的敬佩和支持。"
     },
     {
       "title": "言论自由",
@@ -2799,8 +2799,8 @@
     {
       "title": "记。",
       "slug": "remember",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "本文什么也没写。"
     },
     {
       "title": "记一次博客被攻击",
@@ -2817,8 +2817,8 @@
     {
       "title": "评估报告：机会只有 50%",
       "slug": "pgbg",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于一个评估报告，指出成功的机会只有 50%。文章提到了电商行业的一些问题，如缺乏 ERP 系统、分销渠道减少、团购成本高等。作者还强调决策权和执行力之间的矛盾，并表示时间成本是他面临的主要风险。最后，作者认为成功与否取决于关系磨合，不能轻率地做出决定。"
     },
     {
       "title": "评论出问题了",
@@ -2829,20 +2829,20 @@
     {
       "title": "评论框的虫子",
       "slug": "insects",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个关于评论框里的虫子的故事。作者不知道这个虫子是什么，但将其想象成一只蝉。读者对这个虫子有各种反应，有喜欢的、觉得恶心的、想拍死它的等等。作者表示如果有人能把这只虫子拍掉，他会把自己的网站送给那个人。文章最后分享了一张图片，并提到写博客需要注意保护好自己。"
     },
     {
       "title": "诗一首",
       "slug": "apoem",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "这篇文章是关于一首诗的目录，描述了大自然中的景色和美丽的事物。诗中描绘了星空、小溪、松江孤岛等场景。"
     },
     {
       "title": "说不清楚的一些事",
       "slug": "some-of-the-things-that-is-not-clear",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了有些事情不需要解释清楚，因为明白的人会自然理解，而不明白的人即使你说了也无法理解。作者坚持不去解释，并表示最近没有什么特别发生，只是今天风很大。"
     },
     {
       "title": "请向情色网站学习：数据，创意以及高端品位！",
@@ -2877,74 +2877,74 @@
     {
       "title": "貌似感受到压力",
       "slug": "seemingly-feel-the-pressure",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者感受到压力，但他对生活持乐观态度，认为只要投入并顺其自然，压力就无所谓。同时提到了毕业和未来的选择问题。"
     },
     {
       "title": "败了好多鼠标键盘",
       "slug": "mouse-and-keyboard",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于作者购买了多种品牌的鼠标和键盘，但都不满意。他列举了一些具体型号，包括 Logitech、Microsoft、Razer 等，并表示对它们的性能感到失望。"
     },
     {
       "title": "起床",
       "slug": "get-up",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了起床的重要性，提到了闹钟和梦想的关系。"
     },
     {
       "title": "起来，不愿猪奴隶的人们",
       "slug": "pigs",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个关于猪奴隶的故事，描述了狼、狐狸和王八如何利用猪来获取财富。他们通过控制房价、高利贷等手段剥削猪，并最终决定对已有住房的猪征收额外税款。整个故事揭示了社会中存在的不公平现象和弱势群体受到剥削的情况。"
     },
     {
       "title": "距离 1314 年 5 月 20 日正好 5201314 天",
       "slug": "1314520",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于作者对于距离 1314 年 5 月 20 日正好 5201314 天的感慨和表达爱意。"
     },
     {
       "title": "踏青",
       "slug": "ta-qing",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在一个阳光明媚的日子里，起床时不慎拉伤肩膀，经过治疗后勉强好转。然后作者决定去梅山公园晒太阳、散步和爬山。"
     },
     {
       "title": "轻轻的推荐 —— 恋爱通告",
       "slug": "loveindisguise",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了一部电影《恋爱通告》，作者在电影院看到情侣们感觉有些酸溜溜的。他提到了其他正在上映的电影和七夕节，以及对于分享爱情的渴望。"
     },
     {
       "title": "过年",
       "slug": "guol",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了过年的场景，描述了家人忙碌准备年货的情景。作者回忆起小时候在老家过年的美好时光，思念父母和故乡。虽然想回家困难重重，但对于流离他乡的人来说，回家是一种渴望和矛盾。最后表达了对团聚和家庭的向往，并希望归去时能够看到桃花满园。"
     },
     {
       "title": "运营小记 - 关联销售一例",
       "slug": "guan-lian-xiao-shou",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了一个关于关联销售的实例。一所学校给孩子们发放免费游泳票，但家长必须购买门票才能陪同孩子进入游泳馆。这个例子说明了免费发放的儿童票只是为了吸引家长成为真正的客户，从而实现关联销售。"
     },
     {
       "title": "运营小记 - 库存超卖缺货处理一例",
       "slug": "oversold",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在运营过程中遇到的库存超卖缺货问题，并提出了四种处理方案。第一种是拖着不发货，等有货再说；第二种是用便宜的相似商品代替，并告诉顾客物流部发错了；第三种是用贵的相似商品代替，可能会得到更好的评价；第四种是直接告知买家实情，处理退款。最终作者结合订单特点进行筛选并采取多个方案来应对这一问题。"
     },
     {
       "title": "运营小记 - 快速铺货",
       "slug": "distribution",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了运营小记中的快速铺货问题。以前操作天猫店时，一个人负责一个店铺，注重精细化运营和抢占 top。现在操作淘宝 C 店和企业店，采用站群思路。涉及到大量店铺的上下架、关键词覆盖度、流量均衡渗透等问题。作者尝试使用淘宝助理工具进行铺货，通过上传完整宝贝信息并授权其他店铺使用图片来实现多个店铺的上架产品。同时还提到了一些解决报错和授权失败的方法。"
     },
     {
       "title": "运营小记 - 文案的重要性",
       "slug": "wen-an-de-zhong-yao-xing",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了一个本地消息平台的运营经验，强调了招聘文案的重要性。作者分享了自己发布招聘信息的经历，指出优化思路和投入成本可以提高转化率。同时，作者还分享了一则打包客服主管的招聘信息，并详细描述了工作内容、薪资待遇以及发展方向。最后，作者呼吁对这份工作感兴趣的人联系他进行咨询。"
     },
     {
       "title": "运营小记 - 无线端优惠券链接",
@@ -2961,8 +2961,8 @@
     {
       "title": "运营小记 - 电商的本质 - 20150119",
       "slug": "20150119",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了电商的本质，指出电商实际上就是做买卖，没有太多技巧可言。工具只能提高效率，但不能取代人的智慧。作者呼吁回归本源，不要追求投机取巧。"
     },
     {
       "title": "运营小记 - 管理的弊端",
@@ -2973,8 +2973,8 @@
     {
       "title": "运营小记 20130506",
       "slug": "20130506",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于运营和推广的小记，提到了阿里巴巴入股新浪微博、电商 2.0 时代来临等话题。"
     },
     {
       "title": "运营小记 20130509",
@@ -2985,8 +2985,8 @@
     {
       "title": "运营小记 20130516",
       "slug": "20130516",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于运营小记的，主要讲述了作者店铺 DSR 评分下降以及遭到假货指责的经历。"
     },
     {
       "title": "运营小记 20130523",
@@ -2997,14 +2997,14 @@
     {
       "title": "运营小记 20130525",
       "slug": "20130525",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于运营小记的，提到了网络对生意的影响。还涉及到淘宝、天猫等运营相关话题。"
     },
     {
       "title": "运营小记 20130618",
       "slug": "20130618",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章内容是关于运营小记的，提到了一些问题和解决方案，还涉及到淘宝、天猫和电子商务等相关内容。"
     },
     {
       "title": "近期关于 CS 的二三事备忘",
@@ -3015,14 +3015,14 @@
     {
       "title": "这两天挺难受的",
       "slug": "uncomfortable",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者近期的困扰和痛苦，包括失联的 AI 摘要接口、牙齿疼痛以及对家人的思念。作者感到自闭，不愿多说话，喜欢安静。他们回忆起过去的事情时会感到牙齿更加疼痛。尽管有些委屈，但作者学会看开一切，并且知足常乐。最后提到智慧齿还未长出来，希望它们能够顺利生长。"
     },
     {
       "title": "这个世界",
       "slug": "the-world",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "这篇文章讨论了这个世界给人们带来的不舒服感受，强调了学会忍耐和放弃的重要性。同时提到数字花园以爱发电。"
     },
     {
       "title": "这些照片来自中国",
@@ -3033,8 +3033,8 @@
     {
       "title": "迷茫",
       "slug": "mi-mang",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者毕业三年后又陷入迷茫的状态。"
     },
     {
       "title": "迷茫的毕业期",
@@ -3051,32 +3051,32 @@
     {
       "title": "遇见",
       "slug": "yujian",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在互联网世界中遇见了一个特殊的人，他们之间发生了怎样的对话和交流。同时，作者也思考着自己等待的那个人究竟在未来的何处。"
     },
     {
       "title": "那些没有掉下来的雪",
       "slug": "those-who-do-not-fall-to-the-snow",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者怀念那些没有掉下来的雪。"
     },
     {
       "title": "那就这样吧",
       "slug": "then-so-be-it",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者养了一只乌龟和一只兔子，但后来更喜欢兔子。作者觉得乌龟冷血而不受人待见，而兔子温顺可爱。然而，兔子早逝后，作者开始珍惜起乌龟的存在，并认为大家都有坚硬的外壳和冷漠的特点。最终，作者接受了与乌龟相伴到老的命运，并希望能够忘记时间、享受自由自在的生活。"
     },
     {
       "title": "都高端起来吧",
       "slug": "it-all-end-up",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了中国人对高端产品的接受程度和购买行为。作者认为虽然中国经济发展迅速，但由于一些原因，人们更倾向于购买仿制品和破解软件。他还提到了 CS 游戏玩家的数量以及正版软件使用率低的问题。最后，作者呼吁大家都要高端起来，并希望中国能够在奥运会之后继续保持经济发展。"
     },
     {
       "title": "醉",
       "slug": "drunks",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者昨晚喝醉后写日记的经历，虽然内容不多，但作者还在挂念着这件事。提到了陈用过生日，并表示以后只会单纯地喝酒而不加其他东西。"
     },
     {
       "title": "里约大冒险",
@@ -3093,8 +3093,8 @@
     {
       "title": "重要不重要",
       "slug": "important-unimportant",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讨论了事物的重要性和复杂性之间的关系，作者认为有些事情虽然简单但很重要，而有些事情虽然复杂却不重要。作者强调对于自己来说最重要的是判断一件事是否值得去做。尽管作者曾经做过很多不值得的事情，但他仍在思考这个问题。"
     },
     {
       "title": "钱是你大爷，钱你是大爷",
@@ -3129,8 +3129,8 @@
     {
       "title": "阿里云镜像改版",
       "slug": "alimirrors",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "阿里云镜像改版，从 mirrors 改成 OPSX 再到现在的 developer 开发者社区。文章提到大公司没有情怀，只有 KPI，并表示以前给阿里云反馈过但未得到回应。"
     },
     {
       "title": "陪她坐火车去上海",
@@ -3195,14 +3195,14 @@
     {
       "title": "顺丰菜鸟（淘宝）互相关闭物流数据接口",
       "slug": "20170601",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "顺丰和淘宝的物流数据接口关闭，引发争议。有人支持顺丰，认为这是正确的决定；而也有人认为顺丰作死。"
     },
     {
       "title": "预兆",
       "slug": "yuzhao",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章讲述了作者在面试过程中遇到的一系列不幸事件，包括摔跤、台风和车祸等，作者开始怀疑这些事件是否是某种预兆。"
     },
     {
       "title": "香港 VPS 主机收集",
@@ -3213,14 +3213,14 @@
     {
       "title": "驳《10086 体贴》论",
       "slug": "refuting-considerate-of-10086",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章驳斥了《10086 体贴》这篇论文，指出其中的观点不成立。文章称 10086 只是一台机器。"
     },
     {
       "title": "验证幸福",
       "slug": "xingfu",
-      "generated": false,
-      "summary": ""
+      "generated": true,
+      "summary": "文章介绍了验证幸福的方法，列举了一系列让人感到幸福的事情，如被父母疼爱、得到奖励和惊喜、有人为自己哭泣等。作者认为满足其中八条就可以证明一个人很幸福。"
     },
     {
       "title": "黄健翔 - 关于中国体育症结的剖析",

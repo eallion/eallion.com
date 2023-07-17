@@ -3,7 +3,7 @@ title: "GitHub Actions 自动部署 Hexo 脚本"
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["hexo","GitHub","actions","deploy"]
-slug: "GitHub-actions-hexo-ci"
+slug: "github-actions-hexo-ci"
 draft: false
 date: "2019-12-28 22:53:43"
 lastmod: "2019-12-28 22:53:43"

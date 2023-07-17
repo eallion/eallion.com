@@ -4,7 +4,7 @@ authors: ["eallion"]
 categories: ["日志"]
 tags: ["提交评论"]
 draft: false
-slug: "WordPress-comment-404"
+slug: "wordpress-comment-404"
 date: "2010-07-21 15:40:25"
 lastmod: "2010-07-21 15:40:25"
 ---
