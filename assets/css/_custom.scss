@@ -670,4 +670,32 @@ footer {
 .ai-explanation-content {
     display: none !important;
 }
+
+[theme="dark"] .post-ai {
+    background: #252627;
+    border: 1px solid #333;
+}
+
+[theme="dark"] .ai-title {
+    color: #2d96bd;
+}
+
+[theme="dark"] .ai-explanation {
+    background: #292a2d;
+    border: 1px solid #333;
+}
+
+[theme="black"] .post-ai {
+    background: #000;
+    border: 1px solid #d9d9d9;
+}
+
+[theme="black"] .ai-title {
+    color: #2d96bd;
+}
+
+[theme="black"] .ai-explanation {
+    background: #000;
+    border: 1px solid #d9d9d9;
+}
 // AI summary End
