@@ -65,12 +65,12 @@ moment.updateLocale('zh-cn', {
                 if (diff < week) {
                     unit = 'days';
                 } else if (this.year() == year) {
-                    return this.format('MMM. DD. YYYY，HH:mm');
+                    return this.format('MMM DD, HH:mm');
                 } else {
-                    return this.format('MMM. DD. YYYY，HH:mm');
+                    return this.format('MMM DD, YYYY. HH:mm');
                 }
             } else {
-                return this.format('MMM. DD. YYYY，HH:mm');
+                return this.format('MMMM DD, YYYY. HH:mm');
             }
             if (!(num && unit)) {
                 num = moment.duration(diff)[unit]();
