@@ -127,7 +127,7 @@ function getNextList() {
 async  function updateHTMl(data) {
     var memoResult = "", resultAll = "";
 
-    const TAG_REG = /#([^\s#]+)/,
+    const TAG_REG = /#((?:[^\s\p{P}]|_)+)/u,
     IMG_REG = /\!\[(.*?)\]\((.*?)\)/g,
     // LINK_REG = /\[(.*?)\]\((.*?)\)/g,
     NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g,
