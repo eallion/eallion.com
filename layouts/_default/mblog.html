@@ -1,0 +1,41 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+
+{{- define "content" -}}
+{{- $params := .Scratch.Get "params" -}}
+{{- $toc := $params.toc -}}
+{{- if eq $toc true -}}
+{{- $toc = .Site.Params.page.toc | default dict -}}
+{{- else if eq $toc false -}}
+{{- $toc = dict "enable" false -}}
+{{- end -}}
+
+<meta name="referrer" content="no-referrer">
+<link rel="stylesheet" href="/assets/mblog/mblog.css?v=1.1.0">
+<link rel="stylesheet" href="/assets/mblog/simple-notify.min.css?v=1.1.0">
+
+<article class="page single special">
+    <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
+    <div id="content" class="content">
+        <div class="greyQuote">
+            <blockquote>
+                因为 Memos 官方一些离谱的 Bug 迟迟不修，开始测试 <a href="https://github.com/mblog-backend/backend" target="_blank" rel="noreferrer noopener nofollow">Mblog</a>。
+            </blockquote>
+        </div>
+        <div id="mblog"></div>
+    </div>
+</article>
+
+<script>
+    const mblogConfig = {
+        url: 'https://mblog.eallion.com/',
+        userId: 1,//默认查所有人的,如只需要管理员的,这里改成 1
+        openComment: true,//是否开放评论,需要上面的·步骤·中第二步正确设置,需要：true,不需要：false
+    };
+</script>
+<script type="text/javascript" src="/assets/mblog/dayjs.min.js?v=1.1.0"></script>
+<script type="text/javascript" src="/assets/mblog/marked.min.js?v=1.1.0"></script>
+<script type="text/javascript" src="/assets/mblog/mustache.min.js?v=1.1.0"></script>
+<script type="text/javascript" src="/assets/mblog/simple-notify.min.js?v=1.1.0"></script>
+<script type="text/javascript" src="/assets/mblog/mblog.js?v=1.1.0"></script>
+
+{{- end -}}
