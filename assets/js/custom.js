@@ -112,14 +112,16 @@ if (document.querySelector('#ticker')) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const matchingSummary = document.querySelector(".ai-explanation-content").textContent;
+    const matchingSummary = document.querySelector(".ai-explanation-content");
 
-    new TypeIt("#ai-explanation", {
-        strings: matchingSummary,
-        speed: 50,
-        lifeLike: true,
-        waitUntilVisible: true,
-    }).go();
+    if (matchingSummary) {
+        new TypeIt("#ai-explanation", {
+            strings: matchingSummary.textContent,
+            speed: 50,
+            lifeLike: true,
+            waitUntilVisible: true,
+        }).go();
+    }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
