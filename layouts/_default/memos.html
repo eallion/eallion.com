@@ -44,7 +44,13 @@
 </script>
 <script type="text/javascript" src="/assets/marked.min.js?v=4.2.2"></script>
 <script type="text/javascript" src="/assets/moment.min.js?v=2.29.4"></script>
+
+{{ if eq .Site.LanguageCode "en" }}
+<script type="text/javascript" src="/assets/moment.twitter.en.min.js"></script>
+{{ else }}
 <script type="text/javascript" src="/assets/moment.twitter.min.js"></script>
+{{ end }}
+
 <script type="text/javascript" src="/assets/APlayer.min.js?v=1.10.1"></script>
 <script type="text/javascript" src="/assets/Meting.min.js?v=1.2"></script>
 <script type="text/javascript" src="/assets/memos.min.js"></script>
