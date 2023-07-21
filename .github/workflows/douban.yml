@@ -1,12 +1,13 @@
 # .github/workflows/douban.yml
 name: Sync Douban Data
 on:
-#  schedule:
-#  - cron: "0 17 * * *"
+  schedule:
+  - cron: "0 */12 * * *"
 #  watch:
 #    types: [started]
 
   workflow_dispatch:
+  repository_dispatch:
 
 jobs:
   douban:
@@ -16,81 +17,58 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Sha256sums Check
-      run: |
-        SHA256SUM_OLD() {
-          sha256sum data/douban/movie.csv | gawk '{ print $1 }'
-        }
-        echo "SHA256SUM_OLD=$(SHA256SUM_OLD)" >> $GITHUB_ENV
-
-    - name: Fetch Movie Data CSV
+    - name: Fetch Movie Data JSON
       uses: lizheming/doumark-action@master
       with:
         id: eallion
         type: movie
-        format: csv
+        format: json
         dir: ./data/douban
 
-    - name: Sha256sums Compare
-      run: |
-        SHA256SUM_NEW() {
-          sha256sum data/douban/movie.csv | gawk '{ print $1 }'
-        }
-        echo "SHA256SUM_NEW=$(SHA256SUM_NEW)" >> $GITHUB_ENV
+    - name: Sync to NeoDB
+      uses: lizheming/doumark-action@master
+      with:
+        id: eallion
+        type: movie
+        format: neodb
+        neodb_token: ${{ secrets.NEODB_ACCESS_TOKEN }}
 
-    # - name: Fetch Book Data CSV
-    #   if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
-    #   uses: lizheming/doumark-action@master
-    #   with:
-    #     id: eallion
-    #     type: book
-    #     format: csv
-    #     dir: ./data/douban
+    - name: Sync Movie to Notion
+      uses: lizheming/doumark-action@master
+      with:
+        id: eallion
+        type: movie
+        format: notion
+        dir: ${{ secrets.NOTION_MOVIE_ID }}
+        notion_token: ${{ secrets.NOTION_ACCESS_TOKEN }}
 
-    # - name: Fetch Movie Data JSON
-    #   if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
-    #   uses: lizheming/doumark-action@master
-    #   with:
-    #     id: eallion
-    #     type: movie
-    #     format: json
-    #     dir: ./data/douban
+    - name: Fetch Book Data JSON
+      uses: lizheming/doumark-action@master
+      with:
+        id: eallion
+        type: book
+        format: json
+        dir: ./data/douban
 
-    # - name: Fetch Book Data JSON
-    #   if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
-    #   uses: lizheming/doumark-action@master
-    #   with:
-    #     id: eallion
-    #     type: book
-    #     format: json
-    #     dir: ./data/douban
+    - name: Sync Book to NeoDB
+      uses: lizheming/doumark-action@master
+      with:
+        id: eallion
+        type: book
+        format: neodb
+        neodb_token: ${{ secrets.NEODB_ACCESS_TOKEN }}
 
-    - name: Git Add and Commit
-      if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
+    - name: Sync Book to Notion
+      uses: lizheming/doumark-action@master
+      with:
+        id: eallion
+        type: movie
+        format: notion
+        dir: ${{ secrets.NOTION_BOOK_ID }}
+        notion_token: ${{ secrets.NOTION_ACCESS_TOKEN }}
+
+    - name: Git Commit
       uses: EndBug/add-and-commit@v9
       with:
         message: 'chore(data): update douban data'
         add: './data/douban'
-
-    - name: Build Hugo and Deploy
-      if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
-      uses: peter-evans/repository-dispatch@v2
-      with:
-          event-type: "Build Hugo and Deploy"
-
-#    - name: Aliyun Codeup Webhook
-#      if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
-#      uses: zzzze/webhook-trigger@master
-#      with:
-#          data: "{ }"
-#          webhook_url: ${{ secrets.CODEUP_WEBHOOK_URL }}
-#          options: "-H \"Content-Type: application/json\""
-
-    #- name: Coding.net Webhook
-    #  if: ${{ env.SHA256SUM_NEW != env.SHA256SUM_OLD }}
-    #  uses: zzzze/webhook-trigger@master
-    #  with:
-    #      user: ${{ secrets.CODING_WEBHOOK_TOKEN }}
-    #      data: "{\"ref\":\"main\",\"envs\":[{\"name\":\"COS_BUCKET_REGION\",\"value\":\"ap-shanghai\",\"sensitive\":0},{\"name\":\"COS_UPLOAD_FROM_PATH\",\"value\":\"public/\",\"sensitive\":0}]}"
-    #      webhook_url: ${{ secrets.CODING_WEBHOOK_URL }}
-    #      options: "-H \"Content-Type: application/json\""
