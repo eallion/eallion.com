@@ -148,6 +148,14 @@ jobs:
         message: 'chore(data): update neodb data'
         add: './data/neodb'
 
+
+    # 调用另外的 GitHub Actions 构建 Hugo
+    - name: Build Hugo and Deploy
+      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
+      uses: peter-evans/repository-dispatch@v2
+      with:
+          event-type: "Build Hugo and Deploy"
+
     # 把海报上传到腾讯云
     - name: Upload Cover to Tencent COS
       if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
