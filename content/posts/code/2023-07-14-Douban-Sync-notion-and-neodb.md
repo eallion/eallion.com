@@ -13,6 +13,12 @@ Comments: true
 date: 2023-07-14T22:41:16+08:00
 ---
 
+### 更新
+
+> 2023-07-24 更新：
+
+怡红公子的 <i class="fab fa-github fa-fw"></i>[lizheming/drone-doumark](https://github.com/lizheming/drone-doumark) 已支持同步到 NeoDB 了。用上了。
+
 ### TL;DR
 
 本文不是教程，只是介绍了一篇教程。《[豆瓣标记导出到 Notion 并同步](https://zhuzi.dev/2021/06/05/douban-backup-sync-notion/)》
