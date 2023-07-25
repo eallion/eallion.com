@@ -612,6 +612,55 @@ footer {
     border-width: 1px !important;
     border-bottom-color: rgba(238, 238, 238, 0.5) !important;
 }
+
+[theme="dark"] .artalk,
+[theme="dark"] .atk-layer-wrap,
+[theme="dark"] .artalk.atk-dark-mode,
+[theme="dark"] .atk-layer-wrap.atk-dark-mode {
+    --at-color-font: #a9a9b3 !important;
+    --at-color-deep: #e7e7e7 !important;
+    --at-color-sub: #e7e7e7 !important;
+    --at-color-grey: #a9a9b3 !important;
+    --at-color-meta: #a9a9b3 !important;
+    --at-color-border: #2d3235 !important;
+    --at-color-light: #687a86 !important;
+    --at-color-bg: #252627 !important;
+    --at-color-bg-transl: rgba(30, 34, 36, .95 !important);
+    --at-color-bg-grey: #46494e !important;
+    --at-color-bg-grey-transl: rgba(8, 8, 8, .95) !important;
+    --at-color-bg-light: rgba(29, 161, 242, .1) !important;
+    --at-color-main: #0083ff !important;
+    --at-color-red: #ff5652 !important;
+    --at-color-pink: #fa5a57 !important;
+    --at-color-yellow: #ff7c37 !important;
+    --at-color-green: #4caf50 !important;
+    --at-color-gradient: linear-gradient(180deg, transparent, rgba(30, 34, 36, 1)) !important;
+}
+
+[theme="black"] .artalk,
+[theme="black"] .atk-layer-wrap,
+[theme="black"] .artalk.atk-dark-mode,
+[theme="black"] .atk-layer-wrap.atk-dark-mode {
+    --at-color-font: #a9a9b3 !important;
+    --at-color-deep: #e7e7e7 !important;
+    --at-color-sub: #e7e7e7 !important;
+    --at-color-grey: #fff !important;
+    --at-color-meta: #fff !important;
+    --at-color-border: #2d3235 !important;
+    --at-color-light: #687a86 !important;
+    --at-color-bg: #252627 !important;
+    --at-color-bg-transl: rgba(30, 34, 36, .95 !important);
+    --at-color-bg-grey: #46494e !important;
+    --at-color-bg-grey-transl: rgba(8, 8, 8, .95) !important;
+    --at-color-bg-light: rgba(29, 161, 242, .1) !important;
+    --at-color-main: #0083ff !important;
+    --at-color-red: #ff5652 !important;
+    --at-color-pink: #fa5a57 !important;
+    --at-color-yellow: #ff7c37 !important;
+    --at-color-green: #4caf50 !important;
+    --at-color-gradient: linear-gradient(180deg, transparent, rgba(30, 34, 36, 1)) !important;
+}
+
 [theme="dark"] .atk-main-editor > .atk-header input {
     border-bottom-color: rgba(69, 69, 69, 0.5) !important;
 }
@@ -619,6 +668,7 @@ footer {
 [theme="black"] .atk-main-editor > .atk-header input {
     border-bottom-color: rgba(69, 69, 69, 0.5) !important;
 }
+
 // Artalk End
 
 // AI summary Start
