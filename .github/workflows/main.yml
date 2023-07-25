@@ -66,19 +66,30 @@ jobs:
           index_name: "eallion_blog_en"
           index_file_path: public/en/index.json
 
-      - name: Upload to Tencent COS
-        uses: zkqiang/tencent-cos-action@v0.1.0
+      - name: Deploy to Aliyun OSS
+        uses: fangbinwei/aliyun-oss-website-action@v1
         with:
-          args: upload -rsf --delete ./public/ /
-          secret_id: ${{ secrets.SECRET_COS_ID }}
-          secret_key: ${{ secrets.SECRET_COS_KEY }}
-          bucket: ${{ secrets.COS_CN_BUCKET }}
-          region: ap-shanghai
+          accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
+          accessKeySecret: ${{ secrets.ACCESS_KEY_SECRET }}
+          bucket: eallion-com
+          endpoint: oss-cn-shanghai.aliyuncs.com
+          folder: public
+          # exclude: |
+          #   tmp.txt
 
-      - name: Tencent CDN Purge
-        uses: keithnull/tencent-cloud-cdn-purge-cache@v1.0
-        env:
-          SECRET_ID: ${{ secrets.SECRET_COS_ID }}
-          SECRET_KEY: ${{ secrets.SECRET_COS_KEY }}
-          PATHS: "https://eallion.com/,https://www.eallion.com/"
-          FLUSH_TYPE: "delete" # optional
+      # - name: Upload to Tencent COS
+      #   uses: zkqiang/tencent-cos-action@v0.1.0
+      #   with:
+      #     args: upload -rsf --delete ./public/ /
+      #     secret_id: ${{ secrets.SECRET_COS_ID }}
+      #     secret_key: ${{ secrets.SECRET_COS_KEY }}
+      #     bucket: ${{ secrets.COS_CN_BUCKET }}
+      #     region: ap-shanghai
+
+      # - name: Tencent CDN Purge
+      #   uses: keithnull/tencent-cloud-cdn-purge-cache@v1.0
+      #   env:
+      #     SECRET_ID: ${{ secrets.SECRET_COS_ID }}
+      #     SECRET_KEY: ${{ secrets.SECRET_COS_KEY }}
+      #     PATHS: "https://eallion.com/,https://www.eallion.com/"
+      #     FLUSH_TYPE: "delete" # optional
