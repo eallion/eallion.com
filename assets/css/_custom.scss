@@ -400,10 +400,6 @@ footer {
     }
 }
 
-.view-image-tools {
-    display: none !important;
-}
-
 .language-diff {
     .gd {
         color: #82071e !important;
@@ -499,6 +495,30 @@ footer {
 }
 [theme="black"] .zoom-overlay {
     background: #000;
+}
+
+// View Images
+.view-image {
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+}
+
+.view-image-tools {
+    opacity: 1;
+    animation: fadeOut 1s forwards;
+    animation-delay: 1.5s;
+}
+
+.view-image-tools:hover {
+    opacity: 1;
+    animation: none;
+    transition: opacity 0.2s;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
 }
 
 /* 首页嘀咕样式 JSON 版 */

@@ -55,6 +55,8 @@
 {{- end -}}
 
 {{- /* lightgallery.js */ -}}
+{{- /* 新增，在 Memos 和 Album 页面不加载此灯箱 */ -}}
+<!-- {{- if or (not (eq .Layout "memos")) (not (eq .Layout "album")) -}} -->
 {{- if $params.lightgallery -}}
     {{- $source := $cdn.lightgalleryCSS | default "lib/lightgallery/lightgallery.min.css" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}
@@ -64,8 +66,9 @@
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
     {{- $source := $cdn.lightgalleryZoomJS | default "lib/lightgallery/lg-zoom.min.js" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
-    {{- $config = dict "selector" ".lightgallery" "speed" 400 "hideBarsDelay" 2000 "thumbnail" true "exThumbImage" "data-thumbnail" "thumbWidth" 80 "thumbContHeight" 80 "actualSize" false | dict "lightGallery" | merge $config -}}
+    {{- $config = dict "selector" ".lightgallery" "speed" 400 "hideBarsDelay" 1000 "thumbnail" true "showThumbByDefault" false "getCaptionFromTitleOrAlt" false "controls" false "exThumbImage" "data-thumbnail" "thumbWidth" 80 "thumbContHeight" 80 "actualSize" false | dict "lightGallery" | merge $config -}}
 {{- end -}}
+<!-- {{- end -}} -->
 
 {{- $code := $params.code | default dict -}}
 {{- $config = cond (ne $code.maxShownLines nil) $code.maxShownLines 10 | dict "maxShownLines" | dict "code" | merge $config -}}
@@ -300,4 +303,8 @@
     {{- end -}}
 
     {{- partial "plugin/analytics.html" . -}}
+
+    <script>
+        window.ViewImage && ViewImage.init('.content img');
+    </script>
 </div>

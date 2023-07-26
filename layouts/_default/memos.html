@@ -11,7 +11,7 @@
 
 <meta name="referrer" content="no-referrer">
 <link rel="stylesheet" href="/assets/APlayer.min.css?v=1.10.1">
-<link rel="stylesheet" href="/assets/memos.min.css?v=2023.07.02">
+<link rel="stylesheet" href="/assets/memos.min.css?v=2023.07.27">
 <link rel="stylesheet" href="/assets/plyr.css?v=3.7.8">
 
 <article class="page single special">
@@ -42,7 +42,7 @@
         domId: '#memos', //默认为 #memos
     }
 </script>
-<script type="text/javascript" src="/assets/marked.min.js?v=4.2.2"></script>
+<script type="text/javascript" src="/assets/marked.umd.min.js?v=4.3.0"></script>
 <script type="text/javascript" src="/assets/moment.min.js?v=2.29.4"></script>
 
 {{ if eq .Site.LanguageCode "en" }}
@@ -63,7 +63,6 @@
 <link href="{{ $ArtalkCSS.RelPermalink }}" rel="stylesheet" integrity="{{ $ArtalkCSS.Data.Integrity }}" crossorigin="anonymous"></link>
 {{ $ArtalkJS := resources.Get "lib/artalk/ArtalkLite.js" | resources.Minify | resources.Fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $ArtalkJS.RelPermalink }}" integrity="{{ $ArtalkJS.Data.Integrity }}" crossorigin="anonymous"></script>
-
 
 <script>
     // Meting API self-hosted

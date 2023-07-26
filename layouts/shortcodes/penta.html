@@ -21,15 +21,17 @@
 
 {{- $options = dict "Resources" .Page.Resources | merge $options -}}
 
+{{- $src := (.Get "src") -}}
+
 <!-- 这是根据 image 全新添加的 shortcode -->
 <div class="pentas">
     <div class="screenshot">
-        <img {{ with cond $.IsNamedParams ($.Get "src") "" }} src="{{ . }}"{{ end }} alt="{{ $champion}}" data-action="zoom">
+        <img loading="lazy" src="{{ $src }}" alt="{{ $caption }}" view-image>
     </div>
     <div class="champions">
         {{- with $champion -}}
         <span class="champAvatar">
-            <img src="https://game.gtimg.cn/images/lol/act/img/champion/{{ . }}.png" alt="{{ $champion}}">
+            <img src="https://game.gtimg.cn/images/lol/act/img/champion/{{ . }}.png" alt="{{ $champion }}">
         </span>
         {{- end -}}
         {{- with $caption -}}
