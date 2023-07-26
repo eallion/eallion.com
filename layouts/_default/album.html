@@ -11,6 +11,11 @@
 
 <meta name="referrer" content="no-referrer">
 <link rel="stylesheet" href="/assets/album.min.css?v=2023.07.27">
+<style>
+    .gutter-sizer {
+        width: 1%;
+    }
+</style>
 
 <article class="page single special">
     <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
@@ -28,7 +33,6 @@
 <script type="text/javascript" src="/assets/packery.pkgd.min.js?v=4.2.2"></script>
 <script type="text/javascript" src="/assets/draggabilly.pkgd.min.js?v=3.0.0"></script>
 <script type="text/javascript" src="/assets/imagesloaded.pkgd.min.js?v=5.0.0"></script>
-<script type="text/javascript" src="/assets/view-image.min.js?v=2.0.2"></script>
 <script>
     var galleryUrl = "https://api.eallion.com/memos/api/v1/memo/all?rowStatus=NORMAL&tag=相册";
     let nowNum = 0;
