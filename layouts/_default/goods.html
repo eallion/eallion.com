@@ -282,7 +282,11 @@ font-family: DINPro;
             {{ range $goods.good}}
             <div class="goods-container img-hide">
                 <div class="goods-image">
-                    <img loading="lazy" decoding="async" src="{{ .image }}" alt="{{ .image }}" data-action="zoom">
+                    <figure>
+                        <a class="lightgallery" href="{{ .image }}" title="{{ .title }}" data-thumbnail="{{ .image }}">
+                            <img loading="lazy" src="{{ .image }}" srcset="{{ .image }}, {{ .image }} 1.5x, {{ .image }} 2x" sizes="auto" alt="{{ .title }}">
+                        </a>
+                    </figure>
                 </div>
                 <div class="goods-price">{{ .price }}</div>
                 <div class="goods-title"><a href="{{ .link }}" target="_blank" rel="noreferrer noopener nofollow">{{ .title }}</a></div>

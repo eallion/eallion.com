@@ -10,7 +10,7 @@
 {{- end -}}
 
 <meta name="referrer" content="no-referrer">
-<link rel="stylesheet" href="/assets/album.min.css?v=2023.07.15">
+<link rel="stylesheet" href="/assets/album.min.css?v=2023.07.27">
 
 <article class="page single special">
     <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
@@ -20,14 +20,15 @@
                 {{ T `album_quote` | safeHTML }}
             </blockquote>
         </div>
-        <div id="album">
+        <div id="album" class="album">
         </div>
     </div>
 </article>
 
-<script type="text/javascript" src="/assets/waterfall.min.js?v=1.0.2"></script>
-<!-- 相册照片数量太少，暂时不引用 -->
-<!-- <script type="text/javascript" src="/assets/imgStatus.min.js?v=0.1.1"></script> -->
+<script type="text/javascript" src="/assets/packery.pkgd.min.js?v=4.2.2"></script>
+<script type="text/javascript" src="/assets/draggabilly.pkgd.min.js?v=3.0.0"></script>
+<script type="text/javascript" src="/assets/imagesloaded.pkgd.min.js?v=5.0.0"></script>
+<script type="text/javascript" src="/assets/view-image.min.js?v=2.0.2"></script>
 <script>
     var galleryUrl = "https://api.eallion.com/memos/api/v1/memo/all?rowStatus=NORMAL&tag=相册";
     let nowNum = 0;
@@ -53,27 +54,53 @@
                             time = tmp.split(" ")[0];
                             title = tmp.split(" ")[1];
                         } else title = tmp;
-                        result += `<div class="album_wrapper"><a href="https://memos.eallion.com/m/${id}" target="_blank" rel="noreferrer noopener nofollow"><img class="photo-img" loading='lazy' decoding="async" src="${img}"></a>`;
+                        result += `<div class="album_wrapper"><img loading="lazy" src="${img}" srcset="${img}, ${img} 1.5x, ${img} 2x" sizes="auto" alt="${title}" view-image />`;
                         title
-                            ? (result += `<span class="photo-title">${title}</span>`)
+                            ? (result += `<span class="photo-title"><a href="https://memos.eallion.com/m/${id}" target="_blank" rel="noreferrer noopener nofollow">${title}</a></span>`)
                             : "";
                         time
                             ? (result += `<span class="photo-time">${time}</span>`)
                             : "";
-                        result += `</div>`;
+                        result += `</div><div class="gutter-sizer"></div>`;
 
                     });
                 }
             }
 
             var galleryDom = document.querySelector("#album");
-            var galleryBefore = `<div class="album">`;
-            var galleryAfter = `</div>`;
-            resultAll = galleryBefore + result + galleryAfter;
+            // var galleryBefore = `<div class="album">`;
+            // var galleryAfter = `</div>`;
+            resultAll = result;
             galleryDom.innerHTML = resultAll;
 
-            // 数据渲染完成,调用瀑布流
-            waterfall(document.querySelector('.album_wrapper'));
+            // 初始化Masonry
+            var pckry  = new Packery(galleryDom, {
+                itemSelector: '.album_wrapper',
+                columnWidth: '.album_wrapper',
+                gutter: '.gutter-sizer',
+                percentPosition: true,
+
+            });
+
+
+            pckry.getItemElements().forEach(function (itemElem) {
+                var draggie = new Draggabilly(itemElem);
+                pckry.bindDraggabillyEvents(draggie);
+            });
+
+            // 图片加载完成后触发
+            imagesLoaded(galleryDom).on('progress', function () {
+
+                // 定义块状网格尺寸
+                galleryDom.classList.add('grid');
+
+                // 重排布局
+                pckry.layout();
+
+                // Images done loading
+                pckry.options.itemSelector = '.album_wrapper';
+            });
+
             // 相对时间
             window.Lately && Lately.init({ target: ".photo-time" });
         });
