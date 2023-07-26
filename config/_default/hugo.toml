@@ -2,12 +2,6 @@ baseURL = "https://eallion.com"
 # [en, zh-cn, fr, pl, ...] determines default content language
 # [en, zh-cn, fr, pl, ...] 设置默认的语言
 defaultContentLanguage = "zh-cn"
-# theme
-# 主题
-theme = "DoIt"
-# themes directory
-# 主题目录
-# themesDir = "../.."
 
 # website title
 # 网站标题
@@ -27,4 +21,16 @@ enableEmoji = true
 # 忽略一些构建错误
 # ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
-ignoreFiles = ['data/douban', 'data/neodb/cover']
+ignoreFiles = ['data/douban', 'data/neodb']
+
+# theme
+# 主题
+theme = "DoIt"
+# themes directory
+# 主题目录
+# themesDir = "../.."
+
+# Or, when using theme as hugo module
+# [module]
+# [[module.imports]]
+# path = "github.com/HEIGE-PCloud/DoIt"
