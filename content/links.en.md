@@ -8,6 +8,12 @@ aliases:
     - /en/link
 ---
 
+<div class="greyQuote">
+    <blockquote>
+        My Friends Links. 🔗
+    </blockquote>
+</div>
+
 <div class="friends links">
 {{< friend name="Charles Chin" bio="charleschin.com" url="https://charleschin.com" domain="charleschin.com" avatar="https://images.eallion.com/eallion.png" >}}
 {{< friend name="Matrix67" bio="数学博客" url="http://www.matrix67.com" domain="matrix67.com" avatar="/404.png" >}}

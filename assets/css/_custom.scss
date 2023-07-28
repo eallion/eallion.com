@@ -54,11 +54,13 @@ $background-color_6: #78191b;
             line-height: 2;
             margin: 1rem 0;
         }
+
         blockquote {
             p {
                 margin: 0.5rem 0 !important;
             }
         }
+
         .friend-link-info p {
             margin: 0 !important;
         }
@@ -84,11 +86,12 @@ $background-color_6: #78191b;
     }
 
     .content {
-        > h2,
-        > h3,
-        > h4,
-        > h5,
-        > h6 {
+
+        >h2,
+        >h3,
+        >h4,
+        >h5,
+        >h6 {
             .header-mark::before {
                 content: "#";
             }
@@ -171,6 +174,7 @@ $background-color_6: #78191b;
 .weixin {
     position: relative;
     opacity: 1 !important;
+
     img {
         position: absolute;
         z-index: 99;
@@ -186,6 +190,7 @@ $background-color_6: #78191b;
         border-radius: 0.25rem;
         transition: all 0.25s ease-in-out;
     }
+
     &:hover {
         img {
             transform: scale(1);
@@ -200,22 +205,26 @@ pre {
         font-size: 0.875rem !important;
         padding: 1rem 0 !important;
     }
+
     code.hljs {
         display: block !important;
         overflow-x: auto !important;
         padding: 1rem !important;
     }
 }
+
 code {
     font-family: $code-font-family !important;
     font-size: 0.875rem !important;
 }
+
 :not(pre) {
-    > code {
+    >code {
         border-radius: 0.25em !important;
         white-space: normal !important;
     }
 }
+
 [theme="blank"] {
     .talks {
         pre {
@@ -223,138 +232,181 @@ code {
         }
     }
 }
+
 code.hljs {
     padding: 3px 5px !important;
 }
+
 .hljs {
     color: $color_12 !important;
     background: #fff !important;
 }
+
 .hljs-doctag {
     color: $color_13 !important;
 }
+
 .hljs-keyword {
     color: $color_13 !important;
 }
+
 .hljs-meta {
     .hljs-keyword {
         color: $color_13 !important;
     }
+
     color: $color_15 !important;
+
     .hljs-string {
         color: $color_16 !important;
     }
 }
+
 .hljs-template-tag {
     color: $color_13 !important;
 }
+
 .hljs-template-variable {
     color: $color_13 !important;
 }
+
 .hljs-type {
     color: $color_13 !important;
 }
+
 .hljs-variable.language_ {
     color: $color_13 !important;
 }
+
 .hljs-title {
     color: $color_14 !important;
 }
+
 .hljs-title.class_ {
     color: $color_14 !important;
 }
+
 .hljs-title.class_.inherited__ {
     color: $color_14 !important;
 }
+
 .hljs-title.function_ {
     color: $color_14 !important;
 }
+
 .hljs-attr {
     color: $color_15 !important;
 }
+
 .hljs-attribute {
     color: $color_15 !important;
 }
+
 .hljs-literal {
     color: $color_15 !important;
 }
+
 .hljs-number {
     color: $color_15 !important;
 }
+
 .hljs-operator {
     color: $color_15 !important;
 }
+
 .hljs-selector-attr {
     color: $color_15 !important;
 }
+
 .hljs-selector-class {
     color: $color_15 !important;
 }
+
 .hljs-selector-id {
     color: $color_15 !important;
 }
+
 .hljs-variable {
     color: $color_15 !important;
 }
+
 .hljs-regexp {
     color: $color_16 !important;
 }
+
 .hljs-string {
     color: $color_16 !important;
 }
+
 .hljs-built_in {
     color: $color_17 !important;
 }
+
 .hljs-symbol {
     color: $color_17 !important;
 }
+
 .hljs-code {
     color: $color_18 !important;
 }
+
 .hljs-comment {
     color: $color_18 !important;
 }
+
 .hljs-formula {
     color: $color_18 !important;
 }
+
 .hljs-name {
     color: $color_19 !important;
 }
+
 .hljs-quote {
     color: $color_19 !important;
 }
+
 .hljs-selector-pseudo {
     color: $color_19 !important;
 }
+
 .hljs-selector-tag {
     color: $color_19 !important;
 }
+
 .hljs-subst {
     color: $color_12 !important;
 }
+
 .hljs-section {
     color: $color_15 !important;
     font-weight: 700 !important;
 }
+
 .hljs-bullet {
     color: $color_20 !important;
 }
+
 .hljs-emphasis {
     color: $color_12 !important;
     font-style: italic !important;
 }
+
 .hljs-strong {
     color: $color_12 !important;
     font-weight: 700 !important;
 }
+
 .hljs-addition {
     color: $color_19 !important;
     background-color: $background-color_3 !important;
 }
+
 .hljs-deletion {
     color: $color_21 !important;
     background-color: $background-color_4 !important;
 }
+
 // 覆盖主题样式 End
 
 // 主题新增 Start
@@ -390,10 +442,12 @@ footer {
 
 .poem {
     font-family: $global-font-family;
+
     span {
         display: block;
     }
 }
+
 .poem_info {
     a {
         font-size: smaller;
@@ -405,6 +459,7 @@ footer {
         color: #82071e !important;
         background-color: #ffebe9;
     }
+
     .gi {
         color: #116329 !important;
         background-color: #dafbe1;
@@ -415,6 +470,7 @@ footer {
             color: #ffd8d3 !important;
             background-color: #78191b;
         }
+
         .gi {
             color: #b4f1b4 !important;
             background-color: #1b4721;
@@ -426,6 +482,7 @@ footer {
             color: #ffdcd7 !important;
             background-color: #67060c;
         }
+
         .gi {
             color: #aff5b4 !important;
             background-color: #033a16;
@@ -441,11 +498,13 @@ footer {
     margin-left: 2px;
     line-height: 1;
 }
+
 [theme="dark"] {
     .icon-ipv6 {
         border: 1px solid #a9a9b3 !important;
     }
 }
+
 [theme="black"] {
     .icon-ipv6 {
         border: 1px solid #d9d9d9 !important;
@@ -454,6 +513,7 @@ footer {
 
 .greyQuote {
     blockquote {
+        position: relative;
         border-left: 0.5rem solid #555 !important;
         background-color: #f4f4f5 !important;
         padding: 1rem 0 1rem 1rem !important;
@@ -462,7 +522,23 @@ footer {
         border-bottom-right-radius: 0.5rem !important;
         border-bottom-left-radius: 0.25rem !important;
     }
+
+    blockquote::before {
+        position: absolute;
+        z-index: 1;
+        content: "";
+        width: 5rem;
+        height: 5rem;
+        bottom: -0.5rem;
+        inset-inline-end: 0.5rem;
+        opacity: .15;
+        background-color: currentColor;
+        -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M0,19.04v-8.62c-0.04-1.24,0.14-2.4,0.54-3.49S1.49,4.88,2.2,4.06C2.92,3.23,3.77,2.55,4.76,2C5.76,1.46,6.84,1.11,8,0.96 v3.72C6.58,5.17,5.6,5.89,5.07,6.85C4.55,7.8,4.29,8.98,4.29,10.37H8v8.67H0zM12,19.04v-8.62c-0.04-1.24,0.14-2.4,0.53-3.49 s0.95-2.05,1.66-2.87c0.71-0.83,1.57-1.51,2.56-2.06c0.99-0.54,2.08-0.89,3.24-1.04v3.72c-1.43,0.49-2.4,1.21-2.93,2.17c-0.53,0.96-0.79,2.13-0.79,3.52H20v8.67H12z'/%3E%3C/svg%3E");
+        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M0,19.04v-8.62c-0.04-1.24,0.14-2.4,0.54-3.49S1.49,4.88,2.2,4.06C2.92,3.23,3.77,2.55,4.76,2C5.76,1.46,6.84,1.11,8,0.96 v3.72C6.58,5.17,5.6,5.89,5.07,6.85C4.55,7.8,4.29,8.98,4.29,10.37H8v8.67H0zM12,19.04v-8.62c-0.04-1.24,0.14-2.4,0.53-3.49 s0.95-2.05,1.66-2.87c0.71-0.83,1.57-1.51,2.56-2.06c0.99-0.54,2.08-0.89,3.24-1.04v3.72c-1.43,0.49-2.4,1.21-2.93,2.17c-0.53,0.96-0.79,2.13-0.79,3.52H20v8.67H12z'/%3E%3C/svg%3E");
+        transform: scaleX(-1);
+    }
 }
+
 [theme="dark"] {
     .greyQuote {
         blockquote {
@@ -471,6 +547,7 @@ footer {
         }
     }
 }
+
 [theme="black"] {
     .greyQuote {
         blockquote {
@@ -483,6 +560,7 @@ footer {
 .badge {
     margin-bottom: 1rem;
 }
+
 .badge a img {
     display: inline-block;
 }
@@ -493,6 +571,7 @@ footer {
 [theme="dark"] .zoom-overlay {
     background: #292a2d;
 }
+
 [theme="black"] .zoom-overlay {
     background: #000;
 }
@@ -588,6 +667,7 @@ footer {
 [theme="black"] #ticker {
     background: #252627 !important;
 }
+
 /* 首页嘀咕样式 JSON 版 End */
 
 // Artalk Start
@@ -596,10 +676,11 @@ footer {
         transform: translateY(5px) rotate(90deg);
     }
 }
+
 .atk-editor-plug-emoticons {
-    > .atk-grp-wrap {
-        > .atk-grp {
-            > .atk-item {
+    >.atk-grp-wrap {
+        >.atk-grp {
+            >.atk-item {
                 font-family: $font-family-emoji !important;
                 font-size: 1.5rem;
                 min-width: 1.5rem;
@@ -607,6 +688,7 @@ footer {
         }
     }
 }
+
 .artalk {
     pre {
         code {
@@ -615,6 +697,7 @@ footer {
         }
     }
 }
+
 .atk-layer-wrap {
     pre {
         code {
@@ -623,12 +706,14 @@ footer {
         }
     }
 }
+
 .atk-dropdown-wrap {
     .atk-dropdown-item {
         margin-left: 0 !important;
     }
 }
-.atk-main-editor > .atk-header input {
+
+.atk-main-editor>.atk-header input {
     border-width: 1px !important;
     border-bottom-color: rgba(238, 238, 238, 0.5) !important;
 }
@@ -681,11 +766,11 @@ footer {
     --at-color-gradient: linear-gradient(180deg, transparent, rgba(30, 34, 36, 1)) !important;
 }
 
-[theme="dark"] .atk-main-editor > .atk-header input {
+[theme="dark"] .atk-main-editor>.atk-header input {
     border-bottom-color: rgba(69, 69, 69, 0.5) !important;
 }
 
-[theme="black"] .atk-main-editor > .atk-header input {
+[theme="black"] .atk-main-editor>.atk-header input {
     border-bottom-color: rgba(69, 69, 69, 0.5) !important;
 }
 
@@ -770,4 +855,5 @@ footer {
     background: #000;
     border: 1px solid #d9d9d9;
 }
+
 // AI summary End

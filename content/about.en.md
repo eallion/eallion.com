@@ -5,6 +5,11 @@ type: "about"
 layout: "about"
 comment: false
 ---
+<div class="greyQuote">
+    <blockquote>
+            <a href="https://en.wikipedia.org/wiki/Louis_Pasteur#Career" target="_blank" rel="noopener noreferrer">Chance favors the prepared mind.</a> - <em>Louis Pasteur</em>
+    </blockquote>
+</div>
 
 <img no-view src="https://images.eallion.com/eallion.jpg" alt="eallion">
 
