@@ -11,7 +11,6 @@ aliases:
 
 <!-- LOL 英雄头像 API <https://lol.qq.com/cguide/Guide/PublicResources/Images.html#%E9%9D%9E%E7%82%AB%E5%BD%A9%E7%9A%AE%E8%82%A4> -->
 
-<div class="penta">
 {{< penta src="https://images.eallion.com/penta/20230722-Graves.jpg" alt="20230722-Graves" champion="Graves" date="2023/07/22" caption="法外狂徒 格雷福斯" >}}
 {{< penta src="https://images.eallion.com/penta/20230704-Talon.jpg" alt="20230704-Talon" champion="Talon" date="2023/07/04" caption="刀锋之影 泰隆" >}}
 {{< penta src="https://images.eallion.com/penta/20230624-Ezreal.jpg" alt="20230624-Ezreal" champion="Ezreal" date="2023/06/24" caption="探险家 伊泽瑞尔" >}}
@@ -65,5 +64,3 @@ aliases:
 {{< penta src="https://images.eallion.com/penta/20170430-Graves.jpg" alt="20170430-Graves" champion="Graves" date="2017/04/30" caption="法外狂徒 格雷福斯" >}}
 {{< penta src="https://images.eallion.com/penta/20160626-Corki.jpg" alt="20160626-Corki" champion="Corki" date="2016/06/26" caption="英勇投弹手 库奇" >}}
 {{< penta src="https://images.eallion.com/penta/20150218-Shaco.jpg" alt="20150218-Shaco" champion="Shaco" date="2015/02/18" caption="恶魔小丑 萨科" >}}
-
-</div>
