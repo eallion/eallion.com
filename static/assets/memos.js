@@ -219,7 +219,7 @@ async  function updateHTMl(data) {
         var IMG_ARR = data[i].content.match(IMG_REG);
         var IMG_STR = String(IMG_ARR).replace(/[,]/g, '');
         if (IMG_ARR) {
-            var memosContIMG = IMG_STR.replace(IMG_REG, '<div class="memos-images"><img loading="lazy" src="$2" alt="$2" view-image /></div>')
+            var memosContIMG = IMG_STR.replace(IMG_REG, '<div class="memos-images" view-image><img loading="lazy" src="$2" alt="$2" /></div>')
             memoContREG += '<div class="memos-image-wrapper">' + memosContIMG + '</div>'
         }
 
@@ -247,7 +247,7 @@ async  function updateHTMl(data) {
                     resLink = memos + 'o/r/' + resourceList[j].id + '/' + fileId
                 }
                 if (restype == 'image') {
-                    imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="' + resLink + '" alt="' + resLink + '" view-image /></figure>'
+                    imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="' + resLink + '" alt="' + resLink + '" /></figure>'
                     resImgLength = resImgLength + 1
                 }
                 if (restype !== 'image') {
@@ -400,7 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 time = tmp.split(" ")[0];
                                 title = tmp.split(" ")[1];
                             } else title = tmp;
-                            result += `<div class="memos-photo"><img class="photo-img" loading='lazy' decoding="async" src="${img}" alt="${title}" view-image />`;
+                            result += `<div class="memos-photo"><img class="photo-img" loading='lazy' decoding="async" src="${img}" alt="${title}" />`;
                             title
                                 ? (result += `<a href="https://eallion.com/album/" target="_blank" rel="noreferrer noopener nofollow"><span class="photo-title">${title}</span></a>`)
                                 : "";
@@ -438,7 +438,7 @@ document.addEventListener("DOMContentLoaded", () => {
             //         if (restype == "image" && nowNum <= albumLimit) {
             //             nowNum++;
             //             result +=
-            //                 '<div class="memos-photo"><img class="photo-img" loading="lazy" decoding="async" src="' + resLink +'" alt="' + resLink +'" view-image />
+            //                 '<div class="memos-photo"><img class="photo-img" loading="lazy" decoding="async" src="' + resLink +'" alt="' + resLink +'" />
             //                      <span class="photo-title">' + galleryTitle + '</span>
             //                      <span class="photo-time">' + galleryTime + '</span>
             //                 </div>';
@@ -447,7 +447,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // }
 
             var galleryDom = document.querySelector("#gallery");
-            var galleryBefore = `<div class="memos-photo-wrapper">`;
+            var galleryBefore = `<div class="memos-photo-wrapper" view-image>`;
             var galleryAfter = `</div>`;
             resultAll = galleryBefore + result + galleryAfter;
             galleryDom.innerHTML = resultAll;

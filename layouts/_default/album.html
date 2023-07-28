@@ -25,7 +25,7 @@
                 {{ T `album_quote` | safeHTML }}
             </blockquote>
         </div>
-        <div id="album" class="album">
+        <div id="album" class="album" view-image>
         </div>
     </div>
 </article>
@@ -58,7 +58,7 @@
                             time = tmp.split(" ")[0];
                             title = tmp.split(" ")[1];
                         } else title = tmp;
-                        result += `<div class="album_wrapper"><img loading="lazy" src="${img}" srcset="${img}, ${img} 1.5x, ${img} 2x" sizes="auto" alt="${title}" view-image />`;
+                        result += `<div class="album_wrapper"><img loading="lazy" src="${img}" srcset="${img}, ${img} 1.5x, ${img} 2x" sizes="auto" alt="${title}" />`;
                         title
                             ? (result += `<span class="photo-title"><a href="https://memos.eallion.com/m/${id}" target="_blank" rel="noreferrer noopener nofollow">${title}</a></span>`)
                             : "";

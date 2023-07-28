@@ -20,7 +20,12 @@
                 {{ T `penta_quote` | safeHTML }}
             </blockquote>
         </div>
-        {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+        <div class="penta" view-image>
+            {{- $content := dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome -}}
+            {{- $processedContent := $content | partial "function/content.html" -}}
+            {{- $plainContent := $processedContent | replaceRE "<[pP]>|<[bB][rR]>" "" -}}
+            {{- $plainContent | safeHTML -}}
+        </div>
     </div>
 </article>
 
