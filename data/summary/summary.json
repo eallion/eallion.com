@@ -3239,6 +3239,18 @@
       "slug": "mather-for-children",
       "generated": true,
       "summary":"文章讲述了一个 34 岁癌症晚期的母亲想要给 5 岁女儿留下有意义的东西。回答者建议她留下自己完整的形象，通过文字、声音和影像记录自己的过去和情感，以便孩子在成长中能够理解和认识她，并避免缺乏爱和认知所带来的问题。作者还表达了对死亡与重逢的思考，并祝福那个孩子能够健康快乐地找到完整的生命。"
+    },
+    {
+      "title": "利用 GitHub Actions 同步对象存储",
+      "slug": "s3-sync",
+      "generated": true,
+      "summary":"文章介绍了如何利用 GitHub Actions 同步对象存储。作者担心腾讯云删库跑路，决定将存放在腾讯云 COS 上的文件通过 GitHub Actions 备份到 GitHub、Cloudflare R2 和 Backblaze B2 上，并实现图床 CDN 国内国外分流。文章详细介绍了使用 Rclone 进行同步的配置方法，并提供了示例代码。最后，作者还介绍了使用 GitHub Actions 进行自动备份和同步的具体操作步骤。"
+    },
+    {
+      "title": "图床 CDN CNAME 接入 Cloudflare SaaS 实现分流",
+      "slug": "cdn-cname-cloudflare",
+      "generated": true,
+      "summary":"文章介绍了如何通过使用 Cloudflare SaaS 将图床 CDN CNAME 接入 Cloudflare，实现流量分流。作者提到了之前的教程都比较老旧，并且解释了为什么不能将域名的 NS 转入 Cloudflare。然后，作者详细介绍了如何利用 Cloudflare for SaaS 和 CNAME 来实现图床 CDN 的接入，并分享了一些简化代码的方法。最后，作者还提到了 2022 年 3 月份起，每个账户可以有 100 个免费额度，并按照 0.1 美元 / 月收取超额域名费用。"
     }
   ]
 }
