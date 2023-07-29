@@ -1,0 +1,59 @@
+{{- /* lightgallery.js */ -}}
+{{- $src := .Src -}}
+{{- $height := "" -}}
+{{- $width := "" -}}
+{{- $suffixList := slice ".jpeg" ".jpg" ".png" ".gif" ".bmp" ".tif" ".tiff" ".webp" -}}
+{{- with dict "Path" .Src "Resources" .Resources | partial "function/resource.html" -}}
+    {{- $src = .RelPermalink -}}
+    {{- if and
+        (eq .ResourceType "image")
+        (dict "Path" $src "Suffixes" $suffixList | partial "function/suffixValidation.html")
+        -}}
+        {{- $height = .Height -}}
+        {{- $width = .Width -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $small := .SrcSmall | default $src -}}
+{{- with dict "Path" .SrcSmall "Resources" .Resources | partial "function/resource.html" -}}
+    {{- $small = .RelPermalink -}}
+{{- end -}}
+
+{{- $large := .SrcLarge | default $src -}}
+{{- with dict "Path" .SrcLarge "Resources" .Resources | partial "function/resource.html" -}}
+    {{- $large = .RelPermalink -}}
+{{- end -}}
+
+{{- $alt := .Alt | default .Title | default $src -}}
+{{- $loading := .Loading | default "lazy" -}}
+
+{{- with .Height -}}
+    {{- $height = . -}}
+{{- end -}}
+
+{{- with .Width -}}
+    {{- $width = . -}}
+{{- end -}}
+
+<!-- {{- if .Linked -}}
+    <a class="lightgallery" href="{{ $large | safeURL }}" title="{{ .Title | default $alt }}" data-thumbnail="{{ $small | safeURL }}"{{ with .Caption }} data-sub-html="<h2>{{ . }}</h2>{{ with $.Title }}<p>{{ . }}</p>{{ end }}"{{ end }}{{ with .Rel }} rel="{{ . }}"{{ end }}>
+        <img
+            {{ with .Class }}class="{{ . }}"{{ end }}
+            loading="{{ $loading }}"
+            src="{{ $src | safeURL }}"
+            srcset="{{ $small | safeURL }}, {{ $src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
+            sizes="auto"
+            alt="{{ $alt }}"{{ with $height }} height="{{ . }}" {{ end }}{{ with $width }} width="{{ . }}" {{ end }}>
+    </a>
+{{- else -}}
+    <img
+        {{ with .Class }}class="{{ . }}"{{ end }}
+        loading="{{ $loading }}"
+        src="{{ $src | safeURL }}"
+        srcset="{{ $small | safeURL }}, {{ $src | safeURL }} 1.5x, {{ $large | safeURL }} 2x"
+        sizes="auto"
+        alt="{{ $alt }}"
+        title="{{ .Title | default $alt }}"{{ with $height }} height="{{ . }}" {{ end }} {{ with $width }} width="{{ . }}" {{ end }}>
+{{- end -}} -->
+
+<img src="{{ $src | safeURL }}" alt="{{ $alt }}">
