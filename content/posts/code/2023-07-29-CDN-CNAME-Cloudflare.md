@@ -56,7 +56,7 @@ Cloudflare 的 DNS 确实非常优秀，但 Cloudflare 不能分区解析，它�
 
 1. 登录控制面板：<https://dash.cloudflare.com/> ，Cloudflare 已支持中文；
 2. 创建 R2 存储桶的方法这里略过，如创建：`r2-blog-test`；
-3. 在 `R2` `设置` `公开` `访问` `自定义域` `连接域` 为刚才创建的 R2 添加自定义域名：
+3. 在 `R2` `设置` `公开访问` `自定义域` `连接域` 为刚才创建的 R2 添加自定义域名：
 
 ![](https://images.eallion.com/images/2023/07/r2_custom_hostname.png)
 
@@ -110,7 +110,7 @@ Use R2 from Workers：<https://developers.cloudflare.com/r2/api/workers/workers-
 
 左侧切换到 `Worker 和 Pages` 分栏，`创建应用程序`，随便取个名字，随便选个模板部署就可以了，后面再改代码。
 
-点击 `快速编译` 把以下代码复制到 `worker.js` 中，保存并部署：
+点击 `快速编辑` 把以下代码复制到 `worker.js` 中，保存并部署：
 
 ```js
 // src/worker.ts

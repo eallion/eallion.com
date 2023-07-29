@@ -15,7 +15,7 @@ date: 2023-07-28T17:06:50+08:00
 
 ### 前言
 
-由于担心腾讯云删库跑路，我决定把存放在腾讯云 COS 上的某个存储桶通过 GitHub Actions 同步备份到 [GitHub](https://github.com/eallion/static)、[Cloudflare R2](https://www.cloudflare.com/developer-platform/r2/)、[Backblaze B2](https://www.backblaze.com/cloud-storage) 上。以及实现《图床 CDN 国内国外分流》。
+由于担心腾讯云删库跑路，我决定把存放在腾讯云 COS 上的某个存储桶通过 GitHub Actions 同步备份到 [GitHub](https://github.com/eallion/static)、[Cloudflare R2](https://www.cloudflare.com/developer-platform/r2/)、[Backblaze B2](https://www.backblaze.com/cloud-storage) 上。以及实现《[图床 CDN CNAME 接入 Cloudflare SaaS 实现分流](https://eallion.com/cdn-cname-cloudflare/)》。
 这个 COS 中的静态文件和图片也是我的 CDN 源站和图床源站。
 腾讯云 COS 还是用于生产环境的主力存储桶，不过万一出了什么幺蛾子，可以秒切。
 
