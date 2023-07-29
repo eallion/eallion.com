@@ -19,7 +19,10 @@
     <div id="content" class="content">
         <div class="greyQuote">
             <blockquote>
-                <div class="memosCount">{{ T `memos_quote` | safeHTML }}</div>
+                <div class="hitokoto">
+                    <span id="hitokoto">...</span> - <cite><span id="author"></span></cite>
+                </div>
+                <!-- <div class="memosCount">{{ T `memos_quote` | safeHTML }}</div> -->
                 <!-- <div class="editIcon">
                     <button id="editIcon" class="load-memos-editor outline p-1" type="button" aria-label="Memos">
                         <i class="far fa-edit fa-xs"></i>

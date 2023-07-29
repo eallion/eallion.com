@@ -20,23 +20,50 @@
 // // setInterval(getData, 1000*600);
 // window.onload = getData();
 
-//获取 Memos 总条数
-function getTotal() {
-    var totalUrl = "https://api.eallion.com/memos/api/v1/memo/stats?creatorId=101";
-    fetch(totalUrl)
-        .then((res) => res.json())
-        .then((resdata) => {
-            if (Array.isArray(resdata)) {
-                var allnums = resdata.length;
-                var memosCount = document.getElementById("memosCount");
-                memosCount.innerHTML = allnums;
+// //获取 Memos 总条数
+// function getTotal() {
+//     var totalUrl = "https://api.eallion.com/memos/api/v1/memo/stats?creatorId=101";
+//     fetch(totalUrl)
+//         .then((res) => res.json())
+//         .then((resdata) => {
+//             if (Array.isArray(resdata)) {
+//                 var allnums = resdata.length;
+//                 var memosCount = document.getElementById("memosCount");
+//                 memosCount.innerHTML = allnums;
+//             }
+//         })
+//         .catch((err) => {
+//             // Do something for an error here
+//         });
+// }
+// window.onload = getTotal();
+
+// Hitokoto Self-hosted
+if (window.location.href.includes("/en/memos")) {
+    fetch("https://api.github.com/zen")
+        .then(response => response.text())
+        .then(data => {
+            const zen = document.querySelector('#hitokoto');
+            zen.innerText = data;
+            const author = document.querySelector('#author');
+            author.innerText = "GitHub Zen";
+        })
+        .catch(console.error);
+} else {
+    fetch("https://api.eallion.com/hitokoto?c=k&charset=utf-8&encode=json")
+        .then(response => response.json())
+        .then(data => {
+            const hitokoto = document.querySelector('#hitokoto');
+            hitokoto.innerText = data.hitokoto;
+            const author = document.querySelector('#author');
+            if (!data.from_who) {
+                author.innerText = data.from;
+            } else {
+                author.innerText = data.from_who;
             }
         })
-        .catch((err) => {
-            // Do something for an error here
-        });
+        .catch(console.error);
 }
-window.onload = getTotal();
 
 // Memos API
 var memo = {

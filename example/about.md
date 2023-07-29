@@ -8,9 +8,24 @@ comment: true
 
 <div class="greyQuote">
     <blockquote>
-            <a href="https://en.wikipedia.org/wiki/Louis_Pasteur#Career" target="_blank" rel="noopener noreferrer">Chance favors the prepared mind.</a> - <em>Louis Pasteur</em>
+        <span id="hitokoto">:D 获取中...</span> - <cite><span id="author"></span></cite>
     </blockquote>
 </div>
+<script>
+  fetch("https://api.eallion.com/hitokoto?c=k&charset=utf-8&encode=json")
+    .then(response => response.json())
+    .then(data => {
+      const hitokoto = document.querySelector('#hitokoto');
+      hitokoto.innerText = data.hitokoto;
+      const author = document.querySelector('#author');
+        if (!data.from_who) {
+          author.innerText = data.from;
+        } else {
+          author.innerText = data.from_who;
+        }
+    })
+    .catch(console.error);
+</script>
 
 <img no-view src="https://images.eallion.com/eallion.jpg" alt="eallion">
 

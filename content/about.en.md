@@ -5,11 +5,21 @@ type: "about"
 layout: "about"
 comment: false
 ---
+
 <div class="greyQuote">
     <blockquote>
-            <a href="https://en.wikipedia.org/wiki/Louis_Pasteur#Career" target="_blank" rel="noopener noreferrer">Chance favors the prepared mind.</a> - <em>Louis Pasteur</em>
+        <span id="zen">.</span> - <span id="githubZen"><cite>GitHub Zen</cite></span>
     </blockquote>
 </div>
+<script>
+  fetch("https://api.github.com/zen")
+    .then(response => response.text())
+    .then(data => {
+      const zen = document.querySelector('#zen');
+      zen.innerText = data;
+    })
+    .catch(console.error);
+</script>
 
 <img no-view src="https://images.eallion.com/eallion.jpg" alt="eallion">
 
