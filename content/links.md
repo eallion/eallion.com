@@ -36,9 +36,9 @@ aliases:
 {{< friend name="冰剑" bio="采用人工智能，各部分零件齐全，运转稳定，经三十多年的运行，属质量信得过产品。" url="https://digu.plus/" domain="digu.plus" avatar="https://www.gravatar.cn/avatar/0c9157a4f48ba4cc94ada5e7016bcf72" >}}
 {{< friend name="ILY’s Blog" bio="I Love Y" url="https://ily.cc/" domain="ily.cc" avatar="https://q2.qlogo.cn/g?b=qq&nk=1785255046&s=100" >}}
 {{< friend name="空白生活" bio="koobai" url="https://koobai.com/" domain="koobai.com" avatar="https://cravatar.cn/avatar/3b3d336a7d389b7ae8531cbe177ae9b7" >}}
-{{< friend name="wananaiko" bio="前产品经理，现在是 UI/UX" url="https://wananaiko.com/" domain="wananaiko.com" avatar="https://thirdqq.qlogo.cn/g?b=sdk&k=7AFd0gic7wVsNg2ToQrQU2w&s=140&t=1583250600" >}}
 {{< friend name="归臧" bio="UI & UX Design" url="https://nuoea.com/" domain="nuoea.com" avatar="https://cravatar.cn/avatar/020d365ea2596ef6d516143bb0552704" >}}
 {{< friend name="东评西就" bio="小饿,专注科技互联网、社交媒体运营" url="https://dongjunke.cn" domain="dongjunke.cn" avatar="https://pic.yunshusong.cn/upic/20230204122856.jpg" >}}
+{{< friend name="Yuxi & Yuqi" bio="Design loser,slack off champion." url="https://yuxiyuqi.com/" domain="yuxiyuqi.com" avatar="https://img.yuxiyuqi.com/2023/07/202307292154832.png" >}}
 </div>
 
 ---
