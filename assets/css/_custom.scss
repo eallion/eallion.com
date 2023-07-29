@@ -75,6 +75,12 @@ $background-color_6: #78191b;
                 }
             }
         }
+        .post-tags {
+            max-width: 75%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 
     .post-meta {

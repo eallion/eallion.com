@@ -150,7 +150,7 @@ cacheRemoteImages = false
   fontawesome = true
   # whether to show link to Raw Markdown content of the content
   # 是否显示原始 Markdown 文档内容的链接
-  linkToMarkdown = true
+  linkToMarkdown = false
   # configure the link to view source the post
   # 配置文章原始文件的链接
   linkToSource = "https://github.com/eallion/eallion.com/blob/main/content/{path}"
