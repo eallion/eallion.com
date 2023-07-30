@@ -5,8 +5,9 @@ categories: ["日志"]
 tags: 
   - hugo
   - blog
-slug: "{{ replace .Name " " "-" | title }}"
+slug: "{{ replace .Name " " "-" | title | lower }}"
 draft: true
 Comments: true
 date: {{ .Date }}
+images: ["https://api.eallion.com/og?title={{ replace .TranslationBaseName "-" " " | title }}"]
 ---
