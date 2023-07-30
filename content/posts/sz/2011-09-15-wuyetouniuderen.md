@@ -1,5 +1,6 @@
 ---
 title: "午夜偷牛的人"
+images: ["https://api.eallion.com/og?title=%E5%8D%88%E5%A4%9C%E5%81%B7%E7%89%9B%E7%9A%84%E4%BA%BA"]
 authors: ["shanzei"]
 categories: ["山贼"]
 tags: ["山贼","日记","中西医","进口蜗牛","做卫生"]

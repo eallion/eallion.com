@@ -1,5 +1,6 @@
 ---
 title: "迷茫的毕业期"
+images: ["https://api.eallion.com/og?title=%E8%BF%B7%E8%8C%AB%E7%9A%84%E6%AF%95%E4%B8%9A%E6%9C%9F"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","吉他"]

@@ -1,5 +1,6 @@
 ---
 title: "我们需要警惕韩寒吗？"
+images: ["https://api.eallion.com/og?title=%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E8%AD%A6%E6%83%95%E9%9F%A9%E5%AF%92%E5%90%97%EF%BC%9F"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["警惕韩寒","韩寒"]

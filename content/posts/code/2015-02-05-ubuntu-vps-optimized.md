@@ -1,5 +1,6 @@
 ---
 title: "Ubuntu VPS 优化"
+images: ["https://api.eallion.com/og?title=Ubuntu%20VPS%20%E4%BC%98%E5%8C%96"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","vps","优化","主机","lnmp"]

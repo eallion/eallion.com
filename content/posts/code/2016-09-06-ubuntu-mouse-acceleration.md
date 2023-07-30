@@ -1,5 +1,6 @@
 ---
 title: "Ubuntu 鼠标加速度"
+images: ["https://api.eallion.com/og?title=Ubuntu%20%E9%BC%A0%E6%A0%87%E5%8A%A0%E9%80%9F%E5%BA%A6"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["鼠标","Ubuntu","加速度","鼠标加速","xset m 0"]

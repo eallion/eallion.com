@@ -1,5 +1,6 @@
 ---
 title: "Friend links"
+images: ["https://api.eallion.com/og?title=Friend%20links"]
 date: "2006-04-14 00:00:00"
 layout: "links"
 type: "links"

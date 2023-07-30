@@ -1,5 +1,6 @@
 ---
 title: "演唱会短评"
+images: ["https://api.eallion.com/og?title=%E6%BC%94%E5%94%B1%E4%BC%9A%E7%9F%AD%E8%AF%84"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["演唱会"]

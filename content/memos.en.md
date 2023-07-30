@@ -1,5 +1,6 @@
 ---
 title: "Memos"
+images: ["https://api.eallion.com/og?title=Memos"]
 layout: "memos"
 type: 'memos'
 comment: false

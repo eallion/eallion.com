@@ -1,5 +1,6 @@
 ---
 title: "小小的物是人非"
+images: ["https://api.eallion.com/og?title=%E5%B0%8F%E5%B0%8F%E7%9A%84%E7%89%A9%E6%98%AF%E4%BA%BA%E9%9D%9E"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["吉他","琴行"]

@@ -1,5 +1,6 @@
 ---
 title: "我为什么会发这么大的火呢"
+images: ["https://api.eallion.com/og?title=%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%8F%91%E8%BF%99%E4%B9%88%E5%A4%A7%E7%9A%84%E7%81%AB%E5%91%A2"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记"]

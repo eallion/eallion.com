@@ -1,5 +1,6 @@
 ---
 title: "探讨我的健康网络生活"
+images: ["https://api.eallion.com/og?title=%E6%8E%A2%E8%AE%A8%E6%88%91%E7%9A%84%E5%81%A5%E5%BA%B7%E7%BD%91%E7%BB%9C%E7%94%9F%E6%B4%BB"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["生活","网络","习惯"]

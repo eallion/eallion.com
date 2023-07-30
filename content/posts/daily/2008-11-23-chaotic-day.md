@@ -1,5 +1,6 @@
 ---
 title: "混乱的日子"
+images: ["https://api.eallion.com/og?title=%E6%B7%B7%E4%B9%B1%E7%9A%84%E6%97%A5%E5%AD%90"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日子","混乱","稳定"]

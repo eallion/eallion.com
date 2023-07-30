@@ -1,5 +1,6 @@
 ---
 title: "有些需要被我们记住的东西"
+images: ["https://api.eallion.com/og?title=%E6%9C%89%E4%BA%9B%E9%9C%80%E8%A6%81%E8%A2%AB%E6%88%91%E4%BB%AC%E8%AE%B0%E4%BD%8F%E7%9A%84%E4%B8%9C%E8%A5%BF"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","回忆","往事","记忆","青春"]

@@ -1,5 +1,6 @@
 ---
-title: 'Privacy Ppolicy'
+title: "Privacy Ppolicy"
+images: ["https://api.eallion.com/og?title=Privacy%20Ppolicy"]
 date: "2006-04-14 00:00:00"
 type: "privacy-policy"
 layout: "privacy-policy"

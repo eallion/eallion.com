@@ -1,5 +1,6 @@
 ---
 title: "Ubuntu 配置 EverVim"
+images: ["https://api.eallion.com/og?title=Ubuntu%20%E9%85%8D%E7%BD%AE%20EverVim"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]

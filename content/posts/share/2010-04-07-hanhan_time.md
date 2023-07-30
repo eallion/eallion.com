@@ -1,5 +1,6 @@
 ---
 title: "各方媒体对于韩寒入围《时代》“全球最具影响力” 人物候选人的报道"
+images: ["https://api.eallion.com/og?title=%E5%90%84%E6%96%B9%E5%AA%92%E4%BD%93%E5%AF%B9%E4%BA%8E%E9%9F%A9%E5%AF%92%E5%85%A5%E5%9B%B4%E3%80%8A%E6%97%B6%E4%BB%A3%E3%80%8B%E2%80%9C%E5%85%A8%E7%90%83%E6%9C%80%E5%85%B7%E5%BD%B1%E5%93%8D%E5%8A%9B%E2%80%9D%20%E4%BA%BA%E7%89%A9%E5%80%99%E9%80%89%E4%BA%BA%E7%9A%84%E6%8A%A5%E9%81%93"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["全球最具影响力","时代","韩寒"]

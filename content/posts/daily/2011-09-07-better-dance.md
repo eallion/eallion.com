@@ -1,5 +1,6 @@
 ---
 title: "不如跳舞"
+images: ["https://api.eallion.com/og?title=%E4%B8%8D%E5%A6%82%E8%B7%B3%E8%88%9E"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["跳舞","活首","意义"]

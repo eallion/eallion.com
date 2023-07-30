@@ -1,5 +1,6 @@
 ---
 title: "很准的星座特质"
+images: ["https://api.eallion.com/og?title=%E5%BE%88%E5%87%86%E7%9A%84%E6%98%9F%E5%BA%A7%E7%89%B9%E8%B4%A8"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["星座","双子","处女","准","性格"]

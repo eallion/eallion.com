@@ -1,5 +1,6 @@
 ---
 title: "娜的留言"
+images: ["https://api.eallion.com/og?title=%E5%A8%9C%E7%9A%84%E7%95%99%E8%A8%80"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["评论","留言","回复","Qzone"]

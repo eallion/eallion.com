@@ -1,5 +1,6 @@
 ---
 title: "一批域名到期"
+images: ["https://api.eallion.com/og?title=%E4%B8%80%E6%89%B9%E5%9F%9F%E5%90%8D%E5%88%B0%E6%9C%9F"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["域名","续费","转入"]

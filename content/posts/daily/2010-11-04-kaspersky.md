@@ -1,5 +1,6 @@
 ---
 title: "全民脱险 —— 卡巴斯基向全体网民赠送高端安全软件"
+images: ["https://api.eallion.com/og?title=%E5%85%A8%E6%B0%91%E8%84%B1%E9%99%A9%20%E2%80%94%E2%80%94%20%E5%8D%A1%E5%B7%B4%E6%96%AF%E5%9F%BA%E5%90%91%E5%85%A8%E4%BD%93%E7%BD%91%E6%B0%91%E8%B5%A0%E9%80%81%E9%AB%98%E7%AB%AF%E5%AE%89%E5%85%A8%E8%BD%AF%E4%BB%B6"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["kis","卡巴斯基"]

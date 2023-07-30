@@ -1,5 +1,6 @@
 ---
 title: "其实我是比较喜欢坐火车"
+images: ["https://api.eallion.com/og?title=%E5%85%B6%E5%AE%9E%E6%88%91%E6%98%AF%E6%AF%94%E8%BE%83%E5%96%9C%E6%AC%A2%E5%9D%90%E7%81%AB%E8%BD%A6"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["梦想","火车","站票","旅行"]

@@ -1,5 +1,6 @@
 ---
 title: "韩寒：脱节的国度"
+images: ["https://api.eallion.com/og?title=%E9%9F%A9%E5%AF%92%EF%BC%9A%E8%84%B1%E8%8A%82%E7%9A%84%E5%9B%BD%E5%BA%A6"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["韩寒","动车"]

@@ -1,5 +1,6 @@
 ---
 title: "Ubuntu ZFS 加密 Home 目录"
+images: ["https://api.eallion.com/og?title=Ubuntu%20ZFS%20%E5%8A%A0%E5%AF%86%20Home%20%E7%9B%AE%E5%BD%95"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu", "ZFS", "encryption", "加密", "Linux"]

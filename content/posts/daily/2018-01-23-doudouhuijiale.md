@@ -1,5 +1,6 @@
 ---
 title: "豆豆回家了"
+images: ["https://api.eallion.com/og?title=%E8%B1%86%E8%B1%86%E5%9B%9E%E5%AE%B6%E4%BA%86"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["儿子","回家","豆豆"]

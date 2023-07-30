@@ -1,5 +1,6 @@
 ---
 title: "熟睡的时光"
+images: ["https://api.eallion.com/og?title=%E7%86%9F%E7%9D%A1%E7%9A%84%E6%97%B6%E5%85%89"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["小说","恐怖","MP3","故事"]

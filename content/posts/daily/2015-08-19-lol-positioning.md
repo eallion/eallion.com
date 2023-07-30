@@ -1,5 +1,6 @@
 ---
 title: "新号韩服 LOL 定位赛"
+images: ["https://api.eallion.com/og?title=%E6%96%B0%E5%8F%B7%E9%9F%A9%E6%9C%8D%20LOL%20%E5%AE%9A%E4%BD%8D%E8%B5%9B"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["LOL","英雄联盟","韩服","定位赛"]

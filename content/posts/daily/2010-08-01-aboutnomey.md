@@ -1,5 +1,6 @@
 ---
 title: "钱是你大爷，钱你是大爷"
+images: ["https://api.eallion.com/og?title=%E9%92%B1%E6%98%AF%E4%BD%A0%E5%A4%A7%E7%88%B7%EF%BC%8C%E9%92%B1%E4%BD%A0%E6%98%AF%E5%A4%A7%E7%88%B7"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["有感","自言自语"]

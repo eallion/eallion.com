@@ -1,5 +1,6 @@
 ---
 title: "《母亲的专列》"
+images: ["https://api.eallion.com/og?title=%E3%80%8A%E6%AF%8D%E4%BA%B2%E7%9A%84%E4%B8%93%E5%88%97%E3%80%8B"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["火车","母亲","人民的名义","丁可"]

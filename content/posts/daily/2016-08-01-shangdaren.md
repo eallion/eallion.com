@@ -1,5 +1,6 @@
 ---
 title: "上大人"
+images: ["https://api.eallion.com/og?title=%E4%B8%8A%E5%A4%A7%E4%BA%BA"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["上大人","叶子牌","土家牌","棋牌","纸叶子"]

@@ -1,5 +1,6 @@
 ---
 title: "谷歌翻译"
+images: ["https://api.eallion.com/og?title=%E8%B0%B7%E6%AD%8C%E7%BF%BB%E8%AF%91"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["google","谷歌","翻译"]

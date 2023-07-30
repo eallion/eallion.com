@@ -1,5 +1,6 @@
 ---
 title: "一只救了 32 条人命的搜救犬牺牲了"
+images: ["https://api.eallion.com/og?title=%E4%B8%80%E5%8F%AA%E6%95%91%E4%BA%86%2032%20%E6%9D%A1%E4%BA%BA%E5%91%BD%E7%9A%84%E6%90%9C%E6%95%91%E7%8A%AC%E7%89%BA%E7%89%B2%E4%BA%86"]
 authors: ["eallion"]
 categories: ["日志","分享"]
 tags: ["搜救犬"]

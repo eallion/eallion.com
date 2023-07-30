@@ -1,5 +1,6 @@
 ---
 title: "劳动合同解除 (终止) 及赔偿一览表"
+images: ["https://api.eallion.com/og?title=%E5%8A%B3%E5%8A%A8%E5%90%88%E5%90%8C%E8%A7%A3%E9%99%A4%20(%E7%BB%88%E6%AD%A2)%20%E5%8F%8A%E8%B5%94%E5%81%BF%E4%B8%80%E8%A7%88%E8%A1%A8"]
 authors: ["eallion"]
 categories: ["日志"]
 tags:

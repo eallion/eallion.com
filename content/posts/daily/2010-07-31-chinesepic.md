@@ -1,5 +1,6 @@
 ---
 title: "这些照片来自中国"
+images: ["https://api.eallion.com/og?title=%E8%BF%99%E4%BA%9B%E7%85%A7%E7%89%87%E6%9D%A5%E8%87%AA%E4%B8%AD%E5%9B%BD"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["中国缩影"]

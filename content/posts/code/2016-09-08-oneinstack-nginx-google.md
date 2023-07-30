@@ -1,5 +1,6 @@
 ---
 title: "Oneinstack Nginx 反代 Google"
+images: ["https://api.eallion.com/og?title=Oneinstack%20Nginx%20%E5%8F%8D%E4%BB%A3%20Google"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["google","oneinstack","nginx","proxy"]

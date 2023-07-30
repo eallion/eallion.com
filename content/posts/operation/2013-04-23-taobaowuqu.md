@@ -1,5 +1,6 @@
 ---
 title: "你为什么死在淘宝的路上"
+images: ["https://api.eallion.com/og?title=%E4%BD%A0%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%BB%E5%9C%A8%E6%B7%98%E5%AE%9D%E7%9A%84%E8%B7%AF%E4%B8%8A"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["淘宝","营销","运营","推广","刷","直通车"]

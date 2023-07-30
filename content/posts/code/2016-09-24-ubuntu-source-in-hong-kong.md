@@ -1,5 +1,6 @@
 ---
 title: "Ubuntu 源 香港中文大学"
+images: ["https://api.eallion.com/og?title=Ubuntu%20%E6%BA%90%20%E9%A6%99%E6%B8%AF%E4%B8%AD%E6%96%87%E5%A4%A7%E5%AD%A6"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","香港","源","更新源"]

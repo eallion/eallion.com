@@ -1,5 +1,6 @@
 ---
 title: "糕糕写给蛋蛋的信"
+images: ["https://api.eallion.com/og?title=%E7%B3%95%E7%B3%95%E5%86%99%E7%BB%99%E8%9B%8B%E8%9B%8B%E7%9A%84%E4%BF%A1"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

@@ -1,5 +1,6 @@
 ---
 title: "淘宝常用英文缩写名词解释"
+images: ["https://api.eallion.com/og?title=%E6%B7%98%E5%AE%9D%E5%B8%B8%E7%94%A8%E8%8B%B1%E6%96%87%E7%BC%A9%E5%86%99%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["淘宝","名词","术语","缩写"]

@@ -1,5 +1,6 @@
 ---
 title: "QQ 邮箱收不到 Gravatar 验证邮件"
+images: ["https://api.eallion.com/og?title=QQ%20%E9%82%AE%E7%AE%B1%E6%94%B6%E4%B8%8D%E5%88%B0%20Gravatar%20%E9%AA%8C%E8%AF%81%E9%82%AE%E4%BB%B6"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["头像","gravatar","qq 邮箱","验证邮件"]

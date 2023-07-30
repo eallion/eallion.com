@@ -1,5 +1,6 @@
 ---
 title: "其实也没什么"
+images: ["https://api.eallion.com/og?title=%E5%85%B6%E5%AE%9E%E4%B9%9F%E6%B2%A1%E4%BB%80%E4%B9%88"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["坏习惯","处事"]

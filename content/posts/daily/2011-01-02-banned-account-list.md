@@ -1,5 +1,6 @@
 ---
 title: "我被封禁的几个重要账号"
+images: ["https://api.eallion.com/og?title=%E6%88%91%E8%A2%AB%E5%B0%81%E7%A6%81%E7%9A%84%E5%87%A0%E4%B8%AA%E9%87%8D%E8%A6%81%E8%B4%A6%E5%8F%B7"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["封禁", "总结", "日记", "杯具", "账号"]

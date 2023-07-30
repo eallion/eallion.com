@@ -1,5 +1,6 @@
 ---
 title: "每周一歌"
+images: ["https://api.eallion.com/og?title=%E6%AF%8F%E5%91%A8%E4%B8%80%E6%AD%8C"]
 authors: ["eallion"]
 categories: []
 tags: []

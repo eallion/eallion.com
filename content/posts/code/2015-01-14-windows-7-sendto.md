@@ -1,5 +1,6 @@
 ---
 title: "Win7 Sendto 文件夹"
+images: ["https://api.eallion.com/og?title=Win7%20Sendto%20%E6%96%87%E4%BB%B6%E5%A4%B9"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["WIN7","sendto","系统","发送到"]

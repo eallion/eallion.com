@@ -1,5 +1,6 @@
 ---
 title: "有一类连日本人都不如的中国人"
+images: ["https://api.eallion.com/og?title=%E6%9C%89%E4%B8%80%E7%B1%BB%E8%BF%9E%E6%97%A5%E6%9C%AC%E4%BA%BA%E9%83%BD%E4%B8%8D%E5%A6%82%E7%9A%84%E4%B8%AD%E5%9B%BD%E4%BA%BA"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["地震","日本","海啸","灾难"]

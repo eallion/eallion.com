@@ -1,5 +1,6 @@
 ---
 title: "成功戒掉微博"
+images: ["https://api.eallion.com/og?title=%E6%88%90%E5%8A%9F%E6%88%92%E6%8E%89%E5%BE%AE%E5%8D%9A"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["微博","戒","网瘾"]

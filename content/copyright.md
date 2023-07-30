@@ -1,5 +1,6 @@
 ---
 title: "版权信息"
+images: ["https://api.eallion.com/og?title=%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF"]
 date: "2006-04-14 00:00:00"
 type: "copyright"
 layout: "copyright"

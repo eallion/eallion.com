@@ -1,5 +1,6 @@
 ---
 title: "我的自我解剖报告 - 九型性格"
+images: ["https://api.eallion.com/og?title=%E6%88%91%E7%9A%84%E8%87%AA%E6%88%91%E8%A7%A3%E5%89%96%E6%8A%A5%E5%91%8A%20-%20%E4%B9%9D%E5%9E%8B%E6%80%A7%E6%A0%BC"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["测试","性格","自我","报告"]

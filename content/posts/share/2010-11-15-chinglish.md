@@ -1,5 +1,6 @@
 ---
 title: "年度最新英文单词"
+images: ["https://api.eallion.com/og?title=%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%96%B0%E8%8B%B1%E6%96%87%E5%8D%95%E8%AF%8D"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["中国英文","单词","合成词","年度","新词","网络语言","英文"]

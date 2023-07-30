@@ -1,5 +1,6 @@
 ---
 title: "自言自语 - 教师"
+images: ["https://api.eallion.com/og?title=%E8%87%AA%E8%A8%80%E8%87%AA%E8%AF%AD%20-%20%E6%95%99%E5%B8%88"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["教师","自言自语"]

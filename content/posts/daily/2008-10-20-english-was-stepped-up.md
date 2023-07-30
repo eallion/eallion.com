@@ -1,5 +1,6 @@
 ---
 title: "英语得加紧了"
+images: ["https://api.eallion.com/og?title=%E8%8B%B1%E8%AF%AD%E5%BE%97%E5%8A%A0%E7%B4%A7%E4%BA%86"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","视频","英语","CSMTV"]

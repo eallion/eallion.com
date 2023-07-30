@@ -1,5 +1,6 @@
 ---
 title: "豆瓣同步到 Notion 和 Neodb"
+images: ["https://api.eallion.com/og?title=%E8%B1%86%E7%93%A3%E5%90%8C%E6%AD%A5%E5%88%B0%20Notion%20%E5%92%8C%20Neodb"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

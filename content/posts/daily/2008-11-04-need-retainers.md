@@ -1,5 +1,6 @@
 ---
 title: "极品家丁"
+images: ["https://api.eallion.com/og?title=%E6%9E%81%E5%93%81%E5%AE%B6%E4%B8%81"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["小说","极品家丁","穿越"]

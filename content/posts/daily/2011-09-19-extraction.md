@@ -1,5 +1,6 @@
 ---
 title: "拔牙"
+images: ["https://api.eallion.com/og?title=%E6%8B%94%E7%89%99"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["拔牙","虫牙","牙痛","牙洞","蛀牙"]

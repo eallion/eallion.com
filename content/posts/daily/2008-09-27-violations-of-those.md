@@ -1,5 +1,6 @@
 ---
 title: "关于那些情事"
+images: ["https://api.eallion.com/og?title=%E5%85%B3%E4%BA%8E%E9%82%A3%E4%BA%9B%E6%83%85%E4%BA%8B"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["情事","情"]

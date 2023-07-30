@@ -1,5 +1,6 @@
 ---
 title: "WCG2012 &amp; 2013 @昆山"
+images: ["https://api.eallion.com/og?title=WCG2012%20%26amp%3B%202013%20%40%E6%98%86%E5%B1%B1"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["CS","wcg","电子竞技","昆山"]

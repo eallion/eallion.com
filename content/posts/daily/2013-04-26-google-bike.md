@@ -1,5 +1,6 @@
 ---
 title: "Google 的自行车文化"
+images: ["https://api.eallion.com/og?title=Google%20%E7%9A%84%E8%87%AA%E8%A1%8C%E8%BD%A6%E6%96%87%E5%8C%96"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["骑行","google","bike","bicyle","企业文化"]

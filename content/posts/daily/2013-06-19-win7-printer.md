@@ -1,5 +1,6 @@
 ---
 title: "Win7 老打印机驱动解决方案"
+images: ["https://api.eallion.com/og?title=Win7%20%E8%80%81%E6%89%93%E5%8D%B0%E6%9C%BA%E9%A9%B1%E5%8A%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["WIN7","打印机","驱动","虚拟机","virtualbox"]

@@ -1,5 +1,6 @@
 ---
 title: "那就这样吧"
+images: ["https://api.eallion.com/og?title=%E9%82%A3%E5%B0%B1%E8%BF%99%E6%A0%B7%E5%90%A7"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["乌龟","那就这样吧","兔子"]

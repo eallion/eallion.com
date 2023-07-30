@@ -1,5 +1,6 @@
 ---
 title: "感觉像是等什么的过了一天"
+images: ["https://api.eallion.com/og?title=%E6%84%9F%E8%A7%89%E5%83%8F%E6%98%AF%E7%AD%89%E4%BB%80%E4%B9%88%E7%9A%84%E8%BF%87%E4%BA%86%E4%B8%80%E5%A4%A9"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["等待","等"]

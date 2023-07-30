@@ -1,5 +1,6 @@
 ---
 title: "XHTML1.0 和 CSS3.0 验证"
+images: ["https://api.eallion.com/og?title=XHTML1.0%20%E5%92%8C%20CSS3.0%20%E9%AA%8C%E8%AF%81"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["xhtml","认证","验证","css3.0"]

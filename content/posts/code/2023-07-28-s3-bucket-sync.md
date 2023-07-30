@@ -1,5 +1,6 @@
 ---
 title: "利用 GitHub Actions 同步对象存储"
+images: ["https://api.eallion.com/og?title=%E5%88%A9%E7%94%A8%20GitHub%20Actions%20%E5%90%8C%E6%AD%A5%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

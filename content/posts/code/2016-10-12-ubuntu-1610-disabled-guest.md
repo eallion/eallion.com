@@ -1,5 +1,6 @@
 ---
 title: "Ubuntu 16.10 禁用 Guest 访客"
+images: ["https://api.eallion.com/og?title=Ubuntu%2016.10%20%E7%A6%81%E7%94%A8%20Guest%20%E8%AE%BF%E5%AE%A2"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","1610","guest","session","访客"]

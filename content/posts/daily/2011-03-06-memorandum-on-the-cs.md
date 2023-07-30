@@ -1,5 +1,6 @@
 ---
 title: "近期关于 CS 的二三事备忘"
+images: ["https://api.eallion.com/og?title=%E8%BF%91%E6%9C%9F%E5%85%B3%E4%BA%8E%20CS%20%E7%9A%84%E4%BA%8C%E4%B8%89%E4%BA%8B%E5%A4%87%E5%BF%98"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","游戏","电子竞技","电竞"]

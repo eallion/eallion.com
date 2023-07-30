@@ -1,5 +1,6 @@
 ---
 title: "Ubuntu ZFS 原生全盘加密"
+images: ["https://api.eallion.com/og?title=Ubuntu%20ZFS%20%E5%8E%9F%E7%94%9F%E5%85%A8%E7%9B%98%E5%8A%A0%E5%AF%86"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu", "ZFS", "encryption", "加密", "Linux"]

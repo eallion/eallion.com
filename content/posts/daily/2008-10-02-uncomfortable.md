@@ -1,5 +1,6 @@
 ---
 title: "这两天挺难受的"
+images: ["https://api.eallion.com/og?title=%E8%BF%99%E4%B8%A4%E5%A4%A9%E6%8C%BA%E9%9A%BE%E5%8F%97%E7%9A%84"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["难受","智齿"]

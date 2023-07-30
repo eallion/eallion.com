@@ -1,5 +1,6 @@
 ---
 title: "Copyright"
+images: ["https://api.eallion.com/og?title=Copyright"]
 date: "2006-04-14 00:00:00"
 type: "copyright"
 layout: "copyright"

@@ -1,5 +1,6 @@
 ---
 title: "有种生活，有种心态"
+images: ["https://api.eallion.com/og?title=%E6%9C%89%E7%A7%8D%E7%94%9F%E6%B4%BB%EF%BC%8C%E6%9C%89%E7%A7%8D%E5%BF%83%E6%80%81"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["生活","心态"]

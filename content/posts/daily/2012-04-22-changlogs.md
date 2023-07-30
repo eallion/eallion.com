@@ -1,5 +1,6 @@
 ---
 title: "对博客的小改动"
+images: ["https://api.eallion.com/og?title=%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E6%94%B9%E5%8A%A8"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","小记","改动","优化","代码"]

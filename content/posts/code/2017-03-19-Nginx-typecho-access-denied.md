@@ -1,5 +1,6 @@
 ---
 title: "Nginx typecho Access denied"
+images: ["https://api.eallion.com/og?title=Nginx%20typecho%20Access%20denied"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["typecho","nginx","access","denied","403"]

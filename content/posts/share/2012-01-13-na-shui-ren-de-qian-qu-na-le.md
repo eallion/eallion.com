@@ -1,5 +1,6 @@
 ---
 title: "纳税人的钱去哪了"
+images: ["https://api.eallion.com/og?title=%E7%BA%B3%E7%A8%8E%E4%BA%BA%E7%9A%84%E9%92%B1%E5%8E%BB%E5%93%AA%E4%BA%86"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["钱","纳税","三公","财政"]

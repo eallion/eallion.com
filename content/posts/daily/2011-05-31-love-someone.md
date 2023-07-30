@@ -1,5 +1,6 @@
 ---
 title: "爱一个人"
+images: ["https://api.eallion.com/og?title=%E7%88%B1%E4%B8%80%E4%B8%AA%E4%BA%BA"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["love","爱"]

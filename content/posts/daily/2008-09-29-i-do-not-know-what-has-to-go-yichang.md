@@ -1,5 +1,6 @@
 ---
 title: "不知道大家还去不去宜昌呢"
+images: ["https://api.eallion.com/og?title=%E4%B8%8D%E7%9F%A5%E9%81%93%E5%A4%A7%E5%AE%B6%E8%BF%98%E5%8E%BB%E4%B8%8D%E5%8E%BB%E5%AE%9C%E6%98%8C%E5%91%A2"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["宜昌"]

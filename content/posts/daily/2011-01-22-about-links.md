@@ -1,5 +1,6 @@
 ---
 title: "关于友情链接"
+images: ["https://api.eallion.com/og?title=%E5%85%B3%E4%BA%8E%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","链接","友情链接"]

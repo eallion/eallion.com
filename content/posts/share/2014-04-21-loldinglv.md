@@ -1,5 +1,6 @@
 ---
 title: "LOL 中 32 个经济学原理 游戏的迷人之处"
+images: ["https://api.eallion.com/og?title=LOL%20%E4%B8%AD%2032%20%E4%B8%AA%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%8E%9F%E7%90%86%20%E6%B8%B8%E6%88%8F%E7%9A%84%E8%BF%B7%E4%BA%BA%E4%B9%8B%E5%A4%84"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["游戏","定律","LOL","英雄联盟","原则","法则"]

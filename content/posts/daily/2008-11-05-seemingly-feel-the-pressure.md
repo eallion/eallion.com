@@ -1,5 +1,6 @@
 ---
 title: "貌似感受到压力"
+images: ["https://api.eallion.com/og?title=%E8%B2%8C%E4%BC%BC%E6%84%9F%E5%8F%97%E5%88%B0%E5%8E%8B%E5%8A%9B"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["毕业","压力","随意"]

@@ -1,5 +1,6 @@
 ---
 title: "WCG Stupid"
+images: ["https://api.eallion.com/og?title=WCG%20Stupid"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","wcg"]

@@ -1,5 +1,6 @@
 ---
 title: "小明与三毛"
+images: ["https://api.eallion.com/og?title=%E5%B0%8F%E6%98%8E%E4%B8%8E%E4%B8%89%E6%AF%9B"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["小明","三毛"]
