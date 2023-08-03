@@ -35,17 +35,27 @@ jobs:
           git clone https://github.com/eallion/hugo-theme-doit.git themes/DoIt --single-branch
           hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
 
+      - name: Ready for Next.js
+        run: |
+          mkdir next
+          cp public next/public -rf
+          cp pages next/pages -rf
+          cp vercel.json next/
+          cp next.config.js next/
+          cp package.json next/
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.personal_token }}
           external_repository: eallion/eallion.com
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./public
+          publish_branch: vercel
+          publish_dir: ./next
+          # destination_dir: public
           allow_empty_commit: true
           # commit_message: ${{ GitHub.event.head_commit.message }}
           full_commit_message: ${{ github.event.head_commit.message }}
-          cname: eallion.com
+          #cname: eallion.com
           force_orphan: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
