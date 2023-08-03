@@ -2,12 +2,12 @@
 # 菜单配置
 
 [[main]]
-  identifier = "memos"
+  identifier = "toot"
   pre = "<i class='fab fa-twitter'></i>"
   post = ""
-  name = "Memos"
-  url = "/memos/"
-  title = "Memos"
+  name = "Toots"
+  url = "/toot/"
+  title = "Toots"
   weight = "1"
 [[main]]
   identifier = "posts"

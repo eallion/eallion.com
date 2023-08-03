@@ -1,0 +1,75 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+
+{{- define "content" -}}
+{{- $params := .Scratch.Get "params" -}}
+{{- $toc := $params.toc -}}
+{{- if eq $toc true -}}
+{{- $toc = .Site.Params.page.toc | default dict -}}
+{{- else if eq $toc false -}}
+{{- $toc = dict "enable" false -}}
+{{- end -}}
+
+<meta name="referrer" content="no-referrer">
+<link rel="stylesheet" href="/assets/mastodon-timeline.css?v=2023.07.27">
+<link rel="stylesheet" href="/assets/mastodon-timeline-custom.css?v=2023.07.27">
+
+<article class="page single special">
+    <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
+    <div id="content" class="content">
+        <div class="greyQuote">
+            <blockquote>
+                <div class="hitokoto">
+                    <span id="hitokoto"></span> - <cite><span id="author"></span></cite>
+                </div>
+            </blockquote>
+        </div>
+        <div class="dummy-container">
+            <div class="mt-timeline">
+                <div id="mt-body" class="mt-body" role="feed">
+                    <div class="loading-spinner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+<script>
+        // Hitokoto API
+        if (window.location.href.includes("/en/toot")) {
+            fetch("https://api.github.com/zen")
+                .then(response => response.text())
+                .then(data => {
+                    const zen = document.querySelector('#hitokoto');
+                    zen.innerText = data;
+                    const author = document.querySelector('#author');
+                    author.innerText = "GitHub Zen";
+                })
+                .catch(console.error);
+        } else {
+            fetch("https://api.eallion.com/hitokoto?c=k&charset=utf-8&encode=json")
+                .then(response => response.json())
+                .then(data => {
+                    const hitokoto = document.querySelector('#hitokoto');
+                    hitokoto.innerText = data.hitokoto;
+                    const author = document.querySelector('#author');
+                    if (!data.from_who) {
+                        author.innerText = data.from;
+                    } else {
+                        author.innerText = data.from_who;
+                    }
+                })
+                .catch(console.error);
+        }
+</script>
+
+<script type="text/javascript" src="/assets/moment.min.js?v=2.29.4"></script>
+
+{{ if eq .Site.LanguageCode "en" }}
+<script type="text/javascript" src="/assets/moment.twitter.en.min.js"></script>
+{{ else }}
+<script type="text/javascript" src="/assets/moment.twitter.min.js"></script>
+{{ end }}
+
+<script type="text/javascript" src="/assets/mastodon-timeline.js?v=2023.07.27"></script>
+
+{{- end -}}
