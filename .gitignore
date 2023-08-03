@@ -43,3 +43,7 @@ autocorrect
 settings.json
 
 resources/_gen/
+
+package-lock.json
+
+.hintrc
