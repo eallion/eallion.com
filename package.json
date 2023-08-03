@@ -1,36 +1,43 @@
 {
-    "name": "eallion.com",
-    "version": "v2.0.2",
-    "description": "eallion.com hugo blog",
-    "private": true,
-    "scripts": {
-        "build": "hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo",
-        "server": "start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir example --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo",
-        "new": "node scripts/post_title_prompt.js && bash scripts/format_filename.sh",
-        "preview": "start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo",
-        "update": "git submodule update --remote --merge",
-        "start": "start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir example --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo",
-        "vercel": "node scripts/hugo_version.js &&  hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/eallion/eallion.com"
-    },
-    "keywords": [
-        "hugo",
-        "theme",
-        "blog",
-        "eallion"
-    ],
-    "author": "Charles Chin",
-    "license": "GLWTPL",
-    "bugs": {
-        "url": "https://github.com/eallion/eallion.com/issues"
-    },
-    "homepage": "https://github.com/eallion/eallion.com#readme",
-    "dependencies": {
-        "axios": "^1.4.0",
-        "fs": "^0.0.1-security",
-        "generate-changelog": "^1.8.0"
-    }
+  "name": "eallion.com",
+  "version": "v2.0.2",
+  "description": "eallion.com hugo blog",
+  "private": true,
+  "scripts": {
+    "hugo": "hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo",
+    "server": "start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir example --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo",
+    "new": "node scripts/post_title_prompt.js && bash scripts/format_filename.sh",
+    "preview": "start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo",
+    "update": "git submodule update --remote --merge",
+    "start": "next start",
+    "dev": "next dev",
+    "lint": "next lint",
+    "build": "next build",
+    "vercel": "node scripts/hugo_version.js &&  hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo && next build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eallion/eallion.com"
+  },
+  "keywords": [
+    "hugo",
+    "theme",
+    "blog",
+    "eallion"
+  ],
+  "author": "Charles Chin",
+  "license": "GLWTPL",
+  "bugs": {
+    "url": "https://github.com/eallion/eallion.com/issues"
+  },
+  "homepage": "https://github.com/eallion/eallion.com#readme",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "fs": "^0.0.1-security",
+    "generate-changelog": "^1.8.0",
+    "next": "13.4.12",
+    "next.js": "^1.0.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
 }

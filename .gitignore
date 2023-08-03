@@ -47,3 +47,6 @@ resources/_gen/
 package-lock.json
 
 .hintrc
+static/.next
+static/node_modules
+.next
