@@ -139,7 +139,6 @@ keywords = ["eallion", "Charles", "chin", "blog", "Hugo", "蜗牛", "大大的�
   Liberapay = ""
   Linkedin = ""
   Linktree = ""
-  Mastodon = "@eallion"
   Matrix = ""
   Medium = ""
   Mix = ""
@@ -178,6 +177,9 @@ keywords = ["eallion", "Charles", "chin", "blog", "Hugo", "蜗牛", "大大的�
   Youtubelegacy = ""
   Zhihu = "woniu"
   RSS = false
+  [social.Mastodon]
+    id = "@eallion"
+    prefix = "https://m.eallion.com"
 # Sponsor config
 # 赞助设置
 [sponsor]

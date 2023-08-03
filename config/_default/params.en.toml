@@ -177,10 +177,10 @@ keywords = ["eallion", "Charles", "chin", "blog", "Hugo", "蜗牛", "大大的�
   Youtubelegacy = ""
   Zhihu = "woniu"
   RSS = false
-  [languages.en.params.social.Mastodon]
+  [social.Mastodon]
     id = "@eallion"
-    prefix = "https://mastodon.social"
-  [languages.en.params.social.Diaspora]
+    prefix = "https://m.eallion.com"
+  #[languages.en.params.social.Diaspora]
     #id = ""
     #prefix = ""
 # Sponsor config
