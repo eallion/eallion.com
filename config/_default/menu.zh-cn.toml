@@ -3,7 +3,7 @@
 
 [[main]]
   identifier = "memos"
-  pre = "<i class='fab fa-twitter'></i>"
+  pre = "<i class='fab fa-mastodon'></i>"
   post = ""
   name = "嘀咕"
   url = "/toot/"
