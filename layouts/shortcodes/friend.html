@@ -18,7 +18,7 @@
         <div class="friend-link-avatar">
             <!-- 修改了 image 渲染的方法，不使用灯箱 -->
             <!-- {{- dict "Src" $avatar | partial "plugin/image.html" -}} -->
-            <img src="{{ $avatar }} " alt="{{ $title }}" no-view>
+            <img class="lazy" loading="lazy"  data-src="{{ $avatar }} " src="{{ $avatar }} " alt="{{ $title }}" no-view>
         </div>
         <div class="friend-link-info">
             <div class="friend-name-div">
