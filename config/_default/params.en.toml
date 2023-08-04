@@ -78,7 +78,7 @@ keywords = ["eallion", "Charles", "chin", "blog", "Hugo", "蜗牛", "大大的�
     # gravatarEmail = ""
     # URL of avatar shown in home page
     # 主页显示头像的 URL
-    avatarURL = "https://eallion.com/eallion.png"
+    avatarURL = "https://eallion.com/eallion.webp"
     # URL the avatar links to
     # 头像的链接指向的 URL
     avatarLinkURL = "https://eallion.com/about/"

@@ -10,8 +10,8 @@
 {{- end -}}
 
 <meta name="referrer" content="no-referrer">
-<link rel="stylesheet" href="/assets/mastodon-timeline.css?v=2023.07.27">
-<link rel="stylesheet" href="/assets/mastodon-timeline-custom.css?v=2023.07.27">
+<link rel="stylesheet" href="/assets/toot/mastodon-timeline.css?v=2023.07.27">
+<link rel="stylesheet" href="/assets/toot/mastodon-timeline-custom.css?v=2023.07.27">
 
 <article class="page single special">
     <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
@@ -62,14 +62,14 @@
         }
 </script>
 
-<script type="text/javascript" src="/assets/moment.min.js?v=2.29.4"></script>
+<script type="text/javascript" src="/assets/toot/moment.min.js?v=2.29.4"></script>
 
 {{ if eq .Site.LanguageCode "en" }}
-<script type="text/javascript" src="/assets/moment.twitter.en.min.js"></script>
+<script type="text/javascript" src="/assets/toot/moment.twitter.en.min.js"></script>
 {{ else }}
-<script type="text/javascript" src="/assets/moment.twitter.min.js"></script>
+<script type="text/javascript" src="/assets/toot/moment.twitter.min.js"></script>
 {{ end }}
 
-<script type="text/javascript" src="/assets/mastodon-timeline.js?v=2023.07.27"></script>
+<script type="text/javascript" src="/assets/toot/mastodon-timeline.js?v=2023.07.27"></script>
 
 {{- end -}}

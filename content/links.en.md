@@ -20,11 +20,9 @@ aliases:
 {{< friend name="Matrix67" bio="数学博客" url="http://www.matrix67.com" domain="matrix67.com" avatar="/404.png" >}}
 {{< friend name="曼陀罗" bio="曼陀罗的博客" url="https://www.yangfuying.com" domain="yangfuying.com" avatar="https://www.yangfuying.com/favicon.ico" >}}
 {{< friend name="羽中漫步" bio="羽中漫步" url="http://www.yzmb.me/" domain="yzmb.me" avatar="https://sdn.geekzu.org/avatar/ffa9ac42c56fd4776ccef37c57664965" >}}
-{{< friend name="PHPHA" bio="天涯 PHP 博客" url="http://blog.phpha.com" domain="blog.phpha.com" avatar="https://blog.phpha.com/favicon.ico" >}}
 {{< friend name="怡红公子" bio="怡红公子的怡红院落" url="http://imnerd.org/" domain="imnerd.org" avatar="https://sdn.geekzu.org/avatar/a373282ace706850ed7edfab4161f9e4" >}}
 {{< friend name="木木木木木" bio="木木老师" url="https://immmmm.com" domain="immmmm.com" avatar="https://sdn.geekzu.org/avatar/ba83fa02fc4b2ba621514941307e21be" >}}
 {{< friend name="太阳博客" bio="孙老太的晚年" url="http://www.sunmingxia.com/" domain="sunmingxia.com" avatar="https://sdn.geekzu.org/avatar/aab6e5c5ceb1c1c2d92b35bb88dd013c?s=32&d=mm&r=g" >}}
-{{< friend name="雅岚文藝博客" bio="雅岚文藝博客" url="http://yalanlife.net/" domain="yalanlife.net" avatar="https://sdn.geekzu.org/avatar/c7b16884b068cea25e55f7ee6707ec7f" >}}
 {{< friend name="秦大叔" bio="不曾长大" url="https://qfsyj.com" domain="qfsyj.com" avatar="https://sdn.geekzu.org/avatar/4ba509f9ec541ab4d316299727b3e3ab" >}}
 {{< friend name="十三姨爱我" bio="踏遍青山人未老，风景这边独好。" url="https://fanghongxing.cn" domain="fanghongxing.cn" avatar="https://sdn.geekzu.org/avatar/84988a8cb4ea306f6e2b1bcf880081dc" >}}
 {{< friend name="王叨叨" bio="无叨叨，不博客！不懂用户体验的前端不是好爸爸……" url="https://wangdaodao.com/" domain="wangdaodao.com" avatar="https://sdn.geekzu.org/avatar/4a713ec085a4431f15a8da0942656713" >}}
@@ -40,6 +38,7 @@ aliases:
 {{< friend name="归臧" bio="UI & UX Design" url="https://nuoea.com/" domain="nuoea.com" avatar="https://cravatar.cn/avatar/020d365ea2596ef6d516143bb0552704" >}}
 {{< friend name="东评西就" bio="小饿,专注科技互联网、社交媒体运营" url="https://dongjunke.cn" domain="dongjunke.cn" avatar="https://pic.yunshusong.cn/upic/20230204122856.jpg" >}}
 {{< friend name="Yuxi & Yuqi" bio="Design loser,slack off champion." url="https://yuxiyuqi.com/" domain="yuxiyuqi.com" avatar="https://img.yuxiyuqi.com/2023/07/202307292154832.png" >}}
+{{< friend name="文武科技柜" bio="文武科技社的后花园" url="https://www.wangdu.site/" domain="wangdu.site" avatar="https://www.wangdu.site/wp-content/uploads/2021/08/favicon.png" >}}
 </div>
 
 ---

@@ -10,11 +10,114 @@
 {{- end -}}
 
 <meta name="referrer" content="no-referrer">
-<link rel="stylesheet" href="/assets/album.min.css?v=2023.07.27">
 <style>
-    .gutter-sizer {
-        width: 1%;
+    .album {
+    column-count: 3;
+    column-gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    min-height: 5rem;
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+.album_wrapper {
+    margin: 0;
+    break-inside: avoid;
+    transition: transform 0.3s;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    position: relative;
+    width: 33%;
+}
+
+.album_wrapper a,
+.album_wrapper a:hover,
+.album_wrapper a:active {
+    color: #fff !important;
+}
+
+.album_wrapper img {
+    display: block;
+    width: 100%;
+    animation: fadeIn 1s;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out !important;
+    border-radius: 0.25rem;
+    transform: scale(1);
+    object-fit: cover;
+    height: 100%;
+}
+
+.album_wrapper:hover img {
+    transform: scale(1.1);
+}
+
+.album_wrapper span.photo-title,
+.album_wrapper span.photo-time {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 0.9rem;
+    color: #fff;
+    display: none;
+    animation: fadeIn 1s;
+    left: 0;
+    padding: 0 0.25rem;
+}
+
+.album_wrapper span.photo-title {
+    bottom: 0;
+    border-radius: 0 0.25rem 0 0.25rem;
+}
+
+.album_wrapper span.photo-time {
+    top: 0;
+    border-radius: 0.25rem 0 0.25rem 0;
+}
+
+.album_wrapper:hover span.photo-title,
+.album_wrapper:hover span.photo-time {
+    display: block !important;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
     }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .album {
+        column-count: 2;
+    }
+    .album_wrapper {
+        width: 49.5%;
+    }
+}
+
+.packery-drop-placeholder {
+    outline: 3px dashed hsla(0, 0%, 0%, 0.5);
+    outline-offset: -6px;
+    -webkit-transition: -webkit-transform 0.2s;
+            transition: transform 0.2s;
+}
+
+[theme="dark"] .album_wrapper img {
+    opacity: 0.75;
+}
+
+[theme="black"] .album_wrapper img {
+    opacity: 0.5;
+}
+
+.gutter-sizer {
+    width: 1%;
+}
 </style>
 
 <article class="page single special">
@@ -30,9 +133,10 @@
     </div>
 </article>
 
-<script type="text/javascript" src="/assets/packery.pkgd.min.js?v=4.2.2"></script>
-<script type="text/javascript" src="/assets/draggabilly.pkgd.min.js?v=3.0.0"></script>
-<script type="text/javascript" src="/assets/imagesloaded.pkgd.min.js?v=5.0.0"></script>
+<script type="text/javascript" src="https://cdn.eallion.com/assets/js/packery.pkgd.min.js?v=4.2.2"></script>
+<script type="text/javascript" src="https://cdn.eallion.com/assets/js/draggabilly.pkgd.min.js?v=3.0.0"></script>
+<script type="text/javascript" src="https://cdn.eallion.com/assets/js/imagesloaded.pkgd.min.js?v=5.0.0"></script>
+<script type="text/javascript" src="https://cdn.eallion.com/assets/js/lazyload.iife.min.js?v=17.8.3"></script>
 <script>
     var galleryUrl = "https://api.eallion.com/memos/api/v1/memo/all?rowStatus=NORMAL&tag=相册";
     let nowNum = 0;
@@ -108,6 +212,12 @@
             // 相对时间
             window.Lately && Lately.init({ target: ".photo-time" });
         });
+</script>
+
+<script>
+    var lazyLoadInstance = new LazyLoad({
+        // Your custom settings go here
+    });
 </script>
 
 {{- end -}}
