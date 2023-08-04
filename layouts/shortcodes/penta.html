@@ -25,12 +25,12 @@
 
 <div class="pentas">
     <div class="screenshot">
-        <img loading="lazy" src="{{ $src }}" alt="{{ $caption }}">
+        <img class="lazy" loading="lazy" data-src="{{ $src }}" alt="{{ $caption }}">
     </div>
     <div class="champions">
         {{- with $champion -}}
         <span class="champAvatar">
-            <img src="https://game.gtimg.cn/images/lol/act/img/champion/{{ . }}.png" alt="{{ $champion }}" no-view>
+            <img class="lazy" loading="lazy"  data-src="https://game.gtimg.cn/images/lol/act/img/champion/{{ . }}.png" alt="{{ $champion }}" no-view>
         </span>
         {{- end -}}
         {{- with $caption -}}

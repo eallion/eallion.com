@@ -136,7 +136,6 @@
 <script type="text/javascript" src="https://cdn.eallion.com/assets/js/packery.pkgd.min.js?v=4.2.2"></script>
 <script type="text/javascript" src="https://cdn.eallion.com/assets/js/draggabilly.pkgd.min.js?v=3.0.0"></script>
 <script type="text/javascript" src="https://cdn.eallion.com/assets/js/imagesloaded.pkgd.min.js?v=5.0.0"></script>
-<script type="text/javascript" src="https://cdn.eallion.com/assets/js/lazyload.iife.min.js?v=17.8.3"></script>
 <script>
     var galleryUrl = "https://api.eallion.com/memos/api/v1/memo/all?rowStatus=NORMAL&tag=相册";
     let nowNum = 0;
@@ -212,12 +211,6 @@
             // 相对时间
             window.Lately && Lately.init({ target: ".photo-time" });
         });
-</script>
-
-<script>
-    var lazyLoadInstance = new LazyLoad({
-        // Your custom settings go here
-    });
 </script>
 
 {{- end -}}

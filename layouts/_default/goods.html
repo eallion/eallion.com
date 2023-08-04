@@ -278,9 +278,7 @@ font-family: DINPro;
             <div class="goods-container img-hide">
                 <div class="goods-image">
                     <figure>
-                        <a class="lightgallery" href="{{ .image }}" title="{{ .title }}" data-thumbnail="{{ .image }}">
-                            <img loading="lazy" src="{{ .image }}" srcset="{{ .image }}, {{ .image }} 1.5x, {{ .image }} 2x" sizes="auto" alt="{{ .title }}">
-                        </a>
+                        <img class="lazy" loading="lazy" data-src="{{ .image }}" alt="{{ .title }}">
                     </figure>
                 </div>
                 <div class="goods-price">{{ .price }}</div>
@@ -304,4 +302,10 @@ font-family: DINPro;
     </div>
 </article>
 
+<script type="text/javascript" src="https://cdn.eallion.com/assets/js/lazyload.iife.min.js?v=17.8.3"></script>
+<script>
+    var lazyLoadInstance = new LazyLoad({
+        // Your custom settings go here
+    });
+</script>
 {{ end }}
