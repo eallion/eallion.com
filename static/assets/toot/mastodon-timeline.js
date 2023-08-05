@@ -397,7 +397,7 @@ MastodonApi.prototype.getToots = function () {
         let emaction =
             '<div class="emaction"><emoji-reaction class="reactions" reactTargetId="e5n_gts_' +
             id +
-            '" theme="system"></emoji-reaction></div>'
+            '" theme="system" endpoint="https://emaction.e5n.cc"></emoji-reaction></div>'
 
         // Add all to main toot container
         let toot =
