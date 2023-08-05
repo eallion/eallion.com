@@ -131,22 +131,61 @@ $background-color_6: #78191b;
     .header-wrapper {
         .menu {
             .menu-item {
-                .language {
-                    &::before {
-                        content: "\f1ab";
-                        font-family: $font-family-font-awesome;
-                        font-weight: 900;
-                        -moz-osx-font-smoothing: grayscale;
-                        -webkit-font-smoothing: antialiased;
-                        display: inline-block;
-                        font-style: normal;
-                        font-variant: normal;
-                        text-rendering: auto;
-                        line-height: 1;
-                        text-align: center;
-                        width: 1.25em;
-                        margin-right: 0.25rem;
-                    }
+                &.language::before {
+                    content: "\f1ab";
+                    font-family: $font-family-font-awesome;
+                    font-weight: 900;
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-font-smoothing: antialiased;
+                    display: inline-block;
+                    font-style: normal;
+                    font-variant: normal;
+                    text-rendering: auto;
+                    line-height: 1;
+                    text-align: center;
+                    width: 1.25em;
+                    margin-right: 0.25rem;
+                }
+
+                .menu-item-nav {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+#header-mobile {
+    .header-container {
+        .menu {
+            text-align: left;
+
+            .menu-item {
+                margin-left: 1rem;
+
+                i {
+                    text-align: center;
+                    width: 1.5rem;
+                }
+
+                &:last-child::before {
+                    content: "\f1ab";
+                    font-family: $font-family-font-awesome;
+                    font-weight: 900;
+                    -moz-osx-font-smoothing: grayscale;
+                    -webkit-font-smoothing: antialiased;
+                    display: inline-block;
+                    font-style: normal;
+                    font-variant: normal;
+                    text-rendering: auto;
+                    line-height: 1;
+                    text-align: center;
+                    width: 1.25em;
+                    margin-right: 0.25rem;
+                }
+
+                .menu-item-nav {
+                    display: inline;
                 }
             }
         }

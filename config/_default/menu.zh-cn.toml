@@ -63,7 +63,7 @@
 [[main]]
   identifier = "Favorite"
   pre = "<i class='fas fa-globe'></i>"
-  post = ""
+  post = "<span class='menu-item-nav'>个人导航</span>"
   name=""
   url="https://s.eallion.com/"
   title = "蜗牛个人导航"

@@ -63,7 +63,7 @@
 [[main]]
   identifier = "Favorite"
   pre = "<i class='fas fa-globe'></i>"
-  post = ""
+  post = "<span class='menu-item-nav'>Favorite</span>"
   name=""
   url="https://s.eallion.com/"
   title = "Favorite Sites"
