@@ -9,9 +9,8 @@
 {{- $toc = dict "enable" false -}}
 {{- end -}}
 
-<meta name="referrer" content="no-referrer">
-<link rel="stylesheet" href="/assets/toot/mastodon-timeline.css?v=2023.07.27">
-<link rel="stylesheet" href="/assets/toot/mastodon-timeline-custom.css?v=2023.07.27">
+<link rel="stylesheet" href="/assets/toot/mastodon-timeline.min.css?v=2023.07.27">
+<link rel="stylesheet" href="/assets/toot/mastodon-timeline-custom.min.css?v=2023.07.27">
 
 <article class="page single special">
     <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
@@ -70,6 +69,8 @@
 <script type="text/javascript" src="/assets/toot/moment.twitter.min.js"></script>
 {{ end }}
 
-<script type="text/javascript" src="/assets/toot/mastodon-timeline.js?v=2023.07.27"></script>
+<script type="text/javascript" src="/assets/toot/mastodon-timeline.min.js?v=2023.07.27"></script>
+
+<script type="module" src="/assets/toot/reactions.min.js?v=1.0.4"></script>
 
 {{- end -}}
