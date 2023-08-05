@@ -195,7 +195,7 @@ MastodonApi.prototype.getToots = function () {
 
     // Inner function to add each toot content in container
     let appendToot = function (status_, index) {
-        let avatar, user, content, url, date;
+        let avatar, user, content, url, date, id;
 
         var twitterIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 2048 2048"><path fill="#1d9bf0" d="m1845 1024l124 155q18 23 28 50t10 57q0 30-9 57t-26 49t-41 38t-52 24l-191 53q2 51 5 103t4 104q0 36-13 67t-37 54t-55 37t-68 14q-31 0-61-11l-185-70l-109 165q-24 37-62 57t-83 21q-44 0-82-20t-63-58l-109-165l-185 70q-30 11-61 11q-36 0-67-13t-55-37t-37-55t-14-67q0-52 3-104t6-103l-191-53q-29-8-52-24t-40-38t-26-49t-10-57q0-29 10-56t28-51l124-155L79 869q-38-47-38-107q0-30 9-57t26-49t40-38t53-24l191-53q-2-51-5-103t-4-104q0-36 13-67t37-54t55-37t68-14q31 0 61 11l185 70L879 78q24-37 62-57t83-21q44 0 82 20t63 58l109 165l185-70q30-11 61-11q36 0 67 13t55 37t37 55t14 67q0 52-3 104t-6 103l191 53q28 8 52 24t40 38t26 49t10 57q0 60-38 107l-124 155zm-949 369l569-568l-114-114l-455 456l-199-200l-114 114l313 312z"/></svg>'
 
@@ -228,13 +228,16 @@ MastodonApi.prototype.getToots = function () {
                 status_.reblog.account.url +
                 '" rel="nofollow noopener noreferrer" target="_blank">' +
                 // status_.reblog.account.username +
-                '<div>Charles Chin</div><div>' + twitterIcon + '</div><div class="mt-id">@eallion · </div>' +
+                '<div class="mt-nick">Charles Chin</div><div class="mt-id">@eallion@eallion.com</div>' +
                 '<span class="visually-hidden"> post</span>' +
                 "</a>" +
                 "</div>";
 
             // Date
             date = this.formatDate(status_.reblog.created_at);
+
+            // Toot ID
+            id = status_.reblog.account.id;
         } else {
             // STANDARD toot
             // Toot url
@@ -260,13 +263,16 @@ MastodonApi.prototype.getToots = function () {
                 status_.account.url +
                 '" rel="nofollow noopener noreferrer" target="_blank">' +
                 // status_.account.username +
-                '<div>Charles Chin</div><div>' + twitterIcon + '</div><div class="mt-id">@eallion · </div>' +
-                '<span class="visually-hidden"> post</span>' +
+                '<div class="mt-nick">Charles Chin</div><div class="mt-id">@eallion@eallion.com</div>' +
                 "</a>" +
+                '<span class="visually-hidden"> post</span>' +
                 "</div>";
 
             // Date
             date = this.formatDate(status_.created_at);
+
+            // Toot ID
+            id = status_.id;
         }
 
         // Main text
@@ -354,6 +360,45 @@ MastodonApi.prototype.getToots = function () {
             "</a>" +
             "</div>";
 
+        // Reply
+        let replyIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M136.309 189.836L312.313 37.851C327.72 24.546 352 35.348 352 56.015v82.763c129.182 10.231 224 52.212 224 183.548c0 61.441-39.582 122.309-83.333 154.132c-13.653 9.931-33.111-2.533-28.077-18.631c38.512-123.162-3.922-169.482-112.59-182.015v84.175c0 20.701-24.3 31.453-39.687 18.164L136.309 226.164c-11.071-9.561-11.086-26.753 0-36.328zm-128 36.328L184.313 378.15C199.7 391.439 224 380.687 224 359.986v-15.818l-108.606-93.785A55.96 55.96 0 0 1 96 207.998a55.953 55.953 0 0 1 19.393-42.38L224 71.832V56.015c0-20.667-24.28-31.469-39.687-18.164L8.309 189.836c-11.086 9.575-11.071 26.767 0 36.328z"/></svg>'
+        let reply =
+            '<div class="toot-reply">' +
+            '<a href="' +
+            url +
+            '" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank">' +
+            replyIcon +
+            "</a>" +
+            "</div>";
+
+        // Star
+            let starIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M259.3 17.8L194 150.2L47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103l-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5l105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2L316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/></svg>'
+            let star =
+                '<div class="toot-star">' +
+                '<a href="' +
+                url +
+                '" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank">' +
+                starIcon +
+                "</a>" +
+                "</div>";
+
+        // Retoot
+        let retootIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1280"><path fill="currentColor" d="M1280 1248q0 13-9.5 22.5t-22.5 9.5H288q-8 0-13.5-2t-9-7t-5.5-8t-3-11.5t-1-11.5V640H64q-26 0-45-19T0 576q0-24 15-41l320-384q19-22 49-22t49 22l320 384q15 17 15 41q0 26-19 45t-45 19H512v384h576q16 0 25 11l160 192q7 10 7 21zm640-416q0 24-15 41l-320 384q-20 23-49 23t-49-23l-320-384q-15-17-15-41q0-26 19-45t45-19h192V384H832q-16 0-25-12L647 180q-7-9-7-20q0-13 9.5-22.5T672 128h960q8 0 13.5 2t9 7t5.5 8t3 11.5t1 11.5v600h192q26 0 45 19t19 45z"/></svg>'
+        let retoot =
+            '<div class="toot-retoot">' +
+            '<a href="' +
+            url +
+            '" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank">' +
+            retootIcon +
+            "</a>" +
+            "</div>";
+
+        //Emaction
+        let emaction =
+            '<div class="emaction"><emoji-reaction class="reactions" reactTargetId="e5n_gts_' +
+            id +
+            '" theme="system"></emoji-reaction></div>'
+
         // Add all to main toot container
         let toot =
             '<article class="mt-toot" aria-posinset="' +
@@ -363,15 +408,22 @@ MastodonApi.prototype.getToots = function () {
             //   '" data-location="' +
             //   url +
             '" tabindex="0">' +
-            //   avatar +
-            '<div class="mt-meta">' +
+            '<div class="mt-header">' +
+            avatar +
             user +
-            timestamp +
             '</div>' +
             content +
             media +
             poll +
-            "</article>";
+            '<div class="toot-footer">' +
+            timestamp +
+            '<div class="mt-meta">' +
+            reply +
+            star +
+            retoot +
+            '</div>' +
+            emaction +
+            '</div></article>';
 
         this.mtBodyContainer.insertAdjacentHTML("beforeend", toot);
     };
