@@ -18,7 +18,7 @@ images: ["https://api.eallion.com/og?title=自部署%20GitHub%20风格的%20Reac
 各路大佬用了各种方式实现了文章的点赞功能。
 有的是博客系统自带的；
 有的是评论系统集成的；
-有的功能统计代码的 API 实现的；
+有的通过统计代码的 API 实现的；
 有的通过第三方 SaaS 服务实现的。
 
 直到最近 [空白大佬](https://memos.koobai.com/m/161) 的 Memos 中得知了 <i class="fab fa-github fa-fw"></i>[emaction/emaction.frontend](https://github.com/emaction/emaction.frontend) 。
