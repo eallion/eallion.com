@@ -210,10 +210,10 @@
             </div>
         {{- end -}}
 
+        <div id="ticker"></div>
         {{ $summary := getJSON "data/summary/summary.json" }}
         {{ $currentSlug := .Params.slug }}
         {{ $matchingSummary := index (where $summary.summaries "slug" $currentSlug) 0 }}
-
 
         <div class="post-ai">
             <div class="ai-header">
