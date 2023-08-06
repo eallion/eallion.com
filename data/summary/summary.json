@@ -3251,6 +3251,12 @@
       "slug": "cdn-cname-cloudflare",
       "generated": true,
       "summary":"本文介绍了如何实现图床 CDN 域名国内境外分流。作者首先提出了实现分流的目的,即削减成本、提高性能。然后说明了实现思路,即国内域名 CNAME 指向 Cloudflare 作为回源,再通过Cloudflare Worker 访问 R2 或 B2 存储。作者列出了各服务的免费限额,以小网站为例说明国内外分流的具体配置步骤,包括 R2 绑定域名、Cloudflare for SaaS 接入、添加 CNAME 记录、创建 Worker 等。文末总结了实现分流的关键步骤。"
+    },
+    {
+      "title": "自部署 GitHub 风格的 Reactions 点赞功能",
+      "slug": "self-hosted-github-flavored-reactions",
+      "generated": true,
+      "summary":"文章介绍了如何自部署 GitHub 风格的点赞功能。作者提到了各种实现方式，包括博客系统、评论系统、API 和第三方服务等。然后介绍了一个名为 emaction 的项目，提供了前端和后端代码，并给出了部署步骤。首先需要在 Cloudflare 上创建数据库，然后克隆代码并安装依赖包。接着修改配置文件中的数据库 ID，并登录 Wrangle 授权访问数据库并创建数据表。最后将项目部署到 Cloudflare Worker，并在前端使用时引入 JS 模块即可实现点赞功能。"
     }
   ]
 }

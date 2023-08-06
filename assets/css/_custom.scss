@@ -863,6 +863,14 @@ footer {
     margin: 1rem 0;
 }
 
+.ai-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: middle;
+    margin-top: 0.5rem;
+}
+
 .ai-title {
     display: flex;
     color: #2d96bd;
@@ -883,6 +891,34 @@ footer {
     font-weight: bold;
     margin-left: 0.25rem;
     line-height: 1;
+}
+
+.ai-title-tooltip {
+    font-size: 0.875rem;
+    position: relative;
+    display: inline-flex;
+    cursor: help;
+    align-items: center;
+}
+
+.ai-title-tooltip .ai-title-tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    display: inline-block;
+    white-space: nowrap;
+    max-width: none;
+    text-align: right;
+    padding-right: 0.25rem;
+    position: absolute;
+    z-index: 1;
+    transform: translateX(-100%);
+    transition: opacity 0.3s;
+    cursor: text;
+}
+
+.ai-title-tooltip:hover .ai-title-tooltip-text {
+    visibility: visible;
+    opacity: 1;
 }
 
 .ai-explanation {

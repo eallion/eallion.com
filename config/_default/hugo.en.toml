@@ -3,13 +3,12 @@ weight = 2
 languageCode = "en"
 # language name
 languageName = "English"
-title = "Charles Chin's Blog"
-contentDir = 'content/en'
 # whether to include Chinese/Japanese/Korean
 hasCJKLanguage = false
 # default amount of posts in each pages
 paginate = 12
-# [UA-XXXXXXXX-X] google analytics code (replaced by params.analytics.google)
-googleAnalytics = ""
 # copyright description used only for seo schema
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+
+title = "Charles Chin's Blog"
+contentDir = 'content/en'
