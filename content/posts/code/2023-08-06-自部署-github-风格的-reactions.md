@@ -22,7 +22,7 @@ images: ["https://api.eallion.com/og?title=自部署%20GitHub%20风格的%20Reac
 有的通过第三方 SaaS 服务实现的。
 
 直到最近 [空白大佬](https://memos.koobai.com/m/161) 的 Memos 中得知了 <i class="fab fa-github fa-fw"></i>[emaction/emaction.frontend](https://github.com/emaction/emaction.frontend) 。
-这个项目还提供了后端代码，<i class="fab fa-github fa-fw"></i>[emaction/emaction.backend](https://github.com/emaction/emaction.backend)。
+这个项目还提供了后端代码，<i class="fab fa-github fa-fw"></i>[emaction/emaction.backend](https://github.com/emaction/emaction.backend) 。
 
 虽然这个后端代码暂时没有提供初始化数据库的代码，不过通过源代码逆向出了初始化 Cloudflare D1 的命令。
 
@@ -40,7 +40,7 @@ images: ["https://api.eallion.com/og?title=自部署%20GitHub%20风格的%20Reac
 首先去 [Cloudflare](https://dash.cloudflare.com/workers/d1) 创建一个名为：`emaction` 的 D1 数据库
 复制此数据库的 id，如：`acf6da62-7777-4459-a579-123456789012`
 
-克隆代码：
+然后在本地电脑中克隆代码：
 
 ```bash
 git clone https://github.com/emaction/emaction.backend.git
@@ -102,14 +102,14 @@ wrangler deploy
 ```
 
 然后登录 Cloudflare Worker ，就能找到一个名为 `api-emaction` 的 Worker了。
-这个名称与项目中 `package.json` 中的名字对应，可自行选择是否修改。
+这个名称与克隆代码中的 `package.json` 文件中的名字对应，可自行选择是否修改。
 记住此 Worker 的域名：`https://api-emaction.xxxxxxx.workers.dev`。
 如果用户大多数为国内的，可能需要绑定一个自定义域名才能友好访问。
 
 ##### 2. 前端使用
 
 前端使用时，跟 <i class="fab fa-github fa-fw"></i>[emaction/emaction.frontend](https://github.com/emaction/emaction.frontend) 的说明文档一样即可。
-把自定义的 `endpoint` 传参给 JS 代码即可。
+只是需要把自定义的 `endpoint` 传参给 JS 代码。
 
 在 HTML 中引入 JS Module。
 这个 JS 是可以下载下来自行修改和部署的：
@@ -125,4 +125,4 @@ wrangler deploy
 ```
 
 这个 `endpoint` 没有防呆设计，不要输入末尾的 “`/` ” 斜杠。
-自定义 ID `reacttargetid` 可选修改，在同一页面内有多少 Reactions 的时候，尽量使用。
+自定义 ID `reacttargetid` 可选修改，在同一页面内有多个 Reactions 的时候，尽量使用。
