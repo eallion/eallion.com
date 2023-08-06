@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (matchingSummary) {
         new TypeIt("#ai-explanation", {
             strings: matchingSummary.textContent,
-            speed: 50,
+            speed: 30,
             lifeLike: true,
             waitUntilVisible: true,
         }).go();
