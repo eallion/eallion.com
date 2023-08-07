@@ -1,6 +1,6 @@
 {
   "name": "eallion.com",
-  "version": "v2.0.2",
+  "version": "v3.0.0",
   "description": "eallion.com hugo blog",
   "private": true,
   "scripts": {
@@ -13,6 +13,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "build": "next build",
+    "changelog": "changelog --allow-unknown",
     "vercel": "node scripts/hugo_version.js &&  hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo && next build"
   },
   "repository": {
@@ -34,10 +35,6 @@
   "dependencies": {
     "axios": "^1.4.0",
     "fs": "^0.0.1-security",
-    "generate-changelog": "^1.8.0",
-    "next": "13.4.12",
-    "next.js": "^1.0.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "generate-changelog": "^1.8.0"
   }
 }
