@@ -53,6 +53,9 @@ cd emaction.backend
 
 # 安装 packages
 npm install
+
+# 安装 Wrangler
+npm install wrangler
 ```
 
 修改克隆代码 `wrangler.toml` 文件中的 `database_id` 为自己的：
@@ -126,3 +129,4 @@ wrangler deploy
 
 这个 `endpoint` 没有防呆设计，不要输入末尾的 “`/` ” 斜杠。
 自定义 ID `reacttargetid` 可选修改，在同一页面内有多个 Reactions 的时候，尽量使用。
+`reacttargetid` 这个参数在各个版本有变化，`1.0.7` 版本它叫 `reacttargetid`。
