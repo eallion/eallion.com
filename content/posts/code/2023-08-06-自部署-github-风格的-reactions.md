@@ -84,7 +84,7 @@ wrangler login
 
 在弹出的浏览器页面中，点 `Allow` 授权就可以了。
 
-给数据库（假设名为：`emaction`）创建数据表：
+在自己电脑上的终端的当前项目中（不是 Cloudflare 网页上）给数据库（假设名为：`emaction`）创建数据表：
 
 ```bash
 wrangler d1 execute emaction \
