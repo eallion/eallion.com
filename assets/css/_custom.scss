@@ -768,6 +768,23 @@ footer {
             }
         }
     }
+
+    >.atk-grp-switcher {
+        display: flex;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        &::-webkit-scrollbar {
+            height: 1px;
+            width: 0;
+        }
+
+        >span {
+            white-space: nowrap;
+            line-height: 40px !important;
+        }
+    }
 }
 
 .artalk {
