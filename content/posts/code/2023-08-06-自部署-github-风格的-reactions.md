@@ -54,9 +54,11 @@ cd emaction.backend
 # 安装 packages
 npm install
 
-# 安装 Wrangler
-npm install wrangler
+# 全局安装 Wrangler
+npm install -g wrangler
 ```
+
+PS：这里有同学反应需要全局 `-g` 安装 Wrangler，我不明白为什么。
 
 修改克隆代码 `wrangler.toml` 文件中的 `database_id` 为自己的：
 
@@ -76,7 +78,7 @@ database_id = "acf6da62-7777-4459-a579-123456789012" # 修改成自己的
 crons = [ ]
 ```
 
-登录 Wrangle：
+登录 Wrangler：
 
 ```bash
 wrangler login
