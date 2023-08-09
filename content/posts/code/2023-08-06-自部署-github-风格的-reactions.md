@@ -26,6 +26,12 @@ images: ["https://api.eallion.com/og?title=自部署%20GitHub%20风格的%20Reac
 
 虽然这个后端代码暂时没有提供初始化数据库的代码，不过通过源代码逆向出了初始化 Cloudflare D1 的命令。
 
+### Why this?
+
+为什么选择了这个点赞功能呢。
+这是模仿的 GitHub 的点赞功能的，基本上 1:1 还原了。
+GitHub 即正义！
+
 ### 步骤
 
 ##### 1. 部署后端（可选）
