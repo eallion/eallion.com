@@ -84,8 +84,8 @@ comment: true
 
 * About me：[https://about.eallion.com](https://about.eallion.com/)
 * 个人网址导航：[https://s.eallion.com](https://s.eallion.com/)
-* Memos 嘀咕：[https://eallion.com/memos/](https://eallion.com/memos/)
-* Memos 相册：[https://eallion.com/album/](https://eallion.com/album/)
+   嘀咕：[https://eallion.com/toot/](https://eallion.com/toot/)
+   相册：[https://eallion.com/album/](https://eallion.com/album/)
 * LOL Penta：[https://eallion.com/penta/](https://eallion.com/penta/)
 * 观影记录：[https://eallion.com/movie/](https://eallion.com/movie/)
 * 好物分享：[https://eallion.com/goods/](https://eallion.com/goods/)

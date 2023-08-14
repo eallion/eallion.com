@@ -49,7 +49,7 @@ keywords = ["eallion", "Charles", "chin", "blog", "Hugo", "蜗牛", "大大的�
   absoluteURL = false
   [search.algolia]
     index = "eallion_blog_en"
-    memos_index ="memos"
+    gts_index ="gotosocial"
     appID = "UIYUIFMJAW"
     searchKey = "6d69a1276d37f570210831b222bcb123"
   [search.fuse]
