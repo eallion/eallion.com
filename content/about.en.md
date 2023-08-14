@@ -46,8 +46,8 @@ Motto:
 
 * About me：[https://about.eallion.com](https://about.eallion.com/)
 * My Favorites：[https://s.eallion.com](https://s.eallion.com/)
-* Memos：[https://eallion.com/memos/](https://eallion.com/memos/)
-* Memos Album：[https://eallion.com/album/](https://eallion.com/album/)
+* GoToSocial：[https://eallion.com/toot/](https://eallion.com/toot/)
+* Album：[https://eallion.com/album/](https://eallion.com/album/)
 * Watched：[https://eallion.com/movie/](https://eallion.com/movie/)
 * Goods：[https://eallion.com/goods/](https://eallion.com/goods/)
 * LOL Penta：[https://eallion.com/penta/](https://eallion.com/penta/)

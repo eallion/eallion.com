@@ -13,9 +13,9 @@
     {{- if eq $search.type "algolia" -}}
         {{- $js := resources.Get "lib/algoliasearch/algoliasearch-lite.umd.min.js" -}}
         {{- $_ := $js.RelPermalink -}}
-        <!-- 新添加的代码，判断是否为 memos 嘀咕页面 -->
-        {{- if eq .Page.RelPermalink "/memos/" -}}
-            {{- $config = dict "type" "algolia" "algoliaIndex" $search.algolia.memos_index "algoliaAppID" $search.algolia.appID "algoliaSearchKey" $search.algolia.searchKey "openInNewTab" true | dict "search" | merge $config -}}
+        <!-- 新添加的代码，判断是否为 toot 嘀咕页面 -->
+        {{- if eq .Page.RelPermalink "/toot/" -}}
+            {{- $config = dict "type" "algolia" "algoliaIndex" $search.algolia.gts_index "algoliaAppID" $search.algolia.appID "algoliaSearchKey" $search.algolia.searchKey "openInNewTab" true | dict "search" | merge $config -}}
         {{- else -}}
             {{- $config = dict "type" "algolia" "algoliaIndex" $search.algolia.index "algoliaAppID" $search.algolia.appID "algoliaSearchKey" $search.algolia.searchKey | dict "search" | merge $config -}}
         {{- end -}}
@@ -55,8 +55,8 @@
 {{- end -}}
 
 {{- /* lightgallery.js */ -}}
-{{- /* 新增，在 Memos 和 Album 页面不加载此灯箱 */ -}}
-<!-- {{- if or (not (eq .Layout "memos")) (not (eq .Layout "album")) -}} -->
+{{- /* 新增，在 toot 和 Album 页面不加载此灯箱 */ -}}
+<!-- {{- if or (not (eq .Layout "toot")) (not (eq .Layout "album")) -}} -->
 {{- if $params.lightgallery -}}
     {{- $source := $cdn.lightgalleryCSS | default "lib/lightgallery/lightgallery.min.css" -}}
     {{- dict "Source" $source "Fingerprint" $fingerprint | dict "Scratch" .Scratch "Data" | partial "scratch/style.html" -}}

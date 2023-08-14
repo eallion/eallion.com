@@ -2,12 +2,12 @@
 # 菜单配置
 
 [[main]]
-  identifier = "memos"
+  identifier = "GoToSocial"
   pre = "<i class='fab fa-mastodon'></i>"
   post = ""
   name = "嘀咕"
   url = "/toot/"
-  title = "嘀咕 Memos"
+  title = "嘀咕 GoToSocial"
   weight = "1"
 [[main]]
   identifier = "posts"
