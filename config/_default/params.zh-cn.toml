@@ -58,9 +58,9 @@ keywords = ["eallion", "Charles", "chin", "blog", "Hugo", "蜗牛", "大大的�
     minMatchCharLength = 2
     findAllMatches = false
     location = 0
-    threshold = 0.1
+    threshold = 0.3
     distance = 100
-    ignoreLocation = true
+    ignoreLocation = false
     useExtendedSearch = false
     ignoreFieldNorm = false
 # Home page config

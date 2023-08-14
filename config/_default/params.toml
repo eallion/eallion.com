@@ -455,7 +455,7 @@ cacheRemoteImages = false
       site = "eallion"
       lite = false
       katex = false
-      lightbox = false
+      lightbox = true
       pageview = true
       commentCount = true
   # Third-party library config
