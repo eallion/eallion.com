@@ -376,8 +376,8 @@ function initSearch() {
             },
             templates: {
                 suggestion: ({ title, uri, date, context }) => {
-                    if (window.location.pathname === '/memos/') {
-                        // 在 /memos/ 网页中使用不同的 suggestion 样式
+                    if (window.location.pathname === '/toot/') {
+                        // 在 /toot/ 网页中使用不同的 suggestion 样式
                         return `<div><a href=${uri} rel="noopener noreferrer" target="_blank"><span class="suggestion-title">${title}</span></a><span class="suggestion-date">${date}</span></div><div class="suggestion-context">${(context)}</div>`;
                     } else {
                         // 在其他页面使用默认样式的 suggestion
