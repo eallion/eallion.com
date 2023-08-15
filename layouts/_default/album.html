@@ -137,39 +137,40 @@
 <script type="text/javascript" src="https://cdn.eallion.com/assets/js/draggabilly.pkgd.min.js?v=3.0.0"></script>
 <script type="text/javascript" src="https://cdn.eallion.com/assets/js/imagesloaded.pkgd.min.js?v=5.0.0"></script>
 <script>
-    var galleryUrl = "https://api.eallion.com/memos/api/v1/memo/all?rowStatus=NORMAL&tag=相册";
+    var ReadOnlyAccessToken = "MTUXNMZMZJUTYWM4MC0ZN2ZJLTK3ZMITNJK2YZG5MMJINMUX";
+    var galleryUrl = "https://m.eallion.com/api/v1/timelines/tag/%E7%9B%B8%E5%86%8C?limit=40";
     let nowNum = 0;
-    fetch(galleryUrl)
+    fetch(galleryUrl, {
+        headers: {
+            'Authorization': 'Bearer ' + ReadOnlyAccessToken
+        }
+    })
         .then((res) => res.json())
         .then((resdata) => {
             var result = "",
                 resultAll = "",
                 data = resdata;
             for (var i = 0; i < data.length; i++) {
-                var galleryTitle = data[i].content.replace("#相册 ", "");
-                var id = data[i].id;
-                var imgs = galleryTitle.match(/\!\[(.*?)\s*(.*?)\]\((.*?)\)/g);
+                var time = data[i].created_at;
+                var uri = data[i].uri;
+                var content = data[i].content
+                var reg = /<img.*?src="(.*?)"/gi;
+                var imgs = [];
+                while (match = reg.exec(content)) {
+                    imgs.push(match[1]);
+                }
+
+                // var imgs = galleryTitle.match(/\!\[(.*?)\s*(.*?)\]\((.*?)\)/g);
                 //解析 content 内 md 格式图片
                 if (imgs) {
-                    imgs.forEach((item) => {
-                        nowNum++;
-                        let img = item.replace(/!\[.*?\]\((.*?)\)/g, "$1"),
-                            time,
-                            title,
-                            tmp = item.replace(/!\[(.*?)\]\(.*?\)/g, "$1");
-                        if (tmp.indexOf(" ") != -1) {
-                            time = tmp.split(" ")[0];
-                            title = tmp.split(" ")[1];
-                        } else title = tmp;
-                        result += `<div class="album_wrapper"><img loading="lazy" src="${img}" srcset="${img}, ${img} 1.5x, ${img} 2x" sizes="auto" alt="${title}" />`;
-                        title
-                            ? (result += `<span class="photo-title"><a href="https://memos.eallion.com/m/${id}" target="_blank" rel="noreferrer noopener nofollow">${title}</a></span>`)
-                            : "";
-                        time
-                            ? (result += `<span class="photo-time">${time}</span>`)
-                            : "";
-                        result += `</div><div class="gutter-sizer"></div>`;
-
+                    imgs.forEach((img) => {
+                        result += '<div class="album_wrapper">' +
+                            '<img loading="lazy" src="' + img + '" alt="' + time + '"/>' +
+                            '<a href="' + uri + '" target="_blank" rel="noreferrer noopener nofollow">' +
+                            '<span class="photo-title">' + time + '</span>' +
+                            '</a>' +
+                            '</div>' +
+                            '<div class="gutter-sizer"></div>';
                     });
                 }
             }
@@ -186,9 +187,7 @@
                 columnWidth: '.album_wrapper',
                 gutter: '.gutter-sizer',
                 percentPosition: true,
-
             });
-
 
             pckry.getItemElements().forEach(function (itemElem) {
                 var draggie = new Draggabilly(itemElem);
@@ -209,7 +208,7 @@
             });
 
             // 相对时间
-            window.Lately && Lately.init({ target: ".photo-time" });
+            window.Lately && Lately.init({ target: ".photo-title" });
         });
 </script>
 
