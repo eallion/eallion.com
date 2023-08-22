@@ -48,6 +48,8 @@ date: 2023-07-18T11:45:26+08:00
 
 ### 怎么优化 AI 摘要
 
+> 推荐：https://github.com/Moraxyc/ai-summary-hugo 辅助生成 summary.json 的 Python 脚本
+
 ##### 1. 方式
 
 把 AI 摘要放在本地有 2 个思路：
