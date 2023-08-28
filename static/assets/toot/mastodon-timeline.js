@@ -1,5 +1,5 @@
 /**
- * Mastodon embed feed timeline v3.8.1
+ * Mastodon embed feed timeline v3.8.2
  * More info at:
  * https://gitlab.com/idotj/mastodon-embed-feed-timeline
  */
@@ -9,7 +9,7 @@
  * Adjust these parameters to customize your timeline
  */
 window.addEventListener("load", () => {
-    let mapi = new MastodonApi({
+    const mastodonTimeline = new MastodonApi({
         // Id of the <div> containing the timeline
         container_body_id: "mt-body",
 
@@ -41,26 +41,28 @@ window.addEventListener("load", () => {
         hide_reblog: false,
 
         // Hide replies toots. Default: don't hide
-        hide_replies: false,
+        hide_replies: true,
 
         // Hide preview card if toot contains a link, photo or video from a URL. Default: don't hide
         hide_preview_link: false,
 
-        // Converts Markdown symbol ">" at the beginning of a paragraph into a blockquote HTML tag (default: don't apply)
+        // Hide custom emojis available on the server. Default: don't hide
+        hide_emojos: true,
+
+        // Converts Markdown symbol ">" at the beginning of a paragraph into a blockquote HTML tag. Ddefault: don't apply
         markdown_blockquote: false,
 
         // Limit the text content to a maximum number of lines. Default: 0 (unlimited)
         text_max_lines: "0",
 
         // Customize the text of the link pointing to the Mastodon page (appears after the last toot)
-        link_see_more: "See more posts at e5n gts",
+        link_see_more: "See more posts at Mastodon",
     });
 });
 
 /**
  * Set all variables with customized values or use default ones
  * @param {object} params_ User customized values
- * Trigger color theme function
  * Trigger main function to build the timeline
  */
 const MastodonApi = function (params_) {
@@ -83,149 +85,86 @@ const MastodonApi = function (params_) {
         typeof params_.hide_preview_link !== "undefined"
             ? params_.hide_preview_link
             : false;
+    this.HIDE_EMOJOS =
+        typeof params_.hide_emojos !== "undefined" ? params_.hide_emojos : false;
     this.MARKDOWN_BLOCKQUOTE =
         typeof params_.markdown_blockquote !== "undefined"
             ? params_.markdown_blockquote
             : false;
     this.TEXT_MAX_LINES = params_.text_max_lines || "0";
     this.LINK_SEE_MORE = params_.link_see_more;
+    this.FETCHED_DATA = {};
 
     this.mtBodyContainer = document.getElementById(params_.container_body_id);
-
-    this.setTheme();
 
     this.buildTimeline();
 };
 
 /**
- * Set the theme style choosen by user or browser/OS
+ * Trigger functions and construct timeline
  */
-MastodonApi.prototype.setTheme = function () {
-    /**
-     * Set the theme value in the <html> tag using the attribute "data-theme"
-     * @param {string} theme Type of theme to apply: dark or light
-     */
-    const setTheme = function (theme) {
-        document.documentElement.setAttribute("data-theme", theme);
-    };
+MastodonApi.prototype.buildTimeline = async function () {
+    // Apply color theme
+    this.setTheme();
 
-    if (this.DEFAULT_THEME === "auto") {
-        let systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
-        systemTheme.matches ? setTheme("dark") : setTheme("light");
-        // Update the theme if user change browser/OS preference
-        systemTheme.addEventListener("change", (e) => {
-            e.matches ? setTheme("dark") : setTheme("light");
-        });
+    // Get server data
+    await this.getTimelineData();
+
+    // Empty the <div> container
+    this.mtBodyContainer.innerHTML = "";
+
+    for (let i in this.FETCHED_DATA.timeline) {
+        // First filter (Public / Unlisted)
+        if (
+            this.FETCHED_DATA.timeline[i].visibility == "public" ||
+            (!this.HIDE_UNLISTED &&
+                this.FETCHED_DATA.timeline[i].visibility == "unlisted")
+        ) {
+            // Second filter (Reblog / Replies)
+            if (
+                (this.HIDE_REBLOG && this.FETCHED_DATA.timeline[i].reblog) ||
+                (this.HIDE_REPLIES && this.FETCHED_DATA.timeline[i].in_reply_to_id)
+            ) {
+                // Nothing here (Don't append toots)
+            } else {
+                // Append toots
+                this.appendToot(this.FETCHED_DATA.timeline[i], Number(i));
+            }
+        }
+    }
+
+    // Check if there are toots in the container (due to filters applied)
+    if (this.mtBodyContainer.innerHTML === "") {
+        this.mtBodyContainer.setAttribute("role", "none");
+        this.mtBodyContainer.innerHTML =
+            '<div class="mt-error"><span class="mt-error-icon">📭</span><br/><strong>Sorry, no toots to show</strong><br/><div class="mt-error-message">Got ' +
+            this.FETCHED_DATA.timeline.length +
+            ' toots from the server but due to the "hide filters" applied, no toot is shown</div></div>';
     } else {
-        setTheme(this.DEFAULT_THEME);
+        // Insert link after last toot to visit Mastodon page
+        if (this.LINK_SEE_MORE) {
+            let linkSeeMorePath = "";
+            if (this.TIMELINE_TYPE === "profile") {
+                linkSeeMorePath = this.PROFILE_NAME;
+            } else if (this.TIMELINE_TYPE === "hashtag") {
+                linkSeeMorePath = "tags/" + this.HASHTAG_NAME;
+            } else if (this.TIMELINE_TYPE === "local") {
+                linkSeeMorePath = "public/local";
+            }
+            let linkSeeMore =
+                '<div class="mt-footer"><a href="' +
+                this.INSTANCE_URL +
+                "/" +
+                linkSeeMorePath +
+                '" class="btn" target="_blank" rel="nofollow noopener noreferrer">' +
+                this.LINK_SEE_MORE +
+                "</a></div>";
+            this.mtBodyContainer.parentNode.insertAdjacentHTML(
+                "beforeend",
+                linkSeeMore
+            );
+        }
     }
-};
-
-/**
- * Listing toots function
- */
-MastodonApi.prototype.buildTimeline = function () {
-    let mapi = this;
-    let requestURL = "";
-
-    // Get request
-    if (this.TIMELINE_TYPE === "profile") {
-        requestURL = `${this.INSTANCE_URL}/api/v1/accounts/${this.USER_ID}/statuses?limit=${this.TOOTS_LIMIT}`;
-    } else if (this.TIMELINE_TYPE === "hashtag") {
-        requestURL = `${this.INSTANCE_URL}/api/v1/timelines/tag/${this.HASHTAG_NAME}?limit=${this.TOOTS_LIMIT}`;
-    } else if (this.TIMELINE_TYPE === "local") {
-        requestURL = `${this.INSTANCE_URL}/api/v1/timelines/public?local=true&limit=${this.TOOTS_LIMIT}`;
-    }
-
-    fetch(requestURL, {
-        method: "get",
-    })
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
-            } else if (response.status === 404) {
-                throw new Error("404 Not found", { cause: response });
-            } else {
-                throw new Error(response.status);
-            }
-        })
-        .then((jsonData) => {
-            // console.log("jsonData: ", jsonData);
-
-            // Empty the <div> container
-            this.mtBodyContainer.innerHTML = "";
-
-            for (let i in jsonData) {
-                // First filter (Public / Unlisted)
-                if (
-                    jsonData[i].visibility == "public" ||
-                    (!this.HIDE_UNLISTED && jsonData[i].visibility == "unlisted")
-                ) {
-                    // Second filter (Reblog / Replies)
-                    if (
-                        (mapi.HIDE_REBLOG && jsonData[i].reblog) ||
-                        (mapi.HIDE_REPLIES && jsonData[i].in_reply_to_id)
-                    ) {
-                        // Nothing here (Don't append toots)
-                    } else {
-                        // Format and append toots
-                        appendToot.call(mapi, jsonData[i], Number(i));
-                    }
-                }
-            }
-
-            // Check if there are toots in the container (due to filters applied)
-            if (this.mtBodyContainer.innerHTML === "") {
-                this.mtBodyContainer.setAttribute("role", "none");
-                this.mtBodyContainer.innerHTML =
-                    '<div class="mt-error"><span class="mt-error-icon">📭</span><br/><strong>Sorry, no toots to show</strong><br/><div class="mt-error-message">Got ' +
-                    jsonData.length +
-                    ' toots from the server but due to the "hide filters" applied, no toot is shown</div></div>';
-            } else {
-                // Insert link after last toot to visit Mastodon page
-                if (mapi.LINK_SEE_MORE) {
-                    let linkSeeMorePath = "";
-                    if (this.TIMELINE_TYPE === "profile") {
-                        linkSeeMorePath = mapi.PROFILE_NAME;
-                    } else if (this.TIMELINE_TYPE === "hashtag") {
-                        linkSeeMorePath = "tags/" + this.HASHTAG_NAME;
-                    } else if (this.TIMELINE_TYPE === "local") {
-                        linkSeeMorePath = "public/local";
-                    }
-                    let linkSeeMore =
-                        '<div class="mt-footer"><a href="' +
-                        mapi.INSTANCE_URL +
-                        "/" +
-                        linkSeeMorePath +
-                        '" class="btn" target="_blank" rel="nofollow noopener noreferrer">' +
-                        mapi.LINK_SEE_MORE +
-                        "</a></div>";
-                    this.mtBodyContainer.parentNode.insertAdjacentHTML(
-                        "beforeend",
-                        linkSeeMore
-                    );
-                }
-            }
-        })
-        .catch((err) => {
-            this.mtBodyContainer.innerHTML =
-                '<div class="mt-error"><span class="mt-error-icon">❌</span><br/><strong>Sorry, request failed:</strong><br/><div class="mt-error-message">' +
-                err +
-                "</div></div>";
-            this.mtBodyContainer.setAttribute("role", "none");
-        });
-
-    /**
-     * Inner function to add each toot in timeline container
-     * @param {object} c Toot content
-     * @param {number} i Index of toot
-     */
-    const appendToot = function (c, i) {
-        this.mtBodyContainer.insertAdjacentHTML(
-            "beforeend",
-            this.assambleToot(c, i)
-        );
-    };
 
     // Toot interactions
     this.mtBodyContainer.addEventListener("click", function (e) {
@@ -295,6 +234,108 @@ MastodonApi.prototype.buildTimeline = function () {
             }
         }
     };
+};
+
+/**
+ * Set the theme style chosen by the user or by the browser/OS
+ */
+MastodonApi.prototype.setTheme = function () {
+    /**
+     * Set the theme value in the <html> tag using the attribute "data-theme"
+     * @param {string} theme Type of theme to apply: dark or light
+     */
+    const setTheme = function (theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+    };
+
+    if (this.DEFAULT_THEME === "auto") {
+        let systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+        systemTheme.matches ? setTheme("dark") : setTheme("light");
+        // Update the theme if user change browser/OS preference
+        systemTheme.addEventListener("change", (e) => {
+            e.matches ? setTheme("dark") : setTheme("light");
+        });
+    } else {
+        setTheme(this.DEFAULT_THEME);
+    }
+};
+
+/**
+ * Requests to the server to get all the data
+ */
+MastodonApi.prototype.getTimelineData = async function () {
+    return new Promise((resolve, reject) => {
+        /**
+         * Fetch data from server
+         * @param {string} url address to fetch
+         * @returns {object} List of objects
+         */
+        async function fetchData(url) {
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error(
+                    "Failed to fetch the following URL: " +
+                    url +
+                    "<hr>" +
+                    "Error status: " +
+                    response.status +
+                    "<hr>" +
+                    "Error message: " +
+                    response.statusText
+                );
+            }
+
+            const data = await response.json();
+            return data;
+        }
+
+        // URLs to fetch
+        let urls = {};
+        if (this.TIMELINE_TYPE === "profile") {
+            urls.timeline = `${this.INSTANCE_URL}/api/v1/accounts/${this.USER_ID}/statuses?limit=${this.TOOTS_LIMIT}`;
+        } else if (this.TIMELINE_TYPE === "hashtag") {
+            urls.timeline = `${this.INSTANCE_URL}/api/v1/timelines/tag/${this.HASHTAG_NAME}?limit=${this.TOOTS_LIMIT}`;
+        } else if (this.TIMELINE_TYPE === "local") {
+            urls.timeline = `${this.INSTANCE_URL}/api/v1/timelines/public?local=true&limit=${this.TOOTS_LIMIT}`;
+        }
+        if (!this.HIDE_EMOJOS) {
+            urls.emojos = this.INSTANCE_URL + "/api/v1/custom_emojis";
+        }
+
+        const urlsPromises = Object.entries(urls).map(([key, url]) => {
+            return fetchData(url)
+                .then((data) => ({ [key]: data }))
+                .catch((error) => {
+                    reject(new Error("Something went wrong fetching data"));
+                    this.mtBodyContainer.innerHTML =
+                        '<div class="mt-error"><span class="mt-error-icon">❌</span><br/><strong>Sorry, request failed:</strong><br/><div class="mt-error-message">' +
+                        error.message +
+                        "</div></div>";
+                    this.mtBodyContainer.setAttribute("role", "none");
+                    return { [key]: [] };
+                });
+        });
+
+        // Fetch all urls simultaneously
+        Promise.all(urlsPromises).then((dataObjects) => {
+            this.FETCHED_DATA = dataObjects.reduce((result, dataItem) => {
+                return { ...result, ...dataItem };
+            }, {});
+
+            // console.log("Timeline data: ", this.FETCHED_DATA);
+            resolve();
+        });
+    });
+};
+
+/**
+ * Inner function to add each toot in timeline container
+ * @param {object} c Toot content
+ * @param {number} i Index of toot
+ */
+MastodonApi.prototype.appendToot = function (c, i) {
+    this.mtBodyContainer.insertAdjacentHTML("beforeend", this.assambleToot(c, i));
 };
 
 /**
@@ -403,14 +444,33 @@ MastodonApi.prototype.assambleToot = function (c, i) {
             originalContent +
             "</div>" +
             "</div>";
-    } else if (c.reblog && c.reblog.content !== "") {
+    } else if (
+        c.reblog &&
+        c.reblog.content !== "" &&
+        c.reblog.spoiler_text !== ""
+    ) {
         let originalContent = imgReg(this.formatTootText(c.reblog.content));
+        content =
+            '<div class="toot-text">' +
+            c.reblog.spoiler_text +
+            ' <button type="button" class="spoiler-link" aria-expanded="false">Show more</button>' +
+            '<div class="spoiler-text-hidden">' +
+            // this.formatTootText(c.reblog.content) +
+            originalContent +
+            "</div>" +
+            "</div>";
+    } else if (
+        c.reblog &&
+        c.reblog.content !== "" &&
+        c.reblog.spoiler_text === ""
+    ) {
+        let originalContent = imgReg(this.formatTootText(c.content));
         content =
             '<div class="toot-text ' +
             text_css +
             '">' +
             "<div>" +
-            // this.formatTootText(c.reblog.content) +
+            // this.formatTootText(c.content) +
             originalContent +
             "</div>" +
             "</div>";
@@ -551,6 +611,11 @@ MastodonApi.prototype.formatTootText = function (c) {
     // Format hashtags and mentions
     content = this.addTarget2hashtagMention(content);
 
+    // Convert emojos shortcode into images
+    if (!this.HIDE_EMOJOS) {
+        content = this.showEmojos(content, this.FETCHED_DATA.emojos);
+    }
+
     // Convert markdown styles into HTML
     if (this.MARKDOWN_BLOCKQUOTE) {
         content = this.replaceHTMLtag(
@@ -578,6 +643,28 @@ MastodonApi.prototype.addTarget2hashtagMention = function (c) {
     );
 
     return content;
+};
+
+/**
+ * Find all custom emojis shortcode and replace by image
+ * @param {string} c Text content
+ * @param {array} e List with all custom emojis
+ * @returns {string} Text content modified
+ */
+MastodonApi.prototype.showEmojos = function (c, e) {
+    if (c.includes(":")) {
+        for (const emojo of e) {
+            const regex = new RegExp(`\\:${emojo.shortcode}\\:`, "g");
+            c = c.replace(
+                regex,
+                `<img src="${emojo.url}" class="custom-emoji" alt="Emoji ${emojo.shortcode}" />`
+            );
+        }
+
+        return c;
+    } else {
+        return c;
+    }
 };
 
 /**
@@ -683,13 +770,14 @@ MastodonApi.prototype.formatDate = function (d) {
 
     let date = new Date(d);
 
-    // let displayDate =
+    // const displayDate =
     //     monthNames[date.getMonth()] +
     //     " " +
     //     date.getDate() +
     //     ", " +
     //     date.getFullYear();
 
+    // return displayDate;
     let displayDateTwitter = moment(date).twitterLong()
 
     return displayDateTwitter;

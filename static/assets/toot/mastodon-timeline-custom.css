@@ -296,6 +296,7 @@
 
 .toot-text pre code {
     background: none !important;
+    padding: 0.2em 0.4em 0 !important;
 }
 
 .toot-text ul li p {
