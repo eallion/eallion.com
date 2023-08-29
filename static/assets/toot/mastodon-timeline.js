@@ -56,7 +56,7 @@ window.addEventListener("load", () => {
         text_max_lines: "0",
 
         // Customize the text of the link pointing to the Mastodon page (appears after the last toot)
-        link_see_more: "See more posts at Mastodon",
+        link_see_more: "See more posts at GoToSocial",
     });
 });
 
@@ -153,9 +153,10 @@ MastodonApi.prototype.buildTimeline = async function () {
             }
             let linkSeeMore =
                 '<div class="mt-footer"><a href="' +
-                this.INSTANCE_URL +
-                "/" +
-                linkSeeMorePath +
+                // this.INSTANCE_URL +
+                // "/" +
+                // linkSeeMorePath +
+                'https://m.eallion.com/@eallion' +
                 '" class="btn" target="_blank" rel="nofollow noopener noreferrer">' +
                 this.LINK_SEE_MORE +
                 "</a></div>";
