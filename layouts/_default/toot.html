@@ -34,7 +34,7 @@
 
 <script>
         // Hitokoto API
-        if (window.location.href.includes("/en/toot")) {
+        if (window.location.href.includes("/en/")) {
             fetch("https://api.github.com/zen")
                 .then(response => response.text())
                 .then(data => {
@@ -72,5 +72,5 @@
 <script type="text/javascript" src="/assets/toot/mastodon-timeline.min.js?v=3.8.2"></script>
 
 <script type="module" src="/assets/toot/reactions.min.js?v=1.0.10"></script>
-<!-- <script type="module" src="https://cdn.jsdelivr.net/gh/emaction/frontend.dist@1.0.10/bundle.js"></script> -->
+
 {{- end -}}
