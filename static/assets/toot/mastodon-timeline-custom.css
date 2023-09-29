@@ -253,6 +253,8 @@
 
 .toot-text {
     color: var(--mt-content-text);
+    line-height: 2;
+    margin: 1rem 0;
 }
 
 .toot-text.truncate {
@@ -299,6 +301,7 @@
     padding: 0.2em 0.4em 0 !important;
 }
 
+.toot-text p,
 .toot-text ul li p {
     margin: 0 !important;
     padding: 0 !important;
