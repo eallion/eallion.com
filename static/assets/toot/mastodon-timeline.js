@@ -17,13 +17,13 @@ window.addEventListener("load", () => {
         default_theme: "auto",
 
         // Your Mastodon instance
-        instance_url: "https://api.eallion.com/gotosocial",
+        instance_url: "https://e5n.cc",
 
         // Choose type of toots to show in the timeline: 'local', 'profile', 'hashtag'. Default: local
         timeline_type: "profile",
 
         // Your user ID on Mastodon instance. Leave empty if you didn't choose 'profile' as type of timeline
-        user_id: "01RVAVVGAPXR989VKK1BQV6BFS",
+        user_id: "111136231674527355",
 
         // Your user name on Mastodon instance. Leave empty if you didn't choose 'profile' as type of timeline
         profile_name: "@eallion",
@@ -56,7 +56,7 @@ window.addEventListener("load", () => {
         text_max_lines: "0",
 
         // Customize the text of the link pointing to the Mastodon page (appears after the last toot)
-        link_see_more: "See more posts at GoToSocial",
+        link_see_more: "See more posts at e5n.cc",
     });
 });
 
@@ -386,7 +386,7 @@ MastodonApi.prototype.assambleToot = function (c, i) {
             c.reblog.account.url +
             '" rel="nofollow noopener noreferrer" target="_blank">' +
             // c.reblog.account.username +
-            '<div class="mt-nick">Charles Chin</div><div class="mt-id">@eallion@eallion.com</div>' +
+            '<div class="mt-nick">Charles Chin</div><div class="mt-id">@eallion@e5n.cc</div>' +
             '<span class="visually-hidden"> post</span>' +
             "</a>" +
             "</div>";
@@ -423,7 +423,7 @@ MastodonApi.prototype.assambleToot = function (c, i) {
             c.account.url +
             '" rel="nofollow noopener noreferrer" target="_blank">' +
             // c.account.username +
-            '<div class="mt-nick">Charles Chin</div><div class="mt-id">@eallion@eallion.com</div>' +
+            '<div class="mt-nick">Charles Chin</div><div class="mt-id">@eallion@e5n.cc</div>' +
             "</a>" +
             '<span class="visually-hidden"> post</span>' +
             "</div>";
@@ -478,7 +478,7 @@ MastodonApi.prototype.assambleToot = function (c, i) {
     ) {
         let originalContent = imgReg(this.formatTootText(c.content));
         content =
-            '<div class="toot-text ' +
+            '<div class="toot-text' +
             text_css +
             '">' +
             "<div>" +
@@ -489,7 +489,7 @@ MastodonApi.prototype.assambleToot = function (c, i) {
     } else {
         let originalContent = imgReg(this.formatTootText(c.content));
         content =
-            '<div class="toot-text ' +
+            '<div class="toot-text' +
             text_css +
             '">' +
             "<div>" +
