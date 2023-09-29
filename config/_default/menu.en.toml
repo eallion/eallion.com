@@ -2,8 +2,8 @@
 # 菜单配置
 
 [[main]]
-  identifier = "toot"
-  pre = "<i class='fab fa-mastodon'></i>"
+  identifier = "toots"
+  pre = "<i class='fab fa-twitter'></i>"
   post = ""
   name = "Toots"
   url = "/toot/"
@@ -61,10 +61,10 @@
   title = "About me"
   weight = "8"
 [[main]]
-  identifier = "Favorite"
-  pre = "<i class='fas fa-globe'></i>"
-  post = "<span class='menu-item-nav'>Favorite</span>"
+  identifier = "Mastodon"
+  pre = "<i class='fab fa-mastodon'></i>"
+  post = "<span class='menu-item-nav'>Mastodon</span>"
   name=""
-  url="https://s.eallion.com/"
-  title = "Favorite Sites"
+  url="https://e5n.cc/"
+  title = "Mastodon e5n.cc"
   weight="9"

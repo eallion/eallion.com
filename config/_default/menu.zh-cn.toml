@@ -2,12 +2,12 @@
 # 菜单配置
 
 [[main]]
-  identifier = "GoToSocial"
-  pre = "<i class='fab fa-mastodon'></i>"
+  identifier = "toots"
+  pre = "<i class='fab fa-twitter'></i>"
   post = ""
   name = "嘀咕"
   url = "/toot/"
-  title = "嘀咕 GoToSocial"
+  title = "嘀咕 Toots"
   weight = "1"
 [[main]]
   identifier = "posts"
@@ -61,10 +61,10 @@
   title = "关于我关于本站"
   weight = "8"
 [[main]]
-  identifier = "Favorite"
-  pre = "<i class='fas fa-globe'></i>"
-  post = "<span class='menu-item-nav'>个人导航</span>"
+  identifier = "Mastodon"
+  pre = "<i class='fab fa-mastodon'></i>"
+  post = "<span class='menu-item-nav'>Mastodon</span>"
   name=""
-  url="https://s.eallion.com/"
-  title = "蜗牛个人导航"
+  url="https://e5n.cc/"
+  title = "Mastodon e5n.cc"
   weight="9"
