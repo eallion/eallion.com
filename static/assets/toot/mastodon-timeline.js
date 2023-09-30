@@ -17,7 +17,7 @@ window.addEventListener("load", () => {
         default_theme: "auto",
 
         // Your Mastodon instance
-        instance_url: "https://e5n.cc",
+        instance_url: "https://api.eallion.com/mastodon",
 
         // Choose type of toots to show in the timeline: 'local', 'profile', 'hashtag'. Default: local
         timeline_type: "profile",
