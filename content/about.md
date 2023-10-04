@@ -28,9 +28,9 @@ comment: true
     .catch(console.error);
 </script>
 
-<img no-view src="https://images.eallion.com/eallion.jpg" alt="eallion" >
+<img no-view src="https://images.eallion.com/eallion.jpg" alt="eallion">
 
-我是大大的小蜗牛（AKA: Charles Chin）。
+我是「蜗牛」，不过一般都使用「大大的小蜗牛」作为网名。
 本名没有什么内涵，略去不表。
 早年常居鲁迅故里，钟情于江南水乡。
 工作于电商之都。后为生计南下深港。

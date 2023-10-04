@@ -30,7 +30,7 @@ comment: true
 
 <img no-view src="https://images.eallion.com/eallion.jpg" alt="eallion">
 
-我是大大的小蜗牛（AKA: Charles Chin）。
+我是「蜗牛」，一般使用「大大的小蜗牛」作为网名。
 本名没有什么内涵，略去不表。
 早年常居鲁迅故里，钟情于江南水乡。
 工作于电商之都。后为生计南下深港。
@@ -84,8 +84,8 @@ comment: true
 
 * About me：[https://about.eallion.com](https://about.eallion.com/)
 * 个人网址导航：[https://s.eallion.com](https://s.eallion.com/)
-   嘀咕：[https://eallion.com/toot/](https://eallion.com/toot/)
-   相册：[https://eallion.com/album/](https://eallion.com/album/)
+* 嘀咕：[https://eallion.com/toot/](https://eallion.com/toot/)
+* 相册：[https://eallion.com/album/](https://eallion.com/album/)
 * LOL Penta：[https://eallion.com/penta/](https://eallion.com/penta/)
 * 观影记录：[https://eallion.com/movie/](https://eallion.com/movie/)
 * 好物分享：[https://eallion.com/goods/](https://eallion.com/goods/)
