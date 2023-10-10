@@ -13,12 +13,7 @@
     {{- if eq $search.type "algolia" -}}
         {{- $js := resources.Get "lib/algoliasearch/algoliasearch-lite.umd.min.js" -}}
         {{- $_ := $js.RelPermalink -}}
-        <!-- 新添加的代码，判断是否为 toot 嘀咕页面 -->
-        {{- if eq .Page.RelPermalink "/toot/" -}}
-            {{- $config = dict "type" "algolia" "algoliaIndex" $search.algolia.gts_index "algoliaAppID" $search.algolia.appID "algoliaSearchKey" $search.algolia.searchKey "openInNewTab" true | dict "search" | merge $config -}}
-        {{- else -}}
-            {{- $config = dict "type" "algolia" "algoliaIndex" $search.algolia.index "algoliaAppID" $search.algolia.appID "algoliaSearchKey" $search.algolia.searchKey | dict "search" | merge $config -}}
-        {{- end -}}
+        {{- $config = dict "type" "algolia" "algoliaIndex" $search.algolia.index "algoliaAppID" $search.algolia.appID "algoliaSearchKey" $search.algolia.searchKey | dict "search" | merge $config -}}
     {{- else -}}
         {{- with .Site.Home.OutputFormats.Get "json" -}}
             {{- $config = dict "type" "fuse" "fuseIndexURL" .RelPermalink | dict "search" | merge $config -}}
