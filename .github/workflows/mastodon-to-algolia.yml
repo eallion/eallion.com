@@ -1,11 +1,11 @@
-name: Upload GTS to Algolia
+name: Upload Mastodon to Algolia
 
 on:
 #  push:
 #    branches:
 #      - main
-  schedule:
-    - cron: 0 16 * * *
+#  schedule:
+#    - cron: 0 16 * * *
   workflow_dispatch:
 
 jobs:
@@ -20,15 +20,15 @@ jobs:
 
       - name: Fetch Memos JSON
         run: |
-          data_url="https://api.eallion.com/gotosocial/api/v1/accounts/01RVAVVGAPXR989VKK1BQV6BFS/statuses?limit=10"
+          data_url="https://api.eallion.com/mastodon/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true"
           output_file="output.json"
           curl -s "$data_url" | jq '.[] | {objectID:  (.id | tostring), date: .created_at, content: (.content | gsub("<[^>]*>";"")), uri, title: (.content | gsub("<[^>]*>";"") | rtrimstr("\n") | .[ :20])}' > "$output_file"
-          jq -s '.' "$output_file" > gotosocial.json
+          jq -s '.' "$output_file" > mastodon.json
 
       - name: Algolia uploader
         uses: wangchucheng/algolia-uploader@master
         with:
           app_id: ${{ secrets.ALGOLIA_APPID }}
           admin_key: ${{ secrets.ALGOLIA_ADMIN_KEY }}
-          index_name: gotosocial
-          index_file_path: gotosocial.json
+          index_name: mastodon
+          index_file_path: mastodon.json

@@ -46,7 +46,7 @@ Motto:
 
 * About me：[https://about.eallion.com](https://about.eallion.com/)
 * My Favorites：[https://s.eallion.com](https://s.eallion.com/)
-* GoToSocial：[https://eallion.com/toot/](https://eallion.com/toot/)
+* Mastodon：[https://eallion.com/toot/](https://eallion.com/toot/)
 * Album：[https://eallion.com/album/](https://eallion.com/album/)
 * Watched：[https://eallion.com/movie/](https://eallion.com/movie/)
 * Goods：[https://eallion.com/goods/](https://eallion.com/goods/)
