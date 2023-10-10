@@ -49,161 +49,24 @@
 
 ```
 git remote set-url --add --push origin https://id:token@github.com/eallion/eallion.com.git
+
+$ git remote -v
+origin  https://github.com/eallion/eallion.com (fetch)
+origin  https://github.com/eallion/eallion.com (push)
+origin  https://eallion@bitbucket.org/eallion/eallion.com.git (push)
+origin  https://gitlab.com/eallion/eallion.com.git (push)
 ```
 
 #### 架构备忘
 
-- 国内：部署至腾讯云 [COS](https://cloud.tencent.com/product/cos) + [CDN](https://cloud.tencent.com/product/cdn) (2020.12.27)
-- 境外：部署至 [Vercel](https://vercel.com/) (2021.06.13)
+- 国内：部署至阿里云 [OSS](https://www.aliyun.com/product/oss) + [CDN](https://www.aliyun.com/product/cdn) (2023.07.26)
+- 境外：部署至阿里云 [OSS](https://www.aliyun.com/product/oss) + [CDN](https://www.aliyun.com/product/cdn) (2023.07.26)
 
-<details>
-<summary>GitHub Actions</summary>
-<blockquote>Update:2022.12.12</blockquote>
-构建 Hugo，部署至 GitHub Pages。
+#### GitHub Actions
 
-```
-name: Build Hugo and Deploy
+> Update:2023.08.04
 
-on:
-  push:
-    branches:
-      - main
-#  schedule:
-#    - cron: 0 16 * * *
-  workflow_dispatch:
-  repository_dispatch:
-
-jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup timezone
-        uses: zcong1993/setup-timezone@master
-        with:
-          timezone: Asia/Shanghai
-
-      - uses: actions/checkout@v3
-        with:
-          submodules: false
-          fetch-depth: 0
-
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
-          extended: true
-
-      - name: Build Hugo
-        run: |
-          rm themes/DoIt -rf
-          git clone https://github.com/eallion/hugo-theme-doit.git themes/DoIt --single-branch
-          hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.personal_token }}
-          external_repository: eallion/eallion.github.io
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./public
-          allow_empty_commit: true
-          # commit_message: ${{ GitHub.event.head_commit.message }}
-          full_commit_message: ${{ github.event.head_commit.message }}
-          cname: eallion.com
-          force_orphan: true
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-
-      - name: Upload to Tencent COS
-        uses: zkqiang/tencent-cos-action@v0.1.0
-        with:
-          args: upload -rsf --delete ./public/ /
-          secret_id: ${{ secrets.SECRET_COS_ID }}
-          secret_key: ${{ secrets.SECRET_COS_KEY }}
-          bucket: ${{ secrets.COS_CN_BUCKET }}
-          region: ap-shanghai
-
-      - name: Tencent CDN Purge
-        uses: keithnull/tencent-cloud-cdn-purge-cache@v1.0
-        env:
-          SECRET_ID: ${{ secrets.SECRET_COS_ID }}
-          SECRET_KEY: ${{ secrets.SECRET_COS_KEY }}
-          PATHS: "https://eallion.com/"
-          FLUSH_TYPE: "delete" # optional
-```
-
-</details>
-<details>
-<summary>Coding 持续集成</summary>
-<blockquote>Update:2022.12.12</blockquote>
-Coding.net 持续集成部分命令：
-<ul>
- <li>从 <a href="https://coding-public.coding.net/public-artifacts/public/downloads/hugo-linux-64bit.deb/version/13372160/guide">公开制品库</a> 拉取 Hugo 安装包</li>
- <li>构建 Hugo</li>
- <li>上传到腾讯云 COS</li>
- <li>刷新腾讯云 CDN</li>
- <li>处理 Sitemap 并提交到百度</li>
-</ul>
-
-```
-pipeline {
-  agent any
-  stages {
-    stage('Build Hugo') {
-      agent {
-        docker {
-          reuseNode 'true'
-          registryUrl 'https://eallion-docker.pkg.coding.net'
-          registryCredentialsId "${env.DOCKER_REGISTRY_CREDENTIALS_ID}"
-          image 'eallion/hugo/hugo:latest'
-          args '-v /etc/localtime:/etc/localtime:ro'
-        }
-
-      }
-      steps {
-        checkout([
-          $class: 'GitSCM',
-          branches: [[name: env.GIT_BUILD_REF]],
-          userRemoteConfigs: [[
-            url: env.GIT_REPO_URL,
-            credentialsId: env.CREDENTIALS_ID
-          ]],
-          extensions: [[$class:'CloneOption',depth:1,noTags:false,reference:'',shallow:true,timeout:30]],
-        ])
-        sh 'git submodule update --init --recursive'
-        sh 'hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo'
-        sh 'wget "https://memos.eallion.com/api/memo?creatorId=101&rowStatus=NORMAL&limit=10" -O ./public/memos.json'
-      }
-    }
-
-    stage('COS Deploy') {
-      steps {
-        useCustomStepPlugin(key: 'coding-public:cos_upload', version: 'latest', params: [region:'ap-shanghai',bucket:'eallion-com-1251347414',remote:'/',local:'public/',secret_id:'${COS_SECRET_ID}',secret_key:'${COS_SECRET_KEY}'])
-      }
-    }
-
-    stage('Refresh CDN') {
-      steps {
-        sh '/usr/bin/python3.9 -m pip install --upgrade pip'
-        sh 'sudo pip install tccli'
-        sh 'tccli --version'
-        sh 'tccli configure set secretId ${COS_SECRET_ID} secretKey ${COS_SECRET_KEY} region ${COS_BUCKET_REGION} output json'
-        sh 'tccli cdn PurgePathCache --cli-unfold-argument --Paths https://eallion.com/ --FlushType delete --UrlEncode False'
-      }
-    }
-
-    stage('Baidu Sitemap') {
-      steps {
-        sh 'cat ./public/sitemap.xml | grep \'<loc\' | grep -oE \'https://[^<]+\' > urls.txt'
-        sh 'curl -H \'Content-Type:text/plain\' --data-binary @urls.txt "http://data.zz.baidu.com/urls?site=https://eallion.com&token=xxxxxx"'
-      }
-    }
-
-  }
-}
-```
-
-</details>
+- https://github.com/eallion/eallion.com/blob/main/.github/workflows/main.yml
 
 ### 🎨 主题 [DoIt](https://github.com/HEIGE-PCloud/DoIt)
 
