@@ -60,7 +60,8 @@ jobs:
           jq '.count' tv1.json
         }
 
-        REMOTE_COUNT=$(($(MOVIE_COUNT) + $(TV_COUNT)))
+        #REMOTE_COUNT=$(($(MOVIE_COUNT) + $(TV_COUNT)))
+        REMOTE_COUNT=$(MOVIE_COUNT)
         echo "REMOTE_COUNT=$REMOTE_COUNT" >> $GITHUB_ENV
 
     # 对比本地的标记数和远程标记数，相等就跳过，不相等就下载新数据
