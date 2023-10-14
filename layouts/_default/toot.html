@@ -50,6 +50,7 @@
                 .then(response => response.json())
                 .then(data => {
                     const hitokoto = document.querySelector('#hitokoto');
+                        // hitokoto.innerText = data.hitokoto;
                         hitokoto.innerText = data.content;
                     const author = document.querySelector('#author');
                         author.innerText = '佚名';
