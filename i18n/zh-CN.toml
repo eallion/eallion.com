@@ -266,7 +266,7 @@ other = "共嘀咕了 <span id='memosCount'><i class='fas fa-spinner fa-pulse'><
 other = "加载更多"
 
 [movie_quote]
-other = "我的 <a href='https://neodb.social/users/eallion@mastodon.social/' target='_blank' rel='noreferrer noopener nofollow'>观影</a> 记录，数据来自 <a href='https://neodb.social/users/eallion@mastodon.social/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB</a> <span class='emoji'>🎬</span>"
+other = "我的 <a href='https://neodb.social/users/eallion@e5n.cc/' target='_blank' rel='noreferrer noopener nofollow'>观影</a> 记录，数据来自 <a href='https://neodb.social/users/eallion@e5n.cc/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB</a> <span class='emoji'>🎬</span>"
 
 [movie_time]
 other ="观影时间"
