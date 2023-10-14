@@ -268,7 +268,7 @@ other = "There are <span id='memosCount'><i class='fas fa-spinner fa-pulse'></i>
 other = "Load More"
 
 [movie_quote]
-other = "My <a href='https://neodb.social/users/eallion@mastodon.social/' target='_blank' rel='noreferrer noopener nofollow'>Watched Movie</a>, From: <a href='https://neodb.social/users/eallion@mastodon.social/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB</a> <span class='emoji'>🎬</span>"
+other = "My <a href='https://neodb.social/users/eallion@e5n.cc/' target='_blank' rel='noreferrer noopener nofollow'>Watched Movie</a>, From: <a href='https://neodb.social/users/eallion@e5n.cc/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB</a> <span class='emoji'>🎬</span>"
 
 [movie_time]
 other ="Watched Time"
