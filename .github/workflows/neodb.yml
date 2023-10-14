@@ -157,13 +157,27 @@ jobs:
       with:
           event-type: "Build Hugo and Deploy"
 
-    # 把海报上传到腾讯云
-    - name: Upload Cover to Tencent COS
+    # # 把海报上传到腾讯云
+    # - name: Upload Cover to Tencent COS
+    #   if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
+    #   uses: zkqiang/tencent-cos-action@v0.1.0
+    #   with:
+    #     args: upload -rs ./data/neodb/cover/ /images/neodb/
+    #     secret_id: ${{ secrets.SECRET_COS_ID }}
+    #     secret_key: ${{ secrets.SECRET_COS_KEY }}
+    #     bucket: ${{ secrets.COS_CDN_BUCKET }}
+    #     region: ap-shanghai
+
+    # 同步新海报到 s3
+    - name: Sync Cover to static s3
       if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
-      uses: zkqiang/tencent-cos-action@v0.1.0
-      with:
-        args: upload -rs ./data/neodb/cover/ /images/neodb/
-        secret_id: ${{ secrets.SECRET_COS_ID }}
-        secret_key: ${{ secrets.SECRET_COS_KEY }}
-        bucket: ${{ secrets.COS_CDN_BUCKET }}
-        region: ap-shanghai
+      run: |
+        git clone https://github.com/eallion/static tmp
+        cp -rn ${{ env.WORK_DIR }}/data/neodb/cover/* ${{ env.WORK_DIR }}/tmp/images/neodb/
+        cd ${{ env.WORK_DIR }}/tmp
+        git config user.name "eallion"
+        git config user.email "eallions@gmail.com"
+        git remote set-url --add --push origin https://eallion:${{ secrets.PICLIST_GITHUB_TOKEN }}@github.com/eallion/static.git
+        git add .
+        git commit -m "chore: sync cover"
+        git push
