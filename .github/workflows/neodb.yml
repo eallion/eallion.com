@@ -113,6 +113,7 @@ jobs:
         cp -f movie.json ${{ env.WORK_DIR }}/data/neodb/
 
     - name: Download NeoDB Cover
+      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
       run: |
         # 检查 movie 目录是否存在，如果不存在则创建
         if [ ! -d "movie" ]; then
