@@ -45,17 +45,14 @@
                 })
                 .catch(console.error);
         } else {
-            fetch("https://api.eallion.com/hitokoto?c=k&charset=utf-8&encode=json")
+            // fetch("https://api.eallion.com/hitokoto?c=k&charset=utf-8&encode=json")
+            fetch("https://api.eallion.com/poisonous.json")
                 .then(response => response.json())
                 .then(data => {
                     const hitokoto = document.querySelector('#hitokoto');
-                    hitokoto.innerText = data.hitokoto;
+                        hitokoto.innerText = data.content;
                     const author = document.querySelector('#author');
-                    if (!data.from_who) {
-                        author.innerText = data.from;
-                    } else {
-                        author.innerText = data.from_who;
-                    }
+                        author.innerText = '佚名';
                 })
                 .catch(console.error);
         }
