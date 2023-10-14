@@ -323,6 +323,7 @@
 
 .toot-footer {
     display: flex;
+    align-items: center;
     position: relative;
     margin: 1.5rem 0 0.5rem;
     z-index: 2;
@@ -341,10 +342,24 @@
     font-size: 0.9rem;
 }
 
+.toot-visibility {
+    color: var(--mt-header-color) !important;
+}
+.toot-visibility svg {
+    width: 0.875rem !important;
+    height: 0.875rem !important;
+}
+
+.toot-app a {
+    font-size: 0.875rem !important;
+    color: var(--mt-header-color) !important;
+}
 
 .mt-timeline .toot-reply,
 .mt-timeline .toot-favourite,
-.mt-timeline .toot-retoot {
+.mt-timeline .toot-retoot,
+.mt-timeline .toot-bookmarked,
+.mt-timeline .toot-more {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -356,7 +371,9 @@
 .mt-timeline .toot-date a,
 .mt-timeline .toot-reply a,
 .mt-timeline .toot-favourite a,
-.mt-timeline .toot-retoot a {
+.mt-timeline .toot-retoot a,
+.mt-timeline .toot-bookmarked a,
+.mt-timeline .toot-more a {
     color: var(--mt-header-color) !important;
     text-decoration: none;
     white-space: nowrap;
@@ -366,12 +383,18 @@
 .mt-timeline .toot-reply a:active,
 .mt-timeline .toot-favourite a:active,
 .mt-timeline .toot-retoot a:active,
+.mt-timeline .toot-bookmarked a:active,
+.mt-timeline .toot-more a:active,
 .mt-timeline .toot-reply a:focus,
 .mt-timeline .toot-favourite a:focus,
 .mt-timeline .toot-retoot a:focus,
+.mt-timeline .toot-bookmarked a:focus,
+.mt-timeline .toot-more a:focus,
 .mt-timeline .toot-reply a:hover,
 .mt-timeline .toot-favourite a:hover,
-.mt-timeline .toot-retoot a:hover {
+.mt-timeline .toot-retoot a:hover,
+.mt-timeline .toot-bookmarked a:hover,
+.mt-timeline .toot-more a:hover {
     background-color: var(--mt-meta-bg-color);
     color: var(--mt-meta-color);
 }
@@ -379,7 +402,7 @@
 .mt-meta {
     display: flex;
     align-items: center;
-    margin-left: 2rem;
+    margin-left: 1rem;
     gap: 2rem;
 }
 
@@ -394,8 +417,10 @@
     height: inherit;
 }
 @media screen and (max-width: 480px) {
+    .mt-meta {
+        display: none;
+    }
     .toot-footer {
-        justify-content: space-between;
         margin-right: 0;
     }
 }
