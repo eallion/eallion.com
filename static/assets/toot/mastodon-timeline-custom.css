@@ -20,8 +20,8 @@
     --mt-pre-bg-color: rgba(175, 184, 193, 0.2);
     --mt-avatar-border: rgba(255, 133, 62, 0.7);
     --mt-nick-color: #000;
-    --mt-meta-color: #51596f;
-    --mt-meta-bg-color: rgba(96,105,132,.15);
+    --mt-bar-color: #51596f;
+    --mt-bar-bg-color: rgba(96, 105, 132, 0.15);
 }
 
 :root [theme="dark"] {
@@ -334,8 +334,11 @@
     height: 1rem;
 }
 
-.toot-footer .mt-meta svg {
-    fill: var(--start-smile-svg-fill-color, var(--start-smile-svg-fill-color-default));
+.toot-footer .toot-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem;
 }
 
 .toot-date {
@@ -344,15 +347,41 @@
 
 .toot-visibility {
     color: var(--mt-header-color) !important;
+    display: flex;
+    align-items: center;
 }
+
 .toot-visibility svg {
     width: 0.875rem !important;
     height: 0.875rem !important;
 }
 
+.toot-visibility::before,
+.toot-app::before {
+    content: '·';
+    margin-right: 0.25rem;
+}
+
+.toot-app  {
+    display: flex;
+    align-items: center;
+}
+
 .toot-app a {
     font-size: 0.875rem !important;
     color: var(--mt-header-color) !important;
+}
+
+.toot-footer .mt-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    opacity: 0.85;
+}
+
+.toot-footer .mt-bar svg {
+    fill: var(--start-smile-svg-fill-color, var(--start-smile-svg-fill-color-default));
 }
 
 .mt-timeline .toot-reply,
@@ -395,17 +424,8 @@
 .mt-timeline .toot-retoot a:hover,
 .mt-timeline .toot-bookmarked a:hover,
 .mt-timeline .toot-more a:hover {
-    background-color: var(--mt-meta-bg-color);
-    color: var(--mt-meta-color);
-}
-
-.mt-meta {
-    display: flex;
-    align-items: center;
-    margin-left: 2rem;
-    justify-content: space-between;
-    flex: 1;
-    opacity: 0.85;
+    background-color: var(--mt-bar-bg-color);
+    color: var(--mt-bar-color);
 }
 
 .emaction {
@@ -418,8 +438,9 @@
     display: flex;
     height: inherit;
 }
+
 @media screen and (max-width: 480px) {
-    .mt-meta {
+    .toot-app {
         display: none;
     }
     .toot-footer {

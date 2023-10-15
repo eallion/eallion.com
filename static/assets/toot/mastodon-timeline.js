@@ -32,7 +32,7 @@ window.addEventListener("load", () => {
         hashtag_name: "",
 
         // Maximum amount of toots to get. Default: 20
-        toots_limit: "30",
+        toots_limit: "40",
 
         // Hide unlisted toots. Default: don't hide
         hide_unlisted: true,
@@ -642,12 +642,12 @@ MastodonApi.prototype.assambleToot = function (c, i) {
         media +
         poll +
         '<div class="toot-footer">' +
+        '<div class="mt-bar">' +
+        '<div class="toot-meta">' +
         timestamp +
-        ' · ' +
         visibility +
-        ' · ' +
         appFrom +
-        '<div class="mt-meta">' +
+        '</div>' +
         reply +
         retoot +
         favourite +

@@ -62,15 +62,15 @@ moment.updateLocale('zh-cn', {
             } else if (diff < day) {
                 unit = 'hours';
             } else if (format === 'long') {
-                if (diff < week) {
+                if (diff < day * 3)  {
                     unit = 'days';
                 } else if (this.year() == year) {
-                    return this.format('MMM DD, HH:mm');
+                    return this.format('MMM DD, YYYY');
                 } else {
-                    return this.format('MMM DD, YYYY. HH:mm');
+                    return this.format('MMM DD, YYYY');
                 }
             } else {
-                return this.format('MMMM DD, YYYY. HH:mm');
+                return this.format('MMMM DD, YYYY');
             }
             if (!(num && unit)) {
                 num = moment.duration(diff)[unit]();
