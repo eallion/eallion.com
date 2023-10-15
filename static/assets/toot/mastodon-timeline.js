@@ -768,7 +768,8 @@ MastodonApi.prototype.placeMedias = function (m, s) {
         '">' +
         (spoiler ? '<button class="spoiler-link">Show content</button>' : "") +
         '<img src="' +
-        m.preview_url +
+        // m.preview_url +
+        m.url +
         '" alt="' +
         (m.description ? m.description : "") +
         '" loading="lazy" />' +
