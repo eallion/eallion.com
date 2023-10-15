@@ -402,8 +402,10 @@
 .mt-meta {
     display: flex;
     align-items: center;
-    margin-left: 1rem;
-    gap: 2rem;
+    margin-left: 2rem;
+    justify-content: space-between;
+    flex: 1;
+    opacity: 0.85;
 }
 
 .emaction {
