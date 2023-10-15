@@ -32,7 +32,7 @@ window.addEventListener("load", () => {
         hashtag_name: "",
 
         // Maximum amount of toots to get. Default: 20
-        toots_limit: "40",
+        toots_limit: "20",
 
         // Hide unlisted toots. Default: don't hide
         hide_unlisted: true,
@@ -398,7 +398,7 @@ MastodonApi.prototype.assambleToot = function (c, i) {
         // Toot url
         url = c.url;
 
-        appName = c.application.name;
+        appName = c.application.name || 'Web';
         appWebsite = c.application.website || 'https://e5n.cc/@eallion';
 
         replies_count = c.replies_count;
