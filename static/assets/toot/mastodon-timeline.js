@@ -449,14 +449,12 @@ MastodonApi.prototype.assambleToot = function (c, i) {
     }
 
     if (c.spoiler_text !== "") {
-        let originalContent = imgReg(this.formatTootText(c.content));
         content =
             '<div class="toot-text">' +
             c.spoiler_text +
             ' <button type="button" class="spoiler-link" aria-expanded="false">Show more</button>' +
             '<div class="spoiler-text-hidden">' +
-            // this.formatTootText(c.content) +
-            originalContent +
+            this.formatTootText(c.content) +
             "</div>" +
             "</div>";
     } else if (
@@ -464,14 +462,12 @@ MastodonApi.prototype.assambleToot = function (c, i) {
         c.reblog.content !== "" &&
         c.reblog.spoiler_text !== ""
     ) {
-        let originalContent = imgReg(this.formatTootText(c.reblog.content));
         content =
             '<div class="toot-text">' +
             c.reblog.spoiler_text +
             ' <button type="button" class="spoiler-link" aria-expanded="false">Show more</button>' +
             '<div class="spoiler-text-hidden">' +
-            // this.formatTootText(c.reblog.content) +
-            originalContent +
+            this.formatTootText(c.reblog.content) +
             "</div>" +
             "</div>";
     } else if (
@@ -479,25 +475,21 @@ MastodonApi.prototype.assambleToot = function (c, i) {
         c.reblog.content !== "" &&
         c.reblog.spoiler_text === ""
     ) {
-        let originalContent = imgReg(this.formatTootText(c.content));
         content =
             '<div class="toot-text' +
             text_css +
             '">' +
             "<div>" +
-            // this.formatTootText(c.content) +
-            originalContent +
+            this.formatTootText(c.content) +
             "</div>" +
             "</div>";
     } else {
-        let originalContent = imgReg(this.formatTootText(c.content));
         content =
             '<div class="toot-text' +
             text_css +
             '">' +
             "<div>" +
-            // this.formatTootText(c.content) +
-            originalContent +
+            this.formatTootText(c.content) +
             "</div>" +
             "</div>";
     }
@@ -763,7 +755,8 @@ MastodonApi.prototype.placeMedias = function (m, s) {
     const pic =
         '<div class="toot-media ' +
         (spoiler ? "toot-media-spoiler" : "") +
-        " img-ratio14_7 " +
+        // " img-ratio14_7 " +
+        " img-ratio-16_9 " +
         this.SPINNER_CLASS +
         '">' +
         (spoiler ? '<button class="spoiler-link">Show content</button>' : "") +

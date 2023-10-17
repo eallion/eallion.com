@@ -358,11 +358,11 @@
 
 .toot-visibility::before,
 .toot-app::before {
-    content: '·';
+    content: "·";
     margin-right: 0.25rem;
 }
 
-.toot-app  {
+.toot-app {
     display: flex;
     align-items: center;
 }
@@ -437,6 +437,22 @@
 .reactions {
     display: flex;
     height: inherit;
+}
+
+.img-ratio16_9 {
+    position: relative;
+    padding-top: 56.25%;
+    width: 100%;
+}
+
+.img-ratio16_9 > img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 @media screen and (max-width: 480px) {
