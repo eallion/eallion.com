@@ -495,17 +495,16 @@ MastodonApi.prototype.assambleToot = function (c, i) {
     }
 
     // Media attachments
-    let media = "";
+    let media = [];
     if (c.media_attachments.length > 0) {
         for (let picid in c.media_attachments) {
-            media = this.placeMedias(c.media_attachments[picid], c.sensitive);
+            media.push(this.placeMedias(c.media_attachments[picid], c.sensitive));
         }
     }
     if (c.reblog && c.reblog.media_attachments.length > 0) {
         for (let picid in c.reblog.media_attachments) {
-            media = this.placeMedias(
-                c.reblog.media_attachments[picid],
-                c.reblog.sensitive
+            media.push(
+                this.placeMedias(c.reblog.media_attachments[picid], c.reblog.sensitive)
             );
         }
     }
@@ -631,7 +630,7 @@ MastodonApi.prototype.assambleToot = function (c, i) {
         user +
         '</div>' +
         content +
-        media +
+        media.join("") +
         poll +
         '<div class="toot-footer">' +
         '<div class="mt-bar">' +
