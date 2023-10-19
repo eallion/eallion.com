@@ -23,7 +23,7 @@
 
 <div align="center">
 
-✨DEMO: <https://eallion.com> ✨
+✨DEMO：<https://eallion.com> ✨
 
 </div>
 
@@ -70,7 +70,7 @@ origin  https://gitlab.com/eallion/eallion.com.git (push)
 
 ### 🎨 主题 [DoIt](https://github.com/HEIGE-PCloud/DoIt)
 
-> Update: 2022.12.12
+> Update：2022.12.12
 
 本博客使用主题为：[DoIt](https://github.com/HEIGE-PCloud/DoIt)
 
@@ -141,18 +141,18 @@ https://github.com/eallion/eallion.com/tree/main/data/douban
 2. **编辑文章**
 
 通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 New 出来的文章。
-这篇文章在`content/posts/daily`目录下，文件名为：`new_title.md`。
+这篇文章在 `content/posts/daily` 目录下，文件名为：`new_title.md`。
 
-3. **修改 Front matter**:
+3. **修改 Front matter**：
 
-- `title` （必填）自动生成，按需修改
-- `authors`: 目录保持默认：`["eallion"]`，其他支持：`["shanzei  "]`
-- `categories`（必填）按需修改
-- `tags`（必填）按需修改（约定：本博客单篇文章标签数上限为 4）
-- `slug`（必填）按需修改，文章网址 URL
-- `draft: true`（必填）如果需要公开发表，需改为：`draft: false`
+- `title` (必填) 自动生成，按需修改
+- `authors`：目录保持默认：`["eallion"]`，其他支持：`["shanzei"]`
+- `categories` (必填) 按需修改
+- `tags` (必填) 按需修改 (约定：本博客单篇文章标签数上限为 4)
+- `slug` (必填) 按需修改，文章网址 URL
+- `draft: true` (必填) 如果需要公开发表，需改为：`draft: false`
 
-4. **Push**:
+4. **Push**：
 
 ```
 git add .
@@ -160,7 +160,7 @@ git commit -m "docs: add a new post"
 git push
 ```
 
-5. **本地调试**（~~Web Server~~）
+5. **本地调试** (~~Web Server~~)
 
 已添加脚本：
 
@@ -180,20 +180,20 @@ hugo server -w -D -p 1313 -t hello-friend --bind 0.0.0.0  --contentDir example -
 > 运行脚本后会自动打开预览页面：<http://127.0.0.1:1313>
 
 - `hugo server` 把 Hugo 当作 Web 服务器，而非构建静态网页
-- `-w` 有文件变化立即刷新（默认开启）
+- `-w` 有文件变化立即刷新 (默认开启)
 - `-D` 构建草稿，撰写新文章时很有用
-- `-p 1313` 指定端口号 1313（默认 1313）
+- `-p 1313` 指定端口号 1313 (默认 1313)
 - `-t hello-friend` 使用 hello-friend 主题
 - `-enableGitInfo` 开启 GitIifo
-- `--bind 0.0.0.0` 绑定 IP ，局域网其他设备 Debug 时很有用
-- `--contentDir example` 指定文章目录`example`，默认为 `content`
+- `--bind 0.0.0.0` 绑定 IP，局域网其他设备 Debug 时很有用
+- `--contentDir example` 指定文章目录 `example`，默认为 `content`
 - `--cleanDestinationDir` 清空目标目录
 - `--forceSyncStatic` 强制同步静态文件
 - `--ignoreCache` 忽略缓存
 - `--noHTTPCache` 关闭 HTTP 缓存
 - `--renderStaticToDisk` Hugo 0.97.0 新特性，从硬盘渲染静态文件，从内存渲染动态文件
-- `--disableFastRender` DoIt 主题使用了`.Scratch`，建议开启此参数
-- `-e production` DoIt 的`评论系统`、`CDN` 和 `fingerprint` 不会在 development 环境下启用
+- `--disableFastRender` DoIt 主题使用了 `.Scratch`，建议开启此参数
+- `-e production` DoIt 的 `评论系统`、`CDN` 和 `fingerprint` 不会在 development 环境下启用
 - `hugo server --help` 查看 server 所有命令
 
 6. **本地构建**
@@ -209,7 +209,7 @@ hugo server -w -D -p 1313 -t hello-friend --bind 0.0.0.0  --contentDir example -
 
 - `--cleanDestinationDir` 构建前先清理目标目录，即 public
 - `--forceSyncStatic` 强制同步 static 目录
-- `--gc` 构建后执行一些清理任务（删除掉一些没用的缓存文件）
+- `--gc` 构建后执行一些清理任务 (删除掉一些没用的缓存文件)
 - `--ignoreCache` 构建时忽略缓存
 - `--minify` 压缩网页代码
 - `--enableGitInfo` 开启 GitIifo
@@ -217,7 +217,7 @@ hugo server -w -D -p 1313 -t hello-friend --bind 0.0.0.0  --contentDir example -
 
 ### 🚨 刷新 jsDelivr 缓存
 
-将资源文件链接中的`cdn.jsdelivr.net`改为 `purge.jsdelivr.net`，在浏览器中请求即可刷新 CDN。
+将资源文件链接中的 `cdn.jsdelivr.net` 改为 `purge.jsdelivr.net`，在浏览器中请求即可刷新 CDN。
 
 ```diff
 - https://cdn.jsdelivr.net/gh/eallion/eallion.github.io/style.css
@@ -236,27 +236,27 @@ git gc --prune=now --aggressive
 
 > [DoIt](https://github.com/HEIGE-PCloud/DoIt) 主题功能
 
-有三种方法来引用**图片**和**音乐**等本地资源:
+有三种方法来引用**图片**和**音乐**等本地资源：
 
 1. 使用[页面包](https://gohugo.io/content-management/page-bundles/)中的[页面资源](https://gohugo.io/content-management/page-resources/)。
-    你可以使用适用于 `Resources.GetMatch` 的值或者直接使用相对于当前页面目录的文件路径来引用页面资源.
+    你可以使用适用于 `Resources.GetMatch` 的值或者直接使用相对于当前页面目录的文件路径来引用页面资源。
 2. 将本地资源放在 **assets** 目录中，默认路径是 `/assets`。
-   引用资源的文件路径是相对于`assets`目录的。
+   引用资源的文件路径是相对于 `assets` 目录的。
 3. 将本地资源放在 **static** 目录中，默认路径是 `/static`。
-   引用资源的文件路径是相对于`static`目录的。
+   引用资源的文件路径是相对于 `static` 目录的。
 
-引用的**优先级**符合以上的顺序.
+引用的**优先级**符合以上的顺序。
 
 在这个主题中的很多地方可以使用上面的本地资源引用，
-例如 **链接**、 **图片**、`image` & `music` shortcode 和**前置参数**中的部分参数。
+例如**链接**、**图片**、`image` & `music` shortcode 和**前置参数**中的部分参数。
 
-页面资源或者 **assets** 目录中的[图片处理](https://gohugo.io/content-management/image-processing/)会在未来的版本中得到支持.
-非常酷的功能! :(far fa-grin-squint fa-fw):
+页面资源或者 **assets** 目录中的[图片处理](https://gohugo.io/content-management/image-processing/)会在未来的版本中得到支持。
+非常酷的功能！ ：(far fa-grin-squint fa-fw)：
 {{< /admonition >}}
 
 ### 🖼️ 图片
 
-因为 jsDelivr 2020.08.15 的『[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)』，现在没有用 GitHub + jsDelivr 当图床了。
+因为 jsDelivr 2020.08.15 的 ‘[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)’，现在没有用 GitHub + jsDelivr 当图床了。
 
 - **方法一**
 
@@ -267,9 +267,9 @@ git gc --prune=now --aggressive
 - **方法二**
 
 原方法。
-直接把图片丢到 Hugo 仓库的`static/images/`目录下即可。
+直接把图片丢到 Hugo 仓库的 `static/images/` 目录下即可。
 图片存放目录：
-> Hugo 目录的`static/images/`目录下（可按年月分类）。
+> Hugo 目录的 `static/images/` 目录下 (可按年月分类)。
 
 文章中引用的图片 URL：
 > `https://eallion.com/images/1970/01/01.jpg`
@@ -288,9 +288,9 @@ git gc --prune=now --aggressive
 
 ### 📄 LICENSE
 
-This project is licensed under [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN).
-Hugo is licensed under [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE).
-Theme DoIt is licensed under [MIT](https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE).
+This project is licensed under [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN)。
+Hugo is licensed under [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE)。
+Theme DoIt is licensed under [MIT](https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE)。
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_large)
 
