@@ -68,6 +68,10 @@ comment: true
 
 > 另：本博客从 Typecho 转到 Hugo 时，脚本把 Typecho 中的几十篇草稿也转换了出来。所以本博客现在保留了一部分超简文章，虽然只有几个字，但是每当看到内容时，十多二十年前的旧时光就会从脑海徐徐漂过，当时的情景、当时的感受历历在目，仿佛从未远去。
 
+### 说明
+
+本博客嘀咕页面依赖 Mastodon 实例 https://e5n.cc ，评论系统依赖自建的 Artalk API: https://api.eallion.com/artalk ，统计依赖自建的 Umami: https://a.eallion.com
+
 ### 版权信息
 
 * [https://eallion.com/copyright/](https://eallion.com/copyright/)

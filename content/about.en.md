@@ -30,6 +30,10 @@ Motto:
 
 > [Chance favors the prepared mind.](https://en.wikipedia.org/wiki/Louis_Pasteur#Career) - _Louis Pasteur_
 
+### Description
+
+This blog's Toot page relies on the Mastodon instance at https://e5n.cc. The comment system relies on a self-hosted Artalk API at https://api.eallion.com/artalk, and the analytics rely on a self-hosted Umami at https://a.eallion.com.
+
 ### Copyright
 
 * [https://eallion.com/en/copyright/](https://eallion.com/en/copyright/)
