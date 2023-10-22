@@ -1,7 +1,7 @@
 {
   "good": [
     {
-      "image": "https://images.eallion.com/images/goods/zowie_ec2_a.png",
+      "image": "/assets/images/goods/zowie_ec2_a.png",
       "price": "RMB ¥379",
       "title": "Zowie EC2-A 鼠标",
       "title_en": "Zowie EC2-A Mouse",
@@ -11,7 +11,7 @@
       "report": "https://eallion.com/"
     },
     {
-      "image": "https://images.eallion.com/images/goods/changwang_j4125.png",
+      "image": "/assets/images/goods/changwang_j4125.png",
       "price": "RMB ¥599",
       "title": "畅网 J4125",
       "title_en": "ChangWang J4125",
@@ -21,7 +21,7 @@
       "report": ""
     },
     {
-      "image": "https://images.eallion.com/images/goods/yiqi_t21_keyboard_mini.png",
+      "image": "/assets/images/goods/yiqi_t21_keyboard_mini.png",
       "price": "RMB ¥75.69",
       "title": "逸祺 T21 机械数字键盘",
       "title_en": "YiQi T21 Keyboard",
@@ -31,7 +31,7 @@
       "report": ""
     },
     {
-      "image": "https://images.eallion.com/images/goods/Neutrogena_TSal_Therapeutic_Shampoo.png",
+      "image": "/assets/images/goods/Neutrogena_TSal_Therapeutic_Shampoo.png",
       "price": "USD $7.32",
       "title": "Neutrogena 水杨酸洗发水",
       "title_en": "T/Sal Shampoo",
@@ -41,7 +41,7 @@
       "report": ""
     },
     {
-      "image": "https://images.eallion.com/images/goods/laiang_coffee_cup.png",
+      "image": "/assets/images/goods/laiang_coffee_cup.png",
       "price": "RMB ¥59.9",
       "title": "LAIANG 随行杯",
       "title_en": "LAIANG Coffee Cup",
