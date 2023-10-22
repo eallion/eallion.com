@@ -265,7 +265,7 @@ git gc --prune=now --aggressive
 
 手动添加图床。
 现在写博客添加图片，需要手动添加图片地址。
-一般本博客优先使用腾讯云 COS，图床链接为：`https://images.eallion.com/`
+一般本博客会使用腾讯云 COS，图床链接为：`https://images.eallion.com/`
 
 - **方法二**
 

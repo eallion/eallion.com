@@ -71,8 +71,8 @@ comment: false
 
 本站使用 [Hugo](https://gohugo.io/) 构建：
 
-* 国内：通过 [Coding](https://coding.net/) 部署至腾讯云 [COS](https://cloud.tencent.com/product/cos) + [CDN](https://cloud.tencent.com/product/cdn) (2020.12.27)
-* 境外：通过 GitHub Actions 部署至 [GitHub Pages](https://github.com/eallion/eallion.github.io/) (2021.06.13)
+* 国内：通过 GitHub Actions 部署至 [阿里云](https://www.aliyun.com/product/oss) (2023.07.26)
+* 境外：同上
 
 相关代码和服务继承原项目的 License：
 
