@@ -129,7 +129,7 @@ jobs:
         # 遍历图片 URL 并下载图片
         for url in $image_urls; do
           filename=$(basename "$url")
-          filepath="data/neodb/cover/$filename"
+          filepath="static/assets/images/movie/cover/$filename"
           # 检查文件是否已存在
           if [ -f "$filepath" ]; then
             echo "Skipping $filename - File already exists"
@@ -147,7 +147,9 @@ jobs:
       uses: EndBug/add-and-commit@v9
       with:
         message: 'chore(data): update neodb data'
-        add: './data/neodb'
+        add: |
+          './data/neodb'
+          './static/assets/images/movie/cover'
 
 
     # 调用另外的 GitHub Actions 构建 Hugo
@@ -173,7 +175,7 @@ jobs:
       if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
       run: |
         git clone https://github.com/eallion/static tmp
-        cp -rn ${{ env.WORK_DIR }}/data/neodb/cover/* ${{ env.WORK_DIR }}/tmp/images/neodb/
+        cp -rn ${{ env.WORK_DIR }}/static/assets/images/movie/cover/* ${{ env.WORK_DIR }}/tmp/images/neodb/
         cd ${{ env.WORK_DIR }}/tmp
         git config user.name "eallion"
         git config user.email "eallions@gmail.com"

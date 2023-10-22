@@ -201,7 +201,7 @@
                         <div class="cover__container">
                             {{ range .item.external_resources }}
                                 {{ if (in .url "douban") }}
-                                    <a href="{{ .url }}" target="_blank" rel="noreferrer noopener nofollow"><img alt="{{ $title }}" class="lazy" loading="lazy" data-src="https://images.eallion.com/images/neodb/{{ $cover_name }}" no-view></a>
+                                    <a href="{{ .url }}" target="_blank" rel="noreferrer noopener nofollow"><img alt="{{ $title }}" class="lazy" loading="lazy" data-src="/assets/images/movie/cover/{{ $cover_name }}" no-view></a>
                                 {{ end }}
                             {{ end }}
                         </div>
