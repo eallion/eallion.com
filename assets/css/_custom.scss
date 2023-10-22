@@ -482,12 +482,12 @@ footer {
                 height: 42px;
 
                 &.written {
-                    background-image: url(https://images.eallion.com/Not-By-AI/US/Written-By-Human/PNG/Written-By-Human-Not-By-AI-Badge-white.png);
+                    background-image: url(/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-white.png);
                     margin-right: 0.5rem;
                 }
 
                 &.produced {
-                    background-image: url(https://images.eallion.com/Not-By-AI/US/Produced-By-Human/PNG/Produced-By-Human-Not-By-AI-Badge-white.png);
+                    background-image: url(/assets/images/Not-By-AI/Produced-By-Human-Not-By-AI-Badge-white.png);
                     margin-left: 0.5rem;
                 }
             }
@@ -500,12 +500,12 @@ footer {
     footer {
         .footer-container {
             .notbyai.written {
-                background-image: url(https://images.eallion.com/Not-By-AI/US/Written-By-Human/PNG/Written-By-Human-Not-By-AI-Badge-black.png);
+                background-image: url(/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-black.png);
                 opacity: 0.7;
             }
 
             .notbyai.produced {
-                background-image: url(https://images.eallion.com/Not-By-AI/US/Produced-By-Human/PNG/Produced-By-Human-Not-By-AI-Badge-black.png);
+                background-image: url(/assets/images/Not-By-AI/Produced-By-Human-Not-By-AI-Badge-black.png);
                 opacity: 0.7;
             }
         }
