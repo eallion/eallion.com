@@ -11,7 +11,7 @@ aliases:
 
 <div class="greyQuote">
     <blockquote>
-        友情链接。🔗申请友链没有什么要求。
+        友情链接。🔗申请友链没有什么要求，请发邮件或提交 PR。
     </blockquote>
 </div>
 

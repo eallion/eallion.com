@@ -11,7 +11,7 @@ aliases:
 
 <div class="greyQuote">
     <blockquote>
-        My Friends Links. 🔗
+        My Friends Links. 🔗My Friends Links. 🔗Please send an email or submit a PR on GitHub.
     </blockquote>
 </div>
 
