@@ -50,11 +50,11 @@ sqlite> .quit
 
 导出的模板文件为`memos.csv`，用类似 Notepad++ 这类软件打开导入的 CSV 文件，把编码修改为`UTF-8-BOM`编码，不然重新导入到 Memos 后，中文会有乱码。
 
-![](https://images.eallion.com/picgo/202211171157738.png)
+![](/assets/images/posts/2022/11/memos_sqlite_utf8.png)
 
 按照它的格式转换以前的数据：
 
-![](https://images.eallion.com/images/2022/11/csv.png)
+![](/assets/images/posts/2022/11/csv.png)
 
 保存后用命令导入到`memos_prod.db`这个 SQLite 数据库。
 先打开数据库：
@@ -87,18 +87,18 @@ Navicat 虽然收费，但是有 14 天的试用期，14 天足够用了？吧�
 
 打开 Navicat 后，连接 `memos_prod.db`
 
-![](https://images.eallion.com/images/2022/11/link_sqlite.png)
+![](/assets/images/posts/2022/11/link_sqlite.png)
 
 依次点开`“memos”`-`main`-`表`-`memo`，在`memo`表上点击右键，选择`导出向导`，
 选择一种熟悉的文件格式：
 
-![](https://images.eallion.com/images/2022/11/format.png)
+![](/assets/images/posts/2022/11/format.png)
 
 一路默认`下一步`到底，点`开始`导出就行了。
 
 打开导出的文件，按照格式添加以前的数据。
 
-![](https://images.eallion.com/images/2022/11/csv.png)
+![](/assets/images/posts/2022/11/csv.png)
 
 然后在打开的数据库左侧点击右键导入就行了。
 

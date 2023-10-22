@@ -42,11 +42,11 @@ lastmod: "2017-05-22 11:28:00"
 
  2. 到主店的图片空间，给其他的店铺授权使用图片，一个店可以授权 10 个店铺；
 
-![](https://images.eallion.com/images/2017/05/22/1548006662.png)
+![](/assets/images/posts/2017/05/22/1548006662.png)
 
  3. 登录淘宝助理，同步宝贝，点击需要铺货的宝贝，勾选，导出 CSV；
 
-![](https://images.eallion.com/images/2017/05/22/647221550.png)
+![](/assets/images/posts/2017/05/22/647221550.png)
 
  4. 登录需要铺货的淘宝助理，导入 CSV，勾选，上传宝贝。
 

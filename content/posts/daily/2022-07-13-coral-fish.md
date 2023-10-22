@@ -27,4 +27,4 @@ lastmod: 2022-07-13T19:14:26+08:00
 
 第一次改刀，没经验，切得有点粗了，像松鼠鱼。  
 
-![](https://images.eallion.com/images/2022/07/coral_fish.jpg)
+![](/assets/images/posts/2022/07/coral_fish.jpg)

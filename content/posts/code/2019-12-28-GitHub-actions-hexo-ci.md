@@ -128,4 +128,4 @@ jobs:
 
 ### 部署截图
 
-![](https://images.eallion.com/images/2019/12/20191228232334.png)
+![](/assets/images/posts/2019/12/20191228232334.png)

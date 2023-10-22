@@ -16,7 +16,7 @@ lastmod: "2019-05-19 00:45:00"
 
 Firefox Developer Edition（开发者版）默认支持在新标签页打开书签栏。
 
-![](https://images.eallion.com/images/2020/12/firefox-dev.png)
+![](/assets/images/posts/2020/12/firefox-dev.png)
 
 ---
 
@@ -36,7 +36,7 @@ Firefox Developer Edition（开发者版）默认支持在新标签页打开书�
 
 在 Firefox 地址栏输入 `about:config`，搜索 `browser.toolbars.bookmarks.visibility`，修改为 `newtab` 即可。
 
-![](https://images.eallion.com/images/2020/12/firefox-newtab.png)
+![](/assets/images/posts/2020/12/firefox-newtab.png)
 
 ---
 

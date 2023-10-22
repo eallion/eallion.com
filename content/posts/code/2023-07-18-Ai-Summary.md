@@ -24,7 +24,7 @@ date: 2023-07-18T11:45:26+08:00
 通过多方对比后，我选择了「[ChatGPT 总结助手 - Chrome 应用商店](https://chrome.google.com/webstore/detail/chatgpt-summary-assistant/nnjcoododbeemlmmhbfmmkbneniepaog)」作为我浏览网页时的首选插件。
 它的使用效果如图：
 
-![](https://images.eallion.com/images/2023/07/chatgpt_summary.gif)
+![](/assets/images/posts/2023/07/chatgpt_summary.gif)
 
 ### 必须要 AI 摘要吗
 
@@ -56,11 +56,11 @@ date: 2023-07-18T11:45:26+08:00
 
 1. 在 `data` 目录下用 `.json` 文件保存数据
 
-![](https://images.eallion.com/images/2023/07/data_summary_json.png)
+![](/assets/images/posts/2023/07/data_summary_json.png)
 
 2. 把摘要结果放在文章 `.md` 文件的 Front Matter 里
 
-![](https://images.eallion.com/images/2023/07/summary_frontmatter.png)
+![](/assets/images/posts/2023/07/summary_frontmatter.png)
 
 ##### 2. 数据格式
 
@@ -73,7 +73,7 @@ date: 2023-07-18T11:45:26+08:00
 我现在用了好几个脚本来获取摘要，没有一个完美的脚本能胜任这一工作，所以就不贴脚本了。
 TianliGPT 的摘要，可以在网页上按 F12 打开 DevTools 找到：
 
-![](https://images.eallion.com/images/2023/07/tianligpt_response.png)
+![](/assets/images/posts/2023/07/tianligpt_response.png)
 
 把多种方式获取到的 AI 摘要集中起来后，生成一个 `summary.json` 文件。
 在 `data` 目录新建 <i class="fab fa-github fa-fw"></i>[data/summary/summary.json](https://github.com/eallion/eallion.com/blob/240215451d1aa3133c929428e6efb238c0baa908/data/summary/summary.json) 文件， 所有数据复制到其中，数据格式：

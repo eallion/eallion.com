@@ -22,7 +22,7 @@ comment: false
     .catch(console.error);
 </script>
 
-<img no-view src="https://images.eallion.com/eallion.jpg" alt="eallion">
+<img no-view src="/eallion.webp" alt="eallion">
 
 My name is Charles Chin (AKA: 大大的小蜗牛).
 

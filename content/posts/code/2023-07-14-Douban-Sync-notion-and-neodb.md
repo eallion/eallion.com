@@ -64,9 +64,9 @@ NeoDB 是 FOSS 应用，它做不下去了，我就去给她捐钱，就去给�
 1. 原仓库中上传的标记可见度为 `仅自己`。
     需要修改 [sync-rss.js](https://github.com/eallion/douban-backup/blob/66e144c634a5aeed82c0aca28059880d616ced8e/sync-rss.js#L196) 中的 `visibility: 2,` 为 `0`。`0` 表示 `公开`；`1` 表示 `仅关注者`；`2` 表示 `仅自己`
 
-![](https://images.eallion.com/images/2023/07/douban_backup_neodb_visibility.png)
+![](/assets/images/posts/2023/07/douban_backup_neodb_visibility.png)
 
 2. Notion 的 Integration 已经升级了。
    原博客中提到的方法也不太准确了，邀请 Integration 机器人到自己的 Database 的时候，不是在 `Share` 里了，而是搬到了右上角 `•••` 中的 `Connections` 里了。
 
-![](https://images.eallion.com/images/2023/07/notion_integration.png)
+![](/assets/images/posts/2023/07/notion_integration.png)

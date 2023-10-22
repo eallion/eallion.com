@@ -59,8 +59,8 @@ sudo ntpdate ntp.aliyun.com
 
 ### 阿里云 ECS 内网测试成功
 
-![](https://images.eallion.com/images/2017/05/29/1589433496.png)
+![](/assets/images/posts/2017/05/29/1589433496.png)
 
 ### Windows 测试成功
 
-![](https://images.eallion.com/images/2017/05/29/1972259171.png)
+![](/assets/images/posts/2017/05/29/1972259171.png)

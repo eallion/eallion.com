@@ -144,4 +144,4 @@ lastmod: 2022-05-20T21:12:09+08:00
 
 但它，本不该这样。  
 
-![](https://images.eallion.com/images/2022/05/wangzuozhongyou.png)
+![](/assets/images/posts/2022/05/wangzuozhongyou.png)

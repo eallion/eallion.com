@@ -24,7 +24,7 @@ date: 2023-07-29T14:35:49+08:00
 - 境外用 Cloudflare 的 CDN
 - 境外用 Cloudflare R2 或 Backblaze B2 作为存储桶
 
-![](https://images.eallion.com/images/2023/07/cdn_dns.png)
+![](/assets/images/posts/2023/07/cdn_dns.png)
 
 ### 前言
 
@@ -59,11 +59,11 @@ Cloudflare 的 DNS 确实非常优秀，但 Cloudflare 不能分区解析，它�
 2. 创建 R2 存储桶的方法这里略过，如创建：`r2-blog-test`；
 3. 在 `R2` `设置` `公开访问` `自定义域` `连接域` 为刚才创建的 R2 添加自定义域名：
 
-![](https://images.eallion.com/images/2023/07/r2_custom_hostname.png)
+![](/assets/images/posts/2023/07/r2_custom_hostname.png)
 
 然后该域名的 DNS 就会自动出现一条解析：
 
-![](https://images.eallion.com/images/2023/07/custom_hostname_dns.png)
+![](/assets/images/posts/2023/07/custom_hostname_dns.png)
 
 ### 订阅 CloudFlare for SaaS
 
@@ -71,29 +71,29 @@ Cloudflare 的 DNS 确实非常优秀，但 Cloudflare 不能分区解析，它�
 2. 在该域名的 `SSL/TLS` 中选择 `自定义主机名`；
 3. 选择 Enable 订阅。可以使用 Paypal 订阅。
 
-![](https://images.eallion.com/images/2023/07/enable_cloudflare_saas.png)
+![](/assets/images/posts/2023/07/enable_cloudflare_saas.png)
 
 ### 添加自定义域名
 
 订阅成功后，先添加 `回退源`：`images.example.com`，这个回源域名是绑定在 R2 上的自定义域名。
 
-![](https://images.eallion.com/images/2023/07/cf_callback_hostname.png)
+![](/assets/images/posts/2023/07/cf_callback_hostname.png)
 
 然后点击 `添加自定义主机名` ，填入 CDN 域名，如 `images.eallion.com` ，验证方式推荐 TXT 验证。
 
-![](https://images.eallion.com/images/2023/07/add_custom_hostname.png)
+![](/assets/images/posts/2023/07/add_custom_hostname.png)
 
 添加后，需要验证域名，去自己的域名解析控制台，如 DNSPod ，添加 2 条 TXT 记录。
 等待 `证书状态` 和 `主机名状态` 都变成 `有效`。
 
-![](https://images.eallion.com/images/2023/07/cf_dns_txt_records.png)
+![](/assets/images/posts/2023/07/cf_dns_txt_records.png)
 
 ### 解析 CNAME
 
 `回退源状态` `证书状态` 和 `主机名状态` 都变成 `有效` 后，就去自己的域名解析控制台添加 CNAME 解析。
 把用于生产环境的 `images.eallion.com` CNAME 指向 `images.example.com`。
 
-![](https://images.eallion.com/images/2023/07/dns_cname_records.png)
+![](/assets/images/posts/2023/07/dns_cname_records.png)
 
 一般的教程到这里就结束了。
 但是这样是访问不了 R2 里面的资源的。
@@ -146,7 +146,7 @@ export {
 - `变量名称`：`MY_BUCKET`
 - `R2 存储桶`：选择对应的桶
 
-![](https://images.eallion.com/images/2023/07/r2_binding.png)
+![](/assets/images/posts/2023/07/r2_binding.png)
 
 ### Workers 路由
 
@@ -156,7 +156,7 @@ export {
 - `Worker`：选择上一步创建的 Worker；
 - `环境`：Production。
 
-![](https://images.eallion.com/images/2023/07/r2_worker_router.png)
+![](/assets/images/posts/2023/07/r2_worker_router.png)
 
 至此，你应该就能以 CNAME 的方式访问 Cloudflare R2 里面的内容了。
 
@@ -525,13 +525,13 @@ APP KEY 和 ID 要去 Backblaze 后台生成，`B2_ENDPOINT` 要去自己的 B2 
 
 ##### 3、手动添加 CNAME 解析到 B2
 
-![](https://images.eallion.com/images/2023/07/b2_cf_record.png)
+![](/assets/images/posts/2023/07/b2_cf_record.png)
 
 - `类型`：选 `CNAME`
 - `名称`：用于 `回退源`，如：`b2.example.com` ，就填入 `b2`
 - `内容`：填入自己 B2 存储桶分配的 `S3 URL` ，有的教程这里写的是 `Friendly URL` ，没必要，还要多一步反代。
 
-![](https://images.eallion.com/images/2023/07/backblaze_url.png)
+![](/assets/images/posts/2023/07/backblaze_url.png)
 
 ##### 4、配置回退源
 

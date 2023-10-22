@@ -42,7 +42,7 @@ NeoDB 官方开发者中心有 [How to authorize](https://neodb.social/developer
 
 创建成功后，就能看到此应用的 `Client ID`，记录下此 `Client ID`。
 
-![](https://images.eallion.com/images/2023/07/creat_app.png)
+![](/assets/images/posts/2023/07/creat_app.png)
 
 #### 2.3. 获取 `AUTH_CODE`
 
@@ -59,11 +59,11 @@ https://neodb.social/oauth/authorize/?response_type=code&client_id=CLIENT_ID&red
 
 替换后的 URL 应该像这样：
 
-![](https://images.eallion.com/images/2023/07/authorize.png)
+![](/assets/images/posts/2023/07/authorize.png)
 
 访问后，点击 `确认授权` ，会在浏览器地址栏返回一个带有 `code` 的 URL。记住这个 `code` 的值，别管 404 或其他报错。
 
-![](https://images.eallion.com/images/2023/07/code.png)
+![](/assets/images/posts/2023/07/code.png)
 
 #### 2.4 最终获取 `Access Token`
 

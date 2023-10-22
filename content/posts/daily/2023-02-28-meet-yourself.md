@@ -14,7 +14,7 @@ Comments: true
 date: 2023-02-28T12:00:05+08:00
 ---
 
-![](https://images.eallion.com/images/2023/02/meetyourself.jpg)
+![](/assets/images/posts/2023/02/meetyourself.jpg)
 
 过完农历新年不久，追完了《去有风的地方》。
 

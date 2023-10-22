@@ -33,7 +33,7 @@ date: 2023-05-25T22:13:35+08:00
 
 ### 自定义样式
 
-![](https://images.eallion.com/images/2023/05/memos-setting.png)
+![](/assets/images/posts/2023/05/memos-setting.png)
 
 登录 Memos 应用后台，在 `设置` `系统` `自定义样式` 中添加 CSS 代码：
 

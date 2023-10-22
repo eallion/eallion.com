@@ -17,7 +17,7 @@ lastmod: 2022-05-17T23:41:13+08:00
 
 《且试天下》完结，撒花！🎉
 
-[![](https://images.eallion.com/images/2022/05/qieshitianxia.png)](https://v.qq.com/x/cover/mzc00200v3lnbmd/a0042ceiy5v.html)
+[![](/assets/images/posts/2022/05/qieshitianxia.png)](https://v.qq.com/x/cover/mzc00200v3lnbmd/a0042ceiy5v.html)
 
 > 推荐度：★★☆☆☆
 > 分数：6/10

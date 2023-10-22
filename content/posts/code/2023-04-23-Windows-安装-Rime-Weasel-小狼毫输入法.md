@@ -65,7 +65,7 @@ Weasel 没有提供 Scoop 安装脚本，需要下载安装包安装：<https://
 
 安装过程基本上可以一路下一步完成即可。如果不是很熟悉这个输入法，用户文件夹保持默认即可。
 
-![](https://images.eallion.com/images/2023/04/weasel_install.png)
+![](/assets/images/posts/2023/04/weasel_install.png)
 
 ### 配置五笔拼音
 
@@ -73,11 +73,11 @@ Weasel 没有提供 Scoop 安装脚本，需要下载安装包安装：<https://
 
 1. 在开始菜单中点击 `【小狼毫】输入法设定`，任务栏输入法图标上点右键也可以。
 
-![](https://images.eallion.com/images/2023/04/weasel_setting.png)
+![](/assets/images/posts/2023/04/weasel_setting.png)
 
 2. 在弹出的 `【小狼毫】方案选单设定` 里点击 `获取更多输入方案`
 
-![](https://images.eallion.com/images/2023/04/weasel_more.png)
+![](/assets/images/posts/2023/04/weasel_more.png)
 
 3. 在弹出的 CMD 窗口中安装 `袖珍简化字拼音`
 
@@ -87,13 +87,13 @@ Weasel 没有提供 Scoop 安装脚本，需要下载安装包安装：<https://
 
 > <https://github.com/rime/rime-pinyin-simp>
 
-![](https://images.eallion.com/images/2023/04/install_simp.png)
+![](/assets/images/posts/2023/04/install_simp.png)
 
 4. 在弹出的 CMD 窗口中安装 `五笔字型`
 
 > <https://github.com/rime/rime-wubi>
 
-![](https://images.eallion.com/images/2023/04/install_wubi.png)
+![](/assets/images/posts/2023/04/install_wubi.png)
 
 ### 自定义短语
 
@@ -141,7 +141,7 @@ Rime 输入法引擎的一大特点就是支持高度自定义。
 - 不宜添加过多的自定义短语，若有大量自定义短语请用用户词典
 - 同样的编码，权重越大，排名越靠前
 
-![](https://images.eallion.com/images/2023/04/rime_bianma.png)
+![](/assets/images/posts/2023/04/rime_bianma.png)
 
 #### 步骤3. 新建 `wubi_pinyin.custom.yaml`
 
@@ -566,4 +566,4 @@ punctuator:
 
 配置完之后，`用户文件夹` 截图如下：
 
-![](https://images.eallion.com/images/2023/04/rime_user.png)
+![](/assets/images/posts/2023/04/rime_user.png)

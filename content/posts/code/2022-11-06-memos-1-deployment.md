@@ -147,7 +147,7 @@ location ^~ /
 
 一些主机管理面板提供可视化反代设置，那更简单。
 
-![](https://images.eallion.com/picgo/202211171351152.png)
+![](/assets/images/posts/2022/11/bt_proxy.png)
 
 1. **备份数据**
 

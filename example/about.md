@@ -28,7 +28,7 @@ comment: true
     .catch(console.error);
 </script>
 
-<img no-view src="https://images.eallion.com/eallion.jpg" alt="eallion">
+<img no-view src="/eallion.webp" alt="eallion">
 
 我是「蜗牛」，一般使用「大大的小蜗牛」作为网名。
 本名没有什么内涵，略去不表。

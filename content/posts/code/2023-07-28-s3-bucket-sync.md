@@ -20,7 +20,7 @@ date: 2023-07-28T17:06:50+08:00
 这个 COS 中的静态文件和图片也是我的 CDN 源站和图床源站。
 腾讯云 COS 还是用于生产环境的主力存储桶，不过万一出了什么幺蛾子，可以秒切。
 
-![](https://images.eallion.com/images/2023/07/s3-sync-workflow.png)
+![](/assets/images/posts/2023/07/s3-sync-workflow.png)
 
 我使用过 3 套方案，最近优化到了在 GitHub Actions 中通过 [Rclone](https://rclone.org/) 同步。
 理论上这一方案支持任何 s3 兼容协议的存储桶，以及 Rclone 官方 [Cloud Storage Systems](https://rclone.org/overview/) 列表支持的云服务。s3 协议的存储桶兼容的平台太多了，如：阿里云、腾讯云、又拍云、Cloudflare R2、Backblaze B2 等。
@@ -43,7 +43,7 @@ date: 2023-07-28T17:06:50+08:00
 Rclone 生成 Config 很简单，输入 `rclone config` 基本上就是一路选择或者保持默认就可以了。
 以配置腾讯云 COS 为例，需要手动输入的是： `access_key_id` `secret_access_key` ：
 
-![](https://images.eallion.com/images/2023/07/rclone_config.gif)
+![](/assets/images/posts/2023/07/rclone_config.gif)
 
 最终会得到一份这样的 Config 文件：
 
@@ -68,14 +68,14 @@ endpoint = cos.ap-nanjing.myqcloud.com
 
 然后把这个 Config 文件的内容用 Base64 `base64 -w 0 rclone.config` 编码一下待用：
 
-![](https://images.eallion.com/images/2023/07/rclone_config_base64.png)
+![](/assets/images/posts/2023/07/rclone_config_base64.png)
 
 ### 配置 GitHub
 
 在 GitHub 上用于备份的 Repo 中，添加 Secrets `RCLONE_CONFIG` ，注意数据脱敏保护隐私。
 如果配置 Rclone 的 Config 时加了密码，就需要再添加一个 Secrets `RCLONE_CONFIG_PASS` 。
 
-![](https://images.eallion.com/images/2023/07/secret_rclone_config.png)
+![](/assets/images/posts/2023/07/secret_rclone_config.png)
 
 ### GitHub Actions
 
