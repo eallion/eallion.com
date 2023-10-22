@@ -256,6 +256,9 @@ git gc --prune=now --aggressive
 
 ### 🖼️ 图片
 
+> Update: 2023.10.22
+> 图片放到博客 static/assets/images 目录，即方法二
+
 因为 jsDelivr 2020.08.15 的 ‘[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)’，现在没有用 GitHub + jsDelivr 当图床了。
 
 - **方法一**
