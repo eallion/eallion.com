@@ -23,13 +23,15 @@ date: 2023-05-25T22:13:35+08:00
 - 《[Memos API 获取总条数](https://eallion.com/memos-total-count/)》
 - 《[Memos 配置 Artalk 评论系统](https://eallion.com/artalk_for_memos/)》
 
+> 更新：2023.10.20 此脚本只适配到 Memos v0.14.0
+
 > TODO：
 
-- [x] 解决 Memos 后台界面错乱问题（已解决）
-- [x] Memos 应用上的暗黑模式适配（[木木老师顺手就解决了](https://me.edui.fun/m/1628)）
+- [x] 解决 Memos 后台界面错乱问题 (已解决)
+- [x] Memos 应用上的暗黑模式适配 ([木木老师顺手就解决了](https://me.edui.fun/m/1628))
 
 在木木老师《[Memos x Twikoo](https://immmmm.com/memos-with-twikoo/)》和拾月老师《[单页 Memos 添加 Artalk 评论，无限接近微博](https://www.skyue.com/23051422.html)》的启发之下。
-给 [Memos 嘀咕页面](https://eallion.com/memos/) 和 [Memos 应用](https://memos.eallion.com/m/5668) 添加了 Artalk 评论系统。
+给 [Memos 嘀咕页面](https://eallion.com/memos/)和 [Memos 应用](https://memos.eallion.com/m/5668)添加了 Artalk 评论系统。
 
 ### 自定义样式
 
@@ -121,12 +123,12 @@ startArtalk();
 
 - [Artalk.min.css](https://artalk.js.org/guide/deploy.html#cdn-%E8%B5%84%E6%BA%90)
 - [Artalk.min.js](https://artalk.js.org/guide/deploy.html#cdn-%E8%B5%84%E6%BA%90)
-- server: [https://artalk.at.your.server.com](https://artalk.js.org/guide/frontend/config.html#server)
-- site: ~~memos~~
+- server：[https://artalk.at.your.server.com](https://artalk.js.org/guide/frontend/config.html#server)
+- site：~~memos~~
 
 ### Memos 独立页面配置 Artalk 评论系统
 
-- DEMO:  <https://eallion.com/memos>
+- DEMO：<https://eallion.com/memos>
 
 部署方式请参考：《[Memos API 调用渲染页面](https://eallion.com/memos-api/)》一文。
 在原来的基本上 <i class="fab fa-github fa-fw"></i>[assets/memos.js](https://github.com/eallion/eallion.com/blob/main/static/assets/memos.js)
