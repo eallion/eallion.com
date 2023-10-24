@@ -19,7 +19,7 @@
 
 // 首页嘀咕
 // 远程 JSON API 地址
-let jsonUrl = "https://api.eallion.com/mastodon/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true";
+let jsonUrl = "https://api.eallion.com/mastodon/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true";
 
 // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
 (() => {
