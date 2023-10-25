@@ -105,7 +105,7 @@
         },
         {
             "name": "fuse.js",
-            "version": "6.6.2",
+            "version": "7.0.0",
             "files": [
                 {
                     "remote": "dist/fuse.min.js",
