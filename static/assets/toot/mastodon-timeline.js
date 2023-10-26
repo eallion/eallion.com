@@ -157,7 +157,7 @@ MastodonApi.prototype.buildTimeline = async function () {
                 '<div class="mt-footer"><a href="' +
                 // this.INSTANCE_URL +
                 // "/" +
-                // linkSeeMorePath +
+                // this.escapeHtml(linkSeeMorePath) +
                 'https://e5n.cc/@eallion' +
                 '" class="btn" target="_blank" rel="nofollow noopener noreferrer">' +
                 this.LINK_SEE_MORE +
@@ -366,14 +366,14 @@ MastodonApi.prototype.assambleToot = function (c, i) {
             '<img src="' +
             c.reblog.account.avatar +
             '" alt="' +
-            c.reblog.account.username +
+            this.escapeHtml(c.reblog.account.username) +
             ' avatar" loading="lazy" />' +
             "</div>" +
             '<div class="mt-avatar-account">' +
             '<img src="' +
             c.account.avatar +
             '" alt="' +
-            c.account.username +
+            this.escapeHtml(c.account.username) +
             ' avatar" loading="lazy" />' +
             "</div>" +
             "</div>" +
@@ -385,7 +385,7 @@ MastodonApi.prototype.assambleToot = function (c, i) {
             '<a href="' +
             c.reblog.account.url +
             '" rel="nofollow noopener noreferrer" target="_blank">' +
-            // c.reblog.account.username +
+            // this.escapeHtml(c.account.username) +
             '<div class="mt-nick">Charles Chin</div><div class="mt-id">@eallion@e5n.cc</div>' +
             '<span class="visually-hidden"> post</span>' +
             "</a>" +
@@ -414,7 +414,7 @@ MastodonApi.prototype.assambleToot = function (c, i) {
             '<img src="' +
             c.account.avatar +
             '" alt="' +
-            c.account.username +
+            this.escapeHtml(c.account.username) +
             ' avatar" loading="lazy" />' +
             "</div>" +
             "</a>";
@@ -425,7 +425,7 @@ MastodonApi.prototype.assambleToot = function (c, i) {
             '<a href="' +
             c.account.url +
             '" rel="nofollow noopener noreferrer" target="_blank">' +
-            // c.account.username +
+            // this.escapeHtml(c.account.username) +
             '<div class="mt-nick">Charles Chin</div><div class="mt-id">@eallion@e5n.cc</div>' +
             "</a>" +
             '<span class="visually-hidden"> post</span>' +
@@ -763,7 +763,7 @@ MastodonApi.prototype.placeMedias = function (m, s) {
         // m.preview_url +
         m.url +
         '" alt="' +
-        (m.description ? m.description : "") +
+        (m.description ? this.escapeHtml(m.description) : "") +
         '" loading="lazy" />' +
         "</div>";
 
@@ -790,13 +790,17 @@ MastodonApi.prototype.placePreviewLink = function (c) {
         "</div>" +
         '<div class="toot-preview-content">' +
         (c.provider_name
-            ? '<span class="toot-preview-provider">' + c.provider_name + "</span>"
+            ? '<span class="toot-preview-provider">' +
+            this.parseHTMLstring(c.provider_name) +
+            "</span>"
             : "") +
         '<span class="toot-preview-title">' +
         c.title +
         "</span>" +
         (c.author_name
-            ? '<span class="toot-preview-author">By ' + c.author_name + "</span>"
+            ? '<span class="toot-preview-author">By ' +
+            this.parseHTMLstring(c.author_name) +
+            "</span>"
             : "") +
         "</div>" +
         "</a>";
@@ -838,6 +842,32 @@ MastodonApi.prototype.formatDate = function (d) {
     let displayDateTwitter = moment(date).twitterLong()
 
     return displayDateTwitter;
+};
+
+/**
+ * Parse HTML string
+ * @param {string} s HTML string
+ * @returns {string} Plain text
+ */
+MastodonApi.prototype.parseHTMLstring = function (s) {
+    const parser = new DOMParser();
+    const txt = parser.parseFromString(s, "text/html");
+    return txt.body.textContent;
+};
+
+/**
+ * Escape quotes and other special characters, to make them safe to add
+ * to HTML content and attributes as plain text
+ * @param {string} s String
+ * @returns {string} String
+ */
+MastodonApi.prototype.escapeHtml = function (s) {
+    return (s ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
 };
 
 /**
