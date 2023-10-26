@@ -36,18 +36,19 @@
 
 ### 📦️ 主仓库
 
-> <https://github.com/eallion/eallion.com.git>
+> <https://github.com/eallion/eallion.com>
 
 #### 备份仓库
 
-> Gitea：<https://git.eallion.com/eallion/eallion.com.git>
+> <https://eallion@bitbucket.org/eallion/eallion.com>  
+> <https://gitlab.com/eallion/eallion.com>
 
 #### 添加备份仓库 Remote
 
 > **Note**
 > Remote url 传递 id:token 免输各个 git 仓库的账号密码
 
-```
+```bash
 git remote set-url --add --push origin https://id:token@github.com/eallion/eallion.com.git
 
 $ git remote -v
@@ -124,6 +125,10 @@ https://github.com/eallion/eallion.com/tree/main/data/authors
 ```
 https://github.com/eallion/eallion.com/tree/main/data/douban
 ```
+
+### 嘀咕页面
+
+嘀咕页面 [`https://eallion.com/toot`](https://eallion.com/toot/) 为 Mastodon 个人实例 [`e5n.cc`](https://e5n.cc/@eallion) 的数据展示。利用 [mastodon-embed-feed-timeline](https://gitlab.com/idotj/mastodon-embed-feed-timeline) 这个项目集成到博客页面。基于 [v3.9.1](https://gitlab.com/idotj/mastodon-embed-feed-timeline/-/tags/v3.9.1) 版本修改，后续保持同步更新，但没有完全跟随上游版本号。
 
 ### ✏️ 写新文章
 
@@ -251,12 +256,11 @@ git gc --prune=now --aggressive
 例如**链接**、**图片**、`image` & `music` shortcode 和**前置参数**中的部分参数。
 
 页面资源或者 **assets** 目录中的[图片处理](https://gohugo.io/content-management/image-processing/)会在未来的版本中得到支持。
-非常酷的功能！ ：(far fa-grin-squint fa-fw)：
-{{< /admonition >}}
+非常酷的功能！😎
 
 ### 🖼️ 图片
 
-> Update: 2023.10.22
+> Update: 2023.10.22  
 > 图片放到博客 static/assets/images 目录，即方法二
 
 因为 jsDelivr 2020.08.15 的 ‘[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)’，现在没有用 GitHub + jsDelivr 当图床了。
@@ -274,7 +278,8 @@ git gc --prune=now --aggressive
 图片存放目录：
 > Hugo 目录的 `static/images/` 目录下 (可按年月分类)。
 
-文章中引用的图片 URL：
+文章中有 2 种方法引用图片 URL：
+> `/images/1970/01/01.jpg`
 > `https://eallion.com/images/1970/01/01.jpg`
 
 ### 📷 相册
