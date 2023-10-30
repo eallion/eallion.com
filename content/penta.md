@@ -12,6 +12,10 @@ aliases:
 
 <!-- LOL 英雄头像 API <https://lol.qq.com/cguide/Guide/PublicResources/Images.html#%E9%9D%9E%E7%82%AB%E5%BD%A9%E7%9A%AE%E8%82%A4> -->
 
+{{< penta src="/assets/images/penta/20231024-LeeSin.jpg" alt="20231024-LeeSin" champion="LeeSin" date="2023/10/24" caption="盲僧 李青" >}}
+{{< penta src="/assets/images/penta/20231014-Malphite.jpg" alt="20231014-Malphite" champion="Malphite" date="2023/10/14" caption="熔岩巨兽 墨菲特" >}}
+{{< penta src="/assets/images/penta/20231011-Samira.jpg" alt="20231011-Samira" champion="Samira" date="2023/10/11" caption="沙漠玫瑰 莎弥拉" >}}
+{{< penta src="/assets/images/penta/20230820-LeeSin.jpg" alt="20230820-LeeSin" champion="LeeSin" date="2023/08/20" caption="盲僧 李青" >}}
 {{< penta src="/assets/images/penta/20230722-Graves.jpg" alt="20230722-Graves" champion="Graves" date="2023/07/22" caption="法外狂徒 格雷福斯" >}}
 {{< penta src="/assets/images/penta/20230704-Talon.jpg" alt="20230704-Talon" champion="Talon" date="2023/07/04" caption="刀锋之影 泰隆" >}}
 {{< penta src="/assets/images/penta/20230624-Ezreal.jpg" alt="20230624-Ezreal" champion="Ezreal" date="2023/06/24" caption="探险家 伊泽瑞尔" >}}
