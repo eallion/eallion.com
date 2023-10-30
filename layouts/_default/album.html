@@ -133,47 +133,40 @@
     </div>
 </article>
 
-<script type="text/javascript" src="https://cdn.eallion.com/assets/js/packery.pkgd.min.js?v=4.2.2"></script>
-<script type="text/javascript" src="https://cdn.eallion.com/assets/js/draggabilly.pkgd.min.js?v=3.0.0"></script>
-<script type="text/javascript" src="https://cdn.eallion.com/assets/js/imagesloaded.pkgd.min.js?v=5.0.0"></script>
+<script type="text/javascript" src="/assets/js/packery.pkgd.min.js?v=4.2.2"></script>
+<script type="text/javascript" src="/assets/js/draggabilly.pkgd.min.js?v=3.0.0"></script>
+<script type="text/javascript" src="/assets/js/imagesloaded.pkgd.min.js?v=5.0.0"></script>
 <script>
-    var ReadOnlyAccessToken = "MTUXNMZMZJUTYWM4MC0ZN2ZJLTK3ZMITNJK2YZG5MMJINMUX";
-    var galleryUrl = "https://m.eallion.com/api/v1/timelines/tag/%E7%9B%B8%E5%86%8C?limit=40";
+    var ReadOnlyAccessToken = "gDfGGvoKL0B7EQwjby5gGfc_ov3SLb-AlL2rFXXPEDM";
+    var galleryUrl = "https://e5n.cc/api/v1/timelines/tag/%E7%9B%B8%E5%86%8C?only_media=true";
     let nowNum = 0;
     fetch(galleryUrl, {
         headers: {
-            'Authorization': 'Bearer ' + ReadOnlyAccessToken
-        }
+            Authorization: "Bearer " + ReadOnlyAccessToken,
+        },
     })
         .then((res) => res.json())
         .then((resdata) => {
-            var result = "",
-                resultAll = "",
-                data = resdata;
-            for (var i = 0; i < data.length; i++) {
-                var time = data[i].created_at;
-                var uri = data[i].uri;
-                var content = data[i].content
-                var reg = /<img.*?src="(.*?)"/gi;
-                var imgs = [];
-                while (match = reg.exec(content)) {
-                    imgs.push(match[1]);
-                }
+            let result = "";
 
-                // var imgs = galleryTitle.match(/\!\[(.*?)\s*(.*?)\]\((.*?)\)/g);
-                //解析 content 内 md 格式图片
-                if (imgs) {
-                    imgs.forEach((img) => {
-                        result += '<div class="album_wrapper">' +
-                            '<img loading="lazy" src="' + img + '" alt="' + time + '"/>' +
-                            '<a href="' + uri + '" target="_blank" rel="noreferrer noopener nofollow">' +
-                            '<span class="photo-title">' + time + '</span>' +
-                            '</a>' +
-                            '</div>' +
-                            '<div class="gutter-sizer"></div>';
-                    });
-                }
-            }
+            resdata.forEach((post) => {
+                let time = post.created_at;
+                let uri = post.uri;
+
+                post.media_attachments.forEach((attachment) => {
+                    let imgUrl = attachment.preview_url || attachment.url;
+
+                    result += `
+      <div class="album_wrapper">
+        <img src="${imgUrl}" alt="${time}"/>
+        <a href="${uri}" target="_blank" rel="noreferrer noopener nofollow">
+          <span class="photo-title">${time}</span>
+        </a>
+      </div>
+      <div class="gutter-sizer"></div>
+    `;
+                });
+            });
 
             var galleryDom = document.querySelector("#album");
             // var galleryBefore = `<div class="album">`;
@@ -182,10 +175,10 @@
             galleryDom.innerHTML = resultAll;
 
             // 初始化Masonry
-            var pckry  = new Packery(galleryDom, {
-                itemSelector: '.album_wrapper',
-                columnWidth: '.album_wrapper',
-                gutter: '.gutter-sizer',
+            var pckry = new Packery(galleryDom, {
+                itemSelector: ".album_wrapper",
+                columnWidth: ".album_wrapper",
+                gutter: ".gutter-sizer",
                 percentPosition: true,
             });
 
@@ -195,16 +188,15 @@
             });
 
             // 图片加载完成后触发
-            imagesLoaded(galleryDom).on('progress', function () {
-
+            imagesLoaded(galleryDom).on("progress", function () {
                 // 定义块状网格尺寸
-                galleryDom.classList.add('grid');
+                galleryDom.classList.add("grid");
 
                 // 重排布局
                 pckry.layout();
 
                 // Images done loading
-                pckry.options.itemSelector = '.album_wrapper';
+                pckry.options.itemSelector = ".album_wrapper";
             });
 
             // 相对时间
