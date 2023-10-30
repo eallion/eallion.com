@@ -570,7 +570,7 @@ cacheRemoteImages = false
   # Umami Analytics
   [analytics.umami]
     data_website_id = "cbd4a67a-82e8-48ed-9d04-a0e4815466f0"
-    src = "https://cdn.eallion.com/assets/js/69d6ffe.js?v=2.4.1"
+    src = "/assets/js/69d6ffe.js?v=2.8.0"
     data_host_url ="https://a.eallion.com"
     data_domains = "eallion.com,www.eallion.com"
   # Plausible Analytics
