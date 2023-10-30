@@ -138,7 +138,7 @@
 <script type="text/javascript" src="/assets/js/imagesloaded.pkgd.min.js?v=5.0.0"></script>
 <script>
     var ReadOnlyAccessToken = "gDfGGvoKL0B7EQwjby5gGfc_ov3SLb-AlL2rFXXPEDM";
-    var galleryUrl = "https://e5n.cc/api/v1/timelines/tag/%E7%9B%B8%E5%86%8C?only_media=true";
+    var galleryUrl = "https://api.eallion.com/mastodon/api/v1/timelines/tag/%E7%9B%B8%E5%86%8C?only_media=true";
     let nowNum = 0;
     fetch(galleryUrl, {
         headers: {
@@ -154,7 +154,7 @@
                 let uri = post.uri;
 
                 post.media_attachments.forEach((attachment) => {
-                    let imgUrl = attachment.preview_url || attachment.url;
+                    let imgUrl = attachment.url || attachment.preview_url;
 
                     result += `
       <div class="album_wrapper">
