@@ -76,7 +76,7 @@ if (document.querySelector('#ticker')) {
             var data = res;
             for (var i = 0; i < data.length; i++) {
                 var tickerTime = new Date(data[i].created_at).toLocaleString();
-                var tickerContent = getSimpleText(data[i].content)
+                var tickerContent = pangu.spacing(getSimpleText(data[i].content))
                 result += `<li class="item"><span class="datetime">${tickerTime}</span>：<a href="https://eallion.com/toot/">${tickerContent}</a></li>`;
                 console.log(tickerContent)
             }
@@ -128,5 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", () => {
     // listen to any DOM change and automatically perform spacing via MutationObserver()
-    pangu.autoSpacingPage();
+    // pangu.autoSpacingPage();
+    pangu.spacingElementByClassName('page');
 });
