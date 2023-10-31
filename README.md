@@ -56,6 +56,13 @@ origin  https://github.com/eallion/eallion.com (fetch)
 origin  https://github.com/eallion/eallion.com (push)
 origin  https://eallion@bitbucket.org/eallion/eallion.com.git (push)
 origin  https://gitlab.com/eallion/eallion.com.git (push)
+origin  https://git.eallion.com/git/eallion/eallion.com.git (push)
+```
+
+#### 增加缓冲区 50M
+
+```bash
+git config --local http.postBuffer 52428800
 ```
 
 #### 架构备忘
@@ -260,7 +267,7 @@ git gc --prune=now --aggressive
 
 ### 🖼️ 图片
 
-> Update: 2023.10.22  
+> Update：2023.10.22  
 > 图片放到博客 static/assets/images 目录，即方法二
 
 因为 jsDelivr 2020.08.15 的 ‘[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)’，现在没有用 GitHub + jsDelivr 当图床了。
