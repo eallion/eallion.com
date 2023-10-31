@@ -179,7 +179,7 @@ keywords = ["eallion", "Charles", "chin", "blog", "Hugo", "蜗牛", "大大的�
   RSS = false
   [social.Mastodon]
     id = "@eallion"
-    prefix = "https://m.eallion.com"
+    prefix = "https://e5n.cc"
   #[languages.en.params.social.Diaspora]
     #id = ""
     #prefix = ""
