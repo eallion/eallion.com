@@ -58,19 +58,32 @@ This blog's Toot page relies on the Mastodon instance at https://e5n.cc. The com
 
 ### Contact
 
-* Email: `eallions@gmail.com`
-* Private Email: `e*****n@hotmail.com`、`e*****n@eallion.com`、`e*n@pm.me`
-* Anonymous: [`@altmails.com`](https://altmails.com)、[`@anonaddy.me`](https://anonaddy.com)、[`@relay.firefox.com`](https://relay.firefox.com)
-
 <div class="badge">
+  <a><img no-view src="https://img.shields.io/badge/Gmail-eallions@gmail.com-blue?style=flat&labelColor=555&logo=gmail&logoColor=fff"></a>
   <a href="https://keybase.io/eallion/pgp_keys.asc?fingerprint=ebe20ab924c2a12c6a3e65bdbc4ca018e368547c" target="_blank" rel="noopener noreferrer">
     <img no-view src="https://img.shields.io/keybase/pgp/eallion?label=Keybase%20OpenPGP&logo=keybase&logoColor=fff&style=flat">
   </a>
 </div>
 
-```
-curl -L https://eallion.com/key | gpg --import
-```
+### Social network
+
+<div class="badge">
+  <a href="https://github.com/eallion" target="_blank" rel="noopener noreferrer">
+    <img no-view src="https://img.shields.io/badge/GitHub-@eallion-blue?style=flat&labelColor=555&logo=GitHub&logoColor=fff">
+  </a>
+  <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer">
+    <img no-view src="https://img.shields.io/badge/Mastodon-@eallion-blue?style=flat&labelColor=555&logo=mastodon&logoColor=fff">
+  </a>
+  <a href="https://steamcommunity.com/id/eallion" target="_blank" rel="noopener noreferrer">
+    <img no-view src="https://img.shields.io/badge/Steam-@eallion-blue?style=flat&labelColor=555&logo=Steam&logoColor=fff">
+  </a>
+  <a href="https://twitter.com/eallion" target="_blank" rel="noopener noreferrer">
+    <img no-view src="https://img.shields.io/badge/Twitter-@eallion-blue?style=flat&labelColor=555&logo=Twitter&logoColor=fff">
+  </a>
+  <a href="https://keybase.io/eallion" target="_blank" rel="noopener noreferrer">
+    <img no-view src="https://img.shields.io/badge/Keybase-@eallion-blue?style=flat&labelColor=555&logo=Keybase&logoColor=fff">
+  </a>
+</div>
 
 ### Status
 
@@ -89,26 +102,6 @@ curl -L https://eallion.com/key | gpg --import
   </a>
   <a href="https://github.com/eallion/eallion.com/commits/main" target="_blank" rel="noopener noreferrer">
     <img no-view src="https://img.shields.io/github/last-commit/eallion/eallion.com">
-  </a>
-</div>
-
-### Social network
-
-<div class="badge">
-  <a href="https://keybase.io/eallion" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://img.shields.io/badge/Keybase-@eallion-blue?style=flat&labelColor=555&logo=Keybase&logoColor=fff">
-  </a>
-  <a href="https://github.com/eallion" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://img.shields.io/badge/GitHub-@eallion-blue?style=flat&labelColor=555&logo=GitHub&logoColor=fff">
-  </a>
-  <a href="https://twitter.com/eallion" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://img.shields.io/badge/Twitter-@eallion-blue?style=flat&labelColor=555&logo=Twitter&logoColor=fff">
-  </a>
-  <a href="https://steamcommunity.com/id/eallion" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://img.shields.io/badge/Steam-@eallion-blue?style=flat&labelColor=555&logo=Steam&logoColor=fff">
-  </a>
-  <a href="https://stackoverflow.com/users/11409594" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://img.shields.io/badge/StackOverflow-@eallion-blue?style=flat&labelColor=555&logo=stackoverflow&logoColor=fff">
   </a>
 </div>
 
