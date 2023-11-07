@@ -59,7 +59,6 @@ comment: false
 #### 声明
 
 * 您不必因为公共领域的作品要素而遵守许可协议，或者您的使用被可适用的[例外或限制](https://creativecommons.org/faq/#Do_Creative_Commons_licenses_affect_exceptions_and_limitations_to_copyright.2C_such_as_fair_dealing_and_fair_use.3F)所允许。
-
 * 不提供担保。许可协议可能不会给与您意图使用的所必须的所有许可。例如，其他权利比如[形象权、隐私权或人格权](https://wiki.creativecommons.org/Considerations_for_licensors_and_licensees)可能限制您如何使用作品。
 
 版权声明
