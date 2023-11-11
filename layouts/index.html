@@ -1,0 +1,1112 @@
+{{- define "content" -}} {{- $params := .Scratch.Get "params" -}} {{- $profile := .Site.Params.home.profile -}} {{-
+$posts := .Site.Params.home.posts -}}
+<meta name="referrer" content="no-referrer">
+<div class="page home" {{ if ne $posts.enable false | or .Content }} posts{{ end }}>
+
+    <link rel="stylesheet" href="/assets/chromedev/css/home.css" />
+    <link rel="stylesheet" href="/assets/chromedev/css/devsite.css" />
+    <link rel="stylesheet" href="/assets/chromedev/css/devsite-theme.css" />
+
+    <style>
+        .google-blue {
+            color: #4285F4;
+        }
+
+        .google-red {
+            color: #DB4437;
+        }
+
+        .google-yellow {
+            color: #F4B400;
+        }
+
+        .google-green {
+            color: #0F9D58;
+        }
+
+        .google-colors {
+            display: flex;
+        }
+
+        .google-color {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            padding: 0 0.25rem;
+        }
+
+        img:not([no-view]):hover {
+            cursor: pointer;
+        }
+
+        .page {
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+
+        .wrapper main .container {
+            padding: 0 !important;
+        }
+
+        header:hover {
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+        }
+
+        .home-social a {
+            color: #fff !important;
+            font-size: 1.25rem !important;
+        }
+
+        [theme=web-theme] .dcc-hero .button {
+            margin: 0.125rem !important;
+        }
+
+        .dcc-hero .devsite-landing-row-item-buttons {
+            justify-content: center;
+        }
+
+        #get-started {
+            height: 3.5rem;
+            margin-top: -3rem;
+        }
+
+        .devsite-landing-row-item-description-content ul li {
+            margin: 0;
+        }
+
+        [theme=web-theme] .dcc-services-card {
+            padding-bottom: 1rem;
+        }
+
+        [theme=web-theme] .dcc-services-card h3 {
+            min-height: 1rem;
+        }
+
+        [theme=web-theme] .dcc-blog-card[description-position=bottom] {
+            padding: 2.5rem 1.125rem 2rem;
+        }
+
+        .dcc-services-card .devsite-landing-row-item-media {
+            width: 100%;
+        }
+
+        #ticker {
+            line-height: inherit;
+            width: 65%;
+            max-width: var(--devsite-landing-row-max-width, 1488px);
+            margin: 2rem auto;
+        }
+
+        [theme="dark"] #ticker {
+            background: #f4f4f5 !important;
+        }
+
+        [theme="black"] #ticker {
+            background: #f4f4f5 !important;
+        }
+
+        [theme="dark"] #ticker i {
+            color: #4d4d4d;
+        }
+
+        [theme="black"] #ticker i {
+            color: #4d4d4d;
+        }
+
+        #movie-title {
+            font-size: 1rem;
+        }
+
+        #movies .referrer {
+            margin-right: auto;
+        }
+
+        #movies .referrer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.5rem;
+            gap: 5px;
+            flex-direction: row;
+        }
+
+        #movies .referrer img {
+            width: 1rem;
+            height: 1rem;
+            opacity: 0.7;
+        }
+
+        #movies .referrer img:hover {
+            opacity: 0.95;
+            transition: all 0.6s ease;
+        }
+
+        .dcc-chrome-releases .devsite-landing-row-item-image {
+            background: rgb(245, 245, 245);
+        }
+
+        .dcc-chrome-releases .devsite-landing-row-item-image img {
+            width: auto;
+            margin: 0 auto;
+        }
+
+        #penta {
+            margin-bottom: 0;
+        }
+
+        #penta .champion,
+        #penta .penta-date {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        #penta .champion img {
+            width: 1.1rem;
+            height: 1.1rem;
+        }
+
+        #penta .penta-date {
+            font-size: small;
+        }
+
+        .footer-title {
+            font-size: 1.25rem;
+        }
+
+        .footer__cluster {
+            font-size: 0.875rem;
+        }
+
+        .footer-meta {
+            max-width: var(--devsite-landing-row-max-width, 1488px);
+            margin: 0 auto;
+        }
+
+        .footer-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body[theme=dark] {
+            color: var(--devsite-primary-text-color);
+            background-color: var(--devsite-background-1);
+        }
+
+        [theme=dark] header {
+            background-color: #f8f8f8;
+        }
+
+        [theme=dark] a, [theme=dark] a::before, [theme=dark] a::after {
+            color: #161209;
+        }
+
+        [theme=dark] .search input,
+        [theme=dark] .open .search input, [theme=dark] .search.mobile input {
+            background-color: #f8f8f8;
+        }
+
+        [theme=dark] .devsite-landing-row-header {
+            background-color: transparent;
+        }
+
+        [theme=dark] a:active, [theme=dark] a:hover {
+            color: #006bee;
+        }
+        [theme=dark] .dcc-hero .devsite-landing-row-item-buttons a:active, [theme=dark] .dcc-hero .devsite-landing-row-item-buttons a:hover {
+            color: #fff;
+        }
+        [theme=dark] .button, [theme=dark] .devsite-footer-utility-button > a, [theme=dark] button, [theme=dark] input[type=button], [theme=dark] input[type=file], [theme=dark] input[type=image], [theme=dark] input[type=reset], [theme=dark] input[type=submit] {
+            color: var(--devsite-button-color);
+        }
+
+        body[theme=black] {
+            color: var(--devsite-primary-text-color);
+            background-color: var(--devsite-background-1);
+        }
+
+        [theme=black] header {
+            background-color: #f8f8f8;
+        }
+
+        [theme=black] a, [theme=black] a::before, [theme=black] a::after {
+            color: #161209;
+        }
+
+        [theme=black] .search input,
+        [theme=black] .open .search input, [theme=black] .search.mobile input {
+            background-color: #f8f8f8;
+        }
+
+        [theme=black] .devsite-landing-row-header {
+            background-color: transparent;
+        }
+
+        [theme=black] a:active, [theme=black] a:hover {
+            color: #006bee;
+        }
+        [theme=black] .dcc-hero .devsite-landing-row-item-buttons a:active, [theme=black] .dcc-hero .devsite-landing-row-item-buttons a:hover {
+            color: #fff;
+        }
+        [theme=black] .button, [theme=black] .devsite-footer-utility-button > a, [theme=black] button, [theme=black] input[type=button], [theme=black] input[type=file], [theme=black] input[type=image], [theme=black] input[type=reset], [theme=black] input[type=submit] {
+            color: var(--devsite-button-color);
+        }
+    </style>
+
+    <script type="module" src="/assets/chromedev/js/main.js"></script>
+
+    <section class="dcc-devsite-wrapper" theme="web-theme">
+        <main role="main" class="content devsite-content">
+            <devsite-content>
+                <article class="devsite-article">
+                    <div class="devsite-article-body clearfix">
+                        <div class="devsite-page-title-meta"></div>
+
+                        <section id="hero" view-image
+                            class="devsite-landing-row devsite-landing-row-1-up devsite-landing-row-100 dcc-hero"
+                            header-position="top">
+                            <div class="devsite-landing-row-inner">
+                                <div class="devsite-landing-row-group">
+                                    <div class="devsite-landing-row-item" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt="hero"
+                                                    src="/assets/chromedev/images/hero.webp" loading="lazy" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="a-powerful-web-spanmade-easierspan"
+                                                    data-text="A Powerful Web. Made Easier."
+                                                    class="hide-from-toc no-link"><span>机会</span>总是垂青于有<span>准备</span>的人
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    👋 Hi, there! 这里是「<a
+                                                    href="/about/">蜗牛</a>」记录生活的 <i class="fas fa-blog"></i><a
+                                                        href="/posts/">博客</a>，没什么技术，也没有文采。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <div class="home-social button dcc-filled-button">
+                                                        <a href="https://github.com/eallion" title="GitHub"
+                                                            target="_blank" rel="noopener noreferrer me"><span
+                                                                class="fab fa-github-alt fa-fw"></span></a>
+                                                        <a href="https://e5n.cc/@eallion" title="Mastodon"
+                                                            target="_blank" rel="noopener noreferrer me"><span
+                                                                class="fab fa-mastodon fa-fw"></span></a>
+                                                        <a href="https://twitter.com/eallion" title="Twitter"
+                                                            target="_blank" rel="noopener noreferrer me"><span
+                                                                class="fab fa-twitter fa-fw"></span></a>
+                                                        <a href="https://keybase.io/eallion" title="Keybase"
+                                                            target="_blank" rel="noopener noreferrer me"><span
+                                                                class="fab fa-keybase fa-fw"></span></a>
+                                                        <a href="https://steamcommunity.com/id/eallion" title="Steam"
+                                                            target="_blank" rel="noopener noreferrer me"><span
+                                                                class="fab fa-steam fa-fw"></span></a>
+                                                        <a href="mailto:eallions@gmail.com" title="Email" rel="me"><span
+                                                                class="far fa-envelope fa-fw"></span></a>
+                                                    </div>
+
+                                                    <a href="#get-started" class="button dcc-filled-button">Get Started
+                                                        <span class="fas fa-chevron-circle-down fa-fw"></span></a>
+                                                </div>
+
+                                                <div id='ticker'></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="get-started">
+                        </section>
+
+                        <section id="about" view-image
+                            class="devsite-landing-row devsite-landing-row-3-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-case-studies"
+                            header-position="top">
+                            <div class="devsite-landing-row-inner">
+                                <div class="devsite-landing-row-group">
+                                    <div class="devsite-landing-row-item" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/get-inspired-icon.svg"
+                                                    loading="lazy" width="40" height="40" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="intro" data-text="简介" class="hide-from-toc no-link">简介 / TL;DR
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    <ul>
+                                                        <li>双子，B 型血，断掌，属虎。</li>
+                                                        <li>已婚，有子。</li>
+                                                        <li>不高不矮，<del>不胖不瘦</del>。</li>
+                                                        <li>先天性乐观。</li>
+                                                        <li>随意但不随便。</li>
+                                                        <li>小众而不小资。</li>
+                                                        <li>亦正亦邪。</li>
+                                                        <li>不是个好人但从来不做坏事。</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://charleschin.com" target="_blank"
+                                                        rel="noopener noreferrer" class="button">CharlesChin.com <i
+                                                            class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-blog-card" description-position="top">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image avatar">
+                                                <a href="/about/" aria-label="about">
+                                                    <img alt src="/assets/chromedev/images/about.png" loading="lazy"
+                                                        width="395" height="222" no-view/>
+                                                </a>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <div class="devsite-landing-row-item-labels">
+                                                    <span class="">About me</span>
+
+                                                    <span class="dcc-label-top"></span>
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-description-content">头像
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item devsite-landing-row-item-no-media"
+                                        description-position="bottom">
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 data-text="关于 / About" class="hide-from-toc no-link">
+                                                    <a href="/about/">
+                                                        关于 / About</a>
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    <p>我是「蜗牛」，不过一般都使用「大大的小蜗牛」作为网名。<br>
+                                                        AKA：Charles '<i>eallion</i>' Chin.<br>
+                                                        本名没有什么内涵，略去不表。<br>
+                                                        早年常居鲁迅故里，钟情于江南水乡。<br>
+                                                        工作于电商之都。后为生计南下深港。<br>
+                                                        最喜欢的一句话：<br>
+                                                        ——「机会总是垂青于有准备的人！」</p>
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/about/" class="button button-white">Read more</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="posts" view-image
+                            class="devsite-landing-row devsite-landing-row-2-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-featured"
+                            header-position="top">
+                            <div class="devsite-landing-row-inner">
+                                <div class="devsite-landing-row-group">
+                                    {{- if ne $posts.enable false | and .Site.RegularPages -}}
+                                    {{- /* Paginate */ -}}
+                                    {{- $pages := where .Site.RegularPages "Type" "in" site.Params.mainSections -}}
+                                    {{- if .Site.Params.page.hiddenFromHomePage -}}
+                                    {{- $pages = where $pages "Params.hiddenfromhomepage" false -}}
+                                    {{- else -}}
+                                    {{- $pages = where $pages "Params.hiddenfromhomepage" "!=" true -}}
+                                    {{- end -}}
+                                    {{- with $posts.paginate | default .Site.Params.paginate -}}
+                                    {{- $pages = $.Paginate $pages . -}}
+                                    {{- else -}}
+                                    {{- $pages = .Paginate $pages -}}
+                                    {{- end -}}
+                                    {{- range $pages.Pages -}}
+
+                                    {{- $params := .Params | merge .Site.Params.page -}}
+                                    {{ $currentSlug := .Params.slug }}
+                                    <div class="devsite-landing-row-item dcc-blog-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <a href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
+                                                    <img alt src="/assets/images/og/{{ $currentSlug }}.png" loading="lazy" width="376" height="240" no-view />
+                                                </a>
+                                            </figure>
+                                        </div>
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <div class="devsite-landing-row-item-labels">
+                                                    <h3 class="blog-title"><i class="far fa-list-alt fa-fw"></i> <a href="{{ .RelPermalink }}"> {{ .Title }} </a></h3>
+                                                </div>
+
+                                                <!-- <h3 id="recent"
+                                                    data-text="Preparing for the end of third-party cookies"
+                                                    class="hide-from-toc no-link">
+                                                    <a href="{{ .RelPermalink }}"> {{ .Title }} </a>
+                                                </h3> -->
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    {{ $summary := getJSON "data/summary/summary.json" }}
+                                                    {{ $matchingSummary := index (where $summary.summaries "slug" $currentSlug) 0 }}
+                                                    {{ if $matchingSummary.summary }}
+                                                        {{ $matchingSummary.summary }}
+                                                    {{ else }}
+                                                    {{- with .Summary -}}
+                                                        {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                                                    {{- else -}}
+                                                        {{- .Description | safeHTML -}}
+                                                    {{- end -}}
+                                                    {{ end }}
+                                                </div>
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="{{ .RelPermalink }}" class="button"
+                                                        aria-label="Read the third-party cookies blog post.">阅读全文
+                                                        </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{- end -}}
+                                    {{- end -}}
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="movies" view-image
+                            class="devsite-landing-row devsite-landing-row-4-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-pillars"
+                            background="pale-blue" header-position="top">
+
+                            {{ $movies := getJSON "data/neodb/movie.json" }}
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header">
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 id="movie" data-text="最近观影">
+                                            <i class="fas fa-video"></i> 最近观影
+                                        </h2>
+                                    </div>
+                                </header>
+
+                                <div class="devsite-landing-row-group">
+                                    {{ range first 4 $movies.data }}
+                                    {{ $title := .item.display_title }}
+                                    {{ $rating := .item.rating }}
+                                    {{ $movie_url := .item.url }}
+                                    {{ $cover := .item.cover_image_url }}
+                                    {{ $cover_name := path.Base $cover }}
+                                    {{ $cate_movie := "movie" }}
+                                    {{ $cate_tv := "tv" }}
+                                    <div class="devsite-landing-row-item dcc-services-card"
+                                        description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt="{{ $title }}"
+                                                        class="lazy" loading="lazy"
+                                                        src="/assets/images/movie/cover/{{ $cover_name }}">
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="movie-title" data-text="Movie Title"
+                                                    class="hide-from-toc no-link">
+                                                    {{ $title }}<span class="rating_star">({{ $rating }})</span>
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-buttons referrer">
+                                                    {{ if eq .item.category $cate_movie }}
+                                                    <i class="fas fa-film fa-fw"></i>
+                                                    {{ else if eq .item.category $cate_tv }}
+                                                    <i class="fas fa-tv fa-xs"></i>
+                                                    {{ end }}
+                                                    <span class="neodb">
+                                                        <a href="https://neodb.social{{ $movie_url }}" target="_blank"
+                                                            rel="noreferrer noopener nofollow">
+                                                            <img class="lazy" src="/assets/images/movie/neodbsocial.jpg"
+                                                                loading="lazy" alt="NeoDB" no-view>
+                                                        </a>
+                                                    </span>
+
+                                                    {{ range .item.external_resources }}
+                                                    {{ $parsedURL := urls.Parse .url }}
+                                                    {{ $host := $parsedURL.Hostname }}
+                                                    {{ $title := .title }}
+                                                    <span class="external-resource">
+                                                        <a href="{{ .url }}" target="_blank"
+                                                            rel="noreferrer noopener nofollow">
+                                                            <img class="lazy" src="/assets/images/movie/{{ $host }}.png"
+                                                                loading="lazy" alt="{{ $title }}" no-view>
+                                                        </a>
+                                                    </span>
+                                                    {{ end }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="goods" view-image
+                            class="devsite-landing-row devsite-landing-row-2-up dcc-chrome-releases"
+                            header-position="left">
+                            {{ $goods := getJSON "data/goods/goods.json" }}
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header" icon-position="top">
+                                    <div class="devsite-landing-row-header-icon-container" size="medium">
+                                        <div class="devsite-landing-row-header-icon material-icons" aria-hidden="true">
+                                            redeem</div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 id="always-updating" data-text="好物分享"><a href="/goods/">好物分享</a></h2>
+
+                                        <div class="devsite-landing-row-description">
+                                            自己体验过的好物推荐。<br>
+                                            如果需要优惠券可以看看我的导购网站，直接搜券：<br>
+                                            👉 <a href="https://www.kubaicai.com/" target="_blank" rel="noreferrer noopener nofollow">www.kubaicai.com <i class="fas fa-external-link-alt fa-xs"></i></a> 。
+                                        </div>
+                                    </div>
+                                </header>
+
+                                <div class="devsite-landing-row-group">
+                                    {{ range first 2 $goods.good}}
+                                    <div class="devsite-landing-row-item dcc-blog-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img class="lazy" loading="lazy" src="{{ .image }}" alt="{{ .title }}">
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 data-text="{{ .title }}"
+                                                    class="hide-from-toc no-link">
+                                                    <a href="{{ .link }}" target="_blank" rel="noreferrer noopener nofollow">{{ .title }}</a>
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    {{ .note | safeHTML }}
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="{{ .link }}" target="_blank" rel="noreferrer noopener nofollow" class="button"><i class="fas fa-shopping-cart"></i> 去官网查看 ({{ .price }})</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="penta" view-image
+                            class="devsite-landing-row devsite-landing-row-4-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-pillars"
+                            background="pale-blue" header-position="top">
+
+                            {{ $penta := getJSON "data/penta/penta.json" }}
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header">
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 id="movie" data-text="最近 LOL 五杀截图">
+                                            <i class="fas fa-dragon"></i> LOL Penta
+                                        </h2>
+                                    </div>
+                                </header>
+
+                                <div class="devsite-landing-row-group">
+                                    {{ range first 4 $penta.penta }}
+                                    <div class="devsite-landing-row-item dcc-services-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt="{{ .alt }}" class="lazy" loading="lazy" src="{{ .src }}">
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <div class="devsite-landing-row-item-buttons referrer">
+                                                    <div class="champion">
+                                                        <a href="https://101.qq.com/#/hero-detail?heroid={{ .heroId }}" target="_blank" rel="noreferrer noopener nofollow">
+                                                            <img class="lazy" loading="lazy"
+                                                                src="https://game.gtimg.cn/images/lol/act/img/champion/{{ .champion }}.png" alt="{{ .alt }} {{ .caption }}"
+                                                                no-view>
+                                                        </a>
+                                                    </div>
+                                                    <div class="penta-date"><i class="far fa-calendar-alt fa-fw"></i>{{ .date }}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="cates" view-image
+                            class="devsite-landing-row devsite-landing-row-4-up dcc-docs" header-position="left">
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header" icon-position="top">
+                                    <div class="devsite-landing-row-header-icon-container" size="medium">
+                                        <div class="devsite-landing-row-header-icon material-icons" aria-hidden="true">
+                                            description</div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 data-text="文章的分类"><a href="/categories/">博客分类</a></h2>
+
+                                        <div class="devsite-landing-row-description">从 2006 年开始在网络上写日志和博客，经历各种风雨沉浮，除了键政的内容，保留了大部分文章至今，以前有些文章写得不知所云，但直视自己的黑历史，生活从来不尽如意，但我还是对生活满含热情。<br>
+                                            罗曼・罗兰:「世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。」</div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-header-buttons">
+                                        <a href="/posts/" class="button">查看所有文章</a>
+                                    </div>
+                                </header>
+
+                                <div class="devsite-landing-row-group">
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/chrome-devtools-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-devtools" data-text="生活日志" class="hide-from-toc no-link">
+                                                    生活</h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    生活类博客文章，记录自己的心情、随想和感悟。
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/日志/" class="button">查看「日志」分类文章</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/chrome-extensions-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="extensions" data-text="技术代码" class="hide-from-toc no-link">代码
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    技术、代码类的文章，主要是备忘录，记录一些折腾的过程。
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/代码/" class="button">查看「代码」分类文章</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/chrome-web-store-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-web-store" data-text="分享收集"
+                                                    class="hide-from-toc no-link">分享</h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    分享一些有趣、有深度、引人思考的文章和资讯。若有侵权，请联系删除！
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/分享/" class="button">查看「分享」分类文章</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/web-on-android-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="web-platform" data-text="其他分类" class="hide-from-toc no-link">其他
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">早年间其他朋友们发的一些文章，一直保存至今，偶尔回味。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/山贼/" class="button">查看「其他」分类文章</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="tools" view-image
+                            class="devsite-landing-row devsite-landing-row-2-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-social"
+                            background="pale-blue" header-position="top">
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header">
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 id="social" data-text="实用工具">实用工具</h2>
+                                    </div>
+                                </header>
+
+                                <div class="devsite-landing-row-group">
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/favorite.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-x" data-text="Mastodon"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/helloxz/onenav" target="_blank" rel="noopener noreferrer">网址导航</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">利用 <a target="_blank" href="https://github.com/helloxz/onenav" title="简约导航/书签管理器" rel="nofollow">OneNav</a> Docker 部署的个人导航网站，使用的自己修改的 <a href="https://github.com/eallion/onenav-baisu-mod" target="_blank">BaiSu Mod</a> 模板。
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://s.eallion.com" target="_blank" rel="noopener noreferrer" class="button">前往浏览 <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/ublacklist.png"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer">uBlacklist 订阅合集</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">🚫 用于 <a href="https://chromewebstore.google.com/detail/ublacklist/pncfbmialoiaghdehhbnbhkkgmjanfhe" target="_blank">uBlacklist</a> 插件的规则订阅合集，通过匹配域名的方式，屏蔽搜索引擎的中文内容农场！</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer" class="button">前往设置 <i class="fas fa-tools"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/mastodon.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/eallion/mastodon-embed-feed-timeline" target="_blank" rel="noopener noreferrer">Mastodon embed timeline</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    把 <a href="https://e5n.com/@eallion" target="_blank" rel="noopener noreferrer">Mastodon</a> 时间轴上的 toots 嵌入到自己的网站上。设置非常简单，无依赖性，无跟踪器，符合 WCAG 标准，响应式布局。
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/toot/" class="button">效果预览</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/windows.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/mikolatero/docker-vlmcsd" target="_blank" rel="noopener noreferrer">KMS Windows & Office 激活</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">自建的 Windows 和 Office 激活服务器。可激活 VOL 批量授权版。需自备 KEY 或者使用微软官方提供的 <a href="https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys" target="_blank" rel="noopener noreferrer">Key</a>。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://kms.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">前往激活 <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/chatgpt.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/eallion/ChatGPT-Next-Web/" target="_blank" rel="noopener noreferrer">ChatGPT Next Web</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">使用 <a href="https://github.com/eallion/ChatGPT-Next-Web/" target="_blank" rel="noopener noreferrer">ChatGPT Next Web</a> 部署的跨平台私人 ChatGPT 应用，需要自备 OpenAI 的 API。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://chatgpt.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即体验 <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/freshrss.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">FreshRSS</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">使用 <a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">FreshRSS</a> 和 <a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener noreferrer">RSSHub</a> 部署的 RSS 订阅服务。避免陷入信息茧房。需要登录阅读。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://rss.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即阅读 <i class="fas fa-rss"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/alist.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/alist-org/alist" target="_blank" rel="noopener noreferrer">Alist</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">一款支持多种存储的目录文件列表程序，支持 Web 浏览与 Webdav，后端基于 Gin，前端使用 React。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://cloud.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即体验 <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/talebook.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/talebook/talebook" target="_blank" rel="noopener noreferrer">Talebook</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">使用 <a href="https://github.com/talebook/talebook" target="_blank" rel="noopener noreferrer">Talebook</a> 部署。一个基于 Calibre 的简单好用的个人图书管理系统，支持在线阅读。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://book.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即阅读 <i class="fas fa-book-reader"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </article>
+            </devsite-content>
+        </main>
+    </section>
+
+    <footer id="footer"
+        class="type--footer lg:pad-left-600 lg:pad-right-600" data-side-nav-inert data-search-inert>
+
+        <div class="pad-top-600 pad-bottom-600 pad-left-400 pad-right-400 hairline-bottom  lg:pad-left-0 lg:pad-right-0">
+            <div class="display-flex direction-column lg:direction-row justify-content-between footer-meta">
+                <div class="footer__stack stack-recursive flex-1">
+                    <div class="footer__heading">Intro</div>
+                    <ul class="pad-0 gap-bottom-0" role="list">
+                        <li>
+                            <a href="https://notbyai.fyi" target="_blank" rel="noopener noreffer" aria-label="not by ai"><img src="/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-white.png" alt no-view></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/eallion" title="GitHub" target="_blank" rel="noopener noreferrer me"><span
+                                    class="fab fa-github-alt fa-fw"></span></a>
+                            <a href="https://e5n.cc/@eallion" title="Mastodon" target="_blank" rel="noopener noreferrer me"><span
+                                    class="fab fa-mastodon fa-fw"></span></a>
+                            <a href="https://twitter.com/eallion" title="Twitter" target="_blank" rel="noopener noreferrer me"><span
+                                    class="fab fa-twitter fa-fw"></span></a>
+                            <a href="https://keybase.io/eallion" title="Keybase" target="_blank" rel="noopener noreferrer me"><span
+                                    class="fab fa-keybase fa-fw"></span></a>
+                            <a href="https://steamcommunity.com/id/eallion" title="Steam" target="_blank" rel="noopener noreferrer me"><span
+                                    class="fab fa-steam fa-fw"></span></a>
+                            <a href="mailto:eallions@gmail.com" title="Email" rel="me"><span class="far fa-envelope fa-fw"></span></a>
+                        </li>
+                        <li role="listitem"><a class="footer__link"
+                            href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-sa"></i> CC-BY-SA-4.0</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__stack stack-recursive flex-1">
+                    <div class="footer__heading">快速开始</div>
+                    <ul class="pad-0 gap-bottom-0" role="list">
+                        <li>
+                            <a class="menu-item" href="/toot/" title="嘀咕 Toots"><i class="fab fa-mastodon"></i> 嘀咕 </a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/posts/" title="所有文章">所有文章</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/movie/" title="豆瓣观影记录"><i class="fas fa-film"></i> 观影记录</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/goods/" title="好物推荐"><i class="fas fa-gift"></i> 好物推荐</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__stack stack-recursive flex-1">
+                    <div class="footer__heading">分类</div>
+                    <ul class="pad-0 gap-bottom-0" role="list">
+                        <li>
+                            <a href="/categories/%E6%97%A5%E5%BF%97/"><i class="fas fa-file-word fa-fw"></i> 日志 </a>
+                        </li>
+                        <li>
+                            <a href="/categories/%E4%BB%A3%E7%A0%81/"><i class="fas fa-file-code fa-fw"></i> 代码 </a>
+                        </li>
+                        <li>
+                            <a href="/categories/%E5%88%86%E4%BA%AB/"><i class="fas fa-share-alt fa-fw"></i> 分享 </a>
+                        </li>
+                        <li>
+                            <a href="/categories/%E5%B1%B1%E8%B4%BC/"><i class="fas fa-user-friends fa-fw"></i> 其他 </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__stack stack-recursive flex-1">
+                    <div class="footer__heading">Sitemap</div>
+                    <ul class="pad-0 gap-bottom-0" role="list">
+                        <li>
+                            <a href="https://eallion.com/album/" target="_blank" rel="noopener noreferrer">随手拍</a>
+                        </li>
+                        <li>
+                            <a href="https://eallion.com/currency.html" target="_blank" rel="noopener noreferrer">汇率查询</a>
+                        </li>
+                        <li>
+                            <a href="https://eallion.com/penta/" target="_blank" rel="noopener noreferrer"><i class="fas fa-fire-alt"></i> Penta</a>
+                        </li>
+                        <li>
+                            <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer">Mastodon <i class="fas fa-external-link-alt"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="pad-top-600 pad-bottom-600 pad-left-400 pad-right-400  lg:pad-left-0 lg:pad-right-0 footer-center">
+            <div class="display-flex direction-column lg:direction-row align-start lg:align-center">
+                <div class="footer-title">大大的小蜗牛 ' 博客</div>
+                <div
+                    class="footer__cluster cluster flex-1 gap-top-300 flow-space-300 lg:gap-top-0 lg:gap-left-500 lg:flow-space-500">
+                    <ul role="list">
+                        <li role="listitem"><a class="footer__link" href="https://eallion.com/about/" target="_blank"
+                                rel="noopener noreferrer">About</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://gohugo.io/" target="_blank"
+                                rel="noopener noreferrer">Hugo</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://github.com/HEIGE-PCloud/DoIt" target="_blank"
+                                rel="noopener noreferrer">Theme</a>
+                        </li>
+                        <li role="listitem"><a class="footer__link" href="https://eallion.com/index.xml" target="_blank"
+                                rel="noopener noreferrer">RSS Feed</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://status.eallion.com/" target="_blank"
+                                rel="noopener noreferrer">Status</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://eallion.com/links/" target="_blank"
+                                rel="noopener noreferrer">友情链接</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://eallion.com/copyright/" target="_blank"
+                                rel="noopener noreferrer">版权信息</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://eallion.com/privacy-policy/" target="_blank"
+                                rel="noopener noreferrer">隐私政策</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://github.com/eallion/eallion.com"
+                                target="_blank" rel="noopener noreferrer">View
+                                Source</a></li>
+                        <li role="listitem"><a class="footer__link google-colors"
+                                href="https://github.com/GoogleChrome/developer.chrome.com" target="_blank"
+                                rel="noopener noreferrer">Inspired by <span class="google-color"><span
+                                        class="google-blue">G</span>
+                                    <span class="google-red">o</span>
+                                    <span class="google-yellow">o</span>
+                                    <span class="google-blue">g</span>
+                                    <span class="google-green">l</span>
+                                    <span class="google-red">e</span></span> for
+                                Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</div>
+{{- end -}}

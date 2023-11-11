@@ -2,12 +2,15 @@
 # 菜单配置
 
 [[main]]
-  identifier = "toots"
-  pre = "<i class='fab fa-twitter'></i>"
+  identifier = "home"
+  # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+  pre = "<i class='fas fa-home'></i>"
+  # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
   post = ""
-  name = "嘀咕"
-  url = "/toot/"
-  title = "嘀咕 Toots"
+  name = "首页"
+  url = "/"
+  # 当你将鼠标悬停在此菜单链接上时, 将显示的标题
+  title = "首页"
   weight = "1"
 [[main]]
   identifier = "posts"
@@ -21,13 +24,21 @@
   title = "所有文章"
   weight = "2"
 [[main]]
+  identifier = "toots"
+  pre = "<i class='fab fa-mastodon'></i>"
+  post = ""
+  name = "嘀咕"
+  url = "/toot/"
+  title = "嘀咕 Toots"
+  weight = "3"
+[[main]]
   identifier = "movie"
   pre = "<i class='fas fa-film'></i>"
   post = ""
   name = "观影"
   url = "/movie/"
   title = "豆瓣观影记录"
-  weight = "3"
+  weight = "4"
 [[main]]
   identifier = "goods"
   pre = "<i class='fas fa-gift'></i>"
@@ -35,7 +46,7 @@
   name = "好物"
   url = "/goods/"
   title = "好物推荐"
-  weight = "4"
+  weight = "5"
 [[main]]
   identifier = "categories"
   pre = "<i class='fas fa-stream'></i>"
@@ -43,7 +54,7 @@
   name = "分类"
   url = "/categories/"
   title = "博客分类"
-  weight = "5"
+  weight = "6"
 [[main]]
   identifier = "links"
   name="友情链接"
@@ -51,7 +62,7 @@
   post = ""
   url="/links/"
   title = "友情链接"
-  weight="6"
+  weight="7"
 [[main]]
   identifier = "about"
   pre = "<i class='fas fa-info'></i>"
@@ -59,7 +70,7 @@
   name = "关于"
   url = "/about/"
   title = "关于我关于本站"
-  weight = "8"
+  weight = "99"
 # [[main]]
 #   identifier = "Mastodon"
 #   pre = "<i class='fab fa-mastodon'></i>"

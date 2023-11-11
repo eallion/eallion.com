@@ -15,8 +15,11 @@
     {{- partial "head/link.html" . -}}
     {{- partial "head/seo.html" . -}}
 
-    <!-- <script src="//instant.page/5.2.0" defer type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script> -->
-    <script type="text/javascript" src="/assets/js/instantpage.js?v=5.2.0" type="module" defer></script>
+    {{- $instantpage := .Scratch.Get "instantpage" | default dict -}}
+    {{- if $instantpage.enable -}}
+        <!-- <script src="//instant.page/5.2.0" defer type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script> -->
+        <script type="text/javascript" src="/assets/js/instantpage.js?v=5.2.0" type="module" defer></script>
+    {{- end -}}
     <link href="https://e5n.cc/@eallion" rel="me">
 </head>
 

@@ -103,37 +103,37 @@ git submodule update --init --recursive
 + npm run update
 ```
 
-- 自定义 CSS 在 [`assets\css\_custom.scss`](<https://github.com/eallion/eallion.com/blob/main/assets/css/_custom.scss>)：
+- 自定义 CSS 在 [`assets/css/_custom.scss`](<https://github.com/eallion/eallion.com/blob/main/assets/css/_custom.scss>)：
 
-```
+```bash
 https://github.com/eallion/eallion.com/blob/main/assets/css/_custom.scss
 ```
 
-- 自定义 JS 在 [`assets\js\custom.js`](https://github.com/eallion/eallion.com/blob/main/assets/js/custom.js)：
+- 自定义 JS 在 [`assets/js/custom.js`](https://github.com/eallion/eallion.com/blob/main/assets/js/custom.js)：
 
-```
+```bash
 https://github.com/eallion/eallion.com/blob/main/assets/js/custom.js
 ```
 
-- 自定义模板，如嘀咕、豆瓣等页面，在 [`layouts\_defaut`](https://github.com/eallion/eallion.com/tree/main/layouts/_default)：
+- 自定义模板，如嘀咕、豆瓣等页面，在 [`layouts/_defaut`](https://github.com/eallion/eallion.com/tree/main/layouts/_default)：
 
-```
+```bash
 https://github.com/eallion/eallion.com/tree/main/layouts/_default
 ```
 
-- 作者数据在 [`data\authors`](https://github.com/eallion/eallion.com/tree/main/data/authors)：
+- 作者数据在 [`data/authors`](https://github.com/eallion/eallion.com/tree/main/data/authors)：
 
-```
+```bash
 https://github.com/eallion/eallion.com/tree/main/data/authors
 ```
 
-- 豆瓣观影数据在 [`data\douban`](https://github.com/eallion/eallion.com/tree/main/data/douban)：
+- 观影数据在 [`data/neodb`](https://github.com/eallion/eallion.com/tree/main/data/neodb)：
 
-```
-https://github.com/eallion/eallion.com/tree/main/data/douban
+```bash
+https://github.com/eallion/eallion.com/tree/main/data/neodb
 ```
 
-### 嘀咕页面
+### 🔊 嘀咕页面
 
 嘀咕页面 [`https://eallion.com/toot`](https://eallion.com/toot/) 为 Mastodon 个人实例 [`e5n.cc`](https://e5n.cc/@eallion) 的数据展示。利用 [mastodon-embed-feed-timeline](https://gitlab.com/idotj/mastodon-embed-feed-timeline) 这个项目集成到博客页面。基于 [v3.9.1](https://gitlab.com/idotj/mastodon-embed-feed-timeline/-/tags/v3.9.1) 版本修改，后续保持同步更新，但没有完全跟随上游版本号。
 
@@ -166,7 +166,7 @@ https://github.com/eallion/eallion.com/tree/main/data/douban
 
 4. **Push**：
 
-```
+```bash
 git add .
 git commit -m "docs: add a new post"
 git push
@@ -185,7 +185,7 @@ git push
 
 脚本内容：
 
-```
+```bash
 hugo server -w -D -p 1313 -t hello-friend --bind 0.0.0.0  --contentDir example --cleanDestinationDir --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production
 ```
 
@@ -238,7 +238,7 @@ hugo server -w -D -p 1313 -t hello-friend --bind 0.0.0.0  --contentDir example -
 
 ### 💥 清理 Git 仓库
 
-```
+```bash
 git rm -r --cached .
 git reflog expire --expire=now --all
 git gc --prune=now --aggressive
@@ -309,7 +309,7 @@ Theme DoIt is licensed under [MIT](https://github.com/HEIGE-PCloud/DoIt/blob/mai
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_large)
 
-```
+```license
 GLWT（Good Luck With That，祝你好运）公共许可证
 版权所有© 每个人，除了作者
 
