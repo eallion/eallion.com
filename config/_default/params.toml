@@ -106,7 +106,7 @@ cacheRemoteImages = false
   # recently updated posts settings
   # 最近更新文章设置
   [section.recentlyUpdated]
-    enable = true
+    enable = false
     rss = true
     days = 30
     maxCount = 10
@@ -457,7 +457,7 @@ cacheRemoteImages = false
       lite = false
       katex = false
       lightbox = true
-      pageview = true
+      pageview = false
       commentCount = true
   # Third-party library config
   # 第三方库配置
