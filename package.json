@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/eallion/eallion.com#readme",
   "dependencies": {
-    "axios": "^1.5.0",
+    "axios": "^1.6.0",
     "fs": "0.0.1-security",
     "generate-changelog": "^1.8.0",
     "next": "13.5.6",
