@@ -9,6 +9,8 @@
 {{- $toc = dict "enable" false -}}
 {{- end -}}
 
+{{ $penta := getJSON "data/penta/penta.json" }}
+
 <meta name="referrer" content="no-referrer">
 <style>
     .penta {
@@ -131,10 +133,35 @@
             </blockquote>
         </div>
         <div class="penta" view-image>
-            {{- $content := dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome -}}
+            <!-- {{- $content := dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome -}}
             {{- $processedContent := $content | partial "function/content.html" -}}
             {{- $plainContent := $processedContent | replaceRE "<[pP]>|<[bB][rR]>" "" -}}
-            {{- $plainContent | safeHTML -}}
+            {{- $plainContent | safeHTML -}} -->
+            {{ range $penta.penta }}
+            <div class="pentas">
+                <div class="screenshot">
+                    <img class="lazy" loading="lazy" data-src="{{ .src }}" alt="{{ .alt }}{{ .caption }}">
+                </div>
+                <div class="champions">
+                    <span class="champAvatar">
+                        <a href="https://101.qq.com/#/hero-detail?heroid={{ .heroId }}" target="_blank" rel="noreferrer noopener nofollow">
+                            <img class="lazy" loading="lazy"  data-src="https://game.gtimg.cn/images/lol/act/img/champion/{{ .champion }}.png" alt="{{ .champion }}{{ .caption }}" no-view>
+                        </a>
+                    </span>
+                    <span class="caption">
+                        {{ .caption }}
+                    </span>
+                </div>
+
+                <div class="date">
+                    <span>Penta On: </span>
+                    <span class="dateText">{{ .date }}</span>
+                </div>
+
+            </div>
+
+            {{ end }}
+
         </div>
     </div>
 </article>

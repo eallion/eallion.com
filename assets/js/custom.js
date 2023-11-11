@@ -77,7 +77,7 @@ if (document.querySelector('#ticker')) {
             for (var i = 0; i < data.length; i++) {
                 var tickerTime = new Date(data[i].created_at).toLocaleString();
                 var tickerContent = pangu.spacing(getSimpleText(data[i].content))
-                result += `<li class="item"><span class="datetime">${tickerTime}</span>：<a href="https://eallion.com/toot/">${tickerContent}</a></li>`;
+                result += `<li class="item"><span class="item-detail">嘀咕：<a href="/toot/">${tickerContent}</a></span><span>&lsqb;<span class="datetime">${tickerTime}</span>&rsqb;</span></li>`;
                 console.log(tickerContent)
             }
             var tickerDom = document.querySelector('#ticker');

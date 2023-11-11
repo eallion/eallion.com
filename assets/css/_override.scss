@@ -5,7 +5,7 @@
 
 // Global font family
 // @import url('https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/lxgwwenkaiscreenr.min.css');
-// $global-font-family: 'LXGW WenKai Screen R', system-ui, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei UI, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif !default;
+// $global-font-family: 'LXGW WenKai Screen R', system-ui, -apple-system, BlinkMacSystemFont, PingFang SC, Microsoft YaHei UI, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
 
 // Font family of the code
 /* jetbrains-mono-regular */
@@ -21,4 +21,10 @@
 //          url('//lib.baomitu.com/fonts/jetbrains-mono/jetbrains-mono-regular.ttf') format('truetype'), /* Safari, Android, iOS */
 //          url('//lib.baomitu.com/fonts/jetbrains-mono/jetbrains-mono-regular.svg#JetBrainsMono') format('svg'); /* Legacy iOS */
 // }
-// $code-font-family: 'JetBrains Mono', monospace, Source Code Pro, Menlo, Consolas, Monaco, monospace, $global-font-family !default;
+$global-font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+$code-font-family: 'JetBrains Mono', monospace, Source Code Pro, Menlo, Consolas, Monaco, monospace, $global-font-family;
+
+$global-link-hover-color: #006bee;
+$single-link-color: #006bee;
+$pagination-link-color: #006bee;
+$friend-link-color: #006bee;

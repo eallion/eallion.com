@@ -1,6 +1,6 @@
 ---
 title: "图床 CDN CNAME 接入 Cloudflare SaaS 实现分流"
-images: ["https://api.eallion.com/og?title=%E5%9B%BE%E5%BA%8A%20CDN%20CNAME%20%E6%8E%A5%E5%85%A5%20Cloudflare%20SaaS%20%E5%AE%9E%E7%8E%B0%E5%88%86%E6%B5%81"]
+images: ["/assets/images/og/cdn-cname-cloudflare.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

@@ -10,7 +10,7 @@ slug: "self-hosted-github-flavored-reactions"
 draft: false
 Comments: true
 date: 2023-08-06T15:25:40+08:00
-images: ["https://api.eallion.com/og?title=自部署%20GitHub%20风格的%20Reactions%20功能"]
+images: ["/assets/images/og/self-hosted-github-flavored-reactions.png"]
 ---
 
 ### 前言

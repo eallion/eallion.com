@@ -6,7 +6,7 @@ title = "大大的小蜗牛"
 version = "0.4.X"
 # site default theme ("light", "dark", "black", "auto")
 # 网站默认主题 ("light", "dark", "black", "auto")
-defaultTheme = "auto"
+defaultTheme = "light"
 # public git repo url only then enableGitInfo is true
 # 公共 git 仓库路径，仅在 enableGitInfo 设为 true 时有效
 gitRepo = "https://github.com/eallion/eallion.com"
@@ -24,7 +24,7 @@ images = ["og-eallion.png"]
 enablePWA = true
 # license information
 # 许可协议信息 (支持 HTML 格式)
-license = '<i class="fab fa-creative-commons fa-fw"></i> <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA 4.0</a>'
+license = '<i class="fab fa-creative-commons fa-fw"></i> <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank">CC-BY-SA 4.0</a>'
 # [Experimental] Bundle js
 bundle = true
 # [Experimental] cache remote images, more info: https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
@@ -67,13 +67,15 @@ cacheRemoteImages = false
   enable = true
   # Custom content (HTML format is supported)
   # 自定义内容 (支持 HTML 格式)
-  custom = '<a href="https://notbyai.fyi" target="_blank" rel="noopener noreffer"><div class="notbyai written"></div></a> <a href="https://notbyai.fyi" target="_blank" rel="noopener noreffer"><div class="notbyai produced"></div></a>'
+  custom = ''
+  # custom = '<a href="https://notbyai.fyi" target="_blank" rel="noopener noreffer"><div class="notbyai written"></div></a> <a href="https://notbyai.fyi" target="_blank" rel="noopener noreffer"><div class="notbyai produced"></div></a>'
   # whether to show Hugo and theme info
   # 是否显示 Hugo 和主题信息
   hugo = true
   # Hosted on (HTML format is supported)
   # 托管服务信息 (支持 HTML 格式)
   # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
+  # hostedOn = ''
   hostedOn = '<a title="阿里云 COS + CDN" href="https://www.aliyun.com/product/oss" target="_blank" rel="noopener noreffer">阿里云</a>'
   # whether to show copyright info
   # 是否显示版权信息
@@ -86,9 +88,11 @@ cacheRemoteImages = false
   since = 2006
   # ICP info only in China (HTML format is supported)
   # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
-  icp = '<i class="fas fa-balance-scale fa-fw"></i> <a title="ICP 备案号" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备16031768号-2</a> | <a title="RSS Feed" href="https://eallion.com/index.xml" target="_blank" rel="noopener noreferrer"><i class="fas fa-rss fa-fw"></i></a> <a title="GitHub 源码" href="https://github.com/eallion/eallion.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-code fa-fw"></i></a> <a title="Server Status" href="https://status.eallion.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-database fa-fw"></i></a> <a href="https://myssl.com/seal/detail?domain=eallion.com" title="本站支持SSL安全访问" target="_blank" rel="noopener noreferrer"><i class="fab fa-expeditedssl fa-fw"></i></a> <a href="https://ipw.cn/ipv6webcheck/?site=eallion.com" title="本站支持IPv6访问" target="_blank" rel="noopener noreferrer" class="icon-ipv6">IPv6</a> <a href="https://http3check.net/?host=eallion.com" title="本站支持 QUIC HTTP/3 访问" target="_blank" rel="noopener noreferrer" class="icon-ipv6">HTTP/3</a>'
+  icp = '<a title="ICP 备案号" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备16031768号-2</a>'
+  # icp = '<i class="fas fa-balance-scale fa-fw"></i> <a title="ICP 备案号" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备16031768号-2</a> | <a title="RSS Feed" href="https://eallion.com/index.xml" target="_blank" rel="noopener noreferrer"><i class="fas fa-rss fa-fw"></i></a> <a title="GitHub 源码" href="https://github.com/eallion/eallion.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-code fa-fw"></i></a> <a title="Server Status" href="https://status.eallion.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-database fa-fw"></i></a> <a href="https://myssl.com/seal/detail?domain=eallion.com" title="本站支持SSL安全访问" target="_blank" rel="noopener noreferrer"><i class="fab fa-expeditedssl fa-fw"></i></a> <a href="https://ipw.cn/ipv6webcheck/?site=eallion.com" title="本站支持IPv6访问" target="_blank" rel="noopener noreferrer" class="icon-ipv6">IPv6</a> <a href="https://http3check.net/?host=eallion.com" title="本站支持 QUIC HTTP/3 访问" target="_blank" rel="noopener noreferrer" class="icon-ipv6">HTTP/3</a>'
   # license info (HTML format is supported)
   # 许可协议信息 (支持 HTML 格式)
+  # license= ""
   license= "<a title='eallion.com 版权信息' href='https://eallion.com/copyright/' target='_blank' rel='noopener noreferrer'>eallion.com</a> All Rights Reserved."
 
 # Section (all posts) page config
@@ -307,6 +311,9 @@ cacheRemoteImages = false
     #Weixin = "https://chart.googleapis.com/chart?chs=400x400&cht=qr&choe=UTF-8&chl="
     Whatsapp = false
     Xing = false
+  # instant.page 设置
+  [page.instantpage]
+    enable = true
   # Comment config
   # 评论系统设置
   [page.comment]
@@ -551,7 +558,7 @@ cacheRemoteImages = false
 # Analytics config
 # 网站分析配置
 [analytics]
-  enable = true
+  enable = false
   # Google Analytics
   [analytics.google]
     id = ""

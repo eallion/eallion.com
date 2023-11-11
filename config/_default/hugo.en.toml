@@ -8,7 +8,7 @@ hasCJKLanguage = false
 # default amount of posts in each pages
 paginate = 12
 # copyright description used only for seo schema
-copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
 
 title = "Charles Chin's Blog"
 contentDir = 'content/en'

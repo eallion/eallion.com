@@ -8,4 +8,4 @@ hasCJKLanguage = true
 # 默认每页列表显示的文章数目
 paginate = 12
 # 版权描述，仅仅用于 SEO
-copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+copyright = "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
