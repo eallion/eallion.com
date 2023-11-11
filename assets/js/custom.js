@@ -81,7 +81,7 @@ if (document.querySelector('#ticker')) {
                 console.log(tickerContent)
             }
             var tickerDom = document.querySelector('#ticker');
-            var tickerBefore = `<i class="far fa-comment-dots"></i><div class="ticker-wrap"><ul class="ticker-list">`;
+            var tickerBefore = `<i class="fab fa-mastodon"></i><div class="ticker-wrap"><ul class="ticker-list">`;
             var tickerAfter = `</ul></div>`;
             resultAll = tickerBefore + result + tickerAfter;
             tickerDom.innerHTML = resultAll;

@@ -697,6 +697,7 @@ footer {
 
 #ticker i {
     margin-right: 0.25rem;
+    color: #4d4d4d;
 }
 
 .home .home-profile .home-disclaimer {
@@ -894,12 +895,20 @@ footer {
 
 .ai-title {
     display: flex;
-    color: #2d96bd;
+    color: #4d4d4d;
     border-radius: 0.5rem;
     align-items: center;
     padding: 0 0.25rem;
     cursor: default;
     user-select: none;
+}
+
+.ai-title a {
+    color: #4d4d4d;
+}
+
+.ai-title a:hover {
+    color: #2d96bd;
 }
 
 .ai-title-icon {
@@ -962,18 +971,34 @@ footer {
     display: none !important;
 }
 
+[theme="dark"] #ticker i {
+    color: #a9a9b3;
+}
+
 [theme="dark"] .post-ai {
     background: #252627;
     border: 1px solid #333;
 }
 
 [theme="dark"] .ai-title {
-    color: #2d96bd;
+    color: #b5b5b5;
+}
+
+[theme="dark"] .ai-title a {
+    color: #b5b5b5;
+}
+
+[theme="dark"] .ai-title a:hover {
+    color: #fff;
 }
 
 [theme="dark"] .ai-explanation {
     background: #292a2d;
     border: 1px solid #333;
+}
+
+[theme="black"] #ticker i {
+    color: #a9a9b3;
 }
 
 [theme="black"] .post-ai {
@@ -982,7 +1007,15 @@ footer {
 }
 
 [theme="black"] .ai-title {
-    color: #2d96bd;
+    color: #a9a9b3;
+}
+
+[theme="black"] .ai-title a {
+    color: #a9a9b3;
+}
+
+[theme="black"] .ai-title a:hover {
+    color: #fff;
 }
 
 [theme="black"] .ai-explanation {
