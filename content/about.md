@@ -98,7 +98,7 @@ comment: true
 
 <div class="badge">
   <a><img no-view src="https://img.shields.io/badge/Gmail-eallions@gmail.com-blue?style=flat&labelColor=555&logo=gmail&logoColor=fff"></a>
-  <a href="https://keybase.io/eallion/pgp_keys.asc?fingerprint=ebe20ab924c2a12c6a3e65bdbc4ca018e368547c" target="_blank" rel="noopener noreferrer">
+  <a href="https://keybase.io/eallion/pgp_keys.asc?fingerprint=4f07c9a0617d7166f03be7cc6a9279328406fb6c" target="_blank" rel="noopener noreferrer">
     <img no-view src="https://img.shields.io/keybase/pgp/eallion?label=Keybase%20OpenPGP&logo=keybase&logoColor=fff&style=flat">
   </a>
 </div>
