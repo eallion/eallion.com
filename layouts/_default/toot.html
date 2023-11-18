@@ -1,4 +1,4 @@
-{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+{{- define "title" -}}{{- .Title -}} - {{- .Site.Title -}}{{- end -}}
 
 {{- define "content" -}}
 {{- $params := .Scratch.Get "params" -}}
@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="/assets/toot/mastodon-timeline-custom.min.css?v=2023.10.16">
 
 <article class="page single special">
-    <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
+    <h1 class="single-title animate__animated animate__pulse animate__faster">{{- .Title -}}</h1>
     <div id="content" class="content">
         <div class="greyQuote">
             <blockquote>
@@ -22,52 +22,87 @@
                 </div>
             </blockquote>
         </div>
+
         <div class="dummy-container">
             <div class="mt-timeline">
                 <div id="mt-body" class="mt-body" role="feed">
-                    <div class="loading-spinner"></div>
+                    {{- $mastodon_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true" -}}
+                    {{- $mastodon_local := "data/mastodon/mastodon.json" -}}
+                    {{- with resources.GetRemote $mastodon_api -}}
+                        {{- with .Err -}}
+                        {{- $ticker := getJSON $mastodon_local -}}
+                            {{- range $ticker -}}
+                                <article class="mt-toot" aria-posinset="1" aria-setsize="20" tabindex="0"><div class="mt-header"><a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer" target="_blank"><div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy"></div></a><div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank"><div class="mt-nick">Charles Chin</div><div class="mt-id">@eallion@e5n.cc</div></a></div></div><div class="toot-text"><div>{{- .content | markdownify -}}</div></div><div class="toot-footer"><div class="mt-bar"><div class="toot-meta"><div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank"><span class="twitter-time">{{- .created_at -}}</span></a></div><div class="toot-visibility" title="公开"><i class="fas fa-globe-asia"></i></div><div class="toot-app"><a href="{{- .application.website -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复">{{- .application.name -}}</a></div></div><div class="toot-reply"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复"><i class="fas fa-reply"></i></a>{{- .replies_count -}}</div><div class="toot-retoot"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="转嘟" alt="转嘟"><i class="fas fa-retweet"></i></a>{{- .reblogs_count -}}</div><div class="toot-favourite"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="喜欢" alt="喜欢"><i class="fas fa-star"></i></a>{{- .favourites_count -}}</div><div class="toot-bookmarked"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="添加到书签" alt="添加到书签"><i class="fas fa-bookmark"></i></a></div><div class="toot-more"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="更多" alt="更多"><i class="fas fa-ellipsis-h"></i></a></div></div></div></article>
+                            {{- end -}}
+                        {{- else -}}
+                        {{- $ticker := getJSON $mastodon_api -}}
+                            {{- range $ticker -}}
+                                <article class="mt-toot" aria-posinset="1" aria-setsize="20" tabindex="0"><div class="mt-header"><a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer" target="_blank"><div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy"></div></a><div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank"><div class="mt-nick">Charles Chin</div><div class="mt-id">@eallion@e5n.cc</div></a></div></div><div class="toot-text"><div>{{- .content | markdownify -}}</div></div><div class="toot-footer"><div class="mt-bar"><div class="toot-meta"><div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank"><span class="twitter-time">{{- .created_at -}}</span></a></div><div class="toot-visibility" title="公开"><i class="fas fa-globe-asia"></i></div><div class="toot-app"><a href="{{- .application.website -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复">{{- .application.name -}}</a></div></div><div class="toot-reply"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复"><i class="fas fa-reply"></i></a>{{- .replies_count -}}</div><div class="toot-retoot"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="转嘟" alt="转嘟"><i class="fas fa-retweet"></i></a>{{- .reblogs_count -}}</div><div class="toot-favourite"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="喜欢" alt="喜欢"><i class="fas fa-star"></i></a>{{- .favourites_count -}}</div><div class="toot-bookmarked"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="添加到书签" alt="添加到书签"><i class="fas fa-bookmark"></i></a></div><div class="toot-more"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="更多" alt="更多"><i class="fas fa-ellipsis-h"></i></a></div></div></div></article>
+                            {{- end -}}
+                        {{- end -}}
+                    {{- end -}}
+
+
                 </div>
+                <div class="mt-footer"><a href="https://e5n.cc/@eallion" class="btn" target="_blank"
+                        rel="nofollow noopener noreferrer">See more posts at e5n.cc</a></div>
             </div>
         </div>
+
     </div>
 </article>
 
 <script>
-        // Hitokoto API
-        if (window.location.href.includes("/en/")) {
-            fetch("https://api.github.com/zen")
-                .then(response => response.text())
-                .then(data => {
-                    const zen = document.querySelector('#hitokoto');
-                    zen.innerText = data;
-                    const author = document.querySelector('#author');
-                    author.innerText = "GitHub Zen";
-                })
-                .catch(console.error);
-        } else {
-            // fetch("https://api.eallion.com/hitokoto?c=k&charset=utf-8&encode=json")
-            fetch("https://api.eallion.com/poisonous.json")
-                .then(response => response.json())
-                .then(data => {
-                    const hitokoto = document.querySelector('#hitokoto');
-                        // hitokoto.innerText = data.hitokoto;
-                        hitokoto.innerText = data.content;
-                    const author = document.querySelector('#author');
-                        author.innerText = '佚名';
-                })
-                .catch(console.error);
-        }
+    // Hitokoto API
+    if (window.location.href.includes("/en/")) {
+        fetch("https://api.github.com/zen")
+            .then(response => response.text())
+            .then(data => {
+                const zen = document.querySelector('#hitokoto');
+                zen.innerText = data;
+                const author = document.querySelector('#author');
+                author.innerText = "GitHub Zen";
+            })
+            .catch(console.error);
+    } else {
+        // fetch("https://api.eallion.com/hitokoto?c=k&charset=utf-8&encode=json")
+        fetch("https://api.eallion.com/poisonous.json")
+            .then(response => response.json())
+            .then(data => {
+                const hitokoto = document.querySelector('#hitokoto');
+                // hitokoto.innerText = data.hitokoto;
+                hitokoto.innerText = data.content;
+                const author = document.querySelector('#author');
+                author.innerText = '佚名';
+            })
+            .catch(console.error);
+    }
 </script>
 
 <script type="text/javascript" src="/assets/toot/moment.min.js?v=2.29.4"></script>
 
-{{ if eq .Site.LanguageCode "en" }}
+{{- if eq .Site.LanguageCode "en" -}}
 <script type="text/javascript" src="/assets/toot/moment.twitter.en.min.js"></script>
-{{ else }}
+{{- else -}}
 <script type="text/javascript" src="/assets/toot/moment.twitter.min.js"></script>
-{{ end }}
+{{- end -}}
+<script>
+// 页面加载完成后
+document.addEventListener('DOMContentLoaded', () => {
 
-<script type="text/javascript" src="/assets/toot/mastodon-timeline.min.js?v=3.9.1-3.10.4"></script>
+// 查找所有 class 为 toot-date 的元素
+const dates = document.querySelectorAll('.twitter-time');
+
+// 遍历格式化
+dates.forEach(date => {
+  const time = date.innerText;
+  const formatted = moment(time).twitterLong();
+  date.innerText = formatted;
+});
+
+});
+</script>
+<!-- <script type="text/javascript" src="/assets/toot/mastodon-timeline.js?v=3.9.1-3.10.4"></script> -->
 
 <!-- <script type="module" src="/assets/toot/reactions.min.js?v=1.0.11"></script> -->
 

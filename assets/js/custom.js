@@ -18,8 +18,9 @@
 // }
 
 // 首页嘀咕
+// 首页嘀咕已经静态化
 // 远程 JSON API 地址
-let jsonUrl = "https://api.eallion.com/mastodon/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true";
+// let jsonUrl = "https://api.eallion.com/mastodon/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true";
 
 // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
 (() => {
@@ -69,29 +70,34 @@ let jsonUrl = "https://api.eallion.com/mastodon/api/v1/accounts/1111362316745273
 
 // 处理 Json 数据
 if (document.querySelector('#ticker')) {
-    fetch(jsonUrl)
-        .then(res => res.json())
-        .then(res => {
-            var result = '';
-            var data = res;
-            for (var i = 0; i < data.length; i++) {
-                var tickerTime = new Date(data[i].created_at).toLocaleString();
-                var tickerContent = pangu.spacing(getSimpleText(data[i].content))
-                result += `<li class="item"><span class="item-detail">嘀咕：<a href="/toot/">${tickerContent}</a></span><span>&lsqb;<span class="datetime">${tickerTime}</span>&rsqb;</span></li>`;
-                console.log(tickerContent)
-            }
-            var tickerDom = document.querySelector('#ticker');
-            var tickerBefore = `<i class="fab fa-mastodon"></i><div class="ticker-wrap"><ul class="ticker-list">`;
-            var tickerAfter = `</ul></div>`;
-            resultAll = tickerBefore + result + tickerAfter;
-            tickerDom.innerHTML = resultAll;
+    // 首页嘀咕已经静态化
+    // fetch(jsonUrl)
+    //     .then(res => res.json())
+    //     .then(res => {
+    //         let result = '';
+    //         let resultAll = '';
+    //         var data = res;
+    //         for (var i = 0; i < data.length; i++) {
+    //             var tickerTime = new Date(data[i].created_at).toLocaleString();
+    //             var tickerContent = pangu.spacing(getSimpleText(data[i].content))
+    //             result += `<li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>嘀咕：<a href="/toot/">${tickerContent}</a></span><span>&lsqb;<span class="datetime">${tickerTime}</span>&rsqb;</span></li>`;
+    //             console.log(tickerContent)
+    //         }
+    //         var tickerDom = document.querySelector('#ticker');
+    //         var tickerBefore = `<div class="ticker-wrap"><ul class="ticker-list">`;
+    //         var tickerAfter = `</ul></div>`;
+    //         resultAll = tickerBefore + result + tickerAfter;
+    //         tickerDom.innerHTML = resultAll;
 
+    //         // 相对时间插件
+    //         window.Lately && Lately.init({
+    //             target: '.datetime'
+    //         });
+    //     });
             // 相对时间插件
             window.Lately && Lately.init({
                 target: '.datetime'
             });
-        });
-
     // 滚动效果
     setInterval(function () {
         var tickerWrap = document.querySelector(".ticker-list");
@@ -104,12 +110,12 @@ if (document.querySelector('#ticker')) {
     }, 2000);
 }
 
-// 提取 HTML 代码中的纯文本内容
-function getSimpleText(html) {
-    var htmlTags = new RegExp("<.+?>", "g");
-    var simpleText = html.replace(htmlTags, '');
-    return simpleText;
-}
+// // 提取 HTML 代码中的纯文本内容
+// function getSimpleText(html) {
+//     var htmlTags = new RegExp("<.+?>", "g");
+//     var simpleText = html.replace(htmlTags, '');
+//     return simpleText;
+// }
 
 // 首页嘀咕结束
 

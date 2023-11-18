@@ -1,0 +1,42 @@
+name: Fetch mastodon status
+
+on:
+#  schedule:
+#  - cron: "0 17 * * *"
+#  watch:
+#    types: [started]
+
+  workflow_dispatch:
+  repository_dispatch:
+    types: [mastodon-update]
+
+jobs:
+  mastodon:
+    name: Fetch mastodon status
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    # 下载最新的 Mastodon
+    - name: Download Mastodon Status
+      run: |
+        cd data/mastodon/
+        rm mastodon.json
+        url="https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true"
+        output="mastodon.json"
+        curl -s "$url" >"$output"
+
+    # 把修改后的数据提交到 GitHub 仓库
+    - name: Git Add and Commit
+      uses: EndBug/add-and-commit@v9
+      with:
+        message: 'chore(data): fetch mastodon status'
+        add: |
+          './data/mastodon'
+
+    # 调用另外的 GitHub Actions 构建 Hugo
+    - name: Build Hugo and Deploy
+      uses: peter-evans/repository-dispatch@v2
+      with:
+          event-type: build-hugo

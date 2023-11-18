@@ -8,6 +8,7 @@ on:
 #    - cron: 0 16 * * *
   workflow_dispatch:
   repository_dispatch:
+    types: [build-hugo]
 
 jobs:
   build-deploy:
