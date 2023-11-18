@@ -9,19 +9,19 @@ $posts := .Site.Params.home.posts -}}
 
     <style>
         .google-blue {
-            color: #4285F4;
+            color: #4285f4;
         }
 
         .google-red {
-            color: #DB4437;
+            color: #db4437;
         }
 
         .google-yellow {
-            color: #F4B400;
+            color: #f4b400;
         }
 
         .google-green {
-            color: #0F9D58;
+            color: #0f9d58;
         }
 
         .google-colors {
@@ -58,7 +58,7 @@ $posts := .Site.Params.home.posts -}}
             font-size: 1.25rem !important;
         }
 
-        [theme=web-theme] .dcc-hero .button {
+        [theme="web-theme"] .dcc-hero .button {
             margin: 0.125rem !important;
         }
 
@@ -75,15 +75,15 @@ $posts := .Site.Params.home.posts -}}
             margin: 0;
         }
 
-        [theme=web-theme] .dcc-services-card {
+        [theme="web-theme"] .dcc-services-card {
             padding-bottom: 1rem;
         }
 
-        [theme=web-theme] .dcc-services-card h3 {
+        [theme="web-theme"] .dcc-services-card h3 {
             min-height: 1rem;
         }
 
-        [theme=web-theme] .dcc-blog-card[description-position=bottom] {
+        [theme="web-theme"] .dcc-blog-card[description-position="bottom"] {
             padding: 2.5rem 1.125rem 2rem;
         }
 
@@ -149,7 +149,7 @@ $posts := .Site.Params.home.posts -}}
         }
 
         .dcc-chrome-releases .devsite-landing-row-item-image {
-            background: rgb(245, 245, 245);
+            background: #f5f5f5;
         }
 
         .dcc-chrome-releases .devsite-landing-row-item-image img {
@@ -161,7 +161,12 @@ $posts := .Site.Params.home.posts -}}
             margin-bottom: 0;
         }
 
-        #penta .champion,
+        #penta .devsite-landing-row-item-buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        #penta .champion a,
         #penta .penta-date {
             display: flex;
             justify-content: center;
@@ -174,8 +179,22 @@ $posts := .Site.Params.home.posts -}}
             height: 1.1rem;
         }
 
+        #penta .caption {
+            margin-left: 0.25rem;
+        }
+
+        #penta .caption:hover {
+            color: #006bee;
+            text-decoration: none;
+        }
+
         #penta .penta-date {
-            font-size: small;
+            font-size: 0.75rem;
+            opacity: 0.5;
+        }
+
+        #penta .penta-date .dateText {
+            margin-left: 0.125rem;
         }
 
         .footer-title {
@@ -197,67 +216,95 @@ $posts := .Site.Params.home.posts -}}
             align-items: center;
         }
 
-        body[theme=dark] {
+        body[theme="dark"] {
             color: var(--devsite-primary-text-color);
             background-color: var(--devsite-background-1);
         }
 
-        [theme=dark] header {
+        [theme="dark"] header {
             background-color: #f8f8f8;
         }
 
-        [theme=dark] a, [theme=dark] a::before, [theme=dark] a::after {
+        [theme="dark"] a,
+        [theme="dark"] a::before,
+        [theme="dark"] a::after {
             color: #161209;
         }
 
-        [theme=dark] .search input,
-        [theme=dark] .open .search input, [theme=dark] .search.mobile input {
+        [theme="dark"] .search input,
+        [theme="dark"] .open .search input,
+        [theme="dark"] .search.mobile input {
             background-color: #f8f8f8;
         }
 
-        [theme=dark] .devsite-landing-row-header {
+        [theme="dark"] .devsite-landing-row-header {
             background-color: transparent;
         }
 
-        [theme=dark] a:active, [theme=dark] a:hover {
+        [theme="dark"] a:active,
+        [theme="dark"] a:hover {
             color: #006bee;
         }
-        [theme=dark] .dcc-hero .devsite-landing-row-item-buttons a:active, [theme=dark] .dcc-hero .devsite-landing-row-item-buttons a:hover {
+
+        [theme="dark"] .dcc-hero .devsite-landing-row-item-buttons a:active,
+        [theme="dark"] .dcc-hero .devsite-landing-row-item-buttons a:hover {
             color: #fff;
         }
-        [theme=dark] .button, [theme=dark] .devsite-footer-utility-button > a, [theme=dark] button, [theme=dark] input[type=button], [theme=dark] input[type=file], [theme=dark] input[type=image], [theme=dark] input[type=reset], [theme=dark] input[type=submit] {
+
+        [theme="dark"] .button,
+        [theme="dark"] .devsite-footer-utility-button>a,
+        [theme="dark"] button,
+        [theme="dark"] input[type="button"],
+        [theme="dark"] input[type="file"],
+        [theme="dark"] input[type="image"],
+        [theme="dark"] input[type="reset"],
+        [theme="dark"] input[type="submit"] {
             color: var(--devsite-button-color);
         }
 
-        body[theme=black] {
+        body[theme="black"] {
             color: var(--devsite-primary-text-color);
             background-color: var(--devsite-background-1);
         }
 
-        [theme=black] header {
+        [theme="black"] header {
             background-color: #f8f8f8;
         }
 
-        [theme=black] a, [theme=black] a::before, [theme=black] a::after {
+        [theme="black"] a,
+        [theme="black"] a::before,
+        [theme="black"] a::after {
             color: #161209;
         }
 
-        [theme=black] .search input,
-        [theme=black] .open .search input, [theme=black] .search.mobile input {
+        [theme="black"] .search input,
+        [theme="black"] .open .search input,
+        [theme="black"] .search.mobile input {
             background-color: #f8f8f8;
         }
 
-        [theme=black] .devsite-landing-row-header {
+        [theme="black"] .devsite-landing-row-header {
             background-color: transparent;
         }
 
-        [theme=black] a:active, [theme=black] a:hover {
+        [theme="black"] a:active,
+        [theme="black"] a:hover {
             color: #006bee;
         }
-        [theme=black] .dcc-hero .devsite-landing-row-item-buttons a:active, [theme=black] .dcc-hero .devsite-landing-row-item-buttons a:hover {
+
+        [theme="black"] .dcc-hero .devsite-landing-row-item-buttons a:active,
+        [theme="black"] .dcc-hero .devsite-landing-row-item-buttons a:hover {
             color: #fff;
         }
-        [theme=black] .button, [theme=black] .devsite-footer-utility-button > a, [theme=black] button, [theme=black] input[type=button], [theme=black] input[type=file], [theme=black] input[type=image], [theme=black] input[type=reset], [theme=black] input[type=submit] {
+
+        [theme="black"] .button,
+        [theme="black"] .devsite-footer-utility-button>a,
+        [theme="black"] button,
+        [theme="black"] input[type="button"],
+        [theme="black"] input[type="file"],
+        [theme="black"] input[type="image"],
+        [theme="black"] input[type="reset"],
+        [theme="black"] input[type="submit"] {
             color: var(--devsite-button-color);
         }
     </style>
@@ -677,9 +724,14 @@ $posts := .Site.Params.home.posts -}}
                                                             <img class="lazy" loading="lazy"
                                                                 src="https://game.gtimg.cn/images/lol/act/img/champion/{{- .champion -}}.png" alt="{{- .alt -}} {{- .caption -}}"
                                                                 no-view>
+                                                                <span class="caption">
+                                                                    {{ .caption }}
+                                                                </span>
                                                         </a>
                                                     </div>
-                                                    <div class="penta-date"><i class="far fa-calendar-alt fa-fw"></i>{{- .date -}}</div>
+                                                    <div class="penta-date">
+                                                        <span><i class="far fa-calendar-alt fa-fw"></i>Penta On: </span>
+                                                        <span class="dateText">{{ .date }}</span></div>
                                                 </div>
                                             </div>
                                         </div>
