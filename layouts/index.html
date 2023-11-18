@@ -1,7 +1,7 @@
 {{- define "content" -}} {{- $params := .Scratch.Get "params" -}} {{- $profile := .Site.Params.home.profile -}} {{-
 $posts := .Site.Params.home.posts -}}
 <meta name="referrer" content="no-referrer">
-<div class="page home" {{ if ne $posts.enable false | or .Content }} posts{{ end }}>
+<div class="page home" {{- if ne $posts.enable false | or .Content -}} posts{{- end -}}>
 
     <link rel="stylesheet" href="/assets/chromedev/css/home.css" />
     <link rel="stylesheet" href="/assets/chromedev/css/devsite.css" />
@@ -96,6 +96,12 @@ $posts := .Site.Params.home.posts -}}
             width: 65%;
             max-width: var(--devsite-landing-row-max-width, 1488px);
             margin: 2rem auto;
+        }
+
+        @media (max-width: 480px) {
+            #ticker {
+                width: 100%;
+            }
         }
 
         [theme="dark"] #ticker {
@@ -280,7 +286,7 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="a-powerful-web-spanmade-easierspan"
+                                                <h3 id="bio"
                                                     data-text="A Powerful Web. Made Easier."
                                                     class="hide-from-toc no-link"><span>机会</span>总是垂青于有<span>准备</span>的人
                                                 </h3>
@@ -315,7 +321,31 @@ $posts := .Site.Params.home.posts -}}
                                                         <span class="fas fa-chevron-circle-down fa-fw"></span></a>
                                                 </div>
 
-                                                <div id='ticker'></div>
+                                                <div id="ticker">
+                                                    <div class="ticker-wrap">
+                                                        <ul class="ticker-list">
+                                                            {{- $mastodon_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true" -}}
+                                                            {{- $mastodon_local := "data/mastodon/mastodon.json" -}}
+                                                            {{- with resources.GetRemote $mastodon_api -}}
+                                                                {{- with .Err -}}
+                                                                {{- $ticker := getJSON $mastodon_local}}
+                                                                    {{- range $ticker -}}
+                                                                        <li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>嘀咕：<a href="/toot/"
+                                                                                aria-label="toot">{{- .content | plainify -}}</a></span><span>[<span class="datetime"
+                                                                                title="{{- .created_at -}}">{{- .created_at -}}</span>]</span></li>
+                                                                    {{- end -}}
+                                                                {{- else -}}
+                                                                {{- $ticker := getJSON $mastodon_api}}
+                                                                    {{- range $ticker -}}
+                                                                        <li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>嘀咕：<a href="/toot/"
+                                                                                aria-label="toot">{{- .content | plainify -}}</a></span><span>[<span class="datetime"
+                                                                                title="{{- .created_at -}}">{{- .created_at -}}</span>]</span></li>
+                                                                    {{- end -}}
+                                                                {{- end -}}
+                                                            {{- end -}}
+                                                        </ul>
+                                                    </div>
+                                                </div>
 
                                             </div>
                                         </div>
@@ -441,41 +471,41 @@ $posts := .Site.Params.home.posts -}}
                                     {{- range $pages.Pages -}}
 
                                     {{- $params := .Params | merge .Site.Params.page -}}
-                                    {{ $currentSlug := .Params.slug }}
+                                    {{- $currentSlug := .Params.slug -}}
                                     <div class="devsite-landing-row-item dcc-blog-card" description-position="bottom">
                                         <div class="devsite-landing-row-item-media">
                                             <figure class="devsite-landing-row-item-image">
-                                                <a href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
-                                                    <img alt src="/assets/images/og/{{ $currentSlug }}.png" loading="lazy" width="376" height="240" no-view />
+                                                <a href="{{- .RelPermalink -}}" aria-label="{{- .Title -}}">
+                                                    <img alt src="/assets/images/og/{{- $currentSlug -}}.png" loading="lazy" width="376" height="240" no-view />
                                                 </a>
                                             </figure>
                                         </div>
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
                                                 <div class="devsite-landing-row-item-labels">
-                                                    <h3 class="blog-title"><i class="far fa-list-alt fa-fw"></i> <a href="{{ .RelPermalink }}"> {{ .Title }} </a></h3>
+                                                    <h3 class="blog-title"><i class="far fa-list-alt fa-fw"></i> <a href="{{- .RelPermalink -}}"> {{- .Title -}} </a></h3>
                                                 </div>
 
                                                 <!-- <h3 id="recent"
                                                     data-text="Preparing for the end of third-party cookies"
                                                     class="hide-from-toc no-link">
-                                                    <a href="{{ .RelPermalink }}"> {{ .Title }} </a>
+                                                    <a href="{{- .RelPermalink -}}"> {{- .Title -}} </a>
                                                 </h3> -->
                                                 <div class="devsite-landing-row-item-description-content">
-                                                    {{ $summary := getJSON "data/summary/summary.json" }}
-                                                    {{ $matchingSummary := index (where $summary.summaries "slug" $currentSlug) 0 }}
-                                                    {{ if $matchingSummary.summary }}
-                                                        {{ $matchingSummary.summary }}
-                                                    {{ else }}
+                                                    {{- $summary := getJSON "data/summary/summary.json" -}}
+                                                    {{- $matchingSummary := index (where $summary.summaries "slug" $currentSlug) 0 -}}
+                                                    {{- if $matchingSummary.summary -}}
+                                                        {{- $matchingSummary.summary -}}
+                                                    {{- else -}}
                                                     {{- with .Summary -}}
                                                         {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
                                                     {{- else -}}
                                                         {{- .Description | safeHTML -}}
                                                     {{- end -}}
-                                                    {{ end }}
+                                                    {{- end -}}
                                                 </div>
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="{{ .RelPermalink }}" class="button"
+                                                    <a href="{{- .RelPermalink -}}" class="button"
                                                         aria-label="Read the third-party cookies blog post.">阅读全文
                                                         </a>
                                                 </div>
@@ -492,32 +522,32 @@ $posts := .Site.Params.home.posts -}}
                             class="devsite-landing-row devsite-landing-row-4-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-pillars"
                             background="pale-blue" header-position="top">
 
-                            {{ $movies := getJSON "data/neodb/movie.json" }}
+                            {{- $movies := getJSON "data/neodb/movie.json" -}}
                             <div class="devsite-landing-row-inner">
                                 <header class="devsite-landing-row-header">
                                     <div class="devsite-landing-row-header-text">
                                         <h2 id="movie" data-text="最近观影">
-                                            <i class="fas fa-video"></i> 最近观影
+                                            <a href="/movie/" class=""><i class="fas fa-video"></i> 最近观影 <i class="fas fa-caret-down"></i></a>
                                         </h2>
                                     </div>
                                 </header>
 
                                 <div class="devsite-landing-row-group">
-                                    {{ range first 4 $movies.data }}
-                                    {{ $title := .item.display_title }}
-                                    {{ $rating := .item.rating }}
-                                    {{ $movie_url := .item.url }}
-                                    {{ $cover := .item.cover_image_url }}
-                                    {{ $cover_name := path.Base $cover }}
-                                    {{ $cate_movie := "movie" }}
-                                    {{ $cate_tv := "tv" }}
+                                    {{- range first 4 $movies.data -}}
+                                    {{- $title := .item.display_title -}}
+                                    {{- $rating := .item.rating -}}
+                                    {{- $movie_url := .item.url -}}
+                                    {{- $cover := .item.cover_image_url -}}
+                                    {{- $cover_name := path.Base $cover -}}
+                                    {{- $cate_movie := "movie" -}}
+                                    {{- $cate_tv := "tv" -}}
                                     <div class="devsite-landing-row-item dcc-services-card"
                                         description-position="bottom">
                                         <div class="devsite-landing-row-item-media">
                                             <figure class="devsite-landing-row-item-image">
-                                                <img alt="{{ $title }}"
+                                                <img alt="{{- $title -}}"
                                                         class="lazy" loading="lazy"
-                                                        src="/assets/images/movie/cover/{{ $cover_name }}">
+                                                        src="/assets/images/movie/cover/{{- $cover_name -}}">
                                             </figure>
                                         </div>
 
@@ -525,40 +555,40 @@ $posts := .Site.Params.home.posts -}}
                                             <div class="devsite-landing-row-item-body">
                                                 <h3 id="movie-title" data-text="Movie Title"
                                                     class="hide-from-toc no-link">
-                                                    {{ $title }}<span class="rating_star">({{ $rating }})</span>
+                                                    {{- $title -}}<span class="rating_star">({{- $rating -}})</span>
                                                 </h3>
 
                                                 <div class="devsite-landing-row-item-buttons referrer">
-                                                    {{ if eq .item.category $cate_movie }}
+                                                    {{- if eq .item.category $cate_movie -}}
                                                     <i class="fas fa-film fa-fw"></i>
-                                                    {{ else if eq .item.category $cate_tv }}
+                                                    {{- else if eq .item.category $cate_tv -}}
                                                     <i class="fas fa-tv fa-xs"></i>
-                                                    {{ end }}
+                                                    {{- end -}}
                                                     <span class="neodb">
-                                                        <a href="https://neodb.social{{ $movie_url }}" target="_blank"
+                                                        <a href="https://neodb.social{{- $movie_url -}}" target="_blank"
                                                             rel="noreferrer noopener nofollow">
                                                             <img class="lazy" src="/assets/images/movie/neodbsocial.jpg"
                                                                 loading="lazy" alt="NeoDB" no-view>
                                                         </a>
                                                     </span>
 
-                                                    {{ range .item.external_resources }}
-                                                    {{ $parsedURL := urls.Parse .url }}
-                                                    {{ $host := $parsedURL.Hostname }}
-                                                    {{ $title := .title }}
+                                                    {{- range .item.external_resources -}}
+                                                    {{- $parsedURL := urls.Parse .url -}}
+                                                    {{- $host := $parsedURL.Hostname -}}
+                                                    {{- $title := .title -}}
                                                     <span class="external-resource">
-                                                        <a href="{{ .url }}" target="_blank"
+                                                        <a href="{{- .url -}}" target="_blank"
                                                             rel="noreferrer noopener nofollow">
-                                                            <img class="lazy" src="/assets/images/movie/{{ $host }}.png"
-                                                                loading="lazy" alt="{{ $title }}" no-view>
+                                                            <img class="lazy" src="/assets/images/movie/{{- $host -}}.png"
+                                                                loading="lazy" alt="{{- $title -}}" no-view>
                                                         </a>
                                                     </span>
-                                                    {{ end }}
+                                                    {{- end -}}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    {{ end }}
+                                    {{- end -}}
                                 </div>
                             </div>
                         </section>
@@ -566,7 +596,7 @@ $posts := .Site.Params.home.posts -}}
                         <section id="goods" view-image
                             class="devsite-landing-row devsite-landing-row-2-up dcc-chrome-releases"
                             header-position="left">
-                            {{ $goods := getJSON "data/goods/goods.json" }}
+                            {{- $goods := getJSON "data/goods/goods.json" -}}
                             <div class="devsite-landing-row-inner">
                                 <header class="devsite-landing-row-header" icon-position="top">
                                     <div class="devsite-landing-row-header-icon-container" size="medium">
@@ -575,7 +605,7 @@ $posts := .Site.Params.home.posts -}}
                                     </div>
 
                                     <div class="devsite-landing-row-header-text">
-                                        <h2 id="always-updating" data-text="好物分享"><a href="/goods/">好物分享</a></h2>
+                                        <h2 id="goods-share" data-text="好物分享"><a href="/goods/">好物分享</a></h2>
 
                                         <div class="devsite-landing-row-description">
                                             自己体验过的好物推荐。<br>
@@ -586,32 +616,32 @@ $posts := .Site.Params.home.posts -}}
                                 </header>
 
                                 <div class="devsite-landing-row-group">
-                                    {{ range first 2 $goods.good}}
+                                    {{- range first 2 $goods.good}}
                                     <div class="devsite-landing-row-item dcc-blog-card" description-position="bottom">
                                         <div class="devsite-landing-row-item-media">
                                             <figure class="devsite-landing-row-item-image">
-                                                <img class="lazy" loading="lazy" src="{{ .image }}" alt="{{ .title }}">
+                                                <img class="lazy" loading="lazy" src="{{- .image -}}" alt="{{- .title -}}">
                                             </figure>
                                         </div>
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 data-text="{{ .title }}"
+                                                <h3 data-text="{{- .title -}}"
                                                     class="hide-from-toc no-link">
-                                                    <a href="{{ .link }}" target="_blank" rel="noreferrer noopener nofollow">{{ .title }}</a>
+                                                    <a href="{{- .link -}}" target="_blank" rel="noreferrer noopener nofollow">{{- .title -}}</a>
                                                 </h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
-                                                    {{ .note | safeHTML }}
+                                                    {{- .note | safeHTML -}}
                                                 </div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="{{ .link }}" target="_blank" rel="noreferrer noopener nofollow" class="button"><i class="fas fa-shopping-cart"></i> 去官网查看 ({{ .price }})</a>
+                                                    <a href="{{- .link -}}" target="_blank" rel="noreferrer noopener nofollow" class="button"><i class="fas fa-shopping-cart"></i> 去官网查看 ({{- .price -}})</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    {{ end }}
+                                    {{- end -}}
                                 </div>
                             </div>
                         </section>
@@ -620,22 +650,22 @@ $posts := .Site.Params.home.posts -}}
                             class="devsite-landing-row devsite-landing-row-4-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-pillars"
                             background="pale-blue" header-position="top">
 
-                            {{ $penta := getJSON "data/penta/penta.json" }}
+                            {{- $penta := getJSON "data/penta/penta.json" -}}
                             <div class="devsite-landing-row-inner">
                                 <header class="devsite-landing-row-header">
                                     <div class="devsite-landing-row-header-text">
-                                        <h2 id="movie" data-text="最近 LOL 五杀截图">
-                                            <i class="fas fa-dragon"></i> LOL Penta
+                                        <h2 data-text="最近 LOL 五杀截图">
+                                            <a href="/penta/" class=""><i class="fas fa-dragon"></i> LOL Penta <i class="fas fa-caret-down"></i></a>
                                         </h2>
                                     </div>
                                 </header>
 
                                 <div class="devsite-landing-row-group">
-                                    {{ range first 4 $penta.penta }}
+                                    {{- range first 4 $penta.penta -}}
                                     <div class="devsite-landing-row-item dcc-services-card" description-position="bottom">
                                         <div class="devsite-landing-row-item-media">
                                             <figure class="devsite-landing-row-item-image">
-                                                <img alt="{{ .alt }}" class="lazy" loading="lazy" src="{{ .src }}">
+                                                <img alt="{{- .alt -}}" class="lazy" loading="lazy" src="{{- .src -}}">
                                             </figure>
                                         </div>
 
@@ -643,18 +673,18 @@ $posts := .Site.Params.home.posts -}}
                                             <div class="devsite-landing-row-item-body">
                                                 <div class="devsite-landing-row-item-buttons referrer">
                                                     <div class="champion">
-                                                        <a href="https://101.qq.com/#/hero-detail?heroid={{ .heroId }}" target="_blank" rel="noreferrer noopener nofollow">
+                                                        <a href="https://101.qq.com/#/hero-detail?heroid={{- .heroId -}}" target="_blank" rel="noreferrer noopener nofollow">
                                                             <img class="lazy" loading="lazy"
-                                                                src="https://game.gtimg.cn/images/lol/act/img/champion/{{ .champion }}.png" alt="{{ .alt }} {{ .caption }}"
+                                                                src="https://game.gtimg.cn/images/lol/act/img/champion/{{- .champion -}}.png" alt="{{- .alt -}} {{- .caption -}}"
                                                                 no-view>
                                                         </a>
                                                     </div>
-                                                    <div class="penta-date"><i class="far fa-calendar-alt fa-fw"></i>{{ .date }}</div>
+                                                    <div class="penta-date"><i class="far fa-calendar-alt fa-fw"></i>{{- .date -}}</div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    {{ end }}
+                                    {{- end -}}
                                 </div>
                             </div>
                         </section>
@@ -691,7 +721,7 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="chrome-devtools" data-text="生活日志" class="hide-from-toc no-link">
+                                                <h3 id="life" data-text="生活日志" class="hide-from-toc no-link">
                                                     生活</h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
@@ -715,7 +745,7 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="extensions" data-text="技术代码" class="hide-from-toc no-link">代码
+                                                <h3 id="code" data-text="技术代码" class="hide-from-toc no-link">代码
                                                 </h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
@@ -739,7 +769,7 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="chrome-web-store" data-text="分享收集"
+                                                <h3 id="share" data-text="分享收集"
                                                     class="hide-from-toc no-link">分享</h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
@@ -784,7 +814,7 @@ $posts := .Site.Params.home.posts -}}
                             <div class="devsite-landing-row-inner">
                                 <header class="devsite-landing-row-header">
                                     <div class="devsite-landing-row-header-text">
-                                        <h2 id="social" data-text="实用工具">实用工具</h2>
+                                        <h2 id="tool" data-text="实用工具">实用工具</h2>
                                     </div>
                                 </header>
 
@@ -799,7 +829,7 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="chrome-for-developers-on-x" data-text="Mastodon"
+                                                <h3 id="mastodon" data-text="Mastodon"
                                                     class="hide-from-toc no-link"><a href="https://github.com/helloxz/onenav" target="_blank" rel="noopener noreferrer">网址导航</a></h3>
 
                                                 <div class="devsite-landing-row-item-description-content">利用 <a target="_blank" href="https://github.com/helloxz/onenav" title="简约导航/书签管理器" rel="nofollow">OneNav</a> Docker 部署的个人导航网站，使用的自己修改的 <a href="https://github.com/eallion/onenav-baisu-mod" target="_blank">BaiSu Mod</a> 模板。
@@ -822,13 +852,13 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                <h3 id="ublacklist" data-text="GitHub"
                                                     class="hide-from-toc no-link"><a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer">uBlacklist 订阅合集</a></h3>
 
                                                 <div class="devsite-landing-row-item-description-content">🚫 用于 <a href="https://chromewebstore.google.com/detail/ublacklist/pncfbmialoiaghdehhbnbhkkgmjanfhe" target="_blank">uBlacklist</a> 插件的规则订阅合集，通过匹配域名的方式，屏蔽搜索引擎的中文内容农场！</div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer" class="button">前往设置 <i class="fas fa-tools"></i></a>
+                                                    <a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer" class="button">前往设置 <i class="fas fa-external-link-alt"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -844,7 +874,7 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                <h3 id="mastodon-embed-feed-timeline" data-text="GitHub"
                                                     class="hide-from-toc no-link"><a href="https://github.com/eallion/mastodon-embed-feed-timeline" target="_blank" rel="noopener noreferrer">Mastodon embed timeline</a></h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
@@ -868,7 +898,7 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                <h3 id="kms" data-text="GitHub"
                                                     class="hide-from-toc no-link"><a href="https://github.com/mikolatero/docker-vlmcsd" target="_blank" rel="noopener noreferrer">KMS Windows & Office 激活</a></h3>
 
                                                 <div class="devsite-landing-row-item-description-content">自建的 Windows 和 Office 激活服务器。可激活 VOL 批量授权版。需自备 KEY 或者使用微软官方提供的 <a href="https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys" target="_blank" rel="noopener noreferrer">Key</a>。</div>
@@ -890,7 +920,7 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                <h3 id="chatgpt" data-text="GitHub"
                                                     class="hide-from-toc no-link"><a href="https://github.com/eallion/ChatGPT-Next-Web/" target="_blank" rel="noopener noreferrer">ChatGPT Next Web</a></h3>
 
                                                 <div class="devsite-landing-row-item-description-content">使用 <a href="https://github.com/eallion/ChatGPT-Next-Web/" target="_blank" rel="noopener noreferrer">ChatGPT Next Web</a> 部署的跨平台私人 ChatGPT 应用，需要自备 OpenAI 的 API。</div>
@@ -912,13 +942,13 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                <h3 id="freshrss" data-text="GitHub"
                                                     class="hide-from-toc no-link"><a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">FreshRSS</a></h3>
 
                                                 <div class="devsite-landing-row-item-description-content">使用 <a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">FreshRSS</a> 和 <a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener noreferrer">RSSHub</a> 部署的 RSS 订阅服务。避免陷入信息茧房。需要登录阅读。</div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="https://rss.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即阅读 <i class="fas fa-rss"></i></a>
+                                                    <a href="https://rss.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即阅读 <i class="fas fa-external-link-alt"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -934,7 +964,7 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                <h3 id="alist" data-text="GitHub"
                                                     class="hide-from-toc no-link"><a href="https://github.com/alist-org/alist" target="_blank" rel="noopener noreferrer">Alist</a></h3>
 
                                                 <div class="devsite-landing-row-item-description-content">一款支持多种存储的目录文件列表程序，支持 Web 浏览与 Webdav，后端基于 Gin，前端使用 React。</div>
@@ -956,13 +986,13 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                <h3 id="talebook" data-text="GitHub"
                                                     class="hide-from-toc no-link"><a href="https://github.com/talebook/talebook" target="_blank" rel="noopener noreferrer">Talebook</a></h3>
 
                                                 <div class="devsite-landing-row-item-description-content">使用 <a href="https://github.com/talebook/talebook" target="_blank" rel="noopener noreferrer">Talebook</a> 部署。一个基于 Calibre 的简单好用的个人图书管理系统，支持在线阅读。</div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="https://book.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即阅读 <i class="fas fa-book-reader"></i></a>
+                                                    <a href="https://book.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即阅读 <i class="fas fa-external-link-alt"></i></a>
                                                 </div>
                                             </div>
                                         </div>

@@ -39,6 +39,7 @@ aliases:
 {{< friend name="东评西就" bio="小饿,专注科技互联网、社交媒体运营" url="https://dongjunke.cn" domain="dongjunke.cn" avatar="https://pic.yunshusong.cn/upic/20230204122856.jpg" >}}
 {{< friend name="Yuxi & Yuqi" bio="Design loser,slack off champion." url="https://yuxiyuqi.com/" domain="yuxiyuqi.com" avatar="https://img.yuxiyuqi.com/2023/07/202307292154832.png" >}}
 {{< friend name="文武科技柜" bio="文武科技社的后花园" url="https://www.wangdu.site/" domain="wangdu.site" avatar="https://www.wangdu.site/wp-content/uploads/2021/08/favicon.png" >}}
+{{< friend name="lehhair's Blog" bio="人似秋鸿来有信，事如春梦了无痕" url="https://blog.lehhair.net/" domain="blog.lehhair.net" avatar="https://blog.lehhair.net/upload/logo.jpg" >}}
 </div>
 
 ---

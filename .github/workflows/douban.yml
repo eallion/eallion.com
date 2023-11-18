@@ -1,5 +1,5 @@
-# .github/workflows/douban.yml
 name: Sync Douban Data
+
 on:
   schedule:
   - cron: "0 */12 * * *"
@@ -8,6 +8,7 @@ on:
 
   workflow_dispatch:
   repository_dispatch:
+    types: [sync-douban]
 
 jobs:
   douban:
@@ -72,3 +73,9 @@ jobs:
       with:
         message: 'chore(data): update douban data'
         add: './data/douban'
+
+    # 调用另外的 GitHub Actions
+    - name: Sync NeoDB Data
+      uses: peter-evans/repository-dispatch@v2
+      with:
+          event-type: sync-neodb
