@@ -9,18 +9,9 @@ comment: false
 
 <div class="greyQuote">
     <blockquote>
-        <span id="zen">.</span> - <span id="githubZen"><cite>GitHub Zen</cite></span>
+        <span id="zen">Chance favors the prepared mind.</span> - <span id="githubZen"><cite>GitHub Zen</cite></span>
     </blockquote>
 </div>
-<script>
-  fetch("https://api.github.com/zen")
-    .then(response => response.text())
-    .then(data => {
-      const zen = document.querySelector('#zen');
-      zen.innerText = data;
-    })
-    .catch(console.error);
-</script>
 
 <img no-view src="/eallion.webp" alt="eallion">
 
@@ -46,7 +37,7 @@ My favorite motto is:
 
 ### Description
 
-This blog's Toot page relies on the Mastodon instance at https://e5n.cc. The comment system relies on a self-hosted Artalk API at https://api.eallion.com/artalk, and the analytics rely on a self-hosted Umami at https://a.eallion.com.
+This blog's Toot page relies on the Mastodon instance at https://e5n.cc. The comment system relies on a self-hosted Artalk API at https://artalk.eallion.com.
 
 ### Copyright
 
