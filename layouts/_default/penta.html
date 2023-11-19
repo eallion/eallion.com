@@ -9,6 +9,8 @@
 {{- $toc = dict "enable" false -}}
 {{- end -}}
 
+<!-- LOL 英雄头像 API <https://lol.qq.com/cguide/Guide/PublicResources/Images.html#%E9%9D%9E%E7%82%AB%E5%BD%A9%E7%9A%AE%E8%82%A4> -->
+
 {{ $penta := getJSON "data/penta/penta.json" }}
 
 <meta name="referrer" content="no-referrer">
@@ -66,7 +68,7 @@
     margin-bottom: 0.5rem;
 }
 
-.penta .pentas .champions {
+.penta .pentas .champions a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,6 +99,11 @@
     text-overflow: ellipsis;
     overflow: hidden;
     max-width: 100%;
+    color: initial;
+}
+
+.penta .pentas .caption:hover {
+    color: inherit;
 }
 
 .penta .date {
@@ -143,14 +150,16 @@
                     <img class="lazy" loading="lazy" data-src="{{ .src }}" alt="{{ .alt }}{{ .caption }}">
                 </div>
                 <div class="champions">
-                    <span class="champAvatar">
-                        <a href="https://101.qq.com/#/hero-detail?heroid={{ .heroId }}" target="_blank" rel="noreferrer noopener nofollow">
-                            <img class="lazy" loading="lazy"  data-src="https://game.gtimg.cn/images/lol/act/img/champion/{{ .champion }}.png" alt="{{ .champion }}{{ .caption }}" no-view>
-                        </a>
-                    </span>
-                    <span class="caption">
-                        {{ .caption }}
-                    </span>
+                    <a href="https://101.qq.com/#/hero-detail?heroid={{ .heroId }}" target="_blank" rel="noreferrer noopener nofollow">
+                        <span class="champAvatar">
+                            <img class="lazy" loading="lazy"
+                                data-src="https://game.gtimg.cn/images/lol/act/img/champion/{{ .champion }}.png"
+                                alt="{{ .champion }}{{ .caption }}" no-view>
+                        </span>
+                        <span class="caption">
+                            {{ .caption }}
+                        </span>
+                    </a>
                 </div>
 
                 <div class="date">

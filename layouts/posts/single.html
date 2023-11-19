@@ -220,15 +220,15 @@
                         {{- $ticker := getJSON $mastodon_local}}
                             {{- range $ticker -}}
                                 <li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>嘀咕：<a href="/toot/"
-                                        aria-label="toot">{{- .content | plainify -}}</a></span><span>[<span class="datetime"
-                                        title="{{- .created_at -}}">{{- .created_at -}}</span>]</span></li>
+                                        aria-label="toot">{{- .content | plainify -}}</a></span><span>[<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span class="datetime"
+                                            title="{{- .created_at -}}">{{- .created_at -}}</span></a>]</span></li>
                             {{- end -}}
                         {{- else -}}
                         {{- $ticker := getJSON $mastodon_api}}
                             {{- range $ticker -}}
                                 <li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>嘀咕：<a href="/toot/"
-                                        aria-label="toot">{{- .content | plainify -}}</a></span><span>[<span class="datetime"
-                                        title="{{- .created_at -}}">{{- .created_at -}}</span>]</span></li>
+                                        aria-label="toot">{{- .content | plainify -}}</a></span><span>[<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span class="datetime"
+                                        title="{{- .created_at -}}">{{- .created_at -}}</span></a>]</span></li>
                             {{- end -}}
                         {{- end -}}
                     {{- end -}}
@@ -283,4 +283,95 @@
         {{- /* Comment */ -}}
         {{- partial "comment.html" . -}}
     </article>
+
+    <script>
+            // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
+            (() => {
+                let location = window.location.href;
+                let isEnglish = location.indexOf("/en/") !== -1;
+                window.Lately = new function () {
+                    this.lang = isEnglish ? {
+                        'second': ' Seconds',
+                        'minute': ' Minutes',
+                        'hour': ' Hours',
+                        'day': ' Days',
+                        'month': ' Months',
+                        'year': ' Years',
+                        'ago': ' Ago',
+                        'error': 'NaN'
+                    } : {
+                        second: " 秒",
+                        minute: " 分钟",
+                        hour: " 小时",
+                        day: " 天",
+                        month: " 个月",
+                        year: " 年",
+                        ago: "前",
+                        error: "NaN"
+                    };
+                    const format = (date) => {
+                        date = new Date(_val(date));
+                        const floor = (num, _lang) => Math.floor(num) + _lang,
+                            obj = new function () {
+                                this.second = (Date.now() - date.getTime()) / 1000;
+                                this.minute = this.second / 60;
+                                this.hour = this.minute / 60;
+                                this.day = this.hour / 24;
+                                this.month = this.day / 30;
+                                this.year = this.month / 12
+                            },
+                            key = Object.keys(obj).reverse().find(_ => obj[_] >= 1);
+                        return (key ? floor(obj[key], this.lang[key]) : this.lang.error) + this.lang.ago;
+                    },
+                        _val = (date) => {
+                            date = new Date(date && (typeof date === 'number' ? date : date.replace(/-/g, '/').replace('T', ' ')));
+                            return isNaN(date.getTime()) ? false : date.getTime();
+                        };
+                    return {
+                        init: ({ target = "time", lang } = {}) => {
+                            if (lang) this.lang = lang;
+                            for (let el of document.querySelectorAll(target)) {
+                                const date = _val(el.dateTime) || _val(el.title) || _val(el.innerHTML) || 0;
+                                if (!date) return;
+                                el.title = new Date(date).toLocaleString();
+                                el.innerHTML = format(date);
+                            }
+                        },
+                        format
+                    }
+                }
+            })();
+
+        // 处理 Json 数据
+        if (document.querySelector('#ticker')) {
+            // 相对时间插件
+            window.Lately && Lately.init({
+                target: '.datetime'
+            });
+            // 滚动效果
+            setInterval(function () {
+                var tickerWrap = document.querySelector(".ticker-list");
+                var tickerItem = tickerWrap.querySelectorAll(".item");
+                for (var i = 0; i < tickerItem.length; i++) {
+                    setTimeout(function () {
+                        tickerWrap.appendChild(tickerItem[0]);
+                    }, 2000);
+                }
+            }, 2000);
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const matchingSummary = document.querySelector(".ai-explanation-content");
+
+            if (matchingSummary) {
+                new TypeIt("#ai-explanation", {
+                    strings: matchingSummary.textContent,
+                    speed: 30,
+                    lifeLike: true,
+                    waitUntilVisible: true,
+                }).go();
+            }
+        });
+    </script>
 {{- end -}}

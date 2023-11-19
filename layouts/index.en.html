@@ -335,13 +335,13 @@ $posts := .Site.Params.home.posts -}}
                                             <div class="devsite-landing-row-item-body">
                                                 <h3 id="bio"
                                                     data-text="A Powerful Web. Made Easier."
-                                                    class="hide-from-toc no-link"><span>机会</span>总是垂青于有<span>准备</span>的人
+                                                    class="hide-from-toc no-link">Chance Favors the <span>Prepared Mind</span>.
                                                 </h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
-                                                    👋 Hi, there! 这里是「<a
-                                                    href="/about/">蜗牛</a>」记录生活的 <i class="fas fa-blog"></i><a
-                                                        href="/posts/">博客</a>，没什么技术，也没有文采。</div>
+                                                    👋 Hi, there! This is a <i class="fas fa-blog"></i> <a
+                                                    href="/en/posts/">blog</a> about <a
+                                                    href="/en/about/">Charles 'eallion' Chin</a></div>
 
                                                 <div class="devsite-landing-row-item-buttons">
                                                     <div class="home-social button dcc-filled-button">
@@ -377,16 +377,16 @@ $posts := .Site.Params.home.posts -}}
                                                                 {{- with .Err -}}
                                                                 {{- $ticker := getJSON $mastodon_local}}
                                                                     {{- range $ticker -}}
-                                                                        <li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>嘀咕：<a href="/toot/"
-                                                                                aria-label="toot">{{- .content | plainify -}}</a></span><span>[<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span class="datetime"
-                                                                                    title="{{- .created_at -}}">{{- .created_at -}}</span></a>]</span></li>
+                                                                        <li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>Toot：<a href="/en/toot/"
+                                                                                aria-label="toot">{{- .content | plainify -}}</a></span><span>[<span class="datetime"
+                                                                                title="{{- .created_at -}}">{{- .created_at -}}</span>]</span></li>
                                                                     {{- end -}}
                                                                 {{- else -}}
                                                                 {{- $ticker := getJSON $mastodon_api}}
                                                                     {{- range $ticker -}}
-                                                                        <li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>嘀咕：<a href="/toot/"
-                                                                                aria-label="toot">{{- .content | plainify -}}</a></span><span>[<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span class="datetime"
-                                                                                    title="{{- .created_at -}}">{{- .created_at -}}</span></a>]</span></li>
+                                                                        <li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>Toot：<a href="/en/toot/"
+                                                                                aria-label="toot">{{- .content | plainify -}}</a></span><span>[<span class="datetime"
+                                                                                title="{{- .created_at -}}">{{- .created_at -}}</span>]</span></li>
                                                                     {{- end -}}
                                                                 {{- end -}}
                                                             {{- end -}}
@@ -406,14 +406,14 @@ $posts := .Site.Params.home.posts -}}
                             (() => {
                                 window.Lately = new function () {
                                     this.lang = {
-                                        second: " 秒",
-                                        minute: " 分钟",
-                                        hour: " 小时",
-                                        day: " 天",
-                                        month: " 个月",
-                                        year: " 年",
-                                        ago: "前",
-                                        error: "NaN"
+                                        'second': ' Seconds',
+                                        'minute': ' Minutes',
+                                        'hour': ' Hours',
+                                        'day': ' Days',
+                                        'month': ' Months',
+                                        'year': ' Years',
+                                        'ago': ' Ago',
+                                        'error': 'NaN'
                                     };
                                     const format = (date) => {
                                         date = new Date(_val(date));
@@ -466,6 +466,7 @@ $posts := .Site.Params.home.posts -}}
                             }, 2000);
                         }
                         </script>
+
                         <section id="get-started">
                         </section>
 
@@ -484,19 +485,19 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="intro" data-text="简介" class="hide-from-toc no-link">简介 / TL;DR
+                                                <h3 id="intro" data-text="Intro" class="hide-from-toc no-link">Intro
                                                 </h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
                                                     <ul>
-                                                        <li>双子，B 型血，断掌，属虎。</li>
-                                                        <li>已婚，有子。</li>
-                                                        <li>不高不矮，<del>不胖不瘦</del>。</li>
-                                                        <li>先天性乐观。</li>
-                                                        <li>随意但不随便。</li>
-                                                        <li>小众而不小资。</li>
-                                                        <li>亦正亦邪。</li>
-                                                        <li>不是个好人但从来不做坏事。</li>
+                                                        <li>He / Him</li>
+                                                        <li>COO</li>
+                                                        <li>WFH</li>
+                                                        <li>FOSS</li>
+                                                        <li>Geeker</li>
+                                                        <li>Blogger</li>
+                                                        <li>E-Commerce</li>
+                                                        <li>Non-IT Indiv.</li>
                                                     </ul>
                                                 </div>
 
@@ -512,7 +513,7 @@ $posts := .Site.Params.home.posts -}}
                                     <div class="devsite-landing-row-item dcc-blog-card" description-position="top">
                                         <div class="devsite-landing-row-item-media">
                                             <figure class="devsite-landing-row-item-image avatar">
-                                                <a href="/about/" aria-label="about">
+                                                <a href="/en/about/" aria-label="about">
                                                     <img alt src="/assets/chromedev/images/about.png" loading="lazy"
                                                         width="395" height="222" no-view/>
                                                 </a>
@@ -537,19 +538,19 @@ $posts := .Site.Params.home.posts -}}
                                         description-position="bottom">
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 data-text="关于 / About" class="hide-from-toc no-link">
+                                                <h3 data-text="About" class="hide-from-toc no-link">
                                                     <a href="/about/">
-                                                        关于 / About</a>
+                                                        About</a>
                                                 </h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
-                                                    <p>我是「蜗牛」，不过一般都使用「大大的小蜗牛」作为网名。<br>
-                                                        AKA：Charles '<i>eallion</i>' Chin.<br>
-                                                        本名没有什么内涵，略去不表。<br>
-                                                        早年常居鲁迅故里，钟情于江南水乡。<br>
-                                                        工作于电商之都。后为生计南下深港。<br>
-                                                        最喜欢的一句话：<br>
-                                                        ——「机会总是垂青于有准备的人！」</p>
+                                                    <p>
+                                                        I'm Charles Chin. eallion has been my nickname for over 20 years. <br>
+                                                        AKA：大大的小蜗牛.<br>
+                                                        I live in the UTC+08:00 timezone and work from home.<br>
+                                                        I work in E-commerce, not IT.<br>
+                                                        My favorite motto is:<br>
+                                                        "Chance favors the prepared mind."</p>
                                                 </div>
 
                                                 <div class="devsite-landing-row-item-buttons">
@@ -618,7 +619,7 @@ $posts := .Site.Params.home.posts -}}
                                                 </div>
                                                 <div class="devsite-landing-row-item-buttons">
                                                     <a href="{{- .RelPermalink -}}" class="button"
-                                                        aria-label="Read the third-party cookies blog post.">阅读全文
+                                                        aria-label="Read the third-party cookies blog post.">Read More
                                                         </a>
                                                 </div>
                                             </div>
@@ -638,8 +639,8 @@ $posts := .Site.Params.home.posts -}}
                             <div class="devsite-landing-row-inner">
                                 <header class="devsite-landing-row-header">
                                     <div class="devsite-landing-row-header-text">
-                                        <h2 id="movie" data-text="最近观影">
-                                            <a href="/movie/" class=""><i class="fas fa-video"></i> 最近观影 <i class="fas fa-caret-down"></i></a>
+                                        <h2 id="movie" data-text="Watched">
+                                            <a href="/en/movie/" class=""><i class="fas fa-video"></i> Watched <i class="fas fa-caret-down"></i></a>
                                         </h2>
                                     </div>
                                 </header>
@@ -717,12 +718,13 @@ $posts := .Site.Params.home.posts -}}
                                     </div>
 
                                     <div class="devsite-landing-row-header-text">
-                                        <h2 id="goods-share" data-text="好物分享"><a href="/goods/">好物分享</a></h2>
+                                        <h2 id="goods-share" data-text="Goods"><a href="/en/goods/">Goods</a></h2>
 
                                         <div class="devsite-landing-row-description">
-                                            自己体验过的好物推荐。<br>
-                                            如果需要优惠券可以看看我的导购网站，直接搜券：<br>
-                                            👉 <a href="https://www.kubaicai.com/" target="_blank" rel="noreferrer noopener nofollow">www.kubaicai.com <i class="fas fa-external-link-alt fa-xs"></i></a> 。
+                                            Product recommendations based on my own experience.<br>
+                                            If you need promo codes, please check out my shopping guide website by searching for coupons directly:<br>
+                                            👉 <a href="https://www.kubaicai.com/" target="_blank" rel="noreferrer noopener nofollow">www.kubaicai.com <i
+                                                    class="fas fa-external-link-alt fa-xs"></i></a> 。
                                         </div>
                                     </div>
                                 </header>
@@ -732,23 +734,23 @@ $posts := .Site.Params.home.posts -}}
                                     <div class="devsite-landing-row-item dcc-blog-card" description-position="bottom">
                                         <div class="devsite-landing-row-item-media">
                                             <figure class="devsite-landing-row-item-image">
-                                                <img class="lazy" loading="lazy" src="{{- .image -}}" alt="{{- .title -}}">
+                                                <img class="lazy" loading="lazy" src="{{- .image -}}" alt="{{- .title_en -}}">
                                             </figure>
                                         </div>
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 data-text="{{- .title -}}"
+                                                <h3 data-text="{{- .title_en -}}"
                                                     class="hide-from-toc no-link">
-                                                    <a href="{{- .link -}}" target="_blank" rel="noreferrer noopener nofollow">{{- .title -}}</a>
+                                                    <a href="{{- .link -}}" target="_blank" rel="noreferrer noopener nofollow">{{- .title_en -}}</a>
                                                 </h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
-                                                    {{- .note | safeHTML -}}
+                                                    {{- .note_en | safeHTML -}}
                                                 </div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="{{- .link -}}" target="_blank" rel="noreferrer noopener nofollow" class="button"><i class="fas fa-shopping-cart"></i> 去官网查看 ({{- .price -}})</a>
+                                                    <a href="{{- .link -}}" target="_blank" rel="noreferrer noopener nofollow" class="button"><i class="fas fa-shopping-cart"></i> Purchase Now ({{- .price -}})</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -766,8 +768,8 @@ $posts := .Site.Params.home.posts -}}
                             <div class="devsite-landing-row-inner">
                                 <header class="devsite-landing-row-header">
                                     <div class="devsite-landing-row-header-text">
-                                        <h2 data-text="最近 LOL 五杀截图">
-                                            <a href="/penta/" class=""><i class="fas fa-dragon"></i> LOL Penta <i class="fas fa-caret-down"></i></a>
+                                        <h2 data-text="LOL Penta Kill">
+                                            <a href="/en/penta/" class=""><i class="fas fa-dragon"></i> LOL Penta <i class="fas fa-caret-down"></i></a>
                                         </h2>
                                     </div>
                                 </header>
@@ -790,7 +792,7 @@ $posts := .Site.Params.home.posts -}}
                                                                 src="https://game.gtimg.cn/images/lol/act/img/champion/{{- .champion -}}.png" alt="{{- .alt -}} {{- .caption -}}"
                                                                 no-view>
                                                                 <span class="caption">
-                                                                    {{ .caption }}
+                                                                    {{ .champion }}
                                                                 </span>
                                                         </a>
                                                     </div>
@@ -816,14 +818,14 @@ $posts := .Site.Params.home.posts -}}
                                     </div>
 
                                     <div class="devsite-landing-row-header-text">
-                                        <h2 data-text="文章的分类"><a href="/categories/">博客分类</a></h2>
+                                        <h2 data-text="Cates"><a href="/categories/">Cates</a></h2>
 
-                                        <div class="devsite-landing-row-description">从 2006 年开始在网络上写日志和博客，经历各种风雨沉浮，除了键政的内容，保留了大部分文章至今，以前有些文章写得不知所云，但直视自己的黑历史，生活从来不尽如意，但我还是对生活满含热情。<br>
-                                            罗曼・罗兰说过「世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。」</div>
+                                        <div class="devsite-landing-row-description">Since 2006, I have been writing blogs and journals online, going through ups and downs. Except for some politically sensitive content, I have preserved most of my articles to this day. Some of my previous writings may have been vague and unclear, but facing my dark history directly—life never goes as expected, yet I remain passionate about life.<br>
+                                            Romain Rolland said: “There is only one heroism in the world: to see the world as it is, and to love it.”</div>
                                     </div>
 
                                     <div class="devsite-landing-row-header-buttons">
-                                        <a href="/posts/" class="button">查看所有文章</a>
+                                        <a href="/en/posts/" class="button">View All Posts</a>
                                     </div>
                                 </header>
 
@@ -838,15 +840,15 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="life" data-text="生活日志" class="hide-from-toc no-link">
-                                                    生活</h3>
+                                                <h3 id="life" data-text="life" class="hide-from-toc no-link">
+                                                    Daily</h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
-                                                    生活类博客文章，记录自己的心情、随想和感悟。
+                                                    Lifestyle blog posts that record my feelings, thoughts, and reflections.
                                                 </div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/categories/日志/" class="button">查看「日志」分类文章</a>
+                                                    <a href="/categories/日志/" class="button">View「Daily」Posts</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -862,15 +864,15 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="code" data-text="技术代码" class="hide-from-toc no-link">代码
+                                                <h3 id="code" data-text="code" class="hide-from-toc no-link">Code
                                                 </h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
-                                                    技术、代码类的文章，主要是备忘录，记录一些折腾的过程。
+                                                    Articles on technology and coding, mainly as notes to self to document various tinkering processes.
                                                 </div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/categories/代码/" class="button">查看「代码」分类文章</a>
+                                                    <a href="/categories/代码/" class="button">View「Code」Posts</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -886,15 +888,15 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="share" data-text="分享收集"
-                                                    class="hide-from-toc no-link">分享</h3>
+                                                <h3 id="share" data-text="Share"
+                                                    class="hide-from-toc no-link">Share</h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
-                                                    分享一些有趣、有深度、引人思考的文章和资讯。若有侵权，请联系删除！
+                                                    Sharing some interesting, in-depth, and thought-provoking articles and information. Please contact me to delete if there is any copyright infringement!
                                                 </div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/categories/分享/" class="button">查看「分享」分类文章</a>
+                                                    <a href="/categories/分享/" class="button">View「Share」Posts</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -910,13 +912,13 @@ $posts := .Site.Params.home.posts -}}
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
-                                                <h3 id="other" data-text="其他分类" class="hide-from-toc no-link">其他
+                                                <h3 id="other" data-text="Other" class="hide-from-toc no-link">Other
                                                 </h3>
 
-                                                <div class="devsite-landing-row-item-description-content">早年间其他朋友们发的一些文章，一直保存至今，偶尔回味。</div>
+                                                <div class="devsite-landing-row-item-description-content">Some articles posted by other friends back in the early days that I've kept all this time to reminisce over occasionally.</div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/categories/山贼/" class="button">查看「其他」分类文章</a>
+                                                    <a href="/categories/山贼/" class="button">View「Other」Posts</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -931,7 +933,7 @@ $posts := .Site.Params.home.posts -}}
                             <div class="devsite-landing-row-inner">
                                 <header class="devsite-landing-row-header">
                                     <div class="devsite-landing-row-header-text">
-                                        <h2 id="tool" data-text="实用工具">实用工具</h2>
+                                        <h2 id="tool" data-text="Tools">Tools</h2>
                                     </div>
                                 </header>
 
@@ -947,13 +949,14 @@ $posts := .Site.Params.home.posts -}}
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
                                                 <h3 id="mastodon" data-text="Mastodon"
-                                                    class="hide-from-toc no-link"><a href="https://github.com/helloxz/onenav" target="_blank" rel="noopener noreferrer">网址导航</a></h3>
+                                                    class="hide-from-toc no-link"><a href="https://github.com/helloxz/onenav" target="_blank" rel="noopener noreferrer">OneNav</a></h3>
 
-                                                <div class="devsite-landing-row-item-description-content">利用 <a target="_blank" href="https://github.com/helloxz/onenav" title="简约导航/书签管理器" rel="nofollow">OneNav</a> Docker 部署的个人导航网站，使用的自己修改的 <a href="https://github.com/eallion/onenav-baisu-mod" target="_blank">BaiSu Mod</a> 模板。
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    A personal navigation website deployed using <a target="_blank" href="https://github.com/helloxz/onenav" title="OneNav" rel="nofollow noopener">OneNav</a> Docker, using a <a href="https://github.com/eallion/onenav-baisu-mod" target="_blank" rel="nofollow noopener">BaiSu Mod</a> template that I customized.
                                                 </div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="https://s.eallion.com" target="_blank" rel="noopener noreferrer" class="button">前往浏览 <i class="fas fa-external-link-alt"></i></a>
+                                                    <a href="https://s.eallion.com" target="_blank" rel="noopener noreferrer" class="button">Browse Now <i class="fas fa-external-link-alt"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -970,12 +973,12 @@ $posts := .Site.Params.home.posts -}}
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
                                                 <h3 id="ublacklist" data-text="GitHub"
-                                                    class="hide-from-toc no-link"><a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer">uBlacklist 订阅合集</a></h3>
+                                                    class="hide-from-toc no-link"><a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer">uBlacklist subscription</a></h3>
 
-                                                <div class="devsite-landing-row-item-description-content">🚫 用于 <a href="https://chromewebstore.google.com/detail/ublacklist/pncfbmialoiaghdehhbnbhkkgmjanfhe" target="_blank">uBlacklist</a> 插件的规则订阅合集，通过匹配域名的方式，屏蔽搜索引擎的中文内容农场！</div>
+                                                <div class="devsite-landing-row-item-description-content">🚫 A collection of rule subscriptions for the <a href="https://chromewebstore.google.com/detail/ublacklist/pncfbmialoiaghdehhbnbhkkgmjanfhe" target="_blank" rel="noopener noreferrer">uBlacklist</a> plugin, blocking Chinese content farms from search engines by matching domain names!</div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer" class="button">前往设置 <i class="fas fa-external-link-alt"></i></a>
+                                                    <a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer" class="button">Setting Now <i class="fas fa-external-link-alt"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -995,11 +998,11 @@ $posts := .Site.Params.home.posts -}}
                                                     class="hide-from-toc no-link"><a href="https://github.com/eallion/mastodon-embed-feed-timeline" target="_blank" rel="noopener noreferrer">Mastodon embed timeline</a></h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
-                                                    把 <a href="https://e5n.com/@eallion" target="_blank" rel="noopener noreferrer">Mastodon</a> 时间轴上的 toots 嵌入到自己的网站上。设置非常简单，无依赖性，无跟踪器，符合 WCAG 标准，响应式布局。
+                                                    Displays <a href="https://e5n.com/@eallion" target="_blank" rel="noopener noreferrer">Mastodon</a> timeline with toots embed in your website. Very easy to setup, no dependencies, no trackers, WCAG compliant and fully responsive.
                                                 </div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/toot/" class="button">效果预览</a>
+                                                    <a href="/toot/" class="button">Live Preview</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -1016,12 +1019,13 @@ $posts := .Site.Params.home.posts -}}
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
                                                 <h3 id="kms" data-text="GitHub"
-                                                    class="hide-from-toc no-link"><a href="https://github.com/mikolatero/docker-vlmcsd" target="_blank" rel="noopener noreferrer">KMS Windows & Office 激活</a></h3>
+                                                    class="hide-from-toc no-link"><a href="https://github.com/mikolatero/docker-vlmcsd" target="_blank" rel="noopener noreferrer">KMS for Windows & Office</a></h3>
 
-                                                <div class="devsite-landing-row-item-description-content">自建的 Windows 和 Office 激活服务器。可激活 VOL 批量授权版。需自备 KEY 或者使用微软官方提供的 <a href="https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys" target="_blank" rel="noopener noreferrer">Key</a>。</div>
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    Self-hosted Windows and Office activation server. Can activate VOL bulk authorized editions. Requires own KEY or use <a href="https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys" target="_blank" rel="noopener noreferrer">official Key</a> provided by Microsoft.。</div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="https://kms.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">前往激活 <i class="fas fa-external-link-alt"></i></a>
+                                                    <a href="https://kms.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">Activate Now <i class="fas fa-external-link-alt"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -1040,10 +1044,11 @@ $posts := .Site.Params.home.posts -}}
                                                 <h3 id="chatgpt" data-text="GitHub"
                                                     class="hide-from-toc no-link"><a href="https://github.com/eallion/ChatGPT-Next-Web/" target="_blank" rel="noopener noreferrer">ChatGPT Next Web</a></h3>
 
-                                                <div class="devsite-landing-row-item-description-content">使用 <a href="https://github.com/eallion/ChatGPT-Next-Web/" target="_blank" rel="noopener noreferrer">ChatGPT Next Web</a> 部署的跨平台私人 ChatGPT 应用，需要自备 OpenAI 的 API。</div>
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    To deploy a cross-platform private ChatGPT application using <a href="https://github.com/eallion/ChatGPT-Next-Web/" target="_blank" rel="noopener noreferrer">ChatGPT Next Web</a>, you need to have your own OpenAI API.</div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="https://chatgpt.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即体验 <i class="fas fa-external-link-alt"></i></a>
+                                                    <a href="https://chatgpt.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">Try Now <i class="fas fa-external-link-alt"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -1062,10 +1067,12 @@ $posts := .Site.Params.home.posts -}}
                                                 <h3 id="freshrss" data-text="GitHub"
                                                     class="hide-from-toc no-link"><a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">FreshRSS</a></h3>
 
-                                                <div class="devsite-landing-row-item-description-content">使用 <a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">FreshRSS</a> 和 <a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener noreferrer">RSSHub</a> 部署的 RSS 订阅服务。避免陷入信息茧房。需要登录阅读。</div>
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    RSS subscription service deployed using <a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">FreshRSS</a> and <a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener noreferrer">RSSHub</a>. Avoid getting trapped in an information bubble. Login required for reading.
+                                                </div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="https://rss.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即阅读 <i class="fas fa-external-link-alt"></i></a>
+                                                    <a href="https://rss.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">Feed Now <i class="fas fa-external-link-alt"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -1084,10 +1091,11 @@ $posts := .Site.Params.home.posts -}}
                                                 <h3 id="alist" data-text="GitHub"
                                                     class="hide-from-toc no-link"><a href="https://github.com/alist-org/alist" target="_blank" rel="noopener noreferrer">Alist</a></h3>
 
-                                                <div class="devsite-landing-row-item-description-content">一款支持多种存储的目录文件列表程序，支持 Web 浏览与 Webdav，后端基于 Gin，前端使用 React。</div>
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    A directory file listing program that supports multiple storage options, including web browsing and WebDAV. The backend is based on Gin, and the frontend is built using React.</div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="https://cloud.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即体验 <i class="fas fa-external-link-alt"></i></a>
+                                                    <a href="https://cloud.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">Try Now <i class="fas fa-external-link-alt"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -1106,10 +1114,11 @@ $posts := .Site.Params.home.posts -}}
                                                 <h3 id="talebook" data-text="GitHub"
                                                     class="hide-from-toc no-link"><a href="https://github.com/talebook/talebook" target="_blank" rel="noopener noreferrer">Talebook</a></h3>
 
-                                                <div class="devsite-landing-row-item-description-content">使用 <a href="https://github.com/talebook/talebook" target="_blank" rel="noopener noreferrer">Talebook</a> 部署。一个基于 Calibre 的简单好用的个人图书管理系统，支持在线阅读。</div>
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    Deployed using <a href="https://github.com/talebook/talebook" target="_blank" rel="noopener noreferrer">Talebook</a>. A simple and user-friendly personal book management system based on Calibre, supporting online reading.</div>
 
                                                 <div class="devsite-landing-row-item-buttons">
-                                                    <a href="https://book.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即阅读 <i class="fas fa-external-link-alt"></i></a>
+                                                    <a href="https://book.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">Read Now <i class="fas fa-external-link-alt"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -1156,37 +1165,37 @@ $posts := .Site.Params.home.posts -}}
                 </div>
 
                 <div class="footer__stack stack-recursive flex-1">
-                    <div class="footer__heading">快速开始</div>
+                    <div class="footer__heading">Get Started</div>
                     <ul class="pad-0 gap-bottom-0" role="list">
                         <li>
-                            <a class="menu-item" href="/toot/" title="嘀咕 Toots"><i class="fab fa-mastodon"></i> 嘀咕 </a>
+                            <a class="menu-item" href="/en/toot/" title="Toots"><i class="fab fa-mastodon"></i> Toot </a>
                         </li>
                         <li>
-                            <a class="menu-item" href="/posts/" title="所有文章">所有文章</a>
+                            <a class="menu-item" href="/en/posts/" title="All Posts">All Posts</a>
                         </li>
                         <li>
-                            <a class="menu-item" href="/movie/" title="豆瓣观影记录"><i class="fas fa-film"></i> 观影记录</a>
+                            <a class="menu-item" href="/en/movie/" title="Watched"><i class="fas fa-film"></i> Watched</a>
                         </li>
                         <li>
-                            <a class="menu-item" href="/goods/" title="好物推荐"><i class="fas fa-gift"></i> 好物推荐</a>
+                            <a class="menu-item" href="/en/goods/" title="Goods"><i class="fas fa-gift"></i> Goods</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="footer__stack stack-recursive flex-1">
-                    <div class="footer__heading">分类</div>
+                    <div class="footer__heading">Cates</div>
                     <ul class="pad-0 gap-bottom-0" role="list">
                         <li>
-                            <a href="/categories/%E6%97%A5%E5%BF%97/"><i class="fas fa-file-word fa-fw"></i> 日志 </a>
+                            <a href="/categories/%E6%97%A5%E5%BF%97/"><i class="fas fa-file-word fa-fw"></i> Daily </a>
                         </li>
                         <li>
-                            <a href="/categories/%E4%BB%A3%E7%A0%81/"><i class="fas fa-file-code fa-fw"></i> 代码 </a>
+                            <a href="/categories/%E4%BB%A3%E7%A0%81/"><i class="fas fa-file-code fa-fw"></i> Code </a>
                         </li>
                         <li>
-                            <a href="/categories/%E5%88%86%E4%BA%AB/"><i class="fas fa-share-alt fa-fw"></i> 分享 </a>
+                            <a href="/categories/%E5%88%86%E4%BA%AB/"><i class="fas fa-share-alt fa-fw"></i> Share </a>
                         </li>
                         <li>
-                            <a href="/categories/%E5%B1%B1%E8%B4%BC/"><i class="fas fa-user-friends fa-fw"></i> 其他 </a>
+                            <a href="/categories/%E5%B1%B1%E8%B4%BC/"><i class="fas fa-user-friends fa-fw"></i> Other </a>
                         </li>
                     </ul>
                 </div>
@@ -1195,10 +1204,10 @@ $posts := .Site.Params.home.posts -}}
                     <div class="footer__heading">Sitemap</div>
                     <ul class="pad-0 gap-bottom-0" role="list">
                         <li>
-                            <a href="https://eallion.com/album/" target="_blank" rel="noopener noreferrer">随手拍</a>
+                            <a href="https://eallion.com/album/" target="_blank" rel="noopener noreferrer">Album</a>
                         </li>
                         <li>
-                            <a href="https://eallion.com/currency.html" target="_blank" rel="noopener noreferrer">汇率查询</a>
+                            <a href="https://eallion.com/currency.html" target="_blank" rel="noopener noreferrer">Currency</a>
                         </li>
                         <li>
                             <a href="https://eallion.com/penta/" target="_blank" rel="noopener noreferrer"><i class="fas fa-fire-alt"></i> Penta</a>
@@ -1214,7 +1223,7 @@ $posts := .Site.Params.home.posts -}}
 
         <div class="pad-top-600 pad-bottom-600 pad-left-400 pad-right-400  lg:pad-left-0 lg:pad-right-0 footer-center">
             <div class="display-flex direction-column lg:direction-row align-start lg:align-center">
-                <div class="footer-title">大大的小蜗牛 ' 博客</div>
+                <div class="footer-title">Blog about Charles 'eallion' Chin</div>
                 <div
                     class="footer__cluster cluster flex-1 gap-top-300 flow-space-300 lg:gap-top-0 lg:gap-left-500 lg:flow-space-500">
                     <ul role="list">
@@ -1230,11 +1239,11 @@ $posts := .Site.Params.home.posts -}}
                         <li role="listitem"><a class="footer__link" href="https://status.eallion.com/" target="_blank"
                                 rel="noopener noreferrer">Status</a></li>
                         <li role="listitem"><a class="footer__link" href="https://eallion.com/links/" target="_blank"
-                                rel="noopener noreferrer">友情链接</a></li>
+                                rel="noopener noreferrer">Friends</a></li>
                         <li role="listitem"><a class="footer__link" href="https://eallion.com/copyright/" target="_blank"
-                                rel="noopener noreferrer">版权信息</a></li>
+                                rel="noopener noreferrer">Copyright</a></li>
                         <li role="listitem"><a class="footer__link" href="https://eallion.com/privacy-policy/" target="_blank"
-                                rel="noopener noreferrer">隐私政策</a></li>
+                                rel="noopener noreferrer">Privacy</a></li>
                         <li role="listitem"><a class="footer__link" href="https://github.com/eallion/eallion.com"
                                 target="_blank" rel="noopener noreferrer">View
                                 Source</a></li>
