@@ -1,6 +1,6 @@
 ---
 title: "关于 Ubuntu"
-images: ["https://api.eallion.com/og?title=%E5%85%B3%E4%BA%8E%20Ubuntu"]
+images: ["https://og.eallion.com/api/og?title=%E5%85%B3%E4%BA%8E%20Ubuntu"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","Linux"]

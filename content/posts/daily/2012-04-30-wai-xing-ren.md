@@ -1,6 +1,6 @@
 ---
 title: "外星人"
-images: ["https://api.eallion.com/og?title=%E5%A4%96%E6%98%9F%E4%BA%BA"]
+images: ["https://og.eallion.com/api/og?title=%E5%A4%96%E6%98%9F%E4%BA%BA"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["生命","外星人","宇宙","文明"]

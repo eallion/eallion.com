@@ -1,6 +1,6 @@
 ---
 title: "小悦悦"
-images: ["https://api.eallion.com/og?title=%E5%B0%8F%E6%82%A6%E6%82%A6"]
+images: ["https://og.eallion.com/api/og?title=%E5%B0%8F%E6%82%A6%E6%82%A6"]
 authors: ["eallion"]
 categories: ["日志","分享"]
 tags: ["小悦悦"]
@@ -10,7 +10,7 @@ date: "2011-10-26 11:08:00"
 lastmod: "2011-10-26 11:08:00"
 ---
 
-[ 小悦悦事件 ](https://zh.wikipedia.org/zh-hans/%E5%B0%8F%E6%82%A6%E6%82%A6%E4%BA%8B%E4%BB%B6)
+[小悦悦事件](https://zh.wikipedia.org/zh-hans/%E5%B0%8F%E6%82%A6%E6%82%A6%E4%BA%8B%E4%BB%B6)
 <strong > 本文转载：</strong>
 本人在国外读书
 今天早上在地铁上看报纸

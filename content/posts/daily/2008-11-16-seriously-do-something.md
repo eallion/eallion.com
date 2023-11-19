@@ -1,6 +1,6 @@
 ---
 title: "认真去做一件事"
-images: ["https://api.eallion.com/og?title=%E8%AE%A4%E7%9C%9F%E5%8E%BB%E5%81%9A%E4%B8%80%E4%BB%B6%E4%BA%8B"]
+images: ["https://og.eallion.com/api/og?title=%E8%AE%A4%E7%9C%9F%E5%8E%BB%E5%81%9A%E4%B8%80%E4%BB%B6%E4%BA%8B"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","工作狂","发呆","认真"]

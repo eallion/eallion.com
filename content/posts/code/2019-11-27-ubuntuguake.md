@@ -1,6 +1,6 @@
 ---
 title: "Ubuntu 配置 Guake"
-images: ["https://api.eallion.com/og?title=Ubuntu%20%E9%85%8D%E7%BD%AE%20Guake"]
+images: ["https://og.eallion.com/api/og?title=Ubuntu%20%E9%85%8D%E7%BD%AE%20Guake"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]

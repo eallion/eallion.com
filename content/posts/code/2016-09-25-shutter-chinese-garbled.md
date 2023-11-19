@@ -1,6 +1,6 @@
 ---
 title: "Shutter 中文乱码问题"
-images: ["https://api.eallion.com/og?title=Shutter%20%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98"]
+images: ["https://og.eallion.com/api/og?title=Shutter%20%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["中文","shutter","乱码"]

@@ -1,6 +1,6 @@
 ---
 title: "几部电影"
-images: ["https://api.eallion.com/og?title=%E5%87%A0%E9%83%A8%E7%94%B5%E5%BD%B1"]
+images: ["https://og.eallion.com/api/og?title=%E5%87%A0%E9%83%A8%E7%94%B5%E5%BD%B1"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["影评","电影"]

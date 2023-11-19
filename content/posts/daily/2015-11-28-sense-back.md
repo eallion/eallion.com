@@ -1,6 +1,6 @@
 ---
 title: "工作状态慢慢回来了"
-images: ["https://api.eallion.com/og?title=%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81%E6%85%A2%E6%85%A2%E5%9B%9E%E6%9D%A5%E4%BA%86"]
+images: ["https://og.eallion.com/api/og?title=%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81%E6%85%A2%E6%85%A2%E5%9B%9E%E6%9D%A5%E4%BA%86"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["状态","感觉"]

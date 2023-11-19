@@ -1,6 +1,6 @@
 ---
 title: "轻轻的推荐 —— 恋爱通告"
-images: ["https://api.eallion.com/og?title=%E8%BD%BB%E8%BD%BB%E7%9A%84%E6%8E%A8%E8%8D%90%20%E2%80%94%E2%80%94%20%E6%81%8B%E7%88%B1%E9%80%9A%E5%91%8A"]
+images: ["https://og.eallion.com/api/og?title=%E8%BD%BB%E8%BD%BB%E7%9A%84%E6%8E%A8%E8%8D%90%20%E2%80%94%E2%80%94%20%E6%81%8B%E7%88%B1%E9%80%9A%E5%91%8A"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["七夕","怪物史莱克","恋爱通告","电影"]

@@ -1,6 +1,6 @@
 ---
 title: "中国要建设北京到墨尔本的高铁？"
-images: ["https://api.eallion.com/og?title=%E4%B8%AD%E5%9B%BD%E8%A6%81%E5%BB%BA%E8%AE%BE%E5%8C%97%E4%BA%AC%E5%88%B0%E5%A2%A8%E5%B0%94%E6%9C%AC%E7%9A%84%E9%AB%98%E9%93%81%EF%BC%9F"]
+images: ["https://og.eallion.com/api/og?title=%E4%B8%AD%E5%9B%BD%E8%A6%81%E5%BB%BA%E8%AE%BE%E5%8C%97%E4%BA%AC%E5%88%B0%E5%A2%A8%E5%B0%94%E6%9C%AC%E7%9A%84%E9%AB%98%E9%93%81%EF%BC%9F"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["宜万铁路","火车","高铁","隧道"]
@@ -26,13 +26,13 @@ A：
 几十车水泥倒下去，根本没踪影，火力全开，一个月也只能挖几米，挖着挖着就挖出一条暗河，人说没就没，还不敢报道。。
 结果到现在还不是通车了吗。
 
-> [CCTV 记录片：《宜万铁路》纪录片 视频 央视网 ](http://tv.cntv.cn/videoset/C33369)
+> [CCTV 记录片：《宜万铁路》纪录片 视频 央视网](http://tv.cntv.cn/videoset/C33369)
 
 知道什么叫世纪梦想吗？以前回家绕着盘山公路，要 2 天一夜，现在动车只要 8 个小时。
 
 不要认为现在航空这么发达，没必要修铁路。
 现在网络还这么发达呢，amazon 的数据备份传输用什么？用卡车集装箱。。。。
 
-> [ 亚马逊发现用卡车转移数据比网络更快 通信技术 cnBeta.COM](http://www.cnbeta.com/articles/tech/563297.htm)
+> [亚马逊发现用卡车转移数据比网络更快 通信技术 cnBeta.COM](http://www.cnbeta.com/articles/tech/563297.htm)
 
 > 原文：（自己转自己）[https://www.zhihu.com/question/60240874/answer/174576720](https://www.zhihu.com/question/60240874/answer/174576720)

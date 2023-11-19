@@ -1,6 +1,6 @@
 ---
 title: "你好，小强"
-images: ["https://api.eallion.com/og?title=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%B0%8F%E5%BC%BA"]
+images: ["https://og.eallion.com/api/og?title=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E5%B0%8F%E5%BC%BA"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["小强"]

@@ -1,6 +1,6 @@
 ---
 title: "不要做圆规画圆"
-images: ["https://api.eallion.com/og?title=%E4%B8%8D%E8%A6%81%E5%81%9A%E5%9C%86%E8%A7%84%E7%94%BB%E5%9C%86"]
+images: ["https://og.eallion.com/api/og?title=%E4%B8%8D%E8%A6%81%E5%81%9A%E5%9C%86%E8%A7%84%E7%94%BB%E5%9C%86"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["圆规","画圆"]

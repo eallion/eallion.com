@@ -1,6 +1,6 @@
 ---
 title: "房子和汽车"
-images: ["https://api.eallion.com/og?title=%E6%88%BF%E5%AD%90%E5%92%8C%E6%B1%BD%E8%BD%A6"]
+images: ["https://og.eallion.com/api/og?title=%E6%88%BF%E5%AD%90%E5%92%8C%E6%B1%BD%E8%BD%A6"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["房子","汽车","消费","投资"]

@@ -1,7 +1,7 @@
 {
   "penta": [
     {
-      "src": "/assets/images/penta/20231024-LeeSin.jpg",
+      "src": "/assets/images/penta/screenshot/20231024-LeeSin.jpg",
       "alt": "20231024-LeeSin",
       "champion": "LeeSin",
       "date": "2023/10/24",
@@ -9,7 +9,7 @@
       "heroId": "64"
     },
     {
-      "src": "/assets/images/penta/20231014-Malphite.jpg",
+      "src": "/assets/images/penta/screenshot/20231014-Malphite.jpg",
       "alt": "20231014-Malphite",
       "champion": "Malphite",
       "date": "2023/10/14",
@@ -17,7 +17,7 @@
       "heroId": "54"
     },
     {
-      "src": "/assets/images/penta/20231011-Samira.jpg",
+      "src": "/assets/images/penta/screenshot/20231011-Samira.jpg",
       "alt": "20231011-Samira",
       "champion": "Samira",
       "date": "2023/10/11",
@@ -25,7 +25,7 @@
       "heroId": "360"
     },
     {
-      "src": "/assets/images/penta/20230820-LeeSin.jpg",
+      "src": "/assets/images/penta/screenshot/20230820-LeeSin.jpg",
       "alt": "20230820-LeeSin",
       "champion": "LeeSin",
       "date": "2023/08/20",
@@ -33,7 +33,7 @@
       "heroId": "64"
     },
     {
-      "src": "/assets/images/penta/20230722-Graves.jpg",
+      "src": "/assets/images/penta/screenshot/20230722-Graves.jpg",
       "alt": "20230722-Graves",
       "champion": "Graves",
       "date": "2023/07/22",
@@ -41,7 +41,7 @@
       "heroId": "104"
     },
     {
-      "src": "/assets/images/penta/20230704-Talon.jpg",
+      "src": "/assets/images/penta/screenshot/20230704-Talon.jpg",
       "alt": "20230704-Talon",
       "champion": "Talon",
       "date": "2023/07/04",
@@ -49,7 +49,7 @@
       "heroId": "91"
     },
     {
-      "src": "/assets/images/penta/20230624-Ezreal.jpg",
+      "src": "/assets/images/penta/screenshot/20230624-Ezreal.jpg",
       "alt": "20230624-Ezreal",
       "champion": "Ezreal",
       "date": "2023/06/24",
@@ -57,7 +57,7 @@
       "heroId": "81"
     },
     {
-      "src": "/assets/images/penta/20230620-AurelionSol.jpg",
+      "src": "/assets/images/penta/screenshot/20230620-AurelionSol.jpg",
       "alt": "20230620-AurelionSol",
       "champion": "AurelionSol",
       "date": "2023/06/20",
@@ -65,7 +65,7 @@
       "heroId": "136"
     },
     {
-      "src": "/assets/images/penta/20230307-JarvanIV.png",
+      "src": "/assets/images/penta/screenshot/20230307-JarvanIV.png",
       "alt": "20230307-JarvanIV",
       "champion": "JarvanIV",
       "date": "2023/03/07",
@@ -73,7 +73,7 @@
       "heroId": "59"
     },
     {
-      "src": "/assets/images/penta/20230222-Tristana.png",
+      "src": "/assets/images/penta/screenshot/20230222-Tristana.png",
       "alt": "20230222-Tristana",
       "champion": "Tristana",
       "date": "2023/02/22",
@@ -81,7 +81,7 @@
       "heroId": "18"
     },
     {
-      "src": "/assets/images/penta/20230216-Akali.jpg",
+      "src": "/assets/images/penta/screenshot/20230216-Akali.jpg",
       "alt": "20230216-Akali",
       "champion": "Akali",
       "date": "2023/02/16",
@@ -89,7 +89,7 @@
       "heroId": "84"
     },
     {
-      "src": "/assets/images/penta/20230216-Kaisa.jpg",
+      "src": "/assets/images/penta/screenshot/20230216-Kaisa.jpg",
       "alt": "20230216-Kaisa",
       "champion": "Kaisa",
       "date": "2023/02/16",
@@ -97,7 +97,7 @@
       "heroId": "145"
     },
     {
-      "src": "/assets/images/penta/20230210-Viktor.png",
+      "src": "/assets/images/penta/screenshot/20230210-Viktor.png",
       "alt": "20230210-Viktor",
       "champion": "Viktor",
       "date": "2023/02/10",
@@ -105,7 +105,7 @@
       "heroId": "112"
     },
     {
-      "src": "/assets/images/penta/20230210-Tryndamere.png",
+      "src": "/assets/images/penta/screenshot/20230210-Tryndamere.png",
       "alt": "20230210-Tryndamere",
       "champion": "Tryndamere",
       "date": "2023/02/10",
@@ -113,7 +113,7 @@
       "heroId": "23"
     },
     {
-      "src": "/assets/images/penta/20221003-Jhin.jpg",
+      "src": "/assets/images/penta/screenshot/20221003-Jhin.jpg",
       "alt": "20221003-Jhin",
       "champion": "Jhin",
       "date": "2022/10/03",
@@ -121,7 +121,7 @@
       "heroId": "202"
     },
     {
-      "src": "/assets/images/penta/20220930-Samira.jpg",
+      "src": "/assets/images/penta/screenshot/20220930-Samira.jpg",
       "alt": "20220930-Samira",
       "champion": "Samira",
       "date": "2022/09/30",
@@ -129,7 +129,7 @@
       "heroId": "360"
     },
     {
-      "src": "/assets/images/penta/20220927-Vayne.jpg",
+      "src": "/assets/images/penta/screenshot/20220927-Vayne.jpg",
       "alt": "20220927-Vayne",
       "champion": "Vayne",
       "date": "2022/09/27",
@@ -137,7 +137,7 @@
       "heroId": "67"
     },
     {
-      "src": "/assets/images/penta/20220728-MissFortune2.jpg",
+      "src": "/assets/images/penta/screenshot/20220728-MissFortune2.jpg",
       "alt": "20220728-MissFortune",
       "champion": "MissFortune",
       "date": "2022/07/28",
@@ -145,7 +145,7 @@
       "heroId": "21"
     },
     {
-      "src": "/assets/images/penta/20220728-MissFortune.jpg",
+      "src": "/assets/images/penta/screenshot/20220728-MissFortune.jpg",
       "alt": "20220728-MissFortune",
       "champion": "MissFortune",
       "date": "2022/07/28",
@@ -153,7 +153,7 @@
       "heroId": "21"
     },
     {
-      "src": "/assets/images/penta/20220311-Samira.jpg",
+      "src": "/assets/images/penta/screenshot/20220311-Samira.jpg",
       "alt": "20220311-Samira",
       "champion": "Samira",
       "date": "2022/03/11",
@@ -161,7 +161,7 @@
       "heroId": "360"
     },
     {
-      "src": "/assets/images/penta/20220311-Graves.jpg",
+      "src": "/assets/images/penta/screenshot/20220311-Graves.jpg",
       "alt": "20220311-Graves",
       "champion": "Graves",
       "date": "2022/03/11",
@@ -169,7 +169,7 @@
       "heroId": "104"
     },
     {
-      "src": "/assets/images/penta/20220223-Khazix.jpg",
+      "src": "/assets/images/penta/screenshot/20220223-Khazix.jpg",
       "alt": "20220223-Khazix",
       "champion": "Khazix",
       "date": "2022/02/23",
@@ -177,7 +177,7 @@
       "heroId": "121"
     },
     {
-      "src": "/assets/images/penta/20220219-Lucian.jpg",
+      "src": "/assets/images/penta/screenshot/20220219-Lucian.jpg",
       "alt": "20220219-Lucian",
       "champion": "Lucian",
       "date": "2022/02/19",
@@ -185,7 +185,7 @@
       "heroId": "236"
     },
     {
-      "src": "/assets/images/penta/20220210-MasterYi.jpg",
+      "src": "/assets/images/penta/screenshot/20220210-MasterYi.jpg",
       "alt": "20220210-MasterYi",
       "champion": "MasterYi",
       "date": "2022/02/10",
@@ -193,7 +193,7 @@
       "heroId": "11"
     },
     {
-      "src": "/assets/images/penta/20220208-Ezreal.jpg",
+      "src": "/assets/images/penta/screenshot/20220208-Ezreal.jpg",
       "alt": "20220208-Ezreal",
       "champion": "Ezreal",
       "date": "2022/02/08",
@@ -201,7 +201,7 @@
       "heroId": "81"
     },
     {
-      "src": "/assets/images/penta/20210919-Yasuo.png",
+      "src": "/assets/images/penta/screenshot/20210919-Yasuo.png",
       "alt": "20210919-Yasuo",
       "champion": "Yasuo",
       "date": "2021/09/19",
@@ -209,7 +209,7 @@
       "heroId": "157"
     },
     {
-      "src": "/assets/images/penta/20210905-kassadin.jpg",
+      "src": "/assets/images/penta/screenshot/20210905-kassadin.jpg",
       "alt": "20210905-kassadin",
       "champion": "Kassadin",
       "date": "2021/09/05",
@@ -217,7 +217,7 @@
       "heroId": "38"
     },
     {
-      "src": "/assets/images/penta/20201203-Lucian.jpg",
+      "src": "/assets/images/penta/screenshot/20201203-Lucian.jpg",
       "alt": "20201203-Lucian",
       "champion": "Lucian",
       "date": "2020/12/03",
@@ -225,7 +225,7 @@
       "heroId": "236"
     },
     {
-      "src": "/assets/images/penta/20201202-Caitlyn.jpg",
+      "src": "/assets/images/penta/screenshot/20201202-Caitlyn.jpg",
       "alt": "20201202-Caitlyn",
       "champion": "Caitlyn",
       "date": "2020/12/02",
@@ -233,7 +233,7 @@
       "heroId": "51"
     },
     {
-      "src": "/assets/images/penta/20200808-Sivir.jpg",
+      "src": "/assets/images/penta/screenshot/20200808-Sivir.jpg",
       "alt": "20200808-Sivir",
       "champion": "Sivir",
       "date": "2020/08/08",
@@ -241,7 +241,7 @@
       "heroId": "21"
     },
     {
-      "src": "/assets/images/penta/20200806-Corki.jpg",
+      "src": "/assets/images/penta/screenshot/20200806-Corki.jpg",
       "alt": "20200806-Corki",
       "champion": "Corki",
       "date": "2020/08/06",
@@ -249,7 +249,7 @@
       "heroId": "42"
     },
     {
-      "src": "/assets/images/penta/20200803-Khazix.jpg",
+      "src": "/assets/images/penta/screenshot/20200803-Khazix.jpg",
       "alt": "20200803-Khazix",
       "champion": "Khazix",
       "date": "2020/08/03",
@@ -257,7 +257,7 @@
       "heroId": "121"
     },
     {
-      "src": "/assets/images/penta/20200518-Draven.jpg",
+      "src": "/assets/images/penta/screenshot/20200518-Draven.jpg",
       "alt": "20200518-Draven",
       "champion": "Draven",
       "date": "2020/05/18",
@@ -265,7 +265,7 @@
       "heroId": "119"
     },
     {
-      "src": "/assets/images/penta/20200517-Draven.jpg",
+      "src": "/assets/images/penta/screenshot/20200517-Draven.jpg",
       "alt": "20200517-Draven",
       "champion": "Draven",
       "date": "2020/05/17",
@@ -273,7 +273,7 @@
       "heroId": "119"
     },
     {
-      "src": "/assets/images/penta/20200429-Sivir.jpg",
+      "src": "/assets/images/penta/screenshot/20200429-Sivir.jpg",
       "alt": "20200429-Sivir",
       "champion": "Sivir",
       "date": "2020/04/29",
@@ -281,7 +281,7 @@
       "heroId": "15"
     },
     {
-      "src": "/assets/images/penta/20200409-Vayne.jpg",
+      "src": "/assets/images/penta/screenshot/20200409-Vayne.jpg",
       "alt": "20200409-Vayne",
       "champion": "Vayne",
       "date": "2020/04/09",
@@ -289,7 +289,7 @@
       "heroId": "67"
     },
     {
-      "src": "/assets/images/penta/20191214-Qiyana.jpg",
+      "src": "/assets/images/penta/screenshot/20191214-Qiyana.jpg",
       "alt": "20191214-Qiyana",
       "champion": "Qiyana",
       "date": "2019/12/14",
@@ -297,7 +297,7 @@
       "heroId": "246"
     },
     {
-      "src": "/assets/images/penta/20191106-Rumble.jpg",
+      "src": "/assets/images/penta/screenshot/20191106-Rumble.jpg",
       "alt": "20191106-Rumble",
       "champion": "Rumble",
       "date": "2019/11/06",
@@ -305,7 +305,7 @@
       "heroId": "68"
     },
     {
-      "src": "/assets/images/penta/20190715-Azir.jpg",
+      "src": "/assets/images/penta/screenshot/20190715-Azir.jpg",
       "alt": "20190715-Azir",
       "champion": "Azir",
       "date": "2019/07/15",
@@ -313,7 +313,7 @@
       "heroId": "268"
     },
     {
-      "src": "/assets/images/penta/20190626-Kled.jpg",
+      "src": "/assets/images/penta/screenshot/20190626-Kled.jpg",
       "alt": "20190626-Kled",
       "champion": "Kled",
       "date": "2019/06/26",
@@ -321,7 +321,7 @@
       "heroId": "240"
     },
     {
-      "src": "/assets/images/penta/20190610-Zed.jpg",
+      "src": "/assets/images/penta/screenshot/20190610-Zed.jpg",
       "alt": "20190610-Zed",
       "champion": "Zed",
       "date": "2019/06/10",
@@ -329,7 +329,7 @@
       "heroId": "238"
     },
     {
-      "src": "/assets/images/penta/20190606-Hecarim.jpg",
+      "src": "/assets/images/penta/screenshot/20190606-Hecarim.jpg",
       "alt": "20190606-Hecarim",
       "champion": "Hecarim",
       "date": "2019/06/06",
@@ -337,7 +337,7 @@
       "heroId": "120"
     },
     {
-      "src": "/assets/images/penta/20190413-LeBlanc.jpg",
+      "src": "/assets/images/penta/screenshot/20190413-LeBlanc.jpg",
       "alt": "20190413-LeBlanc",
       "champion": "Leblanc",
       "date": "2019/04/13",
@@ -345,7 +345,7 @@
       "heroId": "7"
     },
     {
-      "src": "/assets/images/penta/20180910-Xayah.jpg",
+      "src": "/assets/images/penta/screenshot/20180910-Xayah.jpg",
       "alt": "20180910-Xayah",
       "champion": "Xayah",
       "date": "2018/09/10",
@@ -353,7 +353,7 @@
       "heroId": "498"
     },
     {
-      "src": "/assets/images/penta/20180624-MasterYi.jpg",
+      "src": "/assets/images/penta/screenshot/20180624-MasterYi.jpg",
       "alt": "20180624-MasterYi",
       "champion": "MasterYi",
       "date": "2018/06/24",
@@ -361,7 +361,7 @@
       "heroId": "11"
     },
     {
-      "src": "/assets/images/penta/20180617-MasterYi.jpg",
+      "src": "/assets/images/penta/screenshot/20180617-MasterYi.jpg",
       "alt": "20180617-MasterYi",
       "champion": "MasterYi",
       "date": "2018/06/17",
@@ -369,7 +369,7 @@
       "heroId": "11"
     },
     {
-      "src": "/assets/images/penta/20180608-Kassadin.jpg",
+      "src": "/assets/images/penta/screenshot/20180608-Kassadin.jpg",
       "alt": "20180608-Kassadin",
       "champion": "Kassadin",
       "date": "2018/06/08",
@@ -377,7 +377,7 @@
       "heroId": "38"
     },
     {
-      "src": "/assets/images/penta/20180528-Malzahar.jpg",
+      "src": "/assets/images/penta/screenshot/20180528-Malzahar.jpg",
       "alt": "20180528-Malzahar",
       "champion": "Malzahar",
       "date": "2018/05/28",
@@ -385,7 +385,7 @@
       "heroId": "90"
     },
     {
-      "src": "/assets/images/penta/20180527-Corki.jpg",
+      "src": "/assets/images/penta/screenshot/20180527-Corki.jpg",
       "alt": "20180527-Corki",
       "champion": "Corki",
       "date": "2018/05/27",
@@ -393,7 +393,7 @@
       "heroId": "42"
     },
     {
-      "src": "/assets/images/penta/20180506-MasterYi.jpg",
+      "src": "/assets/images/penta/screenshot/20180506-MasterYi.jpg",
       "alt": "20180506-MasterYi",
       "champion": "MasterYi",
       "date": "2018/05/06",
@@ -401,7 +401,7 @@
       "heroId": "11"
     },
     {
-      "src": "/assets/images/penta/20180225-KogMaw.jpg",
+      "src": "/assets/images/penta/screenshot/20180225-KogMaw.jpg",
       "alt": "20180225-KogMaw",
       "champion": "KogMaw",
       "date": "2018/02/25",
@@ -409,7 +409,7 @@
       "heroId": "96"
     },
     {
-      "src": "/assets/images/penta/20171117-MissFortune.jpg",
+      "src": "/assets/images/penta/screenshot/20171117-MissFortune.jpg",
       "alt": "20171117-MissFortune",
       "champion": "MissFortune",
       "date": "2017/11/17",
@@ -417,7 +417,7 @@
       "heroId": "21"
     },
     {
-      "src": "/assets/images/penta/20171016-Graves.jpg",
+      "src": "/assets/images/penta/screenshot/20171016-Graves.jpg",
       "alt": "20171016-Graves",
       "champion": "Graves",
       "date": "2017/10/16",
@@ -425,7 +425,7 @@
       "heroId": "104"
     },
     {
-      "src": "/assets/images/penta/20170503-Jax.jpg",
+      "src": "/assets/images/penta/screenshot/20170503-Jax.jpg",
       "alt": "20170503-Jax",
       "champion": "Jax",
       "date": "2017/05/03",
@@ -433,7 +433,7 @@
       "heroId": "24"
     },
     {
-      "src": "/assets/images/penta/20170430-Graves.jpg",
+      "src": "/assets/images/penta/screenshot/20170430-Graves.jpg",
       "alt": "20170430-Graves",
       "champion": "Graves",
       "date": "2017/04/30",
@@ -441,7 +441,7 @@
       "heroId": "104"
     },
     {
-      "src": "/assets/images/penta/20160626-Corki.jpg",
+      "src": "/assets/images/penta/screenshot/20160626-Corki.jpg",
       "alt": "20160626-Corki",
       "champion": "Corki",
       "date": "2016/06/26",
@@ -449,7 +449,7 @@
       "heroId": "42"
     },
     {
-      "src": "/assets/images/penta/20150218-Shaco.jpg",
+      "src": "/assets/images/penta/screenshot/20150218-Shaco.jpg",
       "alt": "20150218-Shaco",
       "champion": "Shaco",
       "date": "2015/02/18",

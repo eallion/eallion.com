@@ -1,6 +1,6 @@
 ---
 title: "绝地求生吃鸡与黑暗森林法则"
-images: ["https://api.eallion.com/og?title=%E7%BB%9D%E5%9C%B0%E6%B1%82%E7%94%9F%E5%90%83%E9%B8%A1%E4%B8%8E%E9%BB%91%E6%9A%97%E6%A3%AE%E6%9E%97%E6%B3%95%E5%88%99"]
+images: ["https://og.eallion.com/api/og?title=%E7%BB%9D%E5%9C%B0%E6%B1%82%E7%94%9F%E5%90%83%E9%B8%A1%E4%B8%8E%E9%BB%91%E6%9A%97%E6%A3%AE%E6%9E%97%E6%B3%95%E5%88%99"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["黑暗森林","绝地求生","pubg","吃鸡","三体"]

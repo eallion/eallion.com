@@ -1,6 +1,6 @@
 ---
 title: "Google 的自行车文化"
-images: ["https://api.eallion.com/og?title=Google%20%E7%9A%84%E8%87%AA%E8%A1%8C%E8%BD%A6%E6%96%87%E5%8C%96"]
+images: ["https://og.eallion.com/api/og?title=Google%20%E7%9A%84%E8%87%AA%E8%A1%8C%E8%BD%A6%E6%96%87%E5%8C%96"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["骑行","google","bike","bicyle","企业文化"]
@@ -12,7 +12,7 @@ lastmod: "2013-04-26 09:43:00"
 
 <blockquote > 转自：ifanr 爱范儿 [http://www.ifanr.com/282882](http://www.ifanr.com/282882)</blockquote>
 
-  在 Google 总部的任何一天，都会有大约 700 辆自行车分布各处。超过 7% 的员工每天骑自行车上班。公司有安全的停车区（包括修理工具）、修车服务，以及可放置自行车的大巴。在总部不远处的一栋不知名的建筑里，摆放着 1300 辆 Google 自行车，那里是自行车管理部门。[Wired 网站 ](http://www.wired.com/wiredenterprise/2013/04/google-bikes/all/) 最近的一篇文章，讲述了 Google 的自行车文化。
+  在 Google 总部的任何一天，都会有大约 700 辆自行车分布各处。超过 7% 的员工每天骑自行车上班。公司有安全的停车区（包括修理工具）、修车服务，以及可放置自行车的大巴。在总部不远处的一栋不知名的建筑里，摆放着 1300 辆 Google 自行车，那里是自行车管理部门。[Wired 网站](http://www.wired.com/wiredenterprise/2013/04/google-bikes/all/) 最近的一篇文章，讲述了 Google 的自行车文化。
 
   Google 自行车文化的诞生可以追溯到 2007 年。当时，Google 购买了 100 辆蓝色的 Huffy 自行车，将其摆放在不同的建筑下面，目的是为了提高员工们的工作效率。目前，仍然有 25 辆 Huffy 在服役。
 

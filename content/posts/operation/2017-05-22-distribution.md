@@ -1,6 +1,6 @@
 ---
 title: "运营小记 - 快速铺货"
-images: ["https://api.eallion.com/og?title=%E8%BF%90%E8%90%A5%E5%B0%8F%E8%AE%B0%20-%20%E5%BF%AB%E9%80%9F%E9%93%BA%E8%B4%A7"]
+images: ["https://og.eallion.com/api/og?title=%E8%BF%90%E8%90%A5%E5%B0%8F%E8%AE%B0%20-%20%E5%BF%AB%E9%80%9F%E9%93%BA%E8%B4%A7"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["淘宝","运营","天猫","淘宝助理","详情"]

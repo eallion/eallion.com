@@ -1,6 +1,6 @@
 ---
 title: "Artalk 无评论随机显示诗词"
-images: ["https://api.eallion.com/og?title=Artalk%20%E6%97%A0%E8%AF%84%E8%AE%BA%E9%9A%8F%E6%9C%BA%E6%98%BE%E7%A4%BA%E8%AF%97%E8%AF%8D"]
+images: ["https://og.eallion.com/api/og?title=Artalk%20%E6%97%A0%E8%AF%84%E8%AE%BA%E9%9A%8F%E6%9C%BA%E6%98%BE%E7%A4%BA%E8%AF%97%E8%AF%8D"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: "家电决定生活"
-images: ["https://api.eallion.com/og?title=%E5%AE%B6%E7%94%B5%E5%86%B3%E5%AE%9A%E7%94%9F%E6%B4%BB"]
+images: ["https://og.eallion.com/api/og?title=%E5%AE%B6%E7%94%B5%E5%86%B3%E5%AE%9A%E7%94%9F%E6%B4%BB"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["电脑","家电","空调","洗衣机","安定"]

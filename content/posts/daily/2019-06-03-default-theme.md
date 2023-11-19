@@ -1,6 +1,6 @@
 ---
 title: "博客换回默认主题"
-images: ["https://api.eallion.com/og?title=%E5%8D%9A%E5%AE%A2%E6%8D%A2%E5%9B%9E%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98"]
+images: ["https://og.eallion.com/api/og?title=%E5%8D%9A%E5%AE%A2%E6%8D%A2%E5%9B%9E%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["blog","博客","主题","theme"]

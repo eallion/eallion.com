@@ -1,6 +1,6 @@
 ---
 title: "CSPromod 试玩报告"
-images: ["https://api.eallion.com/og?title=CSPromod%20%E8%AF%95%E7%8E%A9%E6%8A%A5%E5%91%8A"]
+images: ["https://og.eallion.com/api/og?title=CSPromod%20%E8%AF%95%E7%8E%A9%E6%8A%A5%E5%91%8A"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","csmod","反恐精英","csp","cspromod"]
@@ -20,7 +20,7 @@ CSP 的团队发布了 CSP beta1.05
 
 ### 科谱
 
-CS:P（Counter-Strike:Promod）（反恐精英职业版）[ 百科 ](http://www.cspromod.com)
+CS:P（Counter-Strike:Promod）（反恐精英职业版）[百科](http://www.cspromod.com)
 
 CS（Counter-Strike）起初只是 HL（Half-Life）的一个 MOD 扩展包
 后来没想到风声水起

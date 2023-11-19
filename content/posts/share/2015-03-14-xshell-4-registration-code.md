@@ -1,6 +1,6 @@
 ---
 title: "Xshell 4 注册码"
-images: ["https://api.eallion.com/og?title=Xshell%204%20%E6%B3%A8%E5%86%8C%E7%A0%81"]
+images: ["https://og.eallion.com/api/og?title=Xshell%204%20%E6%B3%A8%E5%86%8C%E7%A0%81"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["xshell","xftp","注册码"]

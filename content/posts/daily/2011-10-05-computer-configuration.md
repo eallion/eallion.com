@@ -1,6 +1,6 @@
 ---
 title: "电脑配置单"
-images: ["https://api.eallion.com/og?title=%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E5%8D%95"]
+images: ["https://og.eallion.com/api/og?title=%E7%94%B5%E8%84%91%E9%85%8D%E7%BD%AE%E5%8D%95"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","游戏","发烧","配置","电脑"]

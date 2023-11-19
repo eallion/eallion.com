@@ -1,6 +1,6 @@
 ---
 title: "伤好了"
-images: ["https://api.eallion.com/og?title=%E4%BC%A4%E5%A5%BD%E4%BA%86"]
+images: ["https://og.eallion.com/api/og?title=%E4%BC%A4%E5%A5%BD%E4%BA%86"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["好","痊愈"]

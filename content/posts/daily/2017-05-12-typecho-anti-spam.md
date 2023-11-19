@@ -1,6 +1,6 @@
 ---
 title: "typecho 应对垃圾评论"
-images: ["https://api.eallion.com/og?title=typecho%20%E5%BA%94%E5%AF%B9%E5%9E%83%E5%9C%BE%E8%AF%84%E8%AE%BA"]
+images: ["https://og.eallion.com/api/og?title=typecho%20%E5%BA%94%E5%AF%B9%E5%9E%83%E5%9C%BE%E8%AF%84%E8%AE%BA"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["评论","留言","spam","垃圾评论"]

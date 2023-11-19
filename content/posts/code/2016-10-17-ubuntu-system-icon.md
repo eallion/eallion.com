@@ -1,6 +1,6 @@
 ---
 title: "修改 Ubuntu 状态栏托盘图标顺序"
-images: ["https://api.eallion.com/og?title=%E4%BF%AE%E6%94%B9%20Ubuntu%20%E7%8A%B6%E6%80%81%E6%A0%8F%E6%89%98%E7%9B%98%E5%9B%BE%E6%A0%87%E9%A1%BA%E5%BA%8F"]
+images: ["https://og.eallion.com/api/og?title=%E4%BF%AE%E6%94%B9%20Ubuntu%20%E7%8A%B6%E6%80%81%E6%A0%8F%E6%89%98%E7%9B%98%E5%9B%BE%E6%A0%87%E9%A1%BA%E5%BA%8F"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","图标","托盘","状态栏"]

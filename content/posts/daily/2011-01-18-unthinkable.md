@@ -1,6 +1,6 @@
 ---
 title: "原来我也害怕独处"
-images: ["https://api.eallion.com/og?title=%E5%8E%9F%E6%9D%A5%E6%88%91%E4%B9%9F%E5%AE%B3%E6%80%95%E7%8B%AC%E5%A4%84"]
+images: ["https://og.eallion.com/api/og?title=%E5%8E%9F%E6%9D%A5%E6%88%91%E4%B9%9F%E5%AE%B3%E6%80%95%E7%8B%AC%E5%A4%84"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记","睡觉","独处"]

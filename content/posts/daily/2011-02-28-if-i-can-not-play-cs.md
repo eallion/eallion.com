@@ -1,6 +1,6 @@
 ---
 title: "如果我不能再 Play CS"
-images: ["https://api.eallion.com/og?title=%E5%A6%82%E6%9E%9C%E6%88%91%E4%B8%8D%E8%83%BD%E5%86%8D%20Play%20CS"]
+images: ["https://og.eallion.com/api/og?title=%E5%A6%82%E6%9E%9C%E6%88%91%E4%B8%8D%E8%83%BD%E5%86%8D%20Play%20CS"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","忧伤","忧愁"]

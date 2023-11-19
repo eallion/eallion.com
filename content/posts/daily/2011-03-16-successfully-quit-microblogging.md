@@ -1,6 +1,6 @@
 ---
 title: "成功戒掉微博"
-images: ["https://api.eallion.com/og?title=%E6%88%90%E5%8A%9F%E6%88%92%E6%8E%89%E5%BE%AE%E5%8D%9A"]
+images: ["https://og.eallion.com/api/og?title=%E6%88%90%E5%8A%9F%E6%88%92%E6%8E%89%E5%BE%AE%E5%8D%9A"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["微博","戒","网瘾"]
@@ -31,5 +31,5 @@ QQ，QQ 空间，百度贴吧，Twitter，VeryCD，豆瓣，糗百，淘宝和 Q
 戒掉 twitter 也简单
 不去刻意的 SSH 就好
 
-PS: @[ 大大的小蜗牛 ](http://t.sina.com.cn/eallion)
+PS: @[大大的小蜗牛](http://t.sina.com.cn/eallion)
 PS: 腾讯把我 QQ 微博设置成只读，换句话说，就是把我的帐号给封了。

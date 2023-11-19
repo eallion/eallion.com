@@ -1,6 +1,6 @@
 ---
 title: "WordPress 提交评论出现 404 错误的解决办法"
-images: ["https://api.eallion.com/og?title=WordPress%20%E6%8F%90%E4%BA%A4%E8%AF%84%E8%AE%BA%E5%87%BA%E7%8E%B0%20404%20%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"]
+images: ["https://og.eallion.com/api/og?title=WordPress%20%E6%8F%90%E4%BA%A4%E8%AF%84%E8%AE%BA%E5%87%BA%E7%8E%B0%20404%20%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["提交评论"]

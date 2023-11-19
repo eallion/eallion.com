@@ -1,6 +1,6 @@
 ---
 title: "昨天喝醉了... 貌似..."
-images: ["https://api.eallion.com/og?title=%E6%98%A8%E5%A4%A9%E5%96%9D%E9%86%89%E4%BA%86...%20%E8%B2%8C%E4%BC%BC..."]
+images: ["https://og.eallion.com/api/og?title=%E6%98%A8%E5%A4%A9%E5%96%9D%E9%86%89%E4%BA%86...%20%E8%B2%8C%E4%BC%BC..."]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["生日","喝酒","醉"]

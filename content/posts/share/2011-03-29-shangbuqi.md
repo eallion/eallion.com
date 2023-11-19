@@ -1,6 +1,6 @@
 ---
 title: "玩 CS 的你们伤不起！"
-images: ["https://api.eallion.com/og?title=%E7%8E%A9%20CS%20%E7%9A%84%E4%BD%A0%E4%BB%AC%E4%BC%A4%E4%B8%8D%E8%B5%B7%EF%BC%81"]
+images: ["https://og.eallion.com/api/og?title=%E7%8E%A9%20CS%20%E7%9A%84%E4%BD%A0%E4%BB%AC%E4%BC%A4%E4%B8%8D%E8%B5%B7%EF%BC%81"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["CS","伤不起","咆哮体"]

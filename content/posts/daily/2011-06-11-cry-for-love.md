@@ -1,6 +1,6 @@
 ---
 title: "为爱而哭"
-images: ["https://api.eallion.com/og?title=%E4%B8%BA%E7%88%B1%E8%80%8C%E5%93%AD"]
+images: ["https://og.eallion.com/api/og?title=%E4%B8%BA%E7%88%B1%E8%80%8C%E5%93%AD"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["爱"]

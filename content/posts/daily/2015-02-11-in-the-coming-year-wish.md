@@ -1,6 +1,6 @@
 ---
 title: "来年愿望"
-images: ["https://api.eallion.com/og?title=%E6%9D%A5%E5%B9%B4%E6%84%BF%E6%9C%9B"]
+images: ["https://og.eallion.com/api/og?title=%E6%9D%A5%E5%B9%B4%E6%84%BF%E6%9C%9B"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","愿望","新年","努力"]

@@ -1,6 +1,6 @@
 ---
 title: "中文文案排版指北"
-images: ["https://api.eallion.com/og?title=%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%88%E6%8E%92%E7%89%88%E6%8C%87%E5%8C%97"]
+images: ["https://og.eallion.com/api/og?title=%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%88%E6%8E%92%E7%89%88%E6%8C%87%E5%8C%97"]
 authors: ["eallion"]
 categories: []
 tags: []
@@ -11,6 +11,7 @@ lastmod: "2019-12-02 17:44:00"
 ---
 
 # 中文文案排版指北
+
 [![devDependency Status](https://david-dm.org/mzlogin/chinese-copywriting-guidelines/dev-status.svg)](https://david-dm.org/mzlogin/chinese-copywriting-guidelines#info=devDependencies)
 
 统一中文文案、排版的相关用法，降低团队成员之间的沟通成本，增强网站气质。

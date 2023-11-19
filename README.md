@@ -59,12 +59,6 @@ origin  https://gitlab.com/eallion/eallion.com.git (push)
 origin  https://git.eallion.com/git/eallion/eallion.com.git (push)
 ```
 
-#### 增加缓冲区 50M
-
-```bash
-git config --local http.postBuffer 52428800
-```
-
 #### 架构备忘
 
 - 国内：部署至阿里云 [OSS](https://www.aliyun.com/product/oss) + [CDN](https://www.aliyun.com/product/cdn) (2023.07.26)
@@ -101,6 +95,12 @@ git submodule update --init --recursive
 ```diff
 - git submodule update --remote --merge
 + npm run update
+```
+
+- 首页基于 Google for developers [[f3fdc25](https://github.com/GoogleChrome/developer.chrome.com/tree/f3fdc250adda57c8d1c9a394d618462ea306adab)] 构建
+
+```
+https://github.com/GoogleChrome/developer.chrome.com
 ```
 
 - 自定义 CSS 在 [`assets/css/_custom.scss`](<https://github.com/eallion/eallion.com/blob/main/assets/css/_custom.scss>)：
@@ -164,7 +164,27 @@ https://github.com/eallion/eallion.com/tree/main/data/neodb
 - `slug` (必填) 按需修改，文章网址 URL
 - `draft: true` (必填) 如果需要公开发表，需改为：`draft: false`
 
-4. **Push**：
+4. **生成 AI 提要**
+
+写完文章，按 `data` 目录中的 `summary.json` 文件手动生成摘要。
+
+5. **生成 OG image**
+
+打开 https://cover.eallion.com ([备用](https://github.com/eallion/cover-paint)) 生成 OG image，放到博客 static 目录。以前的文章利用 API 生成 OG。
+
+6. **维护其他页面**
+
+注意查看 Layouts 中的模板和 `data` 中的数据文件。
+
+- `嘀咕`：到 [e5n.cc](https://e5n.cc) 发 Toot；
+- `观影`：到豆瓣网和 NeoDB 标记；
+- `随手拍`：到 [e5n.cc](https://e5n.cc) 发带有 `#相册` 标签的 Toot；
+- `好物`：数据按 `data` 目录中的 `goods.json` 文件更新；
+- `Penta`：数据按 `data` 目录中的 `penta.json` 文件更新
+
+7. **Push**：
+
+完成写作后，Push 到 GitHub 仓库会自动构建部署。
 
 ```bash
 git add .
@@ -172,7 +192,9 @@ git commit -m "docs: add a new post"
 git push
 ```
 
-5. **本地调试** (~~Web Server~~)
+8. **本地调试** (~~Web Server~~)
+
+> 安全没有必要把 Hugo 当成 Web Server
 
 已添加脚本：
 
@@ -181,6 +203,8 @@ git push
 ```diff
 - ./server.sh
 + npm run server
+
+# npm run preview
 ```
 
 脚本内容：
@@ -208,7 +232,7 @@ hugo server -w -D -p 1313 -t hello-friend --bind 0.0.0.0  --contentDir example -
 - `-e production` DoIt 的 `评论系统`、`CDN` 和 `fingerprint` 不会在 development 环境下启用
 - `hugo server --help` 查看 server 所有命令
 
-6. **本地构建**
+9. **本地构建**
 
 手动构建命令：
 
@@ -234,6 +258,12 @@ hugo server -w -D -p 1313 -t hello-friend --bind 0.0.0.0  --contentDir example -
 ```diff
 - https://cdn.jsdelivr.net/gh/eallion/eallion.github.io/style.css
 + https://purge.jsdelivr.net/gh/eallion/eallion.github.io/style.css
+```
+
+### 💥 Git 增加缓冲区 50M
+
+```bash
+git config --local http.postBuffer 52428800
 ```
 
 ### 💥 清理 Git 仓库

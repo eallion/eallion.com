@@ -1,6 +1,6 @@
 ---
 title: "密室之不可告人"
-images: ["https://api.eallion.com/og?title=%E5%AF%86%E5%AE%A4%E4%B9%8B%E4%B8%8D%E5%8F%AF%E5%91%8A%E4%BA%BA"]
+images: ["https://og.eallion.com/api/og?title=%E5%AF%86%E5%AE%A4%E4%B9%8B%E4%B8%8D%E5%8F%AF%E5%91%8A%E4%BA%BA"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["不可告人","密室","影评","惊悚","推理","电影"]

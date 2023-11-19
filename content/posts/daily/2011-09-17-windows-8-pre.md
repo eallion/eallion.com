@@ -1,6 +1,6 @@
 ---
 title: "i like Windows 8"
-images: ["https://api.eallion.com/og?title=i%20like%20Windows%208"]
+images: ["https://og.eallion.com/api/og?title=i%20like%20Windows%208"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["win","windows","windows8","system","os"]

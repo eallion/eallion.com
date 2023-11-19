@@ -1,6 +1,6 @@
 ---
 title: "关于"
-images: ["https://api.eallion.com/og?title=%E5%85%B3%E4%BA%8E"]
+images: ["https://og.eallion.com/api/og?title=%E5%85%B3%E4%BA%8E"]
 date: "2006-04-14 00:00:00"
 type: "about"
 layout: "about"
@@ -70,7 +70,7 @@ comment: true
 
 ### 说明
 
-本博客嘀咕页面依赖 Mastodon 实例 https://e5n.cc ，评论系统依赖自建的 Artalk API: [https://api.eallion.com/artalk](https://api.eallion.com/artalk/sidebar) ，统计依赖自建的 Umami: https://a.eallion.com
+本博客嘀咕页面依赖 Mastodon 实例 https://e5n.cc ，评论系统依赖自建的 Artalk API: [https://artalk.eallion.com](https://artalk.eallion.com/) ，统计依赖自建的 Umami: https://a.eallion.com
 
 ### 版权信息
 

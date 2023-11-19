@@ -1,6 +1,6 @@
 ---
 title: "博客互评互推活动"
-images: ["https://api.eallion.com/og?title=%E5%8D%9A%E5%AE%A2%E4%BA%92%E8%AF%84%E4%BA%92%E6%8E%A8%E6%B4%BB%E5%8A%A8"]
+images: ["https://og.eallion.com/api/og?title=%E5%8D%9A%E5%AE%A2%E4%BA%92%E8%AF%84%E4%BA%92%E6%8E%A8%E6%B4%BB%E5%8A%A8"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["blog","博客","网赚","评论","互评"]

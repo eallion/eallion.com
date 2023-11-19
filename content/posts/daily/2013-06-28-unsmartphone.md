@@ -1,6 +1,6 @@
 ---
 title: "智能手机"
-images: ["https://api.eallion.com/og?title=%E6%99%BA%E8%83%BD%E6%89%8B%E6%9C%BA"]
+images: ["https://og.eallion.com/api/og?title=%E6%99%BA%E8%83%BD%E6%89%8B%E6%9C%BA"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["手机","iPhone","智能","安卓","精神"]

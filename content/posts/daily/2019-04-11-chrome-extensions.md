@@ -1,6 +1,6 @@
 ---
 title: "我的 Google Chrome 浏览器安装的插件扩展"
-images: ["https://api.eallion.com/og?title=%E6%88%91%E7%9A%84%20Google%20Chrome%20%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E8%A3%85%E7%9A%84%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95"]
+images: ["https://og.eallion.com/api/og?title=%E6%88%91%E7%9A%84%20Google%20Chrome%20%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E8%A3%85%E7%9A%84%E6%8F%92%E4%BB%B6%E6%89%A9%E5%B1%95"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["插件","google","Chrome","浏览器","扩展"]

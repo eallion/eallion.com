@@ -1,6 +1,6 @@
 ---
 title: "圣诞"
-images: ["https://api.eallion.com/og?title=%E5%9C%A3%E8%AF%9E"]
+images: ["https://og.eallion.com/api/og?title=%E5%9C%A3%E8%AF%9E"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["圣诞"]

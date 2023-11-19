@@ -1,6 +1,6 @@
 ---
 title: "生病"
-images: ["https://api.eallion.com/og?title=%E7%94%9F%E7%97%85"]
+images: ["https://og.eallion.com/api/og?title=%E7%94%9F%E7%97%85"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["头晕","生病","过敏","肠胃炎","海鲜"]

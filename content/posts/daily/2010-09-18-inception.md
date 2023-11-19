@@ -1,6 +1,6 @@
 ---
 title: "简简单单地说下《盗梦空间》"
-images: ["https://api.eallion.com/og?title=%E7%AE%80%E7%AE%80%E5%8D%95%E5%8D%95%E5%9C%B0%E8%AF%B4%E4%B8%8B%E3%80%8A%E7%9B%97%E6%A2%A6%E7%A9%BA%E9%97%B4%E3%80%8B"]
+images: ["https://og.eallion.com/api/og?title=%E7%AE%80%E7%AE%80%E5%8D%95%E5%8D%95%E5%9C%B0%E8%AF%B4%E4%B8%8B%E3%80%8A%E7%9B%97%E6%A2%A6%E7%A9%BA%E9%97%B4%E3%80%8B"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["inception","影评","梦中梦","梦境","盗梦空间","电影"]

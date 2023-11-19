@@ -1,6 +1,6 @@
 ---
 title: "ubuntu wps 不能输入中文解决"
-images: ["https://api.eallion.com/og?title=ubuntu%20wps%20%E4%B8%8D%E8%83%BD%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E8%A7%A3%E5%86%B3"]
+images: ["https://og.eallion.com/api/og?title=ubuntu%20wps%20%E4%B8%8D%E8%83%BD%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E8%A7%A3%E5%86%B3"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","linux","wps","中文"]

@@ -1,6 +1,6 @@
 ---
 title: "iOS 离线发表博客的 APP MWeb"
-images: ["https://api.eallion.com/og?title=iOS%20%E7%A6%BB%E7%BA%BF%E5%8F%91%E8%A1%A8%E5%8D%9A%E5%AE%A2%E7%9A%84%20APP%20MWeb"]
+images: ["https://og.eallion.com/api/og?title=iOS%20%E7%A6%BB%E7%BA%BF%E5%8F%91%E8%A1%A8%E5%8D%9A%E5%AE%A2%E7%9A%84%20APP%20MWeb"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["typecho","mweb","ios","离线"]

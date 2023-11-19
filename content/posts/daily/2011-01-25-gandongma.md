@@ -1,6 +1,6 @@
 ---
 title: "亲爱的，是不是要等我离开了，你才会感动。"
-images: ["https://api.eallion.com/og?title=%E4%BA%B2%E7%88%B1%E7%9A%84%EF%BC%8C%E6%98%AF%E4%B8%8D%E6%98%AF%E8%A6%81%E7%AD%89%E6%88%91%E7%A6%BB%E5%BC%80%E4%BA%86%EF%BC%8C%E4%BD%A0%E6%89%8D%E4%BC%9A%E6%84%9F%E5%8A%A8%E3%80%82"]
+images: ["https://og.eallion.com/api/og?title=%E4%BA%B2%E7%88%B1%E7%9A%84%EF%BC%8C%E6%98%AF%E4%B8%8D%E6%98%AF%E8%A6%81%E7%AD%89%E6%88%91%E7%A6%BB%E5%BC%80%E4%BA%86%EF%BC%8C%E4%BD%A0%E6%89%8D%E4%BC%9A%E6%84%9F%E5%8A%A8%E3%80%82"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["感动","爱情","离开"]

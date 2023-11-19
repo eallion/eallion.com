@@ -1,6 +1,6 @@
 ---
 title: "我们都不是真的懒"
-images: ["https://api.eallion.com/og?title=%E6%88%91%E4%BB%AC%E9%83%BD%E4%B8%8D%E6%98%AF%E7%9C%9F%E7%9A%84%E6%87%92"]
+images: ["https://og.eallion.com/api/og?title=%E6%88%91%E4%BB%AC%E9%83%BD%E4%B8%8D%E6%98%AF%E7%9C%9F%E7%9A%84%E6%87%92"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记","懒","勤快","感悟"]

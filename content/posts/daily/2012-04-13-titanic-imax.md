@@ -1,6 +1,6 @@
 ---
 title: "Titanic IMAX 3D"
-images: ["https://api.eallion.com/og?title=Titanic%20IMAX%203D"]
+images: ["https://og.eallion.com/api/og?title=Titanic%20IMAX%203D"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["爱情","电影","titanic","泰坦尼克号","铁达尼"]

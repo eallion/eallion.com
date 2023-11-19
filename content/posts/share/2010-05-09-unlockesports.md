@@ -1,6 +1,6 @@
 ---
 title: "凤凰网：广电解除电竞类节目封杀"
-images: ["https://api.eallion.com/og?title=%E5%87%A4%E5%87%B0%E7%BD%91%EF%BC%9A%E5%B9%BF%E7%94%B5%E8%A7%A3%E9%99%A4%E7%94%B5%E7%AB%9E%E7%B1%BB%E8%8A%82%E7%9B%AE%E5%B0%81%E6%9D%80"]
+images: ["https://og.eallion.com/api/og?title=%E5%87%A4%E5%87%B0%E7%BD%91%EF%BC%9A%E5%B9%BF%E7%94%B5%E8%A7%A3%E9%99%A4%E7%94%B5%E7%AB%9E%E7%B1%BB%E8%8A%82%E7%9B%AE%E5%B0%81%E6%9D%80"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["封杀","广电","电子竞技","电竞","解除"]
@@ -38,4 +38,4 @@ NEOTV 目前每年有着一千多万元的营收，其中 WCG 运营相关的收
 同时，电竞商业模式也迎来新的转机。暴雪即将正式推出的《星际争霸 2》不再支持局域网，所有玩家的对战都将接入暴雪的战网系统，呈现出电子竞技游戏运营 “网游化” 的趋势。
 “这会带来巨大的变革，将有助于电竞产业运营营收规模化”，林雨新评价认为，这或将带领电竞产业走出困境。
 
-原文：[ 凤凰网 ](http://tech.ifeng.com/it/detail_2010_05/07/1493196_0.shtml)
+原文：[凤凰网](http://tech.ifeng.com/it/detail_2010_05/07/1493196_0.shtml)

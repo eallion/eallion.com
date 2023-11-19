@@ -1,6 +1,6 @@
 ---
 title: "关于人民币升值前因后果（权威扫盲贴）"
-images: ["https://api.eallion.com/og?title=%E5%85%B3%E4%BA%8E%E4%BA%BA%E6%B0%91%E5%B8%81%E5%8D%87%E5%80%BC%E5%89%8D%E5%9B%A0%E5%90%8E%E6%9E%9C%EF%BC%88%E6%9D%83%E5%A8%81%E6%89%AB%E7%9B%B2%E8%B4%B4%EF%BC%89"]
+images: ["https://og.eallion.com/api/og?title=%E5%85%B3%E4%BA%8E%E4%BA%BA%E6%B0%91%E5%B8%81%E5%8D%87%E5%80%BC%E5%89%8D%E5%9B%A0%E5%90%8E%E6%9E%9C%EF%BC%88%E6%9D%83%E5%A8%81%E6%89%AB%E7%9B%B2%E8%B4%B4%EF%BC%89"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["revaluation"]

@@ -1,6 +1,6 @@
 ---
 title: "夜空中最亮的星"
-images: ["https://api.eallion.com/og?title=%E5%A4%9C%E7%A9%BA%E4%B8%AD%E6%9C%80%E4%BA%AE%E7%9A%84%E6%98%9F"]
+images: ["https://og.eallion.com/api/og?title=%E5%A4%9C%E7%A9%BA%E4%B8%AD%E6%9C%80%E4%BA%AE%E7%9A%84%E6%98%9F"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["夜空中最亮的星","计算器","弹唱"]

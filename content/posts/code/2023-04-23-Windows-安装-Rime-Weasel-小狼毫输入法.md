@@ -1,6 +1,6 @@
 ---
 title: "Windows 安装 Rime 小狼毫五笔拼音输入法"
-images: ["https://api.eallion.com/og?title=Windows%20%E5%AE%89%E8%A3%85%20Rime%20%E5%B0%8F%E7%8B%BC%E6%AF%AB%E4%BA%94%E7%AC%94%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95"]
+images: ["https://og.eallion.com/api/og?title=Windows%20%E5%AE%89%E8%A3%85%20Rime%20%E5%B0%8F%E7%8B%BC%E6%AF%AB%E4%BA%94%E7%AC%94%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E6%B3%95"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: "博客 AI 摘要及优化"
-images: ["https://api.eallion.com/og?title=%E5%8D%9A%E5%AE%A2%20AI%20%E6%91%98%E8%A6%81%E5%8F%8A%E4%BC%98%E5%8C%96"]
+images: ["https://og.eallion.com/api/og?title=%E5%8D%9A%E5%AE%A2%20AI%20%E6%91%98%E8%A6%81%E5%8F%8A%E4%BC%98%E5%8C%96"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

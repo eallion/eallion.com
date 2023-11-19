@@ -1,6 +1,6 @@
 ---
 title: "因为你不喜欢我"
-images: ["https://api.eallion.com/og?title=%E5%9B%A0%E4%B8%BA%E4%BD%A0%E4%B8%8D%E5%96%9C%E6%AC%A2%E6%88%91"]
+images: ["https://og.eallion.com/api/og?title=%E5%9B%A0%E4%B8%BA%E4%BD%A0%E4%B8%8D%E5%96%9C%E6%AC%A2%E6%88%91"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["爱情","喜欢","不喜欢","无关爱情"]

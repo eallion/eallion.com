@@ -1,6 +1,6 @@
 ---
 title: "Linux 架设 CS1.6 服务器教程"
-images: ["https://api.eallion.com/og?title=Linux%20%E6%9E%B6%E8%AE%BE%20CS1.6%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B"]
+images: ["https://og.eallion.com/api/og?title=Linux%20%E6%9E%B6%E8%AE%BE%20CS1.6%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%99%E7%A8%8B"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["CS","Ubuntu","server","服务器","linux","red hat"]

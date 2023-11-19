@@ -1,6 +1,6 @@
 ---
 title: "算命"
-images: ["https://api.eallion.com/og?title=%E7%AE%97%E5%91%BD"]
+images: ["https://og.eallion.com/api/og?title=%E7%AE%97%E5%91%BD"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["算命","八字"]

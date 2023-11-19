@@ -1,6 +1,6 @@
 ---
 title: "感觉马上就要离开了"
-images: ["https://api.eallion.com/og?title=%E6%84%9F%E8%A7%89%E9%A9%AC%E4%B8%8A%E5%B0%B1%E8%A6%81%E7%A6%BB%E5%BC%80%E4%BA%86"]
+images: ["https://og.eallion.com/api/og?title=%E6%84%9F%E8%A7%89%E9%A9%AC%E4%B8%8A%E5%B0%B1%E8%A6%81%E7%A6%BB%E5%BC%80%E4%BA%86"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["离开","毕业","伤怀"]

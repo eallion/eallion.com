@@ -1,6 +1,6 @@
 ---
 title: "今天重阳"
-images: ["https://api.eallion.com/og?title=%E4%BB%8A%E5%A4%A9%E9%87%8D%E9%98%B3"]
+images: ["https://og.eallion.com/api/og?title=%E4%BB%8A%E5%A4%A9%E9%87%8D%E9%98%B3"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["重阳","李攀"]

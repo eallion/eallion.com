@@ -1,6 +1,6 @@
 ---
 title: "各方媒体对于韩寒入围《时代》“全球最具影响力” 人物候选人的报道"
-images: ["https://api.eallion.com/og?title=%E5%90%84%E6%96%B9%E5%AA%92%E4%BD%93%E5%AF%B9%E4%BA%8E%E9%9F%A9%E5%AF%92%E5%85%A5%E5%9B%B4%E3%80%8A%E6%97%B6%E4%BB%A3%E3%80%8B%E2%80%9C%E5%85%A8%E7%90%83%E6%9C%80%E5%85%B7%E5%BD%B1%E5%93%8D%E5%8A%9B%E2%80%9D%20%E4%BA%BA%E7%89%A9%E5%80%99%E9%80%89%E4%BA%BA%E7%9A%84%E6%8A%A5%E9%81%93"]
+images: ["https://og.eallion.com/api/og?title=%E5%90%84%E6%96%B9%E5%AA%92%E4%BD%93%E5%AF%B9%E4%BA%8E%E9%9F%A9%E5%AF%92%E5%85%A5%E5%9B%B4%E3%80%8A%E6%97%B6%E4%BB%A3%E3%80%8B%E2%80%9C%E5%85%A8%E7%90%83%E6%9C%80%E5%85%B7%E5%BD%B1%E5%93%8D%E5%8A%9B%E2%80%9D%20%E4%BA%BA%E7%89%A9%E5%80%99%E9%80%89%E4%BA%BA%E7%9A%84%E6%8A%A5%E9%81%93"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["全球最具影响力","时代","韩寒"]
@@ -10,17 +10,17 @@ date: "2010-04-07 07:42:01"
 lastmod: "2010-04-07 07:42:01"
 ---
 
-[ 北京晨报：韩寒进前十指日可待 ](http://www.morningpost.com.cn/wenti/wyxw/2010-04-05/46737.shtml)
+[北京晨报：韩寒进前十指日可待](http://www.morningpost.com.cn/wenti/wyxw/2010-04-05/46737.shtml)
 
-[ 广州日报：美刊评全球最具影响人物韩寒入榜 榜单遭到质疑 ](http://http://news.sohu.com/20100405/n271315907.shtml)
+[广州日报：美刊评全球最具影响人物韩寒入榜 榜单遭到质疑](http://http://news.sohu.com/20100405/n271315907.shtml)
 
-[ 新华网：警惕美 "韩寒引领全球风潮" 论 ](http://ent.ce.cn/main/ywq/pl/201004/05/t20100405_21232022.shtml)
+[新华网：警惕美 "韩寒引领全球风潮" 论](http://ent.ce.cn/main/ywq/pl/201004/05/t20100405_21232022.shtml)
 
-[ 荆楚网：赵光瑞：韩寒候选 “全球最具影响力人物” 的合理性 ](http://http://focus.cnhubei.com/original/201004/t1058576.shtml)
+[荆楚网：赵光瑞：韩寒候选 “全球最具影响力人物” 的合理性](http://http://focus.cnhubei.com/original/201004/t1058576.shtml)
 
-[ 红网：“韩寒们” 也应该属于这个 “时代” 的时尚 ](http://hlj.rednet.cn/c/2010/04/06/1934708.htm)
+[红网：“韩寒们” 也应该属于这个 “时代” 的时尚](http://hlj.rednet.cn/c/2010/04/06/1934708.htm)
 
-[ 睿商在线：韩寒入选《时代》是个社会 "杯具"](http://http://new.spn.com.cn/1/344265.shtml)
+[睿商在线：韩寒入选《时代》是个社会 "杯具"](http://http://new.spn.com.cn/1/344265.shtml)
 
 <hr>
 <span style="font-weight: normal; font-size: 12px; color: #222222;"> 附：<span style="color: #f00;">《时代》官网投票地址 </span>：<span style="color: #f00;">[ 点击这里 ](http://www.time.com/time/specials/packages/article/0,28804,1972075_1972078_1972568,00.html)</span>。

@@ -1,6 +1,6 @@
 ---
 title: "Ubuntu 源 阿里云"
-images: ["https://api.eallion.com/og?title=Ubuntu%20%E6%BA%90%20%E9%98%BF%E9%87%8C%E4%BA%91"]
+images: ["https://og.eallion.com/api/og?title=Ubuntu%20%E6%BA%90%20%E9%98%BF%E9%87%8C%E4%BA%91"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","阿里云","源","更新源"]

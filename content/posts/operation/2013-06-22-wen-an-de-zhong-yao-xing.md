@@ -1,6 +1,6 @@
 ---
 title: "运营小记 - 文案的重要性"
-images: ["https://api.eallion.com/og?title=%E8%BF%90%E8%90%A5%E5%B0%8F%E8%AE%B0%20-%20%E6%96%87%E6%A1%88%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"]
+images: ["https://og.eallion.com/api/og?title=%E8%BF%90%E8%90%A5%E5%B0%8F%E8%AE%B0%20-%20%E6%96%87%E6%A1%88%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["招聘","淘宝","天猫","客服","绍兴 E 网","美工"]

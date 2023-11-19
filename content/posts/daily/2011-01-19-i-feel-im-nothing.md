@@ -1,6 +1,6 @@
 ---
 title: "今时不同往日"
-images: ["https://api.eallion.com/og?title=%E4%BB%8A%E6%97%B6%E4%B8%8D%E5%90%8C%E5%BE%80%E6%97%A5"]
+images: ["https://og.eallion.com/api/og?title=%E4%BB%8A%E6%97%B6%E4%B8%8D%E5%90%8C%E5%BE%80%E6%97%A5"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["总结","日记","感慨"]

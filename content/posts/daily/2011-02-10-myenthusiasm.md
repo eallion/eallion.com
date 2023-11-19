@@ -1,6 +1,6 @@
 ---
 title: "为什么我会突然热情锐减"
-images: ["https://api.eallion.com/og?title=%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BC%9A%E7%AA%81%E7%84%B6%E7%83%AD%E6%83%85%E9%94%90%E5%87%8F"]
+images: ["https://og.eallion.com/api/og?title=%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BC%9A%E7%AA%81%E7%84%B6%E7%83%AD%E6%83%85%E9%94%90%E5%87%8F"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["生活","激情","热情"]

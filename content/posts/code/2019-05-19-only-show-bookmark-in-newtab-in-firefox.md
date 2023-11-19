@@ -1,6 +1,6 @@
 ---
 title: "让 Firefox 只在新标签页 newtab 显示书签栏"
-images: ["https://api.eallion.com/og?title=%E8%AE%A9%20Firefox%20%E5%8F%AA%E5%9C%A8%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5%20newtab%20%E6%98%BE%E7%A4%BA%E4%B9%A6%E7%AD%BE%E6%A0%8F"]
+images: ["https://og.eallion.com/api/og?title=%E8%AE%A9%20Firefox%20%E5%8F%AA%E5%9C%A8%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5%20newtab%20%E6%98%BE%E7%A4%BA%E4%B9%A6%E7%AD%BE%E6%A0%8F"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["google","css","Firefox","书签","新标签页","newtab","bookmark"]

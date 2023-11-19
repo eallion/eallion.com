@@ -1,6 +1,6 @@
 ---
 title: "回家"
-images: ["https://api.eallion.com/og?title=%E5%9B%9E%E5%AE%B6"]
+images: ["https://og.eallion.com/api/og?title=%E5%9B%9E%E5%AE%B6"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["回家","默默"]

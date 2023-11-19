@@ -1,6 +1,6 @@
 ---
 title: "《职来职往》"
-images: ["https://api.eallion.com/og?title=%E3%80%8A%E8%81%8C%E6%9D%A5%E8%81%8C%E5%BE%80%E3%80%8B"]
+images: ["https://og.eallion.com/api/og?title=%E3%80%8A%E8%81%8C%E6%9D%A5%E8%81%8C%E5%BE%80%E3%80%8B"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","职来职往","职业","职场","求职"]

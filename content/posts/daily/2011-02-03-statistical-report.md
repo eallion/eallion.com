@@ -1,6 +1,6 @@
 ---
 title: "eallion.com 月度统计报告与展望"
-images: ["https://api.eallion.com/og?title=eallion.com%20%E6%9C%88%E5%BA%A6%E7%BB%9F%E8%AE%A1%E6%8A%A5%E5%91%8A%E4%B8%8E%E5%B1%95%E6%9C%9B"]
+images: ["https://og.eallion.com/api/og?title=eallion.com%20%E6%9C%88%E5%BA%A6%E7%BB%9F%E8%AE%A1%E6%8A%A5%E5%91%8A%E4%B8%8E%E5%B1%95%E6%9C%9B"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","统计","报告","分析","展望"]

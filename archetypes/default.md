@@ -9,5 +9,5 @@ slug: "{{ replace .Name " " "-" | title | lower }}"
 draft: true
 Comments: true
 date: {{ .Date }}
-images: ["https://api.eallion.com/og?title={{ replace .TranslationBaseName "-" "%20" | title }}"]
+images: ["https://og.eallion.com/api/og?title={{ replace .TranslationBaseName "-" "%20" | title }}"]
 ---

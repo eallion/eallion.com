@@ -1,6 +1,6 @@
 ---
 title: "Openssl 升级"
-images: ["https://api.eallion.com/og?title=Openssl%20%E5%8D%87%E7%BA%A7"]
+images: ["https://og.eallion.com/api/og?title=Openssl%20%E5%8D%87%E7%BA%A7"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["升级","openssl"]

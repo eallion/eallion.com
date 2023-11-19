@@ -1,6 +1,6 @@
 ---
 title: "当我不说话的时候，我在说什么"
-images: ["https://api.eallion.com/og?title=%E5%BD%93%E6%88%91%E4%B8%8D%E8%AF%B4%E8%AF%9D%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E6%88%91%E5%9C%A8%E8%AF%B4%E4%BB%80%E4%B9%88"]
+images: ["https://og.eallion.com/api/og?title=%E5%BD%93%E6%88%91%E4%B8%8D%E8%AF%B4%E8%AF%9D%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E6%88%91%E5%9C%A8%E8%AF%B4%E4%BB%80%E4%B9%88"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["沉默"]

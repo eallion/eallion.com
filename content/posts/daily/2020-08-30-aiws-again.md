@@ -1,6 +1,6 @@
 ---
 title: 爱丽丝梦游仙境症 偶发
-images: ["https://api.eallion.com/og?title="]
+images: ["https://og.eallion.com/api/og?title="]
 authors: ["eallion"]
 categories:
     - 日志

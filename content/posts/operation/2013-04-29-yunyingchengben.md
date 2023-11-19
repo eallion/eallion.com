@@ -1,6 +1,6 @@
 ---
 title: "房租和办公设备"
-images: ["https://api.eallion.com/og?title=%E6%88%BF%E7%A7%9F%E5%92%8C%E5%8A%9E%E5%85%AC%E8%AE%BE%E5%A4%87"]
+images: ["https://og.eallion.com/api/og?title=%E6%88%BF%E7%A7%9F%E5%92%8C%E5%8A%9E%E5%85%AC%E8%AE%BE%E5%A4%87"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["运营","成本","房租","水电","设备"]

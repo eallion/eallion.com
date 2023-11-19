@@ -1,6 +1,6 @@
 ---
 title: "多说 CSS 分享"
-images: ["https://api.eallion.com/og?title=%E5%A4%9A%E8%AF%B4%20CSS%20%E5%88%86%E4%BA%AB"]
+images: ["https://og.eallion.com/api/og?title=%E5%A4%9A%E8%AF%B4%20CSS%20%E5%88%86%E4%BA%AB"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["多说","css","样式"]

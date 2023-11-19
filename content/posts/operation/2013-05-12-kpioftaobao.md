@@ -1,6 +1,6 @@
 ---
 title: "淘宝客服绩效考核方案"
-images: ["https://api.eallion.com/og?title=%E6%B7%98%E5%AE%9D%E5%AE%A2%E6%9C%8D%E7%BB%A9%E6%95%88%E8%80%83%E6%A0%B8%E6%96%B9%E6%A1%88"]
+images: ["https://og.eallion.com/api/og?title=%E6%B7%98%E5%AE%9D%E5%AE%A2%E6%9C%8D%E7%BB%A9%E6%95%88%E8%80%83%E6%A0%B8%E6%96%B9%E6%A1%88"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["淘宝","天猫","客服","绩效","KPI"]

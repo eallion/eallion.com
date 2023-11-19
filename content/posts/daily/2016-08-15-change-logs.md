@@ -1,6 +1,6 @@
 ---
 title: "修改代码一定要做笔记"
-images: ["https://api.eallion.com/og?title=%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E4%B8%80%E5%AE%9A%E8%A6%81%E5%81%9A%E7%AC%94%E8%AE%B0"]
+images: ["https://og.eallion.com/api/og?title=%E4%BF%AE%E6%94%B9%E4%BB%A3%E7%A0%81%E4%B8%80%E5%AE%9A%E8%A6%81%E5%81%9A%E7%AC%94%E8%AE%B0"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["笔记","log","备份","备忘","注释"]

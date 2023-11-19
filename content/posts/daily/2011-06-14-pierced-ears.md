@@ -1,6 +1,6 @@
 ---
 title: "耳洞"
-images: ["https://api.eallion.com/og?title=%E8%80%B3%E6%B4%9E"]
+images: ["https://og.eallion.com/api/og?title=%E8%80%B3%E6%B4%9E"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["耳洞","耳钉"]

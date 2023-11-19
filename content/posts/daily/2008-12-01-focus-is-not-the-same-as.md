@@ -1,6 +1,6 @@
 ---
 title: "重点不一样"
-images: ["https://api.eallion.com/og?title=%E9%87%8D%E7%82%B9%E4%B8%8D%E4%B8%80%E6%A0%B7"]
+images: ["https://og.eallion.com/api/og?title=%E9%87%8D%E7%82%B9%E4%B8%8D%E4%B8%80%E6%A0%B7"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["重点","看清","放下"]

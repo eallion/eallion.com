@@ -1,6 +1,6 @@
 ---
 title: "说不清楚的一些事"
-images: ["https://api.eallion.com/og?title=%E8%AF%B4%E4%B8%8D%E6%B8%85%E6%A5%9A%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B"]
+images: ["https://og.eallion.com/api/og?title=%E8%AF%B4%E4%B8%8D%E6%B8%85%E6%A5%9A%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["风","清楚","解释"]

@@ -1,6 +1,6 @@
 ---
 title: "「我谈的话题没什么敏感的」"
-images: ["https://api.eallion.com/og?title=%E3%80%8C%E6%88%91%E8%B0%88%E7%9A%84%E8%AF%9D%E9%A2%98%E6%B2%A1%E4%BB%80%E4%B9%88%E6%95%8F%E6%84%9F%E7%9A%84%E3%80%8D"]
+images: ["https://og.eallion.com/api/og?title=%E3%80%8C%E6%88%91%E8%B0%88%E7%9A%84%E8%AF%9D%E9%A2%98%E6%B2%A1%E4%BB%80%E4%B9%88%E6%95%8F%E6%84%9F%E7%9A%84%E3%80%8D"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["敏感","时政","水果"]

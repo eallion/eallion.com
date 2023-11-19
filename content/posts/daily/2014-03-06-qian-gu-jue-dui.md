@@ -1,6 +1,6 @@
 ---
 title: "千古绝对"
-images: ["https://api.eallion.com/og?title=%E5%8D%83%E5%8F%A4%E7%BB%9D%E5%AF%B9"]
+images: ["https://og.eallion.com/api/og?title=%E5%8D%83%E5%8F%A4%E7%BB%9D%E5%AF%B9"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["极品家丁","对联","绝对","收藏"]

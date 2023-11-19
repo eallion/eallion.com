@@ -1,6 +1,6 @@
 ---
 title: "对博客的小改动"
-images: ["https://api.eallion.com/og?title=%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E6%94%B9%E5%8A%A8"]
+images: ["https://og.eallion.com/api/og?title=%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%B0%8F%E6%94%B9%E5%8A%A8"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","小记","改动","优化","代码"]
@@ -43,7 +43,7 @@ lastmod: "2012-04-22 00:36:11"
 用代码检测浏览器
 如果是 IE6 访问
 就不显示插件而只显示一张图片
-[ 羽中 ](http://www.jzwalk.com) 同学说这个插件在 firefox3 下显示为一片空白
+[羽中](http://www.jzwalk.com) 同学说这个插件在 firefox3 下显示为一片空白
 这个我就没办法了
 插件地址：[http://slidesjs.com/](http://slidesjs.com/)
 
@@ -61,7 +61,7 @@ lastmod: "2012-04-22 00:36:11"
 有兴趣的朋友可以模仿 verycd 的 title saying
 
 博客用的图片特效是 Slimbox2
-[ 冰剑 ](http://www.binjoo.net/) 同学发布有一个插件
+[冰剑](http://www.binjoo.net/) 同学发布有一个插件
 我在插件的基础上改动了一些
 还很好用的
 [http://www.binjoo.net/2011/02/slimbox2-for-typecho/](http://www.binjoo.net/2011/02/slimbox2-for-typecho/)

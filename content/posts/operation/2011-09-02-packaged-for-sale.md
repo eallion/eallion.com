@@ -1,6 +1,6 @@
 ---
 title: "打包出售 欲购从速"
-images: ["https://api.eallion.com/og?title=%E6%89%93%E5%8C%85%E5%87%BA%E5%94%AE%20%E6%AC%B2%E8%B4%AD%E4%BB%8E%E9%80%9F"]
+images: ["https://og.eallion.com/api/og?title=%E6%89%93%E5%8C%85%E5%87%BA%E5%94%AE%20%E6%AC%B2%E8%B4%AD%E4%BB%8E%E9%80%9F"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","感想","淘宝","商城","羽绒"]

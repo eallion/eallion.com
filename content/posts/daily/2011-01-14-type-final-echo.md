@@ -1,6 +1,6 @@
 ---
 title: "博客趋于稳定"
-images: ["https://api.eallion.com/og?title=%E5%8D%9A%E5%AE%A2%E8%B6%8B%E4%BA%8E%E7%A8%B3%E5%AE%9A"]
+images: ["https://og.eallion.com/api/og?title=%E5%8D%9A%E5%AE%A2%E8%B6%8B%E4%BA%8E%E7%A8%B3%E5%AE%9A"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","插件","typecho"]
@@ -58,14 +58,14 @@ tinyMCE Editor - 集成 tinyMCE 编辑器
 不过两种相册都不会用到本地图片
 这大大的减小了主机的负担
 
-导航页面还有一个 [ 山寨版山贼 </strong>](http://eallion.com/category/sz/)
+导航页面还有一个 [山寨版山贼 </strong>](http://eallion.com/category/sz/)
 这是我一个朋友的页面
 是一个文艺小青年
 又帅又多金又靠谱反正各种好
 他会偶尔来更新几篇博客的
 欢迎大家随时来喷他
 
-[ 个人导航 </strong>](http://t.eallion.com/) 页面完全是做的站外链接
+[个人导航 </strong>](http://t.eallion.com/) 页面完全是做的站外链接
 其中微博是我的个人微博
 这个微博用的是 [PageCookery](http://www.pagecookery.com/) 程序
 它几乎记录了我从开启那个微博以来所有 post 到网上各处的文字……

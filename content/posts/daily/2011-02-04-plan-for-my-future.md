@@ -1,6 +1,6 @@
 ---
 title: "未来半年计划（2011.02-2011.06）"
-images: ["https://api.eallion.com/og?title=%E6%9C%AA%E6%9D%A5%E5%8D%8A%E5%B9%B4%E8%AE%A1%E5%88%92%EF%BC%882011.02-2011.06%EF%BC%89"]
+images: ["https://og.eallion.com/api/og?title=%E6%9C%AA%E6%9D%A5%E5%8D%8A%E5%B9%B4%E8%AE%A1%E5%88%92%EF%BC%882011.02-2011.06%EF%BC%89"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["展望","计划","规划","变化"]

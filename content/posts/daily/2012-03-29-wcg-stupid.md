@@ -1,6 +1,6 @@
 ---
 title: "WCG Stupid"
-images: ["https://api.eallion.com/og?title=WCG%20Stupid"]
+images: ["https://og.eallion.com/api/og?title=WCG%20Stupid"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","wcg"]
@@ -15,7 +15,7 @@ lastmod: "2012-03-29 15:10:05"
 似乎已成定局
 [http://www.5eplay.com/2012/cs_0327/904.html](http://www.5eplay.com/2012/cs_0327/904.html)
 
-[ 世界电子竞技大赛 ](http://www.wcg.com)）
+[世界电子竞技大赛](http://www.wcg.com)）
 
 起源最早最专业的三项大赛只有 WCG 一直屹立不倒
 一方面源于它的运营的专业性

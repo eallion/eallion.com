@@ -1,6 +1,6 @@
 ---
 title: "全城戒备"
-images: ["https://api.eallion.com/og?title=%E5%85%A8%E5%9F%8E%E6%88%92%E5%A4%87"]
+images: ["https://og.eallion.com/api/og?title=%E5%85%A8%E5%9F%8E%E6%88%92%E5%A4%87"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["全城戒备","电影"]

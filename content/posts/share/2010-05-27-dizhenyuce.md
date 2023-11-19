@@ -1,6 +1,6 @@
 ---
 title: "512 地震的真相：两个老科学家的血泪倾诉"
-images: ["https://api.eallion.com/og?title=512%20%E5%9C%B0%E9%9C%87%E7%9A%84%E7%9C%9F%E7%9B%B8%EF%BC%9A%E4%B8%A4%E4%B8%AA%E8%80%81%E7%A7%91%E5%AD%A6%E5%AE%B6%E7%9A%84%E8%A1%80%E6%B3%AA%E5%80%BE%E8%AF%89"]
+images: ["https://og.eallion.com/api/og?title=512%20%E5%9C%B0%E9%9C%87%E7%9A%84%E7%9C%9F%E7%9B%B8%EF%BC%9A%E4%B8%A4%E4%B8%AA%E8%80%81%E7%A7%91%E5%AD%A6%E5%AE%B6%E7%9A%84%E8%A1%80%E6%B3%AA%E5%80%BE%E8%AF%89"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["地震","地震预测"]

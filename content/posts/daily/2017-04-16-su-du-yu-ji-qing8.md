@@ -1,6 +1,6 @@
 ---
 title: "速度与激情 8"
-images: ["https://api.eallion.com/og?title=%E9%80%9F%E5%BA%A6%E4%B8%8E%E6%BF%80%E6%83%85%208"]
+images: ["https://og.eallion.com/api/og?title=%E9%80%9F%E5%BA%A6%E4%B8%8E%E6%BF%80%E6%83%85%208"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["速度与激情"]

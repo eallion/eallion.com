@@ -1,6 +1,6 @@
 ---
 title: "探讨我的健康网络生活"
-images: ["https://api.eallion.com/og?title=%E6%8E%A2%E8%AE%A8%E6%88%91%E7%9A%84%E5%81%A5%E5%BA%B7%E7%BD%91%E7%BB%9C%E7%94%9F%E6%B4%BB"]
+images: ["https://og.eallion.com/api/og?title=%E6%8E%A2%E8%AE%A8%E6%88%91%E7%9A%84%E5%81%A5%E5%BA%B7%E7%BD%91%E7%BB%9C%E7%94%9F%E6%B4%BB"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["生活","网络","习惯"]
@@ -33,7 +33,7 @@ lastmod: "2011-02-10 20:46:22"
 7，试用各种新奇的软件和程序（不停的安装卸载安装卸载）
 8，被动的聊天
 9，在网络上发呆！！！
-10，试图 ——[ 探讨我的健康网络生活 ](http://eallion.com/myenthusiasm)……
+10，试图 ——[探讨我的健康网络生活](http://eallion.com/myenthusiasm)……
 
 在我认真的分析了以上所有上网行为之后
 我发现对我来说唯一比较有实际意义的居然是 —— 发呆！！！

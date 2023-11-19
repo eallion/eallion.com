@@ -1,6 +1,6 @@
 ---
 title: "免费送阿里云虚拟主机"
-images: ["https://api.eallion.com/og?title=%E5%85%8D%E8%B4%B9%E9%80%81%E9%98%BF%E9%87%8C%E4%BA%91%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA"]
+images: ["https://og.eallion.com/api/og?title=%E5%85%8D%E8%B4%B9%E9%80%81%E9%98%BF%E9%87%8C%E4%BA%91%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["主机","阿里云","免费主机","虚拟主机"]

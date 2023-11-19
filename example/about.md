@@ -1,6 +1,6 @@
 ---
 title: "关于"
-images: ["https://api.eallion.com/og?title=%E5%85%B3%E4%BA%8E"]
+images: ["https://og.eallion.com/api/og?title=%E5%85%B3%E4%BA%8E"]
 date: "2006-04-14 00:00:00"
 type: "about"
 layout: "about"

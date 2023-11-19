@@ -1,6 +1,6 @@
 ---
 title: "Gridea Hexo Hugo 等 git push 同步到多个仓库"
-images: ["https://api.eallion.com/og?title=Gridea%20Hexo%20Hugo%20%E7%AD%89%20git%20push%20%E5%90%8C%E6%AD%A5%E5%88%B0%E5%A4%9A%E4%B8%AA%E4%BB%93%E5%BA%93"]
+images: ["https://og.eallion.com/api/og?title=Gridea%20Hexo%20Hugo%20%E7%AD%89%20git%20push%20%E5%90%8C%E6%AD%A5%E5%88%B0%E5%A4%9A%E4%B8%AA%E4%BB%93%E5%BA%93"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["hexo"]

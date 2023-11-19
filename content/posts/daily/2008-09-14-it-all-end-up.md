@@ -1,6 +1,6 @@
 ---
 title: "都高端起来吧"
-images: ["https://api.eallion.com/og?title=%E9%83%BD%E9%AB%98%E7%AB%AF%E8%B5%B7%E6%9D%A5%E5%90%A7"]
+images: ["https://og.eallion.com/api/og?title=%E9%83%BD%E9%AB%98%E7%AB%AF%E8%B5%B7%E6%9D%A5%E5%90%A7"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","高端","电视"]
@@ -10,7 +10,7 @@ date: "2008-09-14 06:06:11"
 lastmod: "2008-09-14 06:06:11"
 ---
 
-[* 先看原文先看原文啦... ](http://user.qzone.qq.com/622009295/blog/1221113073)
+[* 先看原文先看原文啦...](http://user.qzone.qq.com/622009295/blog/1221113073)
 
 我一直不喜欢湖南卫视... 更不喜欢湖南卫视的节目了... 都奔四十的人儿了... 就不要一天。炅炅。炅炅。的叫了...
 还有那吴昕... 多纯的一姑娘啊就快被带坏了...

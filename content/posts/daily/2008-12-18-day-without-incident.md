@@ -1,6 +1,6 @@
 ---
 title: "一日无事"
-images: ["https://api.eallion.com/og?title=%E4%B8%80%E6%97%A5%E6%97%A0%E4%BA%8B"]
+images: ["https://og.eallion.com/api/og?title=%E4%B8%80%E6%97%A5%E6%97%A0%E4%BA%8B"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["一日无事"]

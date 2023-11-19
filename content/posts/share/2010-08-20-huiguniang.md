@@ -1,6 +1,6 @@
 ---
 title: "亿万富翁女儿情迷穷渔夫"
-images: ["https://api.eallion.com/og?title=%E4%BA%BF%E4%B8%87%E5%AF%8C%E7%BF%81%E5%A5%B3%E5%84%BF%E6%83%85%E8%BF%B7%E7%A9%B7%E6%B8%94%E5%A4%AB"]
+images: ["https://og.eallion.com/api/og?title=%E4%BA%BF%E4%B8%87%E5%AF%8C%E7%BF%81%E5%A5%B3%E5%84%BF%E6%83%85%E8%BF%B7%E7%A9%B7%E6%B8%94%E5%A4%AB"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["巴尼特","灰姑娘","穷渔夫"]
