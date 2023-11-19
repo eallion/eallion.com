@@ -24,11 +24,25 @@ comment: false
 
 <img no-view src="/eallion.webp" alt="eallion">
 
-My name is Charles Chin (AKA: 大大的小蜗牛).
+I'm Charles Chin. eallion has been my nickname for over 20 years.
+AKA：大大的小蜗牛.
+I live in the UTC+08:00 timezone and work from home.
+I work in E-commerce, not IT.
 
-Motto:
+My favorite motto is:
 
 > [Chance favors the prepared mind.](https://en.wikipedia.org/wiki/Louis_Pasteur#Career) - _Louis Pasteur_
+
+### TL;DR
+
+* He / Him
+* COO
+* WFH
+* FOSS
+* Geeker
+* Blogger
+* E-Commerce
+* Non-IT Indiv.
 
 ### Description
 

@@ -141,14 +141,16 @@
       "alt": "20220728-MissFortune",
       "champion": "MissFortune",
       "date": "2022/07/28",
-      "caption": "赏金猎人 厄运小姐"
+      "caption": "赏金猎人 厄运小姐",
+      "heroId": "21"
     },
     {
       "src": "/assets/images/penta/20220728-MissFortune.jpg",
       "alt": "20220728-MissFortune",
       "champion": "MissFortune",
       "date": "2022/07/28",
-      "caption": "赏金猎人 厄运小姐"
+      "caption": "赏金猎人 厄运小姐",
+      "heroId": "21"
     },
     {
       "src": "/assets/images/penta/20220311-Samira.jpg",
@@ -171,21 +173,24 @@
       "alt": "20220223-Khazix",
       "champion": "Khazix",
       "date": "2022/02/23",
-      "caption": "虚空掠夺者 卡兹克"
+      "caption": "虚空掠夺者 卡兹克",
+      "heroId": "121"
     },
     {
       "src": "/assets/images/penta/20220219-Lucian.jpg",
       "alt": "20220219-Lucian",
       "champion": "Lucian",
       "date": "2022/02/19",
-      "caption": "圣枪游侠 卢锡安"
+      "caption": "圣枪游侠 卢锡安",
+      "heroId": "236"
     },
     {
       "src": "/assets/images/penta/20220210-MasterYi.jpg",
       "alt": "20220210-MasterYi",
       "champion": "MasterYi",
       "date": "2022/02/10",
-      "caption": "无极剑圣 易"
+      "caption": "无极剑圣 易",
+      "heroId": "11"
     },
     {
       "src": "/assets/images/penta/20220208-Ezreal.jpg",
@@ -200,70 +205,80 @@
       "alt": "20210919-Yasuo",
       "champion": "Yasuo",
       "date": "2021/09/19",
-      "caption": "疾风剑豪 亚索"
+      "caption": "疾风剑豪 亚索",
+      "heroId": "157"
     },
     {
       "src": "/assets/images/penta/20210905-kassadin.jpg",
       "alt": "20210905-kassadin",
       "champion": "Kassadin",
       "date": "2021/09/05",
-      "caption": "虚空行者 卡萨丁"
+      "caption": "虚空行者 卡萨丁",
+      "heroId": "38"
     },
     {
       "src": "/assets/images/penta/20201203-Lucian.jpg",
       "alt": "20201203-Lucian",
       "champion": "Lucian",
       "date": "2020/12/03",
-      "caption": "圣枪游侠 卢锡安"
+      "caption": "圣枪游侠 卢锡安",
+      "heroId": "236"
     },
     {
       "src": "/assets/images/penta/20201202-Caitlyn.jpg",
       "alt": "20201202-Caitlyn",
       "champion": "Caitlyn",
       "date": "2020/12/02",
-      "caption": "皮城女警 凯特琳"
+      "caption": "皮城女警 凯特琳",
+      "heroId": "51"
     },
     {
       "src": "/assets/images/penta/20200808-Sivir.jpg",
       "alt": "20200808-Sivir",
       "champion": "Sivir",
       "date": "2020/08/08",
-      "caption": "战争女神 载入战场"
+      "caption": "战争女神 希维尔",
+      "heroId": "21"
     },
     {
       "src": "/assets/images/penta/20200806-Corki.jpg",
       "alt": "20200806-Corki",
       "champion": "Corki",
       "date": "2020/08/06",
-      "caption": "英勇投弹手 库奇"
+      "caption": "英勇投弹手 库奇",
+      "heroId": "42"
     },
     {
       "src": "/assets/images/penta/20200803-Khazix.jpg",
       "alt": "20200803-Khazix",
       "champion": "Khazix",
       "date": "2020/08/03",
-      "caption": "虚空掠夺者 卡兹克"
+      "caption": "虚空掠夺者 卡兹克",
+      "heroId": "121"
     },
     {
       "src": "/assets/images/penta/20200518-Draven.jpg",
       "alt": "20200518-Draven",
       "champion": "Draven",
       "date": "2020/05/18",
-      "caption": "荣耀行刑官 德莱文"
+      "caption": "荣耀行刑官 德莱文",
+      "heroId": "119"
     },
     {
       "src": "/assets/images/penta/20200517-Draven.jpg",
       "alt": "20200517-Draven",
       "champion": "Draven",
       "date": "2020/05/17",
-      "caption": "荣耀行刑官 德莱文"
+      "caption": "荣耀行刑官 德莱文",
+      "heroId": "119"
     },
     {
       "src": "/assets/images/penta/20200429-Sivir.jpg",
       "alt": "20200429-Sivir",
       "champion": "Sivir",
       "date": "2020/04/29",
-      "caption": "战争女神 载入战场"
+      "caption": "战争女神 希维尔",
+      "heroId": "15"
     },
     {
       "src": "/assets/images/penta/20200409-Vayne.jpg",
