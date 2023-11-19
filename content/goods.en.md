@@ -1,6 +1,6 @@
 ---
 title: "Goods"
-images: ["https://api.eallion.com/og?title=Goods"]
+images: ["https://og.eallion.com/api/og?title=Goods"]
 layout: "goods"
 type: 'goods'
 comment: false

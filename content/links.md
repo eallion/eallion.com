@@ -1,6 +1,6 @@
 ---
 title: "友情链接"
-images: ["https://api.eallion.com/og?title=%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5"]
+images: ["https://og.eallion.com/api/og?title=%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5"]
 date: "2006-04-14 00:00:00"
 layout: "links"
 type: "links"

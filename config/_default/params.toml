@@ -307,7 +307,7 @@ cacheRemoteImages = false
     # https://www.free-api.com/doc/531
     # http://www.alapi.cn/api/view/72
     # OR self-hosted: https://github.com/yhf7952/QrCodeApi
-    Weixin= "https://api.eallion.com/qrcode/?size=131&text="
+    #Weixin= "https://api.eallion.com/qrcode/?size=131&text="
     #Weixin = "https://chart.googleapis.com/chart?chs=400x400&cht=qr&choe=UTF-8&chl="
     Whatsapp = false
     Xing = false
@@ -459,7 +459,7 @@ cacheRemoteImages = false
     # artalk comment 评论系统设置 (https://artalk.js.org/guide/frontend/config.html)
     [page.comment.artalk]
       enable = true
-      server = "https://api.eallion.com/artalk/"
+      server = "https://artalk.eallion.com"
       site = "eallion"
       lite = false
       katex = false

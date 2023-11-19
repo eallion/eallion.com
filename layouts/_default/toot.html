@@ -18,7 +18,7 @@
         <div class="greyQuote">
             <blockquote>
                 <div class="hitokoto">
-                    <span id="hitokoto"></span> - <cite><span id="author"></span></cite>
+                    <span id="hitokoto">{{ T `toot_motto` | safeHTML }}</span> - <cite><span id="author">{{ T `toot_author` | safeHTML }}</span></cite>
                 </div>
             </blockquote>
         </div>
@@ -52,6 +52,7 @@
     </div>
 </article>
 
+<!--
 <script>
     // Hitokoto API
     if (window.location.href.includes("/en/")) {
@@ -77,7 +78,8 @@
             })
             .catch(console.error);
     }
-</script>
+</script> -->
+
 
 <script>
     // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
