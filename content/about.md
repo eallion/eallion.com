@@ -9,24 +9,9 @@ comment: true
 
 <div class="greyQuote">
     <blockquote>
-        <span id="hitokoto">:D 获取中...</span> - <cite><span id="author"></span></cite>
+        <span id="hitokoto">机会总是垂青于有准备的人！</span> - <cite><span id="author">Louis Pasteur</span></cite>
     </blockquote>
 </div>
-<script>
-  fetch("https://api.eallion.com/hitokoto?c=k&charset=utf-8&encode=json")
-    .then(response => response.json())
-    .then(data => {
-      const hitokoto = document.querySelector('#hitokoto');
-      hitokoto.innerText = data.hitokoto;
-      const author = document.querySelector('#author');
-        if (!data.from_who) {
-          author.innerText = data.from;
-        } else {
-          author.innerText = data.from_who;
-        }
-    })
-    .catch(console.error);
-</script>
 
 <img no-view src="/eallion.webp" alt="eallion">
 
@@ -70,7 +55,7 @@ comment: true
 
 ### 说明
 
-本博客嘀咕页面依赖 Mastodon 实例 https://e5n.cc ，评论系统依赖自建的 Artalk API: [https://artalk.eallion.com](https://artalk.eallion.com/) ，统计依赖自建的 Umami: https://a.eallion.com
+本博客嘀咕页面依赖 Mastodon 实例 https://e5n.cc ，评论系统依赖自建的 Artalk API: [https://artalk.eallion.com](https://artalk.eallion.com/)
 
 ### 版权信息
 
