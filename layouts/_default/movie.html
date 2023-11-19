@@ -264,7 +264,7 @@
                         {{ end }}
                         <span class="neodb">
                             <a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">
-                                <img class="lazy" data-src="/assets/images/movie/neodbsocial.jpg" loading="lazy" alt="NeoDB">
+                                <img class="lazy" data-src="/assets/images/movie/neodbsocial.jpg" loading="lazy" alt="NeoDB" no-view>
                             </a>
                         </span>
 
@@ -274,14 +274,14 @@
                             {{ $title := .title }}
                                 <span class="external-resource">
                                     <a href="{{ .url }}" target="_blank" rel="noreferrer noopener nofollow">
-                                        <img class="lazy" data-src="/assets/images/movie/{{ $host }}.png" loading="lazy" alt="{{ $title }}">
+                                        <img class="lazy" data-src="/assets/images/movie/{{ $host }}.png" loading="lazy" alt="{{ $title }}" no-view>
                                     </a>
                                 </span>
                         {{ end }}
 
                         <!-- <span class="rottentomatoes">
                             <a href="http://www.google.com/search?hl=en&q={{ $title }}+rotten+tomatoes&btnI=I" target="_blank" rel="noreferrer noopener nofollow">
-                                <img src="/assets/images/movie/www.rottentomatoes.com.png" loading="lazy" alt="NeoDB">
+                                <img src="/assets/images/movie/www.rottentomatoes.com.png" loading="lazy" alt="NeoDB" no-view>
                             </a>
                         </span> -->
                     </div>
