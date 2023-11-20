@@ -464,101 +464,65 @@
     }
 }
 
-/* toot images */
-.toot-image-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 390px;
+/* toot images start */
+.toot-image figure {
+    margin: 0;
+    margin-bottom: -4px;
 }
-
-.toot-images {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 2%;
-    border-radius: 0.25rem;
+.toot-image {
+    display: grid;
+    gap: 6px;
+    width: 60%;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
-
-.toot-images img {
-    display: inline-block !important;
+.toot-image-thumbnail img {
+    width: 100% !important;
+    height: 170px !important;
     object-fit: cover;
-    cursor: pointer;
-    animation: fadeIn 1s;
-    transition: all 0.4s ease-in-out;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+    margin: 0 !important;
 }
-
-.toot-images img:hover {
-    transform: scale(1.1);
+.toot-image img:hover {
+    transform: scale(1.03);
 }
-
-/*  3张图片  */
-.toot-images:nth-child(1):nth-last-child(3),
-.toot-images:nth-child(2):nth-last-child(2),
-.toot-images:nth-child(3):nth-last-child(1) {
-    width: 32%;
-    padding-bottom: 32%;
+.grid-3,
+.grid-5,
+.grid-6,
+.grid-7,
+.grid-8,
+.grid-9 {
+    grid-template-columns: repeat(3, 1fr);
 }
-
-/*  间隔  */
-.toot-images:nth-child(2):nth-last-child(2),
-.toot-images:nth-child(3):nth-last-child(1) {
-    margin-left: 2%;
+.grid-3 img,
+.grid-5 img,
+.grid-6 img,
+.grid-7 img,
+.grid-8 img,
+.grid-9 img {
+    height: 140px !important;
 }
-
-.toot-images:not(:nth-child(1):nth-last-child(1)) img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* 页面宽度小于700样式 */
+@media (max-width: 700px) {
+    .toot-image {
+        width: 100% !important;
+    }
+    .toot-image-thumbnail img {
+        height: 140px !important;
+    }
+    .grid-3 img,
+    .grid-5 img,
+    .grid-6 img,
+    .grid-7 img,
+    .grid-8 img,
+    .grid-9 img {
+        height: 100px !important;
+    }
+    .toot-image figure {
+        margin-bottom: -8px;
+    }
 }
-
-/*  2张图片  */
-.toot-images:nth-child(1):nth-last-child(2),
-.toot-images:nth-child(2):nth-last-child(1),
-/*  4张图片  */
-.toot-images:nth-child(1):nth-last-child(4),
-.toot-images:nth-child(2):nth-last-child(3),
-.toot-images:nth-child(3):nth-last-child(2),
-.toot-images:nth-child(4):nth-last-child(1) {
-    width: 32%;
-    padding-bottom: 32%;
-}
-
-/* 每行的两张图片中间间隔2%的宽度 */
-/*  2张图片  */
-.toot-images:nth-child(2):nth-last-child(1),
-/*  4张图片  */
-.toot-images:nth-child(2):nth-last-child(3),
-.toot-images:nth-child(4):nth-last-child(1) {
-    margin-left: 2%;
-}
-
-/*  5张以上图片  */
-.toot-images:nth-child(n + 5),
-.toot-images:nth-child(1):nth-last-child(n + 5),
-.toot-images:nth-child(1):nth-last-child(n + 5) ~ .toot-images {
-    width: 32%;
-    padding-bottom: 32%;
-}
-
-.toot-images:nth-child(n + 5):not(:nth-child(3n + 1)),
-.toot-images:nth-child(1):nth-last-child(n + 5) ~ .toot-images:not(:nth-child(3n + 1)) {
-    margin-left: 2%;
-}
-
-/* 只有一张图片 */
-.toot-images:nth-child(1):last-child {
-    width: 32%;
-    padding-bottom: 32%;
-    position: relative;
-}
-
-.toot-images:nth-child(1):last-child img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-/* toot-image End */
+/* toot images end */
