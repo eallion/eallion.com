@@ -33,7 +33,7 @@ comment: false
 
 ### 许可协议
 
-本站采用『[署名 - 相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.zh)』进行许可。
+本站采用『[署名 - 相同方式共享 4.0 国际 (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.zh)』进行许可。
 
 ### 您可以自由地
 
@@ -57,7 +57,7 @@ comment: false
 
 © 2006 - present, eallion.com, all rights reserved.
 
-本站遵循『[署名 - 相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.zh)』。
+本站遵循『[署名 - 相同方式共享 4.0 国际 (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.zh)』。
 
 此外：不必经过我的同意，也可任意复制、转载、分享、引用、演绎本站内容。哪怕您进行商业活动，我也不会要求您对复制、转载、分享、引用、演绎的内容进行署名或声明来源。但经过 [特别声明](#%E7%89%B9%E5%88%AB%E5%A3%B0%E6%98%8E) 的内容除外。
 
