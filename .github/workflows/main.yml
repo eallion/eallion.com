@@ -33,33 +33,33 @@ jobs:
       - name: Build Hugo
         run: |
           rm themes/DoIt -rf
-          git clone https://github.com/eallion/hugo-theme-doit.git themes/DoIt --single-branch
+          git clone --depth 1 https://github.com/eallion/hugo-theme-doit.git themes/DoIt --single-branch
           hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
 
-      - name: Ready for Next.js
-        run: |
-          mkdir next
-          cp public next/public -rf
-          cp pages next/pages -rf
-          cp vercel.json next/
-          cp next.config.js next/
-          cp package.json next/
+      # - name: Ready for Next.js
+      #   run: |
+      #     mkdir next
+      #     cp public next/public -rf
+      #     cp pages next/pages -rf
+      #     cp vercel.json next/
+      #     cp next.config.js next/
+      #     cp package.json next/
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.personal_token }}
-          external_repository: eallion/eallion.com
-          publish_branch: vercel
-          publish_dir: ./next
-          # destination_dir: public
-          allow_empty_commit: true
-          # commit_message: ${{ GitHub.event.head_commit.message }}
-          full_commit_message: ${{ github.event.head_commit.message }}
-          #cname: eallion.com
-          force_orphan: true
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
+      # - name: Deploy to GitHub Pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     personal_token: ${{ secrets.personal_token }}
+      #     external_repository: eallion/eallion.com
+      #     publish_branch: vercel
+      #     publish_dir: ./next
+      #     # destination_dir: public
+      #     allow_empty_commit: true
+      #     # commit_message: ${{ GitHub.event.head_commit.message }}
+      #     full_commit_message: ${{ github.event.head_commit.message }}
+      #     #cname: eallion.com
+      #     force_orphan: true
+      #     user_name: 'github-actions[bot]'
+      #     user_email: 'github-actions[bot]@users.noreply.github.com'
 
       - name: Algolia uploader
         uses: wangchucheng/algolia-uploader@master
