@@ -1,4 +1,4 @@
-{{- define "title" -}}{{- .Title -}} - {{- .Site.Title -}}{{- end -}}
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
 
 {{- define "content" -}}
 {{- $params := .Scratch.Get "params" -}}
@@ -26,26 +26,126 @@
         <div class="dummy-container">
             <div class="mt-timeline">
                 <div id="mt-body" class="mt-body" role="feed">
-                    {{- $mastodon_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true" -}}
+                    {{- $mastodon_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true&exclude_reblogs=true" -}}
                     {{- $mastodon_local := "data/mastodon/mastodon.json" -}}
-                    {{- with resources.GetRemote $mastodon_api -}}
-                        {{- with .Err -}}
+                    {{- with resources.GetRemote $mastodon_api }}
+                        {{- with .Err }}
                         {{- $ticker := getJSON $mastodon_local -}}
-                            {{- range $ticker -}}
-                                <article class="mt-toot" aria-posinset="1" aria-setsize="20" tabindex="0"><div class="mt-header"><a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer" target="_blank"><div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy"></div></a><div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank"><div class="mt-nick">Charles Chin</div><div class="mt-id">@eallion@e5n.cc</div></a></div></div><div class="toot-text"><div>{{- .content | markdownify -}}</div></div><div class="toot-footer"><div class="mt-bar"><div class="toot-meta"><div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank"><span class="twitter-time">{{- .created_at -}}</span></a></div><div class="toot-visibility" title="公开"><i class="fas fa-globe-asia"></i></div><div class="toot-app"><a href="{{- .application.website | default "https://e5n.cc" -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复">{{- .application.name -}}</a></div></div><div class="toot-reply"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复"><i class="fas fa-reply"></i></a>{{- .replies_count -}}</div><div class="toot-retoot"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="转嘟" alt="转嘟"><i class="fas fa-retweet"></i></a>{{- .reblogs_count -}}</div><div class="toot-favourite"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="喜欢" alt="喜欢"><i class="fas fa-star"></i></a>{{- .favourites_count -}}</div><div class="toot-bookmarked"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="添加到书签" alt="添加到书签"><i class="fas fa-bookmark"></i></a></div><div class="toot-more"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="更多" alt="更多"><i class="fas fa-ellipsis-h"></i></a></div></div></div></article>
-                            {{- end -}}
+                            {{- range $ticker }}
+                                <article class="mt-toot" aria-posinset="1" aria-setsize="20" tabindex="0">
+                                    <div class="mt-header"><a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer"
+                                            target="_blank">
+                                            <div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy"></div>
+                                        </a>
+                                        <div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank">
+                                                <div class="mt-nick">Charles Chin</div>
+                                                <div class="mt-id">@eallion@e5n.cc</div>
+                                            </a></div>
+                                    </div>
+                                    <div class="toot-text">
+                                        <div>
+                                            <p>{{- .content | markdownify -}}</p>
+                                        </div>
+                                        {{- $firstAttachment := index .media_attachments 0 -}}
+                                        {{- $length := len .media_attachments }}
+                                        {{- if $firstAttachment -}}
+                                            <div class="toot-image grid-{{ $length }}">
+                                            {{- range .media_attachments -}}
+                                            {{- if .url -}}
+                                            <figure class="toot-image-thumbnail">
+                                                <img loading="lazy" class="img toot-image-image" loading="lazy" src="{{.url}}" alt="{{.id}}"/>
+                                            </figure>
+                                            {{- end -}}
+                                            {{- end -}}
+                                            </div>
+                                        {{- end -}}
+                                    </div>
+                                    <div class="toot-footer">
+                                        <div class="mt-bar">
+                                            <div class="toot-meta">
+                                                <div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                        target="_blank"><span class="twitter-time">{{- .created_at -}}</span></a></div>
+                                                <div class="toot-visibility" title="公开"><i class="fas fa-globe-asia"></i></div>
+                                                <div class="toot-app"><a href="{{- .application.website | default "https://e5n.cc" -}}"
+                                                        rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复">{{-
+                                                        .application.name -}}</a></div>
+                                            </div>
+                                            <div class="toot-reply"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                    target="_blank" title="回复" alt="回复"><i class="fas fa-reply"></i></a>{{- .replies_count -}}</div>
+                                            <div class="toot-retoot"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                    target="_blank" title="转嘟" alt="转嘟"><i class="fas fa-retweet"></i></a>{{- .reblogs_count -}}</div>
+                                            <div class="toot-favourite"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                    target="_blank" title="喜欢" alt="喜欢"><i class="fas fa-star"></i></a>{{- .favourites_count -}}</div>
+                                            <div class="toot-bookmarked"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                    target="_blank" title="添加到书签" alt="添加到书签"><i class="fas fa-bookmark"></i></a></div>
+                                            <div class="toot-more"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                    target="_blank" title="更多" alt="更多"><i class="fas fa-ellipsis-h"></i></a></div>
+                                        </div>
+                                    </div>
+                                </article>
+                            {{ end -}}
                         {{- else -}}
                         {{- $ticker := getJSON $mastodon_api -}}
-                            {{- range $ticker -}}
-                                <article class="mt-toot" aria-posinset="1" aria-setsize="20" tabindex="0"><div class="mt-header"><a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer" target="_blank"><div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy"></div></a><div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank"><div class="mt-nick">Charles Chin</div><div class="mt-id">@eallion@e5n.cc</div></a></div></div><div class="toot-text"><div>{{- .content | markdownify -}}</div></div><div class="toot-footer"><div class="mt-bar"><div class="toot-meta"><div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank"><span class="twitter-time">{{- .created_at -}}</span></a></div><div class="toot-visibility" title="公开"><i class="fas fa-globe-asia"></i></div><div class="toot-app"><a href="{{- .application.website | default "https://e5n.cc" -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复">{{- .application.name -}}</a></div></div><div class="toot-reply"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复"><i class="fas fa-reply"></i></a>{{- .replies_count -}}</div><div class="toot-retoot"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="转嘟" alt="转嘟"><i class="fas fa-retweet"></i></a>{{- .reblogs_count -}}</div><div class="toot-favourite"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="喜欢" alt="喜欢"><i class="fas fa-star"></i></a>{{- .favourites_count -}}</div><div class="toot-bookmarked"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="添加到书签" alt="添加到书签"><i class="fas fa-bookmark"></i></a></div><div class="toot-more"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="更多" alt="更多"><i class="fas fa-ellipsis-h"></i></a></div></div></div></article>
-                            {{- end -}}
-                        {{- end -}}
-                    {{- end -}}
+                            {{- range $ticker }}
+                                <article class="mt-toot" aria-posinset="1" aria-setsize="20" tabindex="0">
+                                    <div class="mt-header"><a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer"
+                                            target="_blank">
+                                            <div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy"></div>
+                                        </a>
+                                        <div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank">
+                                                <div class="mt-nick">Charles Chin</div>
+                                                <div class="mt-id">@eallion@e5n.cc</div>
+                                            </a></div>
+                                    </div>
+                                    <div class="toot-text">
+                                        <div>
+                                            <p>{{- .content | markdownify -}}</p>
+                                        </div>
+                                        {{- $firstAttachment := index .media_attachments 0 -}}
+                                        {{- $length := len .media_attachments }}
+                                        {{- if $firstAttachment -}}
+                                            <div class="toot-image grid-{{ $length }}">
+                                            {{- range .media_attachments -}}
+                                            {{- if .url -}}
+                                            <figure class="toot-image-thumbnail">
+                                                <img loading="lazy" class="img toot-image-image" loading="lazy" src="{{.url}}" alt="{{.id}}"/>
+                                            </figure>
+                                            {{- end -}}
+                                            {{- end -}}
+                                            </div>
+                                        {{- end -}}
+                                    </div>
+                                    <div class="toot-footer">
+                                        <div class="mt-bar">
+                                            <div class="toot-meta">
+                                                <div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                        target="_blank"><span class="twitter-time">{{- .created_at -}}</span></a></div>
+                                                <div class="toot-visibility" title="公开"><i class="fas fa-globe-asia"></i></div>
+                                                <div class="toot-app"><a href="{{- .application.website | default "https://e5n.cc" -}}"
+                                                        rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复">{{-
+                                                        .application.name -}}</a></div>
+                                            </div>
+                                            <div class="toot-reply"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                    target="_blank" title="回复" alt="回复"><i class="fas fa-reply"></i></a>{{- .replies_count -}}</div>
+                                            <div class="toot-retoot"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                    target="_blank" title="转嘟" alt="转嘟"><i class="fas fa-retweet"></i></a>{{- .reblogs_count -}}</div>
+                                            <div class="toot-favourite"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                    target="_blank" title="喜欢" alt="喜欢"><i class="fas fa-star"></i></a>{{- .favourites_count -}}</div>
+                                            <div class="toot-bookmarked"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                    target="_blank" title="添加到书签" alt="添加到书签"><i class="fas fa-bookmark"></i></a></div>
+                                            <div class="toot-more"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                    target="_blank" title="更多" alt="更多"><i class="fas fa-ellipsis-h"></i></a></div>
+                                        </div>
+                                    </div>
+                                </article>
+                            {{ end -}}
+                        {{ end -}}
+                    {{ end -}}
 
 
                 </div>
                 <div class="mt-footer"><a href="https://e5n.cc/@eallion" class="btn" target="_blank"
-                        rel="nofollow noopener noreferrer">See more posts at e5n.cc</a></div>
+                        rel="nofollow noopener noreferrer">See more toots at e5n.cc <i class="fas fa-external-link-alt"></i></a></div>
             </div>
         </div>
 

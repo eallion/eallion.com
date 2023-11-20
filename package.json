@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "hugo": "hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo",
-    "server": "start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir example --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo",
+    "server": "start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir example --minify --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo",
     "new": "node scripts/post_title_prompt.js && bash scripts/format_filename.sh",
-    "preview": "start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo",
+    "preview": "start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content --minify --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo",
     "update": "git submodule update --remote --merge",
     "start": "next start",
     "dev": "next dev",
