@@ -10,7 +10,7 @@
 {{- end -}}
 
 <link rel="stylesheet" href="/assets/toot/mastodon-timeline.min.css?v=3.9.1-3.10.4">
-<link rel="stylesheet" href="/assets/toot/mastodon-timeline-custom.min.css?v=2023.10.16">
+<link rel="stylesheet" href="/assets/toot/mastodon-timeline-custom.min.css?v=2023.11.20">
 
 <article class="page single special">
     <h1 class="single-title animate__animated animate__pulse animate__faster">{{- .Title -}}</h1>
@@ -49,12 +49,10 @@
                                         {{- $firstAttachment := index .media_attachments 0 -}}
                                         {{- $length := len .media_attachments }}
                                         {{- if $firstAttachment -}}
-                                            <div class="toot-image grid-{{ $length }}">
+                                            <div class="toot-images grid-{{ $length }}" view-image>
                                             {{- range .media_attachments -}}
                                             {{- if .url -}}
-                                            <figure class="toot-image-thumbnail">
-                                                <img loading="lazy" class="img toot-image-image" loading="lazy" src="{{.url}}" alt="{{.id}}"/>
-                                            </figure>
+                                                <img loading="lazy" class="" loading="lazy" src="{{.url}}" alt="{{.id}}"/>
                                             {{- end -}}
                                             {{- end -}}
                                             </div>
@@ -104,12 +102,10 @@
                                         {{- $firstAttachment := index .media_attachments 0 -}}
                                         {{- $length := len .media_attachments }}
                                         {{- if $firstAttachment -}}
-                                            <div class="toot-image grid-{{ $length }}">
+                                            <div class="toot-images grid-{{ $length }}" view-image>
                                             {{- range .media_attachments -}}
                                             {{- if .url -}}
-                                            <figure class="toot-image-thumbnail">
-                                                <img loading="lazy" class="img toot-image-image" loading="lazy" src="{{.url}}" alt="{{.id}}"/>
-                                            </figure>
+                                                <img loading="lazy" class="" loading="lazy" src="{{.url}}" alt="{{.id}}"/>
                                             {{- end -}}
                                             {{- end -}}
                                             </div>
