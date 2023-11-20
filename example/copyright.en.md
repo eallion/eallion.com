@@ -1,97 +1,87 @@
 ---
 title: "Copyright"
-images: ["https://og.eallion.com/api/og?title=Copyright"]
-date: "2006-04-14 00:00:00"
+images: ["https://og.eallion.com/api/og?title=%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF"]
+date: "2006-04-14 00: 00: 00"
 type: "copyright"
 layout: "copyright"
 comment: false
 ---
 
-<style>#comments {display:none !important}</style>
+<style>#comments {display: none !important}</style>
 
-> The copyright in Chinese.
+> This site owns the domain name `eallion.com` and the sub domain name `www.eallion.com`.
 
-> 本站拥有唯一域名 eallion.com 、二级域名 www.eallion.com。
+# Info
 
-网站标识
-----
+### Domain
 
-#### 域名
+This site has the only domain name `eallion.com` , sub domain name `www.eallion.com` . In addition to the related, similar domain names, unless by my real name authentication, or filed in my name, or are owned by others, or by others to steal information, and I have nothing to do.
 
-本站拥有唯一域名 `eallion.com` 、二级域名 `www.eallion.com`。除此之外的相关、相似域名，除非由本人实名认证，或者备案在本人名下，否则皆为他人所有，或者被他人盗用信息，与本人无关。
+### ICP
 
-#### 备案
+The domain name `eallion.com` has been filed with the Ministry of Industry and Information Technology (MIIT) for personal use, with the filing number: [`浙ICP备16031768号-2`](http://beian.miit.gov.cn/) , and has also been filed with the Public Security Bureau (PSB).
 
-域名 `eallion.com` 已获得个人性质的工信部备案，备案编号：[`浙ICP备16031768号-2`](http://beian.miit.gov.cn/)，同时也进行了公安备案。
+### Title
 
-#### 标题
+Charles Chin's Blog
 
-『大大的小蜗牛』
+### Description
 
-#### 说明
+A Hugo blog about Charles Chin.
 
-大大的小蜗牛的个人博客。
+### Privacy Policy
 
-隐私条款
-----
+Privacy Policy: [https://eallion.com/privacy-policy](https://eallion.com/privacy-policy/)
 
-隐私条款：[https://eallion.com/privacy-policy/](https://eallion.com/privacy-policy/)
+### License
 
-许可协议
-----
+This project under [Attribution-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.zh).
 
-本站采用 [『署名 - 非商业性使用 - 相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)』](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 进行许可。
+### You are free to
 
-#### 您可以自由地
+* **Share** — copy and redistribute the material in any medium or format for any purpose, even commercially.
+* **Adapt** — remix, transform, and build upon the material for any purpose, even commercially.
 
-* 共享 — 在任何媒介以任何形式复制、发行本作品
-* 演绎 — 修改、转换或以本作品为基础进行创作
+The licensor cannot revoke these freedoms as long as you follow the license terms.
 
-只要你遵守许可协议条款，许可人就无法收回你的这些权利。
+### Under the following terms
 
-#### 惟须遵守下列条件
+* **Attribution** - You must give [appropriate credit](https://wiki.creativecommons.org/wiki/License_Versions#Detailed_attribution_comparison_chart) , provide a link to the license, and [indicate if changes were made](https://wiki.creativecommons.org/wiki/License_Versions#Modifications_and_adaptations_must_be_marked_as_such) . You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+* **ShareAlike** - If you remix, transform, or build upon the material, you must distribute your contributions under the [same license](https://creativecommons.org/faq/#If_I_derive_or_adapt_material_offered_under_a_Creative_Commons_license.2C_which_CC_license.28s.29_can_I_use.3F) as the original.
+* **No additional restrictions** - You may not apply legal terms or [technological measures](https://wiki.creativecommons.org/wiki/License_Versions#Application_of_effective_technological_measures_by_users_of_CC-licensed_works_prohibited) that legally restrict others from doing anything the license permits.
 
-* 署名 — 您必须给出[适当的署名](https://wiki.creativecommons.org/wiki/License_Versions#Detailed_attribution_comparison_chart)，提供指向本许可协议的链接，同时[标明是否（对原始作品）作了修改](https://wiki.creativecommons.org/wiki/License_Versions#Modifications_and_adaptations_must_be_marked_as_such)。您可以用任何合理的方式来署名，但是不得以任何方式暗示许可人为您或您的使用背书。
-* 非商业性使用 — 您不得将本作品用于[商业目的](https://creativecommons.org/faq/#does-my-use-violate-the-noncommercial-clause-of-the-licenses)。
-* 相同方式共享 — 如果您再混合、转换或者基于本作品进行创作，您必须基于[与原先许可协议相同的许可协议](https://creativecommons.org/faq/#If_I_derive_or_adapt_material_offered_under_a_Creative_Commons_license.2C_which_CC_license.28s.29_can_I_use.3F)分发您贡献的作品。
-* 没有附加限制 — 您不得适用法律术语或者[技术措施](https://wiki.creativecommons.org/wiki/License_Versions#Application_of_effective_technological_measures_by_users_of_CC-licensed_works_prohibited)从而限制其他人做许可协议允许的事情。
+### Notices
 
-#### 声明
+* You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable [exception or limitation](https://creativecommons.org/faq/#Do_Creative_Commons_licenses_affect_exceptions_and_limitations_to_copyright.2C_such_as_fair_dealing_and_fair_use.3F) .
+* No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as [publicity, privacy, or moral rights](https://wiki.creativecommons.org/Considerations_for_licensors_and_licensees) may limit how you use the material.
 
-* 您不必因为公共领域的作品要素而遵守许可协议，或者您的使用被可适用的[例外或限制](https://creativecommons.org/faq/#Do_Creative_Commons_licenses_affect_exceptions_and_limitations_to_copyright.2C_such_as_fair_dealing_and_fair_use.3F)所允许。
-* 不提供担保。许可协议可能不会给与您意图使用的所必须的所有许可。例如，其他权利比如[形象权、隐私权或人格权](https://wiki.creativecommons.org/Considerations_for_licensors_and_licensees)可能限制您如何使用作品。
-
-版权声明
-----
+### Copyright
 
 © 2006 - present, eallion.com, all rights reserved.
 
-本站遵循 [『署名 - 非商业性使用 - 相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)』](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 。
+This project under [Attribution-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.zh).
 
-此外：不必经过我的同意，也可任意复制、转载、分享、引用、演绎本站内容。哪怕您进行商业活动，我也不会要求您对复制、转载、分享、引用、演绎的内容进行署名或声明来源。但经过 [特别声明](#%E7%89%B9%E5%88%AB%E5%A3%B0%E6%98%8E) 的内容除外。
+In addition: You are free to copy, reproduce, share, quote, and adapt the content of this site without my consent. Even if you engage in commercial activities, I will not require you to attribute or acknowledge the copied, reproduced, shared, quoted, or adapted content. However, this does not apply to content that has been [specifically](#specifically) declared otherwise.
 
-本站使用 [Hugo](https://gohugo.io/) 构建：
+This project powered by [Hugo](https://gohugo.io/):
 
-* 国内：通过 GitHub Actions 部署至 [阿里云](https://www.aliyun.com/product/oss) (2023.07.26)
-* 境外：同上
+* China Mainland: Hosted by [AliCloud](https://www.aliyun.com/product/oss) through GitHub Actions (2023.07.26)
+* Oversea: Same
 
-相关代码和服务继承原项目的 License：
+The related code and services inherit the original project's license:
 
-* Hugo： [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE)
-* Theme(DoIt)： [MIT License](https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE)
-* 本站源码： [GLWT License](https://github.com/eallion/eallion.com/blob/main/LICENSE)
+* Hugo: [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE)
+* Theme(DoIt): [MIT License](https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE)
+* Source Code: [GLWT License](https://github.com/eallion/eallion.com/blob/main/LICENSE)
 
-特别声明
-----
+### Specifically
 
-[例外](https://wiki.creativecommons.org/Frequently_Asked_Questions#Do_Creative_Commons_licenses_affect_exceptions_and_limitations_to_copyright.2C_such_as_fair_dealing_and_fair_use.3F)：本站出现的 **原创图片** 禁止转载。
+[Exception](https://wiki.creativecommons.org/Frequently_Asked_Questions#Do_Creative_Commons_licenses_affect_exceptions_and_limitations_to_copyright.2C_such_as_fair_dealing_and_fair_use.3F): The original images on this site are prohibited from being reproduced.
 
-侵权声明
-----
+### Infringement
 
-本站转载的原创性内容，都会在原创作者同意的情况下进行转载。但是不排除会有例外情况，如：授权到期；转载的内容中包含未经授权的内容。如果本站侵权，请联系管理员，本站管理员非常重视原创和开源精神，愿意积极配合删除。
+The original content reproduced on this site will be reprinted with the consent of the original author. However, there may be exceptions, such as: authorization expiration; unauthorized content included in the reproduced content. If this site infringes, please contact the administrator. The site administrator attaches great importance to originality and open source spirit and is willing to actively cooperate in deletion.
 
-联系方式
------
+### Contact
 
 * Email: [eallions@gmail.com](mailto:eallions@gmail.com)
