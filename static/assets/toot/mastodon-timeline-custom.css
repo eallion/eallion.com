@@ -465,64 +465,38 @@
 }
 
 /* toot images start */
-.toot-image figure {
-    margin: 0;
-    margin-bottom: -4px;
-}
-.toot-image {
+.toot-images {
     display: grid;
-    gap: 6px;
-    width: 60%;
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 10px;
-    margin-bottom: 20px;
+    gap: 10px;
 }
-.toot-image-thumbnail img {
-    width: 100% !important;
-    height: 170px !important;
+
+.toot-images img {
+    width: 150px;
+    height: 150px;
     object-fit: cover;
-    border-radius: 4px;
-    transition: transform 0.3s ease;
+    border-radius: 0.5rem;
+    transition: transform .3s ease;
     cursor: zoom-in;
-    margin: 0 !important;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
-.toot-image img:hover {
-    transform: scale(1.03);
+
+.grid-1 {
+    grid-template-columns: 150px;
 }
-.grid-3,
+
+.grid-3 ,
 .grid-5,
-.grid-6,
-.grid-7,
-.grid-8,
+.grid-6 ,
+.grid-7 ,
+.grid-8 ,
 .grid-9 {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 150px);
 }
-.grid-3 img,
-.grid-5 img,
-.grid-6 img,
-.grid-7 img,
-.grid-8 img,
-.grid-9 img {
-    height: 140px !important;
-}
-/* 页面宽度小于700样式 */
-@media (max-width: 700px) {
-    .toot-image {
-        width: 100% !important;
-    }
-    .toot-image-thumbnail img {
-        height: 140px !important;
-    }
-    .grid-3 img,
-    .grid-5 img,
-    .grid-6 img,
-    .grid-7 img,
-    .grid-8 img,
-    .grid-9 img {
-        height: 100px !important;
-    }
-    .toot-image figure {
-        margin-bottom: -8px;
-    }
+
+.grid-2,
+.grid-4 {
+    grid-template-columns: repeat(2, 150px);
 }
 /* toot images end */
