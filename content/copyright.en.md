@@ -35,7 +35,7 @@ Privacy Policy: [https://eallion.com/privacy-policy](https://eallion.com/privacy
 
 ### License
 
-This project under [Attribution-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.zh).
+This project under [Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.zh).
 
 ### You are free to
 
@@ -59,7 +59,7 @@ The licensor cannot revoke these freedoms as long as you follow the license term
 
 © 2006 - present, eallion.com, all rights reserved.
 
-This project under [Attribution-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.zh).
+This project under [Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.zh).
 
 In addition: You are free to copy, reproduce, share, quote, and adapt the content of this site without my consent. Even if you engage in commercial activities, I will not require you to attribute or acknowledge the copied, reproduced, shared, quoted, or adapted content. However, this does not apply to content that has been [specifically](#specifically) declared otherwise.
 
