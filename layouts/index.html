@@ -3,9 +3,12 @@ $posts := .Site.Params.home.posts -}}
 <meta name="referrer" content="no-referrer">
 <div class="page home" {{- if ne $posts.enable false | or .Content -}} posts{{- end -}}>
 
-    <link rel="stylesheet" href="/assets/chromedev/css/home.css" />
-    <link rel="stylesheet" href="/assets/chromedev/css/devsite.css" />
-    <link rel="stylesheet" href="/assets/chromedev/css/devsite-theme.css" />
+    <!-- Uncss Dev 的时候取消注释这三行 -->
+    <!-- <link rel="stylesheet" href="../assets/css/chromedev/src/home.css" />
+    <link rel="stylesheet" href="../assets/css/chromedev/src/devsite.css" />
+    <link rel="stylesheet" href="../assets/css/chromedev/src/devsite-theme.css" /> -->
+
+    <link rel="stylesheet" href="/assets/chromedev/css/home.min.css?v=20231121" />
 
     <style>
         .google-blue {
@@ -334,7 +337,7 @@ $posts := .Site.Params.home.posts -}}
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
                                                 <h3 id="bio"
-                                                    data-text="A Powerful Web. Made Easier."
+                                                    data-text="机会总是垂青于有准备的人"
                                                     class="hide-from-toc no-link"><span>机会</span>总是垂青于有<span>准备</span>的人
                                                 </h3>
 
@@ -588,7 +591,7 @@ $posts := .Site.Params.home.posts -}}
                                         <div class="devsite-landing-row-item-media">
                                             <figure class="devsite-landing-row-item-image">
                                                 <a href="{{- .RelPermalink -}}" aria-label="{{- .Title -}}">
-                                                    <img alt src="/assets/images/og/{{- $currentSlug -}}.png" loading="lazy" width="376" height="240" no-view />
+                                                    <img alt src="/assets/images/og/{{- $currentSlug | default "eallion" -}}.png" loading="lazy" width="376" height="240" no-view />
                                                 </a>
                                             </figure>
                                         </div>

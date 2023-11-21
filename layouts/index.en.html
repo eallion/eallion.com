@@ -3,9 +3,7 @@ $posts := .Site.Params.home.posts -}}
 <meta name="referrer" content="no-referrer">
 <div class="page home" {{- if ne $posts.enable false | or .Content -}} posts{{- end -}}>
 
-    <link rel="stylesheet" href="/assets/chromedev/css/home.css" />
-    <link rel="stylesheet" href="/assets/chromedev/css/devsite.css" />
-    <link rel="stylesheet" href="/assets/chromedev/css/devsite-theme.css" />
+    <link rel="stylesheet" href="/assets/chromedev/css/home.min.css?v=20231121" />
 
     <style>
         .google-blue {

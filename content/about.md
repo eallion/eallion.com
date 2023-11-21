@@ -1,6 +1,6 @@
 ---
 title: "关于"
-images: ["https://og.eallion.com/api/og?title=%E5%85%B3%E4%BA%8E"]
+images: ["/assets/images/og/about.png"]
 date: "2006-04-14 00:00:00"
 type: "about"
 layout: "about"
@@ -55,7 +55,12 @@ comment: true
 
 ### 说明
 
-本博客嘀咕页面依赖 Mastodon 实例 https://e5n.cc ，评论系统依赖自建的 Artalk API: [https://artalk.eallion.com](https://artalk.eallion.com/)
+* 本站使用 [Hugo](https://gohugo.io/) 构建
+* 通过 GitHub Actions 部署至 [阿里云](https://www.aliyun.com/product/oss)
+* 主题使用的是 [DoIt](https://github.com/HEIGE-PCloud/DoIt)
+* 嘀咕页面依赖 Mastodon 实例：[https://e5n.cc](https://e5n.cc)  
+* 观影页面依赖 NeoDB：[https://neodb.social](https://neodb.social/users/eallion@e5n.cc/)
+* 评论系统依赖自建的 Artalk：[https://artalk.eallion.com](https://artalk.eallion.com/)
 
 ### 版权信息
 

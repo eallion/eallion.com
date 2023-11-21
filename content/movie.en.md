@@ -1,6 +1,6 @@
 ---
 title: "NeoDB Watched"
-images: ["https://og.eallion.com/api/og?title=NeoDB%20Watched"]
+images: ["/assets/images/og/movie.png"]
 layout: "movie"
 type: 'movie'
 comment: false

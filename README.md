@@ -86,6 +86,8 @@ git submodule add https://github.com/eallion/hugo-theme-doit.git themes/DoIt
 
 ```bash
 git submodule update --init --recursive
+
+# npm run theme
 ```
 
 如果上游主题有更新，更新主题 DoIt 的 submodule：
@@ -136,6 +138,16 @@ https://github.com/eallion/eallion.com/tree/main/data/neodb
 ### 🔊 嘀咕页面
 
 嘀咕页面 [`https://eallion.com/toot`](https://eallion.com/toot/) 为 Mastodon 个人实例 [`e5n.cc`](https://e5n.cc/@eallion) 的数据展示。利用 [mastodon-embed-feed-timeline](https://gitlab.com/idotj/mastodon-embed-feed-timeline) 这个项目集成到博客页面。基于 [v3.9.1](https://gitlab.com/idotj/mastodon-embed-feed-timeline/-/tags/v3.9.1) 版本修改，后续保持同步更新，但没有完全跟随上游版本号。
+
+### 📦️ 首页 CSS 打包
+
+首页利用 uncss 打包，去掉无用的 CSS，注释掉 layouts/index.html 中的 css 部分，然后运行：
+
+```bash
+# npm install uncss -g
+
+npm run uncss
+```
 
 ### ✏️ 写新文章
 
