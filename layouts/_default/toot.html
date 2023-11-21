@@ -52,7 +52,7 @@
                                             <div class="toot-images grid-{{ $length }}" view-image>
                                             {{- range .media_attachments -}}
                                             {{- if .url -}}
-                                                <img loading="lazy" class="" loading="lazy" src="{{.url}}" alt="{{.id}}"/>
+                                                <img loading="lazy" class="lazy" src="{{.preview_url}}" data-src="{{.url}}" alt="{{.id}}"/>
                                             {{- end -}}
                                             {{- end -}}
                                             </div>
@@ -105,7 +105,7 @@
                                             <div class="toot-images grid-{{ $length }}" view-image>
                                             {{- range .media_attachments -}}
                                             {{- if .url -}}
-                                                <img loading="lazy" class="" loading="lazy" src="{{.url}}" alt="{{.id}}"/>
+                                                <img loading="lazy" class="lazy" src="{{.preview_url}}" data-src="{{.url}}" alt="{{.id}}"/>
                                             {{- end -}}
                                             {{- end -}}
                                             </div>
@@ -266,5 +266,12 @@
 <!-- <script type="text/javascript" src="/assets/toot/mastodon-timeline.js?v=3.9.1-3.10.4"></script> -->
 
 <!-- <script type="module" src="/assets/toot/reactions.min.js?v=1.0.11"></script> -->
+
+<script type="text/javascript" src="/assets/js/lazyload.iife.min.js?v=17.8.5"></script>
+<script>
+    var lazyLoadInstance = new LazyLoad({
+        // Your custom settings go here
+    });
+</script>
 
 {{- end -}}
