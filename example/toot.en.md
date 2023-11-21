@@ -1,6 +1,6 @@
 ---
 title: "Toot"
-images: ["https://og.eallion.com/api/og?title=Toot"]
+images: ["/assets/images/og/toots.png"]
 layout: "toot"
 type: 'toot'
 comment: false

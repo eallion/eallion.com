@@ -1,6 +1,6 @@
 ---
 title: "感恩"
-images: ["https://og.eallion.com/api/og?title=%E6%84%9F%E6%81%A9"]
+images: ["/assets/images/og/thanksgiving.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["感恩","感谢"]

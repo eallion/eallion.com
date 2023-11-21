@@ -1,6 +1,6 @@
 ---
 title: "暂无法备案的域名后缀"
-images: ["https://og.eallion.com/api/og?title=%E6%9A%82%E6%97%A0%E6%B3%95%E5%A4%87%E6%A1%88%E7%9A%84%E5%9F%9F%E5%90%8D%E5%90%8E%E7%BC%80"]
+images: ["/assets/images/og/not-for-the-record-of-the-domain-name.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["域名","备案","阿里云"]

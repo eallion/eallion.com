@@ -1,6 +1,6 @@
 ---
 title: "2011 年 04 月 28 日"
-images: ["https://og.eallion.com/api/og?title=2011%20%E5%B9%B4%2004%20%E6%9C%88%2028%20%E6%97%A5"]
+images: ["/assets/images/og/yiqiedouhao.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记"]

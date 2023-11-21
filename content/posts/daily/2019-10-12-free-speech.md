@@ -1,6 +1,6 @@
 ---
 title: "言论自由"
-images: ["https://og.eallion.com/api/og?title=%E8%A8%80%E8%AE%BA%E8%87%AA%E7%94%B1"]
+images: ["/assets/images/og/free-speech.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["言论自由"]

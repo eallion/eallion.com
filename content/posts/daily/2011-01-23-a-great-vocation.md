@@ -1,6 +1,6 @@
 ---
 title: "也说小姐"
-images: ["https://og.eallion.com/api/og?title=%E4%B9%9F%E8%AF%B4%E5%B0%8F%E5%A7%90"]
+images: ["/assets/images/og/a-great-vocation.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["小姐","杂谈","感想","社会"]

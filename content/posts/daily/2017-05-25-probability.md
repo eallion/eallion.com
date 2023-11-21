@@ -1,6 +1,6 @@
 ---
 title: "运营小记 - 概率"
-images: ["https://og.eallion.com/api/og?title=%E8%BF%90%E8%90%A5%E5%B0%8F%E8%AE%B0%20-%20%E6%A6%82%E7%8E%87"]
+images: ["/assets/images/og/probability.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["运营","概率","百分比","售后","顾客"]

@@ -1,6 +1,6 @@
 ---
 title: "是天堂是地狱都要走"
-images: ["https://og.eallion.com/api/og?title=%E6%98%AF%E5%A4%A9%E5%A0%82%E6%98%AF%E5%9C%B0%E7%8B%B1%E9%83%BD%E8%A6%81%E8%B5%B0"]
+images: ["/assets/images/og/heaven-is-hell-must-go.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["天堂","地狱"]

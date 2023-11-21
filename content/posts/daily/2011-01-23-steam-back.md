@@ -1,6 +1,6 @@
 ---
 title: "我的 steam 回来了"
-images: ["https://og.eallion.com/api/og?title=%E6%88%91%E7%9A%84%20steam%20%E5%9B%9E%E6%9D%A5%E4%BA%86"]
+images: ["/assets/images/og/steam-back.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","封禁","账号","steam","解封","申诉"]

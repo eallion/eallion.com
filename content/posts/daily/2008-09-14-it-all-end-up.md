@@ -1,6 +1,6 @@
 ---
 title: "都高端起来吧"
-images: ["https://og.eallion.com/api/og?title=%E9%83%BD%E9%AB%98%E7%AB%AF%E8%B5%B7%E6%9D%A5%E5%90%A7"]
+images: ["/assets/images/og/it-all-end-up.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","高端","电视"]

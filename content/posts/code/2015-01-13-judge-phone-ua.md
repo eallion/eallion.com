@@ -1,6 +1,6 @@
 ---
 title: "判断手机 UA"
-images: ["https://og.eallion.com/api/og?title=%E5%88%A4%E6%96%AD%E6%89%8B%E6%9C%BA%20UA"]
+images: ["/assets/images/og/judge-phone-ua.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["代码","php","ua","user agent","判断"]

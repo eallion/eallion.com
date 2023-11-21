@@ -1,6 +1,6 @@
 ---
 title: "有关于写作"
-images: ["https://og.eallion.com/api/og?title=%E6%9C%89%E5%85%B3%E4%BA%8E%E5%86%99%E4%BD%9C"]
+images: ["/assets/images/og/about-write.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["写作","灵感"]

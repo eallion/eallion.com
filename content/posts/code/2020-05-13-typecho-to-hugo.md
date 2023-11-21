@@ -1,6 +1,6 @@
 ---
 title: "Typecho 迁移到 Hugo"
-images: ["https://og.eallion.com/api/og?title=Typecho%20%E8%BF%81%E7%A7%BB%E5%88%B0%20Hugo"]
+images: ["/assets/images/og/typecho-to-hugo.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["hugo", "blog", "Typecho", "博客"]

@@ -1,6 +1,6 @@
 ---
 title: "算命"
-images: ["https://og.eallion.com/api/og?title=%E7%AE%97%E5%91%BD"]
+images: ["/assets/images/og/fortune-telling.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["算命","八字"]

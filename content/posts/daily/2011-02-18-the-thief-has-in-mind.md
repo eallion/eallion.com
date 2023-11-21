@@ -1,6 +1,6 @@
 ---
 title: "做小偷记"
-images: ["https://og.eallion.com/api/og?title=%E5%81%9A%E5%B0%8F%E5%81%B7%E8%AE%B0"]
+images: ["/assets/images/og/the-thief-has-in-mind.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["小偷","做小偷","偷东西"]

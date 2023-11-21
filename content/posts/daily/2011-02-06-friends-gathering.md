@@ -1,6 +1,6 @@
 ---
 title: "朋友小聚"
-images: ["https://og.eallion.com/api/og?title=%E6%9C%8B%E5%8F%8B%E5%B0%8F%E8%81%9A"]
+images: ["/assets/images/og/friends-gathering.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["过年","春节","聚会","麻将","喝酒"]

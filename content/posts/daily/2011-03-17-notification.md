@@ -1,6 +1,6 @@
 ---
 title: "工信部短信通知"
-images: ["https://og.eallion.com/api/og?title=%E5%B7%A5%E4%BF%A1%E9%83%A8%E7%9F%AD%E4%BF%A1%E9%80%9A%E7%9F%A5"]
+images: ["/assets/images/og/notification.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["电话","隐私","备案","工信部"]

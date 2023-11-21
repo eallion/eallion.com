@@ -1,6 +1,6 @@
 ---
 title: "markdown 确实不方便"
-images: ["https://og.eallion.com/api/og?title=markdown%20%E7%A1%AE%E5%AE%9E%E4%B8%8D%E6%96%B9%E4%BE%BF"]
+images: ["/assets/images/og/markdown-really-inconvenient.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","markdown"]

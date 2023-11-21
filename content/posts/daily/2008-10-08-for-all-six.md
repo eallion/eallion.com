@@ -1,6 +1,6 @@
 ---
 title: "为了六级的一切"
-images: ["https://og.eallion.com/api/og?title=%E4%B8%BA%E4%BA%86%E5%85%AD%E7%BA%A7%E7%9A%84%E4%B8%80%E5%88%87"]
+images: ["/assets/images/og/for-all-six.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["英语","六级"]

@@ -1,6 +1,6 @@
 ---
 title: "换空间"
-images: ["https://og.eallion.com/api/og?title=%E6%8D%A2%E7%A9%BA%E9%97%B4"]
+images: ["/assets/images/og/huan-kong-jian.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["空间","备案","主机","香港","HOST"]

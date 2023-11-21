@@ -1,6 +1,6 @@
 ---
 title: "糕糕写给蛋蛋的信"
-images: ["https://og.eallion.com/api/og?title=%E7%B3%95%E7%B3%95%E5%86%99%E7%BB%99%E8%9B%8B%E8%9B%8B%E7%9A%84%E4%BF%A1"]
+images: ["/assets/images/og/egg-pudding-cake-a-letter-addressed-to.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

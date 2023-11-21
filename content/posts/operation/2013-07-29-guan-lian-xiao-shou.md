@@ -1,6 +1,6 @@
 ---
 title: "运营小记 - 关联销售一例"
-images: ["https://og.eallion.com/api/og?title=%E8%BF%90%E8%90%A5%E5%B0%8F%E8%AE%B0%20-%20%E5%85%B3%E8%81%94%E9%94%80%E5%94%AE%E4%B8%80%E4%BE%8B"]
+images: ["/assets/images/og/guan-lian-xiao-shou.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["淘宝","电商","关联","销售","游泳"]

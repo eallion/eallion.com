@@ -1,6 +1,6 @@
 ---
 title: "Ubuntu 配置 Oh-My-Zsh"
-images: ["https://og.eallion.com/api/og?title=Ubuntu%20%E9%85%8D%E7%BD%AE%20Oh-My-Zsh"]
+images: ["/assets/images/og/ubuntuzsh.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]

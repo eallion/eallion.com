@@ -1,6 +1,6 @@
 ---
 title: "韩国宽带为何物美价廉"
-images: ["https://og.eallion.com/api/og?title=%E9%9F%A9%E5%9B%BD%E5%AE%BD%E5%B8%A6%E4%B8%BA%E4%BD%95%E7%89%A9%E7%BE%8E%E4%BB%B7%E5%BB%89"]
+images: ["/assets/images/og/koreaninternet.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["网易","专题","宽带","信息化","垄断"]

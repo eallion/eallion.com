@@ -1,6 +1,6 @@
 ---
 title: "腾讯云服务器校园计划 BUG 价 120 元 1 年"
-images: ["https://og.eallion.com/api/og?title=%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A0%A1%E5%9B%AD%E8%AE%A1%E5%88%92%20BUG%20%E4%BB%B7%20120%20%E5%85%83%201%20%E5%B9%B4"]
+images: ["/assets/images/og/tencent-cloud-120.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["腾讯","服务器","腾讯云","Qcloud","tencent"]

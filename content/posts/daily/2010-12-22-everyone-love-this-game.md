@@ -1,6 +1,6 @@
 ---
 title: "各路巨星与 CS 的不解之缘"
-images: ["https://og.eallion.com/api/og?title=%E5%90%84%E8%B7%AF%E5%B7%A8%E6%98%9F%E4%B8%8E%20CS%20%E7%9A%84%E4%B8%8D%E8%A7%A3%E4%B9%8B%E7%BC%98"]
+images: ["/assets/images/og/everyone-love-this-game.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS", "丁俊晖", "姚明", "朱启南", "韩寒"]

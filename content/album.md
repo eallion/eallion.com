@@ -1,6 +1,6 @@
 ---
 title: "随手拍"
-images: ["https://og.eallion.com/api/og?title=%E7%9B%B8%E5%86%8C"]
+images: ["/assets/images/og/album.png"]
 layout: "album"
 type: 'album'
 comment: false

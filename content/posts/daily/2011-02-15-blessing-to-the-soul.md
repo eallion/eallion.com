@@ -1,6 +1,6 @@
 ---
 title: "福至心灵"
-images: ["https://og.eallion.com/api/og?title=%E7%A6%8F%E8%87%B3%E5%BF%83%E7%81%B5"]
+images: ["/assets/images/og/blessing-to-the-soul.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

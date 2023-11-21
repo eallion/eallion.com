@@ -1,6 +1,6 @@
 ---
 title: "老公是最可爱的男人"
-images: ["https://og.eallion.com/api/og?title=%E8%80%81%E5%85%AC%E6%98%AF%E6%9C%80%E5%8F%AF%E7%88%B1%E7%9A%84%E7%94%B7%E4%BA%BA"]
+images: ["/assets/images/og/husband-is-the-most-lovely-man.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["老公","可爱"]

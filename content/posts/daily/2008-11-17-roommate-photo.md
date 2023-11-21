@@ -1,6 +1,6 @@
 ---
 title: "舍友照相"
-images: ["https://og.eallion.com/api/og?title=%E8%88%8D%E5%8F%8B%E7%85%A7%E7%9B%B8"]
+images: ["/assets/images/og/roommate-photo.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["舍友","照相","合影","留念"]

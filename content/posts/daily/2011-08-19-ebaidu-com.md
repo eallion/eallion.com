@@ -1,6 +1,6 @@
 ---
 title: "百度推广黑幕 - 一个百度推广从业者的视角"
-images: ["https://og.eallion.com/api/og?title=%E7%99%BE%E5%BA%A6%E6%8E%A8%E5%B9%BF%E9%BB%91%E5%B9%95%20-%20%E4%B8%80%E4%B8%AA%E7%99%BE%E5%BA%A6%E6%8E%A8%E5%B9%BF%E4%BB%8E%E4%B8%9A%E8%80%85%E7%9A%84%E8%A7%86%E8%A7%92"]
+images: ["/assets/images/og/ebaidu-com.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CCTV","百度","百度推广","baidu","关键词"]

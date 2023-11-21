@@ -1,6 +1,6 @@
 ---
 title: "春哥舒淇和苍老师"
-images: ["https://og.eallion.com/api/og?title=%E6%98%A5%E5%93%A5%E8%88%92%E6%B7%87%E5%92%8C%E8%8B%8D%E8%80%81%E5%B8%88"]
+images: ["/assets/images/og/chun-ge-shu-qi-he-cang-lao-shi.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["春哥","李宇春","舒淇","赵文卓","甄子丹"]

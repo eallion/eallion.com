@@ -1,6 +1,6 @@
 ---
 title: "上帝的援助"
-images: ["https://og.eallion.com/api/og?title=%E4%B8%8A%E5%B8%9D%E7%9A%84%E6%8F%B4%E5%8A%A9"]
+images: ["/assets/images/og/godblessyou.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["蜗牛","上帝","援助","祈祷","神父","自救"]

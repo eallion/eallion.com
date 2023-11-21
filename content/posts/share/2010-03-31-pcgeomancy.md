@@ -1,6 +1,6 @@
 ---
 title: "电脑摆放风水八大原则"
-images: ["https://og.eallion.com/api/og?title=%E7%94%B5%E8%84%91%E6%91%86%E6%94%BE%E9%A3%8E%E6%B0%B4%E5%85%AB%E5%A4%A7%E5%8E%9F%E5%88%99"]
+images: ["/assets/images/og/pcgeomancy.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["电影","辐射","风水"]

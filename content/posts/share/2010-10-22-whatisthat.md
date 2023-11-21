@@ -1,6 +1,6 @@
 ---
 title: "what is that?"
-images: ["https://og.eallion.com/api/og?title=what%20is%20that%3F"]
+images: ["/assets/images/og/whatisthat.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["感人","父母","父爱","那是什么"]

@@ -1,6 +1,6 @@
 ---
 title: "我要找老婆"
-images: ["https://og.eallion.com/api/og?title=%E6%88%91%E8%A6%81%E6%89%BE%E8%80%81%E5%A9%86"]
+images: ["/assets/images/og/im-looking-for-my-wife.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["生活","老婆","日白","扯淡"]

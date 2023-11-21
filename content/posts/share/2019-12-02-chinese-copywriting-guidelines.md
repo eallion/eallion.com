@@ -1,6 +1,6 @@
 ---
 title: "中文文案排版指北"
-images: ["https://og.eallion.com/api/og?title=%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%88%E6%8E%92%E7%89%88%E6%8C%87%E5%8C%97"]
+images: ["/assets/images/og/chinese-copywriting-guidelines.png"]
 authors: ["eallion"]
 categories: []
 tags: []

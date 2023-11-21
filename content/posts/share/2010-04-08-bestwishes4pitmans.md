@@ -1,6 +1,6 @@
 ---
 title: "见证生命的奇迹，为升矿兄弟祈福！"
-images: ["https://og.eallion.com/api/og?title=%E8%A7%81%E8%AF%81%E7%94%9F%E5%91%BD%E7%9A%84%E5%A5%87%E8%BF%B9%EF%BC%8C%E4%B8%BA%E5%8D%87%E7%9F%BF%E5%85%84%E5%BC%9F%E7%A5%88%E7%A6%8F%EF%BC%81"]
+images: ["/assets/images/og/bestwishes4pitmans.png"]
 authors: ["eallion"]
 categories: ["日志","分享"]
 tags: ["升矿","奇迹","生命","矿工","祈福"]

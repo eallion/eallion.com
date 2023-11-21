@@ -1,6 +1,6 @@
 ---
 title: "有关于梦想"
-images: ["https://og.eallion.com/api/og?title=%E6%9C%89%E5%85%B3%E4%BA%8E%E6%A2%A6%E6%83%B3"]
+images: ["/assets/images/og/aboutdream.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["dream","梦想","理想"]

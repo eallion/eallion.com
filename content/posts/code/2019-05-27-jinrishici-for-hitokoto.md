@@ -1,6 +1,6 @@
 ---
 title: "一言 APP 添加 “今日诗词” 官方源 api"
-images: ["https://og.eallion.com/api/og?title=%E4%B8%80%E8%A8%80%20APP%20%E6%B7%BB%E5%8A%A0%20%E2%80%9C%E4%BB%8A%E6%97%A5%E8%AF%97%E8%AF%8D%E2%80%9D%20%E5%AE%98%E6%96%B9%E6%BA%90%20api"]
+images: ["/assets/images/og/jinrishici-for-hitokoto.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["app","一言","诗词","hitokoto","今日诗词"]

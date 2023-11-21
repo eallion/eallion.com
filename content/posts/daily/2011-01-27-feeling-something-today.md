@@ -1,6 +1,6 @@
 ---
 title: "于今日某事有感"
-images: ["https://og.eallion.com/api/og?title=%E4%BA%8E%E4%BB%8A%E6%97%A5%E6%9F%90%E4%BA%8B%E6%9C%89%E6%84%9F"]
+images: ["/assets/images/og/feeling-something-today.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记","有缘人","爱情","感想"]

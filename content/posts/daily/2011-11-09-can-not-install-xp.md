@@ -1,6 +1,6 @@
 ---
 title: "装不了 XP"
-images: ["https://og.eallion.com/api/og?title=%E8%A3%85%E4%B8%8D%E4%BA%86%20XP"]
+images: ["/assets/images/og/can-not-install-xp.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["电脑","笔记本","XP","WIN7","Ubuntu"]

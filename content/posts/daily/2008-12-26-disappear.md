@@ -1,6 +1,6 @@
 ---
 title: "消失"
-images: ["https://og.eallion.com/api/og?title=%E6%B6%88%E5%A4%B1"]
+images: ["/assets/images/og/disappear.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["消失","心如止水"]

@@ -1,6 +1,6 @@
 ---
 title: "周杰伦：烟花易冷"
-images: ["https://og.eallion.com/api/og?title=%E5%91%A8%E6%9D%B0%E4%BC%A6%EF%BC%9A%E7%83%9F%E8%8A%B1%E6%98%93%E5%86%B7"]
+images: ["/assets/images/og/yanhuayileng.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["烟花易冷"]

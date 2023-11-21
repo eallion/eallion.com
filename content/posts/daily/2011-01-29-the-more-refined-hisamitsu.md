@@ -1,6 +1,6 @@
 ---
 title: "愈久弥精"
-images: ["https://og.eallion.com/api/og?title=%E6%84%88%E4%B9%85%E5%BC%A5%E7%B2%BE"]
+images: ["/assets/images/og/the-more-refined-hisamitsu.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["妈妈","姐姐","愈久弥精","女朋友"]

@@ -1,6 +1,6 @@
 ---
 title: "集成电路"
-images: ["https://og.eallion.com/api/og?title=%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF"]
+images: ["/assets/images/og/ji-cheng-dian-lu.png"]
 authors: ["shanzei"]
 categories: ["山贼"]
 tags: ["IC","三极管","道德经","林徽因"]

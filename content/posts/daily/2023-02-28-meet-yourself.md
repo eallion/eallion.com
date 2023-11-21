@@ -1,6 +1,6 @@
 ---
 title: "去有风的地方"
-images: ["https://og.eallion.com/api/og?title=%E5%8E%BB%E6%9C%89%E9%A3%8E%E7%9A%84%E5%9C%B0%E6%96%B9"]
+images: ["/assets/images/og/meet-yourself.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: "Memos 简介"
-images: ["https://og.eallion.com/api/og?title=Memos%20%E7%AE%80%E4%BB%8B"]
+images: ["/assets/images/og/memos-deployment.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags:

@@ -1,6 +1,6 @@
 ---
 title: "甲午之战媒体先败"
-images: ["https://og.eallion.com/api/og?title=%E7%94%B2%E5%8D%88%E4%B9%8B%E6%88%98%E5%AA%92%E4%BD%93%E5%85%88%E8%B4%A5"]
+images: ["/assets/images/og/jiawumeiti.png"]
 authors: ["eallion"]
 categories: ["日志","分享"]
 tags: ["甲午之战"]

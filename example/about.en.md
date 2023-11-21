@@ -1,6 +1,6 @@
 ---
 title: "About"
-images: ["https://og.eallion.com/api/og?title=About"]
+images: ["/assets/images/og/about.png"]
 date: "2006-04-14 00:00:00"
 type: "about"
 layout: "about"
@@ -37,7 +37,12 @@ My favorite motto is:
 
 ### Description
 
-This blog's Toot page relies on the Mastodon instance at https://e5n.cc. The comment system relies on a self-hosted Artalk API at https://artalk.eallion.com.
+* This project powered by [Hugo](https://gohugo.io/)
+* Hosted by [AliCloud](https://www.aliyun.com/product/oss) through GitHub Actions
+* Themed by [DoIt](https://github.com/HEIGE-PCloud/DoIt)
+* The Toot page relies on the Mastodon instance at [https://e5n.cc](https://e5n.cc)
+* The Watched page relies on [https://neodb.social](https://neodb.social/users/eallion@e5n.cc/)
+* The comment system relies on a self-hosted Artalk API at [https://artalk.eallion.com](https://artalk.eallion.com/)
 
 ### Copyright
 

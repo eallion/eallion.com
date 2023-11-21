@@ -1,6 +1,6 @@
 ---
 title: "《功夫熊猫》是文化侵略吗"
-images: ["https://og.eallion.com/api/og?title=%E3%80%8A%E5%8A%9F%E5%A4%AB%E7%86%8A%E7%8C%AB%E3%80%8B%E6%98%AF%E6%96%87%E5%8C%96%E4%BE%B5%E7%95%A5%E5%90%97"]
+images: ["/assets/images/og/kongfupanda.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["文化","熊猫","功夫熊猫","文化侵略","侵略"]

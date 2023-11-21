@@ -1,6 +1,6 @@
 ---
 title: "Album"
-images: ["https://og.eallion.com/api/og?title=Album"]
+images: ["/assets/images/og/album.png"]
 layout: "album"
 type: 'album'
 comment: false

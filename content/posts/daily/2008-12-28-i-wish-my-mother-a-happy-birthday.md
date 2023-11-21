@@ -1,6 +1,6 @@
 ---
 title: "祝妈妈生日快乐.!"
-images: ["https://og.eallion.com/api/og?title=%E7%A5%9D%E5%A6%88%E5%A6%88%E7%94%9F%E6%97%A5%E5%BF%AB%E4%B9%90.!"]
+images: ["/assets/images/og/i-wish-my-mother-a-happy-birthday.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["妈妈","生日","生日快乐"]

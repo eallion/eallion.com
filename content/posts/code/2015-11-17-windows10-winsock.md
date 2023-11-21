@@ -1,6 +1,6 @@
 ---
 title: "Windows10 WinSock"
-images: ["https://og.eallion.com/api/og?title=Windows10%20WinSock"]
+images: ["/assets/images/og/windows10-winsock.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["dns","win10","windows10","winsock","打不开网页"]

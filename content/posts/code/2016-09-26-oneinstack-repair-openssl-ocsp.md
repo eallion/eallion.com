@@ -1,6 +1,6 @@
 ---
 title: "Oneinstack 手动修复 OpenSSL OCSP"
-images: ["https://og.eallion.com/api/og?title=Oneinstack%20%E6%89%8B%E5%8A%A8%E4%BF%AE%E5%A4%8D%20OpenSSL%20OCSP"]
+images: ["/assets/images/og/oneinstack-repair-openssl-ocsp.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["oneinstack","nginx","openssl","ocsp","cve-2016-6304"]

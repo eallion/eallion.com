@@ -1,6 +1,6 @@
 ---
 title: "巴塞罗那 VS 北京国安"
-images: ["https://og.eallion.com/api/og?title=%E5%B7%B4%E5%A1%9E%E7%BD%97%E9%82%A3%20VS%20%E5%8C%97%E4%BA%AC%E5%9B%BD%E5%AE%89"]
+images: ["/assets/images/og/barcelona.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["北京国安","巴塞罗那","足球"]

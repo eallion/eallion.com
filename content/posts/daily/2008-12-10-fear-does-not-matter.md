@@ -1,6 +1,6 @@
 ---
 title: "无所谓无所畏惧"
-images: ["https://og.eallion.com/api/og?title=%E6%97%A0%E6%89%80%E8%B0%93%E6%97%A0%E6%89%80%E7%95%8F%E6%83%A7"]
+images: ["/assets/images/og/fear-does-not-matter.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["无所谓","畏惧","影响","改变"]

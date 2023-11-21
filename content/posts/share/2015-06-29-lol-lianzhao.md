@@ -1,6 +1,6 @@
 ---
 title: "细数 LOL 先施法后闪现的迷之连招"
-images: ["https://og.eallion.com/api/og?title=%E7%BB%86%E6%95%B0%20LOL%20%E5%85%88%E6%96%BD%E6%B3%95%E5%90%8E%E9%97%AA%E7%8E%B0%E7%9A%84%E8%BF%B7%E4%B9%8B%E8%BF%9E%E6%8B%9B"]
+images: ["/assets/images/og/lol-lianzhao.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["LOL","英雄联盟","连招"]

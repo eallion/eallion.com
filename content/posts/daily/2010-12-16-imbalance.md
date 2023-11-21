@@ -1,6 +1,6 @@
 ---
 title: "网络收支不平衡"
-images: ["https://og.eallion.com/api/og?title=%E7%BD%91%E7%BB%9C%E6%94%B6%E6%94%AF%E4%B8%8D%E5%B9%B3%E8%A1%A1"]
+images: ["/assets/images/og/imbalance.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["域名","收入","空间","网络","网赚"]

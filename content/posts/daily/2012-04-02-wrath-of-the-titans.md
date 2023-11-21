@@ -1,6 +1,6 @@
 ---
 title: "《诸神之怒》"
-images: ["https://og.eallion.com/api/og?title=%E3%80%8A%E8%AF%B8%E7%A5%9E%E4%B9%8B%E6%80%92%E3%80%8B"]
+images: ["/assets/images/og/wrath-of-the-titans.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["神","诸神之怒","peseus","帕修斯"]

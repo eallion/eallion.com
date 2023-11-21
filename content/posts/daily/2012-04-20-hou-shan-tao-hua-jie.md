@@ -1,6 +1,6 @@
 ---
 title: "吼山桃花节"
-images: ["https://og.eallion.com/api/og?title=%E5%90%BC%E5%B1%B1%E6%A1%83%E8%8A%B1%E8%8A%82"]
+images: ["/assets/images/og/hou-shan-tao-hua-jie.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","吼山","桃花","春游","游记"]

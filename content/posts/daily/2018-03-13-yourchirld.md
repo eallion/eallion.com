@@ -1,6 +1,6 @@
 ---
 title: "你的孩子其实不是你的孩子"
-images: ["https://og.eallion.com/api/og?title=%E4%BD%A0%E7%9A%84%E5%AD%A9%E5%AD%90%E5%85%B6%E5%AE%9E%E4%B8%8D%E6%98%AF%E4%BD%A0%E7%9A%84%E5%AD%A9%E5%AD%90"]
+images: ["/assets/images/og/yourchirld.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["孩子","爱","儿女"]

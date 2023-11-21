@@ -1,6 +1,6 @@
 ---
 title: "法律健全的经典案例"
-images: ["https://og.eallion.com/api/og?title=%E6%B3%95%E5%BE%8B%E5%81%A5%E5%85%A8%E7%9A%84%E7%BB%8F%E5%85%B8%E6%A1%88%E4%BE%8B"]
+images: ["/assets/images/og/classic-case-of-a-sound-legal.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["法律","健全","案例","雪茄","律师"]

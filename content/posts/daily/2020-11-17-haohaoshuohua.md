@@ -1,6 +1,6 @@
 ---
 title: "好好说话"
-images: ["https://og.eallion.com/api/og?title=%E5%A5%BD%E5%A5%BD%E8%AF%B4%E8%AF%9D"]
+images: ["/assets/images/og/haohaoshuohua.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["好好说话","说话","情商","交流"]

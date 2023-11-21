@@ -1,6 +1,6 @@
 ---
 title: "停电停网"
-images: ["https://og.eallion.com/api/og?title=%E5%81%9C%E7%94%B5%E5%81%9C%E7%BD%91"]
+images: ["/assets/images/og/stopping-power-network.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["停电","停网"]

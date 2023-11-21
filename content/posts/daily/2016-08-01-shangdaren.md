@@ -1,6 +1,6 @@
 ---
 title: "上大人"
-images: ["https://og.eallion.com/api/og?title=%E4%B8%8A%E5%A4%A7%E4%BA%BA"]
+images: ["/assets/images/og/shangdaren.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["上大人","叶子牌","土家牌","棋牌","纸叶子"]

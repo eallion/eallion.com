@@ -1,6 +1,6 @@
 ---
 title: "小悦悦"
-images: ["https://og.eallion.com/api/og?title=%E5%B0%8F%E6%82%A6%E6%82%A6"]
+images: ["/assets/images/og/little-yue-yue.png"]
 authors: ["eallion"]
 categories: ["日志","分享"]
 tags: ["小悦悦"]

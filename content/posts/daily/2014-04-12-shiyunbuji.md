@@ -1,6 +1,6 @@
 ---
 title: "时运不济"
-images: ["https://og.eallion.com/api/og?title=%E6%97%B6%E8%BF%90%E4%B8%8D%E6%B5%8E"]
+images: ["/assets/images/og/shiyunbuji.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

@@ -1,6 +1,6 @@
 ---
 title: "我的五杀"
-images: ["https://og.eallion.com/api/og?title=%E6%88%91%E7%9A%84%E4%BA%94%E6%9D%80"]
+images: ["/assets/images/og/penta.png"]
 layout: "penta"
 type: 'penta'
 date: "2006-04-14 00:00:00"

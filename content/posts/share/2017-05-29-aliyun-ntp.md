@@ -1,6 +1,6 @@
 ---
 title: "阿里云 NTP 时间同步服务器"
-images: ["https://og.eallion.com/api/og?title=%E9%98%BF%E9%87%8C%E4%BA%91%20NTP%20%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1%E5%99%A8"]
+images: ["/assets/images/og/aliyun-ntp.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["时间","阿里云","ntp","时间同步"]

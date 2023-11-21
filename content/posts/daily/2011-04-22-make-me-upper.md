@@ -1,6 +1,6 @@
 ---
 title: "一物昌，百事顺"
-images: ["https://og.eallion.com/api/og?title=%E4%B8%80%E7%89%A9%E6%98%8C%EF%BC%8C%E7%99%BE%E4%BA%8B%E9%A1%BA"]
+images: ["/assets/images/og/make-me-upper.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","心情","日记","原创"]

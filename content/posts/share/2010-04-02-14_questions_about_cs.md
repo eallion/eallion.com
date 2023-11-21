@@ -1,6 +1,6 @@
 ---
 title: "CS 新手最经常问的十四大问题"
-images: ["https://og.eallion.com/api/og?title=CS%20%E6%96%B0%E6%89%8B%E6%9C%80%E7%BB%8F%E5%B8%B8%E9%97%AE%E7%9A%84%E5%8D%81%E5%9B%9B%E5%A4%A7%E9%97%AE%E9%A2%98"]
+images: ["/assets/images/og/14_questions_about_cs.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["CS","question","CS1.6"]

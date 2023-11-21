@@ -1,6 +1,6 @@
 ---
 title: "Dokuwiki Nginx 伪静态"
-images: ["https://og.eallion.com/api/og?title=Dokuwiki%20Nginx%20%E4%BC%AA%E9%9D%99%E6%80%81"]
+images: ["/assets/images/og/dokuwiki-nginx-rewrite.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["nginx","doku","dokuwiki","rewrite"]

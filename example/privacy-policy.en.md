@@ -1,6 +1,6 @@
 ---
 title: "Privacy Ppolicy"
-images: ["https://og.eallion.com/api/og?title=Privacy%20Ppolicy"]
+images: ["/assets/images/og/privacy.png"]
 date: "2006-04-14 00:00:00"
 type: "privacy-policy"
 layout: "privacy-policy"

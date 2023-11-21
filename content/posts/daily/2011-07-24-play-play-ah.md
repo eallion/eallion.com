@@ -1,6 +1,6 @@
 ---
 title: "玩儿呀玩儿"
-images: ["https://og.eallion.com/api/og?title=%E7%8E%A9%E5%84%BF%E5%91%80%E7%8E%A9%E5%84%BF"]
+images: ["/assets/images/og/play-play-ah.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["游戏","玩","找茬","大家来找茬"]

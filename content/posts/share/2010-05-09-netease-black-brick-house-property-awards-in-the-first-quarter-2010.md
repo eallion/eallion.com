@@ -1,6 +1,6 @@
 ---
 title: "网易房产专题 2010 烂砖奖第一季"
-images: ["https://og.eallion.com/api/og?title=%E7%BD%91%E6%98%93%E6%88%BF%E4%BA%A7%E4%B8%93%E9%A2%98%202010%20%E7%83%82%E7%A0%96%E5%A5%96%E7%AC%AC%E4%B8%80%E5%AD%A3"]
+images: ["/assets/images/og/netease-black-brick-house-property-awards-in-the-first-quarter-2010.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["烂砖奖","网易房产","网易","专题"]

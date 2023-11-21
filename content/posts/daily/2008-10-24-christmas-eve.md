@@ -1,6 +1,6 @@
 ---
 title: "平安夜"
-images: ["https://og.eallion.com/api/og?title=%E5%B9%B3%E5%AE%89%E5%A4%9C"]
+images: ["/assets/images/og/christmas-eve.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["苹果","平安夜","发财"]

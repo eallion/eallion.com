@@ -1,6 +1,6 @@
 ---
 title: "春节"
-images: ["https://og.eallion.com/api/og?title=%E6%98%A5%E8%8A%82"]
+images: ["/assets/images/og/chinese-new-year.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["过年","春节","除夕"]

@@ -1,6 +1,6 @@
 ---
 title: "百度云网盘自定义提取码"
-images: ["https://og.eallion.com/api/og?title=%E7%99%BE%E5%BA%A6%E4%BA%91%E7%BD%91%E7%9B%98%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%90%E5%8F%96%E7%A0%81"]
+images: ["/assets/images/og/baidu-cloud-network-backup-custom-extracted-code.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["百度","百度云网盘","网盘","提取码"]

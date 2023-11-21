@@ -1,6 +1,6 @@
 ---
 title: "据说是真正的中国历史，90% 的国人不知道"
-images: ["https://og.eallion.com/api/og?title=%E6%8D%AE%E8%AF%B4%E6%98%AF%E7%9C%9F%E6%AD%A3%E7%9A%84%E4%B8%AD%E5%9B%BD%E5%8E%86%E5%8F%B2%EF%BC%8C90%25%20%E7%9A%84%E5%9B%BD%E4%BA%BA%E4%B8%8D%E7%9F%A5%E9%81%93"]
+images: ["/assets/images/og/the-truth-about-history.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["历史","宋朝","强大的中国"]
