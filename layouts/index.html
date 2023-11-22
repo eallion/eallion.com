@@ -3,314 +3,20 @@ $posts := .Site.Params.home.posts -}}
 <meta name="referrer" content="no-referrer">
 <div class="page home" {{- if ne $posts.enable false | or .Content -}} posts{{- end -}}>
 
-    <!-- Uncss Dev 的时候取消注释这三行 -->
-    <!-- <link rel="stylesheet" href="../assets/css/chromedev/src/home.css" />
-    <link rel="stylesheet" href="../assets/css/chromedev/src/devsite.css" />
-    <link rel="stylesheet" href="../assets/css/chromedev/src/devsite-theme.css" /> -->
+    <!-- 下面是 Dev 的时候引用的， Prod 环境 和 Uncss 打包时需要注释掉-->
+    <!-- <link rel="stylesheet" href="/assets/chromedev/css/src/home.css?v=20231121" />
+    <link rel="stylesheet" href="/assets/chromedev/css/src/devsite.css?v=20231121" />
+    <link rel="stylesheet" href="/assets/chromedev/css/src/devsite-theme.css?v=20231121" />
+    <link rel="stylesheet" href="/assets/chromedev/css/src/devsite-custom.css?v=20231121" /> -->
 
-    <link rel="stylesheet" href="/assets/chromedev/css/home.min.css?v=20231121" />
+    <!-- 下面的是 Uncss 打包用的，Prod 环境需要注释掉 -->
+    <!-- <link rel="stylesheet" href="../static/assets/chromedev/css/src/home.css?v=20231121" />
+    <link rel="stylesheet" href="../static/assets/chromedev/css/src/devsite.css?v=20231121" />
+    <link rel="stylesheet" href="../static/assets/chromedev/css/src/devsite-theme.css?v=20231121" />
+    <link rel="stylesheet" href="../static/assets/chromedev/css/src/devsite-custom.css?v=20231121" /> -->
 
-    <style>
-        .google-blue {
-            color: #4285f4;
-        }
-
-        .google-red {
-            color: #db4437;
-        }
-
-        .google-yellow {
-            color: #f4b400;
-        }
-
-        .google-green {
-            color: #0f9d58;
-        }
-
-        .google-colors {
-            display: flex;
-        }
-
-        .google-color {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            padding: 0 0.25rem;
-        }
-
-        img:not([no-view]):hover {
-            cursor: pointer;
-        }
-
-        .page {
-            max-width: 100% !important;
-            width: 100% !important;
-        }
-
-        .wrapper main .container {
-            padding: 0 !important;
-        }
-
-        header:hover {
-            -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-        }
-
-        .home-social a {
-            color: #fff !important;
-            font-size: 1.25rem !important;
-        }
-
-        [theme="web-theme"] .dcc-hero .button {
-            margin: 0.125rem !important;
-        }
-
-        .dcc-hero .devsite-landing-row-item-buttons {
-            justify-content: center;
-        }
-
-        #get-started {
-            height: 3.5rem;
-            margin-top: -3rem;
-        }
-
-        .devsite-landing-row-item-description-content ul li {
-            margin: 0;
-        }
-
-        [theme="web-theme"] .dcc-services-card {
-            padding-bottom: 1rem;
-        }
-
-        [theme="web-theme"] .dcc-services-card h3 {
-            min-height: 1rem;
-        }
-
-        [theme="web-theme"] .dcc-blog-card[description-position="bottom"] {
-            padding: 2.5rem 1.125rem 2rem;
-        }
-
-        .dcc-services-card .devsite-landing-row-item-media {
-            width: 100%;
-        }
-
-        #ticker {
-            line-height: inherit;
-            width: 65%;
-            max-width: var(--devsite-landing-row-max-width, 1488px);
-            margin: 2rem auto;
-        }
-
-        @media (max-width: 480px) {
-            #ticker {
-                width: 100%;
-            }
-        }
-
-        [theme="dark"] #ticker {
-            background: #f4f4f5 !important;
-        }
-
-        [theme="black"] #ticker {
-            background: #f4f4f5 !important;
-        }
-
-        [theme="dark"] #ticker i {
-            color: #4d4d4d;
-        }
-
-        [theme="black"] #ticker i {
-            color: #4d4d4d;
-        }
-
-        #movie-title {
-            font-size: 1rem;
-        }
-
-        #movies .referrer {
-            margin-right: auto;
-        }
-
-        #movies .referrer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 0.5rem;
-            gap: 5px;
-            flex-direction: row;
-        }
-
-        #movies .referrer img {
-            width: 1rem;
-            height: 1rem;
-            opacity: 0.7;
-        }
-
-        #movies .referrer img:hover {
-            opacity: 0.95;
-            transition: all 0.6s ease;
-        }
-
-        .dcc-chrome-releases .devsite-landing-row-item-image {
-            background: #f5f5f5;
-        }
-
-        .dcc-chrome-releases .devsite-landing-row-item-image img {
-            width: auto;
-            margin: 0 auto;
-        }
-
-        #penta {
-            margin-bottom: 0;
-        }
-
-        #penta .devsite-landing-row-item-buttons {
-            display: flex;
-            justify-content: center;
-        }
-
-        #penta .champion a,
-        #penta .penta-date {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-        }
-
-        #penta .champion img {
-            width: 1.1rem;
-            height: 1.1rem;
-        }
-
-        #penta .caption {
-            margin-left: 0.25rem;
-        }
-
-        #penta .caption:hover {
-            color: #006bee;
-            text-decoration: none;
-        }
-
-        #penta .penta-date {
-            font-size: 0.75rem;
-            opacity: 0.5;
-        }
-
-        #penta .penta-date .dateText {
-            margin-left: 0.125rem;
-        }
-
-        .footer-title {
-            font-size: 1.25rem;
-        }
-
-        .footer__cluster {
-            font-size: 0.875rem;
-        }
-
-        .footer-meta {
-            max-width: var(--devsite-landing-row-max-width, 1488px);
-            margin: 0 auto;
-        }
-
-        .footer-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        body[theme="dark"] {
-            color: var(--devsite-primary-text-color);
-            background-color: var(--devsite-background-1);
-        }
-
-        [theme="dark"] header {
-            background-color: #f8f8f8;
-        }
-
-        [theme="dark"] a,
-        [theme="dark"] a::before,
-        [theme="dark"] a::after {
-            color: #161209;
-        }
-
-        [theme="dark"] .search input,
-        [theme="dark"] .open .search input,
-        [theme="dark"] .search.mobile input {
-            background-color: #f8f8f8;
-        }
-
-        [theme="dark"] .devsite-landing-row-header {
-            background-color: transparent;
-        }
-
-        [theme="dark"] a:active,
-        [theme="dark"] a:hover {
-            color: #006bee;
-        }
-
-        [theme="dark"] .dcc-hero .devsite-landing-row-item-buttons a:active,
-        [theme="dark"] .dcc-hero .devsite-landing-row-item-buttons a:hover {
-            color: #fff;
-        }
-
-        [theme="dark"] .button,
-        [theme="dark"] .devsite-footer-utility-button>a,
-        [theme="dark"] button,
-        [theme="dark"] input[type="button"],
-        [theme="dark"] input[type="file"],
-        [theme="dark"] input[type="image"],
-        [theme="dark"] input[type="reset"],
-        [theme="dark"] input[type="submit"] {
-            color: var(--devsite-button-color);
-        }
-
-        body[theme="black"] {
-            color: var(--devsite-primary-text-color);
-            background-color: var(--devsite-background-1);
-        }
-
-        [theme="black"] header {
-            background-color: #f8f8f8;
-        }
-
-        [theme="black"] a,
-        [theme="black"] a::before,
-        [theme="black"] a::after {
-            color: #161209;
-        }
-
-        [theme="black"] .search input,
-        [theme="black"] .open .search input,
-        [theme="black"] .search.mobile input {
-            background-color: #f8f8f8;
-        }
-
-        [theme="black"] .devsite-landing-row-header {
-            background-color: transparent;
-        }
-
-        [theme="black"] a:active,
-        [theme="black"] a:hover {
-            color: #006bee;
-        }
-
-        [theme="black"] .dcc-hero .devsite-landing-row-item-buttons a:active,
-        [theme="black"] .dcc-hero .devsite-landing-row-item-buttons a:hover {
-            color: #fff;
-        }
-
-        [theme="black"] .button,
-        [theme="black"] .devsite-footer-utility-button>a,
-        [theme="black"] button,
-        [theme="black"] input[type="button"],
-        [theme="black"] input[type="file"],
-        [theme="black"] input[type="image"],
-        [theme="black"] input[type="reset"],
-        [theme="black"] input[type="submit"] {
-            color: var(--devsite-button-color);
-        }
-    </style>
+    <!-- 下面是正式的，Uncss 打包时需要注释掉 -->
+    <link rel="stylesheet" href="/assets/chromedev/css/dist/chrome.min.css?v=20231121" />
 
     <script type="module" src="/assets/chromedev/js/main.js"></script>
 
@@ -330,7 +36,7 @@ $posts := .Site.Params.home.posts -}}
                                         <div class="devsite-landing-row-item-media">
                                             <figure class="devsite-landing-row-item-image">
                                                 <img alt="hero"
-                                                    src="/assets/chromedev/images/hero.webp" loading="lazy" no-view/>
+                                                    src="/assets/chromedev/images/mateusz-klein-PwhVYYeoQCo-unsplash.webp" loading="lazy" no-view/>
                                             </figure>
                                         </div>
 
@@ -952,7 +658,7 @@ $posts := .Site.Params.home.posts -}}
                                                 <h3 id="mastodon" data-text="Mastodon"
                                                     class="hide-from-toc no-link"><a href="https://github.com/helloxz/onenav" target="_blank" rel="noopener noreferrer">网址导航</a></h3>
 
-                                                <div class="devsite-landing-row-item-description-content">利用 <a target="_blank" href="https://github.com/helloxz/onenav" title="简约导航/书签管理器" rel="nofollow">OneNav</a> Docker 部署的个人导航网站，使用的自己修改的 <a href="https://github.com/eallion/onenav-baisu-mod" target="_blank">BaiSu Mod</a> 模板。
+                                                <div class="devsite-landing-row-item-description-content">利用 <a target="_blank" href="https://github.com/helloxz/onenav" title="简约导航/书签管理器" rel="nofollow noopener noreferrer">OneNav</a> Docker 部署的个人导航网站，使用的自己修改的 <a href="https://github.com/eallion/onenav-baisu-mod" target="_blank" rel="nofollow noopener noreferrer">BaiSu Mod</a> 模板。
                                                 </div>
 
                                                 <div class="devsite-landing-row-item-buttons">
@@ -975,7 +681,7 @@ $posts := .Site.Params.home.posts -}}
                                                 <h3 id="ublacklist" data-text="GitHub"
                                                     class="hide-from-toc no-link"><a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer">uBlacklist 订阅合集</a></h3>
 
-                                                <div class="devsite-landing-row-item-description-content">🚫 用于 <a href="https://chromewebstore.google.com/detail/ublacklist/pncfbmialoiaghdehhbnbhkkgmjanfhe" target="_blank">uBlacklist</a> 插件的规则订阅合集，通过匹配域名的方式，屏蔽搜索引擎的中文内容农场！</div>
+                                                <div class="devsite-landing-row-item-description-content">🚫 用于 <a href="https://chromewebstore.google.com/detail/ublacklist/pncfbmialoiaghdehhbnbhkkgmjanfhe" target="_blank" rel="nofollow noopener noreferrer">uBlacklist</a> 插件的规则订阅合集，通过匹配域名的方式，屏蔽搜索引擎的中文内容农场！</div>
 
                                                 <div class="devsite-landing-row-item-buttons">
                                                     <a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer" class="button">前往设置 <i class="fas fa-external-link-alt"></i></a>

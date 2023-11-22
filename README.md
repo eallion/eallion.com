@@ -141,7 +141,8 @@ https://github.com/eallion/eallion.com/tree/main/data/neodb
 
 ### 📦️ 首页 CSS 打包
 
-首页利用 uncss 打包，去掉无用的 CSS，注释掉 layouts/index.html 中的 css 部分，然后运行：
+首页利用 uncss 打包，去掉无用的 CSS，注释掉 layouts/index.html 中的 css 部分，然后运行：  
+需要注意 layouts/index.html 头部的注释说明
 
 ```bash
 # npm install uncss -g
