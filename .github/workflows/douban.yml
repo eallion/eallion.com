@@ -18,6 +18,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: WORK_DIR
+      run: |
+        # 把当前目录保存到环境变量中
+        echo "WORK_DIR=$(pwd)" >> $GITHUB_ENV
+
+    - name: OLD_SHA256
+      run: |
+        OLD_SHA256=$(sha256sum ${{ env.WORK_DIR }}/data/neodb/movie.json | cut -d ' ' -f 1)
+        echo "OLD_SHA256=$(CURRENT_SHA256)" >> $GITHUB_ENV
+
     - name: Fetch Movie Data JSON
       uses: lizheming/doumark-action@master
       with:
@@ -34,14 +44,14 @@ jobs:
         format: neodb
         neodb_token: ${{ secrets.NEODB_ACCESS_TOKEN }}
 
-    - name: Sync Movie to Notion
-      uses: lizheming/doumark-action@master
-      with:
-        id: eallion
-        type: movie
-        format: notion
-        dir: ${{ secrets.NOTION_MOVIE_ID }}
-        notion_token: ${{ secrets.NOTION_ACCESS_TOKEN }}
+    # - name: Sync Movie to Notion
+    #   uses: lizheming/doumark-action@master
+    #   with:
+    #     id: eallion
+    #     type: movie
+    #     format: notion
+    #     dir: ${{ secrets.NOTION_MOVIE_ID }}
+    #     notion_token: ${{ secrets.NOTION_ACCESS_TOKEN }}
 
     - name: Fetch Book Data JSON
       uses: lizheming/doumark-action@master
@@ -59,14 +69,14 @@ jobs:
         format: neodb
         neodb_token: ${{ secrets.NEODB_ACCESS_TOKEN }}
 
-    - name: Sync Book to Notion
-      uses: lizheming/doumark-action@master
-      with:
-        id: eallion
-        type: movie
-        format: notion
-        dir: ${{ secrets.NOTION_BOOK_ID }}
-        notion_token: ${{ secrets.NOTION_ACCESS_TOKEN }}
+    # - name: Sync Book to Notion
+    #   uses: lizheming/doumark-action@master
+    #   with:
+    #     id: eallion
+    #     type: movie
+    #     format: notion
+    #     dir: ${{ secrets.NOTION_BOOK_ID }}
+    #     notion_token: ${{ secrets.NOTION_ACCESS_TOKEN }}
 
     - name: Git Commit
       uses: EndBug/add-and-commit@v9
@@ -74,8 +84,14 @@ jobs:
         message: 'chore(data): update douban data'
         add: './data/douban'
 
+    - name: CURRENT_SHA256
+      run: |
+        CURRENT_SHA256=$(sha256sum ${{ env.WORK_DIR }}/data/neodb/movie.json | cut -d ' ' -f 1)
+        echo "CURRENT_SHA256=$(CURRENT_SHA256)" >> $GITHUB_ENV
+
     # 调用另外的 GitHub Actions
     - name: Sync NeoDB Data
+      if: ${{ env.OLD_SHA256 != env.CURRENT_SHA256 }}
       uses: peter-evans/repository-dispatch@v2
       with:
           event-type: sync-neodb
