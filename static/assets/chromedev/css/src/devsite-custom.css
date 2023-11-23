@@ -198,6 +198,10 @@ header:hover {
     margin-left: 0.125rem !important;
 }
 
+#tools .devsite-landing-row-item-buttons a {
+    margin-right: 0.5rem;
+}
+
 .footer-title {
     font-size: 1.25rem !important;
 }

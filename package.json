@@ -16,7 +16,7 @@
     "build": "next build",
     "changelog": "changelog --allow-unknown",
     "vercel": "node scripts/hugo_version.js &&  hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo && next build",
-    "uncss": "uncss layouts/index.html > static/assets/chromedev/css/dist/chrome.css"
+    "uncss": "uncss -n layouts/index.html > static/assets/chromedev/css/dist/chrome.css"
   },
   "repository": {
     "type": "git",
