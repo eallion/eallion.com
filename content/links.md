@@ -26,7 +26,7 @@ aliases:
 {{< friend name="秦大叔" bio="不曾长大" url="https://qfsyj.com" domain="qfsyj.com" avatar="https://cravatar.cn/avatar/4ba509f9ec541ab4d316299727b3e3ab" >}}
 {{< friend name="十三姨爱我" bio="踏遍青山人未老，风景这边独好。" url="https://fanghongxing.cn" domain="fanghongxing.cn" avatar="https://cravatar.cn/avatar/84988a8cb4ea306f6e2b1bcf880081dc" >}}
 {{< friend name="王叨叨" bio="无叨叨，不博客！不懂用户体验的前端不是好爸爸……" url="https://wangdaodao.com/" domain="wangdaodao.com" avatar="https://cravatar.cn/avatar/4a713ec085a4431f15a8da0942656713" >}}
-{{< friend name="未来往事" bio="我愿像茶一样，把苦涩留在心底，散发出来的都是清香。" url="https://www.fity.cn/" domain="fity.cn" avatar="https://cravatar.cn/avatar/ee5e5b48164e5362d8800c7364854d15" >}}
+{{< friend name="未来往事" bio="我愿像茶一样，把苦涩留在心底，散发出来的都是清香。" url="https://felixway.cn/" domain="felixway.cn" avatar="https://cravatar.cn/avatar/ee5e5b48164e5362d8800c7364854d15" >}}
 {{< friend name="被遗忘的旧岛" bio="被遗忘的旧岛" url="https://jiudao.net/" domain="jiudao.net" avatar="https://cravatar.cn/avatar/75ab7cb11e241abf513f04182ab653a5" >}}
 {{< friend name="黑石博客" bio="人生在勤，不索何获。" url="https://www.heson10.com" domain="heson10.com" avatar="https://cdn.jsdelivr.net/gh/heson525/pic@master/pic/avatar03.png" >}}
 {{< friend name="FF" bio="foolish fox" url="https://foolishfox.cn/" domain="foolishfox.cn" avatar="https://cravatar.cn/avatar/53bc457fbba563ce1ce80edda8310241?d=identicon" >}}
