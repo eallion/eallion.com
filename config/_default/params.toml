@@ -30,6 +30,14 @@ bundle = true
 # [Experimental] cache remote images, more info: https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
 # [试验性功能] 缓存图床图片，详情请见：https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
 cacheRemoteImages = false
+# Author config
+# 作者配置
+[author]
+  name = "Charles Chin"
+  email = "eallions@gmail.com"
+  link = "https://eallion.com/"
+  avatar = "/eallion.webp"
+  #gravatarEmail = ""
 # Header config
 # 页面头部导航栏配置
 [header]

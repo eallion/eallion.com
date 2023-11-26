@@ -34,7 +34,7 @@ jobs:
         run: |
           rm themes/DoIt -rf
           git clone --depth 1 https://github.com/eallion/hugo-theme-doit.git themes/DoIt --single-branch
-          hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
+          hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo --templateMetrics --templateMetricsHints
 
       - name: Ready for Next.js
         run: |
