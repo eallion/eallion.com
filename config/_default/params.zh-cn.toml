@@ -183,7 +183,7 @@ keywords = ["eallion", "Charles", "chin", "blog", "Hugo", "蜗牛", "大大的�
 # Sponsor config
 # 赞助设置
 [sponsor]
-  enable = true
+  enable = false
   bio = "数字花园，用爱发电！"
   link = "https://afdian.net/a/eallion"
   # custom = "<a href=\"https://www.buymeacoffee.com/PCloud\" target=\"_blank\"><img src=\"https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png\" alt=\"Buy Me A Coffee\" style=\"height: 40px !important;width: 145 !important;\" ></a>"
