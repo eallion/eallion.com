@@ -1,6 +1,14 @@
 {
   "penta": [
     {
+      "src": "/assets/images/penta/screenshot/20231127-Draven.jpg",
+      "alt": "20231127-Draven",
+      "champion": "Draven",
+      "date": "2023/11/27",
+      "caption": "荣耀行刑官 德莱文",
+      "heroId": "119"
+    },
+    {
       "src": "/assets/images/penta/screenshot/20231024-LeeSin.jpg",
       "alt": "20231024-LeeSin",
       "champion": "LeeSin",
