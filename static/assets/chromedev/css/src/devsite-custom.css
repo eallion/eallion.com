@@ -45,6 +45,12 @@ header:hover {
     box-shadow: none !important;
 }
 
+.home-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .home-social a {
     color: #fff !important;
     font-size: 1.25rem !important;

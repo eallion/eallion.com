@@ -470,9 +470,16 @@ footer {
   cursor: pointer;
   text-decoration: none;
 }
+.button svg {
+  vertical-align: middle;
+}
 .button:disabled {
   opacity: 0.6;
   pointer-events: none;
+}
+
+.icon {
+  fill: currentColor;
 }
 
 .cluster {
@@ -2517,6 +2524,12 @@ img:not([no-view]):hover {
 header:hover {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
+}
+
+.home-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .home-social a {
