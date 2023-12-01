@@ -1,6 +1,14 @@
 {
   "penta": [
     {
+      "src": "/assets/images/penta/screenshot/20231202-Gangplank.jpg",
+      "alt": "20231202-Gangplank",
+      "champion": "Gangplank",
+      "date": "2023/12/02",
+      "caption": "海洋之灾 普朗克",
+      "heroId": "41"
+    },
+    {
       "src": "/assets/images/penta/screenshot/20231127-Draven.jpg",
       "alt": "20231127-Draven",
       "champion": "Draven",
