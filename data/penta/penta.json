@@ -1,7 +1,15 @@
 {
   "penta": [
     {
-      "src": "/assets/images/penta/screenshot/20231202-Gangplank.jpg",
+      "src": "/assets/images/penta/screenshot/20231203-Tristana.webp",
+      "alt": "20231203-Tristana",
+      "champion": "Tristana",
+      "date": "2023/12/03",
+      "caption": "麦林炮手 崔丝塔娜",
+      "heroId": "18"
+    },
+    {
+      "src": "/assets/images/penta/screenshot/20231202-Gangplank.webp",
       "alt": "20231202-Gangplank",
       "champion": "Gangplank",
       "date": "2023/12/02",
@@ -9,7 +17,7 @@
       "heroId": "41"
     },
     {
-      "src": "/assets/images/penta/screenshot/20231127-Draven.jpg",
+      "src": "/assets/images/penta/screenshot/20231127-Draven.webp",
       "alt": "20231127-Draven",
       "champion": "Draven",
       "date": "2023/11/27",
