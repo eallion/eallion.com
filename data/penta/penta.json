@@ -1,6 +1,14 @@
 {
   "penta": [
     {
+      "src": "/assets/images/penta/screenshot/20231203-Varus.webp",
+      "alt": "20231203-Varus",
+      "champion": "Varus",
+      "date": "2023/12/03",
+      "caption": "惩戒之箭 韦鲁斯",
+      "heroId": "110"
+    },
+    {
       "src": "/assets/images/penta/screenshot/20231203-Tristana.webp",
       "alt": "20231203-Tristana",
       "champion": "Tristana",
