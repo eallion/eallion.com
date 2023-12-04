@@ -82,7 +82,10 @@ jobs:
       uses: EndBug/add-and-commit@v9
       with:
         message: 'chore(data): update douban data'
-        add: './data/douban'
+        committer_name: 'github-actions[bot]'
+        committer_email: 'github-actions[bot]@users.noreply.github.com'
+        add: |
+          './data/douban'
 
     - name: CURRENT_SHA256
       run: |

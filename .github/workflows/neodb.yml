@@ -149,6 +149,8 @@ jobs:
       uses: EndBug/add-and-commit@v9
       with:
         message: 'chore(data): update neodb data'
+        committer_name: 'github-actions[bot]'
+        committer_email: 'github-actions[bot]@users.noreply.github.com'
         add: |
           './data/neodb'
           './static/assets/images/movie/cover'
