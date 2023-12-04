@@ -32,6 +32,8 @@ jobs:
       uses: EndBug/add-and-commit@v9
       with:
         message: 'chore(data): fetch mastodon status'
+        committer_name: 'github-actions[bot]'
+        committer_email: 'github-actions[bot]@users.noreply.github.com'
         add: |
           './data/mastodon'
 
