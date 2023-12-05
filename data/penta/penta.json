@@ -1,6 +1,14 @@
 {
   "penta": [
     {
+      "src": "/assets/images/penta/screenshot/20231205-Samira.webp",
+      "alt": "20231205-Samira",
+      "champion": "Samira",
+      "date": "2023/12/05",
+      "caption": "沙漠玫瑰 莎弥拉",
+      "heroId": "360"
+    },
+    {
       "src": "/assets/images/penta/screenshot/20231203-Varus.webp",
       "alt": "20231203-Varus",
       "champion": "Varus",
