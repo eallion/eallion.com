@@ -1,6 +1,14 @@
 {
   "penta": [
     {
+      "src": "/assets/images/penta/screenshot/20231205-Khazix.jpg",
+      "alt": "20231205-Khazix",
+      "champion": "Khazix",
+      "date": "2023/12/05",
+      "caption": "虚空掠夺者 卡兹克",
+      "heroId": "121"
+    },
+    {
       "src": "/assets/images/penta/screenshot/20231205-Samira.webp",
       "alt": "20231205-Samira",
       "champion": "Samira",
