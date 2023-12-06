@@ -531,7 +531,7 @@ main:focus {
 }
 
 /*# sourceMappingURL=home.css.map */
- 
+
 /* stylelint-disable */
 [theme=web-theme] {
   --devsite-primary-color:#3740ff;
@@ -1943,7 +1943,7 @@ devsite-topic .devsite-topic--section:first-child() {
 /* stylelint-enable */
 
 /*# sourceMappingURL=devsite.css.map */
- 
+
 /* stylelint-disable */
 /* fallback Material Icons */
 @font-face {
@@ -2478,7 +2478,7 @@ devsite-topic .devsite-topic--section:first-child() {
   /* stylelint-enable */
 
   /*# sourceMappingURL=devsite-theme.css.map */
- 
+
 /* uncss:ignore start */
 
 .google-blue {
@@ -2766,6 +2766,10 @@ body[theme="dark"] {
     color: var(--devsite-button-color) !important;
 }
 
+[theme="dark"] .home-social a {
+    color: #fff !important;
+}
+
 body[theme="black"] {
     color: var(--devsite-primary-text-color) !important;
     background-color: var(--devsite-background-1) !important;
@@ -2812,5 +2816,8 @@ body[theme="black"] {
     color: var(--devsite-button-color) !important;
 }
 
+[theme="black"] .home-social a {
+    color: #fff !important;
+}
 /* uncss:ignore end */
 

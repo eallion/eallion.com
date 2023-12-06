@@ -285,6 +285,10 @@ body[theme="dark"] {
     color: var(--devsite-button-color) !important;
 }
 
+[theme="dark"] .home-social a {
+    color: #fff !important;
+}
+
 body[theme="black"] {
     color: var(--devsite-primary-text-color) !important;
     background-color: var(--devsite-background-1) !important;
@@ -331,4 +335,7 @@ body[theme="black"] {
     color: var(--devsite-button-color) !important;
 }
 
+[theme="black"] .home-social a {
+    color: #fff !important;
+}
 /* uncss:ignore end */
