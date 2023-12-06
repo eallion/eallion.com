@@ -9,7 +9,7 @@ comment: false
 
 <div class="greyQuote">
     <blockquote>
-        <span id="zen">Chance favors the prepared mind.</span> - <span id="githubZen"><cite>GitHub Zen</cite></span>
+        <span id="zen">Chance favors the prepared mind.</span> - <span id="githubZen"><cite>Louis Pasteur</cite></span>
     </blockquote>
 </div>
 

@@ -56,6 +56,10 @@ header:hover {
     font-size: 1.25rem !important;
 }
 
+#hero {
+    min-height: calc(100vh - 5rem);
+}
+
 [theme="web-theme"] .dcc-hero .button {
     margin: 0.125rem !important;
 }
