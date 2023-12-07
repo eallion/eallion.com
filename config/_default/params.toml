@@ -118,10 +118,10 @@ cacheRemoteImages = false
   # recently updated posts settings
   # 最近更新文章设置
   [section.recentlyUpdated]
-    enable = false
+    enable = true
     rss = true
     days = 30
-    maxCount = 10
+    maxCount = 5
 
 # List (category or tag) page config
 # List (目录或标签) 页面配置
