@@ -199,30 +199,11 @@
             <div class="movies sorting" data-marked="{{ .created_time }}" data-year='{{  dateFormat "2006-01-02 15:04:05" .created_time }}' data-star="{{ .rating_grade }}" data-rating="{{ .item.rating }}" data-count="{{ .item.rating_count }}">
                     <div class="cover">
                         <div class="cover__container">
-                            {{ range .item.external_resources }}
-                                {{ if (in .url "douban") }}
-                                    <a href="{{ .url }}" target="_blank" rel="noreferrer noopener nofollow"><img alt="{{ $title }}" class="lazy" loading="lazy" data-src="/assets/images/movie/cover/{{ $cover_name }}" no-view></a>
-                                {{ end }}
-                            {{ end }}
+                            <a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow"><img alt="{{ $title }}" class="lazy" loading="lazy" data-src="/assets/images/movie/cover/{{ $cover_name }}" no-view></a>
                         </div>
                     </div>
                     <div class="title">
-                        {{ $hasDouban := false }}
-                        {{ range .item.external_resources }}
-                            {{ if (in .url "douban") }}
-                                {{ $hasDouban = true }}
-                                <a href="{{ .url }}" target="_blank" rel="noreferrer noopener nofollow">
-                                    {{ $title }}
-                                </a>
-                                {{ end }}
-                            {{ end }}
-
-                            {{ if not $hasDouban }}
-                                <a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">
-                                    {{ $title }}
-                                </a>
-                            {{ end }}
-
+                        <a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">{{ $title }}</a>
                     </div>
                     <div class="rating">
 
