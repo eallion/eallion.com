@@ -18,6 +18,19 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    # 检查是否安装了 JQ
+    - name: Check JQ
+      run: |
+        if ! command -v jq &> /dev/null; then
+          echo "jq is not installed. Installing..."
+          sudo apt-get update
+          sudo apt-get install -y jq
+        else
+          echo "jq is already installed."
+        fi
+        # 把当前目录保存到环境变量中
+        echo "WORK_DIR=$(pwd)" >> $GITHUB_ENV
+
     # 下载最新的 Mastodon
     - name: Download Mastodon Status
       run: |
@@ -26,6 +39,7 @@ jobs:
         url="https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true"
         output="mastodon.json"
         curl -s "$url" >"$output"
+        echo "TAG_NAME=$(jq -r '.[0].tags[0].name' mastodon.json)" >> $GITHUB_ENV
 
     # 把修改后的数据提交到 GitHub 仓库
     - name: Git Add and Commit
@@ -37,8 +51,16 @@ jobs:
         add: |
           './data/mastodon'
 
+    # 调用另外的 GitHub Actions
+    - name: Sync NeoDB Data
+      if: ${{ env.TAG_NAME == '观影' }}
+      uses: peter-evans/repository-dispatch@v2
+      with:
+          event-type: sync-neodb
+
     # 调用另外的 GitHub Actions 构建 Hugo
     - name: Build Hugo and Deploy
+      if: ${{ env.TAG_NAME != '观影' }}
       uses: peter-evans/repository-dispatch@v2
       with:
           event-type: build-hugo

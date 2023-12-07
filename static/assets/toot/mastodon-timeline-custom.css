@@ -307,6 +307,11 @@
     padding: 0 !important;
 }
 
+.toot-text p svg {
+    display: inline-block;
+    vertical-align: -0.125rem;
+}
+
 .mt-error {
     position: relative;
     color: var(--mt-error-text-color);
