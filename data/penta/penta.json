@@ -1,6 +1,22 @@
 {
   "penta": [
     {
+      "src": "/assets/images/penta/screenshot/20231210-Akshan.webp",
+      "alt": "20231210-Akshan",
+      "champion": "Akshan",
+      "date": "2023/12/10",
+      "caption": "影哨 阿克尚",
+      "heroId": "166"
+    },
+    {
+      "src": "/assets/images/penta/screenshot/20231210-Lucian.webp",
+      "alt": "20231210-Lucian",
+      "champion": "Lucian",
+      "date": "2023/12/10",
+      "caption": "圣枪游侠 卢锡安",
+      "heroId": "236"
+    },
+    {
       "src": "/assets/images/penta/screenshot/20231209-Samira.webp",
       "alt": "20231209-Samira",
       "champion": "Samira",
