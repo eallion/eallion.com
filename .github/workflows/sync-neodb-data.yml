@@ -56,7 +56,7 @@ jobs:
     # 对比本地的 UUID 和远程 UUID，相等就跳过，不相等就下载新数据
     - name: UUID Compare
       run: |
-        if [ "${{ env.REMOTE_UUID }}" != "${{ env.CURRENT_UUID }}" ]; then
+        if [ ${{ env.REMOTE_UUID }} != ${{ env.CURRENT_UUID }} ]; then
           echo "Variables are not equal. Running the next steps."
         else
           echo "Variables are equal. Skipping the next steps."
