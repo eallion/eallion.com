@@ -31,54 +31,52 @@ jobs:
         # 把当前目录保存到环境变量中
         echo "WORK_DIR=$(pwd)" >> $GITHUB_ENV
 
-    # 获取本地现有文件的标记数
-    - name: Get Current Count
+    # 获取本地现有文件中最新的 UUID
+    - name: Get Local Current UUID
       run: |
-        CURRENT_COUNT() {
-          jq '.data | length' data/neodb/movie.json
+        CURRENT_UUID() {
+          jq '.data[0].item.uuid' data/neodb/movie.json
         }
-        echo "CURRENT_COUNT=$(CURRENT_COUNT)" >> $GITHUB_ENV
+        echo "CURRENT_UUID=$(CURRENT_UUID)" >> $GITHUB_ENV
 
-    - name: Get NeoDB JSON and Count
+    # 获取远程最新的 UUID
+    - name: Get NeoDB Latest UUID
+      run: |
+        curl -X 'GET' \
+        'https://neodb.social/api/me/shelf/complete?page=1' \
+        -H 'accept: application/json' \
+        -H 'Authorization: Bearer ${{ secrets.NEODB_ACCESS_TOKEN }}' > neodb1.json
+
+        # 获取 NeoDB 上电影的标记数
+        REMOTE_UUID() {
+          jq '.data[0].item.uuid' neodb1.json
+        }
+        echo "REMOTE_UUID=$(REMOTE_UUID)" >> $GITHUB_ENV
+
+    # 对比本地的 UUID 和远程 UUID，相等就跳过，不相等就下载新数据
+    - name: UUID Compare
+      run: |
+        if [ "${{ env.REMOTE_UUID }}" != "${{ env.CURRENT_UUID }}" ]; then
+          echo "Variables are not equal. Running the next steps."
+        else
+          echo "Variables are equal. Skipping the next steps."
+          exit 0
+        fi
+
+    # 下载所有数据
+    - name: Get All NeoDB
+      if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
       run: |
         curl -X 'GET' \
         'https://neodb.social/api/me/shelf/complete?category=movie&page=1' \
         -H 'accept: application/json' \
         -H 'Authorization: Bearer ${{ secrets.NEODB_ACCESS_TOKEN }}' > movie1.json
 
-        # 获取 NeoDB 上电影的标记数
-        MOVIE_COUNT() {
-          jq '.count' movie1.json
-        }
-        echo "MOVIE_COUNT=$(MOVIE_COUNT)" >> $GITHUB_ENV
-
         curl -X 'GET' \
         'https://neodb.social/api/me/shelf/complete?category=tv&page=1' \
         -H 'accept: application/json' \
         -H 'Authorization: Bearer ${{ secrets.NEODB_ACCESS_TOKEN }}' > tv1.json
 
-        # 获取 NeoDB 上电视剧的标记数
-        TV_COUNT() {
-          jq '.count' tv1.json
-        }
-
-        REMOTE_COUNT=$(($(MOVIE_COUNT) + $(TV_COUNT)))
-        echo "REMOTE_COUNT=$REMOTE_COUNT" >> $GITHUB_ENV
-
-    # 对比本地的标记数和远程标记数，相等就跳过，不相等就下载新数据
-    - name: Count Compare
-      run: |
-        if [ "${{ env.REMOTE_COUNT }}" = "${{ env.CURRENT_COUNT }}" ]; then
-          echo "Variables are equal. Skipping the next steps."
-          exit 0
-        else
-          echo "Variables are not equal. Running the next steps."
-        fi
-
-    # 下载所有数据
-    - name: Get All NeoDB Count
-      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
-      run: |
         #从 json 中提取 pages 字段的值
         pages=$(jq '.pages' movie1.json)
         tv_pages=$(jq '.pages' tv1.json)
@@ -115,7 +113,7 @@ jobs:
         cp -f movie.json ${{ env.WORK_DIR }}/data/neodb/
 
     - name: Download NeoDB Cover
-      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
+      if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
       run: |
         # 检查 movie 目录是否存在，如果不存在则创建
         if [ ! -d "movie" ]; then
@@ -139,13 +137,13 @@ jobs:
             # 使用 curl 命令下载图片
             curl -o "$filepath" "$url"
             echo "Downloaded $filename"
-            echo "REMOTE_COUNT=''" >> $GITHUB_ENV
+            echo "REMOTE_UUID=''" >> $GITHUB_ENV
           fi
         done
 
     # 把修改后的数据提交到 GitHub 仓库
     - name: Git Add and Commit
-      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
+      if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
       uses: EndBug/add-and-commit@v9
       with:
         message: 'chore(data): update neodb data'
@@ -155,28 +153,16 @@ jobs:
           './data/neodb'
           './static/assets/images/movie/cover'
 
-
     # 调用另外的 GitHub Actions 构建 Hugo
     - name: Build Hugo and Deploy
-      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
+      if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
       uses: peter-evans/repository-dispatch@v2
       with:
           event-type: build-hugo
 
-    # # 把海报上传到腾讯云
-    # - name: Upload Cover to Tencent COS
-    #   if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
-    #   uses: zkqiang/tencent-cos-action@v0.1.0
-    #   with:
-    #     args: upload -rs ./data/neodb/cover/ /images/neodb/
-    #     secret_id: ${{ secrets.SECRET_COS_ID }}
-    #     secret_key: ${{ secrets.SECRET_COS_KEY }}
-    #     bucket: ${{ secrets.COS_CDN_BUCKET }}
-    #     region: ap-shanghai
-
     # 同步新海报到 s3
     - name: Sync Cover to static s3
-      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
+      if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
       run: |
         git clone https://github.com/eallion/static tmp
         cp -rn ${{ env.WORK_DIR }}/static/assets/images/movie/cover/* ${{ env.WORK_DIR }}/tmp/images/neodb/
