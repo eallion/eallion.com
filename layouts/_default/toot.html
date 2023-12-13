@@ -50,17 +50,26 @@
                                         <div>
                                             <p>{{ $content | markdownify }}</p>
                                         </div>
-                                        {{- $firstAttachment := index .media_attachments 0 -}}
-                                        {{- $length := len .media_attachments }}
-                                        {{- if $firstAttachment -}}
-                                            <div class="toot-images grid-{{ $length }}" view-image>
-                                            {{- range .media_attachments -}}
-                                            {{- if .url -}}
-                                                <img loading="lazy" class="lazy" src="{{.preview_url}}" data-src="{{.url}}" alt="{{.id}}"/>
-                                            {{- end -}}
-                                            {{- end -}}
-                                            </div>
-                                        {{- end -}}
+                                        {{ $attachments := .media_attachments }}
+                                        {{ if gt (len $attachments) 0 }}
+                                            {{- $firstAttachment := index $attachments 0 -}}
+                                            {{- $type := $firstAttachment.type -}}
+                                            {{- $length := len .media_attachments }}
+                                            {{ if eq $type "image" }}
+                                                <div class="toot-images grid-{{ $length }}" view-image>
+                                                    {{ range .media_attachments }}
+                                                    <img loading="lazy" class="lazy" src="{{.preview_url}}" data-src="{{.url}}" alt="{{.id}}" />
+                                                    {{ end }}
+                                                </div>
+                                            {{ else if eq $type "video" }}
+                                                {{ range .media_attachments }}
+                                                <video controls muted no-view>
+                                                    <source src="{{ .url }}" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                                {{ end }}
+                                            {{ end }}
+                                        {{ end }}
                                     </div>
                                     <div class="toot-footer">
                                         <div class="mt-bar">
@@ -107,17 +116,26 @@
                                         <div>
                                             <p>{{ $content | markdownify }}</p>
                                         </div>
-                                        {{- $firstAttachment := index .media_attachments 0 -}}
-                                        {{- $length := len .media_attachments }}
-                                        {{- if $firstAttachment -}}
-                                            <div class="toot-images grid-{{ $length }}" view-image>
-                                            {{- range .media_attachments -}}
-                                            {{- if .url -}}
-                                                <img loading="lazy" class="lazy" src="{{.preview_url}}" data-src="{{.url}}" alt="{{.id}}"/>
-                                            {{- end -}}
-                                            {{- end -}}
-                                            </div>
-                                        {{- end -}}
+                                        {{ $attachments := .media_attachments }}
+                                        {{ if gt (len $attachments) 0 }}
+                                            {{- $firstAttachment := index $attachments 0 -}}
+                                            {{- $type := $firstAttachment.type -}}
+                                            {{- $length := len .media_attachments }}
+                                            {{ if eq $type "image" }}
+                                                <div class="toot-images grid-{{ $length }}" view-image>
+                                                    {{ range .media_attachments }}
+                                                    <img loading="lazy" class="lazy" src="{{.preview_url}}" data-src="{{.url}}" alt="{{.id}}" />
+                                                    {{ end }}
+                                                </div>
+                                            {{ else if eq $type "video" }}
+                                                {{ range .media_attachments }}
+                                                <video controls muted no-view>
+                                                    <source src="{{ .url }}" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                                {{ end }}
+                                            {{ end }}
+                                        {{ end }}
                                     </div>
                                     <div class="toot-footer">
                                         <div class="mt-bar">
