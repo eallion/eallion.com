@@ -53,14 +53,14 @@ jobs:
 
     # 调用另外的 GitHub Actions
     - name: Sync NeoDB Data
-      if: ${{ env.TAG_NAME == '观影' }}
+      if: ${{ env.TAG_NAME == 'NeoDB' }}
       uses: peter-evans/repository-dispatch@v2
       with:
           event-type: sync-neodb
 
     # 调用另外的 GitHub Actions 构建 Hugo
     - name: Build Hugo and Deploy
-      if: ${{ env.TAG_NAME != '观影' }}
+      if: ${{ env.TAG_NAME != 'NeoDB' }}
       uses: peter-evans/repository-dispatch@v2
       with:
           event-type: build-hugo
