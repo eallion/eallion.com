@@ -36,7 +36,7 @@ jobs:
       run: |
         cd data/mastodon/
         rm mastodon.json
-        url="https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true"
+        url="https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true&exclude_reblogs=true"
         output="mastodon.json"
         curl -s "$url" >"$output"
         echo "TAG_NAME=$(jq -r '.[0].tags[0].name' mastodon.json)" >> $GITHUB_ENV
