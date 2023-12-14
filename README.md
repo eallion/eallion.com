@@ -45,7 +45,7 @@
 
 #### 添加备份仓库 Remote
 
-> **Note**
+> [!TIP]
 > Remote url 传递 id:token 免输各个 git 仓库的账号密码
 
 ```bash
