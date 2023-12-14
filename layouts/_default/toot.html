@@ -79,7 +79,7 @@
                                                 <div class="toot-visibility" title="公开"><i class="fas fa-globe-asia"></i></div>
                                                 <div class="toot-app"><a href="{{- .application.website | default "https://e5n.cc" -}}"
                                                         rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复">{{-
-                                                        .application.name -}}</a></div>
+                                                        .application.name | default "Web" -}}</a></div>
                                             </div>
                                             <div class="toot-reply"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
                                                     target="_blank" title="回复" alt="回复"><i class="fas fa-reply"></i></a>{{- .replies_count -}}</div>
