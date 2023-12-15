@@ -165,8 +165,8 @@ jobs:
       if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
       run: |
         git clone https://github.com/eallion/static tmp
-        cp -rn ${{ env.WORK_DIR }}/static/assets/images/movie/cover/* ${{ env.WORK_DIR }}/tmp/images/neodb/
-        cd ${{ env.WORK_DIR }}/tmp
+        cp -rn static/assets/images/movie/cover/* tmp/images/neodb/
+        cd tmp
         git config user.name "eallion"
         git config user.email "eallions@gmail.com"
         git remote set-url --add --push origin https://eallion:${{ secrets.PICLIST_GITHUB_TOKEN }}@github.com/eallion/static.git
