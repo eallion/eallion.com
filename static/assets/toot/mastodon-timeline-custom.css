@@ -368,11 +368,13 @@
 }
 
 .toot-app {
+    color: var(--mt-header-color) !important;
     display: flex;
     align-items: center;
 }
 
 .toot-app a {
+    color: var(--mt-header-color) !important;
     font-size: 0.875rem !important;
     color: var(--mt-header-color) !important;
 }
