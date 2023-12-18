@@ -274,20 +274,28 @@ $posts := .Site.Params.home.posts -}}
                                                     <div class="ticker-wrap">
                                                         <ul class="ticker-list">
                                                             {{- $mastodon_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true" -}}
-                                                            {{- $mastodon_local := "data/mastodon/mastodon.json" -}}
+                                                            {{- $mastodon_local := "data/mastodon/mastodon1.json" -}}
                                                             {{- with resources.GetRemote $mastodon_api -}}
                                                                 {{- with .Err -}}
                                                                 {{- $ticker := getJSON $mastodon_local}}
                                                                     {{- range $ticker -}}
+                                                                    {{ $content := .content }}
+                                                                    {{ $content := $content | replaceRE ":star_solid:" "★" }}
+                                                                    {{ $content := $content | replaceRE ":star_half:" "★" }}
+                                                                    {{ $content := $content | replaceRE ":star_empty:" "☆" }}
                                                                         <li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>嘀咕：<a href="/toot/"
-                                                                                aria-label="toot">{{- .content | plainify -}}</a></span><span>[<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span class="datetime"
+                                                                                aria-label="toot">{{- $content  | plainify -}}</a></span><span>[<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span class="datetime"
                                                                                     title="{{- .created_at -}}">{{- .created_at -}}</span></a>]</span></li>
                                                                     {{- end -}}
                                                                 {{- else -}}
                                                                 {{- $ticker := getJSON $mastodon_api}}
                                                                     {{- range $ticker -}}
+                                                                    {{ $content := .content }}
+                                                                    {{ $content := $content | replaceRE ":star_solid:" "★" }}
+                                                                    {{ $content := $content | replaceRE ":star_half:" "★" }}
+                                                                    {{ $content := $content | replaceRE ":star_empty:" "☆" }}
                                                                         <li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>嘀咕：<a href="/toot/"
-                                                                                aria-label="toot">{{- .content | plainify -}}</a></span><span>[<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span class="datetime"
+                                                                                aria-label="toot">{{- $content  | plainify -}}</a></span><span>[<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span class="datetime"
                                                                                     title="{{- .created_at -}}">{{- .created_at -}}</span></a>]</span></li>
                                                                     {{- end -}}
                                                                 {{- end -}}
