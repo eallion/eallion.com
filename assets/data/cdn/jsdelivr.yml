@@ -80,9 +80,9 @@ libFiles:
   tablesort: "tablesort@5.3.0/src/tablesort.min.js"
 
   # artalk
-  artalkJS: "artalk@2.6.4/dist/Artalk.js"
-  artalkCSS: "artalk@2.6.4/dist/Artalk.css"
-  artalkLiteJS: "artalk@2.6.4/dist/ArtalkLite.js"
-  artalkLiteCSS: "artalk@2.6.4/dist/ArtalkLite.css"
+  artalkJS: "artalk@2.7.2/dist/Artalk.js"
+  artalkCSS: "artalk@2.7.2/dist/Artalk.css"
+  artalkLiteJS: "artalk@2.7.2/dist/ArtalkLite.js"
+  artalkLiteCSS: "artalk@2.7.2/dist/ArtalkLite.css"
   artalkPluginKaTeXJS: "@artalk/plugin-katex@0.1.5/dist/artalk-plugin-katex.js"
   artalkPluginLightboxJS: "@artalk/plugin-lightbox@0.1.1/dist/artalk-plugin-lightbox.js"
