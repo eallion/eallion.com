@@ -274,7 +274,7 @@ $posts := .Site.Params.home.posts -}}
                                                     <div class="ticker-wrap">
                                                         <ul class="ticker-list">
                                                             {{- $mastodon_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true" -}}
-                                                            {{- $mastodon_local := "data/mastodon/mastodon1.json" -}}
+                                                            {{- $mastodon_local := "data/mastodon/mastodon.json" -}}
                                                             {{- with resources.GetRemote $mastodon_api -}}
                                                                 {{- with .Err -}}
                                                                 {{- $ticker := getJSON $mastodon_local}}
