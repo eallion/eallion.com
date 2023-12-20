@@ -141,6 +141,16 @@ jobs:
           fi
         done
 
+    # 更新电影详情
+    - name: Set up Python
+      if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+        run: |
+          pip install requests
+          python scripts/movie_details.py
+
     # 把修改后的数据提交到 GitHub 仓库
     - name: Git Add and Commit
       if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
