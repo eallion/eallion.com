@@ -280,9 +280,9 @@ $posts := .Site.Params.home.posts -}}
                                                                 {{- $ticker := getJSON $mastodon_local}}
                                                                     {{- range $ticker -}}
                                                                     {{ $content := .content }}
-                                                                    {{ $content := $content | replaceRE ":star_solid:" "★" }}
-                                                                    {{ $content := $content | replaceRE ":star_half:" "★" }}
-                                                                    {{ $content := $content | replaceRE ":star_empty:" "☆" }}
+                                                                    {{ $content := $content | replaceRE ":star_solid:" "" }}
+                                                                    {{ $content := $content | replaceRE ":star_half:" "" }}
+                                                                    {{ $content := $content | replaceRE ":star_empty:" "" }}
                                                                         <li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>嘀咕：<a href="/toot/"
                                                                                 aria-label="toot">{{- $content  | plainify -}}</a></span><span>[<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span class="datetime"
                                                                                     title="{{- .created_at -}}">{{- .created_at -}}</span></a>]</span></li>
@@ -291,9 +291,9 @@ $posts := .Site.Params.home.posts -}}
                                                                 {{- $ticker := getJSON $mastodon_api}}
                                                                     {{- range $ticker -}}
                                                                     {{ $content := .content }}
-                                                                    {{ $content := $content | replaceRE ":star_solid:" "★" }}
-                                                                    {{ $content := $content | replaceRE ":star_half:" "★" }}
-                                                                    {{ $content := $content | replaceRE ":star_empty:" "☆" }}
+                                                                    {{ $content := $content | replaceRE ":star_solid:" "" }}
+                                                                    {{ $content := $content | replaceRE ":star_half:" "" }}
+                                                                    {{ $content := $content | replaceRE ":star_empty:" "" }}
                                                                         <li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>嘀咕：<a href="/toot/"
                                                                                 aria-label="toot">{{- $content  | plainify -}}</a></span><span>[<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span class="datetime"
                                                                                     title="{{- .created_at -}}">{{- .created_at -}}</span></a>]</span></li>
