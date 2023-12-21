@@ -107,6 +107,16 @@
         color: #ff9800;
     }
 
+    .details h2 span {
+        line-height: 1.5!important;
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    .details h2 span i {
+        margin-right: 0.5rem;
+    }
+
     .rating,
     .rating_star,
     .rating_full,
@@ -311,7 +321,7 @@
                     <img alt="{{- $title -}}" class="lazy" loading="lazy" src="/assets/images/movie/cover/{{- $cover_name -}}" data-src="/assets/images/movie/cover/{{- $cover_name -}}" no-view>
                 </div>
                 <div class="details">
-                    <h2><a href="https://neodb.social{{- $movie_url -}}" target="_blank" rel="noreferrer noopener nofollow">{{- $title -}}</a><br><span>{{- $orig_title | default $title -}} ({{- $year -}})</span></h2>
+                    <h2><a href="https://neodb.social{{- $movie_url -}}" target="_blank" rel="noreferrer noopener nofollow">{{- $title -}}</a><br><span>{{- if eq .category $cate_movie -}}<i class="fas fa-film fa-fw"></i>{{- else if eq .category $cate_tv -}}<i class="fas fa-tv fa-xs"></i>{{- end -}}{{- $orig_title | default $title -}} ({{- $year -}})</span></h2>
 
                     <div class="rating">
                         <div class="rating_star">
