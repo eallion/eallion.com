@@ -84,5 +84,5 @@ libFiles:
   artalkCSS: "artalk@2.7.2/dist/Artalk.css"
   artalkLiteJS: "artalk@2.7.2/dist/ArtalkLite.js"
   artalkLiteCSS: "artalk@2.7.2/dist/ArtalkLite.css"
-  artalkPluginKaTeXJS: "@artalk/plugin-katex@0.1.5/dist/artalk-plugin-katex.js"
-  artalkPluginLightboxJS: "@artalk/plugin-lightbox@0.1.1/dist/artalk-plugin-lightbox.js"
+  artalkPluginKaTeXJS: "@artalk/plugin-katex@0.1.6/dist/artalk-plugin-katex.js"
+  artalkPluginLightboxJS: "@artalk/plugin-lightbox@0.1.2/dist/artalk-plugin-lightbox.js"
