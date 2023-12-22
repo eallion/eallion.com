@@ -532,7 +532,7 @@ main:focus {
 }
 
 /*# sourceMappingURL=home.css.map */
- 
+
 /* stylelint-disable */
 [theme=web-theme] {
   --devsite-primary-color:#3740ff;
@@ -1953,7 +1953,7 @@ devsite-topic .devsite-topic--section:first-child() {
 /* stylelint-enable */
 
 /*# sourceMappingURL=devsite.css.map */
- 
+
 /* stylelint-disable */
 /* fallback Material Icons */
 @font-face {
@@ -2468,7 +2468,7 @@ devsite-topic .devsite-topic--section:first-child() {
   /* stylelint-enable */
 
   /*# sourceMappingURL=devsite-theme.css.map */
- 
+
 /* uncss:ignore start */
 
 .google-blue {
@@ -2615,7 +2615,7 @@ header:hover {
     border-radius:4px;
 }
 
-#movies .card:hover .details {
+#movies .card:hover .movieDetails {
     bottom: 0;
     transition: all .5s;
 }
@@ -2656,7 +2656,7 @@ header:hover {
     transition: .5s;
 }
 
-#movies .details {
+#movies .movieDetails {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -2672,7 +2672,7 @@ header:hover {
     transition: all .4s ease;
 }
 
-#movies .details h2 {
+#movies .movieDetails h2 {
     text-align: left;
     color: #fff;
     font-size: 20px;
@@ -2681,28 +2681,28 @@ header:hover {
     margin-bottom: 1rem;
 }
 
-#movies .details h2 a {
+#movies .movieDetails h2 a {
     color: #006bee !important;
     text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 
 
-#movies .details h2 a:hover {
+#movies .movieDetails h2 a:hover {
     color: #ef3982 !important;
 }
 
-#movies .details span {
+#movies .movieDetails span {
     font-size: .875rem;
     color: #ff9800;
 }
 
-#movies .details h2 span {
+#movies .movieDetails h2 span {
     line-height: 1.5!important;
     display: table-cell;
     vertical-align: top;
 }
 
-#movies .details h2 span i {
+#movies .movieDetails h2 span i {
     margin-right: 0.5rem;
 }
 
