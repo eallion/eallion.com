@@ -280,6 +280,21 @@ other ="评分人数"
 [movie_count_text]
 other ="人评分"
 
+[movie_desc]
+other ="我的 <a href='https://neodb.social/users/eallion@e5n.cc/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB <i class='fas fa-external-link-alt'></i></a> 观影记录 ✨"
+
+[movie_normal]
+other ="常规"
+
+[movie_web_full_screen]
+other ="网页全屏"
+
+[movie_browser_full_screen]
+other ="全屏"
+
+[movie_exit_full_screen]
+other ="退出全屏"
+
 [penta_quote]
 other = "我的 LOL 五杀。有 TGP（WeGame）后才开始记录的自动五杀截图。"
 
