@@ -28,7 +28,7 @@
         border-radius:4px;
     }
 
-    .card:hover .details {
+    .card:hover .movieDetails {
         bottom: 0;
         transition: all .5s;
     }
@@ -69,7 +69,7 @@
         transition: .5s;
     }
 
-    .details {
+    .movieDetails {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -85,35 +85,35 @@
         transition: all .4s ease;
     }
 
-    .details h2 {
+    .movieDetails h2 {
         color: #fff;
         font-size: 20px;
         margin: 0;
         padding: 0;
     }
 
-    .details h2 a {
+    .movieDetails h2 a {
         color: #006bee !important;
         text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
     }
 
 
-    .details h2 a:hover {
+    .movieDetails h2 a:hover {
         color: #ef3982 !important;
     }
 
-    .details span {
+    .movieDetails span {
         font-size: .875rem;
         color: #ff9800;
     }
 
-    .details h2 span {
+    .movieDetails h2 span {
         line-height: 1.5!important;
         display: table-cell;
         vertical-align: top;
     }
 
-    .details h2 span i {
+    .movieDetails h2 span i {
         margin-right: 0.5rem;
     }
 
@@ -262,7 +262,7 @@
             height: 180px;
         }
 
-        .details {
+        .movieDetails {
             display: none;
         }
     }
@@ -275,13 +275,13 @@
             height: 200px;
         }
 
-        .details {
+        .movieDetails {
             display: none;
         }
     }
     /* // 页面宽度大于900样式    */
     @media (min-width:900px){
-        .details {
+        .movieDetails {
             display: flex;
         }
     }
@@ -320,7 +320,7 @@
                 <div class="poster">
                     <img alt="{{- $title -}}" class="lazy" loading="lazy" src="/assets/images/movie/cover/{{- $cover_name -}}" data-src="/assets/images/movie/cover/{{- $cover_name -}}" no-view>
                 </div>
-                <div class="details">
+                <div class="movieDetails">
                     <h2><a href="https://neodb.social{{- $movie_url -}}" target="_blank" rel="noreferrer noopener nofollow">{{- $title -}}</a><br><span>{{- if eq .category $cate_movie -}}<i class="fas fa-film fa-fw"></i>{{- else if eq .category $cate_tv -}}<i class="fas fa-tv fa-xs"></i>{{- end -}}{{- $orig_title | default $title -}} ({{- $year -}})</span></h2>
 
                     <div class="rating">

@@ -1,7 +1,9 @@
-{{- define "content" -}} {{- $params := .Scratch.Get "params" -}} {{- $profile := .Site.Params.home.profile -}} {{-
-$posts := .Site.Params.home.posts -}}
-<meta name="referrer" content="no-referrer">
-<div class="page home" {{- if ne $posts.enable false | or .Content -}} posts{{- end -}}>
+{{- define "content" -}}
+    {{- $params := .Scratch.Get "params" -}}
+    {{- $profile := .Site.Params.home.profile -}}
+    {{- $posts := .Site.Params.home.posts -}}
+
+    <div class="page home"{{ if ne $posts.enable false | or .Content }} posts{{ end }}>
 
     <link rel="stylesheet" href="/assets/chromedev/css/dist/chrome.min.css?v=20231221" />
 
@@ -578,7 +580,7 @@ $posts := .Site.Params.home.posts -}}
                                                 <div class="poster">
                                                     <img alt="{{- $title -}}" class="lazy" loading="lazy" src="/assets/images/movie/cover/{{- $cover_name -}}" data-src="/assets/images/movie/cover/{{- $cover_name -}}" no-view>
                                                 </div>
-                                                <div class="details">
+                                                <div class="movieDetails">
                                                     <h2><a href="https://neodb.social{{- $movie_url -}}" target="_blank" rel="noreferrer noopener nofollow">{{- $title -}}</a><br><span>{{- $orig_title | default $title -}} ({{- $year -}})</span></h2>
 
                                                     <div class="rating">
