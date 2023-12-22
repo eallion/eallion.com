@@ -1,5 +1,5 @@
 ---
-title: "NeoDB Watched"
+title: "Watched"
 images: ["/assets/images/og/movie.png"]
 layout: "movie"
 type: 'movie'
