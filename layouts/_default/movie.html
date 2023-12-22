@@ -255,6 +255,7 @@
 
     .movie-title {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
         line-height: 1.6;
@@ -263,6 +264,7 @@
 
     .movie-title-meta {
         display: flex;
+        flex-wrap: wrap;
         align-items: flex-end;
     }
 
@@ -355,7 +357,7 @@
         color: #006bee;
         background: #f8f8f8;
     }
-    
+
     .toggle-full-screen svg {
         margin-right: 0.25rem;
     }
@@ -389,6 +391,10 @@
         }
 
         .movie_details {
+            display: none;
+        }
+
+        .full-screen {
             display: none;
         }
     }
