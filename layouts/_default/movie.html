@@ -11,7 +11,6 @@
 
 <style>
     .movie {
-        margin-top: 1.5rem;
         width: 100vw;
         margin-left: calc(50% - 50vw);
         display: grid;
@@ -28,7 +27,7 @@
         border-radius:4px;
     }
 
-    .card:hover .movieDetails {
+    .card:hover .movie_details {
         bottom: 0;
         transition: all .5s;
     }
@@ -69,7 +68,7 @@
         transition: .5s;
     }
 
-    .movieDetails {
+    .movie_details {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -85,35 +84,35 @@
         transition: all .4s ease;
     }
 
-    .movieDetails h2 {
+    .movie_details h2 {
         color: #fff;
         font-size: 20px;
         margin: 0;
         padding: 0;
     }
 
-    .movieDetails h2 a {
+    .movie_details h2 a {
         color: #006bee !important;
         text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
     }
 
 
-    .movieDetails h2 a:hover {
+    .movie_details h2 a:hover {
         color: #ef3982 !important;
     }
 
-    .movieDetails span {
+    .movie_details span {
         font-size: .875rem;
         color: #ff9800;
     }
 
-    .movieDetails h2 span {
+    .movie_details h2 span {
         line-height: 1.5!important;
         display: table-cell;
         vertical-align: top;
     }
 
-    .movieDetails h2 span i {
+    .movie_details h2 span i {
         margin-right: 0.5rem;
     }
 
@@ -250,6 +249,95 @@
         width: 100%;
     }
 
+    .single-title {
+        margin: 1rem 0 !important;
+    }
+
+    .movie-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .movie-title-meta {
+        display: flex;
+    }
+
+    .movie-description {
+        display: flex;
+        align-items: center;
+        margin-left: 0.5rem;
+    }
+
+    .full-screen,
+    .original-screen,
+    .normal-screen,
+    .web-full-screen,
+    .browser-full-screen {
+        display: flex;
+        align-items: center;
+    }
+
+    .full-screen {
+        gap: 10px;
+        font-size: 1rem;
+    }
+
+    .full-screen:hover {
+        cursor: pointer;
+    }
+
+    .movie-normal {
+        width: 100%;
+        margin-left: auto;
+    }
+
+    .movie-mt {
+        margin-top: -3rem;
+    }
+
+    .movie-hide-header {
+        display: none !important;
+    }
+
+    .movie-hide-title {
+        display: none;
+    }
+
+    .toggle-full-screen {
+        display: none;
+        align-items: center;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        padding: 10px;
+        border-radius: 9999px;
+        border-width: 4px;
+        border-color: #006bee;
+        height: 3rem;
+        color: #006bee;
+        background: #f8f8f8;
+        text-align: center;
+        cursor: pointer;
+        z-index: 9999;
+    }
+
+    .exit-full-screen {
+        display: flex;
+        opacity: 0;
+        animation: showButton 0.5s ease forwards;
+    }
+
+    @keyframes showButton {
+        from {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
     /* // 页面宽度小于700样式 */
     @media (max-width:700px){
         .movie{
@@ -262,7 +350,7 @@
             height: 180px;
         }
 
-        .movieDetails {
+        .movie_details {
             display: none;
         }
     }
@@ -275,13 +363,13 @@
             height: 200px;
         }
 
-        .movieDetails {
+        .movie_details {
             display: none;
         }
     }
     /* // 页面宽度大于900样式    */
     @media (min-width:900px){
-        .movieDetails {
+        .movie_details {
             display: flex;
         }
     }
@@ -293,12 +381,24 @@
 {{ $movie_details := getJSON "data/neodb/movie_details.json" }}
 
 <article class="page single special">
-    <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
-    <div id="content" class="content movies">
-        <div class="greyQuote">
-            <blockquote>{{ T `movie_quote` | safeHTML }}</blockquote>
+    <div class="movie-title">
+        <div class="movie-title-meta">
+            <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
+            <div class="movie-description">我的 <a href="https://neodb.social/users/eallion@e5n.cc/" target="_blank" rel="noreferrer noopener nofollow">NeoDB</a> 观影记录 🎉</div>
         </div>
-        {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+        <div class="full-screen">
+            <div class="normal-screen"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24"><path fill="currentColor" d="M14 10V4h2v2.59l3.29-3.29l1.41 1.41L17.41 8H20v2zM4 10V8h2.59l-3.3-3.29l1.42-1.42L8 6.59V4h2v6zm16 4v2h-2.59l3.29 3.29l-1.41 1.41L16 17.41V20h-2v-6zm-10 0v6H8v-2.59l-3.29 3.3l-1.42-1.42L6.59 16H4v-2z"/></svg>常规</div>
+            <div class="web-full-screen"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24"><path fill="currentColor" d="M21 3v6h-2V6.41l-3.29 3.3l-1.42-1.42L17.59 5H15V3zM3 3v6h2V6.41l3.29 3.3l1.42-1.42L6.41 5H9V3zm18 18v-6h-2v2.59l-3.29-3.29l-1.41 1.41L17.59 19H15v2zM9 21v-2H6.41l3.29-3.29l-1.41-1.42L5 17.59V15H3v6z"/></svg>网页全屏</div>
+            <div class="browser-full-screen"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M18.5 5.5H16a1.5 1.5 0 0 1 0-3h3A2.5 2.5 0 0 1 21.5 5v3a1.5 1.5 0 0 1-3 0zM8 5.5H5.5V8a1.5 1.5 0 1 1-3 0V5A2.5 2.5 0 0 1 5 2.5h3a1.5 1.5 0 1 1 0 3m0 13H5.5V16a1.5 1.5 0 0 0-3 0v3A2.5 2.5 0 0 0 5 21.5h3a1.5 1.5 0 0 0 0-3m8 0h2.5V16a1.5 1.5 0 0 1 3 0v3a2.5 2.5 0 0 1-2.5 2.5h-3a1.5 1.5 0 0 1 0-3"/></g></svg>全屏</div>
+        </div>
+    </div>
+    <div class="toggle-full-screen"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 20 20"><path fill="currentColor" d="M3.4 2L2 3.4l2.8 2.8L3 8h5V3L6.2 4.8zm11.8 4.2L18 3.4L16.6 2l-2.8 2.8L12 3v5h5zM4.8 13.8L2 16.6L3.4 18l2.8-2.8L8 17v-5H3zM17 12h-5v5l1.8-1.8l2.8 2.8l1.4-1.4l-2.8-2.8z"/></svg>退出全屏</div>
+    <div id="content" class="content movies">
+        <!-- <div class="greyQuote">
+            <blockquote>{{ T `movie_quote` | safeHTML }}</blockquote>
+        </div> -->
+
+        <!-- {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}} -->
 
         <div class="movie">
 
@@ -320,7 +420,7 @@
                 <div class="poster">
                     <img alt="{{- $title -}}" class="lazy" loading="lazy" src="/assets/images/movie/cover/{{- $cover_name -}}" data-src="/assets/images/movie/cover/{{- $cover_name -}}" no-view>
                 </div>
-                <div class="movieDetails">
+                <div class="movie_details">
                     <h2><a href="https://neodb.social{{- $movie_url -}}" target="_blank" rel="noreferrer noopener nofollow">{{- $title -}}</a><br><span>{{- if eq .category $cate_movie -}}<i class="fas fa-film fa-fw"></i>{{- else if eq .category $cate_tv -}}<i class="fas fa-tv fa-xs"></i>{{- end -}}{{- $orig_title | default $title -}} ({{- $year -}})</span></h2>
 
                     <div class="rating">
@@ -397,6 +497,99 @@
     var lazyLoadInstance = new LazyLoad({
         // Your custom settings go here
     });
+</script>
+
+<script>
+    // 常规模式
+    const normalScreen = document.querySelector('.normal-screen');
+    const movie = document.querySelector('.movie');
+    normalScreen.addEventListener('click', () => {
+        movie.classList.toggle('movie-normal');
+
+    });
+
+    // 网页全屏
+    const webFullscreen = document.querySelector('.web-full-screen');
+    const headerDesktop = document.querySelector('.desktop');
+    const movieTitle = document.querySelector('.movie-title');
+    const toggleFullscreen = document.querySelector('.toggle-full-screen');
+    webFullscreen.addEventListener('click', () => {
+        movie.classList.add('movie-mt');
+        headerDesktop.classList.add('movie-hide-header');
+        movieTitle.classList.add('movie-hide-title');
+        toggleFullscreen.classList.add('exit-full-screen');
+    });
+    toggleFullscreen.addEventListener('click', () => {
+        movie.classList.remove('movie-mt');
+        headerDesktop.classList.remove('movie-hide-header');
+        movieTitle.classList.remove('movie-hide-title');
+        toggleFullscreen.classList.remove('exit-full-screen');
+    });
+
+    // 浏览器全屏
+    const fullscreenBtn = document.querySelector('.browser-full-screen');
+
+    // 点击切换全屏
+    fullscreenBtn.addEventListener('click', browserFullscreen);
+
+    // 按键监听
+    document.addEventListener('keydown', function(e) {
+        if (e.keyCode == 27 || e.keyCode == 122) {
+            exitFullscreen();
+        }
+    });
+
+    // 监听全屏变化
+    document.addEventListener('fullscreenchange', function() {
+        if (document.fullscreenElement) {
+            movie.classList.add('movie-mt');
+            headerDesktop.classList.add('movie-hide-header');
+            movieTitle.classList.add('movie-hide-title');
+        } else {
+            movie.classList.remove('movie-mt');
+            headerDesktop.classList.remove('movie-hide-header');
+            movieTitle.classList.remove('movie-hide-title');
+            toggleFullscreen.classList.remove('exit-full-screen');
+        }
+    });
+
+    // 切换全屏
+    function browserFullscreen() {
+        if (!document.fullscreenElement) {
+            // 进入全屏
+            document.documentElement.requestFullscreen();
+
+            // 添加样式 class
+            movie.classList.add('movie-mt');
+            headerDesktop.classList.add('movie-hide-header');
+            movieTitle.classList.add('movie-hide-title');
+
+        } else {
+            // 退出全屏
+            exitFullscreen();
+            movie.classList.remove('movie-mt');
+            headerDesktop.classList.remove('movie-hide-header');
+            movieTitle.classList.remove('movie-hide-title');
+            toggleFullscreen.classList.remove('exit-full-screen');
+        }
+    }
+
+    // 退出全屏
+    function exitFullscreen() {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+
+        // 移除样式 class
+        movie.classList.remove('movie-mt');
+        headerDesktop.classList.remove('movie-hide-header');
+        movieTitle.classList.remove('movie-hide-title');
+        toggleFullscreen.classList.remove('exit-full-screen');
+    }
 </script>
 
 {{ end }}
