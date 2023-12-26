@@ -240,6 +240,7 @@ header:hover {
 #movies .rating_full,
 #movies .rating_empty {
     display: flex;
+    align-items: center;
 }
 
 #movies .rating_star {

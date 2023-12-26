@@ -532,7 +532,7 @@ main:focus {
 }
 
 /*# sourceMappingURL=home.css.map */
-
+ 
 /* stylelint-disable */
 [theme=web-theme] {
   --devsite-primary-color:#3740ff;
@@ -1953,7 +1953,7 @@ devsite-topic .devsite-topic--section:first-child() {
 /* stylelint-enable */
 
 /*# sourceMappingURL=devsite.css.map */
-
+ 
 /* stylelint-disable */
 /* fallback Material Icons */
 @font-face {
@@ -2468,7 +2468,7 @@ devsite-topic .devsite-topic--section:first-child() {
   /* stylelint-enable */
 
   /*# sourceMappingURL=devsite-theme.css.map */
-
+ 
 /* uncss:ignore start */
 
 .google-blue {
@@ -2711,6 +2711,7 @@ header:hover {
 #movies .rating_full,
 #movies .rating_empty {
     display: flex;
+    align-items: center;
 }
 
 #movies .rating_star {
