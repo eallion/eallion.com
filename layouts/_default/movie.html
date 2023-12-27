@@ -284,6 +284,26 @@
         text-decoration: underline;
     }
 
+    .movie-footer {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .movie-play {
+        display: flex;
+        margin-left: auto;
+        align-self: center;
+        padding-right: 10px;
+    }
+    .movie-play svg path {
+        fill: white;
+    }
+
+    .movie-play:hover svg path {
+        fill: #006bee;
+    }
+
     .full-screen,
     .original-screen,
     .normal-screen,
@@ -548,27 +568,6 @@
                             {{ end }}
                         {{ end }}
                     </div>
-<style>
-    .movie-footer {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .movie-play {
-        display: flex;
-        margin-left: auto;
-        align-self: center;
-        padding-right: 10px;
-    }
-    .movie-play svg path {
-        fill: white;
-    }
-
-    .movie-play:hover svg path {
-        fill: #006bee;
-    }
-</style>
                     <div class="movie-footer">
                         <div class="star">
                             <!-- <h4>Info:</h4> -->
