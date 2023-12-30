@@ -150,6 +150,7 @@ jobs:
 
     # 更新电影详情
     - name: Fetch Movie Details
+      if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
       run: |
         pip install requests
         python scripts/movie_details.py
