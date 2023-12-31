@@ -226,7 +226,7 @@
     }
 
     .star ul {
-        padding-left: 10px !important;
+        padding-left: 0px !important;
         padding: 0;
         margin: 0 !important;
         display: flex;
@@ -287,15 +287,24 @@
     .movie-footer {
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
     }
+
     .movie-play {
         display: flex;
-        margin-left: auto;
-        align-self: center;
+        align-items: center;
         padding-right: 10px;
     }
+
+    .movie-play::before {
+        content: '|';
+        position: relative;
+        margin: 0 0.25rem;
+        color: gray;
+        font-size: 0.75rem;
+    }
+
     .movie-play svg path {
         fill: white;
     }
