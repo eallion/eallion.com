@@ -387,7 +387,6 @@ a:active:not([class]), .link:active {
 body,
 h2,
 h3,
-h4,
 p,
 figure {
   margin: 0;
@@ -1197,19 +1196,10 @@ h3 {
   margin: var(--devsite-h3-margin);
 }
 
-.devsite-landing-row h4, .devsite-landing-row-item-no-media h3 {
+.devsite-landing-row-item-no-media h3 {
   font: var(--devsite-h3-font);
   margin: var(--devsite-h3-margin, 32px 0 12px);
   padding: 0;
-}
-
-h4 {
-  margin: 32px 0 16px;
-}
-
-h4 {
-  font: var(--devsite-h4-font);
-  letter-spacing: var(--devsite-h4-letter-spacing);
 }
 
 [background] {
@@ -1236,7 +1226,7 @@ devsite-content {
 }
 
 @media print {
-  :link, :visited, body, h2, h3, h4, html {
+  :link, :visited, body, h2, h3, html {
     color: #000 !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -1633,7 +1623,7 @@ h2 + .devsite-landing-row-description {
   padding: var(--devsite-buttons-padding, 8px 0 0);
 }
 
-.devsite-landing-row h3:first-child, .devsite-landing-row h3:first-of-type, .devsite-landing-row h4:first-child, .devsite-landing-row p:first-child {
+.devsite-landing-row h3:first-child, .devsite-landing-row h3:first-of-type, .devsite-landing-row p:first-child {
   margin-top: 0;
 }
 
@@ -2813,11 +2803,11 @@ header:hover {
     color: #fff;
     margin: 0 !important;
     padding: 0 !important;
-    font-size: 20px;
+    font-size: 1rem;
 }
 
 #movies .star ul {
-    padding-left: 10px !important;
+    padding-left: 0px !important;
     padding: 0;
     margin: 0 !important;
     display: flex;
@@ -2825,11 +2815,12 @@ header:hover {
 
 #movies .star ul li {
     list-style: none;
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid #fff;
+    margin: 0;
 }
 
 #movies .star ul li:not(:first-child) {
@@ -2838,6 +2829,38 @@ header:hover {
 
 #movies .star ul li img {
     width: 100%;
+    vertical-align: inherit;
+}
+
+#movies .movie-footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 12px;
+    line-height: 1.8;
+}
+
+#movies .movie-play {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+
+#movies .movie-play::before {
+    content: '|';
+    position: relative;
+    margin: 0 0.25rem;
+    color: gray;
+    font-size: 0.75rem;
+}
+
+#movies .movie-play svg path {
+    fill: white;
+}
+
+#movies .movie-play:hover svg path {
+    fill: #006bee;
 }
 
 .dcc-chrome-releases .devsite-landing-row-item-image {
@@ -2891,6 +2914,14 @@ header:hover {
 
 #penta .penta-date .dateText {
     margin-left: 0.125rem !important;
+}
+
+#penta .devsite-landing-row-item-image img {
+    transition: transform 0.3s;
+}
+
+#penta .devsite-landing-row-item-image:hover img {
+    transform: scale(1.1);
 }
 
 #tools .devsite-landing-row-item-buttons a {

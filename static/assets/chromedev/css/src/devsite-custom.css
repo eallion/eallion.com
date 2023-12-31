@@ -346,7 +346,7 @@ header:hover {
 }
 
 #movies .star ul {
-    padding-left: 10px !important;
+    padding-left: 0px !important;
     padding: 0;
     margin: 0 !important;
     display: flex;
@@ -359,6 +359,7 @@ header:hover {
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid #fff;
+    margin: 0;
 }
 
 #movies .star ul li:not(:first-child) {
@@ -368,6 +369,37 @@ header:hover {
 #movies .star ul li img {
     width: 100%;
     vertical-align: inherit;
+}
+
+#movies .movie-footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 12px;
+    line-height: 1.8;
+}
+
+#movies .movie-play {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+
+#movies .movie-play::before {
+    content: '|';
+    position: relative;
+    margin: 0 0.25rem;
+    color: gray;
+    font-size: 0.75rem;
+}
+
+#movies .movie-play svg path {
+    fill: white;
+}
+
+#movies .movie-play:hover svg path {
+    fill: #006bee;
 }
 
 .dcc-chrome-releases .devsite-landing-row-item-image {
