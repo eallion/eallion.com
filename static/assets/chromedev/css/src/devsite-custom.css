@@ -342,7 +342,7 @@ header:hover {
     color: #fff;
     margin: 0 !important;
     padding: 0 !important;
-    font-size: 20px;
+    font-size: 1rem;
 }
 
 #movies .star ul {
@@ -354,8 +354,8 @@ header:hover {
 
 #movies .star ul li {
     list-style: none;
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid #fff;
@@ -367,6 +367,7 @@ header:hover {
 
 #movies .star ul li img {
     width: 100%;
+    vertical-align: inherit;
 }
 
 .dcc-chrome-releases .devsite-landing-row-item-image {
@@ -420,6 +421,14 @@ header:hover {
 
 #penta .penta-date .dateText {
     margin-left: 0.125rem !important;
+}
+
+#penta .devsite-landing-row-item-image img {
+    transition: transform 0.3s;
+}
+
+#penta .devsite-landing-row-item-image:hover img {
+    transform: scale(1.1);
 }
 
 #tools .devsite-landing-row-item-buttons a {
