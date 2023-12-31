@@ -6,19 +6,20 @@
     <div class="page home"{{ if ne $posts.enable false | or .Content }} posts{{ end }}>
 
     <!-- 下面是 Dev 的时候引用的， Prod 环境 和 Uncss 打包时需要注释掉-->
-    <!-- <link rel="stylesheet" href="/assets/chromedev/css/src/home.css?v=20231121" />
+    <link rel="stylesheet" href="/assets/chromedev/css/src/home.css?v=20231121" />
     <link rel="stylesheet" href="/assets/chromedev/css/src/devsite.css?v=20231121" />
     <link rel="stylesheet" href="/assets/chromedev/css/src/devsite-theme.css?v=20231121" />
-    <link rel="stylesheet" href="/assets/chromedev/css/src/devsite-custom.css?v=20231121" /> -->
+    <link rel="stylesheet" href="/assets/chromedev/css/src/devsite-custom.css?v=20231121" />
 
     <!-- 下面的是 Uncss 打包用的，Prod 环境需要注释掉 -->
+    <!-- pnpm run uncss -->
     <!-- <link rel="stylesheet" href="../static/assets/chromedev/css/src/home.css?v=20231121" />
     <link rel="stylesheet" href="../static/assets/chromedev/css/src/devsite.css?v=20231121" />
     <link rel="stylesheet" href="../static/assets/chromedev/css/src/devsite-theme.css?v=20231121" />
     <link rel="stylesheet" href="../static/assets/chromedev/css/src/devsite-custom.css?v=20231121" /> -->
 
     <!-- 下面是正式的，Uncss 打包时需要注释掉 -->
-    <link rel="stylesheet" href="/assets/chromedev/css/dist/chrome.min.css?v=20231225" />
+    <!-- <link rel="stylesheet" href="/assets/chromedev/css/dist/chrome.min.css?v=20231225" /> -->
 
     <script type="module" src="/assets/chromedev/js/main.js"></script>
 
@@ -743,7 +744,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="penta-date">
-                                                        <span><i class="far fa-calendar-alt fa-fw"></i>Penta On: </span>
+                                                        <span><i class="far fa-calendar-alt fa-fw"></i></span>
                                                         <span class="dateText">{{ .date }}</span></div>
                                                 </div>
                                             </div>
