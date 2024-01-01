@@ -1,6 +1,22 @@
 {
   "penta": [
     {
+      "src": "/assets/images/penta/screenshot/20231229-Camille.webp",
+      "alt": "20231229-Camille",
+      "champion": "Camille",
+      "date": "2023/12/29",
+      "caption": "青钢影 卡蜜尔",
+      "heroId": "164"
+    },
+    {
+      "src": "/assets/images/penta/screenshot/20231229-Khazix.webp",
+      "alt": "20231229-Khazix",
+      "champion": "Khazix",
+      "date": "2023/12/29",
+      "caption": "虚空掠夺者 卡兹克",
+      "heroId": "121"
+    },
+    {
       "src": "/assets/images/penta/screenshot/20231210-Akshan.webp",
       "alt": "20231210-Akshan",
       "champion": "Akshan",
