@@ -47,14 +47,14 @@
   url = "/goods/"
   title = "好物推荐"
   weight = "5"
-[[main]]
-  identifier = "categories"
-  pre = "<i class='fas fa-stream'></i>"
-  post = ""
-  name = "分类"
-  url = "/categories/"
-  title = "博客分类"
-  weight = "6"
+# [[main]]
+#   identifier = "categories"
+#   pre = "<i class='fas fa-stream'></i>"
+#   post = ""
+#   name = "分类"
+#   url = "/categories/"
+#   title = "博客分类"
+#   weight = "6"
 [[main]]
   identifier = "links"
   name="友情链接"
