@@ -557,6 +557,303 @@
                             </div>
                         </section>
 
+                        <section id="toots"
+                            class="devsite-landing-row devsite-landing-row-2-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-social"
+                            background="pale-blue" header-position="top">
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header">
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 id="tool" data-text="Mastodon"><a href="/toot/"
+                                            target="_self"><img alt src="/assets/chromedev/images/mastodon.svg"
+                                            loading="lazy" no-view/> · 嘀咕</a></h2>
+                                    </div>
+                                </header>
+                                <div class="devsite-landing-row-group">
+                                    {{- $mastodon_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true&exclude_reblogs=true" -}}
+                                    {{- $mastodon_local := "data/mastodon/mastodon.json" -}}
+                                    {{- with resources.GetRemote $mastodon_api }}
+                                        {{- with .Err }}
+                                        {{- $ticker := getJSON $mastodon_local -}}
+                                            {{- range first 6 $ticker }}
+                                                {{ $content := .content }}
+                                                {{ $content := $content | replaceRE ":star_solid:" "<svg t='1701951107632' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9850' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536z' fill='#fcd53f' p-id='9851'></path></svg>" }}
+                                                {{ $content := $content | replaceRE ":star_half:" "<svg t='1701951065761' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9434' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-0.928 0.48 0.928-570.784 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9435'></path></svg>" }}
+                                                {{ $content := $content | replaceRE ":star_empty:" "<svg t='1701951086181' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9642' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-223.456 117.472 42.688-248.832-180.8-176.224 249.856-36.288 111.744-226.4 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9643'></path></svg>" }}
+                                                <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                                    <article class="mt-toot">
+                                                        <div class="mt-header">
+                                                            <a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer"
+                                                                target="_blank">
+                                                                <div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy" no-view></div>
+                                                            </a>
+                                                            <div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank">
+                                                                    <div class="mt-nick">Charles Chin</div>
+                                                                    <div class="mt-id">@eallion@e5n.cc</div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                                    target="_blank"><span><i class="far fa-calendar-alt fa-fw"></i></span><span class="twitter-time">{{- .created_at -}}</span></a></div>
+                                                        </div>
+                                                        <div class="toot-text">
+                                                            <div>
+                                                                <p>{{ $content | markdownify }}</p>
+                                                            </div>
+                                                            <div class="toot-attach" view-image>
+                                                                {{ $attachments := .media_attachments }}
+                                                                {{ if gt (len $attachments) 0 }}
+                                                                    {{- $firstAttachment := index $attachments 0 -}}
+                                                                    {{- $type := $firstAttachment.type -}}
+                                                                    {{- $length := len .media_attachments }}
+                                                                    {{ if eq $type "image" }}
+                                                                        {{ range .media_attachments }}
+                                                                            <a href="{{ .url }}">🖼️</a>
+                                                                        {{ end }}
+                                                                    {{ else if eq $type "video" }}
+                                                                        {{ range .media_attachments }}
+                                                                            <a href="{{ .preview_url }}">🎬</a>
+                                                                        {{ end }}
+                                                                    {{ end }}
+                                                                {{ end }}
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                            </div>
+                                            {{ end -}}
+                                        {{- else -}}
+                                        {{- $ticker := getJSON $mastodon_api -}}
+                                                {{- range first 6 $ticker }}
+                                                {{ $content := .content }}
+                                                {{ $content := $content | replaceRE ":star_solid:" "<svg t='1701951107632' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9850' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536z' fill='#fcd53f' p-id='9851'></path></svg>" }}
+                                                {{ $content := $content | replaceRE ":star_half:" "<svg t='1701951065761' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9434' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-0.928 0.48 0.928-570.784 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9435'></path></svg>" }}
+                                                {{ $content := $content | replaceRE ":star_empty:" "<svg t='1701951086181' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9642' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-223.456 117.472 42.688-248.832-180.8-176.224 249.856-36.288 111.744-226.4 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9643'></path></svg>" }}
+                                                <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                                    <article class="mt-toot">
+                                                        <div class="mt-header">
+                                                            <a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer"
+                                                                target="_blank">
+                                                                <div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy" no-view></div>
+                                                            </a>
+                                                            <div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank">
+                                                                    <div class="mt-nick">Charles Chin</div>
+                                                                    <div class="mt-id">@eallion@e5n.cc</div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                                    target="_blank"><span><i class="far fa-calendar-alt fa-fw"></i></span><span class="twitter-time">{{- .created_at -}}</span></a></div>
+                                                        </div>
+                                                        <div class="toot-text">
+                                                            <div>
+                                                                <p>{{ $content | markdownify }}</p>
+                                                            </div>
+                                                            <div class="toot-attach" view-image>
+                                                                {{ $attachments := .media_attachments }}
+                                                                {{ if gt (len $attachments) 0 }}
+                                                                    {{- $firstAttachment := index $attachments 0 -}}
+                                                                    {{- $type := $firstAttachment.type -}}
+                                                                    {{- $length := len .media_attachments }}
+                                                                    {{ if eq $type "image" }}
+                                                                        {{ range .media_attachments }}
+                                                                            <a href="{{ .url }}">🖼️</a>
+                                                                        {{ end }}
+                                                                    {{ else if eq $type "video" }}
+                                                                        {{ range .media_attachments }}
+                                                                            <a href="{{ .preview_url }}">🎬</a>
+                                                                        {{ end }}
+                                                                    {{ end }}
+                                                                {{ end }}
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                            </div>
+                                            {{ end -}}
+                                        {{ end -}}
+                                    {{ end -}}
+                                </div>
+                            </div>
+
+                            <script>
+                                // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
+                                (() => {
+                                    let location = window.location.href;
+                                    let isEnglish = location.indexOf("/en/") !== -1;
+                                    window.Lately = new function () {
+                                        this.lang = isEnglish ? {
+                                            'second': ' Seconds',
+                                            'minute': ' Minutes',
+                                            'hour': ' Hours',
+                                            'day': ' Days',
+                                            'month': ' Months',
+                                            'year': ' Years',
+                                            'ago': ' Ago',
+                                            'error': 'NaN'
+                                        } : {
+                                            second: " 秒",
+                                            minute: " 分钟",
+                                            hour: " 小时",
+                                            day: " 天",
+                                            month: " 个月",
+                                            year: " 年",
+                                            ago: "前",
+                                            error: "NaN"
+                                        };
+                                        const format = (date) => {
+                                            date = new Date(_val(date));
+                                            const floor = (num, _lang) => Math.floor(num) + _lang,
+                                                obj = new function () {
+                                                    this.second = (Date.now() - date.getTime()) / 1000;
+                                                    this.minute = this.second / 60;
+                                                    this.hour = this.minute / 60;
+                                                    this.day = this.hour / 24;
+                                                    this.month = this.day / 30;
+                                                    this.year = this.month / 12
+                                                },
+                                                key = Object.keys(obj).reverse().find(_ => obj[_] >= 1);
+                                            return (key ? floor(obj[key], this.lang[key]) : this.lang.error) + this.lang.ago;
+                                        },
+                                            _val = (date) => {
+                                                date = new Date(date && (typeof date === 'number' ? date : date.replace(/-/g, '/').replace('T', ' ')));
+                                                return isNaN(date.getTime()) ? false : date.getTime();
+                                            };
+                                        return {
+                                            init: ({ target = "time", lang } = {}) => {
+                                                if (lang) this.lang = lang;
+                                                for (let el of document.querySelectorAll(target)) {
+                                                    const date = _val(el.dateTime) || _val(el.title) || _val(el.innerHTML) || 0;
+                                                    if (!date) return;
+                                                    el.title = new Date(date).toLocaleString();
+                                                    el.innerHTML = format(date);
+                                                }
+                                            },
+                                            format
+                                        }
+                                    }
+                                })();
+
+                                window.Lately && Lately.init({
+                                    target: '.twitter-time'
+                                });
+                            </script>
+                        </section>
+
+                        <section id="cates" view-image
+                            class="devsite-landing-row devsite-landing-row-4-up dcc-docs" header-position="left">
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header" icon-position="top">
+                                    <div class="devsite-landing-row-header-icon-container" size="medium">
+                                        <div class="devsite-landing-row-header-icon material-icons" aria-hidden="true">
+                                            description</div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 data-text="文章的分类"><a href="/categories/">博客分类</a></h2>
+
+                                        <div class="devsite-landing-row-description">从 2006 年开始在网络上写日志和博客，经历各种风雨沉浮，除了键政的内容，保留了大部分文章至今，以前有些文章写得不知所云，但直视自己的黑历史，生活从来不尽如意，但我还是对生活满含热情。<br>
+                                            罗曼・罗兰说过「世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。」</div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-header-buttons">
+                                        <a href="/posts/" class="button">查看所有文章</a>
+                                    </div>
+                                </header>
+
+                                <div class="devsite-landing-row-group">
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/chrome-devtools-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="life" data-text="生活日志" class="hide-from-toc no-link">
+                                                    生活</h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    生活类博客文章，记录自己的心情、随想和感悟。
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/日志/" class="button">查看「日志」分类文章</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/chrome-extensions-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="code" data-text="技术代码" class="hide-from-toc no-link">代码
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    技术、代码类的文章，主要是备忘录，记录一些折腾的过程。
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/代码/" class="button">查看「代码」分类文章</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/chrome-web-store-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="share" data-text="分享收集"
+                                                    class="hide-from-toc no-link">分享</h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    分享一些有趣、有深度、引人思考的文章和资讯。若有侵权，请联系删除！
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/分享/" class="button">查看「分享」分类文章</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/web-on-android-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="other" data-text="其他分类" class="hide-from-toc no-link">其他
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">早年间其他朋友们发的一些文章，一直保存至今，偶尔回味。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/山贼/" class="button">查看「其他」分类文章</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
                         <section id="movies" view-image
                             class="devsite-landing-row devsite-landing-row-4-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-pillars"
                             background="pale-blue" header-position="top">
@@ -565,14 +862,14 @@
                                 <header class="devsite-landing-row-header">
                                     <div class="devsite-landing-row-header-text">
                                         <h2 id="movie" data-text="最近观影">
-                                            <a href="/movie/" class=""><i class="fas fa-video"></i> 最近观影 <i class="fas fa-caret-down"></i></a>
+                                            <a href="/movie/" class=""><i class="fas fa-video"></i> 最近观影</a>
                                         </h2>
                                     </div>
                                 </header>
 
                                 <div class="devsite-landing-row-group">
                                     {{ $movie_details := getJSON "data/neodb/movie_details.json" }}
-                                    {{ range first 4 $movie_details }}
+                                    {{ range first 8 $movie_details }}
                                     {{ $title := .display_title }}
                                     {{ $orig_title := .orig_title }}
                                     {{ $year := .year }}
@@ -727,7 +1024,7 @@
                                 </header>
 
                                 <div class="devsite-landing-row-group">
-                                    {{- range first 4 $penta.penta -}}
+                                    {{- range first 8 $penta.penta -}}
                                     <div class="devsite-landing-row-item dcc-services-card" description-position="bottom">
                                         <div class="devsite-landing-row-item-media">
                                             <figure class="devsite-landing-row-item-image">
@@ -756,186 +1053,6 @@
                                         </div>
                                     </div>
                                     {{- end -}}
-                                </div>
-                            </div>
-                        </section>
-
-                        <section id="cates" view-image
-                            class="devsite-landing-row devsite-landing-row-4-up dcc-docs" header-position="left">
-                            <div class="devsite-landing-row-inner">
-                                <header class="devsite-landing-row-header" icon-position="top">
-                                    <div class="devsite-landing-row-header-icon-container" size="medium">
-                                        <div class="devsite-landing-row-header-icon material-icons" aria-hidden="true">
-                                            description</div>
-                                    </div>
-
-                                    <div class="devsite-landing-row-header-text">
-                                        <h2 data-text="文章的分类"><a href="/categories/">博客分类</a></h2>
-
-                                        <div class="devsite-landing-row-description">从 2006 年开始在网络上写日志和博客，经历各种风雨沉浮，除了键政的内容，保留了大部分文章至今，以前有些文章写得不知所云，但直视自己的黑历史，生活从来不尽如意，但我还是对生活满含热情。<br>
-                                            罗曼・罗兰说过「世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。」</div>
-                                    </div>
-
-                                    <div class="devsite-landing-row-header-buttons">
-                                        <a href="/posts/" class="button">查看所有文章</a>
-                                    </div>
-                                </header>
-
-                                <div class="devsite-landing-row-group">
-                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
-                                        <div class="devsite-landing-row-item-media">
-                                            <figure class="devsite-landing-row-item-image">
-                                                <img alt src="/assets/chromedev/images/chrome-devtools-thumb.svg"
-                                                    loading="lazy" width="128" height="128" no-view/>
-                                            </figure>
-                                        </div>
-
-                                        <div class="devsite-landing-row-item-description">
-                                            <div class="devsite-landing-row-item-body">
-                                                <h3 id="life" data-text="生活日志" class="hide-from-toc no-link">
-                                                    生活</h3>
-
-                                                <div class="devsite-landing-row-item-description-content">
-                                                    生活类博客文章，记录自己的心情、随想和感悟。
-                                                </div>
-
-                                                <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/categories/日志/" class="button">查看「日志」分类文章</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
-                                        <div class="devsite-landing-row-item-media">
-                                            <figure class="devsite-landing-row-item-image">
-                                                <img alt src="/assets/chromedev/images/chrome-extensions-thumb.svg"
-                                                    loading="lazy" width="128" height="128" no-view/>
-                                            </figure>
-                                        </div>
-
-                                        <div class="devsite-landing-row-item-description">
-                                            <div class="devsite-landing-row-item-body">
-                                                <h3 id="code" data-text="技术代码" class="hide-from-toc no-link">代码
-                                                </h3>
-
-                                                <div class="devsite-landing-row-item-description-content">
-                                                    技术、代码类的文章，主要是备忘录，记录一些折腾的过程。
-                                                </div>
-
-                                                <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/categories/代码/" class="button">查看「代码」分类文章</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
-                                        <div class="devsite-landing-row-item-media">
-                                            <figure class="devsite-landing-row-item-image">
-                                                <img alt src="/assets/chromedev/images/chrome-web-store-thumb.svg"
-                                                    loading="lazy" width="128" height="128" no-view/>
-                                            </figure>
-                                        </div>
-
-                                        <div class="devsite-landing-row-item-description">
-                                            <div class="devsite-landing-row-item-body">
-                                                <h3 id="share" data-text="分享收集"
-                                                    class="hide-from-toc no-link">分享</h3>
-
-                                                <div class="devsite-landing-row-item-description-content">
-                                                    分享一些有趣、有深度、引人思考的文章和资讯。若有侵权，请联系删除！
-                                                </div>
-
-                                                <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/categories/分享/" class="button">查看「分享」分类文章</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
-                                        <div class="devsite-landing-row-item-media">
-                                            <figure class="devsite-landing-row-item-image">
-                                                <img alt src="/assets/chromedev/images/web-on-android-thumb.svg"
-                                                    loading="lazy" width="128" height="128" no-view/>
-                                            </figure>
-                                        </div>
-
-                                        <div class="devsite-landing-row-item-description">
-                                            <div class="devsite-landing-row-item-body">
-                                                <h3 id="other" data-text="其他分类" class="hide-from-toc no-link">其他
-                                                </h3>
-
-                                                <div class="devsite-landing-row-item-description-content">早年间其他朋友们发的一些文章，一直保存至今，偶尔回味。</div>
-
-                                                <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/categories/山贼/" class="button">查看「其他」分类文章</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section id="tools" view-image
-                            class="devsite-landing-row devsite-landing-row-2-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-social"
-                            background="pale-blue" header-position="top">
-                            <div class="devsite-landing-row-inner">
-                                <header class="devsite-landing-row-header">
-                                    <div class="devsite-landing-row-header-text">
-                                        <h2 id="tool" data-text="实用工具">实用工具</h2>
-                                    </div>
-                                </header>
-
-                                <div class="devsite-landing-row-group">
-                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
-                                        <div class="devsite-landing-row-item-media">
-                                            <figure class="devsite-landing-row-item-image">
-                                                <img alt src="/assets/chromedev/images/favorite.svg"
-                                                    loading="lazy" width="57" height="57" no-view/>
-                                            </figure>
-                                        </div>
-
-                                        <div class="devsite-landing-row-item-description">
-                                            <div class="devsite-landing-row-item-body">
-                                                <h3 id="mastodon" data-text="Mastodon"
-                                                    class="hide-from-toc no-link"><a href="https://github.com/helloxz/onenav" target="_blank" rel="noopener noreferrer">网址导航</a></h3>
-
-                                                <div class="devsite-landing-row-item-description-content">利用 <a target="_blank" href="https://github.com/helloxz/onenav" title="简约导航/书签管理器" rel="nofollow noopener noreferrer">OneNav</a> Docker 部署的个人导航网站，使用的自己修改的 <a href="https://github.com/eallion/onenav-baisu-mod" target="_blank" rel="nofollow noopener noreferrer">BaiSu Mod</a> 模板。
-                                                </div>
-
-                                                <div class="devsite-landing-row-item-buttons">
-                                                    <a href="https://s.eallion.com" target="_blank" rel="noopener noreferrer" class="button">前往浏览 <i class="fas fa-external-link-alt"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
-                                        <div class="devsite-landing-row-item-media">
-                                            <figure class="devsite-landing-row-item-image">
-                                                <img alt src="/assets/chromedev/images/mastodon.svg"
-                                                    loading="lazy" width="57" height="57" no-view/>
-                                            </figure>
-                                        </div>
-
-                                        <div class="devsite-landing-row-item-description">
-                                            <div class="devsite-landing-row-item-body">
-                                                <h3 id="mastodon-embed-feed-timeline" data-text="GitHub"
-                                                    class="hide-from-toc no-link"><a href="https://github.com/eallion/mastodon-embed-feed-timeline" target="_blank" rel="noopener noreferrer">Mastodon embed timeline</a></h3>
-
-                                                <div class="devsite-landing-row-item-description-content">
-                                                    把 <a href="https://e5n.com/@eallion" target="_blank" rel="noopener noreferrer">Mastodon</a> 时间轴上的嘟文嵌入到自己的网站上。设置非常简单，无依赖性，无跟踪器，符合 WCAG 标准，响应式布局。
-                                                </div>
-
-                                                <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/toot/" class="button">效果预览</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </section>

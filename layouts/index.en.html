@@ -543,6 +543,304 @@
                             </div>
                         </section>
 
+
+                        <section id="toots"
+                            class="devsite-landing-row devsite-landing-row-2-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-social"
+                            background="pale-blue" header-position="top">
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header">
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 id="tool" data-text="Mastodon"><a href="/en/toot/"
+                                            target="_self"><img alt src="/assets/chromedev/images/mastodon.svg"
+                                            loading="lazy" no-view/> · 嘀咕</a></h2>
+                                    </div>
+                                </header>
+                                <div class="devsite-landing-row-group">
+                                    {{- $mastodon_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true&exclude_reblogs=true" -}}
+                                    {{- $mastodon_local := "data/mastodon/mastodon.json" -}}
+                                    {{- with resources.GetRemote $mastodon_api }}
+                                        {{- with .Err }}
+                                        {{- $ticker := getJSON $mastodon_local -}}
+                                            {{- range first 6 $ticker }}
+                                                {{ $content := .content }}
+                                                {{ $content := $content | replaceRE ":star_solid:" "<svg t='1701951107632' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9850' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536z' fill='#fcd53f' p-id='9851'></path></svg>" }}
+                                                {{ $content := $content | replaceRE ":star_half:" "<svg t='1701951065761' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9434' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-0.928 0.48 0.928-570.784 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9435'></path></svg>" }}
+                                                {{ $content := $content | replaceRE ":star_empty:" "<svg t='1701951086181' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9642' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-223.456 117.472 42.688-248.832-180.8-176.224 249.856-36.288 111.744-226.4 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9643'></path></svg>" }}
+                                                <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                                    <article class="mt-toot">
+                                                        <div class="mt-header">
+                                                            <a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer"
+                                                                target="_blank">
+                                                                <div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy" no-view></div>
+                                                            </a>
+                                                            <div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank">
+                                                                    <div class="mt-nick">Charles Chin</div>
+                                                                    <div class="mt-id">@eallion@e5n.cc</div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                                    target="_blank"><span><i class="far fa-calendar-alt fa-fw"></i></span><span class="twitter-time">{{- .created_at -}}</span></a></div>
+                                                        </div>
+                                                        <div class="toot-text">
+                                                            <div>
+                                                                <p>{{ $content | markdownify }}</p>
+                                                            </div>
+                                                            <div class="toot-attach" view-image>
+                                                                {{ $attachments := .media_attachments }}
+                                                                {{ if gt (len $attachments) 0 }}
+                                                                    {{- $firstAttachment := index $attachments 0 -}}
+                                                                    {{- $type := $firstAttachment.type -}}
+                                                                    {{- $length := len .media_attachments }}
+                                                                    {{ if eq $type "image" }}
+                                                                        {{ range .media_attachments }}
+                                                                            <a href="{{ .url }}">🖼️</a>
+                                                                        {{ end }}
+                                                                    {{ else if eq $type "video" }}
+                                                                        {{ range .media_attachments }}
+                                                                            <a href="{{ .preview_url }}">🎬</a>
+                                                                        {{ end }}
+                                                                    {{ end }}
+                                                                {{ end }}
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                            </div>
+                                            {{ end -}}
+                                        {{- else -}}
+                                        {{- $ticker := getJSON $mastodon_api -}}
+                                                {{- range first 6 $ticker }}
+                                                {{ $content := .content }}
+                                                {{ $content := $content | replaceRE ":star_solid:" "<svg t='1701951107632' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9850' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536z' fill='#fcd53f' p-id='9851'></path></svg>" }}
+                                                {{ $content := $content | replaceRE ":star_half:" "<svg t='1701951065761' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9434' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-0.928 0.48 0.928-570.784 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9435'></path></svg>" }}
+                                                {{ $content := $content | replaceRE ":star_empty:" "<svg t='1701951086181' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9642' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-223.456 117.472 42.688-248.832-180.8-176.224 249.856-36.288 111.744-226.4 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9643'></path></svg>" }}
+                                                <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                                    <article class="mt-toot">
+                                                        <div class="mt-header">
+                                                            <a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer"
+                                                                target="_blank">
+                                                                <div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy" no-view></div>
+                                                            </a>
+                                                            <div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank">
+                                                                    <div class="mt-nick">Charles Chin</div>
+                                                                    <div class="mt-id">@eallion@e5n.cc</div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                                    target="_blank"><span><i class="far fa-calendar-alt fa-fw"></i></span><span class="twitter-time">{{- .created_at -}}</span></a></div>
+                                                        </div>
+                                                        <div class="toot-text">
+                                                            <div>
+                                                                <p>{{ $content | markdownify }}</p>
+                                                            </div>
+                                                            <div class="toot-attach" view-image>
+                                                                {{ $attachments := .media_attachments }}
+                                                                {{ if gt (len $attachments) 0 }}
+                                                                    {{- $firstAttachment := index $attachments 0 -}}
+                                                                    {{- $type := $firstAttachment.type -}}
+                                                                    {{- $length := len .media_attachments }}
+                                                                    {{ if eq $type "image" }}
+                                                                        {{ range .media_attachments }}
+                                                                            <a href="{{ .url }}">🖼️</a>
+                                                                        {{ end }}
+                                                                    {{ else if eq $type "video" }}
+                                                                        {{ range .media_attachments }}
+                                                                            <a href="{{ .preview_url }}">🎬</a>
+                                                                        {{ end }}
+                                                                    {{ end }}
+                                                                {{ end }}
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                            </div>
+                                            {{ end -}}
+                                        {{ end -}}
+                                    {{ end -}}
+                                </div>
+                            </div>
+
+                            <script>
+                                // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
+                                (() => {
+                                    let location = window.location.href;
+                                    let isEnglish = location.indexOf("/en/") !== -1;
+                                    window.Lately = new function () {
+                                        this.lang = isEnglish ? {
+                                            'second': ' Seconds',
+                                            'minute': ' Minutes',
+                                            'hour': ' Hours',
+                                            'day': ' Days',
+                                            'month': ' Months',
+                                            'year': ' Years',
+                                            'ago': ' Ago',
+                                            'error': 'NaN'
+                                        } : {
+                                            second: " 秒",
+                                            minute: " 分钟",
+                                            hour: " 小时",
+                                            day: " 天",
+                                            month: " 个月",
+                                            year: " 年",
+                                            ago: "前",
+                                            error: "NaN"
+                                        };
+                                        const format = (date) => {
+                                            date = new Date(_val(date));
+                                            const floor = (num, _lang) => Math.floor(num) + _lang,
+                                                obj = new function () {
+                                                    this.second = (Date.now() - date.getTime()) / 1000;
+                                                    this.minute = this.second / 60;
+                                                    this.hour = this.minute / 60;
+                                                    this.day = this.hour / 24;
+                                                    this.month = this.day / 30;
+                                                    this.year = this.month / 12
+                                                },
+                                                key = Object.keys(obj).reverse().find(_ => obj[_] >= 1);
+                                            return (key ? floor(obj[key], this.lang[key]) : this.lang.error) + this.lang.ago;
+                                        },
+                                            _val = (date) => {
+                                                date = new Date(date && (typeof date === 'number' ? date : date.replace(/-/g, '/').replace('T', ' ')));
+                                                return isNaN(date.getTime()) ? false : date.getTime();
+                                            };
+                                        return {
+                                            init: ({ target = "time", lang } = {}) => {
+                                                if (lang) this.lang = lang;
+                                                for (let el of document.querySelectorAll(target)) {
+                                                    const date = _val(el.dateTime) || _val(el.title) || _val(el.innerHTML) || 0;
+                                                    if (!date) return;
+                                                    el.title = new Date(date).toLocaleString();
+                                                    el.innerHTML = format(date);
+                                                }
+                                            },
+                                            format
+                                        }
+                                    }
+                                })();
+
+                                window.Lately && Lately.init({
+                                    target: '.twitter-time'
+                                });
+                            </script>
+                        </section>
+
+                        <section id="cates" view-image
+                            class="devsite-landing-row devsite-landing-row-4-up dcc-docs" header-position="left">
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header" icon-position="top">
+                                    <div class="devsite-landing-row-header-icon-container" size="medium">
+                                        <div class="devsite-landing-row-header-icon material-icons" aria-hidden="true">
+                                            description</div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 data-text="Cates"><a href="/categories/">Cates</a></h2>
+
+                                        <div class="devsite-landing-row-description">Since 2006, I have been writing blogs and journals online, going through ups and downs. Except for some politically sensitive content, I have preserved most of my articles to this day. Some of my previous writings may have been vague and unclear, but facing my dark history directly—life never goes as expected, yet I remain passionate about life.<br>
+                                            Romain Rolland said: “There is only one heroism in the world: to see the world as it is, and to love it.”</div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-header-buttons">
+                                        <a href="/en/posts/" class="button">View All Posts</a>
+                                    </div>
+                                </header>
+
+                                <div class="devsite-landing-row-group">
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/chrome-devtools-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="life" data-text="life" class="hide-from-toc no-link">
+                                                    Daily</h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    Lifestyle blog posts that record my feelings, thoughts, and reflections.
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/日志/" class="button">View「Daily」Posts</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/chrome-extensions-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="code" data-text="code" class="hide-from-toc no-link">Code
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    Articles on technology and coding, mainly as notes to self to document various tinkering processes.
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/代码/" class="button">View「Code」Posts</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/chrome-web-store-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="share" data-text="Share"
+                                                    class="hide-from-toc no-link">Share</h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    Sharing some interesting, in-depth, and thought-provoking articles and information. Please contact me to delete if there is any copyright infringement!
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/分享/" class="button">View「Share」Posts</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/web-on-android-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="other" data-text="Other" class="hide-from-toc no-link">Other
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">Some articles posted by other friends back in the early days that I've kept all this time to reminisce over occasionally.</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/山贼/" class="button">View「Other」Posts</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
                         <section id="movies" view-image
                             class="devsite-landing-row devsite-landing-row-4-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-pillars"
                             background="pale-blue" header-position="top">
@@ -552,15 +850,16 @@
                                 <header class="devsite-landing-row-header">
                                     <div class="devsite-landing-row-header-text">
                                         <h2 id="movie" data-text="Watched">
-                                            <a href="/en/movie/" class=""><i class="fas fa-video"></i> Watched <i class="fas fa-caret-down"></i></a>
+                                            <a href="/en/movie/" class=""><i class="fas fa-video"></i> Watched</a>
                                         </h2>
                                     </div>
                                 </header>
 
                                 <div class="devsite-landing-row-group">
                                     {{ $movie_details := getJSON "data/neodb/movie_details.json" }}
-                                    {{ range first 4 $movie_details }}
-                                    {{ $title := .display_title }}
+                                    {{ range first 8 $movie_details }}
+                                    <!-- English Title -->
+                                    {{ $title := .orig_title | default .display_title}}
                                     {{ $orig_title := .orig_title }}
                                     {{ $year := .year }}
                                     {{ $rating := float .rating }}
@@ -717,7 +1016,7 @@
                                 </header>
 
                                 <div class="devsite-landing-row-group">
-                                    {{- range first 4 $penta.penta -}}
+                                    {{- range first 8 $penta.penta -}}
                                     <div class="devsite-landing-row-item dcc-services-card" description-position="bottom">
                                         <div class="devsite-landing-row-item-media">
                                             <figure class="devsite-landing-row-item-image">
@@ -746,189 +1045,6 @@
                                         </div>
                                     </div>
                                     {{- end -}}
-                                </div>
-                            </div>
-                        </section>
-
-                        <section id="cates" view-image
-                            class="devsite-landing-row devsite-landing-row-4-up dcc-docs" header-position="left">
-                            <div class="devsite-landing-row-inner">
-                                <header class="devsite-landing-row-header" icon-position="top">
-                                    <div class="devsite-landing-row-header-icon-container" size="medium">
-                                        <div class="devsite-landing-row-header-icon material-icons" aria-hidden="true">
-                                            description</div>
-                                    </div>
-
-                                    <div class="devsite-landing-row-header-text">
-                                        <h2 data-text="Cates"><a href="/categories/">Cates</a></h2>
-
-                                        <div class="devsite-landing-row-description">Since 2006, I have been writing blogs and journals online, going through ups and downs. Except for some politically sensitive content, I have preserved most of my articles to this day. Some of my previous writings may have been vague and unclear, but facing my dark history directly—life never goes as expected, yet I remain passionate about life.<br>
-                                            Romain Rolland said: “There is only one heroism in the world: to see the world as it is, and to love it.”</div>
-                                    </div>
-
-                                    <div class="devsite-landing-row-header-buttons">
-                                        <a href="/en/posts/" class="button">View All Posts</a>
-                                    </div>
-                                </header>
-
-                                <div class="devsite-landing-row-group">
-                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
-                                        <div class="devsite-landing-row-item-media">
-                                            <figure class="devsite-landing-row-item-image">
-                                                <img alt src="/assets/chromedev/images/chrome-devtools-thumb.svg"
-                                                    loading="lazy" width="128" height="128" no-view/>
-                                            </figure>
-                                        </div>
-
-                                        <div class="devsite-landing-row-item-description">
-                                            <div class="devsite-landing-row-item-body">
-                                                <h3 id="life" data-text="life" class="hide-from-toc no-link">
-                                                    Daily</h3>
-
-                                                <div class="devsite-landing-row-item-description-content">
-                                                    Lifestyle blog posts that record my feelings, thoughts, and reflections.
-                                                </div>
-
-                                                <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/categories/日志/" class="button">View「Daily」Posts</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
-                                        <div class="devsite-landing-row-item-media">
-                                            <figure class="devsite-landing-row-item-image">
-                                                <img alt src="/assets/chromedev/images/chrome-extensions-thumb.svg"
-                                                    loading="lazy" width="128" height="128" no-view/>
-                                            </figure>
-                                        </div>
-
-                                        <div class="devsite-landing-row-item-description">
-                                            <div class="devsite-landing-row-item-body">
-                                                <h3 id="code" data-text="code" class="hide-from-toc no-link">Code
-                                                </h3>
-
-                                                <div class="devsite-landing-row-item-description-content">
-                                                    Articles on technology and coding, mainly as notes to self to document various tinkering processes.
-                                                </div>
-
-                                                <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/categories/代码/" class="button">View「Code」Posts</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
-                                        <div class="devsite-landing-row-item-media">
-                                            <figure class="devsite-landing-row-item-image">
-                                                <img alt src="/assets/chromedev/images/chrome-web-store-thumb.svg"
-                                                    loading="lazy" width="128" height="128" no-view/>
-                                            </figure>
-                                        </div>
-
-                                        <div class="devsite-landing-row-item-description">
-                                            <div class="devsite-landing-row-item-body">
-                                                <h3 id="share" data-text="Share"
-                                                    class="hide-from-toc no-link">Share</h3>
-
-                                                <div class="devsite-landing-row-item-description-content">
-                                                    Sharing some interesting, in-depth, and thought-provoking articles and information. Please contact me to delete if there is any copyright infringement!
-                                                </div>
-
-                                                <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/categories/分享/" class="button">View「Share」Posts</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
-                                        <div class="devsite-landing-row-item-media">
-                                            <figure class="devsite-landing-row-item-image">
-                                                <img alt src="/assets/chromedev/images/web-on-android-thumb.svg"
-                                                    loading="lazy" width="128" height="128" no-view/>
-                                            </figure>
-                                        </div>
-
-                                        <div class="devsite-landing-row-item-description">
-                                            <div class="devsite-landing-row-item-body">
-                                                <h3 id="other" data-text="Other" class="hide-from-toc no-link">Other
-                                                </h3>
-
-                                                <div class="devsite-landing-row-item-description-content">Some articles posted by other friends back in the early days that I've kept all this time to reminisce over occasionally.</div>
-
-                                                <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/categories/山贼/" class="button">View「Other」Posts</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section id="tools" view-image
-                            class="devsite-landing-row devsite-landing-row-2-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-social"
-                            background="pale-blue" header-position="top">
-                            <div class="devsite-landing-row-inner">
-                                <header class="devsite-landing-row-header">
-                                    <div class="devsite-landing-row-header-text">
-                                        <h2 id="tool" data-text="Tools">Tools</h2>
-                                    </div>
-                                </header>
-
-                                <div class="devsite-landing-row-group">
-                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
-                                        <div class="devsite-landing-row-item-media">
-                                            <figure class="devsite-landing-row-item-image">
-                                                <img alt src="/assets/chromedev/images/favorite.svg"
-                                                    loading="lazy" width="57" height="57" no-view/>
-                                            </figure>
-                                        </div>
-
-                                        <div class="devsite-landing-row-item-description">
-                                            <div class="devsite-landing-row-item-body">
-                                                <h3 id="mastodon" data-text="Mastodon"
-                                                    class="hide-from-toc no-link"><a href="https://github.com/helloxz/onenav" target="_blank" rel="noopener noreferrer">OneNav</a></h3>
-
-                                                <div class="devsite-landing-row-item-description-content">
-                                                    A personal navigation website deployed using <a target="_blank" href="https://github.com/helloxz/onenav" title="OneNav" rel="nofollow noopener">OneNav</a> Docker, using a <a href="https://github.com/eallion/onenav-baisu-mod" target="_blank" rel="nofollow noopener">BaiSu Mod</a> template that I customized.
-                                                </div>
-
-                                                <div class="devsite-landing-row-item-buttons">
-                                                    <a href="https://s.eallion.com" target="_blank" rel="noopener noreferrer" class="button">Browse Now <i class="fas fa-external-link-alt"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
-                                        <div class="devsite-landing-row-item-media">
-                                            <figure class="devsite-landing-row-item-image">
-                                                <img alt src="/assets/chromedev/images/mastodon.svg"
-                                                    loading="lazy" width="57" height="57" no-view/>
-                                            </figure>
-                                        </div>
-
-                                        <div class="devsite-landing-row-item-description">
-                                            <div class="devsite-landing-row-item-body">
-                                                <h3 id="mastodon-embed-feed-timeline" data-text="GitHub"
-                                                    class="hide-from-toc no-link"><a href="https://github.com/eallion/mastodon-embed-feed-timeline" target="_blank" rel="noopener noreferrer">Mastodon embed timeline</a></h3>
-
-                                                <div class="devsite-landing-row-item-description-content">
-                                                    Displays <a href="https://e5n.com/@eallion" target="_blank" rel="noopener noreferrer">Mastodon</a> timeline with toots embed in your website. Very easy to setup, no dependencies, no trackers, WCAG compliant and fully responsive.
-                                                </div>
-
-                                                <div class="devsite-landing-row-item-buttons">
-                                                    <a href="/toot/" class="button">Live Preview</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
                             </div>
                         </section>
