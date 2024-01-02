@@ -47,14 +47,14 @@
   url = "/goods/"
   title = "Goods for a better life"
   weight = "5"
-[[main]]
-  identifier = "categories"
-  pre = "<i class='fas fa-stream'></i>"
-  post = ""
-  name = "Cates"
-  url = "/en/categories/"
-  title = "Categories"
-  weight = "6"
+# [[main]]
+#   identifier = "categories"
+#   pre = "<i class='fas fa-stream'></i>"
+#   post = ""
+#   name = "Cates"
+#   url = "/en/categories/"
+#   title = "Categories"
+#   weight = "6"
 [[main]]
   identifier = "links"
   name="Friends"
