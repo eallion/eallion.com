@@ -751,93 +751,122 @@ kbd,
     }
 }
 
-/* 首页嘀咕样式 JSON 版 */
-#ticker {
-    display: flex;
-    flex: 1 auto;
-    align-items: center;
-    line-height: 35px;
-    height: 45px;
-    max-width: 800px;
-    text-align: left;
-    padding: 5px 15px;
-    margin: 20px 0 0;
-    position: relative;
-    border-radius: 8px;
-    font-size: 1rem;
-    overflow: hidden;
-    background: #f4f4f5;
+
+// /* 首页嘀咕样式 JSON 版 */
+// #ticker {
+//     display: flex;
+//     flex: 1 auto;
+//     align-items: center;
+//     line-height: 35px;
+//     height: 45px;
+//     max-width: 800px;
+//     text-align: left;
+//     padding: 5px 15px;
+//     margin: 20px 0 0;
+//     position: relative;
+//     border-radius: 8px;
+//     font-size: 1rem;
+//     overflow: hidden;
+//     background: #f4f4f5;
+// }
+
+// #ticker i {
+//     margin-right: 0.25rem;
+//     color: #4d4d4d;
+// }
+
+// .home .home-profile .home-disclaimer {
+//     padding: 0 !important;
+// }
+
+// .ticker-wrap {
+//     overflow: hidden;
+// }
+
+// .ticker-wrap ul {
+//     padding-left: 0.5rem;
+//     margin-block-start: 0 !important;
+//     margin-block-end: 0 !important;
+//     padding-inline-start: 0 !important;
+// }
+
+// .ticker-list {
+//     margin: 0;
+//     height: 35px;
+// }
+
+// .ticker-list li {
+//     list-style: none;
+//     margin-bottom: 10px;
+//     width: 100%;
+//     display: flex;
+//     justify-content: space-between;
+// }
+
+// .ticker-list li .item-detail {
+//     white-space: nowrap;
+//     text-overflow: ellipsis;
+//     overflow: hidden;
+// }
+
+// .item {
+//     list-style: none;
+//     margin-bottom: 10px;
+//     width: 100%;
+//     white-space: nowrap;
+//     text-overflow: ellipsis;
+//     overflow: hidden;
+// }
+
+// .item code {
+//     white-space: nowrap !important;
+// }
+
+// [theme="dark"] #ticker {
+//     background: #252627 !important;
+// }
+
+// [theme="black"] #ticker {
+//     background: #252627 !important;
+// }
+
+// [theme="dark"] #ticker i {
+//     color: #a9a9b3;
+// }
+
+// [theme="black"] #ticker i {
+//     color: #a9a9b3;
+// }
+
+// /* 首页嘀咕样式 JSON 版 End */
+
+// 首页今日诗词
+#jinrishici {
+    font-family: 'SimSun', 'STSong', 'Songti SC', 'NSimSun', '新宋体', 'fangsonggb2312', 'stfangsong', 'pingfang sc', 'lantinghei sc', 'microsoft yahei', '微软雅黑', 'wenquanyi micro hei', sans-serif !important;
+    font-weight: 600;
+    font-size: 1.5rem;
+    display: inline-block;
+    color: #333;
+    text-align: center;
+    animation: fadeIn .5s ease forwards;
 }
 
-#ticker i {
-    margin-right: 0.25rem;
-    color: #4d4d4d;
+#jinrishici-author {
+    font-family: 'fangsonggb2312', 'stfangsong', 'pingfang sc', 'lantinghei sc', 'SimSun', 'STSong', 'Songti SC', 'NSimSun', '新宋体', 'microsoft yahei', '微软雅黑', 'wenquanyi micro hei', sans-serif !important;
+    font-size: 1.2rem;
+    font-style: italic;
+    display: inline-block;
+    animation: fadeIn .5s ease forwards;
 }
 
-.home .home-profile .home-disclaimer {
-    padding: 0 !important;
+@media (max-width: 450px) {
+    #jinrishici {
+        font-size: 1.25rem;
+    }
+    #jinrishici-author {
+        font-size: 1rem;
+    }
 }
-
-.ticker-wrap {
-    overflow: hidden;
-}
-
-.ticker-wrap ul {
-    padding-left: 0.5rem;
-    margin-block-start: 0 !important;
-    margin-block-end: 0 !important;
-    padding-inline-start: 0 !important;
-}
-
-.ticker-list {
-    margin: 0;
-    height: 35px;
-}
-
-.ticker-list li {
-    list-style: none;
-    margin-bottom: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.ticker-list li .item-detail {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.item {
-    list-style: none;
-    margin-bottom: 10px;
-    width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.item code {
-    white-space: nowrap !important;
-}
-
-[theme="dark"] #ticker {
-    background: #252627 !important;
-}
-
-[theme="black"] #ticker {
-    background: #252627 !important;
-}
-
-[theme="dark"] #ticker i {
-    color: #a9a9b3;
-}
-
-[theme="black"] #ticker i {
-    color: #a9a9b3;
-}
-
-/* 首页嘀咕样式 JSON 版 End */
 
 // Artalk Start
 @keyframes toggle {

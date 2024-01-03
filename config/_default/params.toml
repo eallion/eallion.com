@@ -58,7 +58,7 @@ cacheRemoteImages = false
     logo = ""
     # title name
     # 标题名称
-    name = "大大的小蜗牛:~$ "
+    name = "大大的小蜗牛"
     # you can add extra information before the name (HTML format is supported), such as icons
     # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
     pre = ""
@@ -67,7 +67,7 @@ cacheRemoteImages = false
     post = ""
     # whether to use typeit animation for title name
     # 是否为标题显示打字机动画
-    typeit = true
+    typeit = false
 
 # Footer config
 # 页面底部信息配置

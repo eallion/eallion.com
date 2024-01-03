@@ -506,4 +506,24 @@
 .grid-4 {
     grid-template-columns: repeat(2, 150px);
 }
+
+@media (max-width: 540px) {
+    /* iPhone se width */
+    .grid-3 ,
+    .grid-5,
+    .grid-6 ,
+    .grid-7 ,
+    .grid-8 ,
+    .grid-9 {
+        grid-template-columns: repeat(3, 96px);
+    }
+    .grid-2,
+    .grid-4 {
+        grid-template-columns: repeat(2, 96px);
+    }
+    .toot-images img {
+        width: 96px;
+        height: 96px;
+    }
+}
 /* toot images end */
