@@ -68,6 +68,11 @@ header:hover {
     margin: 0 auto !important;
 }
 
+#hero .get-started-dot {
+    font-size: 0.25rem;
+    margin: 0 0.75rem;
+}
+
 /* .dcc-hero .devsite-landing-row-item-media {
     width: 100vw !important;
     margin-left: calc(50% - 50vw) !important;
@@ -88,6 +93,21 @@ header:hover {
 
 .devsite-landing-row-item-description-content ul li {
     margin: 0 !important;
+}
+
+#posts .devsite-landing-row-item-description-content::before {
+    content: '\f022  摘要';
+    border-width: 1px;
+    background: #f8f8f8;
+    border-color: #161209;
+    border-radius: 0.25rem;
+    border-style: dotted;
+    margin-right: 0.25rem;
+    padding: 0.25rem;
+    opacity: 0.7;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+    text-align: center;
 }
 
 [theme="web-theme"] #penta .dcc-services-card {

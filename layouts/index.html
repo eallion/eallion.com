@@ -213,15 +213,17 @@
 
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
+
                                                 <h3 id="bio"
-                                                    data-text="机会总是垂青于有准备的人"
-                                                    class="hide-from-toc no-link"><span>机会</span>总是垂青于有<span>准备</span>的人
+                                                    data-text="大大的小蜗牛的博客"
+                                                    class="hide-from-toc no-link">大大的小<span>蜗牛</span>' <i class="fas fa-blog"></i><a
+                                                        href="/posts/">博客</a>
                                                 </h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
-                                                    👋 Hi, there! 这里是「<a
-                                                    href="/about/">蜗牛</a>」记录生活的 <i class="fas fa-blog"></i><a
-                                                        href="/posts/">博客</a>，没什么技术，也没有文采。</div>
+                                                    <span id="jinrishici">……</span><span id="jinrishici-author"></span>
+
+                                                </div>
 
                                                 <div class="devsite-landing-row-item-buttons">
                                                     <div class="button dcc-filled-button home-social">
@@ -267,43 +269,9 @@
                                                                 <path fill="currentColor"
                                                                     d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64L12 9.548l6.545-4.91l1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
                                                             </svg></a>
-                                                    </div>
-
-                                                    <a href="#get-started" class="button dcc-filled-button">Get Started
-                                                        <span class="fas fa-chevron-circle-down fa-fw"></span></a>
-                                                </div>
-
-                                                <div id="ticker">
-                                                    <div class="ticker-wrap">
-                                                        <ul class="ticker-list">
-                                                            {{- $mastodon_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true" -}}
-                                                            {{- $mastodon_local := "data/mastodon/mastodon.json" -}}
-                                                            {{- with resources.GetRemote $mastodon_api -}}
-                                                                {{- with .Err -}}
-                                                                {{- $ticker := getJSON $mastodon_local}}
-                                                                    {{- range $ticker -}}
-                                                                    {{ $content := .content }}
-                                                                    {{ $content := $content | replaceRE ":star_solid:" "" }}
-                                                                    {{ $content := $content | replaceRE ":star_half:" "" }}
-                                                                    {{ $content := $content | replaceRE ":star_empty:" "" }}
-                                                                        <li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>嘀咕：<a href="/toot/"
-                                                                                aria-label="toot">{{- $content  | plainify -}}</a></span><span>[<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span class="datetime"
-                                                                                    title="{{- .created_at -}}">{{- .created_at -}}</span></a>]</span></li>
-                                                                    {{- end -}}
-                                                                {{- else -}}
-                                                                {{- $ticker := getJSON $mastodon_api}}
-                                                                    {{- range $ticker -}}
-                                                                    {{ $content := .content }}
-                                                                    {{ $content := $content | replaceRE ":star_solid:" "" }}
-                                                                    {{ $content := $content | replaceRE ":star_half:" "" }}
-                                                                    {{ $content := $content | replaceRE ":star_empty:" "" }}
-                                                                        <li class="item"><span class="item-detail"><i class="fab fa-mastodon"></i>嘀咕：<a href="/toot/"
-                                                                                aria-label="toot">{{- $content  | plainify -}}</a></span><span>[<a href="{{ .url }}" target="_blank" rel="noopener noreferrer"><span class="datetime"
-                                                                                    title="{{- .created_at -}}">{{- .created_at -}}</span></a>]</span></li>
-                                                                    {{- end -}}
-                                                                {{- end -}}
-                                                            {{- end -}}
-                                                        </ul>
+                                                        <span class="get-started-dot"> <i class="fas fa-circle"></i> </span>
+                                                        <a href="#get-started" title="Get Started" rel="me">
+                                                            <span class="fas fa-chevron-circle-down fa-fw"></span></a>
                                                     </div>
                                                 </div>
 
@@ -313,72 +281,6 @@
                                 </div>
                             </div>
                         </section>
-
-                        <script>
-                            // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
-                            (() => {
-                                window.Lately = new function () {
-                                    this.lang = {
-                                        second: " 秒",
-                                        minute: " 分钟",
-                                        hour: " 小时",
-                                        day: " 天",
-                                        month: " 个月",
-                                        year: " 年",
-                                        ago: "前",
-                                        error: "NaN"
-                                    };
-                                    const format = (date) => {
-                                        date = new Date(_val(date));
-                                        const floor = (num, _lang) => Math.floor(num) + _lang,
-                                            obj = new function () {
-                                                this.second = (Date.now() - date.getTime()) / 1000;
-                                                this.minute = this.second / 60;
-                                                this.hour = this.minute / 60;
-                                                this.day = this.hour / 24;
-                                                this.month = this.day / 30;
-                                                this.year = this.month / 12
-                                            },
-                                            key = Object.keys(obj).reverse().find(_ => obj[_] >= 1);
-                                        return (key ? floor(obj[key], this.lang[key]) : this.lang.error) + this.lang.ago;
-                                    },
-                                        _val = (date) => {
-                                            date = new Date(date && (typeof date === 'number' ? date : date.replace(/-/g, '/').replace('T', ' ')));
-                                            return isNaN(date.getTime()) ? false : date.getTime();
-                                        };
-                                    return {
-                                        init: ({ target = "time", lang } = {}) => {
-                                            if (lang) this.lang = lang;
-                                            for (let el of document.querySelectorAll(target)) {
-                                                const date = _val(el.dateTime) || _val(el.title) || _val(el.innerHTML) || 0;
-                                                if (!date) return;
-                                                el.title = new Date(date).toLocaleString();
-                                                el.innerHTML = format(date);
-                                            }
-                                        },
-                                        format
-                                    }
-                                }
-                            })();
-
-                        // 处理 Json 数据
-                        if (document.querySelector('#ticker')) {
-                            // 相对时间插件
-                            window.Lately && Lately.init({
-                                target: '.datetime'
-                            });
-                            // 滚动效果
-                            setInterval(function () {
-                                var tickerWrap = document.querySelector(".ticker-list");
-                                var tickerItem = tickerWrap.querySelectorAll(".item");
-                                for (var i = 0; i < tickerItem.length; i++) {
-                                    setTimeout(function () {
-                                        tickerWrap.appendChild(tickerItem[0]);
-                                    }, 2000);
-                                }
-                            }, 2000);
-                        }
-                        </script>
 
                         <script>
                             // 动态头图
@@ -522,7 +424,7 @@
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
                                                 <div class="devsite-landing-row-item-labels">
-                                                    <h3 class="blog-title"><i class="far fa-list-alt fa-fw"></i> <a href="{{- .RelPermalink -}}"> {{- .Title -}} </a></h3>
+                                                    <h3 class="blog-title"><a href="{{- .RelPermalink -}}"> {{- .Title -}} </a></h3>
                                                 </div>
 
                                                 <!-- <h3 id="recent"
