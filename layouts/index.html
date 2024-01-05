@@ -649,8 +649,8 @@
                                     <div class="devsite-landing-row-header-text">
                                         <h2 data-text="文章的分类"><a href="/categories/">博客分类</a></h2>
 
-                                        <div class="devsite-landing-row-description">从 2006 年开始在网络上写日志和博客，经历各种风雨沉浮，除了键政的内容，保留了大部分文章至今，以前有些文章写得不知所云，但直视自己的黑历史，生活从来不尽如意，但我还是对生活满含热情。<br>
-                                            罗曼・罗兰说过「世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。」</div>
+                                        <div class="devsite-landing-row-description">
+                                            「世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。」- 罗曼・罗兰</div>
                                     </div>
 
                                     <div class="devsite-landing-row-header-buttons">
@@ -817,7 +817,7 @@
                                                             <ul>
                                                                 <li class="neodb">
                                                                     <a href="https://neodb.social{{- $movie_url -}}" target="_blank" rel="noreferrer noopener nofollow">
-                                                                        <img src="/assets/images/movie/neodbsocial.jpg" loading="lazy" alt="NeoDB" no-view>
+                                                                        <img src="/assets/images/movie/neodbsocial.svg" alt="NeoDB" no-view>
                                                                     </a>
                                                                 </li>
                                                                 {{ range .external_resources }}
@@ -827,7 +827,7 @@
                                                                         {{ if not (strings.Contains .url "imdb.com") }}
                                                                             <li class="external-resource">
                                                                                 <a href="{{- .url -}}" target="_blank" rel="noreferrer noopener nofollow">
-                                                                                    <img src="/assets/images/movie/{{- $host -}}.png" loading="lazy" alt="{{- $title -}}" no-view>
+                                                                                    <img src="/assets/images/movie/{{- $host -}}.png" alt="{{- $title -}}" no-view>
                                                                                 </a>
                                                                             </li>
                                                                         {{ end }}
@@ -835,7 +835,7 @@
                                                                 {{ if and ($imdb) (ne $imdb "") }}
                                                                     <li class="imdb">
                                                                         <a href="https://www.imdb.com/title/{{- $imdb -}}" target="_blank" rel="noreferrer noopener nofollow">
-                                                                            <img src="/assets/images/movie/www.imdb.com.png" loading="lazy" alt="IMDB" no-view>
+                                                                            <img src="/assets/images/movie/www.imdb.com.png" alt="IMDB" no-view>
                                                                         </a>
                                                                     </li>
                                                                 {{ end }}
@@ -870,7 +870,7 @@
                                     </div>
 
                                     <div class="devsite-landing-row-header-text">
-                                        <h2 id="goods-share" data-text="好物分享"><a href="/goods/">好物分享</a></h2>
+                                        <h2 id="goods-share" data-text="好物分享"><a href="/goods/">好物分享</a> <sup>Beta</sup></h2>
 
                                         <div class="devsite-landing-row-description">
                                             自己体验过的好物推荐。<br>
@@ -881,7 +881,7 @@
                                 </header>
 
                                 <div class="devsite-landing-row-group">
-                                    {{- range first 2 $goods.good}}
+                                    {{- range first 4 $goods.good}}
                                     <div class="devsite-landing-row-item dcc-blog-card" description-position="bottom">
                                         <div class="devsite-landing-row-item-media">
                                             <figure class="devsite-landing-row-item-image">
@@ -902,54 +902,6 @@
 
                                                 <div class="devsite-landing-row-item-buttons">
                                                     <a href="{{- .link -}}" target="_blank" rel="noreferrer noopener nofollow" class="button"><i class="fas fa-shopping-cart"></i> 去官网查看 ({{- .price -}})</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{- end -}}
-                                </div>
-                            </div>
-                        </section>
-
-                        <section id="penta" view-image
-                            class="devsite-landing-row devsite-landing-row-4-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-pillars"
-                            background="pale-blue" header-position="top">
-
-                            {{- $penta := getJSON "data/penta/penta.json" -}}
-                            <div class="devsite-landing-row-inner">
-                                <header class="devsite-landing-row-header">
-                                    <div class="devsite-landing-row-header-text">
-                                        <h2 data-text="最近 LOL 五杀截图">
-                                            <a href="/penta/" class="">英雄联盟·五杀</a>
-                                        </h2>
-                                    </div>
-                                </header>
-
-                                <div class="devsite-landing-row-group">
-                                    {{- range first 8 $penta.penta -}}
-                                    <div class="devsite-landing-row-item dcc-services-card" description-position="bottom">
-                                        <div class="devsite-landing-row-item-media">
-                                            <figure class="devsite-landing-row-item-image">
-                                                <img alt="{{- .alt -}}" class="lazy" loading="lazy" src="{{- .src -}}">
-                                            </figure>
-                                        </div>
-
-                                        <div class="devsite-landing-row-item-description">
-                                            <div class="devsite-landing-row-item-body">
-                                                <div class="devsite-landing-row-item-buttons referrer">
-                                                    <div class="champion">
-                                                        <a href="https://101.qq.com/#/hero-detail?heroid={{- .heroId -}}" target="_blank" rel="noreferrer noopener nofollow">
-                                                            <img class="lazy" loading="lazy"
-                                                                src="/assets/images/penta/hero/{{- .champion -}}.png" alt="{{- .alt -}} {{- .caption -}}"
-                                                                no-view>
-                                                                <span class="caption">
-                                                                    {{ .caption }}
-                                                                </span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="penta-date">
-                                                        <span><i class="far fa-calendar-alt fa-fw"></i></span>
-                                                        <span class="dateText">{{ .date }}</span></div>
                                                 </div>
                                             </div>
                                         </div>

@@ -634,8 +634,8 @@
                                     <div class="devsite-landing-row-header-text">
                                         <h2 data-text="Cates"><a href="/categories/">Cates</a></h2>
 
-                                        <div class="devsite-landing-row-description">Since 2006, I have been writing blogs and journals online, going through ups and downs. Except for some politically sensitive content, I have preserved most of my articles to this day. Some of my previous writings may have been vague and unclear, but facing my dark history directly—life never goes as expected, yet I remain passionate about life.<br>
-                                            Romain Rolland said: “There is only one heroism in the world: to see the world as it is, and to love it.”</div>
+                                        <div class="devsite-landing-row-description">“There is only one heroism in the world: to see the world as it is, and to love it.”
+                                            - Romain Rolland</div>
                                     </div>
 
                                     <div class="devsite-landing-row-header-buttons">
@@ -757,7 +757,7 @@
 
                                 <div class="devsite-landing-row-group">
                                     {{ $movie_details := getJSON "data/neodb/movie_details.json" }}
-                                    {{ range first 8 $movie_details }}
+                                    {{ range first 4 $movie_details }}
                                     <!-- English Title -->
                                     {{ $title := .orig_title | default .display_title}}
                                     {{ $orig_title := .orig_title }}
@@ -805,7 +805,7 @@
                                                             <ul>
                                                                 <li class="neodb">
                                                                     <a href="https://neodb.social{{- $movie_url -}}" target="_blank" rel="noreferrer noopener nofollow">
-                                                                        <img src="/assets/images/movie/neodbsocial.jpg" loading="lazy" alt="NeoDB" no-view>
+                                                                        <img src="/assets/images/movie/neodbsocial.svg" alt="NeoDB" no-view>
                                                                     </a>
                                                                 </li>
                                                                 {{ range .external_resources }}
@@ -815,7 +815,7 @@
                                                                         {{ if not (strings.Contains .url "imdb.com") }}
                                                                             <li class="external-resource">
                                                                                 <a href="{{- .url -}}" target="_blank" rel="noreferrer noopener nofollow">
-                                                                                    <img src="/assets/images/movie/{{- $host -}}.png" loading="lazy" alt="{{- $title -}}" no-view>
+                                                                                    <img src="/assets/images/movie/{{- $host -}}.png" alt="{{- $title -}}" no-view>
                                                                                 </a>
                                                                             </li>
                                                                         {{ end }}
@@ -823,7 +823,7 @@
                                                                 {{ if and ($imdb) (ne $imdb "") }}
                                                                     <li class="imdb">
                                                                         <a href="https://www.imdb.com/title/{{- $imdb -}}" target="_blank" rel="noreferrer noopener nofollow">
-                                                                            <img src="/assets/images/movie/www.imdb.com.png" loading="lazy" alt="IMDB" no-view>
+                                                                            <img src="/assets/images/movie/www.imdb.com.png" alt="IMDB" no-view>
                                                                         </a>
                                                                     </li>
                                                                 {{ end }}
@@ -859,7 +859,7 @@
                                     </div>
 
                                     <div class="devsite-landing-row-header-text">
-                                        <h2 id="goods-share" data-text="Goods"><a href="/en/goods/">Goods</a></h2>
+                                        <h2 id="goods-share" data-text="Goods"><a href="/en/goods/">Goods</a></h2>Beta
 
                                         <div class="devsite-landing-row-description">
                                             Product recommendations based on my own experience.<br>
@@ -871,7 +871,7 @@
                                 </header>
 
                                 <div class="devsite-landing-row-group">
-                                    {{- range first 2 $goods.good}}
+                                    {{- range first 4 $goods.good}}
                                     <div class="devsite-landing-row-item dcc-blog-card" description-position="bottom">
                                         <div class="devsite-landing-row-item-media">
                                             <figure class="devsite-landing-row-item-image">
@@ -900,55 +900,6 @@
                                 </div>
                             </div>
                         </section>
-
-                        <section id="penta" view-image
-                            class="devsite-landing-row devsite-landing-row-4-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-pillars"
-                            background="pale-blue" header-position="top">
-
-                            {{- $penta := getJSON "data/penta/penta.json" -}}
-                            <div class="devsite-landing-row-inner">
-                                <header class="devsite-landing-row-header">
-                                    <div class="devsite-landing-row-header-text">
-                                        <h2 data-text="LOL Penta Kill">
-                                            <a href="/en/penta/" class="">LOL Penta Kill</a>
-                                        </h2>
-                                    </div>
-                                </header>
-
-                                <div class="devsite-landing-row-group">
-                                    {{- range first 8 $penta.penta -}}
-                                    <div class="devsite-landing-row-item dcc-services-card" description-position="bottom">
-                                        <div class="devsite-landing-row-item-media">
-                                            <figure class="devsite-landing-row-item-image">
-                                                <img alt="{{- .alt -}}" class="lazy" loading="lazy" src="{{- .src -}}">
-                                            </figure>
-                                        </div>
-
-                                        <div class="devsite-landing-row-item-description">
-                                            <div class="devsite-landing-row-item-body">
-                                                <div class="devsite-landing-row-item-buttons referrer">
-                                                    <div class="champion">
-                                                        <a href="https://101.qq.com/#/hero-detail?heroid={{- .heroId -}}" target="_blank" rel="noreferrer noopener nofollow">
-                                                            <img class="lazy" loading="lazy"
-                                                                src="/assets/images/penta/hero/{{- .champion -}}.png" alt="{{- .alt -}} {{- .caption -}}"
-                                                                no-view>
-                                                                <span class="caption">
-                                                                    {{ .champion }}
-                                                                </span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="penta-date">
-                                                        <span><i class="far fa-calendar-alt fa-fw"></i></span>
-                                                        <span class="dateText">{{ .date }}</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{- end -}}
-                                </div>
-                            </div>
-                        </section>
-
                     </div>
                 </article>
             </devsite-content>
