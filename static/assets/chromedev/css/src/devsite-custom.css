@@ -82,6 +82,14 @@ header:hover {
     justify-content: center !important;
 }
 
+.dcc-hero .devsite-landing-row-item-description-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
 #get-started {
     height: 3.5rem !important;
     margin-top: -3rem !important;
@@ -388,7 +396,7 @@ header:hover {
 
 #movies .star ul li img {
     width: 100%;
-    vertical-align: inherit;
+    display: block;
 }
 
 #movies .movie-footer {
@@ -873,6 +881,12 @@ body[theme="black"] {
 
 .toot-text .toot-attach {
     font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .toot-text p {
+        -webkit-line-clamp: 5;
+    }
 }
 
 /* uncss:ignore end */
