@@ -443,6 +443,10 @@ header:hover {
     margin: 0 auto !important;
 }
 
+#goods .devsite-landing-row-item-image img {
+    height: 100% !important;
+}
+
 #penta {
     margin-bottom: 0 !important;
 }
