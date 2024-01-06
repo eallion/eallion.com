@@ -110,3 +110,15 @@ jobs:
       #     SECRET_KEY: ${{ secrets.SECRET_COS_KEY }}
       #     PATHS: "https://eallion.com/,https://www.eallion.com/"
       #     FLUSH_TYPE: "delete" # optional
+      - name: Install TencentCloud CLI
+        run: |
+          pip install tccli
+
+      - name: Configure Tccli Credentials
+        run: |
+          tccli configure set secretId ${{ secrets.TENCENTCLOUD_TEO_SECRET_ID }}
+          tccli configure set secretKey ${{ secrets.TENCENTCLOUD_TEO_SECRET_KEY }}
+
+      - name: Create Tencent Cloud TEO Purge Task
+        run: |
+          tccli teo CreatePurgeTask --cli-unfold-argument --ZoneId ${{ secrets.TENCENTCLOUD_TEO_ZONEID }} --Type purge_prefix --Method invalidate --Targets 'https://eallion.com/'
