@@ -45,13 +45,17 @@
         position: relative;
         overflow: hidden;
         width: 100%;
-        height: 100%;
+        padding-bottom: 150%;
+        position: relative;
     }
 
     .card .poster img {
-        width: 100%;
         transition: .5s;
-        height: 400px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
     }
 
@@ -415,14 +419,10 @@
             grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         }
 
-        .card .poster img {
-            height: 180px;
-        }
-
-        .movie_details {
-            display: none;
-        }
-
+        .rating,
+        .tags,
+        .info,
+        .movie-footer,
         .full-screen {
             display: none;
         }
@@ -432,20 +432,16 @@
         .movie{
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         }
-        .card .poster img {
-            height: 200px;
-        }
 
-        .movie_details {
+        .rating,
+        .tags,
+        .info,
+        .movie-footer,
+        .full-screen {
             display: none;
         }
     }
-    /* // 页面宽度大于900样式    */
-    @media (min-width:900px){
-        .movie_details {
-            display: flex;
-        }
-    }
+
 
     [theme="dark"] .movie-description a {
         color: #55bde2;
