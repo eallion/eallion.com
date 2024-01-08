@@ -13,6 +13,7 @@ lastmod: 2019-03-11
 draft: false
 Comments: true
 slug: "markdown-syntax"
+images: ["/assets/images/og/eallion.png"]
 ---
 
 This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
@@ -126,19 +127,19 @@ Tables aren't part of the core Markdown spec, but Hugo supports supports them ou
 
 #### Unordered List
 
--   List item
--   Another item
--   And another item
+- List item
+- Another item
+- And another item
 
 #### Nested list
 
--   Fruit
-    -   Apple
-    -   Orange
-    -   Banana
--   Dairy
-    -   Milk
-    -   Cheese
+- Fruit
+  - Apple
+  - Orange
+  - Banana
+- Dairy
+  - Milk
+  - Cheese
 
 ## Other Elements — abbr, sub, sup, kbd, mark
 

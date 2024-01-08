@@ -118,6 +118,50 @@ header:hover {
     text-align: center;
 }
 
+#posts .blog-title {
+    display: flex;
+    align-items: center;
+    margin-right: 0.25rem;
+}
+
+#posts .article_new {
+    position: relative;
+    background: #006bee;
+    color: #fff;
+    padding: 0 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: text;
+}
+
+#posts .article_new:hover {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#posts .article_new:hover:after {
+    content: "最近更新";
+    position: absolute;
+    background: #ef3982;
+    color: #fff;
+    padding: 0 0.5rem;
+    border-radius: 0.5rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+    left: 100%;
+    bottom: 0;
+    white-space: nowrap;
+    z-index: 999;
+    cursor: text;
+}
+
+#posts .article_new:hover:after {
+    opacity: 1;
+}
+
 [theme="web-theme"] #penta .dcc-services-card {
     padding-bottom: 1rem !important;
 }
@@ -144,6 +188,12 @@ header:hover {
 @media (max-width: 480px) {
     #ticker {
         width: 100% !important;
+    }
+}
+
+@media (max-width: 591px) {
+    #posts .dcc-blog-card figure img {
+        height: auto;
     }
 }
 
