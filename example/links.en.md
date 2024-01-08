@@ -50,7 +50,7 @@ My favorite sites：
 My blog info：
 
 > Title：eallion's blog
-> URL：[https://eallion.com](https://eallion.com)  
+> URL：[https://www.eallion.com](https://www.eallion.com)  
 > Avatar：[https://cdn.jsdelivr.net/gh/eallion/eallion/avatar/eallion.png](https://cdn.jsdelivr.net/gh/eallion/eallion/avatar/eallion.png)  
 > Gravatar：[https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31](https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31)
 > Description：_Chance favors the prepared mind_
@@ -60,7 +60,7 @@ My blog info：
         var avatarImage = document.querySelector('.friend-link-avatar img');
             if (avatarImage) {
                 avatarImage.addEventListener('error', function() {
-                    avatarImage.src = 'https://eallion.com/404.png';
+                    avatarImage.src = 'https://www.eallion.com/404.png';
                 });
             }
     });

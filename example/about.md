@@ -64,11 +64,11 @@ comment: true
 
 ### 版权信息
 
-* [https://eallion.com/copyright/](https://eallion.com/copyright/)
+* [https://www.eallion.com/copyright/](https://www.eallion.com/copyright/)
 
 ### 隐私政策
 
-* [https://eallion.com/privacy-policy/](https://eallion.com/privacy-policy/)
+* [https://www.eallion.com/privacy-policy/](https://www.eallion.com/privacy-policy/)
 
 ### 本站源码
 
@@ -78,11 +78,11 @@ comment: true
 
 * About me：[https://about.eallion.com](https://about.eallion.com/)
 * 个人网址导航：[https://s.eallion.com](https://s.eallion.com/)
-* 嘀咕：[https://eallion.com/toot/](https://eallion.com/toot/)
-* 相册：[https://eallion.com/album/](https://eallion.com/album/)
-* LOL Penta：[https://eallion.com/penta/](https://eallion.com/penta/)
-* 观影记录：[https://eallion.com/movie/](https://eallion.com/movie/)
-* 好物分享：[https://eallion.com/goods/](https://eallion.com/goods/)
+* 嘀咕：[https://www.eallion.com/toot/](https://www.eallion.com/toot/)
+* 相册：[https://www.eallion.com/album/](https://www.eallion.com/album/)
+* LOL Penta：[https://www.eallion.com/penta/](https://www.eallion.com/penta/)
+* 观影记录：[https://www.eallion.com/movie/](https://www.eallion.com/movie/)
+* 好物分享：[https://www.eallion.com/goods/](https://www.eallion.com/goods/)
 
 ### 联系方式
 

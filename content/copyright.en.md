@@ -31,7 +31,7 @@ A Hugo blog about Charles Chin.
 
 ### Privacy Policy
 
-Privacy Policy: [https://eallion.com/privacy-policy](https://eallion.com/privacy-policy/)
+Privacy Policy: [https://www.eallion.com/privacy-policy](https://www.eallion.com/privacy-policy/)
 
 ### License
 

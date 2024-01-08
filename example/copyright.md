@@ -29,7 +29,7 @@ comment: false
 
 ### 隐私条款
 
-隐私条款：[https://eallion.com/privacy-policy](https://eallion.com/privacy-policy/)
+隐私条款：[https://www.eallion.com/privacy-policy](https://www.eallion.com/privacy-policy/)
 
 ### 许可协议
 
