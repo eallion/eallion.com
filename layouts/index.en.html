@@ -408,7 +408,13 @@
                                         <div class="devsite-landing-row-item-description">
                                             <div class="devsite-landing-row-item-body">
                                                 <div class="devsite-landing-row-item-labels">
-                                                    <h3 class="blog-title"><a href="{{- .RelPermalink -}}"> {{- .Title -}} </a></h3>
+                                                    <h3 class="blog-title">
+                                                        <!--15 天内新博文-->
+                                                        {{ if gt .Date (now.AddDate 0 0 -15) }}
+                                                            <div class="article_new">NEW</div>
+                                                        {{ end }}
+                                                        <!--7 天内新博文-->
+                                                        <a href="{{- .RelPermalink -}}"> {{- .Title -}} </a></h3>
                                                 </div>
 
                                                 <!-- <h3 id="recent"
