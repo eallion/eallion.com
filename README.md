@@ -23,7 +23,7 @@
 
 <div align="center">
 
-✨DEMO：<https://eallion.com> ✨
+✨DEMO：<https://www.eallion.com> ✨
 
 </div>
 
@@ -137,7 +137,7 @@ https://github.com/eallion/eallion.com/tree/main/data/neodb
 
 ### 🔊 嘀咕页面
 
-嘀咕页面 [`https://eallion.com/toot`](https://eallion.com/toot/) 为 Mastodon 个人实例 [`e5n.cc`](https://e5n.cc/@eallion) 的数据展示。利用 [mastodon-embed-feed-timeline](https://gitlab.com/idotj/mastodon-embed-feed-timeline) 这个项目集成到博客页面。基于 [v3.9.1](https://gitlab.com/idotj/mastodon-embed-feed-timeline/-/tags/v3.9.1) 版本修改，后续保持同步更新，但没有完全跟随上游版本号。
+嘀咕页面 [`https://www.eallion.com/toot`](https://www.eallion.com/toot/) 为 Mastodon 个人实例 [`e5n.cc`](https://e5n.cc/@eallion) 的数据展示。利用 [mastodon-embed-feed-timeline](https://gitlab.com/idotj/mastodon-embed-feed-timeline) 这个项目集成到博客页面。基于 [v3.9.1](https://gitlab.com/idotj/mastodon-embed-feed-timeline/-/tags/v3.9.1) 版本修改，后续保持同步更新，但没有完全跟随上游版本号。
 
 ### 📦️ 首页 CSS 打包
 
@@ -330,15 +330,15 @@ git gc --prune=now --aggressive
 
 文章中有 2 种方法引用图片 URL：
 > `/images/1970/01/01.jpg`
-> `https://eallion.com/images/1970/01/01.jpg`
+> `https://www.eallion.com/images/1970/01/01.jpg`
 
 ### 📷 相册
 
 相册页面可以用主题内置的 [`{{< figure >}}`](https://hugodoit.pages.dev/zh-cn/theme-documentation-built-in-shortcodes/#figure)、[`{{< image >}}`](<https://hugodoit.pages.dev/zh-cn/theme-documentation-extended-shortcodes/#image>) Shortcodes 生成。
 如：
 
-- <https://eallion.com/penta/>
-- <https://eallion.com/photos/>
+- <https://www.eallion.com/penta/>
+- <https://www.eallion.com/photos/>
 
 ```markdown
 {{< image src="https://images.eallion.com/penta/20150218-Shaco.jpg" alt="Shaco" caption="Shaco" >}}

@@ -1,4 +1,4 @@
-baseURL = "https://eallion.com"
+baseURL = "https://www.eallion.com"
 # [en, zh-cn, fr, pl, ...] determines default content language
 # [en, zh-cn, fr, pl, ...] 设置默认的语言
 defaultContentLanguage = "zh-cn"

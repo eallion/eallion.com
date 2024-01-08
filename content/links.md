@@ -50,7 +50,7 @@ aliases:
 我的友链信息：
 
 > 标题：大大的小蜗牛  
-> URL：[https://eallion.com](https://eallion.com)  
+> URL：[https://www.eallion.com](https://www.eallion.com)  
 > Avatar：[https://cdn.jsdelivr.net/gh/eallion/eallion/avatar/eallion.png](https://cdn.jsdelivr.net/gh/eallion/eallion/avatar/eallion.png)  
 > Gravatar：[https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31](https://secure.gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31)  
 > 描述：机会总是垂青于有准备的人  
@@ -62,7 +62,7 @@ aliases:
         var avatarImage = document.querySelector('.friend-link-avatar img');
             if (avatarImage) {
                 avatarImage.addEventListener('error', function() {
-                    avatarImage.src = 'https://eallion.com/404.png';
+                    avatarImage.src = 'https://www.eallion.com/404.png';
                 });
             }
     });
