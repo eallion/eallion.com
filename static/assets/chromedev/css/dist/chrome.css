@@ -2549,6 +2549,10 @@ header:hover {
     margin: 0 !important;
 }
 
+#about .about-desc span {
+    display: inline-block;
+}
+
 #posts .devsite-landing-row-item-description-content::before {
     content: '\f022  摘要';
     border-width: 1px;
