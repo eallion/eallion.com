@@ -73,9 +73,6 @@ My favorite motto is:
   <a href="https://keybase.io/eallion/pgp_keys.asc?fingerprint=4f07c9a0617d7166f03be7cc6a9279328406fb6c" target="_blank" rel="noopener noreferrer">
     <img no-view src="https://img.shields.io/keybase/pgp/eallion?label=Keybase%20OpenPGP&logo=keybase&logoColor=fff&style=flat">
   </a>
-  <a href="https://matrix.to/#/@eallion:e5n.cc" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://img.shields.io/badge/Matrix-@eallion:e5n.cc-blue?style=flat&labelColor=555&logo=matrix&logoColor=fff">
-  </a>
 </div>
 
 ### Social network
