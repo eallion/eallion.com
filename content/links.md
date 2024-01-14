@@ -39,6 +39,8 @@ aliases:
 {{< friend name="Yuxi & Yuqi" bio="Design loser,slack off champion." url="https://yuxiyuqi.com/" domain="yuxiyuqi.com" avatar="https://img.yuxiyuqi.com/2023/07/202307292154832.png" >}}
 {{< friend name="文武科技柜" bio="文武科技社的后花园" url="https://www.wangdu.site/" domain="wangdu.site" avatar="https://www.wangdu.site/wp-content/uploads/2021/08/favicon.png" >}}
 {{< friend name="lehhair's Blog" bio="人似秋鸿来有信，事如春梦了无痕" url="https://blog.lehhair.net/" domain="blog.lehhair.net" avatar="https://blog.lehhair.net/upload/logo.jpg" >}}
+{{< friend name="老孙博客" bio="曾梦想仗剑走天涯" url="https://www.imsun.org/" domain="www.imsun.org" avatar="https://g.izt6.com/avatar/2950778b87c48f43c576c08bd67df6b6" >}}
+{{< friend name="1900 的博客" bio="1900 的博客，普通男青年，分享生活、折腾技术。" url="https://1900.live/" domain="1900.live" avatar="https://cravatar.cn/avatar/cc38267b10cc25dfc62209f8ca34589e" >}}
 </div>
 
 ---
