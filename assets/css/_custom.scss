@@ -94,14 +94,20 @@ $background-color_6: #78191b;
     }
 
     .content {
-
         >h2,
-        >h3,
+        >h3 {
+            .header-mark::before {
+                content: "#";
+            }
+        }
+    }
+
+    .content {
         >h4,
         >h5,
         >h6 {
             .header-mark::before {
-                content: "#";
+                margin-left: 0.5rem;
             }
         }
     }
