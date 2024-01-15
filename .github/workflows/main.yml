@@ -103,15 +103,6 @@ jobs:
           bucket: ${{ secrets.COS_CN_BUCKET }}
           region: ap-shanghai
 
-      - name: Upload to Tencent COS US
-        uses: zkqiang/tencent-cos-action@v0.1.0
-        with:
-          args: upload -rsf --delete ./public/ /
-          secret_id: ${{ secrets.SECRET_COS_ID }}
-          secret_key: ${{ secrets.SECRET_COS_KEY }}
-          bucket: ${{ secrets.COS_US_BUCKET }}
-          region: na-siliconvalley
-
       # - name: Tencent CDN Purge
       #   uses: keithnull/tencent-cloud-cdn-purge-cache@v1.0
       #   env:
