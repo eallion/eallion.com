@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../static/assets/chromedev/css/src/devsite-custom.css?v=20231121" /> -->
 
     <!-- 下面是正式的，Uncss 打包时需要注释掉 -->
-    <link rel="stylesheet" href="/assets/chromedev/css/dist/chrome.min.css?v=20240101" />
+    <link rel="stylesheet" href="/assets/chromedev/css/dist/chrome.min.css?v=20240117" />
 
     <script type="module" src="/assets/chromedev/js/main.js"></script>
 
@@ -419,12 +419,11 @@
                                             <div class="devsite-landing-row-item-body">
                                                 <div class="devsite-landing-row-item-labels">
                                                     <h3 class="blog-title">
-                                                        <!--15 天内新博文-->
+                                                        <a
                                                         {{ if gt .Date (now.AddDate 0 0 -15) }}
-                                                            <div class="article_new">NEW</div>
+                                                            class="article_new"
                                                         {{ end }}
-                                                        <!--7 天内新博文-->
-                                                        <a href="{{- .RelPermalink -}}"> {{- .Title -}} </a></h3>
+                                                        href="{{- .RelPermalink -}}"> {{- .Title -}} </a></h3>
                                                 </div>
 
                                                 <!-- <h3 id="recent"

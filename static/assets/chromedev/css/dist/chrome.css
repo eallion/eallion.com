@@ -2568,48 +2568,22 @@ header:hover {
     text-align: center;
 }
 
-#posts .blog-title {
-    display: flex;
-    align-items: center;
-    margin-right: 0.25rem;
-}
-
-#posts .article_new {
+#posts .article_new::before {
+    content: 'NEW';
     position: relative;
     background: #006bee;
     color: #fff;
     padding: 0 0.5rem;
     margin-right: 0.5rem;
     border-radius: 0.5rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
     cursor: text;
 }
 
-#posts .article_new:hover {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-#posts .article_new:hover:after {
-    content: "最近更新";
-    position: absolute;
-    background: #ef3982;
-    color: #fff;
-    padding: 0 0.5rem;
-    border-radius: 0.5rem;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    opacity: 0;
-    transition: opacity 0.3s;
-    left: 100%;
-    bottom: 0;
-    white-space: nowrap;
-    z-index: 999;
-    cursor: text;
-}
-
-#posts .article_new:hover:after {
-    opacity: 1;
+@media (max-width: 768px) {
+    #posts .article_new::before {
+        font-size: 1.25rem;
+    }
 }
 
 [theme="web-theme"] #penta .dcc-services-card {
