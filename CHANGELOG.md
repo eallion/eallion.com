@@ -1,3 +1,59 @@
+## v3.0.3 (2024-01-18)
+
+### New feature
+
+- **workflows**: remove upload to Tencent COS US([`6b2e872`](https://github.com/eallion/eallion.com/commit/6b2e872daa8bb7fa0e0204fd99e60d71f0bb8e8f)) (by Charles Chin)
+- edgeone performance monitor([`63772b9`](https://github.com/eallion/eallion.com/commit/63772b90b1590720eee03a305a3c845ec1dbc629)) (by Charles Chin)
+- **workflows**: add upload to Tencent COS US([`4d90a22`](https://github.com/eallion/eallion.com/commit/4d90a2264e7ee47d09c9d02d3ba960ef42de4bf4)) (by Charles Chin)
+- **layouts**: update LOL Penta links([`90f64b5`](https://github.com/eallion/eallion.com/commit/90f64b5dae376241b63db3c14b13e0c7dd251fc4)) (by Charles Chin)
+- **penta**: add Camille and Khazix pentas([`53a2d50`](https://github.com/eallion/eallion.com/commit/53a2d504dc1d425464056e46e80ccfb1bd7ae831)) (by Charles Chin)
+- **sync**: add Python setup and movie details fetch([`4594e21`](https://github.com/eallion/eallion.com/commit/4594e2144548eed30baa89a5783db6422aa3f233)) (by Charles Chin)
+- **movie**: add movie footer styles and play button([`79e15d6`](https://github.com/eallion/eallion.com/commit/79e15d6ffef886d7848bf1343221584df2f26484)) (by Charles Chin)
+- **package.json**: update 'server' and 'preview' scripts([`174db00`](https://github.com/eallion/eallion.com/commit/174db007e5cf82032491aa992c62d7422d634356)) (by Charles Chin)
+- **movie**: update movie title and description([`011f6f3`](https://github.com/eallion/eallion.com/commit/011f6f38cd9d43a3cf668d6827d08080baf6855c)) (by Charles Chin)
+- home movie watched([`2012a85`](https://github.com/eallion/eallion.com/commit/2012a851a0676094e9accab56099955d4e2bac1c)) (by Charles Chin)
+- **layouts**: update Mastodon API endpoint([`4de42cf`](https://github.com/eallion/eallion.com/commit/4de42cf5416d8be4d6a96cd5e57269f80b884698)) (by Charles Chin)
+- **css**: add custom styling for <kbd> elements([`d4f0065`](https://github.com/eallion/eallion.com/commit/d4f006503c4d835b028968ef04a2a18732fcdc96)) (by Charles Chin)
+- add conditional trigger for NeoDB synchronization and Hugo build([`f6355c8`](https://github.com/eallion/eallion.com/commit/f6355c8a9791924ee6d4a50f58659342e66c4a56)) (by Charles Chin)
+- Add backup repository remote URL([`449112f`](https://github.com/eallion/eallion.com/commit/449112f23d55b090e23a28fc4b69b7fd36f40b7e)) (by Charles Chin)
+- update toot.html and index.en.html([`057a645`](https://github.com/eallion/eallion.com/commit/057a64573d7d7460617b6523cbe415db27d442f3)) (by Charles Chin)
+- update mastodon API URL and exclude reblogs([`2a5cb27`](https://github.com/eallion/eallion.com/commit/2a5cb27bef878a198358acb0d850b60181bbe48c)) (by Charles Chin)
+- add support for image and video attachments in toot.html([`26b232d`](https://github.com/eallion/eallion.com/commit/26b232dbf91aaceffc1fca4d9f75c6a73efbaf16)) (by Charles Chin)
+- update sync-neodb-data workflow([`e4484e6`](https://github.com/eallion/eallion.com/commit/e4484e6d1af25bf2d134176ceb521899278a131d)) (by Charles Chin)
+- **penta**: add new penta screenshots([`b33720b`](https://github.com/eallion/eallion.com/commit/b33720b1dbe2011563554d196d7a530e2f16016b)) (by Charles Chin)
+- recently updated([`6970e64`](https://github.com/eallion/eallion.com/commit/6970e64a9e51dc668939e6f0c0daf01926d40046)) (by Charles Chin)
+- neodb([`8c2d860`](https://github.com/eallion/eallion.com/commit/8c2d860fe07e69463cd5f1befb369632091228e3)) (by Charles Chin)
+- onionsite([`9fbdf6a`](https://github.com/eallion/eallion.com/commit/9fbdf6a11c4405ad3b17e8f927e05f8f6254b004)) (by Charles Chin)
+- new home hero([`ee017aa`](https://github.com/eallion/eallion.com/commit/ee017aa77c9545d9bfbdf06f58db279c7fdae023)) (by Charles Chin)
+- images on toot([`96d0abc`](https://github.com/eallion/eallion.com/commit/96d0abcb2dc29614e2b0507697f3308a9f9fbff1)) (by Charles Chin)
+
+### Bugs fixed
+
+- home details([`4e83c5a`](https://github.com/eallion/eallion.com/commit/4e83c5a832ad83607a7c365570f36f4b987783f0)) (by Charles Chin)
+- **layouts**: adjust padding and justify-content in movie.html([`0271f71`](https://github.com/eallion/eallion.com/commit/0271f718de14bdfa1b3ae4f6232ef705debf0385)) (by Charles Chin)
+- **workflow**: add conditional execution for Fetch Movie Details([`250d734`](https://github.com/eallion/eallion.com/commit/250d7346d665b6907e743e34bd5fd8c62e9efa6b)) (by Charles Chin)
+- typo([`6d385ae`](https://github.com/eallion/eallion.com/commit/6d385ae12cd22681158f718eafc5fa9c8feabe4a)) (by Charles Chin)
+- **layouts**: fix script loading issue in movie.html([`43dfde3`](https://github.com/eallion/eallion.com/commit/43dfde30b6c896d7959f6f0caee5e5c6905e551b)) (by Charles Chin)
+- title([`c2ecdc0`](https://github.com/eallion/eallion.com/commit/c2ecdc0b8b2ebd726c215eba5fa2e6c671712011)) (by Charles Chin)
+- artalk plugin deps([`8647949`](https://github.com/eallion/eallion.com/commit/8647949a58c50caa66a0639aa897a8fdf9681cda)) (by Charles Chin)
+- **layouts**: fix mastodon ticker content replacement([`bd2daab`](https://github.com/eallion/eallion.com/commit/bd2daab038520109970e6e4138f75cd5d2738024)) (by Charles Chin)
+- toot neodb star([`8e3959e`](https://github.com/eallion/eallion.com/commit/8e3959eaa482f65de7c97e65a346d80012dc0265)) (by Charles Chin)
+- matrix icon([`50a989d`](https://github.com/eallion/eallion.com/commit/50a989d0796703dbf1ca34ae071dccc24a43f61b)) (by Charles Chin)
+- **config**: fix deprecated taxonomyterm & author([`1f71f48`](https://github.com/eallion/eallion.com/commit/1f71f48e4ba42aa7c93559398952c2e43b92f8c5)) (by Charles Chin)
+- movie pic view image([`7ee5949`](https://github.com/eallion/eallion.com/commit/7ee59495b7ee2ce82240bd92c53c686c38957a08)) (by Charles Chin)
+- toot app url([`687ba52`](https://github.com/eallion/eallion.com/commit/687ba52bcfc8a92bfc536b807b62a67b1b8e08f7)) (by Charles Chin)
+- quote of about page([`f587610`](https://github.com/eallion/eallion.com/commit/f587610662f5f03dee3f3db987807ccb39ac61f3)) (by Charles Chin)
+
+### Performance improves
+
+- rm unuse css with uncss and host og-image local([`c6e8ecf`](https://github.com/eallion/eallion.com/commit/c6e8ecf2a8fbd51f2645860b841fc1541af09fb1)) (by Charles Chin)
+
+### BREAKING CHANGES
+
+- redirect domain root to [www.eallion.com](http://www.eallion.com)
+
+  redirect domain root to [www.eallion.com](http://www.eallion.com)
+
 ## v3.0.2 (2023-11-19)
 
 ### New feature
