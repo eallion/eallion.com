@@ -14,7 +14,7 @@
 
 <div align="center">
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_shield) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v3.0.2/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com) [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/9pjg.svg)](https://betteruptime.com/?utm_source=status_badge)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_shield) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v3.0.3/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com) [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/9pjg.svg)](https://betteruptime.com/?utm_source=status_badge)
 </div>
 <div align="center">
 
@@ -61,12 +61,12 @@ origin  https://git.eallion.com/git/eallion/eallion.com.git (push)
 
 #### 架构备忘
 
-- 国内：部署至阿里云 [OSS](https://www.aliyun.com/product/oss) + [CDN](https://www.aliyun.com/product/cdn) (2023.07.26)
-- 境外：部署至阿里云 [OSS](https://www.aliyun.com/product/oss) + [CDN](https://www.aliyun.com/product/cdn) (2023.07.26)
+- 国内：部署至腾讯云 [EdgeOne](https://cloud.tencent.com/product/teo) (2024.01.06)
+- 境外：部署至腾讯云 [EdgeOne](https://cloud.tencent.com/product/teo) (2024.01.06)
 
 #### GitHub Actions
 
-> Update:2023.08.04
+> Update:2024.01.06
 
 - https://github.com/eallion/eallion.com/blob/main/.github/workflows/main.yml
 
@@ -165,12 +165,14 @@ npm run uncss
 
 2. **编辑文章**
 
-通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 New 出来的文章。
-这篇文章在 `content/posts/daily` 目录下，文件名为：`new_title.md`。
+通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 New 出来的文章。  
+这篇文章在 `example/posts` 目录下，文件名为：`*.md`，为 `npm run new` 输入的文字。  
+编辑好之后需要把这个文件复制到 `content/posts` 相应的目录中，再 `git push`。  
 
-3. **修改 Front matter**：
+1. **修改 Front matter**：
 
 - `title` (必填) 自动生成，按需修改
+- `images` (选填) OG Image 和首页渲染需要用到
 - `authors`：目录保持默认：`["eallion"]`，其他支持：`["shanzei"]`
 - `categories` (必填) 按需修改
 - `tags` (必填) 按需修改 (约定：本博客单篇文章标签数上限为 4)
@@ -190,7 +192,7 @@ npm run uncss
 注意查看 Layouts 中的模板和 `data` 中的数据文件。
 
 - `嘀咕`：到 [e5n.cc](https://e5n.cc) 发 Toot；
-- `观影`：到豆瓣网和 NeoDB 标记；
+- `观影`：到 ~~豆瓣网~~ ~~和~~ NeoDB 标记；
 - `随手拍`：到 [e5n.cc](https://e5n.cc) 发带有 `#相册` 标签的 Toot；
 - `好物`：数据按 `data` 目录中的 `goods.json` 文件更新；
 - `Penta`：数据按 `data` 目录中的 `penta.json` 文件更新
@@ -217,13 +219,14 @@ git push
 - ./server.sh
 + npm run server
 
+# 查看博客实际效果 👇
 # npm run preview
 ```
 
 脚本内容：
 
 ```bash
-hugo server -w -D -p 1313 -t hello-friend --bind 0.0.0.0  --contentDir example --cleanDestinationDir --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production
+git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir example --minify --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo --disableKinds RSS --printUnusedTemplates --templateMetrics --templateMetricsHints
 ```
 
 > 运行脚本后会自动打开预览页面：<http://127.0.0.1:1313>
@@ -337,12 +340,17 @@ git gc --prune=now --aggressive
 相册页面可以用主题内置的 [`{{< figure >}}`](https://hugodoit.pages.dev/zh-cn/theme-documentation-built-in-shortcodes/#figure)、[`{{< image >}}`](<https://hugodoit.pages.dev/zh-cn/theme-documentation-extended-shortcodes/#image>) Shortcodes 生成。
 如：
 
-- <https://www.eallion.com/penta/>
 - <https://www.eallion.com/photos/>
 
 ```markdown
 {{< image src="https://images.eallion.com/penta/20150218-Shaco.jpg" alt="Shaco" caption="Shaco" >}}
 ```
+
+### 📷 LOL 五杀
+
+数据按 `data/penta/penta.json` 格式维护即可，五杀截图放到 `static/assets/images/penta/screenshot` 目录。
+
+- <https://www.eallion.com/penta/>
 
 ### 📄 LICENSE
 
