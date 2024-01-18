@@ -56,10 +56,6 @@ header:hover {
     font-size: 1.25rem !important;
 }
 
-#hero {
-    min-height: calc(100vh - 5rem);
-}
-
 [theme="web-theme"] .dcc-hero .button {
     margin: 0.125rem !important;
 }
@@ -189,6 +185,20 @@ header:hover {
 
 [theme="black"] #ticker i {
     color: #4d4d4d !important;
+}
+
+#movies {
+    margin-bottom: 0;
+}
+
+#movies::after {
+    background: linear-gradient(92deg,#fb0301 0%,#fb0301 10.94%,#fbbb06 19.79%,#fbbb06 37.5%,#34a653 60.42%,#34a653 76.56%,#206ace 100%);
+    content: "";
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
 }
 
 #movies .card {
@@ -521,6 +531,10 @@ header:hover {
 
 #penta .devsite-landing-row-item-image:hover img {
     transform: scale(1.1);
+}
+
+#toots {
+    margin-bottom: 3rem;
 }
 
 #toots h2 a{

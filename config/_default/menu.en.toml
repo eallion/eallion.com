@@ -39,14 +39,14 @@
   url = "/movie/"
   title = "DouBan Movie"
   weight = "4"
-[[main]]
-  identifier = "goods"
-  pre = "<i class='fas fa-gift'></i>"
-  post = ""
-  name = "Goods"
-  url = "/goods/"
-  title = "Goods for a better life"
-  weight = "5"
+# [[main]]
+#   identifier = "goods"
+#   pre = "<i class='fas fa-gift'></i>"
+#   post = ""
+#   name = "Goods"
+#   url = "/goods/"
+#   title = "Goods for a better life"
+#   weight = "5"
 # [[main]]
 #   identifier = "categories"
 #   pre = "<i class='fas fa-stream'></i>"
