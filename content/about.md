@@ -56,7 +56,7 @@ comment: true
 ### 说明
 
 * 本站使用 [Hugo](https://gohugo.io/) 构建
-* 通过 GitHub Actions 部署至 [阿里云](https://www.aliyun.com/product/oss)
+* 通过 GitHub Actions 部署至 [EdgeOne](https://cloud.tencent.com/product/teo)
 * 主题使用的是 [DoIt](https://github.com/HEIGE-PCloud/DoIt)
 * 嘀咕页面依赖 Mastodon 实例：[https://e5n.cc](https://e5n.cc)  
 * 观影页面依赖 NeoDB：[https://neodb.social](https://neodb.social/users/eallion@e5n.cc/)

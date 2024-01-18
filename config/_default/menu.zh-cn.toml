@@ -39,14 +39,14 @@
   url = "/movie/"
   title = "豆瓣观影记录"
   weight = "4"
-[[main]]
-  identifier = "goods"
-  pre = "<i class='fas fa-gift'></i>"
-  post = ""
-  name = "好物"
-  url = "/goods/"
-  title = "好物推荐"
-  weight = "5"
+# [[main]]
+#   identifier = "goods"
+#   pre = "<i class='fas fa-gift'></i>"
+#   post = ""
+#   name = "好物"
+#   url = "/goods/"
+#   title = "好物推荐"
+#   weight = "5"
 # [[main]]
 #   identifier = "categories"
 #   pre = "<i class='fas fa-stream'></i>"
