@@ -31,7 +31,7 @@
 
 <div align="center">
 
-  <img src="static/assets/images/github/blog-flow.svg">
+  <img src="static/assets/images/github/blog-flow-light-bg.png">
 </div>
 
 ### 📦️ 主仓库
