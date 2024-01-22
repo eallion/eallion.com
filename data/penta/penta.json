@@ -1,6 +1,14 @@
 {
   "penta": [
     {
+      "src": "/assets/images/penta/screenshot/20240123-Lucian.webp",
+      "alt": "20240123-Lucian",
+      "champion": "Lucian",
+      "date": "2024/01/23",
+      "caption": "圣枪游侠 卢锡安",
+      "heroId": "236"
+    },
+    {
       "src": "/assets/images/penta/screenshot/20240115-LeeSin.webp",
       "alt": "20240115-LeeSin",
       "champion": "LeeSin",
