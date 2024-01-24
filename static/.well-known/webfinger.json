@@ -1,19 +1,28 @@
 {
-  "subject": "acct:eallion@eallion.com",
+  "subject": "acct:eallion@e5n.cc",
   "aliases": [
-    "https://m.eallion.com/users/eallion",
-    "https://m.eallion.com/@eallion"
+    "https://e5n.cc/@eallion",
+    "https://e5n.cc/users/eallion"
   ],
   "links": [
     {
       "rel": "http://webfinger.net/rel/profile-page",
       "type": "text/html",
-      "href": "https://m.eallion.com/@eallion"
+      "href": "https://e5n.cc/@eallion"
     },
     {
       "rel": "self",
       "type": "application/activity+json",
-      "href": "https://m.eallion.com/users/eallion"
+      "href": "https://e5n.cc/users/eallion"
+    },
+    {
+      "rel": "http://ostatus.org/schema/1.0/subscribe",
+      "template": "https://e5n.cc/authorize_interaction?uri={uri}"
+    },
+    {
+      "rel": "http://webfinger.net/rel/avatar",
+      "type": "image/png",
+      "href": "https://files.e5n.cc.eallion.com/accounts/avatars/111/136/231/674/527/355/original/19e1bcc0a0ddb307.png"
     }
   ]
 }
