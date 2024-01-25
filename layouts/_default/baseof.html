@@ -23,19 +23,6 @@
     {{- end -}}
 
     <link href="https://e5n.cc/@eallion" rel="me">
-
-    <!-- EdgeOne Performance Monitor -->
-    <script src='https://cdn-go.cn/aegis/aegis-sdk/latest/aegis.min.js'></script>
-    <script>
-        const aegis = new Aegis({
-            id: 'GlQnlcEDqdbyb0dL4a', // 上报 id
-            uin: 'eallion', // 用户唯一 ID（可选）
-            reportApiSpeed: true, // 接口测速
-            reportAssetSpeed: true, // 静态资源测速
-            spa: true, // spa 应用页面跳转的时候开启 pv 计算
-            hostUrl: 'https://rumt-sg.com',
-        });
-    </script>
 </head>
 
 <body header-desktop="{{ .Site.Params.header.desktopMode }}" header-mobile="{{ .Site.Params.header.mobileMode }}">
