@@ -84,7 +84,7 @@ cacheRemoteImages = false
   # 托管服务信息 (支持 HTML 格式)
   # <a title="Github Pages" href="https://docs.github.com/en/pages/" target="_blank" rel="noopener noreffer">GitHub Pages</a>
   # hostedOn = ''
-  hostedOn = '<a title="腾讯云边缘安全加速平台 EdgeOne" href="https://cloud.tencent.com/product/teo" target="_blank" rel="noopener noreffer">EdgeOne</a>'
+  hostedOn = '<a title="腾讯云边缘安全加速平台 EdgeOne" href="https://e5n.cc/s/teo" target="_blank" rel="noopener noreffer">EdgeOne</a>'
   # whether to show copyright info
   # 是否显示版权信息
   copyright = true

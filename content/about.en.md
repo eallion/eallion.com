@@ -38,7 +38,7 @@ My favorite motto is:
 ### Description
 
 * This project powered by [Hugo](https://gohugo.io/)
-* Hosted by [EdgeOne](https://cloud.tencent.com/product/teo) through GitHub Actions
+* Hosted by [EdgeOne](https://e5n.cc/s/teo) through GitHub Actions
 * Themed by [DoIt](https://github.com/HEIGE-PCloud/DoIt)
 * The Toot page relies on the Mastodon instance at [https://e5n.cc](https://e5n.cc)
 * The Watched page relies on [https://neodb.social](https://neodb.social/users/eallion@e5n.cc/)
