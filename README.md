@@ -61,8 +61,8 @@ origin  https://git.eallion.com/git/eallion/eallion.com.git (push)
 
 #### 架构备忘
 
-- 国内：部署至腾讯云 [EdgeOne](https://cloud.tencent.com/product/teo) (2024.01.06)
-- 境外：部署至腾讯云 [EdgeOne](https://cloud.tencent.com/product/teo) (2024.01.06)
+- 国内：部署至腾讯云 [EdgeOne](https://e5n.cc/s/teo) (2024.01.06)
+- 境外：部署至腾讯云 [EdgeOne](https://e5n.cc/s/teo) (2024.01.06)
 
 #### GitHub Actions
 
