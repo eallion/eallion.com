@@ -49,7 +49,7 @@ NeoDB 官方开发者中心有 [How to authorize](https://neodb.social/developer
 通过浏览器访问下面的 URL，注意修改成自己的参数：
 
 ```
-https://neodb.social/oauth/authorize/?response_type=code&client_id=CLIENT_ID&redirect_uri=https://example.org/callback
+https://neodb.social/auth/oauth/authorize/?response_type=code&client_id=CLIENT_ID&redirect_uri=https://example.org/callback
 ```
 
 其中：
