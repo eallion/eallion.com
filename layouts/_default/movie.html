@@ -10,12 +10,16 @@
 {{- end -}}
 
 <style>
+    .page {
+        max-width: 1020px !important;
+    }
+
     .movie {
         /* width: 100vw;
         margin-left: calc(50% - 50vw); */
         display: grid;
-        grid-gap: 4px;
-        grid-template-columns: repeat(auto-fill, minmax(197px, 1fr));
+        grid-gap: 5px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         margin-top: 6.5rem;
     }
 
@@ -269,9 +273,10 @@
         flex-wrap: wrap;
         align-items: flex-start;
         line-height: 1.6;
-        margin: 1rem 0!important;
+        margin: 1rem auto !important;
         color: #fff;
         flex-direction: column;
+        max-width: 800px;
     }
 
     .movie-title-meta {
