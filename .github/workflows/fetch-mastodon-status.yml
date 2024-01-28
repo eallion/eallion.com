@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     # 检查是否安装了 JQ
     - name: Check JQ
@@ -54,13 +54,13 @@ jobs:
     # 调用另外的 GitHub Actions
     - name: Sync NeoDB Data
       if: ${{ env.TAG_NAME == 'NeoDB' }}
-      uses: peter-evans/repository-dispatch@v2
+      uses: peter-evans/repository-dispatch@v3
       with:
           event-type: sync-neodb
 
     # 调用另外的 GitHub Actions 构建 Hugo
     - name: Build Hugo and Deploy
       if: ${{ env.TAG_NAME != 'NeoDB' }}
-      uses: peter-evans/repository-dispatch@v2
+      uses: peter-evans/repository-dispatch@v3
       with:
           event-type: build-hugo
