@@ -1,6 +1,14 @@
 {
   "penta": [
     {
+      "src": "/assets/images/penta/screenshot/20240126-LeeSin.webp",
+      "alt": "20240126-LeeSin",
+      "champion": "LeeSin",
+      "date": "2024/01/26",
+      "caption": "盲僧 李青",
+      "heroId": "64"
+    },
+    {
       "src": "/assets/images/penta/screenshot/20240123-Lucian.webp",
       "alt": "20240123-Lucian",
       "champion": "Lucian",
