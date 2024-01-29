@@ -449,24 +449,24 @@ cacheRemoteImages = false
     # giscus comment config (https://giscus.app/)
     # giscus comment 评论系统设置 (https://giscus.app/)
     [page.comment.giscus]
-      enable = false
+      enable = true
       # owner/repo
-      dataRepo = ""
-      dataRepoId = ""
-      dataCategory = ""
-      dataCategoryId = ""
+      dataRepo = "eallion/eallion.com"
+      dataRepoId = "MDEwOlJlcG9zaXRvcnkyNjI2Njk1MDg="
+      dataCategory = "Giscus"
+      dataCategoryId = "DIC_kwDOD6gExM4CS9eF"
       dataMapping = "pathname"
-      dataStrict = "0"
+      dataStrict = "1"
       dataReactionsEnabled = "1"
       dataEmitMetadata = "0"
       dataInputPosition = "bottom"
       lightTheme = "light"
-      darkTheme = "dark"
-      dataLang = "en"
+      darkTheme = "dark_dimmed"
+      dataLang = "zh-CN"
     # artalk comment config (https://artalk.js.org/guide/frontend/config.html)
     # artalk comment 评论系统设置 (https://artalk.js.org/guide/frontend/config.html)
     [page.comment.artalk]
-      enable = true
+      enable = false
       server = "https://artalk.eallion.com"
       site = "eallion"
       lite = false
