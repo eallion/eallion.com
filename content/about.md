@@ -15,7 +15,7 @@ comment: true
 
 <img no-view src="/eallion.webp" alt="eallion">
 
-我是「蜗牛」，不过一般都使用「大大的小蜗牛」作为网名。
+我是「[蜗牛]^(eallion)」，不过一般都使用「大大的小蜗牛」作为网名。
 本名没有什么内涵，略去不表。
 早年常居鲁迅故里，钟情于江南水乡。
 工作于电商之都。后为生计南下深港。
@@ -56,11 +56,11 @@ comment: true
 ### 说明
 
 * 本站使用 [Hugo](https://gohugo.io/) 构建
-* 通过 GitHub Actions 部署至 [EdgeOne](https://e5n.cc/s/teo)
+* 通过 GitHub Actions 部署至腾讯云 [EdgeOne](https://e5n.cc/s/teo)
 * 主题使用的是 [DoIt](https://github.com/HEIGE-PCloud/DoIt)
 * 嘀咕页面依赖 Mastodon 实例：[https://e5n.cc](https://e5n.cc)  
 * 观影页面依赖 NeoDB：[https://neodb.social](https://neodb.social/users/eallion@e5n.cc/)
-* 评论系统依赖自建的 Artalk：[https://artalk.eallion.com](https://artalk.eallion.com/)
+* 评论系统处于半关闭状态，依赖 Giscus：[https://giscus.app](https://giscus.app/)
 
 ### 版权信息
 
