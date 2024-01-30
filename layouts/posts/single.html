@@ -210,14 +210,6 @@
             </div>
         {{- end -}}
 
-        {{- /* Content */ -}}
-        <div class="content" id="content">
-            {{- /* Outdated Article Reminder */ -}}
-            {{- partial "single/outdatedArticleReminder.html" . -}}
-
-            {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
-        </div>
-
         {{- $summary := getJSON "data/summary/summary.json" -}}
         {{- $currentSlug := .Params.slug -}}
         {{- $matchingSummary := index (where $summary.summaries "slug" $currentSlug) 0 -}}
@@ -225,7 +217,7 @@
             <div class="ai-header">
                 <div class="ai-title">
                     <i class="fas fa-robot ai-title-icon"></i>
-                    <div class="ai-title-text"><a href="https://www.eallion.com/ai-summary/" target="_blank" rel="noopener noreferrer">本文 AI 总结</a></div>
+                    <div class="ai-title-text"><a href="https://www.eallion.com/ai-summary/" target="_blank" rel="noopener noreferrer">AI TL;DR</a></div>
                 </div>
                 <div class="ai-title-tooltip">
                     <i class="far fa-question-circle"></i>
@@ -239,6 +231,14 @@
                     AI 总结接口暂时失联……
                 {{- end -}}
             </div>
+        </div>
+
+        {{- /* Content */ -}}
+        <div class="content" id="content">
+            {{- /* Outdated Article Reminder */ -}}
+            {{- partial "single/outdatedArticleReminder.html" . -}}
+
+            {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         </div>
 
         {{/* Related Content */}}
