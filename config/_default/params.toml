@@ -463,6 +463,7 @@ cacheRemoteImages = false
       lightTheme = "light"
       darkTheme = "dark_dimmed"
       dataLang = "zh-CN"
+      dataLoading = "lazy"
     # artalk comment config (https://artalk.js.org/guide/frontend/config.html)
     # artalk comment 评论系统设置 (https://artalk.js.org/guide/frontend/config.html)
     [page.comment.artalk]
