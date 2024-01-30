@@ -1,2 +1,6 @@
-/zh-cn/* /zh-cn/404.html 404
-/fr/*    /fr/404.html    404
+/zh-cn/*    /   301
+/zh-tw/*    /   301
+/zh-CN/*    /   301
+/zh-TW/*    /   301
+/.well-known/webfinger*    /.well-known/webfinger.json:splat  200
+/.well-known/nodeinfo*    /.well-known/nodeinfo.json:splat   200
