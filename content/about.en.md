@@ -15,7 +15,7 @@ comment: false
 
 <img no-view src="/eallion.webp" alt="eallion">
 
-I'm Charles Chin. eallion has been my nickname for over 20 years.
+I'm [Charles Chin]^(大大的小蜗牛). [eallion]^(蜗牛) has been my nickname for over 20 years.
 AKA：大大的小蜗牛.
 I live in the UTC+08:00 timezone and work from home.
 I work in E-commerce, not IT.
@@ -42,7 +42,7 @@ My favorite motto is:
 * Themed by [DoIt](https://github.com/HEIGE-PCloud/DoIt)
 * The Toot page relies on the Mastodon instance at [https://e5n.cc](https://e5n.cc)
 * The Watched page relies on [https://neodb.social](https://neodb.social/users/eallion@e5n.cc/)
-* The comment system relies on a self-hosted Artalk API at [https://artalk.eallion.com](https://artalk.eallion.com/)
+* The comment system relies on Giscus at [https://giscus.app](https://giscus.app/)
 
 ### Copyright
 
