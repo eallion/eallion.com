@@ -3,7 +3,7 @@ title: "Oneinstack 手动修复 OpenSSL OCSP"
 images: ["/assets/images/og/oneinstack-repair-openssl-ocsp.png"]
 authors: ["eallion"]
 categories: ["代码"]
-tags: ["oneinstack","nginx","openssl","ocsp","cve-2016-6304"]
+tags: ["oneinstack","nginx","openssl","ocsp"]
 draft: false
 slug: "oneinstack-repair-openssl-ocsp"
 date: "2016-09-26 22:33:00"
