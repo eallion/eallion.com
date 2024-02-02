@@ -1,0 +1,167 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+
+{{- define "content" -}}
+    {{- $params := .Scratch.Get "params" -}}
+
+    <style>
+        .redirect-all {
+            position: relative;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+            border-radius: 10px;
+            color: #666;
+            word-break: break-all;
+            max-width: 800px;
+            height: 400px;
+            text-align: center;
+            font-size: 0.85rem;
+            overflow: hidden;
+            margin: 100px auto 0;
+            background: #fff url(/assets/images/redirect/redirect-light.webp) no-repeat center center / cover;
+
+            @include breakpoint('small') {
+                aspect-ratio: 2 / 1;
+                height: auto;
+            }
+        }
+
+        .redirect-nrong {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 1rem
+        }
+
+        .redirect-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 0.5rem;
+        }
+
+        .redirect-info {
+            margin-top: 6px;
+        }
+
+        .redirect-tis {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 1rem;
+            margin-bottom: 2px;
+            flex-wrap: wrap;
+        }
+
+        .redirect-button {
+            display: flex;
+            align-items: center;
+            border-radius: 3px;
+            border: none;
+            background: #006bee;
+            height: 32px;
+            padding: 0 14px;
+            cursor: pointer;
+            outline: 0;
+        }
+
+        .redirect-button a {
+            color: #fff !important;
+        }
+
+        [theme=dark] .redirect-all {
+                background: #fff url(/assets/images/redirect/redirect-dark.webp) no-repeat center center / cover;
+                color: #999;
+            }
+
+        [theme=dark] .redirect-title {
+                color: #ddd;
+            }
+    </style>
+
+    <div class="page single special">
+
+        {{- /* Content */ -}}
+        <div class="content" id="content">
+            {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+            <div class="redirect-all">
+                <div class="redirect-nrong">
+                    <div class="redirect-title">即将离开{{ .Site.Title }}，跳转到以下外部链接</div>
+                    <a href="" target="_self" rel="noopener noreferrer" id="redirect-link"><div id="redirect-link"></div></a>
+                    <div class="redirect-info">请自行识别该链接是否安全，请注意您的帐号和财产安全。</div>
+                    <div class="redirect-tis">
+                        <div class="redirect-button"><a href='' target="_self" id='direct-link' rel="noopener noreferrer">立即前往</a></div>
+                        <div>您已停留 <span id="redirect-countdown">0 秒</span>。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const encodedTarget = params.get('target');
+        const target = atob(encodedTarget); // 使用 atob 进行 Base64 解码
+
+        if (target) {
+            document.getElementById('direct-link').href = target;
+            document.getElementById('redirect-link').textContent = '' + target; // 在新增的元素中显示原地址
+            document.getElementById('redirect-link').href = target;
+
+            // 定义时间单位常量
+            const YEAR = 31556952;
+            const MONTH = 2592000;
+            const DAY = 86400;
+            const HOUR = 3600;
+            const MINUTE = 60;
+
+            let countdown = 0;
+
+            function updateCountdown() {
+            let timeString = '';
+
+            if (countdown >= YEAR) {
+                const years = Math.floor(countdown / YEAR);
+                timeString += `${years} 年 `;
+            }
+
+            if (countdown >= MONTH) {
+                const months = Math.floor((countdown % YEAR) / MONTH);
+                timeString += `${months} 月 `;
+            }
+
+            if (countdown >= DAY) {
+                const days = Math.floor((countdown % MONTH) / DAY);
+                timeString += `${days} 天 `;
+            }
+
+            if (countdown >= HOUR) {
+                const hours = Math.floor((countdown % DAY) / HOUR);
+                timeString += `${hours} 时 `;
+            }
+
+            if (countdown >= MINUTE) {
+                const minutes = Math.floor((countdown % HOUR) / MINUTE);
+                timeString += `${minutes} 分 `;
+            }
+
+            const seconds = Math.floor(countdown % MINUTE);
+            timeString += `${seconds} 秒`;
+
+            // 更新 <span> 元素的内容
+            const countdownElement = document.getElementById('redirect-countdown');
+            countdownElement.textContent = timeString;
+
+            setTimeout(updateCountdown, 1000);
+
+            countdown++;
+            }
+
+            // 移动到 updateCountdown 函数外部
+            setTimeout(updateCountdown, 1000);
+
+        } else {
+            console.error('未指定重定向目标。');
+        }
+        </script>
+{{- end -}}

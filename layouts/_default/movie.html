@@ -607,8 +607,8 @@
             {{ $year := .year }}
             {{ $rating := float .rating }}
             {{ $rating_percent := mul $rating 10 }}
-            {{ $movie_url := .url }}
-            {{ $imdb := .imdb}}
+            {{ $movie_url := printf "https://neodb.social%s" .url }}
+            {{ $imdb := printf "https://www.imdb.com/title/%s" .imdb}}
             {{ $cover := .cover_image_url }}
             {{ $cover_name := path.Base $cover }}
             {{ $brief := .brief }}
@@ -623,7 +623,7 @@
                     {{- if eq .category $cate_movie -}}<i class="fas fa-film fa-fw"></i> Film{{- else if eq .category $cate_tv -}}<i class="fas fa-tv fa-xs"></i> TV{{- end -}}
                 </div>
                 <div class="movie_details">
-                    <h2><a href="https://neodb.social{{- $movie_url -}}" target="_blank" rel="noreferrer noopener nofollow">{{- $title -}}</a><br><span>{{- $orig_title | default $title -}} ({{- $year -}})</span></h2>
+                    <h2><a href="/go/?target={{- $movie_url | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">{{- $title -}}</a><br><span>{{- $orig_title | default $title -}} ({{- $year -}})</span></h2>
 
                     <div class="rating">
                         <div class="rating_star">
@@ -657,7 +657,7 @@
                             <!-- <h4>Info:</h4> -->
                             <ul>
                                 <li class="neodb">
-                                    <a href="https://neodb.social{{- $movie_url -}}" target="_blank" rel="noreferrer noopener nofollow">
+                                    <a href="/go/?target={{- $movie_url | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">
                                         <img src="/assets/images/movie/neodbsocial.jpg" loading="lazy" alt="NeoDB" no-view>
                                     </a>
                                 </li>
@@ -667,7 +667,7 @@
                                     {{ $title := .title }}
                                         {{ if not (strings.Contains .url "imdb.com") }}
                                             <li class="external-resource">
-                                                <a href="{{- .url -}}" target="_blank" rel="noreferrer noopener nofollow">
+                                                <a href="/go/?target={{- .url | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">
                                                     <img src="/assets/images/movie/{{- $host -}}.png" loading="lazy" alt="{{- $title -}}" no-view>
                                                 </a>
                                             </li>
@@ -675,7 +675,7 @@
                                 {{ end }}
                                 {{ if and ($imdb) (ne $imdb "") }}
                                     <li class="imdb">
-                                        <a href="https://www.imdb.com/title/{{- $imdb -}}" target="_blank" rel="noreferrer noopener nofollow">
+                                        <a href="/go/?target={{- $imdb | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">
                                             <img src="/assets/images/movie/www.imdb.com.png" loading="lazy" alt="IMDB" no-view>
                                         </a>
                                     </li>
