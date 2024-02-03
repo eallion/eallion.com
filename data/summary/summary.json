@@ -3293,6 +3293,12 @@
       "slug": "fediverse",
       "generated": true,
       "summary":"文章介绍了联邦宇宙（Fediverse）和 Mastodon 的概念。联邦宇宙是由一系列自由软件组成的网络，用户可以在不同实例上注册账号并进行互相关注、评论和点赞。Mastodon 是使用 ActivityPub 协议的一个开源社交网络软件，用户可以通过选择支持该协议的实例来加入联邦宇宙。文章还提到了其他联邦宇宙软件如 Misskey 和 GoToSocial，并分享了自建 Mastodon 实例的经验。"
+    },
+    {
+      "title": "Hugo 外部链接跳转提示页面",
+      "slug": "hugo-redirect-landing-page",
+      "generated": true,
+      "summary":"文章介绍了作者为了合规和自我审查，在博客中迁移评论系统并清理链接，通过跳转页面实现外部链接的跳转。作者使用 Hugo 内置模板_render-link.html_进行 base64 编码，并提供了代码示例。同时，作者还介绍了如何创建一个中转页面模板_go.html_以及相关样式和脚本的设置。最后，文章指出这种方法只适用于渲染 Markdown 内容文档，并对自定义 HTML 链接做了说明。"
     }
   ]
 }
