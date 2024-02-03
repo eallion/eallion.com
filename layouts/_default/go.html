@@ -2,7 +2,6 @@
 
 {{- define "content" -}}
     {{- $params := .Scratch.Get "params" -}}
-
     <style>
         .redirect-all {
             position: relative;
@@ -17,7 +16,6 @@
             overflow: hidden;
             margin: 100px auto 0;
             background: #fff url(/assets/images/redirect/redirect-light.webp) no-repeat center center / cover;
-
             @include breakpoint('small') {
                 aspect-ratio: 2 / 1;
                 height: auto;
@@ -87,11 +85,10 @@
             <div class="redirect-all">
                 <div class="redirect-nrong">
                     <div class="redirect-title">即将离开{{ .Site.Title }}，跳转到以下外部链接</div>
-                    <a href="" target="_self" rel="noopener noreferrer" id="redirect-link"><div id="redirect-link"></div></a>
+                    <a href="" target="_self" rel="noopener noreferrer" id="redirect-link"><span id="redirect-link">未指定重定向目标。</span></a>
                     <div class="redirect-info">请自行识别该链接是否安全，请注意您的帐号和财产安全。</div>
                     <div class="redirect-tis">
                         <div class="redirect-button"><a href='' target="_self" id='direct-link' rel="noopener noreferrer">立即前往</a></div>
-                        <div>您已停留 <span id="redirect-countdown">0 秒</span>。</div>
                     </div>
                 </div>
             </div>
@@ -104,64 +101,16 @@
         const target = atob(encodedTarget); // 使用 atob 进行 Base64 解码
 
         if (target) {
-            document.getElementById('direct-link').href = target;
-            document.getElementById('redirect-link').textContent = '' + target; // 在新增的元素中显示原地址
-            document.getElementById('redirect-link').href = target;
 
-            // 定义时间单位常量
-            const YEAR = 31556952;
-            const MONTH = 2592000;
-            const DAY = 86400;
-            const HOUR = 3600;
-            const MINUTE = 60;
+            const decodedTarget = decodeURIComponent(target);
 
-            let countdown = 0;
-
-            function updateCountdown() {
-            let timeString = '';
-
-            if (countdown >= YEAR) {
-                const years = Math.floor(countdown / YEAR);
-                timeString += `${years} 年 `;
-            }
-
-            if (countdown >= MONTH) {
-                const months = Math.floor((countdown % YEAR) / MONTH);
-                timeString += `${months} 月 `;
-            }
-
-            if (countdown >= DAY) {
-                const days = Math.floor((countdown % MONTH) / DAY);
-                timeString += `${days} 天 `;
-            }
-
-            if (countdown >= HOUR) {
-                const hours = Math.floor((countdown % DAY) / HOUR);
-                timeString += `${hours} 时 `;
-            }
-
-            if (countdown >= MINUTE) {
-                const minutes = Math.floor((countdown % HOUR) / MINUTE);
-                timeString += `${minutes} 分 `;
-            }
-
-            const seconds = Math.floor(countdown % MINUTE);
-            timeString += `${seconds} 秒`;
-
-            // 更新 <span> 元素的内容
-            const countdownElement = document.getElementById('redirect-countdown');
-            countdownElement.textContent = timeString;
-
-            setTimeout(updateCountdown, 1000);
-
-            countdown++;
-            }
-
-            // 移动到 updateCountdown 函数外部
-            setTimeout(updateCountdown, 1000);
+            document.getElementById('direct-link').href = decodedTarget;
+            document.getElementById('redirect-link').textContent = '' + decodedTarget; // 在新增的元素中显示原地址
+            document.getElementById('redirect-link').href = decodedTarget;
 
         } else {
-            console.error('未指定重定向目标。');
+            const redirectMessageElement = document.getElementById('redirect-link');
+            redirectMessageElement.textContent = '未指定重定向目标。';
         }
         </script>
 {{- end -}}
