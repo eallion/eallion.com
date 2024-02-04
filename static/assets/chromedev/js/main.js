@@ -3409,14 +3409,3 @@ class FilteredElement extends BaseStateElement {
   }
 }
 customElements.define('filtered-element', FilteredElement);
-
-// fetch("https://api.eallion.com/hitokoto?c=k&charset=utf-8&encode=json")
-fetch("https://api.eallion.com/jinrishici/one.json")
-    .then(response => response.json())
-    .then(data => {
-        const jinrishici = document.querySelector('#jinrishici');
-        jinrishici.innerText = '「' + data.data.content + '」';
-        const author = document.querySelector('#jinrishici-author');
-        author.innerText = '- ' + '〔' + data.data.origin.dynasty + '〕' + data.data.origin.author + '《' + data.data.origin.title + '》';
-    })
-    .catch(console.error);

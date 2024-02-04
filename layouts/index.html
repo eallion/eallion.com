@@ -224,7 +224,15 @@
                                                     <span id="jinrishici">……</span><span id="jinrishici-author"></span>
 
                                                 </div>
-
+                                                <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+                                                <script type="text/javascript">
+                                                    jinrishici.load(function(result) {
+                                                        var sentence = document.querySelector("#jinrishici")
+                                                        var info = document.querySelector("#jinrishici-author")
+                                                        sentence.innerHTML = result.data.content
+                                                        info.innerHTML = '- ' + '〔' + result.data.origin.dynasty + '〕' + result.data.origin.author + '《' + result.data.origin.title + '》';
+                                                    });
+                                                </script>
                                                 <div class="devsite-landing-row-item-buttons">
                                                     <div class="button dcc-filled-button home-social">
                                                         <a href="https://github.com/eallion" title="GitHub" target="_blank" rel="noopener noreferrer me"><svg class="icon"
