@@ -221,18 +221,9 @@
                                                 </h3>
 
                                                 <div class="devsite-landing-row-item-description-content">
-                                                    <span id="jinrishici">……</span><span id="jinrishici-author"></span>
-
+                                                    <img alt="今日诗词" src="https://v2.jinrishici.com/one.svg?font-size=24&spacing=2&color=black" style="max-width:100%; display: block; margin: 0 auto;" no-view>
                                                 </div>
-                                                <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-                                                <script type="text/javascript">
-                                                    jinrishici.load(function(result) {
-                                                        var sentence = document.querySelector("#jinrishici")
-                                                        var info = document.querySelector("#jinrishici-author")
-                                                        sentence.innerHTML = result.data.content
-                                                        info.innerHTML = '- ' + '〔' + result.data.origin.dynasty + '〕' + result.data.origin.author + '《' + result.data.origin.title + '》';
-                                                    });
-                                                </script>
+
                                                 <div class="devsite-landing-row-item-buttons">
                                                     <div class="button dcc-filled-button home-social">
                                                         <a href="https://github.com/eallion" title="GitHub" target="_blank" rel="noopener noreferrer me"><svg class="icon"
