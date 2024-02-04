@@ -1,6 +1,14 @@
 {
   "penta": [
     {
+      "src": "/assets/images/penta/screenshot/20240205-Vayne.webp",
+      "alt": "20240205-Vayne",
+      "champion": "Vayne",
+      "date": "2024/02/05",
+      "caption": "暗夜猎手 薇恩",
+      "heroId": "67"
+    },
+    {
       "src": "/assets/images/penta/screenshot/20240126-LeeSin.webp",
       "alt": "20240126-LeeSin",
       "champion": "LeeSin",
