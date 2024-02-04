@@ -847,155 +847,155 @@ kbd,
 // /* 首页嘀咕样式 JSON 版 End */
 
 // 首页今日诗词
-#jinrishici {
-    font-family: 'SimSun', 'STSong', 'Songti SC', 'NSimSun', '新宋体', 'fangsonggb2312', 'stfangsong', 'pingfang sc', 'lantinghei sc', 'microsoft yahei', '微软雅黑', 'wenquanyi micro hei', sans-serif !important;
-    font-weight: 600;
-    font-size: 1.5rem;
-    display: inline-block;
-    color: #333;
-    text-align: center;
-    animation: fadeIn .5s ease forwards;
-}
+// #jinrishici {
+//     font-family: 'SimSun', 'STSong', 'Songti SC', 'NSimSun', '新宋体', 'fangsonggb2312', 'stfangsong', 'pingfang sc', 'lantinghei sc', 'microsoft yahei', '微软雅黑', 'wenquanyi micro hei', sans-serif !important;
+//     font-weight: 600;
+//     font-size: 1.5rem;
+//     display: inline-block;
+//     color: #333;
+//     text-align: center;
+//     animation: fadeIn .5s ease forwards;
+// }
 
-#jinrishici-author {
-    font-family: 'fangsonggb2312', 'stfangsong', 'pingfang sc', 'lantinghei sc', 'SimSun', 'STSong', 'Songti SC', 'NSimSun', '新宋体', 'microsoft yahei', '微软雅黑', 'wenquanyi micro hei', sans-serif !important;
-    font-size: 1.2rem;
-    font-style: italic;
-    display: inline-block;
-    animation: fadeIn .5s ease forwards;
-}
+// #jinrishici-author {
+//     font-family: 'fangsonggb2312', 'stfangsong', 'pingfang sc', 'lantinghei sc', 'SimSun', 'STSong', 'Songti SC', 'NSimSun', '新宋体', 'microsoft yahei', '微软雅黑', 'wenquanyi micro hei', sans-serif !important;
+//     font-size: 1.2rem;
+//     font-style: italic;
+//     display: inline-block;
+//     animation: fadeIn .5s ease forwards;
+// }
 
-@media (max-width: 450px) {
-    #jinrishici {
-        font-size: 1.25rem;
-    }
-    #jinrishici-author {
-        font-size: 1rem;
-    }
-}
+// @media (max-width: 450px) {
+//     #jinrishici {
+//         font-size: 1.25rem;
+//     }
+//     #jinrishici-author {
+//         font-size: 1rem;
+//     }
+// }
 
-// Artalk Start
-@keyframes toggle {
-    to {
-        transform: translateY(5px) rotate(90deg);
-    }
-}
+// // Artalk Start
+// @keyframes toggle {
+//     to {
+//         transform: translateY(5px) rotate(90deg);
+//     }
+// }
 
-.atk-editor-plug-emoticons {
-    >.atk-grp-wrap {
-        >.atk-grp {
-            >.atk-item {
-                font-family: $font-family-emoji !important;
-                font-size: 1.5rem;
-                min-width: 1.5rem;
-            }
-        }
-    }
+// .atk-editor-plug-emoticons {
+//     >.atk-grp-wrap {
+//         >.atk-grp {
+//             >.atk-item {
+//                 font-family: $font-family-emoji !important;
+//                 font-size: 1.5rem;
+//                 min-width: 1.5rem;
+//             }
+//         }
+//     }
 
-    >.atk-grp-switcher {
-        display: flex;
-        align-items: center;
-        overflow-x: auto;
-        overflow-y: hidden;
+//     >.atk-grp-switcher {
+//         display: flex;
+//         align-items: center;
+//         overflow-x: auto;
+//         overflow-y: hidden;
 
-        &::-webkit-scrollbar {
-            height: 1px;
-            width: 0;
-        }
+//         &::-webkit-scrollbar {
+//             height: 1px;
+//             width: 0;
+//         }
 
-        >span {
-            white-space: nowrap;
-            line-height: 40px !important;
-        }
-    }
-}
+//         >span {
+//             white-space: nowrap;
+//             line-height: 40px !important;
+//         }
+//     }
+// }
 
-.artalk {
-    pre {
-        code {
-            padding: 10px 15px !important;
-            border-radius: 6px !important;
-        }
-    }
-}
+// .artalk {
+//     pre {
+//         code {
+//             padding: 10px 15px !important;
+//             border-radius: 6px !important;
+//         }
+//     }
+// }
 
-.atk-layer-wrap {
-    pre {
-        code {
-            padding: 10px 15px !important;
-            border-radius: 6px !important;
-        }
-    }
-}
+// .atk-layer-wrap {
+//     pre {
+//         code {
+//             padding: 10px 15px !important;
+//             border-radius: 6px !important;
+//         }
+//     }
+// }
 
-.atk-dropdown-wrap {
-    .atk-dropdown-item {
-        margin-left: 0 !important;
-    }
-}
+// .atk-dropdown-wrap {
+//     .atk-dropdown-item {
+//         margin-left: 0 !important;
+//     }
+// }
 
-.atk-main-editor>.atk-header input {
-    border-width: 1px !important;
-    border-bottom-color: rgba(238, 238, 238, 0.5) !important;
-}
+// .atk-main-editor>.atk-header input {
+//     border-width: 1px !important;
+//     border-bottom-color: rgba(238, 238, 238, 0.5) !important;
+// }
 
-[theme="dark"] .artalk,
-[theme="dark"] .atk-layer-wrap,
-[theme="dark"] .artalk.atk-dark-mode,
-[theme="dark"] .atk-layer-wrap.atk-dark-mode {
-    --at-color-font: #a9a9b3 !important;
-    --at-color-deep: #e7e7e7 !important;
-    --at-color-sub: #e7e7e7 !important;
-    --at-color-grey: #a9a9b3 !important;
-    --at-color-meta: #a9a9b3 !important;
-    --at-color-border: #2d3235 !important;
-    --at-color-light: #687a86 !important;
-    --at-color-bg: #252627 !important;
-    --at-color-bg-transl: rgba(30, 34, 36, .95 !important);
-    --at-color-bg-grey: #46494e !important;
-    --at-color-bg-grey-transl: rgba(8, 8, 8, .95) !important;
-    --at-color-bg-light: rgba(29, 161, 242, .1) !important;
-    --at-color-main: #0083ff !important;
-    --at-color-red: #ff5652 !important;
-    --at-color-pink: #fa5a57 !important;
-    --at-color-yellow: #ff7c37 !important;
-    --at-color-green: #4caf50 !important;
-    --at-color-gradient: linear-gradient(180deg, transparent, rgba(30, 34, 36, 1)) !important;
-}
+// [theme="dark"] .artalk,
+// [theme="dark"] .atk-layer-wrap,
+// [theme="dark"] .artalk.atk-dark-mode,
+// [theme="dark"] .atk-layer-wrap.atk-dark-mode {
+//     --at-color-font: #a9a9b3 !important;
+//     --at-color-deep: #e7e7e7 !important;
+//     --at-color-sub: #e7e7e7 !important;
+//     --at-color-grey: #a9a9b3 !important;
+//     --at-color-meta: #a9a9b3 !important;
+//     --at-color-border: #2d3235 !important;
+//     --at-color-light: #687a86 !important;
+//     --at-color-bg: #252627 !important;
+//     --at-color-bg-transl: rgba(30, 34, 36, .95 !important);
+//     --at-color-bg-grey: #46494e !important;
+//     --at-color-bg-grey-transl: rgba(8, 8, 8, .95) !important;
+//     --at-color-bg-light: rgba(29, 161, 242, .1) !important;
+//     --at-color-main: #0083ff !important;
+//     --at-color-red: #ff5652 !important;
+//     --at-color-pink: #fa5a57 !important;
+//     --at-color-yellow: #ff7c37 !important;
+//     --at-color-green: #4caf50 !important;
+//     --at-color-gradient: linear-gradient(180deg, transparent, rgba(30, 34, 36, 1)) !important;
+// }
 
-[theme="black"] .artalk,
-[theme="black"] .atk-layer-wrap,
-[theme="black"] .artalk.atk-dark-mode,
-[theme="black"] .atk-layer-wrap.atk-dark-mode {
-    --at-color-font: #a9a9b3 !important;
-    --at-color-deep: #e7e7e7 !important;
-    --at-color-sub: #e7e7e7 !important;
-    --at-color-grey: #fff !important;
-    --at-color-meta: #fff !important;
-    --at-color-border: #2d3235 !important;
-    --at-color-light: #687a86 !important;
-    --at-color-bg: #252627 !important;
-    --at-color-bg-transl: rgba(30, 34, 36, .95 !important);
-    --at-color-bg-grey: #46494e !important;
-    --at-color-bg-grey-transl: rgba(8, 8, 8, .95) !important;
-    --at-color-bg-light: rgba(29, 161, 242, .1) !important;
-    --at-color-main: #0083ff !important;
-    --at-color-red: #ff5652 !important;
-    --at-color-pink: #fa5a57 !important;
-    --at-color-yellow: #ff7c37 !important;
-    --at-color-green: #4caf50 !important;
-    --at-color-gradient: linear-gradient(180deg, transparent, rgba(30, 34, 36, 1)) !important;
-}
+// [theme="black"] .artalk,
+// [theme="black"] .atk-layer-wrap,
+// [theme="black"] .artalk.atk-dark-mode,
+// [theme="black"] .atk-layer-wrap.atk-dark-mode {
+//     --at-color-font: #a9a9b3 !important;
+//     --at-color-deep: #e7e7e7 !important;
+//     --at-color-sub: #e7e7e7 !important;
+//     --at-color-grey: #fff !important;
+//     --at-color-meta: #fff !important;
+//     --at-color-border: #2d3235 !important;
+//     --at-color-light: #687a86 !important;
+//     --at-color-bg: #252627 !important;
+//     --at-color-bg-transl: rgba(30, 34, 36, .95 !important);
+//     --at-color-bg-grey: #46494e !important;
+//     --at-color-bg-grey-transl: rgba(8, 8, 8, .95) !important;
+//     --at-color-bg-light: rgba(29, 161, 242, .1) !important;
+//     --at-color-main: #0083ff !important;
+//     --at-color-red: #ff5652 !important;
+//     --at-color-pink: #fa5a57 !important;
+//     --at-color-yellow: #ff7c37 !important;
+//     --at-color-green: #4caf50 !important;
+//     --at-color-gradient: linear-gradient(180deg, transparent, rgba(30, 34, 36, 1)) !important;
+// }
 
-[theme="dark"] .atk-main-editor>.atk-header input {
-    border-bottom-color: rgba(69, 69, 69, 0.5) !important;
-}
+// [theme="dark"] .atk-main-editor>.atk-header input {
+//     border-bottom-color: rgba(69, 69, 69, 0.5) !important;
+// }
 
-[theme="black"] .atk-main-editor>.atk-header input {
-    border-bottom-color: rgba(69, 69, 69, 0.5) !important;
-}
+// [theme="black"] .atk-main-editor>.atk-header input {
+//     border-bottom-color: rgba(69, 69, 69, 0.5) !important;
+// }
 
-// Artalk End
+// // Artalk End
 
 // AI summary Start
 .post-ai {
