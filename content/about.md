@@ -126,7 +126,7 @@ comment: true
     <img no-view src="https://api.eallion.com/shields/github/v/tag/eallion/eallion.com">
   </a>
   <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/github/commits-since/eallion/eallion.com/v3.0.3/main">
+    <img no-view src="https://api.eallion.com/shields/github/commits-since/eallion/eallion.com/v3.0.4/main">
   </a>
   <a href="https://github.com/eallion/eallion.com/commits/main" target="_blank" rel="noopener noreferrer">
     <img no-view src="https://api.eallion.com/shields/github/last-commit/eallion/eallion.com">
