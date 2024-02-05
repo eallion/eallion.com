@@ -1,3 +1,29 @@
+## v3.0.4 (2024-02-05)
+
+### New feature
+
+- redirect landing page perf([`b2b8fb8`](https://github.com/eallion/eallion.com/commit/b2b8fb8b7702674be0192b7cef7d7deddaa173d9)) (by Charles Chin)
+- redirect landing page md([`07eaf6a`](https://github.com/eallion/eallion.com/commit/07eaf6ab829f964cf2ae467b8d2a7d15e2c659ef)) (by Charles Chin)
+- redirect landing page([`2a29dbd`](https://github.com/eallion/eallion.com/commit/2a29dbd21a9b82b24dfeb5052820dc27437e9994)) (by Charles Chin)
+- giscus data loading lazy([`e88ae80`](https://github.com/eallion/eallion.com/commit/e88ae80c82782b26d8c4f2b43130625393af8df3)) (by Charles Chin)
+- ai summary([`72390e4`](https://github.com/eallion/eallion.com/commit/72390e4728c24afdd53e5cb02de11089885895be)) (by Charles Chin)
+- redirects for cloudflare pages([`8220404`](https://github.com/eallion/eallion.com/commit/8220404ab57c944b0016fbb3051540412f4891c3)) (by Charles Chin)
+- comment migrate to giscus([`fced445`](https://github.com/eallion/eallion.com/commit/fced4453f8d016dd271a6384b68e9ccadc89470a)) (by Charles Chin)
+- webfinger([`04b1610`](https://github.com/eallion/eallion.com/commit/04b1610c33bf45aa76d011ec468d0078aed812dd)) (by Charles Chin)
+- webfinger([`30e5a7a`](https://github.com/eallion/eallion.com/commit/30e5a7a6ebfcdffbb4f796d6866f465749e7768c)) (by Charles Chin)
+
+### Bugs fixed
+
+- home redirect landing page([`b4dc7c3`](https://github.com/eallion/eallion.com/commit/b4dc7c34ce3943b0b8f6c6c6f950f681aa44368a)) (by Charles Chin)
+- home html escape([`24b7ce8`](https://github.com/eallion/eallion.com/commit/24b7ce862c91da9f86a661320be9f7c011d65fe1)) (by Charles Chin)
+- go redirect domain list([`cd9206a`](https://github.com/eallion/eallion.com/commit/cd9206ad935bf92296c777b09073fe8886edea99)) (by Charles Chin)
+- album lately js([`b0c93c3`](https://github.com/eallion/eallion.com/commit/b0c93c30e9d7bcdf44253fb68240fc758aa819bb)) (by Charles Chin)
+
+### Performance improves
+
+- jinrishici svg api([`acd8520`](https://github.com/eallion/eallion.com/commit/acd85201a3abfe9fcdfdccce268fea9333d0a458)) (by Charles Chin)
+- jinrishici browser sdk([`0a6dc90`](https://github.com/eallion/eallion.com/commit/0a6dc903e2e4568fcf202a5dae0b283fd0f6da7a)) (by Charles Chin)
+
 ## v3.0.3 (2024-01-18)
 
 ### New feature
