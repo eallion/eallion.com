@@ -47,17 +47,12 @@ aliases:
 
 我们提供服务时，可能会收集、储存和使用下列与您有关的信息。
 
-* Umami Analytics Privacy：
+* 本博客无 Google analytics、Umami 等统计系统。
 
-  * 更多参考：[https://umami.is/features](https://umami.is/features)
+* Giscus 评论系统基于您的**主动提交**会读取您的 GitHub 信息：
 
-* Artalk 评论系统基于您的**主动提交**会收集：
-
-  * 昵称
-  * 头像
-  * 电子邮件地址 Email
-  * 网络身份标识信息（浏览器 UA、IP 地址）
-  * Artalk 安全防范：[https://artalk.js.org/guide/security.html](https://artalk.js.org/guide/security.html)
+  * Read access to metadata
+  * Read and write access to discussions
 
 如果您不提供相关信息，不影响浏览本站。
 
