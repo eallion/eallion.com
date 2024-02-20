@@ -1668,6 +1668,14 @@ devsite-content {
   background-color: var(--devsite-background-1);
 }
 
+.devsite-landing-row:not([background]):not(.devsite-landing-row-cta) + .devsite-landing-row:not([background]):not(.devsite-landing-row-cta):not([class^=devsite-landing-row-padding-]) {
+  padding-top: 0;
+}
+
+.devsite-landing-row[background=pale-blue] + [background=pale-blue]:not([class^=devsite-landing-row-padding-]) {
+  padding-top: 0;
+}
+
 .devsite-landing-row-inner {
   margin: var(--devsite-landing-group-margin, 0 auto);
   max-width: var(--devsite-landing-row-max-width, 1488px);
@@ -1944,6 +1952,13 @@ devsite-topic .devsite-topic--section:first-child() {
     --devsite-item-text-padding: 0;
     padding: 2.5rem 1.5rem 1.5rem;
   }
+  [theme=web-theme] .dcc-social-card h3 {
+    text-align: left;
+  }
+  [theme=web-theme] .dcc-social-card .button {
+    margin: 0;
+    padding: 0;
+  }
   @media (max-width: 840px) {
     [theme=web-theme] .dcc-social-card {
       --devsite-h2-font: 500 1.5rem var(--font-google-sans), sans-serif;
@@ -2152,6 +2167,12 @@ devsite-topic .devsite-topic--section:first-child() {
   }
   [theme=web-theme] .dcc-social h2 {
     text-align: left;
+  }
+  [theme=web-theme] .dcc-social h3 + div {
+    color: #606367;
+  }
+  [theme=web-theme] .dcc-social .button {
+    border-radius: 0;
   }
   [theme=web-theme] .dcc-social img {
     --devsite-item-image-width: 3.563rem;
