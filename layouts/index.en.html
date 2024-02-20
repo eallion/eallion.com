@@ -5,7 +5,7 @@
 
     <div class="page home"{{ if ne $posts.enable false | or .Content }} posts{{ end }}>
 
-    <link rel="stylesheet" href="/assets/chromedev/css/dist/chrome.min.css?v=20240118" />
+    <link rel="stylesheet" href="/assets/chromedev/css/dist/chrome.min.css?v=20240220" />
 
     <script type="module" src="/assets/chromedev/js/main.js"></script>
 
@@ -349,6 +349,7 @@
                             </div>
                         </section>
 
+                        <!--
                         <section id="toots"
                             class="devsite-landing-row devsite-landing-row-2-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-social"
                             background="pale-blue" header-position="top">
@@ -548,6 +549,7 @@
                                 });
                             </script>
                         </section>
+                        -->
 
                         <!--
                         <section id="cates" view-image
@@ -779,7 +781,7 @@
 
                                 <div class="devsite-landing-row-group">
                                     {{ $movie_details := getJSON "data/neodb/movie_details.json" }}
-                                    {{ range first 4 $movie_details }}
+                                    {{ range first 8 $movie_details }}
                                     <!-- English Title -->
                                     {{ $title := .orig_title | default .display_title}}
                                     {{ $orig_title := .orig_title }}
@@ -924,6 +926,162 @@
                             </div>
                         </section>
                         -->
+
+
+                        <section id="tools" view-image
+                            class="devsite-landing-row devsite-landing-row-2-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-social"
+                            background="pale-blue" header-position="top">
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header">
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 id="tool" data-text="Tools">Tools</h2>
+                                    </div>
+                                </header>
+
+                                <div class="devsite-landing-row-group">
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/favorite.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="mastodon" data-text="Mastodon"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/helloxz/onenav" target="_blank" rel="noopener noreferrer">OneNav</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    A personal navigation website deployed using <a target="_blank" href="https://github.com/helloxz/onenav" title="OneNav" rel="nofollow noopener">OneNav</a> Docker, using a <a href="https://github.com/eallion/onenav-baisu-mod" target="_blank" rel="nofollow noopener">BaiSu Mod</a> template that I customized.
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://s.eallion.com" target="_blank" rel="noopener noreferrer" class="button">Browse Now <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/ublacklist.png"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="ublacklist" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer">uBlacklist subscription</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">🚫 A collection of rule subscriptions for the <a href="https://chromewebstore.google.com/detail/ublacklist/pncfbmialoiaghdehhbnbhkkgmjanfhe" target="_blank" rel="noopener noreferrer">uBlacklist</a> plugin, blocking Chinese content farms from search engines by matching domain names!</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer" class="button">Setting Now <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/mastodon.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="mastodon-embed-feed-timeline" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/eallion/mastodon-embed-feed-timeline" target="_blank" rel="noopener noreferrer">Mastodon embed timeline</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    Displays <a href="https://e5n.com/@eallion" target="_blank" rel="noopener noreferrer">Mastodon</a> timeline with toots embed in your website. Very easy to setup, no dependencies, no trackers, WCAG compliant and fully responsive.
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/toot/" class="button">Live Preview</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/windows.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="kms" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/mikolatero/docker-vlmcsd" target="_blank" rel="noopener noreferrer">KMS for Windows & Office</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    Self-hosted Windows and Office activation server. Can activate VOL bulk authorized editions. Requires own KEY or use <a href="https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys" target="_blank" rel="noopener noreferrer">official Key</a> provided by Microsoft.。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://kms.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">Activate Now <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/freshrss.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="freshrss" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">FreshRSS</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    RSS subscription service deployed using <a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">FreshRSS</a> and <a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener noreferrer">RSSHub</a>. Avoid getting trapped in an information bubble. Login required for reading.
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://rss.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">Feed Now <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/alist.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="alist" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/alist-org/alist" target="_blank" rel="noopener noreferrer">Alist Xiaoya</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    A directory file listing program that supports multiple storage options, including web browsing and WebDAV. The backend is based on Gin, and the frontend is built using React.</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://cloud.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">Try Now <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
 
                     </div>
                 </article>

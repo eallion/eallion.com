@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../static/assets/chromedev/css/src/devsite-custom.css?v=20231121" /> -->
 
     <!-- 下面是正式的，Uncss 打包时需要注释掉 -->
-    <link rel="stylesheet" href="/assets/chromedev/css/dist/chrome.min.css?v=20240118" />
+    <link rel="stylesheet" href="/assets/chromedev/css/dist/chrome.min.css?v=20240220" />
 
     <script type="module" src="/assets/chromedev/js/main.js"></script>
 
@@ -364,6 +364,7 @@
                             </div>
                         </section>
 
+                        <!--
                         <section id="toots"
                             class="devsite-landing-row devsite-landing-row-2-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-social"
                             background="pale-blue" header-position="top">
@@ -563,6 +564,7 @@
                                 });
                             </script>
                         </section>
+                        -->
 
                         <!--
                         <section id="cates" view-image
@@ -934,6 +936,156 @@
                             </div>
                         </section>
                         -->
+
+                        <section id="tools" view-image
+                            class="devsite-landing-row devsite-landing-row-2-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-social"
+                            background="pale-blue" header-position="top">
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header">
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 id="social" data-text="实用工具">实用工具</h2>
+                                    </div>
+                                </header>
+
+                                <div class="devsite-landing-row-group">
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/favorite.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-x" data-text="Mastodon"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/helloxz/onenav" target="_blank" rel="noopener noreferrer">网址导航</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">利用 <a target="_blank" href="https://github.com/helloxz/onenav" title="简约导航/书签管理器" rel="nofollow">OneNav</a> Docker 部署的个人导航网站，使用的自己修改的 <a href="https://github.com/eallion/onenav-baisu-mod" target="_blank">BaiSu Mod</a> 模板。
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://s.eallion.com" target="_blank" rel="noopener noreferrer" class="button">前往浏览 <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/ublacklist.png"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer">uBlacklist 订阅合集</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">🚫 用于 <a href="https://chromewebstore.google.com/detail/ublacklist/pncfbmialoiaghdehhbnbhkkgmjanfhe" target="_blank">uBlacklist</a> 插件的规则订阅合集，通过匹配域名的方式，屏蔽搜索引擎的中文内容农场！</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer" class="button">前往设置 <i class="fas fa-tools"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/mastodon.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/eallion/mastodon-embed-feed-timeline" target="_blank" rel="noopener noreferrer">Mastodon embed timeline</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    把 <a href="https://e5n.com/@eallion" target="_blank" rel="noopener noreferrer">Mastodon</a> 时间轴上的 toots 嵌入到自己的网站上。设置非常简单，无依赖性，无跟踪器，符合 WCAG 标准，响应式布局。
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/toot/" class="button">效果预览</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/windows.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/mikolatero/docker-vlmcsd" target="_blank" rel="noopener noreferrer">KMS Windows & Office 激活</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">自建的 Windows 和 Office 激活服务器。可激活 VOL 批量授权版。需自备 KEY 或者使用微软官方提供的 <a href="https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys" target="_blank" rel="noopener noreferrer">Key</a>。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://kms.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">前往激活 <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/freshrss.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">FreshRSS</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">使用 <a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">FreshRSS</a> 和 <a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener noreferrer">RSSHub</a> 部署的 RSS 订阅服务。避免陷入信息茧房。需要登录阅读。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://rss.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即阅读 <i class="fas fa-rss"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/alist.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/alist-org/alist" target="_blank" rel="noopener noreferrer">Alist 小雅</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">一款支持多种存储的目录文件列表程序，支持 Web 浏览与 Webdav，后端基于 Gin，前端使用 React。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://xiaoya.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即体验 <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
 
                     </div>
                 </article>

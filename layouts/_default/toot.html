@@ -9,261 +9,103 @@
 {{- $toc = dict "enable" false -}}
 {{- end -}}
 
-<link rel="stylesheet" href="/assets/toot/mastodon-timeline.min.css?v=3.9.1-3.10.4">
-<link rel="stylesheet" href="/assets/toot/mastodon-timeline-custom.min.css?v=2023.12.07">
+<link rel="stylesheet" href="/assets/toot/mastodon-timeline.min.css?v=4.0.3">
+<link rel="stylesheet" href="/assets/toot/mastodon-timeline-custom.min.css?v=2024.02.20">
 
 <article class="page single special">
-    <h1 class="single-title animate__animated animate__pulse animate__faster">{{- .Title -}}</h1>
+    <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
     <div id="content" class="content">
         <div class="greyQuote">
             <blockquote>
-                <div class="hitokoto">
-                    <span id="hitokoto">{{ T `toot_motto` | safeHTML }}</span> - <cite><span id="author">{{ T `toot_author` | safeHTML }}</span></cite>
+                <div class="jinrishici">
+                    <span id="jinrishici">{{ T `toot_motto` | safeHTML }}</span> - <cite><span id="author">{{ T `toot_author` | safeHTML }}</span></cite>
                 </div>
             </blockquote>
         </div>
-
-        <div class="dummy-container">
-            <div class="mt-timeline">
-                <div id="mt-body" class="mt-body" role="feed">
-                    {{- $mastodon_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true&exclude_reblogs=true" -}}
-                    {{- $mastodon_local := "data/mastodon/mastodon.json" -}}
-                    {{- with resources.GetRemote $mastodon_api }}
-                        {{- with .Err }}
-                        {{- $ticker := getJSON $mastodon_local -}}
-                            {{- range $ticker }}
-                                {{ $content := .content }}
-                                {{ $content := $content | replaceRE ":star_solid:" "<svg t='1701951107632' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9850' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536z' fill='#fcd53f' p-id='9851'></path></svg>" }}
-                                {{ $content := $content | replaceRE ":star_half:" "<svg t='1701951065761' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9434' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-0.928 0.48 0.928-570.784 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9435'></path></svg>" }}
-                                {{ $content := $content | replaceRE ":star_empty:" "<svg t='1701951086181' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9642' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-223.456 117.472 42.688-248.832-180.8-176.224 249.856-36.288 111.744-226.4 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9643'></path></svg>" }}
-
-                                {{ $matches := findRE `href=\"([^\"]*)\"` $content }}
-                                {{ $resultContent := $content }}
-                                {{ range $index, $originalURL := $matches }}
-                                    {{ $originalURL := $originalURL | strings.TrimPrefix "href=\"" }}
-                                    {{ $originalURL := $originalURL | strings.TrimSuffix "\"" }}
-                                    {{ $encodedURL := $originalURL | base64Encode }}
-                                    {{ $resultURL := printf "/go/?target=%s" $encodedURL }}
-                                    {{ $resultContent = replaceRE $originalURL $resultURL $resultContent }}
-                                {{ end }}
-
-                                <article class="mt-toot" aria-posinset="1" aria-setsize="20" tabindex="0">
-                                    <div class="mt-header"><a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer"
-                                            target="_blank">
-                                            <div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy"></div>
-                                        </a>
-                                        <div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank">
-                                                <div class="mt-nick">Charles Chin</div>
-                                                <div class="mt-id">@eallion@e5n.cc</div>
-                                            </a></div>
-                                    </div>
-                                    <div class="toot-text">
-                                        <div>
-                                            <p>{{ $resultContent | markdownify }}</p>
-                                        </div>
-                                        {{ $attachments := .media_attachments }}
-                                        {{ if gt (len $attachments) 0 }}
-                                            {{- $firstAttachment := index $attachments 0 -}}
-                                            {{- $type := $firstAttachment.type -}}
-                                            {{- $length := len .media_attachments }}
-                                            {{ if eq $type "image" }}
-                                                <div class="toot-images grid-{{ $length }}" view-image>
-                                                    {{ range .media_attachments }}
-                                                    <img loading="lazy" class="lazy" src="{{.preview_url}}" data-src="{{.url}}" alt="{{.id}}" />
-                                                    {{ end }}
-                                                </div>
-                                            {{ else if eq $type "video" }}
-                                                {{ range .media_attachments }}
-                                                <video controls muted no-view>
-                                                    <source src="{{ .url }}" type="video/mp4">
-                                                    Your browser does not support the video tag.
-                                                </video>
-                                                {{ end }}
-                                            {{ end }}
-                                        {{ end }}
-                                    </div>
-                                    <div class="toot-footer">
-                                        <div class="mt-bar">
-                                            <div class="toot-meta">
-                                                <div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                        target="_blank"><span class="twitter-time">{{- .created_at -}}</span></a></div>
-                                                <div class="toot-visibility" title="公开"><i class="fas fa-globe-asia"></i></div>
-                                                <div class="toot-app"><a href="{{- .application.website | default "https://e5n.cc" -}}"
-                                                        rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复">{{-
-                                                        .application.name | default "Web" -}}</a></div>
-                                            </div>
-                                            <div class="toot-reply"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="回复" alt="回复"><i class="fas fa-reply"></i></a>{{- .replies_count -}}</div>
-                                            <div class="toot-retoot"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="转嘟" alt="转嘟"><i class="fas fa-retweet"></i></a>{{- .reblogs_count -}}</div>
-                                            <div class="toot-favourite"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="喜欢" alt="喜欢"><i class="fas fa-star"></i></a>{{- .favourites_count -}}</div>
-                                            <div class="toot-bookmarked"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="添加到书签" alt="添加到书签"><i class="fas fa-bookmark"></i></a></div>
-                                            <div class="toot-more"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="更多" alt="更多"><i class="fas fa-ellipsis-h"></i></a></div>
-                                        </div>
-                                    </div>
-                                </article>
-                            {{ end -}}
-                        {{- else -}}
-                        {{- $ticker := getJSON $mastodon_api -}}
-                                {{- range $ticker }}
-                                {{ $content := .content }}
-                                {{ $content := $content | replaceRE ":star_solid:" "<svg t='1701951107632' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9850' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536z' fill='#fcd53f' p-id='9851'></path></svg>" }}
-                                {{ $content := $content | replaceRE ":star_half:" "<svg t='1701951065761' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9434' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-0.928 0.48 0.928-570.784 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9435'></path></svg>" }}
-                                {{ $content := $content | replaceRE ":star_empty:" "<svg t='1701951086181' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9642' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-223.456 117.472 42.688-248.832-180.8-176.224 249.856-36.288 111.744-226.4 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9643'></path></svg>" }}
-
-                                {{ $matches := findRE `href=\"([^\"]*)\"` $content }}
-                                {{ $resultContent := $content }}
-                                {{ range $index, $originalURL := $matches }}
-                                    {{ $originalURL := $originalURL | strings.TrimPrefix "href=\"" }}
-                                    {{ $originalURL := $originalURL | strings.TrimSuffix "\"" }}
-                                    {{ $encodedURL := $originalURL | base64Encode }}
-                                    {{ $resultURL := printf "/go/?target=%s" $encodedURL }}
-                                    {{ $resultContent = replaceRE $originalURL $resultURL $resultContent }}
-                                {{ end }}
-
-                                <article class="mt-toot" aria-posinset="1" aria-setsize="20" tabindex="0">
-                                    <div class="mt-header"><a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer"
-                                            target="_blank">
-                                            <div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy"></div>
-                                        </a>
-                                        <div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank">
-                                                <div class="mt-nick">Charles Chin</div>
-                                                <div class="mt-id">@eallion@e5n.cc</div>
-                                            </a></div>
-                                    </div>
-                                    <div class="toot-text">
-                                        <div>
-                                            <p>{{ $resultContent | markdownify }}</p>
-                                        </div>
-                                        {{ $attachments := .media_attachments }}
-                                        {{ if gt (len $attachments) 0 }}
-                                            {{- $firstAttachment := index $attachments 0 -}}
-                                            {{- $type := $firstAttachment.type -}}
-                                            {{- $length := len .media_attachments }}
-                                            {{ if eq $type "image" }}
-                                                <div class="toot-images grid-{{ $length }}" view-image>
-                                                    {{ range .media_attachments }}
-                                                    <img loading="lazy" class="lazy" src="{{.preview_url}}" data-src="{{.url}}" alt="{{.id}}" />
-                                                    {{ end }}
-                                                </div>
-                                            {{ else if eq $type "video" }}
-                                                {{ range .media_attachments }}
-                                                <video controls muted no-view>
-                                                    <source src="{{ .url }}" type="video/mp4">
-                                                    Your browser does not support the video tag.
-                                                </video>
-                                                {{ end }}
-                                            {{ end }}
-                                        {{ end }}
-                                    </div>
-                                    <div class="toot-footer">
-                                        <div class="mt-bar">
-                                            <div class="toot-meta">
-                                                <div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                        target="_blank"><span class="twitter-time">{{- .created_at -}}</span></a></div>
-                                                <div class="toot-visibility" title="公开"><i class="fas fa-globe-asia"></i></div>
-                                                <div class="toot-app"><a href="{{- .application.website | default "https://e5n.cc" -}}"
-                                                        rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复">{{-
-                                                        .application.name -}}</a></div>
-                                            </div>
-                                            <div class="toot-reply"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="回复" alt="回复"><i class="fas fa-reply"></i></a>{{- .replies_count -}}</div>
-                                            <div class="toot-retoot"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="转嘟" alt="转嘟"><i class="fas fa-retweet"></i></a>{{- .reblogs_count -}}</div>
-                                            <div class="toot-favourite"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="喜欢" alt="喜欢"><i class="fas fa-star"></i></a>{{- .favourites_count -}}</div>
-                                            <div class="toot-bookmarked"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="添加到书签" alt="添加到书签"><i class="fas fa-bookmark"></i></a></div>
-                                            <div class="toot-more"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="更多" alt="更多"><i class="fas fa-ellipsis-h"></i></a></div>
-                                        </div>
-                                    </div>
-                                </article>
-                            {{ end -}}
-                        {{ end -}}
-                    {{ end -}}
-
-
-                </div>
-                <div class="mt-footer"><a href="https://e5n.cc/@eallion" class="btn" target="_blank"
-                        rel="nofollow noopener noreferrer">See more toots at e5n.cc <i class="fas fa-external-link-alt"></i></a></div>
+        <div id="mt-container" class="mt-container">
+            <div class="mt-body" role="feed">
+                <div class="mt-loading-spinner"></div>
             </div>
         </div>
-
     </div>
 </article>
 
-<script>
-    // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
-    (() => {
-        let location = window.location.href;
-        let isEnglish = location.indexOf("/en/") !== -1;
-        window.Lately = new function () {
-            this.lang = isEnglish ? {
-                'second': ' Seconds',
-                'minute': ' Minutes',
-                'hour': ' Hours',
-                'day': ' Days',
-                'month': ' Months',
-                'year': ' Years',
-                'ago': ' Ago',
-                'error': 'NaN'
-            } : {
-                second: " 秒",
-                minute: " 分钟",
-                hour: " 小时",
-                day: " 天",
-                month: " 个月",
-                year: " 年",
-                ago: "前",
-                error: "NaN"
-            };
-            const format = (date) => {
-                date = new Date(_val(date));
-                const floor = (num, _lang) => Math.floor(num) + _lang,
-                    obj = new function () {
-                        this.second = (Date.now() - date.getTime()) / 1000;
-                        this.minute = this.second / 60;
-                        this.hour = this.minute / 60;
-                        this.day = this.hour / 24;
-                        this.month = this.day / 30;
-                        this.year = this.month / 12
-                    },
-                    key = Object.keys(obj).reverse().find(_ => obj[_] >= 1);
-                return (key ? floor(obj[key], this.lang[key]) : this.lang.error) + this.lang.ago;
-            },
-                _val = (date) => {
-                    date = new Date(date && (typeof date === 'number' ? date : date.replace(/-/g, '/').replace('T', ' ')));
-                    return isNaN(date.getTime()) ? false : date.getTime();
-                };
-            return {
-                init: ({ target = "time", lang } = {}) => {
-                    if (lang) this.lang = lang;
-                    for (let el of document.querySelectorAll(target)) {
-                        const date = _val(el.dateTime) || _val(el.title) || _val(el.innerHTML) || 0;
-                        if (!date) return;
-                        el.title = new Date(date).toLocaleString();
-                        el.innerHTML = format(date);
-                    }
-                },
-                format
-            }
-        }
-    })();
+<script type="text/javascript" src="/assets/toot/mastodon-timeline.js?v=4.0.3"></script>
 
-    window.Lately && Lately.init({
-        target: '.twitter-time'
-    });
-</script>
-
-<script type="text/javascript" src="/assets/js/lazyload.iife.min.js?v=17.8.5"></script>
 <script>
-    var lazyLoadInstance = new LazyLoad({
-        // Your custom settings go here
+    const myTimeline = new MastodonTimeline({
+          // Id of the <div> containing the timeline
+        mtContainerId: "mt-container",
+
+        // Mastodon instance Url (including https://)
+        instanceUrl: "https://e5n.cc",
+
+        // Choose type of posts to show in the timeline: 'local', 'profile', 'hashtag'. Default: local
+        timelineType: "profile",
+
+        // Your user ID number on Mastodon instance. Leave it empty if you didn't choose 'profile' as type of timeline
+        userId: "111136231674527355",
+
+        // Your user name on Mastodon instance (including the @ symbol at the beginning). Leave it empty if you didn't choose 'profile' as type of timeline
+        profileName: "@eallion",
+
+        // The name of the hashtag (not including the # symbol). Leave it empty if you didn't choose 'hashtag' as type of timeline
+        hashtagName: "",
+
+        // Class name for the loading spinner (also used in CSS file)
+        spinnerClass: "mt-loading-spinner",
+
+        // Preferred color theme: 'light', 'dark' or 'auto'. Default: auto
+        defaultTheme: "auto",
+
+        // Maximum number of posts to request to the server. Default: 20
+        maxNbPostFetch: "20",
+
+        // Maximum number of posts to show in the timeline. Default: 20
+        maxNbPostShow: "20",
+
+        // Hide unlisted posts. Default: don't hide
+        hideUnlisted: true,
+
+        // Hide boosted posts. Default: don't hide
+        hideReblog: false,
+
+        // Hide replies posts. Default: don't hide
+        hideReplies: true,
+
+        // Hide video image preview and load video player instead. Default: don't hide
+        hideVideoPreview: false,
+
+        // Hide preview card if post contains a link, photo or video from a Url. Default: don't hide
+        hidePreviewLink: false,
+
+        // Hide custom emojis available on the server. Default: don't hide
+        hideEmojos: false,
+
+        // Converts Markdown symbol ">" at the beginning of a paragraph into a blockquote HTML tag. Default: don't apply
+        markdownBlockquote: false,
+
+        // Hide replies, boosts and favourites posts counter. Default: don't hide
+        hideCounterBar: false,
+
+        // Limit the text content to a maximum number of lines. Default: 0 (unlimited)
+        txtMaxLines: "0",
+
+        // Customize the text of the button used for showing/hiding sensitive/spolier text
+        btnShowMore: "SHOW MORE",
+        btnShowLess: "SHOW LESS",
+
+        // Customize the text of the button used for showing sensitive/spolier media content
+        btnShowContent: "SHOW CONTENT",
+
+        // Customize the text of the button pointing to the Mastodon page placed at the end of the timeline. Leave the value empty to hide it
+        btnSeeMore: "See more posts at Mastodon",
+
+        // Customize the text of the button reloading the list of posts placed at the end of the timeline. Leave the value empty to hide it
+        btnReload: "Refresh",
+
     });
+
 </script>
 
 {{- end -}}
