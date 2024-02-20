@@ -2404,6 +2404,11 @@ header:hover {
     border-radius:4px;
 }
 
+#movies .card:hover .movie-cate {
+    opacity: 1;
+    transition: all .5s ease;
+}
+
 #movies .card:hover .movie_details {
     bottom: 0;
     transition: all .5s;
@@ -2460,6 +2465,21 @@ header:hover {
     z-index: 2;
     transition: all .4s ease;
 }
+
+#movies .movie-cate {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #f99b01;
+    padding: 1px 8px;
+    font-size: small;
+    font-style: italic;
+    border-radius: 0 0 0 8px;
+    text-transform: capitalize;
+    opacity: 0;
+    color: #fff;
+}
+
 
 #movies .movie_details h2 {
     text-align: left;

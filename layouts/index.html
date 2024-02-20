@@ -816,6 +816,9 @@
                                                 <div class="poster">
                                                     <img alt="{{- $title -}}" class="lazy" loading="lazy" src="/assets/images/movie/cover/{{- $cover_name -}}" data-src="/assets/images/movie/cover/{{- $cover_name -}}" no-view>
                                                 </div>
+                                                <div class="movie-cate">
+                                                    {{- if eq .category $cate_movie -}}<i class="fas fa-film fa-fw"></i> Film{{- else if eq .category $cate_tv -}}<i class="fas fa-tv fa-xs"></i> TV{{- end -}}
+                                                </div>
                                                 <div class="movie_details">
                                                     <h2><a href="/go/?target={{- $movie_url | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">{{- $title -}}</a><br><span>{{- $orig_title | default $title -}} ({{- $year -}})</span></h2>
 
