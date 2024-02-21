@@ -1,7 +1,7 @@
 /**
  * Mastodon embed feed timeline
  * @author idotj
- * @version 4.0.3
+ * @version 4.0.4
  * @url https://gitlab.com/idotj/mastodon-embed-feed-timeline
  * @license GNU AGPLv3
  */
@@ -493,9 +493,13 @@ class MastodonTimeline {
 
     // Media attachments
     let media = [];
+    let mediaCount = 0; // mod
+    let mediaWrapper = ''; // mod
+
     if (c.media_attachments.length > 0) {
       for (let i in c.media_attachments) {
         media.push(this.#createMedia(c.media_attachments[i], c.sensitive));
+        mediaCount++; // mod
       }
     }
     if (c.reblog && c.reblog.media_attachments.length > 0) {
@@ -503,8 +507,14 @@ class MastodonTimeline {
         media.push(
           this.#createMedia(c.reblog.media_attachments[i], c.reblog.sensitive)
         );
+        mediaCount++; // mod
       }
     }
+    if (media.length > 0) { // mod
+        mediaWrapper = '<div class="mp-post-media-wrapper grid-' + mediaCount + '">' + // mod
+            media.join("") +  // mod
+            "</div>"; // mod
+    } // mod
 
     // Preview link
     let previewLink = "";
@@ -573,7 +583,8 @@ class MastodonTimeline {
       timestamp +
       "</div>" +
       content +
-      media.join("") +
+    //   media.join("") +
+      mediaWrapper + // mod
       previewLink +
       poll +
       counterBar +
