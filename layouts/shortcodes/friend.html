@@ -1,15 +1,18 @@
 {{- $title := "" -}}
 {{- $link := ""  -}}
+{{- $domain := ""  -}}
 {{- $avatar := "" -}}
 {{- $bio := "" -}}
 {{- if .IsNamedParams -}}
     {{- $avatar = .Get "avatar" -}}
-    {{- $link = .Get "url"  -}}
-    {{- $title = .Get "name" -}}
+    {{- $link = .Get "url" -}}
+    {{- $domain = .Get "domain" -}}
+    {{- $title = .Get "name" | safeHTML -}}
     {{- $bio = .Get "bio" -}}
 {{- else -}}
     {{- $title = .Get 0 -}}
     {{- $link = .Get 1 -}}
+    {{- $domain = .Get "domain" -}}
     {{- $avatar = .Get 2 -}}
     {{- $bio = .Get 3 -}}
 {{- end -}}
@@ -18,14 +21,18 @@
         <div class="friend-link-avatar">
             <!-- 修改了 image 渲染的方法，不使用灯箱 -->
             <!-- {{- dict "Src" $avatar | partial "plugin/image.html" -}} -->
-            <img class="lazy" loading="lazy"  data-src="{{ $avatar }} " src="{{ $avatar }} " alt="{{ $title }}" no-view>
+            <img class="lazy" loading="lazy" src="{{- $avatar -}}" alt="{{- $title -}}" onerror="this.onerror=null; this.src='/404.png';" no-view>
         </div>
         <div class="friend-link-info">
             <div class="friend-name-div">
-                <i class="fas fa-user-circle fa-fw"></i>
+                <!-- <i class="fas fa-user-circle fa-fw"></i> -->
+                <span class="friend-favicon"><img src="https://api.eallion.com/favicon/{{- $link | base64Encode -}}" no-view></span>
                 <i class="friend-name">{{- $title -}}</i>
             </div>
             <p class="friend-bio">{{- $bio -}}</p>
+        </div>
+        <div class="friend-screens">
+            <img loading="lazy" src="https://api.eallion.com/screens/{{- strings.TrimSuffix "/" $domain -}}">
         </div>
     </div>
 </a>

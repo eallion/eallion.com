@@ -649,69 +649,42 @@ footer {
 
 kbd,
 .single .content kbd {
-    // Set up custom properties for colours so we can switch them in dark mode
     --kbd-color-background: hsl(225, 0%, 97%);
-    // These interpolated variables reference a SCSS map of HSL-based greys
     --kbd-color-border: hsl(225, 1%, 80%);
     --kbd-color-text: hsl(225, 5%, 14%);
 
-    // In dark mode, a straight-up inversion doesn’t work for
-    // the “physical” key look so they need to be adjusted
     @media (prefers-color-scheme: dark) {
         --kbd-color-background: hsl(225, 3%, 55%);
         --kbd-color-border: hsl(225, 4%, 25%);
         --kbd-color-text: hsl(225, 5%, 14%);
     }
 
-    // Match the page defaults in light mode but
-    // switch to a light-ish grey in dark mode
     background-color: var(--kbd-color-background);
     color: var(--kbd-color-text);
 
-    // Round off the corners like physical keys have
     border-radius: 0.25rem;
 
-    // Add a simple border
     border: 1px solid var(--kbd-color-border);
 
-    // A sharp shadow (with no blur) really gives
-    // the old school keyboard look
     box-shadow: 0 2px 0 1px var(--kbd-color-border);
 
-    // Remove the text cursor — totally optional
-    // but I wanted it for my hover effect
     cursor: default;
 
-    // By default, browsers style <kbd> with a monospace typeface
     font-family: 'JetBrains Mono', monospace, Source Code Pro, Menlo, Consolas, Monaco, monospace;
 
-    // If we do all this with the default font size
-    // (mine is 18px on desktop) it’ll look massive
-    // and bump into lines above and below
     font-size: 0.75em;
 
-    // Remove any extra space so I can accurately tweak the padding
     line-height: 1;
 
-    // Make narrow numbers and letters look less odd
     min-width: 0.75rem;
-    // `min-width` doesn’t work on inline elements
     display: inline-block;
-    // Keep the characters centred when narrower than the `max-width`
     text-align: center;
 
-    // Seemed to look more key-like with more horizontal padding 🤷
     padding: 2px 5px;
 
-    // These two lines pull the whole element up now that they’re
-    // bottom-heavy due to the `box-shadow`. This looks better
-    // against the cap height of regular paragraph text.
     position: relative;
     top: -1px;
 
-    // This is my favourite part of the whole thing. The key gets
-    // “pushed” down and the shadow gets reduced so it looks like
-    // it might when typing on a physical keyboard.
     &:hover {
         box-shadow: 0 1px 0 0.5px var(--kbd-color-border);
         top: 1px;
@@ -757,245 +730,42 @@ kbd,
     }
 }
 
+// friends link start
 
-// /* 首页嘀咕样式 JSON 版 */
-// #ticker {
-//     display: flex;
-//     flex: 1 auto;
-//     align-items: center;
-//     line-height: 35px;
-//     height: 45px;
-//     max-width: 800px;
-//     text-align: left;
-//     padding: 5px 15px;
-//     margin: 20px 0 0;
-//     position: relative;
-//     border-radius: 8px;
-//     font-size: 1rem;
-//     overflow: hidden;
-//     background: #f4f4f5;
-// }
+.friend-name-div {
+    display: flex;
+    align-items: center;
+}
 
-// #ticker i {
-//     margin-right: 0.25rem;
-//     color: #4d4d4d;
-// }
+.friend-favicon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.25rem;
+}
 
-// .home .home-profile .home-disclaimer {
-//     padding: 0 !important;
-// }
+.friend-favicon img {
+    border-radius: 50%;
+}
 
-// .ticker-wrap {
-//     overflow: hidden;
-// }
+.friend-screens img {
+    display: none;
+    height: 0;
+    transition: all 0.3s; /* 加入过渡效果 */
+    border: 1px solid #dddddd00; /* 加边框 */
+    border-radius: 4px; /* 圆角 */
+}
 
-// .ticker-wrap ul {
-//     padding-left: 0.5rem;
-//     margin-block-start: 0 !important;
-//     margin-block-end: 0 !important;
-//     padding-inline-start: 0 !important;
-// }
+.friend-link-div:hover .friend-screens img {
+    display: block;
+    height: auto;
+    max-height: calc(100% * 4 / 3);
+    opacity: 1; /* 从透明到不透明 */
+    transform: translateY(10px); /* 向上移动10px */
+//   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    border-color: #bbb;
+}
 
-// .ticker-list {
-//     margin: 0;
-//     height: 35px;
-// }
-
-// .ticker-list li {
-//     list-style: none;
-//     margin-bottom: 10px;
-//     width: 100%;
-//     display: flex;
-//     justify-content: space-between;
-// }
-
-// .ticker-list li .item-detail {
-//     white-space: nowrap;
-//     text-overflow: ellipsis;
-//     overflow: hidden;
-// }
-
-// .item {
-//     list-style: none;
-//     margin-bottom: 10px;
-//     width: 100%;
-//     white-space: nowrap;
-//     text-overflow: ellipsis;
-//     overflow: hidden;
-// }
-
-// .item code {
-//     white-space: nowrap !important;
-// }
-
-// [theme="dark"] #ticker {
-//     background: #252627 !important;
-// }
-
-// [theme="black"] #ticker {
-//     background: #252627 !important;
-// }
-
-// [theme="dark"] #ticker i {
-//     color: #a9a9b3;
-// }
-
-// [theme="black"] #ticker i {
-//     color: #a9a9b3;
-// }
-
-// /* 首页嘀咕样式 JSON 版 End */
-
-// 首页今日诗词
-// #jinrishici {
-//     font-family: 'SimSun', 'STSong', 'Songti SC', 'NSimSun', '新宋体', 'fangsonggb2312', 'stfangsong', 'pingfang sc', 'lantinghei sc', 'microsoft yahei', '微软雅黑', 'wenquanyi micro hei', sans-serif !important;
-//     font-weight: 600;
-//     font-size: 1.5rem;
-//     display: inline-block;
-//     color: #333;
-//     text-align: center;
-//     animation: fadeIn .5s ease forwards;
-// }
-
-// #jinrishici-author {
-//     font-family: 'fangsonggb2312', 'stfangsong', 'pingfang sc', 'lantinghei sc', 'SimSun', 'STSong', 'Songti SC', 'NSimSun', '新宋体', 'microsoft yahei', '微软雅黑', 'wenquanyi micro hei', sans-serif !important;
-//     font-size: 1.2rem;
-//     font-style: italic;
-//     display: inline-block;
-//     animation: fadeIn .5s ease forwards;
-// }
-
-// @media (max-width: 450px) {
-//     #jinrishici {
-//         font-size: 1.25rem;
-//     }
-//     #jinrishici-author {
-//         font-size: 1rem;
-//     }
-// }
-
-// // Artalk Start
-// @keyframes toggle {
-//     to {
-//         transform: translateY(5px) rotate(90deg);
-//     }
-// }
-
-// .atk-editor-plug-emoticons {
-//     >.atk-grp-wrap {
-//         >.atk-grp {
-//             >.atk-item {
-//                 font-family: $font-family-emoji !important;
-//                 font-size: 1.5rem;
-//                 min-width: 1.5rem;
-//             }
-//         }
-//     }
-
-//     >.atk-grp-switcher {
-//         display: flex;
-//         align-items: center;
-//         overflow-x: auto;
-//         overflow-y: hidden;
-
-//         &::-webkit-scrollbar {
-//             height: 1px;
-//             width: 0;
-//         }
-
-//         >span {
-//             white-space: nowrap;
-//             line-height: 40px !important;
-//         }
-//     }
-// }
-
-// .artalk {
-//     pre {
-//         code {
-//             padding: 10px 15px !important;
-//             border-radius: 6px !important;
-//         }
-//     }
-// }
-
-// .atk-layer-wrap {
-//     pre {
-//         code {
-//             padding: 10px 15px !important;
-//             border-radius: 6px !important;
-//         }
-//     }
-// }
-
-// .atk-dropdown-wrap {
-//     .atk-dropdown-item {
-//         margin-left: 0 !important;
-//     }
-// }
-
-// .atk-main-editor>.atk-header input {
-//     border-width: 1px !important;
-//     border-bottom-color: rgba(238, 238, 238, 0.5) !important;
-// }
-
-// [theme="dark"] .artalk,
-// [theme="dark"] .atk-layer-wrap,
-// [theme="dark"] .artalk.atk-dark-mode,
-// [theme="dark"] .atk-layer-wrap.atk-dark-mode {
-//     --at-color-font: #a9a9b3 !important;
-//     --at-color-deep: #e7e7e7 !important;
-//     --at-color-sub: #e7e7e7 !important;
-//     --at-color-grey: #a9a9b3 !important;
-//     --at-color-meta: #a9a9b3 !important;
-//     --at-color-border: #2d3235 !important;
-//     --at-color-light: #687a86 !important;
-//     --at-color-bg: #252627 !important;
-//     --at-color-bg-transl: rgba(30, 34, 36, .95 !important);
-//     --at-color-bg-grey: #46494e !important;
-//     --at-color-bg-grey-transl: rgba(8, 8, 8, .95) !important;
-//     --at-color-bg-light: rgba(29, 161, 242, .1) !important;
-//     --at-color-main: #0083ff !important;
-//     --at-color-red: #ff5652 !important;
-//     --at-color-pink: #fa5a57 !important;
-//     --at-color-yellow: #ff7c37 !important;
-//     --at-color-green: #4caf50 !important;
-//     --at-color-gradient: linear-gradient(180deg, transparent, rgba(30, 34, 36, 1)) !important;
-// }
-
-// [theme="black"] .artalk,
-// [theme="black"] .atk-layer-wrap,
-// [theme="black"] .artalk.atk-dark-mode,
-// [theme="black"] .atk-layer-wrap.atk-dark-mode {
-//     --at-color-font: #a9a9b3 !important;
-//     --at-color-deep: #e7e7e7 !important;
-//     --at-color-sub: #e7e7e7 !important;
-//     --at-color-grey: #fff !important;
-//     --at-color-meta: #fff !important;
-//     --at-color-border: #2d3235 !important;
-//     --at-color-light: #687a86 !important;
-//     --at-color-bg: #252627 !important;
-//     --at-color-bg-transl: rgba(30, 34, 36, .95 !important);
-//     --at-color-bg-grey: #46494e !important;
-//     --at-color-bg-grey-transl: rgba(8, 8, 8, .95) !important;
-//     --at-color-bg-light: rgba(29, 161, 242, .1) !important;
-//     --at-color-main: #0083ff !important;
-//     --at-color-red: #ff5652 !important;
-//     --at-color-pink: #fa5a57 !important;
-//     --at-color-yellow: #ff7c37 !important;
-//     --at-color-green: #4caf50 !important;
-//     --at-color-gradient: linear-gradient(180deg, transparent, rgba(30, 34, 36, 1)) !important;
-// }
-
-// [theme="dark"] .atk-main-editor>.atk-header input {
-//     border-bottom-color: rgba(69, 69, 69, 0.5) !important;
-// }
-
-// [theme="black"] .atk-main-editor>.atk-header input {
-//     border-bottom-color: rgba(69, 69, 69, 0.5) !important;
-// }
-
-// // Artalk End
+// friends link end
 
 // AI summary Start
 .post-ai {
