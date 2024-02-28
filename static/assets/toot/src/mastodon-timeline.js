@@ -1,13 +1,13 @@
 /**
- * Mastodon embed feed timeline
+ * Mastodon embed timeline
  * @author idotj
- * @version 4.0.4
- * @url https://gitlab.com/idotj/mastodon-embed-feed-timeline
+ * @version 4.2.1
+ * @url https://gitlab.com/idotj/mastodon-embed-timeline
  * @license GNU AGPLv3
  */
 "use strict";
 
-class MastodonTimeline {
+export class Init {
   constructor(customSettings = {}) {
     this.defaultSettings = {
       mtContainerId: "mt-container",
@@ -34,6 +34,8 @@ class MastodonTimeline {
       btnShowContent: "SHOW CONTENT",
       btnSeeMore: "See more posts at Mastodon",
       btnReload: "Refresh",
+      insistSearchContainer: false,
+      insistSearchContainerTime: "3000",
     };
 
     this.mtSettings = { ...this.defaultSettings, ...customSettings };
@@ -42,55 +44,85 @@ class MastodonTimeline {
     this.mtBodyNode = "";
     this.fetchedData = {};
 
-    this.mtInit();
+    this.#onDOMContentLoaded(() => {
+      this.#getContainerNode();
+    });
   }
 
   /**
-   * Trigger callback when DOM loaded or complete
+   * Trigger callback when DOM loaded or completed
    * @param {function} c Callback executed
    */
-  onDOMContentLoaded(c) {
-    if (
-      typeof document !== "undefined" &&
-      (document.readyState === "complete" ||
-        document.readyState === "interactive")
-    ) {
+  #onDOMContentLoaded(c) {
+    if (typeof document !== "undefined" && document.readyState === "complete") {
       c();
     } else if (
       typeof document !== "undefined" &&
-      (document.readyState !== "complete" ||
-        document.readyState !== "interactive")
+      document.readyState !== "complete"
     ) {
-      document.addEventListener("DOMContentLoaded", c);
+      document.addEventListener("DOMContentLoaded", c());
     }
   }
 
   /**
-   * Initialize and build the timeline
+   * Find main container in DOM before building the timeline
    */
-  mtInit() {
-    // console.log("Creating Mastodon timeline with settings: ", this.mtSettings);
+  #getContainerNode() {
+    // console.log("Initializing Mastodon timeline with settings: ", this.mtSettings);
 
-    this.onDOMContentLoaded(() => {
-      // Register container node
+    const assignContainerNode = () => {
       this.mtContainerNode = document.getElementById(
         this.mtSettings.mtContainerId
       );
-
-      // Register body node
       this.mtBodyNode =
         this.mtContainerNode.getElementsByClassName("mt-body")[0];
-
       this.#loadColorTheme();
       this.#buildTimeline("newTimeline");
-    });
+    };
+
+    // Some frameworks render the DOM in deferred way and need some extra time
+    if (this.mtSettings.insistSearchContainer) {
+      const startCheck = performance.now();
+      const findContainerNode = () => {
+        // Check if the container is ready in DOM
+        if (document.getElementById(this.mtSettings.mtContainerId)) {
+          assignContainerNode();
+        } else {
+          // If the container is not found, check again
+          const currentCheck = performance.now();
+          if (
+            currentCheck - startCheck <
+            this.mtSettings.insistSearchContainerTime
+          ) {
+            requestAnimationFrame(findContainerNode);
+          } else {
+            console.error(
+              `Impossible to find the <div> container with id: "${
+                this.mtSettings.mtContainerId
+              }" after several attempts for ${
+                this.mtSettings.insistSearchContainerTime / 1000
+              } seconds`
+            );
+          }
+        }
+      };
+      findContainerNode();
+    } else {
+      if (document.getElementById(this.mtSettings.mtContainerId)) {
+        assignContainerNode();
+      } else {
+        console.error(
+          `Impossible to find the <div> container with id: "${this.mtSettings.mtContainerId}". Please try to add the option 'insistSearchContainer: true' when initializing the script`
+        );
+      }
+    }
   }
 
   /**
    * Reload the timeline by fetching the lastest posts
    */
   mtUpdate() {
-    this.onDOMContentLoaded(() => {
+    this.#onDOMContentLoaded(() => {
       this.mtBodyNode.replaceChildren();
       this.mtBodyNode.insertAdjacentHTML(
         "afterbegin",
@@ -105,7 +137,7 @@ class MastodonTimeline {
    * @param {string} themeType Type of color theme
    */
   mtColorTheme(themeType) {
-    this.onDOMContentLoaded(() => {
+    this.#onDOMContentLoaded(() => {
       this.mtContainerNode.setAttribute("data-theme", themeType);
     });
   }
@@ -217,7 +249,7 @@ class MastodonTimeline {
           return { ...result, ...dataItem };
         }, {});
 
-        // console.log("Timeline data fetched: ", this.mtSettings.fetchedData);
+        // console.log("Mastodon timeline data fetched: ", this.mtSettings.fetchedData);
         resolve();
       });
     });
@@ -493,13 +525,9 @@ class MastodonTimeline {
 
     // Media attachments
     let media = [];
-    let mediaCount = 0; // mod
-    let mediaWrapper = ''; // mod
-
     if (c.media_attachments.length > 0) {
       for (let i in c.media_attachments) {
         media.push(this.#createMedia(c.media_attachments[i], c.sensitive));
-        mediaCount++; // mod
       }
     }
     if (c.reblog && c.reblog.media_attachments.length > 0) {
@@ -507,14 +535,8 @@ class MastodonTimeline {
         media.push(
           this.#createMedia(c.reblog.media_attachments[i], c.reblog.sensitive)
         );
-        mediaCount++; // mod
       }
     }
-    if (media.length > 0) { // mod
-        mediaWrapper = '<div class="mp-post-media-wrapper grid-' + mediaCount + '">' + // mod
-            media.join("") +  // mod
-            "</div>"; // mod
-    } // mod
 
     // Preview link
     let previewLink = "";
@@ -583,8 +605,7 @@ class MastodonTimeline {
       timestamp +
       "</div>" +
       content +
-    //   media.join("") +
-      mediaWrapper + // mod
+      media.join("") +
       previewLink +
       poll +
       counterBar +
@@ -1053,7 +1074,7 @@ class MastodonTimeline {
   }
 
   /**
-   * Open post in a new page avoiding any other natural link
+   * Open post in a new tab/page avoiding any other natural link
    * @param {event} e User interaction trigger
    */
   #openPostUrl(e) {
