@@ -323,16 +323,15 @@
                                                     <a href="{{- .RelPermalink -}}"> {{- .Title -}} </a>
                                                 </h3> -->
                                                 <div class="devsite-landing-row-item-description-content">
-                                                    {{- $summary := getJSON "data/summary/summary.json" -}}
-                                                    {{- $matchingSummary := index (where $summary.summaries "slug" $currentSlug) 0 -}}
-                                                    {{- if $matchingSummary.summary -}}
-                                                        {{- $matchingSummary.summary -}}
+                                                    {{- $summary := $params.summary -}}
+                                                    {{- with $summary -}}
+                                                        {{ . | safeHTML }}
                                                     {{- else -}}
-                                                    {{- with .Summary -}}
-                                                        {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
-                                                    {{- else -}}
-                                                        {{- .Description | safeHTML -}}
-                                                    {{- end -}}
+                                                        {{- with .Summary -}}
+                                                            {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                                                        {{- else -}}
+                                                            {{- .Description | safeHTML -}}
+                                                        {{- end -}}
                                                     {{- end -}}
                                                 </div>
                                                 <div class="devsite-landing-row-item-buttons">
