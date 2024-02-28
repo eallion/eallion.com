@@ -137,7 +137,8 @@ https://github.com/eallion/eallion.com/tree/main/data/neodb
 
 ### 🔊 嘀咕页面
 
-嘀咕页面 [`https://www.eallion.com/toot`](https://www.eallion.com/toot/) 为 Mastodon 个人实例 [`e5n.cc`](https://e5n.cc/@eallion) 的数据展示。利用 [mastodon-embed-feed-timeline](https://gitlab.com/idotj/mastodon-embed-feed-timeline) 这个项目集成到博客页面。基于 [v3.9.1](https://gitlab.com/idotj/mastodon-embed-feed-timeline/-/tags/v3.9.1) 版本修改，后续保持同步更新，但没有完全跟随上游版本号。
+嘀咕页面 [`https://www.eallion.com/toot`](https://www.eallion.com/toot/) 为 Mastodon 个人实例 [`e5n.cc`](https://e5n.cc/@eallion) 的数据展示。  
+利用 [mastodon-embed-feed-timeline](https://gitlab.com/idotj/mastodon-embed-feed-timeline) 这个项目集成到博客页面。
 
 ### 📦️ 首页 CSS 打包
 
@@ -181,7 +182,9 @@ npm run uncss
 
 4. **生成 AI 提要**
 
-写完文章，按 `data` 目录中的 `summary.json` 文件手动生成摘要。
+~~写完文章，按 `data` 目录中的 `summary.json` 文件手动生成摘要。~~
+
+Summary 生成 AI 摘要现在添加到 `posts` 目录中的 Markdown 文件中的 Front Matter 中，依然采用手动生成的方式。
 
 5. **生成 OG image**
 
@@ -337,18 +340,18 @@ git gc --prune=now --aggressive
 
 ### 📷 相册
 
-相册页面可以用主题内置的 [`{{< figure >}}`](https://hugodoit.pages.dev/zh-cn/theme-documentation-built-in-shortcodes/#figure)、[`{{< image >}}`](<https://hugodoit.pages.dev/zh-cn/theme-documentation-extended-shortcodes/#image>) Shortcodes 生成。
+~~相册页面可以用主题内置的 [`{{< figure >}}`](https://hugodoit.pages.dev/zh-cn/theme-documentation-built-in-shortcodes/#figure)、[`{{< image >}}`](<https://hugodoit.pages.dev/zh-cn/theme-documentation-extended-shortcodes/#image>) Shortcodes 生成。~~
+
+现在的相册页面采用 e5n.cc 的 `相册` 标签动态渲染，只是一个示例页面。
+
 如：
 
 - <https://www.eallion.com/photos/>
 
-```markdown
-{{< image src="https://images.eallion.com/penta/20150218-Shaco.jpg" alt="Shaco" caption="Shaco" >}}
-```
-
 ### 📷 LOL 五杀
 
-数据按 `data/penta/penta.json` 格式维护即可，五杀截图放到 `static/assets/images/penta/screenshot` 目录。
+数据按 `data/penta/penta.json` 格式维护即可，五杀截图放到 `static/assets/images/penta/screenshot` 目录。  
+英雄头像从腾讯官方 API [https://lol.qq.com/cguide/Guide/PublicResources/Images.html#英雄头像](https://lol.qq.com/cguide/Guide/PublicResources/Images.html#%E9%9D%9E%E7%82%AB%E5%BD%A9%E7%9A%AE%E8%82%A4) 下载，放到 `static/assets/images/penta/hero` 目录。
 
 - <https://www.eallion.com/penta/>
 
