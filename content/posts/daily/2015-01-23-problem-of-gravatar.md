@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["头像","多说","gravatar"]
 draft: false
 slug: "problem-of-gravatar"
+summary: "这篇文章介绍了如何解决Gravatar头像问题。作者建议将var/Typecho/Common.php文件中第939行的内容更改为指定的值。"
 date: "2015-01-23 16:33:00"
 lastmod: "2015-01-23 16:33:00"
 ---

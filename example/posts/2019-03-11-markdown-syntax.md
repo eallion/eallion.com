@@ -13,6 +13,7 @@ lastmod: 2019-03-11
 draft: false
 Comments: true
 slug: "markdown-syntax"
+summary: "Markdown Syntax Guide Example"
 images: ["/assets/images/og/eallion.png"]
 ---
 

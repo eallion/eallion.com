@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["博客","统计","报告","分析","展望"]
 draft: false
 slug: "statistical-report"
+summary: "本报告为 eallion.com 博客最近 30 天的百度统计报告，分析了访客习惯和网页设计。发现使用 1440*900 分辨率最多，主流浏览器仍然是 IE、Chrome 和 Firefox。访问者以 Windows XP 用户居多，国内访问集中在沿海地区。作者坚持页面简洁和内容原创，并表示会回访留言的朋友。"
 date: "2011-02-03 00:00:00"
 lastmod: "2011-02-03 00:00:00"
 ---

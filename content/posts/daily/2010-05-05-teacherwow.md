@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["教师","自言自语"]
 draft: false
 slug: "teacherwow"
+summary: "教师是光荣职业，但并非所有从事教育的人都伟大。医生、警察也一样。"
 date: "2010-05-05 09:33:15"
 lastmod: "2010-05-05 09:33:15"
 ---

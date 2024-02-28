@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["习惯","钱"]
 draft: false
 slug: "so-it-has-been"
+summary: "这篇文章描述了作者多年来出门后钱财总是减少的情况，无论是 50 还是 500 都一样。"
 date: "2008-11-28 22:28:14"
 lastmod: "2008-11-28 22:28:14"
 ---

@@ -6,6 +6,7 @@ categories: ["分享"]
 tags: ["主机","阿里云","免费主机","虚拟主机"]
 draft: false
 slug: "free-aliyun-host"
+summary: "阿里云论坛推出免费送虚拟主机活动，但只限新用户领取。分享链接：https://promotion.aliyun.com/ntms/act/freeall.html"
 date: "2016-09-23 14:36:00"
 lastmod: "2016-09-23 14:36:00"
 ---

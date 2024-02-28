@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["多说","css","样式"]
 draft: false
 slug: "share-duoshuo-css"
+summary: "这篇文章介绍了罗磊的独立博客中关于CSS分享以及设计自定义效果展示的内容，以及沈超飞的IT博客中的观点。"
 date: "2015-01-12 10:07:00"
 lastmod: "2015-01-12 10:07:00"
 ---

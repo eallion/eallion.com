@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["代码","php","ua","user agent","判断"]
 draft: false
 slug: "judge-phone-ua"
+summary: "这篇文章介绍了如何判断手机的用户代理（User Agent），并根据不同设备跳转或调用不同的模板和CSS。对于不兼容或仅需手机端显示的页面，可以使用JavaScript判断用户代理的代码来实现。代码可插入在<head>标签之前，并将JS文件放在根目录或其他文件夹中，并注意路径。"
 date: "2015-01-13 10:43:00"
 lastmod: "2015-01-13 10:43:00"
 ---

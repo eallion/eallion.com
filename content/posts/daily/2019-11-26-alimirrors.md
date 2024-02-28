@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["阿里云","mirrors","opsx","镜像"]
 draft: false
 slug: "alimirrors"
+summary: "阿里云镜像改版，从 mirrors 改成 OPSX 再到现在的 developer 开发者社区。文章提到大公司没有情怀，只有 KPI，并表示以前给阿里云反馈过但未得到回应。"
 date: "2019-11-26 15:03:00"
 lastmod: "2019-11-26 15:03:00"
 ---

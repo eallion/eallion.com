@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["CS","csmod","反恐精英","csp","cspromod"]
 draft: false
 slug: "csp-report"
+summary: "CSPromod 是一个反恐精英职业版的游戏，使用 CSS 引擎制作出类似 CS1.6 的体验。它在平衡性、GUI 定制化和枪械设计方面有所改进，但仍不能完全替代 CS1.6。试玩者对 AK、M4、Deagle 等武器进行了评价，并提到了一些 BUG。总体来说，CSP1.05 比之前的版本有很大进步，如果 Valve 开发的 CS2 再次让玩家失望，那么 CSP 可能成为电竞主流。期待更多人参与 CSP 开发并听取职业选手意见以实现更大进步。"
 date: "2011-02-01 12:00:00"
 lastmod: "2011-02-01 12:00:00"
 ---

@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["Ubuntu","Linux"]
 draft: false
 slug: "talkaboutubuntu"
+summary: "这篇文章介绍了作者对Linux和Ubuntu的看法。作者长期使用过多个Linux发行版，但最推荐Ubuntu用于日常桌面环境。作者认为Linux发行版都很相似，只是包管理方式不同。作者不推荐使用滚动更新发行版，并且对于近年来国产Linux软件的质量也持批评态度。作者最初因为喜欢Ubuntu的配色而开始使用，后来一直留在Debian系。作者推荐在服务器上使用Debian stable，并且企业中则应根据领导的选择来决定使用哪个服务器。"
 date: "2020-10-23 10:24:00"
 lastmod: "2020-10-23 10:24:00"
 ---

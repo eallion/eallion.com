@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["宜昌"]
 draft: false
 slug: "i-do-not-know-what-has-to-go-yichang"
+summary: "文章提到了作者计划去宜昌旅游，但由于票务问题和通讯失联，无法确定是否能够如期前往。同时，文章还提到了国庆节期间人们计划去其他地方旅游的情况。"
 date: "2008-09-29 22:39:29"
 lastmod: "2008-09-29 22:39:29"
 ---

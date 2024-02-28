@@ -6,6 +6,7 @@ categories: ["分享"]
 tags: ["typecho","mweb","ios","离线"]
 draft: false
 slug: "typecho-mweb"
+summary: "这篇文章介绍了一款名为MWeb的iOS离线发表博客的应用。作者表示手机逐渐成为他记录灵感的工具，但以前使用手机浏览器发表博客的体验非常糟糕。最近，作者找到了一款支持markdown的iOS工具MWeb，并介绍了该应用的使用方法，包括设置发布服务和填写博客信息等。作者还提到了MWeb的一些进阶用法。"
 date: "2017-04-10 08:36:00"
 lastmod: "2017-04-10 08:36:00"
 ---

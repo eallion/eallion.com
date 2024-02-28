@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["小明","三毛"]
 draft: false
 slug: "xiao-ming-and-san-mao"
+summary: "文章讲述了一个谜语，小明的妈妈有三个儿子，老大叫大毛，老二叫二毛，请问老三叫什么。答案是小明。"
 date: "2015-02-05 10:35:00"
 lastmod: "2015-02-05 10:35:00"
 ---

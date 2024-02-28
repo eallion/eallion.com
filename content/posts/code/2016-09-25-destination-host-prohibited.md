@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["Ubuntu","ssl","iptables","ufw","Destination"]
 draft: false
 slug: "destination-host-prohibited"
+summary: "这篇文章介绍了如何解决“Destination Host Prohibited”的问题。问题出现的原因是由于服务器上的iptables配置导致的。文章给出的解决方法是检查filter表中的FORWARD链，查看是否包含有相关的行，如果有则删除该行。作者提供了删除该行的命令示例。"
 date: "2016-09-25 00:19:00"
 lastmod: "2016-09-25 00:19:00"
 ---

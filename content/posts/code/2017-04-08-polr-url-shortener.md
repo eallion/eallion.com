@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["polr","url","shortener","压缩","短链接"]
 draft: false
 slug: "polr-url-shortener"
+summary: "这篇文章介绍了短链接url压缩程序Polr的安装教程。作者提到了安装的步骤包括下载源码、使用composer安装、配置虚拟主机、准备MySQL数据库以及安装。作者还推荐使用vps安装而非虚拟主机，并且提到了所需的服务器要求和PHP扩展。最后，作者给出了一个示例供读者参考，并详细说明了安装步骤。"
 date: "2017-04-08 23:41:00"
 lastmod: "2017-04-08 23:41:00"
 ---

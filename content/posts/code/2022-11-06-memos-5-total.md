@@ -9,6 +9,7 @@ tags:
     - Memos
     - talk
 slug: "memos-total-count"
+summary: "这篇文章介绍了使用Memos API获取总条数的方法。作者指出Memos官方amount API已不再使用，而是要利用Json返回的数据总条数计算Memos的总条数。"
 draft: false
 date: 2022-11-06T16:34:22+08:00
 lastmod: 2022-11-06T16:34:22+08:00

@@ -6,6 +6,7 @@ categories: ["分享"]
 tags: ["中国英文","单词","合成词","年度","新词","网络语言","英文"]
 draft: false
 slug: "chinglish"
+summary: "这篇文章介绍了一些新近流行的英文单词，包括Animale、Antizen、Chinsumer、Circusee、Divoice、Don’train、Eggache、Emotionormal、Foulsball、Freedamn、Geliable、Halfyuan、Jokarlist、Niubility、Sexretary、Shability、Shitizen、Smilence、Stupig、Suihide、Togayther、Ungeliable、Vegeteal、Yakshit、Z-turn和Zhuangbility等词汇，还有后续更新的spitslot、non-talking、youcai-flower、eggcalm和cockrock等新词。"
 date: "2010-11-15 00:59:14"
 lastmod: "2010-11-15 00:59:14"
 ---

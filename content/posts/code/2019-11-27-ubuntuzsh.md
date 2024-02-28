@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]
 draft: false
 slug: "ubuntuzsh"
+summary: "这篇文章介绍了配置Ubuntu操作系统的Oh-My-Zsh工具。文章介绍了安装Zsh和将其设置为默认的Shell，然后详细介绍了Oh My Zsh的安装过程。作者提供了三种安装方式供选择，并建议安装Powerline字体、Ubuntu Nerd Font或Knack Nerd Font Mono以获得更好的显示效果。另外，文章还介绍了安装并设置主题Powerlevel9k以及一些插件，最后还提到了一些需要修改的配置项和使配置生效的方法。"
 date: "2019-11-27 01:08:00"
 lastmod: "2019-11-27 01:08:00"
 ---

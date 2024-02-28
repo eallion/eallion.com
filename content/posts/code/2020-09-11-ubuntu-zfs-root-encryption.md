@@ -5,6 +5,7 @@ authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu", "ZFS", "encryption", "加密", "Linux"]
 slug: "ubuntu-zfs-root-encryption"
+summary: "这篇文章介绍了如何在安装Ubuntu到ZFS文件系统时使用原生加密。作者提供了具体的步骤，包括下载Ubuntu 20.04镜像，制作U盘LiveCD，进入LiveCD后选择试用Ubuntu，打开终端并编辑/usr/share/ubiquity/zsys-setup文件，然后运行ubiquity开始安装Ubuntu。文章还提到这种加密方式比《Ubuntu ZFS加密Home目录》更优秀。"
 draft: false
 date: 2020-09-11T23:48:35+08:00
 lastmod: 2020-09-11T23:48:35+08:00

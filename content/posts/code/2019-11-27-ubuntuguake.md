@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]
 draft: false
 slug: "ubuntuguake"
+summary: "这篇文章介绍了如何配置Ubuntu的Guake终端。它建议使用源码安装，因为直接安装的Guake版本较旧且中文显示不完整。"
 date: "2019-11-27 02:08:00"
 lastmod: "2019-11-27 02:08:00"
 ---

@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["CS","游戏","发烧","配置","电脑"]
 draft: false
 slug: "computer-configuration"
+summary: "文章介绍了一套游戏电脑的配置单，包括 CPU、主板、内存、硬盘、显卡等各个配件的品牌型号和价格。"
 date: "2011-10-05 09:22:54"
 lastmod: "2011-10-05 09:22:54"
 ---

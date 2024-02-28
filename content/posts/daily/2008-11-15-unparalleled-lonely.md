@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["时间","寂寞","悲伤","发呆"]
 draft: false
 slug: "unparalleled-lonely"
+summary: "文章讲述了作者对寂寞的感受和思考，认为时间比寂寞更加无法逾越。"
 date: "2008-11-15 00:32:01"
 lastmod: "2008-11-15 00:32:01"
 ---

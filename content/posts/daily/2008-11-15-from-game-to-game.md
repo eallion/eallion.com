@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["CS","游戏","魂斗罗","俄罗斯方块"]
 draft: false
 slug: "from-game-to-game"
+summary: "这篇文章介绍了作者对游戏的回忆和喜爱。他从小时候玩弹珠、掌机到上中学时的FC游戏，特别喜欢Contra魂斗罗。他还提到了自己在CS游戏中的经历和对其的热爱，认为CS是PC平台上最经典的游戏之一。最后，他也提到了喜欢的游戏包括tetris、contra和counter strike。"
 date: "2008-11-15 18:40:13"
 lastmod: "2008-11-15 18:40:13"
 ---

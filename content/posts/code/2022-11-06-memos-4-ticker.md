@@ -9,6 +9,7 @@ tags:
     - Memos
     - talk
 slug: "memos-ticker"
+summary: "这篇文章介绍了Memos API公告样式滚动效果以及大大的小蜗牛Memos的简介系列。文章提供了参考代码，包括主页的核心代码、相对时间的实现以及引用的插件和样式表。"
 draft: false
 date: 2022-11-06T16:33:22+08:00
 lastmod: 2022-11-06T16:33:22+08:00

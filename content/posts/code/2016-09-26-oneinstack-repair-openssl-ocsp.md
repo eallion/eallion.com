@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["oneinstack","nginx","openssl","ocsp"]
 draft: false
 slug: "oneinstack-repair-openssl-ocsp"
+summary: "这篇文章介绍了如何手动修复Oneinstack中的OpenSSL OCSP漏洞。作者建议不要使用“openssl version”命令查看版本号，而要使用“nginx -V”命令。然后根据nginx版本号，下载相应的nginx和openssl源码，在编译nginx时修改参数“--with-openssl=../openssl-1.0.2j”。"
 date: "2016-09-26 22:33:00"
 lastmod: "2016-09-26 22:33:00"
 ---

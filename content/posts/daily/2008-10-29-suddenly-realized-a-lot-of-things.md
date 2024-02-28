@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["CS","感悟","悟"]
 draft: false
 slug: "suddenly-realized-a-lot-of-things"
+summary: "文章讲述了作者通过打 CS 游戏，突然悟到了很多东西。他在数字花园中用爱发电，并感觉自己即将离开武汉。"
 date: "2008-10-29 22:52:21"
 lastmod: "2008-10-29 22:52:21"
 ---

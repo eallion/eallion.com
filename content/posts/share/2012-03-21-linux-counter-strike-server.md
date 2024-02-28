@@ -6,6 +6,7 @@ categories: ["分享"]
 tags: ["CS","Ubuntu","server","服务器","linux","red hat"]
 draft: false
 slug: "linux-counter-strike-server"
+summary: "这篇文章介绍了在Linux系统下架设CS1.6服务器的教程。文章分为多个部分，介绍了存放玩家IP的配置文件，以及CS1.6服务器在Linux系统下的架设和调试方法。文章假设读者已经具备了一台运行Linux操作系统的服务器，并且具备root密码。此外，还介绍了一些基础知识，如网络基础知识、Linux系统的基本命令和远程登录工具的使用方法。最后，文章还提到了在远程安装CS1.6服务端之前需要完成的准备工作。"
 date: "2012-03-21 13:07:07"
 lastmod: "2012-03-21 13:07:07"
 ---

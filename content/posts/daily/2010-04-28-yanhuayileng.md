@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["烟花易冷"]
 draft: false
 slug: "yanhuayileng"
+summary: "周杰伦的歌曲《烟花易冷》表达了人事易分、情感深沉的主题。"
 date: "2010-04-28 06:43:00"
 lastmod: "2010-04-28 06:43:00"
 ---

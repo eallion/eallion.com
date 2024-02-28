@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["运营","成本","房租","水电","设备"]
 draft: false
 slug: "yunyingchengben"
+summary: "这篇文章介绍了为什么办公设备、房租和水电费不会被视为运营成本。"
 date: "2013-04-29 20:46:00"
 lastmod: "2013-04-29 20:46:00"
 ---

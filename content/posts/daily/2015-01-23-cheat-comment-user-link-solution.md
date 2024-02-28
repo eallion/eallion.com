@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["链接","新窗口","target","blank"]
 draft: false
 slug: "cheat-comment-user-link-solution"
+summary: "文章介绍了解决评论用户链接问题的方法，通过修改 Typecho 默认的 Comments.php 文件中的代码实现在新窗口打开链接。"
 date: "2015-01-23 16:34:00"
 lastmod: "2015-01-23 16:34:00"
 ---

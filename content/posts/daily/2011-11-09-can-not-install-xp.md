@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["电脑","笔记本","XP","WIN7","Ubuntu"]
 draft: false
 slug: "can-not-install-xp"
+summary: "这篇文章介绍了作者购买的新笔记本电脑，并且安装了Ubuntu 11.10和Windows 7双系统。然后作者决定尝试安装Windows XP来满足自己玩CS的需求，但是安装过程中出现了问题，导致硬盘上的分区损坏。作者尝试使用Ghost重新安装了XP，但是发现显卡没有XP的驱动程序。最终作者决定放弃XP，重新从头开始使用Windows 7。"
 date: "2011-11-09 08:20:57"
 lastmod: "2011-11-09 08:20:57"
 ---

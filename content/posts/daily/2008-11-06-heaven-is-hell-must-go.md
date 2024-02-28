@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["天堂","地狱"]
 draft: false
 slug: "heaven-is-hell-must-go"
+summary: "文章讲述了作者面对黑暗日子的坚强态度，认为无论是天堂还是地狱都要继续前行生活。"
 date: "2008-11-06 22:21:41"
 lastmod: "2008-11-06 22:21:41"
 ---

@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["鼠标","Ubuntu","加速度","鼠标加速","xset m 0"]
 draft: false
 slug: "ubuntu-mouse-acceleration"
+summary: "这篇文章介绍了作者在重新安装Ubuntu系统后遇到的鼠标灵敏度问题。作者提到尝试使用命令“xset m 0”来调整鼠标加速度，但在关机重启后设置失效。由于网上关于鼠标加速度设置的信息不全面，作者记录下了配置方法并分享给读者，以便日后参考。最后，作者提到在Ubuntu软件中搜索“Mouse”，安装“Keyboard and Mouse”模块可解决此问题。"
 date: "2016-09-06 23:30:00"
 lastmod: "2016-09-06 23:30:00"
 ---

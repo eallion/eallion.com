@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["博客","markdown"]
 draft: false
 slug: "markdown-really-inconvenient"
+summary: "文章讲述了作者尝试使用 markdown 写博客的经历，一开始不习惯并觉得不方便，但后来改变了看法，认为 markdown 很好用。"
 date: "2015-01-19 09:40:00"
 lastmod: "2015-01-19 09:40:00"
 ---

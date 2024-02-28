@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]
 draft: false
 slug: "ubuntuevervim"
+summary: "这篇文章介绍了如何在Ubuntu上配置EverVim。首先要安装所需的依赖，然后安装EverVim。接下来，在Vim中安装插件。如果出现提示需要安装You Compute Me, 则可以参考官方教程进行安装。"
 date: "2019-11-27 03:08:00"
 lastmod: "2019-11-27 03:08:00"
 ---

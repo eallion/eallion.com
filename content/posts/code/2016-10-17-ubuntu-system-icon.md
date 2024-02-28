@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["Ubuntu","图标","托盘","状态栏"]
 draft: false
 slug: "ubuntu-system-icon"
+summary: "这篇文章介绍了如何修改Ubuntu系统的状态栏托盘图标顺序。作者通过修改/usr/share/indicator-application/ordering-override.keyfile文件来改变图标的顺序，但这会对所有用户生效。为了只在当前用户中改变图标顺序，可以将该文件复制到~/.local/share/indicators/application目录下。文章还提供了一个脚本供查看系统中的状态栏托盘图标，并讲解了要修改最左边的图标顺序需要同时修改其右边的图标顺序。最后，作者提到需要运行$restart unity-panel-service命令使修改生效。"
 date: "2016-10-17 04:32:00"
 lastmod: "2016-10-17 04:32:00"
 ---

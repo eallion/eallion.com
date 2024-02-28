@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["Ubuntu","server","网盘","nexecloud","snap"]
 draft: false
 slug: "nextcloud"
+summary: "这篇文章介绍了使用Ubuntu Server上的snap安装Nextcloud。作者首先提到Nextcloud的官方网站提供了多种安装方式，但作者选择使用snap进行安装。同时，作者指出Ubuntu Server已经内置了Nextcloud，只需要在安装时选择进行安装即可。接下来，作者介绍了一些配置步骤，包括安装snap、配置访问端口以及配置域名和https。最后，作者提到了如何备份Nextcloud文件。备份文件可在/var/snap/nextcloud/common/backups/文件夹下找到。"
 date: "2019-11-25 16:08:00"
 lastmod: "2019-11-25 16:08:00"
 ---

@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["空格","space","pangu"]
 draft: false
 slug: "autospace"
+summary: "这篇文章介绍了在Typecho中如何实现在中文和英文之间自动加上空格的方法。作者发现之前写的博客排版比较混乱，因此决定统一格式。作者选用了pangu.js这个项目来实现自动加空格的功能，并提供了具体的用法和引用方法。文章中给出了将pangu.js引入到footer.php中，并加上相应的代码的步骤。作者还提到了pangu.js的CDN链接。"
 date: "2019-11-29 09:29:00"
 lastmod: "2019-11-29 09:29:00"
 ---

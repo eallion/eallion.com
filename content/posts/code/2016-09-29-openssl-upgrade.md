@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["升级","openssl"]
 draft: false
 slug: "openssl-upgrade"
+summary: "这篇文章介绍了如何将OpenSSL环境升级到OpenSSL-1.0.1g。内容包括查看当前的源版本、下载OpenSSL-1.0.2j.tar.gz、更新zlib库、解压并安装OpenSSL-1.0.2j.tar.gz，以及检查是否成功升级。"
 date: "2016-09-29 16:47:00"
 lastmod: "2016-09-29 16:47:00"
 ---

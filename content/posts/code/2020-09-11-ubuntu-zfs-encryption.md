@@ -5,6 +5,7 @@ authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu", "ZFS", "encryption", "加密", "Linux"]
 slug: "ubuntu-zfs-encryption"
+summary: "这篇文章介绍了如何在Ubuntu操作系统中使用ZFS文件系统加密Home目录。作者提供了详细的步骤指南，包括创建临时账号、查看ZFS数据集、取消挂载和创建加密数据集等。文章还介绍了如何检测和检查加密是否成功，以及如何使用ZFS的自动快照功能和Grub引导项。最后还提到了安装加密交换空间Swap的步骤和销毁旧的数据集的方法。"
 draft: false
 date: 2020-09-11T22:37:13+08:00
 lastmod: 2020-09-11T22:37:13+08:00

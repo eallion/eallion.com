@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["Ubuntu","香港","源","更新源"]
 draft: false
 slug: "ubuntu-source-in-hong-kong"
+summary: "这篇文章介绍了Ubuntu源香港中文大学-大大的小蜗牛。"
 date: "2016-09-24 16:05:00"
 lastmod: "2016-09-24 16:05:00"
 ---

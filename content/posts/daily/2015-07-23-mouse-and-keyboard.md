@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["鼠标","键盘"]
 draft: false
 slug: "mouse-and-keyboard"
+summary: "文章内容是关于作者购买了多种品牌的鼠标和键盘，但都不满意。他列举了一些具体型号，包括 Logitech、Microsoft、Razer 等，并表示对它们的性能感到失望。"
 date: "2015-07-23 14:48:00"
 lastmod: "2015-07-23 14:48:00"
 ---

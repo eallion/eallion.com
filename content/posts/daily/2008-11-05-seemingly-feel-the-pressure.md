@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["毕业","压力","随意"]
 draft: false
 slug: "seemingly-feel-the-pressure"
+summary: "文章讲述了作者感受到压力，但他对生活持乐观态度，认为只要投入并顺其自然，压力就无所谓。同时提到了毕业和未来的选择问题。"
 date: "2008-11-05 20:15:56"
 lastmod: "2008-11-05 20:15:56"
 ---

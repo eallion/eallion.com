@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["Ubuntu","备份","Duplicati"]
 draft: false
 slug: "duplicati"
+summary: "这篇文章介绍了备份工具Duplicati的一些特点和使用情况。Duplicati是一个支持多种操作系统的备份工具，如Windows、Linux、MacOS和Synology等。文章提及了在Ubuntu上安装Duplicati的步骤，包括设置IP和启动等操作，可以方便地进行备份设置。"
 date: "2019-11-25 22:30:00"
 lastmod: "2019-11-25 22:30:00"
 ---

@@ -6,6 +6,7 @@ categories: ["分享"]
 tags: ["烂砖奖","网易房产","网易","专题"]
 draft: false
 slug: "netease-black-brick-house-property-awards-in-the-first-quarter-2010"
+summary: "这篇文章介绍了一个名为“烂砖奖”的房产专题活动，旨在嘲讽炒房者和高房价，并表达对房奴的遗愿。该活动由网易房产发起，已在微博上引起网友的疯传。"
 date: "2010-05-09 07:54:00"
 lastmod: "2010-05-09 07:54:00"
 ---

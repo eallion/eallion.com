@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["骑行","google","bike","bicyle","企业文化"]
 draft: false
 slug: "google-bike"
+summary: "这篇文章介绍了Google的自行车文化。文章提到，Google总部有大约700辆自行车，超过7%的员工每天骑自行车上班。Google有安全的停车区和修车服务，甚至还有自己的自行车管理部门。文章还提到了Google的自行车文化的起源，以及Google员工使用自行车上班的特殊路线。此外，还介绍了一个骑行团队SF2G，他们享受挑战，甚至找到了更具挑战性的路线。自行车文化在Google内部产生了影响。"
 date: "2013-04-26 09:43:00"
 lastmod: "2013-04-26 09:43:00"
 ---

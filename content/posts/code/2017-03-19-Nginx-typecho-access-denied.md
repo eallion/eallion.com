@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["typecho","nginx","access","denied","403"]
 draft: false
 slug: "nginx-typecho-access-denied"
+summary: "文章讲述了在重新配置服务器时遇到的问题，即无法打开 typecho 的二级页面，显示 Access denied。官方给出了解决办法：修改 php.ini 文件中的 cgi.fix_pathinfo 为 1，并重启 php 和 nginx。"
 date: "2017-03-19 01:08:00"
 lastmod: "2017-03-19 01:08:00"
 ---

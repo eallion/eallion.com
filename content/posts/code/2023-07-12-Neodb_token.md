@@ -9,6 +9,7 @@ tags:
   - NeoDB
   - Token
 slug: "neodb_token"
+summary: "这篇文章介绍了如何获取NeoDB的Access Token。首先需要注册NeoDB和Mastodon账号，并登录NeoDB。然后进入NeoDB的开发者中心，创建一个应用并获取AUTH_CODE。最后，通过发送请求，可以获取到有效期为1年的Access Token。"
 draft: false
 Comments: true
 date: 2023-07-11T23:15:21+08:00

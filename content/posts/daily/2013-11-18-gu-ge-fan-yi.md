@@ -6,6 +6,7 @@ categories: ["日志"]
 tags: ["google","谷歌","翻译"]
 draft: false
 slug: "gu-ge-fan-yi"
+summary: "这篇文章介绍了一些在Google翻译中输入特定内容后出现有趣结果的段子。其中包括输入一些乱码后听到德语的结果、输入儿歌和河南话听到有趣的语音、以及输入东北腔广东话听到雷人结果等。文章还提到了Google翻译将“啪啪啪”翻译成Flap和Lovemaking等有趣的例子。"
 date: "2013-11-18 12:31:00"
 lastmod: "2013-11-18 12:31:00"
 ---

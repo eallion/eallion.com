@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["google","oneinstack","nginx","proxy"]
 draft: false
 slug: "oneinstack-nginx-google"
+summary: "这篇文章介绍了使用Oneinstack Nginx反代Google的方法。作者建议在安装Oneinstack时只选择反代Google的功能，然后编译Nginx并安装ngx_http_google_filter_module扩展。接下来，安装Let's Encrypt并绑定域名，最后修改配置文件并重启Nginx即可实现反代Google的功能。文章提供了教程供读者参考。"
 date: "2016-09-08 08:30:00"
 lastmod: "2016-09-08 08:30:00"
 ---

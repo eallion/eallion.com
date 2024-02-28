@@ -5,6 +5,7 @@ authors: ["eallion"]
 categories: ["代码"]
 tags: ["hugo", "blog", "Typecho", "博客"]
 slug: "typecho-to-hugo"
+summary: "这篇文章介绍了作者将Typecho博客迁移到Hugo的过程。其中包括导出Typecho文章、配置Hugo、导入评论等步骤。文章主要关注于URL的迁移和将评论导入Disqus的过程。作者使用了一个修改过的PHP脚本来导出文章，并在Markdown博文的Front matter中添加了slug值以便后续设置。作者选择了Disqus作为博客评论解决方案，并使用了DisqusJS API。最终，作者通过WordPress中转的方式将评论导入到Disqus。"
 draft: false
 date: 2020-05-13T03:32:44+08:00
 lastmod: 2020-05-13T03:32:44+08:00

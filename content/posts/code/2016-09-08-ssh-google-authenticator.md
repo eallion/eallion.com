@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["Ubuntu","google","ssh","two factor","authenticator"]
 draft: false
 slug: "ssh-google-authenticator"
+summary: "这篇文章介绍了如何使用SSH Google Authenticator进行双重验证。文章分为五个步骤：安装SSH服务、安装Google-Authenticator、生成密钥、配置手机app和配置。作者介绍了使用Google的双重验证的原因，并说明了适用于Ubuntu VPS的设置方法。最后，作者提到在使用时需要输入手机app生成的验证码。"
 date: "2016-09-08 10:55:00"
 lastmod: "2016-09-08 10:55:00"
 ---

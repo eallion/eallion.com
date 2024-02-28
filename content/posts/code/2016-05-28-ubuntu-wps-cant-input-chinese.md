@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["Ubuntu","linux","wps","中文"]
 draft: false
 slug: "ubuntu-wps-cant-input-chinese"
+summary: "这篇文章介绍了如何解决Ubuntu系统中WPS不能输入中文的问题。作者提到，需要正确设置环境变量来解决WPS文字和表格不能输入中文的问题。"
 date: "2016-05-28 18:32:00"
 lastmod: "2016-05-28 18:32:00"
 ---

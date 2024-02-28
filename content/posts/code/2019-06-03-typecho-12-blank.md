@@ -6,6 +6,7 @@ categories: ["代码"]
 tags: ["typecho","代码","php","新窗口","blank"]
 draft: false
 slug: "typecho-12-blank"
+summary: "这篇文章介绍了一个关于typecho博客平台的修改方法。作者想要实现新窗口打开链接的功能，他在代码中添加了一行代码(target=“_blank” rel=“nofollow”)来实现这个效果。推荐方法二是修改var/HyperDown.php文件，在代码的第507行添加相应的代码。然后在主题的functions.php文件和post.php文件中进行相应的改动。作者表示此方法适用于typecho1.2版本。"
 date: "2019-06-03 12:00:00"
 lastmod: "2019-06-03 12:00:00"
 ---
