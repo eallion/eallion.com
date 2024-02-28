@@ -138,7 +138,7 @@ https://github.com/eallion/eallion.com/tree/main/data/neodb
 ### 🔊 嘀咕页面
 
 嘀咕页面 [`https://www.eallion.com/toot`](https://www.eallion.com/toot/) 为 Mastodon 个人实例 [`e5n.cc`](https://e5n.cc/@eallion) 的数据展示。  
-利用 [mastodon-embed-feed-timeline](https://gitlab.com/idotj/mastodon-embed-feed-timeline) 这个项目集成到博客页面。
+利用 [mastodon-embed-timeline](https://gitlab.com/idotj/mastodon-embed-timeline) 这个项目集成到博客页面。
 
 ### 📦️ 首页 CSS 打包
 
