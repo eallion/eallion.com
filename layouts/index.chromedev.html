@@ -1,0 +1,1256 @@
+{{- define "content" -}}
+    {{- $params := .Scratch.Get "params" -}}
+    {{- $profile := .Site.Params.home.profile -}}
+    {{- $posts := .Site.Params.home.posts -}}
+
+    <div class="page home"{{ if ne $posts.enable false | or .Content }} posts{{ end }}>
+
+    <!-- 下面是 Dev 的时候引用的， Prod 环境 和 Uncss 打包时需要注释掉-->
+    <!-- <link rel="stylesheet" href="/assets/chromedev/css/src/home.css?v=20231121" />
+    <link rel="stylesheet" href="/assets/chromedev/css/src/devsite.css?v=20231121" />
+    <link rel="stylesheet" href="/assets/chromedev/css/src/devsite-theme.css?v=20231121" />
+    <link rel="stylesheet" href="/assets/chromedev/css/src/devsite-custom.css?v=20231121" /> -->
+
+    <!-- 下面的是 Uncss 打包用的，Prod 环境需要注释掉 -->
+    <!-- pnpm run uncss -->
+    <!-- <link rel="stylesheet" href="../static/assets/chromedev/css/src/home.css?v=20231121" />
+    <link rel="stylesheet" href="../static/assets/chromedev/css/src/devsite.css?v=20231121" />
+    <link rel="stylesheet" href="../static/assets/chromedev/css/src/devsite-theme.css?v=20231121" />
+    <link rel="stylesheet" href="../static/assets/chromedev/css/src/devsite-custom.css?v=20231121" /> -->
+
+    <!-- 下面是正式的，Uncss 打包时需要注释掉 -->
+    <link rel="stylesheet" href="/assets/chromedev/css/dist/chrome.min.css?v=20240220" />
+
+    <script type="module" src="/assets/chromedev/js/main.js"></script>
+
+    <section class="dcc-devsite-wrapper" theme="web-theme">
+        <main role="main" class="content devsite-content">
+            <devsite-content>
+                <article class="devsite-article">
+                    <div class="devsite-article-body clearfix">
+                        <div class="devsite-page-title-meta"></div>
+
+                        <section id="hero" view-image
+                            class="devsite-landing-row devsite-landing-row-1-up devsite-landing-row-100 dcc-hero"
+                            header-position="top">
+                            <div class="devsite-landing-row-inner">
+                                <div class="devsite-landing-row-group">
+                                    <div class="devsite-landing-row-item" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <!-- <img alt="hero" src="/assets/chromedev/images/interstellar.webp" loading="lazy" no-view/> -->
+                                                <!-- https://storyset.com/illustration/content/amico/animate?share=75125 -->
+                                                <style>
+                                                    svg#freepik_stories-content:not(.animated) .animable {
+                                                        opacity: 0;
+                                                    }
+
+                                                    svg#freepik_stories-content.animated #freepik--Floor--inject-42 {
+                                                        animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) lightSpeedRight;
+                                                        animation-delay: 0s;
+                                                    }
+
+                                                    svg#freepik_stories-content.animated #freepik--Shadows--inject-42 {
+                                                        animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideUp;
+                                                        animation-delay: 0s;
+                                                    }
+
+                                                    svg#freepik_stories-content.animated #freepik--Plant--inject-42 {
+                                                        animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideRight;
+                                                        animation-delay: 0s;
+                                                    }
+
+                                                    svg#freepik_stories-content.animated #freepik--Boxes--inject-42 {
+                                                        animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) lightSpeedRight;
+                                                        animation-delay: 0s;
+                                                    }
+
+                                                    svg#freepik_stories-content.animated #freepik--Window--inject-42 {
+                                                        animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideUp;
+                                                        animation-delay: 0s;
+                                                    }
+
+                                                    svg#freepik_stories-content.animated #freepik--Sheets--inject-42 {
+                                                        animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) zoomOut;
+                                                        animation-delay: 0s;
+                                                    }
+
+                                                    svg#freepik_stories-content.animated #freepik--Video--inject-42 {
+                                                        animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideLeft;
+                                                        animation-delay: 0s;
+                                                    }
+
+                                                    svg#freepik_stories-content.animated #freepik--Photo--inject-42 {
+                                                        animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) zoomIn;
+                                                        animation-delay: 0s;
+                                                    }
+
+                                                    svg#freepik_stories-content.animated #freepik--box--inject-42 {
+                                                        animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideLeft;
+                                                        animation-delay: 0s;
+                                                    }
+
+                                                    svg#freepik_stories-content.animated #freepik--character--inject-42 {
+                                                        animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideUp;
+                                                        animation-delay: 0s;
+                                                    }
+
+                                                    svg#freepik_stories-content.animated #freepik--speech-bubble--inject-42 {
+                                                        animation: 1s 1 forwards cubic-bezier(.36, -0.01, .5, 1.38) slideLeft;
+                                                        animation-delay: 0s;
+                                                    }
+
+                                                    @keyframes lightSpeedRight {
+                                                        from {
+                                                            transform: translate3d(50%, 0, 0) skewX(-20deg);
+                                                            opacity: 0;
+                                                        }
+
+                                                        60% {
+                                                            transform: skewX(10deg);
+                                                            opacity: 1;
+                                                        }
+
+                                                        80% {
+                                                            transform: skewX(-2deg);
+                                                        }
+
+                                                        to {
+                                                            opacity: 1;
+                                                            transform: translate3d(0, 0, 0);
+                                                        }
+                                                    }
+
+                                                    @keyframes slideUp {
+                                                        0% {
+                                                            opacity: 0;
+                                                            transform: translateY(30px);
+                                                        }
+
+                                                        100% {
+                                                            opacity: 1;
+                                                            transform: inherit;
+                                                        }
+                                                    }
+
+                                                    @keyframes slideRight {
+                                                        0% {
+                                                            opacity: 0;
+                                                            transform: translateX(30px);
+                                                        }
+
+                                                        100% {
+                                                            opacity: 1;
+                                                            transform: translateX(0);
+                                                        }
+                                                    }
+
+                                                    @keyframes zoomOut {
+                                                        0% {
+                                                            opacity: 0;
+                                                            transform: scale(1.5);
+                                                        }
+
+                                                        100% {
+                                                            opacity: 1;
+                                                            transform: scale(1);
+                                                        }
+                                                    }
+
+                                                    @keyframes slideLeft {
+                                                        0% {
+                                                            opacity: 0;
+                                                            transform: translateX(-30px);
+                                                        }
+
+                                                        100% {
+                                                            opacity: 1;
+                                                            transform: translateX(0);
+                                                        }
+                                                    }
+
+                                                    @keyframes zoomIn {
+                                                        0% {
+                                                            opacity: 0;
+                                                            transform: scale(0.5);
+                                                        }
+
+                                                        100% {
+                                                            opacity: 1;
+                                                            transform: scale(1);
+                                                        }
+                                                    }
+                                                    #freepik_stories-content {
+                                                        max-width: 693px;
+                                                        margin: 0 auto;
+                                                    }
+                                                </style>
+                                                <style>
+                                                    /* Animate the first dot to fade in and out */
+                                                    #elevnn5tnfdu5 {
+                                                        animation: fadeInOut 2s alternate ease-in-out infinite;
+                                                    }
+                                                    @keyframes fadeInOut {
+                                                        from {
+                                                            opacity: 0;
+                                                        }
+                                                        to {
+                                                            opacity: 1;
+                                                        }
+                                                    }
+                                                    /* Hide the second dot initially */
+                                                    #el4ud3430p80f {
+                                                        opacity: 0;
+                                                    }
+                                                    /* Animate the second dot to fade in and out after a delay */
+                                                    #el4ud3430p80f {
+                                                        animation: fadeInOut 2s alternate ease-in-out infinite 1s;
+                                                    }
+                                                </style>
+                                                <svg class="animated" id="freepik_stories-content" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"><g id="freepik--Floor--inject-42" class="animable" style="transform-origin: 249.34px 337.47px;"><g id="freepik--floor--inject-42" class="animable" style="transform-origin: 249.34px 337.47px;"><ellipse id="freepik--floor--inject-42" cx="249.34" cy="337.47" rx="239.66" ry="135.32" style="fill: rgb(230, 230, 230); transform-origin: 249.34px 337.47px;" class="animable"></ellipse><g id="freepik--floor--inject-42"><ellipse cx="249.34" cy="337.47" rx="239.66" ry="135.32" style="fill: rgb(230, 230, 230); opacity: 0.8; transform-origin: 249.34px 337.47px;" class="animable" id="elnz8ycc434tc"></ellipse></g></g></g><g id="freepik--Shadows--inject-42" class="animable" style="transform-origin: 258.074px 327.903px;"><path id="freepik--Shadow--inject-42" d="M270.44,324.08l45.29-26.14a2.25,2.25,0,0,1,2,0L384,336.25a.63.63,0,0,1,0,1.19l-45.28,26.14a2.25,2.25,0,0,1-2.05,0l-66.24-38.31A.63.63,0,0,1,270.44,324.08Z" style="fill: rgb(207, 207, 207); transform-origin: 327.217px 330.766px;" class="animable"></path><path id="freepik--shadow--inject-42" d="M63,371.19l-19-11a1.25,1.25,0,0,1,0-2.37L274.83,224.56a4.49,4.49,0,0,1,4.1,0l19,11a1.25,1.25,0,0,1,0,2.37L67.1,371.19A4.58,4.58,0,0,1,63,371.19Z" style="fill: rgb(207, 207, 207); transform-origin: 170.965px 297.87px;" class="animable"></path><path id="freepik--shadow--inject-42" d="M260.17,222.33l40.92-23.64a3.64,3.64,0,0,1,3.28,0l50.28,29a1,1,0,0,1,0,1.9l-40.92,23.64a3.66,3.66,0,0,1-3.29,0l-50.27-29A1,1,0,0,1,260.17,222.33Z" style="fill: rgb(207, 207, 207); transform-origin: 307.41px 225.96px;" class="animable"></path><path id="freepik--shadow--inject-42" d="M159.37,419.5,211,389.55a4.43,4.43,0,0,1,4,0l60.92,35.18a1.21,1.21,0,0,1,0,2.3l-51.58,30a4.43,4.43,0,0,1-4,0L159.37,421.8A1.21,1.21,0,0,1,159.37,419.5Z" style="fill: rgb(207, 207, 207); transform-origin: 217.645px 423.29px;" class="animable"></path><path id="freepik--shadow--inject-42" d="M94,404.57,82.65,398a1.25,1.25,0,0,1,0-2.37l69.08-39.88a4.55,4.55,0,0,1,4.1,0l11.31,6.53a1.25,1.25,0,0,1,0,2.37L98.06,404.57A4.58,4.58,0,0,1,94,404.57Z" style="fill: rgb(207, 207, 207); transform-origin: 124.895px 380.153px;" class="animable"></path><path id="freepik--shadow--inject-42" d="M182.18,354.09l-11.3-6.52a1.25,1.25,0,0,1,0-2.37l75.2-43.5a4.55,4.55,0,0,1,4.1,0l11.3,6.53a1.25,1.25,0,0,1,0,2.37l-75.19,43.49A4.51,4.51,0,0,1,182.18,354.09Z" style="fill: rgb(207, 207, 207); transform-origin: 216.18px 327.899px;" class="animable"></path><ellipse cx="426" cy="370.5" rx="47" ry="16" style="fill: rgb(207, 207, 207); transform-origin: 426px 370.5px;" id="el3s2jgpi2j5g" class="animable"></ellipse></g><g id="freepik--Plant--inject-42" class="animable" style="transform-origin: 43.663px 319.465px;"><g id="freepik--Plants--inject-42" class="animable" style="transform-origin: 43.663px 319.465px;"><path d="M67.83,332.93c.73-8.3-3.76-26-11.42-37.53S35.9,274.81,26,277.25c-9.22,2.28-9.28,14.11.9,22.85s25.65,19.95,29.24,33.82l8.58,17.39Z" style="fill: #006BEE; transform-origin: 43.5394px 314.08px;" id="el8oo7s4dt2d6" class="animable"></path><g id="elobdsvr1hpg"><path d="M67.83,332.93c.73-8.3-3.76-26-11.42-37.53S35.9,274.81,26,277.25c-9.22,2.28-9.28,14.11.9,22.85s25.65,19.95,29.24,33.82l8.58,17.39Z" style="opacity: 0.1; transform-origin: 43.5394px 314.08px;" class="animable" id="elnw6jbr20z7l"></path></g><path d="M67.45,344.33a.6.6,0,0,1-.51-.53C63.88,315,43,290,29.73,283.68a.61.61,0,1,1,.52-1.1C43.76,289,65,314.43,68.15,343.67a.59.59,0,0,1-.54.66Z" style="fill: rgb(255, 255, 255); transform-origin: 48.747px 313.415px;" id="elnmr0t71ohvm" class="animable"></path><path d="M61.63,362.08c-.92-4.78-5.94-13-14.59-20.14-9.58-7.92-22.19-12.29-24.68-18-3-6.89,3.09-12.61,13.45-10.4s27.5,18.12,28.55,39.88Z" style="fill: #006BEE; transform-origin: 42.9771px 337.569px;" id="elfzy6qmsor5q" class="animable"></path><path d="M64.09,357.37a.61.61,0,0,1-.49-.45c-6.55-25-24.31-35.16-32.79-37a.62.62,0,0,1-.46-.73.59.59,0,0,1,.72-.46c9.38,2.06,27,12.37,33.71,37.9a.62.62,0,0,1-.44.75A.7.7,0,0,1,64.09,357.37Z" style="fill: rgb(255, 255, 255); transform-origin: 47.5677px 338.05px;" id="elxt90an0x99q" class="animable"></path></g></g><g id="freepik--Boxes--inject-42" class="animable" style="transform-origin: 307.405px 193.57px;"><g id="freepik--Box--inject-42" class="animable" style="transform-origin: 307.405px 209.775px;"><polygon points="312.08 249.12 312.08 220.32 349.49 198.73 349.49 227.52 312.08 249.12" style="fill: #006BEE; transform-origin: 330.785px 223.925px;" id="elpg9nrz3ttg" class="animable"></polygon><polygon points="312.08 220.32 265.32 193.33 265.32 222.12 312.08 249.12 312.08 220.32" style="fill: #006BEE; transform-origin: 288.7px 221.225px;" id="el7jeeeg8kinp" class="animable"></polygon><g id="ela79b6uec746"><polygon points="312.08 220.32 265.32 193.33 265.32 222.12 312.08 249.12 312.08 220.32" style="opacity: 0.15; transform-origin: 288.7px 221.225px;" class="animable" id="elczlmdnrc39b"></polygon></g><polygon points="312.08 220.32 350.6 198.08 302.73 170.43 264.21 192.68 312.08 220.32" style="fill: #006BEE; transform-origin: 307.405px 195.375px;" id="elu55o50n0o09" class="animable"></polygon><g id="elvprd1j7f5t"><polygon points="312.08 220.32 350.6 198.08 302.73 170.43 264.21 192.68 312.08 220.32" style="fill: rgb(255, 255, 255); opacity: 0.45; transform-origin: 307.405px 195.375px;" class="animable" id="elslrywio6a3"></polygon></g><polygon points="312.08 220.32 312.08 227.52 350.6 205.29 350.6 198.08 312.08 220.32" style="fill: #006BEE; transform-origin: 331.34px 212.8px;" id="el9ob3tlskc1" class="animable"></polygon><g id="elrrvcext9fto"><polygon points="312.08 227.52 349.49 205.93 349.49 207.51 312.08 229.11 312.08 227.52" style="opacity: 0.2; transform-origin: 330.785px 217.52px;" class="animable" id="elv6atygnq2i"></polygon></g><polygon points="264.21 192.68 312.08 220.32 312.08 227.52 264.21 199.89 264.21 192.68" style="fill: #006BEE; transform-origin: 288.145px 210.1px;" id="elgsndfb5hgwv" class="animable"></polygon><g id="elltxu2a0ogmf"><polygon points="264.21 192.68 312.08 220.32 312.08 227.52 264.21 199.89 264.21 192.68" style="opacity: 0.2; transform-origin: 288.145px 210.1px;" class="animable" id="elwfmixto4prm"></polygon></g><g id="elzz20mvipm8"><polygon points="312.08 227.52 265.32 200.53 265.32 202.11 312.08 229.11 312.08 227.52" style="opacity: 0.2; transform-origin: 288.7px 214.82px;" class="animable" id="elcofduk10t99"></polygon></g><path d="M324.4,224.7l12.78-7.38c.55-.31,1-.06,1,.58v7.55a2.21,2.21,0,0,1-1,1.73l-12.78,7.38c-.55.32-1,.06-1-.58v-7.55A2.21,2.21,0,0,1,324.4,224.7Z" style="fill: rgb(69, 90, 100); transform-origin: 330.79px 225.942px;" id="eldoslc37a7w" class="animable"></path><path d="M325.22,225.56l11.14-6.43c.37-.22.66,0,.66.38v5.66a1.44,1.44,0,0,1-.66,1.15l-11.14,6.44c-.37.21-.67,0-.67-.39v-5.66A1.45,1.45,0,0,1,325.22,225.56Z" style="fill: rgb(245, 245, 245); transform-origin: 330.785px 225.943px;" id="el5n2mdog44i6" class="animable"></path><g id="ely06ndb7gs6f"><g style="opacity: 0.5; transform-origin: 330.805px 225.945px;" class="animable" id="elacwfgyqd0z"><path d="M325.53,227.05a.16.16,0,0,1-.14-.08.16.16,0,0,1,.06-.22L336,220.68a.16.16,0,0,1,.22.06.17.17,0,0,1-.06.22L325.61,227A.12.12,0,0,1,325.53,227.05Z" style="fill: rgb(69, 90, 100); transform-origin: 330.803px 223.854px;" id="el41me0hp19bp" class="animable"></path><path d="M325.53,228.44a.14.14,0,0,1-.14-.08.16.16,0,0,1,.06-.22L336,222.07a.16.16,0,0,1,.22.06.16.16,0,0,1-.06.22l-10.52,6.07A.12.12,0,0,1,325.53,228.44Z" style="fill: rgb(69, 90, 100); transform-origin: 330.805px 225.247px;" id="el60u4igc6e5k" class="animable"></path><path d="M325.53,229.84a.15.15,0,0,1-.14-.09.16.16,0,0,1,.06-.22L336,223.46a.17.17,0,0,1,.22.06.16.16,0,0,1-.06.22l-10.52,6.07A.13.13,0,0,1,325.53,229.84Z" style="fill: rgb(69, 90, 100); transform-origin: 330.805px 226.642px;" id="elr7yaf1eaol" class="animable"></path><path d="M325.53,231.23a.15.15,0,0,1-.14-.09.16.16,0,0,1,.06-.22L336,224.85a.17.17,0,0,1,.22.06.16.16,0,0,1-.06.22l-10.52,6.07A.13.13,0,0,1,325.53,231.23Z" style="fill: rgb(69, 90, 100); transform-origin: 330.805px 228.032px;" id="eltkl46iju4m" class="animable"></path></g></g></g><g id="freepik--box--inject-42" class="animable" style="transform-origin: 307.405px 177.365px;"><polygon points="312.08 216.71 312.08 187.91 349.49 166.31 349.49 195.11 312.08 216.71" style="fill: #006BEE; transform-origin: 330.785px 191.51px;" id="elk522k5foakf" class="animable"></polygon><polygon points="312.08 187.91 265.32 160.91 265.32 189.71 312.08 216.71 312.08 187.91" style="fill: #006BEE; transform-origin: 288.7px 188.81px;" id="elx7lckjtf72h" class="animable"></polygon><g id="elaf0jeh2ull"><polygon points="312.08 187.91 265.32 160.91 265.32 189.71 312.08 216.71 312.08 187.91" style="opacity: 0.15; transform-origin: 288.7px 188.81px;" class="animable" id="elka0jzjd0h1s"></polygon></g><polygon points="312.08 187.91 350.6 165.66 302.73 138.02 264.21 160.26 312.08 187.91" style="fill: #006BEE; transform-origin: 307.405px 162.965px;" id="eley17thi29r" class="animable"></polygon><g id="elb32k7x31blh"><polygon points="312.08 187.91 350.6 165.66 302.73 138.02 264.21 160.26 312.08 187.91" style="fill: rgb(255, 255, 255); opacity: 0.6; transform-origin: 307.405px 162.965px;" class="animable" id="eldwmmxh0ow7r"></polygon></g><polygon points="312.08 187.91 312.08 195.11 350.6 172.87 350.6 165.66 312.08 187.91" style="fill: #006BEE; transform-origin: 331.34px 180.385px;" id="el4cclsc34dfe" class="animable"></polygon><g id="el9ttreym139p"><polygon points="312.08 195.11 349.49 173.51 349.49 175.09 312.08 196.69 312.08 195.11" style="opacity: 0.2; transform-origin: 330.785px 185.1px;" class="animable" id="elxkae7n1dakl"></polygon></g><polygon points="264.21 160.26 312.08 187.91 312.08 195.11 264.21 167.47 264.21 160.26" style="fill: #006BEE; transform-origin: 288.145px 177.685px;" id="eli1txncixh3" class="animable"></polygon><g id="elysz4js2suq"><polygon points="264.21 160.26 312.08 187.91 312.08 195.11 264.21 167.47 264.21 160.26" style="opacity: 0.2; transform-origin: 288.145px 177.685px;" class="animable" id="elk1n1e0z6js9"></polygon></g><g id="el9qhdr0madf"><polygon points="312.08 195.11 265.32 168.11 265.32 169.69 312.08 196.69 312.08 195.11" style="opacity: 0.2; transform-origin: 288.7px 182.4px;" class="animable" id="elvbqghps8jac"></polygon></g><path d="M324.4,192.28l12.78-7.37c.55-.32,1-.06,1,.57V193a2.19,2.19,0,0,1-1,1.72l-12.78,7.38c-.55.32-1,.06-1-.57V194A2.23,2.23,0,0,1,324.4,192.28Z" style="fill: rgb(69, 90, 100); transform-origin: 330.79px 193.505px;" id="elxicate6i8ts" class="animable"></path><path d="M325.22,193.14l11.14-6.43c.37-.21.66,0,.66.38v5.67a1.46,1.46,0,0,1-.66,1.15l-11.14,6.43c-.37.21-.67,0-.67-.38v-5.67A1.47,1.47,0,0,1,325.22,193.14Z" style="fill: rgb(245, 245, 245); transform-origin: 330.785px 193.525px;" id="elisfm763cg6" class="animable"></path><g id="el7iifhlqwchc"><g style="opacity: 0.5; transform-origin: 330.803px 193.526px;" class="animable" id="elm5ahl0hyyfq"><path d="M325.53,194.64a.16.16,0,0,1-.14-.08.17.17,0,0,1,.06-.23L336,188.26a.17.17,0,0,1,.22.06.16.16,0,0,1-.06.22l-10.52,6.08Z" style="fill: rgb(69, 90, 100); transform-origin: 330.805px 191.441px;" id="elobsq00msgj" class="animable"></path><path d="M325.53,196a.16.16,0,0,1-.14-.08.15.15,0,0,1,.06-.22L336,189.65a.17.17,0,0,1,.22.06.16.16,0,0,1-.06.22L325.61,196Z" style="fill: rgb(69, 90, 100); transform-origin: 330.803px 192.816px;" id="elvenc5m52egl" class="animable"></path><path d="M325.53,197.42a.16.16,0,0,1-.14-.08.15.15,0,0,1,.06-.22L336,191a.17.17,0,0,1,.22.06.16.16,0,0,1-.06.22l-10.52,6.08Z" style="fill: rgb(69, 90, 100); transform-origin: 330.803px 194.201px;" id="el0mauox6tcqrl" class="animable"></path><path d="M325.53,198.81a.16.16,0,0,1-.14-.08.15.15,0,0,1,.06-.22L336,192.43a.18.18,0,0,1,.22.06.16.16,0,0,1-.06.22l-10.52,6.08Z" style="fill: rgb(69, 90, 100); transform-origin: 330.803px 195.612px;" id="el7i0lh6dlv0a" class="animable"></path></g></g></g></g><g id="freepik--Window--inject-42" class="animable" style="transform-origin: 174.468px 204.052px;"><g id="freepik--window--inject-42" class="animable" style="transform-origin: 174.468px 204.052px;"><path d="M64.94,187.87c-1-.6-4.07-3.36-4.07-4.64v-12a4.38,4.38,0,0,1,2-3.46L280.17,42.27c1.1-.63,2.5-1.08,6.07,1.18a4.43,4.43,0,0,1,1.87,3.39v12a4.41,4.41,0,0,1-2,3.46L68.81,187.8A4.26,4.26,0,0,1,64.94,187.87Z" style="fill: #006BEE; transform-origin: 174.49px 115.029px;" id="ela8a27wjjp0r" class="animable"></path><g id="elvi2a0kknn9m"><path d="M288.09,46.51c-.14-1-1-1.41-2-.83L68.81,171.14a4.22,4.22,0,0,0-1.41,1.49l-6-3.42a4.13,4.13,0,0,1,1.42-1.48L280.17,42.28c1.1-.64,2.63-1,6.06,1.17A4.42,4.42,0,0,1,288.09,46.51Z" style="fill: rgb(255, 255, 255); opacity: 0.5; transform-origin: 174.745px 107.209px;" class="animable" id="elab7t0ynf58k"></path></g><path d="M68.43,366.18l-.08,0a.84.84,0,0,1-.2.08l-.14,0a1.28,1.28,0,0,1-.28.07.58.58,0,0,1-.18,0l-.31,0a4.59,4.59,0,0,1-2.3-.4c-3.75-1.6-4.07-3.36-4.07-4.63V197.71l6,3.42V364.85c0,.9.45,1.43,1.1,1.43a.8.8,0,0,0,.27,0h0Z" style="fill: rgb(235, 235, 235); transform-origin: 64.65px 282.028px;" id="el976bvduj539" class="animable"></path><g id="elibg4ymf0m48"><path d="M67.4,172.63a4.07,4.07,0,0,0-.58,2v26.53l-6-3.42V171.19a1.93,1.93,0,0,1,0-.24c0-.17.05-.33.08-.5a5.46,5.46,0,0,1,.5-1.24Z" style="opacity: 0.1; transform-origin: 64.1081px 185.185px;" class="animable" id="elj1309rlilyc"></path></g><path d="M288.12,237.09a4.42,4.42,0,0,1-2,3.46L68.81,366c-1.1.64-2,.12-2-1.15V185.28l5.5-3.17c1.1-.64,2.89-10.34,4-11L124,143.6c1.11-.64,3.71,6.52,4.81,5.88l159.29-92V237.09Z" style="fill: rgb(245, 245, 245); transform-origin: 177.465px 211.877px;" id="ele2tys5dti9g" class="animable"></path><path d="M76.32,231.77l41-23.68c1.1-.63,2-.12,2,1.16V325.91a4.44,4.44,0,0,1-2,3.46l-41,23.68c-1.11.64-2,.12-2-1.16V235.24A4.41,4.41,0,0,1,76.32,231.77Z" style="fill: rgb(255, 255, 255); transform-origin: 96.82px 280.572px;" id="elngdgw9dn53" class="animable"></path><path d="M128.83,240.44,198.78,200c1.1-.63,2-.12,2,1.16V278.8a4.44,4.44,0,0,1-2,3.47l-69.95,40.46c-1.1.64-2,.12-2-1.15V243.9A4.38,4.38,0,0,1,128.83,240.44Z" style="fill: rgb(255, 255, 255); transform-origin: 163.805px 261.367px;" id="elerd41jv0j6a" class="animable"></path><path d="M208.67,194l70-40.46c1.1-.64,2-.13,2,1.15v77.68a4.44,4.44,0,0,1-2,3.46l-70,40.46c-1.1.64-2,.12-2-1.15V197.44A4.38,4.38,0,0,1,208.67,194Z" style="fill: rgb(255, 255, 255); transform-origin: 243.67px 214.914px;" id="elkbezeliilxq" class="animable"></path><path d="M76.32,201.45l202.3-116.8c1.1-.64,2-.12,2,1.16v21.37a4.44,4.44,0,0,1-2,3.46L76.32,227.44c-1.11.64-2,.12-2-1.15V204.92A4.41,4.41,0,0,1,76.32,201.45Z" style="fill: rgb(69, 90, 100); transform-origin: 177.47px 156.045px;" id="elfbgut989y84" class="animable"></path><path d="M205.6,137.94v3.73c0,.76.54,1.07,1.2.69l58.81-34v-6.5l-58.81,34A2.65,2.65,0,0,0,205.6,137.94Z" style="fill: rgb(250, 250, 250); transform-origin: 235.605px 122.191px;" id="elnt7xafv6vg8" class="animable"></path><path d="M271.92,98.27c.66-.38,1.2-.07,1.2.69v3.73a2.68,2.68,0,0,1-1.2,2.08l-6.31,3.64v-6.5Z" style="fill: #006BEE; transform-origin: 269.365px 103.259px;" id="el9fhwcvuv9wv" class="animable"></path><path d="M271.45,103.38l-.7-.22a4,4,0,0,0,.11-.91,1.65,1.65,0,0,0-.64-1.5,1,1,0,0,0-1,0,3.6,3.6,0,0,0-1.41,2.93,1.65,1.65,0,0,0,.64,1.5.89.89,0,0,0,.45.12,1.23,1.23,0,0,0,.58-.17,3,3,0,0,0,1.13-1.52l.71.22h.07a.25.25,0,0,0,.25-.18A.25.25,0,0,0,271.45,103.38Zm-2.25,1.35a.51.51,0,0,1-.51,0,1.24,1.24,0,0,1-.38-1,3.15,3.15,0,0,1,1.15-2.48.7.7,0,0,1,.31-.1.41.41,0,0,1,.19,0,1.24,1.24,0,0,1,.38,1A3.14,3.14,0,0,1,269.2,104.73Z" style="fill: rgb(250, 250, 250); transform-origin: 269.72px 102.958px;" id="elq2a7dp3appn" class="animable"></path><path d="M126.83,204.92v25.7c0,1.27.89,1.79,2,1.15l149.79-86.48a4.44,4.44,0,0,0,2-3.46v-25.7c0-1.28-.9-1.79-2-1.16L128.83,201.45A4.41,4.41,0,0,0,126.83,204.92Z" style="fill: rgb(255, 255, 255); transform-origin: 203.725px 173.372px;" id="elt42gmse55gm" class="animable"></path><path d="M288.11,57.52V73.37L66.82,201.13V185.28l4.11-2.38c1.09-.64,1.46-1.6,2-3.46l1.39-4.84c.44-1.68.9-2.83,2-3.46L124,143.6c1.11-.64,2-.71,2.82.68l1.71,3.11c.63,1.08.94,1.72,2,1.08Z" style="fill: rgb(230, 230, 230); transform-origin: 177.465px 129.325px;" id="ely46o6dj0f4n" class="animable"></path><path d="M278.73,54c1.19-.68,2.14-.13,2.14,1.24a4.7,4.7,0,0,1-2.14,3.7c-1.18.68-2.13.13-2.13-1.23A4.73,4.73,0,0,1,278.73,54Z" style="fill: rgb(255, 255, 255); transform-origin: 278.735px 56.4701px;" id="elvbijp56ap2" class="animable"></path><path d="M269.68,59.2c1.18-.69,2.14-.13,2.14,1.23a4.73,4.73,0,0,1-2.14,3.7c-1.18.69-2.14.13-2.14-1.23A4.73,4.73,0,0,1,269.68,59.2Z" style="fill: rgb(255, 255, 255); transform-origin: 269.68px 61.665px;" id="el0c7a9tg2alc9" class="animable"></path><path d="M260.62,64.42c1.18-.68,2.14-.13,2.14,1.23a4.75,4.75,0,0,1-2.14,3.71c-1.18.68-2.14.13-2.14-1.24A4.73,4.73,0,0,1,260.62,64.42Z" style="fill: rgb(255, 255, 255); transform-origin: 260.62px 66.8899px;" id="elt3ggifqel9s" class="animable"></path><path d="M93.07,180.19v-3.1a4.41,4.41,0,0,1,2-3.46L274.86,69.88c1.1-.64,2-.12,2,1.16v3.09a4.44,4.44,0,0,1-2,3.47L95.07,181.34C94,182,93.07,181.47,93.07,180.19Z" style="fill: rgb(250, 250, 250); transform-origin: 184.965px 125.615px;" id="elm2e1ug08apq" class="animable"></path><path d="M272.27,78.17a.41.41,0,0,1-.16,0,.51.51,0,0,1-.27-.55l.18-1.48-.69-.5a.48.48,0,0,1-.2-.4.83.83,0,0,1,.3-.63l1.06-.81a.31.31,0,0,0,.05-.09l.47-1.55a.66.66,0,0,1,.53-.5.41.41,0,0,1,.42.25l.39.84.9-.34a.41.41,0,0,1,.48.11.66.66,0,0,1,0,.73L275,74.65a.2.2,0,0,0,0,.09l.18,1.3a.84.84,0,0,1-.23.65.5.5,0,0,1-.42.16l-.86-.1-.93,1.19A.55.55,0,0,1,272.27,78.17Zm-.51-3,.7.5a.51.51,0,0,1,.18.5l-.12,1,.63-.8a.53.53,0,0,1,.47-.22l.87.1a.19.19,0,0,0,0-.09l-.18-1.3a.79.79,0,0,1,.09-.47l.67-1.26-.69.27a.42.42,0,0,1-.54-.22l-.32-.66-.42,1.37a.76.76,0,0,1-.26.4l-1.06.82A.16.16,0,0,0,271.76,75.16Zm1.79,1.58Zm1-.51Zm-2.48-.06Zm-.4-1.06Zm1.7-3Z" style="fill: rgb(69, 90, 100); transform-origin: 273.485px 74.9179px;" id="elyurgnh202dj" class="animable"></path><g id="el5tjbjcn6ug5"><g style="opacity: 0.3; transform-origin: 178.748px 128.253px;" class="animable" id="el22eqbea7vij"><path d="M76,188.12l-3.14,1.81,1.19-2.3a.58.58,0,0,0,0-.57c-.09-.11-.25,0-.36.17L72,190.51h0a.61.61,0,0,0-.05.12s0,0,0,0a.51.51,0,0,0,0,.17.29.29,0,0,0,0,.14s0,0,0,0a.18.18,0,0,0,.05.07h0l1.7,1.31a.14.14,0,0,0,.17,0,.48.48,0,0,0,.19-.24c.09-.21.08-.45,0-.53l-1.19-.92L76,188.89a.66.66,0,0,0,.25-.53C76.24,188.14,76.13,188,76,188.12Z" id="ely3fj082tup" class="animable" style="transform-origin: 74.0958px 189.682px;"></path><path d="M78.61,186.6l3.14-1.81-1.2-.92a.48.48,0,0,1,0-.53c.09-.22.25-.33.35-.25l1.71,1.31h0l0,.07s0,0,0,0a.61.61,0,0,1,0,.15.88.88,0,0,1,0,.16s0,0,0,0,0,.09,0,.13h0l-1.71,3.27a.39.39,0,0,1-.16.19.13.13,0,0,1-.19,0,.56.56,0,0,1,0-.56l1.2-2.3-3.14,1.81c-.14.08-.25,0-.25-.24A.67.67,0,0,1,78.61,186.6Z" id="el61unml4l4fl" class="animable" style="transform-origin: 80.4873px 185.738px;"></path><path d="M88.9,177.56c0-.19-.18-.16-.26,0l-.43,1.06c-.74-.08-1.62.63-2.22,1.9-.78,1.65-.78,3.59,0,4.34a1.11,1.11,0,0,0,1.41.09,3.82,3.82,0,0,0,1.4-1.71.53.53,0,0,0,0-.55c-.09-.1-.25,0-.35.2-.58,1.23-1.53,1.78-2.11,1.22s-.58-2,0-3.24c.42-.88,1-1.4,1.53-1.43l-.33.79c-.08.21,0,.4.13.32l1.28-.84a.39.39,0,0,0,.14-.35Z" id="eldjkeu2g2shp" class="animable" style="transform-origin: 87.249px 181.295px;"></path><path d="M123.64,150l1.15-2.42a.77.77,0,0,0,0-.76c-.14-.13-.36,0-.49.29l-1.15,2.42-1.14-1.1c-.14-.13-.36,0-.49.28a.71.71,0,0,0,0,.75l1.14,1.11L121.52,153a.71.71,0,0,0,0,.75.18.18,0,0,0,.24,0,.77.77,0,0,0,.25-.3l1.14-2.42,1.15,1.1a.19.19,0,0,0,.24,0,.65.65,0,0,0,.25-.3.76.76,0,0,0,0-.75Z" id="elb0c2c6ek967" class="animable" style="transform-origin: 123.152px 150.283px;"></path><path d="M279.22,68.79a.67.67,0,0,1-.6-.35.69.69,0,0,1,.25-.94l5.63-3.25a.69.69,0,0,1,.94.25.7.7,0,0,1-.25,1l-5.63,3.25A.72.72,0,0,1,279.22,68.79Z" id="elrwow61b8e8l" class="animable" style="transform-origin: 282.042px 66.4767px;"></path><path d="M279.22,72a.67.67,0,0,1-.6-.35.69.69,0,0,1,.25-.94l5.63-3.25a.69.69,0,0,1,.94.25.7.7,0,0,1-.25,1L279.56,72A.72.72,0,0,1,279.22,72Z" id="elna1mtwa0yds" class="animable" style="transform-origin: 282.042px 69.6942px;"></path><path d="M279.22,75.29a.67.67,0,0,1-.6-.35.69.69,0,0,1,.25-.94l5.63-3.25a.69.69,0,0,1,.94.25.7.7,0,0,1-.25,1l-5.63,3.25A.72.72,0,0,1,279.22,75.29Z" id="elstbr85ixeyg" class="animable" style="transform-origin: 282.042px 72.9767px;"></path></g></g><polygon points="66.82 185.28 66.82 201.13 60.86 197.71 60.86 181.88 66.82 185.28" style="fill: rgb(224, 224, 224); transform-origin: 63.84px 191.505px;" id="el6sswayyx9yc" class="animable"></polygon><g id="eljyc4v61i6e"><polygon points="66.82 185.28 66.82 201.13 60.86 197.71 60.86 181.88 66.82 185.28" style="fill: rgb(207, 207, 207); opacity: 0.15; transform-origin: 63.84px 191.505px;" class="animable" id="el4bzmbypesve"></polygon></g><path d="M105.25,263.17v25.07L88.39,298V272.9l16.86-9.73m0-.86a.92.92,0,0,0-.43.11L88,272.15a.89.89,0,0,0-.43.75V298a.87.87,0,0,0,.86.87.88.88,0,0,0,.44-.12L105.68,289a.86.86,0,0,0,.43-.75V263.17a.86.86,0,0,0-.43-.75.92.92,0,0,0-.43-.11Z" style="fill: #006BEE; transform-origin: 96.84px 280.59px;" id="elx7uyryc84o8" class="animable"></path><path d="M102.72,268.87v7.26l-.53.29V274.2c0-.9-.42-1.42-1-1.42a1.47,1.47,0,0,0-.75.23l-2.5,1.44v10.79c0,1.13.44,1.84,1,1.84a1,1,0,0,0,.52-.16L101,286v.77l-8.43,4.86v-.77l1.56-.9a4.34,4.34,0,0,0,1.57-3.49V275.7l-2.49,1.44a4.09,4.09,0,0,0-1.8,3.26v2.22l-.53.32v-7.26l11.8-6.81m0-.87a.82.82,0,0,0-.43.12l-11.8,6.81a.86.86,0,0,0-.43.75v7.26a.86.86,0,0,0,.44.75.81.81,0,0,0,.42.12.9.9,0,0,0,.45-.13l.53-.32a.86.86,0,0,0,.41-.74V280.4a3.28,3.28,0,0,1,1.37-2.52l1.2-.69v9.3a3.57,3.57,0,0,1-1.14,2.74l-1.56.91a.84.84,0,0,0-.43.74v.77a.85.85,0,0,0,.43.75.83.83,0,0,0,.86,0l8.43-4.86a.89.89,0,0,0,.43-.75V286a.87.87,0,0,0-.86-.87.88.88,0,0,0-.44.12l-1.56.9-.06,0a1.61,1.61,0,0,1-.21-1V275l2.06-1.19a.67.67,0,0,1,.32-.12c.1,0,.18.26.18.56v2.22a.86.86,0,0,0,.43.75.82.82,0,0,0,.43.12.88.88,0,0,0,.42-.11l.53-.29a.89.89,0,0,0,.44-.76v-7.26a.85.85,0,0,0-.43-.75.82.82,0,0,0-.43-.12Z" style="fill: #006BEE; transform-origin: 96.78px 280.26px;" id="el64skzyi2m6r" class="animable"></path><path d="M152.36,273a.49.49,0,0,1-.19,0,.42.42,0,0,1-.19-.57l5-10.16a1,1,0,0,1,.68-.45,1,1,0,0,1,.74.22l4.26,2.8.56.11-.4-.16,5.07-12.34a.93.93,0,0,1,1.46-.24l6.32,6.52a.43.43,0,0,1-.62.6l-6.31-6.5-5.12,12.29a1,1,0,0,1-.61.56,1,1,0,0,1-.82-.12l-4.41-2.88-5,10.13A.43.43,0,0,1,152.36,273Z" style="fill: #006BEE; transform-origin: 163.862px 262.483px;" id="ela9f4axky61s" class="animable"></path><path d="M176.07,242.9h0m-.9.51v22.74l-22.74,13.14V256.55h0l22.73-13.14m.65-1.32a.32.32,0,0,0-.18.06l-.86.5L152,255.83a.76.76,0,0,0-.27.29.74.74,0,0,0-.12.39v23.82c0,.18.09.28.22.28a.41.41,0,0,0,.17-.05l23.68-13.68a.88.88,0,0,0,.4-.69V242.38c0-.18-.09-.29-.22-.29Z" style="fill: #006BEE; transform-origin: 163.845px 261.35px;" id="eltlxcu10vrtd" class="animable"></path><path d="M159.56,259.56a1.23,1.23,0,0,1-.63-.16,1.54,1.54,0,0,1-.68-1.41,3.92,3.92,0,0,1,1.8-3.12,1.39,1.39,0,0,1,2.24,1.29,4,4,0,0,1-1.8,3.13A1.92,1.92,0,0,1,159.56,259.56Zm1.42-4.11a1.08,1.08,0,0,0-.49.16,3.08,3.08,0,0,0-1.38,2.38.56.56,0,0,0,.94.55,3.08,3.08,0,0,0,1.38-2.38.73.73,0,0,0-.25-.66A.46.46,0,0,0,161,255.45Z" style="fill: #006BEE; transform-origin: 160.275px 257.064px;" id="elprto28ky1" class="animable"></path><path d="M247.58,202.15h0c2.75,0,4.54,2.72,4.54,6.94a23,23,0,0,1-3.23,11,22.12,22.12,0,0,1-2.47,3.51,14.12,14.12,0,0,1-3.57,3.06,6.31,6.31,0,0,1-3.14,1c-2.75,0-4.54-2.72-4.54-6.93a23.08,23.08,0,0,1,3.22-11,17.82,17.82,0,0,1,6.05-6.56,6.33,6.33,0,0,1,3.14-1m0-.86a7.25,7.25,0,0,0-3.57,1.08,18.66,18.66,0,0,0-6.35,6.88,23.9,23.9,0,0,0-3.34,11.45c0,4.88,2.23,7.8,5.4,7.8a7.19,7.19,0,0,0,3.57-1.08,15.13,15.13,0,0,0,3.79-3.24A25,25,0,0,0,253,209.09c0-4.88-2.23-7.8-5.41-7.8Z" style="fill: #006BEE; transform-origin: 243.66px 214.905px;" id="elhgepds1z7k6" class="animable"></path><path d="M241.32,212h0m0,0,6.69.6-.15.2-6.79,8.45v-8.47a1.07,1.07,0,0,1,.25-.78m0-.86c-.61,0-1.1.71-1.1,1.64V222c0,.54.17.81.43.81s.46-.17.74-.52l7.17-8.91c.64-.81.64-1.5,0-1.56l-7.17-.64Z" style="fill: #006BEE; transform-origin: 244.63px 216.975px;" id="el8cpyrddfk7c" class="animable"></path></g></g><g id="freepik--Sheets--inject-42" class="animable" style="transform-origin: 327.225px 310.715px;"><g id="freepik--sheets--inject-42" class="animable" style="transform-origin: 327.225px 310.715px;"><g id="freepik--Character--inject-42" class="animable" style="transform-origin: 327.225px 310.715px;"><polygon points="275.73 323.95 336.56 359.13 336.56 321.83 275.73 286.64 275.73 323.95" style="fill: rgb(235, 235, 235); transform-origin: 306.145px 322.885px;" id="el6qxkkzuzint" class="animable"></polygon><polygon points="378.72 334.79 336.56 359.13 336.56 321.83 378.72 297.48 378.72 334.79" style="fill: rgb(245, 245, 245); transform-origin: 357.64px 328.305px;" id="elg62bwf3wg1" class="animable"></polygon><polygon points="275.73 286.64 317.9 262.3 378.72 297.48 336.56 321.83 275.73 286.64" style="fill: rgb(250, 250, 250); transform-origin: 327.225px 292.065px;" id="elasew63agomg" class="animable"></polygon></g><g id="elip1z63gl9yk"><polygon points="307.43 317.49 336.56 334.31 354.03 324.22 336.56 335.35 307.43 317.49" style="opacity: 0.1; transform-origin: 330.73px 326.42px;" class="animable" id="elwl1wofbekuj"></polygon></g><g id="elo3epzruwhw"><polygon points="289.95 316.8 336.56 343.7 371.51 323.53 336.56 344.72 289.95 316.8" style="opacity: 0.1; transform-origin: 330.73px 330.76px;" class="animable" id="elahb69kj624n"></polygon></g><g id="el7v4lh39m567"><path d="M281.58,300.49s-1,5.44-.48,8.19c0,0,7.63-.19,20.5,3.37Z" style="opacity: 0.1; transform-origin: 291.275px 306.27px;" class="animable" id="elh8q3as6cenc"></path></g><polygon points="281.58 300.49 301.6 312.05 279.45 305.65 281.58 300.49" style="fill: rgb(250, 250, 250); transform-origin: 290.525px 306.27px;" id="el7t65j1xzv1v" class="animable"></polygon><g id="elxozafo0y7sf"><path d="M307.43,332.73l21.95,20.18s.61-2.77,4.82-4.72Z" style="opacity: 0.1; transform-origin: 320.815px 342.82px;" class="animable" id="ell7wy60jcpd"></path></g><polygon points="307.43 332.73 328.04 350.09 334.2 348.19 307.43 332.73" style="fill: rgb(250, 250, 250); transform-origin: 320.815px 341.41px;" id="elkv68o5t8m5h" class="animable"></polygon><g id="elir95fqj7x4"><path d="M371.7,312.32l-.19-.27-13.87,8,15.61-1.28A9.47,9.47,0,0,0,371.7,312.32Z" style="opacity: 0.1; transform-origin: 365.48px 316.05px;" class="animable" id="elk39si5ju8sl"></path></g><polygon points="357.64 320.05 371.51 312.05 376.13 314.48 357.64 320.05" style="fill: rgb(250, 250, 250); transform-origin: 366.885px 316.05px;" id="el1jzb8z00dk6" class="animable"></polygon><g id="elf9aeosnkw59"><g style="opacity: 0.3; transform-origin: 327.252px 292.071px;" class="animable" id="ela45sdn8262d"><path d="M286.45,289.24a.54.54,0,0,1-.27-1l34.95-20.18a.55.55,0,0,1,.74.2.54.54,0,0,1-.2.74l-34.95,20.18A.68.68,0,0,1,286.45,289.24Z" style="fill: rgb(69, 90, 100); transform-origin: 303.933px 278.615px;" id="elzptbfjxkms" class="animable"></path><path d="M292.27,292.6a.54.54,0,0,1-.27-1l35-20.18a.54.54,0,1,1,.53.93l-34.95,20.18A.52.52,0,0,1,292.27,292.6Z" style="fill: rgb(69, 90, 100); transform-origin: 309.805px 281.956px;" id="elb35yn9si4n" class="animable"></path><path d="M298.1,296a.54.54,0,0,1-.47-.26.55.55,0,0,1,.2-.74l34.95-20.18a.54.54,0,0,1,.74.2.53.53,0,0,1-.2.73l-34.95,20.18A.54.54,0,0,1,298.1,296Z" style="fill: rgb(69, 90, 100); transform-origin: 315.576px 285.374px;" id="eldq4fu70p4dn" class="animable"></path><path d="M303.93,299.33a.54.54,0,0,1-.27-1l34.95-20.18a.54.54,0,0,1,.73.2.55.55,0,0,1-.19.74l-35,20.18A.48.48,0,0,1,303.93,299.33Z" style="fill: rgb(69, 90, 100); transform-origin: 321.407px 288.706px;" id="eld0z57fik78h" class="animable"></path><path d="M309.75,302.69a.55.55,0,0,1-.47-.27.54.54,0,0,1,.2-.73l34.95-20.18a.54.54,0,0,1,.74.2.53.53,0,0,1-.2.73l-35,20.18A.52.52,0,0,1,309.75,302.69Z" style="fill: rgb(69, 90, 100); transform-origin: 327.227px 292.064px;" id="elb511a8dsgqc" class="animable"></path><path d="M315.58,306.06a.54.54,0,0,1-.27-1l34.95-20.18a.54.54,0,0,1,.54.93L315.85,306A.56.56,0,0,1,315.58,306.06Z" style="fill: rgb(69, 90, 100); transform-origin: 333.04px 295.445px;" id="elee3smdc7jhc" class="animable"></path><path d="M321.4,309.42a.57.57,0,0,1-.47-.27.54.54,0,0,1,.2-.73l34.95-20.18a.54.54,0,1,1,.54.93l-34.95,20.18A.52.52,0,0,1,321.4,309.42Z" style="fill: rgb(69, 90, 100); transform-origin: 338.897px 298.78px;" id="elouvbkrro4ma" class="animable"></path><path d="M327.23,312.78a.53.53,0,0,1-.47-.27.53.53,0,0,1,.2-.73l35-20.18a.54.54,0,1,1,.54.93L327.5,312.71A.54.54,0,0,1,327.23,312.78Z" style="fill: rgb(69, 90, 100); transform-origin: 344.75px 302.14px;" id="el77c92bo16a" class="animable"></path><path d="M333.05,316.15a.54.54,0,0,1-.27-1l35-20.18a.54.54,0,0,1,.73.2.53.53,0,0,1-.2.73l-34.95,20.18A.53.53,0,0,1,333.05,316.15Z" style="fill: rgb(69, 90, 100); transform-origin: 350.552px 305.527px;" id="elserf22j5uqr" class="animable"></path></g></g></g></g><g id="freepik--Video--inject-42" class="animable" style="transform-origin: 217.93px 294.45px;"><g id="freepik--video--inject-42" class="animable" style="transform-origin: 217.93px 294.45px;"><path d="M249.81,237.55l-69.7,40.25a3.6,3.6,0,0,0-1.63,2.82V347a3.62,3.62,0,0,0,1.63,2.83l2.68,1.54a3.6,3.6,0,0,0,3.26,0l69.7-40.25a3.61,3.61,0,0,0,1.63-2.82V241.92a3.62,3.62,0,0,0-1.63-2.83l-2.68-1.54A3.6,3.6,0,0,0,249.81,237.55Z" style="fill: #006BEE; transform-origin: 217.93px 294.46px;" id="elgdwqsql0c5" class="animable"></path><g id="el0w2k0ugewhka"><path d="M249.81,237.55l-69.7,40.25a3.6,3.6,0,0,0-1.63,2.82V347a3.62,3.62,0,0,0,1.63,2.83l2.68,1.54a3.6,3.6,0,0,0,3.26,0l69.7-40.25a3.61,3.61,0,0,0,1.63-2.82V241.92a3.62,3.62,0,0,0-1.63-2.83l-2.68-1.54A3.6,3.6,0,0,0,249.81,237.55Z" style="opacity: 0.3; transform-origin: 217.93px 294.46px;" class="animable" id="elsucdkvj7sv9"></path></g><path d="M257.32,241.43c-.21-.68-.83-.89-1.57-.45l-69.7,40.25a3.23,3.23,0,0,0-1.15,1.22L179,279a3.16,3.16,0,0,1,1.15-1.22l69.71-40.25a3.6,3.6,0,0,1,3.26,0l2.67,1.55A3.61,3.61,0,0,1,257.32,241.43Z" style="fill: #006BEE; transform-origin: 218.16px 259.795px;" id="el6rglxct5cfs" class="animable"></path><g id="el6mfkqrq99a6"><path d="M257.32,241.43c-.21-.68-.83-.89-1.57-.45l-69.7,40.25a3.23,3.23,0,0,0-1.15,1.22L179,279a3.16,3.16,0,0,1,1.15-1.22l69.71-40.25a3.6,3.6,0,0,1,3.26,0l2.67,1.55A3.61,3.61,0,0,1,257.32,241.43Z" style="opacity: 0.2; transform-origin: 218.16px 259.795px;" class="animable" id="elqvq2e3rtu9"></path></g><path d="M255.75,241l-69.7,40.26a3.6,3.6,0,0,0-1.63,2.82v66.41c0,1,.73,1.46,1.63.94l69.7-40.25a3.61,3.61,0,0,0,1.63-2.82V241.92C257.38,240.88,256.65,240.45,255.75,241Z" style="fill: #006BEE; transform-origin: 220.9px 296.203px;" id="elxf4z1tt1xis" class="animable"></path><path d="M214.87,321.17a9.94,9.94,0,0,1-5-1.32c-4.18-2.42-6.58-7.9-6.58-15.05a41.55,41.55,0,0,1,5.6-20.08,37.12,37.12,0,0,1,4-5.63h0a26.78,26.78,0,0,1,6.68-5.68c4.49-2.59,8.9-2.9,12.4-.88,4.19,2.42,6.59,7.9,6.59,15a41.46,41.46,0,0,1-5.61,20.09A30.65,30.65,0,0,1,222.25,319,14.82,14.82,0,0,1,214.87,321.17Zm-.17-40.49a34.52,34.52,0,0,0-3.72,5.25,39.12,39.12,0,0,0-5.28,18.87c0,6.26,2,11,5.37,12.94,2.72,1.57,6.26,1.26,10-.88a28.35,28.35,0,0,0,9.78-10.42,39.09,39.09,0,0,0,5.28-18.87c0-6.25-2-11-5.37-12.93-2.72-1.57-6.26-1.26-10,.88a24,24,0,0,0-6.06,5.16Z" style="fill: rgb(255, 255, 255); transform-origin: 220.925px 296.191px;" id="elq7sigms5kto" class="animable"></path><path d="M230.23,292.41l-13.69,17c-1.23,1.53-2.23,1.29-2.23-.55V291.35c0-1.85,1-3.25,2.23-3.14l13.69,1.22C231.46,289.54,231.46,290.88,230.23,292.41Z" style="fill: rgb(255, 255, 255); transform-origin: 222.731px 299.31px;" id="el6elmkk9wdzj" class="animable"></path></g></g><g id="freepik--Photo--inject-42" class="animable" style="transform-origin: 127.2px 344.255px;"><g id="freepik--Image--inject-42" class="animable" style="transform-origin: 127.2px 344.255px;"><path d="M159.87,291.86v60.51a2.21,2.21,0,0,1-1,1.73L98.72,388.85c-.55.31-1,.06-1-.58v-3.16l58.94-34.05V292.55l2.19-1.26C159.42,291,159.87,291.23,159.87,291.86Z" style="fill: rgb(38, 50, 56); transform-origin: 128.795px 340.074px;" id="elemr2rnz2f0v" class="animable"></path><path d="M156.67,292.55v58.51L97.73,385.11V327.77a1.89,1.89,0,0,1,.29-1,1.91,1.91,0,0,1,.7-.76Z" style="fill: #006BEE; transform-origin: 127.2px 338.83px;" id="elf2xqv34rfzo" class="animable"></path><g id="eln92qia36mq"><path d="M156.67,292.55v58.51L97.73,385.11V327.77a1.89,1.89,0,0,1,.29-1,1.91,1.91,0,0,1,.7-.76Z" style="fill: rgb(255, 255, 255); opacity: 0.8; transform-origin: 127.2px 338.83px;" class="animable" id="eldfw55lobdze"></path></g><path d="M142.13,317.57a1.56,1.56,0,0,0-.2-.16h-.05l-3.73-2.16h0l0,0h0a1.27,1.27,0,0,0-1.68.42l-13.28,32.73-8.82-5.8-.18-.12h0l0,0h0l-3.69-2.13h0a1.25,1.25,0,0,0-1.7.37L95.85,366.72V384l3.75,2.17,57.87-33.43a2.13,2.13,0,0,0,1.08-1.86V334.49Z" style="fill: #006BEE; transform-origin: 127.2px 350.631px;" id="el3bly7gd3us3" class="animable"></path><g id="ela2zd68l8uiq"><path d="M142.13,317.57a1.56,1.56,0,0,0-.2-.16h-.05l-3.73-2.16h0l0,0h0a1.27,1.27,0,0,0-1.68.42l-13.28,32.73-8.82-5.8-.18-.12h0l0,0h0l-3.69-2.13h0a1.25,1.25,0,0,0-1.7.37L95.85,366.72V384l3.75,2.17,57.87-33.43a2.13,2.13,0,0,0,1.08-1.86V334.49Z" style="opacity: 0.15; transform-origin: 127.2px 350.631px;" class="animable" id="elh6z0agpcm1d"></path></g><path d="M99.6,386.19v-17.3l12.86-26.07a1.26,1.26,0,0,1,1.88-.26l12.34,8.12,13.51-32.89a1.27,1.27,0,0,1,1.94-.22l16.42,16.92V350.9a2.13,2.13,0,0,1-1.08,1.86Z" style="fill: #006BEE; transform-origin: 129.075px 351.704px;" id="elo1nncnb3v4" class="animable"></path><g id="el46tf1hyutjg"><polygon points="126.68 350.68 122.79 360.15 125.26 349.75 126.68 350.68" style="opacity: 0.15; transform-origin: 124.735px 354.95px;" class="animable" id="elwy6sujbcp2"></polygon></g><path d="M162.29,288.14l0-.12a2.24,2.24,0,0,0-1-1.45l-1.76-1a2.2,2.2,0,0,0-2,0L93.1,322.78a2.14,2.14,0,0,0-.71.75,2.1,2.1,0,0,0-.3,1V400.2a2.21,2.21,0,0,0,1,1.73l1.75,1a2.26,2.26,0,0,0,1.77.11l.07,0,.16-.08,64.45-37.22a2.23,2.23,0,0,0,1-1.74V288.3C162.3,288.25,162.29,288.19,162.29,288.14Zm-2.42,64.23a2.23,2.23,0,0,1-1,1.73L98.72,388.85c-.55.31-1,.06-1-.58v-60.5a2.08,2.08,0,0,1,.29-1,2,2,0,0,1,.7-.74l60.15-34.75c.55-.32,1-.07,1,.58Z" style="fill: rgb(55, 71, 79); transform-origin: 127.192px 344.25px;" id="el6uwq7xh8hul" class="animable"></path><path d="M96.62,403.05a2.26,2.26,0,0,1-1.77-.11l-1.75-1a2.21,2.21,0,0,1-1-1.73V324.52a2,2,0,0,1,.3-1l3.75,2.17a2.05,2.05,0,0,0-.29,1v75.67C95.85,402.91,96.18,403.18,96.62,403.05Z" style="fill: rgb(38, 50, 56); transform-origin: 94.36px 363.35px;" id="elm4bf4xu49za" class="animable"></path><path d="M162.29,288.14a.6.6,0,0,1,0-.12c-.13-.42-.52-.56-1-.29L96.85,325a2.21,2.21,0,0,0-1,1.72v75.68c0,.55.34.81.77.69l.08,0,.16-.08,64.45-37.22a2.22,2.22,0,0,0,1-1.73V288.14Zm-2.42,64.23a2.21,2.21,0,0,1-1,1.73L98.72,388.85c-.55.31-1,.06-1-.58v-60.5a1.89,1.89,0,0,1,.29-1,1.91,1.91,0,0,1,.7-.76l57.95-33.48,2.19-1.26c.56-.33,1-.06,1,.57Z" style="fill: rgb(69, 90, 100); transform-origin: 129.08px 345.355px;" id="elrl1r907evr" class="animable"></path><path d="M121.26,326.76l1.46-2.47-3-1.74h0a2.82,2.82,0,0,0-2.85.29,8.9,8.9,0,0,0-4,7,2.83,2.83,0,0,0,1.16,2.59h0l0,0h0l2.89,1.67,1.39-2.35A9.37,9.37,0,0,0,121.26,326.76Z" style="fill: #006BEE; transform-origin: 117.787px 328.196px;" id="el8lczohdkpnr" class="animable"></path><g id="elea0uvvu24wk"><path d="M121.26,326.76l1.46-2.47-3-1.74h0a2.82,2.82,0,0,0-2.85.29,8.9,8.9,0,0,0-4,7,2.83,2.83,0,0,0,1.16,2.59h0l0,0h0l2.89,1.67,1.39-2.35A9.37,9.37,0,0,0,121.26,326.76Z" style="opacity: 0.15; transform-origin: 117.787px 328.196px;" class="animable" id="ellr27txvk3ha"></path></g><path d="M119.82,324.54c2.23-1.29,4-.24,4,2.33a8.93,8.93,0,0,1-4,7c-2.23,1.28-4,.24-4-2.34A8.93,8.93,0,0,1,119.82,324.54Z" style="fill: #006BEE; transform-origin: 119.82px 329.203px;" id="el5nll3fjzmga" class="animable"></path></g></g><g id="freepik--box--inject-42" class="animable" style="transform-origin: 214.835px 389.471px;"><g id="freepik--box--inject-42" class="animable" style="transform-origin: 214.835px 389.471px;"><polygon points="270.16 425.21 221.56 453.27 166.82 421.6 215.43 393.54 270.16 425.21" style="fill: #006BEE; transform-origin: 218.49px 423.405px;" id="elp8396i53ra" class="animable"></polygon><g id="elwyyiwej1jy"><polygon points="270.16 425.21 221.56 453.27 166.82 421.6 215.43 393.54 270.16 425.21" style="opacity: 0.5; transform-origin: 218.49px 423.405px;" class="animable" id="elww6c29xb1dk"></polygon></g><polygon points="215.43 355.5 215.43 393.54 166.82 421.6 166.82 383.56 215.43 355.5" style="fill: #006BEE; transform-origin: 191.125px 388.55px;" id="elewdthhhxllc" class="animable"></polygon><g id="elgguckgccqyk"><polygon points="215.43 355.5 215.43 393.54 166.82 421.6 166.82 383.56 215.43 355.5" style="opacity: 0.23; transform-origin: 191.125px 388.55px;" class="animable" id="ela4eji10uwf8"></polygon></g><polygon points="270.16 387.17 270.16 425.21 215.43 393.54 215.43 355.5 270.16 387.17" style="fill: #006BEE; transform-origin: 242.795px 390.355px;" id="elskthf7med3h" class="animable"></polygon><g id="el8fjief13ng5"><polygon points="270.16 387.17 270.16 425.21 215.43 393.54 215.43 355.5 270.16 387.17" style="opacity: 0.4; transform-origin: 242.795px 390.355px;" class="animable" id="eln6cj75q97pj"></polygon></g><polygon points="215.43 355.5 215.5 334.44 270.1 366.15 270.16 387.17 215.43 355.5" style="fill: #006BEE; transform-origin: 242.795px 360.805px;" id="elo1pbhtb0ne" class="animable"></polygon><g id="el53yv1wn3kgm"><polygon points="215.43 355.5 215.5 334.44 270.1 366.15 270.16 387.17 215.43 355.5" style="opacity: 0.2; transform-origin: 242.795px 360.805px;" class="animable" id="elhp0a98nkemp"></polygon></g><polygon points="166.82 383.56 161.03 364.45 209.63 336.39 215.43 355.5 166.82 383.56" style="fill: #006BEE; transform-origin: 188.23px 359.975px;" id="el0znz8nw7ikz" class="animable"></polygon><g id="el46vqlhihtes"><polygon points="166.82 383.56 161.03 364.45 209.63 336.39 215.43 355.5 166.82 383.56" style="opacity: 0.1; transform-origin: 188.23px 359.975px;" class="animable" id="elg6fjafcgelr"></polygon></g><g id="freepik--Document--inject-42" class="animable" style="transform-origin: 198.099px 373.017px;"><path d="M178.41,420.13a2.33,2.33,0,0,1-1-1.69l-4.08-66.95a2,2,0,0,1,.87-1.67l41.67-23.92a2.07,2.07,0,0,1,1.89,0,2.31,2.31,0,0,1,1,1.68l4.08,67a1.92,1.92,0,0,1-.87,1.66L180.3,420.14A2.1,2.1,0,0,1,178.41,420.13Z" style="fill: rgb(240, 240, 240); transform-origin: 198.085px 373.016px;" id="el0gz9u8hs9v6" class="animable"></path><path d="M180.3,420.14,222,396.22a1.92,1.92,0,0,0,.87-1.66l-4.08-67c0-.62-.49-.89-1-.59l-41.67,23.92a1.94,1.94,0,0,0-.87,1.67l4.08,66.95C179.32,420.18,179.78,420.44,180.3,420.14Z" style="fill: rgb(250, 250, 250); transform-origin: 199.06px 373.555px;" id="eluhz6hzezjy" class="animable"></path><path d="M218.16,327.38c.06,0,.1.15.1.25l4.08,67a1.43,1.43,0,0,1-.62,1.2l-41.67,23.92a.41.41,0,0,1-.17.06c-.06,0-.09-.15-.1-.25l-4.08-66.95a1.48,1.48,0,0,1,.63-1.21L218,327.44a.41.41,0,0,1,.17-.06m0-.49a.83.83,0,0,0-.41.12l-41.67,23.92a1.94,1.94,0,0,0-.87,1.67l4.08,66.95c0,.45.27.71.59.71a.9.9,0,0,0,.42-.12L222,396.22a1.92,1.92,0,0,0,.87-1.66l-4.08-67c0-.45-.27-.71-.6-.71Z" style="fill: rgb(235, 235, 235); transform-origin: 199.045px 373.555px;" id="elem9w0n1wa3c" class="animable"></path><path d="M180.17,420.2a2.08,2.08,0,0,1-1.76-.07,2.33,2.33,0,0,1-1-1.69l-4.08-66.95a1.89,1.89,0,0,1,.23-1l1.9,1.11a1.76,1.76,0,0,0-.23.95l4.08,67C179.32,420.13,179.71,420.39,180.17,420.2Z" style="fill: rgb(224, 224, 224); transform-origin: 176.749px 385.426px;" id="elp3gqmpmms4b" class="animable"></path><path d="M197.12,345.48l14.68-8.54c.46-.26.86,0,.89.52l0,.35a1.7,1.7,0,0,1-.77,1.47l-14.68,8.54c-.46.26-.86,0-.89-.52l0-.35A1.71,1.71,0,0,1,197.12,345.48Z" style="fill: rgb(224, 224, 224); transform-origin: 204.52px 342.38px;" id="eljcrykj0cd" class="animable"></path><path d="M197.47,351.31l14.69-8.54c.46-.26.86,0,.89.53l0,.34a1.72,1.72,0,0,1-.77,1.47l-14.69,8.54c-.45.26-.85,0-.89-.52l0-.35A1.73,1.73,0,0,1,197.47,351.31Z" style="fill: rgb(224, 224, 224); transform-origin: 204.875px 348.21px;" id="el9exezdcxf18" class="animable"></path><path d="M197.83,357.14l14.68-8.54c.46-.26.86,0,.89.53l0,.34a1.71,1.71,0,0,1-.76,1.47L198,359.48c-.46.26-.86,0-.89-.52l0-.35A1.72,1.72,0,0,1,197.83,357.14Z" style="fill: rgb(224, 224, 224); transform-origin: 205.255px 354.04px;" id="elw8s1su1pbk" class="animable"></path><path d="M183,377.66l30.21-17.39c.46-.27.86,0,.89.52l0,.34a1.74,1.74,0,0,1-.77,1.47L183.15,380c-.45.26-.85,0-.89-.52l0-.34A1.72,1.72,0,0,1,183,377.66Z" style="fill: rgb(224, 224, 224); transform-origin: 198.179px 370.133px;" id="elth1b1ethvj" class="animable"></path><path d="M182.66,371.83l30.21-17.39c.46-.27.86,0,.89.52l0,.34a1.72,1.72,0,0,1-.77,1.47L182.8,374.16c-.46.26-.86,0-.89-.52l0-.34A1.7,1.7,0,0,1,182.66,371.83Z" style="fill: rgb(224, 224, 224); transform-origin: 197.835px 364.298px;" id="el5mkjbpxeu8b" class="animable"></path><path d="M183.37,383.53l30.21-17.39c.46-.26.86,0,.89.52l0,.34a1.7,1.7,0,0,1-.77,1.47l-30.21,17.39c-.46.27-.86,0-.89-.52l0-.34A1.72,1.72,0,0,1,183.37,383.53Z" style="fill: rgb(224, 224, 224); transform-origin: 198.535px 376.002px;" id="elcmfse2r7k2" class="animable"></path><path d="M183.73,389.36,213.94,372c.46-.26.85,0,.89.52l0,.34a1.72,1.72,0,0,1-.77,1.47l-30.21,17.39c-.46.27-.86,0-.89-.52l0-.34A1.7,1.7,0,0,1,183.73,389.36Z" style="fill: rgb(224, 224, 224); transform-origin: 198.894px 381.862px;" id="elkcoskg76ru" class="animable"></path><path d="M184.08,395.19l30.21-17.39c.46-.26.86,0,.89.52l0,.34a1.7,1.7,0,0,1-.77,1.47l-30.21,17.4c-.46.26-.86,0-.89-.53l0-.34A1.72,1.72,0,0,1,184.08,395.19Z" style="fill: rgb(224, 224, 224); transform-origin: 199.245px 387.665px;" id="el2xxsfctzhzd" class="animable"></path><path d="M184.44,401l30.21-17.39c.46-.26.85,0,.89.52l0,.34a1.75,1.75,0,0,1-.77,1.48l-30.21,17.39c-.46.26-.86,0-.89-.52l0-.35A1.7,1.7,0,0,1,184.44,401Z" style="fill: rgb(224, 224, 224); transform-origin: 199.605px 393.475px;" id="elriipbripels" class="animable"></path><path d="M184.79,406.85,215,389.46c.46-.26.86,0,.89.52l0,.34a1.73,1.73,0,0,1-.77,1.48l-30.21,17.39c-.46.26-.85,0-.89-.52l0-.35A1.72,1.72,0,0,1,184.79,406.85Z" style="fill: rgb(224, 224, 224); transform-origin: 199.955px 399.325px;" id="el149mmfkikm0b" class="animable"></path><polygon points="180.93 353.82 193.13 346.83 194.02 361.47 181.82 368.45 180.93 353.82" style="fill: #006BEE; transform-origin: 187.475px 357.64px;" id="eldfb5dztyitr" class="animable"></polygon><path d="M182.91,355.33l.27,4.39.38-.22-.08-1.35a2.53,2.53,0,0,1,1.22-2.09l1.8-1,.4,6.53a2.52,2.52,0,0,1-1,2.2l-1.13.65,0,.47,6.1-3.49,0-.47-1.13.65c-.63.36-1.18-.05-1.23-.91l-.4-6.53,1.81-1c.71-.41,1.33-.14,1.38.6l.08,1.35.38-.22-.27-4.39Z" style="fill: rgb(250, 250, 250); transform-origin: 187.335px 357.705px;" id="eltarpw6taxhc" class="animable"></path></g><g id="freepik--document--inject-42" class="animable" style="transform-origin: 215.444px 383.039px;"><path d="M195.77,430.15a2.33,2.33,0,0,1-1-1.69l-4.08-66.95a1.94,1.94,0,0,1,.87-1.67l41.67-23.92a2.07,2.07,0,0,1,1.89,0,2.34,2.34,0,0,1,1,1.68l4.08,66.95a2,2,0,0,1-.88,1.67l-41.67,23.92A2.08,2.08,0,0,1,195.77,430.15Z" style="fill: rgb(240, 240, 240); transform-origin: 215.445px 383.031px;" id="el71r5o1g041x" class="animable"></path><path d="M197.65,430.16l41.67-23.92a2,2,0,0,0,.88-1.67l-4.08-66.95c0-.62-.49-.89-1-.59L193.44,361a2,2,0,0,0-.88,1.67l4.08,66.95C196.68,430.19,197.13,430.46,197.65,430.16Z" style="fill: rgb(250, 250, 250); transform-origin: 216.38px 383.596px;" id="elerh9dxkpiec" class="animable"></path><path d="M235.52,337.4c.06,0,.09.15.1.25l4.08,67a1.43,1.43,0,0,1-.62,1.21l-41.67,23.92a.41.41,0,0,1-.17.06c-.06,0-.09-.15-.1-.25l-4.08-67a1.43,1.43,0,0,1,.62-1.21l41.67-23.92a.41.41,0,0,1,.17-.06m0-.49a.83.83,0,0,0-.41.12L193.44,361a2,2,0,0,0-.88,1.67l4.08,66.95c0,.45.27.71.6.71a.83.83,0,0,0,.41-.12l41.67-23.92a2,2,0,0,0,.88-1.67l-4.08-66.95c0-.45-.27-.71-.6-.71Z" style="fill: rgb(235, 235, 235); transform-origin: 216.38px 383.62px;" id="elpw1eyrj795" class="animable"></path><path d="M197.53,430.22a2,2,0,0,1-1.76-.08,2.29,2.29,0,0,1-1-1.68l-4.08-66.95a1.89,1.89,0,0,1,.23-1l1.89,1.11a1.83,1.83,0,0,0-.23.95l4.08,67C196.68,430.14,197.07,430.41,197.53,430.22Z" style="fill: rgb(224, 224, 224); transform-origin: 194.109px 395.448px;" id="elczbqm3e1bu8" class="animable"></path><path d="M214.47,355.5,229.16,347c.46-.26.86,0,.89.52l0,.35a1.7,1.7,0,0,1-.77,1.47l-14.68,8.54c-.46.26-.86,0-.89-.52l0-.35A1.71,1.71,0,0,1,214.47,355.5Z" style="fill: rgb(224, 224, 224); transform-origin: 221.879px 352.44px;" id="el6zn8lrfywu" class="animable"></path><path d="M214.83,361.33l14.69-8.54c.45-.26.85,0,.89.52l0,.35a1.72,1.72,0,0,1-.77,1.47L215,363.67c-.46.26-.86,0-.89-.52l0-.35A1.72,1.72,0,0,1,214.83,361.33Z" style="fill: rgb(224, 224, 224); transform-origin: 222.259px 358.23px;" id="elobct2zv2vyi" class="animable"></path><path d="M215.19,367.16l14.68-8.54c.46-.26.86,0,.89.52l0,.35A1.7,1.7,0,0,1,230,361l-14.68,8.54c-.46.26-.86,0-.89-.52l0-.35A1.71,1.71,0,0,1,215.19,367.16Z" style="fill: rgb(224, 224, 224); transform-origin: 222.595px 364.08px;" id="elgisazwixuye" class="animable"></path><path d="M200.37,387.68l30.21-17.4c.46-.26.86,0,.89.53l0,.34a1.7,1.7,0,0,1-.77,1.47L200.51,390c-.46.26-.86,0-.89-.52l0-.34A1.72,1.72,0,0,1,200.37,387.68Z" style="fill: rgb(224, 224, 224); transform-origin: 215.545px 380.14px;" id="el0ur7qc0svi9" class="animable"></path><path d="M200,381.84l30.22-17.39c.45-.26.85,0,.89.52l0,.35a1.72,1.72,0,0,1-.77,1.47l-30.21,17.39c-.46.26-.86,0-.89-.52l0-.34A1.74,1.74,0,0,1,200,381.84Z" style="fill: rgb(224, 224, 224); transform-origin: 215.175px 374.315px;" id="elq029mmzx6k" class="animable"></path><path d="M200.73,393.55l30.21-17.39c.46-.26.86,0,.89.52l0,.34a1.72,1.72,0,0,1-.77,1.47l-30.21,17.39c-.46.27-.86,0-.89-.52l0-.34A1.7,1.7,0,0,1,200.73,393.55Z" style="fill: rgb(224, 224, 224); transform-origin: 215.895px 386.022px;" id="elzmhowngkp1n" class="animable"></path><path d="M201.08,399.38,231.29,382c.46-.26.86,0,.9.52l0,.34a1.72,1.72,0,0,1-.77,1.47l-30.22,17.39c-.45.27-.85,0-.89-.52l0-.34A1.72,1.72,0,0,1,201.08,399.38Z" style="fill: rgb(224, 224, 224); transform-origin: 216.25px 391.862px;" id="elskj85cwurls" class="animable"></path><path d="M201.44,405.21l30.21-17.39c.46-.26.86,0,.89.52l0,.34a1.72,1.72,0,0,1-.77,1.47l-30.21,17.39c-.46.27-.86,0-.89-.52l0-.34A1.72,1.72,0,0,1,201.44,405.21Z" style="fill: rgb(224, 224, 224); transform-origin: 216.605px 397.682px;" id="elxrn4w742vj" class="animable"></path><path d="M201.79,411,232,393.65c.45-.26.85,0,.89.52l0,.34a1.72,1.72,0,0,1-.77,1.47l-30.22,17.39c-.45.27-.85,0-.89-.52l0-.34A1.74,1.74,0,0,1,201.79,411Z" style="fill: rgb(224, 224, 224); transform-origin: 216.95px 403.512px;" id="elpkd2fk7cp4g" class="animable"></path><path d="M202.15,416.87l30.21-17.39c.46-.26.86,0,.89.52l0,.34a1.7,1.7,0,0,1-.77,1.47L202.29,419.2c-.46.27-.86,0-.89-.52l0-.34A1.72,1.72,0,0,1,202.15,416.87Z" style="fill: rgb(224, 224, 224); transform-origin: 217.325px 409.342px;" id="elixekkxhyabg" class="animable"></path><polygon points="198.29 363.84 210.49 356.85 211.38 371.49 199.18 378.47 198.29 363.84" style="fill: #006BEE; transform-origin: 204.835px 367.66px;" id="el3ekbznhlkmm" class="animable"></polygon><path d="M200.27,365.35l.27,4.39.38-.22-.08-1.35a2.5,2.5,0,0,1,1.22-2.09l1.8-1,.4,6.52a2.54,2.54,0,0,1-1,2.21l-1.13.65,0,.47,6.1-3.49,0-.47-1.13.65c-.63.36-1.18,0-1.23-.91l-.4-6.53,1.8-1c.72-.41,1.34-.14,1.39.6l.08,1.34.38-.21-.27-4.39Z" style="fill: rgb(250, 250, 250); transform-origin: 204.695px 367.725px;" id="el29d3fyg96qa" class="animable"></path></g><g id="freepik--document--inject-42" class="animable" style="transform-origin: 232.779px 393.025px;"><path d="M213.08,440.16a2.35,2.35,0,0,1-1-1.69l-4.08-67a1.94,1.94,0,0,1,.87-1.67l41.67-23.92a2.07,2.07,0,0,1,1.89,0,2.34,2.34,0,0,1,1,1.68l4.08,66.95a2,2,0,0,1-.88,1.67L215,440.17A2.1,2.1,0,0,1,213.08,440.16Z" style="fill: rgb(240, 240, 240); transform-origin: 232.755px 393.025px;" id="el360whwx0w9w" class="animable"></path><path d="M215,440.17l41.67-23.92a2,2,0,0,0,.88-1.67l-4.08-66.95c0-.62-.5-.89-1-.59L210.76,371a1.94,1.94,0,0,0-.88,1.67L214,439.58C214,440.2,214.45,440.47,215,440.17Z" style="fill: rgb(250, 250, 250); transform-origin: 233.715px 393.605px;" id="elljdg3yz2tws" class="animable"></path><path d="M252.84,347.41c.06,0,.09.15.1.25L257,414.61a1.46,1.46,0,0,1-.62,1.21l-41.67,23.92a.41.41,0,0,1-.17.06c-.06,0-.1-.15-.1-.25l-4.08-67a1.43,1.43,0,0,1,.62-1.2l41.67-23.92a.41.41,0,0,1,.17-.06m0-.49a.83.83,0,0,0-.41.12L210.76,371a1.94,1.94,0,0,0-.88,1.67L214,439.58c0,.45.27.71.6.71a.83.83,0,0,0,.41-.12l41.67-23.92a2,2,0,0,0,.88-1.67l-4.08-66.95c0-.45-.27-.71-.6-.71Z" style="fill: rgb(235, 235, 235); transform-origin: 233.72px 393.585px;" id="elnj6ez5i3l" class="animable"></path><path d="M214.85,440.23a2.07,2.07,0,0,1-1.77-.08,2.33,2.33,0,0,1-1-1.68l-4.08-67a2,2,0,0,1,.22-1l1.9,1.11a1.83,1.83,0,0,0-.23.95l4.08,67C214,440.15,214.39,440.42,214.85,440.23Z" style="fill: rgb(224, 224, 224); transform-origin: 211.424px 405.431px;" id="ele2m9lxnk7nc" class="animable"></path><path d="M231.79,365.51,246.48,357c.46-.26.86,0,.89.52l0,.35a1.72,1.72,0,0,1-.77,1.47l-14.68,8.54c-.46.26-.86,0-.9-.52l0-.35A1.74,1.74,0,0,1,231.79,365.51Z" style="fill: rgb(224, 224, 224); transform-origin: 239.195px 362.44px;" id="elcmghtchfbmo" class="animable"></path><path d="M232.15,371.34l14.68-8.54c.46-.26.86,0,.9.52l0,.35a1.72,1.72,0,0,1-.77,1.47l-14.69,8.54c-.46.26-.86,0-.89-.52l0-.35A1.72,1.72,0,0,1,232.15,371.34Z" style="fill: rgb(224, 224, 224); transform-origin: 239.555px 368.24px;" id="elp1qklwoo96a" class="animable"></path><path d="M232.5,377.17l14.69-8.54c.46-.26.86,0,.89.52l0,.35a1.7,1.7,0,0,1-.77,1.47l-14.68,8.54c-.46.26-.86,0-.89-.52l0-.35A1.76,1.76,0,0,1,232.5,377.17Z" style="fill: rgb(224, 224, 224); transform-origin: 239.91px 374.07px;" id="elg0zmq0njvd5" class="animable"></path><path d="M217.69,397.68l30.21-17.39c.46-.26.86,0,.89.52l0,.35a1.7,1.7,0,0,1-.77,1.47L217.83,400c-.46.26-.86,0-.89-.52l0-.34A1.75,1.75,0,0,1,217.69,397.68Z" style="fill: rgb(224, 224, 224); transform-origin: 232.865px 390.145px;" id="elhkuo08ndim" class="animable"></path><path d="M217.33,391.85l30.22-17.39c.45-.26.85,0,.89.52l0,.35a1.72,1.72,0,0,1-.77,1.47l-30.21,17.39c-.46.26-.86,0-.9-.52l0-.34A1.78,1.78,0,0,1,217.33,391.85Z" style="fill: rgb(224, 224, 224); transform-origin: 232.5px 384.325px;" id="elnty67um4zv" class="animable"></path><path d="M218.05,403.56l30.21-17.39c.46-.27.86,0,.89.52l0,.34a1.72,1.72,0,0,1-.77,1.47l-30.21,17.39c-.46.27-.86,0-.89-.52l0-.34A1.7,1.7,0,0,1,218.05,403.56Z" style="fill: rgb(224, 224, 224); transform-origin: 233.215px 396.03px;" id="el8ke96804yru" class="animable"></path><path d="M218.4,409.39,248.61,392c.46-.26.86,0,.89.52l0,.34a1.71,1.71,0,0,1-.76,1.47l-30.22,17.39c-.45.27-.85,0-.89-.52l0-.34A1.72,1.72,0,0,1,218.4,409.39Z" style="fill: rgb(224, 224, 224); transform-origin: 233.565px 401.862px;" id="eljppumv3bt29" class="animable"></path><path d="M218.76,415.22,249,397.83c.46-.26.86,0,.89.52l0,.34a1.72,1.72,0,0,1-.77,1.47L218.9,417.55c-.46.27-.86,0-.89-.52l0-.34A1.7,1.7,0,0,1,218.76,415.22Z" style="fill: rgb(224, 224, 224); transform-origin: 233.95px 407.692px;" id="eldxakpy8alnk" class="animable"></path><path d="M219.11,421.05l30.21-17.39c.46-.26.86,0,.89.52l0,.34a1.74,1.74,0,0,1-.77,1.47l-30.22,17.39c-.45.27-.85,0-.89-.52l0-.34A1.72,1.72,0,0,1,219.11,421.05Z" style="fill: rgb(224, 224, 224); transform-origin: 234.27px 413.522px;" id="elyptpxbp0p89" class="animable"></path><path d="M219.47,426.88l30.21-17.39c.46-.26.86,0,.89.52l0,.34a1.72,1.72,0,0,1-.77,1.47l-30.21,17.39c-.46.27-.86,0-.89-.52l0-.34A1.7,1.7,0,0,1,219.47,426.88Z" style="fill: rgb(224, 224, 224); transform-origin: 234.635px 419.352px;" id="elpvnfnmuydrs" class="animable"></path><polygon points="215.6 373.85 227.81 366.86 228.7 381.5 216.5 388.48 215.6 373.85" style="fill: #006BEE; transform-origin: 222.15px 377.67px;" id="elrutxz35tfs" class="animable"></polygon><path d="M217.59,375.36l.27,4.39.38-.23-.08-1.34a2.5,2.5,0,0,1,1.22-2.09l1.8-1,.4,6.52a2.54,2.54,0,0,1-1,2.21l-1.13.65,0,.47,6.1-3.49,0-.47-1.14.65c-.62.36-1.17-.05-1.22-.91l-.4-6.53,1.8-1c.72-.41,1.34-.14,1.38.6l.09,1.34.38-.21-.27-4.39Z" style="fill: rgb(250, 250, 250); transform-origin: 222.015px 377.735px;" id="el7zuo0lgflt" class="animable"></path></g><polygon points="221.56 415.23 221.56 453.27 166.82 421.6 166.82 383.56 221.56 415.23" style="fill: #006BEE; transform-origin: 194.19px 418.415px;" id="el4ad8ti3jhpy" class="animable"></polygon><g id="elhtillb5xwt"><polygon points="221.56 415.23 221.56 453.27 166.82 421.6 166.82 383.56 221.56 415.23" style="opacity: 0.38; transform-origin: 194.19px 418.415px;" class="animable" id="eluvn2a77scm"></polygon></g><polygon points="270.16 425.21 270.16 387.17 221.56 415.23 221.56 453.27 270.16 425.21" style="fill: #006BEE; transform-origin: 245.86px 420.22px;" id="elzk5ski4d2xr" class="animable"></polygon><g id="elstizg06kks"><polygon points="270.16 425.21 270.16 387.17 221.56 415.23 221.56 453.27 270.16 425.21" style="opacity: 0.23; transform-origin: 245.86px 420.22px;" class="animable" id="el07onyrlf6hwl"></polygon></g><g id="elifih7s92mtk"><polygon points="270.16 387.17 221.56 415.23 221.56 453.27 222.46 415.99 270.16 387.17" style="fill: rgb(255, 255, 255); opacity: 0.7; transform-origin: 245.86px 420.22px;" class="animable" id="elemfffzesu8l"></polygon></g><polygon points="221.56 415.23 226.12 396.81 274.28 369 270.16 387.17 221.56 415.23" style="fill: #006BEE; transform-origin: 247.92px 392.115px;" id="elv46r4hgfz5" class="animable"></polygon><g id="el9xjl92k3i9q"><polygon points="221.56 415.23 226.12 396.81 274.28 369 270.16 387.17 221.56 415.23" style="opacity: 0.3; transform-origin: 247.92px 392.115px;" class="animable" id="elynj4v4thv2"></polygon></g><polygon points="166.82 383.56 155.39 367.77 210.13 399.44 221.56 415.23 166.82 383.56" style="fill: #006BEE; transform-origin: 188.475px 391.5px;" id="el1hyxsxolggv" class="animable"></polygon><g id="elwcrgwej8pt"><polygon points="166.82 383.56 155.39 367.77 210.13 399.44 221.56 415.23 166.82 383.56" style="opacity: 0.45; transform-origin: 188.475px 391.5px;" class="animable" id="elle5sdfztqr"></polygon></g><g id="elkr2wq88df9j"><polygon points="155.39 367.77 210.13 399.44 221.56 415.23 209.52 399.99 155.39 367.77" style="fill: rgb(255, 255, 255); opacity: 0.7; transform-origin: 188.475px 391.5px;" class="animable" id="ely7hqfhttqei"></polygon></g><g id="eln8pkemde29m"><g style="opacity: 0.7; transform-origin: 237.262px 437.435px;" class="animable" id="elon02pjjqytq"><path d="M235.87,442a.3.3,0,0,1-.3-.3V435a.3.3,0,0,1,.3-.3.31.31,0,0,1,.3.3v6.7A.31.31,0,0,1,235.87,442Z" style="fill: rgb(255, 255, 255); transform-origin: 235.87px 438.35px;" id="elhkv4xow0boe" class="animable"></path><path d="M235,437.28l-.11,0a.3.3,0,0,1-.16-.4l1.06-2.45,1.19,1.37a.3.3,0,0,1,0,.42.29.29,0,0,1-.42,0l-.57-.65-.68,1.58A.31.31,0,0,1,235,437.28Z" style="fill: rgb(255, 255, 255); transform-origin: 235.885px 435.857px;" id="elfbbqtw5ou9w" class="animable"></path><path d="M238.63,440.38a.3.3,0,0,1-.3-.3v-6.69a.31.31,0,0,1,.3-.3.3.3,0,0,1,.3.3v6.69A.29.29,0,0,1,238.63,440.38Z" style="fill: rgb(255, 255, 255); transform-origin: 238.63px 436.735px;" id="elm9irio4w4zh" class="animable"></path><path d="M237.76,435.71l-.12,0a.3.3,0,0,1-.16-.39l1.07-2.45,1.18,1.36a.29.29,0,0,1,0,.42.3.3,0,0,1-.42,0l-.56-.66-.69,1.59A.3.3,0,0,1,237.76,435.71Z" style="fill: rgb(255, 255, 255); transform-origin: 238.639px 434.292px;" id="elrxoqhcrp3on" class="animable"></path></g></g><g id="el6nobmtvg9a4"><g style="opacity: 0.7; transform-origin: 228.752px 441.251px;" class="animable" id="el5p3h34gybf2"><path d="M227.9,446.5a.62.62,0,0,1-.32-.09.77.77,0,0,1-.36-.71v-.82a.29.29,0,0,1,.3-.3.3.3,0,0,1,.3.3v.82a.3.3,0,0,0,.05.2.29.29,0,0,0,.2-.06,1.74,1.74,0,0,0,.55-1.35v-3.42a.3.3,0,0,1,.3-.3.29.29,0,0,1,.3.3v3.42a2.26,2.26,0,0,1-.85,1.87A.94.94,0,0,1,227.9,446.5Z" style="fill: rgb(255, 255, 255); transform-origin: 228.22px 443.635px;" id="eld3k6muu3p46" class="animable"></path><path d="M224.76,443.74v-.52a8.46,8.46,0,0,1,3.82-6.62A2.53,2.53,0,0,1,232.7,439v.18Zm5.61-7.08a3,3,0,0,0-1.49.46,7.89,7.89,0,0,0-3.5,5.57l6.72-3.88a2.23,2.23,0,0,0-.93-1.95A1.64,1.64,0,0,0,230.37,436.66Z" style="fill: rgb(255, 255, 255); transform-origin: 228.752px 439.871px;" id="el0j8t7wggicnd" class="animable"></path></g></g></g></g><g id="freepik--character--inject-42" class="animable" style="transform-origin: 404.185px 271.057px;"><g id="freepik--character--inject-42" class="animable" style="transform-origin: 404.185px 271.057px;"><path d="M386,372.35c-.4,0-.39,1.14-.27,1.65s1.69,2.25,4.55,2.94,6.85.27,8.56.26,4.63.9,6.32,1.2,4.77-.18,5.81-1.1a1.79,1.79,0,0,0,.46-1.4c0-1.13-.09-1.36-.22-1.36Z" style="fill: rgb(55, 71, 79); transform-origin: 398.549px 375.42px;" id="elxd5j3mjmd0q" class="animable"></path><path d="M410.94,371.16c.05.23.09.45.12.68a11.29,11.29,0,0,1,.1,3.48,3.14,3.14,0,0,1-2.12,1.47,10.59,10.59,0,0,1-5.79-.13,17,17,0,0,0-4.38-.6,42.21,42.21,0,0,1-5.95,0,14.33,14.33,0,0,1-4.33-1.07,5.46,5.46,0,0,1-2.56-2.47,4,4,0,0,1,2.38-3.87,8.9,8.9,0,0,1,4.45-.77c1.67.07,2.91.34,4.39.29a7.16,7.16,0,0,0,3-.6,2.89,2.89,0,0,0,1-1.27c.25-.52.36-1,.83-1,0,0,7,.12,7.67.21s.84,2.92.92,3.47.06.89.15,1.31S410.89,370.88,410.94,371.16Z" style="fill: rgb(69, 90, 100); transform-origin: 398.637px 371.216px;" id="eleyi2nb56uef" class="animable"></path><path d="M396,367.88a1.14,1.14,0,0,0-.36-.15c-.67-.13-1.21.52-1.52,1a4.33,4.33,0,0,0-.39,1,2.34,2.34,0,0,0-.07,1.31c0,.11.11.24.22.22s.13-.15.15-.25a5.13,5.13,0,0,1,.57-1.76,2.11,2.11,0,0,1,.44-.63,1.84,1.84,0,0,1,.69-.4c.1,0,.55,0,.45-.22l-.09-.09Z" style="fill: rgb(250, 250, 250); transform-origin: 394.896px 369.488px;" id="eln7utf5pykcn" class="animable"></path><path d="M397.93,368a1.25,1.25,0,0,0-.9.22,1.82,1.82,0,0,0-.57.87,2.81,2.81,0,0,0-.13,2.27c.12.21.3.1.38-.08a3.19,3.19,0,0,0,.1-.7,6.4,6.4,0,0,1,.48-1.48,2.19,2.19,0,0,1,.3-.54.91.91,0,0,1,.31-.27,1,1,0,0,1,.18-.07l.19,0c0-.09-.1-.15-.2-.17Z" style="fill: rgb(250, 250, 250); transform-origin: 397.21px 369.731px;" id="elvgxf2eybpve" class="animable"></path><path d="M399.92,367.46a1.22,1.22,0,0,0-.59.37,1.81,1.81,0,0,0-.29.59,6.65,6.65,0,0,0-.32,1.47,1.79,1.79,0,0,0,.21,1c.07.12.21.25.34.19s.13-.28.15-.41,0-.48,0-.71a4.12,4.12,0,0,1,.89-2.4s.06-.08.05-.12-.11-.07-.17-.06Z" style="fill: rgb(250, 250, 250); transform-origin: 399.538px 369.237px;" id="elno1bm922qtg" class="animable"></path><path d="M393.9,368c-.69,0-2.17.85-2.94,2.94a11.91,11.91,0,0,0-.47,4.75,6.79,6.79,0,0,1-3.76-1.93,4,4,0,0,1-.91-1.24,4.19,4.19,0,0,1,.82-3.19,6.53,6.53,0,0,1,5-1.94c2.74-.05,2.95.68,2.95.68Z" style="fill: rgb(250, 250, 250); transform-origin: 390.181px 371.535px;" id="eln7lzlma48fe" class="animable"></path><path d="M410.06,360.84s-.22,3.58-.5,5.24c-.16.94-1.07,2.38-4,2.32a3.36,3.36,0,0,1-3.42-2.24,60.14,60.14,0,0,1-.16-6.55Z" style="fill: rgb(255, 168, 167); transform-origin: 406.006px 364.01px;" id="eldl5wwsvku4r" class="animable"></path><path d="M459.25,352l-4.33-10.76-9.43,3.23s6.58,9.5,7.36,10.54C454.14,356.75,459.25,352,459.25,352Z" style="fill: rgb(255, 168, 167); transform-origin: 452.37px 348.317px;" id="elxiyjhbjwd9" class="animable"></path><path d="M463.53,355a5.65,5.65,0,0,1,0,1.3c-.12,1.5-.23,3-.34,4.51a11.43,11.43,0,0,1-.25,1.77,11.76,11.76,0,0,0-.08,2.14c0,.75,0,1.5-.05,2.25a4.4,4.4,0,0,0,0,1c.08.31-4.74,3.07-6.69,4.13a1.89,1.89,0,0,1-.35.17,3.06,3.06,0,0,1-3.16-.74,5.37,5.37,0,0,1,1.31-5.9s.25,0,.2-1.89c0-1.35,0-2.73-.14-4.08a8.84,8.84,0,0,0-.65-2.47,6,6,0,0,1-.82-2.29,3.36,3.36,0,0,1,.76-1.59,4.91,4.91,0,0,1,1.17-1.28,8.59,8.59,0,0,1,3.41-1.68,1.55,1.55,0,0,1,.77,0c.38.12.61.5.87.82a8.78,8.78,0,0,0,2.18,1.62,3.89,3.89,0,0,1,1.78,2C463.49,354.83,463.52,354.93,463.53,355Z" style="fill: rgb(69, 90, 100); transform-origin: 457.898px 361.368px;" id="elck1uy0uww6k" class="animable"></path><path d="M453.94,365.62a5.86,5.86,0,0,0-.62.91h0a6.79,6.79,0,0,0-.68,5c-3.4-.31-4.29-2.27-4.29-2.27a3.27,3.27,0,0,1,1.76-2.93,4.82,4.82,0,0,1,.74-.39l0,0A5,5,0,0,1,453.94,365.62Z" style="fill: rgb(250, 250, 250); transform-origin: 451.145px 368.519px;" id="ele12m1mmmgqq" class="animable"></path><path d="M464.48,355.52c.89.35.66,2.81.09,5.17s-.87,3.19-.58,5.16.45,2.85-.35,3.57-7.19,3.7-7.19,3.7a23.46,23.46,0,0,0,1.43-7.39c.17-4.36.46-7.17,2.48-9.15A3.85,3.85,0,0,1,464.48,355.52Z" style="fill: #006BEE; transform-origin: 460.762px 364.214px;" id="el69vweg71wzg" class="animable"></path><g id="el3hepky0tcji"><path d="M464.48,355.52c.89.35.66,2.81.09,5.17s-.87,3.19-.58,5.16.45,2.85-.35,3.57-7.19,3.7-7.19,3.7a23.46,23.46,0,0,0,1.43-7.39c.17-4.36.46-7.17,2.48-9.15A3.85,3.85,0,0,1,464.48,355.52Z" style="opacity: 0.3; transform-origin: 460.762px 364.214px;" class="animable" id="eln1zb19122se"></path></g><path d="M448.33,369.25a11.88,11.88,0,0,0,5.33,2.32c2.85.32,3-.77,3.29-4.14s.42-8.05,1.74-10.1,3.57-3,4.45-2.76c.18-.09,1.05.56,1.34.95a4.88,4.88,0,0,0-3.73,1.5c-1.78,1.74-2.11,5.41-2.19,8.74s-.23,7.21-2.88,7.61a9.66,9.66,0,0,1-7.25-2.2A1.35,1.35,0,0,1,448.33,369.25Z" style="fill: rgb(55, 71, 79); transform-origin: 456.228px 363.98px;" id="elvoiuwhphlr" class="animable"></path><path d="M454.15,364.38a.93.93,0,0,0-.4.62,1.91,1.91,0,0,0,1,1.75c.36.2.66.12.09-.58A3.63,3.63,0,0,1,454.15,364.38Z" style="fill: rgb(250, 250, 250); transform-origin: 454.453px 365.613px;" id="ely7zeflumle" class="animable"></path><path d="M454.09,362a.77.77,0,0,0-.24.51,2.9,2.9,0,0,0,1.17,1.84c.62.28.29-.41,0-.73A12.27,12.27,0,0,1,454.09,362Z" style="fill: rgb(250, 250, 250); transform-origin: 454.611px 363.208px;" id="elgvqn8f6qyq" class="animable"></path><path d="M453.93,359.44a.59.59,0,0,0-.29.42c0,.27,1.27,1.24,1.67,1.2s.5-.16,0-.49S453.93,359.44,453.93,359.44Z" style="fill: rgb(250, 250, 250); transform-origin: 454.644px 360.251px;" id="el8n6rm4k381f" class="animable"></path><path d="M448.52,349.43s-20.6-30.73-21.22-33.14-4.53-27.5-4.53-27.5l-8.06,29.56a48.49,48.49,0,0,1,.73,8.31,73.85,73.85,0,0,1-1.64,14.52c-2.15,10.15-3.37,19.88-3.37,19.88a8.13,8.13,0,0,1-4.41,1,9.29,9.29,0,0,1-4.31-1.23s-1.12-27.46-1.44-33.76-.52-9.11-.17-13.26c.48-5.65.74-11.51,1.83-23.74.95-10.74,2.9-33.6,2.9-33.6l33.09-2.19s2.79,5.28,3.12,19c.26,10.71.25,40.1.25,40.1,4.91,3.08,6.41,6.28,8.75,12.3,1.48,3.8,5.29,15.61,6.41,19.1C452.31,345.88,448.52,349.43,448.52,349.43Z" style="fill: rgb(69, 90, 100); transform-origin: 428.183px 308.177px;" id="elornsyhu9i7" class="animable"></path><path d="M354.2,272.21l-23.95,6.91-4.78,1.38h0a1.3,1.3,0,0,1-1.53-.69,1.26,1.26,0,0,1,.09-1.33l0,0,3.31-4.48,14.56-19.72,4.93,7.21Z" style="fill: rgb(242, 143, 143); transform-origin: 338.996px 267.415px;" id="elrjj77p25fo" class="animable"></path><path d="M346.85,261.46,327.6,276.88l-3.67,2.93a1.26,1.26,0,0,1,.09-1.33l0,0,3.31-4.48,14.56-19.72Z" style="fill: rgb(255, 168, 167); transform-origin: 335.316px 267.045px;" id="elhbjd1smjxio" class="animable"></path><path d="M330.25,279.12l-4.78,1.38h0a1.3,1.3,0,0,1-1.53-.69,1.26,1.26,0,0,1,.09-1.33l0,0,3.31-4.48a5.18,5.18,0,0,0,.24,2.91A4.13,4.13,0,0,0,330.25,279.12Z" style="fill: rgb(55, 71, 79); transform-origin: 327.021px 277.275px;" id="elke0e5m1pe6" class="animable"></path><path d="M449.26,179.55l-2.35,1.64-2.85,2L341.92,254.24a13.9,13.9,0,0,0,1.72,10c2.57,4.63,7.08,8.06,10.56,8l101.38-70.57,5.43-3.78C457.36,200.11,445.63,181.86,449.26,179.55Z" style="fill: #006BEE; transform-origin: 401.322px 225.895px;" id="elouq5io03d4p" class="animable"></path><g id="eltq87679093"><path d="M449.26,179.55l-2.35,1.64-2.85,2L341.92,254.24a13.9,13.9,0,0,0,1.72,10c2.57,4.63,7.08,8.06,10.56,8l101.38-70.57,5.43-3.78C457.36,200.11,445.63,181.86,449.26,179.55Z" style="opacity: 0.2; transform-origin: 401.322px 225.895px;" class="animable" id="elandry9r3hdj"></path></g><path d="M446.91,181.19l-2.85,2L341.92,254.24a13.9,13.9,0,0,0,1.72,10l105.09-74.05Z" style="fill: #006BEE; transform-origin: 395.182px 222.715px;" id="elqptgovd9fi" class="animable"></path><path d="M440.28,185.76,435,189.43c-1.56,1-.27,4.94,2,8.93,3,5.3,7.75,10.68,9.82,9.34l3.86-2.71,1.39-1c-2.07,1.34-6.82-4.05-9.83-9.35-2.18-3.82-3.44-7.61-2.15-8.78h0A.33.33,0,0,1,440.28,185.76Z" style="fill: rgb(224, 224, 224); transform-origin: 443.192px 196.834px;" id="eluluxd0yjnbg" class="animable"></path><path d="M442.27,194.67c-2.18-3.82-3.44-7.61-2.15-8.78h0a.33.33,0,0,1,.14-.12L435,189.43c-1.56,1-.27,4.94,2,8.93l5.24-3.69Z" style="fill: rgb(250, 250, 250); transform-origin: 438.292px 192.065px;" id="elplexmeu5lqg" class="animable"></path><path d="M439,186.69c-3.62,2.35,8.2,20.61,11.83,18.26l5.27-3.65c-3.63,2.34-15.45-15.92-11.83-18.26Z" style="fill: #006BEE; transform-origin: 447.21px 194.099px;" id="elyabajxhae5j" class="animable"></path><path d="M449.26,179.55l-5.2,3.61c-3.58,2.28,7.67,20,11.52,18.47a.72.72,0,0,0,.22-.1l5.21-3.68C457.36,200.11,445.63,181.86,449.26,179.55Z" style="fill: rgb(224, 224, 224); transform-origin: 452.188px 190.637px;" id="elmeaccdl4lj" class="animable"></path><path d="M471.33,164.23l-22.07,15.32c-1.55,1-.3,4.88,1.93,8.85,3,5.31,7.73,10.75,9.82,9.45h0l21.23-14.74c5.23-3,.86-13.88-4.7-17.92C475.5,163.65,473.29,163.09,471.33,164.23Z" style="fill: rgb(242, 143, 143); transform-origin: 466.58px 180.835px;" id="elxw0o234qwn" class="animable"></path><path d="M471.33,164.23l-22.07,15.32c-1.55,1-.3,4.88,1.93,8.85l22.26-14.73s-2.79-5.5-1.66-7.74,3.36-2.09,5.78-.75C475.5,163.65,473.29,163.09,471.33,164.23Z" style="fill: rgb(255, 168, 167); transform-origin: 463.071px 176.013px;" id="el3vajwdsha05" class="animable"></path><g id="elxt14e1oaqz"><path d="M444.24,183,439,186.69c-1.55,1-.26,4.93,2,8.9l5.25-3.69C444,187.94,442.7,184,444.24,183Z" style="fill: rgb(255, 255, 255); opacity: 0.4; transform-origin: 442.286px 189.295px;" class="animable" id="elh235qqp3df6"></path></g><path d="M449.26,179.55l-5.2,3.61c-1.56,1-.3,4.91,1.92,8.9l5.21-3.66C449,184.43,447.71,180.54,449.26,179.55Z" style="fill: rgb(250, 250, 250); transform-origin: 447.278px 185.805px;" id="elynlio743c7" class="animable"></path><polygon points="415.73 209.76 416.85 221.96 427.76 221.33 426.94 207.8 415.73 209.76" style="fill: rgb(255, 168, 167); transform-origin: 421.745px 214.88px;" id="el8z74h0kkyi8" class="animable"></polygon><path d="M407.69,196.34s-2.42,3.58-2.11,4a5.81,5.81,0,0,0,1.85.79Z" style="fill: rgb(242, 143, 143); transform-origin: 406.621px 198.735px;" id="el5u61dsp8bjs" class="animable"></path><path d="M434.13,187.33c-.34-.32-.71-.61-1-1a3.56,3.56,0,0,1-.39-.48c-.78-1.16-1.09-2.48-2-3.56a9.15,9.15,0,0,0-3.46-2.4,18.4,18.4,0,0,0-7.49-1,58.42,58.42,0,0,1-7.6,0,6.72,6.72,0,0,0-3.4.12,3.54,3.54,0,0,0-1.92,3.41,6.13,6.13,0,0,0,1.72,3.69,2.3,2.3,0,0,0-1.61,2.42,5.11,5.11,0,0,0,1.35,2.81c1.17,1.42,2.07,2.4,2.42,4.25.47,2.53,3.21,3.88,4.94,5.68a25.69,25.69,0,0,1,1.87,2l.11.15a3.27,3.27,0,0,1-1.54-.13s-.32,5.41,3.5,7.17a15.78,15.78,0,0,0,7.53-.4,27.14,27.14,0,0,0,6.71-7.73C436.39,198.16,438.33,191.27,434.13,187.33Z" style="fill: rgb(38, 50, 56); transform-origin: 421.723px 194.733px;" id="elyg87gbsicpc" class="animable"></path><path d="M419.55,202.34a2.86,2.86,0,0,1-2,1.19,3.13,3.13,0,0,1-1.54-.13s-.24,4.1,2.22,6.31c-.51.2-1,.36-1.36.48-2.19.65-6.41.35-7.22-.42-1.21-1.15-3.18-4.18-2.07-12.91a17.88,17.88,0,0,1,2.58-7.74,3.76,3.76,0,0,0,2.16,2.86,3.61,3.61,0,0,0-.6,3,7.19,7.19,0,0,0,2.13,3.11.41.41,0,0,0,.19.13c.13.05.69,0,.77-.11.78-1.13,1.85-2.45,3.94-1.75C421.21,197.19,421.07,200.14,419.55,202.34Z" style="fill: rgb(255, 168, 167); transform-origin: 413.953px 199.833px;" id="eli8dpittx6kh" class="animable"></path><path d="M409.91,209.93c1,.55,3.79.78,5.88.49l-.06-1.57a15.81,15.81,0,0,1-2.78.89A10.09,10.09,0,0,1,409.91,209.93Z" style="fill: rgb(242, 143, 143); transform-origin: 412.85px 209.698px;" id="elnmg3hjijpyr" class="animable"></path><path d="M413.71,201.2a2,2,0,0,1-1.23-2.6,2.07,2.07,0,0,1,2.65-1.21Z" style="fill: rgb(38, 50, 56); transform-origin: 413.741px 199.231px;" id="el6emex09s" class="animable"></path><path d="M422.74,288.9l2.8-12s4.77.34,10.63-4.35c0,0-.68,4.19-8.95,6.14l-2.74,11.76.86,14.57S422.78,289.17,422.74,288.9Z" style="fill: rgb(55, 71, 79); transform-origin: 429.455px 288.785px;" id="el9yl2bav2lgh" class="animable"></path><path d="M437.06,218.17c-1.05-3.15-2.63-4.32-4.16-4.61a32.74,32.74,0,0,0-5.64,0c-.34,1.75-6,3-11.06,1.19l-5.1.8c-4.5,2.08-5.52,7.27-7.91,12.58a8.63,8.63,0,0,0,2.44,10.56s-.44,6.38-.68,10q-.51,8-1.11,16s5,4.57,20.48,4c11.33-.42,15.38-4.21,16-5.94-.61-7.12-4.19-13.83-4.88-16a13.36,13.36,0,0,1-.68-6.84C437.54,229.15,438.51,222.55,437.06,218.17Z" style="fill: #006BEE; transform-origin: 421.322px 241.089px;" id="elwe4lvetz8x" class="animable"></path><g id="el1vh7yy8vhw2"><path d="M437.06,218.17c-1.05-3.15-2.63-4.32-4.16-4.61a32.74,32.74,0,0,0-5.64,0c-.34,1.75-6,3-11.06,1.19l-5.1.8c-4.5,2.08-5.52,7.27-7.91,12.58a8.63,8.63,0,0,0,2.44,10.56s-.44,6.38-.68,10q-.51,8-1.11,16s5,4.57,20.48,4c11.33-.42,15.38-4.21,16-5.94-.61-7.12-4.19-13.83-4.88-16a13.36,13.36,0,0,1-.68-6.84C437.54,229.15,438.51,222.55,437.06,218.17Z" style="fill: rgb(255, 255, 255); opacity: 0.4; transform-origin: 421.322px 241.089px;" class="animable" id="el744tsraeb8t"></path></g><path d="M413,215.35c-8.77.47-9.34,2.4-13.36,10.57-2.12,4.32-5.47,13-7.48,17.18-4.42,2-14.62,3.64-18.64,2.77a3.27,3.27,0,0,1-2-1.26c-1.28-1.8-2.54-2.06-4.09-3.35-1.2-1-1.55-1.9-1.9-1.73a1.78,1.78,0,0,0-.65,2.33,9,9,0,0,0,1.36,2.13,18.34,18.34,0,0,1-4.49-2.38c-3.32-2.35-5.26-2.33-4.95,2.85.19,3.24,2.37,5.7,9.68,7.65a57.2,57.2,0,0,0,8.18,1.74,78,78,0,0,0,20.95-1.34,7.69,7.69,0,0,0,3.89-2.42c2.81-2.9,9.27-15.63,9.27-15.63C413.73,226.74,414.15,219.7,413,215.35Z" style="fill: rgb(255, 168, 167); transform-origin: 385.15px 234.699px;" id="el1d99s0mzw0l" class="animable"></path></g></g><g id="freepik--speech-bubble--inject-42" class="animable" style="transform-origin: 419.525px 132.124px;"><g id="freepik--speech-bubble--inject-42" class="animable" style="transform-origin: 419.525px 132.124px;"><g id="freepik--speech-bubble--inject-42" class="animable" style="transform-origin: 419.525px 132.124px;"><path d="M417.71,154.38a.7.7,0,0,1-.27-.27l-3.4-5.88V145l10-3.91v3.24l-1.21,3.5,5.94-3.43.36,2L425.59,158a.74.74,0,0,1-1.07.4Z" style="fill: #006BEE; transform-origin: 421.585px 149.795px;" id="el9v7b28xso4r" class="animable"></path><g id="elrha667l4goa"><path d="M417.71,154.38a.7.7,0,0,1-.27-.27l-3.4-5.88V145l10-3.91v3.24l-1.21,3.5,5.94-3.43.36,2L425.59,158a.74.74,0,0,1-1.07.4Z" style="opacity: 0.3; transform-origin: 421.585px 149.795px;" class="animable" id="ellgzh25jv7m"></path></g><path d="M428.77,144.39l.36,2L425.6,158a.75.75,0,0,1-1.35.13l-3.84-6.65.45-2.47Z" style="fill: #006BEE; transform-origin: 424.77px 151.443px;" id="elgukcf878wa8" class="animable"></path><g id="elghudl8ie3sb"><path d="M428.77,144.39l.36,2L425.6,158a.75.75,0,0,1-1.35.13l-3.84-6.65.45-2.47Z" style="opacity: 0.2; transform-origin: 424.77px 151.443px;" class="animable" id="elsk1jsn75tz"></path></g><path d="M441.16,110.92a7.16,7.16,0,0,0-3.23-5.6h0a7.16,7.16,0,0,0-6.47,0l-30.33,17.39a7.14,7.14,0,0,0-3.24,5.6v25a7.15,7.15,0,0,0,3.24,5.61h0a7.1,7.1,0,0,0,6.47,0l30.63-17.6c2.91-1.66,2.93-3.32,2.93-5.39Z" style="fill: #006BEE; transform-origin: 419.525px 132.124px;" id="el5bh0if4llo2" class="animable"></path><g id="el4v09whyir83"><path d="M441.16,110.92a7.16,7.16,0,0,0-3.23-5.6h0a7.16,7.16,0,0,0-6.47,0l-30.33,17.39a7.14,7.14,0,0,0-3.24,5.6v25a7.15,7.15,0,0,0,3.24,5.61h0a7.1,7.1,0,0,0,6.47,0l30.63-17.6c2.91-1.66,2.93-3.32,2.93-5.39Z" style="opacity: 0.2; transform-origin: 419.525px 132.124px;" class="animable" id="elyt80ssdimws"></path></g><g id="elqxig3w7mha8"><path d="M397.89,153.28a7.15,7.15,0,0,0,3.24,5.61h0a7.22,7.22,0,0,0,5.92.28c-1.52.57-2.68-.3-2.68-2.14v-25a6.63,6.63,0,0,1,.94-3.19l-6.47-3.74a6.71,6.71,0,0,0-.95,3.19Z" style="opacity: 0.2; transform-origin: 402.47px 142.387px;" class="animable" id="elp3g7pl4dtz"></path></g><path d="M441.06,110c-.38-1.37-1.63-1.81-3.13-1L407.6,126.44a6.43,6.43,0,0,0-2.28,2.42l-6.47-3.73a6.58,6.58,0,0,1,2.28-2.42l30.32-17.39a7.24,7.24,0,0,1,6.48,0h0A7.15,7.15,0,0,1,441.06,110Z" style="fill: #006BEE; transform-origin: 419.955px 116.707px;" id="elns1cj98ony" class="animable"></path></g><path d="M429.24,130.87c0,1.53,1.08,2.15,2.4,1.38a5.3,5.3,0,0,0,2.4-4.15c0-1.53-1.08-2.15-2.4-1.38A5.3,5.3,0,0,0,429.24,130.87Z" style="fill: rgb(250, 250, 250); transform-origin: 431.64px 129.485px;" id="el4ud3430p80f" class="animable"></path><path d="M420.37,136c0,1.53,1.07,2.15,2.39,1.39a5.3,5.3,0,0,0,2.4-4.15c0-1.53-1.07-2.15-2.4-1.39A5.32,5.32,0,0,0,420.37,136Z" style="fill: rgb(250, 250, 250); transform-origin: 422.765px 134.62px;" id="elevnn5tnfdu5" class="animable"></path><path d="M411.49,141.12c0,1.53,1.08,2.15,2.4,1.38a5.3,5.3,0,0,0,2.4-4.15c0-1.53-1.08-2.15-2.4-1.38A5.3,5.3,0,0,0,411.49,141.12Z" style="fill: rgb(250, 250, 250); transform-origin: 413.89px 139.735px;" id="elwmk77tkuqy8" class="animable"></path></g></g><defs>     <filter id="active" height="200%">         <feMorphology in="SourceAlpha" result="DILATED" operator="dilate" radius="2"></feMorphology>                <feFlood flood-color="#32DFEC" flood-opacity="1" result="PINK"></feFlood>        <feComposite in="PINK" in2="DILATED" operator="in" result="OUTLINE"></feComposite>        <feMerge>            <feMergeNode in="OUTLINE"></feMergeNode>            <feMergeNode in="SourceGraphic"></feMergeNode>        </feMerge>    </filter>    <filter id="hover" height="200%">        <feMorphology in="SourceAlpha" result="DILATED" operator="dilate" radius="2"></feMorphology>                <feFlood flood-color="#ff0000" flood-opacity="0.5" result="PINK"></feFlood>        <feComposite in="PINK" in2="DILATED" operator="in" result="OUTLINE"></feComposite>        <feMerge>            <feMergeNode in="OUTLINE"></feMergeNode>            <feMergeNode in="SourceGraphic"></feMergeNode>        </feMerge>            <feColorMatrix type="matrix" values="0   0   0   0   0                0   1   0   0   0                0   0   0   0   0                0   0   0   1   0 "></feColorMatrix>    </filter></defs></svg>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+
+                                                <h3 id="bio"
+                                                    data-text="大大的小蜗牛的博客"
+                                                    class="hide-from-toc no-link">大大的小<span>蜗牛</span>&#39; <i class="fas fa-blog"></i><a
+                                                        href="/posts/">博客</a>
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    <img alt="今日诗词" src="https://v2.jinrishici.com/one.svg?font-size=24&spacing=2&color=black" style="max-width:100%; display: block; margin: 0 auto;" no-view>
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <div class="button dcc-filled-button home-social">
+                                                        <a href="https://github.com/eallion" title="GitHub" target="_blank" rel="noopener noreferrer me"><svg class="icon"
+                                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                                <rect x="0" y="0" width="24" height="24" fill="none" stroke="none" />
+                                                                <path fill="currentColor"
+                                                                    d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                                                            </svg></a>
+                                                        <a href="https://e5n.cc/@eallion" title="Mastodon" target="_blank" rel="noopener noreferrer me"><svg class="icon"
+                                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                                <rect x="0" y="0" width="24" height="24" fill="none" stroke="none" />
+                                                                <path fill="currentColor"
+                                                                    d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127C.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611c.118 1.24.325 2.47.62 3.68c.55 2.237 2.777 4.098 4.96 4.857c2.336.792 4.849.923 7.256.38c.265-.061.527-.132.786-.213c.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041a.053.053 0 0 0-.046-.01a20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433a.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546c.376 0 .75 0 1.125-.01c1.57-.044 3.224-.124 4.768-.422c.038-.008.077-.015.11-.024c2.435-.464 4.753-1.92 4.989-5.604c.008-.145.03-1.52.03-1.67c.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976c-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35c-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12c.696-.77 1.608-1.164 2.74-1.164c1.311 0 2.302.5 2.962 1.498l.638 1.06l.638-1.06c.66-.999 1.65-1.498 2.96-1.498c1.13 0 2.043.395 2.74 1.164c.675.77 1.012 1.81 1.012 3.12z" />
+                                                            </svg></a>
+                                                        <a href="https://x.com/eallion" title="X" target="_blank" rel="noopener noreferrer me"><svg class="icon"
+                                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                                <rect x="0" y="0" width="24" height="24" fill="none" stroke="none" />
+                                                                <path fill="currentColor"
+                                                                    d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584l-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                                                            </svg></a>
+                                                        <a href="https://steamcommunity.com/id/eallion" title="Steam" target="_blank" rel="noopener noreferrer me"><svg
+                                                                class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                                <rect x="0" y="0" width="24" height="24" fill="none" stroke="none" />
+                                                                <path fill="currentColor"
+                                                                    d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658a3.387 3.387 0 0 1 1.912-.59c.063 0 .125.004.188.006l2.861-4.142V8.91a4.528 4.528 0 0 1 4.524-4.524c2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159a3.392 3.392 0 0 1-3.39 3.396a3.412 3.412 0 0 1-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25a2.551 2.551 0 0 0 3.337-3.324a2.547 2.547 0 0 0-3.255-1.413l1.523.63a1.878 1.878 0 0 1-1.445 3.467H7.54zm11.415-9.303a3.019 3.019 0 0 0-3.015-3.015a3.015 3.015 0 1 0 3.015 3.015zm-5.273-.005a2.264 2.264 0 1 1 4.531 0a2.267 2.267 0 0 1-2.266 2.265a2.264 2.264 0 0 1-2.265-2.265z" />
+                                                            </svg></a>
+                                                        <a href="https://keybase.io/eallion" title="Keybase" target="_blank" rel="noopener noreferrer me"><svg class="icon"
+                                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                                                <rect x="0" y="0" width="24" height="24" fill="none" stroke="none" />
+                                                                <path fill="currentColor"
+                                                                    d="M10.445 21.372a.953.953 0 1 1-.955-.954c.524 0 .951.43.951.955m5.923-.001a.953.953 0 1 1-.958-.954c.526 0 .954.43.954.955m4.544-9.16l-.156-.204c-.046-.06-.096-.116-.143-.175c-.045-.06-.094-.113-.141-.169c-.104-.12-.21-.239-.32-.359l-.075-.08l-.091-.099l-.135-.13c-.015-.019-.032-.035-.05-.054a10.87 10.87 0 0 0-3.955-2.504l-.23-.078l.035-.083a4.109 4.109 0 0 0-.12-3.255a4.11 4.11 0 0 0-2.438-2.16c-.656-.216-1.23-.319-1.712-.305c-.033-.105-.1-.577.496-1.848L10.662 0l-.287.399c-.33.455-.648.895-.945 1.328a1.857 1.857 0 0 0-1.245-.58L6.79 1.061h-.012c-.033-.003-.07-.003-.104-.003c-.99 0-1.81.771-1.87 1.755l-.088 1.402v.003a1.876 1.876 0 0 0 1.755 1.98l1.002.06c-.065.84.073 1.62.405 2.306a11.28 11.28 0 0 0-3.66 2.484C.912 14.392.912 18.052.912 20.995v1.775l1.305-1.387c.266.93.652 1.807 1.145 2.615H5.06a9.197 9.197 0 0 1-1.68-3.848l1.913-2.03l-.985 3.09l1.74-1.267c3.075-2.234 6.745-2.75 10.91-1.53c1.806.533 3.56.04 4.474-1.256l.104-.165c.09.498.14.998.14 1.496c0 1.563-.254 3.687-1.38 5.512h1.612c.776-1.563 1.181-3.432 1.181-5.512c-.001-2.2-.786-4.421-2.184-6.274zM8.894 6.192c.122-1.002.577-1.949 1.23-2.97a1.36 1.36 0 0 0 1.283.749c.216-.008.604.025 1.233.232a2.706 2.706 0 0 1 1.608 1.425c.322.681.349 1.442.079 2.15a2.69 2.69 0 0 1-.806 1.108l-.408-.502l-.002-.003a1.468 1.468 0 0 0-2.06-.205c-.334.27-.514.66-.534 1.058c-1.2-.54-1.8-1.643-1.628-3.04zm4.304 5.11l-.52.425a.228.228 0 0 1-.323-.032l-.11-.135a.238.238 0 0 1 .034-.334l.51-.42l-1.056-1.299a.307.307 0 0 1 .044-.436a.303.303 0 0 1 .435.041l2.963 3.646a.309.309 0 0 1-.168.499a.315.315 0 0 1-.31-.104l-.295-.365l-1.045.854a.244.244 0 0 1-.154.055a.237.237 0 0 1-.186-.09l-.477-.58a.24.24 0 0 1 .035-.335l1.05-.858l-.425-.533zM7.752 4.866l-1.196-.075a.463.463 0 0 1-.435-.488l.09-1.4a.462.462 0 0 1 .461-.437h.024l1.401.091a.459.459 0 0 1 .433.488l-.007.101a9.27 9.27 0 0 0-.773 1.72zm12.525 11.482c-.565.805-1.687 1.08-2.924.718c-3.886-1.141-7.397-.903-10.469.7l1.636-5.122l-5.29 5.609c.098-3.762 2.452-6.967 5.757-8.312c.471.373 1.034.66 1.673.841c.16.044.322.074.48.102a1.41 1.41 0 0 0 .21 1.408l.075.09c-.172.45-.105.975.221 1.374l.476.582a1.39 1.39 0 0 0 1.079.513c.32 0 .635-.111.886-.314l.285-.232c.174.074.367.113.566.113a1.45 1.45 0 0 0 .928-.326c.623-.51.72-1.435.209-2.06l-1.67-2.057a4.07 4.07 0 0 0 .408-.38c.135.036.27.077.4.12c.266.096.533.197.795.314a9.55 9.55 0 0 1 2.77 1.897c.03.03.06.055.086.083l.17.176c.038.039.076.079.11.12c.08.085.16.175.24.267l.126.15c.045.053.086.104.13.16l.114.15c.04.05.079.102.117.154c.838 1.149.987 2.329.404 3.157v.005zM7.718 4.115l-.835-.05l.053-.836l.834.051z" />
+                                                            </svg></a>
+                                                        <a href="mailto:eallions@gmail.com" title="Email" rel="me"><svg class="icon" xmlns="http://www.w3.org/2000/svg"
+                                                                width="24" height="24" viewBox="0 0 24 24">
+                                                                <rect x="0" y="0" width="24" height="24" fill="none" stroke="none" />
+                                                                <path fill="currentColor"
+                                                                    d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64L12 9.548l6.545-4.91l1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+                                                            </svg></a>
+                                                        <span class="get-started-dot"> <i class="fas fa-circle"></i> </span>
+                                                        <a href="#get-started" title="Get Started" rel="me">
+                                                            <span class="fas fa-chevron-circle-down fa-fw"></span></a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <script>
+                            // 动态头图
+                            function handleMove(e) {
+                                const windowWidth = window.innerWidth / 2;
+                                const windowHeight = window.innerHeight / 2;
+                                const mouseX = e.clientX / windowWidth;
+                                const mouseY = e.clientY / windowHeight;
+                                bg.style.transform = `translate3d(-${mouseX}%, -${mouseY}%, 0)`;
+                            }
+                            const bg = document.querySelector('[theme=web-theme] .dcc-hero figure');
+                            bg.addEventListener('mousemove', handleMove);
+                        </script>
+
+                        <section id="get-started">
+                        </section>
+
+                        <section id="posts" view-image
+                            class="devsite-landing-row devsite-landing-row-2-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-featured"
+                            header-position="top">
+                            <div class="devsite-landing-row-inner">
+                                <div class="devsite-landing-row-group">
+                                    {{- if ne $posts.enable false | and .Site.RegularPages -}}
+                                    {{- /* Paginate */ -}}
+                                    {{- $pages := where .Site.RegularPages "Type" "in" site.Params.mainSections -}}
+                                    {{- if .Site.Params.page.hiddenFromHomePage -}}
+                                    {{- $pages = where $pages "Params.hiddenfromhomepage" false -}}
+                                    {{- else -}}
+                                    {{- $pages = where $pages "Params.hiddenfromhomepage" "!=" true -}}
+                                    {{- end -}}
+                                    {{- with $posts.paginate | default .Site.Params.paginate -}}
+                                    {{- $pages = $.Paginate $pages . -}}
+                                    {{- else -}}
+                                    {{- $pages = .Paginate $pages -}}
+                                    {{- end -}}
+                                    {{- range $pages.Pages -}}
+
+                                    {{- $params := .Params | merge .Site.Params.page -}}
+                                    {{- $currentSlug := .Params.slug -}}
+                                    <div class="devsite-landing-row-item dcc-blog-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <a href="{{- .RelPermalink -}}" aria-label="{{- .Title -}}">
+                                                    <img alt src="/assets/images/og/{{- $currentSlug | default "eallion" -}}.png" loading="lazy" width="376" height="240" no-view />
+                                                </a>
+                                            </figure>
+                                        </div>
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <div class="devsite-landing-row-item-labels">
+                                                    <h3 class="blog-title">
+                                                        <a
+                                                        {{ if gt .Date (now.AddDate 0 0 -15) }}
+                                                            class="article_new"
+                                                        {{ end }}
+                                                        href="{{- .RelPermalink -}}"> {{- .Title -}} </a></h3>
+                                                </div>
+
+                                                <!-- <h3 id="recent"
+                                                    data-text="Preparing for the end of third-party cookies"
+                                                    class="hide-from-toc no-link">
+                                                    <a href="{{- .RelPermalink -}}"> {{- .Title -}} </a>
+                                                </h3> -->
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    {{- $summary := $params.summary -}}
+                                                    {{- with $summary -}}
+                                                        {{ . | safeHTML }}
+                                                    {{- else -}}
+                                                        {{- with .Summary -}}
+                                                            {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                                                        {{- else -}}
+                                                            {{- .Description | safeHTML -}}
+                                                        {{- end -}}
+                                                    {{- end -}}
+                                                </div>
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="{{- .RelPermalink -}}" class="button"
+                                                        aria-label="Read the third-party cookies blog post.">阅读全文
+                                                        </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{- end -}}
+                                    {{- end -}}
+                                </div>
+                            </div>
+                        </section>
+
+                        <!--
+                        <section id="toots"
+                            class="devsite-landing-row devsite-landing-row-2-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-social"
+                            background="pale-blue" header-position="top">
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header">
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 id="tool" data-text="Mastodon"><a href="/toot/"
+                                            target="_self"><img alt src="/assets/chromedev/images/mastodon.svg"
+                                            loading="lazy" no-view/> &middot; 嘀咕</a></h2>
+                                    </div>
+                                </header>
+                                <div class="devsite-landing-row-group">
+                                    {{- $mastodon_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true&exclude_reblogs=true" -}}
+                                    {{- $mastodon_local := "data/mastodon/mastodon.json" -}}
+                                    {{- with resources.GetRemote $mastodon_api }}
+                                        {{- with .Err }}
+                                        {{- $ticker := getJSON $mastodon_local -}}
+                                            {{- range first 6 $ticker }}
+                                                {{ $content := .content }}
+                                                {{ $content := $content | replaceRE ":star_solid:" "<svg t='1701951107632' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9850' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536z' fill='#fcd53f' p-id='9851'></path></svg>" }}
+                                                {{ $content := $content | replaceRE ":star_half:" "<svg t='1701951065761' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9434' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-0.928 0.48 0.928-570.784 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9435'></path></svg>" }}
+                                                {{ $content := $content | replaceRE ":star_empty:" "<svg t='1701951086181' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9642' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-223.456 117.472 42.688-248.832-180.8-176.224 249.856-36.288 111.744-226.4 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9643'></path></svg>" }}
+
+                                                {{ $matches := findRE `href=\"([^\"]*)\"` $content }}
+                                                {{ $resultContent := $content }}
+                                                {{ range $index, $originalURL := $matches }}
+                                                    {{ $originalURL := $originalURL | strings.TrimPrefix "href=\"" }}
+                                                    {{ $originalURL := $originalURL | strings.TrimSuffix "\"" }}
+                                                    {{ $encodedURL := $originalURL | base64Encode }}
+                                                    {{ $resultURL := printf "/go/?target=%s" $encodedURL }}
+                                                    {{ $resultContent = replaceRE $originalURL $resultURL $resultContent }}
+                                                {{ end }}
+
+                                                <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                                    <article class="mt-toot">
+                                                        <div class="mt-header">
+                                                            <a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer"
+                                                                target="_blank">
+                                                                <div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy" no-view></div>
+                                                            </a>
+                                                            <div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank">
+                                                                    <div class="mt-nick">Charles Chin</div>
+                                                                    <div class="mt-id">@eallion@e5n.cc</div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                                    target="_blank"><span><i class="far fa-calendar-alt fa-fw"></i></span><span class="twitter-time">{{- .created_at -}}</span></a></div>
+                                                        </div>
+                                                        <div class="toot-text">
+                                                            <div>
+                                                                <p>{{ $resultContent | markdownify }}</p>
+                                                            </div>
+                                                            <div class="toot-attach" view-image>
+                                                                {{ $attachments := .media_attachments }}
+                                                                {{ if gt (len $attachments) 0 }}
+                                                                    {{- $firstAttachment := index $attachments 0 -}}
+                                                                    {{- $type := $firstAttachment.type -}}
+                                                                    {{- $length := len .media_attachments }}
+                                                                    {{ if eq $type "image" }}
+                                                                        {{ range .media_attachments }}
+                                                                            <a href="{{ .url }}">🖼️</a>
+                                                                        {{ end }}
+                                                                    {{ else if eq $type "video" }}
+                                                                        {{ range .media_attachments }}
+                                                                            <a href="{{ .preview_url }}">🎬</a>
+                                                                        {{ end }}
+                                                                    {{ end }}
+                                                                {{ end }}
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                            </div>
+                                            {{ end -}}
+                                        {{- else -}}
+                                        {{- $ticker := getJSON $mastodon_api -}}
+                                                {{- range first 6 $ticker }}
+                                                {{ $content := .content }}
+                                                {{ $content := $content | replaceRE ":star_solid:" "<svg t='1701951107632' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9850' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536z' fill='#fcd53f' p-id='9851'></path></svg>" }}
+                                                {{ $content := $content | replaceRE ":star_half:" "<svg t='1701951065761' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9434' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-0.928 0.48 0.928-570.784 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9435'></path></svg>" }}
+                                                {{ $content := $content | replaceRE ":star_empty:" "<svg t='1701951086181' class='' viewBox='0 0 1025 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' p-id='9642' width='1.25rem' height='1.25rem'><path d='M1024 397.056l-353.792-51.424-158.208-320.576-158.208 320.576-353.792 51.424 256 249.536-60.448 352.352 316.448-166.368 316.448 166.368-60.448-352.352 256-249.536zM512 753.504l-223.456 117.472 42.688-248.832-180.8-176.224 249.856-36.288 111.744-226.4 111.744 226.4 249.824 36.288-180.8 176.224 42.688 248.832-223.456-117.472z' fill='#fcd53f' p-id='9643'></path></svg>" }}
+
+                                                {{ $matches := findRE `href=\"([^\"]*)\"` $content }}
+                                                {{ $resultContent := $content }}
+                                                {{ range $index, $originalURL := $matches }}
+                                                    {{ $originalURL := $originalURL | strings.TrimPrefix "href=\"" }}
+                                                    {{ $originalURL := $originalURL | strings.TrimSuffix "\"" }}
+                                                    {{ $encodedURL := $originalURL | base64Encode }}
+                                                    {{ $resultURL := printf "/go/?target=%s" $encodedURL }}
+                                                    {{ $resultContent = replaceRE $originalURL $resultURL $resultContent }}
+                                                {{ end }}
+
+                                                <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                                    <article class="mt-toot">
+                                                        <div class="mt-header">
+                                                            <a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer"
+                                                                target="_blank">
+                                                                <div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy" no-view></div>
+                                                            </a>
+                                                            <div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank">
+                                                                    <div class="mt-nick">Charles Chin</div>
+                                                                    <div class="mt-id">@eallion@e5n.cc</div>
+                                                                </a>
+                                                            </div>
+                                                            <div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
+                                                                    target="_blank"><span><i class="far fa-calendar-alt fa-fw"></i></span><span class="twitter-time">{{- .created_at -}}</span></a></div>
+                                                        </div>
+                                                        <div class="toot-text">
+                                                            <div>
+                                                                <p>{{ $resultContent | markdownify }}</p>
+                                                            </div>
+                                                            <div class="toot-attach" view-image>
+                                                                {{ $attachments := .media_attachments }}
+                                                                {{ if gt (len $attachments) 0 }}
+                                                                    {{- $firstAttachment := index $attachments 0 -}}
+                                                                    {{- $type := $firstAttachment.type -}}
+                                                                    {{- $length := len .media_attachments }}
+                                                                    {{ if eq $type "image" }}
+                                                                        {{ range .media_attachments }}
+                                                                            <a href="{{ .url }}">🖼️</a>
+                                                                        {{ end }}
+                                                                    {{ else if eq $type "video" }}
+                                                                        {{ range .media_attachments }}
+                                                                            <a href="{{ .preview_url }}">🎬</a>
+                                                                        {{ end }}
+                                                                    {{ end }}
+                                                                {{ end }}
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                            </div>
+                                            {{ end -}}
+                                        {{ end -}}
+                                    {{ end -}}
+                                </div>
+                            </div>
+
+                            <script>
+                                // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
+                                (() => {
+                                    let location = window.location.href;
+                                    let isEnglish = location.indexOf("/en/") !== -1;
+                                    window.Lately = new function () {
+                                        this.lang = isEnglish ? {
+                                            'second': ' Seconds',
+                                            'minute': ' Minutes',
+                                            'hour': ' Hours',
+                                            'day': ' Days',
+                                            'month': ' Months',
+                                            'year': ' Years',
+                                            'ago': ' Ago',
+                                            'error': 'NaN'
+                                        } : {
+                                            second: " 秒",
+                                            minute: " 分钟",
+                                            hour: " 小时",
+                                            day: " 天",
+                                            month: " 个月",
+                                            year: " 年",
+                                            ago: "前",
+                                            error: "NaN"
+                                        };
+                                        const format = (date) => {
+                                            date = new Date(_val(date));
+                                            const floor = (num, _lang) => Math.floor(num) + _lang,
+                                                obj = new function () {
+                                                    this.second = (Date.now() - date.getTime()) / 1000;
+                                                    this.minute = this.second / 60;
+                                                    this.hour = this.minute / 60;
+                                                    this.day = this.hour / 24;
+                                                    this.month = this.day / 30;
+                                                    this.year = this.month / 12
+                                                },
+                                                key = Object.keys(obj).reverse().find(_ => obj[_] >= 1);
+                                            return (key ? floor(obj[key], this.lang[key]) : this.lang.error) + this.lang.ago;
+                                        },
+                                            _val = (date) => {
+                                                date = new Date(date && (typeof date === 'number' ? date : date.replace(/-/g, '/').replace('T', ' ')));
+                                                return isNaN(date.getTime()) ? false : date.getTime();
+                                            };
+                                        return {
+                                            init: ({ target = "time", lang } = {}) => {
+                                                if (lang) this.lang = lang;
+                                                for (let el of document.querySelectorAll(target)) {
+                                                    const date = _val(el.dateTime) || _val(el.title) || _val(el.innerHTML) || 0;
+                                                    if (!date) return;
+                                                    el.title = new Date(date).toLocaleString();
+                                                    el.innerHTML = format(date);
+                                                }
+                                            },
+                                            format
+                                        }
+                                    }
+                                })();
+
+                                window.Lately && Lately.init({
+                                    target: '.twitter-time'
+                                });
+                            </script>
+                        </section>
+                        -->
+
+                        <!--
+                        <section id="cates" view-image
+                            class="devsite-landing-row devsite-landing-row-4-up dcc-docs" header-position="left">
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header" icon-position="top">
+                                    <div class="devsite-landing-row-header-icon-container" size="medium">
+                                        <div class="devsite-landing-row-header-icon material-icons" aria-hidden="true">
+                                            description</div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 data-text="文章的分类"><a href="/categories/">博客分类</a></h2>
+
+                                        <div class="devsite-landing-row-description">
+                                            「世界上只有一种真正的英雄主义，就是认清了生活的真相后还依然热爱它。」- 罗曼・罗兰</div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-header-buttons">
+                                        <a href="/posts/" class="button">查看所有文章</a>
+                                    </div>
+                                </header>
+
+                                <div class="devsite-landing-row-group">
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/chrome-devtools-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="life" data-text="生活日志" class="hide-from-toc no-link">
+                                                    生活</h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    生活类博客文章，记录自己的心情、随想和感悟。
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/日志/" class="button">查看「日志」分类文章</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/chrome-extensions-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="code" data-text="技术代码" class="hide-from-toc no-link">代码
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    技术、代码类的文章，主要是备忘录，记录一些折腾的过程。
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/代码/" class="button">查看「代码」分类文章</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/chrome-web-store-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="share" data-text="分享收集"
+                                                    class="hide-from-toc no-link">分享</h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    分享一些有趣、有深度、引人思考的文章和资讯。若有侵权，请联系删除！
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/分享/" class="button">查看「分享」分类文章</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-docs-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/web-on-android-thumb.svg"
+                                                    loading="lazy" width="128" height="128" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="other" data-text="其他分类" class="hide-from-toc no-link">其他
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">早年间其他朋友们发的一些文章，一直保存至今，偶尔回味。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/categories/山贼/" class="button">查看「其他」分类文章</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        -->
+
+                        <section id="about" view-image
+                            class="devsite-landing-row devsite-landing-row-3-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-case-studies"
+                            header-position="top">
+                            <div class="devsite-landing-row-inner">
+                                <div class="devsite-landing-row-group">
+                                    <div class="devsite-landing-row-item" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/get-inspired-icon.svg"
+                                                    loading="lazy" width="40" height="40" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="intro" data-text="简介" class="hide-from-toc no-link">作者简介
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    <ul>
+                                                        <li>双子，B 型血，断掌，属虎。</li>
+                                                        <li>已婚，有子。</li>
+                                                        <li>不高不矮，<del>不胖不瘦</del>。</li>
+                                                        <li>先天性乐观。</li>
+                                                        <li>随意但不随便。</li>
+                                                        <li>小众而不小资。</li>
+                                                        <li>亦正亦邪。</li>
+                                                        <li>不是个好人但从来不做坏事。</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://charleschin.com" target="_blank"
+                                                        rel="noopener noreferrer" class="button">CharlesChin.com <i
+                                                            class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-blog-card" description-position="top">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image avatar">
+                                                <a href="/about/" aria-label="about">
+                                                    <img alt src="/assets/chromedev/images/about.png" loading="lazy"
+                                                        width="395" height="222" no-view/>
+                                                </a>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <div class="devsite-landing-row-item-labels">
+                                                    <span class="">About me</span>
+
+                                                    <span class="dcc-label-top"></span>
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-description-content">头像
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item devsite-landing-row-item-no-media"
+                                        description-position="bottom">
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 data-text="关于 / About" class="hide-from-toc no-link">
+                                                    <a href="/about/">
+                                                        关于 / About</a>
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content about-desc">
+                                                    <p>我是<span>「蜗牛」</span>，不过一般都使用<span>「大大的小蜗牛」作为网名。</span><br>
+                                                        AKA：<span>Charles &#39;<i>eallion</i>&#39; Chin.</span><br>
+                                                        本名没有什么内涵，略去不表。<br>
+                                                        早年常居鲁迅故里，钟情于江南水乡。<br>
+                                                        工作于电商之都。后为生计南下深港。<br>
+                                                        最喜欢的一句话：<br>
+                                                        ——「机会总是垂青于有准备的人！」</p>
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/about/" class="button button-white">Read more</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section id="movies" view-image
+                            class="devsite-landing-row devsite-landing-row-4-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-pillars"
+                            background="pale-blue" header-position="top">
+
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header">
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 id="movie" data-text="最近观影">
+                                            <a href="/movie/" class=""><i class="fas fa-video"></i> 最近观影</a>
+                                        </h2>
+                                    </div>
+                                </header>
+
+                                <div class="devsite-landing-row-group">
+                                    {{ $movie_details := getJSON "data/neodb/movie_details.json" }}
+                                    {{ range first 8 $movie_details }}
+                                    {{ $title := .display_title }}
+                                    {{ $orig_title := .orig_title }}
+                                    {{ $year := .year }}
+                                    {{ $rating := float .rating }}
+                                    {{ $rating_percent := mul $rating 10 }}
+                                    {{ $movie_url := printf "https://neodb.social%s" .url }}
+                                    {{ $imdb := printf "https://www.imdb.com/title/%s" .imdb}}
+                                    {{ $cover := .cover_image_url }}
+                                    {{ $cover_name := path.Base $cover }}
+                                    {{ $brief := .brief }}
+                                    {{ $cate_movie := "movie" }}
+                                    {{ $cate_tv := "tv" }}
+                                    <div class="devsite-landing-row-item dcc-services-card"
+                                        description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+
+                                            <div class="card">
+                                                <div class="poster">
+                                                    <img alt="{{- $title -}}" class="lazy" loading="lazy" src="/assets/images/movie/cover/{{- $cover_name -}}" data-src="/assets/images/movie/cover/{{- $cover_name -}}" no-view>
+                                                </div>
+                                                <div class="movie-cate">
+                                                    {{- if eq .category $cate_movie -}}<i class="fas fa-film fa-fw"></i> Film{{- else if eq .category $cate_tv -}}<i class="fas fa-tv fa-xs"></i> TV{{- end -}}
+                                                </div>
+                                                <div class="movie_details">
+                                                    <h2><a href="/go/?target={{- $movie_url | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">{{- $title -}}</a><br><span>{{- $orig_title | default $title -}} ({{- $year -}})</span></h2>
+
+                                                    <div class="rating">
+                                                        <div class="rating_star">
+                                                            <div class="rating_full"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg></div>
+                                                            <div class="rating_empty" style="width: {{- $rating_percent -}}%;"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg></div>
+                                                        </div>
+                                                        <span>{{- $rating | default "Null" -}}</span>
+                                                    </div>
+
+                                                    <div class="tags">
+                                                        {{ range first 5 .genre }}
+                                                            <span class="">{{- . -}}</span>
+                                                        {{ end }}
+                                                    </div>
+
+                                                    <div class="info">
+                                                    </div>
+                                                    <div class="movie-footer">
+                                                        <div class="star">
+                                                            <!-- <h4>Info:</h4> -->
+                                                            <ul>
+                                                                <li class="neodb">
+                                                                    <a href="/go/?target={{- $movie_url | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">
+                                                                        <img src="/assets/images/movie/neodbsocial.svg" alt="NeoDB" no-view>
+                                                                    </a>
+                                                                </li>
+                                                                {{ range .external_resources }}
+                                                                    {{ $parsedURL := urls.Parse .url }}
+                                                                    {{ $host := $parsedURL.Hostname }}
+                                                                    {{ $title := .title }}
+                                                                        {{ if not (strings.Contains .url "imdb.com") }}
+                                                                            <li class="external-resource">
+                                                                                <a href="/go/?target={{- .url | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">
+                                                                                    <img src="/assets/images/movie/{{- $host -}}.png" alt="{{- $title -}}" no-view>
+                                                                                </a>
+                                                                            </li>
+                                                                        {{ end }}
+                                                                {{ end }}
+                                                                {{ if and ($imdb) (ne $imdb "") }}
+                                                                    <li class="imdb">
+                                                                        <a href="/go/?target={{- $imdb | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">
+                                                                            <img src="/assets/images/movie/www.imdb.com.png" alt="IMDB" no-view>
+                                                                        </a>
+                                                                    </li>
+                                                                {{ end }}
+                                                            </ul>
+                                                        </div>
+                                                        <div class="movie-play">
+                                                            <a href="https://xiaoya.eallion.com/search?box={{- $title -}}&url=&type=video" target="_blank" rel="noreferrer noopener nofollow" aria-label="play" alt="在线播放" title="在线播放">
+                                                                <svg t="1703688181681" class="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8794" width="24" height="24"><path d="M896 224c0-70.6-57.4-128-128-128H192c-70.6 0-128 57.4-128 128v64h832v-64zM64 352v384c0 70.6 57.4 128 128 128h416.9C569 826.9 544 773.9 544 715.3 544 603.2 635.2 512 747.3 512c58.7 0 111.6 25 148.7 64.9V352H64z m465.8 225.2l-97.2 56.1c-21.3 12.3-48-3.1-48-27.7V493.4c0-24.6 26.7-40 48-27.7l97.2 56.1c21.3 12.3 21.3 43.1 0 55.4z" p-id="8795" fill="#ffffff"></path><path d="M950.6 873.4L894 816.8c-1.8-1.8-3.7-3.3-5.7-4.5 19-27.6 30.2-61 30.2-97 0-94.4-76.8-171.3-171.3-171.3S576 620.8 576 715.3s76.8 171.3 171.3 171.3c36 0 69.4-11.2 97-30.2 1.3 2 2.8 3.9 4.5 5.7l56.6 56.6c6.2 6.2 14.4 9.4 22.6 9.4s16.4-3.1 22.6-9.4c12.5-12.6 12.5-32.8 0-45.3z m-203.3-50.9c-59.2 0-107.3-48.1-107.3-107.3S688.1 608 747.3 608s107.3 48.1 107.3 107.3-48.2 107.2-107.3 107.2z" p-id="8796" fill="#ffffff"></path></svg>
+                                                                </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        </section>
+
+                        <!--
+                        <section id="goods" view-image
+                            class="devsite-landing-row devsite-landing-row-2-up dcc-chrome-releases"
+                            header-position="left">
+                            {{- $goods := getJSON "data/goods/goods.json" -}}
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header" icon-position="top">
+                                    <div class="devsite-landing-row-header-icon-container" size="medium">
+                                        <div class="devsite-landing-row-header-icon material-icons" aria-hidden="true">
+                                            redeem</div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 id="goods-share" data-text="好物分享"><a href="/goods/">好物分享</a> <sup>Beta</sup></h2>
+
+                                        <div class="devsite-landing-row-description">
+                                            自己体验过的好物推荐。<br>
+                                            如果需要优惠券可以看看我的导购网站，直接搜券：<br>
+                                            👉 <a href="https://www.kubaicai.com/" target="_blank" rel="noreferrer noopener nofollow">www.kubaicai.com <i class="fas fa-external-link-alt fa-xs"></i></a> 。
+                                        </div>
+                                    </div>
+                                </header>
+
+                                <div class="devsite-landing-row-group">
+                                    {{- range first 2 $goods.good}}
+                                    <div class="devsite-landing-row-item dcc-blog-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img class="lazy" loading="lazy" src="{{- .image -}}" alt="{{- .title -}}">
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 data-text="{{- .title -}}"
+                                                    class="hide-from-toc no-link">
+                                                    <a href="{{- .link -}}" target="_blank" rel="noreferrer noopener nofollow">{{- .title -}}</a>
+                                                </h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    {{- .note | safeHTML -}}
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="{{- .link -}}" target="_blank" rel="noreferrer noopener nofollow" class="button"><i class="fas fa-shopping-cart"></i> 去官网查看 ({{- .price -}})</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{- end -}}
+                                </div>
+                            </div>
+                        </section>
+                        -->
+
+                        <section id="tools" view-image
+                            class="devsite-landing-row devsite-landing-row-2-up devsite-landing-row-cards devsite-landing-row-no-image-background dcc-social"
+                            background="pale-blue" header-position="top">
+                            <div class="devsite-landing-row-inner">
+                                <header class="devsite-landing-row-header">
+                                    <div class="devsite-landing-row-header-text">
+                                        <h2 id="social" data-text="实用工具">实用工具</h2>
+                                    </div>
+                                </header>
+
+                                <div class="devsite-landing-row-group">
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/favorite.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-x" data-text="Mastodon"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/helloxz/onenav" target="_blank" rel="noopener noreferrer">网址导航</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">利用 <a target="_blank" href="https://github.com/helloxz/onenav" title="简约导航/书签管理器" rel="nofollow">OneNav</a> Docker 部署的个人导航网站，使用的自己修改的 <a href="https://github.com/eallion/onenav-baisu-mod" target="_blank">BaiSu Mod</a> 模板。
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://s.eallion.com" target="_blank" rel="noopener noreferrer" class="button">前往浏览 <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/ublacklist.png"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer">uBlacklist 订阅合集</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">🚫 用于 <a href="https://chromewebstore.google.com/detail/ublacklist/pncfbmialoiaghdehhbnbhkkgmjanfhe" target="_blank">uBlacklist</a> 插件的规则订阅合集，通过匹配域名的方式，屏蔽搜索引擎的中文内容农场！</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://github.com/eallion/uBlacklist-subscription-compilation" target="_blank" rel="noopener noreferrer" class="button">前往设置 <i class="fas fa-tools"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/mastodon.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/eallion/mastodon-embed-timeline" target="_blank" rel="noopener noreferrer">Mastodon embed timeline</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">
+                                                    把 <a href="https://e5n.com/@eallion" target="_blank" rel="noopener noreferrer">Mastodon</a> 时间轴上的 toots 嵌入到自己的网站上。设置非常简单，无依赖性，无跟踪器，符合 WCAG 标准，响应式布局。
+                                                </div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="/toot/" class="button">效果预览</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/windows.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/mikolatero/docker-vlmcsd" target="_blank" rel="noopener noreferrer">KMS Windows & Office 激活</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">自建的 Windows 和 Office 激活服务器。可激活 VOL 批量授权版。需自备 KEY 或者使用微软官方提供的 <a href="https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys" target="_blank" rel="noopener noreferrer">Key</a>。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://kms.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">前往激活 <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/freshrss.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">FreshRSS</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">使用 <a href="https://github.com/FreshRSS/FreshRSS" target="_blank" rel="noopener noreferrer">FreshRSS</a> 和 <a href="https://github.com/DIYgod/RSSHub" target="_blank" rel="noopener noreferrer">RSSHub</a> 部署的 RSS 订阅服务。避免陷入信息茧房。需要登录阅读。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://rss.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即阅读 <i class="fas fa-rss"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="devsite-landing-row-item dcc-social-card" description-position="bottom">
+                                        <div class="devsite-landing-row-item-media">
+                                            <figure class="devsite-landing-row-item-image">
+                                                <img alt src="/assets/chromedev/images/alist.svg"
+                                                    loading="lazy" width="57" height="57" no-view/>
+                                            </figure>
+                                        </div>
+
+                                        <div class="devsite-landing-row-item-description">
+                                            <div class="devsite-landing-row-item-body">
+                                                <h3 id="chrome-for-developers-on-youtube" data-text="GitHub"
+                                                    class="hide-from-toc no-link"><a href="https://github.com/alist-org/alist" target="_blank" rel="noopener noreferrer">Alist 小雅</a></h3>
+
+                                                <div class="devsite-landing-row-item-description-content">一款支持多种存储的目录文件列表程序，支持 Web 浏览与 Webdav，后端基于 Gin，前端使用 React。</div>
+
+                                                <div class="devsite-landing-row-item-buttons">
+                                                    <a href="https://xiaoya.eallion.com/" target="_blank" rel="noopener noreferrer" class="button">立即体验 <i class="fas fa-external-link-alt"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </article>
+            </devsite-content>
+        </main>
+    </section>
+
+    <footer id="footer"
+        class="type--footer lg:pad-left-600 lg:pad-right-600" data-side-nav-inert data-search-inert>
+
+        <div class="pad-top-600 pad-bottom-600 pad-left-400 pad-right-400 hairline-bottom  lg:pad-left-0 lg:pad-right-0">
+            <div class="display-flex direction-column lg:direction-row justify-content-between footer-meta">
+                <div class="footer__stack stack-recursive flex-1">
+                    <div class="footer__heading">Intro</div>
+                    <ul class="pad-0 gap-bottom-0" role="list">
+                        <li>
+                            <a href="https://notbyai.fyi" target="_blank" rel="noopener noreffer" aria-label="not by ai"><img src="/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-white.svg" alt no-view></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/eallion" title="GitHub" target="_blank" rel="noopener noreferrer me"><svg class="icon"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <rect x="0" y="0" width="24" height="24" fill="none" stroke="none" />
+                                    <path fill="currentColor"
+                                        d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                                </svg></a>
+                            <a href="https://e5n.cc/@eallion" title="Mastodon" target="_blank" rel="noopener noreferrer me"><svg class="icon"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <rect x="0" y="0" width="24" height="24" fill="none" stroke="none" />
+                                    <path fill="currentColor"
+                                        d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127C.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611c.118 1.24.325 2.47.62 3.68c.55 2.237 2.777 4.098 4.96 4.857c2.336.792 4.849.923 7.256.38c.265-.061.527-.132.786-.213c.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041a.053.053 0 0 0-.046-.01a20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433a.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546c.376 0 .75 0 1.125-.01c1.57-.044 3.224-.124 4.768-.422c.038-.008.077-.015.11-.024c2.435-.464 4.753-1.92 4.989-5.604c.008-.145.03-1.52.03-1.67c.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976c-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35c-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12c.696-.77 1.608-1.164 2.74-1.164c1.311 0 2.302.5 2.962 1.498l.638 1.06l.638-1.06c.66-.999 1.65-1.498 2.96-1.498c1.13 0 2.043.395 2.74 1.164c.675.77 1.012 1.81 1.012 3.12z" />
+                                </svg></a>
+                            <a href="https://x.com/eallion" title="X" target="_blank" rel="noopener noreferrer me"><svg class="icon"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <rect x="0" y="0" width="24" height="24" fill="none" stroke="none" />
+                                    <path fill="currentColor"
+                                        d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584l-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                                </svg></a>
+                            <a href="https://steamcommunity.com/id/eallion" title="Steam" target="_blank" rel="noopener noreferrer me"><svg
+                                    class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <rect x="0" y="0" width="24" height="24" fill="none" stroke="none" />
+                                    <path fill="currentColor"
+                                        d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658a3.387 3.387 0 0 1 1.912-.59c.063 0 .125.004.188.006l2.861-4.142V8.91a4.528 4.528 0 0 1 4.524-4.524c2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159a3.392 3.392 0 0 1-3.39 3.396a3.412 3.412 0 0 1-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25a2.551 2.551 0 0 0 3.337-3.324a2.547 2.547 0 0 0-3.255-1.413l1.523.63a1.878 1.878 0 0 1-1.445 3.467H7.54zm11.415-9.303a3.019 3.019 0 0 0-3.015-3.015a3.015 3.015 0 1 0 3.015 3.015zm-5.273-.005a2.264 2.264 0 1 1 4.531 0a2.267 2.267 0 0 1-2.266 2.265a2.264 2.264 0 0 1-2.265-2.265z" />
+                                </svg></a>
+                            <a href="https://keybase.io/eallion" title="Keybase" target="_blank" rel="noopener noreferrer me"><svg class="icon"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <rect x="0" y="0" width="24" height="24" fill="none" stroke="none" />
+                                    <path fill="currentColor"
+                                        d="M10.445 21.372a.953.953 0 1 1-.955-.954c.524 0 .951.43.951.955m5.923-.001a.953.953 0 1 1-.958-.954c.526 0 .954.43.954.955m4.544-9.16l-.156-.204c-.046-.06-.096-.116-.143-.175c-.045-.06-.094-.113-.141-.169c-.104-.12-.21-.239-.32-.359l-.075-.08l-.091-.099l-.135-.13c-.015-.019-.032-.035-.05-.054a10.87 10.87 0 0 0-3.955-2.504l-.23-.078l.035-.083a4.109 4.109 0 0 0-.12-3.255a4.11 4.11 0 0 0-2.438-2.16c-.656-.216-1.23-.319-1.712-.305c-.033-.105-.1-.577.496-1.848L10.662 0l-.287.399c-.33.455-.648.895-.945 1.328a1.857 1.857 0 0 0-1.245-.58L6.79 1.061h-.012c-.033-.003-.07-.003-.104-.003c-.99 0-1.81.771-1.87 1.755l-.088 1.402v.003a1.876 1.876 0 0 0 1.755 1.98l1.002.06c-.065.84.073 1.62.405 2.306a11.28 11.28 0 0 0-3.66 2.484C.912 14.392.912 18.052.912 20.995v1.775l1.305-1.387c.266.93.652 1.807 1.145 2.615H5.06a9.197 9.197 0 0 1-1.68-3.848l1.913-2.03l-.985 3.09l1.74-1.267c3.075-2.234 6.745-2.75 10.91-1.53c1.806.533 3.56.04 4.474-1.256l.104-.165c.09.498.14.998.14 1.496c0 1.563-.254 3.687-1.38 5.512h1.612c.776-1.563 1.181-3.432 1.181-5.512c-.001-2.2-.786-4.421-2.184-6.274zM8.894 6.192c.122-1.002.577-1.949 1.23-2.97a1.36 1.36 0 0 0 1.283.749c.216-.008.604.025 1.233.232a2.706 2.706 0 0 1 1.608 1.425c.322.681.349 1.442.079 2.15a2.69 2.69 0 0 1-.806 1.108l-.408-.502l-.002-.003a1.468 1.468 0 0 0-2.06-.205c-.334.27-.514.66-.534 1.058c-1.2-.54-1.8-1.643-1.628-3.04zm4.304 5.11l-.52.425a.228.228 0 0 1-.323-.032l-.11-.135a.238.238 0 0 1 .034-.334l.51-.42l-1.056-1.299a.307.307 0 0 1 .044-.436a.303.303 0 0 1 .435.041l2.963 3.646a.309.309 0 0 1-.168.499a.315.315 0 0 1-.31-.104l-.295-.365l-1.045.854a.244.244 0 0 1-.154.055a.237.237 0 0 1-.186-.09l-.477-.58a.24.24 0 0 1 .035-.335l1.05-.858l-.425-.533zM7.752 4.866l-1.196-.075a.463.463 0 0 1-.435-.488l.09-1.4a.462.462 0 0 1 .461-.437h.024l1.401.091a.459.459 0 0 1 .433.488l-.007.101a9.27 9.27 0 0 0-.773 1.72zm12.525 11.482c-.565.805-1.687 1.08-2.924.718c-3.886-1.141-7.397-.903-10.469.7l1.636-5.122l-5.29 5.609c.098-3.762 2.452-6.967 5.757-8.312c.471.373 1.034.66 1.673.841c.16.044.322.074.48.102a1.41 1.41 0 0 0 .21 1.408l.075.09c-.172.45-.105.975.221 1.374l.476.582a1.39 1.39 0 0 0 1.079.513c.32 0 .635-.111.886-.314l.285-.232c.174.074.367.113.566.113a1.45 1.45 0 0 0 .928-.326c.623-.51.72-1.435.209-2.06l-1.67-2.057a4.07 4.07 0 0 0 .408-.38c.135.036.27.077.4.12c.266.096.533.197.795.314a9.55 9.55 0 0 1 2.77 1.897c.03.03.06.055.086.083l.17.176c.038.039.076.079.11.12c.08.085.16.175.24.267l.126.15c.045.053.086.104.13.16l.114.15c.04.05.079.102.117.154c.838 1.149.987 2.329.404 3.157v.005zM7.718 4.115l-.835-.05l.053-.836l.834.051z" />
+                                </svg></a>
+                            <a href="mailto:eallions@gmail.com" title="Email" rel="me"><svg class="icon" xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24">
+                                    <rect x="0" y="0" width="24" height="24" fill="none" stroke="none" />
+                                    <path fill="currentColor"
+                                        d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64L12 9.548l6.545-4.91l1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+                                </svg></a>
+                        </li>
+                        <li role="listitem"><a class="footer__link"
+                            href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i class="fab fa-creative-commons-sa"></i> CC-BY-SA-4.0</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__stack stack-recursive flex-1">
+                    <div class="footer__heading">快速开始</div>
+                    <ul class="pad-0 gap-bottom-0" role="list">
+                        <li>
+                            <a class="menu-item" href="/toot/" title="嘀咕 Toots"><i class="fab fa-mastodon"></i> 嘀咕 </a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/posts/" title="所有文章"><i class="fas fa-blog"></i> 所有文章</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/movie/" title="豆瓣观影记录"><i class="fas fa-film"></i> 观影记录</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" href="/goods/" title="好物推荐"><i class="fas fa-gift"></i> 好物推荐</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__stack stack-recursive flex-1">
+                    <div class="footer__heading">分类</div>
+                    <ul class="pad-0 gap-bottom-0" role="list">
+                        <li>
+                            <a href="/categories/%E6%97%A5%E5%BF%97/"><i class="fas fa-file-word fa-fw"></i> 日志 </a>
+                        </li>
+                        <li>
+                            <a href="/categories/%E4%BB%A3%E7%A0%81/"><i class="fas fa-file-code fa-fw"></i> 代码 </a>
+                        </li>
+                        <li>
+                            <a href="/categories/%E5%88%86%E4%BA%AB/"><i class="fas fa-share-alt fa-fw"></i> 分享 </a>
+                        </li>
+                        <li>
+                            <a href="/categories/%E5%B1%B1%E8%B4%BC/"><i class="fas fa-user-friends fa-fw"></i> 其他 </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__stack stack-recursive flex-1">
+                    <div class="footer__heading">Sitemap</div>
+                    <ul class="pad-0 gap-bottom-0" role="list">
+                        <li>
+                            <a href="https://www.eallion.com/album/" target="_blank" rel="noopener noreferrer">随手拍</a>
+                        </li>
+                        <li>
+                            <a href="https://www.eallion.com/penta/" target="_blank" rel="noopener noreferrer"><i class="fas fa-fire-alt"></i> Penta</a>
+                        </li>
+                        <li>
+                            <a href="https://s.eallion.com/" target="_blank" rel="noopener noreferrer">网址导航 <i class="fas fa-external-link-alt"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer">Mastodon <i class="fas fa-external-link-alt"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="pad-top-600 pad-bottom-600 pad-left-400 pad-right-400  lg:pad-left-0 lg:pad-right-0 footer-center">
+            <div class="display-flex direction-column lg:direction-row align-start lg:align-center">
+                <div class="footer-title">大大的小蜗牛 &#39; 博客</div>
+                <div
+                    class="footer__cluster cluster flex-1 gap-top-300 flow-space-300 lg:gap-top-0 lg:gap-left-500 lg:flow-space-500">
+                    <ul role="list">
+                        <li role="listitem"><a class="footer__link" href="https://www.eallion.com/about/" target="_blank"
+                                rel="noopener noreferrer">About</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://gohugo.io/" target="_blank"
+                                rel="noopener noreferrer">Hugo</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://github.com/HEIGE-PCloud/DoIt" target="_blank"
+                                rel="noopener noreferrer">Theme</a>
+                        </li>
+                        <li role="listitem"><a class="footer__link" href="https://www.eallion.com/rss" target="_blank"
+                                rel="noopener noreferrer">RSS</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://feedsin.space/feed/eallion" target="_blank"
+                                rel="noopener noreferrer">Feedsin</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://status.eallion.com/" target="_blank"
+                                rel="noopener noreferrer">Status</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://www.eallion.com/links/" target="_blank"
+                                rel="noopener noreferrer">友情链接</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://www.eallion.com/copyright/" target="_blank"
+                                rel="noopener noreferrer">版权信息</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://www.eallion.com/privacy-policy/" target="_blank"
+                                rel="noopener noreferrer">隐私政策</a></li>
+                        <li role="listitem"><a class="footer__link" href="https://github.com/eallion/eallion.com"
+                                target="_blank" rel="noopener noreferrer">View
+                                Source</a></li>
+                        <li role="listitem"><a class="footer__link google-colors"
+                                href="https://github.com/GoogleChrome/developer.chrome.com" target="_blank"
+                                rel="noopener noreferrer">Inspired by <span class="google-color"><span
+                                        class="google-blue">G</span>
+                                    <span class="google-red">o</span>
+                                    <span class="google-yellow">o</span>
+                                    <span class="google-blue">g</span>
+                                    <span class="google-green">l</span>
+                                    <span class="google-red">e</span></span> for
+                                Developers</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</div>
+{{- end -}}
