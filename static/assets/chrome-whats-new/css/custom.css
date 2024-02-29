@@ -1,3 +1,7 @@
+.hidden {
+    display: none;
+}
+
 .wrapper main .container {
     padding: 0 !important;
 }
@@ -16,8 +20,28 @@
     border-radius: 50%;
 }
 
+.snackbar-gm3--hidden .snackbar-gm3__card {
+    display: flex;
+    animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 .article_new::before {
     content: '🆕';
+    color: #006bee;
     position: relative;
     margin-right: 0.5rem;
     cursor: text;
