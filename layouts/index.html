@@ -48,17 +48,33 @@
             </div>
 
             <section id="hero" class="chr-section js-section ">
-                <!-- <div class="snackbar-gm3" data-comp="SnackbarGm3" data-props-snackbar='{"dynamicClass": "badge" }'>
-                <div class="snackbar-gm3__card">
-
-                    <svg class="snackbar-gm3__icon" aria-hidden="true">
-                    <title></title>
-                    <use xlink:href="#icon-badge"></use>
-                    </svg>
-                    <p class="chr-headline-6 snackbar-gm3__description">
-                    最近更新了 ? 篇博客</p>
+                <div class="snackbar-gm3" data-comp="SnackbarGm3" data-props-snackbar='{"dynamicClass": "badge" }'>
+                    <div class="snackbar-gm3__card">
+                        <svg class="snackbar-gm3__icon" aria-hidden="true">
+                        <title></title>
+                        <use xlink:href="#icon-badge"></use>
+                        </svg>
+                        <p class="chr-headline-6 snackbar-gm3__description">
+                            <span id="referrer"></span><span id="updated_count"></span></p>
+                    </div>
                 </div>
-                </div> -->
+
+                <script>
+                    function updateReferrer() {
+                    var referrer = document.referrer;
+                    var referrerElement = document.getElementById("referrer");
+
+                    if (referrer) {
+                        var referrerHost = new URL(referrer).host;
+                        referrerElement.textContent = '欢迎来自' + referrerHost + '的朋友！';
+                    } else {
+                        referrerElement.textContent = "欢迎访问本博客！";
+                    }
+                    }
+
+                    updateReferrer();
+                </script>
+
                 <div class="chr-hero-light-gm3 chr-hero-light-gm3--secondary chr-hero-light-gm3__secondary-wrapper">
                     <div class="chr-hero-light-gm3__secondary-shape"></div>
                     <div class="chr-grid-default-parent">
@@ -104,12 +120,17 @@
                             {{- end -}}
                         </h2>
                         <h3 class="chr-headline-3 chr-fifty-fifty-text-image-gm3__heading">
-                            <a
-                            {{ if gt .Date (now.AddDate 0 0 -15) }}
-                                class="article_new"
-                            {{ end }}
-                            href="{{- .RelPermalink -}}"> {{- .Title -}} </a></h3>
+                            <a href="{{- .RelPermalink -}}">
+                                {{- with $params.date -}}
+                                {{- $timestamp := .Unix -}}
+                                    <span class="hidden" id="publish_time">{{ $timestamp }}</span>
+                                    <span class="article_new hidden"></span>
+                                {{- end -}}
+                                {{- .Title -}}</a>
+                        </h3>
                         <p class="chr-copy chr-fifty-fifty-text-image-gm3__description">
+
+
                             {{- $summary := $params.summary -}}
                             {{- with $summary -}}
                                 {{ . | safeHTML }}
@@ -142,6 +163,45 @@
                 </div>
                 {{- end -}}
                 {{- end -}}
+
+                <script>
+                    // 获取当前时间的 Unix 时间戳
+                    const currentTime = Math.floor(Date.now() / 1000);
+
+                    // 获取所有 id="publish_time" 的元素
+                    const publishTimeElements = document.querySelectorAll('#publish_time');
+
+                    let updated_count = 0;
+
+                    // 遍历所有元素
+                    publishTimeElements.forEach(element => {
+                        // 获取元素中的 Unix 时间戳
+                        const publishTime = parseInt(element.textContent);
+
+                        // 计算时间差（以秒为单位）
+                        const timeDifference = currentTime - publishTime;
+
+                        // 如果时间差小于 15 天（15 * 24 * 60 * 60秒）
+                        if (timeDifference < 15 * 24 * 60 * 60) {
+                            // 计数器
+                            updated_count++;
+
+                            // 显示 <span class="article_new"></span> 元素
+                            const articleNewElement = element.nextElementSibling;
+                            if (articleNewElement && articleNewElement.classList.contains('article_new')) {
+                                articleNewElement.classList.remove('hidden');
+                            }
+                        }
+                    });
+
+                    // 更新 updated_count 元素
+                    const updatedElement = document.getElementById('updated_count');
+                    if (updated_count > 0) {
+                        updatedElement.textContent = '最近更新' + updated_count + '篇';
+                    } else {
+                        updatedElement.textContent = '';
+                    }
+                </script>
 
             </section>
 
@@ -521,6 +581,11 @@
     </chrome>
 
     <svg class="svg-assets" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-badge" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M5.86334 10.5834L3.08334 7.80336L2.13667 8.74336L5.86334 12.47L13.8633 4.47003L12.9233 3.53003L5.86334 10.5834Z">
+            </path>
+        </symbol>
         <symbol id="arrow-downwards" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M17.29 14.71a.996.996 0 0 1-1.41 0L12 10.83l-3.88 3.88a.996.996 0 1 1-1.41-1.41l4.59-4.59a.996.996 0 0 1 1.41 0l4.59 4.59c.38.38.38 1.02-.01 1.41z">
