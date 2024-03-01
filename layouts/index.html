@@ -39,7 +39,36 @@
         !function (n) { "use strict"; n.loadCSS || (n.loadCSS = function () { }); var o = loadCSS.relpreload = {}; if (o.support = function () { var e; try { e = n.document.createElement("link").relList.supports("preload") } catch (t) { e = !1 } return function () { return e } }(), o.bindMediaToggle = function (t) { var e = t.media || "all"; function a() { t.addEventListener ? t.removeEventListener("load", a) : t.attachEvent && t.detachEvent("onload", a), t.setAttribute("onload", null), t.media = e } t.addEventListener ? t.addEventListener("load", a) : t.attachEvent && t.attachEvent("onload", a), setTimeout(function () { t.rel = "stylesheet", t.media = "only x" }), setTimeout(a, 3e3) }, o.poly = function () { if (!o.support()) for (var t = n.document.getElementsByTagName("link"), e = 0; e < t.length; e++) { var a = t[e]; "preload" !== a.rel || "style" !== a.getAttribute("as") || a.getAttribute("data-loadcss") || (a.setAttribute("data-loadcss", !0), o.bindMediaToggle(a)) } }, !o.support()) { o.poly(); var t = n.setInterval(o.poly, 500); n.addEventListener ? n.addEventListener("load", function () { o.poly(), n.clearInterval(t) }) : n.attachEvent && n.attachEvent("onload", function () { o.poly(), n.clearInterval(t) }) } "undefined" != typeof exports ? exports.loadCSS = loadCSS : n.loadCSS = loadCSS }("undefined" != typeof global ? global : this);
     </script>
 
-    <link rel="stylesheet" href="/assets/chrome-whats-new/css/custom.css" >
+    <script>
+        // 定义一个函数，用于根据 <body> 元素的 theme 属性值添加或删除 "dark-theme" 类
+        function updateDarkThemeClass() {
+        const bodyElement = document.querySelector('body');
+        const theme = bodyElement.getAttribute('theme');
+
+        if (theme === 'dark' || theme === 'black') {
+            bodyElement.classList.add('dark-theme');
+        } else {
+            bodyElement.classList.remove('dark-theme');
+        }
+        }
+
+        // 调用 updateDarkThemeClass 函数，以确保在页面加载时应用正确的类
+        updateDarkThemeClass();
+
+        // 创建一个 MutationObserver 实例，用于监听 <body> 元素的 theme 属性变化
+        const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'theme') {
+            updateDarkThemeClass();
+            }
+        });
+        });
+
+        // 配置 MutationObserver 以监听 <body> 元素的 theme 属性变化
+        observer.observe(document.querySelector('body'), { attributes: true });
+    </script>
+
+    <link rel="stylesheet" href="/assets/chrome-whats-new/css/custom.min.css" >
 
     <chrome data-comp="EnvironmentDetect" data-locale="zh-CN_ALL" data-region="zh_Hans_CN" data-ga-type="ga-cookieless">
         <div role="main" class="chr-main chr-main--no-header" id="jump-content" data-comp="AnimationObserver">
@@ -68,7 +97,7 @@
                         var referrerHost = new URL(referrer).host;
                         referrerElement.textContent = '欢迎来自' + referrerHost + '的朋友！';
                     } else {
-                        referrerElement.textContent = "欢迎访问本博客！";
+                        referrerElement.textContent = "欢迎访问大大的小蜗牛的博客！";
                     }
                     }
 
@@ -129,7 +158,6 @@
                                 {{- .Title -}}</a>
                         </h3>
                         <p class="chr-copy chr-fifty-fifty-text-image-gm3__description">
-
 
                             {{- $summary := $params.summary -}}
                             {{- with $summary -}}
@@ -312,9 +340,17 @@
         <footer id="js-footer" class=" chr-footer chr-footer--white" data-comp="Footer">
         <div class=" chr-footer-social  chr-footer-social--border">
             <div class=" chr-footer-social__container">
-            <h3 class=" chr-footer-social__title chr-headline-6">
-                <a href="https://notbyai.fyi" target="_blank" class="notbyai" rel="noopener noreffer" aria-label="not by ai"><img src="/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-white.svg" alt no-view></a></h3>
+            <!-- <h3 class=" chr-footer-social__title chr-headline-6">
+                <a href="https://notbyai.fyi" target="_blank" class="notbyai" rel="noopener noreffer" aria-label="not by ai"><span id="notbyai"></span></h3> -->
             <ul class=" chr-footer-social__list">
+                <li>
+                    <a href="https://notbyai.fyi" title="notbyai" target="_blank" rel="noopener nofollow"
+                        class="  chr-footer-social__link notbyai" ga-on="click" ga-event-category="chrome-footer-social"
+                        ga-event-action="clicked" ga-event-label="follow-us:notbyai" data-g-event="chrome-footer-social"
+                        data-g-action="clicked" data-g-label="follow-us:notbyai" data-g-cookieless="true"
+                        data-g-cookieless-name="social clicks" data-g-cookieless-category="footer"><span id="notbyai"></span>
+                        </a>
+                </li>
                 <li>
                     <a href="https://github.com/eallion" title="GitHub" target="_blank" rel="noopener nofollow"
                         class="  chr-footer-social__link" ga-on="click" ga-event-category="chrome-footer-social"
@@ -392,7 +428,7 @@
         </div>
         <div class=" chr-footer__bottom">
             <div class=" chr-footer__logo">
-                <img src="/eallion.webp" no-view>
+                <img src="/eallion.webp" no-view> <div class="chr-footer_text">大大的小蜗牛&#39;博客</div>
                 <!-- <a href="https://gohugo.io" title="Hugo" target="_blank" rel="noopener" ga-event-category="footer"
                     ga-event-action="logo-click" ga-event-label="https://gohugo.io" data-g-event="" data-g-action="logo-click"
                     data-g-label="https://gohugo.io">

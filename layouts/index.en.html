@@ -8,34 +8,64 @@
 
     <link rel="stylesheet" href="/assets/chrome-whats-new/css/normalize.css" >
 
-    <link id="js-css" rel="preload" href="/assets/chrome-whats-new/css/main.min.css" as="style" nonce="_ndYcfFhYMVVaWQcxGsvZg">
+    <link id="js-css" rel="preload" href="/assets/chrome-whats-new/css/main.min.css" as="style"
+        nonce="_ndYcfFhYMVVaWQcxGsvZg">
     <!--[if lte IE 9]>
-      <link rel="stylesheet" href="/assets/chrome-whats-new/css/fallback.min.css">
-    <![endif]-->
+            <link rel="stylesheet" href="/assets/chrome-whats-new/css/fallback.min.css">
+        <![endif]-->
 
 
     <script type="text/javascript" nonce="_ndYcfFhYMVVaWQcxGsvZg">
-      var isChrome = navigator.userAgent.match(/Chrom(?:e|ium)\/([0-9\.]+)/);
-      if (isChrome && parseInt(isChrome[1]) < 57) {
-        var fallback = document.createElement('link');
-        fallback.rel = 'stylesheet';
-        fallback.href = '/assets/chrome-whats-new/css/fallback.min.css';
-        document.head.appendChild(fallback);
-      }
+        var isChrome = navigator.userAgent.match(/Chrom(?:e|ium)\/([0-9\.]+)/);
+        if (isChrome && parseInt(isChrome[1]) < 57) {
+            var fallback = document.createElement('link');
+            fallback.rel = 'stylesheet';
+            fallback.href = '/assets/chrome-whats-new/css/fallback.min.css';
+            document.head.appendChild(fallback);
+        }
     </script>
     <script type="text/javascript" nonce="_ndYcfFhYMVVaWQcxGsvZg">
-      window.onload = function () {
-        css = document.getElementById('js-css');
-        css.onload = null;
-        css.rel = 'stylesheet';
-      };
+        window.onload = function () {
+            css = document.getElementById('js-css');
+            css.onload = null;
+            css.rel = 'stylesheet';
+        };
     </script>
     <noscript>
-      <link rel="preconnect" href="/assets/chrome-whats-new/css/main.min.css">
+        <link rel="preconnect" href="/assets/chrome-whats-new/css/main.min.css">
     </noscript>
     <script nonce="_ndYcfFhYMVVaWQcxGsvZg">
-      /*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
-      !function (n) { "use strict"; n.loadCSS || (n.loadCSS = function () { }); var o = loadCSS.relpreload = {}; if (o.support = function () { var e; try { e = n.document.createElement("link").relList.supports("preload") } catch (t) { e = !1 } return function () { return e } }(), o.bindMediaToggle = function (t) { var e = t.media || "all"; function a() { t.addEventListener ? t.removeEventListener("load", a) : t.attachEvent && t.detachEvent("onload", a), t.setAttribute("onload", null), t.media = e } t.addEventListener ? t.addEventListener("load", a) : t.attachEvent && t.attachEvent("onload", a), setTimeout(function () { t.rel = "stylesheet", t.media = "only x" }), setTimeout(a, 3e3) }, o.poly = function () { if (!o.support()) for (var t = n.document.getElementsByTagName("link"), e = 0; e < t.length; e++) { var a = t[e]; "preload" !== a.rel || "style" !== a.getAttribute("as") || a.getAttribute("data-loadcss") || (a.setAttribute("data-loadcss", !0), o.bindMediaToggle(a)) } }, !o.support()) { o.poly(); var t = n.setInterval(o.poly, 500); n.addEventListener ? n.addEventListener("load", function () { o.poly(), n.clearInterval(t) }) : n.attachEvent && n.attachEvent("onload", function () { o.poly(), n.clearInterval(t) }) } "undefined" != typeof exports ? exports.loadCSS = loadCSS : n.loadCSS = loadCSS }("undefined" != typeof global ? global : this);
+        /*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+        !function (n) { "use strict"; n.loadCSS || (n.loadCSS = function () { }); var o = loadCSS.relpreload = {}; if (o.support = function () { var e; try { e = n.document.createElement("link").relList.supports("preload") } catch (t) { e = !1 } return function () { return e } }(), o.bindMediaToggle = function (t) { var e = t.media || "all"; function a() { t.addEventListener ? t.removeEventListener("load", a) : t.attachEvent && t.detachEvent("onload", a), t.setAttribute("onload", null), t.media = e } t.addEventListener ? t.addEventListener("load", a) : t.attachEvent && t.attachEvent("onload", a), setTimeout(function () { t.rel = "stylesheet", t.media = "only x" }), setTimeout(a, 3e3) }, o.poly = function () { if (!o.support()) for (var t = n.document.getElementsByTagName("link"), e = 0; e < t.length; e++) { var a = t[e]; "preload" !== a.rel || "style" !== a.getAttribute("as") || a.getAttribute("data-loadcss") || (a.setAttribute("data-loadcss", !0), o.bindMediaToggle(a)) } }, !o.support()) { o.poly(); var t = n.setInterval(o.poly, 500); n.addEventListener ? n.addEventListener("load", function () { o.poly(), n.clearInterval(t) }) : n.attachEvent && n.attachEvent("onload", function () { o.poly(), n.clearInterval(t) }) } "undefined" != typeof exports ? exports.loadCSS = loadCSS : n.loadCSS = loadCSS }("undefined" != typeof global ? global : this);
+    </script>
+
+    <script>
+        // 定义一个函数，用于根据 <body> 元素的 theme 属性值添加或删除 "dark-theme" 类
+        function updateDarkThemeClass() {
+        const bodyElement = document.querySelector('body');
+        const theme = bodyElement.getAttribute('theme');
+
+        if (theme === 'dark' || theme === 'black') {
+            bodyElement.classList.add('dark-theme');
+        } else {
+            bodyElement.classList.remove('dark-theme');
+        }
+        }
+
+        // 调用 updateDarkThemeClass 函数，以确保在页面加载时应用正确的类
+        updateDarkThemeClass();
+
+        // 创建一个 MutationObserver 实例，用于监听 <body> 元素的 theme 属性变化
+        const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'theme') {
+            updateDarkThemeClass();
+            }
+        });
+        });
+
+        // 配置 MutationObserver 以监听 <body> 元素的 theme 属性变化
+        observer.observe(document.querySelector('body'), { attributes: true });
     </script>
 
     <link rel="stylesheet" href="/assets/chrome-whats-new/css/custom.css" >
@@ -47,24 +77,41 @@
             </div>
 
             <section id="hero" class="chr-section js-section ">
-                <!-- <div class="snackbar-gm3" data-comp="SnackbarGm3" data-props-snackbar='{"dynamicClass": "badge" }'>
-                <div class="snackbar-gm3__card">
-
-                    <svg class="snackbar-gm3__icon" aria-hidden="true">
-                    <title></title>
-                    <use xlink:href="#icon-badge"></use>
-                    </svg>
-                    <p class="chr-headline-6 snackbar-gm3__description">
-                    最近更新了 ? 篇博客</p>
+                <div class="snackbar-gm3" data-comp="SnackbarGm3" data-props-snackbar='{"dynamicClass": "badge" }'>
+                    <div class="snackbar-gm3__card">
+                        <svg class="snackbar-gm3__icon" aria-hidden="true">
+                        <title></title>
+                        <use xlink:href="#icon-badge"></use>
+                        </svg>
+                        <p class="chr-headline-6 snackbar-gm3__description">
+                            <span id="referrer"></span><span id="updated_count"></span></p>
+                    </div>
                 </div>
-                </div> -->
+
+                <script>
+                    function updateReferrer() {
+                    var referrer = document.referrer;
+                    var referrerElement = document.getElementById("referrer");
+
+                    if (referrer) {
+                        var referrerHost = new URL(referrer).host;
+                        referrerElement.textContent = 'Welcome from ' + referrerHost + ' !';
+                    } else {
+                        referrerElement.textContent = "Welcome to eallion's Blog!";
+                    }
+                    }
+
+                    updateReferrer();
+                </script>
+
                 <div class="chr-hero-light-gm3 chr-hero-light-gm3--secondary chr-hero-light-gm3__secondary-wrapper">
                     <div class="chr-hero-light-gm3__secondary-shape"></div>
                     <div class="chr-grid-default-parent">
                         <div class="chr-grid-default">
-                            <h1 class="chr-hero-light-gm3__heading chr-headline-1">大大的小蜗牛&#39;博客</h1>
+                            <h1 class="chr-hero-light-gm3__heading chr-headline-1">Charles <span>eallion</span> Chin&#39;s Blog</h1>
                             <p class="chr-headline-5 chr-hero-light-gm3__body" role="text">
                                 <!-- <img alt="今日诗词" src="https://v2.jinrishici.com/one.svg?font-size=24&amp;spacing=2&amp;color=black" style="max-width:100%;display:block;margin:0 auto" no-view> -->
+                                Chance favors the prepared mind. - <i>Louis Pasteur</i>
                             </p>
                         </div>
                     </div>
@@ -103,12 +150,16 @@
                             {{- end -}}
                         </h2>
                         <h3 class="chr-headline-3 chr-fifty-fifty-text-image-gm3__heading">
-                            <a
-                            {{ if gt .Date (now.AddDate 0 0 -15) }}
-                                class="article_new"
-                            {{ end }}
-                            href="{{- .RelPermalink -}}"> {{- .Title -}} </a></h3>
+                            <a href="{{- .RelPermalink -}}">
+                                {{- with $params.date -}}
+                                {{- $timestamp := .Unix -}}
+                                    <span class="hidden" id="publish_time">{{ $timestamp }}</span>
+                                    <span class="article_new hidden"></span>
+                                {{- end -}}
+                                {{- .Title -}}</a>
+                        </h3>
                         <p class="chr-copy chr-fifty-fifty-text-image-gm3__description">
+
                             {{- $summary := $params.summary -}}
                             {{- with $summary -}}
                                 {{ . | safeHTML }}
@@ -123,7 +174,7 @@
                         <div class="chr-fifty-fifty-text-image-gm3__tutorial-wrapper">
                             <button class="chr-cta__button chr-cta__button--blue">
                                 <a href="{{- .RelPermalink -}}" class="button"
-                                aria-label="Read the blog post.">阅读全文
+                                aria-label="Read the blog post.">Read More
                                 </a></button>
                         </div>
                         </div>
@@ -142,13 +193,52 @@
                 {{- end -}}
                 {{- end -}}
 
+                <script>
+                    // 获取当前时间的 Unix 时间戳
+                    const currentTime = Math.floor(Date.now() / 1000);
+
+                    // 获取所有 id="publish_time" 的元素
+                    const publishTimeElements = document.querySelectorAll('#publish_time');
+
+                    let updated_count = 0;
+
+                    // 遍历所有元素
+                    publishTimeElements.forEach(element => {
+                        // 获取元素中的 Unix 时间戳
+                        const publishTime = parseInt(element.textContent);
+
+                        // 计算时间差（以秒为单位）
+                        const timeDifference = currentTime - publishTime;
+
+                        // 如果时间差小于 15 天（15 * 24 * 60 * 60秒）
+                        if (timeDifference < 15 * 24 * 60 * 60) {
+                            // 计数器
+                            updated_count++;
+
+                            // 显示 <span class="article_new"></span> 元素
+                            const articleNewElement = element.nextElementSibling;
+                            if (articleNewElement && articleNewElement.classList.contains('article_new')) {
+                                articleNewElement.classList.remove('hidden');
+                            }
+                        }
+                    });
+
+                    // 更新 updated_count 元素
+                    const updatedElement = document.getElementById('updated_count');
+                    if (updated_count > 0) {
+                        updatedElement.textContent = updated_count + 'Updated';
+                    } else {
+                        updatedElement.textContent = '';
+                    }
+                </script>
+
             </section>
 
             <section id="archive" class="chr-section js-section ">
                 <div class="chr-archive-gm3 " data-comp="ArchiveGm3">
                 <div class="chr-grid-default-parent">
                     <div class="chr-grid-default">
-                    <h2 class="chr-archive-gm3__title chr-headline-3"><a href="/posts/">阅读更多博客</a></h2>
+                    <h2 class="chr-archive-gm3__title chr-headline-3"><a href="/posts/">Read more Blog</a></h2>
                     <ul class="chr-archive-gm3__cards-wrapper">
                         {{- if ne $posts.enable false | and .Site.RegularPages -}}
                             {{- /* Paginate */ -}}
@@ -193,7 +283,7 @@
                                                 <a href="{{- .RelPermalink -}}" target="_self" rel="noopener"
                                                 class="chr-link chr-link--external chr-archive__card-link"
                                                 data-ga-config="{&#34;click&#34;: {&#34;event&#34;: &#34;cta_click&#34;, &#34;link_url&#34;: true, &#34;link_text&#34;: true, &#34;link_type&#34;: true, &#34;module_name&#34;: true, &#34;section_header&#34;: true}}"
-                                                data-g-cookieless="true" data-g-cookieless-name="cta clicks" data-g-cookieless-category="cta">阅读全文
+                                                data-g-cookieless="true" data-g-cookieless-name="cta clicks" data-g-cookieless-category="cta">Read More
                                                 <svg class="chr-icon chr-icon--link" aria-hidden="true">
                                                     <use xlink:href="#arrow-external"></use>
                                                 </svg></a>
@@ -210,16 +300,16 @@
                         {{- end -}}
                                         <li class="chr-archive-gm3__card">
                                             <div class="chr-archive-gm3__card-text">
-                                                <h3 class="chr-headline-5"><a href="/about/"><i class="fas fa-info-circle"></i> ABOUT ME / 关于</a></h3>
+                                                <h3 class="chr-headline-5"><a href="/about/"><i class="fas fa-info-circle"></i> ABOUT ME</a></h3>
                                                 <p class="chr-archive-gm3__card-description chr-copy chr-copy-about">
-                                                    我是<span>「蜗牛」</span>，不过一般都使用<span>「大大的小蜗牛」作为网名。</span><br>
-                                                    AKA：<span>Charles &#39;<i>eallion</i>&#39; Chin.</span>
+                                                    I&#39;m Charles Chin. eallion has been my nickname for over 20 years. <br>
+                                                        AKA：大大的小蜗牛.<br>
                                                 </p>
 
                                                 <a href="/about/" target="_blank" rel="noopener"
                                                 class="chr-link chr-link--external chr-archive__card-link"
                                                 data-ga-config="{&#34;click&#34;: {&#34;event&#34;: &#34;cta_click&#34;, &#34;link_url&#34;: true, &#34;link_text&#34;: true, &#34;link_type&#34;: true, &#34;module_name&#34;: true, &#34;section_header&#34;: true}}"
-                                                data-g-cookieless="true" data-g-cookieless-name="cta clicks" data-g-cookieless-category="cta">查看更多 About 信息
+                                                data-g-cookieless="true" data-g-cookieless-name="cta clicks" data-g-cookieless-category="cta">Read more About
                                                 <svg class="chr-icon chr-icon--link" aria-hidden="true">
                                                     <use xlink:href="#arrow-external"></use>
                                                 </svg></a>
@@ -227,7 +317,7 @@
                                             <div>
                                                 <img class="js-lazy-load chr-archive-gm3__card-image"
                                                     src="/assets/chromedev/images/about.png"
-                                                    alt="关于" no-view>
+                                                    alt="About" no-view>
                                             </div>
                                         </li>
                     </ul>
@@ -236,9 +326,9 @@
                 <div class="chr-show-more">
                     <button class="chr-show-more__button" aria-expanded="false">
                     <span class="chr-show-more__label chr-show-more__label--more">
-                        展开更多</span>
+                        Expand More</span>
                     <span class="chr-show-more__label chr-show-more__label--less">
-                        收起</span>
+                        Collapse</span>
 
                     <svg class="chr-show-more__down-icon">
                         <title></title>
@@ -247,13 +337,34 @@
                 </div>
                 </div>
             </section>
+            <script>
+                // 获取目标元素
+                const chrCopyElement = document.querySelector('.chr-copy');
+
+                // 创建一个新的样式元素
+                const styleElement = document.createElement('style');
+
+                // 设置新样式元素的内容，以替换伪元素的内容
+                styleElement.textContent = '.chr-copy::before { content: \'\\f022 \' \' Summary\' !important; }';
+
+                // 将新样式元素添加到文档中
+                document.head.appendChild(styleElement);
+            </script>
         </div>
         <footer id="js-footer" class=" chr-footer chr-footer--white" data-comp="Footer">
         <div class=" chr-footer-social  chr-footer-social--border">
             <div class=" chr-footer-social__container">
-            <h3 class=" chr-footer-social__title chr-headline-6">
-                <a href="https://notbyai.fyi" target="_blank" class="notbyai" rel="noopener noreffer" aria-label="not by ai"><img src="/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-white.svg" alt no-view></a></h3>
+            <!-- <h3 class=" chr-footer-social__title chr-headline-6">
+                <a href="https://notbyai.fyi" target="_blank" class="notbyai" rel="noopener noreffer" aria-label="not by ai"><span id="notbyai"></span></h3> -->
             <ul class=" chr-footer-social__list">
+                <li>
+                    <a href="https://notbyai.fyi" title="notbyai" target="_blank" rel="noopener nofollow"
+                        class="  chr-footer-social__link notbyai" ga-on="click" ga-event-category="chrome-footer-social"
+                        ga-event-action="clicked" ga-event-label="follow-us:notbyai" data-g-event="chrome-footer-social"
+                        data-g-action="clicked" data-g-label="follow-us:notbyai" data-g-cookieless="true"
+                        data-g-cookieless-name="social clicks" data-g-cookieless-category="footer"><span id="notbyai"></span>
+                        </a>
+                </li>
                 <li>
                     <a href="https://github.com/eallion" title="GitHub" target="_blank" rel="noopener nofollow"
                         class="  chr-footer-social__link" ga-on="click" ga-event-category="chrome-footer-social"
@@ -331,7 +442,7 @@
         </div>
         <div class=" chr-footer__bottom">
             <div class=" chr-footer__logo">
-                <img src="/eallion.webp" no-view>
+                <img src="/eallion.webp" no-view> <div class="chr-footer_text">大大的小蜗牛&#39;博客</div>
                 <!-- <a href="https://gohugo.io" title="Hugo" target="_blank" rel="noopener" ga-event-category="footer"
                     ga-event-action="logo-click" ga-event-label="https://gohugo.io" data-g-event="" data-g-action="logo-click"
                     data-g-label="https://gohugo.io">
@@ -353,13 +464,13 @@
                         <a href="https://www.eallion.com/privacy-policy/" target="_self" rel="noopener"
                             class="  chr-footer__link chr-link--nav" ga-on="click" ga-event-category="nav-subfooter"
                             ga-event-action="clicked" ga-event-label="privacy" data-g-event="nav-subfooter" data-g-action="clicked"
-                            data-g-label="privacy">隐私政策</a>
+                            data-g-label="privacy">Privacy</a>
                     </li>
                     <li class=" chr-footer-glinks__list-item">
                         <a href="https://www.eallion.com/copyright/" target="_self" rel="noopener"
                             class="  chr-footer__link chr-link--nav" ga-on="click" ga-event-category="nav-subfooter"
                             ga-event-action="clicked" ga-event-label="about" data-g-event="nav-subfooter" data-g-action="clicked"
-                            data-g-label="about">版本信息</a>
+                            data-g-label="about">Copyright</a>
                     </li>
                     <li class=" chr-footer-glinks__list-item">
                         <a href="https://www.eallion.com/rss" target="_blank" rel="noopener" class="  chr-footer__link chr-link--nav"
@@ -416,7 +527,7 @@
                         ✅ English - Pakistan</option>
                     <option value="/en/">
                         ✅ English - Singapore</option>
-                    <option value="/en/">
+                    <option value="/en/" selected="">
                         ✅ English - United States</option>
                     <option value="#">
                         ❌ Español - Latinoamérica</option>
@@ -490,7 +601,7 @@
                         ❌ हिन्दी - भारत</option>
                     <option value="#">
                         ❌ ไทย - ไทย</option>
-                    <option value="/" selected="">
+                    <option value="/">
                         ✅ 中文 - 中国</option>
                     <option value="/">
                         ✅ 中文 - 香港</option>
@@ -520,6 +631,11 @@
     </chrome>
 
     <svg class="svg-assets" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-badge" viewbox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M5.86334 10.5834L3.08334 7.80336L2.13667 8.74336L5.86334 12.47L13.8633 4.47003L12.9233 3.53003L5.86334 10.5834Z">
+            </path>
+        </symbol>
         <symbol id="arrow-downwards" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M17.29 14.71a.996.996 0 0 1-1.41 0L12 10.83l-3.88 3.88a.996.996 0 1 1-1.41-1.41l4.59-4.59a.996.996 0 0 1 1.41 0l4.59 4.59c.38.38.38 1.02-.01 1.41z">
