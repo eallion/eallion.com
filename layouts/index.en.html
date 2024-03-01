@@ -42,26 +42,36 @@
     <script>
         // 定义一个函数，用于根据 <body> 元素的 theme 属性值添加或删除 "dark-theme" 类
         function updateDarkThemeClass() {
-        const bodyElement = document.querySelector('body');
-        const theme = bodyElement.getAttribute('theme');
+            const bodyElement = document.querySelector('body');
+            const theme = bodyElement.getAttribute('theme');
 
-        if (theme === 'dark' || theme === 'black') {
-            bodyElement.classList.add('dark-theme');
-        } else {
-            bodyElement.classList.remove('dark-theme');
-        }
+            if (theme === 'dark' || theme === 'black') {
+                bodyElement.classList.add('dark-theme');
+            } else {
+                bodyElement.classList.remove('dark-theme');
+            }
         }
 
-        // 调用 updateDarkThemeClass 函数，以确保在页面加载时应用正确的类
-        updateDarkThemeClass();
+        // 在页面加载时检查 <body> 元素是否具有 "dark-theme" 类
+        window.addEventListener('DOMContentLoaded', () => {
+            const bodyElement = document.querySelector('body');
+            if (bodyElement.classList.contains('dark-theme')) {
+                bodyElement.setAttribute('theme', 'dark');
+            } else {
+                bodyElement.setAttribute('theme', 'light');
+            }
+
+            // 调用 updateDarkThemeClass 函数，以确保在页面加载时应用正确的类
+            updateDarkThemeClass();
+        });
 
         // 创建一个 MutationObserver 实例，用于监听 <body> 元素的 theme 属性变化
         const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            if (mutation.attributeName === 'theme') {
-            updateDarkThemeClass();
-            }
-        });
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'theme') {
+                    updateDarkThemeClass();
+                }
+            });
         });
 
         // 配置 MutationObserver 以监听 <body> 元素的 theme 属性变化
