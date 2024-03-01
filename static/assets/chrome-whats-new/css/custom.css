@@ -59,7 +59,7 @@
 
 .chr-copy-about::before,
 .chr-copy::before {
-    content: '\f022 摘要';
+    content: '\f022 ' ' 摘要';
     border-width: 1px;
     background: #f8f8f8;
     border-color: #161209;
@@ -102,13 +102,64 @@
     align-items: center;
 }
 
+.chr-footer__logo {
+    display: flex;
+    width: auto;
+    margin: 0;
+    margin-right: auto;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
 .chr-footer__logo img {
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
 }
 
-.notbyai {
+.chr-footer_text {
+    display: none;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.chr-footer-social__list {
+    align-items: center;
+}
+
+.chr-footer-social__list li:has(.notbyai) {
     width: 131px;
     height: 42px;
+}
+
+#notbyai {
+    width: 131px;
+    height: 42px;
+    display: inline-flex;
+    justify-content: center;
+    background-image: url(/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-white.svg);
+    background-repeat: no-repeat
+}
+
+/* 移动端样式 */
+@media only screen and (max-width: 600px) {
+    .chr-footer_text {
+        display: inline;
+    }
+}
+
+/* 暗黑模式 Darkmode */
+
+[theme="dark"] #notbyai,
+[theme="black"] #notbyai {
+    background-image: url(/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-black.svg);
+}
+
+[theme="dark"] .chr-copy-about::before,
+[theme="black"] .chr-copy-about::before,
+[theme="dark"] .chr-copy::before,
+[theme="black"] .chr-copy::before {
+    background: #a8c7fa;
+    color: #062e6f;
+    border-color: #062e6f;
 }

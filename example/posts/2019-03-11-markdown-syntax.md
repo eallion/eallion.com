@@ -13,7 +13,7 @@ lastmod: 2019-03-11
 draft: false
 Comments: true
 slug: "markdown-syntax"
-summary: "Markdown Syntax Guide ExampleMarkdown Syntax Guide ExampleMarkdown Syntax Guide ExampleMarkdown Syntax Guide ExampleMarkdown Syntax Guide ExampleMarkdown Syntax Guide ExampleMarkdown Syntax Guide ExampleMarkdown Syntax Guide ExampleMarkdown Syntax Guide ExampleMarkdown Syntax Guide ExampleMarkdown Syntax Guide Example"
+summary: "这篇文章是关于 Markdown 语法指南的。它提供了一些基本的 Markdown 语法示例，可以在 Hugo 内容文件中使用，并展示了在 Hugo 主题中是否使用 CSS 装饰基本 HTML 元素。文章介绍了六个级别的标题标签 1&gt; - &lt;h6&gt;，其中 1&gt; 是最高级别，6&gt; 是最低级别。此外还介绍了块引用、表格和斜体、粗体、代码等其他 Markdown 语法。"
 images: ["/assets/images/og/eallion.png"]
 ---
 
