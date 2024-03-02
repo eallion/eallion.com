@@ -145,7 +145,7 @@
                 {{- else -}}
                 {{- $pages = .Paginate $pages -}}
                 {{- end -}}
-                {{- range $index, $page := first 3 $pages.Pages -}}
+                {{- range $index, $page := first 2 $pages.Pages -}}
                 {{- $.Scratch.Set "index" $index -}}
                 {{- $params := .Params | merge .Site.Params.page -}}
                 {{- $currentSlug := .Params.slug -}}
@@ -242,6 +242,47 @@
                     }
                 </script>
 
+                <div class="chr-fifty-fifty-text-image-gm3 chr-fifty-fifty-text-image-gm3--reversed chr-fifty-fifty-text-image-gm3--secondary chr-fifty-fifty-text-image-gm3__secondary-wrapper"
+                    id="sharing-a-link">
+                    <div class="chr-fifty-fifty-text-image-gm3__secondary-shape">
+                    </div>
+                    <div class="chr-grid-default-parent">
+                        <div class="chr-grid-default">
+                            <div class="chr-fifty-fifty-text-image-gm3__text-wrapper">
+                                <h2 class="chr-eyebrow chr-fifty-fifty-text-image-gm3__eyebrow">ABOUT ME</h2>
+                                <h3 class="chr-headline-3 chr-fifty-fifty-text-image-gm3__heading">Charles eallion Chin</h3>
+                                <p class="chr-copy chr-fifty-fifty-text-image-gm3__description chr-copy-about">
+                                    <img src="/eallion.webp" class="about-avatar" role="img" alt="Charles eallion Chin Avatar"
+                                        data-img-fallback="/eallion.png">
+                                    I&#39;m Charles Chin. eallion has been my nickname for over 20 years.
+                                    AKA：大大的小蜗牛.<br />
+                                    I live in the UTC+08:00 timezone and work from home.
+                                    I work in E-commerce, not IT.
+                                    My favorite motto is:
+                                    "<a href="https://en.wikipedia.org/wiki/Louis_Pasteur#Career" target="_blank"
+                                        rel="noopener noreferrer">Chance favors the prepared mind.</a>"
+                                </p>
+                                <ul class="chr-fifty-fifty-text-image-gm3__list">
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">He/Him</li>
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">UTC+0800</li>
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">Work from home</li>
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">FOSS</li>
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">Geeker</li>
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">Blogger</li>
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">Gamer</li>
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">E-Commerce</li>
+                                </ul>
+                            </div>
+                            <div class="chr-fifty-fifty-text-image-gm3__image-wrapper">
+                                <a href="/about/" aria-label="About">
+                                    <img src="/assets/chrome-whats-new/image/about.png" loading="lazy"
+                                        class="chr-fifty-fifty-text-image-gm3__image" alt="" no-view>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </section>
 
             <section id="archive" class="chr-section js-section ">
@@ -264,9 +305,15 @@
                                 {{- $pages = .Paginate $pages -}}
                             {{- end -}}
 
-                            {{- $startIndex := 4 -}}
+                            {{- $postsCount := len .Site.RegularPages }}
+                            {{- $startIndex := 3 -}}
                             {{- $endIndex := 14 -}}
                             {{- $currentIndex := 0 -}}
+
+                            {{- if lt $postsCount 3 }}
+                                {{- $startIndex = 1 }}
+                                {{- $endIndex = add $postsCount 1 }}
+                            {{- end }}
 
                             {{- range $pages.Pages -}}
                                 {{- $currentIndex = $currentIndex | add 1 -}}
@@ -308,7 +355,7 @@
                                     {{- end -}}
                             {{- end -}}
                         {{- end -}}
-                                        <li class="chr-archive-gm3__card">
+                                        <!-- <li class="chr-archive-gm3__card">
                                             <div class="chr-archive-gm3__card-text">
                                                 <h3 class="chr-headline-5"><a href="/about/"><i class="fas fa-info-circle"></i> ABOUT ME</a></h3>
                                                 <p class="chr-archive-gm3__card-description chr-copy chr-copy-about">
@@ -329,7 +376,7 @@
                                                     src="/assets/chromedev/images/about.png"
                                                     alt="About" no-view>
                                             </div>
-                                        </li>
+                                        </li> -->
                     </ul>
                     </div>
                 </div>
@@ -364,17 +411,8 @@
         <footer id="js-footer" class=" chr-footer chr-footer--white" data-comp="Footer">
         <div class=" chr-footer-social  chr-footer-social--border">
             <div class=" chr-footer-social__container">
-            <!-- <h3 class=" chr-footer-social__title chr-headline-6">
-                <a href="https://notbyai.fyi" target="_blank" class="notbyai" rel="noopener noreffer" aria-label="not by ai"><span id="notbyai"></span></h3> -->
+                <h3 class=" chr-footer-social__title chr-headline-6"> Follow us</h3>
             <ul class=" chr-footer-social__list">
-                <li>
-                    <a href="https://notbyai.fyi" title="notbyai" target="_blank" rel="noopener nofollow"
-                        class="  chr-footer-social__link notbyai" ga-on="click" ga-event-category="chrome-footer-social"
-                        ga-event-action="clicked" ga-event-label="follow-us:notbyai" data-g-event="chrome-footer-social"
-                        data-g-action="clicked" data-g-label="follow-us:notbyai" data-g-cookieless="true"
-                        data-g-cookieless-name="social clicks" data-g-cookieless-category="footer"><span id="notbyai"></span>
-                        </a>
-                </li>
                 <li>
                     <a href="https://github.com/eallion" title="GitHub" target="_blank" rel="noopener nofollow"
                         class="  chr-footer-social__link" ga-on="click" ga-event-category="chrome-footer-social"
@@ -452,15 +490,10 @@
         </div>
         <div class=" chr-footer__bottom">
             <div class=" chr-footer__logo">
-                <img src="/eallion.webp" no-view> <div class="chr-footer_text">大大的小蜗牛&#39;博客</div>
-                <!-- <a href="https://gohugo.io" title="Hugo" target="_blank" rel="noopener" ga-event-category="footer"
-                    ga-event-action="logo-click" ga-event-label="https://gohugo.io" data-g-event="" data-g-action="logo-click"
-                    data-g-label="https://gohugo.io">
-                    <svg class="chr-footer__logo-img" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <title>Hugo</title>
-                        <path
-                            d="M11.754 0a3.998 3.998 0 00-2.049.596L3.33 4.532a4.252 4.252 0 00-2.017 3.615v8.03c0 1.473.79 2.838 2.067 3.574l6.486 3.733a3.88 3.88 0 003.835.018l7.043-3.966a3.817 3.817 0 001.943-3.323V7.752a3.57 3.57 0 00-1.774-3.084L13.817.541a3.998 3.998 0 00-2.063-.54zm.022 1.674c.413-.006.828.1 1.2.315l7.095 4.127c.584.34.941.96.94 1.635v8.462c0 .774-.414 1.484-1.089 1.864l-7.042 3.966a2.199 2.199 0 01-2.179-.01l-6.485-3.734a2.447 2.447 0 01-1.228-2.123v-8.03c0-.893.461-1.72 1.221-2.19l6.376-3.935a2.323 2.323 0 011.19-.347zm-4.7 3.844V18.37h2.69v-5.62h4.46v5.62h2.696V5.518h-2.696v4.681h-4.46V5.518Z" />
-                    </svg></a> -->
+                <a href="https://notbyai.fyi" title="notbyai" target="_blank" rel="noopener" ga-event-category="footer"
+                    ga-event-action="logo-click" ga-event-label="https://notbyai.fyi" data-g-event="" data-g-action="logo-click"
+                    data-g-label="https://notbyai.fyi">
+                    <span id="notbyai"></span></a>
             </div>
             <nav class=" chr-footer-glinks">
                 <ul class=" chr-footer-glinks__list">

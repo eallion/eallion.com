@@ -144,7 +144,7 @@
                 {{- else -}}
                 {{- $pages = .Paginate $pages -}}
                 {{- end -}}
-                {{- range $index, $page := first 3 $pages.Pages -}}
+                {{- range $index, $page := first 2 $pages.Pages -}}
                 {{- $.Scratch.Set "index" $index -}}
                 {{- $params := .Params | merge .Site.Params.page -}}
                 {{- $currentSlug := .Params.slug -}}
@@ -241,6 +241,46 @@
                     }
                 </script>
 
+                <div class="chr-fifty-fifty-text-image-gm3 chr-fifty-fifty-text-image-gm3--reversed chr-fifty-fifty-text-image-gm3--secondary chr-fifty-fifty-text-image-gm3__secondary-wrapper"
+                    id="sharing-a-link">
+                    <div class="chr-fifty-fifty-text-image-gm3__secondary-shape">
+                    </div>
+                    <div class="chr-grid-default-parent">
+                        <div class="chr-grid-default">
+                            <div class="chr-fifty-fifty-text-image-gm3__text-wrapper">
+                                <h2 class="chr-eyebrow chr-fifty-fifty-text-image-gm3__eyebrow">ABOUT ME</h2>
+                                <h3 class="chr-headline-3 chr-fifty-fifty-text-image-gm3__heading">大大的小蜗牛 / Charles Chin</h3>
+                                <p class="chr-copy chr-fifty-fifty-text-image-gm3__description chr-copy-about">
+                                    <img src="/eallion.webp" class="about-avatar" role="img" alt="Charles eallion Chin Avatar"
+                                        data-img-fallback="/eallion.png">
+                                    我是<span>「<strong><ruby>蜗牛<rt>eallion</rt>
+                                            </ruby></strong>」</span>，不过一般都使用<span>「大大的小蜗牛」</span>作为网名。AKA：<span>Charles
+                                        &#39;eallion&#39; Chin。</span><br />
+                                    本名没有什么内涵，略去不表。早年常居鲁迅故里，钟情于江南水乡。工作于电商之都。后为生计南下深港。
+                                    最喜欢的一句话——「<a href="https://en.wikipedia.org/wiki/Louis_Pasteur#Career" target="_blank"
+                                        rel="noopener noreferrer">机会总是垂青于有准备的人！</a>」得于叔叔手札。浅显易懂，并无玄机。后得知出处，是为座右铭。
+                                </p>
+                                <ul class="chr-fifty-fifty-text-image-gm3__list">
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">双子，B 型血，断掌，属虎。</li>
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">已婚，有子。</li>
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">不高不矮，<del>不胖不瘦</del>。</li>
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">先天性乐观。</li>
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">随意但不随便。</li>
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">小众而不小资。</li>
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">亦正亦邪。</li>
+                                    <li class="chr-fifty-fifty-text-image-gm3__list-item">不是个好人但从来不做坏事。</li>
+                                </ul>
+                            </div>
+                            <div class="chr-fifty-fifty-text-image-gm3__image-wrapper">
+                                <a href="/about/" aria-label="About">
+                                    <img src="/assets/chrome-whats-new/image/about.png" loading="lazy"
+                                        class="chr-fifty-fifty-text-image-gm3__image" alt="" no-view>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </section>
 
             <section id="archive" class="chr-section js-section ">
@@ -263,9 +303,15 @@
                                 {{- $pages = .Paginate $pages -}}
                             {{- end -}}
 
-                            {{- $startIndex := 4 -}}
+                            {{- $postsCount := len .Site.RegularPages }}
+                            {{- $startIndex := 3 -}}
                             {{- $endIndex := 14 -}}
                             {{- $currentIndex := 0 -}}
+
+                            {{- if lt $postsCount 3 }}
+                                {{- $startIndex = 1 }}
+                                {{- $endIndex = add $postsCount 1 }}
+                            {{- end }}
 
                             {{- range $pages.Pages -}}
                                 {{- $currentIndex = $currentIndex | add 1 -}}
@@ -281,7 +327,7 @@
                                                     {{- with $summary -}}
                                                         {{ . | safeHTML }}
                                                     {{- else -}}
-                                                        {{- with .Summary -}}
+                                                        {{- with .Params.summary -}}
                                                             {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
                                                         {{- else -}}
                                                             {{- .Description | safeHTML -}}
@@ -307,6 +353,7 @@
                                     {{- end -}}
                             {{- end -}}
                         {{- end -}}
+                                        <!--
                                         <li class="chr-archive-gm3__card">
                                             <div class="chr-archive-gm3__card-text">
                                                 <h3 class="chr-headline-5"><a href="/about/"><i class="fas fa-info-circle"></i> ABOUT ME / 关于</a></h3>
@@ -329,6 +376,7 @@
                                                     alt="关于" no-view>
                                             </div>
                                         </li>
+                                        -->
                     </ul>
                     </div>
                 </div>
@@ -350,17 +398,8 @@
         <footer id="js-footer" class=" chr-footer chr-footer--white" data-comp="Footer">
         <div class=" chr-footer-social  chr-footer-social--border">
             <div class=" chr-footer-social__container">
-            <!-- <h3 class=" chr-footer-social__title chr-headline-6">
-                <a href="https://notbyai.fyi" target="_blank" class="notbyai" rel="noopener noreffer" aria-label="not by ai"><span id="notbyai"></span></h3> -->
+                <h3 class=" chr-footer-social__title chr-headline-6"> 关注我们</h3>
             <ul class=" chr-footer-social__list">
-                <li>
-                    <a href="https://notbyai.fyi" title="notbyai" target="_blank" rel="noopener nofollow"
-                        class="  chr-footer-social__link notbyai" ga-on="click" ga-event-category="chrome-footer-social"
-                        ga-event-action="clicked" ga-event-label="follow-us:notbyai" data-g-event="chrome-footer-social"
-                        data-g-action="clicked" data-g-label="follow-us:notbyai" data-g-cookieless="true"
-                        data-g-cookieless-name="social clicks" data-g-cookieless-category="footer"><span id="notbyai"></span>
-                        </a>
-                </li>
                 <li>
                     <a href="https://github.com/eallion" title="GitHub" target="_blank" rel="noopener nofollow"
                         class="  chr-footer-social__link" ga-on="click" ga-event-category="chrome-footer-social"
@@ -438,15 +477,10 @@
         </div>
         <div class=" chr-footer__bottom">
             <div class=" chr-footer__logo">
-                <img src="/eallion.webp" no-view> <div class="chr-footer_text">大大的小蜗牛&#39;博客</div>
-                <!-- <a href="https://gohugo.io" title="Hugo" target="_blank" rel="noopener" ga-event-category="footer"
-                    ga-event-action="logo-click" ga-event-label="https://gohugo.io" data-g-event="" data-g-action="logo-click"
-                    data-g-label="https://gohugo.io">
-                    <svg class="chr-footer__logo-img" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <title>Hugo</title>
-                        <path
-                            d="M11.754 0a3.998 3.998 0 00-2.049.596L3.33 4.532a4.252 4.252 0 00-2.017 3.615v8.03c0 1.473.79 2.838 2.067 3.574l6.486 3.733a3.88 3.88 0 003.835.018l7.043-3.966a3.817 3.817 0 001.943-3.323V7.752a3.57 3.57 0 00-1.774-3.084L13.817.541a3.998 3.998 0 00-2.063-.54zm.022 1.674c.413-.006.828.1 1.2.315l7.095 4.127c.584.34.941.96.94 1.635v8.462c0 .774-.414 1.484-1.089 1.864l-7.042 3.966a2.199 2.199 0 01-2.179-.01l-6.485-3.734a2.447 2.447 0 01-1.228-2.123v-8.03c0-.893.461-1.72 1.221-2.19l6.376-3.935a2.323 2.323 0 011.19-.347zm-4.7 3.844V18.37h2.69v-5.62h4.46v5.62h2.696V5.518h-2.696v4.681h-4.46V5.518Z" />
-                    </svg></a> -->
+                <a href="https://notbyai.fyi" title="notbyai" target="_blank" rel="noopener" ga-event-category="footer"
+                    ga-event-action="logo-click" ga-event-label="https://notbyai.fyi" data-g-event="" data-g-action="logo-click"
+                    data-g-label="https://notbyai.fyi">
+                    <span id="notbyai"></span></a>
             </div>
             <nav class=" chr-footer-glinks">
                 <ul class=" chr-footer-glinks__list">
