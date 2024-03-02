@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mastodon embed timeline</title>
+    <meta name="author" content="i.j" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="mastodon, embed timeline" />
+    <meta name="description" content="Mastodon embed timeline" />
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="../dist/mastodon-timeline.min.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        height: 100%;
+      }
+      body {
+        height: 100%;
+        background: lightgrey;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        margin: 0;
+      }
+      .dummy-main-container {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+      }
+      .dummy-wrapper-text,
+      .dummy-wrapper-timeline {
+        width: 50%;
+        max-width: 30rem;
+        height: calc(100% - 4rem);
+        padding: 0 1rem;
+      }
+      .dummy-wrapper-text h1,
+      .dummy-wrapper-text h2,
+      .dummy-wrapper-text p {
+        margin: 0 0 1rem 0;
+      }
+      .dummy-wrapper-text pre {
+        display: flex;
+        background: lightsteelblue;
+        border-left: 3px solid #563acc;
+        color: midnightblue;
+        page-break-inside: avoid;
+        font-family: monospace;
+        line-height: 1.5;
+        max-width: 100%;
+        overflow: auto;
+        word-wrap: break-word;
+      }
+      .dummy-wrapper-text hr {
+        margin: 2rem 0;
+      }
+      .dummy-buttons-container {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+      .dummy-buttons-container button {
+        display: flex;
+        border-radius: 0.25rem;
+        border: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+        background-color: #6364ff;
+        color: #fff;
+        cursor: pointer;
+      }
+      .dummy-buttons-container button:hover {
+        background-color: #563acc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dummy-main-container">
+      <!-- Title + Explained details of the example -->
+      <div class="dummy-wrapper-text">
+        <h1>🐘 Mastodon embed timeline</h1>
+        <h2>Light timeline</h2>
+        <p>This example shows a timeline in light color:</p>
+        <p>It has been initialized with the following script:</p>
+        <pre>
+        <code>
+  &lt;script&gt;
+    const myTimeline01 = new MastodonTimeline.Init({
+      mtContainerId: "mt-container-01",
+      defaultTheme: "light",
+    });
+  &lt;/script&gt;
+          </code>
+        </pre>
+
+        <hr />
+
+        <h2>Dark timeline</h2>
+        <p>This example shows a timeline in dark color:</p>
+        <p>It has been initialized with the following script:</p>
+        <pre>
+        <code>
+  &lt;script&gt;
+    const myTimeline02 = new MastodonTimeline.Init({
+      mtContainerId: "mt-container-02",
+      defaultTheme: "dark",
+    });
+  &lt;/script&gt;
+          </code>
+        </pre>
+
+        <hr />
+
+        <h2>Theme API</h2>
+        <p>
+          You can change your timeline color calling the function <strong>mtColorTheme()</strong>
+        </p>
+        <div class="dummy-buttons-container">
+          <button onclick="myTimeline01.mtColorTheme('dark')">
+            Switch 1st timeline to dark theme
+          </button>
+          <button onclick="myTimeline02.mtColorTheme('light')">
+            Switch 2nd timeline to light theme
+          </button>
+        </div>
+        <pre>
+          <code>
+  &lt;button onclick="myTimeline01.mtColorTheme('dark')"&gt;
+      Switch 1st timeline to dark theme
+  &lt;/button&gt;
+
+  &lt;button onclick="myTimeline02.mtColorTheme('light')"&gt;
+      Switch 2nd timeline to light theme
+  &lt;/button&gt;
+            </code>
+          </pre>
+      </div>
+
+      <div class="dummy-wrapper-timeline">
+        <!-- Mastodon Timeline 01 -->
+        <div id="mt-container-01" class="mt-container">
+          <div class="mt-body" role="feed">
+            <div class="mt-loading-spinner"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dummy-wrapper-timeline">
+        <!-- Mastodon Timeline 02 -->
+        <div id="mt-container-02" class="mt-container">
+          <div class="mt-body" role="feed">
+            <div class="mt-loading-spinner"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../dist/mastodon-timeline.umd.js"></script>
+    <script>
+      const myTimeline01 = new MastodonTimeline.Init({
+        mtContainerId: "mt-container-01",
+        defaultTheme: "light",
+      });
+
+      const myTimeline02 = new MastodonTimeline.Init({
+        mtContainerId: "mt-container-02",
+        defaultTheme: "dark",
+      });
+    </script>
+  </body>
+</html>
