@@ -57,7 +57,6 @@
     overflow: hidden;
 }
 
-.chr-copy-about::before,
 .chr-copy::before {
     content: '\f022 ' ' 摘要';
     border-width: 1px;
@@ -73,22 +72,34 @@
     text-align: center;
 }
 
+.about-avatar {
+    float: left;
+    margin: 0.5rem 0.5rem 0 0;
+    border-radius: 1rem;
+}
+
 .chr-copy-about {
     -webkit-line-clamp: unset;
 }
 
 .chr-copy-about::before {
-    content: '🐌 About';
+    content: '';
+    display: none;
 }
 
 .chr-copy-about span {
     display: inline-block;
 }
 
+.chr-fifty-fifty-text-image-gm3__list-item {
+    list-style-type: disc;
+    margin: 0.5rem;
+}
+
 .chr-archive-gm3__card-description {
     white-space: wrap;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -103,33 +114,32 @@
 }
 
 .chr-footer__logo {
-    display: flex;
-    width: auto;
-    margin: 0;
-    margin-right: auto;
-    margin-bottom: 30px;
-    align-items: center;
-}
-
-.chr-footer__logo img {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-}
-
-.chr-footer_text {
-    display: none;
-    font-size: 1.5rem;
-    margin-left: 0.5rem;
-}
-
-.chr-footer-social__list {
-    align-items: center;
-}
-
-.chr-footer-social__list li:has(.notbyai) {
-    width: 131px;
+    display: inline-block;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 90%;
+    flex: 0 0 90%;
     height: 42px;
+    margin: 0 0 30px;
+    margin-right: 55px;
+    width: 131px;
+}
+
+[dir=rtl] .chr-footer__logo {
+    margin-left: 55px;
+    margin-right: 0
+}
+
+@media only screen and (min-width: 600px) {
+    .chr-footer__logo {
+        -webkit-box-flex:0;
+        -ms-flex: 0 0 131px;
+        flex: 0 0 131px;
+    }
+}
+
+.chr-footer__logo-img {
+    height: 42px;
+    width: 131px
 }
 
 #notbyai {
@@ -139,13 +149,6 @@
     justify-content: center;
     background-image: url(/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-white.svg);
     background-repeat: no-repeat
-}
-
-/* 移动端样式 */
-@media only screen and (max-width: 600px) {
-    .chr-footer_text {
-        display: inline;
-    }
 }
 
 /* 暗黑模式 Darkmode */
