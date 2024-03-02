@@ -1,4 +1,4 @@
-/* Mastodon embed timeline v4.2.1 */
+/* Mastodon embed timeline v4.3.3 */
 /* More info at: */
 /* https://gitlab.com/idotj/mastodon-embed-timeline */
 
@@ -151,22 +151,47 @@
   margin-bottom: 1rem;
 }
 .mt-post-header-user {
-  font-weight: 600;
-  margin-top: 0.5rem;
-  padding-right: 1rem;
+  overflow: hidden;
+  padding-right: 0.75rem;
+}
+.mt-post-header-user .mt-custom-emoji {
+  height: 1rem;
+  min-width: 1rem;
+  width: auto;
 }
 .mt-post-header-user > a {
-  display: flex;
-  align-items: flex-start;
   color: var(--mt-color-content-txt) !important;
   overflow-wrap: anywhere;
 }
+.mt-container .mt-post-header-user > a:hover {
+  text-decoration: none;
+}
+.mt-post-header-user-name {
+  font-weight: 600;
+}
+.mt-container .mt-post-header-user:hover .mt-post-header-user-name {
+  text-decoration: underline;
+}
+.mt-post-header-user-account {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--mt-color-contrast-gray);
+}
 .mt-post-header-date {
+  display: flex;
   font-size: 0.75rem;
   text-align: right;
-  margin: 0.5rem 0 0 auto;
+  margin-left: auto;
 }
-.mt-post-header-date > a {
+.mt-post-header-date .mt-post-pinned {
+  width: 1.25rem;
+  margin-top: -0.25rem;
+  fill: var(--mt-color-contrast-gray);
+}
+.mt-container .mt-post-header-date > a {
+  white-space: nowrap;
   color: var(--mt-color-contrast-gray) !important;
 }
 
@@ -192,7 +217,6 @@
   margin-left: 0;
   padding-left: 0.5rem;
 }
-.mt-post-header-user .mt-custom-emoji,
 .mt-post-txt .mt-custom-emoji {
   height: 1.5rem;
   min-width: 1.5rem;

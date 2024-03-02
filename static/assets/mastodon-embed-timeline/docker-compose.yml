@@ -1,0 +1,23 @@
+# This is a docker compose file to demonstrate and test the Mastodon embed timeline widget
+# Run this docker CLI from the root repository directory:
+#
+# $ docker compose up
+
+version: "3.3"
+
+services:
+  lighttpd:
+    image: jitesoft/lighttpd
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - ./dist:/var/www/dist
+      - ./examples:/var/www/examples
+    environment:
+      - PORT=80
+      - SERVER_NAME=mastodon-timeline
+      - SERVER_ROOT=/var/www
+      - CONFIG_FILE=/etc/lighttpd/lighttpd.conf
+      - SKIP_HEALTHCHECK=false
+      - MAX_FDS=1024

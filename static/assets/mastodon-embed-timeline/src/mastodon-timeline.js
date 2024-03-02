@@ -1,7 +1,7 @@
 /**
  * Mastodon embed timeline
  * @author idotj
- * @version 4.2.1
+ * @version 4.3.3
  * @url https://gitlab.com/idotj/mastodon-embed-timeline
  * @license GNU AGPLv3
  */
@@ -20,14 +20,22 @@ export class Init {
       defaultTheme: "auto",
       maxNbPostFetch: "20",
       maxNbPostShow: "20",
+      dateLocale: "en-GB",
+      dateOptions: {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      },
       hideUnlisted: false,
       hideReblog: false,
       hideReplies: false,
+      hidePinnedPosts: false,
+      hideUserAccount: false,
+      hideEmojos: false,
       hideVideoPreview: false,
       hidePreviewLink: false,
-      hideEmojos: false,
-      markdownBlockquote: false,
       hideCounterBar: false,
+      markdownBlockquote: false,
       txtMaxLines: "0",
       btnShowMore: "SHOW MORE",
       btnShowLess: "SHOW LESS",
@@ -198,6 +206,9 @@ export class Init {
         if (this.mtSettings.timelineType === "profile") {
           if (this.mtSettings.userId) {
             urls.timeline = `${this.mtSettings.instanceUrl}/api/v1/accounts/${this.mtSettings.userId}/statuses?limit=${this.mtSettings.maxNbPostFetch}`;
+            if (!this.mtSettings.hidePinnedPosts) {
+              urls.pinned = `${this.mtSettings.instanceUrl}/api/v1/accounts/${this.mtSettings.userId}/statuses?pinned=true`;
+            }
           } else {
             this.#showError(
               "Please check your <strong>userId</strong> value",
@@ -245,11 +256,11 @@ export class Init {
 
       // Fetch all urls simultaneously
       Promise.all(urlsPromises).then((dataObjects) => {
-        this.mtSettings.fetchedData = dataObjects.reduce((result, dataItem) => {
+        this.fetchedData = dataObjects.reduce((result, dataItem) => {
           return { ...result, ...dataItem };
         }, {});
 
-        // console.log("Mastodon timeline data fetched: ", this.mtSettings.fetchedData);
+        // console.log("Mastodon timeline data fetched: ", this.fetchedData);
         resolve();
       });
     });
@@ -262,33 +273,43 @@ export class Init {
   async #buildTimeline(t) {
     await this.#fetchTimelineData();
 
+    // Merge pinned posts with timeline posts
+    let posts;
+    if (
+      !this.mtSettings.hidePinnedPosts &&
+      this.fetchedData.pinned?.length !== undefined &&
+      this.fetchedData.pinned.length !== 0
+    ) {
+      const pinnedPosts = this.fetchedData.pinned.map((obj) => ({
+        ...obj,
+        pinned: true,
+      }));
+      posts = [...pinnedPosts, ...this.fetchedData.timeline];
+    } else {
+      posts = this.fetchedData.timeline;
+    }
+
     // Empty container body
     this.mtBodyNode.replaceChildren();
 
     // Set posts counter to 0
     let nbPostShow = 0;
 
-    for (let i in this.mtSettings.fetchedData.timeline) {
+    for (let i in posts) {
       // First filter (Public / Unlisted)
       if (
-        this.mtSettings.fetchedData.timeline[i].visibility == "public" ||
-        (!this.mtSettings.hideUnlisted &&
-          this.mtSettings.fetchedData.timeline[i].visibility == "unlisted")
+        posts[i].visibility == "public" ||
+        (!this.mtSettings.hideUnlisted && posts[i].visibility == "unlisted")
       ) {
         // Second filter (Reblog / Replies)
         if (
-          (this.mtSettings.hideReblog &&
-            this.mtSettings.fetchedData.timeline[i].reblog) ||
-          (this.mtSettings.hideReplies &&
-            this.mtSettings.fetchedData.timeline[i].in_reply_to_id)
+          (this.mtSettings.hideReblog && posts[i].reblog) ||
+          (this.mtSettings.hideReplies && posts[i].in_reply_to_id)
         ) {
           // Nothing here (Don't append posts)
         } else {
           if (nbPostShow < this.mtSettings.maxNbPostShow) {
-            this.#appendPost(
-              this.mtSettings.fetchedData.timeline[i],
-              Number(i)
-            );
+            this.#appendPost(posts[i], Number(i));
             nbPostShow++;
           } else {
             // Nothing here (Reached the limit of maximum number of posts to show)
@@ -301,7 +322,7 @@ export class Init {
     if (this.mtBodyNode.innerHTML === "") {
       const errorMessage =
         "No posts to show <hr/>" +
-        (this.mtSettings.fetchedData.timeline?.length || 0) +
+        (posts?.length || 0) +
         " posts have been fetched from the server <hr/>This may be due to an incorrect configuration in the parameters or to filters applied (to hide certains type of posts)";
       this.#showError(errorMessage, "📭");
     } else {
@@ -335,6 +356,7 @@ export class Init {
     let avatar,
       user,
       userName,
+      accountName,
       url,
       date,
       formattedDate,
@@ -371,22 +393,34 @@ export class Init {
         "</a>";
 
       // User name and url
-      userName = c.reblog.account.display_name
-        ? c.reblog.account.display_name
-        : c.reblog.account.username;
-      if (!this.mtSettings.hideEmojos) {
-        userName = this.#createEmoji(
-          userName,
-          this.mtSettings.fetchedData.emojos
+      if (!this.mtSettings.hideEmojos && c.reblog.account.display_name) {
+        userName = this.#shortcode2Emojos(
+          c.reblog.account.display_name,
+          c.reblog.account.emojis
         );
+      } else {
+        userName = c.reblog.account.display_name ? c.reblog.account.display_name : c.reblog.account.username;
       }
+
+      if (!this.mtSettings.hideUserAccount) {
+        accountName =
+          '<br/><span class="mt-post-header-user-account">@' +
+          c.reblog.account.username +
+          "@" +
+          new URL(c.reblog.account.url).hostname +
+          "</span>";
+      } else {
+        accountName = "";
+      }
+
       user =
         '<div class="mt-post-header-user">' +
         '<a href="' +
         c.reblog.account.url +
-        '" rel="nofollow noopener noreferrer" target="_blank">' +
+        '" rel="nofollow noopener noreferrer" target="_blank"><bdi class="mt-post-header-user-name">' +
         userName +
-        '<span class="visually-hidden"> account</span>' +
+        "</bdi>" +
+        accountName +
         "</a>" +
         "</div>";
 
@@ -419,22 +453,34 @@ export class Init {
         "</a>";
 
       // User name and url
-      userName = c.account.display_name
-        ? c.account.display_name
-        : c.account.username;
-      if (!this.mtSettings.hideEmojos) {
-        userName = this.#createEmoji(
-          userName,
-          this.mtSettings.fetchedData.emojos
+      if (!this.mtSettings.hideEmojos && c.account.display_name) {
+        userName = this.#shortcode2Emojos(
+          c.account.display_name,
+          c.account.emojis
         );
+      } else {
+        userName = c.account.display_name ? c.account.display_name : c.account.username;
       }
+
+      if (!this.mtSettings.hideUserAccount) {
+        accountName =
+          '<br/><span class="mt-post-header-user-account">@' +
+          c.account.username +
+          "@" +
+          new URL(c.account.url).hostname +
+          "</span>";
+      } else {
+        accountName = "";
+      }
+
       user =
         '<div class="mt-post-header-user">' +
         '<a href="' +
         c.account.url +
-        '" rel="nofollow noopener noreferrer" target="_blank">' +
+        '" rel="nofollow noopener noreferrer" target="_blank"><bdi class="mt-post-header-user-name">' +
         userName +
-        '<span class="visually-hidden"> account</span>' +
+        "</bdi>" +
+        accountName +
         "</a>" +
         "</div>";
 
@@ -451,6 +497,9 @@ export class Init {
     formattedDate = this.#formatDate(date);
     const timestamp =
       '<div class="mt-post-header-date">' +
+      (c.pinned
+        ? '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" class="mt-post-pinned" aria-hidden="true"><path d="m640-480 80 80v80H520v240l-40 40-40-40v-240H240v-80l80-80v-280h-40v-80h400v80h-40v280Zm-286 80h252l-46-46v-314H400v314l-46 46Zm126 0Z"></path></svg>'
+        : "") +
       '<a href="' +
       url +
       '" rel="nofollow noopener noreferrer" target="_blank">' +
@@ -459,6 +508,7 @@ export class Init {
       '">' +
       formattedDate +
       "</time>" +
+      (c.edited_at ? " *" : "") +
       "</a>" +
       "</div>";
 
@@ -627,7 +677,7 @@ export class Init {
 
     // Convert emojos shortcode into images
     if (!this.mtSettings.hideEmojos) {
-      content = this.#createEmoji(content, this.mtSettings.fetchedData.emojos);
+      content = this.#shortcode2Emojos(content, this.fetchedData.emojos);
     }
 
     // Convert markdown styles into HTML
@@ -708,7 +758,7 @@ export class Init {
    * @param {array} e List with all custom emojis
    * @returns {string} Text content modified
    */
-  #createEmoji(c, e) {
+  #shortcode2Emojos(c, e) {
     if (c.includes(":")) {
       for (const emojo of e) {
         const regex = new RegExp(`\\:${emojo.shortcode}\\:`, "g");
@@ -727,34 +777,17 @@ export class Init {
   /**
    * Format date
    * @param {string} d Date in ISO format (YYYY-MM-DDTHH:mm:ss.sssZ)
-   * @returns {string} Date formated (MM DD, YYYY)
+   * @returns {string} Date formated
    */
   #formatDate(d) {
-    const monthNames = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
+    const originalDate = new Date(d);
 
-    const date = new Date(d);
+    const formattedDate = new Intl.DateTimeFormat(
+      this.mtSettings.dateLocale,
+      this.mtSettings.dateOptions
+    ).format(originalDate);
 
-    const displayDate =
-      monthNames[date.getMonth()] +
-      " " +
-      date.getDate() +
-      ", " +
-      date.getFullYear();
-
-    return displayDate;
+    return formattedDate;
   }
 
   /**
@@ -1083,6 +1116,7 @@ export class Init {
       e.target.localName !== "a" &&
       e.target.localName !== "span" &&
       e.target.localName !== "button" &&
+      e.target.localName !== "bdi" &&
       e.target.localName !== "time" &&
       e.target.className !== "mt-post-preview-noImage" &&
       e.target.parentNode.className !== "mt-post-avatar-image-big" &&

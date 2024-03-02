@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mastodon embed timeline</title>
+    <meta name="author" content="i.j" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="mastodon, embed timeline" />
+    <meta name="description" content="Mastodon embed timeline" />
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="../dist/mastodon-timeline.min.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        height: 100%;
+      }
+      body {
+        height: 100%;
+        background: lightgrey;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        margin: 0;
+      }
+      .dummy-main-container {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+      }
+      .dummy-wrapper-text,
+      .dummy-wrapper-timeline {
+        width: 50%;
+        max-width: 30rem;
+        height: calc(100% - 4rem);
+        padding: 0 1rem;
+      }
+      .dummy-wrapper-text h1,
+      .dummy-wrapper-text h2,
+      .dummy-wrapper-text p {
+        margin: 0 0 1rem 0;
+      }
+      .dummy-wrapper-text pre {
+        display: flex;
+        background: lightsteelblue;
+        border-left: 3px solid #563acc;
+        color: midnightblue;
+        page-break-inside: avoid;
+        font-family: monospace;
+        line-height: 1.5;
+        max-width: 100%;
+        overflow: auto;
+        word-wrap: break-word;
+      }
+      .dummy-wrapper-text hr {
+        margin: 2rem 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dummy-main-container">
+      <!-- Title + Explained details of the example -->
+      <div class="dummy-wrapper-text">
+        <h1>🐘 Mastodon embed timeline</h1>
+        <h2>Multiple timeline</h2>
+        <p>
+          This example shows 3 local timelines running in the same page:
+          <br />
+          <a
+            href="https://mastodon.social/public/local"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            >mastodon.social</a
+          >
+          <br />
+          <a
+            href="https://mastodon.online/public/local"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            >mastodon.online</a
+          >
+          <br />
+          <a
+            href="https://mstdn.social/public/local"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            >mstdn.social</a
+          >
+        </p>
+        <p>It has been initialized with the following script:</p>
+        <pre>
+        <code>
+  &lt;script&gt;
+    const myTimeline01 = new MastodonTimeline.Init({
+      mtContainerId: "mt-container-01",
+      instanceUrl: "https://mastodon.social",
+    });
+
+    const myTimeline02 = new MastodonTimeline.Init({
+      mtContainerId: "mt-container-02",
+      instanceUrl: "https://mastodon.online",
+    });
+
+    const myTimeline03 = new MastodonTimeline.Init({
+      mtContainerId: "mt-container-03",
+      instanceUrl: "https://mstdn.social",
+    });
+  &lt;/script&gt;
+          </code>
+        </pre>
+      </div>
+
+      <div class="dummy-wrapper-timeline">
+        <!-- Mastodon Timeline 01 -->
+        <div id="mt-container-01" class="mt-container">
+          <div class="mt-body" role="feed">
+            <div class="mt-loading-spinner"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dummy-wrapper-timeline">
+        <!-- Mastodon Timeline 02 -->
+        <div id="mt-container-02" class="mt-container">
+          <div class="mt-body" role="feed">
+            <div class="mt-loading-spinner"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dummy-wrapper-timeline">
+        <!-- Mastodon Timeline 02 -->
+        <div id="mt-container-03" class="mt-container">
+          <div class="mt-body" role="feed">
+            <div class="mt-loading-spinner"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../dist/mastodon-timeline.umd.js"></script>
+    <script>
+      const myTimeline01 = new MastodonTimeline.Init({
+        mtContainerId: "mt-container-01",
+        instanceUrl: "https://mastodon.social",
+      });
+
+      const myTimeline02 = new MastodonTimeline.Init({
+        mtContainerId: "mt-container-02",
+        instanceUrl: "https://mastodon.online",
+      });
+
+      const myTimeline03 = new MastodonTimeline.Init({
+        mtContainerId: "mt-container-03",
+        instanceUrl: "https://mstdn.social",
+      });
+    </script>
+  </body>
+</html>
