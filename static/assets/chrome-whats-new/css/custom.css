@@ -82,6 +82,10 @@
     -webkit-line-clamp: unset;
 }
 
+.chr-copy-about a {
+    color: unset;
+}
+
 .chr-copy-about::before {
     content: '';
     display: none;
