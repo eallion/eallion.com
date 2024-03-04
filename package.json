@@ -9,14 +9,13 @@
     "new": "node scripts/post_title_prompt.js && bash scripts/format_filename.sh",
     "preview": "git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content --minify --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo --templateMetrics --templateMetricsHints",
     "update": "git submodule update --remote --merge",
-    "theme": "git submodule update --init --recursive",
+    "recursive": "git submodule update --init --recursive",
     "start": "next start",
     "dev": "next dev",
     "lint": "next lint",
     "build": "next build",
     "changelog": "changelog --allow-unknown",
-    "vercel": "node scripts/hugo_version.js &&  hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo && next build",
-    "uncss": "uncss -n layouts/index.html > static/assets/chromedev/css/dist/chrome.css"
+    "vercel": "node scripts/hugo_version.js &&  hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo && next build"
   },
   "repository": {
     "type": "git",
@@ -42,7 +41,6 @@
     "next": "13.5.6",
     "next.js": "^1.0.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "uncss": "^0.17.3"
+    "react-dom": "18.2.0"
   }
 }

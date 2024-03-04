@@ -82,27 +82,26 @@ origin  https://git.eallion.com/git/eallion/eallion.com.git (push)
 git submodule add https://github.com/eallion/hugo-theme-doit.git themes/DoIt
 ```
 
-> 克隆博客后同时克隆主题：
+克隆博客后同时克隆 [主题](https://github.com/eallion/hugo-theme-doit.git) 和 [mastodon-embed-timeline](https://github.com/eallion/mastodon-embed-timeline.git)：
 
 ```bash
 git submodule update --init --recursive
 
-# npm run theme
+# npm run recursive
 ```
 
-如果上游主题有更新，更新主题 DoIt 的 submodule：
-
-> 已更新脚本
+如果上游主题有更新，更新 [主题](https://github.com/eallion/hugo-theme-doit.git) 和 [mastodon-embed-timeline](https://github.com/eallion/mastodon-embed-timeline.git)：
 
 ```diff
 - git submodule update --remote --merge
 + npm run update
 ```
 
-- 首页基于 Google for developers [[f3fdc25](https://github.com/GoogleChrome/developer.chrome.com/tree/f3fdc250adda57c8d1c9a394d618462ea306adab)] 构建
+- 首页基于 Google Chrome Whats-new [[m122](https://www.google.com/intl/zh-CN/chrome/whats-new/m122/)] 构建
 
 ```
-https://github.com/GoogleChrome/developer.chrome.com
+https://www.google.com/intl/zh-CN/chrome/whats-new/m122/
+
 ```
 
 - 自定义 CSS 在 [`assets/css/_custom.scss`](<https://github.com/eallion/eallion.com/blob/main/assets/css/_custom.scss>)：
@@ -140,15 +139,10 @@ https://github.com/eallion/eallion.com/tree/main/data/neodb
 嘀咕页面 [`https://www.eallion.com/toot`](https://www.eallion.com/toot/) 为 Mastodon 个人实例 [`e5n.cc`](https://e5n.cc/@eallion) 的数据展示。  
 利用 [mastodon-embed-timeline](https://gitlab.com/idotj/mastodon-embed-timeline) 这个项目集成到博客页面。
 
-### 📦️ 首页 CSS 打包
+通过 Git submodule 添加：
 
-首页利用 uncss 打包，去掉无用的 CSS，注释掉 layouts/index.html 中的 css 部分，然后运行：  
-需要注意 layouts/index.html 头部的注释说明
-
-```bash
-# npm install uncss -g
-
-npm run uncss
+```
+git submodule add https://github.com/eallion/mastodon-embed-timeline.git static/assets/mastodon-embed-timeline
 ```
 
 ### ✏️ 写新文章
@@ -157,14 +151,12 @@ npm run uncss
 
 通过 Hugo 命令 New 一篇新文章模板：
 
-> 已更新脚本
-
 ```diff
 - hugo new posts/daily/new_title.md
 + npm run new
 ```
 
-2. **编辑文章**
+1. **编辑文章**
 
 通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 New 出来的文章。  
 这篇文章在 `example/posts` 目录下，文件名为：`*.md`，为 `npm run new` 输入的文字。  
@@ -212,11 +204,9 @@ git push
 
 8. **本地调试** (~~Web Server~~)
 
-> 安全没有必要把 Hugo 当成 Web Server
+> 完全没有必要把 Hugo 当成 Web Server
 
 已添加脚本：
-
-> 已更新脚本
 
 ```diff
 - ./server.sh
@@ -255,8 +245,6 @@ git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo s
 
 手动构建命令：
 
-> 已更新脚本
-
 ```diff
 - hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
 + npm run build
@@ -269,29 +257,6 @@ git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo s
 - `--minify` 压缩网页代码
 - `--enableGitInfo` 开启 GitIifo
 - `hugo --help` 查看所有命令
-
-### 🚨 刷新 jsDelivr 缓存
-
-将资源文件链接中的 `cdn.jsdelivr.net` 改为 `purge.jsdelivr.net`，在浏览器中请求即可刷新 CDN。
-
-```diff
-- https://cdn.jsdelivr.net/gh/eallion/eallion.github.io/style.css
-+ https://purge.jsdelivr.net/gh/eallion/eallion.github.io/style.css
-```
-
-### 💥 Git 增加缓冲区 50M
-
-```bash
-git config --local http.postBuffer 52428800
-```
-
-### 💥 清理 Git 仓库
-
-```bash
-git rm -r --cached .
-git reflog expire --expire=now --all
-git gc --prune=now --aggressive
-```
 
 ### 💥 本地资源引用
 
@@ -354,6 +319,29 @@ git gc --prune=now --aggressive
 英雄头像从腾讯官方 API [https://lol.qq.com/cguide/Guide/PublicResources/Images.html#英雄头像](https://lol.qq.com/cguide/Guide/PublicResources/Images.html#%E9%9D%9E%E7%82%AB%E5%BD%A9%E7%9A%AE%E8%82%A4) 下载，放到 `static/assets/images/penta/hero` 目录。
 
 - <https://www.eallion.com/penta/>
+
+### 🚨 刷新 jsDelivr 缓存
+
+将资源文件链接中的 `cdn.jsdelivr.net` 改为 `purge.jsdelivr.net`，在浏览器中请求即可刷新 CDN。
+
+```diff
+- https://cdn.jsdelivr.net/gh/eallion/eallion.github.io/style.css
++ https://purge.jsdelivr.net/gh/eallion/eallion.github.io/style.css
+```
+
+### 💥 Git 增加缓冲区 50M
+
+```bash
+git config --local http.postBuffer 52428800
+```
+
+### 💥 清理 Git 仓库
+
+```bash
+git rm -r --cached .
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
+```
 
 ### 📄 LICENSE
 
