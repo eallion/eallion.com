@@ -14,11 +14,6 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup timezone
-        uses: zcong1993/setup-timezone@master
-        with:
-          timezone: Asia/Shanghai
-
       - uses: actions/checkout@v4
         with:
           submodules: true
@@ -60,7 +55,7 @@ jobs:
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
       - name: Onionsite Pull Webhook
-        uses: jasongitmail/fast-webhook@v1
+        uses: eallion/fast-webhook@v1
         with:
           url: ${{ secrets.ONION_WEBHOOK_URL }}
           json: '{"onion": "pull"}'
