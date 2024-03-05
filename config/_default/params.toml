@@ -610,7 +610,7 @@ cacheRemoteImages = false
 [compatibility]
   # whether to use Polyfill.io to be compatible with older browsers
   # 是否使用 Polyfill.io 来兼容旧式浏览器
-  polyfill = false
+  polyfill = true
   # whether to use object-fit-images to be compatible with older browsers
   # 是否使用 object-fit-images 来兼容旧式浏览器
   objectFit = true
