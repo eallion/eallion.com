@@ -1,12 +1,14 @@
 ---
-title: "观影记录"
+title: "Watched"
 images: ["/assets/images/og/movie.png"]
 layout: "movie"
 type: 'movie'
 comment: false
 toc: false
 aliases:
-    - /douban
-    - /movies
-    - /film
+    - /en/douban
+    - /en/movies
+    - /en/film
+    - /en/movie
 ---
+

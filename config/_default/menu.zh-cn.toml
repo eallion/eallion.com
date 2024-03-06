@@ -32,12 +32,12 @@
   title = "嘀咕 Toots"
   weight = "3"
 [[main]]
-  identifier = "movie"
+  identifier = "neodb"
   pre = "<i class='fas fa-film'></i>"
   post = ""
-  name = "观影"
-  url = "/movie/"
-  title = "豆瓣观影记录"
+  name = "书影音"
+  url = "/media/"
+  title = "NeoDB 书影音记录"
   weight = "4"
 # [[main]]
 #   identifier = "goods"

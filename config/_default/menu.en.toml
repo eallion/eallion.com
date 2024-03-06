@@ -32,12 +32,12 @@
   title = "Toots"
   weight = "3"
 [[main]]
-  identifier = "movie"
+  identifier = "neodb"
   pre = "<i class='fas fa-film'></i>"
   post = ""
-  name = "Watched"
-  url = "/movie/"
-  title = "DouBan Movie"
+  name = "Media"
+  url = "/media/"
+  title = "NeoDB Movie TV Book Music Game"
   weight = "4"
 # [[main]]
 #   identifier = "goods"

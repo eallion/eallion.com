@@ -283,7 +283,7 @@ other ="Count"
 other ="Counts"
 
 [movie_desc]
-other ="My <a href='https://neodb.social/users/eallion@e5n.cc/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB <i class='fas fa-external-link-alt'></i></a> watched list ✨"
+other ="My <a href='https://neodb.social/users/eallion@e5n.cc/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB <i class='fas fa-external-link-alt'></i></a> marked list ✨"
 
 [movie_normal]
 other ="Normal"
@@ -296,6 +296,30 @@ other ="Full"
 
 [movie_exit_full_screen]
 other ="EXIT"
+
+[movie_cate_all]
+other ="All"
+
+[movie_cate_tv]
+other ="TVSeason"
+
+[movie_cate_movie]
+other ="Movie"
+
+[movie_cate_music]
+other ="Music"
+
+[movie_cate_game]
+other ="Game"
+
+[movie_cate_podcast]
+other ="Podcast"
+
+[movie_cate_book]
+other ="Book"
+
+[movie_loadmore]
+other ="Load more"
 
 [penta_quote]
 other = "My LOL penta kill. Screenshot record after TGP (aka: WeGame)."
