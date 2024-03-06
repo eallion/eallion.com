@@ -115,12 +115,62 @@
                 </script>
 
                 <div class="chr-hero-light-gm3 chr-hero-light-gm3--secondary chr-hero-light-gm3__secondary-wrapper">
-                    <div class="chr-hero-light-gm3__secondary-shape"></div>
+                    <video
+                        class="chr-hero-light-gm3__secondary-shape video-source"
+                        id="TopGif"
+                        width="100%"
+                        height="100%"
+                        webkit-playsinline="true"
+                        x-webkit-airplay="true"
+                        playsinline="true"
+                        x5-video-player-type="h5"
+                        x5-video-orientation="h5"
+                        x5-video-player-fullscreen="true"
+                        preload="auto"
+                        autoplay="true"
+                        loop=""
+                        muted="">
+                        <source src="" type="video/webm" />
+                        <source src="" type="video/mp4" />
+                    </video>
+                    <script>
+                        //背景随机视频
+                        document.addEventListener("DOMContentLoaded", function () {
+                            const videoElement = document.querySelector(".video-source");
+                            const videoSource = videoElement.querySelector("source");
+
+                            const videosName = [
+                            'movie1',
+                            'movie2',
+                            'movie3',
+                            // 'movie4',
+                            'movie5',
+                            'game1'
+                            ];
+
+                            function playRandomVideo(videos) {
+                                const randomIndex = Math.floor(Math.random() * videos.length);
+                                const name = videos[randomIndex];
+
+                                const webmSrc = '/assets/video/home/' + name + '.webm';
+                                const mp4Src = '/assets/video/home/' + name + '.mp4';
+
+                                const webmSource = videoElement.querySelector('source[type="video/webm"]');
+                                const mp4Source = videoElement.querySelector('source[type="video/mp4"]');
+                                    webmSource.setAttribute('src', webmSrc);
+                                    mp4Source.setAttribute('src', mp4Src);
+
+                                    videoElement.load();
+                            }
+
+                            playRandomVideo(videosName);
+                        });
+                    </script>
                     <div class="chr-grid-default-parent">
                         <div class="chr-grid-default">
                             <h1 class="chr-hero-light-gm3__heading chr-headline-1">Charles <span>eallion</span> Chin&#39;s Blog</h1>
                             <p class="chr-headline-5 chr-hero-light-gm3__body" role="text">
-                                <!-- <img alt="今日诗词" src="https://v2.jinrishici.com/one.svg?font-size=24&amp;spacing=2&amp;color=black" style="max-width:100%;display:block;margin:0 auto" no-view> -->
+                                <!-- <img alt="今日诗词" src="https://v2.jinrishici.com/one.svg?font-size=24&amp;spacing=2&amp;color=white" no-view> -->
                                 Chance favors the prepared mind. - <i>Louis Pasteur</i>
                             </p>
                         </div>

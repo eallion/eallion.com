@@ -20,6 +20,20 @@
     border-radius: 50%;
 }
 
+.chr-hero-light-gm3__secondary-shape {
+    object-fit: cover
+}
+
+.chr-hero-light-gm3 .chr-headline-1 {
+    color: #fff;
+}
+
+.chr-hero-light-gm3__body {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto
+}
+
 .snackbar-gm3--hidden .snackbar-gm3__card {
     display: flex;
     animation: fadeOut 5s forwards;
@@ -135,7 +149,7 @@
 
 @media only screen and (min-width: 600px) {
     .chr-footer__logo {
-        -webkit-box-flex:0;
+        -webkit-box-flex: 0;
         -ms-flex: 0 0 131px;
         flex: 0 0 131px;
     }
