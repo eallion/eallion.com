@@ -281,7 +281,7 @@ other ="评分人数"
 other ="人评分"
 
 [movie_desc]
-other ="我的 <a href='https://neodb.social/users/eallion@e5n.cc/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB <i class='fas fa-external-link-alt'></i></a> 观影记录 ✨"
+other ="我的 <a href='https://neodb.social/users/eallion@e5n.cc/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB <i class='fas fa-external-link-alt'></i></a> 标记记录 ✨"
 
 [movie_normal]
 other ="常规"
@@ -294,6 +294,30 @@ other ="全屏"
 
 [movie_exit_full_screen]
 other ="退出全屏"
+
+[movie_cate_all]
+other ="全部"
+
+[movie_cate_tv]
+other ="电视剧"
+
+[movie_cate_movie]
+other ="电影"
+
+[movie_cate_music]
+other ="音乐"
+
+[movie_cate_game]
+other ="游戏"
+
+[movie_cate_podcast]
+other ="播客"
+
+[movie_cate_book]
+other ="图书"
+
+[movie_loadmore]
+other ="加载更多"
 
 [penta_quote]
 other = "我的 LOL 五杀。有 TGP（WeGame）后才开始记录的自动五杀截图。"
