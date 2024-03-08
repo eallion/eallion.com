@@ -906,3 +906,147 @@ kbd,
 }
 
 // AI summary End
+
+// 抖音风格
+// https://jsfiddle.net/sevenschan/g5vaor8j/14/
+// https://github.com/iCharlesZ/amazing-css/tree/main/tiktok-style
+.tiktok-shake {
+    margin-top: 500px;
+    position: relative;
+    font-size: 64px;
+    font-style: italic;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-family: 'Anton', sans-serif;
+    opacity: .9;
+
+    span {
+        min-width: 400px;
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        overflow: hidden;
+
+        &:first-child {
+            color: #fff;
+            z-index: 1;
+            text-shadow: -2px -2px 0 #24f6f0, 2px 2px 0 #fe2d52;
+            animation: shake-horizontal 1s steps(3) infinite;
+        }
+
+        &:not(:first-child) {
+            width: 100%;
+            z-index: 2;
+
+            &::before {
+                content: attr(data-title);
+                color: #fff;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                text-shadow: -2px -2px 0 #24f6f0, 2px 2px 0 #fe2d52;
+            }
+        }
+
+        &:nth-child(2) {
+            height: 30px;
+            margin-left: -1px;
+            animation: shake-container 1s steps(4) infinite;
+
+            &::before {
+                animation: shake-move 1s steps(4) infinite;
+            }
+        }
+
+        &:nth-child(3) {
+            height: 5px;
+            margin-left: -2px;
+            animation: shake-container 1s steps(4) infinite;
+            animation-delay: 0.2s;
+
+            &::before {
+                animation: shake-move 1s steps(4) infinite;
+                animation-delay: 0.2s;
+            }
+        }
+
+        &:nth-child(4) {
+            height: 10px;
+            margin-left: -3px;
+            animation: shake-container 1s steps(4) infinite;
+            animation-delay: 0.1s;
+
+            &::before {
+                animation: shake-move 1s steps(4) infinite;
+                animation-delay: 0.1s;
+            }
+        }
+    }
+}
+
+
+@keyframes shake-horizontal {
+    0% {
+        margin-left: -4px;
+    }
+
+    100% {
+        margin-left: 2px;
+    }
+}
+
+@keyframes shake-container {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: 80px;
+    }
+}
+
+@keyframes shake-move {
+    0% {
+        margin-top: 0;
+    }
+
+    100% {
+        margin-top: -80px;
+    }
+}
+// 抖音风格 End
+
+// 抖音风格按钮
+
+.tiktok-button {
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #ee1d5e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: transform 0.3s ease;
+  }
+
+  .tiktok-button:hover {
+    animation: tiktok-shake 0.8s linear infinite;
+  }
+
+  @keyframes tiktok-shake {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+    75% {
+      transform: translateX(-5px);
+    }
+  }
+// 抖音风格按钮 End
