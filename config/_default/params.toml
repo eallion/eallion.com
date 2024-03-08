@@ -120,7 +120,7 @@ cacheRemoteImages = false
   twemoji = false
   # whether to enable lightgallery
   # 是否使用 lightgallery
-  lightgallery = false
+  lightgallery = true
   # whether to enable the ruby extended syntax
   # 是否使用 ruby 扩展语法
   ruby = true
@@ -462,7 +462,7 @@ cacheRemoteImages = false
       custom = "js/custom.min.js"
       #heti = "js/heti-addon.min.js"
       pangu = "js/pangu.min.js"
-      view-image = "js/view-image.min.js"
+      # view-image = "js/view-image.min.js"
       # someJavaScript = "some.js"
       # [page.library.js.someOtherJavaScript]
       #   src = "someOther.js"
