@@ -280,6 +280,11 @@
         max-width: 800px;
     }
 
+    .movie-title .single-title {
+        min-height: 2.5rem;
+        margin-left: 3rem;
+    }
+
     .movie-title-meta {
         display: flex;
         flex-wrap: wrap;
@@ -476,24 +481,244 @@
             transform: translateX(0);
         }
     }
-    /* // 页面宽度小于700样式 */
-    @media (max-width:700px){
-        .movie{
-            width: 100%;
-            margin-left:0;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            min-height: 495px;
-            margin-top: 0;
+    #loadMoreButton{
+        margin: 1rem auto;
+        width: 196px;
+        text-align: center;
+    }
+
+    .category-item {
+        color: #696969;
+        background-color: #f4f4f4;
+        font-size: .9rem;
+        padding: 0.25rem 0.75rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: inherit;
+        border-radius: 0.25rem;
+        transition: 150ms ease;
+        cursor: pointer;
+    }
+
+    .category-item.is-active {
+        background-color: #006bee;
+        color: #fff;
+    }
+
+    .category-item:hover {
+        background-color: #006bee;
+        color: #fff;
+    }
+
+    .category {
+        padding-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .category.u-hide + .db--list {
+        padding-top: 10px;
+    }
+
+    .category_hidden {
+        display: none;
+    }
+
+    /* cyber 风格按钮 */
+    .cyber-btn {
+        --primary: hsl(var(--primary-hue), 99.05%, calc(var(--primary-lightness, 58.63) * 1%));
+        --shadow-primary: hsl(var(--shadow-primary-hue), 92%, 55%);
+        --primary-hue: 349.38deg;
+        --primary-lightness: 58.63;
+        --color: hsl(0, 0%, 100%);
+        --font-size: 1rem;
+        --shadow-primary-hue: 178;
+        --label-size: 5px;
+        --shadow-secondary-hue: 60;
+        --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
+        --clip: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 70%);
+        --border: 4px;
+        --shimmy-distance: 5;
+        --clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+        --clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+        --clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
+        --clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+        --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+        --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
+        --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
+        font-family: 'Cyber', sans-serif;
+        color: var(--color);
+        cursor: pointer;
+        background: transparent;
+        text-transform: uppercase;
+        font-size: var(--font-size);
+        outline: transparent;
+        letter-spacing: 2px;
+        position: relative;
+        font-weight: 700;
+        border: 0;
+        min-width: 196px;
+        height: 35px;
+        line-height: 35px;
+        transition: background 0.2s;
+    }
+
+    .cyber-btn:hover {
+        --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.8%));
+    }
+
+    .cyber-btn:active {
+        --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.6%));
+    }
+
+    .cyber-btn:after,
+    .cyber-btn:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        clip-path: var(--clip);
+        z-index: -1;
+    }
+
+    .cyber-btn:before {
+        background: var(--shadow-primary);
+        transform: translate(var(--border), 0);
+    }
+
+    .cyber-btn:after {
+        background: var(--primary);
+    }
+
+    .cyber-btn__tag {
+        position: absolute;
+        padding: 1px 2px;
+        letter-spacing: 1px;
+        line-height: 1;
+        bottom: -5%;
+        right: 5%;
+        font-weight: normal;
+        color: hsl(0, 0%, 0%);
+        font-size: var(--label-size);
+    }
+
+    .cyber-btn__glitch {
+        position: absolute;
+        top: calc(var(--border) * -1);
+        left: calc(var(--border) * -1);
+        right: calc(var(--border) * -1);
+        bottom: calc(var(--border) * -1);
+        background: var(--shadow-primary);
+        text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
+        clip-path: var(--clip);
+        animation: glitch 2s infinite;
+        display: none;
+    }
+
+    .cyber-btn:hover .cyber-btn__glitch {
+        display: block;
+    }
+
+    .cyber-btn__glitch:before {
+        content: '';
+        position: absolute;
+        top: calc(var(--border) * 1);
+        right: calc(var(--border) * 1);
+        bottom: calc(var(--border) * 1);
+        left: calc(var(--border) * 1);
+        clip-path: var(--clip);
+        background: var(--primary);
+        z-index: -1;
+    }
+
+    @keyframes glitch {
+        0% {
+            clip-path: var(--clip-one);
         }
 
-        .rating,
-        .tags,
-        .info,
-        .movie-footer,
-        .full-screen {
-            display: none;
+        2%,
+        8% {
+            clip-path: var(--clip-two);
+            transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+        }
+
+        6% {
+            clip-path: var(--clip-two);
+            transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+        }
+
+        9% {
+            clip-path: var(--clip-two);
+            transform: translate(0, 0);
+        }
+
+        10% {
+            clip-path: var(--clip-three);
+            transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+        }
+
+        13% {
+            clip-path: var(--clip-three);
+            transform: translate(0, 0);
+        }
+
+        14%,
+        21% {
+            clip-path: var(--clip-four);
+            transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+        }
+
+        25% {
+            clip-path: var(--clip-five);
+            transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+        }
+
+        30% {
+            clip-path: var(--clip-five);
+            transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+        }
+
+        35%,
+        45% {
+            clip-path: var(--clip-six);
+            transform: translate(calc(var(--shimmy-distance) * -1%));
+        }
+
+        40% {
+            clip-path: var(--clip-six);
+            transform: translate(calc(var(--shimmy-distance) * 1%));
+        }
+
+        50% {
+            clip-path: var(--clip-six);
+            transform: translate(0, 0);
+        }
+
+        55% {
+            clip-path: var(--clip-seven);
+            transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+        }
+
+        60% {
+            clip-path: var(--clip-seven);
+            transform: translate(0, 0);
+        }
+
+        31%,
+        61%,
+        100% {
+            clip-path: var(--clip-four);
         }
     }
+
+    .cyber-btn:nth-of-type(2) {
+        --primary-hue: 260;
+    }
+
     /* // 页面宽度大于700小于900样式 */
     @media screen and (min-width:700px) and (max-width:900px){
         .movie{
@@ -511,112 +736,22 @@
         }
     }
 
-/*
-    [theme="dark"] .movie-description a {
-        color: #55bde2;
-    }
-
-    [theme="dark"] .movie-description a:hover {
-        color: #bdebfc;
-    }
-
-    [theme="dark"] .full-screen-btn,
-    [theme="dark"] .toggle-full-screen {
-        color: #292a2d;
-        background: #55bde2;
-        border-color: #252627;
-    }
-
-    [theme="dark"] .full-screen-btn:hover {
-        color: #292a2d;
-        background: #bdebfc;
-        border-color: #252627;
-    }
-
-    [theme="dark"] .toggle-full-screen {
-        border-color: #006bee;
-        color: #006bee;
-        background: #f8f8f8;
-    }
-
-    [theme="black"] .movie-description a {
-        color: #55bde2;
-    }
-
-    [theme="black"] .movie-description a:hover {
-        color: #bdebfc;
-    }
-
-    [theme="black"] .full-screen-btn,
-    [theme="black"] .toggle-full-screen {
-        color: #292a2d;
-        background: #55bde2;
-        border-color: #252627;
-    }
-
-    [theme="black"] .full-screen-btn:hover {
-        color: #292a2d;
-        background: #bdebfc;
-        border-color: #252627;
-    }
-
-    [theme="black"] .toggle-full-screen {
-        border-color: #006bee;
-        color: #006bee;
-        background: #f8f8f8;
-    }
-     */
-
-    #loadMoreButton{
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        color: #fff;
-        background-color: #006bee;
-        border-radius: 0.25rem;
-        transition: 150ms ease;
-        cursor: pointer;
-        margin: 0 auto;
-        padding: 10px 20px;
-        margin-top: 1rem;
-    }
-    #loadMoreButton:hover {
-        background-color: #ef3982;
-        color: #fff;
-    }
-    .category-item {
-        color: #696969;
-        background-color: #f4f4f4;
-        font-size: .9rem;
-        padding: 5px 12px;
-        margin-right: 6px;
-        margin-bottom: 10px;
-        line-height: 1.4;
-        font-weight: inherit;
-        border-radius: 0.25rem;
-        transition: 150ms ease;
-        cursor: pointer;
-    }
-    .category-item.is-active {
-        background-color: #006bee;
-        color: #fff;
-    }
-    .category-item:hover {
-        background-color: #006bee;
-        color: #fff;
-    }
-    .category {
-        padding-top: 2rem;
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 800px;
-        margin: auto;
-    }
-    .category.u-hide + .db--list {
-        padding-top: 10px;
-    }
-    .category_hidden {
-        display: none;
+    /* // 页面宽度小于700样式 */
+    @media (max-width:700px){
+        .movie{
+            width: 100%;
+            margin-left:0;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            min-height: 495px;
+            margin-top: 0.5rem;
+        }
+        .rating,
+        .tags,
+        .info,
+        .movie-footer,
+        .full-screen {
+            display: none;
+        }
     }
 </style>
 
@@ -691,10 +826,14 @@
         playRandomVideo(videosName);
     });
 </script>
-
 <article class="page single special">
     <div class="movie-title">
-        <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
+        <h1 class="single-title animate__animated animate__pulse animate__faster tiktok-shake">
+            <span>{{ .Title }}</span>
+            <span data-title="{{ .Title }}"></span>
+            <span data-title="{{ .Title }}"></span>
+            <span data-title="{{ .Title }}"></span>
+        </h1>
         <div class="movie-title-meta">
             <div class="movie-description">{{ T `movie_desc` | safeHTML }}</div>
             <div class="full-screen">
@@ -706,11 +845,6 @@
     </div>
     <div class="toggle-full-screen"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 20 20"><path fill="currentColor" d="M3.4 2L2 3.4l2.8 2.8L3 8h5V3L6.2 4.8zm11.8 4.2L18 3.4L16.6 2l-2.8 2.8L12 3v5h5zM4.8 13.8L2 16.6L3.4 18l2.8-2.8L8 17v-5H3zM17 12h-5v5l1.8-1.8l2.8 2.8l1.4-1.4l-2.8-2.8z"/></svg>{{ T `movie_exit_full_screen` | safeHTML }}</div>
     <div id="content" class="content movies">
-        <!-- <div class="greyQuote">
-            <blockquote>{{ T `movie_quote` | safeHTML }}</blockquote>
-        </div> -->
-
-        <!-- {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}} -->
         <div class="category">
             <span class="category-item is-active" data-category="all">{{ T `movie_cate_all` | safeHTML }}</span>
             <span class="category-item" data-category="movie">{{ T `movie_cate_movie` | safeHTML }}</span>
@@ -721,26 +855,13 @@
             <span class="category-item" data-category="podcast">{{ T `movie_cate_podcast` | safeHTML }}</span>
         </div>
         <div id="movie" class="movie"></div>
-        <button id="loadMoreButton" type="button">{{ T `movie_loadmore` | safeHTML }}</button>
-
+        <div id="loadMoreButton" type="button" class="cyber-btn">
+            {{ T `movie_loadmore` | safeHTML }}<span aria-hidden>_</span>
+            <span aria-hidden class="cyber-btn__glitch">{{ T `movie_loadmore` | safeHTML }}_</span>
+            <span aria-hidden class="cyber-btn__tag">e5n</span>
+        </div>
     </div>
 </article>
-
-<!-- <script>
-    // 计算 .movie 容器的预高度，设置 min-height
-    const movieStyle = window.getComputedStyle(document.querySelector('.movie'));
-    const gridGap = parseInt(movieStyle.gridGap);
-    const minChildHeight = 150;
-    const expectedRows = Math.ceil(20 / movieStyle.gridTemplateColumns.split(' ').length);
-    let expectedHeight = expectedRows * (minChildHeight + gridGap) - gridGap;
-    const screenWidth = window.innerWidth;
-    if (screenWidth <= 700) {
-        expectedHeight = expectedRows * (120 + gridGap) - gridGap;
-    } else if (screenWidth > 700 && screenWidth <= 900) {
-        expectedHeight = expectedRows * (150 + gridGap) - gridGap;
-    }
-    document.querySelector('.movie').style.minHeight = `${expectedHeight}px`;
-</script> -->
 
 <script>
     let currentPage = 1;
@@ -853,7 +974,7 @@
                     </div>
                     <div class="movie-footer">
                         <div class="star">
-                            <!-- <h4>Info:</h4> -->
+                            <h4></h4>
                             <ul>
                                 <li class="neodb">
                                     <a href="/go/?target=${btoa(String(item.item.id))}" target="_blank" rel="noreferrer noopener nofollow">
@@ -959,6 +1080,8 @@
         category.classList.add('category_hidden');
         moviesVideo.classList.add('movies_video_mt');
         toggleFullscreen.classList.add('exit-full-screen');
+        // 加载下一页
+        loadNextPage();
     });
     toggleFullscreen.addEventListener('click', () => {
         movie.classList.remove('movie-mt');
@@ -1008,7 +1131,8 @@
             movieTitle.classList.add('movie-hide-title');
             category.classList.add('category_hidden');
             moviesVideo.classList.add('movies_video_mt');
-
+            // 加载下一页
+            loadNextPage();
         } else {
             // 退出全屏
             exitFullscreen();
