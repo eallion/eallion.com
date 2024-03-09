@@ -1,10 +1,10 @@
 {{- $rel := "" -}}
-{{- $domainList := slice "www.eallion.com" "eallion.com" "e5n.cc" -}}
+{{- $domainList := slice "www.eallion.com" "eallion.com" "e5n.cc" "#" -}}
 {{- $parsedDestination := urls.Parse .Destination -}}
 {{- $host := $parsedDestination.Host -}}
 {{- $matched := false -}}
 {{- range $domainList -}}
-    {{- if strings.HasSuffix $host . -}}
+    {{- if or (strings.HasSuffix $host .) (eq . "#") -}}
         {{- $matched = true -}}
         {{- break -}}
     {{- end -}}
