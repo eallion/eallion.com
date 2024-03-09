@@ -34,6 +34,16 @@
     margin: 0 auto
 }
 
+.chr-cate-h2 {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+#updated_count {
+    margin-left: 0.25rem;
+}
+
 .snackbar-gm3--hidden .snackbar-gm3__card {
     display: flex;
     animation: fadeOut 5s forwards;

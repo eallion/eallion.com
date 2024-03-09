@@ -801,10 +801,10 @@
             let name = videos[randomIndex];
 
             // 检查localStorage中的上次播放的视频名称
-            const lastVideoName = localStorage.getItem('lastVideoName');
+            const   lastMovieVideoName = localStorage.getItem('  lastMovieVideoName');
 
             // 如果新视频与上一个视频相同，则继续随机选择，直到找到不同的视频
-            while (name === lastVideoName) {
+            while (name ===   lastMovieVideoName) {
                 randomIndex = Math.floor(Math.random() * videos.length);
                 name = videos[randomIndex];
             }
@@ -820,7 +820,7 @@
             videoElement.load();
 
             // 将当前播放的视频名称存储在localStorage中
-            localStorage.setItem('lastVideoName', name);
+            localStorage.setItem('  lastMovieVideoName', name);
         }
 
         playRandomVideo(videosName);

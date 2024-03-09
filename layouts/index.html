@@ -162,10 +162,10 @@
                                 let name = videos[randomIndex];
 
                                 // 检查localStorage中的上次播放的视频名称
-                                const lastVideoName = localStorage.getItem('lastVideoName');
+                                const lastHomeVideoName = localStorage.getItem('lastHomeVideoName');
 
                                 // 如果新视频与上一个视频相同，则继续随机选择，直到找到不同的视频
-                                while (name === lastVideoName) {
+                                while (name === lastHomeVideoName) {
                                     randomIndex = Math.floor(Math.random() * videos.length);
                                     name = videos[randomIndex];
                                 }
@@ -181,7 +181,7 @@
                                 videoElement.load();
 
                                 // 将当前播放的视频名称存储在localStorage中
-                                localStorage.setItem('lastVideoName', name);
+                                localStorage.setItem('lastHomeVideoName', name);
                             }
 
                             playRandomVideo(videosName);
@@ -224,39 +224,57 @@
                     <div class="chr-grid-default">
                     <div class="chr-fifty-fifty-text-image-gm3__text-wrapper">
                         <div>
-                        <h2 class="chr-eyebrow chr-fifty-fifty-text-image-gm3__eyebrow">
-                            {{- range first 1 .Params.categories -}}
-                                {{- . | safeHTML -}}
-                            {{- end -}}
-                        </h2>
-                        <h3 class="chr-headline-3 chr-fifty-fifty-text-image-gm3__heading">
-                            <a href="{{- .RelPermalink -}}">
-                                {{- with $params.date -}}
-                                {{- $timestamp := .Unix -}}
-                                    <span class="hidden" id="publish_time">{{ $timestamp }}</span>
-                                    <span class="article_new hidden"></span>
+                            <div class="chr-cate-h2">
+                                <h2 class="chr-eyebrow chr-fifty-fifty-text-image-gm3__eyebrow">
+                                    {{- with $params.date -}}
+                                        {{- $date := . }}
+                                        {{- $currentYear := now.Format "2006" }}
+                                        {{- $dateYear := $date.Format "2006" }}
+                                        {{- if eq $currentYear $dateYear }}
+                                            <i class="far fa-calendar-alt fa-fw"></i> {{- $date.Format "Jan 02, 2006" | safeHTML }}
+                                        {{- else }}
+                                            <i class="far fa-calendar-alt fa-fw"></i> {{- $date.Format "Jan 02, 2006" | safeHTML }}
+                                        {{- end }}
+                                    {{- end -}}
+                                </h2>
+                                <h2 class="chr-eyebrow chr-fifty-fifty-text-image-gm3__eyebrow">
+                                    {{- range first 1 .Params.categories -}}
+                                    &lbrace;{{- . | safeHTML -}}&rbrace;
+                                    {{- end -}}
+                                </h2>
+                                {{- range first 2 .Params.tags -}}
+                                    <h2 class="chr-eyebrow chr-fifty-fifty-text-image-gm3__eyebrow">
+                                        &#35;{{- . | safeHTML -}}
+                                    </h2>
                                 {{- end -}}
-                                {{- .Title -}}</a>
-                        </h3>
-                        <p class="chr-copy chr-fifty-fifty-text-image-gm3__description">
-
-                            {{- $summary := $params.summary -}}
-                            {{- with $summary -}}
-                                {{ . | safeHTML }}
-                            {{- else -}}
-                                {{- with .Summary -}}
-                                    {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                            </div>
+                            <h3 class="chr-headline-3 chr-fifty-fifty-text-image-gm3__heading">
+                                <a href="{{- .RelPermalink -}}">
+                                    {{- with $params.date -}}
+                                    {{- $timestamp := .Unix -}}
+                                        <span class="hidden" id="publish_time">{{ $timestamp }}</span>
+                                        <span class="article_new hidden"></span>
+                                    {{- end -}}
+                                    {{- .Title -}}</a>
+                            </h3>
+                            <p class="chr-copy chr-fifty-fifty-text-image-gm3__description">
+                                {{- $summary := $params.summary -}}
+                                {{- with $summary -}}
+                                    {{ . | safeHTML }}
                                 {{- else -}}
-                                    {{- .Description | safeHTML -}}
+                                    {{- with .Summary -}}
+                                        {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                                    {{- else -}}
+                                        {{- .Description | safeHTML -}}
+                                    {{- end -}}
                                 {{- end -}}
-                            {{- end -}}
-                        </p>
-                        <div class="chr-fifty-fifty-text-image-gm3__tutorial-wrapper">
-                            <button class="chr-cta__button chr-cta__button--blue">
-                                <a href="{{- .RelPermalink -}}" class="button"
-                                aria-label="Read the blog post.">阅读全文
-                                </a></button>
-                        </div>
+                            </p>
+                            <div class="chr-fifty-fifty-text-image-gm3__tutorial-wrapper">
+                                <button class="chr-cta__button chr-cta__button--blue">
+                                    <a href="{{- .RelPermalink -}}" class="button"
+                                    aria-label="Read the blog post.">阅读全文
+                                    </a></button>
+                            </div>
                         </div>
                     </div>
                     <div class="chr-fifty-fifty-text-image-gm3__image-wrapper">
@@ -306,7 +324,7 @@
                     // 更新 updated_count 元素
                     const updatedElement = document.getElementById('updated_count');
                     if (updated_count > 0) {
-                        updatedElement.textContent = '最近更新' + updated_count + '篇';
+                        updatedElement.textContent = '最近更新 ' + updated_count + ' 篇';
                     } else {
                         updatedElement.textContent = '';
                     }
