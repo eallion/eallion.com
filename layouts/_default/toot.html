@@ -9,7 +9,7 @@
 {{- $toc = dict "enable" false -}}
 {{- end -}}
 
-<link rel="stylesheet" href="/assets/mastodon-embed-timeline/dist/mastodon-timeline.min.css?v=4.3.3">
+<link rel="stylesheet" href="/assets/mastodon-embed-timeline/dist/mastodon-timeline.min.css?v=4.3.5">
 <link rel="stylesheet" href="/assets/mastodon-embed-timeline-custome/mastodon-timeline-custom.min.css?v=2024.03.03">
 
 <article class="page single special">
@@ -32,7 +32,7 @@
 
 <script type="module">
 
-    import * as MastodonTimeline from "/assets/mastodon-embed-timeline/dist/mastodon-timeline.esm.js?v=4.3.3";
+    import * as MastodonTimeline from "/assets/mastodon-embed-timeline/dist/mastodon-timeline.esm.js?v=4.3.5";
 
     const myTimeline = new MastodonTimeline.Init({
         // Id of the <div> containing the timeline
@@ -100,7 +100,7 @@
         // Default: don't hide
         hidePinnedPosts: true,
 
-        // Hide user account under the user name
+        // Hide the user account under the user name
         // Default: don't hide
         hideUserAccount: false,
 
@@ -124,15 +124,24 @@
         // Default: don't apply
         markdownBlockquote: false,
 
+        // Show a carousel/lightbox when the user clicks on a picture in a post
+        // Default: not disabled
+        disableCarousel: false,
+
+        // Customize the text of the buttons used for the carousel/lightbox
+        carouselCloseTxt: "Close carousel",
+        carouselPrevTxt: "Previous media item",
+        carouselNextTxt: "Next media item",
+
         // Limit the text content to a maximum number of lines
         // Default: 0 (unlimited)
         txtMaxLines: "0",
 
-        // Customize the text of the button used for showing/hiding sensitive/spolier text
+        // Customize the text of the button used for showing/hiding sensitive/spoiler text
         btnShowMore: "SHOW MORE",
         btnShowLess: "SHOW LESS",
 
-        // Customize the text of the button used for showing sensitive/spolier media content
+        // Customize the text of the button used for showing sensitive/spoiler media content
         btnShowContent: "SHOW CONTENT",
 
         // Customize the text of the button pointing to the Mastodon page placed at the end of the timeline
@@ -152,44 +161,6 @@
         insistSearchContainerTime: "3000",
 
     });
-
-    // Media Wrapper
-    // 创建一个MutationObserver实例
-    const observer = new MutationObserver((mutations) => {
-    // 获取所有的.mt-post元素
-    const articleElements = document.querySelectorAll('.mt-post');
-
-    // 遍历每个.mt-post元素
-    articleElements.forEach(articleElement => {
-        // 检查当前.mt-post元素下是否有.mt-post-media元素
-        const mediaElements = articleElement.querySelectorAll('.mt-post-media');
-        if (mediaElements.length > 0) {
-        // 创建一个新的<div class="media-wrapper">元素
-        const mediaWrapper = document.createElement('div');
-        mediaWrapper.classList.add('mp-post-media-wrapper');
-        // 根据.mt-post-media元素的数量添加grid-?样式名
-        const gridSize = mediaElements.length;
-        mediaWrapper.classList.add(`grid-${gridSize}`);
-        // 将所有的.mt-post-media元素添加到新创建的<div class="media-wrapper">元素中
-        mediaElements.forEach(mediaElement => {
-            mediaWrapper.appendChild(mediaElement);
-        });
-
-        // 将新创建的<div class="media-wrapper">元素插入到.mt-post-txt元素之后
-        const post1Element = articleElement.querySelector('.mt-post-txt');
-        post1Element.insertAdjacentElement('afterend', mediaWrapper);
-        }
-    });
-
-    // 当代码执行完毕，停止监听DOM变化
-    observer.disconnect();
-    });
-
-    // 配置MutationObserver
-    const config = { childList: true, subtree: true };
-
-    // 开始监听DOM变化
-    observer.observe(document.body, config);
 
 </script>
 

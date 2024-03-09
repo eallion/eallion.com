@@ -63,6 +63,10 @@
     }
 }
 
+.chr-fifty-fifty-text-image-gm3 .chr-eyebrow {
+    text-transform: none;
+}
+
 .article_new::before {
     content: '🆕';
     color: #006bee;
