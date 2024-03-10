@@ -14,6 +14,21 @@
         max-width: 1020px !important;
     }
 
+    .loading {
+        /* position: absolute; */
+        width: 3rem;
+        height: 3rem;
+        margin: auto;
+        margin-top: 2rem;
+        /* top: calc(14% - 1.5rem); */
+        /* right: calc(50% - 1.5rem); */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cg%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 64 64' to='360 64 64' dur='1000ms' repeatCount='indefinite'/%3E%3Cpath d='M64 6.69a57.3 57.3 0 1 1 0 114.61A57.3 57.3 0 0 1 6.69 64' fill='none' stroke='%23404040' stroke-width='12'/%3E%3C/g%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-color: transparent;
+        background-size: min(2.5rem, calc(100% - 0.5rem));
+    }
+
     .movie {
         /* width: 100vw;
         margin-left: calc(50% - 50vw); */
@@ -854,6 +869,7 @@
             <span class="category-item" data-category="game">{{ T `movie_cate_game` | safeHTML }}</span>
             <span class="category-item" data-category="podcast">{{ T `movie_cate_podcast` | safeHTML }}</span>
         </div>
+        <div class="loading"></div>
         <div id="movie" class="movie"></div>
         <div id="loadMoreButton" type="button" class="cyber-btn">
             {{ T `movie_loadmore` | safeHTML }}<span aria-hidden>_</span>
@@ -872,18 +888,20 @@
     const genreItems = document.querySelectorAll('.category-item');
 
     async function fetchData(page, category) {
-    try {
-        let url = `https://neodb.eallion.com/api?page=${page}`;
-        if (category !== 'all') {
-            url += `&category=${category}`;
+        try {
+            let url = `https://neodb.eallion.com/api?page=${page}`;
+            if (category !== 'all') {
+                url += `&category=${category}`;
+            }
+            const response = await fetch(url);
+            const data = await response.json();
+            const loading = document.querySelector('.loading');
+                loading.classList.add('hidden');
+            return data;
+        } catch (error) {
+            console.error('Error fetching data:', error);
         }
-        const response = await fetch(url);
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching data:', error);
     }
-}
 
     function displayData(data) {
         data.data.forEach(item => {

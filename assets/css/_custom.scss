@@ -46,6 +46,10 @@ $background-color_5: #1b4721;
 $background-color_6: #78191b;
 
 // 覆盖主题样式 Start
+.hidden {
+    display: none !important;
+}
+
 #header-desktop {
     z-index: 999;
 }
