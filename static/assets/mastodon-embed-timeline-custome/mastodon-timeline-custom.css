@@ -103,3 +103,63 @@
 }
 
 /* toot images end */
+
+/* toot images wechat mentions */
+/* https://github.com/busyzz-1994/react-wx-image-grid */
+.mt-post-media-wrapper {
+    width: 100%;
+    display: flex !important;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    user-select: none;
+    max-width: 480px;
+    gap: unset !important;
+}
+
+.mt-post-media-wrapper>.mt-post-media {
+    padding-top: 0 !important;
+    position: relative;
+}
+
+.mt-post-media-wrapper>.mt-post-media:only-child {
+    width: 100%;
+}
+
+.mt-post-media-wrapper>.mt-post-media:first-child:nth-last-child(2),
+.mt-post-media-wrapper>.mt-post-media:nth-child(2):last-child {
+    width: 49%;
+}
+
+.mt-post-media-wrapper>.mt-post-media:first-child:nth-last-child(3),
+.mt-post-media-wrapper>.mt-post-media:nth-child(2):nth-last-child(2),
+.mt-post-media-wrapper>.mt-post-media:nth-child(3):last-child {
+    width: 32.5%;
+}
+
+.mt-post-media-wrapper>.mt-post-media:first-child:nth-last-child(4),
+.mt-post-media-wrapper>.mt-post-media:first-child:nth-last-child(4)~.mt-post-media {
+    width: 49%;
+    margin-bottom: 2%;
+}
+
+.mt-post-media-wrapper>.mt-post-media:first-child:nth-last-child(n + 5),
+.mt-post-media-wrapper>.mt-post-media:first-child:nth-last-child(n + 5)~.mt-post-media {
+    width: 32.5%;
+    margin-bottom: 1.25%;
+}
+
+.mt-post-media-wrapper>.mt-post-media::after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.mt-post-media-wrapper>.mt-post-media>img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: none;
+}
