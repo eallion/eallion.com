@@ -2,13 +2,20 @@
     display: none;
 }
 
+body {
+    background-color: #f8fafd;
+}
+
 .wrapper main .container {
     padding: 0 !important;
 }
 
 .page {
+    background-color: #f8fafd;
     width: 100% !important;
     max-width: 100% !important;
+    padding-top: 0 !important;
+    margin: 0 auto !important;
 }
 
 .chr-hero-light-gm3__icon {
@@ -184,6 +191,29 @@
 }
 
 /* 暗黑模式 Darkmode */
+
+[theme="dark"] body,
+[theme="dark"] .page,
+body[theme="dark"].dark-theme .chr-footer--white,
+body[theme="dark"].dark-theme .chr-fifty-fifty-text-image-gm3,
+body[theme="dark"].dark-theme .chr-archive-gm3,
+body[theme="dark"].dark-theme .chr-hero-light-gm3 {
+    background-color: #28292a;
+}
+
+[theme="black"] body,
+[theme="black"] .page,
+body[theme="black"].dark-theme .chr-footer--white,
+body[theme="black"].dark-theme .chr-fifty-fifty-text-image-gm3,
+body[theme="black"].dark-theme .chr-archive-gm3,
+body[theme="black"].dark-theme .chr-hero-light-gm3  {
+    background-color: #000;
+}
+
+[theme="dark"] .chr-main img,
+[theme="black"] .chr-main img {
+    opacity: 0.75;
+}
 
 [theme="dark"] #notbyai,
 [theme="black"] #notbyai {

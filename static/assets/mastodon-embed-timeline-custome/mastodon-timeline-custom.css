@@ -3,8 +3,18 @@
 /* Theme colors */
 /* Type: mod */
 [theme="dark"] .mt-container {
-    --mt-color-bg: #282c37;
-    --mt-color-bg-hover: #313543;
+    --mt-color-bg: #34363a;
+    --mt-color-bg-hover: #28292a;
+    --mt-color-line-gray: #393f4f;
+    --mt-color-contrast-gray: #606984;
+    --mt-color-content-txt: #fff;
+    --mt-color-link: #8c8dff;
+    --mt-color-error-txt: #fe6c6c;
+}
+
+[theme="black"] .mt-container {
+    --mt-color-bg: #34363a;
+    --mt-color-bg-hover: #28292a;
     --mt-color-line-gray: #393f4f;
     --mt-color-contrast-gray: #606984;
     --mt-color-content-txt: #fff;
@@ -14,6 +24,13 @@
 
 /* toot images start */
 /* Type: mod */
+.mt-body {
+    padding: 1rem 0;
+}
+
+.mt-post:focus, .mt-post:hover {
+    border-radius: 1rem;
+}
 
 .mt-post-txt .mt-custom-emoji {
     display: inline;

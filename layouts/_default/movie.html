@@ -12,6 +12,12 @@
 <style>
     .page {
         max-width: 1020px !important;
+        background-color: transparent;
+    }
+
+    [theme="dark"] .page,
+    [theme="black"] .page {
+        background-color: transparent;
     }
 
     .loading {
@@ -457,7 +463,15 @@
         right: 0;
         top: 0;
         height: 100%;
-        background: linear-gradient(to bottom,rgba(255,255,255,5%) 0%,#FFF 100%)
+        background: linear-gradient(to bottom,rgba(255,255,255,5%) 0%,#f8fafd 100%)
+    }
+
+    [theme="dark"] .movies_video:after {
+        background: linear-gradient(to bottom,rgba(255,255,255,5%) 0%,#28292a 100%)
+    }
+
+    [theme="black"] .movies_video:after {
+        background: linear-gradient(to bottom,rgba(255,255,255,5%) 0%,#000 100%)
     }
 
     .video-source{
