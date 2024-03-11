@@ -143,6 +143,10 @@ body {
     overflow: hidden;
 }
 
+.chr-footer--white {
+    background-color: #f8fafd;
+}
+
 .chr-footer-social__container {
     align-items: center;
 }
