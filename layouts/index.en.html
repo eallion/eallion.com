@@ -115,78 +115,7 @@
                 </script>
 
                 <div class="chr-hero-light-gm3 chr-hero-light-gm3--secondary chr-hero-light-gm3__secondary-wrapper">
-                    <video
-                        class="chr-hero-light-gm3__secondary-shape video-source"
-                        id="TopGif"
-                        width="100%"
-                        height="100%"
-                        webkit-playsinline="true"
-                        x-webkit-airplay="true"
-                        playsinline="true"
-                        x5-video-player-type="h5"
-                        x5-video-orientation="h5"
-                        x5-video-player-fullscreen="true"
-                        preload="auto"
-                        autoplay="true"
-                        loop=""
-                        muted="">
-                        <source src="" type="video/webm" />
-                        <source src="" type="video/mp4" />
-                    </video>
-                    <script>
-                        //背景随机视频
-                        document.addEventListener("DOMContentLoaded", function () {
-                            const videoElement = document.querySelector(".video-source");
-                            const videoSource = videoElement.querySelector("source");
-
-                            const videosName = [
-                                // 'movie1',
-                                // 'movie2',
-                                // 'movie3',
-                                // // 'movie4',
-                                // 'movie5',
-                                'game1',
-                                'meetyourself1',
-                                'meetyourself2',
-                                'meetyourself3',
-                                'meetyourself4',
-                                'meetyourself5',
-                                'meetyourself6',
-                                'meetyourself7',
-                                'meetyourself8',
-                                'movies'
-                            ];
-
-                            function playRandomVideo(videos) {
-                                let randomIndex = Math.floor(Math.random() * videos.length);
-                                let name = videos[randomIndex];
-
-                                // 检查localStorage中的上次播放的视频名称
-                                const lastHomeVideoName = localStorage.getItem('lastHomeVideoName');
-
-                                // 如果新视频与上一个视频相同，则继续随机选择，直到找到不同的视频
-                                while (name === lastHomeVideoName) {
-                                    randomIndex = Math.floor(Math.random() * videos.length);
-                                    name = videos[randomIndex];
-                                }
-
-                                const webmSrc = '/assets/video/home/' + name + '.webm';
-                                const mp4Src = '/assets/video/home/' + name + '.mp4';
-
-                                const webmSource = videoElement.querySelector('source[type="video/webm"]');
-                                const mp4Source = videoElement.querySelector('source[type="video/mp4"]');
-                                webmSource.setAttribute('src', webmSrc);
-                                mp4Source.setAttribute('src', mp4Src);
-
-                                videoElement.load();
-
-                                // 将当前播放的视频名称存储在localStorage中
-                                localStorage.setItem('lastHomeVideoName', name);
-                            }
-
-                            playRandomVideo(videosName);
-                        });
-                    </script>
+                    <div class="chr-hero-light-gm3__secondary-shape"></div>
                     <div class="chr-grid-default-parent">
                         <div class="chr-grid-default">
                             <h1 class="chr-hero-light-gm3__heading chr-headline-1">Charles <span>eallion</span> Chin&#39;s Blog</h1>
