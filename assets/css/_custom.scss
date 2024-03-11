@@ -53,6 +53,28 @@ $background-color_6: #78191b;
 #header-desktop {
     z-index: 999;
 }
+
+.page {
+    background-color: #fff;
+    padding: 1rem 1rem 2rem;
+    border-radius: 1.5rem;
+    margin: 3rem auto;
+    [header-desktop] & {
+        padding-top: $header-height;
+    }
+
+    [header-desktop=normal] & {
+        padding-top: 1rem;
+    }
+
+}
+
+
+[theme="dark"] .page,
+[theme="black"] .page {
+    background-color: #34363a;
+}
+
 .single {
     .content {
         p {
@@ -874,6 +896,10 @@ kbd,
     color: #b5b5b5;
 }
 
+[theme="dark"] .ai-title svg {
+    fill: #b5b5b5;
+}
+
 [theme="dark"] .ai-title a {
     color: #b5b5b5;
 }
@@ -894,6 +920,10 @@ kbd,
 
 [theme="black"] .ai-title {
     color: #a9a9b3;
+}
+
+[theme="black"] .ai-title svg {
+    fill: #a9a9b3;
 }
 
 [theme="black"] .ai-title a {
