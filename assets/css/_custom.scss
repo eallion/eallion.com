@@ -56,17 +56,6 @@ $background-color_6: #78191b;
 
 .page {
     background-color: #fff;
-    padding: 1rem 1rem 2rem;
-    border-radius: 1.5rem;
-    margin: 3rem auto;
-    [header-desktop] & {
-        padding-top: $header-height;
-    }
-
-    [header-desktop=normal] & {
-        padding-top: 1rem;
-    }
-
 }
 
 
