@@ -168,12 +168,12 @@ jobs:
           './data/neodb'
           './static/assets/images/movie/cover'
 
-    # 调用另外的 GitHub Actions 构建 Hugo
-    - name: Build Hugo and Deploy
-      if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
-      uses: peter-evans/repository-dispatch@v2
-      with:
-          event-type: build-hugo
+    # # 调用另外的 GitHub Actions 构建 Hugo
+    # - name: Build Hugo and Deploy
+    #   if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
+    #   uses: peter-evans/repository-dispatch@v2
+    #   with:
+    #       event-type: build-hugo
 
     # 同步新海报到 s3
     - name: Sync Cover to static s3
