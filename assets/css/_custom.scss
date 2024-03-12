@@ -56,12 +56,26 @@ $background-color_6: #78191b;
 
 .page {
     background-color: #fff;
-}
 
+}
 
 [theme="dark"] .page,
 [theme="black"] .page {
     background-color: #34363a;
+}
+
+.page.single,
+.page.archive {
+    padding: 1rem 1rem 2rem;
+    border-radius: 1.5rem;
+    margin: 3rem auto;
+}
+
+@media only screen and (max-width: 680px) {
+    .page.single,
+    .page.archive {
+        margin-top: 5rem;
+    }
 }
 
 .single {
@@ -129,6 +143,7 @@ $background-color_6: #78191b;
 
     .content .friend-link-div {
         width: 100%;
+        border-radius: 0.5rem;
     }
 }
 
