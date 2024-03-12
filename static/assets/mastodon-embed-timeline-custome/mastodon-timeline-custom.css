@@ -53,6 +53,8 @@
 }
 
 /* Type: add */
+
+/*
 .mt-post-media-wrapper {
     width: 100%;
     max-width: 480px;
@@ -93,7 +95,6 @@
 
 @media (max-width: 540px) {
 
-    /* iPhone se width */
     .grid-3,
     .grid-5,
     .grid-6,
@@ -118,6 +119,7 @@
         height: 86px;
     }
 }
+*/
 
 /* toot images end */
 
@@ -139,7 +141,7 @@
 }
 
 .mt-post-media-wrapper>.mt-post-media:only-child {
-    width: 100%;
+    width: 80%;
 }
 
 .mt-post-media-wrapper>.mt-post-media:first-child:nth-last-child(2),
