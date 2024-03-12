@@ -14,8 +14,6 @@ body {
     background-color: #f8fafd;
     width: 100% !important;
     max-width: 100% !important;
-    padding-top: 0 !important;
-    margin: 0 auto !important;
 }
 
 .chr-hero-light-gm3__icon {
@@ -41,10 +39,17 @@ body {
     margin: 0 auto
 }
 
+@media only screen and (min-width: 1440px){
+    .dark-theme .chr-hero-light-gm3__secondary-shape {
+        background-color: #003355;
+    }
+}
+
 .chr-cate-h2 {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 #updated_count {
