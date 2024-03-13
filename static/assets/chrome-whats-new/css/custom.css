@@ -112,12 +112,6 @@ body {
     text-align: center;
 }
 
-.about-avatar {
-    float: left;
-    margin: 0.5rem 0.5rem 0 0;
-    border-radius: 1rem;
-}
-
 .chr-copy-about {
     -webkit-line-clamp: unset;
 }

@@ -13,7 +13,7 @@ comment: false
     </blockquote>
 </div>
 
-<img no-view src="/eallion.webp" alt="eallion">
+<img no-view src="/eallion.webp" alt="eallion" class="about-avatar">
 
 I'm [Charles Chin]^(大大的小蜗牛). [eallion]^(蜗牛) has been my nickname for over 20 years.
 AKA：大大的小蜗牛.

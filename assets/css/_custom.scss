@@ -56,7 +56,6 @@ $background-color_6: #78191b;
 
 .page {
     background-color: #fff;
-
 }
 
 [theme="dark"] .page,
@@ -227,6 +226,12 @@ $background-color_6: #78191b;
             }
         }
     }
+}
+
+.about-avatar {
+    float: left;
+    margin: 0.5rem 0.5rem 0 0;
+    border-radius: 1rem;
 }
 
 .icp-splitter {

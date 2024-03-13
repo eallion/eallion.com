@@ -13,7 +13,7 @@ comment: true
     </blockquote>
 </div>
 
-<img no-view src="/eallion.webp" alt="eallion">
+<img no-view src="/eallion.webp" alt="eallion" class="about-avatar">
 
 我是「[蜗牛]^(eallion)」，不过一般都使用「大大的小蜗牛」作为网名。
 本名没有什么内涵，略去不表。
@@ -42,16 +42,6 @@ comment: true
 本人只活跃在 [`GitHub`](https://github.com/eallion)、[`Mastodon`](https://e5n.cc/@eallion)、[`Steam`](https://steamcommunity.com/id/eallion)上，其他平台同名账号绝非本人所有。
 
 本站拥有唯一域名 `eallion.com` 、二级域名 `www.eallion.com`。除此之外的相关、相似域名，除非由本人实名认证，或者备案在本人名下，否则皆为他人所有，或者被他人盗用信息，与本人无关。
-
-本博客现在随缘更新，佛性写博。
-
-自从简体中文网络环境越来越差，受网络监管和内容审查的影响，本博客已主动或被动删除 4000 多篇废话和流水账。 现在本博客基本上不会写时事，不会写政治，不蹭热点，不玩梗，不会发表犀利刻薄的评论。只会偶尔更新一些备忘录或小心得或无关紧要的随想。
-
-以为刚开始，实际已结束。怀念过去的黄金时代。
-
-不过多年以后，无论是现实还是网上的朋友，只要你来，只要没人逼我离开，我就还在这里。
-
-> 另：本博客从 Typecho 转到 Hugo 时，脚本把 Typecho 中的几十篇草稿也转换了出来。所以本博客现在保留了一部分超简文章，虽然只有几个字，但是每当看到内容时，十多二十年前的旧时光就会从脑海徐徐漂过，当时的情景、当时的感受历历在目，仿佛从未远去。
 
 ### 说明
 
