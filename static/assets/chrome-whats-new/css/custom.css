@@ -17,6 +17,12 @@ body {
     padding-top: 1.5rem !important;
 }
 
+@media only screen and (max-width: 680px){
+    .page {
+        padding-top: 3.5rem !important;
+    }
+}
+
 .chr-hero-light-gm3__icon {
     align-items: center;
 }
