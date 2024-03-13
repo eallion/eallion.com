@@ -1,0 +1,213 @@
+{{- define "title" }}
+    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+    <div class="page archive">
+        {{- /* Title */ -}}
+        <h2 class="single-title animate__animated animate__pulse animate__faster">
+            {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
+        </h2>
+
+        <div id="heatmap" style="max-width: 800px; width: 92%; height: 110px; margin: 0 auto;"></div>
+        <script src="/assets/js/echarts.min.js"></script>
+        <script type="text/javascript">
+            var chartDom = document.getElementById('heatmap');
+            var myChart = echarts.init(chartDom);
+            window.onresize = function() {
+                myChart.resize();
+            };
+            var option;
+            var dataMap = new Map();
+            {{ range ((where .Site.RegularPages "Type" "posts")) }}
+                var key = {{ .Date.Format "2006-01-02" }};
+                var value = dataMap.get(key);
+                var link = {{ .RelPermalink}};
+                var title = {{ .Title }};
+
+                // multiple posts in same day
+                if (value == null) {
+                dataMap.set(key, [{link, title}]);
+                } else {
+                value.push({link, title});
+                }
+            {{- end -}}
+
+            var data = [];
+            for (const [key, value] of dataMap.entries()) {
+                data.push([key, value.length]);
+            }
+
+            var startDate = new Date();
+            var year_Mill = startDate.setFullYear((startDate.getFullYear() - 1));
+            var startDate = +new Date(year_Mill);
+            var endDate = +new Date();
+
+            startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
+            endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
+
+            // 定义明亮模式下的颜色方案
+            var lightTheme = {
+                backgroundColor: '#fff',
+                cubeColor:'#ebedf0',
+                highlightColor: ['#006bee'],
+                dateColor: '#1f2328',
+                textBgColor: '#fff',
+                borderColor:'rgba(0, 0, 0, 0.0)',
+            };
+
+            // 定义暗黑模式下的颜色方案
+            var darkTheme = {
+                backgroundColor: '#34363a',
+                cubeColor:'#666',
+                highlightColor: ['#006bee'],
+                dateColor: '#666',
+                textBgColor: '#28292a',
+                borderColor:'rgba(0, 0, 0, 0.0)',
+            };
+
+            // 检测浏览器主题模式并选择颜色方案
+            var currentTheme = getCurrentTheme();
+
+            function getCurrentTheme() {
+                const localStorageTheme = localStorage.getItem('theme');
+
+                if (localStorageTheme === 'dark') {
+                    return darkTheme;
+                } else if (localStorageTheme === 'black') {
+                    return darkTheme;
+                } else if (localStorageTheme === 'light') {
+                    return lightTheme;
+                } else if (localStorageTheme === 'auto') {
+                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                        return darkTheme;
+                    } else {
+                        return lightTheme;
+                    }
+                }
+            }
+
+            option = {
+                tooltip: {
+                    hideDelay: 1000,
+                    enterable: true,
+                    backgroundColor: currentTheme.textBgColor,
+                    borderWidth: 0, // 边框宽度为0
+                    formatter: function (p) {
+                        const date = p.data[0];
+                        const posts = dataMap.get(date);
+                        var content = `<span style="font-size: 0.75rem;font-family: var(--font-family-code);">${date}</span>`;
+                        for (const [i, post] of posts.entries()) {
+                            content += "<br>";
+                            var link = post.link;
+                            var title = post.title;
+                            content += `<a href="${link}" target="_blank">${title}</a>` + '<br>';
+                        }
+                        return content;
+                        }
+                },
+                visualMap: {
+                    show: false,
+                    inRange: {
+                        color: currentTheme.highlightColor
+                    },
+                },
+                calendar: {
+                    left: 20,
+                    top:20,
+                    bottom:0,
+                    right: 0,
+                    cellSize: ['auto', 13],
+                    range: [startDate, endDate],
+                    itemStyle: {
+                        color: currentTheme.cubeColor,
+                        borderWidth: 3.5,
+                        borderColor: currentTheme.backgroundColor,
+                    },
+                    yearLabel: { show: false },
+                    monthLabel: {
+                    nameMap: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    textStyle: {
+                        color: currentTheme.dateColor,
+                    }
+                },
+                    dayLabel: {
+                        firstDay: 1,
+                        nameMap: ['日', '一', '', '三', '', '五', ''],
+                        textStyle: {
+                            color: currentTheme.dateColor
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: currentTheme.borderColor,
+                        }
+                    }
+                },
+                series: {
+                    type: 'heatmap',
+                    coordinateSystem: 'calendar',
+                    data: data,
+                }
+            };
+
+            myChart.setOption(option);
+            myChart.on('click', function(params) {
+                if (params.componentType === 'series') {
+                // open the first post on the day
+                const post = dataMap.get(params.data[0])[0];
+                const link = window.location.origin + post.link;
+                window.open(link, '_blank').focus();
+                }
+            });
+
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.attributeName === 'theme') {
+                    currentTheme = getCurrentTheme();
+                    updateOption();
+                    myChart.setOption(option);
+                    }
+                });
+            });
+
+            function updateOption() {
+                option.tooltip.backgroundColor = currentTheme.textBgColor;
+                option.visualMap.inRange.color = currentTheme.highlightColor;
+                option.calendar.itemStyle.color = currentTheme.cubeColor;
+                option.calendar.itemStyle.borderColor = currentTheme.backgroundColor;
+                option.calendar.monthLabel.textStyle.color = currentTheme.dateColor;
+                option.calendar.dayLabel.textStyle.color = currentTheme.dateColor;
+                option.calendar.splitLine.lineStyle.color = currentTheme.borderColor;
+            }
+
+            observer.observe(document.querySelector('body'), { attributes: true });
+
+        </script>
+
+        {{- /* Paginate */ -}}
+        {{- if .Pages -}}
+            {{- $pages := .Pages.GroupByDate "2006" -}}
+            {{- with .Site.Params.section.paginate | default .Site.Params.paginate -}}
+                {{- $pages = $.Paginate $pages . -}}
+            {{- else -}}
+                {{- $pages = .Paginate $pages -}}
+            {{- end -}}
+            {{- partial "recentlyUpdated.html" . -}}
+            {{- range $pages.PageGroups -}}
+                <h3 class="group-title">{{ .Key }}</h3>
+                {{- range .Pages -}}
+                    <article class="archive-item">
+                        <a href="{{ .RelPermalink }}" class="archive-item-link">
+                            {{- .Title -}}
+                        </a>
+                        <span class="archive-item-date">
+                            {{- $.Site.Params.section.dateFormat | default "01-02" | .Date.Format -}}
+                        </span>
+                    </article>
+                {{- end -}}
+            {{- end -}}
+            {{- partial "paginator.html" . -}}
+        {{- end -}}
+    </div>
+{{- end -}}
