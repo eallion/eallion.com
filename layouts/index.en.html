@@ -52,20 +52,51 @@
             }
         }
 
-        // 在页面加载时检查 <body> 元素是否具有 "dark-theme" 类
         window.addEventListener('DOMContentLoaded', () => {
             const bodyElement = document.querySelector('body');
             if (bodyElement.classList.contains('dark-theme')) {
                 bodyElement.setAttribute('theme', 'dark');
+                bodyElement.classList.remove('dark-theme');
             } else {
                 bodyElement.setAttribute('theme', 'light');
+                bodyElement.classList.remove('dark-theme');
             }
 
-            // 调用 updateDarkThemeClass 函数，以确保在页面加载时应用正确的类
+            // 查询 localStorage 中的 theme 值
+            const localStorageTheme = localStorage.getItem('theme');
+
+            if (localStorageTheme === 'dark') {
+                // 将 theme 属性值设置为 localStorage 中的值
+                bodyElement.setAttribute('theme', localStorageTheme);
+                bodyElement.classList.add('dark-theme');
+                bodyElement.setAttribute('theme', 'dark');
+            } else if (localStorageTheme === 'black') {
+                // 将 theme 属性值设置为 localStorage 中的值
+                bodyElement.setAttribute('theme', localStorageTheme);
+                bodyElement.classList.add('dark-theme');
+                bodyElement.setAttribute('theme', 'black');
+            } else if (localStorageTheme === 'light') {
+                bodyElement.classList.remove('dark-theme');
+                bodyElement.setAttribute('theme', 'light');
+            } else if (localStorageTheme === 'auto') {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    bodyElement.classList.add('dark-theme');
+                    bodyElement.setAttribute('theme', 'dark');
+                } else {
+                    bodyElement.classList.remove('dark-theme');
+                    bodyElement.setAttribute('theme', 'light');
+                }
+            }
+
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                bodyElement.classList.add('dark-theme');
+            } else {
+                bodyElement.classList.remove('dark-theme');
+            }
+
             updateDarkThemeClass();
         });
 
-        // 创建一个 MutationObserver 实例，用于监听 <body> 元素的 theme 属性变化
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 if (mutation.attributeName === 'theme') {
@@ -74,8 +105,8 @@
             });
         });
 
-        // 配置 MutationObserver 以监听 <body> 元素的 theme 属性变化
         observer.observe(document.querySelector('body'), { attributes: true });
+
     </script>
 
     <link rel="stylesheet" href="/assets/chrome-whats-new/css/custom.css" >
