@@ -52,6 +52,14 @@ $background-color_6: #78191b;
 
 #header-desktop {
     z-index: 999;
+    box-shadow: inset 0 -1px #eaeaea;
+}
+[theme="dark"] #header-desktop {
+    box-shadow: unset;
+}
+
+[theme="black"] #header-desktop {
+    box-shadow: inset 0 -1px #7a828e;
 }
 
 .page {
