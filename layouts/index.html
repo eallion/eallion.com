@@ -241,32 +241,13 @@
                 <div class="chr-fifty-fifty-text-image-gm3{{if mod ($.Scratch.Get "index") 2 | eq 0}} chr-fifty-fifty-text-image-gm3--reversed{{end}}" id="blog">
                 <div class="chr-grid-default-parent">
                     <div class="chr-grid-default">
-                    <div class="chr-fifty-fifty-text-image-gm3__text-wrapper">
-                        <div>
-                            <div class="chr-cate-h2">
-                                <h2 class="chr-eyebrow chr-fifty-fifty-text-image-gm3__eyebrow">
-                                    {{- with $params.date -}}
-                                        {{- $date := . }}
-                                        {{- $currentYear := now.Format "2006" }}
-                                        {{- $dateYear := $date.Format "2006" }}
-                                        {{- if eq $currentYear $dateYear }}
-                                            <i class="far fa-calendar-alt fa-fw"></i> {{- $date.Format "Jan 02, 2006" | safeHTML }}
-                                        {{- else }}
-                                            <i class="far fa-calendar-alt fa-fw"></i> {{- $date.Format "Jan 02, 2006" | safeHTML }}
-                                        {{- end }}
-                                    {{- end -}}
-                                </h2>
-                                <h2 class="chr-eyebrow chr-fifty-fifty-text-image-gm3__eyebrow">
-                                    {{- range first 1 .Params.categories -}}
-                                    &lbrace;{{- . | safeHTML -}}&rbrace;
-                                    {{- end -}}
-                                </h2>
-                                {{- range first 2 .Params.tags -}}
-                                    <h2 class="chr-eyebrow chr-fifty-fifty-text-image-gm3__eyebrow">
-                                        &#35;{{- . | safeHTML -}}
-                                    </h2>
+                        <div class="chr-fifty-fifty-text-image-gm3__text-wrapper">
+                            <div>
+                            <h2 class="chr-eyebrow chr-fifty-fifty-text-image-gm3__eyebrow">
+                                {{- range first 1 .Params.categories -}}
+                                    {{- . | safeHTML -}}
                                 {{- end -}}
-                            </div>
+                            </h2>
                             <h3 class="chr-headline-3 chr-fifty-fifty-text-image-gm3__heading">
                                 <a href="{{- .RelPermalink -}}">
                                     {{- with $params.date -}}
@@ -277,6 +258,7 @@
                                     {{- .Title -}}</a>
                             </h3>
                             <p class="chr-copy chr-fifty-fifty-text-image-gm3__description">
+
                                 {{- $summary := $params.summary -}}
                                 {{- with $summary -}}
                                     {{ . | safeHTML }}
@@ -294,8 +276,8 @@
                                     aria-label="Read the blog post.">阅读全文
                                     </a></button>
                             </div>
+                            </div>
                         </div>
-                    </div>
                     <div class="chr-fifty-fifty-text-image-gm3__image-wrapper">
                         <div>
                             <a href="{{- .RelPermalink -}}" aria-label="{{- .Title -}}">

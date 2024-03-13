@@ -152,62 +152,43 @@
                 <div class="chr-fifty-fifty-text-image-gm3{{if mod ($.Scratch.Get "index") 2 | eq 0}} chr-fifty-fifty-text-image-gm3--reversed{{end}}" id="blog">
                 <div class="chr-grid-default-parent">
                     <div class="chr-grid-default">
-                    <div class="chr-fifty-fifty-text-image-gm3__text-wrapper">
-                        <div>
-                            <div class="chr-cate-h2">
-                                <h2 class="chr-eyebrow chr-fifty-fifty-text-image-gm3__eyebrow">
+                        <div class="chr-fifty-fifty-text-image-gm3__text-wrapper">
+                            <div>
+                            <h2 class="chr-eyebrow chr-fifty-fifty-text-image-gm3__eyebrow">
+                                {{- range first 1 .Params.categories -}}
+                                    {{- . | safeHTML -}}
+                                {{- end -}}
+                            </h2>
+                            <h3 class="chr-headline-3 chr-fifty-fifty-text-image-gm3__heading">
+                                <a href="{{- .RelPermalink -}}">
                                     {{- with $params.date -}}
-                                        {{- $date := . }}
-                                        {{- $currentYear := now.Format "2006" }}
-                                        {{- $dateYear := $date.Format "2006" }}
-                                        {{- if eq $currentYear $dateYear }}
-                                            <i class="far fa-calendar-alt fa-fw"></i> {{- $date.Format "Jan 02, 2006" | safeHTML }}
-                                        {{- else }}
-                                            <i class="far fa-calendar-alt fa-fw"></i> {{- $date.Format "Jan 02, 2006" | safeHTML }}
-                                        {{- end }}
+                                    {{- $timestamp := .Unix -}}
+                                        <span class="hidden" id="publish_time">{{ $timestamp }}</span>
+                                        <span class="article_new hidden"></span>
                                     {{- end -}}
-                                </h2>
-                                <h2 class="chr-eyebrow chr-fifty-fifty-text-image-gm3__eyebrow">
-                                    {{- range first 1 .Params.categories -}}
-                                    &lbrace;{{- . | safeHTML -}}&rbrace;
-                                    {{- end -}}
-                                </h2>
-                                {{- range first 2 .Params.tags -}}
-                                    <h2 class="chr-eyebrow chr-fifty-fifty-text-image-gm3__eyebrow">
-                                        &#35;{{- . | safeHTML -}}
-                                    </h2>
-                                {{- end -}}
-                            </div>
-                        <h3 class="chr-headline-3 chr-fifty-fifty-text-image-gm3__heading">
-                            <a href="{{- .RelPermalink -}}">
-                                {{- with $params.date -}}
-                                {{- $timestamp := .Unix -}}
-                                    <span class="hidden" id="publish_time">{{ $timestamp }}</span>
-                                    <span class="article_new hidden"></span>
-                                {{- end -}}
-                                {{- .Title -}}</a>
-                        </h3>
-                        <p class="chr-copy chr-fifty-fifty-text-image-gm3__description">
+                                    {{- .Title -}}</a>
+                            </h3>
+                            <p class="chr-copy chr-fifty-fifty-text-image-gm3__description">
 
-                            {{- $summary := $params.summary -}}
-                            {{- with $summary -}}
-                                {{ . | safeHTML }}
-                            {{- else -}}
-                                {{- with .Summary -}}
-                                    {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                                {{- $summary := $params.summary -}}
+                                {{- with $summary -}}
+                                    {{ . | safeHTML }}
                                 {{- else -}}
-                                    {{- .Description | safeHTML -}}
+                                    {{- with .Summary -}}
+                                        {{- dict "Content" . "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                                    {{- else -}}
+                                        {{- .Description | safeHTML -}}
+                                    {{- end -}}
                                 {{- end -}}
-                            {{- end -}}
-                        </p>
-                        <div class="chr-fifty-fifty-text-image-gm3__tutorial-wrapper">
-                            <button class="chr-cta__button chr-cta__button--blue">
-                                <a href="{{- .RelPermalink -}}" class="button"
-                                aria-label="Read the blog post.">Read More
-                                </a></button>
+                            </p>
+                            <div class="chr-fifty-fifty-text-image-gm3__tutorial-wrapper">
+                                <button class="chr-cta__button chr-cta__button--blue">
+                                    <a href="{{- .RelPermalink -}}" class="button"
+                                    aria-label="Read the blog post.">阅读全文
+                                    </a></button>
+                            </div>
+                            </div>
                         </div>
-                        </div>
-                    </div>
                     <div class="chr-fifty-fifty-text-image-gm3__image-wrapper">
                         <div>
                             <a href="{{- .RelPermalink -}}" aria-label="{{- .Title -}}">
