@@ -13,6 +13,8 @@
     .page {
         max-width: 1020px !important;
         background-color: transparent;
+        padding-top: 0;
+        margin: 0 auto;
     }
 
     [theme="dark"] .page,
@@ -286,16 +288,17 @@
         width: 100%;
     }
 
-    /* .single-title {
-        margin: 0 !important;
-    } */
+    .movie-page {
+        padding-top: 0 !important;
+        margin: 0 auto !important;
+    }
 
     .movie-title {
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
         line-height: 1.6;
-        margin: 1rem auto !important;
+        margin: 0rem auto !important;
         color: #fff;
         flex-direction: column;
         max-width: 800px;
@@ -303,7 +306,7 @@
 
     .movie-title .single-title {
         min-height: 2.5rem;
-        margin-left: 3rem;
+        margin-left: 4rem;
     }
 
     .movie-title-meta {
@@ -317,7 +320,7 @@
     .movie-description {
         display: flex;
         align-items: center;
-        margin-left: 0.5rem;
+        margin-left: 1.5rem;
     }
 
     .movie-description a {
@@ -527,6 +530,10 @@
         border-radius: 0.25rem;
         transition: 150ms ease;
         cursor: pointer;
+    }
+
+    .category-item:first-child {
+        margin-left: 1.5rem;
     }
 
     .category-item.is-active {
@@ -773,6 +780,9 @@
             grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             min-height: 495px;
             margin-top: 0.5rem;
+        }
+        .category-item:first-child {
+            margin-left: 0;
         }
         .rating,
         .tags,
@@ -1101,6 +1111,7 @@
     // 网页全屏
     const webFullscreen = document.querySelector('.web-full-screen');
     const headerDesktop = document.querySelector('.desktop');
+    const moviePage = document.querySelector('.movie-page');
     const movieTitle = document.querySelector('.movie-title');
     const category = document.querySelector('.category');
     const moviesVideo = document.querySelector('.movies_video');
@@ -1108,6 +1119,7 @@
     webFullscreen.addEventListener('click', () => {
         movie.classList.add('movie-mt');
         headerDesktop.classList.add('movie-hide-header');
+        moviePage.classList.add('movie-page');
         movieTitle.classList.add('movie-hide-title');
         category.classList.add('category_hidden');
         moviesVideo.classList.add('movies_video_mt');
@@ -1118,6 +1130,7 @@
     toggleFullscreen.addEventListener('click', () => {
         movie.classList.remove('movie-mt');
         headerDesktop.classList.remove('movie-hide-header');
+        moviePage.classList.remove('movie-page');
         movieTitle.classList.remove('movie-hide-title');
         category.classList.remove('category_hidden');
         moviesVideo.classList.remove('movies_video_mt');
@@ -1142,10 +1155,12 @@
         if (document.fullscreenElement) {
             movie.classList.add('movie-mt');
             headerDesktop.classList.add('movie-hide-header');
+            moviePage.classList.add('movie-page');
             movieTitle.classList.add('movie-hide-title');
         } else {
             movie.classList.remove('movie-mt');
             headerDesktop.classList.remove('movie-hide-header');
+            moviePage.classList.remove('movie-page');
             movieTitle.classList.remove('movie-hide-title');
             toggleFullscreen.classList.remove('exit-full-screen');
         }
@@ -1160,6 +1175,7 @@
             // 添加样式 class
             movie.classList.add('movie-mt');
             headerDesktop.classList.add('movie-hide-header');
+            moviePage.classList.add('movie-page');
             movieTitle.classList.add('movie-hide-title');
             category.classList.add('category_hidden');
             moviesVideo.classList.add('movies_video_mt');
@@ -1170,6 +1186,7 @@
             exitFullscreen();
             movie.classList.remove('movie-mt');
             headerDesktop.classList.remove('movie-hide-header');
+            moviePage.classList.remove('movie-page');
             movieTitle.classList.remove('movie-hide-title');
             category.classList.remove('category_hidden');
             moviesVideo.classList.remove('movies_video_mt');
@@ -1190,6 +1207,7 @@
         // 移除样式 class
         movie.classList.remove('movie-mt');
         headerDesktop.classList.remove('movie-hide-header');
+        moviePage.classList.remove('movie-page');
         movieTitle.classList.remove('movie-hide-title');
         category.classList.remove('category_hidden');
         moviesVideo.classList.remove('movies_video_mt');
