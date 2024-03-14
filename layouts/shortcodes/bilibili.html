@@ -1,7 +1,23 @@
 <div class="bilibili">
     {{- if .IsNamedParams -}}
-        <iframe src="//www.bilibili.com/blackboard/html5mobileplayer.html?bvid={{ .Get `id` }}&page={{ .Get `p` | default 1 }}&danmaku=0&highQuality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" autoplay="false"></iframe>
+      <iframe
+        src="//www.bilibili.com/blackboard/html5mobileplayer.html?bvid={{ .Get `id` }}&page={{ .Get `p` | default 1 }}&danmaku=0&highQuality=1"
+        scrolling="no"
+        border="0"
+        frameborder="no"
+        framespacing="0"
+        allowfullscreen="true"
+        hideCoverInfo="1"
+      ></iframe>
     {{- else -}}
-        <iframe src="//www.bilibili.com/blackboard/html5mobileplayer.html?bvid={{ .Get 0 }}&page={{ .Get 1 | default 1 }}&danmaku=0&highQuality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" autoplay="false"></iframe>
+      <iframe
+        src="//www.bilibili.com/blackboard/html5mobileplayer.html?bvid={{ .Get 0 }}&page={{ .Get 1 | default 1 }}&danmaku=0&highQuality=1"
+        scrolling="no"
+        border="0"
+        frameborder="no"
+        framespacing="0"
+        allowfullscreen="true"
+        hideCoverInfo="1"
+      ></iframe>
     {{- end -}}
-</div>
+  </div>
