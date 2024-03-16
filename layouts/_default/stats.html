@@ -89,200 +89,155 @@
                 </ul>
             </div>
 
-            <script>
-                // 超时函数
-                function timeout(ms) {
-                    return new Promise((_, reject) => setTimeout(() => reject(new Error('Request timeout')), ms));
-                }
-
-                // NeoDB 数量
-                // 发起请求并处理响应
-                Promise.race([
-                    fetch('https://neodb.eallion.com/api?page=1'),
-                    timeout(15000) // 设置超时时间（以毫秒为单位）
-                ])
-                    .then(response => response.json())
-                    .then(data => {
-                        // 获取 id="neodb-count" 的元素
-                        const neodbElement = document.getElementById('neodb-count');
-
-                        // 将 count 值插入到元素中
-                        neodbElement.textContent = data.count;
-                    })
-                    .catch(error => {
-                        console.error('Error fetching NeoDB data:', error);
-                    });
-
-                // Mastodon 数量
-                // 发起请求并处理响应
-                Promise.race([
-                    fetch('https://memos.eallion.com/api/v1/memo/stats?creatorId=101'),
-                    timeout(15000) // 设置超时时间（以毫秒为单位）
-                ])
-                    .then(response => response.json())
-                    .then(data => {
-                        // 获取 id="mastodon-count" 的元素
-                        const mastodonCountElement = document.getElementById('mastodon-count');
-
-                        // 计算数组数量
-                        const arrayCount = Object.keys(data).length;
-
-                        // 将数组数量插入到元素中
-                        mastodonCountElement.textContent = arrayCount;
-                    })
-                    .catch(error => {
-                        console.error('Error fetching Mastodon data:', error);
-                    });
-            </script>
-
             <h3 id="文章热力图-1" class="headerLink"><a href="#%e6%9c%80%e8%bf%91%e4%b8%80%e5%b9%b4%e6%96%87%e7%ab%a0%e7%83%ad%e5%8a%9b%e5%9b%be-1" class="header-mark" title="header-mark"></a>文章热力图</h3>
             <div id="heatmap"></div>
 
             <script type="text/javascript">
                 document.addEventListener("DOMContentLoaded", function() {
-                var heatmapDom = echarts.init(document.getElementById('heatmap'));
-                window.onresize = function() {
-                    myChart.resize();
-                };
+                    var heatmapDom = echarts.init(document.getElementById('heatmap'));
+                    window.onresize = function() {
+                        myChart.resize();
+                    };
 
-                var option;
-                var dataMap = new Map();
-                {{ range ((where .Site.RegularPages "Type" "posts")) }}
-                    var key = {{ .Date.Format "2006-01-02" }};
-                    var value = dataMap.get(key);
-                    var link = {{ .RelPermalink}};
-                    var title = {{ .Title }};
+                    var option;
+                    var dataMap = new Map();
+                    {{ range ((where .Site.RegularPages "Type" "posts")) }}
+                        var key = {{ .Date.Format "2006-01-02" }};
+                        var value = dataMap.get(key);
+                        var link = {{ .RelPermalink}};
+                        var title = {{ .Title }};
 
-                    // multiple posts in same day
-                    if (value == null) {
-                    dataMap.set(key, [{link, title}]);
-                    } else {
-                    value.push({link, title});
-                    }
-                {{- end -}}
-
-                var data = [];
-                for (const [key, value] of dataMap.entries()) {
-                    data.push([key, value.length]);
-                }
-
-                var startDate = new Date();
-                var year_Mill = startDate.setFullYear((startDate.getFullYear() - 1));
-                var startDate = +new Date(year_Mill);
-                var endDate = +new Date();
-
-                startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
-                endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
-
-                var lightTheme = {
-                    backgroundColor: '#fff',
-                    cubeColor:'#ebedf0',
-                    highlightColor: ['#006bee'],
-                    dateColor: '#1f2328',
-                    textBgColor: '#fff',
-                    borderColor:'rgba(0, 0, 0, 0.0)',
-                };
-
-                var darkTheme = {
-                    backgroundColor: '#34363a',
-                    cubeColor:'#666',
-                    highlightColor: ['#006bee'],
-                    dateColor: '#666',
-                    textBgColor: '#28292a',
-                    borderColor:'rgba(0, 0, 0, 0.0)',
-                };
-
-                var currentTheme = getCurrentTheme();
-
-                function getCurrentTheme() {
-                    const localStorageTheme = localStorage.getItem('theme');
-
-                    if (localStorageTheme === 'dark') {
-                        return darkTheme;
-                    } else if (localStorageTheme === 'black') {
-                        return darkTheme;
-                    } else if (localStorageTheme === 'light') {
-                        return lightTheme;
-                    } else if (localStorageTheme === 'auto') {
-                        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                            return darkTheme;
+                        // multiple posts in same day
+                        if (value == null) {
+                        dataMap.set(key, [{link, title}]);
                         } else {
+                        value.push({link, title});
+                        }
+                    {{- end -}}
+
+                    var data = [];
+                    for (const [key, value] of dataMap.entries()) {
+                        data.push([key, value.length]);
+                    }
+
+                    var startDate = new Date();
+                    var year_Mill = startDate.setFullYear((startDate.getFullYear() - 1));
+                    var startDate = +new Date(year_Mill);
+                    var endDate = +new Date();
+
+                    startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
+                    endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
+
+                    var lightTheme = {
+                        backgroundColor: '#fff',
+                        cubeColor:'#ebedf0',
+                        highlightColor: ['#006bee'],
+                        dateColor: '#1f2328',
+                        textBgColor: '#fff',
+                        borderColor:'rgba(0, 0, 0, 0.0)',
+                    };
+
+                    var darkTheme = {
+                        backgroundColor: '#34363a',
+                        cubeColor:'#666',
+                        highlightColor: ['#006bee'],
+                        dateColor: '#666',
+                        textBgColor: '#28292a',
+                        borderColor:'rgba(0, 0, 0, 0.0)',
+                    };
+
+                    var currentTheme = getCurrentTheme();
+
+                    function getCurrentTheme() {
+                        const localStorageTheme = localStorage.getItem('theme');
+
+                        if (localStorageTheme === 'dark') {
+                            return darkTheme;
+                        } else if (localStorageTheme === 'black') {
+                            return darkTheme;
+                        } else if (localStorageTheme === 'light') {
                             return lightTheme;
+                        } else if (localStorageTheme === 'auto') {
+                            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                                return darkTheme;
+                            } else {
+                                return lightTheme;
+                            }
                         }
                     }
-                }
 
-                option = {
-                    tooltip: {
-                        hideDelay: 1000,
-                        enterable: true,
-                        backgroundColor: currentTheme.textBgColor,
-                        borderWidth: 0,
-                        formatter: function (p) {
-                            const date = p.data[0];
-                            const posts = dataMap.get(date);
-                            var content = `<span style="font-size: 0.75rem;font-family: var(--font-family-code);">${date}</span>`;
-                            for (const [i, post] of posts.entries()) {
-                                content += "<br>";
-                                var link = post.link;
-                                var title = post.title;
-                                content += `<a href="${link}" target="_blank">${title}</a>` + '<br>';
-                            }
-                            return content;
-                            }
-                    },
-                    visualMap: {
-                        show: false,
-                        inRange: {
-                            color: currentTheme.highlightColor
+                    option = {
+                        tooltip: {
+                            hideDelay: 1000,
+                            enterable: true,
+                            backgroundColor: currentTheme.textBgColor,
+                            borderWidth: 0,
+                            formatter: function (p) {
+                                const date = p.data[0];
+                                const posts = dataMap.get(date);
+                                var content = `<span style="font-size: 0.75rem;font-family: var(--font-family-code);">${date}</span>`;
+                                for (const [i, post] of posts.entries()) {
+                                    content += "<br>";
+                                    var link = post.link;
+                                    var title = post.title;
+                                    content += `<a href="${link}" target="_blank">${title}</a>` + '<br>';
+                                }
+                                return content;
+                                }
                         },
-                    },
-                    calendar: {
-                        left: 20,
-                        top:20,
-                        bottom:0,
-                        right: 0,
-                        cellSize: ['auto', 13],
-                        range: [startDate, endDate],
-                        itemStyle: {
-                            color: currentTheme.cubeColor,
-                            borderWidth: 3.5,
-                            borderColor: currentTheme.backgroundColor,
+                        visualMap: {
+                            show: false,
+                            inRange: {
+                                color: currentTheme.highlightColor
+                            },
                         },
-                        yearLabel: { show: false },
-                        monthLabel: {
-                        nameMap: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                        textStyle: {
-                            color: currentTheme.dateColor,
-                        }
-                    },
-                        dayLabel: {
-                            firstDay: 1,
-                            nameMap: ['日', '一', '', '三', '', '五', ''],
+                        calendar: {
+                            left: 20,
+                            top:20,
+                            bottom:0,
+                            right: 0,
+                            cellSize: ['auto', 13],
+                            range: [startDate, endDate],
+                            itemStyle: {
+                                color: currentTheme.cubeColor,
+                                borderWidth: 3.5,
+                                borderColor: currentTheme.backgroundColor,
+                            },
+                            yearLabel: { show: false },
+                            monthLabel: {
+                            nameMap: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                             textStyle: {
-                                color: currentTheme.dateColor
+                                color: currentTheme.dateColor,
                             }
                         },
-                        splitLine: {
-                            lineStyle: {
-                                color: currentTheme.borderColor,
+                            dayLabel: {
+                                firstDay: 1,
+                                nameMap: ['日', '一', '', '三', '', '五', ''],
+                                textStyle: {
+                                    color: currentTheme.dateColor
+                                }
+                            },
+                            splitLine: {
+                                lineStyle: {
+                                    color: currentTheme.borderColor,
+                                }
                             }
+                        },
+                        series: {
+                            type: 'heatmap',
+                            coordinateSystem: 'calendar',
+                            data: data,
                         }
-                    },
-                    series: {
-                        type: 'heatmap',
-                        coordinateSystem: 'calendar',
-                        data: data,
-                    }
-                };
+                    };
 
-                heatmapDom.setOption(option);
-                heatmapDom.on('click', function(params) {
-                    if (params.componentType === 'series') {
-                    const post = dataMap.get(params.data[0])[0];
-                    const link = window.location.origin + post.link;
-                    window.open(link, '_blank').focus();
-                    }
+                    heatmapDom.setOption(option);
+                    heatmapDom.on('click', function(params) {
+                        if (params.componentType === 'series') {
+                        const post = dataMap.get(params.data[0])[0];
+                        const link = window.location.origin + post.link;
+                        window.open(link, '_blank').focus();
+                        }
+                    });
                 });
 
                 const observer = new MutationObserver((mutations) => {
@@ -306,10 +261,55 @@
                 }
 
                 observer.observe(document.querySelector('body'), { attributes: true });
-            });
             </script>
 
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+
+            <script>
+                // 超时函数
+                function timeout(ms) {
+                    return new Promise((_, reject) => setTimeout(() => reject(new Error('Request timeout')), ms));
+                }
+
+                // NeoDB 数量
+                // 发起请求并处理响应
+                Promise.race([
+                    fetch('https://neodb.eallion.com/api?page=1'),
+                    timeout(5000) // 设置超时时间（以毫秒为单位）
+                ])
+                    .then(response => response.json())
+                    .then(data => {
+                        // 获取 id="neodb-count" 的元素
+                        const neodbElement = document.getElementById('neodb-count');
+
+                        // 将 count 值插入到元素中
+                        neodbElement.textContent = data.count;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching NeoDB data:', error);
+                    });
+
+                // Mastodon 数量
+                // 发起请求并处理响应
+                Promise.race([
+                    fetch('https://memos.eallion.com/api/v1/memo/stats?creatorId=101'),
+                    timeout(5000) // 设置超时时间（以毫秒为单位）
+                ])
+                    .then(response => response.json())
+                    .then(data => {
+                        // 获取 id="mastodon-count" 的元素
+                        const mastodonCountElement = document.getElementById('mastodon-count');
+
+                        // 计算数组数量
+                        const arrayCount = Object.keys(data).length;
+
+                        // 将数组数量插入到元素中
+                        mastodonCountElement.textContent = arrayCount;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching Mastodon data:', error);
+                    });
+            </script>
 
         </div>
     </div>
