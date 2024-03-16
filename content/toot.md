@@ -2,7 +2,7 @@
 title: "嘀咕"
 images: ["/assets/images/og/toots.png"]
 layout: "toot"
-type: 'toot'
+type: 'page'
 comment: false
 aliases:
     - /talk

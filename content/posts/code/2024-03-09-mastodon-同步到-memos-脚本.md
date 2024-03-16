@@ -9,6 +9,9 @@ tags:
   - 脚本
 slug: "mastodon-sync-to-memos"
 summary: "文章介绍了如何使用 Shell 脚本将 Mastodon 上的内容同步到 Memos。作者使用 Shell 脚本实现了这一功能，并提供了详细的配置和操作步骤。脚本会检查最新的 Mastodon 内容，并将其发布到 Memos 上，同时记录 Mastodon ID 和 Memos ID 的绑定关系。同时，作者还分享了自己在使用过程中遇到的问题和解决方案,并给出了具体示例和代码。"
+series: ["Mastodon"]
+series_weight: 2
+seriesNavigation: true
 draft: false
 Comments: true
 date: 2024-03-09T16:57:49+08:00

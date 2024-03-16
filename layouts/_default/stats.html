@@ -1,0 +1,316 @@
+{{- define "title" }}
+    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
+
+{{- define "content" -}}
+{{- $params := .Scratch.Get "params" -}}
+
+    {{$articleCount := 0}}
+    {{$pageCount := 0}}
+    {{$categoryCount := 0}}
+    {{$categories := slice}}
+    {{$tagCount := 0}}
+    {{$tags := slice}}
+        {{range .Site.RegularPages}}
+            {{if eq .Type "posts"}}
+                {{$articleCount = add $articleCount 1}}
+            {{end}}
+            {{if eq .Params.type "page"}}
+                {{$pageCount = add $pageCount 1}}
+            {{end}}
+            {{if .Params.categories}}
+                {{$categories = union $categories .Params.categories}}
+            {{end}}
+            {{if .Params.tags}}
+                {{$tags = union $tags .Params.tags}}
+            {{end}}
+        {{end}}
+    {{$categoryCount = len $categories}}
+    {{$tagCount = len $tags}}
+
+    {{$scratch := newScratch}}
+    {{ range (where .Site.Pages "Kind" "page" )}}
+        {{$scratch.Add "total" .WordCount}}
+    {{ end }}
+    {{$totalWord := $scratch.Get "total" }}
+
+    {{$categoryCounts := dict}}
+    {{$totalArticles := $articleCount}}
+
+    {{ $page := .Site }}
+    {{ $content := $page.GetPage "page" "content/links.md" }}
+    {{ $matches := findRE "name" $content.Content }}
+    {{ $friendCount := len $matches }}
+
+    {{ $penta := getJSON "data/penta/penta.json" }}
+
+    <style>
+        #heatmap,
+        #annual,
+        #category {
+            max-width: 800px;
+            width: 92%;
+            height: 110px;
+            margin: 2rem auto;
+        }
+        #annual,
+        #category {
+            height: 30rem;
+        }
+        @media only screen and (max-width: 680px) {
+            #heatmap {
+                display: none;
+            }
+        }
+
+    </style>
+    <div class="page single archive">
+        {{- /* Title */ -}}
+        <h1 class="single-title animate__animated animate__pulse animate__faster">
+            {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
+        </h1>
+
+        <div id="content" class="content">
+            <div class="">
+                <ul>
+                    <li>{{ T `stats_blogs` | safeHTML }}<strong><a href="/posts/">{{- $articleCount -}}</a></strong> {{ T `stats_blogs_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_pages` | safeHTML }}<strong><a href="/stats/">{{- $pageCount -}}</a></strong> {{ T `stats_pages_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_authors` | safeHTML }}<strong><a href="/authors/">2 </a></strong> {{ T `stats_authors_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_categories` | safeHTML }}<strong><a href="/categories/">{{- $categoryCount -}}</a></strong> {{ T `stats_categories_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_series` | safeHTML }}<strong><a href="/series/">3 </a></strong> {{ T `stats_series_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_tags` | safeHTML }}<strong><a href="/tags/">{{- $tagCount -}}</a></strong> {{ T `stats_tags_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_links` | safeHTML }}<strong><a href="/links/">26 </a></strong> {{ T `stats_links_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_wordcount` | safeHTML }}<strong><a href="/stats/">{{- $totalWord -}}</a></strong> {{ T `stats_wordcount_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_mastodon` | safeHTML }}<strong><a href="/toot/"><span id="mastodon-count" aria-label="mastodon-count"></span></a></strong> {{ T `stats_mastodon_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_neodb` | safeHTML }}<strong><a href="/media/"><span id="neodb-count" aria-label="neodb-count"></span></a></strong> {{ T `stats_neodb_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_penta` | safeHTML }}<strong><a href="/penta/">{{- len $penta.penta -}}</a></strong> {{ T `stats_penta_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_views` | safeHTML }}<i>Null</i> {{ T `stats_views_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_comments` | safeHTML }}<i>Null</i> {{ T `stats_comments_suffix` | safeHTML }}</li>
+                </ul>
+            </div>
+
+            <script>
+                // 超时函数
+                function timeout(ms) {
+                    return new Promise((_, reject) => setTimeout(() => reject(new Error('Request timeout')), ms));
+                }
+
+                // NeoDB 数量
+                // 发起请求并处理响应
+                Promise.race([
+                    fetch('https://neodb.eallion.com/api?page=1'),
+                    timeout(15000) // 设置超时时间（以毫秒为单位）
+                ])
+                    .then(response => response.json())
+                    .then(data => {
+                        // 获取 id="neodb-count" 的元素
+                        const neodbElement = document.getElementById('neodb-count');
+
+                        // 将 count 值插入到元素中
+                        neodbElement.textContent = data.count;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching NeoDB data:', error);
+                    });
+
+                // Mastodon 数量
+                // 发起请求并处理响应
+                Promise.race([
+                    fetch('https://memos.eallion.com/api/v1/memo/stats?creatorId=101'),
+                    timeout(15000) // 设置超时时间（以毫秒为单位）
+                ])
+                    .then(response => response.json())
+                    .then(data => {
+                        // 获取 id="mastodon-count" 的元素
+                        const mastodonCountElement = document.getElementById('mastodon-count');
+
+                        // 计算数组数量
+                        const arrayCount = Object.keys(data).length;
+
+                        // 将数组数量插入到元素中
+                        mastodonCountElement.textContent = arrayCount;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching Mastodon data:', error);
+                    });
+            </script>
+
+            <h3 id="文章热力图-1" class="headerLink"><a href="#%e6%9c%80%e8%bf%91%e4%b8%80%e5%b9%b4%e6%96%87%e7%ab%a0%e7%83%ad%e5%8a%9b%e5%9b%be-1" class="header-mark" title="header-mark"></a>文章热力图</h3>
+            <div id="heatmap"></div>
+
+            <script type="text/javascript">
+                document.addEventListener("DOMContentLoaded", function() {
+                var heatmapDom = echarts.init(document.getElementById('heatmap'));
+                window.onresize = function() {
+                    myChart.resize();
+                };
+
+                var option;
+                var dataMap = new Map();
+                {{ range ((where .Site.RegularPages "Type" "posts")) }}
+                    var key = {{ .Date.Format "2006-01-02" }};
+                    var value = dataMap.get(key);
+                    var link = {{ .RelPermalink}};
+                    var title = {{ .Title }};
+
+                    // multiple posts in same day
+                    if (value == null) {
+                    dataMap.set(key, [{link, title}]);
+                    } else {
+                    value.push({link, title});
+                    }
+                {{- end -}}
+
+                var data = [];
+                for (const [key, value] of dataMap.entries()) {
+                    data.push([key, value.length]);
+                }
+
+                var startDate = new Date();
+                var year_Mill = startDate.setFullYear((startDate.getFullYear() - 1));
+                var startDate = +new Date(year_Mill);
+                var endDate = +new Date();
+
+                startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
+                endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
+
+                var lightTheme = {
+                    backgroundColor: '#fff',
+                    cubeColor:'#ebedf0',
+                    highlightColor: ['#006bee'],
+                    dateColor: '#1f2328',
+                    textBgColor: '#fff',
+                    borderColor:'rgba(0, 0, 0, 0.0)',
+                };
+
+                var darkTheme = {
+                    backgroundColor: '#34363a',
+                    cubeColor:'#666',
+                    highlightColor: ['#006bee'],
+                    dateColor: '#666',
+                    textBgColor: '#28292a',
+                    borderColor:'rgba(0, 0, 0, 0.0)',
+                };
+
+                var currentTheme = getCurrentTheme();
+
+                function getCurrentTheme() {
+                    const localStorageTheme = localStorage.getItem('theme');
+
+                    if (localStorageTheme === 'dark') {
+                        return darkTheme;
+                    } else if (localStorageTheme === 'black') {
+                        return darkTheme;
+                    } else if (localStorageTheme === 'light') {
+                        return lightTheme;
+                    } else if (localStorageTheme === 'auto') {
+                        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                            return darkTheme;
+                        } else {
+                            return lightTheme;
+                        }
+                    }
+                }
+
+                option = {
+                    tooltip: {
+                        hideDelay: 1000,
+                        enterable: true,
+                        backgroundColor: currentTheme.textBgColor,
+                        borderWidth: 0,
+                        formatter: function (p) {
+                            const date = p.data[0];
+                            const posts = dataMap.get(date);
+                            var content = `<span style="font-size: 0.75rem;font-family: var(--font-family-code);">${date}</span>`;
+                            for (const [i, post] of posts.entries()) {
+                                content += "<br>";
+                                var link = post.link;
+                                var title = post.title;
+                                content += `<a href="${link}" target="_blank">${title}</a>` + '<br>';
+                            }
+                            return content;
+                            }
+                    },
+                    visualMap: {
+                        show: false,
+                        inRange: {
+                            color: currentTheme.highlightColor
+                        },
+                    },
+                    calendar: {
+                        left: 20,
+                        top:20,
+                        bottom:0,
+                        right: 0,
+                        cellSize: ['auto', 13],
+                        range: [startDate, endDate],
+                        itemStyle: {
+                            color: currentTheme.cubeColor,
+                            borderWidth: 3.5,
+                            borderColor: currentTheme.backgroundColor,
+                        },
+                        yearLabel: { show: false },
+                        monthLabel: {
+                        nameMap: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        textStyle: {
+                            color: currentTheme.dateColor,
+                        }
+                    },
+                        dayLabel: {
+                            firstDay: 1,
+                            nameMap: ['日', '一', '', '三', '', '五', ''],
+                            textStyle: {
+                                color: currentTheme.dateColor
+                            }
+                        },
+                        splitLine: {
+                            lineStyle: {
+                                color: currentTheme.borderColor,
+                            }
+                        }
+                    },
+                    series: {
+                        type: 'heatmap',
+                        coordinateSystem: 'calendar',
+                        data: data,
+                    }
+                };
+
+                heatmapDom.setOption(option);
+                heatmapDom.on('click', function(params) {
+                    if (params.componentType === 'series') {
+                    const post = dataMap.get(params.data[0])[0];
+                    const link = window.location.origin + post.link;
+                    window.open(link, '_blank').focus();
+                    }
+                });
+
+                const observer = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        if (mutation.attributeName === 'theme') {
+                        currentTheme = getCurrentTheme();
+                        updateOption();
+                        heatmapDom.setOption(option);
+                        }
+                    });
+                });
+
+                function updateOption() {
+                    option.tooltip.backgroundColor = currentTheme.textBgColor;
+                    option.visualMap.inRange.color = currentTheme.highlightColor;
+                    option.calendar.itemStyle.color = currentTheme.cubeColor;
+                    option.calendar.itemStyle.borderColor = currentTheme.backgroundColor;
+                    option.calendar.monthLabel.textStyle.color = currentTheme.dateColor;
+                    option.calendar.dayLabel.textStyle.color = currentTheme.dateColor;
+                    option.calendar.splitLine.lineStyle.color = currentTheme.borderColor;
+                }
+
+                observer.observe(document.querySelector('body'), { attributes: true });
+            });
+            </script>
+
+            {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+
+        </div>
+    </div>
+{{- end -}}

@@ -329,3 +329,84 @@ other = "Chance favors the prepared mind."
 
 [toot_author]
 other = "Louis Pasteur"
+
+[stats_blogs]
+other = "Blogs: "
+
+[stats_tags]
+other = "Tags: "
+
+[stats_pages]
+other = "Pages: "
+
+[stats_authors]
+other = "Authors: "
+
+[stats_categories]
+other = "Categories: "
+
+[stats_series]
+other = "Series: "
+
+[stats_links]
+other = "Links: "
+
+[stats_comments]
+other = "Comments: "
+
+[stats_views]
+other = "Views: "
+
+[stats_wordcount]
+other = "Word Count: "
+
+[stats_mastodon]
+other = "Mastodon Toots:"
+
+[stats_neodb]
+other = "NeoDB Marked: "
+
+[stats_penta]
+other = "LOL Penta: "
+
+[stats_heatmap]
+other = "Blog Heatmap"
+
+[stats_blogs_suffix]
+other = " "
+
+[stats_tags_suffix]
+other = " "
+
+[stats_pages_suffix]
+other = " "
+
+[stats_authors_suffix]
+other = " "
+
+[stats_categories_suffix]
+other = " "
+
+[stats_series_suffix]
+other = " "
+
+[stats_links_suffix]
+other = " "
+
+[stats_comments_suffix]
+other = " "
+
+[stats_views_suffix]
+other = " "
+
+[stats_wordcount_suffix]
+other = " "
+
+[stats_mastodon_suffix]
+other = " "
+
+[stats_neodb_suffix]
+other = " "
+
+[stats_penta_suffix]
+other = " "

@@ -327,3 +327,84 @@ other = "机会总是垂青于有准备的人！"
 
 [toot_author]
 other = "Louis Pasteur"
+
+[stats_blogs]
+other = "文章："
+
+[stats_tags]
+other = "标签："
+
+[stats_pages]
+other = "页面："
+
+[stats_authors]
+other = "作者："
+
+[stats_categories]
+other = "分类："
+
+[stats_series]
+other = "系列："
+
+[stats_links]
+other = "友情链接："
+
+[stats_comments]
+other = "评论量："
+
+[stats_views]
+other = "浏览量："
+
+[stats_wordcount]
+other = "博客字数："
+
+[stats_mastodon]
+other = "Mastodon 嘀咕："
+
+[stats_neodb]
+other = "NeoDB 书影音："
+
+[stats_penta]
+other = "LOL 五杀："
+
+[stats_heatmap]
+other = "文章热力图"
+
+[stats_blogs_suffix]
+other = "篇"
+
+[stats_tags_suffix]
+other = "个"
+
+[stats_pages_suffix]
+other = "篇"
+
+[stats_authors_suffix]
+other = "名"
+
+[stats_categories_suffix]
+other = "个"
+
+[stats_series_suffix]
+other = "个"
+
+[stats_links_suffix]
+other = "个"
+
+[stats_comments_suffix]
+other = "条（已关闭评论）"
+
+[stats_views_suffix]
+other = "PV（已移除统计）"
+
+[stats_wordcount_suffix]
+other = "个"
+
+[stats_mastodon_suffix]
+other = "条"
+
+[stats_neodb_suffix]
+other = "标记"
+
+[stats_penta_suffix]
+other = "次"

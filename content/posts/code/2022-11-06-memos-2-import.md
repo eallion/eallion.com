@@ -10,19 +10,13 @@ tags:
     - talk
 slug: "memos-import"
 summary: "这篇文章介绍了如何手动导入类似数据到Memos迁移平台。作者首先解释了Memos官方尚未提供导入导出服务的情况，然后介绍了通过操作SQLite数据库文件来实现手动导入的方法。作者指导读者通过发布一条Memos并下载数据库文件，然后将其转换为.csv文件作为模板。接着，作者说明了如何打开和导出数据库文件，并使用编码转换和命令将以前的数据转换为新平台可导入的格式。最后，作者提到了修改文件访问权限和使用SQLite数据管理工具的一些建议。"
+series: ["Memos"]
+series_weight: 2
+seriesNavigation: true
 draft: false
 date: 2022-11-06T16:31:22+08:00
 lastmod: 2022-11-06T16:31:22+08:00
 ---
-
-### Memos 简介系列
-
-- 《[Memos 简介](https://eallion.com/memos-deployment/)》
-- 《[Memos 手动导入数据](https://eallion.com/memos-import/)》
-- 《[Memos API 调用渲染页面](https://eallion.com/memos-api/)》
-- 《[Memos API 公告样式滚动效果](https://eallion.com/memos-ticker/)》
-- 《[Memos API 获取总条数](https://eallion.com/memos-total-count/)》
-- 《[Memos 配置 Artalk 评论系统](https://eallion.com/artalk_for_memos/)》
 
 ### 如何手动导入类似数据到 Memos
 

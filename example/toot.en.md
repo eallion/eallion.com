@@ -2,7 +2,7 @@
 title: "Toot"
 images: ["/assets/images/og/toots.png"]
 layout: "toot"
-type: 'toot'
+type: 'page'
 comment: false
 aliases:
     - /en/talk

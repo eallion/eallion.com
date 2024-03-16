@@ -10,19 +10,13 @@ tags:
     - talk
 slug: "memos-deployment"
 summary: "这篇文章介绍了Memos简介及其部署方法。作者提到了他最早用的微博客程序是PageCookery，并介绍了“B言B语”和Memos的应用。文章还提供了Memos的常用命令和升级命令，提到如果要对互联网提供Memos访问服务，需要使用Nginx反代5230端口。最后，文章介绍了Memos的数据持久化配置。"
+series: ["Memos"]
+series_weight: 1
+seriesNavigation: true
 draft: false
 date: 2022-11-06T16:30:22+08:00
 lastmod: 2022-11-06T16:30:22+08:00
 ---
-
-### Memos 简介系列
-
-- 《[Memos 简介](https://eallion.com/memos-deployment/)》
-- 《[Memos 手动导入数据](https://eallion.com/memos-import/)》
-- 《[Memos API 调用渲染页面](https://eallion.com/memos-api/)》
-- 《[Memos API 公告样式滚动效果](https://eallion.com/memos-ticker/)》
-- 《[Memos API 获取总条数](https://eallion.com/memos-total-count/)》
-- 《[Memos 配置 Artalk 评论系统](https://eallion.com/artalk_for_memos/)》
 
 ### 前言
 

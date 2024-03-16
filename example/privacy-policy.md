@@ -2,7 +2,7 @@
 title: "隐私政策"
 images: ["/assets/images/og/privacy.png"]
 date: "2006-04-14 00:00:00"
-type: "privacy-policy"
+type: "page"
 layout: "privacy-policy"
 comment: false
 aliases:

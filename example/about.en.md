@@ -2,7 +2,7 @@
 title: "About"
 images: ["/assets/images/og/about.png"]
 date: "2006-04-14 00:00:00"
-type: "about"
+type: "page"
 layout: "about"
 comment: false
 ---
@@ -69,9 +69,9 @@ My favorite motto is:
 ### Contact
 
 <div class="badge">
-  <a><img no-view src="https://api.eallion.com/shields/badge/Gmail-eallions@gmail.com-blue?style=flat&labelColor=555&logo=gmail&logoColor=fff"></a>
+  <a><img no-view src="https://img.shields.io/badge/Gmail-eallions@gmail.com-blue?style=flat&labelColor=555&logo=gmail&logoColor=fff"></a>
   <a href="https://keybase.io/eallion/pgp_keys.asc?fingerprint=4f07c9a0617d7166f03be7cc6a9279328406fb6c" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/keybase/pgp/eallion?label=Keybase%20OpenPGP&logo=keybase&logoColor=fff&style=flat">
+    <img no-view src="https://img.shields.io/keybase/pgp/eallion?label=Keybase%20OpenPGP&logo=keybase&logoColor=fff&style=flat">
   </a>
 </div>
 
@@ -79,19 +79,19 @@ My favorite motto is:
 
 <div class="badge">
   <a href="https://github.com/eallion" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/GitHub-@eallion-blue?style=flat&labelColor=555&logo=GitHub&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/GitHub-@eallion-blue?style=flat&labelColor=555&logo=GitHub&logoColor=fff">
   </a>
   <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/Mastodon-@eallion-blue?style=flat&labelColor=555&logo=mastodon&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/Mastodon-@eallion-blue?style=flat&labelColor=555&logo=mastodon&logoColor=fff">
   </a>
   <a href="https://steamcommunity.com/id/eallion" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/Steam-@eallion-blue?style=flat&labelColor=555&logo=Steam&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/Steam-@eallion-blue?style=flat&labelColor=555&logo=Steam&logoColor=fff">
   </a>
   <a href="https://x.com/eallion" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/𝕏-@eallion-blue?style=flat&labelColor=555&logo=Twitter&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/𝕏-@eallion-blue?style=flat&labelColor=555&logo=Twitter&logoColor=fff">
   </a>
   <a href="https://keybase.io/eallion" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/Keybase-@eallion-blue?style=flat&labelColor=555&logo=Keybase&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/Keybase-@eallion-blue?style=flat&labelColor=555&logo=Keybase&logoColor=fff">
   </a>
 </div>
 
@@ -99,19 +99,25 @@ My favorite motto is:
 
 <div class="badge">
   <a href="https://github.com/eallion/eallion.com/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/License-GLWT-green">
+    <img no-view src="https://img.shields.io/badge/License-GLWT-green">
+  </a>
+  <a href="https://status.eallion.com" target="_blank" rel="noopener noreferrer">
+    <img alt="Uptime Robot ratio (30 days)" src="https://img.shields.io/uptimerobot/ratio/m783953686-5912db7169eea9ce488b60c1?link=https%3A%2F%2Fstatus.eallion.com">
   </a>
   <a href="https://github.com/eallion/eallion.com" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/github/repo-size/eallion/eallion.com">
+    <img no-view src="https://img.shields.io/github/repo-size/eallion/eallion.com">
   </a>
   <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/github/v/tag/eallion/eallion.com">
+    <img no-view src="https://img.shields.io/github/v/tag/eallion/eallion.com">
   </a>
   <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/github/commits-since/eallion/eallion.com/v3.0.4/main">
+    <img no-view src="https://img.shields.io/github/commits-since/eallion/eallion.com/v3.0.4/main">
   </a>
   <a href="https://github.com/eallion/eallion.com/commits/main" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/github/last-commit/eallion/eallion.com">
+    <img no-view src="https://img.shields.io/github/last-commit/eallion/eallion.com">
+  </a>
+  <a href="https://wakatime.com/@018dff59-cb93-47dc-bf2d-945cab4bdaae" target="_blank" rel="noopener noreferrer">
+    <img src="https://wakatime.com/badge/user/018dff59-cb93-47dc-bf2d-945cab4bdaae.svg" alt="Total time coded since Mar 2 2024" />
   </a>
 </div>
 
@@ -119,60 +125,60 @@ My favorite motto is:
 
 <div class="badge">
   <a href="https://html5.org/" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white">
+    <img no-view src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white">
   </a>
   <a href="https://www.w3.org/Style/CSS/" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white">
+    <img no-view src="https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white">
   </a>
   <a href="https://www.javascript.com/" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white">
+    <img no-view src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white">
   </a>
   <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/-Hugo-FF4088?style=flat&logo=Hugo&logoColor=white">
+    <img no-view src="https://img.shields.io/badge/-Hugo-FF4088?style=flat&logo=Hugo&logoColor=white">
   </a>
 </div>
 
 <div class="badge">
   <a href="https://www.aliyun.com" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/Aliyun-blue?style=flat&color=blue&labelColor=555&logo=Alibaba-Cloud&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/Aliyun-blue?style=flat&color=blue&labelColor=555&logo=Alibaba-Cloud&logoColor=fff">
   </a>
   <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/Cloudflare-blue?style=flat&color=blue&labelColor=555&logo=cloudflare&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/Cloudflare-blue?style=flat&color=blue&labelColor=555&logo=cloudflare&logoColor=fff">
   </a>
   <a href="https://docker.com/" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/Docker-blue?style=flat&color=blue&labelColor=555&logo=Docker&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/Docker-blue?style=flat&color=blue&labelColor=555&logo=Docker&logoColor=fff">
   </a>
   <a href="https://giscus.app/" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/Giscus-blue?style=flat&color=blue&labelColor=555&logoColor=fff&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IndoaXRlIiBkPSJNNiAyTDIgOGwxMCAxNEwyMiA4bC00LTZ6Ii8+PC9zdmc+">
+    <img no-view src="https://img.shields.io/badge/Giscus-blue?style=flat&color=blue&labelColor=555&logoColor=fff&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IndoaXRlIiBkPSJNNiAyTDIgOGwxMCAxNEwyMiA4bC00LTZ6Ii8+PC9zdmc+">
   </a>
   <a href="https://www.github.com" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/GitHub-blue?style=flat&color=blue&labelColor=555&logo=GitHub&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/GitHub-blue?style=flat&color=blue&labelColor=555&logo=GitHub&logoColor=fff">
   </a>
   <a href="https://github.com/actions" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/GitHub%20Actions-blue?style=flat&color=blue&labelColor=555&logo=GitHub-Actions&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/GitHub%20Actions-blue?style=flat&color=blue&labelColor=555&logo=GitHub-Actions&logoColor=fff">
   </a>
   <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/Google-blue?style=flat&color=blue&labelColor=555&logo=Google&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/Google-blue?style=flat&color=blue&labelColor=555&logo=Google&logoColor=fff">
   </a>
   <a href="https://fonts.google.com" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/Google%20Fonts-blue?style=flat&color=blue&labelColor=555&logo=Google-Fonts&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/Google%20Fonts-blue?style=flat&color=blue&labelColor=555&logo=Google-Fonts&logoColor=fff">
   </a>
   <a href="https://gravatar.com/" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/Gravatar-blue?style=flat&color=blue&labelColor=555&logo=Gravatar&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/Gravatar-blue?style=flat&color=blue&labelColor=555&logo=Gravatar&logoColor=fff">
   </a>
   <a href="https://iconify.design/" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/Iconify-blue?style=flat&color=blue&labelColor=555&logo=iconify&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/Iconify-blue?style=flat&color=blue&labelColor=555&logo=iconify&logoColor=fff">
   </a>
   <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/jsDelivr-blue?style=flat&color=blue&labelColor=555&logo=jsDelivr&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/jsDelivr-blue?style=flat&color=blue&labelColor=555&logo=jsDelivr&logoColor=fff">
   </a>
   <a href="https://cloud.tencent.com" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/Tencent%20Cloud-blue?style=flat&color=blue&labelColor=555&logo=tencent-qq&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/Tencent%20Cloud-blue?style=flat&color=blue&labelColor=555&logo=tencent-qq&logoColor=fff">
   </a>
   <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/Vercel-blue?style=flat&color=blue&labelColor=555&logo=Vercel&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/Vercel-blue?style=flat&color=blue&labelColor=555&logo=Vercel&logoColor=fff">
   </a>
   <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://api.eallion.com/shields/badge/VS%20Code-blue?style=flat&color=blue&labelColor=555&logo=visual-studio-code&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/VS%20Code-blue?style=flat&color=blue&labelColor=555&logo=visual-studio-code&logoColor=fff">
   </a>
 </div>

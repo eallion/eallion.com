@@ -10,19 +10,13 @@ tags:
     - talk
 slug: "memos-ticker"
 summary: "这篇文章介绍了Memos API公告样式滚动效果以及大大的小蜗牛Memos的简介系列。文章提供了参考代码，包括主页的核心代码、相对时间的实现以及引用的插件和样式表。"
+series: ["Memos"]
+series_weight: 4
+seriesNavigation: true
 draft: false
 date: 2022-11-06T16:33:22+08:00
 lastmod: 2022-11-06T16:33:22+08:00
 ---
-
-### Memos 简介系列
-
-- 《[Memos 简介](https://eallion.com/memos-deployment/)》
-- 《[Memos 手动导入数据](https://eallion.com/memos-import/)》
-- 《[Memos API 调用渲染页面](https://eallion.com/memos-api/)》
-- 《[Memos API 公告样式滚动效果](https://eallion.com/memos-ticker/)》
-- 《[Memos API 获取总条数](https://eallion.com/memos-total-count/)》
-- 《[Memos 配置 Artalk 评论系统](https://eallion.com/artalk_for_memos/)》
 
 > 效果参考首页
 
