@@ -361,7 +361,7 @@ other = "Views: "
 other = "Word Count: "
 
 [stats_mastodon]
-other = "Mastodon Toots:"
+other = "Mastodon Toots: "
 
 [stats_neodb]
 other = "NeoDB Marked: "
