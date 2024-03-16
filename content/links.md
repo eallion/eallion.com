@@ -3,7 +3,7 @@ title: "友情链接"
 images: ["/assets/images/og/friends.png"]
 date: "2006-04-14 00:00:00"
 layout: "links"
-type: "links"
+type: "page"
 comment: false
 aliases:
     - /link

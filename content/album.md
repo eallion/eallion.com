@@ -2,7 +2,7 @@
 title: "随手拍"
 images: ["/assets/images/og/album.png"]
 layout: "album"
-type: 'album'
+type: 'page'
 comment: false
 toc: false
 aliases:
