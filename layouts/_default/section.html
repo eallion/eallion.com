@@ -102,132 +102,12 @@
             {{- partial "paginator.html" . -}}
         {{- end -}}
 
-        <!-- <div id="annual"></div> -->
-        <!-- <div id="category"></div> -->
-
         <script type="text/javascript">
-            document.addEventListener("DOMContentLoaded", function() {
-            var heatmapDom = echarts.init(document.getElementById('heatmap'));
-            // var annualDom = echarts.init(document.getElementById('annual'));
-            // var categoryDom = echarts.init(document.getElementById('category'));
+            var chartDom = document.getElementById('heatmap');
+            var myChart = echarts.init(chartDom);
             window.onresize = function() {
                 myChart.resize();
             };
-            var categoryData = [
-                {
-                    name: '日志（398）',
-                    value: 398
-                },
-                {
-                    name: '代码（74）',
-                    value: 74
-                },
-                {
-                    name: '分享（71）',
-                    value: 71
-                },
-                {
-                    name: '山贼（10）',
-                    value: 10
-                }
-            ];
-            var categoryOption = {
-                title: [
-                    {
-                    text: '分类统计图',
-                    left: 'center',
-                    top: '2%'
-                    }
-                ],
-                series: [
-                    {
-                    type: 'pie',
-                    radius: '80%',
-                    center: ['50%', '50%'],
-                    data: categoryData,
-                    animation: false,
-                    label: {
-                        position: 'outer',
-                        alignTo: 'edge',
-                        margin: 10
-                    },
-                    left: '0',
-                    right: 0,
-                    top: 0,
-                    bottom: 0
-                    }
-                ]
-            }
-
-            var annualOption = {
-                title: {
-                    text: '年份统计图',
-                    top: '2%',
-                    left: 'center'
-                },
-                tooltip: {
-                    trigger: 'axis'
-                },
-                legend: {
-                    data: ['所有文章', '日志', '代码', '分享', '山贼'],
-                    top: '10%'
-                },
-                grid: {
-                    left: '5%',
-                    right: '5%',
-                    bottom: '5%',
-                    top: '20%',
-                    containLabel: true
-                },
-                toolbox: {
-                    feature: {
-                    saveAsImage: {
-                        title: '保存为图片'
-                    }
-                    }
-                },
-                xAxis: {
-                    type: 'category',
-                    boundaryGap: false,
-                    data: ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024']
-                },
-                yAxis: {
-                    type: 'value'
-                },
-                series: [
-                    {
-                    name: '所有文章',
-                    type: 'line',
-                    stack: '总量',
-                    data: ['3', '0', '68', '7', '90', '140', '34', '26', '4', '28', '33', '28', '4', '25', '16', '7', '12', '18', '4']
-                    },
-                    {
-                    name: '日志',
-                    type: 'line',
-                    stack: '总量',
-                    data: ['3', '0', '69', '7', '62', '122', '33', '23', '3', '19', '13', '16', '2', '7', '5', '4', '6', '5', '2']
-                    },
-                    {
-                    name: '代码',
-                    type: 'line',
-                    stack: '总量',
-                    data: ['0', '0', '0', '0', '0', '0', '0', '1', '0', '6', '15', '4', '0', '14', '10', '3', '5', '11', '2']
-                    },
-                    {
-                    name: '分享',
-                    type: 'line',
-                    stack: '总量',
-                    data: ['0', '0', '1', '0', '33', '10', '2', '1', '1', '4', '5', '8', '2', '3', '1', '0', '1', '2', '0']
-                    },
-                    {
-                    name: '山贼',
-                    type: 'line',
-                    stack: '总量',
-                    data: ['0', '0', '0', '0', '1', '8', '0', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0']
-                    }
-                ]
-            };
-
             var option;
             var dataMap = new Map();
             {{ range ((where .Site.RegularPages "Type" "posts")) }}
@@ -257,6 +137,7 @@
             startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
             endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
 
+            // 定义明亮模式下的颜色方案
             var lightTheme = {
                 backgroundColor: '#fff',
                 cubeColor:'#ebedf0',
@@ -266,6 +147,7 @@
                 borderColor:'rgba(0, 0, 0, 0.0)',
             };
 
+            // 定义暗黑模式下的颜色方案
             var darkTheme = {
                 backgroundColor: '#34363a',
                 cubeColor:'#666',
@@ -275,6 +157,7 @@
                 borderColor:'rgba(0, 0, 0, 0.0)',
             };
 
+            // 检测浏览器主题模式并选择颜色方案
             var currentTheme = getCurrentTheme();
 
             function getCurrentTheme() {
@@ -300,7 +183,7 @@
                     hideDelay: 1000,
                     enterable: true,
                     backgroundColor: currentTheme.textBgColor,
-                    borderWidth: 0,
+                    borderWidth: 0, // 边框宽度为0
                     formatter: function (p) {
                         const date = p.data[0];
                         const posts = dataMap.get(date);
@@ -358,11 +241,11 @@
                     data: data,
                 }
             };
-            // annualDom.setOption(annualOption);
-            // categoryDom.setOption(categoryOption);
-            heatmapDom.setOption(option);
-            heatmapDom.on('click', function(params) {
+
+            myChart.setOption(option);
+            myChart.on('click', function(params) {
                 if (params.componentType === 'series') {
+                // open the first post on the day
                 const post = dataMap.get(params.data[0])[0];
                 const link = window.location.origin + post.link;
                 window.open(link, '_blank').focus();
@@ -374,7 +257,7 @@
                     if (mutation.attributeName === 'theme') {
                     currentTheme = getCurrentTheme();
                     updateOption();
-                    heatmapDom.setOption(option);
+                    myChart.setOption(option);
                     }
                 });
             });
@@ -390,7 +273,7 @@
             }
 
             observer.observe(document.querySelector('body'), { attributes: true });
-        });
+
         </script>
 
     </div>
