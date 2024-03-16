@@ -18,8 +18,8 @@ libFiles:
   cookieconsentCSS: cookieconsent@3.1.1/build/cookieconsent.min.css
   cookieconsentJS: cookieconsent@3.1.1/build/cookieconsent.min.js
   # echarts@5.2.2 https://github.com/apache/echarts
-  echartsJS: echarts@5.5.0/dist/echarts.min.js
-  echartsMacaronsJS: echarts@5.4.2/theme/macarons.min.js
+  echartsJS: echarts@5.2.2/dist/echarts.min.js
+  echartsMacaronsJS: echarts@5.2.2/theme/macarons.min.js
   # fontawesome-free@5.15.4 https://github.com/FortAwesome/Font-Awesome
   fontawesomeFreeCSS: '@fortawesome/fontawesome-free@5.15.4/css/all.min.css'
   # fusejs@6.6.2 https://github.com/krisk/fuse
