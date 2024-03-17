@@ -1,22 +1,22 @@
 ---
-title: "统计"
+title: "Stats"
 images: ["/assets/images/og/eallion.png"]
 layout: "stats"
 type: 'page'
 comment: false
 toc: false
 aliases:
-    - /stat
-    - /status
-    - /tongji
+    - /en/stat
+    - /en/status
+    - /en/tongji
 ---
 
-### 按年份统计文章数
+### Blogs by Year
 
 {{< echarts >}}
 {
   "title": {
-    "text": "年份统计图",
+    "text": "Blogs by Year",
     "top": "2%",
     "left": "center"
   },
@@ -24,7 +24,7 @@ aliases:
     "trigger": "axis"
   },
   "legend": {
-    "data": ["所有文章", "日志", "代码", "分享", "山贼", "English"],
+    "data": ["All", "Daily", "Code", "Share", "SZ", "English"],
     "top": "10%"
   },
   "grid": {
@@ -37,7 +37,7 @@ aliases:
   "toolbox": {
     "feature": {
       "saveAsImage": {
-        "title": "保存为图片"
+        "title": "Save as Image"
       }
     }
   },
@@ -51,31 +51,31 @@ aliases:
   },
   "series": [
     {
-      "name": "所有文章",
+      "name": "All",
       "type": "line",
       "stack": "总量",
       "data": ["3", "0", "68", "7", "90", "140", "34", "26", "4", "28", "33", "28", "4", "25", "16", "7", "12", "19", "9"]
     },
     {
-      "name": "日志",
+      "name": "Daily",
       "type": "line",
       "stack": "总量",
       "data": ["3", "0", "69", "7", "62", "122", "33", "23", "3", "19", "13", "16", "2", "7", "5", "4", "6", "5", "2"]
     },
     {
-      "name": "代码",
+      "name": "Code",
       "type": "line",
       "stack": "总量",
       "data": ["0", "0", "0", "0", "0", "0", "0", "1", "0", "6", "15", "4", "0", "14", "10", "3", "5", "11", "2"]
     },
     {
-      "name": "分享",
+      "name": "Share",
       "type": "line",
       "stack": "总量",
       "data": ["0", "0", "1", "0", "33", "10", "2", "1", "1", "4", "5", "8", "2", "3", "1", "0", "1", "2", "0"]
     },
     {
-      "name": "山贼",
+      "name": "SZ",
       "type": "line",
       "stack": "总量",
       "data": ["0", "0", "0", "0", "1", "8", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"]
@@ -90,14 +90,15 @@ aliases:
 }
 {{< /echarts >}}
 
-### 按分类统计文章数
+### Blogs by Category
 
 {{< mermaid >}}pie
-    "日志（398）" : 398
-    "代码（74）" : 74
-    "分享（71）" : 71
-    "山贼（10）" : 10
+    "Daily(398)" : 398
+    "Code(74)" : 74
+    "Share(71)" : 71
+    "SZ(10)" : 10
     "English（6）" : 6
 {{< /mermaid >}}
 
-注<sup>1</sup>：同一文章可能包含多个分类。
+Ref<sup>1</sup>: The same article may contain multiple categories.
+Ref<sup>2</sup>: `SZ` is a good friend.

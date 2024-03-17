@@ -49,11 +49,6 @@
         #category {
             height: 30rem;
         }
-        @media only screen and (max-width: 680px) {
-            #heatmap {
-                display: none;
-            }
-        }
 
     </style>
     <div class="page single archive">
@@ -65,11 +60,12 @@
         <div class="content">
             <div class="greyQuote">
                 <blockquote>
-                    <span>文章：<strong><a href="/stats/">{{- $articleCount -}}</a></strong> 篇；</span>
-                    <span>页面：<strong><a href="/stats/">{{- $pageCount -}}</a></strong> 篇；</span>
-                    <span>分类：<strong><a href="/categories/">{{- $categoryCount -}}</a></strong> 个；</span>
-                    <span>标签：<strong><a href="/tags/">{{- $tagCount -}}</a></strong> 个；</a></strong></span>
-                    <span>总字数：<strong><a href="/stats/">{{- $totalWord -}}</a></strong> 字。</span>
+                    <span>{{ T `stats_blogs` | safeHTML }}<strong><a href="/stats/">{{- $articleCount -}}</a></strong>  {{ T `stats_blogs_suffix` | safeHTML }}</span>
+                    <span>{{ T `stats_pages` | safeHTML }}<strong><a href="/stats/">{{- $pageCount -}}</a></strong> {{ T `stats_pages_suffix` | safeHTML }}</span>
+                    <span>{{ T `stats_categories` | safeHTML }}<strong><a href="/categories/">{{- $categoryCount -}}</a></strong> {{ T `stats_categories_suffix` | safeHTML }}</span>
+                    <span>{{ T `stats_series` | safeHTML }}<strong><a href="/series/">3 </a></strong> {{ T `stats_series_suffix` | safeHTML }}</span>
+                    <span>{{ T `stats_tags` | safeHTML }}<strong><a href="/tags/">{{- $tagCount -}}</a></strong> {{ T `stats_tags_suffix` | safeHTML }}</a></strong></span>
+                    <span>{{ T `stats_wordcount` | safeHTML }}<strong><a href="/stats/">{{- $totalWord -}}</a></strong> {{ T `stats_wordcount_suffix` | safeHTML }}</span>
                 </blockquote>
             </div>
         </div>
@@ -129,10 +125,21 @@
                 data.push([key, value.length]);
             }
 
-            var startDate = new Date();
-            var year_Mill = startDate.setFullYear((startDate.getFullYear() - 1));
-            var startDate = +new Date(year_Mill);
-            var endDate = +new Date();
+            var endDate = new Date();
+            var startDate = new Date(endDate);
+
+            // 获取屏幕宽度
+            var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+            // 如果屏幕宽度小于680，设置 startDate 为 6 个月前
+            if (screenWidth < 680) {
+                startDate.setMonth(startDate.getMonth() - 6);
+            } else {
+                startDate.setFullYear(startDate.getFullYear() - 1);
+            }
+
+            startDate = +startDate;
+            endDate = +endDate;
 
             startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
             endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
@@ -187,12 +194,13 @@
                     formatter: function (p) {
                         const date = p.data[0];
                         const posts = dataMap.get(date);
-                        var content = `<span style="font-size: 0.75rem;font-family: var(--font-family-code);">${date}</span>`;
+                        const formattedDate = new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+                        var content = `<span style="font-size: 0.75rem;font-family: var(--font-family-code);">${formattedDate}</span>`;
                         for (const [i, post] of posts.entries()) {
                             content += "<br>";
                             var link = post.link;
                             var title = post.title;
-                            content += `<a href="${link}" target="_blank">${title}</a>` + '<br>';
+                            content += `<a href="${link}" target="_blank">《${title}》</a>` + '<br>';
                         }
                         return content;
                         }

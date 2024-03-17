@@ -366,6 +366,9 @@ other = "Mastodon Toots: "
 [stats_neodb]
 other = "NeoDB Marked: "
 
+[stats_steam]
+other = "Steam Games: "
+
 [stats_penta]
 other = "LOL Penta: "
 
@@ -373,40 +376,43 @@ other = "LOL Penta: "
 other = "Blog Heatmap"
 
 [stats_blogs_suffix]
-other = " "
+other = " ;"
 
 [stats_tags_suffix]
-other = " "
+other = " ;"
 
 [stats_pages_suffix]
-other = " "
+other = " ;"
 
 [stats_authors_suffix]
-other = " "
+other = " ;"
 
 [stats_categories_suffix]
-other = " "
+other = " ;"
 
 [stats_series_suffix]
-other = " "
+other = " ;"
 
 [stats_links_suffix]
-other = " "
+other = " ;"
 
 [stats_comments_suffix]
-other = " "
+other = " ;"
 
 [stats_views_suffix]
-other = " "
+other = " ;"
 
 [stats_wordcount_suffix]
-other = " "
+other = " ;"
 
 [stats_mastodon_suffix]
-other = " "
+other = " ;"
 
 [stats_neodb_suffix]
-other = " "
+other = " ;"
 
 [stats_penta_suffix]
-other = " "
+other = " ;"
+
+[stats_steam_suffix]
+other = " ;"

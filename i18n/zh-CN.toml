@@ -364,6 +364,9 @@ other = "Mastodon 嘀咕："
 [stats_neodb]
 other = "NeoDB 书影音："
 
+[stats_steam]
+other = "Steam 游戏："
+
 [stats_penta]
 other = "LOL 五杀："
 
@@ -371,40 +374,43 @@ other = "LOL 五杀："
 other = "文章热力图"
 
 [stats_blogs_suffix]
-other = "篇"
+other = "篇；"
 
 [stats_tags_suffix]
-other = "个"
+other = "个；"
 
 [stats_pages_suffix]
-other = "篇"
+other = "篇；"
 
 [stats_authors_suffix]
-other = "名"
+other = "名；"
 
 [stats_categories_suffix]
-other = "个"
+other = "个；"
 
 [stats_series_suffix]
-other = "个"
+other = "个；"
 
 [stats_links_suffix]
-other = "个"
+other = "个；"
 
 [stats_comments_suffix]
-other = "条（已关闭评论）"
+other = "条（已关闭评论）；"
 
 [stats_views_suffix]
-other = "PV（已移除统计）"
+other = "PV（已移除统计）；"
 
 [stats_wordcount_suffix]
-other = "个"
+other = "个；"
 
 [stats_mastodon_suffix]
-other = "条"
+other = "条；"
 
 [stats_neodb_suffix]
-other = "标记"
+other = "标记；"
 
 [stats_penta_suffix]
-other = "次"
+other = "次；"
+
+[stats_steam_suffix]
+other = "款；"
