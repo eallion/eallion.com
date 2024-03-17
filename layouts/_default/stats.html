@@ -50,11 +50,6 @@
         #category {
             height: 30rem;
         }
-        @media only screen and (max-width: 680px) {
-            #heatmap {
-                display: none;
-            }
-        }
 
     </style>
     <div class="page single archive">
@@ -65,7 +60,7 @@
 
         <div id="content" class="content">
             <div class="">
-                <ul>
+                <!-- <ul>
                     <li>文章：<strong><a href="/posts/">{{- $articleCount -}}</a></strong> 篇</li>
                     <li>页面：<strong><a href="/stats/">{{- $pageCount -}}</a></strong> 篇</li>
                     <li>作者：<strong><a href="/authors/">2 </a></strong> 名</li>
@@ -74,15 +69,32 @@
                     <li>标签：<strong><a href="/tags/">{{- $tagCount -}}</a></strong> 个</li>
                     <li>友情链接：<strong><a href="/links/">26 </a></strong> 个</li>
                     <li>博客字数：<strong><a href="/stats/">{{- $totalWord -}}</a></strong> 字</li>
-                    <li>Mastodon 嘀咕：<strong><a href="/toot/"><span id="mastodon-count" aria-label="mastodon-count"></span></a></strong> 条</li>
-                    <li>NeoDB 书影音：<strong><a href="/media/"><span id="neodb-count" aria-label="neodb-count"></span></a></strong> 标记</li>
+                    <li>Mastodon 嘀咕：<strong><a href="/toot/"><span id="mastodon-count" aria-label="mastodon-count"><i>Null</i></span></a></strong> 条</li>
+                    <li>NeoDB 书影音：<strong><a href="/media/"><span id="neodb-count" aria-label="neodb-count"><i>Null</i></span></a></strong> 标记</li>
+                    <li>Steam 游戏：<strong><a href="https://steamcommunity.com/id/eallion"><span id="steam-count" aria-label="steam-count"><i>Null</i></span></a></strong> 款</li>
                     <li>LOL 五杀：<strong><a href="/penta/">{{- len $penta.penta -}}</a></strong> 次</li>
                     <li>浏览量：<i>Null</i> PV（已移除统计）</li>
                     <li>评论量：<i>Null</i> 条（已关闭评论）</li>
+                </ul> -->
+                <ul>
+                    <li>{{ T `stats_blogs` | safeHTML }}<strong><a href="/posts/">{{- $articleCount -}}</a></strong> {{ T `stats_blogs_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_pages` | safeHTML }}<strong><a href="/stats/">{{- $pageCount -}}</a></strong> {{ T `stats_pages_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_authors` | safeHTML }}<strong><a href="/authors/">2 </a></strong> {{ T `stats_authors_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_categories` | safeHTML }}<strong><a href="/categories/">{{- $categoryCount -}}</a></strong> {{ T `stats_categories_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_series` | safeHTML }}<strong><a href="/series/">3 </a></strong> {{ T `stats_series_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_tags` | safeHTML }}<strong><a href="/tags/">{{- $tagCount -}}</a></strong> {{ T `stats_tags_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_links` | safeHTML }}<strong><a href="/links/">26 </a></strong> {{ T `stats_links_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_wordcount` | safeHTML }}<strong><a href="/stats/">{{- $totalWord -}}</a></strong> {{ T `stats_wordcount_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_mastodon` | safeHTML }}<strong><a href="/toot/"><span id="mastodon-count" aria-label="mastodon-count"></span></a></strong> {{ T `stats_mastodon_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_neodb` | safeHTML }}<strong><a href="/media/"><span id="neodb-count" aria-label="neodb-count"></span></a></strong> {{ T `stats_neodb_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_steam` | safeHTML }}<strong><a href="https://steamcommunity.com/id/eallion"><span id="steam-count" aria-label="steam-count"><i>Null</i></span></a></strong> {{ T `stats_steam_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_penta` | safeHTML }}<strong><a href="/penta/">{{- len $penta.penta -}}</a></strong> {{ T `stats_penta_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_views` | safeHTML }}<i>Null</i> {{ T `stats_views_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_comments` | safeHTML }}<i>Null</i> {{ T `stats_comments_suffix` | safeHTML }}</li>
                 </ul>
             </div>
 
-            <h3 id="文章热力图" class="headerLink"><a href="#文章热力图" class="header-mark" title="header-mark"></a>文章热力图</h3>
+            <h3 id="文章热力图" class="headerLink"><a href="#文章热力图" class="header-mark" title="header-mark"></a>{{ T `stats_heatmap` | safeHTML }}</h3>
             <div id="heatmap"></div>
 
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
@@ -116,10 +128,21 @@
                         data.push([key, value.length]);
                     }
 
-                    var startDate = new Date();
-                    var year_Mill = startDate.setFullYear((startDate.getFullYear() - 1));
-                    var startDate = +new Date(year_Mill);
-                    var endDate = +new Date();
+                    var endDate = new Date();
+                    var startDate = new Date(endDate);
+
+                    // 获取屏幕宽度
+                    var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+                    // 如果屏幕宽度小于680，设置 startDate 为 6 个月前
+                    if (screenWidth < 680) {
+                        startDate.setMonth(startDate.getMonth() - 6);
+                    } else {
+                        startDate.setFullYear(startDate.getFullYear() - 1);
+                    }
+
+                    startDate = +startDate;
+                    endDate = +endDate;
 
                     startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
                     endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
@@ -171,12 +194,13 @@
                             formatter: function (p) {
                                 const date = p.data[0];
                                 const posts = dataMap.get(date);
-                                var content = `<span style="font-size: 0.75rem;font-family: var(--font-family-code);">${date}</span>`;
+                                const formattedDate = new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+                                var content = `<span style="font-size: 0.75rem;font-family: var(--font-family-code);">${formattedDate}</span>`;
                                 for (const [i, post] of posts.entries()) {
                                     content += "<br>";
                                     var link = post.link;
                                     var title = post.title;
-                                    content += `<a href="${link}" target="_blank">${title}</a>` + '<br>';
+                                    content += `<a href="${link}" target="_blank">《${title}》</a>` + '<br>';
                                 }
                                 return content;
                                 }
@@ -235,29 +259,29 @@
                         }
                     });
 
-                const observer = new MutationObserver((mutations) => {
-                    mutations.forEach((mutation) => {
-                        if (mutation.attributeName === 'theme') {
-                        currentTheme = getCurrentTheme();
-                        updateOption();
-                        heatmapChart.setOption(option);
-                        }
+                    const observer = new MutationObserver((mutations) => {
+                        mutations.forEach((mutation) => {
+                            if (mutation.attributeName === 'theme') {
+                            currentTheme = getCurrentTheme();
+                            updateOption();
+                            heatmapChart.setOption(option);
+                            }
+                        });
                     });
-                });
 
-                function updateOption() {
-                    option.tooltip.backgroundColor = currentTheme.textBgColor;
-                    option.visualMap.inRange.color = currentTheme.highlightColor;
-                    option.calendar.itemStyle.color = currentTheme.cubeColor;
-                    option.calendar.itemStyle.borderColor = currentTheme.backgroundColor;
-                    option.calendar.monthLabel.textStyle.color = currentTheme.dateColor;
-                    option.calendar.dayLabel.textStyle.color = currentTheme.dateColor;
-                    option.calendar.splitLine.lineStyle.color = currentTheme.borderColor;
-                }
+                    function updateOption() {
+                        option.tooltip.backgroundColor = currentTheme.textBgColor;
+                        option.visualMap.inRange.color = currentTheme.highlightColor;
+                        option.calendar.itemStyle.color = currentTheme.cubeColor;
+                        option.calendar.itemStyle.borderColor = currentTheme.backgroundColor;
+                        option.calendar.monthLabel.textStyle.color = currentTheme.dateColor;
+                        option.calendar.dayLabel.textStyle.color = currentTheme.dateColor;
+                        option.calendar.splitLine.lineStyle.color = currentTheme.borderColor;
+                    }
 
-                observer.observe(document.querySelector('body'), { attributes: true });
-                });
-            })();
+                    observer.observe(document.querySelector('body'), { attributes: true });
+                    });
+                })();
             </script>
 
             <script>
@@ -300,6 +324,24 @@
 
                         // 将数组数量插入到元素中
                         mastodonCountElement.textContent = arrayCount;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching Mastodon data:', error);
+                    });
+
+                // Steam 游戏数量
+                // 发起请求并处理响应
+                Promise.race([
+                    fetch('https://iplayerservice-getownedgames-steam-web-api.eallion.com'),
+                    timeout(5000) // 设置超时时间（以毫秒为单位）
+                ])
+                    .then(response => response.json())
+                    .then(data => {
+                        // 获取 id="mastodon-count" 的元素
+                        const steamCountElement = document.getElementById('steam-count');
+
+                        // 将 count 值插入到元素中
+                        steamCountElement.textContent = data.response.game_count;
                     })
                     .catch(error => {
                         console.error('Error fetching Mastodon data:', error);
