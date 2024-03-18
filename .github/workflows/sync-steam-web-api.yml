@@ -1,0 +1,82 @@
+name: Sync Steam Web API
+
+on:
+  schedule:
+  # every monday
+   - cron: "0 9 * * 1"
+  # watch:
+  #   types: [started]
+
+  workflow_dispatch:
+  repository_dispatch:
+    types: [sync-steam]
+
+jobs:
+  douban:
+    name: Sync Steam Web API
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    # 检查是否安装了 JQ
+    - name: Check JQ
+      run: |
+        if ! command -v jq &> /dev/null; then
+          echo "jq is not installed. Installing..."
+          sudo apt-get update
+          sudo apt-get install -y jq
+        else
+          echo "jq is already installed."
+        fi
+        # 把当前目录保存到环境变量中
+        echo "WORK_DIR=$(pwd)" >> $GITHUB_ENV
+
+    # 获取本地现有文件中最新的 Count
+    - name: Get Local Current Count
+      run: |
+        CURRENT_COUNT() {
+          jq '.response.game_count' data/steam/steam_web_api.json
+        }
+        echo "CURRENT_COUNT=$(CURRENT_COUNT)" >> $GITHUB_ENV
+        rm data/steam/steam_web_api.json
+
+    # 获取远程最新的 Count
+    - name: Get Steam Latest Count
+      run: |
+        curl -X 'GET' \
+        'https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${{ secrets.STEAM_WEB_API_KEY }}&steamid=76561197989210276&format=json' \
+        -H 'accept: application/json' > data/steam/steam_web_api.json
+
+        REMOTE_COUNT() {
+          jq '.response.game_count' data/steam/steam_web_api.json
+        }
+        echo "REMOTE_COUNT=$(REMOTE_COUNT)" >> $GITHUB_ENV
+
+    # 对比 COUNT
+    - name: UUID Compare
+      run: |
+        if [ ${{ env.REMOTE_COUNT }} != ${{ env.CURRENT_COUNT }} ]; then
+          echo "Variables are not equal. Running the next steps."
+        else
+          echo "Variables are equal. Skipping the next steps."
+          exit 0
+        fi
+
+    # 把修改后的数据提交到 GitHub 仓库
+    - name: Git Add and Commit
+      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
+      uses: EndBug/add-and-commit@v9
+      with:
+        message: 'chore(data): update steam data'
+        committer_name: 'github-actions[bot]'
+        committer_email: 'github-actions[bot]@users.noreply.github.com'
+        add: |
+          './data/steam/steam_web_api.json'
+
+    # # 调用另外的 GitHub Actions 构建 Hugo
+    - name: Build Hugo and Deploy
+      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
+      uses: peter-evans/repository-dispatch@v2
+      with:
+          event-type: build-hugo

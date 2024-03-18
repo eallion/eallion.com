@@ -13,9 +13,6 @@
             {{if eq .Type "posts"}}
                 {{$articleCount = add $articleCount 1}}
             {{end}}
-            {{if eq .Params.type "page"}}
-                {{$pageCount = add $pageCount 1}}
-            {{end}}
             {{if .Params.categories}}
                 {{$categories = union $categories .Params.categories}}
             {{end}}
@@ -26,16 +23,27 @@
     {{$categoryCount = len $categories}}
     {{$tagCount = len $tags}}
 
+    {{$pageNodes := where .Site.Sections "Params.type" "page"}}
+    {{$pageCount := len $pageNodes}}
+
     {{$scratch := newScratch}}
     {{ range (where .Site.Pages "Kind" "page" )}}
         {{$scratch.Add "total" .WordCount}}
     {{ end }}
-    {{$totalWord := $scratch.Get "total" }}
+    {{$totalWords := $scratch.Get "total" }}
 
     {{$categoryCounts := dict}}
     {{$totalArticles := $articleCount}}
 
-    {{ $penta := getJSON "data/penta/penta.json" }}
+    {{ $mastodon := getJSON "data/mastodon/mastodon.json" }}
+    {{ $statusesCount := index $mastodon 0 "account" "statuses_count" }}
+
+    {{ $neodbCount := getJSON "data/neodb/movie_details.json" }}
+    {{ $pentaCount := getJSON "data/penta/penta.json" }}
+
+    {{- $steam_web_api_url := "https://iplayerservice-getownedgames-steam-web-api.eallion.com" -}}
+    {{- $steam_web_api := getJSON "data/steam/steam_web_api.json" -}}
+    {{- $steamCount :=$steam_web_api.response.game_count -}}
 
     <style>
         #heatmap,
@@ -60,22 +68,6 @@
 
         <div id="content" class="content">
             <div class="">
-                <!-- <ul>
-                    <li>文章：<strong><a href="/posts/">{{- $articleCount -}}</a></strong> 篇</li>
-                    <li>页面：<strong><a href="/stats/">{{- $pageCount -}}</a></strong> 篇</li>
-                    <li>作者：<strong><a href="/authors/">2 </a></strong> 名</li>
-                    <li>分类：<strong><a href="/categories/">{{- $categoryCount -}}</a></strong> 个</li>
-                    <li>系列：<strong><a href="/series/">3 </a></strong> 个</li>
-                    <li>标签：<strong><a href="/tags/">{{- $tagCount -}}</a></strong> 个</li>
-                    <li>友情链接：<strong><a href="/links/">26 </a></strong> 个</li>
-                    <li>博客字数：<strong><a href="/stats/">{{- $totalWord -}}</a></strong> 字</li>
-                    <li>Mastodon 嘀咕：<strong><a href="/toot/"><span id="mastodon-count" aria-label="mastodon-count"><i>Null</i></span></a></strong> 条</li>
-                    <li>NeoDB 书影音：<strong><a href="/media/"><span id="neodb-count" aria-label="neodb-count"><i>Null</i></span></a></strong> 标记</li>
-                    <li>Steam 游戏：<strong><a href="https://steamcommunity.com/id/eallion"><span id="steam-count" aria-label="steam-count"><i>Null</i></span></a></strong> 款</li>
-                    <li>LOL 五杀：<strong><a href="/penta/">{{- len $penta.penta -}}</a></strong> 次</li>
-                    <li>浏览量：<i>Null</i> PV（已移除统计）</li>
-                    <li>评论量：<i>Null</i> 条（已关闭评论）</li>
-                </ul> -->
                 <ul>
                     <li>{{ T `stats_blogs` | safeHTML }}<strong><a href="/posts/">{{- $articleCount -}}</a></strong> {{ T `stats_blogs_suffix` | safeHTML }}</li>
                     <li>{{ T `stats_pages` | safeHTML }}<strong><a href="/stats/">{{- $pageCount -}}</a></strong> {{ T `stats_pages_suffix` | safeHTML }}</li>
@@ -84,13 +76,13 @@
                     <li>{{ T `stats_series` | safeHTML }}<strong><a href="/series/">3 </a></strong> {{ T `stats_series_suffix` | safeHTML }}</li>
                     <li>{{ T `stats_tags` | safeHTML }}<strong><a href="/tags/">{{- $tagCount -}}</a></strong> {{ T `stats_tags_suffix` | safeHTML }}</li>
                     <li>{{ T `stats_links` | safeHTML }}<strong><a href="/links/">26 </a></strong> {{ T `stats_links_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_wordcount` | safeHTML }}<strong><a href="/stats/">{{- $totalWord -}}</a></strong> {{ T `stats_wordcount_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_mastodon` | safeHTML }}<strong><a href="/toot/"><span id="mastodon-count" aria-label="mastodon-count"></span></a></strong> {{ T `stats_mastodon_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_neodb` | safeHTML }}<strong><a href="/media/"><span id="neodb-count" aria-label="neodb-count"></span></a></strong> {{ T `stats_neodb_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_steam` | safeHTML }}<strong><a href="https://steamcommunity.com/id/eallion"><span id="steam-count" aria-label="steam-count"><i>Null</i></span></a></strong> {{ T `stats_steam_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_penta` | safeHTML }}<strong><a href="/penta/">{{- len $penta.penta -}}</a></strong> {{ T `stats_penta_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_views` | safeHTML }}<i>Null</i> {{ T `stats_views_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_comments` | safeHTML }}<i>Null</i> {{ T `stats_comments_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_wordcount` | safeHTML }}<strong><a href="/stats/">{{- $totalWords -}}</a></strong> {{ T `stats_wordcount_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_mastodon` | safeHTML }}<strong><a href="/toot/">{{- $statusesCount -}}</a></strong> {{ T `stats_mastodon_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_neodb` | safeHTML }}<strong><a href="/media/">{{- len $neodbCount -}}</a></strong> {{ T `stats_neodb_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_steam` | safeHTML }}<strong><a href="https://steamcommunity.com/id/eallion">{{- $steamCount -}}</a></strong> {{ T `stats_steam_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_penta` | safeHTML }}<strong><a href="/penta/">{{- len $pentaCount.penta -}}</a></strong> {{ T `stats_penta_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_views` | safeHTML }}<a>99<sup>+</sup></a> {{ T `stats_views_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_comments` | safeHTML }}<a>99<sup>+</sup> </a>{{ T `stats_comments_suffix` | safeHTML }}</li>
                 </ul>
             </div>
 
@@ -284,7 +276,7 @@
                 })();
             </script>
 
-            <script>
+            <!-- <script>
                 // 超时函数
                 function timeout(ms) {
                     return new Promise((_, reject) => setTimeout(() => reject(new Error('Request timeout')), ms));
@@ -292,42 +284,42 @@
 
                 // NeoDB 数量
                 // 发起请求并处理响应
-                Promise.race([
-                    fetch('https://neodb.eallion.com/api?page=1'),
-                    timeout(5000) // 设置超时时间（以毫秒为单位）
-                ])
-                    .then(response => response.json())
-                    .then(data => {
-                        // 获取 id="neodb-count" 的元素
-                        const neodbElement = document.getElementById('neodb-count');
+                // Promise.race([
+                //     fetch('https://neodb.eallion.com/api?page=1'),
+                //     timeout(5000) // 设置超时时间（以毫秒为单位）
+                // ])
+                //     .then(response => response.json())
+                //     .then(data => {
+                //         // 获取 id="neodb-count" 的元素
+                //         const neodbElement = document.getElementById('neodb-count');
 
-                        // 将 count 值插入到元素中
-                        neodbElement.textContent = data.count;
-                    })
-                    .catch(error => {
-                        console.error('Error fetching NeoDB data:', error);
-                    });
+                //         // 将 count 值插入到元素中
+                //         neodbElement.textContent = data.count;
+                //     })
+                //     .catch(error => {
+                //         console.error('Error fetching NeoDB data:', error);
+                //     });
 
                 // Mastodon 数量
                 // 发起请求并处理响应
-                Promise.race([
-                    fetch('https://memos.eallion.com/api/v1/memo/stats?creatorId=101'),
-                    timeout(5000) // 设置超时时间（以毫秒为单位）
-                ])
-                    .then(response => response.json())
-                    .then(data => {
-                        // 获取 id="mastodon-count" 的元素
-                        const mastodonCountElement = document.getElementById('mastodon-count');
+                // Promise.race([
+                //     fetch('https://memos.eallion.com/api/v1/memo/stats?creatorId=101'),
+                //     timeout(5000) // 设置超时时间（以毫秒为单位）
+                // ])
+                //     .then(response => response.json())
+                //     .then(data => {
+                //         // 获取 id="mastodon-count" 的元素
+                //         const mastodonCountElement = document.getElementById('mastodon-count');
 
-                        // 计算数组数量
-                        const arrayCount = Object.keys(data).length;
+                //         // 计算数组数量
+                //         const arrayCount = Object.keys(data).length;
 
-                        // 将数组数量插入到元素中
-                        mastodonCountElement.textContent = arrayCount;
-                    })
-                    .catch(error => {
-                        console.error('Error fetching Mastodon data:', error);
-                    });
+                //         // 将数组数量插入到元素中
+                //         mastodonCountElement.textContent = arrayCount;
+                //     })
+                //     .catch(error => {
+                //         console.error('Error fetching Mastodon data:', error);
+                //     });
 
                 // Steam 游戏数量
                 // 发起请求并处理响应
@@ -346,7 +338,7 @@
                     .catch(error => {
                         console.error('Error fetching Mastodon data:', error);
                     });
-            </script>
+            </script> -->
 
         </div>
     </div>
