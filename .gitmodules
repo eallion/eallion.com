@@ -1,6 +1,3 @@
 [submodule "themes/DoIt"]
 	path = themes/DoIt
 	url = https://github.com/eallion/hugo-theme-doit.git
-[submodule "static/assets/mastodon-embed-timeline"]
-	path = static/assets/mastodon-embed-timeline
-	url = https://github.com/eallion/mastodon-embed-timeline.git
