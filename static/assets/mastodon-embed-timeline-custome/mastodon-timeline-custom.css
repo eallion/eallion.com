@@ -28,6 +28,10 @@
     padding: 1rem 0;
 }
 
+.mt-post-header {
+    align-items: center;
+}
+
 .mt-post:focus, .mt-post:hover {
     border-radius: 1rem;
 }
