@@ -10,7 +10,7 @@
 {{- end -}}
 
 <link rel="stylesheet" href="/assets/toot/mastodon-timeline.min.css?v=3.10.4">
-<link rel="stylesheet" href="/assets/toot/mastodon-timeline-custom.min.css?v=2024.03.18">
+<link rel="stylesheet" href="/assets/toot/mastodon-timeline-custom.css?v=2024.03.18">
 
 <article class="page single special">
     <h1 class="single-title animate__animated animate__pulse animate__faster">{{- .Title -}}</h1>
@@ -89,6 +89,49 @@
                                                 {{ end }}
                                             {{ end }}
                                         {{ end }}
+
+                                        {{ $hasNeoDB := false }}
+                                        {{ if .tags }}
+                                            {{ range .tags }}
+                                                {{ if eq (lower .name) "neodb" }}
+                                                    {{ $hasNeoDB = true }}
+                                                {{ end }}
+                                            {{ end }}
+                                        {{ end }}
+
+                                        {{ if $hasNeoDB }}
+                                        {{ $titleParts := split .card.title " - " }}
+                                        {{ $titlePart := index $titleParts 1 }}
+
+                                        {{ $urlParts := split .card.url "/" }}
+                                        {{ $category := index $urlParts 3 }}
+
+                                        <div class="db-card">
+                                            <div class="db-card-subject">
+                                                <div class="db-card-post">
+                                                    <figure>
+                                                        <a class="lightgallery" href="{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}" title="{{ .card.title }}" data-thumbnail="{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}">
+                                                            <img loading="lazy" src="{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}" srcset="{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}" alt="{{ .card.title }}">
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="db-card-content">
+                                                    <div class="db-card-title">
+                                                        <a href="{{ .card.url }}" class="cute" target="_blank" rel="noreferrer">{{ $titlePart }}</a>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <!-- <span class="allstardark">
+                                                            <span class="allstarlight" style="width:79%"></span>
+                                                        </span> -->
+                                                        <span class="rating_nums">类型：{{ $category }}</span>
+                                                    </div>
+                                                    <div class="db-card-abstract">简介：{{ .card.description | markdownify }}</div>
+                                                </div>
+                                                <div class="db-card-cate">{{ $category }}</div>
+                                            </div>
+                                        </div>
+                                    {{ end }}
+
                                     </div>
                                     <div class="toot-footer">
                                         <div class="mt-bar">
@@ -116,7 +159,7 @@
                             {{ end -}}
                         {{- else -}}
                         {{- $ticker := getJSON $mastodon_api -}}
-                                {{- range $ticker }}
+                            {{- range $ticker }}
                                 {{ $content := .content }}
                                 {{ $content := $content | replaceRE ":star_solid:" "🌕" }}
                                 {{ $content := $content | replaceRE ":star_half:" "🌗" }}
@@ -173,6 +216,49 @@
                                                 {{ end }}
                                             {{ end }}
                                         {{ end }}
+
+                                        {{ $hasNeoDB := false }}
+                                        {{ if .tags }}
+                                            {{ range .tags }}
+                                                {{ if eq (lower .name) "neodb" }}
+                                                    {{ $hasNeoDB = true }}
+                                                {{ end }}
+                                            {{ end }}
+                                        {{ end }}
+
+                                        {{ if $hasNeoDB }}
+                                        {{ $titleParts := split .card.title " - " }}
+                                        {{ $titlePart := index $titleParts 1 }}
+
+                                        {{ $urlParts := split .card.url "/" }}
+                                        {{ $category := index $urlParts 3 }}
+
+                                        <div class="db-card">
+                                            <div class="db-card-subject">
+                                                <div class="db-card-post">
+                                                    <figure>
+                                                        <a class="lightgallery" href="{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}" title="{{ .card.title }}" data-thumbnail="{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}">
+                                                            <img loading="lazy" src="{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}" srcset="{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}" alt="{{ .card.title }}">
+                                                        </a>
+                                                    </figure>
+                                                </div>
+                                                <div class="db-card-content">
+                                                    <div class="db-card-title">
+                                                        <a href="{{ .card.url }}" class="cute" target="_blank" rel="noreferrer">{{ $titlePart }}</a>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <!-- <span class="allstardark">
+                                                            <span class="allstarlight" style="width:79%"></span>
+                                                        </span> -->
+                                                        <span class="rating_nums">类型：{{ $category }}</span>
+                                                    </div>
+                                                    <div class="db-card-abstract">简介：{{ .card.description | markdownify }}</div>
+                                                </div>
+                                                <div class="db-card-cate">{{ $category }}</div>
+                                            </div>
+                                        </div>
+                                    {{ end }}
+
                                     </div>
                                     <div class="toot-footer">
                                         <div class="mt-bar">
@@ -200,7 +286,6 @@
                             {{ end -}}
                         {{ end -}}
                     {{ end -}}
-
 
                 </div>
                 <div class="mt-footer"><a href="https://e5n.cc/@eallion" class="btn" target="_blank"
