@@ -14,9 +14,6 @@
             {{if eq .Type "posts"}}
                 {{$articleCount = add $articleCount 1}}
             {{end}}
-            {{if eq .Params.type "page"}}
-                {{$pageCount = add $pageCount 1}}
-            {{end}}
             {{if .Params.categories}}
                 {{$categories = union $categories .Params.categories}}
             {{end}}
@@ -27,11 +24,14 @@
     {{$categoryCount = len $categories}}
     {{$tagCount = len $tags}}
 
+    {{$pageNodes := where .Site.Sections "Params.type" "page"}}
+    {{$pageCount := len $pageNodes}}
+
     {{$scratch := newScratch}}
     {{ range (where .Site.Pages "Kind" "page" )}}
         {{$scratch.Add "total" .WordCount}}
     {{ end }}
-    {{$totalWord := $scratch.Get "total" }}
+    {{$totalWords := $scratch.Get "total" }}
 
     {{$categoryCounts := dict}}
     {{$totalArticles := $articleCount}}
@@ -65,7 +65,7 @@
                     <span>{{ T `stats_categories` | safeHTML }}<strong><a href="/categories/">{{- $categoryCount -}}</a></strong> {{ T `stats_categories_suffix` | safeHTML }}</span>
                     <span>{{ T `stats_series` | safeHTML }}<strong><a href="/series/">3 </a></strong> {{ T `stats_series_suffix` | safeHTML }}</span>
                     <span>{{ T `stats_tags` | safeHTML }}<strong><a href="/tags/">{{- $tagCount -}}</a></strong> {{ T `stats_tags_suffix` | safeHTML }}</a></strong></span>
-                    <span>{{ T `stats_wordcount` | safeHTML }}<strong><a href="/stats/">{{- $totalWord -}}</a></strong> {{ T `stats_wordcount_suffix` | safeHTML }}</span>
+                    <span>{{ T `stats_wordcount` | safeHTML }}<strong><a href="/stats/">{{- $totalWords -}}</a></strong> {{ T `stats_wordcount_suffix` | safeHTML }}</span>
                 </blockquote>
             </div>
         </div>
