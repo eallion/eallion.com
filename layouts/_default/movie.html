@@ -1066,13 +1066,20 @@
             const category = event.target.dataset.category;
             buttons.forEach(btn => btn.classList.remove('is-active'));
             event.target.classList.add('is-active');
-            cards.forEach(card => {
-                if (card.classList.contains(`m-cate-${category}`)) {
+
+            if (category === 'all') {
+                cards.forEach(card => {
                     card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
+                });
+            } else {
+                cards.forEach(card => {
+                    if (card.classList.contains(`m-cate-${category}`)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            }
         });
     });
 </script>
