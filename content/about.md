@@ -125,7 +125,7 @@ comment: true
     <img no-view src="https://img.shields.io/github/last-commit/eallion/eallion.com">
   </a>
   <a href="https://wakatime.com/@018dff59-cb93-47dc-bf2d-945cab4bdaae" target="_blank" rel="noopener noreferrer">
-    <img src="https://wakatime.com/badge/user/018dff59-cb93-47dc-bf2d-945cab4bdaae.svg" alt="Total time coded since Mar 2 2024" />
+    <img src="https://wakatime.com/badge/user/018dff59-cb93-47dc-bf2d-945cab4bdaae/project/018dffa2-e555-41e5-b4b8-abdc7df6ea3d.svg" alt="Total time coded since Mar 2 2024" />
   </a>
 </div>
 
