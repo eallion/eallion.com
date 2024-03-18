@@ -134,6 +134,7 @@
     display: flex !important;
     justify-content: space-between;
     flex-wrap: wrap;
+    -webkit-user-select: none;
     user-select: none;
     max-width: 480px;
     gap: unset !important;

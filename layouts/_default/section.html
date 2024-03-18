@@ -14,6 +14,9 @@
             {{if eq .Type "posts"}}
                 {{$articleCount = add $articleCount 1}}
             {{end}}
+            {{if eq .Params.type "page"}}
+                {{$pageCount = add $pageCount 1}}
+            {{end}}
             {{if .Params.categories}}
                 {{$categories = union $categories .Params.categories}}
             {{end}}
@@ -23,9 +26,6 @@
         {{end}}
     {{$categoryCount = len $categories}}
     {{$tagCount = len $tags}}
-
-    {{$pageNodes := where .Site.Sections "Params.type" "page"}}
-    {{$pageCount := len $pageNodes}}
 
     {{$scratch := newScratch}}
     {{ range (where .Site.Pages "Kind" "page" )}}
