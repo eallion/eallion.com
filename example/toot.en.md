@@ -11,4 +11,5 @@ aliases:
     - /en/memo
     - /en/x
     - /en/twitter
+    - /en/mastodon
 ---
