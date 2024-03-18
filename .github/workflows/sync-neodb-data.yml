@@ -1,9 +1,9 @@
 name: Sync NeoDB Data
 
 on:
-  schedule:
+#  schedule:
   # every monday
-    - cron: "0 9 * * 1"
+#    - cron: "0 9 * * 1"
   # watch:
   #   types: [started]
 
@@ -107,6 +107,46 @@ jobs:
             -H 'Authorization: Bearer ${{ secrets.NEODB_ACCESS_TOKEN }}' > "$tv_filename"
           done
 
+        # 下载 Book 分类
+        for ((i=1; i<=$tv_pages; i++)); do
+          book_url="https://neodb.social/api/me/shelf/complete?category=book&page=$i"
+          book_filename="book$i.json"
+
+          curl -X 'GET' "$book_url" \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer ${{ secrets.NEODB_ACCESS_TOKEN }}' > "$book_filename"
+          done
+
+        # 下载 Music 分类
+        for ((i=1; i<=$tv_pages; i++)); do
+          music_url="https://neodb.social/api/me/shelf/complete?category=music&page=$i"
+          music_filename="music$i.json"
+
+          curl -X 'GET' "$music_url" \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer ${{ secrets.NEODB_ACCESS_TOKEN }}' > "$music_filename"
+          done
+
+        # 下载 Game 分类
+        for ((i=1; i<=$tv_pages; i++)); do
+          game_url="https://neodb.social/api/me/shelf/complete?category=game&page=$i"
+          game_filename="game$i.json"
+
+          curl -X 'GET' "$game_url" \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer ${{ secrets.NEODB_ACCESS_TOKEN }}' > "$game_filename"
+          done
+
+        # 下载 Podcast 分类
+        for ((i=1; i<=$tv_pages; i++)); do
+          podcast_url="https://neodb.social/api/me/shelf/complete?category=podcast&page=$i"
+          podcast_filename="podcast$i.json"
+
+          curl -X 'GET' "$podcast_url" \
+            -H 'accept: application/json' \
+            -H 'Authorization: Bearer ${{ secrets.NEODB_ACCESS_TOKEN }}' > "$podcast_filename"
+          done
+
         # 把所有数据合并成一个文件
         jq -c -s '{data: map(.data[]) | unique | sort_by(.created_time) | reverse, pages: map(.pages)[0], count: map(.count)[0]}' *.json > movie.json
 
@@ -169,11 +209,11 @@ jobs:
           './static/assets/images/movie/cover'
 
     # # 调用另外的 GitHub Actions 构建 Hugo
-    # - name: Build Hugo and Deploy
-    #   if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
-    #   uses: peter-evans/repository-dispatch@v2
-    #   with:
-    #       event-type: build-hugo
+    - name: Build Hugo and Deploy
+      if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
+      uses: peter-evans/repository-dispatch@v2
+      with:
+          event-type: build-hugo
 
     # 同步新海报到 s3
     - name: Sync Cover to static s3
