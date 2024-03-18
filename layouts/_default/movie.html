@@ -195,6 +195,7 @@
         display: inline-block;
         border-radius: 4px;
         color: #fff;
+        text-transform: capitalize;
     }
 
     .tags span:nth-child(1) {
@@ -914,7 +915,7 @@
             {{ $brief := .brief }}
             {{ $category  := .category }}
 
-            <div class="card">
+            <div class="card m-cate-{{ $category }}">
                 <div class="poster">
                     <img alt="{{- $title -}}" class="lazy" loading="lazy" src="/assets/images/movie/cover/{{- $cover_name -}}" data-src="/assets/images/movie/cover/{{- $cover_name -}}" no-view>
                 </div>
@@ -950,11 +951,18 @@
                         <span>{{- $rating | default "Null" -}}</span>
                     </div>
 
-                    <div class="tags">
-                        {{ range first 5 .genre }}
-                            <span class="">{{- . -}}</span>
-                        {{ end }}
-                    </div>
+                    {{- if and .genre (ne .genre nil) }}
+                        <div class="tags">
+                            {{ range first 5 .genre }}
+                                <span class="">{{- . -}}</span>
+                            {{ end }}
+                        </div>
+                    {{- else }}
+                        {{- $category := .category -}}
+                        <div class="tags">
+                            <span class="">{{- $category -}}</span>
+                        </div>
+                    {{- end -}}
 
                     <div class="info">
                         {{ $id := .id }}
@@ -1046,6 +1054,26 @@
 <script>
     var lazyLoadInstance = new LazyLoad({
         // Your custom settings go here
+    });
+</script>
+
+<script>
+    const buttons = document.querySelectorAll('.category-item');
+    const cards = document.querySelectorAll('.card');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const category = event.target.dataset.category;
+            buttons.forEach(btn => btn.classList.remove('is-active'));
+            event.target.classList.add('is-active');
+            cards.forEach(card => {
+                if (card.classList.contains(`m-cate-${category}`)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
     });
 </script>
 

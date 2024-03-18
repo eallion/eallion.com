@@ -13,7 +13,7 @@
     --mt-error-text-color: #8b0000;
     --mt-header-color: rgb(83, 100, 113);
     --mt-timeline-bg-color: #fff;
-    --mt-timeline-bg-hover-color: #d9e1e8;
+    --mt-timeline-bg-hover-color: rgba(240,242,245,.6);
     --mt-border-color: rgba(0, 0, 0, 0.1);
     --mt-hover-border-color: #e5e7eb;
     --mt-code-color: #161209;
@@ -176,7 +176,7 @@
 
 .mt-toot {
     background: var(--mt-timeline-bg-color);
-    border: 1px solid var(--mt-border-color);
+    border: 1px solid var(--mt-code-bg-color);
     margin: 0;
     margin-bottom: 2rem;
     padding: 0 1rem;
