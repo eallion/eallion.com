@@ -254,7 +254,7 @@ other = "删除"
 # === 自定义 ===
 
 [album_quote]
-other = "我的随手拍。通过 Tag <code>#相册</code> 引用。"
+other = "我的随手拍。我不会拍照，所以只能叫随手拍。通过 <a href='https://e5n.cc/tags/ealbum' target='_blank' rel='noreferrer noopener nofollow'>#ealbum</a> 引用。"
 
 [goods_quote]
 other ="好物推荐 <span class='emoji'>💄</span> 部分链接可能带有 aff 推广，不喜可删！或直接搜券👉<a href='https://www.kubaicai.com/' target='_blank' rel='noreferrer noopener nofollow'>www.kubaicai.com <i class='fas fa-external-link-alt fa-xs'></i></a>"

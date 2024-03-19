@@ -256,7 +256,7 @@ other = "DELETED"
 # === Custom ===
 
 [album_quote]
-other = "My Album with Tag <code>#相册</code>."
+other = "My Album with Mastodon Tag <a href='https://e5n.cc/tags/ealbum' target='_blank' rel='noreferrer noopener nofollow'><code>#ealbum</code></a>."
 
 [goods_quote]
 other ="Goods Enhanced for a Better Life <span class='emoji'>💄</span> More Coupon👉<a href='https://www.kubaicai.com/' target='_blank' rel='noreferrer noopener nofollow'>www.kubaicai.com <i class='fas fa-external-link-alt fa-xs'></i></a>"
