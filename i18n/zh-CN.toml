@@ -328,6 +328,24 @@ other = "机会总是垂青于有准备的人！"
 [toot_author]
 other = "Louis Pasteur"
 
+[redirect_pre]
+other = "即将离开 "
+
+[redirect_post]
+other = "，跳转到以下外部链接"
+
+[redirect_link]
+ofther = "未指定重定向目标。"
+
+[redirect_info]
+other = "请自行识别该链接是否安全，请注意您的帐号和财产安全。"
+
+[direct_link]
+other = "立即前往"
+
+[redirect_message]
+other = "未指定重定向目标。"
+
 [stats_blogs]
 other = "文章："
 

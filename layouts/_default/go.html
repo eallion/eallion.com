@@ -84,11 +84,11 @@
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
             <div class="redirect-all">
                 <div class="redirect-nrong">
-                    <div class="redirect-title">即将离开{{ .Site.Title }}，跳转到以下外部链接</div>
-                    <a href="" target="_self" rel="noopener noreferrer" id="redirect-link"><span id="redirect-link">未指定重定向目标。</span></a>
-                    <div class="redirect-info">请自行识别该链接是否安全，请注意您的帐号和财产安全。</div>
+                    <div class="redirect-title">{{ T `redirect_pre` | safeHTML }}{{ .Site.Title }}{{ T `redirect_post` | safeHTML }}</div>
+                    <a href="" target="_self" rel="noopener noreferrer" aria-label="redirect-link"><span id="redirect-link">{{ T `redirect_link` | safeHTML }}</span></a>
+                    <div class="redirect-info">{{ T `redirect_info` | safeHTML }}</div>
                     <div class="redirect-tis">
-                        <div class="redirect-button"><a href='' target="_self" id='direct-link' rel="noopener noreferrer">立即前往</a></div>
+                        <div class="redirect-button"><a href='' target="_self" id='direct-link' rel="noopener noreferrer">{{ T `direct_link` | safeHTML }}</a></div>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
 
         } else {
             const redirectMessageElement = document.getElementById('redirect-link');
-            redirectMessageElement.textContent = '未指定重定向目标。';
+            redirectMessageElement.textContent = '{{ T `redirect_message` | safeHTML }}';
         }
         </script>
 {{- end -}}

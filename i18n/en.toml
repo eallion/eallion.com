@@ -330,6 +330,24 @@ other = "Chance favors the prepared mind."
 [toot_author]
 other = "Louis Pasteur"
 
+[redirect_pre]
+other = "You will leave"
+
+[redirect_post]
+other = "You will be redirected to"
+
+[redirect_link]
+ofther = "No redirect target specified."
+
+[redirect_info]
+other = "Please identify whether the link is safe and pay attention to the security of your account and property."
+
+[direct_link]
+other = "Get in Touch"
+
+[redirect_message]
+other = "No redirect target specified."
+
 [stats_blogs]
 other = "Blogs: "
 
