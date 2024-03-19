@@ -15,7 +15,7 @@
 
 <meta name="referrer" content="no-referrer">
 <style>
-    .penta {
+    .pentas {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -23,19 +23,7 @@
     margin-top: 2rem;
 }
 
-@media (min-width: 768px) {
-    .penta {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 359px) {
-    .penta {
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-    }
-}
-
-.penta .screenshot {
+.pentas .screenshot {
     position: relative;
     overflow: hidden;
     border-radius: 0.25rem;
@@ -43,7 +31,7 @@
     height: 100%;
 }
 
-.penta .screenshot img {
+.pentas .screenshot img {
     display: inline-block !important;
     max-width: 100%;
     max-height: 100%;
@@ -55,11 +43,11 @@
     transition: all 0.6s ease;
 }
 
-.penta .screenshot img:hover {
+.pentas .screenshot img:hover {
     transform: scale(1.1);
 }
 
-.penta .pentas {
+.pentas .penta {
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -68,32 +56,32 @@
     margin-bottom: 0.5rem;
 }
 
-.penta .pentas .champions a {
+.pentas .penta .champions a {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 0.5rem;
 }
 
-.penta .pentas .champAvatar {
+.pentas .penta .champAvatar {
     line-height: 1;
     margin-right: 0.25rem;
 }
 
-.penta .pentas .champAvatar span {
+.pentas .penta .champAvatar span {
     line-height: 1;
 }
 
-.penta .pentas .champAvatar img {
+.pentas .penta .champAvatar img {
     width: 1.1rem;
     height: 1.1rem;
 }
 
-.penta .pentas .champAvatar img:hover {
+.pentas .penta .champAvatar img:hover {
     transform: scale(1) !important;
 }
 
-.penta .pentas .caption {
+.pentas .penta .caption {
     font-size: 0.875rem;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -102,11 +90,11 @@
     color: initial;
 }
 
-.penta .pentas .caption:hover {
+.pentas .penta .caption:hover {
     color: inherit;
 }
 
-.penta .date {
+.pentas .date {
     font-family: "JetBrains Mono", "Noto Sans Mono", "Source Code Pro", "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;;
     display: flex;
     align-items: center;
@@ -115,20 +103,31 @@
     opacity: 0.5;
 }
 
-.penta .date .dateText {
+.pentas .date .dateText {
     margin-left: 0.125rem;
 }
 
-[theme="dark"] .penta .screenshot img,
-[theme="dark"] .penta .champAvatar img {
+[theme="dark"] .pentas .screenshot img,
+[theme="dark"] .pentas .champAvatar img {
     opacity: 0.7;
 }
 
-[theme="black"] .penta .screenshot img,
-[theme="black"] .penta .champAvatar img {
+[theme="black"] .pentas .screenshot img,
+[theme="black"] .pentas .champAvatar img {
     opacity: 0.7;
 }
 
+@media (min-width: 900px) {
+    .pentas {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .pentas {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+}
 </style>
 
 <article class="page single special">
@@ -139,22 +138,25 @@
                 {{ T `penta_quote` | safeHTML }}
             </blockquote>
         </div>
-        <div class="penta" view-image>
-            <!-- {{- $content := dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome -}}
-            {{- $processedContent := $content | partial "function/content.html" -}}
-            {{- $plainContent := $processedContent | replaceRE "<[pP]>|<[bB][rR]>" "" -}}
-            {{- $plainContent | safeHTML -}} -->
+        <div class="pentas" view-image>
+
             {{ range $penta.penta }}
-            <div class="pentas">
+            <div class="penta">
                 <div class="screenshot">
-                    <img class="lazy" loading="lazy" data-src="{{ .src }}" alt="{{ .alt }}{{ .caption }}">
+                    <figure>
+                        <a class="lightgallery" href="{{ .src }}" title="{{ .caption }} {{ .date }}" data-thumbnail="{{ .src }}">
+                            <img loading="lazy" src="{{ .src }}" srcset="{{ .src }},
+                                {{ .src }} 1.5x,
+                                {{ .src }} 2x" alt="{{ .caption }} {{ .date }}">
+                        </a>
+                    </figure>
                 </div>
                 <div class="champions">
                     <a href="https://101.qq.com/#/hero-detail?heroid={{ .heroId }}" target="_blank" rel="noreferrer noopener nofollow">
                         <span class="champAvatar">
                             <img class="lazy" loading="lazy"
                                 data-src="/assets/images/penta/hero/{{ .champion }}.png"
-                                alt="{{ .champion }}{{ .caption }}" no-view>
+                                alt="{{ .champion }} {{ .caption }}" no-view>
                         </span>
                         <span class="caption">
                             {{ .caption }}
