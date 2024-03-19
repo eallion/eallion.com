@@ -16,113 +16,118 @@
         display: none;
     }
 
+    .single .content figure {
+        margin: 0;
+    }
+
     .album {
-    column-count: 3;
-    column-gap: 0.5rem;
-    margin: 0;
-    padding: 0;
-    min-height: 5rem;
-    position: relative;
-    box-sizing: border-box;
-    margin-bottom: 1rem;
-}
-
-.album_wrapper {
-    margin: 0;
-    break-inside: avoid;
-    transition: transform 0.3s;
-    overflow: hidden;
-    border-radius: 0.25rem;
-    position: relative;
-    width: 33%;
-}
-
-.album_wrapper a,
-.album_wrapper a:hover,
-.album_wrapper a:active {
-    color: #fff !important;
-}
-
-.album_wrapper img {
-    display: block;
-    width: 100%;
-    animation: fadeIn 1s;
-    cursor: pointer;
-    transition: all 0.4s ease-in-out !important;
-    border-radius: 0.25rem;
-    transform: scale(1);
-    object-fit: cover;
-    height: 100%;
-}
-
-.album_wrapper:hover img {
-    transform: scale(1.1);
-}
-
-.album_wrapper span.photo-title,
-.album_wrapper span.photo-time {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.3);
-    font-size: 0.9rem;
-    color: #fff;
-    display: none;
-    animation: fadeIn 1s;
-    left: 0;
-    padding: 0 0.25rem;
-}
-
-.album_wrapper span.photo-title {
-    bottom: 0;
-    border-radius: 0 0.25rem 0 0.25rem;
-}
-
-.album_wrapper span.photo-time {
-    top: 0;
-    border-radius: 0.25rem 0 0.25rem 0;
-}
-
-.album_wrapper:hover span.photo-title,
-.album_wrapper:hover span.photo-time {
-    display: block !important;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
+        column-count: 3;
+        column-gap: 0.5rem;
+        margin: 0;
+        padding: 0;
+        min-height: 5rem;
+        position: relative;
+        box-sizing: border-box;
+        margin-bottom: 1rem;
     }
 
-    100% {
-        opacity: 1;
-    }
-}
-
-@media only screen and (max-width: 1000px) {
-    .album {
-        column-count: 2;
-    }
     .album_wrapper {
-        width: 49.5%;
+        margin: 0;
+        break-inside: avoid;
+        transition: transform 0.3s;
+        overflow: hidden;
+        border-radius: 0.25rem;
+        position: relative;
+        width: 33%;
     }
-}
 
-.packery-drop-placeholder {
-    outline: 3px dashed hsla(0, 0%, 0%, 0.5);
-    outline-offset: -6px;
-    -webkit-transition: -webkit-transform 0.2s;
-            transition: transform 0.2s;
-}
+    .album_wrapper a,
+    .album_wrapper a:hover,
+    .album_wrapper a:active {
+        color: #fff !important;
+    }
 
-[theme="dark"] .album_wrapper img {
-    opacity: 0.75;
-}
+    .album_wrapper img {
+        display: block;
+        width: 100%;
+        animation: fadeIn 1s;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out !important;
+        border-radius: 0.25rem;
+        transform: scale(1);
+        object-fit: cover;
+        height: 100%;
+    }
 
-[theme="black"] .album_wrapper img {
-    opacity: 0.5;
-}
+    .album_wrapper:hover img {
+        transform: scale(1.1);
+    }
 
-.gutter-sizer {
-    width: 1%;
-}
+    .album_wrapper span.photo-title,
+    .album_wrapper span.photo-time {
+        position: absolute;
+        background: rgba(0, 0, 0, 0.3);
+        font-size: 0.9rem;
+        color: #fff;
+        display: none;
+        animation: fadeIn 1s;
+        left: 0;
+        padding: 0 0.25rem;
+    }
+
+    .album_wrapper span.photo-title {
+        bottom: 0;
+        border-radius: 0 0.25rem 0 0.25rem;
+    }
+
+    .album_wrapper span.photo-time {
+        top: 0;
+        border-radius: 0.25rem 0 0.25rem 0;
+    }
+
+    .album_wrapper:hover span.photo-title,
+    .album_wrapper:hover span.photo-time {
+        display: block !important;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .album {
+            column-count: 2;
+        }
+
+        .album_wrapper {
+            width: 49.5%;
+        }
+    }
+
+    .packery-drop-placeholder {
+        outline: 3px dashed hsla(0, 0%, 0%, 0.5);
+        outline-offset: -6px;
+        -webkit-transition: -webkit-transform 0.2s;
+        transition: transform 0.2s;
+    }
+
+    [theme="dark"] .album_wrapper img {
+        opacity: 0.75;
+    }
+
+    [theme="black"] .album_wrapper img {
+        opacity: 0.5;
+    }
+
+    .gutter-sizer {
+        width: 1%;
+    }
 
     /* cyber 风格按钮 */
     .cyber-btn {
@@ -316,7 +321,8 @@
     .cyber-btn:nth-of-type(2) {
         --primary-hue: 260;
     }
-    #loadMoreButton{
+
+    #loadMoreButton {
         margin: 1rem auto;
         width: 196px;
         text-align: center;
