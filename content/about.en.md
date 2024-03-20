@@ -16,7 +16,7 @@ comment: false
 <img no-view src="/eallion.webp" alt="eallion" class="about-avatar">
 
 I'm [Charles Chin]^(大大的小蜗牛). [eallion]^(蜗牛) has been my nickname for over 20 years.
-AKA：大大的小蜗牛.
+AKA: 大大的小蜗牛.
 I live in the UTC+08:00 timezone and work from home.
 I work in E-commerce, not IT.
 
@@ -58,13 +58,14 @@ My favorite motto is:
 
 ### Sitemap
 
-* About me：[https://about.eallion.com](https://about.eallion.com/)
-* My Favorites：[https://s.eallion.com](https://s.eallion.com/)
-* Mastodon：[https://www.eallion.com/toot/](https://www.eallion.com/toot/)
-* Album：[https://www.eallion.com/album/](https://www.eallion.com/album/)
-* Watched：[https://www.eallion.com/movie/](https://www.eallion.com/movie/)
-* Goods：[https://www.eallion.com/goods/](https://www.eallion.com/goods/)
-* LOL Penta：[https://www.eallion.com/penta/](https://www.eallion.com/penta/)
+* About me: [https://about.eallion.com](https://about.eallion.com/)
+* My Favorites: [https://s.eallion.com](https://s.eallion.com/)
+* Mastodon: [https://www.eallion.com/toot/](https://www.eallion.com/toot/)
+* Steam: [https://www.eallion.com/steam/](https://www.eallion.com/steam/)
+* Album: [https://www.eallion.com/album/](https://www.eallion.com/album/)
+* Watched: [https://www.eallion.com/movie/](https://www.eallion.com/movie/)
+* Goods: [https://www.eallion.com/goods/](https://www.eallion.com/goods/)
+* LOL Penta: [https://www.eallion.com/penta/](https://www.eallion.com/penta/)
 
 ### Contact
 
