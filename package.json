@@ -34,7 +34,6 @@
   },
   "homepage": "https://github.com/eallion/eallion.com#readme",
   "dependencies": {
-    "@idotj/mastodon-embed-timeline": "^4.3.7",
     "axios": "^1.6.8",
     "fs": "0.0.1-security",
     "generate-changelog": "^1.8.0",
