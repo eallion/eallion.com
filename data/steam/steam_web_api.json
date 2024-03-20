@@ -51,7 +51,7 @@
     "player_level": 14,
     "player_xp_needed_to_level_up": 147,
     "player_xp_needed_current_level": 1800,
-    "game_count": 125,
+    "game_count": 124,
     "games": [
       {
         "appid": 1426210,
@@ -221,18 +221,6 @@
           2,
           5
         ],
-        "playtime_disconnected": 0
-      },
-      {
-        "appid": 570,
-        "name": "Dota 2",
-        "playtime_forever": 354,
-        "img_icon_url": "0bbb630d63262dd66d2fdd0f7d37e8661a410075",
-        "playtime_windows_forever": 14,
-        "playtime_mac_forever": 0,
-        "playtime_linux_forever": 0,
-        "playtime_deck_forever": 0,
-        "rtime_last_played": 1598455415,
         "playtime_disconnected": 0
       },
       {
@@ -1728,7 +1716,7 @@
         "avatarmedium": "https://avatars.steamstatic.com/54d22c4e7be1b79620240392cc0fcaab042e4578_medium.jpg",
         "avatarfull": "https://avatars.steamstatic.com/54d22c4e7be1b79620240392cc0fcaab042e4578_full.jpg",
         "avatarhash": "54d22c4e7be1b79620240392cc0fcaab042e4578",
-        "lastlogoff": 1710681650,
+        "lastlogoff": 1710975315,
         "personastate": 0,
         "realname": "Charles Chin",
         "primaryclanid": "103582791433612637",
