@@ -33,30 +33,44 @@ jobs:
         echo "WORK_DIR=$(pwd)" >> $GITHUB_ENV
 
     # 获取本地现有文件中最新的 Count
-    - name: Get Local Current Count
+    - name: Get Local Current MD5
       run: |
-        CURRENT_COUNT() {
-          jq '.response.game_count' data/steam/steam_web_api.json
-        }
-        echo "CURRENT_COUNT=$(CURRENT_COUNT)" >> $GITHUB_ENV
-        rm data/steam/steam_web_api.json
+        LOCAL_MD5=$(md5sum data/steam/steam_web_api.json | cut -d ' ' -f 1)
+        echo "LOCAL_MD5=$LOCAL_MD5" >> $GITHUB_ENV
+        rm data/steam/*.json
 
     # 获取远程最新的 Count
-    - name: Get Steam Latest Count
+    - name: Get Steam Latest OwnedGames
       run: |
         curl -X 'GET' \
-        'https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${{ secrets.STEAM_WEB_API_KEY }}&steamid=76561197989210276&format=json' \
-        -H 'accept: application/json' > data/steam/steam_web_api.json
+        'https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${{ secrets.STEAM_WEB_API_KEY }}&steamid=76561197989210276&include_appinfo=true&include_played_free_games=true&format=json' \
+        -H 'accept: application/json' > data/steam/owned_games.json
 
-        REMOTE_COUNT() {
-          jq '.response.game_count' data/steam/steam_web_api.json
-        }
-        echo "REMOTE_COUNT=$(REMOTE_COUNT)" >> $GITHUB_ENV
-
-    # 对比 COUNT
-    - name: UUID Compare
+    - name: Fetch Steam Badges
       run: |
-        if [ ${{ env.REMOTE_COUNT }} != ${{ env.CURRENT_COUNT }} ]; then
+        curl -X 'GET' \
+        'https://api.steampowered.com/IPlayerService/GetBadges/v1/?key=${{ secrets.STEAM_WEB_API_KEY }}&steamid=76561197989210276&format=json' \
+        -H 'accept: application/json' > data/steam/badges.json
+
+    - name: Fetch Steam Player Summaries
+      run: |
+        curl -X 'GET' \
+        'https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=${{ secrets.STEAM_WEB_API_KEY }}&steamids=76561197989210276&format=json' \
+        -H 'accept: application/json' > data/steam/player.json
+
+    - name: Merge JSON Files
+      run: |
+        cd data/steam
+        jq -s 'reduce .[] as $item ({}; . * $item)' *.json > steam_web_api.json
+        cd ../..
+
+        CURRENT_MD5=$(md5sum data/steam/steam_web_api.json | cut -d ' ' -f 1)
+        echo "CURRENT_MD5=$CURRENT_MD5" >> $GITHUB_ENV
+
+    # 对比 MD5
+    - name: MD5 Compare
+      run: |
+        if [ ${{ env.CURRENT_MD5 }} != ${{ env.LOCAL_MD5 }} ]; then
           echo "Variables are not equal. Running the next steps."
         else
           echo "Variables are equal. Skipping the next steps."
@@ -65,18 +79,18 @@ jobs:
 
     # 把修改后的数据提交到 GitHub 仓库
     - name: Git Add and Commit
-      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
+      if: ${{ env.CURRENT_MD5 != env.LOCAL_MD5 }}
       uses: EndBug/add-and-commit@v9
       with:
         message: 'chore(data): update steam data'
         committer_name: 'github-actions[bot]'
         committer_email: 'github-actions[bot]@users.noreply.github.com'
         add: |
-          './data/steam/steam_web_api.json'
+          './data/steam'
 
     # # 调用另外的 GitHub Actions 构建 Hugo
     - name: Build Hugo and Deploy
-      if: ${{ env.REMOTE_COUNT != env.CURRENT_COUNT }}
+      if: ${{ env.CURRENT_MD5 != env.LOCAL_MD5 }}
       uses: peter-evans/repository-dispatch@v2
       with:
           event-type: build-hugo
