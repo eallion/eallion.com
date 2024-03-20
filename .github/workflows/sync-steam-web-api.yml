@@ -43,7 +43,7 @@ jobs:
     - name: Get Steam Latest OwnedGames
       run: |
         curl -X 'GET' \
-        'https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${{ secrets.STEAM_WEB_API_KEY }}&steamid=76561197989210276&include_appinfo=true&include_played_free_games=false&format=json' \
+        'https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${{ secrets.STEAM_WEB_API_KEY }}&steamid=76561197989210276&include_appinfo=true&include_played_free_games=true&format=json' \
         -H 'accept: application/json' > data/steam/owned_games.json
 
     - name: Fetch Steam Badges
