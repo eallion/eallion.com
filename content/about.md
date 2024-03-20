@@ -96,7 +96,7 @@ comment: true
     <img no-view src="https://img.shields.io/badge/Steam-@eallion-blue?style=flat&labelColor=555&logo=Steam&logoColor=fff">
   </a>
   <a href="https://x.com/eallion" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://img.shields.io/badge/𝕏-@eallion-blue?style=flat&labelColor=555&logo=Twitter&logoColor=fff">
+    <img no-view src="https://img.shields.io/badge/@eallion-blue?style=flat&labelColor=555&logo=x&logoColor=fff">
   </a>
   <a href="https://keybase.io/eallion" target="_blank" rel="noopener noreferrer">
     <img no-view src="https://img.shields.io/badge/Keybase-@eallion-blue?style=flat&labelColor=555&logo=Keybase&logoColor=fff">
