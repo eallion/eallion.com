@@ -43,7 +43,7 @@ jobs:
     - name: Get Steam Latest OwnedGames
       run: |
         curl -X 'GET' \
-        'https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${{ secrets.STEAM_WEB_API_KEY }}&steamid=76561197989210276&include_appinfo=true&include_played_free_games=true&format=json' \
+        'https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${{ secrets.STEAM_WEB_API_KEY }}&steamid=76561197989210276&include_appinfo=true&include_played_free_games=false&format=json' \
         -H 'accept: application/json' > data/steam/owned_games.json
 
     - name: Fetch Steam Badges
@@ -61,7 +61,22 @@ jobs:
     - name: Merge JSON Files
       run: |
         cd data/steam
-        jq -s 'reduce .[] as $item ({}; . * $item)' *.json > steam_web_api.json
+        jq -s 'reduce .[] as $item ({}; . * $item)' *.json > unsorted_steam_web_api.json
+
+        # 读取JSON文件并提取games数组
+        games=$(jq '.response.games' unsorted_steam_web_api.json)
+
+        # 对games数组进行排序
+        sorted_games=$(echo "$games" | jq 'sort_by(-.rtime_last_played, - .playtime_forever, .appid)')
+
+        # 更新排序后的games数组到原始JSON对象
+        sorted_json=$(jq '.response.games = $sorted_games' --argjson sorted_games "$sorted_games" unsorted_steam_web_api.json)
+
+        # 输出排序后的JSON
+        echo "$sorted_json" > steam_web_api.json
+
+        rm unsorted_steam_web_api.json
+
         cd ../..
 
         CURRENT_MD5=$(md5sum data/steam/steam_web_api.json | cut -d ' ' -f 1)

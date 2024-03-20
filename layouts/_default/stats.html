@@ -41,7 +41,7 @@
     {{ $neodbCount := getJSON "data/neodb/movie_details.json" }}
     {{ $pentaCount := getJSON "data/penta/penta.json" }}
 
-    {{- $steam_web_api_url := "https://iplayerservice-getownedgames-steam-web-api.eallion.com" -}}
+    {{- $steam_web_api_url := "https://steam-web-api.eallion.com/ownedgames" -}}
     {{- $steam_web_api := getJSON "data/steam/steam_web_api.json" -}}
     {{- $steamCount :=$steam_web_api.response.game_count -}}
 
@@ -79,7 +79,7 @@
                     <li>{{ T `stats_wordcount` | safeHTML }}<strong><a href="/stats/">{{- $totalWords -}}</a></strong> {{ T `stats_wordcount_suffix` | safeHTML }}</li>
                     <li>{{ T `stats_mastodon` | safeHTML }}<strong><a href="/toot/">{{- $statusesCount -}}</a></strong> {{ T `stats_mastodon_suffix` | safeHTML }}</li>
                     <li>{{ T `stats_neodb` | safeHTML }}<strong><a href="/media/">{{- len $neodbCount -}}</a></strong> {{ T `stats_neodb_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_steam` | safeHTML }}<strong><a href="https://steamcommunity.com/id/eallion">{{- $steamCount -}}</a></strong> {{ T `stats_steam_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_steam` | safeHTML }}<strong><a href="/steam/">{{- $steamCount -}}</a></strong> {{ T `stats_steam_suffix` | safeHTML }}</li>
                     <li>{{ T `stats_penta` | safeHTML }}<strong><a href="/penta/">{{- len $pentaCount.penta -}}</a></strong> {{ T `stats_penta_suffix` | safeHTML }}</li>
                     <li>{{ T `stats_views` | safeHTML }}<a>99<sup>+</sup></a> {{ T `stats_views_suffix` | safeHTML }}</li>
                     <li>{{ T `stats_comments` | safeHTML }}<a>99<sup>+</sup> </a>{{ T `stats_comments_suffix` | safeHTML }}</li>

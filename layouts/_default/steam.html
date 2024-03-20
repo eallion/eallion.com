@@ -1,0 +1,894 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+
+{{- define "content" -}}
+{{- $params := .Scratch.Get "params" -}}
+{{- $toc := $params.toc -}}
+{{- if eq $toc true -}}
+{{- $toc = .Site.Params.page.toc | default dict -}}
+{{- else if eq $toc false -}}
+{{- $toc = dict "enable" false -}}
+{{- end -}}
+
+<meta name="referrer" content="no-referrer">
+
+<style>
+    .page {
+        width: 100% !important;
+    }
+
+    .page.single,
+    .page.archive {
+        padding: 1rem 0 2rem;
+    }
+
+    .single-title {
+        padding-left: 1.25rem;
+    }
+
+    .steam {
+        margin: 0;
+        padding: 0;
+        max-width: 800px;
+        width: 100%;
+        background-color: #1b2838;
+    }
+
+    .profile {
+        margin: 0 auto;
+        padding: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(rgba(46, 13, 36, 0.93), #1b2838);
+    }
+
+    .card {
+        margin: 1rem;
+    }
+
+    .games {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        line-height: 1.5;
+    }
+
+    /*  Merge from steamcommunity.com  */
+    :root {
+        --typography-font-size-small: 0.625rem;
+        --typography-font-size-medium: 0.75rem;
+        --typography-font-size-body: 0.9375rem;
+        --typography-font-size-large: 1.0625rem;
+        --typography-color-neutral: #B8BCBF;
+        --typography-color-primary: white;
+        --color-info: #1A9FFF;
+        --color-backdrop: #3C3F49;
+        --color-highlight: #199FFF;
+        --percent: 1;
+    }
+
+    .yZ55NhARZGx1Awk2qs8pS {
+        width: 100%;
+        height: 6px;
+        background-color: var(--color-backdrop);
+        border-radius: 2px;
+        overflow: hidden
+    }
+
+    .yZ55NhARZGx1Awk2qs8pS::after {
+        content: "";
+        display: block;
+        width: calc(100%*var(--percent));
+        height: 100%;
+        background-color: var(--color-progress-bar-foreground)
+    }
+
+    ._29H3o3m-GUmx6UfXhQaDAm {
+        margin-bottom: 10px;
+        position: relative;
+        width: 100%
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 {
+        position: relative;
+        --padding: 10px;
+        display: grid;
+        box-sizing: border-box;
+        height: 140px;
+        grid-template-areas: "image title title" "image playtime playtime" "image links download";
+        grid-template-columns: 259px min-content auto;
+        grid-template-rows: auto auto 1fr;
+        gap: var(--padding);
+        padding: var(--padding);
+        row-gap: 4px;
+        background-color: rgba(0, 0, 0, .2)
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 ._1bAC6eBHy0MpRWrwTkgT9o {
+        grid-area: image;
+        width: 259px;
+        height: 121px
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 ._1CHM8-0EM9IeDAZ47-cYit {
+        position: relative;
+        width: 100%;
+        height: 100%
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 picture {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        overflow: hidden
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 picture img {
+        width: 100%;
+        height: 100%
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 .w6q9piMq3gT16oj_lEvpy {
+        grid-area: title;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        height: calc(2.1*var(--typography-font-size-large));
+        margin-right: 32px
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 ._22awlPiAoaZjQMqxJhp-KP {
+        font-weight: 400 !important;
+        font-size: var(--typography-font-size-large) !important;
+        color: var(--typography-color-primary) !important;
+        line-height: var(--typography-font-size-large) !important;
+        display: -webkit-inline-box !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        padding-bottom: .14em !important
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh {
+        grid-area: playtime;
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        white-space: nowrap;
+        color: var(--typography-color-neutral)
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh ._26nl3MClDebGDV7duYjZVn,
+    ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh ._2jglu-fYE_XNY6tkn6J99Y {
+        display: inline-flex;
+        flex-direction: column;
+        font-size: var(--typography-font-size-medium);
+        color: rgba(184, 188, 191, .8)
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh ._2L1rk5AZ6FW8trFciJnHSs {
+        font-weight: 700;
+        letter-spacing: .03em;
+        color: var(--typography-color-neutral)
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 ._38RhR5f2dCM0suwMTTCyMk {
+        grid-area: achievements;
+        align-self: stretch
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 ._38RhR5f2dCM0suwMTTCyMk ._3L-qRrHSjklL-XerpCawLU {
+        row-gap: 6px
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 ._1uRB5he6cj97y-rG3RcI6H {
+        grid-area: links;
+        display: flex;
+        align-items: flex-end;
+        gap: 10px
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 ._1uRB5he6cj97y-rG3RcI6H ._3aNUlXqnUCLTuW3Aeu2vQ1 {
+        padding: 6px 10px 6px 15px;
+        position: relative;
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 ._35fxd2upwJHRuX_fNyRbbM {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        flex-direction: row
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 ._35fxd2upwJHRuX_fNyRbbM ._1pXbX5mBA7v__kVWHg0_Ja {
+        padding-left: 8px;
+        padding-right: 8px
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 ._35fxd2upwJHRuX_fNyRbbM ._1pXbX5mBA7v__kVWHg0_Ja svg {
+        width: 18px
+    }
+
+    ._2-pQFn1G7dZ7667rrakcU3 .bDheibeyyAaooxTc0G5Bh {
+        grid-area: download;
+        display: flex;
+        align-items: end;
+        justify-content: flex-end
+    }
+
+    @media(max-width: 51rem) {
+        ._2-pQFn1G7dZ7667rrakcU3 {
+            grid-template-areas: "image title title" "image playtime download" "links playtime download";
+            grid-template-columns: 184px 1fr auto;
+            grid-template-rows: auto auto 1fr;
+            row-gap: 5px
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._1bAC6eBHy0MpRWrwTkgT9o {
+            width: 184px;
+            height: 86px
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh {
+            display: grid;
+            grid-template-areas: "total lastPlayed empty" "achievements achievements achievements";
+            grid-template-columns: auto auto 1fr;
+            grid-template-rows: auto auto;
+            align-content: space-between;
+            gap: 8px
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._1yvGN-lhGKwgwFZ0hqNf3 {
+            width: 100%
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._1sruH2EotKih-5xc1nw_Ak {
+            display: none
+        }
+    }
+
+    @media(max-width: 30rem) {
+        ._2-pQFn1G7dZ7667rrakcU3 {
+            grid-template-areas: "image title" "image playtime";
+            grid-template-columns: 93px 1fr;
+            grid-template-rows: auto 1fr;
+            text-align: left;
+            width: 100%;
+            border: none;
+            align-items: stretch;
+            padding: 0;
+            padding-right: var(--padding);
+            background-color: rgba(58, 64, 74, .2)
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._1bAC6eBHy0MpRWrwTkgT9o {
+            width: 93px;
+            height: 140px
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh {
+            gap: 4px;
+            align-content: start;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh ._26nl3MClDebGDV7duYjZVn {
+            flex-direction: row;
+            gap: 1ch
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh ._38RhR5f2dCM0suwMTTCyMk {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr auto;
+            gap: 8px;
+            padding-bottom: var(--padding);
+            align-self: stretch
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh ._2jglu-fYE_XNY6tkn6J99Y {
+            display: none
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._1uRB5he6cj97y-rG3RcI6H {
+            display: none
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._35fxd2upwJHRuX_fNyRbbM {
+            display: none
+        }
+    }
+
+    ._3aNUlXqnUCLTuW3Aeu2vQ1 {
+        background: rgba(58, 64, 74, .5);
+        border-radius: 2px;
+        font-size: 13px;
+        letter-spacing: .03em;
+        font-weight: 400;
+        color: var(--typography-color-primary);
+        border: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        white-space: nowrap;
+        cursor: pointer;
+        gap: 15px
+    }
+
+    ._3aNUlXqnUCLTuW3Aeu2vQ1 svg {
+        width: 12px
+    }
+
+    ._3aNUlXqnUCLTuW3Aeu2vQ1:hover,
+    .dropdown-menu:hover {
+        background: #67707b;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, .2)
+    }
+
+    ._38RhR5f2dCM0suwMTTCyMk {
+        display: grid;
+        grid-template-columns: 1fr minmax(0, 232px);
+        grid-template-rows: 1fr;
+        flex-grow: 1;
+        gap: 16px;
+        min-height: 32px
+    }
+
+    ._3L-qRrHSjklL-XerpCawLU {
+        display: grid;
+        grid-template-areas: "label fraction" "bar bar";
+        gap: 4px;
+        align-items: center;
+        align-content: start
+    }
+
+    ._3L-qRrHSjklL-XerpCawLU ._3Z3qpPO7VynFPtiyMoSUOj {
+        grid-area: bar;
+        --color-progress-bar-background: var(--color-backdrop);
+        --color-progress-bar-foreground: var(--color-info)
+    }
+
+    ._3L-qRrHSjklL-XerpCawLU ._3eZMLQT-bjZ0EhBSvQlDQ0 {
+        grid-area: label !important;
+        font-weight: 700 !important;
+        font-size: var(--typography-font-size-medium) !important;
+        margin-right: 8px !important;
+        color: inherit !important;
+        letter-spacing: .03em !important
+    }
+
+    ._3L-qRrHSjklL-XerpCawLU ._3eZMLQT-bjZ0EhBSvQlDQ0 svg {
+        display: inline-block;
+    }
+
+    ._3L-qRrHSjklL-XerpCawLU ._1YRRMk6X7vrOL-02K-q1pf {
+        grid-area: fraction;
+        font-size: var(--typography-font-size-medium);
+        margin-right: 8px;
+        justify-self: flex-end;
+        text-align: end;
+        min-width: 2.5rem
+    }
+
+    ._1FputvTUMDlSdMWR6dzBHN ._2mcktnnmYz7Erghm5hxnqS {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: end;
+        box-sizing: border-box;
+        gap: 16px
+    }
+
+    ._2mcktnnmYz7Erghm5hxnqS a {
+        color: #fff !important;
+    }
+
+    ._1FputvTUMDlSdMWR6dzBHN ._2zfId9cfT2zTYc0lGKOhrr {
+        font-weight: 700;
+        font-size: var(--typography-font-size-medium);
+        white-space: nowrap
+    }
+
+    ._1FputvTUMDlSdMWR6dzBHN ._2P6595PfFeyY96lncv5stz {
+        align-self: flex-end
+    }
+
+    ._2P6595PfFeyY96lncv5stz {
+        height: 30px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 12px;
+        gap: 8px;
+        background-color: var(--color-info);
+        color: var(--typography-color-primary);
+        font-weight: 500;
+        font-size: 12px;
+        border: none;
+        border-radius: 2px
+    }
+
+    ._2P6595PfFeyY96lncv5stz svg {
+        width: 1rem;
+        color: var(--typography-color-primary);
+        fill: var(--typography-color-primary)
+    }
+
+    ._2P6595PfFeyY96lncv5stz:hover {
+        background: #0bf;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, .2);
+        cursor: pointer
+    }
+
+    /*  Merge from steam profile.css  */
+    .profile_header_badgeinfo {
+        float: right;
+    }
+
+    @media screen and (max-width: 700px) {
+
+        html.responsive .profile_header_badgeinfo {
+            float: none;
+            overflow: hidden;
+        }
+
+    }
+
+    @media screen and (max-width: 460px) {
+
+        html.responsive .profile_header_badgeinfo {
+            float: none;
+            overflow: visible;
+        }
+
+        html.responsive .profile_header_badgeinfo_badge_area {
+            float: none;
+            overflow: hidden;
+            max-width: 50%;
+            max-width: calc(100% - 125px - 20px);
+        }
+
+        html.responsive .profile_header_badgeinfo_badge_area .profile_header_badge {
+            margin-bottom: 0;
+        }
+
+    }
+
+    .profile_header_badgeinfo .persona_level {
+        line-height: 40px;
+        margin-bottom: 13px;
+    }
+
+    .profile_header_badgeinfo .persona_level .friendPlayerLevel {
+        vertical-align: middle;
+    }
+
+    .profile_header_badgeinfo .persona_level .friendPlayerLevel .friendPlayerLevelNum {
+        color: #ffffff;
+    }
+
+    .profile_header_badgeinfo_badge_area {
+        width: 268px;
+    }
+
+    .profile_header .persona_name {
+        line-height: 40px;
+        font-size: 24px;
+        color: #ffffff;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        font-family: "Motiva Sans", Sans-serif;
+        font-weight: 200;
+        /* thin */
+
+    }
+
+    .profile_header .persona_name .nickname {
+        color: #9b9b9b;
+    }
+
+    .profile_header_badgeinfo .persona_level {
+        line-height: 40px;
+        margin-bottom: 13px;
+    }
+
+    .profile_header_badgeinfo .persona_level .friendPlayerLevel {
+        vertical-align: middle;
+    }
+
+    .profile_header_badgeinfo .persona_level .friendPlayerLevel .friendPlayerLevelNum {
+        color: #ffffff;
+    }
+
+    .profile_header_badgeinfo .persona_level .friendPlayerLevel {
+        vertical-align: middle;
+    }
+
+    .profile_header_badgeinfo .persona_level .friendPlayerLevel .friendPlayerLevelNum {
+        color: #ffffff;
+    }
+
+    .profile_header_badge {
+        border-radius: 3px;
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 70px;
+        margin-bottom: 13px;
+    }
+
+    .favorite_badge {
+        position: relative;
+        padding: 8px 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .favorite_badge_icon {
+        display: flex;
+    }
+
+    .favorite_badge_icon img {
+        width: 54px;
+        height: 54px;
+    }
+
+    .game_info_badge_icon img.badge_icon.small {
+        width: 36px;
+        height: 36px;
+    }
+
+    .favorite_badge_description {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        font-size: 12px;
+        color: #ffffff;
+    }
+
+    body.Steam3000Theme .profile_count_link.ellipsis {
+        border: 1px dotted #20d038;
+        padding-left: 5px;
+        padding-bottom: 5px;
+        margin-bottom: 8px;
+    }
+
+    .profile_info {
+        width: 268px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: relative;
+        padding-top: 8px;
+        padding-right: 8px;
+        color: #c4c4c4;
+        font-size: 13px;
+    }
+
+    .favorite_badge_icon span {
+        display: none;
+    }
+
+    .profile_info_lever {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 24px;
+        margin-bottom: 13px;
+        color: #fff;
+    }
+
+    .steam_lever_icon {
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 50%;
+        border: solid #c02942 2px;
+        height: 32px;
+        width: 32px;
+        text-align: center;
+        cursor: default;
+        color: #fff;
+        line-height: 32px;
+        vertical-align: middle;
+    }
+
+    .steam_lever_icon:hover {
+        cursor: pointer;
+    }
+
+    .profile_info_badge {
+        border-radius: 3px;
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 70px;
+        margin-bottom: 13px;
+    }
+
+    .favorite_badge {
+        position: relative;
+        padding: 8px 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .games_header {
+        font-family: "Motiva Sans", Sans-serif;
+        font-weight: 200;
+        background: rgba(57, 24, 61, 0.93);
+        background: linear-gradient(90deg, rgba(20, 60, 68, 0.93) 0%, rgba(57, 24, 61, 0.93) 90%);
+        padding: 5px 10px 5px 10px;
+        color: #ffffff;
+        font-size: 16px;
+        line-height: 30px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    /*  Merge from steamcommunity.com  */
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 8rem;
+        z-index: 1;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    }
+
+    .dropdown-menu a {
+        text-decoration: none;
+        display: block;
+        color: #fff !important;
+        background-color: rgba(58, 64, 74, 1);
+    }
+
+    .dropdown-menu a:hover {
+        color: #fff !important;
+    }
+
+    ._1pXbX5mBA7v__kVWHg0_Ja .dropdown-menu {
+        right: 0;
+        left: unset;
+    }
+
+    ._3aNUlXqnUCLTuW3Aeu2vQ1:hover>.dropdown-menu,
+    .dropdown-menu:hover {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .dropdown-menu ._1pXbX5mBA7v__kVWHg0_Ja {
+        padding: 6px 10px 6px 15px;
+    }
+
+    .dropdown-menu ._3aNUlXqnUCLTuW3Aeu2vQ1 {
+        border-radius: 0;
+    }
+</style>
+
+{{ $steam := getJSON "data/steam/steam_web_api.json" }}
+{{ $players := $steam.response.players }}
+{{ $badges := $steam.response.badges }}
+{{ $games := $steam.response.games }}
+
+{{- $steamLevel := $steam.response.player_level -}}
+
+{{ $randomIndex := int (mul (math.Rand) (len $games)) }}
+{{ $randomGame := index $games $randomIndex }}
+
+{{ $timeCreated := (index $players 0).timecreated }}
+{{ $timeCreatedInt := time ($timeCreated | int) }}
+{{ $timeCreatedUnix := $timeCreatedInt.Unix }}
+{{ $currentTime := now.Unix }}
+{{ $yearsSince := div (sub $currentTime $timeCreatedUnix) 31536000 }}
+
+<article class="page single special">
+    <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
+    <div id="content" class="content">
+        <div class="greyQuote">
+            <blockquote>
+                {{ T `steam_quote` | safeHTML }}
+            </blockquote>
+        </div>
+
+        <div class="profile">
+            <div class="card">
+                <img src="https://steam.eallion.com/card/76561197989210276/dark,cn,badge,group,text-beee11,bg-game-730{{/* $randomGame.appid */}}"
+                    alt title>
+            </div>
+
+            <div class="profile_info">
+                <div class="profile_info_lever">
+                    <a href="https://steamcommunity.com/id/eallion/badges">
+                        <span class="steam_lever_icon">{{- $steamLevel -}}</span>
+                    </a>
+                    <span>级</span>
+                </div>
+                <div class="profile_info_badge">
+                    <a href="https://steamcommunity.com/id/eallion/badges/1" class="favorite_badge">
+                        <div class="favorite_badge_icon">
+                            <span>帐户服务年资<br>自 2007 年 4 月 5 日以来的成员。</span>
+                            <img src="https://community.akamai.steamstatic.com/public/images/badges/02_years/steamyears{{ $yearsSince }}_54.png"
+                                class="badge_icon small" alt title>
+                        </div>
+                        <div class="favorite_badge_description">
+                            <div class="name ellipsis">帐户服务年资</div>
+                            <div class="xp">800 点经验值</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="steam" view-image>
+
+            <div class="games_header">
+                最喜爱的游戏
+            </div>
+            <div class="games">
+
+                {{- range $games }}
+
+                {{ $appId := string .appid }}
+
+                {{ $appName := .name }}
+
+                {{ $playedTime := .playtime_forever }}
+                {{ $playedTimeInHours := math.Div $playedTime 60 }}
+                {{ $playedTimeInHoursRounded := math.Round (mul $playedTimeInHours 10) }}
+                {{ $playedTimeInHoursFormatted := div $playedTimeInHoursRounded 10 }}
+
+                {{ $lastPlayedTimestamp := .rtime_last_played }}
+                {{ $lastPlayedTimestampInt := time ($lastPlayedTimestamp | int) }}
+                {{ $lastPlayedTimeFormatted :=  dateFormat "2006年1月2日" $lastPlayedTimestampInt}}
+
+                {{ $randomNum := math.Rand }}
+
+                <div class="_29H3o3m-GUmx6UfXhQaDAm">
+                    <div class="_2-pQFn1G7dZ7667rrakcU3" tabindex="0"><a
+                            href="https://store.steampowered.com/app/{{ $appId }}" rel="nofollow noopener noreferrer"
+                            target="_blank" class="_1bAC6eBHy0MpRWrwTkgT9o" tabindex="0">
+                            <div class="_1CHM8-0EM9IeDAZ47-cYit">
+                                <picture>
+                                    <source media="(max-width: 30rem)"
+                                        srcset="https://cdn.akamai.steamstatic.com/steam/apps/{{ $appId }}/library_600x900.jpg"><img
+                                        src="https://cdn.akamai.steamstatic.com/steam/apps/{{ $appId }}/header.jpg" alt="{{ $appName }}"
+                                        loading="lazy">
+                                </picture>
+                            </div>
+                        </a><span class="w6q9piMq3gT16oj_lEvpy"><a href="https://store.steampowered.com/app/{{ $appId }}"
+                                class="_22awlPiAoaZjQMqxJhp-KP">{{ $appName }}</a></span>
+                        <div class="_2EeyhCvW_KhEdtuarguZYh">
+                            {{ if gt $playedTime 0 }}
+                                <span class="_26nl3MClDebGDV7duYjZVn">
+                                    <span class="_2L1rk5AZ6FW8trFciJnHSs">总游戏时间</span>
+                                    {{ $playedTimeInHoursFormatted }} 小时
+                                </span>
+                            {{ end }}
+                            {{ if gt $lastPlayedTimestamp 0 }}
+                                <span class="_2jglu-fYE_XNY6tkn6J99Y">
+                                    <span class="_2L1rk5AZ6FW8trFciJnHSs">最后运行日期</span>
+                                        {{ $lastPlayedTimeFormatted }}
+                                </span>
+                            {{ end }}
+                            <div class="_38RhR5f2dCM0suwMTTCyMk">
+                                <div class="_3L-qRrHSjklL-XerpCawLU">
+                                    <a class="_3eZMLQT-bjZ0EhBSvQlDQ0" href="https://steamcommunity.com/id/eallion/stats/{{ $appId }}/?tab=achievements">成就</a>
+                                    {{ if gt $playedTime 0 }}
+                                        <span class="_1YRRMk6X7vrOL-02K-q1pf">♾️</span>
+                                        <div class="yZ55NhARZGx1Awk2qs8pS _3Z3qpPO7VynFPtiyMoSUOj" style="--percent: {{ $randomNum }};"></div>
+                                    {{ else }}
+                                        <span class="_1YRRMk6X7vrOL-02K-q1pf">0/♾️</span>
+                                        <div class="yZ55NhARZGx1Awk2qs8pS _3Z3qpPO7VynFPtiyMoSUOj" style="--percent: 0;"></div>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="_1uRB5he6cj97y-rG3RcI6H">
+                            <div class="_3aNUlXqnUCLTuW3Aeu2vQ1 _1sruH2EotKih-5xc1nw_Ak" tabindex="0"><span> 我的游戏统计数据
+                                </span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 8" fill="none">
+                                    <path fill="currentColor"
+                                        d="M12.6128 1.7121C12.7616 1.56087 12.8428 1.3684 12.8428 1.14155C12.8428 0.687862 12.491 0.323534 12.0446 0.323534C11.8214 0.323534 11.6184 0.419772 11.4628 0.577877L6.83601 5.38975L2.22271 0.577877C2.06712 0.419772 1.85743 0.323534 1.64097 0.323534C1.19452 0.323534 0.842773 0.687862 0.842773 1.14155C0.842773 1.3684 0.923946 1.56087 1.07276 1.71211L6.21369 7.06016C6.38956 7.25264 6.60602 7.342 6.84277 7.34888C7.07953 7.34888 7.28246 7.25264 7.4651 7.06016L12.6128 1.7121Z">
+                                    </path>
+                                </svg>
+                                <div class="dropdown-menu">
+                                    <a class="_3aNUlXqnUCLTuW3Aeu2vQ1 _1sruH2EotKih-5xc1nw_Ak"
+                                        href="https://steamcommunity.com/id/eallion/stats/{{ $appId }}/?tab=achievements"
+                                        rel="nofollow noopener noreferrer" target="_blank">我的成就</a>
+                                    <a class="_3aNUlXqnUCLTuW3Aeu2vQ1 _1sruH2EotKih-5xc1nw_Ak"
+                                        href="https://steamcommunity.com/stats/{{ $appId }}/achievements/" rel="nofollow noopener noreferrer"
+                                        target="_blank">全球成就</a>
+                                </div>
+                            </div>
+                            <div class="_3aNUlXqnUCLTuW3Aeu2vQ1 _1yvGN-lhGKwgwFZ0hqNf3" tabindex="0"><span> 我的游戏内容
+                                </span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 8" fill="none">
+                                    <path fill="currentColor"
+                                        d="M12.6128 1.7121C12.7616 1.56087 12.8428 1.3684 12.8428 1.14155C12.8428 0.687862 12.491 0.323534 12.0446 0.323534C11.8214 0.323534 11.6184 0.419772 11.4628 0.577877L6.83601 5.38975L2.22271 0.577877C2.06712 0.419772 1.85743 0.323534 1.64097 0.323534C1.19452 0.323534 0.842773 0.687862 0.842773 1.14155C0.842773 1.3684 0.923946 1.56087 1.07276 1.71211L6.21369 7.06016C6.38956 7.25264 6.60602 7.342 6.84277 7.34888C7.07953 7.34888 7.28246 7.25264 7.4651 7.06016L12.6128 1.7121Z">
+                                    </path>
+                                </svg>
+                                <div class="dropdown-menu">
+                                    <a class="_3aNUlXqnUCLTuW3Aeu2vQ1 _1yvGN-lhGKwgwFZ0hqNf3" href="https://steamcommunity.com/app/{{ $appId }}"
+                                        rel="nofollow noopener noreferrer" target="_blank">社区中心</a>
+                                    <a class="_3aNUlXqnUCLTuW3Aeu2vQ1 _1yvGN-lhGKwgwFZ0hqNf3"
+                                        href="https://steamcommunity.com/id/eallion/screenshots/?appid={{ $appId }}"
+                                        rel="nofollow noopener noreferrer" target="_blank">我的截图</a>
+                                    <a class="_3aNUlXqnUCLTuW3Aeu2vQ1 _1yvGN-lhGKwgwFZ0hqNf3"
+                                        href="https://steamcommunity.com/id/eallion/friendsthatplay/{{ $appId }}"
+                                        rel="nofollow noopener noreferrer" target="_blank">玩此游戏的好友</a>
+                                    <a class="_3aNUlXqnUCLTuW3Aeu2vQ1 _1yvGN-lhGKwgwFZ0hqNf3"
+                                        href="https://steamcommunity.com/id/eallion/recommended/{{ $appId }}" rel="nofollow noopener noreferrer"
+                                        target="_blank">我的评测</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="_35fxd2upwJHRuX_fNyRbbM">
+                            <div class="_3aNUlXqnUCLTuW3Aeu2vQ1 _1pXbX5mBA7v__kVWHg0_Ja" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 36 36" fill="none">
+                                    <path
+                                        d="M21.75 18C21.75 18.7417 21.5301 19.4667 21.118 20.0834C20.706 20.7001 20.1203 21.1807 19.4351 21.4645C18.7498 21.7484 17.9958 21.8226 17.2684 21.6779C16.541 21.5332 15.8728 21.1761 15.3484 20.6517C14.8239 20.1272 14.4668 19.459 14.3221 18.7316C14.1774 18.0042 14.2516 17.2502 14.5355 16.5649C14.8193 15.8797 15.2999 15.294 15.9166 14.882C16.5333 14.4699 17.2583 14.25 18 14.25C18.9946 14.25 19.9484 14.6451 20.6517 15.3483C21.3549 16.0516 21.75 17.0054 21.75 18ZM6 14.25C5.25832 14.25 4.5333 14.4699 3.91661 14.882C3.29993 15.294 2.81928 15.8797 2.53545 16.5649C2.25162 17.2502 2.17736 18.0042 2.32206 18.7316C2.46675 19.459 2.8239 20.1272 3.34835 20.6517C3.8728 21.1761 4.54098 21.5332 5.26841 21.6779C5.99584 21.8226 6.74984 21.7484 7.43506 21.4645C8.12029 21.1807 8.70596 20.7001 9.11801 20.0834C9.53007 19.4667 9.75 18.7417 9.75 18C9.75 17.0054 9.35491 16.0516 8.65165 15.3483C7.94839 14.6451 6.99456 14.25 6 14.25ZM30 14.25C29.2583 14.25 28.5333 14.4699 27.9166 14.882C27.2999 15.294 26.8193 15.8797 26.5355 16.5649C26.2516 17.2502 26.1774 18.0042 26.3221 18.7316C26.4668 19.459 26.8239 20.1272 27.3484 20.6517C27.8728 21.1761 28.541 21.5332 29.2684 21.6779C29.9958 21.8226 30.7498 21.7484 31.4351 21.4645C32.1203 21.1807 32.706 20.7001 33.118 20.0834C33.5301 19.4667 33.75 18.7417 33.75 18C33.75 17.0054 33.3549 16.0516 32.6517 15.3483C31.9484 14.6451 30.9946 14.25 30 14.25Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                                <div class="dropdown-menu">
+                                    <a class="_3aNUlXqnUCLTuW3Aeu2vQ1 _1pXbX5mBA7v__kVWHg0_Ja"
+                                        href="https://store.steampowered.com/app/{{ $appId }}" rel="nofollow noopener noreferrer"
+                                        target="_blank">商店页面</a>
+                                    <a class="_3aNUlXqnUCLTuW3Aeu2vQ1 _1pXbX5mBA7v__kVWHg0_Ja"
+                                        href="https://steamcommunity.com/app/{{ $appId }}/discussions/" rel="nofollow noopener noreferrer"
+                                        target="_blank">论坛</a>
+                                    <a class="_3aNUlXqnUCLTuW3Aeu2vQ1 _1pXbX5mBA7v__kVWHg0_Ja"
+                                        href="https://steamcommunity.com/search/groups/?text={{ $appName }}" rel="nofollow noopener noreferrer"
+                                        target="_blank">组</a>
+                                    <a class="_3aNUlXqnUCLTuW3Aeu2vQ1 _1pXbX5mBA7v__kVWHg0_Ja"
+                                        href="https://store.steampowered.com/appofficialsite/{{ $appId }}" rel="nofollow noopener noreferrer"
+                                        target="_blank">官方网站</a>
+                                    <a class="_3aNUlXqnUCLTuW3Aeu2vQ1 _1pXbX5mBA7v__kVWHg0_Ja"
+                                        href="https://store.steampowered.com/news/app/{{ $appId }}?updates=true"
+                                        rel="nofollow noopener noreferrer" target="_blank">新闻</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="_1FputvTUMDlSdMWR6dzBHN bDheibeyyAaooxTc0G5Bh">
+                            <div class="_2mcktnnmYz7Erghm5hxnqS"><span class="_2zfId9cfT2zTYc0lGKOhrr"></span><button
+                                    href="https://store.steampowered.com/app/{{ $appId }}" class="_2P6595PfFeyY96lncv5stz"><svg
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 29" fill="none">
+                                        <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M26 20V25H4V20H0V29H30V20H26Z">
+                                        </path>
+                                        <path fill="currentColor"
+                                            d="M17 12.1716L21.5858 7.58578L24.4142 10.4142L15 19.8284L5.58582 10.4142L8.41424 7.58578L13 12.1715V0H17V12.1716Z">
+                                        </path>
+                                    </svg><a href="https://store.steampowered.com/app/{{ $appId }}" rel="nofollow noopener noreferrer"
+                                        target="_blank">下载</a></button></div>
+                        </div>
+                    </div>
+                </div>
+
+            {{- end -}}
+        </div>
+        </div>
+
+    </div>
+</article>
+
+<script type="text/javascript" src="/assets/js/lazyload.iife.min.js?v=17.8.5"></script>
+<script>
+    var lazyLoadInstance = new LazyLoad({
+        // Your custom settings go here
+    });
+</script>
+
+{{- end -}}
