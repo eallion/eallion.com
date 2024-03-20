@@ -23,27 +23,27 @@
 
 <div align="center">
 
-✨DEMO：<https://www.eallion.com> ✨
+✨Live Preview：<https://www.eallion.com> ✨
 
 </div>
-
-# 备忘录
 
 <div align="center">
 
   <img src="static/assets/images/github/blog-flow-light-bg.png">
 </div>
 
+# 备忘录
+
 ### 📦️ 主仓库
 
 > <https://github.com/eallion/eallion.com>
 
-#### 备份仓库
+##### 备份仓库
 
 > <https://eallion@bitbucket.org/eallion/eallion.com>  
 > <https://gitlab.com/eallion/eallion.com>
 
-#### 添加备份仓库 Remote
+##### 添加备份仓库 Remote
 
 > [!TIP]
 > Remote url 传递 id:token 免输各个 git 仓库的账号密码
@@ -59,12 +59,12 @@ origin  https://gitlab.com/eallion/eallion.com.git (push)
 origin  https://git.eallion.com/git/eallion/eallion.com.git (push)
 ```
 
-#### 架构备忘
+##### 架构备忘
 
 - 国内：部署至腾讯云 [EdgeOne](https://e5n.cc/s/teo) (2024.01.06)
 - 境外：部署至腾讯云 [EdgeOne](https://e5n.cc/s/teo) (2024.01.06)
 
-#### GitHub Actions
+##### GitHub Actions
 
 > Update:2024.01.06
 
@@ -99,7 +99,7 @@ git submodule update --init --recursive
 
 - 首页基于 Google Chrome Whats-new [[m122](https://www.google.com/intl/zh-CN/chrome/whats-new/m122/)] 构建
 
-```
+```bash
 https://www.google.com/intl/zh-CN/chrome/whats-new/m122/
 
 ```
@@ -137,11 +137,12 @@ https://github.com/eallion/eallion.com/tree/main/data/neodb
 ### 🔊 嘀咕页面
 
 嘀咕页面 [`https://www.eallion.com/toot`](https://www.eallion.com/toot/) 为 Mastodon 个人实例 [`e5n.cc`](https://e5n.cc/@eallion) 的数据展示。  
-利用 [mastodon-embed-timeline](https://gitlab.com/idotj/mastodon-embed-timeline) 这个项目集成到博客页面。
+利用 [mastodon-embed-timeline](https://gitlab.com/idotj/mastodon-embed-timeline) 这个项目集成到博客页面。  
+现已静态构建到页面上。
 
 通过 Git submodule 添加：
 
-```
+```bash
 git submodule add https://github.com/eallion/mastodon-embed-timeline.git static/assets/mastodon-embed-timeline
 ```
 
@@ -170,29 +171,34 @@ git submodule add https://github.com/eallion/mastodon-embed-timeline.git static/
 - `categories` (必填) 按需修改
 - `tags` (必填) 按需修改 (约定：本博客单篇文章标签数上限为 4)
 - `slug` (必填) 按需修改，文章网址 URL
+- `summary` (必填) AI 生成摘要
+- `series` （选填）系列
+- `series_weight`（选填）系列中的排序
+- `seriesNavigation`（选填）是否需要显示在系列导航中
 - `draft: true` (必填) 如果需要公开发表，需改为：`draft: false`
 
-4. **生成 AI 提要**
+1. **生成 AI 提要**
 
 ~~写完文章，按 `data` 目录中的 `summary.json` 文件手动生成摘要。~~
 
 Summary 生成 AI 摘要现在添加到 `posts` 目录中的 Markdown 文件中的 Front Matter 中，依然采用手动生成的方式。
 
-5. **生成 OG image**
+1. **生成 OG image**
 
-打开 https://cover.eallion.com ([备用](https://github.com/eallion/cover-paint)) 生成 OG image，放到博客 static 目录。以前的文章利用 API 生成 OG。
+打开 https://cover.eallion.com ([备用](https://github.com/rutikwankhade/CoverView)) 生成 OG image，放到博客 static 目录。以前的文章利用 API 生成 OG。
 
-6. **维护其他页面**
+1. **维护其他页面**
 
 注意查看 Layouts 中的模板和 `data` 中的数据文件。
 
 - `嘀咕`：到 [e5n.cc](https://e5n.cc) 发 Toot；
 - `观影`：到 ~~豆瓣网~~ ~~和~~ NeoDB 标记；
-- `随手拍`：到 [e5n.cc](https://e5n.cc) 发带有 `#相册` 标签的 Toot；
+- `随手拍`：到 [e5n.cc](https://e5n.cc) 发带有 `#ealbum` 标签的 Toot；
 - `好物`：数据按 `data` 目录中的 `goods.json` 文件更新；
-- `Penta`：数据按 `data` 目录中的 `penta.json` 文件更新
+- `Penta`：数据按 `data` 目录中的 `penta.json` 文件更新；
+- `Steam`：数据在 `data` 目录中的 `steam_web_api.json` 每周 GitHub Actions 更新。
 
-7. **Push**：
+1. **Push**：
 
 完成写作后，Push 到 GitHub 仓库会自动构建部署。
 
@@ -202,7 +208,7 @@ git commit -m "docs: add a new post"
 git push
 ```
 
-8. **本地调试** (~~Web Server~~)
+1. **本地调试** (~~Web Server~~)
 
 > 完全没有必要把 Hugo 当成 Web Server
 
@@ -241,7 +247,7 @@ git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo s
 - `-e production` DoIt 的 `评论系统`、`CDN` 和 `fingerprint` 不会在 development 环境下启用
 - `hugo server --help` 查看 server 所有命令
 
-9. **本地构建**
+1. **本地构建**
 
 手动构建命令：
 
@@ -266,9 +272,9 @@ git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo s
 
 1. 使用[页面包](https://gohugo.io/content-management/page-bundles/)中的[页面资源](https://gohugo.io/content-management/page-resources/)。
     你可以使用适用于 `Resources.GetMatch` 的值或者直接使用相对于当前页面目录的文件路径来引用页面资源。
-2. 将本地资源放在 **assets** 目录中，默认路径是 `/assets`。
+1. 将本地资源放在 **assets** 目录中，默认路径是 `/assets`。
    引用资源的文件路径是相对于 `assets` 目录的。
-3. 将本地资源放在 **static** 目录中，默认路径是 `/static`。
+1. 将本地资源放在 **static** 目录中，默认路径是 `/static`。
    引用资源的文件路径是相对于 `static` 目录的。
 
 引用的**优先级**符合以上的顺序。
