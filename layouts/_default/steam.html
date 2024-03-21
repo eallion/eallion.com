@@ -14,6 +14,7 @@
 <style>
     .page {
         width: 100% !important;
+        overflow: hidden;
     }
 
     .page.single,
@@ -45,10 +46,12 @@
 
     .card {
         margin: 1rem;
+        /*
         background: url(/assets/images/steam/steam_card.svg);
         background-size: 100% 100%;
         background-repeat: no-repeat;
         background-position: center;
+        */
         width: 400px;
         height: 150px;
     }
@@ -270,7 +273,7 @@
             padding-right: var(--padding);
             background-color: rgba(58, 64, 74, .2)
         }
-        
+
         ._2-pQFn1G7dZ7667rrakcU3 .bDheibeyyAaooxTc0G5Bh {
                 display: none;
         }
@@ -725,7 +728,7 @@
         </div>
 
         <div class="profile">
-            <div id="card" class="card"></div>
+            <div id="card" class="card"><img class="lazy" src="/assets/images/steam/steam_card.svg" data-src="lazy.jpg" alt title/></div>
             <script>
                 const appIds = {{ $appIdsJSON }};
             </script>
@@ -733,9 +736,8 @@
                 // Random Game BG
                 var addId = appIds[Math.floor((Math.random()*appIds.length))];
                 var steamCardUrl = 'https://steam.eallion.com/card/76561197989210276/dark,cn,badge,group,text-beee11,bg-game-' + addId;
-                var steamCard = document.createElement('img');
-                steamCard.src = steamCardUrl;
-                document.getElementById('card').appendChild(steamCard);
+                var steamCard = document.querySelector('#card img[data-src]');
+                steamCard.setAttribute('data-src', steamCardUrl);
                 var timeout = setTimeout(function() {
                     steamCard.onerror = function() {
                         console.log('Timeout');
@@ -799,10 +801,8 @@
                             target="_blank" class="_1bAC6eBHy0MpRWrwTkgT9o" tabindex="0">
                             <div class="_1CHM8-0EM9IeDAZ47-cYit">
                                 <picture>
-                                    <source media="(max-width: 30rem)"
-                                        srcset="https://cdn.akamai.steamstatic.com/steam/apps/{{ $appId }}/library_600x900.jpg"><img
-                                        src="https://cdn.akamai.steamstatic.com/steam/apps/{{ $appId }}/header.jpg" alt="{{ $appName }}"
-                                        loading="lazy">
+                                    <source media="(max-width: 30rem)" data-srcset="https://cdn.akamai.steamstatic.com/steam/apps/{{ $appId }}/library_600x900.jpg">
+                                    <img class="lazy" src="/assets/images/steam/defaultappheader.png" data-src="https://cdn.akamai.steamstatic.com/steam/apps/{{ $appId }}/header.jpg" data-appid="{{ $appId }}" alt="{{ $appName }}" loading="lazy">
                                 </picture>
                             </div>
                         </a><span class="w6q9piMq3gT16oj_lEvpy"><a href="https://store.steampowered.com/app/{{ $appId }}"
@@ -922,6 +922,10 @@
 <script>
     var lazyLoadInstance = new LazyLoad({
         // Your custom settings go here
+        elements_selector: '.lazy',
+        callback_error: function (element) {
+            element.src = '/assets/images/steam/defaultappheader.png';
+        }
     });
 </script>
 
