@@ -325,7 +325,76 @@ other ="Load more"
 other = "My LOL penta kill. Screenshot record after TGP (aka: WeGame)."
 
 [steam_quote]
-other = "My Steam (-75%) <sub>+1</sub><small>+1</small>+1<sup>+1</sup><sup>+1</sup><sup>+1</sup>"
+other = "My Steam (-75%) <small>+1</small>+1<sup>+1</sup><sup>+1</sup><sup>+1<sup>+1</sup></sup>"
+
+[steam_level]
+other = "Level"
+
+[steam_year_of_service]
+other = "Year ofService"
+
+[steam_xp]
+other = "800 XP"
+
+[steam_favorite]
+other = "Favorite Game"
+
+[steam_total_played]
+other = "TOTAL PLAYED"
+
+[steam_total_played_time]
+other = "Hrs"
+
+[steam_last_played]
+other = "LAST PLAYED"
+
+[steam_last_played_time]
+other = "Hrs"
+
+[steam_achievements]
+other = "ACHIEVEMENTS"
+
+[steam_stats]
+other = "My Game Stats"
+
+[steam_my_achievements]
+other = "My Achievements"
+
+[steam_global_achievements]
+other = "Global Achievements"
+
+[steam_my_game_content]
+other = "My Game Content"
+
+[steam_community_hub]
+other = "Community Hub"
+
+[steam_my_screenshots]
+other = "My Screenshots"
+
+[steam_my_friend_who_played]
+other = "My Friends Who Played"
+
+[steam_my_review]
+other = "My Review"
+
+[steam_store_page]
+other = "Store Page"
+
+[steam_forums]
+other = "Forums"
+
+[steam_groups]
+other = "Groups"
+
+[steam_official_website]
+other = "Official Website"
+
+[steam_news]
+other = "News"
+
+[steam_download]
+other = "DOWNLOAD"
 
 [toot_motto]
 other = "Chance favors the prepared mind."

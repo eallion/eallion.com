@@ -323,7 +323,76 @@ other ="加载更多"
 other = "我的 LOL 五杀。有 TGP（WeGame）后才开始记录的自动五杀截图。"
 
 [steam_quote]
-other = "我的 Steam (-75%) <sub>+1</sub><small>+1</small>+1<sup>+1</sup><sup>+1</sup><sup>+1</sup>"
+other = "我的 Steam (-75%) <small>+1</small>+1<sup>+1</sup><sup>+1</sup><sup>+1<sup>+1</sup></sup>"
+
+[steam_level]
+other = "级"
+
+[steam_year_of_service]
+other = "帐户服务年资"
+
+[steam_xp]
+other = "800 点经验值"
+
+[steam_favorite]
+other = "最喜爱的游戏"
+
+[steam_total_played]
+other = "总游戏时间"
+
+[steam_total_played_time]
+other = "小时"
+
+[steam_last_played]
+other = "最后运行日期"
+
+[steam_last_played_time]
+other = "小时"
+
+[steam_achievements]
+other = "成就"
+
+[steam_stats]
+other = "我的游戏统计数据"
+
+[steam_my_achievements]
+other = "我的成就"
+
+[steam_global_achievements]
+other = "全球成就"
+
+[steam_my_game_content]
+other = "我的游戏内容"
+
+[steam_community_hub]
+other = "社区中心"
+
+[steam_my_screenshots]
+other = "我的截图"
+
+[steam_my_friend_who_played]
+other = "玩此游戏的好友"
+
+[steam_my_review]
+other = "我的评测"
+
+[steam_store_page]
+other = "商店页面"
+
+[steam_forums]
+other = "论坛"
+
+[steam_groups]
+other = "组"
+
+[steam_office_website]
+other = "官方网站"
+
+[steam_news]
+other = "新闻"
+
+[steam_download]
+other = "下载"
 
 [toot_motto]
 other = "机会总是垂青于有准备的人！"
