@@ -120,7 +120,7 @@ comment: true
     <img no-view src="https://img.shields.io/github/v/tag/eallion/eallion.com">
   </a>
   <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer">
-    <img no-view src="https://img.shields.io/github/commits-since/eallion/eallion.com/v3.0.4/main">
+    <img no-view src="https://img.shields.io/github/commits-since/eallion/eallion.com/v3.0.5/main">
   </a>
   <a href="https://github.com/eallion/eallion.com/commits/main" target="_blank" rel="noopener noreferrer">
     <img no-view src="https://img.shields.io/github/last-commit/eallion/eallion.com">
