@@ -12,13 +12,19 @@
 <meta name="referrer" content="no-referrer">
 
 <style>
-    body {
+    body,
+    body[theme=dark],
+    body[theme=black] {
         background-color: #1b2838;
     }
-
     .page {
         width: 100% !important;
         overflow: hidden;
+        background-color: transparent;
+    }
+
+    [theme="dark"] .page,
+    [theme="black"] .page {
         background-color: transparent;
     }
 
