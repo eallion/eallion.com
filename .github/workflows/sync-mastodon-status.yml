@@ -1,4 +1,4 @@
-name: Fetch mastodon status
+name: Sync mastodon status
 
 on:
 #  schedule:
