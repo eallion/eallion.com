@@ -12,14 +12,19 @@
 <meta name="referrer" content="no-referrer">
 
 <style>
+    body {
+        background-color: #1b2838;
+    }
+
     .page {
         width: 100% !important;
         overflow: hidden;
+        background-color: transparent;
     }
 
     .page.single,
     .page.archive {
-        padding: 1rem 0 2rem;
+        padding: 1rem 0 0;
     }
 
     .single-title {
@@ -94,9 +99,13 @@
     }
 
     ._29H3o3m-GUmx6UfXhQaDAm {
-        margin-bottom: 10px;
+        margin-bottom: 1.25rem;
         position: relative;
         width: 100%
+    }
+
+    ._29H3o3m-GUmx6UfXhQaDAm:last-child {
+        margin-bottom: 3rem;
     }
 
     ._2-pQFn1G7dZ7667rrakcU3 {
@@ -275,7 +284,7 @@
         }
 
         ._2-pQFn1G7dZ7667rrakcU3 .bDheibeyyAaooxTc0G5Bh {
-                display: none;
+            display: none;
         }
 
         ._2-pQFn1G7dZ7667rrakcU3 ._1bAC6eBHy0MpRWrwTkgT9o {
@@ -691,6 +700,52 @@
     .dropdown-menu ._3aNUlXqnUCLTuW3Aeu2vQ1 {
         border-radius: 0;
     }
+
+    .steam-title {
+        color: #c4c4c4;
+        font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        font-size: 1.6rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        letter-spacing: 0.125rem;
+        font-weight: normal !important;
+    }
+
+    .steam-title i {
+        font-size: 2rem;
+    }
+
+    .steam-background {
+        position: absolute;
+        height: auto;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: -10;
+        margin-top: 3.5rem;
+    }
+
+    .steam-background img {
+        width: 100%;
+    }
+
+    .steam-background:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 5%) 0%, rgba(27, 40, 56, 0.8) 80%, rgba(27, 40, 56, 0.99) 100%);
+    }
+
+    footer,
+    footer a {
+        color: #c4c4c4;
+    }
 </style>
 
 {{ $steam := getJSON "data/steam/steam_web_api.json" }}
@@ -718,14 +773,13 @@
 {{ $currentTime := now.Unix }}
 {{ $yearsSince := div (sub $currentTime $timeCreatedUnix) 31536000 }}
 
+<div class="steam-background">
+    <img class="lazy" src="/assets/images/steam/steam_bg_dots.png" data-src="/assets/images/steam/steam_bg_dots.png" alt title/>
+</div>
+
 <article class="page single special">
-    <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
+    <h1 class="single-title animate__animated animate__pulse animate__faster steam-title"><i class="fab fa-steam"></i> {{ .Title }}</h1>
     <div id="content" class="content">
-        <div class="greyQuote">
-            <blockquote>
-                {{ T `steam_quote` | safeHTML }}
-            </blockquote>
-        </div>
 
         <div class="profile">
             <div id="card" class="card"><img class="lazy" src="/assets/images/steam/steam_card.svg" data-src="lazy.jpg" alt title/></div>
