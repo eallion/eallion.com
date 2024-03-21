@@ -1,7 +1,7 @@
 ---
 title: "嘀咕"
 images: ["/assets/images/og/toots.png"]
-layout: "toot"
+layout: "mastodon"
 type: 'page'
 comment: false
 aliases:
@@ -11,5 +11,5 @@ aliases:
     - /memo
     - /x
     - /twitter
-    - /mastodon
+    - /toot
 ---

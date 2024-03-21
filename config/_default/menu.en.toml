@@ -24,12 +24,12 @@
   title = "All Article"
   weight = "2"
 [[main]]
-  identifier = "toots"
+  identifier = "mastodon"
   pre = "<i class='fab fa-mastodon'></i>"
   post = ""
-  name = "Toots"
-  url = "/toot/"
-  title = "Toots"
+  name = "Mastodon"
+  url = "/mastodon/"
+  title = "Mastodon Toots"
   weight = "3"
 [[main]]
   identifier = "neodb"
@@ -39,6 +39,14 @@
   url = "/media/"
   title = "NeoDB Movie TV Book Music Game"
   weight = "4"
+[[main]]
+  identifier = "steam"
+  pre = "<i class='fab fa-steam'></i>"
+  post = ""
+  name = "Steam"
+  url = "/steam/"
+  title = "Steam Games"
+  weight = "5"
 # [[main]]
 #   identifier = "goods"
 #   pre = "<i class='fas fa-gift'></i>"
