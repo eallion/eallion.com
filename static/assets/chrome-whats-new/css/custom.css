@@ -17,7 +17,7 @@ body {
     padding-top: 1.5rem !important;
 }
 
-@media only screen and (max-width: 680px){
+@media only screen and (max-width: 680px) {
     .page {
         padding-top: 3.5rem !important;
     }
@@ -36,17 +36,11 @@ body {
     object-fit: cover
 }
 
-.chr-hero-light-gm3 .chr-headline-1 {
-    color: #fff;
+.chr-hero-light-gm3__body img {
+    margin: auto;
 }
 
-.chr-hero-light-gm3__body {
-    max-width: 100%;
-    display: block;
-    margin: 0 auto
-}
-
-@media only screen and (min-width: 1440px){
+@media only screen and (min-width: 1440px) {
     .dark-theme .chr-hero-light-gm3__secondary-shape {
         background-color: #003355;
     }
@@ -216,7 +210,7 @@ body[theme="dark"].dark-theme .chr-hero-light-gm3 {
 body[theme="black"].dark-theme .chr-footer--white,
 body[theme="black"].dark-theme .chr-fifty-fifty-text-image-gm3,
 body[theme="black"].dark-theme .chr-archive-gm3,
-body[theme="black"].dark-theme .chr-hero-light-gm3  {
+body[theme="black"].dark-theme .chr-hero-light-gm3 {
     background-color: #000;
 }
 
