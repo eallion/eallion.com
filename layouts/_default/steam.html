@@ -63,8 +63,8 @@
         background-repeat: no-repeat;
         background-position: center;
         */
-        width: 400px;
-        height: 150px;
+        width: 100%;
+        height: auto;
     }
 
     .games {
@@ -243,95 +243,6 @@
         align-items: end;
         justify-content: flex-end
     }
-
-    @media(max-width: 51rem) {
-        ._2-pQFn1G7dZ7667rrakcU3 {
-            grid-template-areas: "image title title" "image playtime download" "links playtime download";
-            grid-template-columns: 184px 1fr auto;
-            grid-template-rows: auto auto 1fr;
-            row-gap: 5px
-        }
-
-        ._2-pQFn1G7dZ7667rrakcU3 ._1bAC6eBHy0MpRWrwTkgT9o {
-            width: 184px;
-            height: 86px
-        }
-
-        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh {
-            display: grid;
-            grid-template-areas: "total lastPlayed empty" "achievements achievements achievements";
-            grid-template-columns: auto auto 1fr;
-            grid-template-rows: auto auto;
-            align-content: space-between;
-            gap: 8px
-        }
-
-        ._2-pQFn1G7dZ7667rrakcU3 ._1yvGN-lhGKwgwFZ0hqNf3 {
-            width: 100%
-        }
-
-        ._2-pQFn1G7dZ7667rrakcU3 ._1sruH2EotKih-5xc1nw_Ak {
-            display: none
-        }
-    }
-
-    @media(max-width: 30rem) {
-        ._2-pQFn1G7dZ7667rrakcU3 {
-            grid-template-areas: "image title" "image playtime";
-            grid-template-columns: 93px 1fr;
-            grid-template-rows: auto 1fr;
-            text-align: left;
-            width: 100%;
-            border: none;
-            align-items: stretch;
-            padding: 0;
-            padding-right: var(--padding);
-            background-color: rgba(58, 64, 74, .2)
-        }
-
-        ._2-pQFn1G7dZ7667rrakcU3 .bDheibeyyAaooxTc0G5Bh {
-            display: none;
-        }
-
-        ._2-pQFn1G7dZ7667rrakcU3 ._1bAC6eBHy0MpRWrwTkgT9o {
-            width: 93px;
-            height: 140px
-        }
-
-        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh {
-            gap: 4px;
-            align-content: start;
-            display: flex;
-            flex-direction: column;
-            align-items: stretch
-        }
-
-        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh ._26nl3MClDebGDV7duYjZVn {
-            flex-direction: row;
-            gap: 1ch
-        }
-
-        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh ._38RhR5f2dCM0suwMTTCyMk {
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr auto;
-            gap: 8px;
-            padding-bottom: var(--padding);
-            align-self: stretch
-        }
-
-        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh ._2jglu-fYE_XNY6tkn6J99Y {
-            display: none
-        }
-
-        ._2-pQFn1G7dZ7667rrakcU3 ._1uRB5he6cj97y-rG3RcI6H {
-            display: none
-        }
-
-        ._2-pQFn1G7dZ7667rrakcU3 ._35fxd2upwJHRuX_fNyRbbM {
-            display: none
-        }
-    }
-
     ._3aNUlXqnUCLTuW3Aeu2vQ1 {
         background: rgba(58, 64, 74, .5);
         border-radius: 2px;
@@ -457,35 +368,6 @@
     /*  Merge from steam profile.css  */
     .profile_header_badgeinfo {
         float: right;
-    }
-
-    @media screen and (max-width: 700px) {
-
-        html.responsive .profile_header_badgeinfo {
-            float: none;
-            overflow: hidden;
-        }
-
-    }
-
-    @media screen and (max-width: 460px) {
-
-        html.responsive .profile_header_badgeinfo {
-            float: none;
-            overflow: visible;
-        }
-
-        html.responsive .profile_header_badgeinfo_badge_area {
-            float: none;
-            overflow: hidden;
-            max-width: 50%;
-            max-width: calc(100% - 125px - 20px);
-        }
-
-        html.responsive .profile_header_badgeinfo_badge_area .profile_header_badge {
-            margin-bottom: 0;
-        }
-
     }
 
     .profile_header_badgeinfo .persona_level {
@@ -616,17 +498,15 @@
     }
 
     .steam_lever_icon {
-        display: inline-block;
-        font-size: 16px;
-        border-radius: 50%;
-        border: solid #c02942 2px;
-        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 32px;
-        text-align: center;
-        cursor: default;
+        height: 32px;
+        border: 2px solid #c02942;
+        border-radius: 50%;
+        font-size: 16px;
         color: #fff;
-        line-height: 32px;
-        vertical-align: middle;
     }
 
     .steam_lever_icon:hover {
@@ -752,6 +632,144 @@
     footer a {
         color: #c4c4c4;
     }
+
+    @media screen and (max-width: 700px) {
+
+        html.responsive .profile_header_badgeinfo {
+            float: none;
+            overflow: hidden;
+        }
+
+    }
+
+    @media screen and (max-width: 460px) {
+
+        html.responsive .profile_header_badgeinfo {
+            float: none;
+            overflow: visible;
+        }
+
+        html.responsive .profile_header_badgeinfo_badge_area {
+            float: none;
+            overflow: hidden;
+            max-width: 50%;
+            max-width: calc(100% - 125px - 20px);
+        }
+
+        html.responsive .profile_header_badgeinfo_badge_area .profile_header_badge {
+            margin-bottom: 0;
+        }
+
+    }
+
+    @media(max-width: 51rem) {
+        ._2-pQFn1G7dZ7667rrakcU3 {
+            grid-template-areas: "image title title" "image playtime download" "links playtime download";
+            grid-template-columns: 184px 1fr auto;
+            grid-template-rows: auto auto 1fr;
+            row-gap: 5px
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._1bAC6eBHy0MpRWrwTkgT9o {
+            width: 184px;
+            height: 86px
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh {
+            display: grid;
+            grid-template-areas: "total lastPlayed empty" "achievements achievements achievements";
+            grid-template-columns: auto auto 1fr;
+            grid-template-rows: auto auto;
+            align-content: space-between;
+            gap: 8px
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._1yvGN-lhGKwgwFZ0hqNf3 {
+            width: 100%
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._1sruH2EotKih-5xc1nw_Ak {
+            display: none
+        }
+    }
+
+    @media(max-width: 30rem) {
+        ._2-pQFn1G7dZ7667rrakcU3 {
+            grid-template-areas: "image title" "image playtime";
+            grid-template-columns: 93px 1fr;
+            grid-template-rows: auto 1fr;
+            text-align: left;
+            width: 100%;
+            border: none;
+            align-items: stretch;
+            padding: 0;
+            padding-right: var(--padding);
+            background-color: rgba(58, 64, 74, .2)
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 .bDheibeyyAaooxTc0G5Bh {
+            display: none;
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._1bAC6eBHy0MpRWrwTkgT9o {
+            width: 93px;
+            height: 140px
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh {
+            gap: 4px;
+            align-content: start;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh ._26nl3MClDebGDV7duYjZVn {
+            flex-direction: row;
+            gap: 1ch
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh ._38RhR5f2dCM0suwMTTCyMk {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr auto;
+            gap: 8px;
+            padding-bottom: var(--padding);
+            align-self: stretch
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._2EeyhCvW_KhEdtuarguZYh ._2jglu-fYE_XNY6tkn6J99Y {
+            display: none
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._1uRB5he6cj97y-rG3RcI6H {
+            display: none
+        }
+
+        ._2-pQFn1G7dZ7667rrakcU3 ._35fxd2upwJHRuX_fNyRbbM {
+            display: none
+        }
+    }
+
+    @media(max-width: 680px) {
+        .profile {
+            flex-direction: column;
+        }
+        .card,
+        .profile_info {
+            display: flex;
+            flex-direction: row;
+            max-width: 400px;
+            width: 100%;
+            align-items: flex-start;
+            justify-content: flex-end;
+            padding-right: 0;
+            padding-left: 8px;
+        }
+        .profile_info_badge {
+            margin-left: 1rem;
+        }
+    }
+
 </style>
 
 {{ $steam := getJSON "data/steam/steam_web_api.json" }}
