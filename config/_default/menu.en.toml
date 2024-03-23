@@ -72,6 +72,14 @@
   title = "Friends links"
   weight="7"
 [[main]]
+  identifier = "stats"
+  name="Stats"
+  pre = "<i class='fas fa-chart-bar'></i>"
+  post = ""
+  url="/stats/"
+  title = "Stats"
+  weight="9"
+[[main]]
   identifier = "about"
   pre = "<i class='fas fa-info'></i>"
   post = ""
