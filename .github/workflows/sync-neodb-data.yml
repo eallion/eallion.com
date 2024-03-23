@@ -170,7 +170,7 @@ jobs:
         # 遍历图片 URL 并下载图片
         for url in $image_urls; do
           filename=$(basename "$url")
-          filepath="static/assets/images/movie/cover/$filename"
+          filepath="assets/images/neodb/cover/$filename"
           # 检查文件是否已存在
           if [ -f "$filepath" ]; then
             echo "Skipping $filename - File already exists"
@@ -206,7 +206,7 @@ jobs:
         committer_email: 'github-actions[bot]@users.noreply.github.com'
         add: |
           './data/neodb'
-          './static/assets/images/movie/cover'
+          './assets/images/neodb/cover'
 
     # # 调用另外的 GitHub Actions 构建 Hugo
     - name: Build Hugo and Deploy
@@ -220,7 +220,7 @@ jobs:
       if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
       run: |
         git clone https://github.com/eallion/static tmp
-        cp -rn static/assets/images/movie/cover/* tmp/images/neodb/
+        cp -rn assets/images/neodb/cover/* tmp/images/neodb/
         cd tmp
         git config user.name "eallion"
         git config user.email "eallions@gmail.com"

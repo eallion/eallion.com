@@ -798,7 +798,7 @@
 {{ $yearsSince := div (sub $currentTime $timeCreatedUnix) 31536000 }}
 
 <div class="steam-background">
-    <img class="lazy" src="/assets/images/steam/steam_bg_dots.png" data-src="/assets/images/steam/steam_bg_dots.png" alt title/>
+    <img class="lazy" data-src="/assets/images/steam/steam_bg_dots.png" alt title/>
 </div>
 
 <article class="page single special">
@@ -806,7 +806,7 @@
     <div id="content" class="content">
 
         <div class="profile">
-            <div id="card" class="card"><img class="lazy" src="/assets/images/steam/steam_card.svg" data-src="lazy.jpg" alt title/></div>
+            <div id="card" class="card"><img class="lazy" src="/assets/images/steam/steam_card.svg" data-src="" alt title/></div>
             <script>
                 const appIds = {{ $appIdsJSON }};
             </script>
@@ -836,7 +836,7 @@
                     <a href="https://steamcommunity.com/id/eallion/badges/1" class="favorite_badge" rel="nofollow noopener noreferrer" target="_blank">
                         <div class="favorite_badge_icon">
                             <span>帐户服务年资<br>自 2007 年 4 月 5 日以来的成员。</span>
-                            <img src="https://community.akamai.steamstatic.com/public/images/badges/02_years/steamyears{{ $yearsSince }}_54.png"
+                            <img src="/assets/images/steam/badges/steamyears{{ $yearsSince }}_54.png"
                                 class="badge_icon small" alt title>
                         </div>
                         <div class="favorite_badge_description">
@@ -862,6 +862,9 @@
 
                 {{ $appName := .name }}
 
+                {{ $gameLibrary := printf "images/steam/library/%s.jpg" $appId }}
+                {{ $gameHeader := printf "images/steam/header/%s.jpg" $appId }}
+
                 {{ $playedTime := .playtime_forever }}
                 {{ $playedTimeInHours := math.Div $playedTime 60 }}
                 {{ $playedTimeInHoursRounded := math.Round (mul $playedTimeInHours 10) }}
@@ -879,8 +882,11 @@
                             target="_blank" class="_1bAC6eBHy0MpRWrwTkgT9o" tabindex="0">
                             <div class="_1CHM8-0EM9IeDAZ47-cYit">
                                 <picture>
-                                    <source media="(max-width: 30rem)" data-srcset="https://cdn.akamai.steamstatic.com/steam/apps/{{ $appId }}/library_600x900.jpg">
-                                    <img class="lazy" src="/assets/images/steam/defaultappheader.png" data-src="https://cdn.akamai.steamstatic.com/steam/apps/{{ $appId }}/header.jpg" data-appid="{{ $appId }}" alt="{{ $appName }}" loading="lazy">
+                                    {{ with resources.Get $gameHeader }}
+                                        {{ with .Resize "259x webp" }}
+                                            <img class="lazy" src="/assets/images/steam/defaultappheader.png" data-src="{{ .RelPermalink }}" data-appid="{{ $appId }}" alt="{{ $appName }}" loading="lazy">
+                                        {{ end }}
+                                    {{ end }}
                                 </picture>
                             </div>
                         </a><span class="w6q9piMq3gT16oj_lEvpy"><a href="https://store.steampowered.com/app/{{ $appId }}"

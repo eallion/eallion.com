@@ -82,6 +82,50 @@ jobs:
         CURRENT_MD5=$(md5sum data/steam/steam_web_api.json | cut -d ' ' -f 1)
         echo "CURRENT_MD5=$CURRENT_MD5" >> $GITHUB_ENV
 
+    - name: Download Steam Cover
+      run: |
+        # 检查 steam 目录是否存在，如果不存在则创建
+        if [ ! -d "steam" ]; then
+          mkdir steam
+        fi
+
+        # 读取本地的 steam_web_api.json 文件内容
+        json=$(cat data/steam/steam_web_api.json)
+
+        # 提取图片 URL
+        appIds=$(echo "$json" | jq -r '.response.games[].appid')
+
+        # 遍历 appid
+        for appId in $appIds; do
+          # 提取图片 URL
+          header_img="https://cdn.cloudflare.steamstatic.com/steam/apps/$appId/header.jpg"
+          # library_img="https://cdn.cloudflare.steamstatic.com/steam/apps/$appId/library_600x900.jpg"
+
+          # 遍历 Header 图片 URL 并下载图片
+          filename="$appId.jpg"
+          filepath="assets/images/steam/header/$filename"
+          # 检查文件是否已存在
+          if [ -f "$filepath" ]; then
+            echo "Skipping $filename - File already exists"
+          else
+            # 使用 curl 命令下载图片
+            curl -o "$filepath" "$header_img"
+            echo "Downloaded $filename"
+          fi
+
+          # 遍历 Library 图片 URL 并下载图片
+          # filename="$appId.jpg"
+          # filepath="assets/images/steam/library/$filename"
+          # # 检查文件是否已存在
+          # if [ -f "$filepath" ]; then
+          #   echo "Skipping $filename - File already exists"
+          # else
+          #   # 使用 curl 命令下载图片
+          #   curl -o "$filepath" "$library_img"
+          #   echo "Downloaded $filename"
+          # fi
+        done
+
     # 对比 MD5
     - name: MD5 Compare
       run: |
