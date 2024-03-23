@@ -22,21 +22,6 @@
         background-color: transparent;
     }
 
-    .loading {
-        /* position: absolute; */
-        width: 3rem;
-        height: 3rem;
-        margin: auto;
-        margin-top: 2rem;
-        /* top: calc(14% - 1.5rem); */
-        /* right: calc(50% - 1.5rem); */
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cg%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 64 64' to='360 64 64' dur='1000ms' repeatCount='indefinite'/%3E%3Cpath d='M64 6.69a57.3 57.3 0 1 1 0 114.61A57.3 57.3 0 0 1 6.69 64' fill='none' stroke='%23404040' stroke-width='12'/%3E%3C/g%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-color: transparent;
-        background-size: min(2.5rem, calc(100% - 0.5rem));
-    }
-
     .movie {
         /* width: 100vw;
         margin-left: calc(50% - 50vw); */
@@ -912,12 +897,17 @@
             {{ $imdb := printf "https://www.imdb.com/title/%s" .imdb}}
             {{ $cover := .cover_image_url }}
             {{ $cover_name := path.Base $cover }}
+            {{ $movieCover := printf "images/neodb/cover/%s" $cover_name }}
             {{ $brief := .brief }}
             {{ $category  := .category }}
 
             <div class="card m-cate-{{ $category }}">
                 <div class="poster">
-                    <img alt="{{- $title -}}" class="lazy" loading="lazy" src="/assets/images/movie/cover/{{- $cover_name -}}" data-src="/assets/images/movie/cover/{{- $cover_name -}}" no-view>
+                    {{ with resources.Get $movieCover }}
+                        {{ with .Resize "256x webp" }}
+                            <img alt="{{- $title -}}" class="lazy" loading="lazy" src="/assets/images/movie/cover.png" data-src="{{ .RelPermalink }}" no-view>
+                        {{ end }}
+                    {{ end }}
                 </div>
                 <div class="movie-cate">
                     {{- if eq $category "movie" -}}

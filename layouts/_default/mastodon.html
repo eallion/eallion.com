@@ -70,7 +70,7 @@
                                             {{ if eq $type "image" }}
                                                 <div class="toot-images grid-{{ $length }}" view-image>
                                                     {{ range .media_attachments }}
-                                                    <!-- <img loading="lazy" class="lazy" src="{{.preview_url}}" data-src="{{.url}}" alt="{{.id}}" /> -->
+                                                    <!-- <img loading="lazy" class="lazy" data-src="{{.url}}" alt="{{.id}}" /> -->
                                                     <figure>
                                                         <a class="lightgallery" href="{{.url}}" title="{{.url}}" data-thumbnail="{{.preview_url}}">
                                                             <img loading="lazy" src="{{.url}}" srcset="{{.url}},
@@ -197,7 +197,7 @@
                                             {{ if eq $type "image" }}
                                                 <div class="toot-images grid-{{ $length }}" view-image>
                                                     {{ range .media_attachments }}
-                                                    <!-- <img loading="lazy" class="lazy" src="{{.preview_url}}" data-src="{{.url}}" alt="{{.id}}" /> -->
+                                                    <!-- <img loading="lazy" class="lazy" data-src="{{.url}}" alt="{{.id}}" /> -->
                                                     <figure>
                                                         <a class="lightgallery" href="{{.url}}" title="{{.url}}" data-thumbnail="{{.preview_url}}">
                                                             <img loading="lazy" src="{{.url}}" srcset="{{.url}},

@@ -141,27 +141,57 @@
         <div class="pentas" view-image>
 
             {{ range $penta.penta }}
+
+            {{ $screenshotSrc := .src }}
+            {{ $screenshot := printf "images/penta/screenshot/%s" $screenshotSrc }}
+
+            {{ $date := .date }}
+            {{ $caption := .caption }}
+
+            {{ $championSrc := .champion }}
+            {{ $champion := printf "images/penta/hero/%s.png" $championSrc }}
+            {{ $heroId := .heroId }}
+
             <div class="penta">
                 <div class="screenshot">
-                    <figure>
-                        <a class="lightgallery" href="{{ .src }}" title="{{ .caption }} {{ .date }}" data-thumbnail="{{ .src }}">
-                            <img loading="lazy" src="{{ .src }}" srcset="{{ .src }},
-                                {{ .src }} 1.5x,
-                                {{ .src }} 2x" alt="{{ .caption }} {{ .date }}">
-                        </a>
-                    </figure>
+                    {{ with resources.Get $screenshot }}
+                        {{ with .Resize "1440x webp" }}
+                            <figure>
+                                <a class="lightgallery"
+                                    href="{{ .RelPermalink }}"
+                                    title="{{ $caption }} {{ $date }}"
+                                    data-thumbnail="{{ .RelPermalink }}">
+                                    <img class="lazy"
+                                        loading="lazy"
+                                        src="/assets/images/penta/screenshot.png"
+                                        data-src="{{ .RelPermalink }}"
+                                        data-srcset="{{ .RelPermalink }},
+                                            {{ .RelPermalink }} 1.5x,
+                                            {{ .RelPermalink }} 2x"
+                                        alt="{{ $caption }} {{ $date }}">
+                                </a>
+                            </figure>
+                        {{ end }}
+                    {{ end }}
                 </div>
                 <div class="champions">
-                    <a href="https://101.qq.com/#/hero-detail?heroid={{ .heroId }}" target="_blank" rel="noreferrer noopener nofollow">
-                        <span class="champAvatar">
-                            <img class="lazy" loading="lazy"
-                                data-src="/assets/images/penta/hero/{{ .champion }}.png"
-                                alt="{{ .champion }} {{ .caption }}" no-view>
-                        </span>
-                        <span class="caption">
-                            {{ .caption }}
-                        </span>
-                    </a>
+                    {{ with resources.Get $champion }}
+                        {{ with .Resize "18x webp" }}
+                            <a href="https://101.qq.com/#/hero-detail?heroid={{ $heroId }}" target="_blank" rel="noreferrer noopener nofollow">
+                                <span class="champAvatar">
+                                    <img class="lazy"
+                                        loading="lazy"
+                                        src="/assets/images/penta/hero.png"
+                                        data-src="{{ .RelPermalink }}"
+                                        alt="{{ $championSrc }} {{ $champion }}"
+                                        no-view>
+                                </span>
+                                <span class="caption">
+                                    {{ $caption }}
+                                </span>
+                            </a>
+                        {{ end }}
+                    {{ end }}
                 </div>
 
                 <div class="date">
