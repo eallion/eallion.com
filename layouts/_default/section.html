@@ -125,18 +125,30 @@
                 data.push([key, value.length]);
             }
 
-            var endDate = new Date();
-            var startDate = new Date(endDate);
+                var endDate = new Date();
+                var startDate = new Date(endDate);
 
-            // 获取屏幕宽度
-            var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+                // 获取屏幕宽度
+                var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-            // 如果屏幕宽度小于680，设置 startDate 为 6 个月前
-            if (screenWidth < 680) {
-                startDate.setMonth(startDate.getMonth() - 6);
-            } else {
-                startDate.setFullYear(startDate.getFullYear() - 1);
-            }
+                // 如果屏幕宽度适配 DoIt 主题
+                if (screenWidth >= 1440) {
+                    startDate.setFullYear(startDate.getFullYear() - 1);
+                } else if (screenWidth >= 1200) {
+                    startDate.setMonth(startDate.getMonth() - 10);
+                } else if (screenWidth >= 1000) {
+                    startDate.setMonth(startDate.getMonth() - 9);
+                } else if (screenWidth >= 768) {
+                    startDate.setMonth(startDate.getMonth() - 10);
+                } else if (screenWidth >= 680) {
+                    startDate.setMonth(startDate.getMonth() - 6);
+                } else if (screenWidth >= 400) {
+                    startDate.setMonth(startDate.getMonth() - 5);
+                } else if (screenWidth >= 300) {
+                    startDate.setMonth(startDate.getMonth() - 4);
+                } else {
+                    startDate.setFullYear(startDate.getFullYear() - 1);
+                }
 
             startDate = +startDate;
             endDate = +endDate;

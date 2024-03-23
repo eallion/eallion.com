@@ -463,6 +463,12 @@ other = "LOL 五杀："
 [stats_heatmap]
 other = "文章热力图"
 
+[stats_annual_header]
+other = "按年份统计 - 文章数"
+
+[stats_categore_header]
+other = "按分类统计 - 文章数"
+
 [stats_blogs_suffix]
 other = "篇；"
 
