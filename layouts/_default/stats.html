@@ -3,63 +3,83 @@
 {{- define "content" -}}
 {{- $params := .Scratch.Get "params" -}}
 
-    {{$articleCount := 0}}
-    {{$pageCount := 0}}
-    {{$categoryCount := 0}}
-    {{$categories := slice}}
-    {{$tagCount := 0}}
-    {{$tags := slice}}
-        {{range .Site.RegularPages}}
-            {{if eq .Type "posts"}}
-                {{$articleCount = add $articleCount 1}}
-            {{end}}
-            {{if eq .Params.type "page"}}
-                {{$pageCount = add $pageCount 1}}
-            {{end}}
-            {{if .Params.categories}}
-                {{$categories = union $categories .Params.categories}}
-            {{end}}
-            {{if .Params.tags}}
-                {{$tags = union $tags .Params.tags}}
-            {{end}}
+{{- /* ECharts js */ -}}
+{{- $cdn := .Scratch.Get "cdn" | default dict -}}
+{{- $fingerprint := .Scratch.Get "fingerprint" -}}
+
+{{- $source := $cdn.echartsJS | default "lib/echarts/echarts.min.js" -}}
+{{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+{{- $source := $cdn.echartsMacaronsJS | default "lib/echarts/macarons.min.js" -}}
+{{- dict "Source" $source "Minify" true "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+
+{{- /* Stats */ -}}
+{{$articleCount := 0}}
+{{$pageCount := 0}}
+{{$categoryCount := 0}}
+{{$categories := slice}}
+{{$tagCount := 0}}
+{{$tags := slice}}
+    {{range .Site.RegularPages}}
+        {{if eq .Type "posts"}}
+            {{$articleCount = add $articleCount 1}}
         {{end}}
-    {{$categoryCount = len $categories}}
-    {{$tagCount = len $tags}}
+        {{if eq .Params.type "page"}}
+            {{$pageCount = add $pageCount 1}}
+        {{end}}
+        {{if .Params.categories}}
+            {{$categories = union $categories .Params.categories}}
+        {{end}}
+        {{if .Params.tags}}
+            {{$tags = union $tags .Params.tags}}
+        {{end}}
+    {{end}}
 
-    {{$scratch := newScratch}}
-    {{ range (where .Site.Pages "Kind" "page" )}}
-        {{$scratch.Add "total" .WordCount}}
-    {{ end }}
-    {{$totalWords := $scratch.Get "total" }}
+{{ $posts := where .Site.RegularPages "Type" "posts" }}
+{{ $stats := slice }}
+{{ range $posts }}
+    {{ $date := .Date.Format "2006" }}
+    {{ $categories := .Params.categories }}
+    {{ $stats = $stats | append (dict "date" $date "categories" $categories) }}
+{{ end }}
 
-    {{$categoryCounts := dict}}
-    {{$totalArticles := $articleCount}}
+{{$categoryCount = len $categories}}
+{{$tagCount = len $tags}}
 
-    {{ $mastodon := getJSON "data/mastodon/mastodon.json" }}
-    {{ $statusesCount := index $mastodon 0 "account" "statuses_count" }}
+{{$scratch := newScratch}}
+{{ range (where .Site.Pages "Kind" "page" )}}
+    {{$scratch.Add "total" .WordCount}}
+{{ end }}
+{{$totalWords := $scratch.Get "total" }}
 
-    {{ $neodbCount := getJSON "data/neodb/movie_details.json" }}
-    {{ $pentaCount := getJSON "data/penta/penta.json" }}
+{{$categoryCounts := dict}}
+{{$totalArticles := $articleCount}}
 
-    {{- $steam_web_api_url := "https://steam-web-api.eallion.com/ownedgames" -}}
-    {{- $steam_web_api := getJSON "data/steam/steam_web_api.json" -}}
-    {{- $steamCount :=$steam_web_api.response.game_count -}}
+{{ $mastodon := getJSON "data/mastodon/mastodon.json" }}
+{{ $statusesCount := index $mastodon 0 "account" "statuses_count" }}
 
-    <style>
-        #heatmap,
-        #annual,
-        #category {
-            max-width: 800px;
-            width: 92%;
-            height: 110px;
-            margin: 2rem auto;
-        }
-        #annual,
-        #category {
-            height: 30rem;
-        }
+{{ $neodbCount := getJSON "data/neodb/movie_details.json" }}
+{{ $pentaCount := getJSON "data/penta/penta.json" }}
 
-    </style>
+{{- $steam_web_api_url := "https://steam-web-api.eallion.com/ownedgames" -}}
+{{- $steam_web_api := getJSON "data/steam/steam_web_api.json" -}}
+{{- $steamCount :=$steam_web_api.response.game_count -}}
+
+<style>
+    #heatmap,
+    #annual,
+    #category {
+        max-width: 800px;
+        width: 92%;
+        height: 110px;
+        margin: 0 auto;
+    }
+
+    #annual,
+    #category {
+        height: 30rem;
+    }
+</style>
+
     <div class="page single archive">
         {{- /* Title */ -}}
         <h1 class="single-title animate__animated animate__pulse animate__faster">
@@ -86,12 +106,19 @@
                 </ul>
             </div>
 
-            <h3 id="文章热力图" class="headerLink"><a href="#文章热力图" class="header-mark" title="header-mark"></a>{{ T `stats_heatmap` | safeHTML }}</h3>
+            <h3 id="{{ T `stats_heatmap` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_heatmap` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_heatmap` | safeHTML }}</h3>
             <div id="heatmap"></div>
+
+            <h3 id="{{ T `stats_annual_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_annual_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_annual_header` | safeHTML }}</h3>
+            <div id="annual" data-stats="{{- $.Scratch.Get "stats" -}}"></div>
+
+            <h3 id="{{ T `stats_categore_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_categore_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_categore_header` | safeHTML }}</h3>
+            <div id="category"></div>
 
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
 
             <script type="text/javascript">
+                // 生成热力图
                 (function() {
                 document.addEventListener("DOMContentLoaded", function() {
                     var heatmapChart = echarts.init(document.getElementById("heatmap"));
@@ -126,9 +153,21 @@
                     // 获取屏幕宽度
                     var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-                    // 如果屏幕宽度小于680，设置 startDate 为 6 个月前
-                    if (screenWidth < 680) {
+                    // 如果屏幕宽度适配 DoIt 主题
+                    if (screenWidth >= 1440) {
+                        startDate.setFullYear(startDate.getFullYear() - 1);
+                    } else if (screenWidth >= 1200) {
+                        startDate.setMonth(startDate.getMonth() - 10);
+                    } else if (screenWidth >= 1000) {
+                        startDate.setMonth(startDate.getMonth() - 9);
+                    } else if (screenWidth >= 768) {
+                        startDate.setMonth(startDate.getMonth() - 10);
+                    } else if (screenWidth >= 680) {
                         startDate.setMonth(startDate.getMonth() - 6);
+                    } else if (screenWidth >= 400) {
+                        startDate.setMonth(startDate.getMonth() - 5);
+                    } else if (screenWidth >= 300) {
+                        startDate.setMonth(startDate.getMonth() - 4);
                     } else {
                         startDate.setFullYear(startDate.getFullYear() - 1);
                     }
@@ -217,9 +256,9 @@
                             },
                             yearLabel: { show: false },
                             monthLabel: {
-                            nameMap: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                            textStyle: {
-                                color: currentTheme.dateColor,
+                                nameMap: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                                textStyle: {
+                                    color: currentTheme.dateColor,
                             }
                         },
                             dayLabel: {
@@ -276,7 +315,183 @@
                 })();
             </script>
 
-            <!-- <script>
+            <script type="text/javascript">
+                // 按年统计
+                (function() {
+                    document.addEventListener("DOMContentLoaded", function() {
+                        var chartDom = document.getElementById('annual');
+                        var myChart = echarts.init(chartDom, 'macarons');
+                        var option;
+
+                        // 获取文章数据
+                        var articles = {{ $stats }};
+
+                        // 获取分类数据
+                        var categories = ['所有文章', '日志', '代码', '分享', '山贼'];
+
+                        // 构造 x 轴数据
+                        var currentYear = new Date().getFullYear();
+                        var years = [];
+                        for (var i = 2006; i <= currentYear; i++) {
+                            years.push(i.toString());
+                        }
+
+                        // 构造分类数据
+                        var seriesData = [];
+                        for (var j = 1; j< categories.length; j++) {
+                            var category = categories[j];
+                            var categoryData = [];
+                            for (var k = 0; k< years.length; k++) {
+                                var year = years[k];
+                                var count = articles.filter(function(article) {
+                                    return article.date === year && article.categories.includes(category);
+                                }).length;
+                                categoryData.push(count);
+                            }
+                            seriesData.push({
+                                name: category,
+                                type: 'line',
+                                stack: '总量',
+                                data: categoryData
+                            });
+                        }
+
+                        // 添加总文章数量序列
+                        var totalData = [];
+                        for (var k = 0; k< years.length; k++) {
+                            var year = years[k];
+                            var count = articles.filter(function(article) {
+                                return article.date === year;
+                            }).length;
+                            totalData.push(count);
+                        }
+                        seriesData.unshift({
+                            name: '所有文章',
+                            type: 'line',
+                            stack: '总量',
+                            data: totalData
+                        });
+
+                        option = {
+                            title: {
+                                text: '年份统计图',
+                                top: '2%',
+                                left: 'center'
+                            },
+                            tooltip: {
+                                trigger: 'axis'
+                            },
+                            legend: {
+                                data: categories,
+                                top: '10%'
+                            },
+                            grid: {
+                                left: '5%',
+                                right: '5%',
+                                bottom: '5%',
+                                top: '20%',
+                                containLabel: true
+                            },
+                            toolbox: {
+                                feature: {
+                                    saveAsImage: {
+                                        title: '保存为图片'
+                                    }
+                                }
+                            },
+                            xAxis: {
+                                type: 'category',
+                                boundaryGap: false,
+                                data: years
+                            },
+                            yAxis: {
+                                type: 'value'
+                            },
+                            series: seriesData
+                        };
+
+                        option && myChart.setOption(option);
+                    });
+                })();
+            </script>
+
+            <script type="text/javascript">
+                // 按分类统计
+                (function() {
+                    document.addEventListener("DOMContentLoaded", function() {
+                        var chartDom = document.getElementById('category');
+                        var myChart = echarts.init(chartDom, 'macarons');
+                        var option;
+
+                        var data = [];
+
+                        {{ range $category, $pages := .Site.Taxonomies.categories }}
+                            var category = "{{ $category }}";
+                            var count = {{ len $pages }};
+                            data.push({ value: count, name: category + '（' + count + '）' });
+                        {{ end }}
+
+                        data.sort(function(a, b) {
+                            return b.value - a.value;
+                        });
+
+                        option = {
+                            title: {
+                                text: '按分类统计 - 文章数',
+                                top: "2%",
+                                left: "center"
+                            },
+                            tooltip: {
+                                trigger: 'item'
+                            },
+                            legend: {
+                                top: '10%',
+                                left: 'center'
+                            },
+                            toolbox: {
+                                feature: {
+                                    saveAsImage: {
+                                        title: "保存为图片"
+                                    }
+                                }
+                            },
+                            series: [
+                                {
+                                name: '按分类统计',
+                                type: 'pie',
+                                radius: ['40%', '80%'],
+                                top: '10%',
+                                avoidLabelOverlap: false,
+                                padAngle: 1,
+                                itemStyle: {
+                                    borderRadius: 10
+                                },
+                                label: {
+                                    show: false,
+                                    position: 'center'
+                                },
+                                emphasis: {
+                                    label: {
+                                    show: true,
+                                    fontSize: 24,
+                                    fontWeight: 'bold'
+                                    }
+                                },
+                                labelLine: {
+                                    show: false
+                                },
+                                data: data
+                                }
+                            ],
+                        };
+                        option.legend.data = data.map(function(item) { return item.name; });
+                        option && myChart.setOption(option);
+                    });
+                })();
+            </script>
+
+            <!--
+            <script>
                 // 超时函数
                 function timeout(ms) {
                     return new Promise((_, reject) => setTimeout(() => reject(new Error('Request timeout')), ms));
@@ -324,7 +539,7 @@
                 // Steam 游戏数量
                 // 发起请求并处理响应
                 Promise.race([
-                    fetch('https://iplayerservice-getownedgames-steam-web-api.eallion.com'),
+                    fetch('https://steam-web-api.eallion.com/ownedgames'),
                     timeout(5000) // 设置超时时间（以毫秒为单位）
                 ])
                     .then(response => response.json())
@@ -338,7 +553,8 @@
                     .catch(error => {
                         console.error('Error fetching Mastodon data:', error);
                     });
-            </script> -->
+            </script>
+            -->
 
         </div>
     </div>
