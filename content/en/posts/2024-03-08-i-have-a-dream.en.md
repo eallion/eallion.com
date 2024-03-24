@@ -8,7 +8,7 @@ slug: "i-have-a-dream"
 summary: "The article discusses the ongoing struggle for freedom and equality for African Americans in America. It highlights the continued oppression faced by black people, including segregation and discrimination. The author emphasizes the need to fulfill the promises of democracy and justice, urging for immediate action rather than gradual change. The article concludes with a powerful vision of a future where all races can live together in harmony and freedom."
 draft: false
 Comments: true
-date: 2024-03-09T16:02:22+08:00
+date: 2024-03-08T16:02:22+08:00
 images: ["/assets/images/og/i-have-a-dream.png"]
 ---
 
