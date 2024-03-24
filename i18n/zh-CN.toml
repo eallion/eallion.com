@@ -466,8 +466,17 @@ other = "文章热力图"
 [stats_annual_header]
 other = "按年份统计 - 文章数"
 
-[stats_categore_header]
+[stats_category_header]
 other = "按分类统计 - 文章数"
+
+[stats_save_as_image]
+other = "另存为图片"
+
+[stats_total_posts]
+other = "所有文章"
+
+[stats_tag_cloud]
+other = "标签云"
 
 [stats_blogs_suffix]
 other = "篇；"
@@ -497,7 +506,7 @@ other = "条（已关闭评论）；"
 other = "PV（已移除统计）；"
 
 [stats_wordcount_suffix]
-other = "个；"
+other = "字；"
 
 [stats_mastodon_suffix]
 other = "条；"

@@ -112,7 +112,7 @@
             <h3 id="{{ T `stats_annual_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_annual_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_annual_header` | safeHTML }}</h3>
             <div id="annual" data-stats="{{- $.Scratch.Get "stats" -}}"></div>
 
-            <h3 id="{{ T `stats_categore_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_categore_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_categore_header` | safeHTML }}</h3>
+            <h3 id="{{ T `stats_category_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_category_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_category_header` | safeHTML }}</h3>
             <div id="category"></div>
 
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
@@ -325,9 +325,21 @@
 
                         // 获取文章数据
                         var articles = {{ $stats }};
-
                         // 获取分类数据
-                        var categories = ['所有文章', '日志', '代码', '分享', '山贼'];
+                        // var categories = ['所有文章', '日志', '代码', '分享', '山贼'];
+                        // 获取分类数据
+
+                        var categories = [];
+
+                        articles.forEach(function(article) {
+                            article.categories.forEach(function(category) {
+                                if (!categories.includes(category)) {
+                                    categories.push(category);
+                                }
+                            });
+                        });
+
+                        categories.unshift('{{ T `stats_total_posts` | safeHTML }}');
 
                         // 构造 x 轴数据
                         var currentYear = new Date().getFullYear();
@@ -365,15 +377,15 @@
                             totalData.push(count);
                         }
                         seriesData.unshift({
-                            name: '所有文章',
+                            name: '{{ T `stats_total_posts` | safeHTML }}',
                             type: 'line',
-                            stack: '总量',
+                            stack: 'Total',
                             data: totalData
                         });
 
                         option = {
                             title: {
-                                text: '年份统计图',
+                                text: '{{ T `stats_annual_header` | safeHTML }}',
                                 top: '2%',
                                 left: 'center'
                             },
@@ -394,7 +406,7 @@
                             toolbox: {
                                 feature: {
                                     saveAsImage: {
-                                        title: '保存为图片'
+                                        title: '{{ T `stats_save_as_image` | safeHTML }}'
                                     }
                                 }
                             },
@@ -436,7 +448,7 @@
 
                         option = {
                             title: {
-                                text: '按分类统计 - 文章数',
+                                text: '{{ T `stats_category_header` | safeHTML }}',
                                 top: "2%",
                                 left: "center"
                             },
@@ -450,7 +462,7 @@
                             toolbox: {
                                 feature: {
                                     saveAsImage: {
-                                        title: "保存为图片"
+                                        title: "{{ T `stats_save_as_image` | safeHTML }}"
                                     }
                                 }
                             },
@@ -488,6 +500,114 @@
                     });
                 })();
             </script>
+
+            {{- /* Tag Cloud Page */ -}}
+            <style>
+                .tags-shields {
+                    display: flex;
+                    height: 20px;
+                    overflow: hidden;
+                    align-items: center;
+                    border-radius: 4px;
+                }
+                .tags-shields-before {
+                    font-size: 12px;
+                    padding: 0 4px 0 6px;
+                    background-color: #595959;
+                    color: #fff;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+                .tags-shields-after {
+                    font-size: 10px;
+                    padding: 0 6px 0 4px;
+                    background-color: #0274b5;
+                    color: #fff;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .tags-count-1 {
+                    background-color: #0274b5;
+                }
+                .tags-count-2 {
+                    background-color: #3b8dbf;
+                }
+                .tags-count-3 {
+                    background-color: #8ab802;
+                }
+                .tags-count-4 {
+                    background-color: #008000;
+                }
+                .tags-count-5 {
+                    background-color: #dab226;
+                }
+                .tags-count-6 {
+                    background-color: #e77334;
+                }
+                .tags-count-7 {
+                    background-color: #cc5640;
+                }
+                .tags-count-8 {
+                    background-color: #e6adb7;
+                }
+                .tags-count-9 {
+                    background-color: #740174;
+                }
+                .tags-count-10,
+                .tags-count-11,
+                .tags-count-12,
+                .tags-count-13,
+                .tags-count-14,
+                .tags-count-15,
+                .tags-count-16,
+                .tags-count-17,
+                .tags-count-18,
+                .tags-count-19 {
+                    background-color: orange;
+                }
+                .tags-count-20,
+                .tags-count-21,
+                .tags-count-22,
+                .tags-count-23,
+                .tags-count-24,
+                .tags-count-25,
+                .tags-count-26,
+                .tags-count-27,
+                .tags-count-28,
+                .tags-count-29 {
+                    background-color: orangered;
+                }
+                .tags-count-30,
+                .tags-count-31,
+                .tags-count-32,
+                .tags-count-33,
+                .tags-count-34,
+                .tags-count-35,
+                .tags-count-36,
+                .tags-count-37,
+                .tags-count-38,
+                .tags-count-39,
+                .tags-count-40,
+                .tags-count-41,
+                .tags-count-42,
+                .tags-count-43,
+                .tags-count-44,
+                .tags-count-45,
+                .tags-count-46,
+                .tags-count-47,
+                .tags-count-48,
+                .tags-count-49,
+                .tags-count-50 {
+                    background-color: red;
+                }
+            </style>
+            <h3 id="{{ T `stats_tag_cloud` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_tag_cloud` | safeHTML }}" class="header-mark" title="header-mark"></a><a href="/tags/">{{ T `stats_tag_cloud` | safeHTML }}</a></h3>
+            <div class="tag-cloud-tags">
+                {{- range $.Site.Taxonomies.tags.ByCount -}}
+                    <a href="{{ .Page.RelPermalink }}"><div class="tags-shields"><div class="tags-shields-before">{{ .Page.Title }}</div><div class="tags-shields-after tags-count-{{ .Count }}">{{ .Count }}</div></div></a>
+                {{- end -}}
+            </div>
 
             <!--
             <script>

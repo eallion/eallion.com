@@ -465,6 +465,21 @@ other = "LOL Penta: "
 [stats_heatmap]
 other = "Blog Heatmap"
 
+[stats_annual_header]
+other = "Blog by Year"
+
+[stats_category_header]
+other = "Blog by Category"
+
+[stats_save_as_image]
+other = "Save as Image"
+
+[stats_total_posts]
+other = "All Posts"
+
+[stats_tag_cloud]
+other = "Tag Cloud"
+
 [stats_blogs_suffix]
 other = " ;"
 
