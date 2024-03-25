@@ -471,6 +471,12 @@ other = "Blog by Year"
 [stats_category_header]
 other = "Blog by Category"
 
+[stats_status_header]
+other = "Status"
+
+[stats_thanks_header]
+other = "Thanks"
+
 [stats_save_as_image]
 other = "Save as Image"
 
