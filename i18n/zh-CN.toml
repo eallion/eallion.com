@@ -469,6 +469,12 @@ other = "按年份统计 - 文章数"
 [stats_category_header]
 other = "按分类统计 - 文章数"
 
+[stats_status_header]
+other = "状态"
+
+[stats_thanks_header]
+other = "鸣谢"
+
 [stats_save_as_image]
 other = "另存为图片"
 
