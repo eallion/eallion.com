@@ -460,6 +460,12 @@ other = "Steam 游戏："
 [stats_penta]
 other = "LOL 五杀："
 
+[stats_ypb_header]
+other = "年度进度条"
+
+[stats_ypb_passed]
+other = " 年已过去："
+
 [stats_heatmap]
 other = "文章热力图"
 
