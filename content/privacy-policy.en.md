@@ -4,7 +4,8 @@ images: ["/assets/images/og/privacy.png"]
 date: "2006-04-14 00:00:00"
 type: "page"
 layout: "privacy-policy"
-comment: false
+comment: 
+  enable: false
 aliases:
     - /en/privacy
     - /en/privacypolicy

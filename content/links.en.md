@@ -4,7 +4,8 @@ images: ["/assets/images/og/friends.png"]
 date: "2006-04-14 00:00:00"
 layout: "links"
 type: "page"
-comment: false
+comment: 
+  enable: false
 aliases:
     - /en/link
 ---
