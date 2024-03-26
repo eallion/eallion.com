@@ -62,54 +62,22 @@
             ]
         },
         {
-            "name": "artalk",
-            "version": "2.7.3",
-            "files": [
-                {
-                    "remote": "dist/Artalk.js",
-                    "local": "artalk/Artalk.js"
-                },
-                {
-                    "remote": "theme/ArtalkLite.js",
-                    "local": "artalk/ArtalkLite.js"
-                },
-                {
-                    "remote": "theme/Artalk.css",
-                    "local": "artalk/Artalk.css"
-                },
-                {
-                    "remote": "theme/ArtalkLite.css",
-                    "local": "artalk/ArtalkLite.css"
-                }
-            ]
-        },
-        {
-            "name": "@artalk/plugin-katex",
-            "version": "0.1.6",
-            "files": [
-                {
-                    "remote": "dist/artalk-plugin-katex.js",
-                    "local": "artalk/artalk-plugin-katex.js"
-                }
-            ]
-        },
-        {
-            "name": "@artalk/plugin-lightbox",
-            "version": "0.1.2",
-            "files": [
-                {
-                    "remote": "dist/artalk-plugin-lightbox.js",
-                    "local": "artalk/artalk-plugin-lightbox.js"
-                }
-            ]
-        },
-        {
             "name": "fuse.js",
             "version": "7.0.0",
             "files": [
                 {
                     "remote": "dist/fuse.min.js",
                     "local": "fuse/fuse.min.js"
+                }
+            ]
+        },
+        {
+            "name": "instant.page",
+            "version": "5.2.0",
+            "files": [
+                {
+                    "remote": "instantpage.min.js",
+                    "local": "instant.page/instantpage.min.js"
                 }
             ]
         }
