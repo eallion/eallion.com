@@ -462,6 +462,12 @@ other = "Steam Games: "
 [stats_penta]
 other = "LOL Penta: "
 
+[stats_ypb_header]
+other = "Year Progress Bar"
+
+[stats_ypb_passed]
+other = " passed: "
+
 [stats_heatmap]
 other = "Blog Heatmap"
 
