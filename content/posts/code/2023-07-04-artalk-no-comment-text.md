@@ -11,7 +11,8 @@ tags:
 slug: "artalk-no-comment-text"
 summary: "这篇文章介绍了作者如何在Artalk的管理后台中实现了一个功能，即在无评论时随机显示诗词。作者在前端配置中插入了今日诗词的API代码，并选择了适合不同背景颜色的文字颜色。作者表示这种低代码实现方式无需侵入网页的JS，也无需单独编写兼容CSS，这个功能在作者参与的多个网页或应用中都嵌入了今日诗词的API。"
 draft: false
-comment: true
+comment: 
+  enable: true
 date: 2023-07-04T02:54:27+08:00
 ---
 

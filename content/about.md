@@ -4,7 +4,8 @@ images: ["/assets/images/og/about.png"]
 date: "2006-04-14 00:00:00"
 type: "page"
 layout: "about"
-comment: true
+comment: 
+  enable: false
 ---
 
 <div class="greyQuote">

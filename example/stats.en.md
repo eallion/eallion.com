@@ -3,7 +3,8 @@ title: "Stats"
 images: ["/assets/images/og/eallion.png"]
 layout: "stats"
 type: 'page'
-comment: false
+comment: 
+  enable: false
 toc: false
 aliases:
     - /en/stat

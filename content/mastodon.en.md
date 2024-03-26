@@ -3,7 +3,8 @@ title: "Toot"
 images: ["/assets/images/og/toots.png"]
 layout: "mastodon"
 type: 'page'
-comment: false
+comment: 
+  enable: false
 aliases:
     - /en/talk
     - /en/talks

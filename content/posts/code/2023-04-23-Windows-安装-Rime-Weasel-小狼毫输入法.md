@@ -12,7 +12,8 @@ tags:
 slug: "weasel"
 summary: "这篇文章介绍了作者在Windows系统中安装和配置Rime小狼毫五笔拼音输入法的过程。由于微软五笔输入法的一些限制不符合作者的需求，他决定重新安装Rime小狼毫。文章还解释了Rime、Plum和Weasel之间的关系，以及它们各自的功能和作用。作者将详细记录了安装过程，并分享了一些个人的自定义设置和使用体验。"
 draft: false
-comment: true
+comment: 
+  enable: true
 date: 2023-04-23T22:50:42+08:00
 ---
 

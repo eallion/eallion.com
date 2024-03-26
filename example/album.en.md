@@ -3,7 +3,8 @@ title: "Album"
 images: ["/assets/images/og/album.png"]
 layout: "album"
 type: 'page'
-comment: false
+comment: 
+  enable: false
 toc: false
 aliases:
     - /en/photo

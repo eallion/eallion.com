@@ -4,7 +4,8 @@ images: ["/assets/images/og/copyright.png"]
 date: "2006-04-14 00: 00: 00"
 type: "page"
 layout: "copyright"
-comment: false
+comment: 
+  enable: false
 ---
 
 <style>#comments {display: none !important}</style>

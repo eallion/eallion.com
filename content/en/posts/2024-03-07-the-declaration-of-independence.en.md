@@ -7,7 +7,8 @@ tags:
 slug: "the-declaration-of-independence"
 summary: "The article summarizes the content of \"The Declaration of Independence\" which was adopted by the thirteen united States of America on July 4, 1776. It declares that all men are created equal and have certain unalienable rights. It lists a series of grievances against King George III and asserts that the colonies are now free and independent states with the power to govern themselves. The signatories pledge their lives, fortunes, and honor to support this declaration."
 draft: false
-comment: true
+comment: 
+  enable: true
 date: 2024-03-07T15:53:51+08:00
 images: ["/assets/images/og/the-declaration-of-independence.png"]
 ---

@@ -11,7 +11,8 @@ tags:
 slug: "artalk_for_memos"
 summary: "这篇文章介绍了如何配置Artalk评论系统在Memos应用和Memos嘀咕页面中。作者提供了登录Memos应用后台，在系统设置中添加自定义样式和脚本的方法，并给出了需要修改的内容。另外，作者还介绍了在assets/memos.js文件中添加和修改代码的步骤，并在HTML文件中引入Artalk的JS和CSS资源文件。"
 draft: false
-comment: true
+comment: 
+  enable: true
 date: 2023-05-25T22:13:35+08:00
 ---
 
