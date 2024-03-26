@@ -11,7 +11,7 @@ tags:
 slug: "s3-sync"
 summary: "文章介绍了如何利用 GitHub Actions 同步对象存储。作者担心腾讯云删库跑路，决定将存放在腾讯云 COS 上的文件通过 GitHub Actions 备份到 GitHub、Cloudflare R2 和 Backblaze B2 上，并实现图床 CDN 国内国外分流。文章详细介绍了使用 Rclone 进行同步的配置方法，并提供了示例代码。最后，作者还介绍了使用 GitHub Actions 进行自动备份和同步的具体操作步骤。"
 draft: false
-Comments: true
+comment: true
 date: 2023-07-28T17:06:50+08:00
 ---
 

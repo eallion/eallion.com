@@ -7,7 +7,7 @@ tags:
 slug: "og-image-api"
 summary: "文章介绍了部署动态生成 OG Image 的 API，作者使用 @vercel/og 包和 Next.js 应用来生成 Open Graph 图片。然而，由于不支持中文和字体大小限制，作者决定手动生成 OG Image，并分享了压缩字体的方法。文章还提供了具体操作步骤和自定义修改的地方，并推荐了其他相关工具和插件。最后，作者分享了自己目前使用的手动生成 OG Image 工具链接。"
 draft: false
-Comments: true
+comment: true
 date: 2023-11-23T16:05:52+08:00
 images: ["/assets/images/og/og-image-api.png"]
 ---

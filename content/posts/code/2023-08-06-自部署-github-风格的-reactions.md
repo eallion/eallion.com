@@ -10,7 +10,7 @@ tags:
 slug: "self-hosted-github-flavored-reactions"
 summary: "文章介绍了如何自部署 GitHub 风格的点赞功能。作者提到了各种实现方式，包括博客系统、评论系统、API 和第三方服务等。然后介绍了一个名为 emaction 的项目，提供了前端和后端代码，并给出了部署步骤。首先需要在 Cloudflare 上创建数据库，然后克隆代码并安装依赖包。接着修改配置文件中的数据库 ID，并登录 Wrangle 授权访问数据库并创建数据表。最后将项目部署到 Cloudflare Worker，并在前端使用时引入 JS 模块即可实现点赞功能。"
 draft: false
-Comments: true
+comment: true
 date: 2023-08-06T15:25:40+08:00
 ---
 

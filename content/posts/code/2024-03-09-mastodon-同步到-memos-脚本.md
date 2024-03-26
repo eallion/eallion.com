@@ -13,7 +13,7 @@ series: ["Mastodon"]
 series_weight: 2
 seriesNavigation: true
 draft: false
-Comments: true
+comment: true
 date: 2024-03-09T16:57:49+08:00
 images: ["/assets/images/og/mastodon-sync-to-memos.png"]
 ---

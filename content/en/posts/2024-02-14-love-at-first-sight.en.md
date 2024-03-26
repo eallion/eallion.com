@@ -7,7 +7,7 @@ tags:
 slug: "love-at-first-sight"
 summary: "The article discusses the concept of love at first sight and how two people can feel a strong connection without knowing each other. It explores the idea that fate has been playing with them, bringing them closer but also pushing them further apart. The author reflects on possible moments in their lives where they could have crossed paths, but ultimately concludes that every beginning is just a continuation and that destiny is always unfolding."
 draft: false
-Comments: true
+comment: true
 date: 2024-02-14T05:20:13+08:00
 images: ["/assets/images/og/love-at-first-sight.png"]
 ---
