@@ -9,6 +9,15 @@
     <meta name="robots" content="noodp" />
     <meta http-equiv="onion-location" content="http://eallionskii7e32j3ncxnccyqq6uf7rbxwmst4x6mxeswx6fvrdtsmad.onion" />
     <meta name="giscus:backlink" content="https://www.eallion.com{{ .RelPermalink }}">
+
+
+    {{- /* Paginate  */ -}}
+    {{- /* Paginate in here, To solve the problem of the canonical URL being the same in the pagination */ -}}
+    {{- /* see more https://github.com/gohugoio/hugo/issues/4507 */ -}}
+    {{- /* see more https://discourse.gohugo.io/t/control-pagination-and-page-collections-from-baseof-html/37643/8 */ -}}
+    {{- /* see more https://discourse.gohugo.io/t/determine-if-current-page-is-result-of-pagination/37494/4 */ -}}
+    {{- partial "head/paginator.html" . -}}
+
     <title>
         {{- block "title" . }}{{ .Site.Title }}{{ end -}}
     </title>
