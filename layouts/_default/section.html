@@ -1,5 +1,10 @@
 {{- define "title" }}
-    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+    {{- if (gt .Paginator.PageNumber 1) -}}
+        {{ $pageNumber := printf "%v %v %v" (T "prefixPageNumber" ) .Paginator.PageNumber (T "suffixPageNumber" ) }}
+        {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} {{ $pageNumber }} - {{ .Site.Title -}}
+    {{- else -}}
+        {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+    {{- end -}}
 {{- end -}}
 
 {{- define "content" -}}
