@@ -80,7 +80,7 @@
                                                     </figure>
                                                     {{ end }}
                                                 </div>
-                                            {{ else if eq $type "video" }}
+                                            {{ else if or (eq $type "gifv") (eq $type "video") }}
                                                 {{ range .media_attachments }}
                                                 <video controls muted no-view>
                                                     <source src="{{ .url }}" type="video/mp4">
@@ -207,7 +207,7 @@
                                                     </figure>
                                                     {{ end }}
                                                 </div>
-                                            {{ else if eq $type "video" }}
+                                            {{ else if or (eq $type "gifv") (eq $type "video") }}
                                                 {{ range .media_attachments }}
                                                 <video controls muted no-view>
                                                     <source src="{{ .url }}" type="video/mp4">
