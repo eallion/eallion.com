@@ -3,7 +3,7 @@
     "dependencies": [
         {
             "name": "katex",
-            "version": "0.16.9",
+            "version": "0.16.10",
             "files": [
                 {
                     "remote": "dist/katex.min.js",
@@ -43,7 +43,7 @@
         },
         {
             "name": "algoliasearch",
-            "version": "4.22.0",
+            "version": "4.23.2",
             "files": [
                 {
                     "remote": "dist/algoliasearch-lite.umd.js",
