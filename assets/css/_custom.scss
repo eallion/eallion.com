@@ -168,8 +168,7 @@ $background-color_6: #78191b;
         .menu {
             .menu-item {
                 &.language::before {
-                    content: "\f1ab";
-                    font-family: $font-family-font-awesome;
+                    content: "🌐";
                     font-weight: 900;
                     -moz-osx-font-smoothing: grayscale;
                     -webkit-font-smoothing: antialiased;

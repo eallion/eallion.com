@@ -109,7 +109,8 @@
 
     </script>
 
-    <link rel="stylesheet" href="/assets/chrome-whats-new/css/custom.min.css" >
+    {{ $customCss := resources.Get "css/chrome-whats-new-custom.css" | resources.Minify | resources.Fingerprint "sha256" }}
+    <link rel="stylesheet" href="{{ $customCss.RelPermalink }}" integrity="{{ $customCss.Data.Integrity }}" crossorigin="anonymous">
 
     <chrome data-comp="EnvironmentDetect" data-locale="zh-CN_ALL" data-region="zh_Hans_CN" data-ga-type="ga-cookieless">
         <div role="main" class="chr-main chr-main--no-header" id="jump-content" data-comp="AnimationObserver">
@@ -118,7 +119,7 @@
             </div>
 
             <section id="hero" class="chr-section js-section ">
-                {{/*  <div class="snackbar-gm3" data-comp="SnackbarGm3" data-props-snackbar='{"dynamicClass": "badge" }'>
+                <!--  <div class="snackbar-gm3" data-comp="SnackbarGm3" data-props-snackbar='{"dynamicClass": "badge" }'>
                     <div class="snackbar-gm3__card">
                         <svg class="snackbar-gm3__icon" aria-hidden="true">
                         <title></title>
@@ -127,9 +128,9 @@
                         <p class="chr-headline-6 snackbar-gm3__description">
                             <span id="referrer"></span><span id="updated_count"></span></p>
                     </div>
-                </div>  */}}
+                </div>  -->
 
-                {{/*  <script>
+                <!--  <script>
                     function updateReferrer() {
                     var referrer = document.referrer;
                     var referrerElement = document.getElementById("referrer");
@@ -147,84 +148,10 @@
                     }
 
                     updateReferrer();
-                </script>  */}}
+                </script>  -->
 
                 <div class="chr-hero-light-gm3 chr-hero-light-gm3--secondary chr-hero-light-gm3__secondary-wrapper">
                     <div class="chr-hero-light-gm3__secondary-shape"></div>
-<!--
-                    <video
-                        class="chr-hero-light-gm3__secondary-shape video-source"
-                        id="TopGif"
-                        width="100%"
-                        height="100%"
-                        webkit-playsinline="true"
-                        x-webkit-airplay="true"
-                        playsinline="true"
-                        x5-video-player-type="h5"
-                        x5-video-orientation="h5"
-                        x5-video-player-fullscreen="true"
-                        preload="auto"
-                        autoplay="true"
-                        loop=""
-                        muted="">
-                        <source src="" type="video/webm" />
-                        <source src="" type="video/mp4" />
-                    </video>
-                    <script>
-                        //背景随机视频
-                        document.addEventListener("DOMContentLoaded", function () {
-                            const videoElement = document.querySelector(".video-source");
-                            const videoSource = videoElement.querySelector("source");
-
-                            const videosName = [
-                                // 'movie1',
-                                // 'movie2',
-                                // 'movie3',
-                                // // 'movie4',
-                                // 'movie5',
-                                'game1',
-                                'meetyourself1',
-                                'meetyourself2',
-                                'meetyourself3',
-                                'meetyourself4',
-                                'meetyourself5',
-                                'meetyourself6',
-                                'meetyourself7',
-                                'meetyourself8',
-                                'movies'
-                            ];
-
-                            function playRandomVideo(videos) {
-                                let randomIndex = Math.floor(Math.random() * videos.length);
-                                let name = videos[randomIndex];
-
-                                // 检查localStorage中的上次播放的视频名称
-                                const lastHomeVideoName = localStorage.getItem('lastHomeVideoName');
-
-                                // 如果新视频与上一个视频相同，则继续随机选择，直到找到不同的视频
-                                while (name === lastHomeVideoName) {
-                                    randomIndex = Math.floor(Math.random() * videos.length);
-                                    name = videos[randomIndex];
-                                }
-
-                                const webmSrc = '/assets/video/home/' + name + '.webm';
-                                const mp4Src = '/assets/video/home/' + name + '.mp4';
-
-                                const webmSource = videoElement.querySelector('source[type="video/webm"]');
-                                const mp4Source = videoElement.querySelector('source[type="video/mp4"]');
-                                webmSource.setAttribute('src', webmSrc);
-                                mp4Source.setAttribute('src', mp4Src);
-
-                                videoElement.load();
-
-                                // 将当前播放的视频名称存储在localStorage中
-                                localStorage.setItem('lastHomeVideoName', name);
-                            }
-
-                            playRandomVideo(videosName);
-                        });
-                    </script>
--->
 
                     <div class="chr-grid-default-parent">
                         <div class="chr-grid-default">
@@ -278,7 +205,7 @@
                                     {{- .Title -}}</a>
                             </h3>
                             <p class="chr-copy chr-fifty-fifty-text-image-gm3__description">
-
+                                <span class="chr-copy__summary">摘要</span>
                                 {{- $summary := $params.summary -}}
                                 {{- with $summary -}}
                                     {{ . | safeHTML }}
@@ -312,7 +239,7 @@
                 {{- end -}}
                 {{- end -}}
 
-                {{/*  <script>
+                <!--  <script>
                     // 获取当前时间的 Unix 时间戳
                     const currentTime = Math.floor(Date.now() / 1000);
 
@@ -349,7 +276,7 @@
                     } else {
                         updatedElement.textContent = '';
                     }
-                </script>  */}}
+                </script>  -->
 
                 <div class="chr-fifty-fifty-text-image-gm3 chr-fifty-fifty-text-image-gm3--reversed chr-fifty-fifty-text-image-gm3--secondary chr-fifty-fifty-text-image-gm3__secondary-wrapper"
                     id="about">
@@ -433,6 +360,7 @@
                                             <div class="chr-archive-gm3__card-text">
                                                 <h3 class="chr-headline-5"><a href="{{- .RelPermalink -}}"> {{- .Title -}} </a></h3>
                                                 <p class="chr-archive-gm3__card-description chr-copy">
+                                                    <span class="chr-copy__summary">摘要</span>
                                                     {{- $summary := $params.summary -}}
                                                     {{- with $summary -}}
                                                         {{ . | safeHTML }}
@@ -466,7 +394,7 @@
                                         <!--
                                         <li class="chr-archive-gm3__card">
                                             <div class="chr-archive-gm3__card-text">
-                                                <h3 class="chr-headline-5"><a href="/about/"><i class="fas fa-info-circle"></i> ABOUT ME / 关于</a></h3>
+                                                <h3 class="chr-headline-5"><a href="/about/">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "info-circle") }} ABOUT ME / 关于</a></h3>
                                                 <p class="chr-archive-gm3__card-description chr-copy chr-copy-about">
                                                     我是<span>「蜗牛」</span>，不过一般都使用<span>「大大的小蜗牛」作为网名。</span><br>
                                                     AKA：<span>Charles &#39;<i>eallion</i>&#39; Chin.</span>
@@ -615,7 +543,7 @@
                     <li class=" chr-footer-glinks__list-item">
                         <a href="https://www.eallion.com/rss" target="_blank" rel="noopener" class="  chr-footer__link chr-link--nav"
                             ga-on="click" ga-event-category="nav-subfooter" ga-event-action="clicked" ga-event-label="products"
-                            data-g-event="nav-subfooter" data-g-action="clicked" data-g-label="products"><i class="fas fa-rss"></i>
+                            data-g-event="nav-subfooter" data-g-action="clicked" data-g-label="products">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "rss") }}
                             RSS</a>
                     </li>
                     <li>
@@ -623,14 +551,13 @@
                             class="  chr-footer__link chr-link--nav" ga-on="click" ga-event-category="nav-subfooter"
                             ga-event-action="clicked" ga-event-label="products" data-g-event="nav-subfooter" data-g-action="clicked"
                             data-g-label="products">
-                            <i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i
-                                class="fab fa-creative-commons-sa"></i> CC-BY-SA-4.0</a>
+                            {{ partial "plugin/fontawesome.html" (dict "Style" "brands" "Icon" "creative-commons") }}{{ partial "plugin/fontawesome.html" (dict "Style" "brands" "Icon" "creative-commons-by") }}{{ partial "plugin/fontawesome.html" (dict "Style" "brands" "Icon" "creative-commons-sa") }} CC-BY-SA-4.0</a>
                     </li>
                 </ul>
             </nav>
                 <ul class=" chr-footer-help-language">
                 <li>
-                    <i class="fas fa-info-circle"></i>
+                    {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "info-circle") }}
                     <a href="/about/" target="_self" rel="noopener"
                     class="  chr-footer__link chr-link--nav" ga-event-category="nav-subfooter" ga-event-action=""
                     ga-event-label="help" data-g-event="nav-subfooter" data-g-action="" data-g-label="help">

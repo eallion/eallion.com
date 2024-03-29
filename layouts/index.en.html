@@ -109,7 +109,9 @@
 
     </script>
 
-    <link rel="stylesheet" href="/assets/chrome-whats-new/css/custom.css" >
+    {{ $customCss := resources.Get "css/chrome-whats-new-custom.css" | resources.Minify | resources.Fingerprint "sha256" }}
+    <link rel="stylesheet" href="{{ $customCss.RelPermalink }}" integrity="{{ $customCss.Data.Integrity }}" crossorigin="anonymous">
+
 
     <chrome data-comp="EnvironmentDetect" data-locale="zh-CN_ALL" data-region="zh_Hans_CN" data-ga-type="ga-cookieless">
         <div role="main" class="chr-main chr-main--no-header" id="jump-content" data-comp="AnimationObserver">
@@ -118,7 +120,7 @@
             </div>
 
             <section id="hero" class="chr-section js-section ">
-                {{/*  <div class="snackbar-gm3" data-comp="SnackbarGm3" data-props-snackbar='{"dynamicClass": "badge" }'>
+                <!-- <div class="snackbar-gm3" data-comp="SnackbarGm3" data-props-snackbar='{"dynamicClass": "badge" }'>
                     <div class="snackbar-gm3__card">
                         <svg class="snackbar-gm3__icon" aria-hidden="true">
                         <title></title>
@@ -127,9 +129,9 @@
                         <p class="chr-headline-6 snackbar-gm3__description">
                             <span id="referrer"></span><span id="updated_count"></span></p>
                     </div>
-                </div>  */}}
+                </div>  -->
 
-                {{/*  <script>
+                <!--  <script>
                     function updateReferrer() {
                     var referrer = document.referrer;
                     var referrerElement = document.getElementById("referrer");
@@ -143,7 +145,7 @@
                     }
 
                     updateReferrer();
-                </script>  */}}
+                </script>  -->
 
                 <div class="chr-hero-light-gm3 chr-hero-light-gm3--secondary chr-hero-light-gm3__secondary-wrapper">
                     <div class="chr-hero-light-gm3__secondary-shape"></div>
@@ -200,7 +202,7 @@
                                     {{- .Title -}}</a>
                             </h3>
                             <p class="chr-copy chr-fifty-fifty-text-image-gm3__description">
-
+                                <span class="chr-copy__summary">Summary</span>
                                 {{- $summary := $params.summary -}}
                                 {{- with $summary -}}
                                     {{ . | safeHTML }}
@@ -234,7 +236,7 @@
                 {{- end -}}
                 {{- end -}}
 
-                {{/*  <script>
+                <!--  <script>
                     // 获取当前时间的 Unix 时间戳
                     const currentTime = Math.floor(Date.now() / 1000);
 
@@ -271,7 +273,7 @@
                     } else {
                         updatedElement.textContent = '';
                     }
-                </script>  */}}
+                </script>  -->
 
                 <div class="chr-fifty-fifty-text-image-gm3 chr-fifty-fifty-text-image-gm3--reversed chr-fifty-fifty-text-image-gm3--secondary chr-fifty-fifty-text-image-gm3__secondary-wrapper"
                     id="about">
@@ -356,6 +358,7 @@
                                             <div class="chr-archive-gm3__card-text">
                                                 <h3 class="chr-headline-5"><a href="{{- .RelPermalink -}}"> {{- .Title -}} </a></h3>
                                                 <p class="chr-archive-gm3__card-description chr-copy">
+                                                    <span class="chr-copy__summary">Summary</span>
                                                     {{- $summary := $params.summary -}}
                                                     {{- with $summary -}}
                                                         {{ . | safeHTML }}
@@ -388,7 +391,7 @@
                         {{- end -}}
                                         <!-- <li class="chr-archive-gm3__card">
                                             <div class="chr-archive-gm3__card-text">
-                                                <h3 class="chr-headline-5"><a href="/about/"><i class="fas fa-info-circle"></i> ABOUT ME</a></h3>
+                                                <h3 class="chr-headline-5"><a href="/about/">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "info-circle") }} ABOUT ME</a></h3>
                                                 <p class="chr-archive-gm3__card-description chr-copy chr-copy-about">
                                                     I&#39;m Charles Chin. eallion has been my nickname for over 20 years. <br>
                                                         AKA：大大的小蜗牛.<br>
@@ -425,19 +428,6 @@
                 </div>
                 </div>
             </section>
-            <script>
-                // 获取目标元素
-                const chrCopyElement = document.querySelector('.chr-copy');
-
-                // 创建一个新的样式元素
-                const styleElement = document.createElement('style');
-
-                // 设置新样式元素的内容，以替换伪元素的内容
-                styleElement.textContent = '.chr-copy::before { content: \'\\f022 \' \' Summary\' !important; }';
-
-                // 将新样式元素添加到文档中
-                document.head.appendChild(styleElement);
-            </script>
         </div>
         <footer id="js-footer" class=" chr-footer chr-footer--white" data-comp="Footer">
         <div class=" chr-footer-social  chr-footer-social--border">
@@ -549,7 +539,7 @@
                     <li class=" chr-footer-glinks__list-item">
                         <a href="https://www.eallion.com/rss" target="_blank" rel="noopener" class="  chr-footer__link chr-link--nav"
                             ga-on="click" ga-event-category="nav-subfooter" ga-event-action="clicked" ga-event-label="products"
-                            data-g-event="nav-subfooter" data-g-action="clicked" data-g-label="products"><i class="fas fa-rss"></i>
+                            data-g-event="nav-subfooter" data-g-action="clicked" data-g-label="products">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "rss") }}
                             RSS</a>
                     </li>
                     <li>
@@ -557,14 +547,13 @@
                             class="  chr-footer__link chr-link--nav" ga-on="click" ga-event-category="nav-subfooter"
                             ga-event-action="clicked" ga-event-label="products" data-g-event="nav-subfooter" data-g-action="clicked"
                             data-g-label="products">
-                            <i class="fab fa-creative-commons"></i> <i class="fab fa-creative-commons-by"></i> <i
-                                class="fab fa-creative-commons-sa"></i> CC-BY-SA-4.0</a>
+                            {{ partial "plugin/fontawesome.html" (dict "Style" "brands" "Icon" "creative-commons") }}{{ partial "plugin/fontawesome.html" (dict "Style" "brands" "Icon" "creative-commons-by") }}{{ partial "plugin/fontawesome.html" (dict "Style" "brands" "Icon" "creative-commons-sa") }} CC-BY-SA-4.0</a>
                     </li>
                 </ul>
             </nav>
                 <ul class=" chr-footer-help-language">
                 <li>
-                    <i class="fas fa-info-circle"></i>
+                    {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "info-circle") }}
                     <a href="/en/about/" target="_self" rel="noopener"
                     class="  chr-footer__link chr-link--nav" ga-event-category="nav-subfooter" ga-event-action=""
                     ga-event-label="help" data-g-event="nav-subfooter" data-g-action="" data-g-label="help">

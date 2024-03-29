@@ -24,7 +24,7 @@ images = ["/assets/images/og/eallion.png"]
 enablePWA = true
 # license information
 # 许可协议信息 (支持 HTML 格式)
-license = '<i class="fab fa-creative-commons fa-fw"></i> <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank">CC-BY-SA 4.0</a>'
+license = ' <a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank">CC-BY-SA 4.0</a>'
 # [Experimental] Bundle js
 bundle = true
 # [Experimental] cache remote images, more info: https://github.com/HEIGE-PCloud/DoIt/pull/860#issue-1574342372
@@ -67,7 +67,7 @@ cacheRemoteImages = false
   # ICP info only in China (HTML format is supported)
   # ICP 备案信息，仅在中国使用 (支持 HTML 格式)
   icp = '<a title="ICP 备案号" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备16031768号-2</a>'
-  # icp = '<i class="fas fa-balance-scale fa-fw"></i> <a title="ICP 备案号" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备16031768号-2</a> | <a title="RSS Feed" href="https://www.eallion.com/index.xml" target="_blank" rel="noopener noreferrer"><i class="fas fa-rss fa-fw"></i></a> <a title="GitHub 源码" href="https://github.com/eallion/eallion.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-code fa-fw"></i></a> <a title="Server Status" href="https://status.eallion.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-database fa-fw"></i></a> <a href="https://myssl.com/seal/detail?domain=eallion.com" title="本站支持SSL安全访问" target="_blank" rel="noopener noreferrer"><i class="fab fa-expeditedssl fa-fw"></i></a> <a href="https://ipw.cn/ipv6webcheck/?site=eallion.com" title="本站支持IPv6访问" target="_blank" rel="noopener noreferrer" class="icon-ipv6">IPv6</a> <a href="https://http3check.net/?host=eallion.com" title="本站支持 QUIC HTTP/3 访问" target="_blank" rel="noopener noreferrer" class="icon-ipv6">HTTP/3</a>'
+  # icp = ' <a title="ICP 备案号" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备16031768号-2</a> | <a title="RSS Feed" href="https://www.eallion.com/index.xml" target="_blank" rel="noopener noreferrer"></a> <a title="GitHub 源码" href="https://github.com/eallion/eallion.com" target="_blank" rel="noopener noreferrer"></a> <a title="Server Status" href="https://status.eallion.com/" target="_blank" rel="noopener noreferrer"></a> <a href="https://myssl.com/seal/detail?domain=eallion.com" title="本站支持SSL安全访问" target="_blank" rel="noopener noreferrer"></a> <a href="https://ipw.cn/ipv6webcheck/?site=eallion.com" title="本站支持IPv6访问" target="_blank" rel="noopener noreferrer" class="icon-ipv6">IPv6</a> <a href="https://http3check.net/?host=eallion.com" title="本站支持 QUIC HTTP/3 访问" target="_blank" rel="noopener noreferrer" class="icon-ipv6">HTTP/3</a>'
   # license info (HTML format is supported)
   # 许可协议信息 (支持 HTML 格式)
   # license= ""
@@ -127,9 +127,7 @@ cacheRemoteImages = false
   # whether to enable the fraction extended syntax
   # 是否使用 fraction 扩展语法
   fraction = true
-  # whether to enable the fontawesome extended syntax
-  # 是否使用 fontawesome 扩展语法
-  fontawesome = true
+
   # whether to show link to Raw Markdown content of the content
   # 是否显示原始 Markdown 文档内容的链接
   linkToMarkdown = true
@@ -546,7 +544,7 @@ cacheRemoteImages = false
   # alternate site name in Google search result
   # https://developers.google.com/search/docs/appearance/site-names#alternative
   # alternateName = ["Hugo DoIt"]
-  
+
 # Analytics config
 # 网站分析配置
 [analytics]

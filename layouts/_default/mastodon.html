@@ -9,8 +9,11 @@
 {{- $toc = dict "enable" false -}}
 {{- end -}}
 
-<link rel="stylesheet" href="/assets/toot/mastodon-timeline.min.css?v=3.10.4">
-<link rel="stylesheet" href="/assets/toot/mastodon-timeline-custom.css?v=2024.03.18">
+{{ $mastodonCss := resources.Get "css/mastodon-timeline.min.css" | resources.Minify | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $mastodonCss.RelPermalink }}" integrity="{{ $mastodonCss.Data.Integrity }}" crossorigin="anonymous">
+
+{{ $mastodonCustomCss := resources.Get "css/mastodon-timeline-custom.css" | resources.Minify | resources.Fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $mastodonCustomCss.RelPermalink }}" integrity="{{ $mastodonCustomCss.Data.Integrity }}" crossorigin="anonymous">
 
 <article class="page single special">
     <h1 class="single-title animate__animated animate__pulse animate__faster">{{- .Title -}}</h1>
@@ -138,21 +141,21 @@
                                             <div class="toot-meta">
                                                 <div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
                                                         target="_blank"><span class="twitter-time">{{- .created_at -}}</span></a></div>
-                                                <div class="toot-visibility" title="公开"><i class="fas fa-globe-asia"></i></div>
+                                                <div class="toot-visibility" title="公开">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "globe-asia") }}</div>
                                                 <div class="toot-app"><a href="{{- .application.website | default "https://e5n.cc" -}}"
                                                         rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复">{{-
                                                         .application.name | default "Web" -}}</a></div>
                                             </div>
                                             <div class="toot-reply"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="回复" alt="回复"><i class="fas fa-reply"></i></a>{{- .replies_count -}}</div>
+                                                    target="_blank" title="回复" alt="回复">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "reply") }}</a>{{- .replies_count -}}</div>
                                             <div class="toot-retoot"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="转嘟" alt="转嘟"><i class="fas fa-retweet"></i></a>{{- .reblogs_count -}}</div>
+                                                    target="_blank" title="转嘟" alt="转嘟">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "retweet") }}</a>{{- .reblogs_count -}}</div>
                                             <div class="toot-favourite"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="喜欢" alt="喜欢"><i class="fas fa-star"></i></a>{{- .favourites_count -}}</div>
+                                                    target="_blank" title="喜欢" alt="喜欢">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "star") }}</a>{{- .favourites_count -}}</div>
                                             <div class="toot-bookmarked"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="添加到书签" alt="添加到书签"><i class="fas fa-bookmark"></i></a></div>
+                                                    target="_blank" title="添加到书签" alt="添加到书签">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bookmark") }}</a></div>
                                             <div class="toot-more"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="更多" alt="更多"><i class="fas fa-ellipsis-h"></i></a></div>
+                                                    target="_blank" title="更多" alt="更多">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "ellipsis-h") }}</a></div>
                                         </div>
                                     </div>
                                 </article>
@@ -265,21 +268,21 @@
                                             <div class="toot-meta">
                                                 <div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
                                                         target="_blank"><span class="twitter-time">{{- .created_at -}}</span></a></div>
-                                                <div class="toot-visibility" title="公开"><i class="fas fa-globe-asia"></i></div>
+                                                <div class="toot-visibility" title="公开">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "globe-asia") }}</div>
                                                 <div class="toot-app"><a href="{{- .application.website | default "https://e5n.cc" -}}"
                                                         rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复">{{-
-                                                        .application.name -}}</a></div>
+                                                        .application.name | default "Web" -}}</a></div>
                                             </div>
                                             <div class="toot-reply"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="回复" alt="回复"><i class="fas fa-reply"></i></a>{{- .replies_count -}}</div>
+                                                    target="_blank" title="回复" alt="回复">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "reply") }}</a>{{- .replies_count -}}</div>
                                             <div class="toot-retoot"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="转嘟" alt="转嘟"><i class="fas fa-retweet"></i></a>{{- .reblogs_count -}}</div>
+                                                    target="_blank" title="转嘟" alt="转嘟">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "retweet") }}</a>{{- .reblogs_count -}}</div>
                                             <div class="toot-favourite"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="喜欢" alt="喜欢"><i class="fas fa-star"></i></a>{{- .favourites_count -}}</div>
+                                                    target="_blank" title="喜欢" alt="喜欢">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "star") }}</a>{{- .favourites_count -}}</div>
                                             <div class="toot-bookmarked"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="添加到书签" alt="添加到书签"><i class="fas fa-bookmark"></i></a></div>
+                                                    target="_blank" title="添加到书签" alt="添加到书签">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bookmark") }}</a></div>
                                             <div class="toot-more"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="更多" alt="更多"><i class="fas fa-ellipsis-h"></i></a></div>
+                                                    target="_blank" title="更多" alt="更多">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "ellipsis-h") }}</a></div>
                                         </div>
                                     </div>
                                 </article>
@@ -289,7 +292,7 @@
 
                 </div>
                 <div class="mt-footer"><a href="https://e5n.cc/@eallion" class="btn" target="_blank"
-                        rel="nofollow noopener noreferrer">See more toots at e5n.cc <i class="fas fa-external-link-alt"></i></a></div>
+                        rel="nofollow noopener noreferrer">See more toots at e5n.cc {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "external-link-alt") }}</a></div>
             </div>
         </div>
 

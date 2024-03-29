@@ -2,6 +2,8 @@
 
 {{- define "content" -}}
     {{- $params := .Scratch.Get "params" -}}
+    {{ $redirectLight := "images/redirect/redirect-light.webp"}}
+    {{ $redirectDark := "images/redirect/redirect-dark.webp"}}
     <style>
         .redirect-all {
             position: relative;
@@ -15,7 +17,7 @@
             font-size: 0.85rem;
             overflow: hidden;
             margin: 100px auto 0;
-            background: #fff url(/assets/images/redirect/redirect-light.webp) no-repeat center center / cover;
+            background: #fff url({{ with resources.Get $redirectLight }}{{ with .Resize "800x webp" }}{{ .RelPermalink }}{{ end }}{{ end }}) no-repeat center center / cover;
             @include breakpoint('small') {
                 aspect-ratio: 2 / 1;
                 height: auto;
@@ -68,7 +70,7 @@
         }
 
         [theme=dark] .redirect-all {
-                background: #fff url(/assets/images/redirect/redirect-dark.webp) no-repeat center center / cover;
+                background: #fff url({{ with resources.Get $redirectDark }}{{ with .Resize "800x webp" }}{{ .RelPermalink }}{{ end }}{{ end }}) no-repeat center center / cover;
                 color: #999;
             }
 
