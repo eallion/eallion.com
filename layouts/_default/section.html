@@ -74,8 +74,13 @@
                 </blockquote>
             </div>
         </div>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script> -->
-        <script src="/assets/js/echarts.min.js"></script>
+
+        {{- /* ECharts js */ -}}
+        {{- $cdn := .Scratch.Get "cdn" | default dict -}}
+        {{- $fingerprint := .Scratch.Get "fingerprint" -}}
+        {{- $source := $cdn.echartsJS | default "lib/echarts/echarts.min.js" -}}
+        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+
         <div id="heatmap"></div>
 
         {{- /* Paginate */ -}}
