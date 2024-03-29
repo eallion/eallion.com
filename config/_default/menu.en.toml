@@ -4,7 +4,7 @@
 [[main]]
   identifier = "Home"
   # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-  pre = "<i class='fas fa-home'></i>"
+  pre = ""
   # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
   post = ""
   name = "Home"
@@ -15,7 +15,7 @@
 [[main]]
   identifier = "posts"
   # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-  pre = "<i class='fas fa-blog'></i>"
+  pre = ""
   # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
   post = ""
   name = "Blog"
@@ -25,7 +25,7 @@
   weight = "2"
 [[main]]
   identifier = "mastodon"
-  pre = "<i class='fab fa-mastodon'></i>"
+  pre = ""
   post = ""
   name = "Mastodon"
   url = "/mastodon/"
@@ -33,7 +33,7 @@
   weight = "3"
 [[main]]
   identifier = "neodb"
-  pre = "<i class='fas fa-film'></i>"
+  pre = ""
   post = ""
   name = "Media"
   url = "/media/"
@@ -41,7 +41,7 @@
   weight = "4"
 [[main]]
   identifier = "steam"
-  pre = "<i class='fab fa-steam'></i>"
+  pre = ""
   post = ""
   name = "Steam"
   url = "/steam/"
@@ -49,7 +49,7 @@
   weight = "5"
 # [[main]]
 #   identifier = "goods"
-#   pre = "<i class='fas fa-gift'></i>"
+#   pre = ""
 #   post = ""
 #   name = "Goods"
 #   url = "/goods/"
@@ -57,7 +57,7 @@
 #   weight = "5"
 # [[main]]
 #   identifier = "categories"
-#   pre = "<i class='fas fa-stream'></i>"
+#   pre = ""
 #   post = ""
 #   name = "Cates"
 #   url = "/en/categories/"
@@ -66,7 +66,7 @@
 [[main]]
   identifier = "links"
   name="Friends"
-  pre = "<i class='fas fa-users'></i>"
+  pre = ""
   post = ""
   url="/links/"
   title = "Friends links"
@@ -74,14 +74,14 @@
 [[main]]
   identifier = "stats"
   name="Stats"
-  pre = "<i class='fas fa-chart-bar'></i>"
+  pre = ""
   post = ""
   url="/stats/"
   title = "Stats"
   weight="9"
 [[main]]
   identifier = "about"
-  pre = "<i class='fas fa-info'></i>"
+  pre = ""
   post = ""
   name = "About"
   url = "/about/"
@@ -89,7 +89,7 @@
   weight = "99"
 # [[main]]
 #   identifier = "Mastodon"
-#   pre = "<i class='fab fa-mastodon'></i>"
+#   pre = ""
 #   post = "<span class='menu-item-nav'>Mastodon</span>"
 #   name=""
 #   url="https://e5n.cc/@eallion"

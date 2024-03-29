@@ -259,10 +259,10 @@ other = "DELETED"
 other = "My Album with Mastodon Tag <a href='https://e5n.cc/tags/ealbum' target='_blank' rel='noreferrer noopener nofollow'><code>#ealbum</code></a>."
 
 [goods_quote]
-other ="Goods Enhanced for a Better Life <span class='emoji'>💄</span> More Coupon👉<a href='https://www.kubaicai.com/' target='_blank' rel='noreferrer noopener nofollow'>www.kubaicai.com <i class='fas fa-external-link-alt fa-xs'></i></a>"
+other ="Goods Enhanced for a Better Life <span class='emoji'>💄</span> More Coupon👉<a href='https://www.kubaicai.com/' target='_blank' rel='noreferrer noopener nofollow'>www.kubaicai.com</a>"
 
 [memos_quote]
-other = "There are <span id='memosCount'><i class='fas fa-spinner fa-pulse'></i></span> Twitter flavored <a href='https://memos.eallion.com/' target='_blank' rel='noreferrer noopener nofollow'>Memos</a> <span class='emoji'>🎉</span>"
+other = "There are <span id='memosCount'></span> Twitter flavored <a href='https://memos.eallion.com/' target='_blank' rel='noreferrer noopener nofollow'>Memos</a> <span class='emoji'>🎉</span>"
 
 [memos_loadbtn]
 other = "Load More"
@@ -283,7 +283,7 @@ other ="Count"
 other ="Counts"
 
 [movie_desc]
-other ="My <a href='https://neodb.social/users/eallion@e5n.cc/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB <i class='fas fa-external-link-alt'></i></a> marked list ✨"
+other ="My <a href='https://neodb.social/users/eallion@e5n.cc/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB</a> marked list ✨"
 
 [movie_normal]
 other ="Normal"

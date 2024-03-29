@@ -25,7 +25,7 @@
         </div>
         <div class="friend-link-info">
             <div class="friend-name-div">
-                <!-- <i class="fas fa-user-circle fa-fw"></i> -->
+                <!-- {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "user-circle") }} -->
                 <span class="friend-favicon"><img src="https://api.eallion.com/favicon/{{- $link | base64Encode -}}" no-view></span>
                 <i class="friend-name">{{- $title -}}</i>
             </div>

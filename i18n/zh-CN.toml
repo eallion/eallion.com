@@ -257,10 +257,10 @@ other = "删除"
 other = "我的随手拍。我不会拍照，所以只能叫随手拍。通过 <a href='https://e5n.cc/tags/ealbum' target='_blank' rel='noreferrer noopener nofollow'>#ealbum</a> 引用。"
 
 [goods_quote]
-other ="好物推荐 <span class='emoji'>💄</span> 部分链接可能带有 aff 推广，不喜可删！或直接搜券👉<a href='https://www.kubaicai.com/' target='_blank' rel='noreferrer noopener nofollow'>www.kubaicai.com <i class='fas fa-external-link-alt fa-xs'></i></a>"
+other ="好物推荐 <span class='emoji'>💄</span> 部分链接可能带有 aff 推广，不喜可删！或直接搜券👉<a href='https://www.kubaicai.com/' target='_blank' rel='noreferrer noopener nofollow'>www.kubaicai.com</a>"
 
 [memos_quote]
-other = "共嘀咕了 <span id='memosCount'><i class='fas fa-spinner fa-pulse'></i></span> 条 <a href='https://memos.eallion.com/' target='_blank' rel='noreferrer noopener nofollow'>Memos</a> <span class='emoji'>🎉</span>"
+other = "共嘀咕了 <span id='memosCount'></span> 条 <a href='https://memos.eallion.com/' target='_blank' rel='noreferrer noopener nofollow'>Memos</a> <span class='emoji'>🎉</span>"
 
 [memos_loadbtn]
 other = "加载更多"
@@ -281,7 +281,7 @@ other ="评分人数"
 other ="人评分"
 
 [movie_desc]
-other ="我的 <a href='https://neodb.social/users/eallion@e5n.cc/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB <i class='fas fa-external-link-alt'></i></a> 书影音标记记录 ✨"
+other ="我的 <a href='https://neodb.social/users/eallion@e5n.cc/' target='_blank' rel='noreferrer noopener nofollow'>NeoDB</a> 书影音标记记录 ✨"
 
 [movie_normal]
 other ="常规"

@@ -26,15 +26,20 @@
     {{- partial "head/link.html" . -}}
     {{- partial "head/seo.html" . -}}
 
-    {{- $instantpage := .Site.Params.page.instantpage.enable -}}
-    {{- if $instantpage -}}
-    {{- $js := resources.Get "/lib/instant.page/instantpage.min.js" -}}
-      <script
-        src="{{ $js.RelPermalink }}"
-        defer
-        type="module"
-      ></script>
-    {{- end -}}
+{{- $instantpage := .Scratch.Get "instantpage" | default dict -}}
+{{- if $instantpage.enable -}}
+    <script src="//instant.page/5.2.0" defer type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
+{{- end -}}
+
+{{- $instantpage := .Site.Params.page.instantpage.enable -}}
+{{- if $instantpage -}}
+{{- $js := resources.Get "/lib/instant.page/instantpage.min.js" -}}
+  <script
+    src="{{ $js.RelPermalink }}"
+    defer
+    type="module"
+  ></script>
+{{- end -}}
 
     <link href="https://e5n.cc/@eallion" rel="me">
 </head>
@@ -78,12 +83,12 @@
     <div id="fixed-buttons" class="print:!tw-hidden">
         {{- /* top button */ -}}
         <a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="{{ T `backToTop` }}">
-            <i class="fas fa-arrow-up fa-fw"></i>
+            {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "arrow-up") }}
         </a>
 
         {{- /* comment button */ -}}
         <a href="#" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
-            <i class="fas fa-comment fa-fw"></i>
+            {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "comment") }}
         </a>
     </div>
 
