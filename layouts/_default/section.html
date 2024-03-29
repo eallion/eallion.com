@@ -76,10 +76,8 @@
         </div>
 
         {{- /* ECharts js */ -}}
-        {{- $cdn := .Scratch.Get "cdn" | default dict -}}
-        {{- $fingerprint := .Scratch.Get "fingerprint" -}}
-        {{- $source := $cdn.echartsJS | default "lib/echarts/echarts.min.js" -}}
-        {{- dict "Source" $source "Fingerprint" $fingerprint "Defer" true | dict "Scratch" .Scratch "Data" | partial "scratch/script.html" -}}
+        {{ $EChartsJS := resources.Get "lib/echarts/echarts.min.js" | resources.Minify | resources.Fingerprint "sha256" }}
+        <script type="text/javascript" src="{{ $EChartsJS.RelPermalink }}" integrity="{{ $EChartsJS.Data.Integrity }}" crossorigin="anonymous"></script>
 
         <div id="heatmap"></div>
 
