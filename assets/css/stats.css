@@ -8,8 +8,8 @@
 }
 
 :root {
-    --ypb-black: rgba(0, 107, 238, 0.75);
-    --ypb-white: #eee;
+    --ypb-black: #1f4bb4;
+    --ypb-white: #ddf3fe;
     --ypb-red: rgba(239, 57, 130, 0.75);
     --ypb-day_size: 0px;
     --ypb-barH: 2.5rem;
@@ -33,6 +33,46 @@
 }
 
 /* year progress bar */
+.year_progress_bar_container {
+    position: relative;
+    width: 100%;
+    max-width: 768px;
+    background-color: #040c3b;
+    margin-top: 0.25rem;
+    min-height: 7rem;
+}
+.year_progress_bar_border {
+    background-color: #4582f7;
+    margin: 1.25rem;
+    z-index: 2;
+    position: absolute;
+    width: calc(100% - 2.25rem);
+    height: calc(100% - 2.25rem);
+}
+.year_progress_bar_text {
+    font-size: .75rem;
+    color: #fff;
+    font-weight: 700;
+    background-color: #040c3b;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 0 0.5rem;
+    margin-top: 0.15rem;
+    z-index: 9;
+    white-space: nowrap;
+}
+.year_progress_bar_content {
+    background-color: #040c3b;
+    margin: 0.25rem;
+    z-index: 3;
+    position: absolute;
+    width: calc(100% - 0.5rem);
+    height: calc(100% - 0.5rem);
+}
+
 .ypb {
     height: calc(80vh - 50px);
     margin: 0 var(--ypb-bodyMargin);
@@ -53,13 +93,11 @@
 }
 
 .bar {
-    border: 1px solid var(--ypb-black);
     background: var(--ypb-white);
     height: var(--ypb-barH);
-    margin-top: var(--ypb-gridMargin);
-    width: calc(100% - 5px);
-    box-shadow: 5px 3px #888;
     transition: background 500ms cubic-bezier(0.87, -0.2, 0.15, 1.44);
+    width: calc(100% - 2rem);
+    margin: 0 auto;
 }
 
 .bar div {
