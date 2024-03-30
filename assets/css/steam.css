@@ -42,6 +42,16 @@ body[theme=black] {
     background: linear-gradient(rgba(46, 13, 36, 0.93), #1b2838);
 }
 
+.steam_real_name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.steam_real_name span {
+    display: inline-block;
+}
+
 .card {
     margin: 1rem;
     /*
@@ -476,13 +486,20 @@ body.Steam3000Theme .profile_count_link.ellipsis {
     display: none;
 }
 
-.profile_info_lever {
+.steam_info_lever {
     display: flex;
     align-items: center;
+    gap: 10px;
+}
+
+.profile_info_lever {
+    display: flex;
     gap: 10px;
     font-size: 24px;
     margin-bottom: 13px;
     color: #fff;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .steam_lever_icon {
@@ -749,13 +766,18 @@ footer a {
         flex-direction: row;
         max-width: 400px;
         width: 100%;
-        align-items: flex-start;
+        align-items: center;
         justify-content: flex-end;
         padding-right: 0;
-        padding-left: 8px;
+        padding-left: 0;
     }
 
     .profile_info_badge {
-        margin-left: 1rem;
+        margin-left: 10px;
+    }
+    .profile_info_lever {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 }
