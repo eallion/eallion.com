@@ -19,7 +19,10 @@
 {{ $badges := $steam.response.badges }}
 {{ $games := $steam.response.games }}
 
-{{- $steamLevel := $steam.response.player_level -}}
+{{ $steamLevel := $steam.response.player_level }}
+{{ $realName := (index $players 0).realname}}
+{{ $locCountryCode := (index $players 0).loccountrycode}}
+{{ $locStateCode := (index $players 0).locstatecode}}
 
 {{ $randomIndex := int (mul (math.Rand) (len $games)) }}
 {{ $randomGame := index $games $randomIndex }}
@@ -38,6 +41,9 @@
 {{ $timeCreatedUnix := $timeCreatedInt.Unix }}
 {{ $currentTime := now.Unix }}
 {{ $yearsSince := div (sub $currentTime $timeCreatedUnix) 31536000 }}
+
+
+
 
 <div class="steam-background">
     <img class="lazy" data-src="/assets/images/steam/steam_bg_dots.png" alt title/>
@@ -69,10 +75,13 @@
             </script>
             <div class="profile_info">
                 <div class="profile_info_lever">
-                    <a href="https://steamcommunity.com/id/eallion/badges" rel="nofollow noopener noreferrer" target="_blank">
-                        <span class="steam_lever_icon">{{- $steamLevel -}}</span>
-                    </a>
-                    <span>{{ T `steam_level` | safeHTML }}</span>
+                    <div class="steam_real_name"><span>{{- $realName -}}</span> <span>{{ $locStateCode }}, {{ $locCountryCode }}</span></div>
+                    <div class="steam_info_lever">
+                        <a href="https://steamcommunity.com/id/eallion/badges" rel="nofollow noopener noreferrer" target="_blank">
+                            <span class="steam_lever_icon">{{- $steamLevel -}}</span>
+                        </a>
+                        <span>{{ T `steam_level` | safeHTML }}</span>
+                    </div>
                 </div>
                 <div class="profile_info_badge">
                     <a href="https://steamcommunity.com/id/eallion/badges/1" class="favorite_badge" rel="nofollow noopener noreferrer" target="_blank">
