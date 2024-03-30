@@ -96,7 +96,18 @@
             <h3 id="{{ T `stats_ypb_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_ypb_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_ypb_header` | safeHTML }}</h3>
 
             <details>
-                <summary><span id="year_num"></span> {{ T `stats_ypb_passed` | safeHTML }}<span id="yp_text"></span><div class="year_progress grid-item"><div class="bar"><div id="yp_bar"></div></div></div></summary>
+                <summary><span id="year_num"></span> {{ T `stats_ypb_passed` | safeHTML }}<span id="yp_text"></span><div class="year_progress_bar_container">
+                    <div class="year_progress_bar_border">
+                        <div class="year_progress_bar_text"><span id="year_num"></span> Progress Bar</div>
+                        <div class="year_progress_bar_content">
+                            <div class="year_progress grid-item">
+                                <div class="bar">
+                                    <div id="yp_bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></summary>
                 <div class="days">
                     <div class="days_cont" id="days_cont"></div>
                 </div>
@@ -122,7 +133,7 @@
                 const mText = document.getElementById("mp_text");
                 const dText = document.getElementById("dp_text");
                 const hText = document.getElementById("hp_text");
-                const yNum = document.getElementById("year_num");
+                const yNum = document.querySelectorAll("#year_num");
                 let curYearPercent = 0;
                 const updInterval = 750;
                 let margin = getComputedStyle(document.documentElement)
@@ -222,10 +233,9 @@
                 const setYearBarWidth = (date, now) => {
                     let elapsed = now - date;
                     elapsed = elapsed / 1000 / 60 / 60 / 24 / numOfDays(now.getFullYear());
-                    {{/*  elapsed = Math.round(elapsed * 10000000) / 100000;  */}}
                     elapsed = Math.round(elapsed * 100000000) / 1000000;
                     curYearPercent = elapsed;
-                    elapsed += "%";
+                    elapsed = elapsed.toFixed(2) + "%";
                     yText.textContent = elapsed;
                     yBar.style.width = elapsed;
                 };
@@ -260,7 +270,9 @@
                 };
 
                 const setYearNumber = () => {
-                    yNum.innerText = new Date().getFullYear();
+                    yNum.forEach((yNum) => {
+                        yNum.innerText = new Date().getFullYear();
+                    });
                 };
 
                 document.addEventListener("DOMContentLoaded", () => {
@@ -348,7 +360,7 @@
                     } else if (screenWidth >= 400) {
                         startDate.setMonth(startDate.getMonth() - 5);
                     } else if (screenWidth >= 300) {
-                        startDate.setMonth(startDate.getMonth() - 4);
+                        startDate.setMonth(startDate.getMonth() - 5);
                     } else {
                         startDate.setFullYear(startDate.getFullYear() - 1);
                     }
