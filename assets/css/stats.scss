@@ -1,8 +1,8 @@
 * {
+    /* Safari */
     margin: 0;
     box-sizing: border-box;
     -webkit-user-select: none;
-    /* Safari */
     -ms-user-select: none;
     user-select: none;
 }
@@ -41,6 +41,7 @@
     margin-top: 0.25rem;
     min-height: 7rem;
 }
+
 .year_progress_bar_border {
     background-color: #4582f7;
     margin: 1.25rem;
@@ -49,8 +50,9 @@
     width: calc(100% - 2.25rem);
     height: calc(100% - 2.25rem);
 }
+
 .year_progress_bar_text {
-    font-size: .75rem;
+    font-size: 0.75rem;
     color: #fff;
     font-weight: 700;
     background-color: #040c3b;
@@ -64,6 +66,7 @@
     z-index: 9;
     white-space: nowrap;
 }
+
 .year_progress_bar_content {
     background-color: #040c3b;
     margin: 0.25rem;
@@ -80,10 +83,7 @@
     display: grid;
     grid-template-rows: auto auto 1fr;
     grid-template-columns: auto auto;
-    grid-template-areas:
-        "year month"
-        "day hour"
-        "days days";
+    grid-template-areas: "year month" "day hour" "days days";
     column-gap: 14px;
 }
 
@@ -98,13 +98,14 @@
     transition: background 500ms cubic-bezier(0.87, -0.2, 0.15, 1.44);
     width: calc(100% - 2rem);
     margin: 0 auto;
-}
 
-.bar div {
-    background: var(--ypb-black);
-    height: 100%;
-    transition: width 450ms linear,
-        background 500ms cubic-bezier(0.87, -0.2, 0.15, 1.44);
+    div {
+        background: var(--ypb-black);
+        height: 100%;
+        transition:
+            width 450ms linear,
+            background 500ms cubic-bezier(0.87, -0.2, 0.15, 1.44);
+    }
 }
 
 .days {
@@ -115,49 +116,51 @@
 }
 
 .days_cont {
+    /*  overflow: hidden;  */
     display: flex;
     flex-wrap: wrap;
     height: 100%;
     margin-top: 5px;
     align-content: start;
-    /*  overflow: hidden;  */
     gap: var(--ypb-gridMargin);
-}
 
-.days_cont div {
-    border: 1px solid var(--ypb-black);
-    height: var(--ypb-day_size);
-    width: var(--ypb-day_size);
-    min-width: 14px;
-    min-height: 14px;
-    position: relative;
+    div {
+        border: 1px solid var(--ypb-black);
+        height: var(--ypb-day_size);
+        width: var(--ypb-day_size);
+        min-width: 14px;
+        min-height: 14px;
+        position: relative;
+    }
 }
 
 .passed {
     background: var(--ypb-black);
+
+    &.flicker {
+        animation: flicker 1750ms linear infinite;
+    }
 }
 
-.passed.flicker {
-    animation: flicker 1750ms linear infinite;
-}
+.days_cont div.hover-date {
+    &::before {
+        content: attr(data-date);
+        white-space: nowrap;
+        position: absolute;
+        right: 0;
+        bottom: 14px;
+        background-color: rgba(0, 0, 0, 0.75);
+        color: white;
+        padding: 2px 4px;
+        font-size: 12px;
+        border-radius: 2px;
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
 
-.days_cont div.hover-date::before {
-    content: attr(data-date);
-    white-space: nowrap;
-    position: absolute;
-    right: 0;
-    bottom: 14px;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: white;
-    padding: 2px 4px;
-    font-size: 12px;
-    border-radius: 2px;
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-
-.days_cont div.hover-date:hover::before {
-    opacity: 1;
+    &:hover &::before {
+        opacity: 1;
+    }
 }
 
 #year_num {

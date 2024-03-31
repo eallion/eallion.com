@@ -9,10 +9,10 @@
 {{- $toc = dict "enable" false -}}
 {{- end -}}
 
-{{ $mastodonCss := resources.Get "css/mastodon-timeline.min.css" | resources.Minify | resources.Fingerprint "sha256" }}
+{{ $mastodonCss := resources.Get "css/mastodon-timeline.min.css" | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $mastodonCss.RelPermalink }}" integrity="{{ $mastodonCss.Data.Integrity }}" crossorigin="anonymous">
 
-{{ $mastodonCustomCss := resources.Get "css/mastodon-timeline-custom.css" | resources.Minify | resources.Fingerprint "sha256" }}
+{{ $mastodonCustomCss := resources.Get "css/mastodon-timeline-custom.scss" | toCSS | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $mastodonCustomCss.RelPermalink }}" integrity="{{ $mastodonCustomCss.Data.Integrity }}" crossorigin="anonymous">
 
 <article class="page single special">

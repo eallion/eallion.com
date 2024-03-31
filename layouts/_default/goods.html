@@ -11,7 +11,7 @@
 
 {{ $goods := getJSON "data/goods/goods.json" }}
 
-{{ $goodsCss := resources.Get "css/goods.css" | resources.Minify | resources.Fingerprint "sha256" }}
+{{ $goodsCss := resources.Get "css/goods.css" | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $goodsCss.RelPermalink }}" integrity="{{ $goodsCss.Data.Integrity }}" crossorigin="anonymous">
 
 <article class="page single special">
@@ -25,11 +25,30 @@
         {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         <div id="goods">
             {{ range $goods.good}}
+            {{ $goodsSrc := .image }}
+            {{ $goodsSrc := printf "images/goods/%s" $goodsSrc }}
+            {{ $title := .title }}
             <div class="goods-container img-hide">
                 <div class="goods-image">
-                    <figure>
-                        <img class="lazy" loading="lazy" data-src="{{ .image }}" alt="{{ .title }}">
-                    </figure>
+                    {{ with resources.Get $goodsSrc }}
+                        {{ with .Resize "500x q90 webp" }}
+                            <figure>
+                                <a class="lightgallery"
+                                    href="{{ .RelPermalink }}"
+                                    title="{{ $title }}"
+                                    data-thumbnail="{{ .RelPermalink }}">
+                                    <img class="lazy"
+                                        loading="lazy"
+                                        src="/assets/images/penta/screenshot.png"
+                                        data-src="{{ .RelPermalink }}"
+                                        data-srcset="{{ .RelPermalink }},
+                                            {{ .RelPermalink }} 1.5x,
+                                            {{ .RelPermalink }} 2x"
+                                        alt="{{ $title }}">
+                                </a>
+                            </figure>
+                        {{ end }}
+                    {{ end }}
                 </div>
                 <div class="goods-price">{{ .price }}</div>
                 <div class="goods-title"><a href="{{ .link }}" target="_blank" rel="noreferrer noopener nofollow">{{ .title }}</a></div>

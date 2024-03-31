@@ -64,7 +64,7 @@
 {{- $steam_web_api := getJSON "data/steam/steam_web_api.json" -}}
 {{- $steamCount :=$steam_web_api.response.game_count -}}
 
-{{ $statsCss := resources.Get "css/stats.css" | resources.Minify | resources.Fingerprint "sha256" }}
+{{ $statsCss := resources.Get "css/stats.scss" | toCSS | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $statsCss.RelPermalink }}" integrity="{{ $statsCss.Data.Integrity }}" crossorigin="anonymous">
 
     <div class="page single archive">
