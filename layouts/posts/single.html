@@ -198,7 +198,7 @@
         {{- end -}}
 
         {{- /* Featured summary */ -}}
-        {{- $summary := $params.summary -}}
+        {{/*  {{- $summary := $params.summary -}}
         <div class="post-ai">
             <div class="ai-header">
                 <div class="ai-title">
@@ -217,7 +217,7 @@
                     AI 接口失联……
                 {{- end -}}
             </div>
-        </div>
+        </div>  */}}
 
         {{- /* Content */ -}}
         <div class="content" id="content">
@@ -239,5 +239,8 @@
 
         {{- /* Comment */ -}}
         {{- partial "comment.html" . -}}
+
+        <div id="load-giscus">{{ T `load_comments` | safeHTML }}</div>
+
     </article>
 {{- end -}}
