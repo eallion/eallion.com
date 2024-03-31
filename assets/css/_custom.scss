@@ -71,6 +71,7 @@ $background-color_6: #78191b;
 }
 
 @media only screen and (max-width: 680px) {
+
     .page.single,
     .page.archive {
         margin-top: 5rem;
@@ -122,8 +123,9 @@ $background-color_6: #78191b;
     }
 
     .content {
-        > h2,
-        > h3 {
+
+        >h2,
+        >h3 {
             .header-mark::before {
                 content: "#";
             }
@@ -131,9 +133,10 @@ $background-color_6: #78191b;
     }
 
     .content {
-        > h4,
-        > h5,
-        > h6 {
+
+        >h4,
+        >h5,
+        >h6 {
             .header-mark::before {
                 margin-left: 0.5rem;
             }
@@ -309,7 +312,7 @@ code {
 }
 
 :not(pre) {
-    > code {
+    >code {
         border-radius: 0.25em !important;
         white-space: normal !important;
     }
@@ -708,14 +711,13 @@ kbd,
 
     cursor: default;
 
-    font-family:
-        "JetBrains Mono",
-        monospace,
-        Source Code Pro,
-        Menlo,
-        Consolas,
-        Monaco,
-        monospace;
+    font-family: "JetBrains Mono",
+    monospace,
+    Source Code Pro,
+    Menlo,
+    Consolas,
+    Monaco,
+    monospace;
 
     font-size: 0.75em;
 
@@ -735,6 +737,7 @@ kbd,
         top: 1px;
     }
 }
+
 // 主题新增 End
 
 // zoom-vanilla
@@ -794,17 +797,22 @@ kbd,
 .friend-screens img {
     display: none;
     height: 0;
-    transition: all 0.3s; /* 加入过渡效果 */
-    border: 1px solid #dddddd00; /* 加边框 */
-    border-radius: 4px; /* 圆角 */
+    transition: all 0.3s;
+    /* 加入过渡效果 */
+    border: 1px solid #dddddd00;
+    /* 加边框 */
+    border-radius: 4px;
+    /* 圆角 */
 }
 
 .friend-link-div:hover .friend-screens img {
     display: block;
     height: auto;
     max-height: calc(100% * 4 / 3);
-    opacity: 1; /* 从透明到不透明 */
-    transform: translateY(10px); /* 向上移动10px */
+    opacity: 1;
+    /* 从透明到不透明 */
+    transform: translateY(10px);
+    /* 向上移动10px */
     //   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     border-color: #bbb;
 }
@@ -1071,6 +1079,7 @@ kbd,
         margin-top: -80px;
     }
 }
+
 // 抖音风格 End
 
 // 抖音风格按钮
@@ -1091,18 +1100,58 @@ kbd,
 }
 
 @keyframes tiktok-shake {
+
     0%,
     100% {
         transform: translateX(0);
     }
+
     25% {
         transform: translateX(-5px);
     }
+
     50% {
         transform: translateX(5px);
     }
+
     75% {
         transform: translateX(-5px);
     }
 }
+
 // 抖音风格按钮 End
+
+#load-giscus {
+    display: block;
+    position: relative;
+    margin: 2rem auto;
+    width: 100%;
+    text-align: center;
+    margin-top: -4rem;
+    opacity: 0.1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#load-giscus:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#load-giscus::before {
+    content: "";
+    position: absolute;
+    top: -4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4rem;
+    height: 4rem;
+    background-image: url('/assets/images/comments/mona-loading-default.gif');
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#load-giscus:hover::before {
+    opacity: 1;
+    cursor: pointer;
+}

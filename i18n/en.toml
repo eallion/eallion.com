@@ -254,6 +254,8 @@ other = "DELETED"
 # === shortcodes/version.html ===
 
 # === Custom ===
+[load_comments]
+other = "Load Comments (Giscus)"
 
 [album_quote]
 other = "My Album with Mastodon Tag <a href='https://e5n.cc/tags/ealbum' target='_blank' rel='noreferrer noopener nofollow'><code>#ealbum</code></a>."

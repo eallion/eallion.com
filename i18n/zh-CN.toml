@@ -252,6 +252,8 @@ other = "删除"
 # === shortcodes/version.html ===
 
 # === 自定义 ===
+[load_comments]
+other = "加载评论（Giscus）"
 
 [album_quote]
 other = "我的随手拍。我不会拍照，所以只能叫随手拍。通过 <a href='https://e5n.cc/tags/ealbum' target='_blank' rel='noreferrer noopener nofollow'>#ealbum</a> 引用。"
