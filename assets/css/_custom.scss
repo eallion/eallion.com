@@ -122,8 +122,8 @@ $background-color_6: #78191b;
     }
 
     .content {
-        >h2,
-        >h3 {
+        > h2,
+        > h3 {
             .header-mark::before {
                 content: "#";
             }
@@ -131,9 +131,9 @@ $background-color_6: #78191b;
     }
 
     .content {
-        >h4,
-        >h5,
-        >h6 {
+        > h4,
+        > h5,
+        > h6 {
             .header-mark::before {
                 margin-left: 0.5rem;
             }
@@ -309,7 +309,7 @@ code {
 }
 
 :not(pre) {
-    >code {
+    > code {
         border-radius: 0.25em !important;
         white-space: normal !important;
     }
@@ -504,7 +504,7 @@ code.hljs {
     max-width: 100% !important;
 }
 
-.heti i[class*=fa] {
+.heti i[class*="fa"] {
     font-style: normal !important;
 }
 
@@ -555,7 +555,6 @@ footer {
         }
     }
 }
-
 
 .emoji {
     font-family: $font-family-emoji;
@@ -652,7 +651,7 @@ footer {
         height: 5rem;
         bottom: -0.5rem;
         inset-inline-end: 0.5rem;
-        opacity: .15;
+        opacity: 0.15;
         background-color: currentColor;
         -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M0,19.04v-8.62c-0.04-1.24,0.14-2.4,0.54-3.49S1.49,4.88,2.2,4.06C2.92,3.23,3.77,2.55,4.76,2C5.76,1.46,6.84,1.11,8,0.96 v3.72C6.58,5.17,5.6,5.89,5.07,6.85C4.55,7.8,4.29,8.98,4.29,10.37H8v8.67H0zM12,19.04v-8.62c-0.04-1.24,0.14-2.4,0.53-3.49 s0.95-2.05,1.66-2.87c0.71-0.83,1.57-1.51,2.56-2.06c0.99-0.54,2.08-0.89,3.24-1.04v3.72c-1.43,0.49-2.4,1.21-2.93,2.17c-0.53,0.96-0.79,2.13-0.79,3.52H20v8.67H12z'/%3E%3C/svg%3E");
         mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M0,19.04v-8.62c-0.04-1.24,0.14-2.4,0.54-3.49S1.49,4.88,2.2,4.06C2.92,3.23,3.77,2.55,4.76,2C5.76,1.46,6.84,1.11,8,0.96 v3.72C6.58,5.17,5.6,5.89,5.07,6.85C4.55,7.8,4.29,8.98,4.29,10.37H8v8.67H0zM12,19.04v-8.62c-0.04-1.24,0.14-2.4,0.53-3.49 s0.95-2.05,1.66-2.87c0.71-0.83,1.57-1.51,2.56-2.06c0.99-0.54,2.08-0.89,3.24-1.04v3.72c-1.43,0.49-2.4,1.21-2.93,2.17c-0.53,0.96-0.79,2.13-0.79,3.52H20v8.67H12z'/%3E%3C/svg%3E");
@@ -709,7 +708,14 @@ kbd,
 
     cursor: default;
 
-    font-family: 'JetBrains Mono', monospace, Source Code Pro, Menlo, Consolas, Monaco, monospace;
+    font-family:
+        "JetBrains Mono",
+        monospace,
+        Source Code Pro,
+        Menlo,
+        Consolas,
+        Monaco,
+        monospace;
 
     font-size: 0.75em;
 
@@ -742,8 +748,8 @@ kbd,
 
 // View Images
 .view-image {
-    backdrop-filter: blur(5px) !important;
     -webkit-backdrop-filter: blur(5px) !important;
+    backdrop-filter: blur(5px) !important;
 }
 
 .view-image-tools {
@@ -757,7 +763,6 @@ kbd,
     animation: none;
     transition: opacity 0.2s;
 }
-
 
 .view-image-container {
     margin-top: 3rem;
@@ -800,7 +805,7 @@ kbd,
     max-height: calc(100% * 4 / 3);
     opacity: 1; /* 从透明到不透明 */
     transform: translateY(10px); /* 向上移动10px */
-//   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    //   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     border-color: #bbb;
 }
 
@@ -831,6 +836,7 @@ kbd,
     align-items: center;
     padding: 0 0.25rem;
     cursor: default;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -964,8 +970,8 @@ kbd,
     font-style: italic;
     font-weight: bold;
     letter-spacing: 3px;
-    font-family: 'Anton', sans-serif;
-    opacity: .9;
+    font-family: "Anton", sans-serif;
+    opacity: 0.9;
 
     span {
         min-width: 400px;
@@ -978,7 +984,9 @@ kbd,
         &:first-child {
             color: #fff;
             z-index: 1;
-            text-shadow: -2px -2px 0 #24f6f0, 2px 2px 0 #fe2d52;
+            text-shadow:
+                -2px -2px 0 #24f6f0,
+                2px 2px 0 #fe2d52;
             animation: shake-horizontal 1s steps(3) infinite;
         }
 
@@ -992,7 +1000,9 @@ kbd,
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
-                text-shadow: -2px -2px 0 #24f6f0, 2px 2px 0 #fe2d52;
+                text-shadow:
+                    -2px -2px 0 #24f6f0,
+                    2px 2px 0 #fe2d52;
             }
         }
 
@@ -1032,7 +1042,6 @@ kbd,
     }
 }
 
-
 @keyframes shake-horizontal {
     0% {
         margin-left: -4px;
@@ -1065,7 +1074,6 @@ kbd,
 // 抖音风格 End
 
 // 抖音风格按钮
-
 .tiktok-button {
     font-size: 18px;
     padding: 10px 20px;
@@ -1076,24 +1084,25 @@ kbd,
     border-radius: 5px;
     outline: none;
     transition: transform 0.3s ease;
-  }
+}
 
-  .tiktok-button:hover {
+.tiktok-button:hover {
     animation: tiktok-shake 0.8s linear infinite;
-  }
+}
 
-  @keyframes tiktok-shake {
-    0%, 100% {
-      transform: translateX(0);
+@keyframes tiktok-shake {
+    0%,
+    100% {
+        transform: translateX(0);
     }
     25% {
-      transform: translateX(-5px);
+        transform: translateX(-5px);
     }
     50% {
-      transform: translateX(5px);
+        transform: translateX(5px);
     }
     75% {
-      transform: translateX(-5px);
+        transform: translateX(-5px);
     }
-  }
+}
 // 抖音风格按钮 End

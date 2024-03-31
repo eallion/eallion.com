@@ -9,7 +9,7 @@
 {{- $toc = dict "enable" false -}}
 {{- end -}}
 
-{{ $mediaCss := resources.Get "css/media.css" | resources.Minify | resources.Fingerprint "sha256" }}
+{{ $mediaCss := resources.Get "css/media.css" | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $mediaCss.RelPermalink }}" integrity="{{ $mediaCss.Data.Integrity }}" crossorigin="anonymous">
 
 <div class="movies_video">

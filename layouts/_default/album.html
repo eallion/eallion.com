@@ -11,7 +11,7 @@
 
 <meta name="referrer" content="no-referrer">
 
-{{ $albumCss := resources.Get "css/album.css" | resources.Minify | resources.Fingerprint "sha256" }}
+{{ $albumCss := resources.Get "css/album.css" | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $albumCss.RelPermalink }}" integrity="{{ $albumCss.Data.Integrity }}" crossorigin="anonymous">
 
 <article class="page single special">

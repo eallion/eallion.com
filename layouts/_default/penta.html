@@ -15,7 +15,7 @@
 
 <meta name="referrer" content="no-referrer">
 
-{{ $pentaCss := resources.Get "css/penta.css" | resources.Minify | resources.Fingerprint "sha256" }}
+{{ $pentaCss := resources.Get "css/penta.scss" | toCSS | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $pentaCss.RelPermalink }}" integrity="{{ $pentaCss.Data.Integrity }}" crossorigin="anonymous">
 
 <article class="page single special">

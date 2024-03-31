@@ -11,7 +11,7 @@
 
 <meta name="referrer" content="no-referrer">
 
-{{ $steamCss := resources.Get "css/steam.css" | resources.Minify | resources.Fingerprint "sha256" }}
+{{ $steamCss := resources.Get "css/steam.css" | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $steamCss.RelPermalink }}" integrity="{{ $steamCss.Data.Integrity }}" crossorigin="anonymous">
 
 {{ $steam := getJSON "data/steam/steam_web_api.json" }}
