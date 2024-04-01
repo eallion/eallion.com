@@ -6,35 +6,35 @@
         "level": 124,
         "completion_time": 1709139849,
         "xp": 353,
-        "scarcity": 11232464
+        "scarcity": 11251415
       },
       {
         "badgeid": 66,
         "level": 1,
         "completion_time": 1703183460,
         "xp": 50,
-        "scarcity": 34086433
+        "scarcity": 34223743
       },
       {
         "badgeid": 64,
         "level": 1,
         "completion_time": 1678852971,
         "xp": 50,
-        "scarcity": 75368994
+        "scarcity": 75414147
       },
       {
         "badgeid": 2,
         "level": 3,
         "completion_time": 1534584002,
         "xp": 500,
-        "scarcity": 9954714
+        "scarcity": 9972203
       },
       {
         "badgeid": 1,
         "level": 16,
         "completion_time": 1175761888,
         "xp": 800,
-        "scarcity": 8782997
+        "scarcity": 8850326
       },
       {
         "badgeid": 1,
@@ -44,7 +44,7 @@
         "xp": 100,
         "communityitemid": "8838417276",
         "border_color": 0,
-        "scarcity": 86464
+        "scarcity": 86484
       }
     ],
     "player_xp": 1853,
@@ -56,7 +56,6 @@
       {
         "appid": 1426210,
         "name": "It Takes Two",
-        "playtime_2weeks": 38,
         "playtime_forever": 1049,
         "img_icon_url": "6b15f6d81c4fc52056f4928b363b7fac591a945b",
         "has_community_visible_stats": true,
