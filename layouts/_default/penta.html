@@ -33,7 +33,7 @@
             {{ $screenshotSrc := .src }}
             {{ $screenshot := printf "images/penta/screenshot/%s" $screenshotSrc }}
 
-            {{ $date := .date }}
+            {{ $date := dateFormat "Jan 02, 2006" .date }}
             {{ $caption := .caption }}
 
             {{ $championSrc := .champion }}
@@ -84,7 +84,7 @@
 
                 <div class="date">
                     <span>{{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "calendar-alt") }}</span>
-                    <span class="dateText">{{ .date }}</span>
+                    <span class="dateText">{{ $date }}</span>
                 </div>
 
             </div>
