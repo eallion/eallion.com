@@ -83,7 +83,10 @@
     display: grid;
     grid-template-rows: auto auto 1fr;
     grid-template-columns: auto auto;
-    grid-template-areas: "year month" "day hour" "days days";
+    grid-template-areas:
+        "year month"
+        "day hour"
+        "days days";
     column-gap: 14px;
 }
 
@@ -102,8 +105,7 @@
     div {
         background: var(--ypb-black);
         height: 100%;
-        transition:
-            width 450ms linear,
+        transition: width 450ms linear,
             background 500ms cubic-bezier(0.87, -0.2, 0.15, 1.44);
     }
 }
@@ -113,53 +115,52 @@
     display: flex;
     flex-direction: column;
     margin: var(--ypb-margin) 0 0 0;
-}
 
-.days_cont {
-    /*  overflow: hidden;  */
-    display: flex;
-    flex-wrap: wrap;
-    height: 100%;
-    margin-top: 5px;
-    align-content: start;
-    gap: var(--ypb-gridMargin);
+    &_cont {
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        margin-top: 5px;
+        align-content: start;
+        gap: var(--ypb-gridMargin);
 
-    div {
-        border: 1px solid var(--ypb-black);
-        height: var(--ypb-day_size);
-        width: var(--ypb-day_size);
-        min-width: 14px;
-        min-height: 14px;
-        position: relative;
-    }
-}
+        div {
+            border: 1px solid var(--ypb-black);
+            height: var(--ypb-day_size);
+            width: var(--ypb-day_size);
+            min-width: 14px;
+            min-height: 14px;
+            position: relative;
 
-.passed {
-    background: var(--ypb-black);
+            &.passed {
+                background: var(--ypb-black);
 
-    &.flicker {
-        animation: flicker 1750ms linear infinite;
-    }
-}
+                &.flicker {
+                    animation: flicker 1750ms linear infinite;
+                }
+            }
 
-.days_cont div.hover-date {
-    &::before {
-        content: attr(data-date);
-        white-space: nowrap;
-        position: absolute;
-        right: 0;
-        bottom: 14px;
-        background-color: rgba(0, 0, 0, 0.75);
-        color: white;
-        padding: 2px 4px;
-        font-size: 12px;
-        border-radius: 2px;
-        opacity: 0;
-        transition: opacity 0.2s;
-    }
+            &.hover-date {
+                &::before {
+                    content: attr(data-date);
+                    white-space: nowrap;
+                    position: absolute;
+                    right: 0;
+                    bottom: 14px;
+                    background-color: rgba(0, 0, 0, 0.75);
+                    color: white;
+                    padding: 2px 4px;
+                    font-size: 12px;
+                    border-radius: 2px;
+                    opacity: 0;
+                    transition: opacity 0.2s;
+                }
 
-    &:hover &::before {
-        opacity: 1;
+                &:hover::before {
+                    opacity: 1;
+                }
+            }
+        }
     }
 }
 
