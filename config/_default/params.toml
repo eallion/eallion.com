@@ -15,7 +15,7 @@ gitRepo = "https://github.com/eallion/eallion.com"
 fingerprint = "sha256"
 # date format
 # 日期格式
-dateFormat = "2006-01-02"
+dateFormat = "Mar 02, 2006"
 # website images for Open Graph and Twitter Cards
 # 网站图片, 用于 Open Graph 和 Twitter Cards
 images = ["/assets/images/og/eallion.png"]
