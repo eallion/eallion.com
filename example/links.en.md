@@ -43,6 +43,10 @@ aliases:
 {{< friend name="1900 的博客" bio="1900 的博客，普通男青年，分享生活、折腾技术。" url="https://1900.live/" domain="1900.live" avatar="https://gravatar.eallion.com/avatar/cc38267b10cc25dfc62209f8ca34589e" >}}
 {{< friend name="拾月" bio="在互联网行业做产品类工作，日常关注互联网、软件应用居多，也喜欢股票投资、社科历史。执着于掌控自己的数据，Self-hosted 爱好者" url="https://www.skyue.com/" domain="www.skyue.com" avatar="https://gravatar.eallion.com/avatar/c3fb4bb4d5101284ddd672fb722cdd7d" >}}
 {{< friend name="海拉鲁打怪日记" bio="记录生活、数理统计和技术的博客" url="https://www.xuezhao.space/" domain="www.xuezhao.space" avatar="https://gravatar.eallion.com/avatar/a868e586e9a9e57fb7644b09eb1d3865" >}}
+{{< friend name="Kezade" bio="全栈开发，架构师，向往躺平" url="https://zyxelva.github.io/" domain="zyxelva.github.io" avatar="https://zyxelva.github.io/medias/avatar.png" >}}
+{{< friend name="长街短梦" bio="此行山高路远，我只剩口袋玫瑰一片" url="https://wangyunzi.com/" domain="wangyunzi.com" avatar="https://blog.wangyunzi.com/avatar.png" >}}
+{{< friend name="无名小站" bio="waahah的小巢" url="https://www.waahah.xyz/" domain="www.waahah.xyz" avatar="https://waahah.xyz/img/avatar.png" >}}
+{{< friend name="修远的小屋" bio="路漫漫其修远兮，吾将上下而求索" url="https://house.coderxst.top/" domain="house.coderxst.top" avatar="https://bu.dusays.com/2023/10/19/6530f7c2623c2.jpg" >}}
 </div>
 
 ---
