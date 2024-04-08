@@ -6,35 +6,35 @@
         "level": 124,
         "completion_time": 1709139849,
         "xp": 353,
-        "scarcity": 11251415
+        "scarcity": 11274359
       },
       {
         "badgeid": 66,
         "level": 1,
         "completion_time": 1703183460,
         "xp": 50,
-        "scarcity": 34223743
+        "scarcity": 34345583
       },
       {
         "badgeid": 64,
         "level": 1,
         "completion_time": 1678852971,
         "xp": 50,
-        "scarcity": 75414147
+        "scarcity": 75455293
       },
       {
         "badgeid": 2,
         "level": 3,
         "completion_time": 1534584002,
         "xp": 500,
-        "scarcity": 9972203
+        "scarcity": 9984862
       },
       {
         "badgeid": 1,
-        "level": 16,
+        "level": 17,
         "completion_time": 1175761888,
-        "xp": 800,
-        "scarcity": 8850326
+        "xp": 850,
+        "scarcity": 6124305
       },
       {
         "badgeid": 1,
@@ -44,12 +44,12 @@
         "xp": 100,
         "communityitemid": "8838417276",
         "border_color": 0,
-        "scarcity": 86484
+        "scarcity": 86501
       }
     ],
-    "player_xp": 1853,
+    "player_xp": 1903,
     "player_level": 14,
-    "player_xp_needed_to_level_up": 147,
+    "player_xp_needed_to_level_up": 97,
     "player_xp_needed_current_level": 1800,
     "game_count": 125,
     "games": [
