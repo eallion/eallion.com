@@ -1,3 +1,8 @@
-[submodule "themes/DoIt"]
-	path = themes/DoIt
-	url = https://github.com/eallion/hugo-theme-doit.git
+[submodule "themes/blowfish"]
+	path = themes/blowfish
+	url = https://github.com/eallion/blowfish.git
+	branch = main
+[submodule "assets/lib/mastodon-embed-timeline"]
+	path = assets/lib/mastodon-embed-timeline
+	url = https://github.com/eallion/mastodon-embed-timeline.git
+	branch = master

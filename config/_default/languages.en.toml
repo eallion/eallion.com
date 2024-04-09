@@ -1,0 +1,27 @@
+languageCode = "en"
+languageName = "English"
+weight = 2
+title = "Charles Chin's Blog"
+
+[params]
+  displayName = "English"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "Jan 2, 2006"
+  logo = "images/logo.png"
+  description = "Chance favors the prepared mind."
+  copyright = "© 2006 - { year } [eallion.com](/copyright/) All Rights Reserved. [Privacy Policy](/privacy-policy/). [浙ICP备16031768号-2](https://beian.miit.gov.cn/)"
+
+[author]
+  name = "Charles Chin"
+  image = "images/eallion.webp"
+  headline = "Chance favors the prepared mind."
+  bio = "Chance favors the prepared mind."
+  links = [
+    { email = "mailto:eallions@gmail.com" },
+    { mastodon = "https://e5n.cc/@eallion" },
+    { github = "https://github.com/eallion" },
+    { x-twitter = "https://x.com/eallion" },
+    { steam = "https://steamcommunity.com/id/eallion" },
+    { keybase = "https://keybase.io/eallion" },
+  ]

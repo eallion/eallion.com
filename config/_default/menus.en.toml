@@ -1,0 +1,157 @@
+# -- Main Menu --
+# The main menu is displayed in the header at the top of the page.
+# Acceptable parameters are name, pageRef, page, url, title, weight.
+#
+# The simplest menu configuration is to provide:
+#   name = The name to be displayed for this menu link
+#   pageRef = The identifier of the page or section to link to
+#
+# By default the menu is ordered alphabetically. This can be
+# overridden by providing a weight value. The menu will then be
+# ordered by weight from lowest to highest.
+
+[[main]]
+  name = "Blog"
+  pageRef = "blog"
+  weight = 10
+
+[[main]]
+  name = "Mastodon"
+  pageRef = "mastodon"
+  weight = 11
+
+[[main]]
+  name = "Media"
+  pageRef = "media"
+  weight = 12
+
+[[main]]
+  name = "Timeline"
+  pageRef = "timeline"
+  weight = 13
+
+[[main]]
+  name = "More"
+  weight = 20
+
+[[main]]
+  name = "Stats"
+  parent = "More"
+  pageRef = "stats"
+  weight = 21
+
+[[main]]
+  name = "Steam"
+  parent = "More"
+  pageRef = "steam"
+  weight = 22
+
+[[main]]
+  name = "Penta"
+  parent = "More"
+  pageRef = "penta"
+  weight = 30
+
+[[main]]
+  name = "Album"
+  parent = "More"
+  pageRef = "album"
+  weight = 40
+
+[[main]]
+  name = "Goods"
+  parent = "More"
+  pageRef = "goods"
+  weight = 50
+
+[[main]]
+  name = "Copyright"
+  parent = "More"
+  pageRef = "copyright"
+  weight = 60
+
+[[main]]
+  name = "Privacy Policy"
+  parent = "More"
+  pageRef = "privacy-policy"
+  weight = 70
+
+[[main]]
+  name = "Status"
+  parent = "More"
+  # pageRef = "status"
+  url = "https://status.eallion.com"
+  weight = 80
+
+[[main]]
+  name = "Friends"
+  pageRef = "links"
+  weight = 90
+
+[[main]]
+  name = "About"
+  pageRef = "about"
+  weight = 100
+
+# [[main]]
+#   name = "Test"
+#   pageRef = "pagTest"
+#   weight = 1000
+
+# [[main]]
+#   identifier = "twitter"
+#   pre = "x-twitter"
+#   url = "https://twitter.com/eallion"
+#   weight = 200
+
+[[main]]
+  identifier = "mastodon"
+  pre = "mastodon"
+  weight = 300
+  url = "https://e5n.cc/@eallion"
+
+# [[main]]
+#   identifier = "github"
+#   pre = "github"
+#   url = "https://github.com/eallion/eallion.com"
+#   weight = 400
+
+
+# -- Footer Menu --
+# The footer menu is displayed at the bottom of the page, just before
+# the copyright notice. Configure as per the main menu above.
+
+ [[footer]]
+   name = "Blog"
+   pageRef = "blog"
+   weight = 10
+
+ [[footer]]
+   name = "Mastodon"
+   pageRef = "mastodon"
+   weight = 20
+
+ [[footer]]
+   name = "Media"
+   pageRef = "media"
+   weight = 30
+
+ [[footer]]
+   name = "Timeline"
+   pageRef = "timeline"
+   weight = 40
+
+ [[footer]]
+   name = "Stats"
+   pageRef = "stats"
+   weight = 50
+
+ [[footer]]
+   name = "Status"
+   url = "https://status.eallion.com"
+   weight = 60
+
+ [[footer]]
+   name = "About"
+   pageRef = "about"
+   weight = 90

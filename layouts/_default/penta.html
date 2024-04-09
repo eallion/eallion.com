@@ -1,105 +1,231 @@
-{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
-
-{{- define "content" -}}
-{{- $params := .Scratch.Get "params" -}}
-{{- $toc := $params.toc -}}
-{{- if eq $toc true -}}
-{{- $toc = .Site.Params.page.toc | default dict -}}
-{{- else if eq $toc false -}}
-{{- $toc = dict "enable" false -}}
-{{- end -}}
+{{ define "main" }}
+{{ .Scratch.Set "scope" "single" }}
 
 <!-- LOL 英雄头像 API <https://lol.qq.com/cguide/Guide/PublicResources/Images.html#%E9%9D%9E%E7%82%AB%E5%BD%A9%E7%9A%AE%E8%82%A4> -->
 
 {{ $penta := getJSON "data/penta/penta.json" }}
 
-<meta name="referrer" content="no-referrer">
-
 {{ $pentaCss := resources.Get "css/penta.scss" | toCSS | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $pentaCss.RelPermalink }}" integrity="{{ $pentaCss.Data.Integrity }}" crossorigin="anonymous">
 
-<article class="page single special">
-    <h1 class="single-title animate__animated animate__pulse animate__faster">{{ .Title }}</h1>
-    <div id="content" class="content">
-        <div class="greyQuote">
-            <blockquote>
-                {{ T `penta_quote` | safeHTML }}
-            </blockquote>
-        </div>
-        <div class="pentas" view-image>
+<article>
+  {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
+  {{ $heroStyle := .Params.heroStyle }}
+  {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
+  {{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
+  {{ if templates.Exists $heroStyle }}
+  {{ partial $heroStyle . }}
+  {{ else }}
+  {{ partial "partials/hero/basic.html" . }}
+  {{ end }}
+  {{ end }}
 
-            {{ range $penta.penta }}
+  <header id="single_header" class="mt-5 max-w-prose">
+    {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
+    {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      {{ .Title | emojify }}
+    </h1>
 
-            {{ $screenshotSrc := .src }}
-            {{ $screenshot := printf "images/penta/screenshot/%s" $screenshotSrc }}
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
+    </div>
 
-            {{ $date := dateFormat "Jan 02, 2006" .date }}
-            {{ $caption := .caption }}
+    {{ $authorsData := .Site.Data.authors }}
+    {{ $taxonomies := .Site.Taxonomies.authors }}
+    {{ $baseURL := .Site.BaseURL }}
+    {{ $taxonomyLink := 0 }}
+    {{ $showAuthor := 0 }}
 
-            {{ $championSrc := .champion }}
-            {{ $champion := printf "images/penta/hero/%s.png" $championSrc }}
-            {{ $heroId := .heroId }}
+    {{ if not (strings.HasSuffix $baseURL "/") }}
+    {{ $baseURL = delimit (slice $baseURL "/") "" }}
+    {{ end }}
 
-            <div class="penta">
-                <div class="screenshot">
-                    {{ with resources.Get $screenshot }}
-                        {{ with .Resize "1440x webp" }}
+    {{ if not (.Params.showAuthorBottom | default ( .Site.Params.article.showAuthorBottom | default false)) }}
+
+      {{ if .Params.showAuthor | default (.Site.Params.article.showAuthor | default true) }}
+        {{ $showAuthor = 1 }}
+        {{ partial "author.html" . }}
+      {{ end }}
+
+      {{ range $author := .Page.Params.authors }}
+        {{ $authorData := index $authorsData $author }}
+        {{- if $authorData -}}
+          {{ range $taxonomyname, $taxonomy := $taxonomies }}
+            {{ if (eq $taxonomyname $author) }}
+              {{ $taxonomyLink = delimit (slice $baseURL "/authors/" $author) "" }}
+            {{ end }}
+          {{ end }}
+          {{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $taxonomyLink) }}
+        {{- end -}}
+      {{ end }}
+
+      {{ if or $taxonomyLink $showAuthor }}
+      <div class="mb-5"></div>
+      {{ end }}
+
+    {{ end }}
+  </header>
+
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+
+    {{ if or (and (.Params.showTableOfContents | default (.Site.Params.article.showTableOfContents | default false)) (in
+    .TableOfContents "<ul")) (.Site.Params.article.showRelatedPosts | default false) }} <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky {{ if hasPrefix .Site.Params.header.layout "fixed" -}}
+        lg:top-[140px]{{ else }}lg:top-10{{ end }}">
+
+        {{ if and (.Params.showTableOfContents | default (.Site.Params.article.showTableOfContents | default false)) (in
+        .TableOfContents "<ul") }} {{ partial "toc.html" . }} {{ end }} {{ if .Site.Params.article.showRelatedPosts |
+          default false }} sd {{ end }} </div>
+      </div>
+      {{ end }}
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+
+        {{ partial "series/series.html" . }}
+
+        <div class="article-content max-w-full mb-20">
+          {{ .Content | emojify }}
+
+            <div class="pentas" view-image>
+
+                {{ range $penta.penta }}
+
+                {{ $screenshotSrc := .src }}
+                {{ $screenshot := printf "images/penta/screenshot/%s" $screenshotSrc }}
+
+                {{ $date := dateFormat "Jan 2, 2006" .date }}
+                {{ $caption := .caption }}
+
+                {{ $championSrc := .champion }}
+                {{ $champion := printf "images/penta/hero/%s.png" $championSrc }}
+                {{ $heroId := .heroId }}
+
+                <div class="penta">
+                    <div class="screenshot">
+                        {{ with resources.Get $screenshot }}
                             <figure>
-                                <a class="lightgallery"
-                                    href="{{ .RelPermalink }}"
-                                    title="{{ $caption }} {{ $date }}"
-                                    data-thumbnail="{{ .RelPermalink }}">
-                                    <img class="lazy"
-                                        loading="lazy"
-                                        src="/assets/images/penta/screenshot.png"
-                                        data-src="{{ .RelPermalink }}"
-                                        data-srcset="{{ .RelPermalink }},
-                                            {{ .RelPermalink }} 1.5x,
-                                            {{ .RelPermalink }} 2x"
-                                        alt="{{ $caption }} {{ $date }}">
-                                </a>
+                                <img
+                                    class="my-0 rounded-md lazy"
+                                    loading="lazy"
+                                    srcset="
+                                    {{ (.Resize "330x").RelPermalink }} 330w,
+                                    {{ (.Resize "660x").RelPermalink }} 660w,
+                                    {{ (.Resize "1024x").RelPermalink }} 1024w,
+                                    {{ (.Resize "1320x").RelPermalink }} 2x"
+                                    src="/assets/images/penta/screenshot.png"
+                                    data-src="{{ (.Resize "1320x").RelPermalink }}"
+                                    alt="{{ $caption }} {{ $date }}"
+                                />
                             </figure>
                         {{ end }}
-                    {{ end }}
-                </div>
-                <div class="champions">
-                    {{ with resources.Get $champion }}
-                        {{ with .Resize "18x webp" }}
-                            <a href="https://101.qq.com/#/hero-detail?heroid={{ $heroId }}" target="_blank" rel="noreferrer noopener nofollow">
-                                <span class="champAvatar">
-                                    <img class="lazy"
-                                        loading="lazy"
-                                        src="/assets/images/penta/hero.png"
-                                        data-src="{{ .RelPermalink }}"
-                                        alt="{{ $championSrc }} {{ $champion }}"
-                                        no-view>
-                                </span>
-                                <span class="caption">
-                                    {{ $caption }}
-                                </span>
-                            </a>
+                    </div>
+                    <div class="champions">
+                        {{ with resources.Get $champion }}
+                            {{ with .Resize "18x webp" }}
+                                <a href="https://101.qq.com/#/hero-detail?heroid={{ $heroId }}" target="_blank" rel="noreferrer noopener nofollow">
+                                    <span class="champAvatar">
+                                        <img class="lazy"
+                                            loading="lazy"
+                                            src="/assets/images/penta/hero.png"
+                                            data-src="{{ .RelPermalink }}"
+                                            alt="{{ $championSrc }} {{ $champion }}"
+                                            no-view>
+                                    </span>
+                                    <span class="caption">
+                                        {{ $caption }}
+                                    </span>
+                                </a>
+                            {{ end }}
                         {{ end }}
-                    {{ end }}
+                    </div>
+
+                    <div class="date">
+                        <span>{{ partial "icon.html" "calendar-alt" }}</span>
+                        <span class="dateText">{{ $date }}</span>
+                    </div>
+
                 </div>
 
-                <div class="date">
-                    <span>{{ partial "plugin/fontawesome.html" (dict "Style" "regular" "Icon" "calendar-alt") }}</span>
-                    <span class="dateText">{{ $date }}</span>
-                </div>
+                {{ end }}
 
             </div>
 
-            {{ end }}
-
         </div>
+
+        {{ if (.Params.showAuthorBottom | default ( .Site.Params.article.showAuthorBottom | default false)) }}
+
+          {{ if .Params.showAuthor | default (.Site.Params.article.showAuthor | default true) }}
+            {{ $showAuthor = 1 }}
+            {{ partial "author.html" . }}
+          {{ end }}
+
+          {{ range $author := .Page.Params.authors }}
+            {{ $authorData := index $authorsData $author }}
+            {{- if $authorData -}}
+              {{ range $taxonomyname, $taxonomy := $taxonomies }}
+                {{ if (eq $taxonomyname $author) }}
+                  {{ $taxonomyLink = delimit (slice $baseURL "/authors/" $author) "" }}
+                {{ end }}
+              {{ end }}
+              {{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $taxonomyLink) }}
+            {{- end -}}
+          {{ end }}
+
+          {{ if or $taxonomyLink $showAuthor }}
+          <div class="mb-10"></div>
+          {{ end }}
+
+        {{ end }}
+
+        {{ partial "series/series-closed.html" . }}
+        {{ partial "sharing-links.html" . }}
+        {{ partial "related.html" . }}
+      </div>
+
+      {{ $translations := .AllTranslations }}
+      {{ with .File }}
+        {{ $path := .Path }}
+        {{range $translations}}
+          {{ $lang := print "."  .Lang  ".md" }}
+          {{ $path = replace $path $lang ".md" }}
+        {{end}}
+      <script>
+        var oid = "views_{{ $path }}"
+        var oid_likes = "likes_{{ $path }}"
+      </script>
+      {{ end }}
+      {{ $jsPage := resources.Get "js/page.js" }}
+      {{ $jsPage = $jsPage | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $jsPage.RelPermalink }}" integrity="{{ $jsPage.Data.Integrity }}"></script>
+
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    {{ partial "article-pagination.html" . }}
+    {{ if .Params.showComments | default (.Site.Params.article.showComments | default false) }}
+    {{ if templates.Exists "partials/comments.html" }}
+    <div class="pt-3">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="pt-3">
+        {{ partial "comments.html" . }}
+      </div>
     </div>
+    {{ else }}
+    {{ warnf "[BLOWFISH] Comments are enabled for %s but no comments partial exists." .File.Path }}
+    {{ end }}
+    {{ end }}
+  </footer>
 </article>
 
 <script type="text/javascript" src="/assets/js/lazyload.iife.min.js?v=18.0.0"></script>
+
 <script>
     var lazyLoadInstance = new LazyLoad({
         // Your custom settings go here
     });
 </script>
 
-{{- end -}}
+{{ end }}
