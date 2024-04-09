@@ -1,36 +1,97 @@
+# -- Site Configuration --
+# Refer to the theme docs for more details about each of these parameters.
+# https://blowfish.page/docs/getting-started/
+
+theme = "blowfish"
 baseURL = "https://www.eallion.com"
-# [en, zh-cn, fr, pl, ...] determines default content language
-# [en, zh-cn, fr, pl, ...] 设置默认的语言
 defaultContentLanguage = "zh-cn"
+# disableLanguages = ['it'] #to allow translation work requiring shipping to production
 
-# website title
-# 网站标题
-title = "大大的小蜗牛"
+# pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
 
-# whether to use robots.txt
-# 是否使用 robots.txt
 enableRobotsTXT = true
-# whether to use git commit log
-# 是否使用 git 信息
-enableGitInfo = true
-# whether to use emoji code
-# 是否使用 emoji 代码
-enableEmoji = true
+paginate = 20
+summaryLength = 30
+hasCJKLanguage = true
 
-# ignore some build errors
-# 忽略一些构建错误
-# ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
+buildDrafts = false
+buildFuture = false
 
-ignoreFiles = ['data/douban', 'data/neodb']
 
-# theme
-# 主题
-theme = "DoIt"
-# themes directory
-# 主题目录
-# themesDir = "../.."
+# googleAnalytics = "G-PEDMYR1V0K"
 
-# Or, when using theme as hugo module
-# [module]
-# [[module.imports]]
-# path = "github.com/HEIGE-PCloud/DoIt"
+[imaging]
+  anchor = 'Center'
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  author = "authors"
+  series = "series"
+  slug = "slug"
+
+[sitemap]
+  changefreq = 'always'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+[outputs]
+  home = ["HTML", "RSS", "JSON", "JsonFeed"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+[related]
+  threshold = 0
+  toLower = false
+
+    [[related.indices]]
+        name = "tags"
+        weight = 100
+
+    [[related.indices]]
+        name = "categories"
+        weight = 100
+
+    [[related.indices]]
+        name = "series"
+        weight = 50
+
+    [[related.indices]]
+        name = "authors"
+        weight = 20
+
+    [[related.indices]]
+        name = "date"
+        weight = 10
+
+    [[related.indices]]
+      applyFilter = false
+      name = 'fragmentrefs'
+      type = 'fragments'
+      weight = 10
+
+# Custom
+
+[permalinks]
+  blog = "/:slug/" # Don't miss the last slash: "/"
+  tags = "/tags/:slug/" # Don't miss the last slash: "/"
+
+[outputFormats]
+  [MarkDown]
+    mediaType = "text/plain"
+    isPlainText = true
+    isHTML = false
+
+  [JsonFeed]
+    mediaType = "application/feed+json"
+    isPlainText = true
+    notAlternative = true
+
+[mediaTypes]
+  ["text/plain"]
+    suffixes = ["md"]
+
+  ["application/feed+json"]
+    suffixes = ["feed"]

@@ -1,372 +1,307 @@
-{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+{{ define "main" }}
+{{ .Scratch.Set "scope" "single" }}
 
-{{- define "content" -}}
-{{- $params := .Scratch.Get "params" -}}
-{{- $toc := $params.toc -}}
-{{- if eq $toc true -}}
-{{- $toc = .Site.Params.page.toc | default dict -}}
-{{- else if eq $toc false -}}
-{{- $toc = dict "enable" false -}}
-{{- end -}}
-
-{{ $mastodonCss := resources.Get "css/mastodon-timeline.min.css" | minify | fingerprint "sha256" }}
+{{ $mastodonCss := resources.Get "lib/mastodon-embed-timeline/dist/mastodon-timeline.min.css" | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $mastodonCss.RelPermalink }}" integrity="{{ $mastodonCss.Data.Integrity }}" crossorigin="anonymous">
 
 {{ $mastodonCustomCss := resources.Get "css/mastodon-timeline-custom.scss" | toCSS | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $mastodonCustomCss.RelPermalink }}" integrity="{{ $mastodonCustomCss.Data.Integrity }}" crossorigin="anonymous">
 
-<article class="page single special">
-    <h1 class="single-title animate__animated animate__pulse animate__faster">{{- .Title -}}</h1>
-    <div id="content" class="content">
-        <div class="greyQuote">
-            <blockquote>
-                <div class="hitokoto">
-                    <span id="hitokoto">{{ T `toot_motto` | safeHTML }}</span> - <cite><span id="author">{{ T `toot_author` | safeHTML }}</span></cite>
+<article>
+  {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
+  {{ $heroStyle := .Params.heroStyle }}
+  {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
+  {{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
+  {{ if templates.Exists $heroStyle }}
+  {{ partial $heroStyle . }}
+  {{ else }}
+  {{ partial "partials/hero/basic.html" . }}
+  {{ end }}
+  {{ end }}
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
+    {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      {{ .Title | emojify }}
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
+    </div>
+
+    {{ $authorsData := .Site.Data.authors }}
+    {{ $taxonomies := .Site.Taxonomies.authors }}
+    {{ $baseURL := .Site.BaseURL }}
+    {{ $taxonomyLink := 0 }}
+    {{ $showAuthor := 0 }}
+
+    {{ if not (strings.HasSuffix $baseURL "/") }}
+    {{ $baseURL = delimit (slice $baseURL "/") "" }}
+    {{ end }}
+
+    {{ if not (.Params.showAuthorBottom | default ( .Site.Params.article.showAuthorBottom | default false)) }}
+
+      {{ if .Params.showAuthor | default (.Site.Params.article.showAuthor | default true) }}
+        {{ $showAuthor = 1 }}
+        {{ partial "author.html" . }}
+      {{ end }}
+
+      {{ range $author := .Page.Params.authors }}
+        {{ $authorData := index $authorsData $author }}
+        {{- if $authorData -}}
+          {{ range $taxonomyname, $taxonomy := $taxonomies }}
+            {{ if (eq $taxonomyname $author) }}
+              {{ $taxonomyLink = delimit (slice $baseURL "/authors/" $author) "" }}
+            {{ end }}
+          {{ end }}
+          {{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $taxonomyLink) }}
+        {{- end -}}
+      {{ end }}
+
+      {{ if or $taxonomyLink $showAuthor }}
+      <div class="mb-5"></div>
+      {{ end }}
+
+    {{ end }}
+
+  </header>
+
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+
+    {{ if or (and (.Params.showTableOfContents | default (.Site.Params.article.showTableOfContents | default false)) (in
+    .TableOfContents "<ul")) (.Site.Params.article.showRelatedPosts | default false) }} <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky {{ if hasPrefix .Site.Params.header.layout "fixed" -}}
+        lg:top-[140px]{{ else }}lg:top-10{{ end }}">
+
+        {{ if and (.Params.showTableOfContents | default (.Site.Params.article.showTableOfContents | default false)) (in
+        .TableOfContents "<ul") }} {{ partial "toc.html" . }} {{ end }} {{ if .Site.Params.article.showRelatedPosts |
+          default false }} sd {{ end }} </div>
+      </div>
+      {{ end }}
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+
+        {{ partial "series/series.html" . }}
+
+        <div class="article-content max-w-full mb-20">
+          {{ .Content | emojify }}
+            <div id="mt-container" class="mt-container">
+                <div class="mt-body" role="feed">
+                    <div class="mt-loading-spinner"></div>
                 </div>
-            </blockquote>
-        </div>
-
-        <div class="dummy-container">
-            <div class="mt-timeline">
-                <div id="mt-body" class="mt-body" role="feed">
-                    {{- $mastodon_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true&exclude_reblogs=true" -}}
-                    {{- $memos_api := "https://memos.eallion.com/api/v1/memo?creatorId=101&rowStatus=NORMAL&limit=10" -}}
-                    {{- $mastodon_local := "data/mastodon/mastodon.json" -}}
-                    {{- with resources.GetRemote $mastodon_api }}
-                        {{- with .Err }}
-                        {{- $ticker := getJSON $mastodon_local -}}
-                            {{- range $ticker }}
-                                {{ $content := .content }}
-                                {{ $content := $content | replaceRE ":star_solid:" "🌕" }}
-                                {{ $content := $content | replaceRE ":star_half:" "🌗" }}
-                                {{ $content := $content | replaceRE ":star_empty:" "🌑" }}
-
-                                {{ $matches := findRE `href=\"([^\"]*)\"` $content }}
-                                {{ $resultContent := $content }}
-                                {{ range $index, $originalURL := $matches }}
-                                    {{ $originalURL := $originalURL | strings.TrimPrefix "href=\"" }}
-                                    {{ $originalURL := $originalURL | strings.TrimSuffix "\"" }}
-                                    {{ $encodedURL := $originalURL | base64Encode }}
-                                    {{ $resultURL := printf "/go/?target=%s" $encodedURL }}
-                                    {{ $resultContent = replaceRE $originalURL $resultURL $resultContent }}
-                                {{ end }}
-
-                                <article class="mt-toot" aria-posinset="1" aria-setsize="20" tabindex="0">
-                                    <div class="mt-header"><a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer"
-                                            target="_blank">
-                                            <div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy"></div>
-                                        </a>
-                                        <div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank">
-                                                <div class="mt-nick">Charles Chin</div>
-                                                <div class="mt-id">@eallion@e5n.cc</div>
-                                            </a></div>
-                                    </div>
-                                    <div class="toot-text">
-                                        <div>
-                                            <p>{{ $resultContent | markdownify }}</p>
-                                        </div>
-                                        {{ $attachments := .media_attachments }}
-                                        {{ if gt (len $attachments) 0 }}
-                                            {{- $firstAttachment := index $attachments 0 -}}
-                                            {{- $type := $firstAttachment.type -}}
-                                            {{- $length := len .media_attachments }}
-                                            {{ if eq $type "image" }}
-                                                <div class="toot-images grid-{{ $length }}" view-image>
-                                                    {{ range .media_attachments }}
-                                                    <!-- <img loading="lazy" class="lazy" data-src="{{.url}}" alt="{{.id}}" /> -->
-                                                    <figure>
-                                                        <a class="lightgallery" href="{{.url}}" title="{{.url}}" data-thumbnail="{{.preview_url}}">
-                                                            <img loading="lazy" src="{{.url}}" srcset="{{.url}},
-                                                                {{.url}} 1.5x,
-                                                                {{.url}} 2x" alt="{{.id}}">
-                                                        </a>
-                                                    </figure>
-                                                    {{ end }}
-                                                </div>
-                                            {{ else if or (eq $type "gifv") (eq $type "video") }}
-                                                {{ range .media_attachments }}
-                                                <video controls muted no-view>
-                                                    <source src="{{ .url }}" type="video/mp4">
-                                                    Your browser does not support the video tag.
-                                                </video>
-                                                {{ end }}
-                                            {{ end }}
-                                        {{ end }}
-
-                                        {{ $hasNeoDB := false }}
-                                        {{ if .tags }}
-                                            {{ range .tags }}
-                                                {{ if eq (lower .name) "neodb" }}
-                                                    {{ $hasNeoDB = true }}
-                                                {{ end }}
-                                            {{ end }}
-                                        {{ end }}
-
-                                        {{ if $hasNeoDB }}
-                                        {{ $titleParts := split .card.title " - " }}
-                                        {{ $titlePart := index $titleParts 1 }}
-
-                                        {{ $urlParts := split .card.url "/" }}
-                                        {{ $category := index $urlParts 3 }}
-
-                                        <div class="db-card">
-                                            <div class="db-card-subject">
-                                                <div class="db-card-post">
-                                                    <figure>
-                                                        <a class="lightgallery" href='{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}' title="{{ .card.title }}" data-thumbnail='{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}'>
-                                                            <img loading="lazy" src='{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}' srcset='{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}' alt="{{ .card.title }}">
-                                                        </a>
-                                                    </figure>
-                                                </div>
-                                                <div class="db-card-content">
-                                                    <div class="db-card-title">
-                                                        <a href="{{ .card.url }}" class="cute" target="_blank" rel="noreferrer">{{ $titlePart }}</a>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <!-- <span class="allstardark">
-                                                            <span class="allstarlight" style="width:79%"></span>
-                                                        </span> -->
-                                                        <span class="rating_nums">类型：{{ $category }}</span>
-                                                    </div>
-                                                    <div class="db-card-abstract">简介：{{ .card.description | markdownify }}</div>
-                                                </div>
-                                                <div class="db-card-cate">{{ $category }}</div>
-                                            </div>
-                                        </div>
-                                    {{ end }}
-
-                                    </div>
-                                    <div class="toot-footer">
-                                        <div class="mt-bar">
-                                            <div class="toot-meta">
-                                                <div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                        target="_blank"><span class="twitter-time">{{- .created_at -}}</span></a></div>
-                                                <div class="toot-visibility" title="公开">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "globe-asia") }}</div>
-                                                <div class="toot-app"><a href="{{- .application.website | default "https://e5n.cc" -}}"
-                                                        rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复">{{-
-                                                        .application.name | default "Web" -}}</a></div>
-                                            </div>
-                                            <div class="toot-reply"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="回复" alt="回复">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "reply") }}</a>{{- .replies_count -}}</div>
-                                            <div class="toot-retoot"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="转嘟" alt="转嘟">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "retweet") }}</a>{{- .reblogs_count -}}</div>
-                                            <div class="toot-favourite"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="喜欢" alt="喜欢">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "star") }}</a>{{- .favourites_count -}}</div>
-                                            <div class="toot-bookmarked"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="添加到书签" alt="添加到书签">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bookmark") }}</a></div>
-                                            <div class="toot-more"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="更多" alt="更多">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "ellipsis-h") }}</a></div>
-                                        </div>
-                                    </div>
-                                </article>
-                            {{ end -}}
-                        {{- else -}}
-                        {{- $ticker := getJSON $mastodon_api -}}
-                            {{- range $ticker }}
-                                {{ $content := .content }}
-                                {{ $content := $content | replaceRE ":star_solid:" "🌕" }}
-                                {{ $content := $content | replaceRE ":star_half:" "🌗" }}
-                                {{ $content := $content | replaceRE ":star_empty:" "🌑" }}
-
-                                {{ $matches := findRE `href=\"([^\"]*)\"` $content }}
-                                {{ $resultContent := $content }}
-                                {{ range $index, $originalURL := $matches }}
-                                    {{ $originalURL := $originalURL | strings.TrimPrefix "href=\"" }}
-                                    {{ $originalURL := $originalURL | strings.TrimSuffix "\"" }}
-                                    {{ $encodedURL := $originalURL | base64Encode }}
-                                    {{ $resultURL := printf "/go/?target=%s" $encodedURL }}
-                                    {{ $resultContent = replaceRE $originalURL $resultURL $resultContent }}
-                                {{ end }}
-
-                                <article class="mt-toot" aria-posinset="1" aria-setsize="20" tabindex="0">
-                                    <div class="mt-header"><a href="https://e5n.cc/@eallion" class="mt-avatar" rel="nofollow noopener noreferrer"
-                                            target="_blank">
-                                            <div class="mt-avatar-image"><img src="/eallion.webp" alt="eallion avatar" loading="lazy"></div>
-                                        </a>
-                                        <div class="mt-user"><a href="https://e5n.cc/@eallion" rel="nofollow noopener noreferrer" target="_blank">
-                                                <div class="mt-nick">Charles Chin</div>
-                                                <div class="mt-id">@eallion@e5n.cc</div>
-                                            </a></div>
-                                    </div>
-                                    <div class="toot-text">
-                                        <div>
-                                            <p>{{ $resultContent | markdownify }}</p>
-                                        </div>
-                                        {{ $attachments := .media_attachments }}
-                                        {{ if gt (len $attachments) 0 }}
-                                            {{- $firstAttachment := index $attachments 0 -}}
-                                            {{- $type := $firstAttachment.type -}}
-                                            {{- $length := len .media_attachments }}
-                                            {{ if eq $type "image" }}
-                                                <div class="toot-images grid-{{ $length }}" view-image>
-                                                    {{ range .media_attachments }}
-                                                    <!-- <img loading="lazy" class="lazy" data-src="{{.url}}" alt="{{.id}}" /> -->
-                                                    <figure>
-                                                        <a class="lightgallery" href="{{.url}}" title="{{.url}}" data-thumbnail="{{.preview_url}}">
-                                                            <img loading="lazy" src="{{.url}}" srcset="{{.url}},
-                                                                {{.url}} 1.5x,
-                                                                {{.url}} 2x" alt="{{.id}}">
-                                                        </a>
-                                                    </figure>
-                                                    {{ end }}
-                                                </div>
-                                            {{ else if or (eq $type "gifv") (eq $type "video") }}
-                                                {{ range .media_attachments }}
-                                                <video controls muted no-view>
-                                                    <source src="{{ .url }}" type="video/mp4">
-                                                    Your browser does not support the video tag.
-                                                </video>
-                                                {{ end }}
-                                            {{ end }}
-                                        {{ end }}
-
-                                        {{ $hasNeoDB := false }}
-                                        {{ if .tags }}
-                                            {{ range .tags }}
-                                                {{ if eq (lower .name) "neodb" }}
-                                                    {{ $hasNeoDB = true }}
-                                                {{ end }}
-                                            {{ end }}
-                                        {{ end }}
-
-                                        {{ if $hasNeoDB }}
-                                        {{ $titleParts := split .card.title " - " }}
-                                        {{ $titlePart := index $titleParts 1 }}
-
-                                        {{ $urlParts := split .card.url "/" }}
-                                        {{ $category := index $urlParts 3 }}
-
-                                        <div class="db-card">
-                                            <div class="db-card-subject">
-                                                <div class="db-card-post">
-                                                    <figure>
-                                                        <a class="lightgallery" href='{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}' title="{{ .card.title }}" data-thumbnail='{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}'>
-                                                            <img loading="lazy" src='{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}' srcset='{{ .card.image | default "/assets/images/movie/cover/movie_cover_bg.jpg" }}' alt="{{ .card.title }}">
-                                                        </a>
-                                                    </figure>
-                                                </div>
-                                                <div class="db-card-content">
-                                                    <div class="db-card-title">
-                                                        <a href="{{ .card.url }}" class="cute" target="_blank" rel="noreferrer">{{ $titlePart }}</a>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <!-- <span class="allstardark">
-                                                            <span class="allstarlight" style="width:79%"></span>
-                                                        </span> -->
-                                                        <span class="rating_nums">类型：{{ $category }}</span>
-                                                    </div>
-                                                    <div class="db-card-abstract">简介：{{ .card.description | markdownify }}</div>
-                                                </div>
-                                                <div class="db-card-cate">{{ $category }}</div>
-                                            </div>
-                                        </div>
-                                    {{ end }}
-
-                                    </div>
-                                    <div class="toot-footer">
-                                        <div class="mt-bar">
-                                            <div class="toot-meta">
-                                                <div class="toot-date"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                        target="_blank"><span class="twitter-time">{{- .created_at -}}</span></a></div>
-                                                <div class="toot-visibility" title="公开">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "globe-asia") }}</div>
-                                                <div class="toot-app"><a href="{{- .application.website | default "https://e5n.cc" -}}"
-                                                        rel="nofollow noopener noreferrer" tabindex="-1" target="_blank" title="回复" alt="回复">{{-
-                                                        .application.name | default "Web" -}}</a></div>
-                                            </div>
-                                            <div class="toot-reply"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="回复" alt="回复">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "reply") }}</a>{{- .replies_count -}}</div>
-                                            <div class="toot-retoot"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="转嘟" alt="转嘟">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "retweet") }}</a>{{- .reblogs_count -}}</div>
-                                            <div class="toot-favourite"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="喜欢" alt="喜欢">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "star") }}</a>{{- .favourites_count -}}</div>
-                                            <div class="toot-bookmarked"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="添加到书签" alt="添加到书签">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "bookmark") }}</a></div>
-                                            <div class="toot-more"><a href="{{- .url -}}" rel="nofollow noopener noreferrer" tabindex="-1"
-                                                    target="_blank" title="更多" alt="更多">{{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "ellipsis-h") }}</a></div>
-                                        </div>
-                                    </div>
-                                </article>
-                            {{ end -}}
-                        {{ end -}}
-                    {{ end -}}
-
-                </div>
-                <div class="mt-footer"><a href="https://e5n.cc/@eallion" class="btn" target="_blank"
-                        rel="nofollow noopener noreferrer">See more toots at e5n.cc {{ partial "plugin/fontawesome.html" (dict "Style" "solid" "Icon" "external-link-alt") }}</a></div>
             </div>
         </div>
 
+        {{ if (.Params.showAuthorBottom | default ( .Site.Params.article.showAuthorBottom | default false)) }}
+
+          {{ if .Params.showAuthor | default (.Site.Params.article.showAuthor | default true) }}
+            {{ $showAuthor = 1 }}
+            {{ partial "author.html" . }}
+          {{ end }}
+
+          {{ range $author := .Page.Params.authors }}
+            {{ $authorData := index $authorsData $author }}
+            {{- if $authorData -}}
+              {{ range $taxonomyname, $taxonomy := $taxonomies }}
+                {{ if (eq $taxonomyname $author) }}
+                  {{ $taxonomyLink = delimit (slice $baseURL "/authors/" $author) "" }}
+                {{ end }}
+              {{ end }}
+              {{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $taxonomyLink) }}
+            {{- end -}}
+          {{ end }}
+
+          {{ if or $taxonomyLink $showAuthor }}
+          <div class="mb-10"></div>
+          {{ end }}
+
+        {{ end }}
+
+        {{ partial "series/series-closed.html" . }}
+        {{ partial "sharing-links.html" . }}
+        {{ partial "related.html" . }}
+      </div>
+
+      {{ $translations := .AllTranslations }}
+      {{ with .File }}
+        {{ $path := .Path }}
+        {{range $translations}}
+          {{ $lang := print "."  .Lang  ".md" }}
+          {{ $path = replace $path $lang ".md" }}
+        {{end}}
+      <script>
+        var oid = "views_{{ $path }}"
+        var oid_likes = "likes_{{ $path }}"
+      </script>
+      {{ end }}
+      {{ $jsPage := resources.Get "js/page.js" }}
+      {{ $jsPage = $jsPage | resources.Minify | resources.Fingerprint "sha512" }}
+      <script type="text/javascript" src="{{ $jsPage.RelPermalink }}" integrity="{{ $jsPage.Data.Integrity }}"></script>
+
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    {{ partial "article-pagination.html" . }}
+    {{ if .Params.showComments | default (.Site.Params.article.showComments | default false) }}
+    {{ if templates.Exists "partials/comments.html" }}
+    <div class="pt-3">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="pt-3">
+        {{ partial "comments.html" . }}
+      </div>
     </div>
+    {{ else }}
+    {{ warnf "[BLOWFISH] Comments are enabled for %s but no comments partial exists." .File.Path }}
+    {{ end }}
+    {{ end }}
+  </footer>
 </article>
 
-<script>
-    // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
-    (() => {
-        let location = window.location.href;
-        let isEnglish = location.indexOf("/en/") !== -1;
-        window.Lately = new function () {
-            this.lang = isEnglish ? {
-                'second': ' Seconds',
-                'minute': ' Minutes',
-                'hour': ' Hours',
-                'day': ' Days',
-                'month': ' Months',
-                'year': ' Years',
-                'ago': ' Ago',
-                'error': 'NaN'
-            } : {
-                second: " 秒",
-                minute: " 分钟",
-                hour: " 小时",
-                day: " 天",
-                month: " 个月",
-                year: " 年",
-                ago: "前",
-                error: "NaN"
-            };
-            const format = (date) => {
-                date = new Date(_val(date));
-                const floor = (num, _lang) => Math.floor(num) + _lang,
-                    obj = new function () {
-                        this.second = (Date.now() - date.getTime()) / 1000;
-                        this.minute = this.second / 60;
-                        this.hour = this.minute / 60;
-                        this.day = this.hour / 24;
-                        this.month = this.day / 30;
-                        this.year = this.month / 12
-                    },
-                    key = Object.keys(obj).reverse().find(_ => obj[_] >= 1);
-                return (key ? floor(obj[key], this.lang[key]) : this.lang.error) + this.lang.ago;
-            },
-                _val = (date) => {
-                    date = new Date(date && (typeof date === 'number' ? date : date.replace(/-/g, '/').replace('T', ' ')));
-                    return isNaN(date.getTime()) ? false : date.getTime();
-                };
-            return {
-                init: ({ target = "time", lang } = {}) => {
-                    if (lang) this.lang = lang;
-                    for (let el of document.querySelectorAll(target)) {
-                        const date = _val(el.dateTime) || _val(el.title) || _val(el.innerHTML) || 0;
-                        if (!date) return;
-                        el.title = new Date(date).toLocaleString();
-                        el.innerHTML = format(date);
-                    }
-                },
-                format
-            }
-        }
-    })();
+{{ $js := resources.Get "lib/mastodon-embed-timeline/dist/mastodon-timeline.esm.js" }}
 
-    window.Lately && Lately.init({
-        target: '.twitter-time'
-    });
-</script>
+<script type="module">
 
-<script type="text/javascript" src="/assets/js/lazyload.iife.min.js?v=18.0.0"></script>
-<script>
-    var lazyLoadInstance = new LazyLoad({
-        // Your custom settings go here
+    import * as MastodonTimeline from '{{ $js.RelPermalink }}';
+
+    const myTimeline = new MastodonTimeline.Init({
+        // Id of the <div> containing the timeline
+        mtContainerId: "mt-container",
+
+        // Mastodon instance Url including https://
+        instanceUrl: "https://e5n.cc",
+
+        // Choose type of posts to show in the timeline: 'local', 'profile', 'hashtag'
+        // Default: local
+        timelineType: "profile",
+
+        // Your user ID number on Mastodon instance
+        // Leave it empty if you didn't choose 'profile' as type of timeline
+        userId: "111136231674527355",
+
+        // Your user name on Mastodon instance (including the @ symbol at the beginning)
+        // Leave it empty if you didn't choose 'profile' as type of timeline
+        profileName: "@eallion",
+
+        // The name of the hashtag (not including the # symbol)
+        // Leave it empty if you didn't choose 'hashtag' as type of timeline
+        hashtagName: "",
+
+        // Class name for the loading spinner (also used in CSS file)
+        spinnerClass: "mt-loading-spinner",
+
+        // Preferred color theme: 'light', 'dark' or 'auto'
+        // Default: auto
+        defaultTheme: "auto",
+
+        // Maximum number of posts to request to the server
+        // Default: 20
+        maxNbPostFetch: "40",
+
+        // Maximum number of posts to show in the timeline
+        // Default: 20
+        maxNbPostShow: "20",
+
+        // Specifies the format of the date according to the chosen language/country
+        // Default: British English (day-month-year order)
+        dateLocale: "en-US",
+
+        // Customize the date format using the options
+        // Default: DD MMM YYYY
+        dateOptions: {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+        },
+
+        // Hide unlisted posts
+        // Default: don't hide
+        hideUnlisted: true,
+
+        // Hide boosted posts
+        // Default: don't hide
+        hideReblog: false,
+
+        // Hide replies posts
+        // Default: don't hide
+        hideReplies: true,
+
+        // Hide pinned posts from the profile timeline
+        // Default: don't hide
+        hidePinnedPosts: true,
+
+        // Hide the user account under the user name
+        // Default: don't hide
+        hideUserAccount: false,
+
+        // Limit the text content to a maximum number of lines
+        // Use "0" to show no text
+        // Default: "" (unlimited)
+        txtMaxLines: "",
+
+        // Customize the text of the button used for showing/hiding sensitive/spoiler text
+        btnShowMore: "SHOW MORE",
+        btnShowLess: "SHOW LESS",
+
+        // Converts Markdown symbol ">" at the beginning of a paragraph into a blockquote HTML tag
+        // Default: false (don't apply)
+        markdownBlockquote: false,
+
+        // Hide custom emojis available on the server
+        // Default: don't hide
+        hideEmojos: false,
+
+        // Customize the text of the button used for showing a sensitive/spoiler media content
+        btnShowContent: "SHOW CONTENT",
+
+        // Hide video image preview and load video player instead
+        // Default: don't hide
+        hideVideoPreview: true,
+
+        // Customize the text of the button used for the image preview to play the video
+        btnPlayVideoTxt: "Load and play video",
+
+        // Hide preview card if post contains a link, photo or video from a Url
+        // Default: don't hide
+        hidePreviewLink: true,
+
+        // Limit the preview text description to a maximum number of lines
+        // Use "0" to show no text
+        // Default: "" (unlimited)
+        previewMaxLines: "",
+
+        // Hide replies, boosts and favourites posts counter
+        // Default: don't hide
+        hideCounterBar: false,
+
+        // Show a carousel/lightbox when the user clicks on a picture in a post
+        // Default: not disabled
+        disableCarousel: false,
+
+        // Customize the text of the buttons used for the carousel/lightbox
+        carouselCloseTxt: "Close carousel",
+        carouselPrevTxt: "Previous media item",
+        carouselNextTxt: "Next media item",
+
+        // Customize the text of the button pointing to the Mastodon page placed at the end of the timeline
+        // Leave the value empty to hide it
+        btnSeeMore: "See more posts at e5n.cc",
+
+        // Customize the text of the button reloading the list of posts placed at the end of the timeline
+        // Leave the value empty to hide it
+        btnReload: "Refresh",
+
+        // Keep searching for the main <div> container before building the timeline. Useful in some cases where extra time is needed to render the page
+        // Default: don't apply
+        insistSearchContainer: true,
+
+        // Defines the maximum time to continue searching for the main <div> container
+        // Default: 3 seconds
+        insistSearchContainerTime: "3000",
+
     });
+
 </script>
 
 {{- end -}}

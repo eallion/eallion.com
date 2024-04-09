@@ -1,0 +1,157 @@
+# -- Main Menu --
+# The main menu is displayed in the header at the top of the page.
+# Acceptable parameters are name, pageRef, page, url, title, weight.
+#
+# The simplest menu configuration is to provide:
+#   name = The name to be displayed for this menu link
+#   pageRef = The identifier of the page or section to link to
+#
+# By default the menu is ordered alphabetically. This can be
+# overridden by providing a weight value. The menu will then be
+# ordered by weight from lowest to highest.
+
+[[main]]
+  name = "博客"
+  pageRef = "blog"
+  weight = 10
+
+[[main]]
+  name = "嘀咕"
+  pageRef = "mastodon"
+  weight = 11
+
+[[main]]
+  name = "书影音"
+  pageRef = "media"
+  weight = 12
+
+[[main]]
+  name = "时间线"
+  pageRef = "timeline"
+  weight = 13
+
+[[main]]
+  name = "更多"
+  weight = 20
+
+[[main]]
+  name = "统计"
+  parent = "更多"
+  pageRef = "stats"
+  weight = 21
+
+[[main]]
+  name = "Steam"
+  parent = "更多"
+  pageRef = "steam"
+  weight = 22
+
+[[main]]
+  name = "Penta"
+  parent = "更多"
+  pageRef = "penta"
+  weight = 30
+
+[[main]]
+  name = "随手拍"
+  parent = "更多"
+  pageRef = "album"
+  weight = 40
+
+[[main]]
+  name = "好物分享"
+  parent = "更多"
+  pageRef = "goods"
+  weight = 50
+
+[[main]]
+  name = "版权信息"
+  parent = "更多"
+  pageRef = "copyright"
+  weight = 60
+
+[[main]]
+  name = "隐私政策"
+  parent = "更多"
+  pageRef = "privacy-policy"
+  weight = 70
+
+[[main]]
+  name = "Status"
+  parent = "更多"
+  # pageRef = "status"
+  url = "https://status.eallion.com"
+  weight = 80
+
+[[main]]
+  name = "友情链接"
+  pageRef = "links"
+  weight = 90
+
+[[main]]
+  name = "关于"
+  pageRef = "about"
+  weight = 100
+
+# [[main]]
+#   name = "Test"
+#   pageRef = "pagTest"
+#   weight = 1000
+
+# [[main]]
+#   identifier = "twitter"
+#   pre = "x-twitter"
+#   url = "https://twitter.com/eallion"
+#   weight = 200
+
+[[main]]
+  identifier = "mastodon"
+  pre = "mastodon"
+  weight = 300
+  url = "https://e5n.cc/@eallion"
+
+# [[main]]
+#   identifier = "github"
+#   pre = "github"
+#   url = "https://github.com/eallion/eallion.com"
+#   weight = 400
+
+
+# -- Footer Menu --
+# The footer menu is displayed at the bottom of the page, just before
+# the copyright notice. Configure as per the main menu above.
+
+ [[footer]]
+   name = "博客"
+   pageRef = "blog"
+   weight = 10
+
+ [[footer]]
+   name = "嘀咕"
+   pageRef = "mastodon"
+   weight = 20
+
+ [[footer]]
+   name = "书影音"
+   pageRef = "media"
+   weight = 30
+
+ [[footer]]
+   name = "时间线"
+   pageRef = "timeline"
+   weight = 40
+
+ [[footer]]
+   name = "统计"
+   pageRef = "stats"
+   weight = 50
+
+ [[footer]]
+   name = "状态"
+   url = "https://status.eallion.com"
+   weight = 60
+
+ [[footer]]
+   name = "关于"
+   pageRef = "about"
+   weight = 90

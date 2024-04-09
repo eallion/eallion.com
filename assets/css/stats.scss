@@ -21,22 +21,27 @@
 #heatmap,
 #annual,
 #category {
-    max-width: 800px;
-    width: 92%;
+    width: 100%;
+}
+
+#heatmap {
+    width: 720px;
     height: 110px;
     margin: 0 auto;
 }
 
-#annual,
-#category {
+#annual {
     height: 30rem;
+}
+
+#category {
+    height: 50rem;
 }
 
 /* year progress bar */
 .year_progress_bar_container {
     position: relative;
     width: 100%;
-    max-width: 768px;
     background-color: #040c3b;
     margin-top: 0.25rem;
     min-height: 7rem;
@@ -193,9 +198,27 @@
 }
 
 /* Tag Cloud Page */
+.tag-cloud-tags {
+    margin: 10px 0;
+}
+
+.tag-cloud-tags a {
+    display: inline-block;
+    position: relative;
+    margin: 5px 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    -webkit-transition: all ease-out 0.3s;
+    -moz-transition: all ease-out 0.3s;
+    -o-transition: all ease-out 0.3s;
+    transition: all ease-out 0.3s;
+    text-decoration: none;
+}
+
 .tags-shields {
     display: flex;
     height: 20px;
+    line-height: 20px;
     overflow: hidden;
     align-items: center;
     border-radius: 4px;

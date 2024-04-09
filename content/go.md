@@ -1,10 +1,8 @@
 ---
 title: "Redirect"
-images: ["/assets/images/og/go.png"]
+# # images: ["/assets/images/og/go.png"]
 layout: "go"
-type: 'page'
-comment: 
-  enable: false
+type: 'sample'
 toc: false
 aliases:
     - /target

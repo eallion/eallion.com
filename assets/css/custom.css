@@ -1,0 +1,14 @@
+.logo {
+    max-width: 3.5rem;
+    max-height: 3.5rem;
+}
+
+.badge {
+    margin-bottom: 1rem;
+}
+
+.badge a img {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+}
