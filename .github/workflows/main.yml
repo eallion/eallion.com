@@ -60,21 +60,21 @@ jobs:
           url: ${{ secrets.ONION_WEBHOOK_URL }}
           json: '{"onion": "pull"}'
 
-      - name: Algolia uploader
-        uses: wangchucheng/algolia-uploader@master
-        with:
-          app_id: ${{ secrets.ALGOLIA_APPID }}
-          admin_key: ${{ secrets.ALGOLIA_ADMIN_KEY }}
-          index_name: eallion
-          index_file_path: public/index.json
+      # - name: Algolia uploader
+      #   uses: wangchucheng/algolia-uploader@master
+      #   with:
+      #     app_id: ${{ secrets.ALGOLIA_APPID }}
+      #     admin_key: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+      #     index_name: eallion
+      #     index_file_path: public/index.json
 
-      - name: Algolia uploader English
-        uses: wangchucheng/algolia-uploader@master
-        with:
-          app_id: ${{ secrets.ALGOLIA_APPID }}
-          admin_key: ${{ secrets.ALGOLIA_ADMIN_KEY }}
-          index_name: "eallion_blog_en"
-          index_file_path: public/en/index.json
+      # - name: Algolia uploader English
+      #   uses: wangchucheng/algolia-uploader@master
+      #   with:
+      #     app_id: ${{ secrets.ALGOLIA_APPID }}
+      #     admin_key: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+      #     index_name: "eallion_blog_en"
+      #     index_file_path: public/en/index.json
 
       # - name: Deploy to Aliyun OSS
       #   uses: fangbinwei/aliyun-oss-website-action@v1
