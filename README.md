@@ -14,7 +14,7 @@
 
 <div align="center">
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_shield) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v3.0.6/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com) [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/9pjg.svg)](https://betteruptime.com/?utm_source=status_badge)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_shield) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v4.0.0/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com) [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/9pjg.svg)](https://betteruptime.com/?utm_source=status_badge)
 </div>
 <div align="center">
 
@@ -70,19 +70,19 @@ origin  https://git.eallion.com/git/eallion/eallion.com.git (push)
 
 - https://github.com/eallion/eallion.com/blob/main/.github/workflows/main.yml
 
-### 🎨 主题 [DoIt](https://github.com/HEIGE-PCloud/DoIt)
+### 🎨 主题 [Blowfish](https://github.com/nunocoracao/blowfish)
 
-> Update：2022.12.12
+> Update：2024.04.10
 
-本博客使用主题为：[DoIt](https://github.com/HEIGE-PCloud/DoIt)
+本博客使用主题为：[Blowfish](https://github.com/nunocoracao/blowfish)
 
 此次更新，主题使用 `git submodule` 的方式引入，不破坏原主题任何文件结构，所有自定义样式不再在 Theme 目录下修改。
 
 ```bash
-git submodule add https://github.com/eallion/hugo-theme-doit.git themes/DoIt
+git submodule add https://github.com/eallion/blowfish.git themes/DoIt
 ```
 
-克隆博客后同时克隆 [主题](https://github.com/eallion/hugo-theme-doit.git) 和 [mastodon-embed-timeline](https://github.com/eallion/mastodon-embed-timeline.git)：
+克隆博客后同时克隆 [主题](https://github.com/eallion/blowfish.git) 和 [mastodon-embed-timeline](https://github.com/eallion/mastodon-embed-timeline.git)：
 
 ```bash
 git submodule update --init --recursive
@@ -90,21 +90,14 @@ git submodule update --init --recursive
 # npm run recursive
 ```
 
-如果上游主题有更新，更新 [主题](https://github.com/eallion/hugo-theme-doit.git) 和 [mastodon-embed-timeline](https://github.com/eallion/mastodon-embed-timeline.git)：
+如果上游主题有更新，更新 [主题](https://github.com/eallion/blowfish.git) 和 [mastodon-embed-timeline](https://github.com/eallion/mastodon-embed-timeline.git)：
 
 ```diff
 - git submodule update --remote --merge
 + npm run update
 ```
 
-- 首页基于 Google Chrome Whats-new [[m122](https://www.google.com/intl/zh-CN/chrome/whats-new/m122/)] 构建
-
-```bash
-https://www.google.com/intl/zh-CN/chrome/whats-new/m122/
-
-```
-
-- 自定义 CSS 在 [`assets/css/_custom.scss`](<https://github.com/eallion/eallion.com/blob/main/assets/css/_custom.scss>)：
+- 自定义 CSS 在 [`assets/css/_custom.css`](<https://github.com/eallion/eallion.com/blob/main/assets/css/_custom.css>)：
 
 ```bash
 https://github.com/eallion/eallion.com/blob/main/assets/css/_custom.scss
@@ -122,40 +115,51 @@ https://github.com/eallion/eallion.com/blob/main/assets/js/custom.js
 https://github.com/eallion/eallion.com/tree/main/layouts/_default
 ```
 
-- 作者数据在 [`data/authors`](https://github.com/eallion/eallion.com/tree/main/data/authors)：
+- 页面数据在 [`data`](https://github.com/eallion/eallion.com/tree/main/data)：
+
+如书影音数据：
 
 ```bash
-https://github.com/eallion/eallion.com/tree/main/data/authors
-```
-
-- 观影数据在 [`data/neodb`](https://github.com/eallion/eallion.com/tree/main/data/neodb)：
-
-```bash
-https://github.com/eallion/eallion.com/tree/main/data/neodb
+https://github.com/eallion/eallion.com/tree/main/data/media
 ```
 
 ### 🔊 嘀咕页面
 
-嘀咕页面 [`https://www.eallion.com/toot`](https://www.eallion.com/toot/) 为 Mastodon 个人实例 [`e5n.cc`](https://e5n.cc/@eallion) 的数据展示。  
+嘀咕页面 [`https://www.eallion.com/mastodon`](https://www.eallion.com/mastodon/) 为 Mastodon 个人实例 [`e5n.cc`](https://e5n.cc/@eallion) 的数据展示。  
 利用 [mastodon-embed-timeline](https://gitlab.com/idotj/mastodon-embed-timeline) 这个项目集成到博客页面。  
 现已静态构建到页面上。
 
 通过 Git submodule 添加：
 
 ```bash
-git submodule add https://github.com/eallion/mastodon-embed-timeline.git static/assets/mastodon-embed-timeline
+git submodule add https://github.com/eallion/mastodon-embed-timeline.git assets/lib/mastodon-embed-timeline
 ```
 
 ### ✏️ 写新文章
 
 1. **生成新文章**
 
-通过 Hugo 命令 New 一篇新文章模板：
+通过 Hugo 命令 New 一篇新文章模板：  
+现改为 npm (pnpm) 命令：
 
 ```diff
 - hugo new posts/daily/new_title.md
 + npm run new
+
+# node scripts/post_title_prompt.js && bash scripts/format_filename.sh
 ```
+
+1. **缩略图**
+
+放在文章目录中，命名为 feature*.png，格式建议为 `.png` 和 `.jpg` 。
+
+1. **背景图**
+
+放在文章目录中，命名为 background*.png，格式建议为 `.png` 和 `.jpg` 。
+
+1. **图标 Icon**
+
+Icon 可以从网上下载，放到 `assets/icons` 目录下，格式为 `.svg`，必须添加 `fill="currentColor"` 属性。
 
 1. **编辑文章**
 
@@ -220,12 +224,26 @@ git push
 
 # 查看博客实际效果 👇
 # npm run preview
-```
 
-脚本内容：
-
-```bash
-git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir example --minify --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo --disableKinds RSS --printUnusedTemplates --templateMetrics --templateMetricsHints
+# git submodule update --remote --merge && \
+# start http://192.168.0.5:1313 && \
+# hugo server \
+#   -w \
+#   -D \
+#   -p 1313 \
+#   --bind 0.0.0.0 \
+#   --contentDir example \
+#   --minify \
+#   --forceSyncStatic \
+#   --ignoreCache \
+#   --noHTTPCache \
+#   --disableFastRender \
+#   -e production \
+#   --enableGitInfo \
+#   --disableKinds RSS \
+#   --printUnusedTemplates \
+#   --templateMetrics \
+#   --templateMetricsHints
 ```
 
 > 运行脚本后会自动打开预览页面：<http://127.0.0.1:1313>
@@ -311,9 +329,7 @@ git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo s
 
 ### 📷 相册
 
-~~相册页面可以用主题内置的 [`{{< figure >}}`](https://hugodoit.pages.dev/zh-cn/theme-documentation-built-in-shortcodes/#figure)、[`{{< image >}}`](<https://hugodoit.pages.dev/zh-cn/theme-documentation-extended-shortcodes/#image>) Shortcodes 生成。~~
-
-现在的相册页面采用 e5n.cc 的 `相册` 标签动态渲染，只是一个示例页面。
+现在的相册页面采用 e5n.cc 的 `#ealbum` 标签动态渲染，只是一个示例页面。
 
 如：
 

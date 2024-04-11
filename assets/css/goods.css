@@ -15,7 +15,6 @@
     grid-gap: 2rem;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     margin-bottom: 1rem;
-    width: 1024px;
 }
 
 .goods-container {
@@ -127,24 +126,6 @@
     background: -webkit-gradient(linear, left top, right top, color-stop(0, #eaeaea), to(#ccc));
     background: linear-gradient(90deg, #eaeaea, #ccc);
     cursor: not-allowed;
-}
-
-@media(min-width: 640px) {
-    #goods {
-        width:640px
-    }
-}
-
-@media(min-width: 853px) {
-    #goods {
-        width:853px
-    }
-}
-
-@media(min-width: 1024px) {
-    #goods {
-        width:1024px
-    }
 }
 
 @media (max-width: 700px) {

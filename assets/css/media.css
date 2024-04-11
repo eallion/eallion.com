@@ -4,7 +4,6 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     margin-top: 1rem;
     min-height: 350px;
-    width: 1024px;
 }
 
 .card {
@@ -520,24 +519,6 @@
 
 .category_hidden {
     display: none;
-}
-
-@media(min-width: 640px) {
-    .movie {
-        width:640px
-    }
-}
-
-@media(min-width: 853px) {
-    .movie {
-        width:853px
-    }
-}
-
-@media(min-width: 1024px) {
-    .movie {
-        width:1024px
-    }
 }
 
 /* // 页面宽度大于700小于900样式 */

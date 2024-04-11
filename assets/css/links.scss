@@ -24,7 +24,6 @@ $friend-link-hover-color-dark: #ffffff !default;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 1024px;
 }
 
 .friend-link {
@@ -124,24 +123,6 @@ $friend-link-hover-color-dark: #ffffff !default;
     /* 向上移动10px */
     //   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     border-color: #bbb;
-}
-
-@media(min-width: 640px) {
-    .friends.links {
-        width:640px
-    }
-}
-
-@media(min-width: 853px) {
-    .friends.links {
-        width:853px
-    }
-}
-
-@media(min-width: 1024px) {
-    .friends.links {
-        width:1024px
-    }
 }
 
 @media (max-width: 480px) {
