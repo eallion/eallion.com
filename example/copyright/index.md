@@ -16,10 +16,6 @@ sharingLinks: false
 showZenMode: true
 ---
 
-<style>#comments {display:none !important}</style>
-
-> 本站拥有唯一域名 eallion.com 、二级域名 www.eallion.com。
-
 ### 域名
 
 本站拥有唯一域名 `eallion.com` 、二级域名 `www.eallion.com`。除此之外的相关、相似域名，除非由本人实名认证，或者备案在本人名下，否则皆为他人所有，或者被他人盗用信息，与本人无关。
@@ -72,13 +68,13 @@ showZenMode: true
 
 本站使用 [Hugo](https://gohugo.io/) 构建：
 
-* 国内：通过 GitHub Actions 部署至 [阿里云](https://www.aliyun.com/product/oss) (2023.07.26)
+* 国内：通过 GitHub Actions 部署至腾讯云 [EdgeOne](https://s.e5n.cc/teo) (Jan 6, 2024)
 * 境外：同上
 
 相关代码和服务继承原项目的 License：
 
 * Hugo： [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE)
-* Theme(DoIt)： [MIT License](https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE)
+* Theme(Blowfish)： [MIT License](https://github.com/nunocoracao/blowfish/blob/main/LICENSE)
 * 本站源码： [GLWT License](https://github.com/eallion/eallion.com/blob/main/LICENSE)
 
 ### 特别声明

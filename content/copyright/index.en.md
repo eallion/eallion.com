@@ -16,10 +16,6 @@ sharingLinks: false
 showZenMode: true
 ---
 
-<style>#comments {display: none !important}</style>
-
-> This site owns the domain name `eallion.com` and the sub domain name `www.eallion.com`.
-
 # Info
 
 ### Domain
@@ -74,13 +70,13 @@ In addition: You are free to copy, reproduce, share, quote, and adapt the conten
 
 This project powered by [Hugo](https://gohugo.io/):
 
-* China Mainland: Hosted by [AliCloud](https://www.aliyun.com/product/oss) through GitHub Actions (2023.07.26)
+* China Mainland: Hosted by Tencent Cloud [EdgeOne](https://s.e5n.cc/teo) through GitHub Actions (Jan 6, 2024)
 * Oversea: Same
 
 The related code and services inherit the original project's license:
 
 * Hugo: [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE)
-* Theme(DoIt): [MIT License](https://github.com/HEIGE-PCloud/DoIt/blob/main/LICENSE)
+* Theme(Blowfish): [MIT License](https://github.com/nunocoracao/blowfish/blob/main/LICENSE)
 * Source Code: [GLWT License](https://github.com/eallion/eallion.com/blob/main/LICENSE)
 
 ### Specifically

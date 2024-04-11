@@ -53,20 +53,14 @@ layouts/
 `$domainList` 相当于一个白名单。
 
 ```html
-{{- $domainList := slice "www.eallion.com" "github.com" "twitter.com" -}}
-{{- $parsedDestination := urls.Parse .Destination -}}
-{{- $host := $parsedDestination.Host -}}
-{{- $matched := false -}}
-{{- range $domainList -}}
-    {{- if strings.HasSuffix $host . -}}
-        {{- $matched = true -}}
-        {{- break -}}
-    {{- end -}}
-{{- end -}}
-{{- if $matched -}}
-    <a href="/go/?target={{ .Destination }}" target="_blank" rel="noopener noreferrer">{{ .Text | safeHTML}}</a>
+{{ $url := urls.Parse .Destination }}
+{{ $host := lower $url.Host }}
+{{- if or (hasSuffix $host "eallion.com") (hasSuffix $host "e5n.cc") (hasSuffix $host "gov.cn") }}
+    <a href="{{ .Destination }}" target="_blank" {{ with .Title }}title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- else if or (hasSuffix $host "www.eallion.com") (hasPrefix .Destination "#") -}}
+    <a href="{{ .Destination }}" {{ with .Title }}title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
 {{- else -}}
-    <a href="/go/?target={{ .Destination | base64Encode }}" target="_blank" rel="noopener noreferrer">{{ .Text | safeHTML}}</a>
+    <a href="/go/?target={{ .Destination | base64Encode }}" target="_blank" {{ with .Title }}title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
 {{- end -}}
 ```
 
@@ -88,121 +82,134 @@ layouts/
 下面是我的内容，把 HTML CSS 和 JS 放置到了同一个页面中，方便维护。除了需要注意 `<div class="redirect-all">` 元素位于自己的模板的位置，基本上是开箱即用。
 
 ```html
-{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+{{ define "main" }}
+{{ .Scratch.Set "scope" "single" }}
 
-{{- define "content" -}}
-    {{- $params := .Scratch.Get "params" -}}
-    <style>
-        .redirect-all {
-            position: relative;
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-            border-radius: 10px;
-            color: #666;
-            word-break: break-all;
-            max-width: 800px;
-            height: 400px;
-            text-align: center;
-            font-size: 0.85rem;
-            overflow: hidden;
-            margin: 100px auto 0;
-            background: #fff url(/assets/images/redirect/redirect-light.webp) no-repeat center center / cover;
-            @include breakpoint('small') {
-                aspect-ratio: 2 / 1;
-                height: auto;
-            }
+{{ $redirectLight := "images/redirect/redirect-light.webp"}}
+{{ $redirectDark := "images/redirect/redirect-dark.webp"}}
+
+<style>
+    .redirect-all {
+        position: relative;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+        border-radius: 10px;
+        color: #666;
+        word-break: break-all;
+        max-width: 800px;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: 0.85rem;
+        margin: 5rem auto;
+        background: #fff url({{ with resources.Get $redirectLight }}{{ with .Resize "800x webp" }}{{ .RelPermalink }}{{ end }}{{ end }}) no-repeat center center / cover;
+        aspect-ratio: 2 / 1;
+    }
+
+
+    .redirect-nrong {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1.5rem 1rem
+    }
+
+    .redirect-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #222;
+        margin-bottom: 0.5rem;
+    }
+
+    .redirect-info {
+        margin-top: 6px;
+    }
+
+    .redirect-tis {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 1rem;
+        margin-bottom: 2px;
+        flex-wrap: wrap;
+    }
+
+    .redirect-button {
+        display: flex;
+        align-items: center;
+        border-radius: 3px;
+        border: none;
+        background: #006bee;
+        height: 32px;
+        padding: 0 14px;
+        cursor: pointer;
+        outline: 0;
+    }
+
+    .redirect-button a {
+        color: #fff !important;
+    }
+
+    .dark .redirect-all {
+            background: #fff url({{ with resources.Get $redirectDark }}{{ with .Resize "800x webp" }}{{ .RelPermalink }}{{ end }}{{ end }}) no-repeat center center / cover;
+            color: #999;
         }
 
-        .redirect-nrong {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem 1rem
+    .dark .redirect-title {
+            color: #ddd;
         }
+</style>
 
-        .redirect-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #222;
-            margin-bottom: 0.5rem;
-        }
+<article>
 
-        .redirect-info {
-            margin-top: 6px;
-        }
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert">
 
-        .redirect-tis {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 1rem;
-            margin-bottom: 2px;
-            flex-wrap: wrap;
-        }
+      <div class="min-w-0 min-h-0">
 
-        .redirect-button {
-            display: flex;
-            align-items: center;
-            border-radius: 3px;
-            border: none;
-            background: #006bee;
-            height: 32px;
-            padding: 0 14px;
-            cursor: pointer;
-            outline: 0;
-        }
+        <div class="article-content max-w-full">
 
-        .redirect-button a {
-            color: #fff !important;
-        }
+            {{ .Content | emojify }}
 
-        [theme=dark] .redirect-all {
-                background: #fff url(/assets/images/redirect/redirect-dark.webp) no-repeat center center / cover;
-                color: #999;
-            }
-
-        [theme=dark] .redirect-title {
-                color: #ddd;
-            }
-    </style>
-
-    <div class="page single special">
-
-        {{- /* Content */ -}}
-        <div class="content" id="content">
             <div class="redirect-all">
                 <div class="redirect-nrong">
-                    <div class="redirect-title">即将离开{{ .Site.Title }}，跳转到以下外部链接</div>
-                    <a href="" target="_self" rel="noopener noreferrer" id="redirect-link"><span id="redirect-link">未指定重定向目标。</span></a>
-                    <div class="redirect-info">请自行识别该链接是否安全，请注意您的帐号和财产安全。</div>
+                    <div class="redirect-title">{{ T `redirect_pre` | safeHTML }}{{ .Site.Title }}{{ T `redirect_post` | safeHTML }}</div>
+                    <a href="" target="_self" rel="noopener noreferrer" aria-label="redirect-link"><span id="redirect-link">{{ T `redirect_link` | safeHTML }}</span></a>
+                    <div class="redirect-info">{{ T `redirect_info` | safeHTML }}</div>
                     <div class="redirect-tis">
-                        <div class="redirect-button"><a href='' target="_self" id='direct-link' rel="noopener noreferrer">立即前往</a></div>
+                        <div class="redirect-button"><a href='' target="_self" id='direct-link' rel="noopener noreferrer">{{ T `direct_link` | safeHTML }}</a></div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </div>
 
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const encodedTarget = params.get('target');
-        const target = atob(encodedTarget); // 使用 atob 进行 Base64 解码
+      </div>
 
-        if (target) {
+    </section>
 
-            const decodedTarget = decodeURIComponent(target);
+</article>
 
-            document.getElementById('direct-link').href = decodedTarget;
-            document.getElementById('redirect-link').textContent = '' + decodedTarget; // 在新增的元素中显示原地址
-            document.getElementById('redirect-link').href = decodedTarget;
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const encodedTarget = params.get('target');
+    const target = atob(encodedTarget); // 使用 atob 进行 Base64 解码
 
-        } else {
-            const redirectMessageElement = document.getElementById('redirect-link');
-            redirectMessageElement.textContent = '未指定重定向目标。';
-        }
-        </script>
-{{- end -}}
+    if (target) {
+
+        const decodedTarget = decodeURIComponent(target);
+
+        document.getElementById('direct-link').href = decodedTarget;
+        document.getElementById('redirect-link').textContent = '' + decodedTarget; // 在新增的元素中显示原地址
+        document.getElementById('redirect-link').href = decodedTarget;
+
+    } else {
+        const redirectMessageElement = document.getElementById('redirect-link');
+        redirectMessageElement.textContent = '{{ T `redirect_message` | safeHTML }}';
+    }
+</script>
+
+{{ end }}
 
 ```
 

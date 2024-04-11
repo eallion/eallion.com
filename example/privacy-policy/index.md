@@ -67,10 +67,10 @@ aliases:
 
 **以下是您浏览本站时提供的公开信息：**
 
-|类型|信息|
-|---|---|
-|IP| <span id="userAgentIp"></span> |
-|UA| <span id="userAgentDevice"></span> |
+| 类型      | 信息                               |
+| --------- | ---------------------------------- |
+| <span style="display: inline-block; white-space: nowrap;">IP Address</span> | <span id="userAgentIp"></span>     |
+| <span style="display: inline-block; white-space: nowrap;">User Agent</span> | <span id="userAgentDevice"></span> |
 
 我们可能如何使用信息
 ----------
@@ -213,9 +213,19 @@ aliases:
 
 <script>
     async function getIp() {
-        const response = await fetch('https://2023.ipchaxun.com/');
-        const data = await response.json();
-        document.getElementById("userAgentIp").innerText = data.ip;
+        const currentYear = new Date().getFullYear();
+        let response;
+        let ipAddress;
+        try {
+            response = await fetch(`https://${currentYear}.ipchaxun.com/`);
+            const data = await response.json();
+            ipAddress = data.ip;
+        } catch (error) {
+            response = await fetch('https://v2.jinrishici.com/one.json');
+            const data = await response.json();
+            ipAddress = data.ipAddress;
+        }
+        document.getElementById("userAgentIp").innerText = ipAddress;
     }
 getIp();
 </script>

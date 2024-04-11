@@ -24,4 +24,5 @@ aliases:
     - /en/movie
 ---
 
+My [NeoDB](https://neodb.social/users/eallion/) book, film and music bookmark records.
 Life is like a movie without a script. Watching a movie is like having a dream, like taking a long trip, like experiencing someone else's life. Reading won't make you smart, but reading will let you know yourself stupid. Those truths that our teachers and elders didn't teach us, from books and movies, we quietly learn.

@@ -25,9 +25,8 @@
 }
 
 #heatmap {
-    width: 720px;
+    max-width: 720px;
     height: 110px;
-    margin: 0 auto;
 }
 
 #annual {
@@ -42,6 +41,7 @@
 .year_progress_bar_container {
     position: relative;
     width: 100%;
+    max-width: 800px;
     background-color: #040c3b;
     margin-top: 0.25rem;
     min-height: 7rem;
@@ -125,6 +125,7 @@
         display: flex;
         flex-wrap: wrap;
         height: 100%;
+        max-width: 800px;
         margin-top: 5px;
         align-content: start;
         gap: var(--ypb-gridMargin);
@@ -195,6 +196,10 @@
 
 .headerLink a {
     color: unset !important;
+}
+
+.article-content div ul {
+    margin-top: -0.5rem;
 }
 
 /* Tag Cloud Page */

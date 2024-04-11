@@ -19,205 +19,211 @@ aliases:
     - /en/privacypolicy
 ---
 
-<style>#comments {display:none !important}</style>
+{{< alert >}}
+The original document is in Chinese, translated from ChatGPT.
+{{< /alert >}}
 
-> The Privacy Ppolicy in Chinese.
-
-> 欢迎您访问我们的产品。
-
-引言
+Introduction
 --
 
-欢迎您访问我们的产品。Eallion.com （包括网站等产品提供的服务，以下简称『产品和服务』）是由 大大的小蜗牛（_Charles 'eallion' Chin_）（以下简称『我们』）开发并运营的。确保用户的数据安全和隐私保护是我们的首要任务，本隐私政策载明了您访问和使用我们的产品和服务时所收集的数据及其处理方式。
+Welcome to our products. Eallion.com (including the services provided by the website and other products, hereinafter referred to as "Products and Services") is developed and operated by Charles 'eallion' Chin (hereinafter referred to as "we"). Ensuring the security of user data and protecting privacy is our top priority. This privacy policy outlines the data collected and how it is processed when you access and use our Products and Services.
 
-我们重视用户的隐私。您在使用我们的服务时，我们可能会收集和使用您的相关信息。我们希望通过本《隐私政策》向您说明，在使用我们的服务时，我们如何收集、使用、储存和分享这些信息，以及我们为您提供的访问、更新、控制和保护这些信息的方式。本《隐私政策》与您所使用的 Eallion.com 服务息息相关，希望您仔细阅读，在需要时，按照本《隐私政策》的指引，作出您认为适当的选择。本《隐私政策》中涉及的相关技术词汇，我们尽量以简明扼要的表述，并提供进一步说明的链接，以便您的理解。
+We value your privacy. When you use our services, we may collect and use relevant information about you. We would like to explain in this Privacy Policy how we collect, use, store, and share this information when you use our services, as well as how we provide you with access, updates, control, and protection of this information. This Privacy Policy is closely related to the Eallion.com services you use. We encourage you to read it carefully and make appropriate choices according to the guidance provided in this Privacy Policy. Technical terms mentioned in this Privacy Policy are explained concisely and further information is provided through links for better understanding.
 
-**您使用或继续使用我们的服务，即意味着同意我们按照本《隐私政策》收集、使用、储存和分享您的相关信息。**
+**By using or continuing to use our services, you agree to the collection, use, storage, and sharing of your relevant information in accordance with this Privacy Policy.**
 
-如对本《隐私政策》或相关事宜有任何问题，请通过 <eallions@gmail.com> 与我们联系。
+If you have any questions about this Privacy Policy or related matters, please contact us at <eallions@gmail.com>.
 
-本隐私政策帮助您了解以下内容：
+This Privacy Policy helps you understand the following:
 
-* 我们可能收集的信息
-* 我们可能如何使用信息
-* 您如何访问和控制自己的个人信息
-* 我们可能分享的信息
-* 信息安全
-* 您分享的信息
-* 您分享的敏感个人信息
-* 我们可能如何收集信息
-* 广告服务
-* 我们可能向您发送的邮件和信息
-* 隐私政策的适用例外
-* 未成年人使用我们的服务
-* 隐私政策的适用范围
-* 变更
+* The information we may collect
+* How we may use the information
+* How you can access and control your personal information
+* The information we may share
+* Information security
+* Information you share
+* Sensitive personal information you share
+* How we may collect information
+* Advertising services
+* Emails and messages we may send to you
+* Exceptions to the Privacy Policy
+* Minors using our services
+* Scope of the Privacy Policy
+* Changes
 
-我们可能收集的信息
+Information We May Collect
 ---------
 
-我们提供服务时，可能会收集、储存和使用下列与您有关的信息。
+When providing our services, we may collect, store, and use the following information related to you.
 
-* 本博客无 Google analytics、Umami 等统计系统。
+* This blog does not use Google Analytics, Umami, or any other tracking systems.
 
-* Giscus 评论系统基于您的**主动提交**会读取您的 GitHub 信息：
+* The Giscus comment system, based on your **voluntary submission**, will read your GitHub information:
 
   * Read access to metadata
   * Read and write access to discussions
 
-如果您不提供相关信息，不影响浏览本站。
+Not providing the relevant information does not affect browsing this site.
 
-**以下是您浏览本站时提供的公开信息：**
+**The following are the public information you provide when browsing this site:**
 
-|类型|信息|
-|---|---|
-|IP| <span id="userAgentIp"></span> |
-|UA| <span id="userAgentDevice"></span> |
+| Type      | Information                       |
+| --------- | --------------------------------- |
+| <span style="display: inline-block; white-space: nowrap;">IP Address</span> | <span id="userAgentIp"></span>     |
+| <span style="display: inline-block; white-space: nowrap;">User Agent</span> | <span id="userAgentDevice"></span> |
 
-我们可能如何使用信息
+How We May Use the Information
 ----------
 
-我们可能将在向您提供服务的过程之中所收集的信息用作下列用途：
+We may use the information collected during the provision of our services for the following purposes:
 
-向您提供服务；
+Providing services to you;
 
-* 在我们提供服务时，用于身份验证、客户服务、安全防范、诈骗监测、存档和备份用途，确保我们向您提供的产品和服务的安全性；
-* 帮助我们设计新服务，改善我们现有服务；
-* 使我们更加了解您如何接入和使用我们的服务，从而针对性地回应您的个性化需求，例如语言设定、位置设定、个性化的帮助服务和指示，或对您和其他用户作出其他方面的回应；
-* 向您提供与您更加相关的广告以替代普遍投放的广告；
-* 评估我们服务中的广告和其他促销及推广活动的效果，并加以改善；
-* 软件认证或管理软件升级；
-* 让您参与有关我们产品和服务的调查。
+* During the provision of our services, the information may be used for identity verification, customer service, security measures, fraud monitoring, archiving, and backup to ensure the security of the products and services we provide to you;
+* Assisting us in designing new services and improving our existing services;
+* Understanding how you access and use our services to respond to your personalized needs, such as language settings, location settings, personalized help services and instructions, or other responses to you and other users;
+* Providing you with more relevant advertisements instead of general advertisements;
+* Evaluating the effectiveness of advertisements and other promotional and marketing activities in our services and making improvements;
+* Software authentication or managing software upgrades;
+* Involving you in surveys related to our products and services.
 
-为了让您有更好的体验、改善我们的服务或您同意的其他用途，在符合相关法律法规的前提下，我们可能将通过某一项服务所收集的信息，以汇集信息或者个性化的方式，用于我们的其他服务。例如，在您使用我们的一项服务时所收集的信息，可能在另一服务中用于向您提供特定内容，或向您展示与您相关的、非普遍推送的信息。如果我们在相关服务中提供了相应选项，您也可以授权我们将该服务所提供和储存的信息用于我们的其他服务。
+To provide you with a better experience, improve our services, or for other purposes you agree to, we may use the information collected from one service for other services within the scope permitted by relevant laws and regulations. For example, the information collected from your use of one service may be used in another service to provide you with specific content or show you information that is not universally pushed. If we provide corresponding options in the relevant services, you can also authorize us to use the information provided and stored by that service for our other services.
 
-您如何访问和控制自己的个人信息
+How You Can Access and Control Your Personal Information
 ---------------
 
-我们将尽一切可能采取适当的技术手段，保证您可以访问、更新和更正自己的注册信息或使用我们的服务时提供的其他个人信息。在访问、更新、更正和删除前述信息时，我们可能会要求您进行身份验证，以保障账户安全。
+We will make every effort to ensure that you can access, update, and correct your registration information or other personal information provided when using our services. When accessing, updating, correcting, and deleting the aforementioned information, we may ask you to verify your identity to ensure the security of your account.
 
-我们可能分享的信息
+Information We May Share
 ---------
 
-除以下情形外，**未经您同意**，我们以及我们的关联公司不会与任何第三方分享您的个人信息：
+Except for the following circumstances, we and our affiliates will not share your personal information with any third parties without your consent:
 
-我们以及我们的关联公司，可能将您的个人信息与我们的关联公司、合作伙伴及第三方服务供应商、承包商及代理（例如代表我们发出电子邮件或推送通知的通讯服务提供商、为我们提供位置数据的地图服务供应商）分享（他们可能并非位于您所在的法域），用作下列用途：
+We and our affiliates may share your personal information with our affiliates, partners, and third-party service providers, contractors, and agents (such as communication service providers that send emails or push notifications on our behalf, map service providers that provide us with location data) for the following purposes:
 
-* 向您提供我们的服务；
-* 实现『我们可能如何使用信息』部分所述目的；
-* 履行我们在《用户协议》或本《隐私政策》中的义务和行使我们的权利；
-* 理解、维护和改善我们的服务。
+* Providing services to you;
+* Achieving the purposes described in the section "How We May Use the Information";
+* Fulfilling our obligations and exercising our rights under the User Agreement or this Privacy Policy;
+* Understanding, maintaining, and improving our services.
 
-如我们或我们的关联公司与任何上述第三方分享您的个人信息，我们将努力确保该等第三方在使用您的个人信息时遵守本《隐私政策》及我们要求其遵守的其他适当的保密和安全措施。
+If we or our affiliates share your personal information with any of the above-mentioned third parties, we will make efforts to ensure that such third parties comply with this Privacy Policy and other appropriate confidentiality and security measures as required by us.
 
-随着我们业务的持续发展，我们以及我们的关联公司有可能进行合并、收购、资产转让或类似的交易，您的个人信息有可能作为此类交易的一部分而被转移。我们将在转移前通知您。
-我们或我们的关联公司还可能为以下需要而保留、保存或披露您的个人信息：
+As our business continues to develop, we and our affiliates may merge, acquire, transfer assets, or engage in similar transactions, and your personal information may be transferred as part of such transactions. We will notify you before the transfer occurs.
+We or our affiliates may also retain, preserve, or disclose your personal information for the following needs:
 
-* 遵守适用的法律法规；
-* 遵守法院命令或其他法律程序的规定；
-* 遵守相关政府机关的要求；
-* 为遵守适用的法律法规、维护社会公共利益，或保护我们的客户、我们或我们的集团公司、其他用户或雇员的人身和财产安全或合法权益所合理必需的用途。
+* Complying with applicable laws and regulations;
+* Complying with the provisions of court orders or other legal procedures;
+* Complying with the requirements of relevant government authorities;
+* For purposes that are reasonably necessary to comply with applicable laws and regulations, maintain public interests, or protect the personal and property safety or legitimate rights and interests of our customers, us or our affiliated companies, other users, or employees.
 
-信息安全
+Information Security
 ----
 
-我们仅在本《隐私政策》所述目的所必需的期间和法律法规要求的时限内保留您的个人信息。
+We will only retain your personal information for the period necessary for the purposes stated in this Privacy Policy and as required by laws and regulations.
 
-我们使用各种安全技术和程序，以防信息的丢失、不当使用、未经授权阅览或披露。例如，在某些服务中，我们将利用加密技术（例如 SSL）来保护您提供的个人信息。但请您理解，由于技术的限制以及可能存在的各种恶意手段，在互联网行业，即便竭尽所能加强安全措施，也不可能始终保证信息百分之百的安全。您需要了解，您接入我们的服务所用的系统和通讯网络，有可能因我们可控范围外的因素而出现问题。
+We use various security technologies and procedures to prevent the loss, misuse, unauthorized access, or disclosure of information. For example, in certain services, we will use encryption technology (such as SSL) to protect the personal information you provide. However, please understand that, due to technical limitations and various malicious means that may exist, it is not possible to guarantee the 100% security of information on the Internet, even with the best security measures in the internet industry. You need to understand that the system and communication network you use to access our services may have problems beyond our control.
 
-您分享的信息
+Information You Share
 ------
 
-我们的多项服务，可让您不仅与自己的社交网络，也与使用该服务的所有用户公开分享您的相关信息，例如，您在我们的服务中所上传或发布的信息（包括您公开的个人信息、您建立的名单）、您对其他人上传或发布的信息作出的回应，以及包括与这些信息有关的位置数据和日志信息。使用我们服务的其他用户也有可能分享与您有关的信息（包括位置数据和日志信息）。特别是，我们的社交媒体服务，是专为使您与世界各地的用户共享信息而设计，您可以使共享信息实时、广泛地传递。只要您不删除共享信息，有关信息会一直留存在公共领域；即使您删除共享信息，有关信息仍可能由其他用户或不受我们控制的非关联第三方独立地缓存、复制或储存，或由其他用户或该等第三方在公共领域保存。
+Many of our services allow you to share your relevant information not only with your social network but also with all users of the service, such as information you upload or post in our services (including publicly available personal information and lists you create), your responses to information uploaded or posted by others, and location data and log information related to such information. Other users using our services may also share information related to you (including location data and log information). In particular, our social media services are designed to allow you to share information with users worldwide in real-time. As long as you do not delete shared information, it will remain in the public domain. Even if you delete shared information, it may still be independently cached, copied, or stored by other users or non-affiliated third parties beyond our control, or saved in the public domain by other users or such third parties.
 
-**因此，请您谨慎考虑通过我们的服务上传、发布和交流的信息内容。** 在一些情况下，您可通过我们某些服务的隐私设定来控制有权浏览您共享信息的用户范围。如要求从我们的服务中删除您的相关信息，请通过该等特别服务条款提供的方式操作。
+**Therefore, please carefully consider the content of the information you upload, post, and communicate through our services.** In some cases, you can control the range of users authorized to view your shared information through the privacy settings of certain services. If you request the deletion of your relevant information from our services, please follow the instructions provided in the specific service terms.
 
-您分享的敏感个人信息
+Sensitive Personal Information You Share
 ----------
 
-某些个人信息因其特殊性可能被认为是敏感个人信息，例如您的种族、宗教、个人健康和医疗信息等。相比其他个人信息，敏感个人信息受到更加严格的保护。
+Certain personal information may be considered sensitive personal information due to its particular nature, such as your race, religion, personal health, and medical information. Sensitive personal information is subject to stricter protection compared to other personal information.
 
-请注意，您在使用我们的服务时所提供、上传或发布的内容和信息（例如有关您社交活动的照片等信息），可能会泄露您的敏感个人信息。您需要谨慎地考虑，是否在使用我们的服务时披露相关敏感个人信息。
+Please note that the content and information (such as photos related to your social activities) you provide, upload, or post when using our services may disclose your sensitive personal information. You need to carefully consider whether to disclose relevant sensitive personal information when using our services.
 
-**您同意按本《隐私政策》所述的目的和方式来处理您的敏感个人信息。**
+**By using this Privacy Policy, you agree to the processing of your sensitive personal information for the purposes and in the manner described in this Privacy Policy.**
 
-我们可能如何收集信息
+How We May Collect Information
 ----------
 
-我们或我们的第三方合作伙伴，可能通过 cookies 和 web beacon 收集和使用您的信息，并将该等信息储存为日志信息。
+We or our third-party partners may collect and use your information through cookies and web beacons and store such information as log information.
 
-我们使用自己的 cookies 和 web beacon，目的是为您提供更个性化的用户体验和服务，并用于以下用途：
+We use our own cookies and web beacons to provide you with a more personalized user experience and services, and for the following purposes:
 
-* 记住您的身份。例如：cookies 和 web beacon 有助于我们辨认您作为我们的注册用户的身份，或保存您向我们提供的有关您的喜好或其他信息；
-* 分析您使用我们服务的情况。例如，我们可利用 cookies 和 web beacon 来了解您使用我们的服务进行什么活动，或哪些网页或服务最受您的欢迎；
-* 广告优化。Cookies 和 web beacon 有助于我们根据您的信息，向您提供与您相关的广告而非进行普遍的广告投放。
+* Remembering your identity. For example, cookies and web beacons help us recognize your identity as our registered user or save your preferences or other information you provide to us;
+* Analyzing your use of our services. For example, we may use cookies and web beacons to understand what activities you engage in when using our services or which web pages or services are most popular among you;
+* Ad optimization. Cookies and web beacons help us provide you with advertisements that are relevant to you based on your information, rather than general advertising.
 
-我们为上述目的使用 cookies 和 web beacon 的同时，可能将通过 cookies 和 web beacon 收集的非个人身份信息，经统计加工后提供给广告商或其他合作伙伴，用于分析用户如何使用我们的服务，并用于广告服务。
+While using cookies and web beacons for the above purposes, we may also provide advertisers or other partners with non-personally identifiable information collected through cookies and web beacons after statistical processing for analyzing how users use our services and for advertising services.
 
-我们的产品和服务上可能会有广告商或其他合作方放置的 cookies 和 web beacon。这些 cookies 和 web beacon 可能会收集与您相关的非个人身份信息，以用于分析用户如何使用该等服务、向您发送您可能感兴趣的广告，或用于评估广告服务的效果。这些第三方 cookies 和 web beacon 收集和使用该等信息，不受本《隐私政策》约束，而是受相关使用者的隐私政策约束，我们不对第三方的 cookies 或 web beacon 承担责任。
+Our products and services may contain cookies and web beacons placed by advertisers or other partners. These cookies and web beacons may collect non-personally identifiable information related to you for analyzing how users use the services, sending you advertisements that you may be interested in, or evaluating the effectiveness of advertising services. The collection and use of such information by these third-party cookies and web beacons are not subject to this Privacy Policy but are subject to the privacy policies of the relevant users, and we are not responsible for the use of information by third-party cookies or web beacons.
 
-您可以通过浏览器设置拒绝或管理 cookies 或 web beacon。但请注意，如果停用 cookies 或 web beacon，您有可能无法享受最佳的服务体验，某些服务也可能无法正常使用。同时，您还会收到同样数量的广告，但这些广告与您的相关性会降低。
+You can refuse or manage cookies or web beacons through browser settings. However, please note that if you disable cookies or web beacons, you may not be able to enjoy the best service experience, and certain services may not function properly. At the same time, you will still receive the same number of advertisements, but the relevance of these advertisements to you may decrease.
 
-广告服务
+Advertising Services
 ----
 
-我们可能使用您的相关信息，向您提供与您更加相关的广告。
+We may use your relevant information to provide you with advertisements that are more relevant to you.
 
-我们也可能使用您的信息，通过我们的服务、电子邮件或其他方式向您发送营销信息，提供或推广我们或第三方的如下商品和服务：
+We may also use your information to send you marketing information about our or third-party products and services through our services, emails, or other means, and provide or promote the following goods and services:
 
-* 我们的商品或服务，我们的关联公司和合作伙伴的商品或服务，包括即时通讯服务、网上媒体服务、互动娱乐服务、社交网络服务、付款服务、互联网搜索服务、位置和地图服务、应用软件和服务、数据管理软件和服务、网上广告服务、互联网金融，以及其他社交媒体、娱乐、电子商务、资讯和通讯软件或服务（统称『**互联网服务**』）；
-* 第三方互联网服务供应商，以及与下列有关的第三方商品或服务：食物和餐饮、体育、音乐、电影、电视、现场表演及其他艺术和娱乐、书册、杂志和其他刊物、服装和配饰、珠宝、化妆品、个人健康和卫生、电子、收藏品、家用器皿、电器、家居装饰和摆设、宠物、汽车、酒店、交通和旅游、银行、保险及其他金融服务、会员积分和奖励计划，以及我们认为可能与您相关的其他商品或服务。
+* Our products or services, the products or services of our affiliates and partners, including instant messaging services, online media services, interactive entertainment services, social networking services, payment services, internet search services, location and map services, application software and services, data management software and services, online advertising services, internet finance, and other social media, entertainment, e-commerce, information, and communication software or services collectively referred to as "**Internet Services**";
+* Third-party internet service providers and other goods or services related to the following: food and beverages, sports, music, movies, television, live performances, arts and entertainment, books, magazines, and other publications, clothing and accessories, jewelry, cosmetics, personal health and hygiene, electronics, collectibles, household items, appliances, home decor and furnishings, pets, automobiles, hotels, transportation and travel, banking, insurance, and other financial services, membership points and reward programs, as well as other goods or services that we consider relevant to you.
 
-如您不希望我们将您的个人信息用作前述广告用途，您可以通过我们在广告中提供的相关提示，或在特定服务中提供的指引，要求我们停止为上述用途使用您的个人信息。
+If you do not want us to use your personal information for the above advertising purposes, you can request us to stop using your personal information for such purposes through the relevant prompts provided in our advertisements or the instructions provided in specific services.
 
-我们可能向您发送的邮件和信息
+Emails and Messages We May Send to You
 --------------
 
-邮件和信息推送
+Emails and Message Notifications
 
-您在使用我们的服务时，我们可能使用您的信息向您的设备发送电子邮件、新闻或推送通知。如您不希望收到这些信息，可以按照我们的相关提示，在设备上选择取消订阅。
+When you use our services, we may use your information to send electronic mails, news, or push notifications to your device. If you do not wish to receive such messages, you can unsubscribe by following our prompts on your device.
 
-与服务有关的公告
+Service-related Announcements
 
-我们可能在必要时（例如因系统维护而暂停某一项服务时）向您发出与服务有关的公告。您可能无法取消这些与服务有关、性质不属于推广的公告。
+We may send you announcements related to our services when necessary (such as when a service is temporarily suspended for system maintenance). You may not be able to unsubscribe from these non-promotional service-related announcements.
 
-隐私政策的适用例外
+Exceptions to the Privacy Policy
 ---------
 
-我们的服务可能包括或链接至第三方提供的社交媒体或其他服务（包括网站）。例如：
+This Privacy Policy does not apply to the following:
 
-* 您利用 『分享』键将某些内容分享到我们的服务，或您利用第三方连线服务登录我们的服务。这些功能可能会收集您的相关信息（包括您的日志信息），并可能在您的电脑装置 cookies，从而正常运行上述功能；
-* 我们通过广告或我们服务的其他方式向您提供链接，使您可以接入第三方的服务或网站。
+* Information collected by third-party services accessed through our services (including any third-party websites);
+* Information collected by other companies or organizations providing advertising services on our services or through advertisements in our services.
 
-该等第三方社交媒体或其他服务可能由相关的第三方或我们运营。您使用该等第三方的社交媒体服务或其他服务（包括您向该等第三方提供的任何个人信息），须受该第三方的服务条款及隐私政策（而非《通用服务条款》或本《隐私政策》）约束，您需要仔细阅读其条款。**本《隐私政策》仅适用于我们所收集的信息，并不适用于任何第三方提供的服务或第三方的信息使用规则，我们对任何第三方使用由您提供的信息不承担任何责任。**
-
-未成年人使用我们的服务
+Minors Using Our Services
 -----------
 
-我们鼓励父母或监护人指导未满十八岁的未成年人使用我们的服务。我们建议未成年人鼓励他们的父母或监护人阅读本《隐私政策》，并建议未成年人在提交的个人信息之前寻求父母或监护人的同意和指导。
+We encourage parents or guardians to guide minors under the age of eighteen in using our services. We recommend that minors encourage their parents or guardians to read this Privacy Policy and seek their consent and guidance before submitting personal information.
 
-隐私政策的适用范围
+Scope of the Privacy Policy
 ---------
 
-除某些特定服务外，我们所有的服务均适用本《隐私政策》。这些特定服务将适用特定的隐私政策。针对某些特定服务的特定隐私政策，将更具体地说明我们在该等服务中如何使用您的信息。该特定服务的隐私政策构成本《隐私政策》的一部分。如相关特定服务的隐私政策与本《隐私政策》有不一致之处，适用该特定服务的隐私政策。
+Except for certain specific services, this Privacy Policy applies to all our services. Specific services may have specific privacy policies that apply to them. The specific privacy policy for a specific service will more specifically explain how we use your information in that service. The privacy policy for the specific service is part of this Privacy Policy. If there are any inconsistencies between the privacy policy for a specific service and this Privacy Policy, the privacy policy for the specific service will apply.
 
-除本《隐私政策》另有规定外，本《隐私条款》所用词语将与《用户协议》所定义的词语具有相同的涵义。
+Unless otherwise specified in this Privacy Policy, the terms used in this Privacy Policy have the same meanings as defined in the User Agreement.
 
-**请您注意，本《隐私政策》不适用于以下情况：**
+**Please note that this Privacy Policy does not apply to the following:**
 
-* 通过我们的服务而接入的第三方服务（包括任何第三方网站）收集的信息；
-* 通过在我们服务中进行广告服务的其他公司或机构所收集的信息。
+* Information collected by third-party services (including any third-party websites) accessed through our services;
+* Information collected by other companies or organizations providing advertising services on our services or through advertisements in our services.
 
-变更
+Changes
 --
 
-我们可能适时修订本《隐私政策》的条款，该等修订构成本《隐私政策》的一部分。**如该等修订造成您在本《隐私政策》下权利的实质减少，我们将在修订生效前通过在主页上显著位置提示或向您发送电子邮件或以其他方式通知您。在该种情况下，若您继续使用我们的服务，即表示同意受经修订的本《隐私政策》的约束。**
+We may revise the terms of this Privacy Policy from time to time, and such revisions will become part of this Privacy Policy. **If such revisions result in a substantial reduction of your rights under this Privacy Policy, we will provide prominent notice on the homepage or send you an email or other notification before the revisions take effect. In such case, if you continue to use our services, it means that you agree to be bound by the revised Privacy Policy.**
 
 <script>
     async function getIp() {
-        const response = await fetch('https://2023.ipchaxun.com/');
-        const data = await response.json();
-        document.getElementById("userAgentIp").innerText = data.ip;
+        const currentYear = new Date().getFullYear();
+        let response;
+        let ipAddress;
+        try {
+            response = await fetch(`https://${currentYear}.ipchaxun.com/`);
+            const data = await response.json();
+            ipAddress = data.ip;
+        } catch (error) {
+            response = await fetch('https://v2.jinrishici.com/one.json');
+            const data = await response.json();
+            ipAddress = data.ipAddress;
+        }
+        document.getElementById("userAgentIp").innerText = ipAddress;
     }
 getIp();
 </script>

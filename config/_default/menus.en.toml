@@ -80,6 +80,7 @@
   name = "Status"
   parent = "More"
   # pageRef = "status"
+  pre = "external-link-alt"
   url = "https://status.eallion.com"
   weight = 80
 
@@ -122,11 +123,6 @@
 # the copyright notice. Configure as per the main menu above.
 
  [[footer]]
-   name = "Blog"
-   pageRef = "blog"
-   weight = 10
-
- [[footer]]
    name = "Mastodon"
    pageRef = "mastodon"
    weight = 20
@@ -155,3 +151,9 @@
    name = "About"
    pageRef = "about"
    weight = 90
+
+ [[footer]]
+   name = "RSS"
+   pre = "rss"
+   url = "https://www.eallion.com/index.xml"
+   weight = 99

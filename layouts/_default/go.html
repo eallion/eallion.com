@@ -12,36 +12,15 @@
         color: #666;
         word-break: break-all;
         max-width: 800px;
-        width: 1024px;
-        height: 400px;
+        width: 100%;
+        height: 100%;
         text-align: center;
         font-size: 0.85rem;
-        overflow: hidden;
-        margin: 100px auto 0;
+        margin: 5rem auto;
         background: #fff url({{ with resources.Get $redirectLight }}{{ with .Resize "800x webp" }}{{ .RelPermalink }}{{ end }}{{ end }}) no-repeat center center / cover;
-        @include breakpoint('small') {
-            aspect-ratio: 2 / 1;
-            height: auto;
-        }
+        aspect-ratio: 2 / 1;
     }
 
-    @media(min-width: 640px) {
-        .redirect-all {
-            width:640px
-        }
-    }
-
-    @media(min-width: 853px) {
-        .redirect-all {
-            width:853px
-        }
-    }
-
-    @media(min-width: 1024px) {
-        .redirect-all {
-            width:1024px
-        }
-    }
 
     .redirect-nrong {
         position: absolute;
@@ -99,26 +78,12 @@
 </style>
 
 <article>
-  {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
-  {{ $heroStyle := .Params.heroStyle }}
-  {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
-  {{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
-  {{ if templates.Exists $heroStyle }}
-  {{ partial $heroStyle . }}
-  {{ else }}
-  {{ partial "partials/hero/basic.html" . }}
-  {{ end }}
-  {{ end }}
 
-  <header id="single_header" class="mt-5 max-w-prose">
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert">
 
-  </header>
+      <div class="min-w-0 min-h-0">
 
-  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
-
-      <div class="min-w-0 min-h-0 max-w-fit">
-
-        <div class="article-content max-w-full mb-20">
+        <div class="article-content max-w-full">
 
             {{ .Content | emojify }}
 
