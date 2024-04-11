@@ -36,7 +36,7 @@
 
       <div class="min-w-0 min-h-0 max-w-fit">
 
-        <div class="article-content max-w-full mb-20">
+        <div class="article-content max-w-full mb-20 break-words">
 
             <div class="friends links">
                 {{ range $links.links }}
@@ -50,17 +50,17 @@
                 <a target="_blank" href="/go/?target={{- $url | base64Encode -}}" title="{{- $name -}}" class="friend-link" rel="noopener noreferrer">
                     <div class="friend-link-div">
                         <div class="friend-link-avatar">
-                            <img class="lazy" loading="lazy" src="{{- $avatar -}}" alt="{{- $name -}}" onerror="this.onerror=null; this.src='/404.png';" no-view>
+                            <img class="lazy nozoom" loading="lazy" src="{{- $avatar -}}" alt="{{- $name -}}" onerror="this.onerror=null; this.src='/404.png';">
                         </div>
                         <div class="friend-link-info">
                             <div class="friend-name-div">
-                                <span class="friend-favicon"><img alt src="https://api.eallion.com/favicon/{{- $url | base64Encode -}}" no-view></span>
+                                <span class="friend-favicon"><img class="lazy nozoom" alt src="https://api.eallion.com/favicon/{{- $url | base64Encode -}}"></span>
                                 <i class="friend-name">{{- $name -}}</i>
                             </div>
                             <p class="friend-bio">{{- $bio -}}</p>
                         </div>
                         <div class="friend-screens">
-                            <img loading="lazy" alt src="https://api.eallion.com/screens/{{- strings.TrimSuffix "/" $domain -}} ">
+                            <img class="lazy nozoom" loading="lazy" alt src="https://api.eallion.com/screens/{{- strings.TrimSuffix "/" $domain -}} ">
                         </div>
                     </div>
                 </a>

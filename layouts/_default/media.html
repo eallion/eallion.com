@@ -21,7 +21,7 @@
   {{ end }}
   {{ end }}
 
-  <div class="movies_video">
+  <div class="movies_video opacity-0">
     <video
         class="video-source"
         id="TopGif"
@@ -235,50 +235,58 @@
 <script>
     //背景随机视频
     document.addEventListener("DOMContentLoaded", function () {
-        const videoElement = document.querySelector(".video-source");
-        const videoSource = videoElement.querySelector("source");
+        // 检测设备类型
+        const isMobileDevice = window.innerWidth < 768 || window.innerHeight < 768;
 
-        const videosName = [
-            'meetyourself_1',
-            'meetyourself_2',
-            'meetyourself_3',
-            'meetyourself_4',
-            'meetyourself_5',
-            'meetyourself_6',
-            'meetyourself_7',
-            'meetyourself_8',
-            // 'inception',
-            'interstellar'
-        ];
+        if (!isMobileDevice) {
+            const moviesVideo = document.querySelector(".movies_video");
+            const videoElement = document.querySelector(".video-source");
+            const videoSource = videoElement.querySelector("source");
 
-        function playRandomVideo(videos) {
-            let randomIndex = Math.floor(Math.random() * videos.length);
-            let name = videos[randomIndex];
+            const videosName = [
+                'meetyourself_1',
+                'meetyourself_2',
+                'meetyourself_3',
+                'meetyourself_4',
+                'meetyourself_5',
+                'meetyourself_6',
+                'meetyourself_7',
+                'meetyourself_8',
+                // 'inception',
+                'interstellar'
+            ];
 
-            // 检查localStorage中的上次播放的视频名称
-            const   lastMovieVideoName = localStorage.getItem('  lastMovieVideoName');
+            function playRandomVideo(videos) {
+                let randomIndex = Math.floor(Math.random() * videos.length);
+                let name = videos[randomIndex];
 
-            // 如果新视频与上一个视频相同，则继续随机选择，直到找到不同的视频
-            while (name ===   lastMovieVideoName) {
-                randomIndex = Math.floor(Math.random() * videos.length);
-                name = videos[randomIndex];
+                // 检查localStorage中的上次播放的视频名称
+                const lastMovieVideoName = localStorage.getItem('lastMovieVideoName');
+
+                // 如果新视频与上一个视频相同，则继续随机选择，直到找到不同的视频
+                while (name === lastMovieVideoName) {
+                    randomIndex = Math.floor(Math.random() * videos.length);
+                    name = videos[randomIndex];
+                }
+
+                const webmSrc = '/assets/video/movie/' + name + '.webm';
+                const mp4Src = '/assets/video/movie/' + name + '.mp4';
+
+                const webmSource = videoElement.querySelector('source[type="video/webm"]');
+                const mp4Source = videoElement.querySelector('source[type="video/mp4"]');
+                webmSource.setAttribute('src', webmSrc);
+                mp4Source.setAttribute('src', mp4Src);
+
+                videoElement.load();
+
+                // 将当前播放的视频名称存储在localStorage中
+                localStorage.setItem('lastMovieVideoName', name);
             }
 
-            const webmSrc = '/assets/video/movie/' + name + '.webm';
-            const mp4Src = '/assets/video/movie/' + name + '.mp4';
+            playRandomVideo(videosName);
 
-            const webmSource = videoElement.querySelector('source[type="video/webm"]');
-            const mp4Source = videoElement.querySelector('source[type="video/mp4"]');
-            webmSource.setAttribute('src', webmSrc);
-            mp4Source.setAttribute('src', mp4Src);
-
-            videoElement.load();
-
-            // 将当前播放的视频名称存储在localStorage中
-            localStorage.setItem('  lastMovieVideoName', name);
+            moviesVideo.classList.remove('opacity-0');
         }
-
-        playRandomVideo(videosName);
     });
 </script>
 

@@ -1,0 +1,35 @@
+<div id="comments"></div>
+<div id="load-giscus">{{ T `load_comments` | safeHTML }}</div>
+<script>
+    function loadGiscus() {
+        const script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.setAttribute('data-repo', 'eallion/eallion.com');
+        script.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnkyNjI2Njk1MDg=');
+        script.setAttribute('data-category', 'Giscus');
+        script.setAttribute('data-category-id', 'DIC_kwDOD6gExM4CS9eF');
+        script.setAttribute('data-mapping', 'pathname');
+        script.setAttribute('data-strict', '1');
+        script.setAttribute('data-reactions-enabled', '1');
+        script.setAttribute('data-emit-metadata', '0');
+        script.setAttribute('data-input-position', 'bottom');
+        script.setAttribute('data-lang', 'zh-CN');
+        script.setAttribute('data-loading', 'lazy');
+        script.setAttribute('crossorigin', 'anonymous');
+        script.async = true;
+
+        const htmlElement = document.documentElement;
+        if (htmlElement.classList.contains('dark')) {
+            script.setAttribute('data-theme', 'dark_dimmed');
+        } else {
+            script.setAttribute('data-theme', 'light');
+        }
+
+        document.getElementById('comments').appendChild(script);
+    }
+
+    document.getElementById('load-giscus').addEventListener('click', () => {
+        loadGiscus();
+        document.getElementById('load-giscus').style.display = 'none';
+    });
+</script>

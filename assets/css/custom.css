@@ -18,3 +18,65 @@ footer nav ul {
     flex-direction: row !important;
     gap: 0.5rem;
 }
+
+#comments {
+    min-height: 192px;
+}
+
+.giscus {
+    margin-top: 2rem;
+}
+
+#load-giscus {
+    display: block;
+    position: relative;
+    margin: 2rem auto;
+    width: 100%;
+    text-align: center;
+    margin-top: -4rem;
+    color: rgba(100, 116, 139, 1);
+    transition: opacity 0.3s ease-in-out;
+}
+
+.dark #load-giscus {
+    color: rgba(148, 163, 184, 1);
+}
+
+#load-giscus:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#load-giscus::before {
+    content: "";
+    position: absolute;
+    top: -4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4rem;
+    height: 4rem;
+    background-image: url('/assets/images/comments/mona-loading-default.gif');
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#load-giscus:hover::before {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#notbyai {
+    width: 131px;
+    height: 42px;
+    display: block;
+    background-image: url(/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-white.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 5rem;
+    right: 0;
+}
+
+.dark #notbyai {
+    background-image: url(/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-black.svg);
+}
