@@ -3,7 +3,6 @@
     padding: 0;
     width: 100%;
     background-color: #1b2838;
-    width: 1024px;
 }
 
 .profile {
@@ -624,24 +623,6 @@ body.Steam3000Theme .profile_count_link.ellipsis {
 footer,
 footer a {
     color: #c4c4c4;
-}
-
-@media(min-width: 640px) {
-    .steam {
-        width:640px
-    }
-}
-
-@media(min-width: 853px) {
-    .steam {
-        width:853px
-    }
-}
-
-@media(min-width: 1024px) {
-    .steam {
-        width:1024px
-    }
 }
 
 @media screen and (max-width: 700px) {

@@ -52,6 +52,9 @@
 {{ $mastodon := getJSON "data/mastodon/mastodon.json" }}
 {{ $statusesCount := index $mastodon 0 "account" "statuses_count" }}
 
+{{ $friends := getJSON "data/friends/links.json" }}
+{{ $linkCount := len $friends.links }}
+
 {{ $neodbCount := getJSON "data/neodb/movie_details.json" }}
 {{ $pentaCount := getJSON "data/penta/penta.json" }}
 
@@ -150,7 +153,7 @@
                     <li>{{ T `stats_categories` | safeHTML }}<strong><a href="/categories/">{{- $categoryCount -}}</a></strong> {{ T `stats_categories_suffix` | safeHTML }}</li>
                     <li>{{ T `stats_series` | safeHTML }}<strong><a href="/series/">3 </a></strong> {{ T `stats_series_suffix` | safeHTML }}</li>
                     <li>{{ T `stats_tags` | safeHTML }}<strong><a href="/tags/">{{- $tagCount -}}</a></strong> {{ T `stats_tags_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_links` | safeHTML }}<strong><a href="/links/">26 </a></strong> {{ T `stats_links_suffix` | safeHTML }}</li>
+                    <li>{{ T `stats_links` | safeHTML }}<strong><a href="/links/">{{- $linkCount -}}</a></strong> {{ T `stats_links_suffix` | safeHTML }}</li>
                     <li>{{ T `stats_wordcount` | safeHTML }}<strong><a href="/stats/">{{- $totalWords -}}</a></strong> {{ T `stats_wordcount_suffix` | safeHTML }}</li>
                     <li>{{ T `stats_mastodon` | safeHTML }}<strong><a href="/toot/">{{- $statusesCount -}}</a></strong> {{ T `stats_mastodon_suffix` | safeHTML }}</li>
                     <li>{{ T `stats_neodb` | safeHTML }}<strong><a href="/media/">{{- len $neodbCount -}}</a></strong> {{ T `stats_neodb_suffix` | safeHTML }}</li>
@@ -778,7 +781,7 @@
                 <img no-view src="https://img.shields.io/github/v/tag/eallion/eallion.com">
               </a>
               <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer">
-                <img no-view src="https://img.shields.io/github/commits-since/eallion/eallion.com/v3.0.6/main">
+                <img no-view src="https://img.shields.io/github/commits-since/eallion/eallion.com/v4.0.0/main">
               </a>
               <a href="https://github.com/eallion/eallion.com/commits/main" target="_blank" rel="noopener noreferrer">
                 <img no-view src="https://img.shields.io/github/last-commit/eallion/eallion.com">

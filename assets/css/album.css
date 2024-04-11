@@ -1,3 +1,16 @@
+* {
+    /* Safari */
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#album {
+    width: 100%;
+}
+
 .album {
     column-count: 3;
     column-gap: 0.5rem;
@@ -7,25 +20,7 @@
     position: relative;
     box-sizing: border-box;
     margin-bottom: 1rem;
-    width: 1024px;
-}
-
-@media(min-width: 640px) {
-    .album {
-        width:640px
-    }
-}
-
-@media(min-width: 853px) {
-    .album {
-        width:853px
-    }
-}
-
-@media(min-width: 1024px) {
-    .album {
-        width:1024px
-    }
+    max-width: 1024px
 }
 
 .album_wrapper {

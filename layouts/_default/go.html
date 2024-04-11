@@ -135,13 +135,7 @@
 
         </div>
 
-        {{ partial "series/series-closed.html" . }}
-        {{ partial "related.html" . }}
       </div>
-
-      {{ $jsPage := resources.Get "js/page.js" }}
-      {{ $jsPage = $jsPage | resources.Minify | resources.Fingerprint "sha512" }}
-      <script type="text/javascript" src="{{ $jsPage.RelPermalink }}" integrity="{{ $jsPage.Data.Integrity }}"></script>
 
     </section>
 

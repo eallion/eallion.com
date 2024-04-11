@@ -1,12 +1,12 @@
 {
   "name": "eallion.com",
-  "version": "v3.0.6",
+  "version": "v4.0.0",
   "description": "eallion.com hugo blog",
   "private": true,
   "scripts": {
     "hugo": "hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo --templateMetrics --templateMetricsHints",
     "server": "start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir example --minify --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo --disableKinds RSS --printUnusedTemplates --templateMetrics --templateMetricsHints",
-    "new": "node scripts/post_title_prompt.js && bash scripts/format_filename.sh",
+    "new": "node scripts/new_post.js",
     "preview": "start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content --minify --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo --templateMetrics --templateMetricsHints",
     "update": "git submodule update --remote --merge",
     "recursive": "git submodule update --init --recursive",

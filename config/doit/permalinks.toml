@@ -1,6 +1,0 @@
-# Permalinks config (https://gohugo.io/content-management/urls/#permalinks)
-# Permalinks 配置 (https://gohugo.io/content-management/urls/#permalinks)
-# posts = ":year/:month/:filename"
-# posts = ":filename"
-posts = "/:slug/" # Don't miss the last slash: "/"
-tags = "/tags/:slug/" # Don't miss the last slash: "/"

@@ -12,3 +12,9 @@
     margin-top: 0;
     margin-bottom: 0;
 }
+
+footer nav ul {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0.5rem;
+}
