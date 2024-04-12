@@ -38,6 +38,8 @@
 
         <div class="article-content max-w-full mb-20 break-words">
 
+            {{ .Content | emojify }}
+
             <div class="friends links">
                 {{ range $links.links }}
                 {{ $name := .name }}
@@ -66,8 +68,6 @@
                 </a>
                 {{ end }}
             </div>
-
-            {{ .Content | emojify }}
 
         </div>
 
