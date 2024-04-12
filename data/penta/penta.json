@@ -1,6 +1,22 @@
 {
   "penta": [
     {
+      "src": "20240412-Sivir.jpg",
+      "alt": "20240412-Sivir",
+      "champion": "Sivir",
+      "date": "2024-04-12",
+      "caption": "战争女神 希维尔",
+      "heroId": "21"
+    },
+    {
+      "src": "20240410-LeeSin.jpg",
+      "alt": "20240410-LeeSin",
+      "champion": "LeeSin",
+      "date": "2024-04-10",
+      "caption": "盲僧 李青",
+      "heroId": "64"
+    },
+    {
       "src": "20240309-Talon.webp",
       "alt": "20240309-Talon",
       "champion": "Talon",
