@@ -154,6 +154,5 @@
 
  [[footer]]
    name = "RSS"
-   pre = "rss"
    url = "https://www.eallion.com/index.xml"
    weight = 99

@@ -1,6 +1,8 @@
-.logo {
-    max-width: 3.5rem;
-    max-height: 3.5rem;
+li a,
+blockquote a {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 .badge {
@@ -13,28 +15,10 @@
     margin-bottom: 0;
 }
 
-#poem_sentence {
-    min-height: 1.75rem;
-}
-
-#heatmap {
-    width: 100%;
-    max-width: 720px;
-    height: 130px;
-}
-
 footer nav ul {
     display: flex !important;
     flex-direction: row !important;
-    gap: 0.5rem;
-}
-
-#comments {
-    min-height: 192px;
-}
-
-.giscus {
-    margin-top: 2rem;
+    gap: 0.5rem !important;
 }
 
 #load-giscus {
@@ -43,7 +27,6 @@ footer nav ul {
     margin: 2rem auto;
     width: 100%;
     text-align: center;
-    margin-top: -4rem;
     color: rgba(100, 116, 139, 1);
     transition: opacity 0.3s ease-in-out;
 }
@@ -60,11 +43,11 @@ footer nav ul {
 #load-giscus::before {
     content: "";
     position: absolute;
-    top: -4rem;
+    top: -3rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
     background-image: url('/assets/images/comments/mona-loading-default.gif');
     background-size: cover;
     opacity: 0;
@@ -74,47 +57,4 @@ footer nav ul {
 #load-giscus:hover::before {
     opacity: 1;
     cursor: pointer;
-}
-
-.not-by-ai {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin: 1rem auto;
-    width: 100%;
-}
-
-.written-by-human,
-.produced-by-human,
-.painted-by-human {
-    width: 131px;
-    height: 42px;
-    display: block;
-    background-repeat: no-repeat;
-}
-
-.written-by-human {
-    background-image: url(/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-white.svg);
-}
-
-.produced-by-human {
-    background-image: url(/assets/images/Not-By-AI/Produced-By-Human-Not-By-AI-Badge-white.svg);
-}
-
-.painted-by-human {
-    background-image: url(/assets/images/Not-By-AI/Painted-By-Human-Not-By-AI-Badge-white.svg);
-}
-
-.dark .written-by-human {
-    background-image: url(/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-black.svg);
-}
-
-.dark .produced-by-human {
-    background-image: url(/assets/images/Not-By-AI/Produced-By-Human-Not-By-AI-Badge-black.svg);
-}
-
-.dark .painted-by-human {
-    background-image: url(/assets/images/Not-By-AI/Painted-By-Human-Not-By-AI-Badge-black.svg);
 }

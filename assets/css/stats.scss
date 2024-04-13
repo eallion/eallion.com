@@ -41,7 +41,7 @@
 .year_progress_bar_container {
     position: relative;
     width: 100%;
-    max-width: 800px;
+    max-width: 100%;
     background-color: #040c3b;
     margin-top: 0.25rem;
     min-height: 7rem;
@@ -125,7 +125,7 @@
         display: flex;
         flex-wrap: wrap;
         height: 100%;
-        max-width: 800px;
+        max-width: 100%;
         margin-top: 5px;
         align-content: start;
         gap: var(--ypb-gridMargin);
