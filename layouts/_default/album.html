@@ -1,9 +1,6 @@
 {{ define "main" }}
 {{ .Scratch.Set "scope" "single" }}
 
-{{ $albumCss := resources.Get "css/album.css" | minify | fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ $albumCss.RelPermalink }}" integrity="{{ $albumCss.Data.Integrity }}" crossorigin="anonymous">
-
 <article>
   {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
   {{ $heroStyle := .Params.heroStyle }}
@@ -37,7 +34,7 @@
         <div class="article-content max-w-full mb-20">
             {{ .Content | emojify }}
 
-            <div id="album" class="album">
+            <div id="album" class="w-full col-gap-2 m-0 p-0 relative box-border mb-4 columns-3 min-h-20">
                 {{- $mastodon_tag_album_api := "https://e5n.cc/api/v1/timelines/tag/ealbum?only_media=true&limit=40&exclude_replies=true&exclude_reblogs=true&only_media=true&max_id=" -}}
                 {{- with resources.GetRemote $mastodon_tag_album_api }}
                     {{- with .Err }}
@@ -47,6 +44,10 @@
                         {{- range $album }}
                             {{ $createdAt := .created_at }}
                             {{ $statusesUrl := .url }}
+                            {{ $content := .content | markdownify }}
+                            {{ $target := `<a href="https://e5n.cc/tags/ealbum" class="mention hashtag" rel="tag">#<span>ealbum</span></a>` }}
+                            {{ $replacement := `` }}
+                            {{ $content = replace $content $target $replacement }}
                             {{ $attachments := .media_attachments }}
                             {{ if gt (len $attachments) 0 }}
                                 {{- $firstAttachment := index $attachments 0 -}}
@@ -54,10 +55,10 @@
                                 {{- $length := len .media_attachments }}
                                 {{ if eq $type "image" }}
                                     {{ range .media_attachments }}
-                                        <div class="album_wrapper">
-                                            <figure>
+                                        <div class="album_wrapper group m-0 overflow-hidden rounded relative break-inside-avoid transition-transform duration-300 w-[33%]">
+                                            <figure class="my-0">
                                                 <img
-                                                    class="my-0 rounded-md lazy"
+                                                    class="my-0 rounded-md block w-full cursor-pointer object-cover h-full scale-100 hover:scale-110 transition-all duration-400 ease-in-out animate-fadeIn lazy"
                                                     loading="lazy"
                                                     srcset="
                                                         {{.url}},
@@ -67,10 +68,11 @@
                                                     alt="{{.id}}"
                                                 />
                                             </figure>
-                                            <a href="{{ $statusesUrl }}" target="_blank" rel="noreferrer noopener nofollow">
-                                                <span class="photo-title">{{ $createdAt }}</span>
+                                            <div class="absolute w-full bg-neutral-500 text-neutral text-sm hidden animate-fadeIn px-2 py-2 bottom-0 text-left overflow-hidden group-hover:block">{{ $content | markdownify }}</div>
+                                            <a href="{{ $statusesUrl }}" target="_blank" class="absolute bg-neutral-900 hidden animate-fadeIn right-0 px-1 rounded-bl top-0 group-hover:block" rel="noreferrer noopener nofollow">
+                                                <span class="photo-title text-neutral text-sm">{{ $createdAt }}</span>
                                             </a>
-                                            <div class="gutter-sizer"></div>
+                                            <div class="gutter-sizer w-[1%]"></div>
                                         </div>
                                     {{ end }}
                                 {{ end }}
@@ -79,12 +81,6 @@
                     {{- end -}}
                 {{- end -}}
             </div>
-
-        <div id="loadMoreButton" type="button" class="cyber-btn" disabled>
-            {{ T `movie_loadmore` | safeHTML }}<span aria-hidden>_</span>
-            <span aria-hidden class="cyber-btn__glitch">{{ T `movie_loadmore` | safeHTML }}_</span>
-            <span aria-hidden class="cyber-btn__tag">e5n</span>
-        </div>
 
         </div>
 
