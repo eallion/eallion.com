@@ -1,6 +1,5 @@
 ---
 title: "我的自我解剖报告 - 九型性格"
-# images: ["/assets/images/og/my-self-autopsy-report-enneagram.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["测试","性格","自我","报告"]

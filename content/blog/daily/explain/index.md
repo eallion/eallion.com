@@ -1,6 +1,5 @@
 ---
 title: "简单说明 [新主机空间 域名备案]"
-# images: ["/assets/images/og/explain.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["伪静态","说明"]

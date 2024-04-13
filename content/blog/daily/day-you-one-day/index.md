@@ -1,6 +1,5 @@
 ---
 title: "一天推一天"
-# images: ["/assets/images/og/day-you-one-day.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["现状","明天","今天"]

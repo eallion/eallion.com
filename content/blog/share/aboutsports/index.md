@@ -1,6 +1,5 @@
 ---
 title: "黄健翔 - 关于中国体育症结的剖析"
-# images: ["/assets/images/og/aboutsports.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["中国体育","体制","体委","体育","体育体制","黄健翔"]

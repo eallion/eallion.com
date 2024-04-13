@@ -1,6 +1,5 @@
 ---
 title: "一日不如一日"
-# images: ["/assets/images/og/day-as-day.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["长大"]

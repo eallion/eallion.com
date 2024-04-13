@@ -1,6 +1,5 @@
 ---
 title: "2011 年 04 月 15 日"
-# images: ["/assets/images/og/reveal.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记","点化"]

@@ -1,6 +1,5 @@
 ---
 title: "网警如何抓人"
-# images: ["/assets/images/og/wang-jing-ru-he-zhua-ren.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["vpn","网警","抓人","ISP","发贴"]

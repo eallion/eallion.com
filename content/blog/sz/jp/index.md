@@ -1,6 +1,5 @@
 ---
 title: "冬夏 4 年，天下安定"
-# images: ["/assets/images/og/jp.png"]
 authors: ["shanzei"]
 categories: ["山贼"]
 tags: ["山贼","下雪的秋天","夏天","春天"]

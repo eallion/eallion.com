@@ -1,6 +1,5 @@
 ---
 title: "淘宝客服绩效考核方案"
-# images: ["/assets/images/og/kpioftaobao.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["淘宝","天猫","客服","绩效","KPI"]

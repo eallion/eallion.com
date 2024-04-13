@@ -8,7 +8,6 @@ slug: "sonnet-116"
 summary: "The article discusses Shakespeare's Sonnet 116, which explores the concept of true love. It emphasizes that love is unchanging and steadfast, unaffected by time or external circumstances. The sonnet argues that if anyone can prove this idea wrong, then Shakespeare never wrote and no one has ever truly loved."
 draft: false
 date: 2024-03-09T16:08:13+08:00
-# images: ["/assets/images/og/sonnet-116.png"]
 ---
 
 ### Sonnet 116

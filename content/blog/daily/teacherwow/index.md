@@ -1,6 +1,5 @@
 ---
 title: "自言自语 - 教师"
-# images: ["/assets/images/og/teacherwow.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["教师","自言自语"]

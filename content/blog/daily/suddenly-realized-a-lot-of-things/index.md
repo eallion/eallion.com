@@ -1,6 +1,5 @@
 ---
 title: "突然悟到很多东西"
-# images: ["/assets/images/og/suddenly-realized-a-lot-of-things.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","感悟","悟"]

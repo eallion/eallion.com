@@ -1,6 +1,5 @@
 ---
 title: "有关于工作"
-# images: ["/assets/images/og/aboutwork.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","工作狂","未来","职业规划"]

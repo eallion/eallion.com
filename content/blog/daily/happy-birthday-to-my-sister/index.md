@@ -1,6 +1,5 @@
 ---
 title: "妹妹 生日快乐"
-# images: ["/assets/images/og/happy-birthday-to-my-sister.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["妹妹","生日","生日快乐"]

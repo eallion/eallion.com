@@ -1,6 +1,5 @@
 ---
 title: "愈久弥精"
-# images: ["/assets/images/og/the-more-refined-hisamitsu.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["妈妈","姐姐","愈久弥精","女朋友"]

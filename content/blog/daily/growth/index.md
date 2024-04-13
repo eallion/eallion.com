@@ -1,6 +1,5 @@
 ---
 title: "人在长大，生活在进步"
-# images: ["/assets/images/og/growth.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["域名","长大","主机","网站","进步"]

@@ -1,6 +1,5 @@
 ---
 title: "小小的物是人非"
-# images: ["/assets/images/og/little-people-have-changed.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["吉他","琴行"]

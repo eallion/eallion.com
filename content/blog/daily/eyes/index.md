@@ -1,6 +1,5 @@
 ---
 title: "爱笑的眼睛"
-# images: ["/assets/images/og/eyes.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["LOST","眼睛","董卿","Kate","Grey"]

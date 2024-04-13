@@ -1,6 +1,5 @@
 ---
 title: "新工作记要"
-# images: ["/assets/images/og/xin-gong-zuo-ji-yao.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","记要"]

@@ -1,6 +1,5 @@
 ---
 title: "理想中的手机"
-# images: ["/assets/images/og/dream-phone.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["手机","iPhone","i6","android","翻盖"]

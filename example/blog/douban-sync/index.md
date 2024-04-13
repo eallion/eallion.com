@@ -1,6 +1,5 @@
 ---
 title: "豆瓣同步到 Notion 和 Neodb"
-# images: ["/assets/images/og/douban-sync.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

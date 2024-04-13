@@ -1,6 +1,5 @@
 ---
 title: "读《中文大约的确已经死了》"
-# images: ["/assets/images/og/chinese.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: 

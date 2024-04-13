@@ -1,6 +1,5 @@
 ---
 title: "XHTML1.0 和 CSS3.0 验证"
-# images: ["/assets/images/og/authentication.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["xhtml","认证","验证","css3.0"]

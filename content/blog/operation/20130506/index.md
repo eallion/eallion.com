@@ -1,6 +1,5 @@
 ---
 title: "运营小记 20130506"
-# images: ["/assets/images/og/20130506.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["营销","运营","推广","电商","电子商务"]

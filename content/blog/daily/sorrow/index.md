@@ -1,6 +1,5 @@
 ---
 title: "我是在炫耀我的悲伤吗"
-# images: ["/assets/images/og/sorrow.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["头晕","感叹","病","粥"]

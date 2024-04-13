@@ -1,6 +1,5 @@
 ---
 title: "速度与激情 8"
-# images: ["/assets/images/og/su-du-yu-ji-qing8.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["速度与激情"]

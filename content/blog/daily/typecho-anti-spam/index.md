@@ -1,6 +1,5 @@
 ---
 title: "typecho 应对垃圾评论"
-# images: ["/assets/images/og/typecho-anti-spam.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["评论","留言","spam","垃圾评论"]

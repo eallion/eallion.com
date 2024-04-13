@@ -1,6 +1,5 @@
 ---
 title: "判断手机 UA"
-# images: ["/assets/images/og/judge-phone-ua.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["代码","php","ua","user agent","判断"]

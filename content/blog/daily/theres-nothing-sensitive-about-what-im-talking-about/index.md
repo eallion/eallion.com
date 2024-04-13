@@ -1,6 +1,5 @@
 ---
 title: "「我谈的话题没什么敏感的」"
-# images: ["/assets/images/og/theres-nothing-sensitive-about-what-im-talking-about.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["敏感","时政","水果"]

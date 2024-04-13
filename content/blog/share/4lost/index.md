@@ -1,6 +1,5 @@
 ---
 title: "奥巴马更改演说时间 给《迷失》大结局让路"
-# images: ["/assets/images/og/4lost.png"]
 authors: ["eallion"]
 categories: ["日志","分享"]
 tags: ["LOST","奥巴马","迷失"]

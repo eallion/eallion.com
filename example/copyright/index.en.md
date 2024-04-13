@@ -1,8 +1,7 @@
 ---
 title: "Copyright"
-# # images: ["/assets/images/og/copyright.png"]
 date: "2006-04-14 00: 00: 00"
-type: "page"
+type: "sample"
 layout: "copyright"
 showDate: false
 showAuthor: false

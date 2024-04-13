@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu 禁用 IPv6"
-# images: ["/assets/images/og/ubuntu-ipv6.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["Ubuntu","ipv6","禁用"]

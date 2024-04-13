@@ -1,6 +1,5 @@
 ---
 title: "iOS 离线发表博客的 APP MWeb"
-# images: ["/assets/images/og/typecho-mweb.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["typecho","mweb","ios","离线"]

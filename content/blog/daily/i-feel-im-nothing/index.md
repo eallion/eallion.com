@@ -1,6 +1,5 @@
 ---
 title: "今时不同往日"
-# images: ["/assets/images/og/i-feel-im-nothing.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["总结","日记","感慨"]

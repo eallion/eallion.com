@@ -1,6 +1,5 @@
 ---
 title: "亲爱的，是不是要等我离开了，你才会感动。"
-# images: ["/assets/images/og/gandongma.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["感动","爱情","离开"]

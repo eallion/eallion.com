@@ -1,6 +1,5 @@
 ---
 title: "Amazon EC2"
-# images: ["/assets/images/og/amazon-ec2.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["amazon","ec2","vps","vpn","免费"]

@@ -14,7 +14,6 @@ series_weight: 2
 seriesNavigation: true
 draft: false
 date: 2024-03-09T16:57:49+08:00
-# images: ["/assets/images/og/mastodon-sync-to-memos.png"]
 ---
 
 > 最新脚本：[https://gist.github.com/eallion/bf8861eb3292c2351c1067fba3198c26](https://gist.github.com/eallion/bf8861eb3292c2351c1067fba3198c26)

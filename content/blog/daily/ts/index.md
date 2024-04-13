@@ -1,6 +1,5 @@
 ---
 title: "唐山大地震"
-# images: ["/assets/images/og/ts.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["唐山大地震"]

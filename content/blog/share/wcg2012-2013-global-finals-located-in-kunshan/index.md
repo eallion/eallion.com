@@ -1,6 +1,5 @@
 ---
 title: "WCG2012 &amp; 2013 @昆山"
-# images: ["/assets/images/og/wcg2012-2013-global-finals-located-in-kunshan.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["CS","wcg","电子竞技","昆山"]

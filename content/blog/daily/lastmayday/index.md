@@ -1,6 +1,5 @@
 ---
 title: "五月天 - 五月的最后一天"
-# images: ["/assets/images/og/lastmayday.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["五月记事"]

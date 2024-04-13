@@ -1,6 +1,5 @@
 ---
 title: "回家"
-# images: ["/assets/images/og/return-home.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["回家","默默"]

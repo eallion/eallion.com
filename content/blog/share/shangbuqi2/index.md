@@ -1,6 +1,5 @@
 ---
 title: "写博客的你们伤不起！"
-# images: ["/assets/images/og/shangbuqi2.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["博客","伤不起","咆哮体"]

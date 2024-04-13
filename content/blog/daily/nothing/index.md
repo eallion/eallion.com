@@ -1,6 +1,5 @@
 ---
 title: "无所事事"
-# images: ["/assets/images/og/nothing.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","淘宝","网店","无聊","模板"]

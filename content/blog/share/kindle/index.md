@@ -1,6 +1,5 @@
 ---
 title: "免费领取咪咕版 Kindle"
-# images: ["/assets/images/og/kindle.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["白嫖","Kingle","咪咕"]

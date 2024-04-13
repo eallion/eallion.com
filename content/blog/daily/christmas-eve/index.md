@@ -1,6 +1,5 @@
 ---
 title: "平安夜"
-# images: ["/assets/images/og/christmas-eve.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["苹果","平安夜","发财"]

@@ -1,6 +1,5 @@
 ---
 title: "不要做圆规画圆"
-# images: ["/assets/images/og/dont-do-compasses-to-draw-circles.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["圆规","画圆"]

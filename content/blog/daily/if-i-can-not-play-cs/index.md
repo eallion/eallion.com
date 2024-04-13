@@ -1,6 +1,5 @@
 ---
 title: "如果我不能再 Play CS"
-# images: ["/assets/images/og/if-i-can-not-play-cs.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","忧伤","忧愁"]

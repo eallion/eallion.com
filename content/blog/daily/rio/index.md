@@ -1,6 +1,5 @@
 ---
 title: "里约大冒险"
-# images: ["/assets/images/og/rio.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["电影","动物园","鲁迅故里","里约大冒险"]

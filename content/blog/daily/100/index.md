@@ -1,6 +1,5 @@
 ---
 title: "故事"
-# images: ["/assets/images/og/100.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["爱情","爱","真爱","尊严"]

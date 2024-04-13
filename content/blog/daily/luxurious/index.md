@@ -1,6 +1,5 @@
 ---
 title: "奢侈和浪费"
-# images: ["/assets/images/og/luxurious.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["奢侈","浪费"]

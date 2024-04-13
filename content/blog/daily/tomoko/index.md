@@ -1,6 +1,5 @@
 ---
 title: "友子"
-# images: ["/assets/images/og/tomoko.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["思念","友子","诗"]

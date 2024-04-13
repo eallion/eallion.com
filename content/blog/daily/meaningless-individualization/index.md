@@ -1,6 +1,5 @@
 ---
 title: "无意义的个性化"
-# images: ["/assets/images/og/meaningless-individualization.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["个性化","背景音乐","负优化"]

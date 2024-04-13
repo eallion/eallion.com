@@ -1,6 +1,5 @@
 ---
 title: "Memos API 调用渲染页面"
-# images: ["/assets/images/og/memos-api.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags:

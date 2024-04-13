@@ -1,6 +1,5 @@
 ---
 title: "再次同步到 QQ 空间测试"
-# images: ["/assets/images/og/anothertest.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["腾讯"]

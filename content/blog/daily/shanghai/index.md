@@ -1,6 +1,5 @@
 ---
 title: "陪她坐火车去上海"
-# images: ["/assets/images/og/shanghai.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["上海","火车","一日游"]

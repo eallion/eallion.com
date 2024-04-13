@@ -1,6 +1,5 @@
 ---
 title: "2012"
-# images: ["/assets/images/og/2012.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["2012","工作","总结","事业"]

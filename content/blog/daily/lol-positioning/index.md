@@ -1,6 +1,5 @@
 ---
 title: "新号韩服 LOL 定位赛"
-# images: ["/assets/images/og/lol-positioning.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["LOL","英雄联盟","韩服","定位赛"]

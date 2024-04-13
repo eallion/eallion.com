@@ -1,6 +1,5 @@
 ---
 title: "外星人"
-# images: ["/assets/images/og/wai-xing-ren.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["生命","外星人","宇宙","文明"]

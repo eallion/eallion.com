@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu ZFS 原生全盘加密"
-# images: ["/assets/images/og/ubuntu-zfs-root-encryption.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu", "ZFS", "encryption", "加密", "Linux"]

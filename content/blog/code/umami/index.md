@@ -1,6 +1,5 @@
 ---
 title: "Umami Docker 部署及优化"
-# images: ["/assets/images/og/umami.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags:

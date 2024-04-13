@@ -1,6 +1,5 @@
 ---
 title: "家电决定生活"
-# images: ["/assets/images/og/jia-dian-jue-ding-sheng-huo.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["电脑","家电","空调","洗衣机","安定"]

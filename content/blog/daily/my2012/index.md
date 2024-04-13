@@ -1,6 +1,5 @@
 ---
 title: "My2012"
-# images: ["/assets/images/og/my2012.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["2011","2012","年度","计划","打算"]

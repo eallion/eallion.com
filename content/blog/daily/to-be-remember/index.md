@@ -1,6 +1,5 @@
 ---
 title: "有些需要被我们记住的东西"
-# images: ["/assets/images/og/to-be-remember.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","回忆","往事","记忆","青春"]

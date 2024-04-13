@@ -1,6 +1,5 @@
 ---
 title: "免费送阿里云虚拟主机"
-# images: ["/assets/images/og/free-aliyun-host.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["主机","阿里云","免费主机","虚拟主机"]

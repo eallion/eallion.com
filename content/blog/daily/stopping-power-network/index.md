@@ -1,6 +1,5 @@
 ---
 title: "停电停网"
-# images: ["/assets/images/og/stopping-power-network.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["停电","停网"]

@@ -1,6 +1,5 @@
 ---
 title: "全民脱险 —— 卡巴斯基向全体网民赠送高端安全软件"
-# images: ["/assets/images/og/kaspersky.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["kis","卡巴斯基"]

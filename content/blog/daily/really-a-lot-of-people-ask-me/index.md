@@ -1,6 +1,5 @@
 ---
 title: "真的很多人问我了"
-# images: ["/assets/images/og/really-a-lot-of-people-ask-me.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["女人","爱情","条件"]

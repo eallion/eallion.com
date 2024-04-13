@@ -1,6 +1,5 @@
 ---
 title: "特质"
-# images: ["/assets/images/og/te-zhi.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["自我","特质","个性"]

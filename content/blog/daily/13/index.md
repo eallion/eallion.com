@@ -1,6 +1,5 @@
 ---
 title: "不知所谓，，，，"
-# images: ["/assets/images/og/13.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["13","专栏","蛆"]

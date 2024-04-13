@@ -1,6 +1,5 @@
 ---
 title: "玩 CS 的你们伤不起！"
-# images: ["/assets/images/og/shangbuqi.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["CS","伤不起","咆哮体"]

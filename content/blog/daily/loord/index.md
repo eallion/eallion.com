@@ -1,6 +1,5 @@
 ---
 title: "Loord 事件"
-# images: ["/assets/images/og/loord.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["China","CS","loord","Poland","WEM"]

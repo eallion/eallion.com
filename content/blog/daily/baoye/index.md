@@ -1,6 +1,5 @@
 ---
 title: "保爷"
-# images: ["/assets/images/og/baoye.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["义父","保爷","妈妈","干爹"]

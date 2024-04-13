@@ -1,6 +1,5 @@
 ---
 title: "DNS 推荐"
-# images: ["/assets/images/og/dns.png"]
 authors: ["eallion"]
 categories: ["日志","分享"]
 tags: ["dns","114dns","googledns","opendns"]

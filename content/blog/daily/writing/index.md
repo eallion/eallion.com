@@ -1,6 +1,5 @@
 ---
 title: "也许我正打算写小说呢"
-# images: ["/assets/images/og/writing.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["传记","回忆","小说","青春"]

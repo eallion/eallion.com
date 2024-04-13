@@ -1,6 +1,5 @@
 ---
 title: "笨拙"
-# images: ["/assets/images/og/clumsy.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["笨拙"]

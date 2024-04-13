@@ -1,6 +1,5 @@
 ---
 title: "感觉马上就要离开了"
-# images: ["/assets/images/og/feeling-soon-left-the.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["离开","毕业","伤怀"]

@@ -15,7 +15,6 @@ series_weight: 1
 seriesNavigation: true
 draft: false
 date: 2024-01-14T20:58:31+08:00
-# images: ["/assets/images/og/fediverse.png"]
 ---
 
 > <i class="fab fa-mastodon"></i> [@e5n.cc@eallion](https://e5n.cc/@eallion)

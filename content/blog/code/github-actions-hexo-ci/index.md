@@ -1,6 +1,5 @@
 ---
 title: "GitHub Actions 自动部署 Hexo 脚本"
-# images: ["/assets/images/og/github-actions-hexo-ci.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["hexo","GitHub","actions","deploy"]

@@ -1,6 +1,5 @@
 ---
 title: "360 前端静态资源库"
-# images: ["/assets/images/og/baomitu.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["360","cdn","useso","前端","jquery"]

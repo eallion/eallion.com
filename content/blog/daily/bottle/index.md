@@ -1,6 +1,5 @@
 ---
 title: "漂流瓶"
-# images: ["/assets/images/og/bottle.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["有缘人","漂流瓶","爱情","感想"]

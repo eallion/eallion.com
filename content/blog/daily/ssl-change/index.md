@@ -1,6 +1,5 @@
 ---
 title: "正在更换 SSL 证书"
-# images: ["/assets/images/og/ssl-change.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["安全","ssl","证书","https"]

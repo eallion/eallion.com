@@ -1,6 +1,5 @@
 ---
 title: "算命"
-# images: ["/assets/images/og/fortune-telling.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["算命","八字"]

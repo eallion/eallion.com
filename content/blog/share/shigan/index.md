@@ -1,6 +1,5 @@
 ---
 title: "实感"
-# images: ["/assets/images/og/shigan.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: 

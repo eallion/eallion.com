@@ -1,6 +1,5 @@
 ---
 title: "2011 年 1 月 30 日"
-# images: ["/assets/images/og/about-music.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记","音乐","感想","歌","牢骚"]

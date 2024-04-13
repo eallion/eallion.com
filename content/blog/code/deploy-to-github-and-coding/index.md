@@ -1,6 +1,5 @@
 ---
 title: "Gridea Hexo Hugo 等 git push 同步到多个仓库"
-# images: ["/assets/images/og/deploy-to-github-and-coding.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["hexo"]

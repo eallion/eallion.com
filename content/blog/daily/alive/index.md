@@ -1,6 +1,5 @@
 ---
 title: "命贱一点有好处"
-# images: ["/assets/images/og/alive.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["命","妈妈","死亡","贱命"]

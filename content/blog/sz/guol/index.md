@@ -1,6 +1,5 @@
 ---
 title: "过年"
-# images: ["/assets/images/og/guol.png"]
 authors: ["shanzei"]
 categories: ["山贼"]
 tags: ["山贼","过年","乡愁","酒"]

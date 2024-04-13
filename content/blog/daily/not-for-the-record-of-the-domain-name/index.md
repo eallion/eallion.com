@@ -1,6 +1,5 @@
 ---
 title: "暂无法备案的域名后缀"
-# images: ["/assets/images/og/not-for-the-record-of-the-domain-name.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["域名","备案","阿里云"]

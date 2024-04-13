@@ -1,6 +1,5 @@
 ---
 title: "妈妈 生日快乐"
-# images: ["/assets/images/og/happy-birthday-to-my-mother.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["妈妈","父母","生日","生日快乐"]

@@ -1,6 +1,5 @@
 ---
 title: "无与伦比的寂寞"
-# images: ["/assets/images/og/unparalleled-lonely.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["时间","寂寞","悲伤","发呆"]

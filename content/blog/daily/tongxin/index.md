@@ -1,6 +1,5 @@
 ---
 title: "童心皆可爱"
-# images: ["/assets/images/og/tongxin.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: 

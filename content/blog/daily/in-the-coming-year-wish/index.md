@@ -1,6 +1,5 @@
 ---
 title: "来年愿望"
-# images: ["/assets/images/og/in-the-coming-year-wish.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","愿望","新年","努力"]

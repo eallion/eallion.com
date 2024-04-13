@@ -1,6 +1,5 @@
 ---
 title: "Artalk 无评论随机显示诗词"
-# images: ["/assets/images/og/artalk-no-comment-text.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

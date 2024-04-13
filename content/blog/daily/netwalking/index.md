@@ -1,6 +1,5 @@
 ---
 title: "探讨我的健康网络生活"
-# images: ["/assets/images/og/netwalking.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["生活","网络","习惯"]

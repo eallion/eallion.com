@@ -1,6 +1,5 @@
 ---
 title: "今天重阳"
-# images: ["/assets/images/og/today-chongyang.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["重阳","李攀"]

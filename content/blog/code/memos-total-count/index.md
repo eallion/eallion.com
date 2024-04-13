@@ -1,6 +1,5 @@
 ---
 title: "Memos API 获取总条数"
-# images: ["/assets/images/og/memos-total-count.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags:

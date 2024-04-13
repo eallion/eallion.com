@@ -1,6 +1,5 @@
 ---
 title: "利用 GitHub Actions 同步对象存储"
-# images: ["/assets/images/og/s3-sync.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

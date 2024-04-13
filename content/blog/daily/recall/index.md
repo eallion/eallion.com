@@ -1,6 +1,5 @@
 ---
 title: "蕴藉"
-# images: ["/assets/images/og/recall.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["蕴藉"]

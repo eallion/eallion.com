@@ -1,6 +1,5 @@
 ---
 title: "关不上的关心"
-# images: ["/assets/images/og/concern.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["关心"]

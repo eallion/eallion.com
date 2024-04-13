@@ -1,6 +1,5 @@
 ---
 title: "纳税人的钱去哪了"
-# images: ["/assets/images/og/na-shui-ren-de-qian-qu-na-le.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["钱","纳税","三公","财政"]

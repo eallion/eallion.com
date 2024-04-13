@@ -1,6 +1,5 @@
 ---
 title: "一批域名到期"
-# images: ["/assets/images/og/domain-names.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["域名","续费","转入"]

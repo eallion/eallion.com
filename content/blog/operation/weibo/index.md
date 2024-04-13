@@ -1,6 +1,5 @@
 ---
 title: "你在玩微博？微博在玩你！"
-# images: ["/assets/images/og/weibo.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["微博","草根微博","微博营销","创业","微博创业"]

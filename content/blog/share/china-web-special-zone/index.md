@@ -1,6 +1,5 @@
 ---
 title: "中国需要网络特区吗？"
-# images: ["/assets/images/og/china-web-special-zone.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["特区","网络特区"]

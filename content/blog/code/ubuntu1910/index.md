@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu 19.10 优化"
-# images: ["/assets/images/og/ubuntu1910.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","优化","美化","ZFS","gnome"]

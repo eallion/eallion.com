@@ -1,6 +1,5 @@
 ---
 title: "我们需要警惕韩寒吗？"
-# images: ["/assets/images/og/alerthanhan.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["警惕韩寒","韩寒"]

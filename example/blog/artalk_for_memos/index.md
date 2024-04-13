@@ -1,6 +1,5 @@
 ---
 title: "Memos 配置 Artalk 评论系统"
-# images: ["/assets/images/og/artalk_for_memos.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

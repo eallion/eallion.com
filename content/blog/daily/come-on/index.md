@@ -1,6 +1,5 @@
 ---
 title: "加油！"
-# images: ["/assets/images/og/come-on.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["加油"]

@@ -1,6 +1,5 @@
 ---
 title: "新三板挂牌上市条件"
-# images: ["/assets/images/og/neeq.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["新三板","上市","挂牌","股份","公司"]

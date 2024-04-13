@@ -1,6 +1,5 @@
 ---
 title: "全城戒备"
-# images: ["/assets/images/og/city-under-siege.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["全城戒备","电影"]

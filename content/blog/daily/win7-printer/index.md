@@ -1,6 +1,5 @@
 ---
 title: "Win7 老打印机驱动解决方案"
-# images: ["/assets/images/og/win7-printer.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["WIN7","打印机","驱动","虚拟机","virtualbox"]

@@ -1,6 +1,5 @@
 ---
 title: "会飞的蜗牛 trackback"
-# images: ["/assets/images/og/flying-snail-trackback.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

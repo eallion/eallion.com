@@ -1,6 +1,5 @@
 ---
 title: "伤好了"
-# images: ["/assets/images/og/well-injury.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["好","痊愈"]

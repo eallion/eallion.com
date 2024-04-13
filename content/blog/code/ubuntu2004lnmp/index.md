@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu 20.04.1 配置 LNMP 本地环境备忘"
-# images: ["/assets/images/og/ubuntu2004lnmp.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","Nginx","Mysql","PHP","LNMP"]

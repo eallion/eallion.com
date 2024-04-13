@@ -1,6 +1,5 @@
 ---
 title: "养了两条鱼"
-# images: ["/assets/images/og/two-fish.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["金鱼","鱼","养鱼","饲料"]

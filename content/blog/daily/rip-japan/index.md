@@ -1,6 +1,5 @@
 ---
 title: "为日本地震海啸默哀"
-# images: ["/assets/images/og/rip-japan.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["地震","日本","海啸","默哀"]

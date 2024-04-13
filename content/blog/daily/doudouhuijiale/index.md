@@ -1,6 +1,5 @@
 ---
 title: "豆豆回家了"
-# images: ["/assets/images/og/doudouhuijiale.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["儿子","回家","豆豆"]

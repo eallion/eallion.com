@@ -1,6 +1,5 @@
 ---
 title: "熟睡的时光"
-# images: ["/assets/images/og/listening-to-horror-stories--and-enron-sleep.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["小说","恐怖","MP3","故事"]

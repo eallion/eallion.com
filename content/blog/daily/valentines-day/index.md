@@ -1,6 +1,5 @@
 ---
 title: "情人节快乐"
-# images: ["/assets/images/og/valentines-day.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["情人节","我爱你","love","天长地久","爱"]

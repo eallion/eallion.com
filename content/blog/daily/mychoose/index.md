@@ -1,6 +1,5 @@
 ---
 title: "我喜欢的人和喜欢我的人"
-# images: ["/assets/images/og/mychoose.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["结婚","喜欢","爱","选择"]

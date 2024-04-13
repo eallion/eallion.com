@@ -1,6 +1,5 @@
 ---
 title: "在武汉"
-# images: ["/assets/images/og/in-wuhan.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["周杰伦","演唱会","武汉","JAY"]

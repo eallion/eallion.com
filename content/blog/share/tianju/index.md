@@ -1,6 +1,5 @@
 ---
 title: "《天局》"
-# images: ["/assets/images/og/tianju.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["人民的名义","天局","围棋","胜天半子","矫健"]

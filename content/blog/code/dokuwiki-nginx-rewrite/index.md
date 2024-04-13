@@ -1,6 +1,5 @@
 ---
 title: "Dokuwiki Nginx 伪静态"
-# images: ["/assets/images/og/dokuwiki-nginx-rewrite.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["nginx","doku","dokuwiki","rewrite"]

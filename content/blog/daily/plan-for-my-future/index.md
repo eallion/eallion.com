@@ -1,6 +1,5 @@
 ---
 title: "未来半年计划（2011.02-2011.06）"
-# images: ["/assets/images/og/plan-for-my-future.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["展望","计划","规划","变化"]

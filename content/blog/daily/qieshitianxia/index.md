@@ -1,6 +1,5 @@
 ---
 title: "且试天下"
-# images: ["/assets/images/og/qieshitianxia.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: 

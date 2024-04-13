@@ -1,6 +1,5 @@
 ---
 title: "草稿箱预发布"
-# images: ["/assets/images/og/drafts-pre-release.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["草稿","发布","定时","预发布"]

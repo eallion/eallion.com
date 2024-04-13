@@ -1,6 +1,5 @@
 ---
 title: "我被封禁的几个重要账号"
-# images: ["/assets/images/og/banned-account-list.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["封禁", "总结", "日记", "杯具", "账号"]

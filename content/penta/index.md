@@ -1,6 +1,5 @@
 ---
 title: "我的五杀"
-# # images: ["/assets/images/og/penta.png"]
 layout: "penta"
 type: "sample"
 showDate: false

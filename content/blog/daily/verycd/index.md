@@ -1,6 +1,5 @@
 ---
 title: "VeryCD 时代的结束？"
-# images: ["/assets/images/og/verycd.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["verycd","ed2k","电驴","正版"]

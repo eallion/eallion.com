@@ -1,6 +1,5 @@
 ---
 title: "阿里云服务器 ECS 最新版 VPS 99 元 / 年"
-# images: ["/assets/images/og/aliyun99.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["服务器", "vps", "阿里云", "ECS"]

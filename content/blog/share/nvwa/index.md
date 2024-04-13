@@ -1,6 +1,5 @@
 ---
 title: "女娲补天"
-# images: ["/assets/images/og/nvwa.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["故事","神话","女娲","补天","淮南子"]

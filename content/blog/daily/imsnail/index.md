@@ -1,6 +1,5 @@
 ---
 title: "富足的时间 肤浅的生活"
-# images: ["/assets/images/og/imsnail.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["时间","爱情","生活","蜗牛","过往"]

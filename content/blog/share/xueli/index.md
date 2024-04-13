@@ -1,6 +1,5 @@
 ---
 title: "学历重要吗"
-# images: ["/assets/images/og/xueli.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["学历"]

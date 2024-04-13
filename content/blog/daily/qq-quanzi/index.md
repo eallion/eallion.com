@@ -1,6 +1,5 @@
 ---
 title: "QQ 圈子"
-# images: ["/assets/images/og/qq-quanzi.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["QQ","QQ 圈子"]

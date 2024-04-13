@@ -1,6 +1,5 @@
 ---
 title: "感同身受"
-# images: ["/assets/images/og/empathy.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["感同身受","折磨"]

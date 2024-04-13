@@ -1,6 +1,5 @@
 ---
 title: "工作状态慢慢回来了"
-# images: ["/assets/images/og/sense-back.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["状态","感觉"]

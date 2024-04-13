@@ -1,6 +1,5 @@
 ---
 title: "EQ（均衡器）黄金定律"
-# images: ["/assets/images/og/eq.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["EQ","均衡器","调节","定律"]

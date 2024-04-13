@@ -1,6 +1,5 @@
 ---
 title: "纳闷"
-# images: ["/assets/images/og/wonder.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["荆州","纳闷","签名","头像"]

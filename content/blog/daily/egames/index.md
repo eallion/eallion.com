@@ -1,6 +1,5 @@
 ---
 title: "电子竞技奥运会"
-# images: ["/assets/images/og/egames.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","电子竞技","电竞","LOL","奥运会"]

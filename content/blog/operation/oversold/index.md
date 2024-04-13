@@ -1,6 +1,5 @@
 ---
 title: "运营小记 - 库存超卖缺货处理一例"
-# images: ["/assets/images/og/oversold.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["运营","缺货","超卖","库存"]

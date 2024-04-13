@@ -1,6 +1,5 @@
 ---
 title: "房租和办公设备"
-# images: ["/assets/images/og/yunyingchengben.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["运营","成本","房租","水电","设备"]

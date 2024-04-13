@@ -1,6 +1,5 @@
 ---
 title: "遇见"
-# images: ["/assets/images/og/yujian.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["遇见"]

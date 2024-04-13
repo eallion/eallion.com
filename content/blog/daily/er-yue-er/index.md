@@ -1,6 +1,5 @@
 ---
 title: "二月二"
-# images: ["/assets/images/og/er-yue-er.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["菩萨","爬山","香炉峰","拜佛","二月二"]

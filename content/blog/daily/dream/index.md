@@ -1,6 +1,5 @@
 ---
 title: "梦"
-# images: ["/assets/images/og/dream.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["梦境","梦"]

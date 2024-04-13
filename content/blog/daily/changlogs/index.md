@@ -1,6 +1,5 @@
 ---
 title: "对博客的小改动"
-# images: ["/assets/images/og/changlogs.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","小记","改动","优化","代码"]

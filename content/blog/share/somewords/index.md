@@ -1,6 +1,5 @@
 ---
 title: "几个严肃的词"
-# images: ["/assets/images/og/somewords.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["blog","信仰","学者","爱国","记者"]

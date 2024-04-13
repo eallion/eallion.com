@@ -1,6 +1,5 @@
 ---
 title: "年小月半大"
-# images: ["/assets/images/og/yueban.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["传统","妈妈","年小月半大","文化","月半","节日"]

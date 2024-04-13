@@ -1,6 +1,5 @@
 ---
 title: "这个世界"
-# images: ["/assets/images/og/the-world.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["世界","放弃","忍耐"]

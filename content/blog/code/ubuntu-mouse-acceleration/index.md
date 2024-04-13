@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu 鼠标加速度"
-# images: ["/assets/images/og/ubuntu-mouse-acceleration.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["鼠标","Ubuntu","加速度","鼠标加速","xset m 0"]

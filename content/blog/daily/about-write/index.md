@@ -1,6 +1,5 @@
 ---
 title: "有关于写作"
-# images: ["/assets/images/og/about-write.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["写作","灵感"]

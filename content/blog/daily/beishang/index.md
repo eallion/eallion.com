@@ -1,6 +1,5 @@
 ---
 title: "悲从中来"
-# images: ["/assets/images/og/beishang.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","上帝","比赛","车"]

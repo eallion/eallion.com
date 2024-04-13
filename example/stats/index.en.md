@@ -1,6 +1,5 @@
 ---
 title: "Blog Stats"
-# # images: ["/assets/images/og/eallion.png"]
 layout: "stats"
 type: "sample"
 showDate: false

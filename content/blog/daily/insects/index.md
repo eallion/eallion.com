@@ -1,6 +1,5 @@
 ---
 title: "评论框的虫子"
-# images: ["/assets/images/og/insects.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["评论","评论框","虫子","评论框背景"]

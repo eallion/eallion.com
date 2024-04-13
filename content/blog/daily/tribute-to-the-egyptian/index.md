@@ -1,6 +1,5 @@
 ---
 title: "向埃及人民致敬"
-# images: ["/assets/images/og/tribute-to-the-egyptian.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["民主","埃及","自由","游行","运动"]

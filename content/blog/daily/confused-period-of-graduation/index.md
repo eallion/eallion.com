@@ -1,6 +1,5 @@
 ---
 title: "迷茫的毕业期"
-# images: ["/assets/images/og/confused-period-of-graduation.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","吉他"]

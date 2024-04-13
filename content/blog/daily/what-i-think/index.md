@@ -1,6 +1,5 @@
 ---
 title: "当我不说话的时候，我在说什么"
-# images: ["/assets/images/og/what-i-think.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["沉默"]

@@ -1,6 +1,5 @@
 ---
 title: "好日子"
-# images: ["/assets/images/og/good-day.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["好日子"]

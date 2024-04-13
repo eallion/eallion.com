@@ -1,6 +1,5 @@
 ---
 title: "中文大约的确已经死了"
-# images: ["/assets/images/og/chinese-is-probably-dead.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: 

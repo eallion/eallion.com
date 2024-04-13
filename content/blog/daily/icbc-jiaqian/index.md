@@ -1,6 +1,5 @@
 ---
 title: "如果我真取到了假钱"
-# images: ["/assets/images/og/icbc-jiaqian.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["ATM","假钱","工行","残币"]

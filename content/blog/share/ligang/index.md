@@ -1,6 +1,5 @@
 ---
 title: "我爸是李刚"
-# images: ["/assets/images/og/ligang.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["官二代","富二代","李刚","我爸是李刚"]

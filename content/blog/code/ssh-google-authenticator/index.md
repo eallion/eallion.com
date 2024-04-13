@@ -1,6 +1,5 @@
 ---
 title: "SSH Google Authenticator"
-# images: ["/assets/images/og/ssh-google-authenticator.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","google","ssh","two factor","authenticator"]

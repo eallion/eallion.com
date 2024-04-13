@@ -1,6 +1,5 @@
 ---
 title: "cyx，一路走好"
-# images: ["/assets/images/og/cyx.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","cyx"]

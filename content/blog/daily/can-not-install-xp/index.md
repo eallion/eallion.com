@@ -1,6 +1,5 @@
 ---
 title: "装不了 XP"
-# images: ["/assets/images/og/can-not-install-xp.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["电脑","笔记本","XP","WIN7","Ubuntu"]

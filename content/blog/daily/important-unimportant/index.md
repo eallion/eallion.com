@@ -1,6 +1,5 @@
 ---
 title: "重要不重要"
-# images: ["/assets/images/og/important-unimportant.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["重要","值得"]

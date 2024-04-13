@@ -1,6 +1,5 @@
 ---
 title: "typecho1.2 (18.10.23) 新窗口打开链接"
-# images: ["/assets/images/og/typecho-12-blank.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["typecho","代码","php","新窗口","blank"]

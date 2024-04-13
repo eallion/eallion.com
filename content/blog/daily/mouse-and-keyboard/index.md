@@ -1,6 +1,5 @@
 ---
 title: "败了好多鼠标键盘"
-# images: ["/assets/images/og/mouse-and-keyboard.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["鼠标","键盘"]

@@ -1,6 +1,5 @@
 ---
 title: "将爱情进行到底"
-# images: ["/assets/images/og/eternal-moment.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["影评","爱情","电影","love","将爱"]

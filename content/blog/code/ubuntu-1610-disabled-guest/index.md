@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu 16.10 禁用 Guest 访客"
-# images: ["/assets/images/og/ubuntu-1610-disabled-guest.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","1610","guest","session","访客"]

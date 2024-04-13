@@ -1,6 +1,5 @@
 ---
 title: "朋友小聚"
-# images: ["/assets/images/og/friends-gathering.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["过年","春节","聚会","麻将","喝酒"]

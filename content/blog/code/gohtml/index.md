@@ -1,6 +1,5 @@
 ---
 title: "网页跳转备忘"
-# images: ["/assets/images/og/gohtml.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["代码","网页","html","跳转"]

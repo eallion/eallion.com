@@ -1,6 +1,5 @@
 ---
 title: "淡淡的"
-# images: ["/assets/images/og/light.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["寂寞","等待","淡淡","乐观","开朗"]

@@ -1,6 +1,5 @@
 ---
 title: "Album"
-# # images: ["/assets/images/og/album.png"]
 layout: "album"
 type: "sample"
 showDate: false

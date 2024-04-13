@@ -1,6 +1,5 @@
 ---
 title: "时运不济"
-# images: ["/assets/images/og/shiyunbuji.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

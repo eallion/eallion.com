@@ -1,6 +1,5 @@
 ---
 title: "Memos 手动导入数据"
-# images: ["/assets/images/og/memos-import.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "整整两年的光阴"
-# images: ["/assets/images/og/2years.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["515","兄弟","回忆","大学","往事","记忆","青春"]

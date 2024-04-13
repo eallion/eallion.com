@@ -1,6 +1,5 @@
 ---
 title: "Linux 架设 CS1.6 服务器教程"
-# images: ["/assets/images/og/linux-counter-strike-server.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["CS","Ubuntu","server","服务器","linux","red hat"]

@@ -1,6 +1,5 @@
 ---
 title: "《静夜思》鉴赏"
-# images: ["/assets/images/og/jingyesi.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["静夜思"]

@@ -1,6 +1,5 @@
 ---
 title: "再看《星际穿越》"
-# images: ["/assets/images/og/interstellar.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: 

@@ -1,6 +1,5 @@
 ---
 title: "貌似感受到压力"
-# images: ["/assets/images/og/seemingly-feel-the-pressure.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["毕业","压力","随意"]

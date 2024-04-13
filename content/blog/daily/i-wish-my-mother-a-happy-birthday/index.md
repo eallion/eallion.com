@@ -1,6 +1,5 @@
 ---
 title: "祝妈妈生日快乐.!"
-# images: ["/assets/images/og/i-wish-my-mother-a-happy-birthday.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["妈妈","生日","生日快乐"]

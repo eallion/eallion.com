@@ -1,6 +1,5 @@
 ---
 title: "WordPress 提交评论出现 404 错误的解决办法"
-# images: ["/assets/images/og/wordpress-comment-404.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["提交评论"]

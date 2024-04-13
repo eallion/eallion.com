@@ -1,6 +1,5 @@
 ---
 title: "LOL 全球总决赛 S5 开赛，支持 AHQ"
-# images: ["/assets/images/og/lols5.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["LOL","英雄联盟","s5","全球总决赛"]

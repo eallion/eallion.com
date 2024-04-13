@@ -1,6 +1,5 @@
 ---
 title: "苹果产品链的最低端为什么是中国"
-# images: ["/assets/images/og/ipad.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["ipad","苹果"]

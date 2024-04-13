@@ -1,6 +1,5 @@
 ---
 title: "反季旅游的必要性"
-# images: ["/assets/images/og/the-need-for-off-season-tourism.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["旅游"]

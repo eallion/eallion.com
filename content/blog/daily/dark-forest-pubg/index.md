@@ -1,6 +1,5 @@
 ---
 title: "绝地求生吃鸡与黑暗森林法则"
-# images: ["/assets/images/og/dark-forest-pubg.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["黑暗森林","绝地求生","pubg","吃鸡","三体"]

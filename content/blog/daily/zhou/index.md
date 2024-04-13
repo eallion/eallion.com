@@ -1,6 +1,5 @@
 ---
 title: "百合桂圆枸杞红枣糯米粥"
-# images: ["/assets/images/og/zhou.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["粥","糯米","红枣","桂圆","枸杞"]

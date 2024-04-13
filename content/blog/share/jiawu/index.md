@@ -1,6 +1,5 @@
 ---
 title: "甲午海战前后"
-# images: ["/assets/images/og/jiawu.png"]
 authors: ["eallion"]
 categories: ["日志","分享"]
 tags: ["甲午海战前后"]

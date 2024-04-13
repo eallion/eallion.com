@@ -1,6 +1,5 @@
 ---
 title: "福福 生日快乐"
-# images: ["/assets/images/og/happy-birthday-to-my-fufu.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["生日","生日快乐","福福"]

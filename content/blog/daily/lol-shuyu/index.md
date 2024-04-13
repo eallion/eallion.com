@@ -1,6 +1,5 @@
 ---
 title: "英雄联盟 lol 名词解释"
-# images: ["/assets/images/og/lol-shuyu.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["LOL","英雄联盟","League of Legends"]

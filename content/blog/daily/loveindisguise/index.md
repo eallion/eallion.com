@@ -1,6 +1,5 @@
 ---
 title: "轻轻的推荐 —— 恋爱通告"
-# images: ["/assets/images/og/loveindisguise.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["七夕","怪物史莱克","恋爱通告","电影"]

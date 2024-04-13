@@ -1,6 +1,5 @@
 ---
 title: "收获"
-# images: ["/assets/images/og/shou-huo.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["收获"]

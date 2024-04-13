@@ -1,6 +1,5 @@
 ---
 title: "2011.05.22"
-# images: ["/assets/images/og/birth.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["生日","生日快乐"]

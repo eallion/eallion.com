@@ -1,6 +1,5 @@
 ---
 title: "百度推广黑幕 - 一个百度推广从业者的视角"
-# images: ["/assets/images/og/ebaidu-com.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CCTV","百度","百度推广","baidu","关键词"]

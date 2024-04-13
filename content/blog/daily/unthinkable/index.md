@@ -1,6 +1,5 @@
 ---
 title: "原来我也害怕独处"
-# images: ["/assets/images/og/unthinkable.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记","睡觉","独处"]

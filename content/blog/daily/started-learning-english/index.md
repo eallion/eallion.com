@@ -1,6 +1,5 @@
 ---
 title: "英语学习正式开始"
-# images: ["/assets/images/og/started-learning-english.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["英语","学习"]

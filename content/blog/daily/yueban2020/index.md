@@ -1,6 +1,5 @@
 ---
 title: "月半"
-# images: ["/assets/images/og/yueban2020.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["hugo","blog","月半","中元节","鬼节"]

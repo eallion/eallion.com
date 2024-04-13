@@ -1,6 +1,5 @@
 ---
 title: "快递安全吗"
-# images: ["/assets/images/og/express.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["快递","安全"]

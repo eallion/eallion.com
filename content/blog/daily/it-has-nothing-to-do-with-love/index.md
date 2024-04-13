@@ -1,6 +1,5 @@
 ---
 title: "因为你不喜欢我"
-# images: ["/assets/images/og/it-has-nothing-to-do-with-love.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["爱情","喜欢","不喜欢","无关爱情"]

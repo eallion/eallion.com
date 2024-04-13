@@ -1,6 +1,5 @@
 ---
 title: "阿里云 OSS 挂载为数据盘搭建 piwigo 相册"
-# images: ["/assets/images/og/piwigo-in-alioss.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["阿里云","oss","piwigo","相册","挂载"]

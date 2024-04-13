@@ -1,6 +1,5 @@
 ---
 title: "凤凰网：广电解除电竞类节目封杀"
-# images: ["/assets/images/og/unlockesports.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["封杀","广电","电子竞技","电竞","解除"]

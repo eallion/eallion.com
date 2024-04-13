@@ -1,6 +1,5 @@
 ---
 title: "驳《10086 体贴》论"
-# images: ["/assets/images/og/refuting-considerate-of-10086.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["10086","体贴","悖论"]

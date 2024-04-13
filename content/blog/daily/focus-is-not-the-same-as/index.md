@@ -1,6 +1,5 @@
 ---
 title: "重点不一样"
-# images: ["/assets/images/og/focus-is-not-the-same-as.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["重点","看清","放下"]

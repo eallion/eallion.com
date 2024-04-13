@@ -1,6 +1,5 @@
 ---
 title: "密室之不可告人"
-# images: ["/assets/images/og/lost-in-panic-room.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["不可告人","密室","影评","惊悚","推理","电影"]

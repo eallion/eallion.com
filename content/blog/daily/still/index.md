@@ -1,6 +1,5 @@
 ---
 title: "依旧"
-# images: ["/assets/images/og/still.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["依旧"]

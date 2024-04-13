@@ -1,6 +1,5 @@
 ---
 title: "运营小记 20130523"
-# images: ["/assets/images/og/20130523.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["淘宝","运营","天猫","经验"]

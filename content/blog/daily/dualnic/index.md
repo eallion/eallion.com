@@ -1,6 +1,5 @@
 ---
 title: "Windows 双宽带双网卡"
-# images: ["/assets/images/og/dualnic.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["网络","双宽带","电信","移动","网卡"]

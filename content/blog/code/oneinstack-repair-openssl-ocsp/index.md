@@ -1,6 +1,5 @@
 ---
 title: "Oneinstack 手动修复 OpenSSL OCSP"
-# images: ["/assets/images/og/oneinstack-repair-openssl-ocsp.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["oneinstack","nginx","openssl","ocsp"]

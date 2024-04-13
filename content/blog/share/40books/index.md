@@ -1,6 +1,5 @@
 ---
 title: "改革开放 40 年 大民大国 40 年 40 本书"
-# images: ["/assets/images/og/40books.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["书","读书","改革开放","40 本书"]

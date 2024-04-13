@@ -1,6 +1,5 @@
 ---
 title: "Windows 安装 Rime 小狼毫五笔拼音输入法"
-# images: ["/assets/images/og/weasel.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

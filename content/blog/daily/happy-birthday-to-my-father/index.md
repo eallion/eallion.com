@@ -1,6 +1,5 @@
 ---
 title: "爸爸 生日快乐"
-# images: ["/assets/images/og/happy-birthday-to-my-father.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["父母","爸爸","生日","生日快乐"]

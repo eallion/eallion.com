@@ -1,6 +1,5 @@
 ---
 title: "韩寒贵在敢 “放屁”"
-# images: ["/assets/images/og/ndphh.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["陈文茜","韩寒"]

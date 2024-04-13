@@ -1,6 +1,5 @@
 ---
 title: "网页黑白代码"
-# images: ["/assets/images/og/gray-html.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["代码","网页","html","黑白"]

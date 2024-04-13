@@ -1,6 +1,5 @@
 ---
 title: "那些没有掉下来的雪"
-# images: ["/assets/images/og/those-who-do-not-fall-to-the-snow.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["雪","怀念"]

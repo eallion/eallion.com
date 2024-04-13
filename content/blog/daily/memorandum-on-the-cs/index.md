@@ -1,6 +1,5 @@
 ---
 title: "近期关于 CS 的二三事备忘"
-# images: ["/assets/images/og/memorandum-on-the-cs.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","游戏","电子竞技","电竞"]

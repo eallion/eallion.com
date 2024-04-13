@@ -1,6 +1,5 @@
 ---
 title: "我们都不是真的懒"
-# images: ["/assets/images/og/not-really-lazy.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记","懒","勤快","感悟"]

@@ -1,6 +1,5 @@
 ---
 title: "为什么我会突然热情锐减"
-# images: ["/assets/images/og/myenthusiasm.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["生活","激情","热情"]

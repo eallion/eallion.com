@@ -1,6 +1,5 @@
 ---
 title: "抓小偷记"
-# images: ["/assets/images/og/catch-the-thief.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["小偷","抓小偷","偷车","贼","抓贼"]

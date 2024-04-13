@@ -1,6 +1,5 @@
 ---
 title: "莫名其妙"
-# images: ["/assets/images/og/baffling.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["莫名其妙"]

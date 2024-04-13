@@ -1,6 +1,5 @@
 ---
 title: "消失"
-# images: ["/assets/images/og/disappear.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["消失","心如止水"]

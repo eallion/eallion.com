@@ -1,6 +1,5 @@
 ---
 title: "佛性写博"
-# images: ["/assets/images/og/blog.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","随缘"]

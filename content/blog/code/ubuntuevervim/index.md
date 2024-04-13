@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu 配置 EverVim"
-# images: ["/assets/images/og/ubuntuevervim.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]

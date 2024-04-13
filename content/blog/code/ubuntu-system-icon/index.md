@@ -1,6 +1,5 @@
 ---
 title: "修改 Ubuntu 状态栏托盘图标顺序"
-# images: ["/assets/images/og/ubuntu-system-icon.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","图标","托盘","状态栏"]

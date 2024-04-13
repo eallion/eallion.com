@@ -1,6 +1,5 @@
 ---
 title: "Shutter 中文乱码问题"
-# images: ["/assets/images/og/shutter-chinese-garbled.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["中文","shutter","乱码"]

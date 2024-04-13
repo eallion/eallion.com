@@ -1,6 +1,5 @@
 ---
 title: "索芙特天诺专卖店"
-# images: ["/assets/images/og/softtotn.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["天猫","化妆品","索芙特","天诺","专卖店"]

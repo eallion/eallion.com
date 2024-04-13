@@ -1,6 +1,5 @@
 ---
 title: "getcdn.org Aliyun CDN"
-# images: ["/assets/images/og/getcdn.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["阿里云","cdn","aliyun","网络分发"]

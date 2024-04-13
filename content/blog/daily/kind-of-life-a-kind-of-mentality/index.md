@@ -1,6 +1,5 @@
 ---
 title: "有种生活，有种心态"
-# images: ["/assets/images/og/kind-of-life-a-kind-of-mentality.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["生活","心态"]

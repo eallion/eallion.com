@@ -1,6 +1,5 @@
 ---
 title: "自言自语 - 命中著定"
-# images: ["/assets/images/og/zhu.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["《飘》","命中著定","自言自语"]

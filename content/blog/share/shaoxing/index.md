@@ -1,6 +1,5 @@
 ---
 title: "如果在绍兴遇见你"
-# images: ["/assets/images/og/shaoxing.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["绍兴"]

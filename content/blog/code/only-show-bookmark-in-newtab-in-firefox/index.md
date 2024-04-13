@@ -1,6 +1,5 @@
 ---
 title: "让 Firefox 只在新标签页 newtab 显示书签栏"
-# images: ["/assets/images/og/only-show-bookmark-in-newtab-in-firefox.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["google","css","Firefox","书签","新标签页","newtab","bookmark"]

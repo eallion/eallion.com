@@ -1,6 +1,5 @@
 ---
 title: "两年工作经历"
-# images: ["/assets/images/og/work-experience.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","日记","职业","纪念"]

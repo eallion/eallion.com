@@ -1,6 +1,5 @@
 ---
 title: "评估报告：机会只有 50%"
-# images: ["/assets/images/og/pgbg.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["分析","淘宝","电商","天猫","评估"]

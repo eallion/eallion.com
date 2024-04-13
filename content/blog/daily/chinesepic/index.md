@@ -1,6 +1,5 @@
 ---
 title: "这些照片来自中国"
-# images: ["/assets/images/og/chinesepic.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["中国缩影"]

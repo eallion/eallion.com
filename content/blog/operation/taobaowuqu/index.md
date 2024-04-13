@@ -1,6 +1,5 @@
 ---
 title: "你为什么死在淘宝的路上"
-# images: ["/assets/images/og/taobaowuqu.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["淘宝","营销","运营","推广","刷","直通车"]

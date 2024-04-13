@@ -1,6 +1,5 @@
 ---
 title: "运营小记 - 管理的弊端"
-# images: ["/assets/images/og/the-disadvantages-of-management.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["运营小记","管理","弊端"]

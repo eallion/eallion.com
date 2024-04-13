@@ -1,6 +1,5 @@
 ---
 title: "为爱而哭"
-# images: ["/assets/images/og/cry-for-love.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["爱"]

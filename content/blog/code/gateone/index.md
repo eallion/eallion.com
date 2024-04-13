@@ -1,6 +1,5 @@
 ---
 title: "Web 版 SSH Gateone"
-# images: ["/assets/images/og/gateone.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["nginx","gateone","ssh","web","shell"]

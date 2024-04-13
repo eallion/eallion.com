@@ -1,6 +1,5 @@
 ---
 title: "减肥小结"
-# images: ["/assets/images/og/jianfei.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags:

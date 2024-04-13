@@ -1,6 +1,5 @@
 ---
 title: "运营小记 20130509"
-# images: ["/assets/images/og/20130509.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["计划","小记","运营","天猫"]

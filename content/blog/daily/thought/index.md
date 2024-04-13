@@ -1,6 +1,5 @@
 ---
 title: "想。"
-# images: ["/assets/images/og/thought.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["思念","想"]

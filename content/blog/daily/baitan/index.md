@@ -1,6 +1,5 @@
 ---
 title: "摆摊记"
-# images: ["/assets/images/og/baitan.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["摆摊","回头糕","发糕","米糕","泡粑"]

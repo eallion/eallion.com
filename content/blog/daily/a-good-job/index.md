@@ -1,6 +1,5 @@
 ---
 title: "做卫生是个好工作"
-# images: ["/assets/images/og/a-good-job.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","做卫生","卫生"]

@@ -1,6 +1,5 @@
 ---
 title: "你那点痛算什么"
-# images: ["/assets/images/og/suansm.png"]
 authors: ["eallion"]
 categories: ["日志","分享"]
 tags: ["你那点痛算什么","读者","痛"]

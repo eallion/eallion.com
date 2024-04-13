@@ -1,6 +1,5 @@
 ---
 title: "混乱的日子"
-# images: ["/assets/images/og/chaotic-day.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日子","混乱","稳定"]

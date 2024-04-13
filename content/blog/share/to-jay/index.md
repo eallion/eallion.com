@@ -1,6 +1,5 @@
 ---
 title: "致周杰伦《转》"
-# images: ["/assets/images/og/to-jay.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["周杰伦","音乐","专辑","惊叹号"]

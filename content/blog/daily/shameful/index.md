@@ -1,6 +1,5 @@
 ---
 title: "我为我前段时候的忧伤感到可耻"
-# images: ["/assets/images/og/shameful.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["忧伤","过年","本命年","痛","可耻"]

@@ -1,6 +1,5 @@
 ---
 title: "其实也没什么"
-# images: ["/assets/images/og/actually-no.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["坏习惯","处事"]

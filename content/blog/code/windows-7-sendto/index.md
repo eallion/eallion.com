@@ -1,6 +1,5 @@
 ---
 title: "Win7 Sendto 文件夹"
-# images: ["/assets/images/og/windows-7-sendto.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["WIN7","sendto","系统","发送到"]

@@ -1,6 +1,5 @@
 ---
 title: "故思"
-# images: ["/assets/images/og/so-think.png"]
 authors: ["shanzei"]
 categories: ["山贼"]
 tags: ["利川","山贼","沙溪","村姑"]

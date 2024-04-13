@@ -1,6 +1,5 @@
 ---
 title: "我的 QQ 为什么不留给谁"
-# images: ["/assets/images/og/dropqq.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["QQ","网络财产","虚拟财产"]

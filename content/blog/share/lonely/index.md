@@ -1,6 +1,5 @@
 ---
 title: "孤独真的能毁掉一个人吗？"
-# images: ["/assets/images/og/lonely.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["生活","孤独"]

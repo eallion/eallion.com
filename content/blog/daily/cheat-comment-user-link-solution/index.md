@@ -1,6 +1,5 @@
 ---
 title: "备忘 - 解决评论用户链接问题"
-# images: ["/assets/images/og/cheat-comment-user-link-solution.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["链接","新窗口","target","blank"]

@@ -1,6 +1,5 @@
 ---
 title: "阿里云镜像改版"
-# images: ["/assets/images/og/alimirrors.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["阿里云","mirrors","opsx","镜像"]

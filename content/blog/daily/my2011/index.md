@@ -1,6 +1,5 @@
 ---
 title: "My2011"
-# images: ["/assets/images/og/my2011.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["2011","2012","年度","总结","年终"]

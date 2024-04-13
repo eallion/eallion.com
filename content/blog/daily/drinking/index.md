@@ -1,6 +1,5 @@
 ---
 title: "喝酒那点事儿"
-# images: ["/assets/images/og/drinking.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["酒","喝酒","醉","烟"]

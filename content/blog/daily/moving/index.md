@@ -1,6 +1,5 @@
 ---
 title: "感动"
-# images: ["/assets/images/og/moving.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["善良" , "寄钱" , "工行" , "感动" , "日行一善" , "汇款"]

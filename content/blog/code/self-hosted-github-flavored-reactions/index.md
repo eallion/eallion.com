@@ -1,6 +1,5 @@
 ---
 title: "自部署 GitHub 风格的 Reactions 点赞功能"
-# images: ["/assets/images/og/self-hosted-github-flavored-reactions.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

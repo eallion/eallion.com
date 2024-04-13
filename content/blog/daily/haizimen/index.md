@@ -1,6 +1,5 @@
 ---
 title: "孩子们，他们来自未来吗？"
-# images: ["/assets/images/og/haizimen.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["孩子"]

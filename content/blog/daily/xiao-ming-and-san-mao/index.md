@@ -1,6 +1,5 @@
 ---
 title: "小明与三毛"
-# images: ["/assets/images/og/xiao-ming-and-san-mao.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["小明","三毛"]

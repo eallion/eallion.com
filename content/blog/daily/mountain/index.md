@@ -1,6 +1,5 @@
 ---
 title: "山"
-# images: ["/assets/images/og/mountain.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["山","爬山","康安古寺"]

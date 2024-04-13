@@ -1,6 +1,5 @@
 ---
 title: "迷茫"
-# images: ["/assets/images/og/mi-mang.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

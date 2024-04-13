@@ -1,6 +1,5 @@
 ---
 title: "爱子七不责"
-# images: ["/assets/images/og/7things.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["爱子", "责怪"]

@@ -1,6 +1,5 @@
 ---
 title: "蜂蜜的 10 大真相"
-# images: ["/assets/images/og/honey.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["蜂蜜","honey","蜜蜂"]

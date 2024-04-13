@@ -1,6 +1,5 @@
 ---
 title: "2010 年 12 月 15 日 雪景"
-# images: ["/assets/images/og/snows.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["雪","雪景"]

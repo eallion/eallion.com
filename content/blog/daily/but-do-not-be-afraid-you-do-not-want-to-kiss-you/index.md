@@ -1,6 +1,5 @@
 ---
 title: "你好，小强"
-# images: ["/assets/images/og/but-do-not-be-afraid-you-do-not-want-to-kiss-you.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["小强"]

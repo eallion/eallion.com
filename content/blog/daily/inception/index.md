@@ -1,6 +1,5 @@
 ---
 title: "简简单单地说下《盗梦空间》"
-# images: ["/assets/images/og/inception.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["inception","影评","梦中梦","梦境","盗梦空间","电影"]

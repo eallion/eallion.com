@@ -1,6 +1,5 @@
 ---
 title: "《职来职往》"
-# images: ["/assets/images/og/zhilaizhiwang.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","职来职往","职业","职场","求职"]

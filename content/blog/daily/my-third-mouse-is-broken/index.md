@@ -1,6 +1,5 @@
 ---
 title: "我的第三个鼠标坏了"
-# images: ["/assets/images/og/my-third-mouse-is-broken.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","鼠标","IE3.0","蝰蛇","MX518"]

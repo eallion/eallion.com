@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu 12.04 LTS today"
-# images: ["/assets/images/og/ubuntu-12-04.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","windows","Ubuntu","linux","google"]

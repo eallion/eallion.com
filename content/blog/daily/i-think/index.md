@@ -1,6 +1,5 @@
 ---
 title: "我以为"
-# images: ["/assets/images/og/i-think.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["我以为","时光","朋友","事情"]

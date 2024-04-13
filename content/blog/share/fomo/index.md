@@ -1,6 +1,5 @@
 ---
 title: "FOMO"
-# images: ["/assets/images/og/fomo.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["FOMO","错失恐惧症"]

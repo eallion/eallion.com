@@ -1,6 +1,5 @@
 ---
 title: "荆州"
-# images: ["/assets/images/og/jingzhou.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["过往","荆州","亲情"]

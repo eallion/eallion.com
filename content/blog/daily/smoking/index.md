@@ -1,6 +1,5 @@
 ---
 title: "抽烟那点事儿"
-# images: ["/assets/images/og/smoking.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["酒","烟","抽烟","戒烟"]

@@ -1,6 +1,5 @@
 ---
 title: "联系方式"
-# images: ["/assets/images/og/contact.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["手机","电话","联系方式"]

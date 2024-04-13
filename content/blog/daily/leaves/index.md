@@ -1,6 +1,5 @@
 ---
 title: "离开"
-# images: ["/assets/images/og/leaves.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["离开","学校"]

@@ -1,6 +1,5 @@
 ---
 title: "Learn to blog in English"
-# images: ["/assets/images/og/eallion.png"]
 authors: ["eallion"]
 categories: ["blog"]
 tags: [english]

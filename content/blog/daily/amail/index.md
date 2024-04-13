@@ -1,6 +1,5 @@
 ---
 title: "一封信"
-# images: ["/assets/images/og/amail.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["email","mail","信"]

@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu 源 香港中文大学"
-# images: ["/assets/images/og/ubuntu-source-in-hong-kong.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","香港","源","更新源"]

@@ -1,6 +1,5 @@
 ---
 title: "CSPromod 试玩报告"
-# images: ["/assets/images/og/csp-report.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","csmod","反恐精英","csp","cspromod"]

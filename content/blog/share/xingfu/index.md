@@ -1,6 +1,5 @@
 ---
 title: "验证幸福"
-# images: ["/assets/images/og/xingfu.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["验证幸福"]

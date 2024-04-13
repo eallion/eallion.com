@@ -1,6 +1,5 @@
 ---
 title: "KMS Windows 激活服务器"
-# images: ["/assets/images/og/kms.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["KMS","Windows","激活"]

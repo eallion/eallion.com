@@ -1,6 +1,5 @@
 ---
 title: "香港 VPS 主机收集"
-# images: ["/assets/images/og/hk-vps.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["服务器","vps","主机","香港"]

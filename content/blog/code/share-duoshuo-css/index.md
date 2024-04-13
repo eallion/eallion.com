@@ -1,6 +1,5 @@
 ---
 title: "多说 CSS 分享"
-# images: ["/assets/images/og/share-duoshuo-css.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["多说","css","样式"]

@@ -1,6 +1,5 @@
 ---
 title: "博客换回默认主题"
-# images: ["/assets/images/og/default-theme.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["blog","博客","主题","theme"]

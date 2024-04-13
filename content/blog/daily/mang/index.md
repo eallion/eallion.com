@@ -1,6 +1,5 @@
 ---
 title: "“忙”- 是不是 “心” 已 “亡”"
-# images: ["/assets/images/og/mang.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["忙"]

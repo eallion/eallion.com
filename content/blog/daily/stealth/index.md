@@ -1,6 +1,5 @@
 ---
 title: "QQ 不是为了谁而隐身"
-# images: ["/assets/images/og/stealth.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

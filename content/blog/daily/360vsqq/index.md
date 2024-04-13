@@ -1,6 +1,5 @@
 ---
 title: "奇虎 360 腾讯 QQ 隐私之战"
-# images: ["/assets/images/og/360vsqq.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["360","安全卫士","隐私","腾讯"]

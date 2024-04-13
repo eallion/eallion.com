@@ -1,6 +1,5 @@
 ---
 title: "一直这样吗"
-# images: ["/assets/images/og/so-it-has-been.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["习惯","钱"]

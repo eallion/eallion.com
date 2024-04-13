@@ -1,6 +1,5 @@
 ---
 title: "Gitea 安装备忘"
-# images: ["/assets/images/og/gitea.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

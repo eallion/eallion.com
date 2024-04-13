@@ -1,6 +1,5 @@
 ---
 title: "Yandex Browser Beta Ubuntu"
-# images: ["/assets/images/og/yandex-browser-ubuntu.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["Ubuntu","linux","yandex","browser","浏览器"]

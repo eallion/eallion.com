@@ -1,6 +1,5 @@
 ---
 title: "关于人民币升值前因后果（权威扫盲贴）"
-# images: ["/assets/images/og/revaluation.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["revaluation"]

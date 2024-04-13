@@ -1,6 +1,5 @@
 ---
 title: "烧烤记"
-# images: ["/assets/images/og/shaokao.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["烧烤","野炊"]

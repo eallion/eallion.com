@@ -1,6 +1,5 @@
 ---
 title: "当我格格不入"
-# images: ["/assets/images/og/when-i-was-out-of-tune.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["明白","格格不入"]

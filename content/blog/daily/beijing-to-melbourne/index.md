@@ -1,6 +1,5 @@
 ---
 title: "中国要建设北京到墨尔本的高铁？"
-# images: ["/assets/images/og/beijing-to-melbourne.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["宜万铁路","火车","高铁","隧道"]

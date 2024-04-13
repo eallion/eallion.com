@@ -1,6 +1,5 @@
 ---
 title: "何去何从"
-# images: ["/assets/images/og/go.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["离开","毕业","深圳","何去何从"]

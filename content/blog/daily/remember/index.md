@@ -1,6 +1,5 @@
 ---
 title: "记。"
-# images: ["/assets/images/og/remember.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

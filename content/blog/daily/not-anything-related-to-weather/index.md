@@ -1,6 +1,5 @@
 ---
 title: "不是什么事情都跟天气有关"
-# images: ["/assets/images/og/not-anything-related-to-weather.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["心情","日记","天气"]

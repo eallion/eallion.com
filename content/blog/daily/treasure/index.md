@@ -1,6 +1,5 @@
 ---
 title: "珍惜"
-# images: ["/assets/images/og/treasure.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["珍惜","疼"]

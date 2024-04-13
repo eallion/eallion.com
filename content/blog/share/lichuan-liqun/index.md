@@ -1,6 +1,5 @@
 ---
 title: "利川成为 “利群” 原料基地"
-# images: ["/assets/images/og/lichuan-liqun.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["利川","利群","利群原料"]

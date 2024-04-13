@@ -1,6 +1,5 @@
 ---
 title: "美剧・差距・国产剧 [转]"
-# images: ["/assets/images/og/tv-series.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["国产剧","差距","美剧"]

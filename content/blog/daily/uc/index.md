@@ -1,6 +1,5 @@
 ---
 title: "震惊！UC 编辑部叫我去上班竟是因为……"
-# images: ["/assets/images/og/uc.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["标题","uc","标题党"]

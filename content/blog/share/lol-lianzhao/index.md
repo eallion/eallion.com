@@ -1,6 +1,5 @@
 ---
 title: "细数 LOL 先施法后闪现的迷之连招"
-# images: ["/assets/images/og/lol-lianzhao.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["LOL","英雄联盟","连招"]

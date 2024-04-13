@@ -1,6 +1,5 @@
 ---
 title: "舍友照相"
-# images: ["/assets/images/og/roommate-photo.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["舍友","照相","合影","留念"]

@@ -1,6 +1,5 @@
 ---
 title: "Hugo .GitInfo 的替代方案"
-# images: ["/assets/images/og/githash.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags:

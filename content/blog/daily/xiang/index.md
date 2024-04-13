@@ -1,6 +1,5 @@
 ---
 title: "2011 年 04 月 21 日"
-# images: ["/assets/images/og/xiang.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["想","日记","停电"]

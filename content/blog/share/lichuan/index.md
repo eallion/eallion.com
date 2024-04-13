@@ -1,6 +1,5 @@
 ---
 title: "凉城利川·避暑旅居胜地（附 CCTV 报道）"
-# images: ["/assets/images/og/lichuan.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: 

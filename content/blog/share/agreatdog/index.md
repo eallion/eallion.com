@@ -1,6 +1,5 @@
 ---
 title: "一只救了 32 条人命的搜救犬牺牲了"
-# images: ["/assets/images/og/agreatdog.png"]
 authors: ["eallion"]
 categories: ["日志","分享"]
 tags: ["搜救犬"]

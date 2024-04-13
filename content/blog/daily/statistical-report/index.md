@@ -1,6 +1,5 @@
 ---
 title: "eallion.com 月度统计报告与展望"
-# images: ["/assets/images/og/statistical-report.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","统计","报告","分析","展望"]

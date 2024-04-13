@@ -1,6 +1,5 @@
 ---
 title: "聚会"
-# images: ["/assets/images/og/meet.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["聚会","寝室","宿舍"]

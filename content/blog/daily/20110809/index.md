@@ -1,6 +1,5 @@
 ---
 title: "2011 年 8 月 9 日"
-# images: ["/assets/images/og/20110809.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["信仰","工作","神","找工作","算命"]

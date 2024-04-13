@@ -1,6 +1,5 @@
 ---
 title: "自行车"
-# images: ["/assets/images/og/bicycle.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["自行车","骑行","锻炼","山地车","单车"]

@@ -1,6 +1,5 @@
 ---
 title: "珊瑚鱼"
-# images: ["/assets/images/og/coral-fish.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: 

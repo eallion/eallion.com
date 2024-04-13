@@ -1,6 +1,5 @@
 ---
 title: "关于"
-# # images: ["/assets/images/og/about.png"]
 date: "2006-04-14 00:00:00"
 type: "sample"
 showDate: false

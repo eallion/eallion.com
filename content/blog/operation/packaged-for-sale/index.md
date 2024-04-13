@@ -1,6 +1,5 @@
 ---
 title: "打包出售 欲购从速"
-# images: ["/assets/images/og/packaged-for-sale.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","感想","淘宝","商城","羽绒"]

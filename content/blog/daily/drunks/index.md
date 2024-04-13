@@ -1,6 +1,5 @@
 ---
 title: "醉"
-# images: ["/assets/images/og/drunks.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记","生日","醉"]

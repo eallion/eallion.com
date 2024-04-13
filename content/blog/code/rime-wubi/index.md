@@ -1,6 +1,5 @@
 ---
 title: "Rime 小狼毫 五笔输入法自定义短语"
-# images: ["/assets/images/og/rime-wubi.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["rime","小狼毫","五笔","自定义","短语"]

@@ -1,6 +1,5 @@
 ---
 title: "认真去做一件事"
-# images: ["/assets/images/og/seriously-do-something.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","工作狂","发呆","认真"]

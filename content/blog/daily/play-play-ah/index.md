@@ -1,6 +1,5 @@
 ---
 title: "玩儿呀玩儿"
-# images: ["/assets/images/og/play-play-ah.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["游戏","玩","找茬","大家来找茬"]

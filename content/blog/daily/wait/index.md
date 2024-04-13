@@ -1,6 +1,5 @@
 ---
 title: "等待"
-# images: ["/assets/images/og/wait.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["等待","闹剧","精力"]

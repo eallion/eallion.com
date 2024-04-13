@@ -1,6 +1,5 @@
 ---
 title: "有一类连日本人都不如的中国人"
-# images: ["/assets/images/og/duonanxingbang.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["地震","日本","海啸","灾难"]

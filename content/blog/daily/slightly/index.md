@@ -1,6 +1,5 @@
 ---
 title: "略"
-# images: ["/assets/images/og/slightly.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["略","糊涂"]

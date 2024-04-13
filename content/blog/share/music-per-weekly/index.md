@@ -1,6 +1,5 @@
 ---
 title: "每周一歌"
-# images: ["/assets/images/og/music-per-weekly.png"]
 authors: ["eallion"]
 categories: []
 tags: []

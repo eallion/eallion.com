@@ -1,6 +1,5 @@
 ---
 title: "i like Windows 8"
-# images: ["/assets/images/og/windows-8-pre.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["win","windows","windows8","system","os"]

@@ -1,6 +1,5 @@
 ---
 title: "倒霉的一天"
-# images: ["/assets/images/og/a-bad-day.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["倒霉","违章","扣车","交警","换胎"]

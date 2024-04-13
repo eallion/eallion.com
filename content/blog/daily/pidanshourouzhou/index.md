@@ -1,6 +1,5 @@
 ---
 title: "皮蛋瘦肉粥"
-# images: ["/assets/images/og/pidanshourouzhou.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["粥","皮蛋瘦肉粥","熬粥"]

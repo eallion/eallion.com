@@ -1,6 +1,5 @@
 ---
 title: "很准的星座特质"
-# images: ["/assets/images/og/constellation.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["星座","双子","处女","准","性格"]

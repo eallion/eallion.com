@@ -1,6 +1,5 @@
 ---
 title: "我为什么会发这么大的火呢"
-# images: ["/assets/images/og/why-i-made-it-such-a-big-fire.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记"]

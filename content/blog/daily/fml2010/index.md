@@ -1,6 +1,5 @@
 ---
 title: "拔凉拔凉的本命年"
-# images: ["/assets/images/og/fml2010.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["2010","日记","悲催","本命年","想家"]

@@ -1,6 +1,5 @@
 ---
 title: "Typecho 迁移到 Hugo"
-# images: ["/assets/images/og/typecho-to-hugo.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["hugo", "blog", "Typecho", "博客"]

@@ -1,6 +1,5 @@
 ---
 title: "孙燕姿关于AI孙燕姿的回复"
-# images: ["/assets/images/og/wodeai.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: 

@@ -1,6 +1,5 @@
 ---
 title: "国庆真打算过去很多地方"
-# images: ["/assets/images/og/national-really-going-to-many-places-in-the-past.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["广州","武汉","国庆","西安"]

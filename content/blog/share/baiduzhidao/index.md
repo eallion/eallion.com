@@ -1,6 +1,5 @@
 ---
 title: "500 块钱在义乌怎么过（爆强）"
-# images: ["/assets/images/og/baiduzhidao.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["义乌","牛逼","百度","知道"]

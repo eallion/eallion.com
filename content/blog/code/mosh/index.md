@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu Server 安装 Mosh"
-# images: ["/assets/images/og/mosh.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","server","vps","ssh","mosh"]

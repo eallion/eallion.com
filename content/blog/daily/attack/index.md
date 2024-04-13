@@ -1,6 +1,5 @@
 ---
 title: "记一次博客被攻击"
-# images: ["/assets/images/og/attack.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: 

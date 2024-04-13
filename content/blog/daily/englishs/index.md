@@ -1,6 +1,5 @@
 ---
 title: "英语"
-# images: ["/assets/images/og/englishs.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["英语"]

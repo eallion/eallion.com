@@ -1,6 +1,5 @@
 ---
 title: "SK 获得 CPH CS:GO 挑战赛冠军"
-# images: ["/assets/images/og/sk-cph-csgo-esc.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","CS:GO","SK","ESC","Vavle"]

@@ -1,6 +1,5 @@
 ---
 title: "时间线"
-# # images: ["/assets/images/og/timeline.png"]
 layout: "timeline"
 type: "sample"
 date: "2006-04-14 00:00:00"

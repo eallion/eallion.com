@@ -1,6 +1,5 @@
 ---
 title: "生病"
-# images: ["/assets/images/og/sheng-bing.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["头晕","生病","过敏","肠胃炎","海鲜"]

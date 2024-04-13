@@ -1,6 +1,5 @@
 ---
 title: "去有风的地方"
-# images: ["/assets/images/og/meet-yourself.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: 

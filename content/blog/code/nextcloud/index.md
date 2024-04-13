@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu Server snap 安装 Nextcloud"
-# images: ["/assets/images/og/nextcloud.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","server","网盘","nexecloud","snap"]

@@ -1,6 +1,5 @@
 ---
 title: "Xshell 4 注册码"
-# images: ["/assets/images/og/xshell-4-registration-code.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["xshell","xftp","注册码"]

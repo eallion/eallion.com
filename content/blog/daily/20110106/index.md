@@ -1,6 +1,5 @@
 ---
 title: "2011 年 01 月 06 日 又下雪了"
-# images: ["/assets/images/og/20110106.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记","雪","雪景"]

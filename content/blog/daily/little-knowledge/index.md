@@ -1,6 +1,5 @@
 ---
 title: "略有见闻"
-# images: ["/assets/images/og/little-knowledge.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["老板","大师","书画","越中古迹图","曲水流觞"]

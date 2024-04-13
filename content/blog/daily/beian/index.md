@@ -1,6 +1,5 @@
 ---
 title: "备案"
-# images: ["/assets/images/og/beian.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["备案","主机","阿里云"]

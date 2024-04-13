@@ -1,6 +1,5 @@
 ---
 title: "预兆"
-# images: ["/assets/images/og/yuzhao.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["工作","车","摔跤","预兆","面试"]

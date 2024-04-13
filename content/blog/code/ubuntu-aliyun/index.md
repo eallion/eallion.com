@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu 源 阿里云"
-# images: ["/assets/images/og/ubuntu-aliyun.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","阿里云","源","更新源"]

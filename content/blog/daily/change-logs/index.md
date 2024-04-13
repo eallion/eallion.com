@@ -1,6 +1,5 @@
 ---
 title: "修改代码一定要做笔记"
-# images: ["/assets/images/og/change-logs.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["笔记","log","备份","备忘","注释"]

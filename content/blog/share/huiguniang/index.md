@@ -1,6 +1,5 @@
 ---
 title: "亿万富翁女儿情迷穷渔夫"
-# images: ["/assets/images/og/huiguniang.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["巴尼特","灰姑娘","穷渔夫"]

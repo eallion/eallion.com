@@ -1,6 +1,5 @@
 ---
 title: "各人心里要有个崽崽菩萨"
-# images: ["/assets/images/og/bodhisattva.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["菩萨"]

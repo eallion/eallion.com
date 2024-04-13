@@ -1,6 +1,5 @@
 ---
 title: "Search for 9"
-# images: ["/assets/images/og/9.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["爱","i love you","9"]

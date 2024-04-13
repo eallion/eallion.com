@@ -1,6 +1,5 @@
 ---
 title: "运营小记 20130525"
-# images: ["/assets/images/og/20130525.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["网络","淘宝","运营","天猫","废人","运营小记 20130525"]

@@ -1,6 +1,5 @@
 ---
 title: "NeoDB 获取 Access Token"
-# images: ["/assets/images/og/neodb_token.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

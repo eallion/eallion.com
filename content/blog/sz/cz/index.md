@@ -1,6 +1,5 @@
 ---
 title: "长篇"
-# images: ["/assets/images/og/cz.png"]
 authors: ["shanzei"]
 categories: ["山贼"]
 tags: ["山贼","水浒传"]

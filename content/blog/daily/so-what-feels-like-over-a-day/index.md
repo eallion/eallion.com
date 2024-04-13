@@ -1,6 +1,5 @@
 ---
 title: "感觉像是等什么的过了一天"
-# images: ["/assets/images/og/so-what-feels-like-over-a-day.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["等待","等"]

@@ -1,6 +1,5 @@
 ---
 title: "WannaCry 勒索病毒"
-# images: ["/assets/images/og/wannacry.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["安全", "wannacry", "勒索", "病毒", "445"]

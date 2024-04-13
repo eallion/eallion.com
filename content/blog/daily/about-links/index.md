@@ -1,6 +1,5 @@
 ---
 title: "关于友情链接"
-# images: ["/assets/images/og/about-links.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","链接","友情链接"]

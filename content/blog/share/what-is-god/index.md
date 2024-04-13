@@ -1,6 +1,5 @@
 ---
 title: "神是什么？（节选）"
-# images: ["/assets/images/og/what-is-god.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["外星人就在月球背面","崇拜","李卫东","神","祭祀","信仰"]

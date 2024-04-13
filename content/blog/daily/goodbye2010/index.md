@@ -1,6 +1,5 @@
 ---
 title: "2011 向左，2010 向右"
-# images: ["/assets/images/og/goodbye2010.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["2010","2011","日记"]

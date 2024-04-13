@@ -1,6 +1,5 @@
 ---
 title: "博客从 WordPress 换成 typecho"
-# images: ["/assets/images/og/typecho.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["blog","WordPress","博客","typecho"]

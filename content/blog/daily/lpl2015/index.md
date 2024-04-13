@@ -1,6 +1,5 @@
 ---
 title: "LPL2015 开赛"
-# images: ["/assets/images/og/lpl2015.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["LOL","英雄联盟","lpl","omg"]

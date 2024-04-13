@@ -1,6 +1,5 @@
 ---
 title: "多年之后"
-# images: ["/assets/images/og/me.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["爱情"]

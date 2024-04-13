@@ -1,6 +1,5 @@
 ---
 title: "512 地震的真相：两个老科学家的血泪倾诉"
-# images: ["/assets/images/og/dizhenyuce.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["地震","地震预测"]

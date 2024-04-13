@@ -1,6 +1,5 @@
 ---
 title: "房子和汽车"
-# images: ["/assets/images/og/house-and-car.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["房子","汽车","消费","投资"]

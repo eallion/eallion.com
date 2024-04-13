@@ -1,6 +1,5 @@
 ---
 title: "博客迁移到 Hugo"
-# images: ["/assets/images/og/hugo.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["hugo","blog"]

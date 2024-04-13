@@ -1,6 +1,5 @@
 ---
 title: "晚安，躁动。"
-# images: ["/assets/images/og/restlessness.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["夜","晚安"]

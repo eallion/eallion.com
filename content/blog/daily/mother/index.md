@@ -1,6 +1,5 @@
 ---
 title: "我时常想起我的妈妈"
-# images: ["/assets/images/og/mother.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["妈妈","父母","父母皆祸害"]

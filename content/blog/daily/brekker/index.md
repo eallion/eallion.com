@@ -1,6 +1,5 @@
 ---
 title: "吃包子不兴喝粥的"
-# images: ["/assets/images/og/brekker.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["粥","包子","早餐"]

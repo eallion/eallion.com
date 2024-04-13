@@ -1,6 +1,5 @@
 ---
 title: "好感"
-# images: ["/assets/images/og/haogan.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["百度","google","好感"]

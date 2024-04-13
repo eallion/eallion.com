@@ -1,6 +1,5 @@
 ---
 title: "评论出问题了"
-# images: ["/assets/images/og/comment.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["评论"]

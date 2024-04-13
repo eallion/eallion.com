@@ -1,6 +1,5 @@
 ---
 title: "关于 “围观者 / 路人甲” 的说明"
-# images: ["/assets/images/og/passerby.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["说明","围观","路人","passerby","公告"]

@@ -1,6 +1,5 @@
 ---
 title: "NeoDB API 创建观影页面"
-# images: ["/assets/images/og/neodb.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

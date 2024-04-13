@@ -1,6 +1,5 @@
 ---
 title: "卡巴斯基关于 360 胡乱解读 “超级工厂” 的声明"
-# images: ["/assets/images/og/360-kaspersky.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["360","Stuxnet","卡巴斯基","超级工厂","超级病毒","震网"]

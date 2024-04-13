@@ -1,6 +1,5 @@
 ---
 title: "自言自语 - 台湾"
-# images: ["/assets/images/og/taiwan.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["台湾","自言自语"]

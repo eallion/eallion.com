@@ -1,6 +1,5 @@
 ---
 title: "运营小记 - 文案的重要性"
-# images: ["/assets/images/og/wen-an-de-zhong-yao-xing.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["招聘","淘宝","天猫","客服","绍兴 E 网","美工"]

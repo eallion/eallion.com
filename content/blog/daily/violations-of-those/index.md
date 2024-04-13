@@ -1,6 +1,5 @@
 ---
 title: "关于那些情事"
-# images: ["/assets/images/og/violations-of-those.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["情事","情"]

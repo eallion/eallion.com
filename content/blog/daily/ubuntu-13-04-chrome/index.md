@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu 13.04 不能安装 Chrome"
-# images: ["/assets/images/og/ubuntu-13-04-chrome.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["Ubuntu","Chrome","147","依赖","libudev0"]

@@ -1,6 +1,5 @@
 ---
 title: "袜子都是要成双成对的嘛"
-# images: ["/assets/images/og/socks.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["袜子","剩男剩女","另一半"]

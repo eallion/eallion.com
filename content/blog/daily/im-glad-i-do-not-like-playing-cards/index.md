@@ -1,6 +1,5 @@
 ---
 title: "我很庆幸我不喜欢打牌"
-# images: ["/assets/images/og/im-glad-i-do-not-like-playing-cards.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

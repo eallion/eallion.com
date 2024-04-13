@@ -1,6 +1,5 @@
 ---
 title: "诗一首"
-# images: ["/assets/images/og/apoem.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["诗一首"]

@@ -1,6 +1,5 @@
 ---
 title: "乌鸦"
-# images: ["/assets/images/og/crow.png"]
 authors: ["shanzei"]
 categories: ["山贼"]
 tags: ["乌鸦","山贼"]

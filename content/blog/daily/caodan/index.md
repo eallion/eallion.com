@@ -1,6 +1,5 @@
 ---
 title: "我终于也变成了我讨厌的人了"
-# images: ["/assets/images/og/caodan.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["日记"]

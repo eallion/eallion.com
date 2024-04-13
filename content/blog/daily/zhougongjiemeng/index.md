@@ -1,6 +1,5 @@
 ---
 title: "周公解梦"
-# images: ["/assets/images/og/zhougongjiemeng.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["梦","周公","解梦"]

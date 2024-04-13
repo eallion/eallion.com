@@ -1,6 +1,5 @@
 ---
 title: "关于 Ubuntu"
-# images: ["/assets/images/og/talkaboutubuntu.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","Linux"]

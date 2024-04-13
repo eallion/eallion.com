@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu VPS 优化"
-# images: ["/assets/images/og/ubuntu-vps-optimized.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","vps","优化","主机","lnmp"]

@@ -1,6 +1,5 @@
 ---
 title: "生如夏花"
-# images: ["/assets/images/og/eallion.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

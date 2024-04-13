@@ -1,6 +1,5 @@
 ---
 title: "Typecho 中英文之间自动加上空格"
-# images: ["/assets/images/og/autospace.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["空格","space","pangu"]

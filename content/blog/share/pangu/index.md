@@ -1,6 +1,5 @@
 ---
 title: "盘古开天"
-# images: ["/assets/images/og/pangu.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["盘古","开天","神话","三五历"]

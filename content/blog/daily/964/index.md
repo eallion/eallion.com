@@ -1,6 +1,5 @@
 ---
 title: "干洗店姐妹"
-# images: ["/assets/images/og/964.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

@@ -1,6 +1,5 @@
 ---
 title: "博客互评互推活动"
-# images: ["/assets/images/og/appraisal.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["blog","博客","网赚","评论","互评"]

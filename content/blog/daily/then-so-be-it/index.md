@@ -1,6 +1,5 @@
 ---
 title: "那就这样吧"
-# images: ["/assets/images/og/then-so-be-it.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["乌龟","那就这样吧","兔子"]

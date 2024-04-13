@@ -1,6 +1,5 @@
 ---
 title: "非常经典的金庸高手排名"
-# images: ["/assets/images/og/jygs.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["排名","武侠","金庸","高手"]

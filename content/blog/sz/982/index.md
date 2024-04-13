@@ -1,6 +1,5 @@
 ---
 title: "落单"
-# images: ["/assets/images/og/982.png"]
 authors: ["shanzei"]
 categories: ["山贼"]
 tags: ["山贼","恶心"]

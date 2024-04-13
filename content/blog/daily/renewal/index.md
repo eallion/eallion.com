@@ -1,6 +1,5 @@
 ---
 title: "续期"
-# images: ["/assets/images/og/renewal.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","空间"]

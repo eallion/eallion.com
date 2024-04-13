@@ -1,6 +1,5 @@
 ---
 title: "博客趋于稳定"
-# images: ["/assets/images/og/type-final-echo.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["博客","插件","typecho"]

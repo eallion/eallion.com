@@ -1,6 +1,5 @@
 ---
 title: "去漳河走了一转"
-# images: ["/assets/images/og/to-take-a-turn-zhanghe.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["漳河","游玩"]

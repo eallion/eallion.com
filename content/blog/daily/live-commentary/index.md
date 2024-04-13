@@ -1,6 +1,5 @@
 ---
 title: "演唱会短评"
-# images: ["/assets/images/og/live-commentary.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["演唱会"]

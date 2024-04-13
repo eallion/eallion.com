@@ -1,6 +1,5 @@
 ---
 title: "启用 Waline"
-# images: ["/assets/images/og/waline.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags:

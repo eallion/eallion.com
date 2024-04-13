@@ -1,6 +1,5 @@
 ---
 title: "QQ 群"
-# images: ["/assets/images/og/qq-group.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["QQ","无聊","QQ 群"]

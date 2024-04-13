@@ -1,6 +1,5 @@
 ---
 title: "千古绝对"
-# images: ["/assets/images/og/qian-gu-jue-dui.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["极品家丁","对联","绝对","收藏"]

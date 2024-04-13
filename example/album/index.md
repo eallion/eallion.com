@@ -1,6 +1,5 @@
 ---
 title: "随手拍"
-# # images: ["/assets/images/og/album.png"]
 layout: "album"
 type: "sample"
 showDate: false

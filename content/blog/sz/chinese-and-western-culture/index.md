@@ -1,6 +1,5 @@
 ---
 title: "论中西文化"
-# images: ["/assets/images/og/chinese-and-western-culture.png"]
 authors: ["shanzei"]
 categories: ["山贼"]
 tags: ["山贼","文化","蜗牛","中西医","进口蜗牛"]

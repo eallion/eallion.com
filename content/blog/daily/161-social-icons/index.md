@@ -1,6 +1,5 @@
 ---
 title: "国内外 161 个社交图标分享"
-# images: ["/assets/images/og/161-social-icons.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["社交","图标","logo","分享"]

@@ -1,6 +1,5 @@
 ---
 title: "备忘 - 解决 Gravatar 头像问题"
-# images: ["/assets/images/og/problem-of-gravatar.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["头像","多说","gravatar"]

@@ -1,6 +1,5 @@
 ---
 title: "Steam"
-# # images: ["/assets/images/og/steam.png"]
 layout: "steam"
 type: "sample"
 showDate: false

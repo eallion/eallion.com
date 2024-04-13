@@ -1,6 +1,5 @@
 ---
 title: "顺丰菜鸟（淘宝）互相关闭物流数据接口"
-# images: ["/assets/images/og/20170601.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["快递","淘宝","顺丰","菜鸟","物流"]

@@ -1,6 +1,5 @@
 ---
 title: "亲爱的亲爱的"
-# images: ["/assets/images/og/dear-dear.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["英语","六级"]

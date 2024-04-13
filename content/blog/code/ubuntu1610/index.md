@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu 16.10 优化"
-# images: ["/assets/images/og/ubuntu1610.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","优化","ipv6","访客","ubuntu 微信"]

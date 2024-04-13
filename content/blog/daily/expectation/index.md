@@ -1,6 +1,5 @@
 ---
 title: "生活的交集与期望"
-# images: ["/assets/images/og/expectation.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["思念","期望","交集"]

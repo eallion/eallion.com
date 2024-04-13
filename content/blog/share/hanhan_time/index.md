@@ -1,6 +1,5 @@
 ---
 title: "各方媒体对于韩寒入围《时代》“全球最具影响力” 人物候选人的报道"
-# images: ["/assets/images/og/hanhan_time.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["全球最具影响力","时代","韩寒"]

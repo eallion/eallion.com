@@ -1,6 +1,5 @@
 ---
 title: "谷歌翻译"
-# images: ["/assets/images/og/gu-ge-fan-yi.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["google","谷歌","翻译"]

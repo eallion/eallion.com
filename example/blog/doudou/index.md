@@ -1,6 +1,5 @@
 ---
 title: "你看，豆豆会发光！"
-# images: ["/assets/images/og/doudou.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["豆豆"]

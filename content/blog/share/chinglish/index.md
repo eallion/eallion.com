@@ -1,6 +1,5 @@
 ---
 title: "年度最新英文单词"
-# images: ["/assets/images/og/chinglish.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["中国英文","单词","合成词","年度","新词","网络语言","英文"]

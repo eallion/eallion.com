@@ -1,6 +1,5 @@
 ---
 title: "距离 1314 年 5 月 20 日正好 5201314 天"
-# images: ["/assets/images/og/1314520.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["爱","1314","520"]

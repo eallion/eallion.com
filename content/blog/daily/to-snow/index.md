@@ -1,6 +1,5 @@
 ---
 title: "要下雪了"
-# images: ["/assets/images/og/to-snow.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["下雪","下雨"]

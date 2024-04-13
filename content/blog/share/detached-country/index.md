@@ -1,6 +1,5 @@
 ---
 title: "韩寒：脱节的国度"
-# images: ["/assets/images/og/detached-country.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["韩寒","动车"]

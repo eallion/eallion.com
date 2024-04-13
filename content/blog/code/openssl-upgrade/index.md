@@ -1,6 +1,5 @@
 ---
 title: "Openssl 升级"
-# images: ["/assets/images/og/openssl-upgrade.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["升级","openssl"]

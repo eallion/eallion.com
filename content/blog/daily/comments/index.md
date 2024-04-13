@@ -1,6 +1,5 @@
 ---
 title: "静态博客评论系统的选择"
-# images: ["/assets/images/og/comments.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["hugo","blog","博客","评论"]

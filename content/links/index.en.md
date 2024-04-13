@@ -1,6 +1,5 @@
 ---
 title: "Friends"
-# # images: ["/assets/images/og/toots.png"]
 layout: "links"
 type: "sample"
 showDate: false

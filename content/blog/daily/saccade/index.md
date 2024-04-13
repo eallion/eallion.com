@@ -1,6 +1,5 @@
 ---
 title: "眼跳"
-# images: ["/assets/images/og/saccade.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["眼跳"]

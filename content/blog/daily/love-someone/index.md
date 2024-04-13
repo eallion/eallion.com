@@ -1,6 +1,5 @@
 ---
 title: "爱一个人"
-# images: ["/assets/images/og/love-someone.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["love","爱"]

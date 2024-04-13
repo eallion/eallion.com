@@ -1,6 +1,5 @@
 ---
 title: "博客 AI 摘要及优化"
-# images: ["/assets/images/og/ai-summary.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

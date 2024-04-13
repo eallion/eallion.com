@@ -1,6 +1,5 @@
 ---
 title: "请向情色网站学习：数据，创意以及高端品位！"
-# images: ["/assets/images/og/uedoferoticsite.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["高端","色情","网站","品味","用户体验"]

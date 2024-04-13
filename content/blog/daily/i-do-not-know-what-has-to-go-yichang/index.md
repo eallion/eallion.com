@@ -1,6 +1,5 @@
 ---
 title: "不知道大家还去不去宜昌呢"
-# images: ["/assets/images/og/i-do-not-know-what-has-to-go-yichang.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["宜昌"]

@@ -1,6 +1,5 @@
 ---
 title: "运营小记 - 电商的本质 - 20150119"
-# images: ["/assets/images/og/20150119.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["淘宝","电商","ec","电商的本质","运营小记"]

@@ -1,6 +1,5 @@
 ---
 title: "笔记本"
-# images: ["/assets/images/og/notebook.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["笔记本","ACER","宏基","4755","4750"]

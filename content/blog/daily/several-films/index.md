@@ -1,6 +1,5 @@
 ---
 title: "几部电影"
-# images: ["/assets/images/og/several-films.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["影评","电影"]

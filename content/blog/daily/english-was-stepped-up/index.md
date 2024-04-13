@@ -1,6 +1,5 @@
 ---
 title: "英语得加紧了"
-# images: ["/assets/images/og/english-was-stepped-up.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","视频","英语","CSMTV"]

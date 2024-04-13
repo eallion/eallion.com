@@ -1,6 +1,5 @@
 ---
 title: "都高端起来吧"
-# images: ["/assets/images/og/it-all-end-up.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","高端","电视"]

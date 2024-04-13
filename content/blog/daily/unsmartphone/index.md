@@ -1,6 +1,5 @@
 ---
 title: "智能手机"
-# images: ["/assets/images/og/unsmartphone.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["手机","iPhone","智能","安卓","精神"]

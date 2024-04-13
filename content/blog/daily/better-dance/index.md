@@ -1,6 +1,5 @@
 ---
 title: "不如跳舞"
-# images: ["/assets/images/og/better-dance.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["跳舞","活首","意义"]

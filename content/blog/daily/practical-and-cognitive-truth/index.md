@@ -1,6 +1,5 @@
 ---
 title: "真相实事与认知"
-# images: ["/assets/images/og/practical-and-cognitive-truth.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

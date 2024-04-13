@@ -1,6 +1,5 @@
 ---
 title: "幼儿园"
-# images: ["/assets/images/og/nursery.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

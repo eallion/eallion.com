@@ -1,6 +1,5 @@
 ---
 title: "《母亲的专列》"
-# images: ["/assets/images/og/my-mothers-train.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["火车","母亲","人民的名义","丁可"]

@@ -1,6 +1,5 @@
 ---
 title: "玩"
-# images: ["/assets/images/og/play.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","玩","寝室","网吧","3J3F"]

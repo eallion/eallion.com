@@ -1,6 +1,5 @@
 ---
 title: "我爱她"
-# images: ["/assets/images/og/i-love-her.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

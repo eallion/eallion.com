@@ -1,6 +1,5 @@
 ---
 title: "爱丽丝梦游仙境症"
-# images: ["/assets/images/og/aiws.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["aiws","爱丽丝梦游仙境症","视微症"]

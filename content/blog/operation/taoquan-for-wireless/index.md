@@ -1,6 +1,5 @@
 ---
 title: "运营小记 - 无线端优惠券链接"
-# images: ["/assets/images/og/taoquan-for-wireless.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["链接","淘宝","天猫","运营小记","优惠券"]

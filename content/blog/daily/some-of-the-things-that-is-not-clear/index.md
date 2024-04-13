@@ -1,6 +1,5 @@
 ---
 title: "说不清楚的一些事"
-# images: ["/assets/images/og/some-of-the-things-that-is-not-clear.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["风","清楚","解释"]

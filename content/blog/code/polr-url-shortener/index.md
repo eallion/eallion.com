@@ -1,6 +1,5 @@
 ---
 title: "短链接 url 压缩程序 Polr"
-# images: ["/assets/images/og/polr-url-shortener.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["polr","url","shortener","压缩","短链接"]

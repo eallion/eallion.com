@@ -1,6 +1,5 @@
 ---
 title: "Goods beta"
-# # images: ["/assets/images/og/goods.png"]
 layout: "goods"
 type: "sample"
 showDate: false

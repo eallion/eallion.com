@@ -1,6 +1,5 @@
 ---
 title: "Destination Host Prohibited"
-# images: ["/assets/images/og/destination-host-prohibited.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","ssl","iptables","ufw","Destination"]

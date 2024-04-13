@@ -1,6 +1,5 @@
 ---
 title: "随手拍照解救乞讨儿童"
-# images: ["/assets/images/og/children.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["社会","微博","打拐","拐买","儿童"]

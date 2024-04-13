@@ -1,6 +1,5 @@
 ---
 title: "电脑配置单"
-# images: ["/assets/images/og/computer-configuration.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","游戏","发烧","配置","电脑"]

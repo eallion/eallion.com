@@ -1,6 +1,5 @@
 ---
 title: "手机网页 meta 解释"
-# images: ["/assets/images/og/mobile-meta.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["代码","html","meta","标签"]

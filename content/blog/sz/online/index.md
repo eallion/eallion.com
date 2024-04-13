@@ -1,6 +1,5 @@
 ---
 title: "在线"
-# images: ["/assets/images/og/online.png"]
 authors: ["shanzei"]
 categories: ["山贼"]
 tags: ["山贼","浮云","给力","让子弹飞"]

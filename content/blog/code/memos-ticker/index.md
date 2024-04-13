@@ -1,6 +1,5 @@
 ---
 title: "Memos API 公告样式滚动效果"
-# images: ["/assets/images/og/memos-ticker.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags:

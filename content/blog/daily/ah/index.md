@@ -1,6 +1,5 @@
 ---
 title: "嗯"
-# images: ["/assets/images/og/ah.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["只是这样","just"]

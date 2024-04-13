@@ -1,6 +1,5 @@
 ---
 title: "Nginx typecho Access denied"
-# images: ["/assets/images/og/nginx-typecho-access-denied.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["typecho","nginx","access","denied","403"]

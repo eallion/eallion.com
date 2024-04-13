@@ -1,6 +1,5 @@
 ---
 title: "我的 Google Chrome 浏览器安装的插件扩展"
-# images: ["/assets/images/og/chrome-extensions.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["插件","google","Chrome","浏览器","扩展"]

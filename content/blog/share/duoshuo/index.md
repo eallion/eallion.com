@@ -1,6 +1,5 @@
 ---
 title: "多说即将关闭"
-# images: ["/assets/images/og/duoshuo.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["多说","duoshuo","通知"]

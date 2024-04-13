@@ -1,6 +1,5 @@
 ---
 title: "踏青"
-# images: ["/assets/images/og/ta-qing.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["游玩","爬山","公园","风景"]

@@ -1,6 +1,5 @@
 ---
 title: "极品家丁"
-# images: ["/assets/images/og/need-retainers.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["小说","极品家丁","穿越"]

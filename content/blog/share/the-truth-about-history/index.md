@@ -1,6 +1,5 @@
 ---
 title: "据说是真正的中国历史，90% 的国人不知道"
-# images: ["/assets/images/og/the-truth-about-history.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["历史","宋朝","强大的中国"]

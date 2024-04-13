@@ -1,6 +1,5 @@
 ---
 title: "娜的留言"
-# images: ["/assets/images/og/na-message.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["评论","留言","回复","Qzone"]

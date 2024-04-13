@@ -1,6 +1,5 @@
 ---
 title: "哀其不幸，怒其不争啊"
-# images: ["/assets/images/og/bullshit.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","IEM6","比赛","广州","Tyloo"]

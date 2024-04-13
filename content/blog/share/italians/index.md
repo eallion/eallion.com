@@ -1,6 +1,5 @@
 ---
 title: "意大利人和其他欧洲人的区别"
-# images: ["/assets/images/og/italians.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["意大利","意大利人"]

@@ -1,6 +1,5 @@
 ---
 title: "Ubuntu 16.04 LTS"
-# images: ["/assets/images/og/ubuntu-1604-lts.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["Ubuntu","16.04","lts","升级","乌班图"]

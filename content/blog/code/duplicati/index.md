@@ -1,6 +1,5 @@
 ---
 title: "备份工具 Duplicati"
-# images: ["/assets/images/og/duplicati.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: ["Ubuntu","备份","Duplicati"]

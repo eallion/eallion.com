@@ -1,6 +1,5 @@
 ---
 title: "爱啦啦"
-# images: ["/assets/images/og/la-la-love.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["音乐", "铃声", "歌曲"]

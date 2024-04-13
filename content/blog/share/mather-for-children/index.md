@@ -1,6 +1,5 @@
 ---
 title: "留给孩子一个完整的母亲"
-# images: ["/assets/images/og/mather-for-children.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: 

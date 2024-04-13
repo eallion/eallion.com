@@ -1,6 +1,5 @@
 ---
 title: "耳洞"
-# images: ["/assets/images/og/pierced-ears.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["耳洞","耳钉"]

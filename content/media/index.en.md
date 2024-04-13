@@ -1,6 +1,5 @@
 ---
 title: "Watched"
-# # images: ["/assets/images/og/movie.png"]
 layout: "media"
 type: "sample"
 showDate: false

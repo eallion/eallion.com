@@ -1,6 +1,5 @@
 ---
 title: "午夜偷牛的人"
-# images: ["/assets/images/og/wuyetouniuderen.png"]
 authors: ["shanzei"]
 categories: ["山贼"]
 tags: ["山贼","日记","中西医","进口蜗牛","做卫生"]

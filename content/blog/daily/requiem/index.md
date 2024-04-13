@@ -1,6 +1,5 @@
 ---
 title: "安魂曲"
-# images: ["/assets/images/og/requiem.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: []

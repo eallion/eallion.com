@@ -1,6 +1,5 @@
 ---
 title: "无题"
-# images: ["/assets/images/og/20231004.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: 

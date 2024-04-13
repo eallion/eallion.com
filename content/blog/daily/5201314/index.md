@@ -1,6 +1,5 @@
 ---
 title: "2011.5.20 13:14"
-# images: ["/assets/images/og/5201314.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["我爱你"]

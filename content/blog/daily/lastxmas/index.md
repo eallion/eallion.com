@@ -1,6 +1,5 @@
 ---
 title: "去年今日"
-# images: ["/assets/images/og/lastxmas.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["心情","日记","蜗牛"]

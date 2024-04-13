@@ -1,6 +1,5 @@
 ---
 title: "秋风瑟缩"
-# images: ["/assets/images/og/huddled-autumn.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["秋"]

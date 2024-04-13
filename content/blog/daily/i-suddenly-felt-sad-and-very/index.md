@@ -1,6 +1,5 @@
 ---
 title: "突然觉得又很伤感"
-# images: ["/assets/images/og/i-suddenly-felt-sad-and-very.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["伤感","失落","季节"]

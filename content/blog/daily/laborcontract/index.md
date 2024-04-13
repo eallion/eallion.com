@@ -1,6 +1,5 @@
 ---
 title: "劳动合同解除 (终止) 及赔偿一览表"
-# images: ["/assets/images/og/laborcontract.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags:

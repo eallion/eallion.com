@@ -1,6 +1,5 @@
 ---
 title: "再说评论"
-# images: ["/assets/images/og/disqus.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: 

@@ -1,6 +1,5 @@
 ---
 title: "他们都登上了 2012 方舟了吗"
-# images: ["/assets/images/og/2012a.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["2012","方舟"]

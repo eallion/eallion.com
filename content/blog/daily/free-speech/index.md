@@ -1,6 +1,5 @@
 ---
 title: "言论自由"
-# images: ["/assets/images/og/free-speech.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["言论自由"]

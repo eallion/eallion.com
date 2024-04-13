@@ -1,6 +1,5 @@
 ---
 title: "起床"
-# images: ["/assets/images/og/get-up.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["梦想","起床","闹钟"]

@@ -1,6 +1,5 @@
 ---
 title: "一日无事"
-# images: ["/assets/images/og/day-without-incident.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["一日无事"]

@@ -1,6 +1,5 @@
 ---
 title: "Twikoo 集成 Slimbox2 灯箱插件"
-# images: ["/assets/images/og/twikoo-slimbox.png"]
 authors: ["eallion"]
 categories: ["代码"]
 tags: 

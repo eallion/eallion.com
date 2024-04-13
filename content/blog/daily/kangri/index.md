@@ -1,6 +1,5 @@
 ---
 title: "假如抗日战争失败了"
-# images: ["/assets/images/og/kangri.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["抗日","失败"]

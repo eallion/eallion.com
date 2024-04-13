@@ -1,6 +1,5 @@
 ---
 title: "不确定"
-# images: ["/assets/images/og/uncertain.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["选择"]

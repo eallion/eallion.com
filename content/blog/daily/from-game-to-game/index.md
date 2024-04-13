@@ -1,6 +1,5 @@
 ---
 title: "从游戏到游戏"
-# images: ["/assets/images/og/from-game-to-game.png"]
 authors: ["eallion"]
 categories: ["日志"]
 tags: ["CS","游戏","魂斗罗","俄罗斯方块"]

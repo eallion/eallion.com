@@ -1,6 +1,5 @@
 ---
 title: "夜空中最亮的星"
-# images: ["/assets/images/og/the-brightest-star-in-the-night-sky.png"]
 authors: ["eallion"]
 categories: ["分享"]
 tags: ["夜空中最亮的星","计算器","弹唱"]
