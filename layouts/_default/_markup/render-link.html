@@ -1,9 +1,9 @@
 {{ $url := urls.Parse .Destination }}
 {{ $host := lower $url.Host }}
 {{- if or (hasSuffix $host "eallion.com") (hasSuffix $host "e5n.cc") (hasSuffix $host "gov.cn") }}
-    <a href="{{ .Destination }}" target="_blank" {{ with .Title }}title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+    <a href="{{ .Destination }}" target="_blank" rel="noopener noreferrer" {{ with .Title }}title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
 {{- else if or (hasSuffix $host "www.eallion.com") (hasPrefix .Destination "#") -}}
     <a href="{{ .Destination }}" {{ with .Title }}title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
 {{- else -}}
-    <a href="/go/?target={{ .Destination | base64Encode }}" target="_blank" {{ with .Title }}title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+    <a href="/go/?target={{ .Destination | base64Encode }}" target="_blank" rel="noopener noreferrer" {{ with .Title }}title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
 {{- end -}}
