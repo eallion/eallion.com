@@ -49,11 +49,19 @@
                     <h1 class="mb-2 text-4xl font-extrabold text-neutral-800 dark:text-neutral-200">
                         {{ .Site.Author.name | default .Site.Title }}
                     </h1>
-                    {{ with .Site.Author.headline }}
+                    {{/*  {{ with .Site.Author.headline }}  */}}
                     <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
-                        {{ . | markdownify | emojify }}
+                        {{/*  {{ . | markdownify | emojify }}  */}}
+                        <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+                        <div id="poem_sentence">{{ partial "icon.html" "loading" }}</div>
+                        <script type="text/javascript">
+                            jinrishici.load(function(result) {
+                                var sentence = document.querySelector("#poem_sentence")
+                                sentence.innerHTML = result.data.content
+                            });
+                        </script>
                     </h2>
-                    {{ end }}
+                    {{/*  {{ end }}  */}}
                     <div class="mt-3 mb-10 text-2xl">
                         {{ with .Site.Author.links }}
                         <div class="flex flex-wrap">
@@ -67,7 +75,11 @@
                         </div>
                         {{ end }}
                     </div>
+
+                    <div id="heatmap"></div>
+
                     <section class="prose dark:prose-invert">{{ .Content | emojify }}</section>
+
                 </div>
             </div>
         </div>
@@ -107,6 +119,179 @@
 </section>
 {{ if .Site.Params.homepage.layoutBackgroundBlur | default false }}
 <div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+
+{{ $echartsJS := resources.Get "lib/echarts/echarts.min.js" | fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $echartsJS.RelPermalink }}" integrity="{{ $echartsJS.Data.Integrity }}"></script>
+
+<script type="text/javascript">
+    // 生成热力图
+    (function() {
+    document.addEventListener("DOMContentLoaded", function() {
+        var heatmapChart = echarts.init(document.getElementById("heatmap"));
+        window.onresize = function() {
+            heatmapChart.resize();
+        };
+
+        var option;
+        var dataMap = new Map();
+        {{ range ((where .Site.RegularPages "Type" "blog")) }}
+            var key = {{ .Date.Format "2006-01-02" }};
+            var value = dataMap.get(key);
+            var link = {{ .RelPermalink}};
+            var title = {{ .Title }};
+
+            // multiple posts in same day
+            if (value == null) {
+            dataMap.set(key, [{link, title}]);
+            } else {
+            value.push({link, title});
+            }
+        {{- end -}}
+
+        var data = [];
+        for (const [key, value] of dataMap.entries()) {
+            data.push([key, value.length]);
+        }
+
+        var endDate = new Date();
+        var startDate = new Date(endDate);
+
+        // 获取屏幕宽度
+        var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+        // 如果屏幕宽度适配 DoIt 主题
+        if (screenWidth >= 600) {
+            startDate.setFullYear(startDate.getFullYear() - 1);
+        } else if (screenWidth >= 400) {
+            startDate.setMonth(startDate.getMonth() - 9);
+        } else {
+            startDate.setMonth(startDate.getMonth() - 6);
+        }
+
+        startDate = +startDate;
+        endDate = +endDate;
+
+        startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
+        endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
+
+        var lightTheme = {
+            backgroundColor: 'rgba(255, 255, 255, 1)',
+            cubeColor:'#ebedf0',
+            highlightColor: ['rgba(37, 99, 235, 1)'],
+            dateColor: '#1f2328',
+            textBgColor: '#fff',
+            borderColor:'rgba(0, 0, 0, 0.0)',
+        };
+
+        var darkTheme = {
+            backgroundColor: 'rgba(34, 39, 46, 1)',
+            cubeColor:'#161b22',
+            highlightColor: ['rgba(96, 165, 250, 1)'],
+            dateColor: '#fff',
+            textBgColor: '#28292a',
+            borderColor:'rgba(0, 0, 0, 0.0)',
+        };
+
+        var currentTheme = getCurrentTheme();
+
+        function getCurrentTheme() {
+            const localStorageTheme = localStorage.getItem('appearance');
+            const htmlElement = document.documentElement;
+            const isDarkMode = htmlElement.classList.contains('dark');
+
+            if (localStorageTheme === 'dark' || (localStorageTheme !== 'light' && isDarkMode)) {
+                return darkTheme;
+            } else if (localStorageTheme === 'light' || (localStorageTheme !== 'dark' && !isDarkMode)) {
+                return lightTheme;
+            } else {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    return darkTheme;
+                } else {
+                    return lightTheme;
+                }
+            }
+        }
+
+        option = {
+            tooltip: {
+                hideDelay: 1000,
+                enterable: true,
+                backgroundColor: currentTheme.textBgColor,
+                borderWidth: 0,
+                formatter: function (p) {
+                    const date = p.data[0];
+                    const posts = dataMap.get(date);
+                    const formattedDate = new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+                    var content = `<span style="font-size: 0.75rem;font-family: var(--font-family-code);">${formattedDate}</span>`;
+                    for (const [i, post] of posts.entries()) {
+                        content += "<br>";
+                        var link = post.link;
+                        var title = post.title;
+                        content += `<a href="${link}" target="_blank">《${title}》</a>` + '<br>';
+                    }
+                    return content;
+                }
+            },
+            visualMap: {
+                show: false,
+                inRange: {
+                    color: currentTheme.highlightColor
+                },
+            },
+            calendar: {
+                left: 20,
+                top:20,
+                bottom:20,
+                right: 20,
+                cellSize: ['auto', 13],
+                range: [startDate, endDate],
+                itemStyle: {
+                    color: currentTheme.cubeColor,
+                    //color: 'transparent',
+                    borderWidth: 3.5,
+                    borderColor: currentTheme.backgroundColor,
+                },
+                yearLabel: { show: false },
+                monthLabel: {
+                    nameMap: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    textStyle: {
+                        color: currentTheme.dateColor,
+                }
+            },
+                dayLabel: {
+                    firstDay: 1,
+                    nameMap: ['日', '一', '', '三', '', '五', ''],
+                    textStyle: {
+                        color: currentTheme.dateColor
+                    }
+                },
+                splitLine: {
+                    show: false,
+                    lineStyle: {
+                        color: currentTheme.borderColor,
+                    }
+                }
+            },
+            series: {
+                type: 'heatmap',
+                coordinateSystem: 'calendar',
+                data: data,
+            }
+        };
+
+        heatmapChart.setOption(option);
+        heatmapChart.on('click', function(params) {
+            if (params.componentType === 'series') {
+            const post = dataMap.get(params.data[0])[0];
+            const link = window.location.origin + post.link;
+            window.open(link, '_blank').focus();
+            }
+        });
+
+        });
+    })();
+</script>
+
 <script>
     window.addEventListener('scroll', function (e) {
         var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;

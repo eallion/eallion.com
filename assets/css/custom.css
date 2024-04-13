@@ -13,6 +13,16 @@
     margin-bottom: 0;
 }
 
+#poem_sentence {
+    min-height: 1.75rem;
+}
+
+#heatmap {
+    width: 100%;
+    max-width: 720px;
+    height: 130px;
+}
+
 footer nav ul {
     display: flex !important;
     flex-direction: row !important;
@@ -66,17 +76,45 @@ footer nav ul {
     cursor: pointer;
 }
 
-#notbyai {
+.not-by-ai {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem auto;
+    width: 100%;
+}
+
+.written-by-human,
+.produced-by-human,
+.painted-by-human {
     width: 131px;
     height: 42px;
     display: block;
-    background-image: url(/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-white.svg);
     background-repeat: no-repeat;
-    position: absolute;
-    bottom: 5rem;
-    right: 0;
 }
 
-.dark #notbyai {
+.written-by-human {
+    background-image: url(/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-white.svg);
+}
+
+.produced-by-human {
+    background-image: url(/assets/images/Not-By-AI/Produced-By-Human-Not-By-AI-Badge-white.svg);
+}
+
+.painted-by-human {
+    background-image: url(/assets/images/Not-By-AI/Painted-By-Human-Not-By-AI-Badge-white.svg);
+}
+
+.dark .written-by-human {
     background-image: url(/assets/images/Not-By-AI/Written-By-Human-Not-By-AI-Badge-black.svg);
+}
+
+.dark .produced-by-human {
+    background-image: url(/assets/images/Not-By-AI/Produced-By-Human-Not-By-AI-Badge-black.svg);
+}
+
+.dark .painted-by-human {
+    background-image: url(/assets/images/Not-By-AI/Painted-By-Human-Not-By-AI-Badge-black.svg);
 }
