@@ -15,8 +15,8 @@
     border-radius: 50%;
 }
 
-.mt-post-media>img,
-.mt-post-media>video {
+.mt-post-media > img,
+.mt-post-media > video {
     max-width: 310px;
     max-height: 310px;
     position: relative;
@@ -37,7 +37,7 @@
     margin-top: 0;
 }
 
-.dark .mt-post-header-user>a {
+.dark .mt-post-header-user > a {
     color: rgba(248, 250, 252, 1) !important;
 }
 
@@ -83,7 +83,6 @@
 }
 
 @media (max-width: 540px) {
-
     /* iPhone se width */
     .grid-3,
     .grid-5,
@@ -229,8 +228,7 @@
     text-transform: capitalize;
 }
 
-
-@media (max-width:680px) {
+@media (max-width: 680px) {
     .db-card {
         margin: 0.8rem 1rem;
     }
