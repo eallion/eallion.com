@@ -1,6 +1,5 @@
 ---
 title: "博客统计"
-# # images: ["/assets/images/og/eallion.png"]
 layout: "stats"
 type: "sample"
 showDate: false

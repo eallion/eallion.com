@@ -1,6 +1,5 @@
 ---
 title: "书影音"
-# # images: ["/assets/images/og/movie.png"]
 layout: "media"
 type: "sample"
 showDate: false

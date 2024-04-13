@@ -1,6 +1,5 @@
 ---
 title: "My Penta"
-# # images: ["/assets/images/og/penta.png"]
 layout: "penta"
 type: "sample"
 showDate: false

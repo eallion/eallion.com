@@ -1,6 +1,5 @@
 ---
 title: "嘀咕"
-# # images: ["/assets/images/og/toots.png"]
 layout: "mastodon"
 type: "sample"
 showDate: false

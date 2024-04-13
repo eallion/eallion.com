@@ -1,8 +1,7 @@
 ---
 title: "Privacy Ppolicy"
-# # images: ["/assets/images/og/privacy.png"]
 date: "2006-04-14 00:00:00"
-type: "page"
+type: "sample"
 layout: "privacy-policy"
 showDate: false
 showAuthor: false

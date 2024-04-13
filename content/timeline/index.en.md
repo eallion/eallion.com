@@ -1,6 +1,5 @@
 ---
 title: "Timeline"
-# # images: ["/assets/images/og/steam.png"]
 layout: "timeline"
 type: "sample"
 date: "2006-04-14 00:00:00"
