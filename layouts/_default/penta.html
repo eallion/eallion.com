@@ -5,9 +5,6 @@
 
 {{ $penta := getJSON "data/penta/penta.json" }}
 
-{{ $pentaCss := resources.Get "css/penta.scss" | toCSS | minify | fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ $pentaCss.RelPermalink }}" integrity="{{ $pentaCss.Data.Integrity }}" crossorigin="anonymous">
-
 <article>
   {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
   {{ $heroStyle := .Params.heroStyle }}
@@ -41,7 +38,7 @@
         <div class="article-content max-w-full mb-20">
           {{ .Content | emojify }}
 
-            <div class="pentas" view-image>
+            <div class="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-8 gap-x-2.5" view-image>
 
                 {{ range $penta.penta }}
 
@@ -55,12 +52,12 @@
                 {{ $champion := printf "images/penta/hero/%s.png" $championSrc }}
                 {{ $heroId := .heroId }}
 
-                <div class="penta">
-                    <div class="screenshot">
+                <div class="flex justify-center items-center m-0 mb-2 flex-col">
+                    <div class="group relative overflow-hidden rounded w-full h-full">
                         {{ with resources.Get $screenshot }}
-                            <figure>
+                            <figure class="my-0">
                                 <img
-                                    class="my-0 rounded-md lazy"
+                                    class="my-0 rounded-md block w-full cursor-pointer object-cover h-full scale-100 hover:scale-110 transition-all duration-400 ease-in-out animate-fadeIn lazy"
                                     loading="lazy"
                                     srcset="
                                     {{ (.Resize "330x").RelPermalink }} 330w,
@@ -74,29 +71,27 @@
                             </figure>
                         {{ end }}
                     </div>
-                    <div class="champions">
-                        {{ with resources.Get $champion }}
-                            {{ with .Resize "18x webp" }}
-                                <a href="https://101.qq.com/#/hero-detail?heroid={{ $heroId }}" target="_blank" rel="noreferrer noopener nofollow">
-                                    <span class="champAvatar">
-                                        <img class="lazy"
-                                            loading="lazy"
-                                            src="/assets/images/penta/hero.png"
-                                            data-src="{{ .RelPermalink }}"
-                                            alt="{{ $championSrc }} {{ $champion }}"
-                                            no-view>
-                                    </span>
-                                    <span class="caption">
-                                        {{ $caption }}
-                                    </span>
-                                </a>
-                            {{ end }}
+                    {{ with resources.Get $champion }}
+                        {{ with .Resize "18x webp" }}
+                            <a href="https://101.qq.com/#/hero-detail?heroid={{ $heroId }}" class="flex justify-center items-center my-2 text-neutral-900 dark:text-neutral-300" target="_blank" rel="noreferrer noopener nofollow">
+                                <span class="leading-4 mr-1">
+                                    <img class="w-4 h-4 mt-0 mb-0 lazy nozoom"
+                                        loading="lazy"
+                                        src="/assets/images/penta/hero.png"
+                                        data-src="{{ .RelPermalink }}"
+                                        alt="{{ $championSrc }} {{ $champion }}"
+                                        no-view>
+                                </span>
+                                <span class="text-sm text-inherit whitespace-nowrap max-w-full text-ellipsis overflow-hidden">
+                                    {{ $caption }}
+                                </span>
+                            </a>
                         {{ end }}
-                    </div>
+                    {{ end }}
 
-                    <div class="date">
+                    <div class="flex items-center justify-center text-xs opacity-70 mb-3">
                         <span>{{ partial "icon.html" "calendar-alt" }}</span>
-                        <span class="dateText">{{ $date }}</span>
+                        <span class="ml-1">{{ $date }}</span>
                     </div>
 
                 </div>
