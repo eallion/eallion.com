@@ -2,6 +2,19 @@
 
 /* Main container */
 
+.mt-container {
+    container: unset;
+    background-color: transparent;
+}
+
+.mt-body>.mt-loading-spinner {
+    position: relative;
+}
+
+// .mt-post-header {
+//     align-items: center;
+// }
+
 .mt-post-avatar-standard {
     width: 2.75rem;
     height: 2.75rem;
@@ -15,8 +28,8 @@
     border-radius: 50%;
 }
 
-.mt-post-media > img,
-.mt-post-media > video {
+.mt-post-media>img,
+.mt-post-media>video {
     max-width: 310px;
     max-height: 310px;
     position: relative;
@@ -37,7 +50,7 @@
     margin-top: 0;
 }
 
-.dark .mt-post-header-user > a {
+.dark .mt-post-header-user>a {
     color: rgba(248, 250, 252, 1) !important;
 }
 
@@ -45,11 +58,11 @@
     color: rgba(203, 213, 225, 1);
 }
 
-.dark .mt-post:hover > .mt-post-txt {
+.dark .mt-post:hover>.mt-post-txt {
     color: #000;
 }
 
-.dark .mt-post:hover .mt-post-header-user > a {
+.dark .mt-post:hover .mt-post-header-user>a {
     color: #000 !important;
 }
 
@@ -83,6 +96,7 @@
 }
 
 @media (max-width: 540px) {
+
     /* iPhone se width */
     .grid-3,
     .grid-5,
@@ -109,6 +123,7 @@
         }
     }
 }
+
 /* toot images end */
 
 /* db-card -------- start*/
