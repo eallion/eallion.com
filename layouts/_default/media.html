@@ -1,9 +1,6 @@
 {{ define "main" }}
 {{ .Scratch.Set "scope" "single" }}
 
-{{ $mediaCss := resources.Get "css/media.css" | minify | fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ $mediaCss.RelPermalink }}" integrity="{{ $mediaCss.Data.Integrity }}" crossorigin="anonymous">
-
 {{ $movies := getJSON "data/neodb/movie.json" }}
 {{ $comment_text := $movies.item.comment_text }}
 
@@ -21,9 +18,9 @@
   {{ end }}
   {{ end }}
 
-  <div class="movies_video opacity-0">
+  <div class="fixed h-auto w-full left-0 right-0 top-0 opacity-0 md:opacity-100 -z-10 after:absolute after:top-0 after:left-0 after:right-0 after:h-full after:bg-gradient-to-b after:from-[var(--media-bg-color-from)] after:from-0% after:to-[var(--media-bg-color-to)] dark:after:to-[var(--media-bg-color-to-dark)] after:to-100%">
     <video
-        class="video-source"
+        class="video-source object-cover"
         id="TopGif"
         width="100%"
         height="100%"
@@ -65,16 +62,16 @@
           {{ .Content | emojify }}
 
           <div class="movies">
-            <div class="category">
-                <span class="category-item is-active" data-category="all">{{ T `movie_cate_all` | safeHTML }}</span>
-                <span class="category-item" data-category="movie">{{ T `movie_cate_movie` | safeHTML }}</span>
-                <span class="category-item" data-category="tv">{{ T `movie_cate_tv` | safeHTML }}</span>
-                <span class="category-item" data-category="book">{{ T `movie_cate_book` | safeHTML }}</span>
-                <span class="category-item" data-category="music">{{ T `movie_cate_music` | safeHTML }}</span>
-                <span class="category-item" data-category="game">{{ T `movie_cate_game` | safeHTML }}</span>
-                <span class="category-item" data-category="podcast">{{ T `movie_cate_podcast` | safeHTML }}</span>
+            <div class="flex flex-wrap m-auto">
+                <span class="category-item bg-neutral-700 text-neutral-100 dark:bg-neutral-100 dark:text-neutral-600 text-sm px-3 py-1 mr-2 mb-2 rounded-sm cursor-pointer hover:bg-neutral-700 hover:text-neutral-100" data-category="all">{{ T `movie_cate_all` | safeHTML }}</span>
+                <span class="category-item text-neutral-600 bg-neutral-100 dark:text-neutral-100 dark:bg-neutral-700 text-sm px-3 py-1 mr-2 mb-2 rounded-sm cursor-pointer hover:bg-neutral-700 hover:text-neutral-100 dark:hover:bg-neutral-100 dark:hover:text-neutral-600" data-category="movie">{{ T `movie_cate_movie` | safeHTML }}</span>
+                <span class="category-item text-neutral-600 bg-neutral-100 dark:text-neutral-100 dark:bg-neutral-700 text-sm px-3 py-1 mr-2 mb-2 rounded-sm cursor-pointer hover:bg-neutral-700 hover:text-neutral-100 dark:hover:bg-neutral-100 dark:hover:text-neutral-600" data-category="tv">{{ T `movie_cate_tv` | safeHTML }}</span>
+                <span class="category-item text-neutral-600 bg-neutral-100 dark:text-neutral-100 dark:bg-neutral-700 text-sm px-3 py-1 mr-2 mb-2 rounded-sm cursor-pointer hover:bg-neutral-700 hover:text-neutral-100 dark:hover:bg-neutral-100 dark:hover:text-neutral-600" data-category="book">{{ T `movie_cate_book` | safeHTML }}</span>
+                <span class="category-item text-neutral-600 bg-neutral-100 dark:text-neutral-100 dark:bg-neutral-700 text-sm px-3 py-1 mr-2 mb-2 rounded-sm cursor-pointer hover:bg-neutral-700 hover:text-neutral-100 dark:hover:bg-neutral-100 dark:hover:text-neutral-600" data-category="music">{{ T `movie_cate_music` | safeHTML }}</span>
+                <span class="category-item text-neutral-600 bg-neutral-100 dark:text-neutral-100 dark:bg-neutral-700 text-sm px-3 py-1 mr-2 mb-2 rounded-sm cursor-pointer hover:bg-neutral-700 hover:text-neutral-100 dark:hover:bg-neutral-100 dark:hover:text-neutral-600" data-category="game">{{ T `movie_cate_game` | safeHTML }}</span>
+                <span class="category-item text-neutral-600 bg-neutral-100 dark:text-neutral-100 dark:bg-neutral-700 text-sm px-3 py-1 mr-2 mb-2 rounded-sm cursor-pointer hover:bg-neutral-700 hover:text-neutral-100 dark:hover:bg-neutral-100 dark:hover:text-neutral-600" data-category="podcast">{{ T `movie_cate_podcast` | safeHTML }}</span>
             </div>
-            <div class="movie w-full">
+            <div class="grid gap-1.5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-4 min-h-[350px] w-full">
 
                 {{ range $movie_details }}
                 {{ $title := .display_title }}
@@ -90,15 +87,15 @@
                 {{ $brief := .brief }}
                 {{ $category  := .category }}
 
-                <div class="card m-cate-{{ $category }}">
-                    <div class="poster">
+                <div class="card m-cate-{{ $category }} group relative overflow-hidden rounded">
+                    <div class="relative overflow-hidden w-full pb-150 before:absolute before:h-full before:w-full before:left-0 before:-z-10 before:duration-500 before:-bottom-40 group-hover:before:bottom-0 group-hover:before:bg-gradient-to-b group-hover:before:from-transparent group-hover:before:from-60% group-hover:before:to-[var(--media-bg-color-cover)] group-hover:before:to-100% group-hover:before:z-10">
                         {{ with resources.Get $movieCover }}
                             {{ with .Resize "256x webp" }}
-                                <img alt="{{- $title -}}" class="lazy nozoom" loading="lazy" src="/assets/images/movie/cover.png" data-src="{{ .RelPermalink }}" no-view>
+                                <img alt="{{- $title -}}" class="lazy nozoom absolute top-0 left-0 w-full h-full object-cover mt-0 mb-0 duration-500 group-hover:blur-sm group-hover:-translate-y-2" loading="lazy" src="/assets/images/movie/cover.png" data-src="{{ .RelPermalink }}" no-view>
                             {{ end }}
                         {{ end }}
                     </div>
-                    <div class="movie-cate">
+                    <div class="absolute flex items-center gap-1 top-0 right-0 bg-yellow-600 italic capitalize opacity-0 text-neutral text-sm px-2 py-px rounded-bl-lg group-hover:opacity-100 transition-all duration-500 ease-in-out">
                         {{- if eq $category "movie" -}}
                             {{ partial "icon.html" "film" }} Film
                         {{- else if eq $category "book" -}}
@@ -119,50 +116,54 @@
                             {{ partial "icon.html" "database" }} NeoDB
                         {{- end -}}
                     </div>
-                    <div class="movie_details">
-                        <h2><a href="/go/?target={{- $movie_url | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">{{- $title -}}</a><br><span>{{- $orig_title | default $title -}} ({{- $year -}})</span></h2>
+                    <div class="flex flex-col items-start justify-end absolute p-2 w-full h-fit box-border left-0 -bottom-96 transition-all duration-400 ease-in z-10 group-hover:bottom-0">
+                        <h2 class="m-0 p-0">
+                            <a href="/go/?target={{- $movie_url | base64Encode -}}" target="_blank" class="block text-neutral text-shadow-xs m-0 p-0" rel="noreferrer noopener nofollow">{{- $title -}}</a>
+                        </h2>
 
-                        <div class="rating">
-                            <div class="rating_star">
-                                <div class="rating_full"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg></div>
-                                <div class="rating_empty" style="width: {{- $rating_percent -}}%;"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="rating_icon"><path fill="currentColor" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg></div>
+                        <div class="block text-neutral-200 text-sm m-0 p-0">{{- $orig_title | default $title -}} ({{- $year -}})</div>
+
+                        <div class="flex items-center mt-1">
+                            <div class="flex items-center relative p-0">
+                                <div class="flex items-center"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg></div>
+                                <div class="flex items-center overflow-hidden absolute top-0" style="width: {{- $rating_percent -}}%;"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg></div>
                             </div>
-                            <span>{{- $rating | default "Null" -}}</span>
+                            <span class="text-xs text-neutral-100 ml-1">{{- $rating | default "Null" -}}</span>
                         </div>
 
                         {{- if and .genre (ne .genre nil) }}
-                            <div class="tags">
+                            <div class="relative mt-1">
                                 {{ range first 5 .genre }}
-                                    <span class="">{{- . -}}</span>
+                                    <span class="mt-0 inline-block rounded text-white capitalize p-1 text-xs text-neutral-200 bg-neutral-700">{{- . -}}</span>
                                 {{ end }}
                             </div>
                         {{- else }}
                             {{- $category := .category -}}
-                            <div class="tags">
-                                <span class="">{{- $category -}}</span>
+                            <div class="relative mt-1">
+                                <span class="mt-0 inline-block rounded text-white capitalize p-1 text-xs text-neutral-200 bg-neutral-700">{{- $category -}}</span>
                             </div>
                         {{- end -}}
 
-                        <div class="info">
+                        <div class="overflow-hidden my-2">
                             {{ $id := .id }}
                             {{ range $item := $movies.data }}
                                 {{ if eq $item.item.id $id }}
                                     {{ $comment_text := .comment_text }}
                                     {{ if $comment_text }}
-                                        <p>{{ partial "icon.html" "edit" }} 短评：{{ $comment_text }}</p>
+                                        <p class="text-xs m-0 text-neutral-100 line-clamp-3">短评：{{ $comment_text }}</p>
                                     {{ else }}
-                                        <p>{{ partial "icon.html" "info-circle" }} 简介：{{ $brief }}</p>
+                                        <p class="text-xs m-0 text-neutral-100 line-clamp-3">简介：{{ $brief }}</p>
                                     {{ end }}
                                 {{ end }}
                             {{ end }}
                         </div>
-                        <div class="movie-footer">
-                            <div class="star">
+                        <div class="w-full flex justify-start items-center">
+                            <div class="relative flex items-center">
                                 <h4></h4>
-                                <ul>
-                                    <li class="neodb">
+                                <ul class="pl-0 p-0 m-0 flex space-x-[-10px]">
+                                    <li class="neodb w-6 h-6 overflow-hidden pl-0 rounded-full list-none border-2 border-solid border-neutral">
                                         <a href="/go/?target={{- $movie_url | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">
-                                            <img src="/assets/images/movie/neodbsocial.jpg" class="nozoom" loading="lazy" alt="NeoDB" no-view>
+                                            <img src="/assets/images/movie/neodbsocial.jpg" class="nozoom m-0" loading="lazy" alt="NeoDB" no-view>
                                         </a>
                                     </li>
                                     {{ range .external_resources }}
@@ -170,23 +171,23 @@
                                         {{ $host := $parsedURL.Hostname }}
                                         {{ $title := .title }}
                                             {{ if not (strings.Contains .url "imdb.com") }}
-                                                <li class="external-resource">
+                                                <li class="external-resource w-6 h-6 overflow-hidden pl-0 rounded-full list-none border-2 border-solid border-neutral">
                                                     <a href="/go/?target={{- .url | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">
-                                                        <img src="/assets/images/movie/{{- $host -}}.png" class="nozoom" loading="lazy" alt="{{- $title -}}" no-view>
+                                                        <img src="/assets/images/movie/{{- $host -}}.png" class="nozoom m-0" loading="lazy" alt="{{- $title -}}" no-view>
                                                     </a>
                                                 </li>
                                             {{ end }}
                                     {{ end }}
                                     {{ if and ($imdb) (ne $imdb "") }}
-                                        <li class="imdb">
+                                        <li class="imdb w-6 h-6 overflow-hidden pl-0 rounded-full list-none border-2 border-solid border-neutral">
                                             <a href="/go/?target={{- $imdb | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">
-                                                <img src="/assets/images/movie/www.imdb.com.png" class="nozoom" loading="lazy" alt="IMDB" no-view>
+                                                <img src="/assets/images/movie/www.imdb.com.png" class="nozoom m-0" loading="lazy" alt="IMDB" no-view>
                                             </a>
                                         </li>
                                     {{ end }}
                                 </ul>
                             </div>
-                            <div class="search-item">
+                            <div class="flex items-center pr-2 before:relative before:text-neutral-600 before:mx-1 before:content-['|'] before:text-xs">
                                 {{- if eq $category "movie" -}}
                                     <a href="https://xiaoya.eallion.com/search?box={{- $title -}}&url=&type=video" target="_blank" rel="noreferrer noopener nofollow" aria-label="play" alt="在线播放" title="在线播放">
                                         <svg t="1703688181681" class="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8794" width="28" height="28"><path d="M896 224c0-70.6-57.4-128-128-128H192c-70.6 0-128 57.4-128 128v64h832v-64zM64 352v384c0 70.6 57.4 128 128 128h416.9C569 826.9 544 773.9 544 715.3 544 603.2 635.2 512 747.3 512c58.7 0 111.6 25 148.7 64.9V352H64z m465.8 225.2l-97.2 56.1c-21.3 12.3-48-3.1-48-27.7V493.4c0-24.6 26.7-40 48-27.7l97.2 56.1c21.3 12.3 21.3 43.1 0 55.4z" p-id="8795" fill="#ffffff"></path><path d="M950.6 873.4L894 816.8c-1.8-1.8-3.7-3.3-5.7-4.5 19-27.6 30.2-61 30.2-97 0-94.4-76.8-171.3-171.3-171.3S576 620.8 576 715.3s76.8 171.3 171.3 171.3c36 0 69.4-11.2 97-30.2 1.3 2 2.8 3.9 4.5 5.7l56.6 56.6c6.2 6.2 14.4 9.4 22.6 9.4s16.4-3.1 22.6-9.4c12.5-12.6 12.5-32.8 0-45.3z m-203.3-50.9c-59.2 0-107.3-48.1-107.3-107.3S688.1 608 747.3 608s107.3 48.1 107.3 107.3-48.2 107.2-107.3 107.2z" p-id="8796" fill="#ffffff"></path></svg>
@@ -239,7 +240,7 @@
         const isMobileDevice = window.innerWidth < 768 || window.innerHeight < 768;
 
         if (!isMobileDevice) {
-            const moviesVideo = document.querySelector(".movies_video");
+            //const moviesVideo = document.querySelector(".movies_video");
             const videoElement = document.querySelector(".video-source");
             const videoSource = videoElement.querySelector("source");
 
@@ -285,7 +286,7 @@
 
             playRandomVideo(videosName);
 
-            moviesVideo.classList.remove('opacity-0');
+            //moviesVideo.classList.remove('opacity-0');
         }
     });
 </script>
@@ -306,8 +307,24 @@
     buttons.forEach(button => {
         button.addEventListener('click', (event) => {
             const category = event.target.dataset.category;
-            buttons.forEach(btn => btn.classList.remove('is-active'));
-            event.target.classList.add('is-active');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-neutral-700');
+                btn.classList.remove('text-neutral-100');
+                btn.classList.remove('dark:bg-neutral-100');
+                btn.classList.remove('dark:text-neutral-600');
+                btn.classList.add('bg-neutral-100');
+                btn.classList.add('text-neutral-600');
+                btn.classList.add('dark:bg-neutral-700');
+                btn.classList.add('dark:text-neutral-100');
+            });
+            event.target.classList.add('bg-neutral-700');
+            event.target.classList.add('text-neutral-100');
+            event.target.classList.add('dark:bg-neutral-100');
+            event.target.classList.add('dark:text-neutral-600');
+            event.target.classList.remove('bg-neutral-100');
+            event.target.classList.remove('text-neutral-600');
+            event.target.classList.remove('dark:bg-neutral-700');
+            event.target.classList.remove('dark:text-neutral-100');
 
             if (category === 'all') {
                 cards.forEach(card => {
