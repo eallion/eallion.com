@@ -142,7 +142,7 @@
 
         // Hide custom emojis available on the server
         // Default: don't hide
-        hideEmojos: true,
+        hideEmojos: false,
 
         // Customize the text of the button used for showing a sensitive/spoiler media content
         btnShowContent: "SHOW CONTENT",
@@ -193,6 +193,35 @@
         insistSearchContainerTime: "3000",
 
     });
+
+</script>
+
+<script>
+    // 创建一个 MutationObserver 实例
+    const observer = new MutationObserver(() => {
+        // 获取所有 .mt-post-txt 下的 a 标签
+        const links = document.querySelectorAll('.mt-post-txt a');
+
+        // 遍历所有链接并对 href 属性进行 Base64 加密
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+
+            // 检查域名是否为 e5n.cc 或 eallion.com
+            const excludedDomains = ['e5n.cc', 'eallion.com'];
+            const domain = new URL(href).hostname;
+            if (excludedDomains.includes(domain)) {
+                return; // 跳过此链接
+            }
+
+            const encodedHref = btoa(href);
+            const newHref = 'https://www.eallion.com/go/?target=' + encodedHref;
+            link.setAttribute('href', newHref);
+        });
+    });
+
+    // 监听 .mt-body 元素的子节点变化
+    const mtBody = document.querySelector('.mt-body');
+    observer.observe(mtBody, { childList: true, subtree: true });
 
 </script>
 

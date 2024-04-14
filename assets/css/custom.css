@@ -1,3 +1,20 @@
+/* Tailwind CSS Custom */
+:root {
+    --media-bg-color-from: rgba(255, 255, 255, 5%);
+    --media-bg-color-to: #ffffff;
+    --media-bg-color-to-dark: rgb(30, 41, 59);
+    --media-bg-color-cover: rgba(0, 0, 0, 80%);
+}
+
+.bg-yellow-600 {
+    background-color: #ca8a04;
+}
+
+.pb-150 {
+    padding-bottom: 150%;
+}
+/* Tailwind CSS Custom End */
+
 li a,
 blockquote a {
     white-space: pre-wrap;
