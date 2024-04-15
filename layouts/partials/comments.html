@@ -1,35 +1,46 @@
-<div id="comments" class="min-h-4 mt-8"></div>
-<div id="load-giscus">{{ T `load_comments` | safeHTML }}</div>
+<div class="comment-on flex items-center mt-8 capitalize print:hidden">
+    <div id="load-giscus" class="inline-block relative">{{ T `load_comments` | safeHTML }}</div>
+    <!-- 家里受灾，待完善 -->
+    <div id="link-to-mastodon" class="flex items-center relative ml-2">{{ T `link_to_mastodon` | safeHTML }}{{ partial "icon.html" "external-link-alt" }}</div>
+</div>
+<div id="comments" class=""></div>
 <script>
     function loadGiscus() {
-        const script = document.createElement('script');
-        script.src = 'https://giscus.app/client.js';
-        script.setAttribute('data-repo', 'eallion/eallion.com');
-        script.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnkyNjI2Njk1MDg=');
-        script.setAttribute('data-category', 'Giscus');
-        script.setAttribute('data-category-id', 'DIC_kwDOD6gExM4CS9eF');
-        script.setAttribute('data-mapping', 'pathname');
-        script.setAttribute('data-strict', '1');
-        script.setAttribute('data-reactions-enabled', '1');
-        script.setAttribute('data-emit-metadata', '0');
-        script.setAttribute('data-input-position', 'bottom');
-        script.setAttribute('data-lang', 'zh-CN');
-        script.setAttribute('data-loading', 'lazy');
-        script.setAttribute('crossorigin', 'anonymous');
-        script.async = true;
+        return new Promise((resolve) => {
+            const script = document.createElement('script');
+            script.src = 'https://giscus.app/client.js';
+            script.setAttribute('data-repo', 'eallion/eallion.com');
+            script.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnkyNjI2Njk1MDg=');
+            script.setAttribute('data-category', 'Giscus');
+            script.setAttribute('data-category-id', 'DIC_kwDOD6gExM4CS9eF');
+            script.setAttribute('data-mapping', 'pathname');
+            script.setAttribute('data-strict', '1');
+            script.setAttribute('data-reactions-enabled', '1');
+            script.setAttribute('data-emit-metadata', '0');
+            script.setAttribute('data-input-position', 'bottom');
+            script.setAttribute('data-lang', 'zh-CN');
+            script.setAttribute('data-loading', 'lazy');
+            script.setAttribute('crossorigin', 'anonymous');
+            script.async = true;
 
-        const htmlElement = document.documentElement;
-        if (htmlElement.classList.contains('dark')) {
-            script.setAttribute('data-theme', 'dark_dimmed');
-        } else {
-            script.setAttribute('data-theme', 'light');
-        }
+            const htmlElement = document.documentElement;
+            if (htmlElement.classList.contains('dark')) {
+                script.setAttribute('data-theme', 'dark_dimmed');
+            } else {
+                script.setAttribute('data-theme', 'light');
+            }
 
-        document.getElementById('comments').appendChild(script);
+            script.addEventListener('load', () => {
+                resolve();
+            });
+
+            document.getElementById('comments').appendChild(script);
+        });
     }
 
-    document.getElementById('load-giscus').addEventListener('click', () => {
-        loadGiscus();
-        document.getElementById('load-giscus').style.display = 'none';
+    document.getElementById('load-giscus').addEventListener('click', async () => {
+        await loadGiscus();
+        document.getElementById('load-giscus').classList.add('hidden');
+        document.getElementById('link-to-mastodon').classList.add('mb-8');
     });
 </script>

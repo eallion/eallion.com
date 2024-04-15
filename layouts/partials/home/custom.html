@@ -69,7 +69,28 @@
                         {{ end }}
                     </div>
 
-                    <div id="heatmap" class="w-full h-32 max-w-[45rem]"></div>
+                    <!-- 家里受灾，待完善 -->
+                    <div class="flex flex-col items-center justify-start">
+
+                        <div class="w-full flex items-center justify-between text-xs month span:nth-child(n+2)">
+                            <span>&nbsp;</span>
+                        </div>
+
+                        <div class="flex flex-row items-center justify-between">
+                            <div class="flex flex-col items-end justify-between text-xs leading-[11px] mr-1 mb-[1px] text-right">
+                                <span>Mon</span>
+                                <span>&nbsp;</span>
+                                <span>Wed</span>
+                                <span>&nbsp;</span>
+                                <span>Fri</span>
+                                <span>&nbsp;</span>
+                                <span>Sun</span>
+                            </div>
+
+                            <contributions-calendar id="calendar"></contributions-calendar>
+
+                        </div>
+                    </div>
 
                     <section class="prose dark:prose-invert">{{ .Content | emojify }}</section>
 
@@ -121,176 +142,110 @@
     });
 </script>
 
-{{ $echartsJS := resources.Get "lib/echarts/echarts.min.js" | fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $echartsJS.RelPermalink }}" integrity="{{ $echartsJS.Data.Integrity }}"></script>
+{{ $heatmapJS := resources.Get "js/contributions-calendar.js" | minify | fingerprint "sha256" }}
+<script defer type="text/javascript" src="{{ $heatmapJS.RelPermalink }}" integrity="{{ $heatmapJS.Data.Integrity }}"></script>
 
-<script type="text/javascript">
-    // 生成热力图
-    (function() {
-    document.addEventListener("DOMContentLoaded", function() {
-        var heatmapChart = echarts.init(document.getElementById("heatmap"));
-        window.onresize = function() {
-            heatmapChart.resize();
-        };
+<script>
+    var data = "";
+    var dataMap = new Map();
+    {{ range ((where .Site.RegularPages "Type" "blog")) }}
+        var key = {{ .Date.Format "2006-01-02T15:04:05.000Z" }};
+        var value = dataMap.get(key);
+        var link = {{ .RelPermalink}};
+        var title = {{ .Title }};
 
-        var option;
-        var dataMap = new Map();
-        {{ range ((where .Site.RegularPages "Type" "blog")) }}
-            var key = {{ .Date.Format "2006-01-02" }};
-            var value = dataMap.get(key);
-            var link = {{ .RelPermalink}};
-            var title = {{ .Title }};
-
-            // multiple posts in same day
-            if (value == null) {
-            dataMap.set(key, [{link, title}]);
-            } else {
-            value.push({link, title});
-            }
-        {{- end -}}
-
-        var data = [];
-        for (const [key, value] of dataMap.entries()) {
-            data.push([key, value.length]);
-        }
-
-        var endDate = new Date();
-        var startDate = new Date(endDate);
-
-        // 获取屏幕宽度
-        var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-
-        // 如果屏幕宽度适配 DoIt 主题
-        if (screenWidth >= 600) {
-            startDate.setFullYear(startDate.getFullYear() - 1);
-        } else if (screenWidth >= 400) {
-            startDate.setMonth(startDate.getMonth() - 9);
+        // 处理同一天有多篇博客的情况
+        if (value == null) {
+            dataMap.set(key, [{ date: key, title: title }]);
         } else {
-            startDate.setMonth(startDate.getMonth() - 6);
+            value.push({ date: key, title: title });
+            dataMap.set(key, value);
+        }
+    {{- end -}}
+
+    var data = Array.from(dataMap.values()).flat();
+    // console.log(data);
+    document.addEventListener("contributions-calendar-day-selected", day_selected_listener);
+    function day_selected_listener(event) {
+        // console.log('contributions-calendar-day-selected event for calendar #' + event.target.id);
+
+        const date_contributions = event.detail;
+
+        var date = new Date(parseInt(date_contributions.date))
+        const contributions = date_contributions.contributions;
+
+        const statement = `${contributions} contribution(s) on ${date}`;
+        console.log(statement);
+    }
+
+    document.addEventListener("contributions-calendar-ready", contributions_calendar_ready);
+    function contributions_calendar_ready(event) {
+        // console.log('contributions-calendar-ready event for calendar #' + event.target.id);
+
+        // contribution calendar instance passed as an event detail once DOM is ready
+        const contributions_calendar = event.detail;
+
+
+        function getNextMonday(date) {
+            let dayOfWeek = date.getDay(); // 获取指定日期是星期几
+            let daysToNextMonday = (8 - dayOfWeek) % 7; // 计算距离下一个星期一的天数
+
+            let nextMonday = new Date(date);
+            nextMonday.setDate(date.getDate() + daysToNextMonday); // 设置为指定日期的下一个星期一
+
+            return nextMonday;
         }
 
-        startDate = +startDate;
-        endDate = +endDate;
+        let currentDate = new Date();
+        currentDate.setFullYear(currentDate.getFullYear() - 1);
 
-        startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
-        endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
+        let startDate;
 
-        var lightTheme = {
-            backgroundColor: 'rgba(255, 255, 255, 1)',
-            cubeColor:'#ebedf0',
-            highlightColor: ['rgba(37, 99, 235, 1)'],
-            dateColor: '#1f2328',
-            textBgColor: '#fff',
-            borderColor:'rgba(0, 0, 0, 0.0)',
-        };
+        let monthDiv = document.querySelector('.month');
+        let monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-        var darkTheme = {
-            backgroundColor: 'rgba(34, 39, 46, 1)',
-            cubeColor:'#161b22',
-            highlightColor: ['rgba(96, 165, 250, 1)'],
-            dateColor: '#fff',
-            textBgColor: '#28292a',
-            borderColor:'rgba(0, 0, 0, 0.0)',
-        };
-
-        var currentTheme = getCurrentTheme();
-
-        function getCurrentTheme() {
-            const localStorageTheme = localStorage.getItem('appearance');
-            const htmlElement = document.documentElement;
-            const isDarkMode = htmlElement.classList.contains('dark');
-
-            if (localStorageTheme === 'dark' || (localStorageTheme !== 'light' && isDarkMode)) {
-                return darkTheme;
-            } else if (localStorageTheme === 'light' || (localStorageTheme !== 'dark' && !isDarkMode)) {
-                return lightTheme;
-            } else {
-                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    return darkTheme;
-                } else {
-                    return lightTheme;
-                }
-            }
+        for (let i = 1; i < 13; i++) {
+        let monthSpan = document.createElement('span');
+            monthSpan.textContent = monthNames[(currentDate.getMonth() + i) % 12];
+            monthDiv.appendChild(monthSpan);
         }
 
-        option = {
-            tooltip: {
-                hideDelay: 1000,
-                enterable: true,
-                backgroundColor: currentTheme.textBgColor,
-                borderWidth: 0,
-                formatter: function (p) {
-                    const date = p.data[0];
-                    const posts = dataMap.get(date);
-                    const formattedDate = new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-                    var content = `<span style="font-size: 0.75rem;font-family: var(--font-family-code);">${formattedDate}</span>`;
-                    for (const [i, post] of posts.entries()) {
-                        content += "<br>";
-                        var link = post.link;
-                        var title = post.title;
-                        content += `<a href="${link}" target="_blank">《${title}》</a>` + '<br>';
-                    }
-                    return content;
-                }
-            },
-            visualMap: {
-                show: false,
-                inRange: {
-                    color: currentTheme.highlightColor
-                },
-            },
-            calendar: {
-                left: 20,
-                top:20,
-                bottom:20,
-                right: 20,
-                cellSize: ['auto', 13],
-                range: [startDate, endDate],
-                itemStyle: {
-                    color: currentTheme.cubeColor,
-                    //color: 'transparent',
-                    borderWidth: 3.5,
-                    borderColor: currentTheme.backgroundColor,
-                },
-                yearLabel: { show: false },
-                monthLabel: {
-                    nameMap: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                    textStyle: {
-                        color: currentTheme.dateColor,
-                }
-            },
-                dayLabel: {
-                    firstDay: 1,
-                    nameMap: ['日', '一', '', '三', '', '五', ''],
-                    textStyle: {
-                        color: currentTheme.dateColor
-                    }
-                },
-                splitLine: {
-                    show: false,
-                    lineStyle: {
-                        color: currentTheme.borderColor,
-                    }
-                }
-            },
-            series: {
-                type: 'heatmap',
-                coordinateSystem: 'calendar',
-                data: data,
-            }
-        };
+        let numberOfWeeks;
 
-        heatmapChart.setOption(option);
-        heatmapChart.on('click', function(params) {
-            if (params.componentType === 'series') {
-            const post = dataMap.get(params.data[0])[0];
-            const link = window.location.origin + post.link;
-            window.open(link, '_blank').focus();
-            }
-        });
+        let monthToHide = document.querySelectorAll('.month span:nth-child(n+2)');
 
-        });
-    })();
+        if (window.innerWidth <= 375) {
+            // < iPhone SE
+            numberOfWeeks = 21;
+
+            for (let i = 1; i < 8; i++) {
+                monthToHide[i].classList.add('hidden');
+            }
+
+            let currentDate = new Date();
+            currentDate.setDate(currentDate.getDate() - (20 * 7)); // 计算 20 周之前的日期
+            startDate = getNextMonday(currentDate).toISOString();
+
+        } else if (window.innerWidth < 768) {
+            numberOfWeeks = 25;
+
+            for (let i = 1; i < 7; i++) {
+                monthToHide[i].classList.add('hidden');
+            }
+
+            let currentDate = new Date();
+            currentDate.setDate(currentDate.getDate() - (24 * 7)); // 计算 24 周之前的日期
+            startDate = getNextMonday(currentDate).toISOString();
+
+        } else {
+            numberOfWeeks = 53;
+            startDate = getNextMonday(currentDate).toISOString();
+        }
+
+        contributions_calendar.init(data, startDate, numberOfWeeks);
+
+    }
+
 </script>
 
 <script>
