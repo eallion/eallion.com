@@ -253,7 +253,10 @@ other = "删除"
 
 # === 自定义 ===
 [load_comments]
-other = "加载评论（Giscus）"
+other = "加载<span class='mx-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Giscus</span>评论，或者 "
+
+[link_to_mastodon]
+other = "到<span class='ml-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Mastodon</span>讨论"
 
 [album_quote]
 other = "我的随手拍。我不会拍照，所以只能叫随手拍。通过 <a href='https://e5n.cc/tags/ealbum' target='_blank' rel='noreferrer noopener nofollow'>#ealbum</a> 引用。"

@@ -255,7 +255,10 @@ other = "DELETED"
 
 # === Custom ===
 [load_comments]
-other = "Load Comments (Giscus)"
+other = "Load<span class='mx-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Giscus</span>Comments, or "
+
+[link_to_mastodon]
+other = "discuss on<span class='ml-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Mastodon</span>"
 
 [album_quote]
 other = "My Album with Mastodon Tag <a href='https://e5n.cc/tags/ealbum' target='_blank' rel='noreferrer noopener nofollow'><code>#ealbum</code></a>."
