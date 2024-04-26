@@ -1,11 +1,11 @@
 {{ define "main" }}
 {{ .Scratch.Set "scope" "single" }}
 
-{{- /* ECharts js */ -}}
-{{ $echartsJS := resources.Get "lib/echarts/echarts.min.js" | fingerprint "sha256" }}
-{{ $macaronsJS := resources.Get "lib/echarts/macarons.min.js" | fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $echartsJS.RelPermalink }}" integrity="{{ $echartsJS.Data.Integrity }}"></script>
-<script type="text/javascript" src="{{ $macaronsJS.RelPermalink }}" integrity="{{ $macaronsJS.Data.Integrity }}"></script>
+{{ $statsCss := resources.Get "css/stats.scss" | toCSS | minify | fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $statsCss.RelPermalink }}" integrity="{{ $statsCss.Data.Integrity }}" crossorigin="anonymous">
+
+{{ $calCss := resources.Get "css/cal-heatmap.css" | fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $calCss.RelPermalink }}" integrity="{{ $calCss.Data.Integrity }}" crossorigin="anonymous">
 
 {{- /* Stats */ -}}
 {{$articleCount := 0}}
@@ -34,7 +34,7 @@
 {{ range $posts }}
     {{ $date := .Date.Format "2006" }}
     {{ $categories := .Params.categories }}
-    {{ $stats = $stats | append (dict "date" $date "categories" $categories) }}
+    {{ $stats = $stats | append (dict "date" .Date "categories" $categories "year" (.Date.Format "2006") "month" (.Date.Format "2006-01") "hour" (.Date.Format "15") "week" (.Date.Format "Monday") "count" .WordCount "slug" .Slug "title" .Title) }}
 {{ end }}
 
 {{$categoryCount = len $categories}}
@@ -62,841 +62,616 @@
 {{- $steam_web_api := getJSON "data/steam/steam_web_api.json" -}}
 {{- $steamCount :=$steam_web_api.response.game_count -}}
 
-{{ $statsCss := resources.Get "css/stats.scss" | toCSS | minify | fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ $statsCss.RelPermalink }}" integrity="{{ $statsCss.Data.Integrity }}" crossorigin="anonymous">
-
 <article>
-  {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
-  {{ $heroStyle := .Params.heroStyle }}
-  {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
-  {{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
-  {{ if templates.Exists $heroStyle }}
-  {{ partial $heroStyle . }}
-  {{ else }}
-  {{ partial "partials/hero/basic.html" . }}
-  {{ end }}
-  {{ end }}
-
-  <header id="single_header" class="mt-5 max-w-prose">
-    {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
-    {{ partial "breadcrumbs.html" . }}
+    {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
+    {{ $heroStyle := .Params.heroStyle }}
+    {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
+    {{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
+    {{ if templates.Exists $heroStyle }}
+    {{ partial $heroStyle . }}
+    {{ else }}
+    {{ partial "partials/hero/basic.html" . }}
     {{ end }}
-    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      {{ .Title | emojify }}
-    </h1>
-
-    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-      {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
-    </div>
-
-    {{ $authorsData := .Site.Data.authors }}
-    {{ $taxonomies := .Site.Taxonomies.authors }}
-    {{ $baseURL := .Site.BaseURL }}
-    {{ $taxonomyLink := 0 }}
-    {{ $showAuthor := 0 }}
-
-    {{ if not (strings.HasSuffix $baseURL "/") }}
-    {{ $baseURL = delimit (slice $baseURL "/") "" }}
     {{ end }}
 
-    {{ if not (.Params.showAuthorBottom | default ( .Site.Params.article.showAuthorBottom | default false)) }}
-
-      {{ if .Params.showAuthor | default (.Site.Params.article.showAuthor | default true) }}
-        {{ $showAuthor = 1 }}
-        {{ partial "author.html" . }}
-      {{ end }}
-
-      {{ range $author := .Page.Params.authors }}
-        {{ $authorData := index $authorsData $author }}
-        {{- if $authorData -}}
-          {{ range $taxonomyname, $taxonomy := $taxonomies }}
-            {{ if (eq $taxonomyname $author) }}
-              {{ $taxonomyLink = delimit (slice $baseURL "/authors/" $author) "" }}
-            {{ end }}
-          {{ end }}
-          {{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $taxonomyLink) }}
-        {{- end -}}
-      {{ end }}
-
-      {{ if or $taxonomyLink $showAuthor }}
-      <div class="mb-5"></div>
-      {{ end }}
-
-    {{ end }}
-  </header>
-
-  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
-
-    {{ if or (and (.Params.showTableOfContents | default (.Site.Params.article.showTableOfContents | default false)) (in
-    .TableOfContents "<ul")) (.Site.Params.article.showRelatedPosts | default false) }} <div
-      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
-      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky {{ if hasPrefix .Site.Params.header.layout "fixed" -}}
-        lg:top-[140px]{{ else }}lg:top-10{{ end }}">
-
-        {{ if and (.Params.showTableOfContents | default (.Site.Params.article.showTableOfContents | default false)) (in
-        .TableOfContents "<ul") }} {{ partial "toc.html" . }} {{ end }} {{ if .Site.Params.article.showRelatedPosts |
-          default false }} sd {{ end }} </div>
-      </div>
-      {{ end }}
-
-      <div class="min-w-0 min-h-0 max-w-fit">
-
-        {{ partial "series/series.html" . }}
-
-        <div class="article-content max-w-full mb-20">
-
-            <div id="heatmap"></div>
-
-            <div class="">
-                <ul>
-                    <li>{{ T `stats_blogs` | safeHTML }}<strong><a href="/blog/">{{- $articleCount -}}</a></strong> {{ T `stats_blogs_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_pages` | safeHTML }}<strong><a href="/stats/">{{- $pageCount -}}</a></strong> {{ T `stats_pages_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_authors` | safeHTML }}<strong><a href="/authors/">2 </a></strong> {{ T `stats_authors_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_categories` | safeHTML }}<strong><a href="/categories/">{{- $categoryCount -}}</a></strong> {{ T `stats_categories_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_series` | safeHTML }}<strong><a href="/series/">3 </a></strong> {{ T `stats_series_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_tags` | safeHTML }}<strong><a href="/tags/">{{- $tagCount -}}</a></strong> {{ T `stats_tags_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_links` | safeHTML }}<strong><a href="/links/">{{- $linkCount -}}</a></strong> {{ T `stats_links_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_wordcount` | safeHTML }}<strong><a href="/stats/">{{- $totalWords -}}</a></strong> {{ T `stats_wordcount_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_mastodon` | safeHTML }}<strong><a href="/mastodon/">{{- $statusesCount -}}</a></strong> {{ T `stats_mastodon_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_neodb` | safeHTML }}<strong><a href="/media/">{{- len $neodbCount -}}</a></strong> {{ T `stats_neodb_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_steam` | safeHTML }}<strong><a href="/steam/">{{- $steamCount -}}</a></strong> {{ T `stats_steam_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_penta` | safeHTML }}<strong><a href="/penta/">{{- len $pentaCount.penta -}}</a></strong> {{ T `stats_penta_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_views` | safeHTML }}<a>99<sup>+</sup></a> {{ T `stats_views_suffix` | safeHTML }}</li>
-                    <li>{{ T `stats_comments` | safeHTML }}<a>99<sup>+</sup> </a>{{ T `stats_comments_suffix` | safeHTML }}</li>
-                </ul>
-            </div>
-
-            <h3 id="{{ T `stats_ypb_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_ypb_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_ypb_header` | safeHTML }}</h3>
-
-            <details>
-                <summary><span id="year_num"></span> {{ T `stats_ypb_passed` | safeHTML }}<span id="yp_text"></span><div class="year_progress_bar_container">
-                    <div class="year_progress_bar_border">
-                        <div class="year_progress_bar_text"><span id="year_num"></span> Progress Bar</div>
-                        <div class="year_progress_bar_content">
-                            <div class="year_progress grid-item">
-                                <div class="bar">
-                                    <div id="yp_bar"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div></summary>
-                <div class="days">
-                    <div class="days_cont" id="days_cont"></div>
-                </div>
-            </details>
-
-            <h3 id="{{ T `stats_annual_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_annual_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_annual_header` | safeHTML }}</h3>
-            <div id="annual" data-stats='{{- $.Scratch.Get "stats" -}}'></div>
-
-            <h3 id="{{ T `stats_category_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_category_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_category_header` | safeHTML }}</h3>
-            <div id="category"></div>
-
-            <script type="text/javascript">
-                // 年度进度条
-                const daysContainer = document.getElementById("days_cont");
-                const yBar = document.getElementById("yp_bar");
-                const mBar = document.getElementById("mp_bar");
-                const dBar = document.getElementById("dp_bar");
-                const hBar = document.getElementById("hp_bar");
-                const yText = document.getElementById("yp_text");
-                const mText = document.getElementById("mp_text");
-                const dText = document.getElementById("dp_text");
-                const hText = document.getElementById("hp_text");
-                const yNum = document.querySelectorAll("#year_num");
-                let curYearPercent = 0;
-                const updInterval = 750;
-                let margin = getComputedStyle(document.documentElement)
-                    .getPropertyValue("--gridMargin")
-                    .replace("px", "");
-                const daynNite = document.getElementById("day_night");
-
-                const setDaySize = () => {
-                    const { width, height } = daysContainer.getBoundingClientRect();
-                    let contSize = Math.floor(Math.sqrt((width * height) / 365));
-                    contSize -= margin * 2;
-                    document.documentElement.style.setProperty("--day_size", contSize + "px");
-                };
-
-                const getDaysArray = (daysCount) => {
-                    const wrapper = document.createDocumentFragment();
-                    const startDate = new Date();
-                    startDate.setDate(1);
-                    startDate.setMonth(0);
-
-                    for (let i = 1; i <= daysCount; i++) {
-                        let day = document.createElement("div");
-                        day.dataset.date = formatDate(startDate);
-                        wrapper.append(day);
-                        startDate.setDate(startDate.getDate() + 1);
-                    }
-                    return wrapper;
-                };
-
-                const formatDate = (date) => {
-                    const months = [
-                        "Jan",
-                        "Feb",
-                        "Mar",
-                        "Apr",
-                        "May",
-                        "Jun",
-                        "Jul",
-                        "Aug",
-                        "Sep",
-                        "Oct",
-                        "Nov",
-                        "Dec",
-                    ];
-                    const month = months[date.getMonth()];
-                    const day = date.getDate().toString().padStart(2, "0");
-                    const year = date.getFullYear();
-                    return `${month} ${day}, ${year}`;
-                };
-
-                const init = () => {
-                    setDaySize();
-                    daysContainer.append(getDaysArray(365));
-                    setYearNumber();
-                    startCalculating();
-                    setDaysCurrent();
-                    setInterval(() => {
-                        startCalculating();
-                    }, updInterval);
-                    window.addEventListener("resize", () => {
-                        daysContainer.innerHTML = "";
-                        setDaySize();
-                        daysContainer.append(getDaysArray(365));
-                        setDaysCurrent();
-                    });
-                };
-
-                const setHoursBarWidth = (date, now) => {
-                    let elapsed = now - date;
-                    elapsed = elapsed / 1000 / 60 / 60;
-                    elapsed = Math.round(elapsed * 10000) / 100 + "%";
-                    hText.textContent = elapsed;
-                    hBar.style.width = elapsed;
-                };
-
-                const setDayBarWidth = (date, now) => {
-                    let elapsed = now - date;
-                    elapsed = elapsed / 1000 / 60 / 60 / 24;
-                    elapsed = Math.round(elapsed * 100000) / 1000 + "%";
-                    dText.textContent = elapsed;
-                    dBar.style.width = elapsed;
-                };
-
-                const setMonthBarWidth = (date, now) => {
-                    let elapsed = now - date;
-                    let curMonthLength = new Date(
-                        now.getFullYear(),
-                        now.getMonth() + 1,
-                        0
-                    ).getDate();
-                    elapsed = elapsed / 1000 / 60 / 60 / 24 / curMonthLength;
-                    elapsed = Math.round(elapsed * 1000000) / 10000 + "%";
-                    mText.textContent = elapsed;
-                    mBar.style.width = elapsed;
-                };
-
-                const setYearBarWidth = (date, now) => {
-                    let elapsed = now - date;
-                    elapsed = elapsed / 1000 / 60 / 60 / 24 / numOfDays(now.getFullYear());
-                    elapsed = Math.round(elapsed * 100000000) / 1000000;
-                    curYearPercent = elapsed;
-                    elapsed = elapsed.toFixed(2) + "%";
-                    yText.textContent = elapsed;
-                    yBar.style.width = elapsed;
-                };
-
-                const setDaysCurrent = () => {
-                    const currDayNum =
-                        (1 + Math.floor((curYearPercent * daysContainer.childNodes.length) / 100)) %
-                        daysContainer.childNodes.length;
-                    Array.from({ length: currDayNum }, (element, index) => {
-                        daysContainer
-                            .querySelector(`:nth-child(${index + 1})`)
-                            .classList.add("passed");
-                    });
-                    daysContainer
-                        .querySelector(`:nth-child(${currDayNum})`)
-                        .classList.add("flicker", "hover-date");
-                };
-
-                const startCalculating = () => {
-                    let date = new Date();
-                    let now = new Date();
-                    date.setMinutes(0);
-                    date.setSeconds(0);
-                    date.setMilliseconds(0);
-                    // setHoursBarWidth(date, now);
-                    date.setHours(0);
-                    // setDayBarWidth(date, now);
-                    date.setDate(1);
-                    // setMonthBarWidth(date, now);
-                    date.setMonth(0);
-                    setYearBarWidth(date, now);
-                };
-
-                const setYearNumber = () => {
-                    yNum.forEach((yNum) => {
-                        yNum.innerText = new Date().getFullYear();
-                    });
-                };
-
-                document.addEventListener("DOMContentLoaded", () => {
-                    init();
-                });
-
-                const dayNightChange = () => {
-                    if (!daynNite.classList.contains("light")) {
-                        document.documentElement.style.setProperty("--black", "rgba(0, 107, 238, 0.75)");
-                        document.documentElement.style.setProperty("--white", "#eee");
-                        daynNite.classList.toggle("light");
-                    } else {
-                        document.documentElement.style.setProperty("--black", "#eee");
-                        document.documentElement.style.setProperty("--white", "rgba(0, 107, 238, 0.75)");
-                        daynNite.classList.toggle("light");
-                    }
-                };
-
-                // daynNite.addEventListener("click", () => {
-                //     dayNightChange();
-                // });
-
-                const numOfDays = (year) => (isLeapYear(year) ? 366 : 365);
-
-                const isLeapYear = (year) => {
-                    if (year % 4 !== 0) {
-                        return false;
-                    } else if (year % 100 !== 0) {
-                        return true;
-                    } else if (year % 400 !== 0) {
-                        return false;
-                    } else {
-                        return true;
-                    }
-                };
-            </script>
-
-
-            <script type="text/javascript">
-                // 生成热力图
-                (function() {
-                document.addEventListener("DOMContentLoaded", function() {
-                    var heatmapChart = echarts.init(document.getElementById("heatmap"));
-                    window.onresize = function() {
-                        heatmapChart.resize();
-                    };
-
-                    var option;
-                    var dataMap = new Map();
-                    {{ range ((where .Site.RegularPages "Type" "blog")) }}
-                        var key = {{ .Date.Format "2006-01-02" }};
-                        var value = dataMap.get(key);
-                        var link = {{ .RelPermalink}};
-                        var title = {{ .Title }};
-
-                        // multiple posts in same day
-                        if (value == null) {
-                        dataMap.set(key, [{link, title}]);
-                        } else {
-                        value.push({link, title});
-                        }
-                    {{- end -}}
-
-                    var data = [];
-                    for (const [key, value] of dataMap.entries()) {
-                        data.push([key, value.length]);
-                    }
-
-                    var endDate = new Date();
-                    var startDate = new Date(endDate);
-
-                    // 获取屏幕宽度
-                    var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-
-                    // 如果屏幕宽度适配 DoIt 主题
-                    if (screenWidth >= 600) {
-                        startDate.setFullYear(startDate.getFullYear() - 1);
-                    } else if (screenWidth >= 400) {
-                        startDate.setMonth(startDate.getMonth() - 9);
-                    } else {
-                        startDate.setMonth(startDate.getMonth() - 6);
-                    }
-
-                    startDate = +startDate;
-                    endDate = +endDate;
-
-                    startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
-                    endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
-
-                    var lightTheme = {
-                        backgroundColor: 'rgba(255, 255, 255, 1)',
-                        cubeColor:'#ebedf0',
-                        highlightColor: ['rgba(37, 99, 235, 1)'],
-                        dateColor: '#1f2328',
-                        textBgColor: '#fff',
-                        borderColor:'rgba(0, 0, 0, 0.0)',
-                    };
-
-                    var darkTheme = {
-                        backgroundColor: 'rgba(34, 39, 46, 1)',
-                        cubeColor:'#161b22',
-                        highlightColor: ['rgba(96, 165, 250, 1)'],
-                        dateColor: '#fff',
-                        textBgColor: '#28292a',
-                        borderColor:'rgba(0, 0, 0, 0.0)',
-                    };
-
-                    var currentTheme = getCurrentTheme();
-
-                    function getCurrentTheme() {
-                        const localStorageTheme = localStorage.getItem('appearance');
-                        const htmlElement = document.documentElement;
-                        const isDarkMode = htmlElement.classList.contains('dark');
-
-                        if (localStorageTheme === 'dark' || (localStorageTheme !== 'light' && isDarkMode)) {
-                            return darkTheme;
-                        } else if (localStorageTheme === 'light' || (localStorageTheme !== 'dark' && !isDarkMode)) {
-                            return lightTheme;
-                        } else {
-                            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                                return darkTheme;
-                            } else {
-                                return lightTheme;
-                            }
-                        }
-                    }
-
-                    option = {
-                        tooltip: {
-                            hideDelay: 1000,
-                            enterable: true,
-                            backgroundColor: currentTheme.textBgColor,
-                            borderWidth: 0,
-                            formatter: function (p) {
-                                const date = p.data[0];
-                                const posts = dataMap.get(date);
-                                const formattedDate = new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-                                var content = `<span style="font-size: 0.75rem;font-family: var(--font-family-code);">${formattedDate}</span>`;
-                                for (const [i, post] of posts.entries()) {
-                                    content += "<br>";
-                                    var link = post.link;
-                                    var title = post.title;
-                                    content += `<a href="${link}" target="_blank">《${title}》</a>` + '<br>';
-                                }
-                                return content;
-                            }
-                        },
-                        visualMap: {
-                            show: false,
-                            inRange: {
-                                color: currentTheme.highlightColor
-                            },
-                        },
-                        calendar: {
-                            left: 20,
-                            top:20,
-                            bottom:20,
-                            right: 20,
-                            cellSize: ['auto', 13],
-                            range: [startDate, endDate],
-                            itemStyle: {
-                                color: currentTheme.cubeColor,
-                                //color: 'transparent',
-                                borderWidth: 3.5,
-                                borderColor: currentTheme.backgroundColor,
-                            },
-                            yearLabel: { show: false },
-                            monthLabel: {
-                                nameMap: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                                textStyle: {
-                                    color: currentTheme.dateColor,
-                            }
-                        },
-                            dayLabel: {
-                                firstDay: 1,
-                                nameMap: ['日', '一', '', '三', '', '五', ''],
-                                textStyle: {
-                                    color: currentTheme.dateColor
-                                }
-                            },
-                            splitLine: {
-                                show: false,
-                                lineStyle: {
-                                    color: currentTheme.borderColor,
-                                }
-                            }
-                        },
-                        series: {
-                            type: 'heatmap',
-                            coordinateSystem: 'calendar',
-                            data: data,
-                        }
-                    };
-
-                    heatmapChart.setOption(option);
-                    heatmapChart.on('click', function(params) {
-                        if (params.componentType === 'series') {
-                        const post = dataMap.get(params.data[0])[0];
-                        const link = window.location.origin + post.link;
-                        window.open(link, '_blank').focus();
-                        }
-                    });
-
-                    });
-                })();
-            </script>
-
-            <script type="text/javascript">
-                // 按年统计
-                (function() {
-                    document.addEventListener("DOMContentLoaded", function() {
-                        var chartDom = document.getElementById('annual');
-                        var myChart = echarts.init(chartDom, 'macarons');
-                        var option;
-
-                        // 获取文章数据
-                        var articles = {{ $stats }};
-                        // 获取分类数据
-                        // var categories = ['所有文章', '日志', '代码', '分享', '山贼'];
-                        // 获取分类数据
-
-                        var categories = [];
-
-                        articles.forEach(function(article) {
-                            article.categories.forEach(function(category) {
-                                if (!categories.includes(category)) {
-                                    categories.push(category);
-                                }
-                            });
-                        });
-
-                        categories.unshift('{{ T `stats_total_posts` | safeHTML }}');
-
-                        // 构造 x 轴数据
-                        var currentYear = new Date().getFullYear();
-                        var years = [];
-                        for (var i = 2006; i <= currentYear; i++) {
-                            years.push(i.toString());
-                        }
-
-                        // 构造分类数据
-                        var seriesData = [];
-                        for (var j = 1; j< categories.length; j++) {
-                            var category = categories[j];
-                            var categoryData = [];
-                            for (var k = 0; k< years.length; k++) {
-                                var year = years[k];
-                                var count = articles.filter(function(article) {
-                                    return article.date === year && article.categories.includes(category);
-                                }).length;
-                                categoryData.push(count);
-                            }
-                            seriesData.push({
-                                name: category,
-                                type: 'line',
-                                data: categoryData
-                            });
-                        }
-
-                        // 添加总文章数量序列
-                        var totalData = [];
-                        for (var k = 0; k< years.length; k++) {
-                            var year = years[k];
-                            var count = articles.filter(function(article) {
-                                return article.date === year;
-                            }).length;
-                            totalData.push(count);
-                        }
-                        seriesData.unshift({
-                            name: '{{ T `stats_total_posts` | safeHTML }}',
-                            type: 'line',
-                            stack: 'Total',
-                            data: totalData
-                        });
-
-                        option = {
-                            title: {
-                                text: '{{ T `stats_annual_header` | safeHTML }}',
-                                top: '2%',
-                                left: 'center'
-                            },
-                            tooltip: {
-                                trigger: 'axis'
-                            },
-                            legend: {
-                                data: categories,
-                                top: '10%'
-                            },
-                            grid: {
-                                left: '5%',
-                                right: '5%',
-                                bottom: '5%',
-                                top: '20%',
-                                containLabel: true
-                            },
-                            toolbox: {
-                                feature: {
-                                    saveAsImage: {
-                                        title: '{{ T `stats_save_as_image` | safeHTML }}'
-                                    }
-                                }
-                            },
-                            xAxis: {
-                                type: 'category',
-                                boundaryGap: false,
-                                data: years
-                            },
-                            yAxis: {
-                                type: 'value'
-                            },
-                            series: seriesData
-                        };
-
-                        option && myChart.setOption(option);
-                    });
-                })();
-            </script>
-
-            <script type="text/javascript">
-                // 按分类统计
-                (function() {
-                    document.addEventListener("DOMContentLoaded", function() {
-                        var chartDom = document.getElementById('category');
-                        var myChart = echarts.init(chartDom, 'macarons');
-                        var option;
-
-                        var data = [];
-
-                        {{ range $category, $pages := .Site.Taxonomies.categories }}
-                            var category = "{{ $category }}";
-                            var count = {{ len $pages }};
-                            data.push({ value: count, name: category + '（' + count + '）' });
-                        {{ end }}
-
-                        data.sort(function(a, b) {
-                            return b.value - a.value;
-                        });
-
-                        option = {
-                            title: {
-                                text: '{{ T `stats_category_header` | safeHTML }}',
-                                top: "2%",
-                                left: "center"
-                            },
-                            tooltip: {
-                                trigger: 'item'
-                            },
-                            legend: {
-                                top: '10%',
-                                left: 'center'
-                            },
-                            toolbox: {
-                                feature: {
-                                    saveAsImage: {
-                                        title: "{{ T `stats_save_as_image` | safeHTML }}"
-                                    }
-                                }
-                            },
-                            series: [
-                                {
-                                name: '按分类统计',
-                                type: 'pie',
-                                radius: ['40%', '80%'],
-                                top: '10%',
-                                avoidLabelOverlap: false,
-                                padAngle: 1,
-                                itemStyle: {
-                                    borderRadius: 10
-                                },
-                                label: {
-                                    show: false,
-                                    position: 'center'
-                                },
-                                emphasis: {
-                                    label: {
-                                    show: true,
-                                    fontSize: 24,
-                                    fontWeight: 'bold'
-                                    }
-                                },
-                                labelLine: {
-                                    show: false
-                                },
-                                data: data
-                                }
-                            ],
-                        };
-                        option.legend.data = data.map(function(item) { return item.name; });
-                        option && myChart.setOption(option);
-                    });
-                })();
-            </script>
-
-            <h3 id="{{ T `stats_status_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_status_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_status_header` | safeHTML }}</h3>
-
-            <div class="badge">
-              <a href="https://github.com/eallion/eallion.com/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/License-GLWT-green">
-              </a>
-              <a href="https://status.eallion.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt alt="Uptime Robot ratio (30 days)" src="https://img.shields.io/uptimerobot/ratio/m783953686-5912db7169eea9ce488b60c1?link=https%3A%2F%2Fstatus.eallion.com">
-              </a>
-              <a href="https://github.com/eallion/eallion.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/github/repo-size/eallion/eallion.com">
-              </a>
-              <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/github/v/tag/eallion/eallion.com">
-              </a>
-              <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/github/commits-since/eallion/eallion.com/v4.0.1/main">
-              </a>
-              <a href="https://github.com/eallion/eallion.com/commits/main" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/github/last-commit/eallion/eallion.com">
-              </a>
-              <a href="https://wakatime.com/@018dff59-cb93-47dc-bf2d-945cab4bdaae" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://wakatime.com/badge/user/018dff59-cb93-47dc-bf2d-945cab4bdaae/project/018dffa2-e555-41e5-b4b8-abdc7df6ea3d.svg" alt="Total time coded since Mar 2 2024" />
-              </a>
-            </div>
-
-            <h3 id="{{ T `stats_thanks_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_thanks_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_thanks_header` | safeHTML }}</h3>
-
-            <div class="badge">
-              <a href="https://html5.org/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white">
-              </a>
-              <a href="https://www.w3.org/Style/CSS/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white">
-              </a>
-              <a href="https://www.javascript.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white">
-              </a>
-              <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/-Hugo-FF4088?style=flat&logo=Hugo&logoColor=white">
-              </a>
-            </div>
-
-            <div class="badge">
-              <a href="https://www.aliyun.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/Aliyun-blue?style=flat&color=blue&labelColor=555&logo=Alibaba-Cloud&logoColor=fff">
-              </a>
-              <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/Cloudflare-blue?style=flat&color=blue&labelColor=555&logo=cloudflare&logoColor=fff">
-              </a>
-              <a href="https://docker.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/Docker-blue?style=flat&color=blue&labelColor=555&logo=Docker&logoColor=fff">
-              </a>
-              <a href="https://giscus.app/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/Giscus-blue?style=flat&color=blue&labelColor=555&logoColor=fff&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IndoaXRlIiBkPSJNNiAyTDIgOGwxMCAxNEwyMiA4bC00LTZ6Ii8+PC9zdmc+">
-              </a>
-              <a href="https://www.github.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/GitHub-blue?style=flat&color=blue&labelColor=555&logo=GitHub&logoColor=fff">
-              </a>
-              <a href="https://github.com/actions" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/GitHub%20Actions-blue?style=flat&color=blue&labelColor=555&logo=GitHub-Actions&logoColor=fff">
-              </a>
-              <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/Google-blue?style=flat&color=blue&labelColor=555&logo=Google&logoColor=fff">
-              </a>
-              <a href="https://fonts.google.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/Google%20Fonts-blue?style=flat&color=blue&labelColor=555&logo=Google-Fonts&logoColor=fff">
-              </a>
-              <a href="https://gravatar.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/Gravatar-blue?style=flat&color=blue&labelColor=555&logo=Gravatar&logoColor=fff">
-              </a>
-              <a href="https://iconify.design/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/Iconify-blue?style=flat&color=blue&labelColor=555&logo=iconify&logoColor=fff">
-              </a>
-              <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/jsDelivr-blue?style=flat&color=blue&labelColor=555&logo=jsDelivr&logoColor=fff">
-              </a>
-              <a href="https://cloud.tencent.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/Tencent%20Cloud-blue?style=flat&color=blue&labelColor=555&logo=tencent-qq&logoColor=fff">
-              </a>
-              <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/Vercel-blue?style=flat&color=blue&labelColor=555&logo=Vercel&logoColor=fff">
-              </a>
-              <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-                <img class="nozoom" alt src="https://img.shields.io/badge/VS%20Code-blue?style=flat&color=blue&labelColor=555&logo=visual-studio-code&logoColor=fff">
-              </a>
-            </div>
-
-            <h3 id="{{ T `stats_tag_cloud` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_tag_cloud` | safeHTML }}" class="header-mark" title="header-mark"></a><a href="/tags/">{{ T `stats_tag_cloud` | safeHTML }}</a></h3>
-            <div class="tag-cloud-tags">
-                {{- range $.Site.Taxonomies.tags.ByCount -}}
-                    <a href="{{ .Page.RelPermalink }}"><div class="tags-shields"><div class="tags-shields-before">{{ .Page.Title }}</div><div class="tags-shields-after tags-count-{{ .Count }}">{{ .Count }}</div></div></a>
-                {{- end -}}
-            </div>
-
-            {{ .Content | emojify }}
+    <header id="single_header" class="mt-5 max-w-prose">
+        {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
+        {{ partial "breadcrumbs.html" . }}
+        {{ end }}
+        <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        {{ .Title | emojify }}
+        </h1>
+
+        <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
         </div>
 
-        {{ if (.Params.showAuthorBottom | default ( .Site.Params.article.showAuthorBottom | default false)) }}
+        {{ $authorsData := .Site.Data.authors }}
+        {{ $taxonomies := .Site.Taxonomies.authors }}
+        {{ $baseURL := .Site.BaseURL }}
+        {{ $taxonomyLink := 0 }}
+        {{ $showAuthor := 0 }}
 
-          {{ if .Params.showAuthor | default (.Site.Params.article.showAuthor | default true) }}
-            {{ $showAuthor = 1 }}
-            {{ partial "author.html" . }}
-          {{ end }}
-
-          {{ range $author := .Page.Params.authors }}
-            {{ $authorData := index $authorsData $author }}
-            {{- if $authorData -}}
-              {{ range $taxonomyname, $taxonomy := $taxonomies }}
-                {{ if (eq $taxonomyname $author) }}
-                  {{ $taxonomyLink = delimit (slice $baseURL "/authors/" $author) "" }}
-                {{ end }}
-              {{ end }}
-              {{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $taxonomyLink) }}
-            {{- end -}}
-          {{ end }}
-
-          {{ if or $taxonomyLink $showAuthor }}
-          <div class="mb-10"></div>
-          {{ end }}
-
+        {{ if not (strings.HasSuffix $baseURL "/") }}
+        {{ $baseURL = delimit (slice $baseURL "/") "" }}
         {{ end }}
 
-        {{ partial "series/series-closed.html" . }}
-        {{ partial "sharing-links.html" . }}
-        {{ partial "related.html" . }}
-      </div>
+        {{ if not (.Params.showAuthorBottom | default ( .Site.Params.article.showAuthorBottom | default false)) }}
 
-      {{ $translations := .AllTranslations }}
-      {{ with .File }}
-        {{ $path := .Path }}
-        {{range $translations}}
-          {{ $lang := print "."  .Lang  ".md" }}
-          {{ $path = replace $path $lang ".md" }}
-        {{end}}
-      <script>
-        var oid = "views_{{ $path }}"
-        var oid_likes = "likes_{{ $path }}"
-      </script>
-      {{ end }}
-      {{ $jsPage := resources.Get "js/page.js" }}
-      {{ $jsPage = $jsPage | resources.Minify | resources.Fingerprint "sha512" }}
-      <script type="text/javascript" src="{{ $jsPage.RelPermalink }}" integrity="{{ $jsPage.Data.Integrity }}"></script>
+        {{ if .Params.showAuthor | default (.Site.Params.article.showAuthor | default true) }}
+            {{ $showAuthor = 1 }}
+            {{ partial "author.html" . }}
+        {{ end }}
 
-    </section>
-  <footer class="pt-8 max-w-prose print:hidden">
+        {{ range $author := .Page.Params.authors }}
+            {{ $authorData := index $authorsData $author }}
+            {{- if $authorData -}}
+            {{ range $taxonomyname, $taxonomy := $taxonomies }}
+                {{ if (eq $taxonomyname $author) }}
+                {{ $taxonomyLink = delimit (slice $baseURL "/authors/" $author) "" }}
+                {{ end }}
+            {{ end }}
+            {{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $taxonomyLink) }}
+            {{- end -}}
+        {{ end }}
 
-    {{ partial "article-pagination.html" . }}
-    {{ if .Params.showComments | default (.Site.Params.article.showComments | default false) }}
-    {{ if templates.Exists "partials/comments.html" }}
-    <div class="pt-3">
-      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
-      <div class="pt-3">
-        {{ partial "comments.html" . }}
-      </div>
-    </div>
-    {{ else }}
-    {{ warnf "[BLOWFISH] Comments are enabled for %s but no comments partial exists." .File.Path }}
-    {{ end }}
-    {{ end }}
-  </footer>
+        {{ if or $taxonomyLink $showAuthor }}
+        <div class="mb-5"></div>
+        {{ end }}
+
+        {{ end }}
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+
+        {{ if or (and (.Params.showTableOfContents | default (.Site.Params.article.showTableOfContents | default false)) (in
+        .TableOfContents "<ul")) (.Site.Params.article.showRelatedPosts | default false) }} <div
+        class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+        <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky {{ if hasPrefix .Site.Params.header.layout "fixed" -}}
+            lg:top-[140px]{{ else }}lg:top-10{{ end }}">
+
+            {{ if and (.Params.showTableOfContents | default (.Site.Params.article.showTableOfContents | default false)) (in
+            .TableOfContents "<ul") }} {{ partial "toc.html" . }} {{ end }} {{ if .Site.Params.article.showRelatedPosts |
+            default false }} sd {{ end }} </div>
+        </div>
+        {{ end }}
+
+        <div class="min-w-0 min-h-0 max-w-fit">
+
+            {{ partial "series/series.html" . }}
+
+            <div class="article-content max-w-full mb-20">
+
+                <div class="flex flex-col items-end max-w-fit ml-4">
+                    <div class="flex flex-row items-end">
+
+                        <div class="flex flex-col justify-end items-end text-[10px] leading-[12px] mr-1 max-h-[82px] text-right">
+                            <span>Mon</span>
+                            <span>&nbsp;</span>
+                            <span>Wed</span>
+                            <span>&nbsp;</span>
+                            <span>Fri</span>
+                            <span>&nbsp;</span>
+                            <span>Sun</span>
+                        </div>
+
+                        <div id="cal-heatmap"></div>
+
+                    </div>
+
+                    <div class="flex text-xs mt-2 items-center" style="float: right;">
+                        <span class="text-xs" style="color: rgb(118, 131, 144);">{{ T `heatmap_less` | safeHTML }}</span>
+                        <div id="ex-ghDay-legend" style="display: inline-block; margin: 0px 4px;">
+                            <div class="ch-plugin-legend-lite">
+                                <svg class="ch-container" width="71" height="11">
+                                    <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="0" y="0"></rect>
+                                    <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="15" y="0" style="fill: rgb(77, 208, 90);"></rect>
+                                    <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="30" y="0" style="fill: rgb(55, 164, 70);"></rect>
+                                    <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="45" y="0" style="fill: rgb(22, 107, 52);"></rect>
+                                    <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="60" y="0" style="fill: rgb(20, 67, 42);"></rect>
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="text-xs" style="color: rgb(118, 131, 144);">{{ T `heatmap_more` | safeHTML }}</span>
+                    </div>
+
+                </div>
+
+                <div class="blog_status">
+                    <ul>
+                        <li>{{ T `stats_year_progress` | safeHTML }}<strong><a href="/go/?target=aHR0cHM6Ly90d2l0dGVyLmNvbS95ZWFyX3Byb2dyZXNz" target="_blank" rel="noopener noreferrer" aria-label="current_year"><span id="current_year"></span></a></strong> {{ T `stats_year_progress_suffix` | safeHTML }} <a href="/go/?target=aHR0cHM6Ly90d2l0dGVyLmNvbS95ZWFyX3Byb2dyZXNz" target="_blank" rel="noopener noreferrer" aria-label="current_year"><span id="year_progress"></span></a></li>
+                        <li>{{ T `stats_blog_online` | safeHTML }}<strong><a><span id="stats_blog_online_year"></span></a></strong> {{ T `stats_blog_online_year` | safeHTML }} <strong><a><span id="stats_blog_online_month"></span></a></strong> {{ T `stats_blog_online_month` | safeHTML }} <strong><a><span id="stats_blog_online_day"></span></a></strong> {{ T `stats_blog_online_day` | safeHTML }} <strong><a><span id="stats_blog_online_hour"></span></a></strong> {{ T `stats_blog_online_hour` | safeHTML }} (Since: Mar 26, 2010. 14:41:14)</li>
+                        <li>{{ T `stats_blogs` | safeHTML }}<strong><a href="/blog/">{{- $articleCount -}}</a></strong> {{ T `stats_blogs_suffix` | safeHTML }}</li>
+                        <li>{{ T `stats_pages` | safeHTML }}<strong><a href="/stats/">{{- $pageCount -}}</a></strong> {{ T `stats_pages_suffix` | safeHTML }}</li>
+                        <li>{{ T `stats_authors` | safeHTML }}<strong><a href="/authors/">2 </a></strong> {{ T `stats_authors_suffix` | safeHTML }}</li>
+                        <li>{{ T `stats_categories` | safeHTML }}<strong><a href="/categories/">{{- $categoryCount -}}</a></strong> {{ T `stats_categories_suffix` | safeHTML }}</li>
+                        <li>{{ T `stats_series` | safeHTML }}<strong><a href="/series/">3 </a></strong> {{ T `stats_series_suffix` | safeHTML }}</li>
+                        <li>{{ T `stats_tags` | safeHTML }}<strong><a href="/tags/">{{- $tagCount -}}</a></strong> {{ T `stats_tags_suffix` | safeHTML }}</li>
+                        <li>{{ T `stats_links` | safeHTML }}<strong><a href="/links/">{{- $linkCount -}}</a></strong> {{ T `stats_links_suffix` | safeHTML }}</li>
+                        <li>{{ T `stats_wordcount` | safeHTML }}<strong><a href="/stats/">{{- $totalWords -}}</a></strong> {{ T `stats_wordcount_suffix` | safeHTML }}</li>
+                        <li>{{ T `stats_mastodon` | safeHTML }}<strong><a href="/mastodon/">{{- $statusesCount -}}</a></strong> {{ T `stats_mastodon_suffix` | safeHTML }}</li>
+                        <li>{{ T `stats_neodb` | safeHTML }}<strong><a href="/media/">{{- len $neodbCount -}}</a></strong> {{ T `stats_neodb_suffix` | safeHTML }}</li>
+                        <li>{{ T `stats_steam` | safeHTML }}<strong><a href="/steam/">{{- $steamCount -}}</a></strong> {{ T `stats_steam_suffix` | safeHTML }}</li>
+                        <li>{{ T `stats_penta` | safeHTML }}<strong><a href="/penta/">{{- len $pentaCount.penta -}}</a></strong> {{ T `stats_penta_suffix` | safeHTML }}</li>
+                        <li>{{ T `stats_views` | safeHTML }}<a>99<sup>+</sup></a> {{ T `stats_views_suffix` | safeHTML }}</li>
+                        <li>{{ T `stats_comments` | safeHTML }}<a>99<sup>+</sup></a>{{ T `stats_comments_suffix` | safeHTML }}</li>
+                    </ul>
+                </div>
+
+                <h3 id="{{ T `stats_annual_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_annual_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_annual_header` | safeHTML }}</h3>
+
+                <div class="bar-chart">
+                    {{ $currentYear := now.Year }}
+                    {{ $maxCount := 0 }}
+                    {{ range $year := (seq 2006 $currentYear) }}
+                        {{ $yearData := where $stats "year" (string $year) }}
+                        {{ $count := len $yearData }}
+                        {{ if gt $count $maxCount }}
+                            {{ $maxCount = $count }}
+                        {{ end }}
+                    {{ end }}
+
+                    {{ range $year := (seq 2006 $currentYear) }}
+                        {{ $yearData := where $stats "year" (string $year) }}
+                        {{ $count := len $yearData }}
+                        {{ $countPercentage := 0 }}
+                        {{ if ne $count 0 }}
+                            {{/*  懒得修复 CSS 在这里保证最大值为 100%  */}}
+                            {{ $countPercentage = div (mul (float $count) 100) $maxCount }}
+                        {{ end }}
+                        <div class="item" style="--val: {{ $countPercentage}}">
+                            <div class="label text-xs">{{ $year }}</div>
+                            <div class="value">{{ $count }}</div>
+                        </div>
+                    {{ end }}
+                </div>
+
+                <h3 id="{{ T `stats_category_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_category_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_category_header` | safeHTML }}</h3>
+
+                <div class="category flex items-center flex-col lg:flex-row gap-8 lg:gap-16 mx-auto max-w-full lg:max-w-fit">
+                    <div id="pie-chart">
+                    </div>
+                    <div class="labels">
+                        <h3 class="mb-6">{{ T `stats_category_sub_header` | safeHTML }}</h3>
+                        <ul>
+                            {{ $cateCounter := 0 }}
+                            {{ range $category, $pages := .Site.Taxonomies.categories }}
+                                {{ $cateCounter = add $cateCounter 1 }}
+                                {{ $cateCount := len $pages }}
+                                {{ $catePercentage := div (mul (float $cateCount) 100) $articleCount }}
+                                <li id="cate-{{ $cateCounter }}" class="cate-{{ $cateCounter }}" data-percentage='{{ printf "%.2f" $catePercentage }}'>{{ $category }}: {{ $cateCount }} {{ T `stats_category_count` | safeHTML }} （{{ printf "%.2f" $catePercentage }}%）</li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 id="{{ T `stats_status_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_status_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_status_header` | safeHTML }}</h3>
+
+                <div class="badge status">
+                    <a href="https://github.com/eallion/eallion.com/blob/main/LICENSE" target="_blank" rel="noopener noreferrer"
+                        aria-label="badge">
+                        <img class="nozoom" alt src="https://img.shields.io/badge/License-GLWT-green">
+                    </a>
+                    <a href="https://status.eallion.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt alt="Uptime Robot ratio (30 days)"
+                            src="https://img.shields.io/uptimerobot/ratio/m783953686-5912db7169eea9ce488b60c1?link=https%3A%2F%2Fstatus.eallion.com">
+                    </a>
+                    <a href="https://github.com/eallion/eallion.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt src="https://img.shields.io/github/repo-size/eallion/eallion.com">
+                    </a>
+                    <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt src="https://img.shields.io/github/v/tag/eallion/eallion.com">
+                    </a>
+                    <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt src="https://img.shields.io/github/commits-since/eallion/eallion.com/v4.0.1/main">
+                    </a>
+                    <a href="https://github.com/eallion/eallion.com/commits/main" target="_blank" rel="noopener noreferrer"
+                        aria-label="badge">
+                        <img class="nozoom" alt src="https://img.shields.io/github/last-commit/eallion/eallion.com">
+                    </a>
+                    <a href="https://wakatime.com/@018dff59-cb93-47dc-bf2d-945cab4bdaae" target="_blank" rel="noopener noreferrer"
+                        aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://wakatime.com/badge/user/018dff59-cb93-47dc-bf2d-945cab4bdaae/project/018dffa2-e555-41e5-b4b8-abdc7df6ea3d.svg"
+                            alt="Total time coded since Mar 2 2024" />
+                    </a>
+                </div>
+
+                <h3 id="{{ T `stats_thanks_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_thanks_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_thanks_header` | safeHTML }}</h3>
+
+                <div class="badge techstack">
+                    <a href="https://html5.org/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white">
+                    </a>
+                    <a href="https://www.w3.org/Style/CSS/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt src="https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white">
+                    </a>
+                    <a href="https://www.javascript.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white">
+                    </a>
+                    <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt src="https://img.shields.io/badge/-Hugo-FF4088?style=flat&logo=Hugo&logoColor=white">
+                    </a>
+                </div>
+
+                <div class="badge thanks">
+                    <a href="https://www.aliyun.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/Aliyun-blue?style=flat&color=blue&labelColor=555&logo=Alibaba-Cloud&logoColor=fff">
+                    </a>
+                    <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/Cloudflare-blue?style=flat&color=blue&labelColor=555&logo=cloudflare&logoColor=fff">
+                    </a>
+                    <a href="https://docker.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/Docker-blue?style=flat&color=blue&labelColor=555&logo=Docker&logoColor=fff">
+                    </a>
+                    <a href="https://giscus.app/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/Giscus-blue?style=flat&color=blue&labelColor=555&logoColor=fff&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IndoaXRlIiBkPSJNNiAyTDIgOGwxMCAxNEwyMiA4bC00LTZ6Ii8+PC9zdmc+">
+                    </a>
+                    <a href="https://www.github.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/GitHub-blue?style=flat&color=blue&labelColor=555&logo=GitHub&logoColor=fff">
+                    </a>
+                    <a href="https://github.com/actions" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/GitHub%20Actions-blue?style=flat&color=blue&labelColor=555&logo=GitHub-Actions&logoColor=fff">
+                    </a>
+                    <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/Google-blue?style=flat&color=blue&labelColor=555&logo=Google&logoColor=fff">
+                    </a>
+                    <a href="https://fonts.google.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/Google%20Fonts-blue?style=flat&color=blue&labelColor=555&logo=Google-Fonts&logoColor=fff">
+                    </a>
+                    <a href="https://gravatar.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/Gravatar-blue?style=flat&color=blue&labelColor=555&logo=Gravatar&logoColor=fff">
+                    </a>
+                    <a href="https://iconify.design/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/Iconify-blue?style=flat&color=blue&labelColor=555&logo=iconify&logoColor=fff">
+                    </a>
+                    <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/jsDelivr-blue?style=flat&color=blue&labelColor=555&logo=jsDelivr&logoColor=fff">
+                    </a>
+                    <a href="https://cloud.tencent.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/Tencent%20Cloud-blue?style=flat&color=blue&labelColor=555&logo=tencent-qq&logoColor=fff">
+                    </a>
+                    <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/Vercel-blue?style=flat&color=blue&labelColor=555&logo=Vercel&logoColor=fff">
+                    </a>
+                    <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+                        <img class="nozoom" alt
+                            src="https://img.shields.io/badge/VS%20Code-blue?style=flat&color=blue&labelColor=555&logo=visual-studio-code&logoColor=fff">
+                    </a>
+                </div>
+
+                <h3 id="{{ T `stats_tag_cloud` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_tag_cloud` | safeHTML }}" class="header-mark" title="header-mark"></a><a href="/tags/">{{ T `stats_tag_cloud` | safeHTML }}</a></h3>
+
+                <div class="tag-cloud-tags">
+                    {{- range $.Site.Taxonomies.tags.ByCount -}}
+                        <a href="{{ .Page.RelPermalink }}"><div class="tags-shields"><div class="tags-shields-before">{{ .Page.Title }}</div><div class="tags-shields-after tags-count-{{ .Count }}">{{ .Count }}</div></div></a>
+                    {{- end -}}
+                </div>
+
+                {{ .Content | emojify }}
+            </div>
+
+            {{ if (.Params.showAuthorBottom | default ( .Site.Params.article.showAuthorBottom | default false)) }}
+
+            {{ if .Params.showAuthor | default (.Site.Params.article.showAuthor | default true) }}
+                {{ $showAuthor = 1 }}
+                {{ partial "author.html" . }}
+            {{ end }}
+
+            {{ range $author := .Page.Params.authors }}
+                {{ $authorData := index $authorsData $author }}
+                {{- if $authorData -}}
+                {{ range $taxonomyname, $taxonomy := $taxonomies }}
+                    {{ if (eq $taxonomyname $author) }}
+                    {{ $taxonomyLink = delimit (slice $baseURL "/authors/" $author) "" }}
+                    {{ end }}
+                {{ end }}
+                {{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $taxonomyLink) }}
+                {{- end -}}
+            {{ end }}
+
+            {{ if or $taxonomyLink $showAuthor }}
+            <div class="mb-10"></div>
+            {{ end }}
+
+            {{ end }}
+
+            {{ partial "series/series-closed.html" . }}
+            {{ partial "sharing-links.html" . }}
+            {{ partial "related.html" . }}
+        </div>
+
+        {{ $translations := .AllTranslations }}
+        {{ with .File }}
+            {{ $path := .Path }}
+            {{range $translations}}
+            {{ $lang := print "."  .Lang  ".md" }}
+            {{ $path = replace $path $lang ".md" }}
+            {{end}}
+        <script>
+            var oid = "views_{{ $path }}"
+            var oid_likes = "likes_{{ $path }}"
+        </script>
+        {{ end }}
+
+        <script type="text/javascript">
+            // 年度进度条
+            const current_year = new Date().getFullYear();
+            const yearDiv = document.getElementById("current_year");
+            yearDiv.innerHTML = current_year;
+
+            function isLeapYear(year) {
+                return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+            }
+
+            function getYearProgress() {
+                const now = new Date();
+                const currentYear = now.getFullYear();
+                const startOfYear = new Date(currentYear, 0, 1, 0, 0, 0, 0);
+                const endOfYear = isLeapYear(currentYear)
+                    ? new Date(currentYear + 1, 0, 1, 0, 0, 0, 0)
+                    : new Date(currentYear, 11, 31, 23, 59, 59, 999);
+                const yearDuration = endOfYear - startOfYear;
+                const yearProgress = ((now - startOfYear) / yearDuration) * 100;
+                return yearProgress.toFixed(2);
+            }
+
+            const yearProgress = getYearProgress();
+            const progressDiv = document.getElementById("year_progress");
+            progressDiv.innerHTML = yearProgress + "%";
+        </script>
+
+        <script type="text/javascript">
+            // Whois Creation Date: 2010-03-26T14:41:14Z
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const currentMonth = now.getMonth();
+            const currentDate = now.getDate();
+            const currentHour = now.getHours();
+
+            const targetDate = new Date(currentYear, 2, 26);
+            const targetHour = 14;
+
+            let years, months, days, hours;
+
+            if (currentMonth > 2 || (currentMonth === 2 && currentDate >= 26)) {
+                years = currentYear - 2010;
+                months = currentMonth - 2;
+                days = currentDate - 26;
+                hours = currentHour - targetHour;
+            } else {
+                years = currentYear - 2011;
+                months = currentMonth + 10;
+                days = currentDate - 26;
+                hours = currentHour - targetHour;
+            }
+
+            if (hours < 0) {
+                hours += 24;
+                days--;
+            }
+            if (days < 0) {
+                days += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+                months--;
+            }
+            if (months < 0) {
+                months += 12;
+                years--;
+            }
+
+            document.getElementById('stats_blog_online_year').innerText = `${years}`;
+            document.getElementById('stats_blog_online_month').innerText = `${months}`;
+            document.getElementById('stats_blog_online_day').innerText = `${days}`;
+            document.getElementById('stats_blog_online_hour').innerText = `${hours}`;
+        </script>
+
+        {{ $d3JS := resources.Get "js/d3.v7.min.js" | fingerprint "sha256" }}
+        <script type="text/javascript" src="{{ $d3JS.RelPermalink }}" integrity="{{ $d3JS.Data.Integrity }}"></script>
+
+        {{ $calJS := resources.Get "js/cal-heatmap.min.js" | fingerprint "sha256" }}
+        <script type="text/javascript" src="{{ $calJS.RelPermalink }}" integrity="{{ $calJS.Data.Integrity }}"></script>
+
+        {{ $popperJS := resources.Get "js/popper.js" | fingerprint "sha256" }}
+        <script type="text/javascript" src="{{ $popperJS.RelPermalink }}" integrity="{{ $popperJS.Data.Integrity }}"></script>
+
+        {{ $tooltipJS := resources.Get "js/tooltip.min.js" | fingerprint "sha256" }}
+        <script type="text/javascript" src="{{ $tooltipJS.RelPermalink }}" integrity="{{ $tooltipJS.Data.Integrity }}"></script>
+
+        <script type="text/javascript">
+            const cateData = [
+                {{ range $category, $pages := .Site.Taxonomies.categories }}
+                    {name: "{{ $category }}", value: {{ len $pages }}},
+                {{ end }}
+            ];
+
+            const pieWidth = 450,
+                pieHeight = 450,
+                pieMargin = 10;
+
+            const radius = Math.min(pieWidth, pieHeight) / 2 - pieMargin;
+
+            const pieSvg = d3.select("#pie-chart")
+                .append("svg")
+                .attr("width", pieWidth)
+                .attr("height", pieHeight)
+                .append("g")
+                .attr("transform", `translate(${pieWidth / 2}, ${pieHeight / 2})`);
+
+            const color = d3.scaleOrdinal()
+                .range(['#2563eb', ...d3.schemeSet2]);
+
+            const pie = d3.pie()
+                .value(function (d) { return d.value; });
+
+            const arcGenerator = d3.arc()
+                .innerRadius(0)
+                .outerRadius(radius);
+
+            const arcs = pieSvg.selectAll('path')
+                .data(pie(cateData))
+                .join('path')
+                .attr('d', arcGenerator)
+                .attr('fill', function (d) { return color(d.data.name); })
+                .attr("stroke", "black")
+                .style("stroke-width", "2px")
+                .style("opacity", 0.7);
+
+            const labels = pieSvg.selectAll('text')
+                .data(pie(cateData))
+                .join('text')
+                .text(function (d) { return d.data.name; })
+                .attr("transform", function (d) { return `translate(${arcGenerator.centroid(d)})`; })
+                .style("text-anchor", "middle")
+                .style("font-size", 17);
+        </script>
+
+        <script type="text/javascript">
+            // https://cal-heatmap.com/docs/showcase#github-profile-contribution-like
+            // 获取最近一年的文章数据
+            {{ $pages := where .Site.RegularPages "Date" ">" (now.AddDate -1 0 0) }}
+            {{ $pages := $pages.Reverse }}
+            var blogInfo = {
+                "pages": [
+                    {{ range $index, $element := $pages }}
+                        {
+                            "title": "{{ .Title }}",
+                            "date": "{{ .Date.Format "2006-01-02" }}",
+                            "year": "{{ .Date.Format "2006" }}",
+                            "month": "{{ .Date.Format "01" }}",
+                            "day": "{{ .Date.Format "02" }}",
+                            "word_count": "{{ .WordCount }}"
+                        }{{ if ne (add $index 1) (len $pages) }},{{ end }}
+                        {{ end }}
+                ]
+            };
+            // console.log(data)
+
+            // 初始化
+            const cal = new CalHeatmap();
+            const today = new Date();  // 获取今天的日期
+
+            // 适配 Dark theme
+            const localStorageTheme = localStorage.getItem('appearance');
+            const htmlElement = document.documentElement;
+            const isDarkMode = htmlElement.classList.contains('dark');
+            let currentTheme;
+            if (localStorageTheme === 'dark' || (localStorageTheme !== 'light' && isDarkMode)) {
+                currentTheme = 'dark';
+            } else if (localStorageTheme === 'light' || (localStorageTheme !== 'dark' && !isDarkMode)) {
+                currentTheme = 'light';
+            } else {
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    currentTheme = 'dark';
+                } else {
+                    currentTheme = 'light';
+                }
+            }
+
+            // 适配移动端
+            let rangeNum;
+            let startDate;
+
+            // 获取屏幕宽度
+            var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+            if (screenWidth <= 375) {
+                rangeNum = 5
+                startDate = new Date(today.setMonth(today.getMonth() - 4));
+            } else if (screenWidth < 768) {
+                rangeNum = 6
+                startDate = new Date(today.setMonth(today.getMonth() - 5));
+            } else {
+                rangeNum = 12
+                startDate = new Date(today.setMonth(today.getMonth() - 11));
+            }
+
+            // 绘制热力图
+            cal.paint({
+                theme: currentTheme,
+                range: rangeNum,
+                scale: {
+                    color: {
+                        type: 'threshold',
+                        range: ['#4dd05a', '#37a446', '#166b34', '#14432a',],
+                        domain: [100, 1000, 5000, 10000],
+                    },
+                },
+                domain: {
+                    type: 'month',
+                    gutter: 2,
+                    label: { text: 'MMM', textAlign: 'start', position: 'top' },
+                },
+                subDomain: { type: 'ghDay', radius: 2, width: 10, height: 10, gutter: 2 },
+                date: {
+                    start: startDate,
+                    locale: { weekStart: 1 },
+                },
+                data: {
+                    source: blogInfo.pages, x: "date", y: item => {
+                        return parseInt(item.word_count);
+                    }, groupY: 'sum'
+                },
+            }, [
+                [
+                    Tooltip,
+                    {
+                        text: function (date, value, dayjsDate) {
+                            const postCount = blogInfo.pages.filter(page => page.date === dayjsDate.format('YYYY-MM-DD')).length;
+                            const postText = postCount === 0 ? '' : (postCount === 1 ? '共 1 篇' : `共 ${postCount} 篇`);
+                            const wordText = value ? ' 字 ' : '';
+                            const valueText = value ? value : '';
+
+                            return (
+                                postText +
+                                ' ' +
+                                valueText +
+                                wordText +
+                                '<span class="block">' +
+                                dayjsDate.format('MMM D, YYYY') +
+                                '</span>'
+                            );
+                        },
+                    },
+                ],
+            ]);
+
+        </script>
+
+        {{ $jsPage := resources.Get "js/page.js" }}
+        {{ $jsPage = $jsPage | resources.Minify | resources.Fingerprint "sha512" }}
+        <script type="text/javascript" src="{{ $jsPage.RelPermalink }}" integrity="{{ $jsPage.Data.Integrity }}"></script>
+
+        </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+
+        {{ partial "article-pagination.html" . }}
+        {{ if .Params.showComments | default (.Site.Params.article.showComments | default false) }}
+        {{ if templates.Exists "partials/comments.html" }}
+        <div class="pt-3">
+        <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+        <div class="pt-3">
+            {{ partial "comments.html" . }}
+        </div>
+        </div>
+        {{ else }}
+        {{ warnf "[BLOWFISH] Comments are enabled for %s but no comments partial exists." .File.Path }}
+        {{ end }}
+        {{ end }}
+    </footer>
 </article>
 
 {{ end }}

@@ -4,17 +4,6 @@
     --media-bg-color-to: #ffffff;
     --media-bg-color-to-dark: rgb(30, 41, 59);
     --media-bg-color-cover: rgba(0, 0, 0, 80%);
-    --contributions-calendar-day-tile-default-background: #ebedf0;
-    --contributions-calendar-day-tile-margin: 1px;
-    --contributions-calendar-day-tile-height: 10px;
-    --contributions-calendar-day-tile-width: 10px;
-}
-
-contributions-calendar#calendar {
-    --contributions-calendar-day-tile-one-quarter-background: #9be9a8;
-    --contributions-calendar-day-tile-two-quarters-background: #40c463;
-    --contributions-calendar-day-tile-three-quarters-background: #30a14e;
-    --contributions-calendar-day-tile-four-quarters-background: #216e39;
 }
 
 .bg-yellow-600 {
@@ -64,34 +53,4 @@ footer nav ul {
     100% {
         opacity: 1;
     }
-}
-#heatmap{
-    flex-direction: column;
-    display: inline-flex;
-    /*
-    height: 84px;
-    width: 15px;
-    */
-    flex-wrap: wrap;
-}
-
-.entry{
-    display: inline-block;
-    border-radius: 2px;
-    margin: 1px;
-}
-.color-0{
-    background-color: #505050;
-}
-.color-1{
-    background-color: #006d32;
-}
-.color-2{
-    background-color: #26a641;
-}
-.color-3{
-    background-color: #26a641;
-}
-.color-4{
-    background-color: #39d353;
 }

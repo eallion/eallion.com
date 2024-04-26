@@ -115,12 +115,6 @@
       "avatar": "https://pic.yunshusong.cn/upic/20230204122856.jpg"
     },
     {
-      "name": "Yuxi & Yuqi",
-      "bio": "Design loser,slack off champion.",
-      "url": "https://yuxiyuqi.com/",
-      "avatar": "https://img.yuxiyuqi.com/2023/07/202307292154832.png"
-    },
-    {
       "name": "文武科技柜",
       "bio": "文武科技社的后花园",
       "url": "https://www.wangdu.site/",
@@ -185,6 +179,12 @@
       "bio": "设计，摄影，AIGC，代码",
       "url": "https://pipuwong.com/",
       "avatar": "https://pipuwong.com/wp-content/uploads/2023/12/pipuwongcom-logo.jpg"
+    },
+    {
+      "name": "恐咖兵糖的blog",
+      "bio": "芝士，与你分享！",
+      "url": "https://www.ftls.xyz/",
+      "avatar": "https://cdn.ftls.xyz/images/2022/11/zhishi1.jpg"
     }
   ]
 }

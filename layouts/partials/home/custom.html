@@ -1,4 +1,8 @@
 {{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
+
+{{ $calCss := resources.Get "css/cal-heatmap.css" | minify | fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $calCss.RelPermalink }}" integrity="{{ $calCss.Data.Integrity }}" crossorigin="anonymous">
+
 <article class="max-w-full prose dark:prose-invert">
     <div class="relative">
         <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>
@@ -69,15 +73,10 @@
                         {{ end }}
                     </div>
 
-                    <!-- 家里受灾，待完善 -->
-                    <div class="flex flex-col items-center justify-start">
+                    <div class="flex flex-col items-end">
+                        <div class="flex flex-row items-end">
 
-                        <div class="w-full flex items-center justify-between text-xs month span:nth-child(n+2)">
-                            <span>&nbsp;</span>
-                        </div>
-
-                        <div class="flex flex-row items-center justify-between">
-                            <div class="flex flex-col items-end justify-between text-xs leading-[11px] mr-1 mb-[1px] text-right">
+                            <div class="flex flex-col justify-end items-end text-[10px] leading-[12px] mr-1 max-h-[82px] text-right">
                                 <span>Mon</span>
                                 <span>&nbsp;</span>
                                 <span>Wed</span>
@@ -87,9 +86,26 @@
                                 <span>Sun</span>
                             </div>
 
-                            <contributions-calendar id="calendar"></contributions-calendar>
+                            <div id="cal-heatmap"></div>
 
                         </div>
+
+                        <div class="flex text-xs mt-2 items-center" style="float: right;">
+                            <span class="text-xs" style="color: rgb(118, 131, 144);">{{ T `heatmap_less` | safeHTML }}</span>
+                            <div id="ex-ghDay-legend" style="display: inline-block; margin: 0px 4px;">
+                                <div class="ch-plugin-legend-lite">
+                                    <svg class="ch-container" width="71" height="11">
+                                        <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="0" y="0"></rect>
+                                        <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="15" y="0" style="fill: rgb(77, 208, 90);"></rect>
+                                        <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="30" y="0" style="fill: rgb(55, 164, 70);"></rect>
+                                        <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="45" y="0" style="fill: rgb(22, 107, 52);"></rect>
+                                        <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="60" y="0" style="fill: rgb(20, 67, 42);"></rect>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span class="text-xs" style="color: rgb(118, 131, 144);">{{ T `heatmap_more` | safeHTML }}</span>
+                        </div>
+
                     </div>
 
                     <section class="prose dark:prose-invert">{{ .Content | emojify }}</section>
@@ -134,117 +150,150 @@
 {{ if .Site.Params.homepage.layoutBackgroundBlur | default false }}
 <div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
 
-<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
 <script type="text/javascript">
+    /**
+    * 今日诗词V2 JS-SDK 1.2.2
+    * 今日诗词API 是一个可以免费调用的诗词接口：https://www.jinrishici.com
+    */
+    !function(e){var n,t={},o="jinrishici-token";function i(){return document.getElementById("jinrishici-sentence")||0!=document.getElementsByClassName("jinrishici-sentence").length}function c(){t.load(function(e){var n=document.getElementById("jinrishici-sentence"),t=document.getElementsByClassName("jinrishici-sentence");if(n&&(n.innerText=e.data.content),0!==t.length)for(var o=0;o<t.length;o++)t[o].innerText=e.data.content})}function r(e,n){var t=new XMLHttpRequest;t.open("get",n),t.withCredentials=!0,t.send(),t.onreadystatechange=function(n){if(4===t.readyState){var o=JSON.parse(t.responseText);"success"===o.status?e(o):console.error("今日诗词API加载失败，错误原因："+o.errMessage)}}}t.load=function(n){return e.localStorage&&e.localStorage.getItem(o)?function(e,n){return r(e,"https://v2.jinrishici.com/one.json?client=browser-sdk/1.2&X-User-Token="+encodeURIComponent(n))}(n,e.localStorage.getItem(o)):function(n){return r(function(t){e.localStorage.setItem(o,t.token),n(t)},"https://v2.jinrishici.com/one.json?client=browser-sdk/1.2")}(n)},e.jinrishici=t,i()?c():(n=function(){i()&&c()},"loading"!=document.readyState?n():document.addEventListener?document.addEventListener("DOMContentLoaded",n):document.attachEvent("onreadystatechange",function(){"complete"==document.readyState&&n()}))}(window);
+
     jinrishici.load(function(result) {
         var sentence = document.querySelector("#poem_sentence")
         sentence.innerHTML = result.data.content
     });
+
 </script>
 
-{{ $heatmapJS := resources.Get "js/contributions-calendar.js" | minify | fingerprint "sha256" }}
-<script defer type="text/javascript" src="{{ $heatmapJS.RelPermalink }}" integrity="{{ $heatmapJS.Data.Integrity }}"></script>
+{{ $d3JS := resources.Get "js/d3.v7.min.js" | fingerprint "sha256" }}
+<script defer type="text/javascript" src="{{ $d3JS.RelPermalink }}" integrity="{{ $d3JS.Data.Integrity }}"></script>
 
-<script>
-    var data = "";
-    var dataMap = new Map();
-    {{ range ((where .Site.RegularPages "Type" "blog")) }}
-        var key = {{ .Date.Format "2006-01-02T15:04:05.000Z" }};
-        var value = dataMap.get(key);
-        var link = {{ .RelPermalink}};
-        var title = {{ .Title }};
+{{ $calJS := resources.Get "js/cal-heatmap.min.js" | fingerprint "sha256" }}
+<script defer type="text/javascript" src="{{ $calJS.RelPermalink }}" integrity="{{ $calJS.Data.Integrity }}"></script>
 
-        // 处理同一天有多篇博客的情况
-        if (value == null) {
-            dataMap.set(key, [{ date: key, title: title }]);
+{{ $popperJS := resources.Get "js/popper.js" | fingerprint "sha256" }}
+<script defer type="text/javascript" src="{{ $popperJS.RelPermalink }}" integrity="{{ $popperJS.Data.Integrity }}"></script>
+
+{{ $tooltipJS := resources.Get "js/tooltip.min.js" | fingerprint "sha256" }}
+<script defer type="text/javascript" src="{{ $tooltipJS.RelPermalink }}" integrity="{{ $tooltipJS.Data.Integrity }}"></script>
+
+<script type="text/javascript">
+    // 获取最近一年的文章数据
+    {{ $pages := where .Site.RegularPages "Date" ">" (now.AddDate -1 0 0) }}
+    {{ $pages := $pages.Reverse }}
+    var data = {
+        "pages": [
+            {{ range $index, $element := $pages }}
+                {
+                    "title": "{{ .Title }}",
+                    "date": "{{ .Date.Format "2006-01-02" }}",
+                    "year": "{{ .Date.Format "2006" }}",
+                    "month": "{{ .Date.Format "01" }}",
+                    "day": "{{ .Date.Format "02" }}",
+                    "word_count": "{{ .WordCount }}"
+                }{{ if ne (add $index 1) (len $pages) }},{{ end }}
+                {{ end }}
+        ]
+    };
+    // console.log(data)
+
+</script>
+
+<script type="text/javascript">
+    // https://cal-heatmap.com/docs/showcase#github-profile-contribution-like
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // 博客数据 data 传值
+        let blogInfo = data;
+
+        // 初始化
+        const cal = new CalHeatmap();
+        const today = new Date();  // 获取今天的日期
+
+        // 适配 Dark theme
+        const localStorageTheme = localStorage.getItem('appearance');
+        const htmlElement = document.documentElement;
+        const isDarkMode = htmlElement.classList.contains('dark');
+        let currentTheme;
+        if (localStorageTheme === 'dark' || (localStorageTheme !== 'light' && isDarkMode)) {
+            currentTheme = 'dark';
+        } else if (localStorageTheme === 'light' || (localStorageTheme !== 'dark' && !isDarkMode)) {
+            currentTheme = 'light';
         } else {
-            value.push({ date: key, title: title });
-            dataMap.set(key, value);
-        }
-    {{- end -}}
-
-    var data = Array.from(dataMap.values()).flat();
-    // console.log(data);
-    document.addEventListener("contributions-calendar-day-selected", day_selected_listener);
-    function day_selected_listener(event) {
-        // console.log('contributions-calendar-day-selected event for calendar #' + event.target.id);
-
-        const date_contributions = event.detail;
-
-        var date = new Date(parseInt(date_contributions.date))
-        const contributions = date_contributions.contributions;
-
-        const statement = `${contributions} contribution(s) on ${date}`;
-        console.log(statement);
-    }
-
-    document.addEventListener("contributions-calendar-ready", contributions_calendar_ready);
-    function contributions_calendar_ready(event) {
-        // console.log('contributions-calendar-ready event for calendar #' + event.target.id);
-
-        // contribution calendar instance passed as an event detail once DOM is ready
-        const contributions_calendar = event.detail;
-
-
-        function getNextMonday(date) {
-            let dayOfWeek = date.getDay(); // 获取指定日期是星期几
-            let daysToNextMonday = (8 - dayOfWeek) % 7; // 计算距离下一个星期一的天数
-
-            let nextMonday = new Date(date);
-            nextMonday.setDate(date.getDate() + daysToNextMonday); // 设置为指定日期的下一个星期一
-
-            return nextMonday;
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                currentTheme = 'dark';
+            } else {
+                currentTheme = 'light';
+            }
         }
 
-        let currentDate = new Date();
-        currentDate.setFullYear(currentDate.getFullYear() - 1);
-
+        // 适配移动端
+        let rangeNum;
         let startDate;
 
-        let monthDiv = document.querySelector('.month');
-        let monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        // 获取屏幕宽度
+        var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-        for (let i = 1; i < 13; i++) {
-        let monthSpan = document.createElement('span');
-            monthSpan.textContent = monthNames[(currentDate.getMonth() + i) % 12];
-            monthDiv.appendChild(monthSpan);
-        }
-
-        let numberOfWeeks;
-
-        let monthToHide = document.querySelectorAll('.month span:nth-child(n+2)');
-
-        if (window.innerWidth <= 375) {
-            // < iPhone SE
-            numberOfWeeks = 21;
-
-            for (let i = 1; i < 8; i++) {
-                monthToHide[i].classList.add('hidden');
-            }
-
-            let currentDate = new Date();
-            currentDate.setDate(currentDate.getDate() - (20 * 7)); // 计算 20 周之前的日期
-            startDate = getNextMonday(currentDate).toISOString();
-
-        } else if (window.innerWidth < 768) {
-            numberOfWeeks = 25;
-
-            for (let i = 1; i < 7; i++) {
-                monthToHide[i].classList.add('hidden');
-            }
-
-            let currentDate = new Date();
-            currentDate.setDate(currentDate.getDate() - (24 * 7)); // 计算 24 周之前的日期
-            startDate = getNextMonday(currentDate).toISOString();
-
+        if (screenWidth <= 375 ) {
+            rangeNum = 5
+            startDate = new Date(today.setMonth(today.getMonth() - 4));
+        } else if (screenWidth < 768 ) {
+            rangeNum = 6
+            startDate = new Date(today.setMonth(today.getMonth() - 5));
         } else {
-            numberOfWeeks = 53;
-            startDate = getNextMonday(currentDate).toISOString();
+            rangeNum = 12
+            startDate = new Date(today.setMonth(today.getMonth() - 11));
         }
 
-        contributions_calendar.init(data, startDate, numberOfWeeks);
+        // 绘制热力图
+        cal.paint({
+            theme: currentTheme,
+            range: rangeNum,
+            scale: {
+                color: {
+                    type: 'threshold',
+                    range: ['#4dd05a', '#37a446', '#166b34', '#14432a',],
+                    domain: [100, 1000, 5000, 10000],
+                },
+            },
+            domain: {
+                type: 'month',
+                gutter: 2,
+                label: { text: 'MMM', textAlign: 'start', position: 'top' },
+            },
+            subDomain: { type: 'ghDay', radius: 2, width: 10, height: 10, gutter: 2 },
+            date: {
+                start: startDate,
+                locale: { weekStart: 1 },
+            },
+            data: {
+                source: blogInfo.pages, x: "date", y: item => {
+                    return parseInt(item.word_count);
+                }, groupY: 'sum'
+            },
+        }, [
+            [
+                Tooltip,
+                {
+                    text: function (date, value, dayjsDate) {
+                        const postCount = blogInfo.pages.filter(page => page.date === dayjsDate.format('YYYY-MM-DD')).length;
+                        const postText = postCount === 0 ? '' : (postCount === 1 ? '共 1 篇' : `共 ${postCount} 篇`);
+                        const wordText = value ? ' 字 ' : '';
+                        const valueText = value ? value : '';
 
-    }
+                        return (
+                            postText +
+                            ' ' +
+                            valueText +
+                            wordText +
+                            '<span class="block">' +
+                            dayjsDate.format('MMM D, YYYY') +
+                            '</span>'
+                        );
+                    },
+                },
+            ],
+        ]);
+    });
 
 </script>
 
@@ -254,5 +303,6 @@
         var background_blur = document.getElementById('background-blur');
         background_blur.style.opacity = (scroll / 300)
     });
+
 </script>
 {{ end }}

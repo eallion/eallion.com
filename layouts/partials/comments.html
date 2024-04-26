@@ -1,7 +1,6 @@
 <div class="comment-on flex items-center mt-8 capitalize print:hidden">
-    <div id="load-giscus" class="inline-block relative">{{ T `load_comments` | safeHTML }}</div>
-    <!-- 家里受灾，待完善 -->
-    <div id="link-to-mastodon" class="flex items-center relative ml-2">{{ T `link_to_mastodon` | safeHTML }}{{ partial "icon.html" "external-link-alt" }}</div>
+    <div id="load-giscus" class="inline-block relative">Load<span class='mx-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Giscus</span>or</div>
+    <div id="link-to-mastodon" class="flex items-center relative ml-2">discussion on <span class='mx-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Mastodon</span>{{ partial "icon.html" "external-link-alt" }}</div>
 </div>
 <div id="comments" class=""></div>
 <script>

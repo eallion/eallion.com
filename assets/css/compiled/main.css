@@ -1553,6 +1553,11 @@ select {
   margin-right:0.25rem
 }
 
+.mx-2 {
+  margin-left:0.5rem;
+  margin-right:0.5rem
+}
+
 .mx-\[15\%\] {
   margin-left:15%;
   margin-right:15%
@@ -1668,10 +1673,6 @@ select {
   margin-bottom:2rem
 }
 
-.mb-\[1px\] {
-  margin-bottom:1px
-}
-
 .mb-\[2px\] {
   margin-bottom:2px
 }
@@ -1690,6 +1691,10 @@ select {
 
 .ml-3 {
   margin-left:0.75rem
+}
+
+.ml-4 {
+  margin-left:1rem
 }
 
 .ml-6 {
@@ -1875,6 +1880,10 @@ select {
   height:3px
 }
 
+.h-\[400px\] {
+  height:400px
+}
+
 .h-\[800px\] {
   height:800px
 }
@@ -1902,6 +1911,10 @@ select {
 
 .max-h-\[5rem\] {
   max-height:5rem
+}
+
+.max-h-\[82px\] {
+  max-height:82px
 }
 
 .min-h-0 {
@@ -1982,6 +1995,10 @@ select {
 
 .w-\[33\%\] {
   width:33%
+}
+
+.w-\[800px\] {
+  width:800px
 }
 
 .w-full {
@@ -2106,10 +2123,6 @@ select {
   cursor:pointer
 }
 
-.resize {
-  resize:both
-}
-
 .list-none {
   list-style-type:none
 }
@@ -2148,6 +2161,10 @@ select {
 
 .flex-wrap {
   flex-wrap:wrap
+}
+
+.flex-nowrap {
+  flex-wrap:nowrap
 }
 
 .items-start {
@@ -2192,6 +2209,10 @@ select {
 
 .gap-4 {
   gap:1rem
+}
+
+.gap-8 {
+  gap:2rem
 }
 
 .gap-x-2 {
@@ -2759,6 +2780,10 @@ select {
   font-size:0.6rem
 }
 
+.text-\[10px\] {
+  font-size:10px
+}
+
 .text-base {
   font-size:1rem;
   line-height:1.5rem
@@ -2844,8 +2869,8 @@ select {
   line-height:1.75rem
 }
 
-.leading-\[11px\] {
-  line-height:11px
+.leading-\[12px\] {
+  line-height:12px
 }
 
 .\!text-neutral {
@@ -2976,6 +3001,10 @@ select {
 
 .opacity-70 {
   opacity:0.7
+}
+
+.opacity-75 {
+  opacity:0.75
 }
 
 .mix-blend-normal {
@@ -4953,6 +4982,10 @@ pre {
   text-underline-offset:2px
 }
 
+.hover\:opacity-100:hover {
+  opacity:1
+}
+
 .hover\:opacity-90:hover {
   opacity:0.9
 }
@@ -5419,6 +5452,11 @@ pre {
     padding-right:6rem
   }
 
+  .md\:text-xl {
+    font-size:1.25rem;
+    line-height:1.75rem
+  }
+
   .md\:opacity-100 {
     opacity:1
   }
@@ -5507,6 +5545,11 @@ pre {
     max-width:80rem
   }
 
+  .lg\:max-w-fit {
+    max-width:-moz-fit-content;
+    max-width:fit-content
+  }
+
   .lg\:max-w-none {
     max-width:none
   }
@@ -5529,6 +5572,10 @@ pre {
 
   .lg\:flex-row {
     flex-direction:row
+  }
+
+  .lg\:gap-16 {
+    gap:4rem
   }
 
   .lg\:gap-24 {
