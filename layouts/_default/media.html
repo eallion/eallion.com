@@ -117,7 +117,7 @@
                         {{- end -}}
                     </div>
                     <div class="flex flex-col items-start justify-end absolute p-2 w-full h-fit box-border left-0 -bottom-96 transition-all duration-400 ease-in z-10 group-hover:bottom-0">
-                        <h2 class="m-0 p-0">
+                        <h2 class="m-0 p-0 text-lg md:text-xl">
                             <a href="/go/?target={{- $movie_url | base64Encode -}}" target="_blank" class="block text-neutral text-shadow-xs m-0 p-0" rel="noreferrer noopener nofollow">{{- $title -}}</a>
                         </h2>
 
@@ -132,14 +132,14 @@
                         </div>
 
                         {{- if and .genre (ne .genre nil) }}
-                            <div class="relative mt-1">
+                            <div class="w-full relative mt-1 hidden md:flex flex-nowrap overflow-hidden gap-1">
                                 {{ range first 5 .genre }}
-                                    <span class="mt-0 inline-block rounded text-white capitalize p-1 text-xs text-neutral-200 bg-neutral-700">{{- . -}}</span>
+                                <span class="mt-0 inline-block rounded text-white capitalize p-1 text-xs text-neutral-200 bg-neutral-700">{{- . -}}</span>
                                 {{ end }}
                             </div>
                         {{- else }}
                             {{- $category := .category -}}
-                            <div class="relative mt-1">
+                            <div class="w-full relative mt-1 hidden md:flex flex-nowrap overflow-hidden gap-1">
                                 <span class="mt-0 inline-block rounded text-white capitalize p-1 text-xs text-neutral-200 bg-neutral-700">{{- $category -}}</span>
                             </div>
                         {{- end -}}

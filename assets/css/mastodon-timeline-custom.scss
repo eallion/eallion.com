@@ -1,7 +1,6 @@
 /* mastodon timeline custom */
 
 /* Main container */
-
 .mt-container {
     container: unset;
     background-color: transparent;
@@ -19,10 +18,6 @@
     margin: .25rem 0;
     padding: 1rem 1.25rem;
 }
-
-// .mt-post-header {
-//     align-items: center;
-// }
 
 .mt-post-avatar-standard {
     width: 2.75rem;
@@ -53,26 +48,18 @@
     padding-top: 0 !important;
 }
 
+.mt-post-txt {
+    color: var(--tw-prose-body) !important;
+}
+
 .mt-post-txt .mt-custom-emoji {
     margin-bottom: 0.25rem;
     display: inline-block;
     margin-top: 0;
 }
 
-.dark .mt-post-header-user>a {
-    color: rgba(248, 250, 252, 1) !important;
-}
-
-.dark .mt-post-txt {
-    color: rgba(203, 213, 225, 1);
-}
-
-.dark .mt-post:hover>.mt-post-txt {
-    color: #000;
-}
-
-.dark .mt-post:hover .mt-post-header-user>a {
-    color: #000 !important;
+.mt-post-header-user>a {
+    color: var(--tw-prose-links) !important;
 }
 
 .mt-post-avatar-image-small img {

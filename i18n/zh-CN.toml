@@ -252,12 +252,6 @@ other = "删除"
 # === shortcodes/version.html ===
 
 # === 自定义 ===
-[load_comments]
-other = "加载<span class='mx-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Giscus</span>评论，或者 "
-
-[link_to_mastodon]
-other = "到<span class='ml-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Mastodon</span>讨论"
-
 [album_quote]
 other = "我的随手拍。我不会拍照，所以只能叫随手拍。通过 <a href='https://e5n.cc/tags/ealbum' target='_blank' rel='noreferrer noopener nofollow'>#ealbum</a> 引用。"
 
@@ -423,6 +417,30 @@ other = "立即前往"
 [redirect_message]
 other = "未指定重定向目标。"
 
+[heatmap_less]
+other = "沉默是金"
+
+[heatmap_more]
+other = "废话连篇"
+
+[stats_year_progress]
+other = "年度进度条："
+
+[stats_blog_online]
+other = "博客已运行："
+
+[stats_blog_online_year]
+other = "年"
+
+[stats_blog_online_month]
+other = "月"
+
+[stats_blog_online_day]
+other = "日"
+
+[stats_blog_online_hour]
+other = "小时"
+
 [stats_blogs]
 other = "文章："
 
@@ -480,6 +498,12 @@ other = "按年份统计 - 文章数"
 [stats_category_header]
 other = "按分类统计 - 文章数"
 
+[stats_category_sub_header]
+other = "分类统计"
+
+[stats_category_count]
+other = "篇"
+
 [stats_status_header]
 other = "状态"
 
@@ -494,6 +518,9 @@ other = "所有文章"
 
 [stats_tag_cloud]
 other = "标签云"
+
+[stats_year_progress_suffix]
+other = "已过去"
 
 [stats_blogs_suffix]
 other = "篇；"

@@ -7,171 +7,8 @@
     user-select: none;
 }
 
-:root {
-    --ypb-black: #1f4bb4;
-    --ypb-white: #ddf3fe;
-    --ypb-red: rgba(239, 57, 130, 0.75);
-    --ypb-day_size: 0px;
-    --ypb-barH: 2.5rem;
-    --ypb-gridMargin: 2px;
-    --ypb-margin: 14px;
-    --ypb-bodyMargin: 100px;
-}
-
-#heatmap,
-#annual,
-#category {
-    width: 100%;
-}
-
-#heatmap {
-    max-width: 720px;
-    height: 130px;
-}
-
 #annual {
     height: 30rem;
-}
-
-#category {
-    height: 50rem;
-}
-
-/* year progress bar */
-.year_progress_bar_container {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    background-color: #040c3b;
-    margin-top: 0.25rem;
-    min-height: 7rem;
-}
-
-.year_progress_bar_border {
-    background-color: #4582f7;
-    margin: 1.25rem;
-    z-index: 2;
-    position: absolute;
-    width: calc(100% - 2.25rem);
-    height: calc(100% - 2.25rem);
-}
-
-.year_progress_bar_text {
-    font-size: 0.75rem;
-    color: #fff;
-    font-weight: 700;
-    background-color: #040c3b;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    padding: 0 0.5rem;
-    margin-top: 0.15rem;
-    z-index: 9;
-    white-space: nowrap;
-}
-
-.year_progress_bar_content {
-    background-color: #040c3b;
-    margin: 0.25rem;
-    z-index: 3;
-    position: absolute;
-    width: calc(100% - 0.5rem);
-    height: calc(100% - 0.5rem);
-}
-
-.ypb {
-    height: calc(80vh - 50px);
-    margin: 0 var(--ypb-bodyMargin);
-    padding-bottom: 50px;
-    display: grid;
-    grid-template-rows: auto auto 1fr;
-    grid-template-columns: auto auto;
-    grid-template-areas:
-        "year month"
-        "day hour"
-        "days days";
-    column-gap: 14px;
-}
-
-.grid-item {
-    align-self: center;
-    margin: var(--ypb-margin) 0;
-}
-
-.bar {
-    background: var(--ypb-white);
-    height: var(--ypb-barH);
-    transition: background 500ms cubic-bezier(0.87, -0.2, 0.15, 1.44);
-    width: calc(100% - 2rem);
-    margin: 0 auto;
-
-    div {
-        background: var(--ypb-black);
-        height: 100%;
-        transition: width 450ms linear,
-            background 500ms cubic-bezier(0.87, -0.2, 0.15, 1.44);
-    }
-}
-
-.days {
-    grid-area: days;
-    display: flex;
-    flex-direction: column;
-    margin: var(--ypb-margin) 0 0 0;
-
-    &_cont {
-        display: flex;
-        flex-wrap: wrap;
-        height: 100%;
-        max-width: 100%;
-        margin-top: 5px;
-        align-content: start;
-        gap: var(--ypb-gridMargin);
-
-        div {
-            border: 1px solid var(--ypb-black);
-            height: var(--ypb-day_size);
-            width: var(--ypb-day_size);
-            min-width: 14px;
-            min-height: 14px;
-            position: relative;
-
-            &.passed {
-                background: var(--ypb-black);
-
-                &.flicker {
-                    animation: flicker 1750ms linear infinite;
-                }
-            }
-
-            &.hover-date {
-                &::before {
-                    content: attr(data-date);
-                    white-space: nowrap;
-                    position: absolute;
-                    right: 0;
-                    bottom: 14px;
-                    background-color: rgba(0, 0, 0, 0.75);
-                    color: white;
-                    padding: 2px 4px;
-                    font-size: 12px;
-                    border-radius: 2px;
-                    opacity: 0;
-                    transition: opacity 0.2s;
-                }
-
-                &:hover::before {
-                    opacity: 1;
-                }
-            }
-        }
-    }
-}
-
-#year_num {
-    font-weight: bold;
 }
 
 @keyframes flicker {
@@ -331,4 +168,52 @@
 .tags-count-49,
 .tags-count-50 {
     background-color: red;
+}
+
+.bar-chart {
+    height: 20rem;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 2%;
+    align-items: end;
+    padding-inline: 2%;
+    padding-block: 1.5rem;
+    position: relative;
+    isolation: isolate;
+}
+
+.bar-chart::after {
+    content: "";
+    position: absolute;
+    inset: 1.5rem 0;
+    z-index: -1;
+    background-image: repeating-linear-gradient(to top, transparent 0 calc(calc(100% / 10) - 1px), currentcolor 0 calc(100% / 10));
+    box-shadow: 0 1px 0 currentcolor;
+    opacity: 0.125;
+}
+
+.bar-chart>.item {
+    height: calc(1% * var(--val));
+    background-color: #2563eb;
+    position: relative;
+    animation: item-height 1s ease forwards
+}
+
+@keyframes item-height {
+    from {
+        height: 0
+    }
+}
+
+.bar-chart>.item>* {
+    position: absolute;
+    text-align: center
+}
+
+.bar-chart>.item>.label {
+    inset: 100% 0 auto 0
+}
+
+.bar-chart>.item>.value {
+    inset: auto 0 100% 0
 }

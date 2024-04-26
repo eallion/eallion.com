@@ -49,6 +49,7 @@ smartTOCHideUnfocusedChildren = false
   showMoreLink = true
   showMoreLinkDest = "blog"
   cardView = true
+  showSummary = false
   cardViewScreenWidth = false
   layoutBackgroundBlur = true # only used when layout equals background
 
@@ -93,9 +94,9 @@ smartTOCHideUnfocusedChildren = false
   showViews = false
   showLikes = false
   showTableOfContents = true
-  showCards = true
+  showCards = false
   groupByYear = true
-  cardView = true
+  cardView = false
   cardViewScreenWidth = false
   constrainItemsWidth = false
 
@@ -120,7 +121,7 @@ smartTOCHideUnfocusedChildren = false
   showLikes = false
   showTableOfContents = true
   groupByYear = false
-  cardView = true
+  cardView = false
   cardViewScreenWidth = false
 
 [firebase]

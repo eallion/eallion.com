@@ -254,12 +254,6 @@ other = "DELETED"
 # === shortcodes/version.html ===
 
 # === Custom ===
-[load_comments]
-other = "Load<span class='mx-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Giscus</span>Comments, or "
-
-[link_to_mastodon]
-other = "discuss on<span class='ml-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Mastodon</span>"
-
 [album_quote]
 other = "My Album with Mastodon Tag <a href='https://e5n.cc/tags/ealbum' target='_blank' rel='noreferrer noopener nofollow'><code>#ealbum</code></a>."
 
@@ -425,6 +419,30 @@ other = "Get in Touch"
 [redirect_message]
 other = "No redirect target specified."
 
+[heatmap_less]
+other = "Less"
+
+[heatmap_more]
+other = "More"
+
+[stats_year_progress]
+other = "Year Progress: "
+
+[stats_blog_online]
+other = "Blog Online: "
+
+[stats_blog_online_year]
+other = "Years"
+
+[stats_blog_online_month]
+other = "Month"
+
+[stats_blog_online_day]
+other = "Days"
+
+[stats_blog_online_hour]
+other = "Hours"
+
 [stats_blogs]
 other = "Blogs: "
 
@@ -482,6 +500,12 @@ other = "Blog by Year"
 [stats_category_header]
 other = "Blog by Category"
 
+[stats_category_sub_header]
+other = "Category"
+
+[stats_category_count]
+other = ""
+
 [stats_status_header]
 other = "Status"
 
@@ -496,6 +520,9 @@ other = "All Posts"
 
 [stats_tag_cloud]
 other = "Tag Cloud"
+
+[stats_year_progress_suffix]
+other = "Passed"
 
 [stats_blogs_suffix]
 other = " ;"
