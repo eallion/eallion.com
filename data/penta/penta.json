@@ -1,6 +1,14 @@
 {
   "penta": [
     {
+      "src": "20240427-Vayne.jpg",
+      "alt": "20240427-Vayne",
+      "champion": "Vayne",
+      "date": "2024-04-27",
+      "caption": "暗夜猎手 薇恩",
+      "heroId": "67"
+    },
+    {
       "src": "20240412-Sivir.jpg",
       "alt": "20240412-Sivir",
       "champion": "Sivir",
