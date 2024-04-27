@@ -1458,6 +1458,10 @@ select {
   bottom:-24rem
 }
 
+.-top-8 {
+  top:-2rem
+}
+
 .bottom-0 {
   bottom:0px
 }
@@ -1880,10 +1884,6 @@ select {
   height:3px
 }
 
-.h-\[400px\] {
-  height:400px
-}
-
 .h-\[800px\] {
   height:800px
 }
@@ -1989,6 +1989,10 @@ select {
   width:15%
 }
 
+.w-\[2ch\] {
+  width:2ch
+}
+
 .w-\[30px\] {
   width:30px
 }
@@ -1997,12 +2001,13 @@ select {
   width:33%
 }
 
-.w-\[800px\] {
-  width:800px
-}
-
 .w-full {
   width:100%
+}
+
+.w-max {
+  width:-moz-max-content;
+  width:max-content
 }
 
 .w-screen {
@@ -2297,6 +2302,10 @@ select {
 
 .text-ellipsis {
   text-overflow:ellipsis
+}
+
+.text-clip {
+  text-overflow:clip
 }
 
 .\!whitespace-nowrap {
@@ -2748,6 +2757,10 @@ select {
 
 .text-right {
   text-align:right
+}
+
+.-indent-4 {
+  text-indent:-1rem
 }
 
 .-indent-\[999px\] {
@@ -5403,6 +5416,10 @@ pre {
     margin-top:0px
   }
 
+  .md\:inline-block {
+    display:inline-block
+  }
+
   .md\:flex {
     display:flex
   }
@@ -5423,6 +5440,10 @@ pre {
     width:33.333333%
   }
 
+  .md\:w-8 {
+    width:2rem
+  }
+
   .md\:w-\[33\%\] {
     width:33%
   }
@@ -5439,6 +5460,14 @@ pre {
     grid-template-columns:repeat(4, minmax(0, 1fr))
   }
 
+  .md\:flex-row {
+    flex-direction:row
+  }
+
+  .md\:items-center {
+    align-items:center
+  }
+
   .md\:justify-start {
     justify-content:flex-start
   }
@@ -5452,9 +5481,22 @@ pre {
     padding-right:6rem
   }
 
+  .md\:indent-0 {
+    text-indent:0px
+  }
+
+  .md\:text-base {
+    font-size:1rem;
+    line-height:1.5rem
+  }
+
   .md\:text-xl {
     font-size:1.25rem;
     line-height:1.75rem
+  }
+
+  .md\:capitalize {
+    text-transform:capitalize
   }
 
   .md\:opacity-100 {

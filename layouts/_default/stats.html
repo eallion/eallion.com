@@ -180,7 +180,7 @@
                 <div class="blog_status">
                     <ul>
                         <li>{{ T `stats_year_progress` | safeHTML }}<strong><a href="/go/?target=aHR0cHM6Ly90d2l0dGVyLmNvbS95ZWFyX3Byb2dyZXNz" target="_blank" rel="noopener noreferrer" aria-label="current_year"><span id="current_year"></span></a></strong> {{ T `stats_year_progress_suffix` | safeHTML }} <a href="/go/?target=aHR0cHM6Ly90d2l0dGVyLmNvbS95ZWFyX3Byb2dyZXNz" target="_blank" rel="noopener noreferrer" aria-label="current_year"><span id="year_progress"></span></a></li>
-                        <li>{{ T `stats_blog_online` | safeHTML }}<strong><a><span id="stats_blog_online_year"></span></a></strong> {{ T `stats_blog_online_year` | safeHTML }} <strong><a><span id="stats_blog_online_month"></span></a></strong> {{ T `stats_blog_online_month` | safeHTML }} <strong><a><span id="stats_blog_online_day"></span></a></strong> {{ T `stats_blog_online_day` | safeHTML }} <strong><a><span id="stats_blog_online_hour"></span></a></strong> {{ T `stats_blog_online_hour` | safeHTML }} (Since: Mar 26, 2010. 14:41:14)</li>
+                        <li class="group relative w-max">{{ T `stats_blog_online` | safeHTML }}<strong><a><span id="stats_blog_online_year"></span></a></strong> {{ T `stats_blog_online_year` | safeHTML }} <strong><a><span id="stats_blog_online_month"></span></a></strong> {{ T `stats_blog_online_month` | safeHTML }} <strong><a><span id="stats_blog_online_day"></span></a></strong> {{ T `stats_blog_online_day` | safeHTML }} <strong><a><span id="stats_blog_online_hour"></span></a></strong> {{ T `stats_blog_online_hour` | safeHTML }}<span class="pointer-events-none absolute -top-8 right-0 w-max rounded bg-neutral-700 px-2 py-2 text-sm font-medium text-neutral-50 opacity-0 shadow transition-opacity group-hover:opacity-100">Since: Mar 26, 2010. 14:41:14</span></li>
                         <li>{{ T `stats_blogs` | safeHTML }}<strong><a href="/blog/">{{- $articleCount -}}</a></strong> {{ T `stats_blogs_suffix` | safeHTML }}</li>
                         <li>{{ T `stats_pages` | safeHTML }}<strong><a href="/stats/">{{- $pageCount -}}</a></strong> {{ T `stats_pages_suffix` | safeHTML }}</li>
                         <li>{{ T `stats_authors` | safeHTML }}<strong><a href="/authors/">2 </a></strong> {{ T `stats_authors_suffix` | safeHTML }}</li>
@@ -220,7 +220,7 @@
                             {{ $countPercentage = div (mul (float $count) 100) $maxCount }}
                         {{ end }}
                         <div class="item" style="--val: {{ $countPercentage}}">
-                            <div class="label text-xs">{{ $year }}</div>
+                            <div class="label text-xs w-[2ch] md:w-8 text-clip overflow-hidden whitespace-nowrap -indent-4 md:indent-0">{{ $year }}</div>
                             <div class="value">{{ $count }}</div>
                         </div>
                     {{ end }}
@@ -498,8 +498,8 @@
                 {{ end }}
             ];
 
-            const pieWidth = 450,
-                pieHeight = 450,
+            const pieWidth = 353, // Minimum width for Pixel 4
+                pieHeight = 353,
                 pieMargin = 10;
 
             const radius = Math.min(pieWidth, pieHeight) / 2 - pieMargin;
