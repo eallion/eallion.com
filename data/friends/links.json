@@ -7,6 +7,12 @@
       "avatar": "/eallion.webp"
     },
     {
+      "name": "博友圈",
+      "bio": "博客人的朋友圈，博客收录与文章 RSS 聚合网站。",
+      "url": "https://www.boyouquan.com/",
+      "avatar": "https://gravatar.eallion.com/avatar/ced4b22c3e7a0a4fb5452c166eee6e0e"
+    },
+    {
       "name": "Matrix67",
       "bio": "数学博客",
       "url": "http://www.matrix67.com",
