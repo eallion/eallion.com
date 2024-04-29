@@ -1697,10 +1697,6 @@ select {
   margin-left:0.75rem
 }
 
-.ml-4 {
-  margin-left:1rem
-}
-
 .ml-6 {
   margin-left:1.5rem
 }
@@ -1876,6 +1872,10 @@ select {
   height:1000px
 }
 
+.h-\[10px\] {
+  height:10px
+}
+
 .h-\[150px\] {
   height:150px
 }
@@ -1886,6 +1886,10 @@ select {
 
 .h-\[800px\] {
   height:800px
+}
+
+.h-\[84px\] {
+  height:84px
 }
 
 .h-auto {
@@ -1911,10 +1915,6 @@ select {
 
 .max-h-\[5rem\] {
   max-height:5rem
-}
-
-.max-h-\[82px\] {
-  max-height:82px
 }
 
 .min-h-0 {
@@ -1983,6 +1983,10 @@ select {
 
 .w-\[100\%\] {
   width:100%
+}
+
+.w-\[10px\] {
+  width:10px
 }
 
 .w-\[15\%\] {
@@ -2200,6 +2204,10 @@ select {
   justify-content:space-between
 }
 
+.justify-around {
+  justify-content:space-around
+}
+
 .gap-1 {
   gap:0.25rem
 }
@@ -2218,6 +2226,10 @@ select {
 
 .gap-8 {
   gap:2rem
+}
+
+.gap-\[2px\] {
+  gap:2px
 }
 
 .gap-x-2 {
@@ -2434,6 +2446,31 @@ select {
 
 .border-transparent {
   border-color:transparent
+}
+
+.bg-\[\#216e39\] {
+  --tw-bg-opacity:1;
+  background-color:rgb(33 110 57 / var(--tw-bg-opacity))
+}
+
+.bg-\[\#30a14e\] {
+  --tw-bg-opacity:1;
+  background-color:rgb(48 161 78 / var(--tw-bg-opacity))
+}
+
+.bg-\[\#40c463\] {
+  --tw-bg-opacity:1;
+  background-color:rgb(64 196 99 / var(--tw-bg-opacity))
+}
+
+.bg-\[\#9be9a8\] {
+  --tw-bg-opacity:1;
+  background-color:rgb(155 233 168 / var(--tw-bg-opacity))
+}
+
+.bg-\[\#ebedf0\] {
+  --tw-bg-opacity:1;
+  background-color:rgb(235 237 240 / var(--tw-bg-opacity))
 }
 
 .bg-neutral {
@@ -5152,6 +5189,31 @@ pre {
 .dark\:border-primary-600:is(.dark *) {
   --tw-border-opacity:1;
   border-color:rgba(var(--color-primary-600), var(--tw-border-opacity))
+}
+
+.dark\:bg-\[\#006d32\]:is(.dark *) {
+  --tw-bg-opacity:1;
+  background-color:rgb(0 109 50 / var(--tw-bg-opacity))
+}
+
+.dark\:bg-\[\#0e4429\]:is(.dark *) {
+  --tw-bg-opacity:1;
+  background-color:rgb(14 68 41 / var(--tw-bg-opacity))
+}
+
+.dark\:bg-\[\#161b22\]:is(.dark *) {
+  --tw-bg-opacity:1;
+  background-color:rgb(22 27 34 / var(--tw-bg-opacity))
+}
+
+.dark\:bg-\[\#26a641\]:is(.dark *) {
+  --tw-bg-opacity:1;
+  background-color:rgb(38 166 65 / var(--tw-bg-opacity))
+}
+
+.dark\:bg-\[\#39d353\]:is(.dark *) {
+  --tw-bg-opacity:1;
+  background-color:rgb(57 211 83 / var(--tw-bg-opacity))
 }
 
 .dark\:bg-neutral-100:is(.dark *) {

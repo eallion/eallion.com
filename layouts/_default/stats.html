@@ -4,9 +4,6 @@
 {{ $statsCss := resources.Get "css/stats.scss" | toCSS | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $statsCss.RelPermalink }}" integrity="{{ $statsCss.Data.Integrity }}" crossorigin="anonymous">
 
-{{ $calCss := resources.Get "css/cal-heatmap.css" | fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ $calCss.RelPermalink }}" integrity="{{ $calCss.Data.Integrity }}" crossorigin="anonymous">
-
 {{- /* Stats */ -}}
 {{$articleCount := 0}}
 {{$pageCount := 0}}
@@ -142,10 +139,10 @@
 
             <div class="article-content max-w-full mb-20">
 
-                <div class="flex flex-col items-end max-w-fit ml-4">
+                <div class="tailwindcss-heatmap flex flex-col items-end max-w-fit text-[10px] leading-[12px] text-neutral-700 dark:text-neutral-400">
                     <div class="flex flex-row items-end">
 
-                        <div class="flex flex-col justify-end items-end text-[10px] leading-[12px] mr-1 max-h-[82px] text-right">
+                        <div class="flex flex-col justify-end items-end mr-1 mt-1 text-right">
                             <span>Mon</span>
                             <span>&nbsp;</span>
                             <span>Wed</span>
@@ -155,24 +152,26 @@
                             <span>Sun</span>
                         </div>
 
-                        <div id="cal-heatmap"></div>
+                        <div class="heatmap">
+                            <div class="month mb-1 flex justify-around">
+                            </div>
+                            <div class="h-[84px]">
+                                <div id="heatmap" class="flex flex-row"></div>
+                            </div>
+                        </div>
 
                     </div>
 
-                    <div class="flex text-xs mt-2 items-center" style="float: right;">
-                        <span class="text-xs" style="color: rgb(118, 131, 144);">{{ T `heatmap_less` | safeHTML }}</span>
-                        <div id="ex-ghDay-legend" style="display: inline-block; margin: 0px 4px;">
-                            <div class="ch-plugin-legend-lite">
-                                <svg class="ch-container" width="71" height="11">
-                                    <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="0" y="0"></rect>
-                                    <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="15" y="0" style="fill: rgb(77, 208, 90);"></rect>
-                                    <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="30" y="0" style="fill: rgb(55, 164, 70);"></rect>
-                                    <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="45" y="0" style="fill: rgb(22, 107, 52);"></rect>
-                                    <rect width="11" height="11" class="ch-subdomain-bg" rx="2" ry="2" x="60" y="0" style="fill: rgb(20, 67, 42);"></rect>
-                                </svg>
-                            </div>
+                    <div class="flex mt-2 items-center">
+                        <span class="">{{ T `heatmap_less` | safeHTML }}</span>
+                        <div class="flex flex-row items-center gap-[2px] w-max h-[10px] mx-1">
+                            <span class="block w-[10px] h-[10px] rounded-sm bg-[#ebedf0] dark:bg-[#161b22]"></span>
+                            <span class="block w-[10px] h-[10px] rounded-sm bg-[#9be9a8] dark:bg-[#0e4429]"></span>
+                            <span class="block w-[10px] h-[10px] rounded-sm bg-[#40c463] dark:bg-[#006d32]"></span>
+                            <span class="block w-[10px] h-[10px] rounded-sm bg-[#30a14e] dark:bg-[#26a641]"></span>
+                            <span class="block w-[10px] h-[10px] rounded-sm bg-[#216e39] dark:bg-[#39d353]"></span>
                         </div>
-                        <span class="text-xs" style="color: rgb(118, 131, 144);">{{ T `heatmap_more` | safeHTML }}</span>
+                        <span class="">{{ T `heatmap_more` | safeHTML }}</span>
                     </div>
 
                 </div>
@@ -440,7 +439,7 @@
             const now = new Date();
             const currentYear = now.getFullYear();
             const currentMonth = now.getMonth();
-            const currentDate = now.getDate();
+            const currentSysDate = now.getDate();
             const currentHour = now.getHours();
 
             const targetDate = new Date(currentYear, 2, 26);
@@ -448,15 +447,15 @@
 
             let years, months, days, hours;
 
-            if (currentMonth > 2 || (currentMonth === 2 && currentDate >= 26)) {
+            if (currentMonth > 2 || (currentMonth === 2 && currentSysDate >= 26)) {
                 years = currentYear - 2010;
                 months = currentMonth - 2;
-                days = currentDate - 26;
+                days = currentSysDate - 26;
                 hours = currentHour - targetHour;
             } else {
                 years = currentYear - 2011;
                 months = currentMonth + 10;
-                days = currentDate - 26;
+                days = currentSysDate - 26;
                 hours = currentHour - targetHour;
             }
 
@@ -481,15 +480,6 @@
 
         {{ $d3JS := resources.Get "js/d3.v7.min.js" | fingerprint "sha256" }}
         <script type="text/javascript" src="{{ $d3JS.RelPermalink }}" integrity="{{ $d3JS.Data.Integrity }}"></script>
-
-        {{ $calJS := resources.Get "js/cal-heatmap.min.js" | fingerprint "sha256" }}
-        <script type="text/javascript" src="{{ $calJS.RelPermalink }}" integrity="{{ $calJS.Data.Integrity }}"></script>
-
-        {{ $popperJS := resources.Get "js/popper.js" | fingerprint "sha256" }}
-        <script type="text/javascript" src="{{ $popperJS.RelPermalink }}" integrity="{{ $popperJS.Data.Integrity }}"></script>
-
-        {{ $tooltipJS := resources.Get "js/tooltip.min.js" | fingerprint "sha256" }}
-        <script type="text/javascript" src="{{ $tooltipJS.RelPermalink }}" integrity="{{ $tooltipJS.Data.Integrity }}"></script>
 
         <script type="text/javascript">
             const cateData = [
@@ -540,7 +530,6 @@
         </script>
 
         <script type="text/javascript">
-            // https://cal-heatmap.com/docs/showcase#github-profile-contribution-like
             // 获取最近一年的文章数据
             {{ $pages := where .Site.RegularPages "Date" ">" (now.AddDate -1 0 0) }}
             {{ $pages := $pages.Reverse }}
@@ -558,97 +547,163 @@
                         {{ end }}
                 ]
             };
-            // console.log(data)
+            // console.log(blogInfo)
 
-            // 初始化
-            const cal = new CalHeatmap();
-            const today = new Date();  // 获取今天的日期
+            let currentDate = new Date();
+            currentDate.setFullYear(currentDate.getFullYear() - 1);
 
-            // 适配 Dark theme
-            const localStorageTheme = localStorage.getItem('appearance');
-            const htmlElement = document.documentElement;
-            const isDarkMode = htmlElement.classList.contains('dark');
-            let currentTheme;
-            if (localStorageTheme === 'dark' || (localStorageTheme !== 'light' && isDarkMode)) {
-                currentTheme = 'dark';
-            } else if (localStorageTheme === 'light' || (localStorageTheme !== 'dark' && !isDarkMode)) {
-                currentTheme = 'light';
+            let startDate;
+
+            let monthDiv = document.querySelector('.month');
+            let monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            if (window.innerWidth < 768) {
+                numMonths = 6;
             } else {
-                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    currentTheme = 'dark';
+                numMonths = 12;
+            }
+
+            let startMonthIndex = (currentDate.getMonth() - (numMonths - 1) + 12) % 12;
+            for (let i = startMonthIndex; i < startMonthIndex + numMonths; i++) {
+                let monthSpan = document.createElement('span');
+                let monthIndex = i % 12;
+                monthSpan.textContent = monthNames[monthIndex];
+                monthDiv.appendChild(monthSpan);
+            }
+
+            function getStartDate() {
+                const today = new Date();
+
+                if (window.innerWidth < 768) {
+                    numMonths = 6;
                 } else {
-                    currentTheme = 'light';
+                    numMonths = 12;
+                }
+
+                const startDate = new Date(today.getFullYear(), today.getMonth() - numMonths + 1, 1);
+
+                while (startDate.getDay() !== 1) {
+                    startDate.setDate(startDate.getDate() + 1);
+                }
+
+                return startDate;
+            }
+
+            function getWeekDay(date) {
+                const day = date.getDay();
+                return day === 0 ? 6 : day - 1;
+            }
+
+            function createDay(date, title, count, post) {
+                const day = document.createElement("div");
+
+                day.className = "heatmap_day";
+
+                day.setAttribute("data-title", title);
+                day.setAttribute("data-count", count);
+                day.setAttribute("data-post", post);
+                day.setAttribute("data-date", date);
+
+                day.addEventListener("mouseenter", function () {
+                    const tooltip = document.createElement("div");
+                    tooltip.className = "heatmap_tooltip";
+
+                    let tooltipContent = "";
+
+                    if (post && parseInt(post, 10) !== 0) {
+                        tooltipContent += '<span class="heatmap_tooltip_post">' + '共 ' + post + ' 篇' + '</span>';
+                    }
+
+                    if (count && parseInt(count, 10) !== 0) {
+                        tooltipContent += '<span class="heatmap_tooltip_count">' + ' ' + count + ' 字；' + '</span>';
+                    }
+
+                    if (title && parseInt(title, 10) !== 0) {
+                        tooltipContent += '<span class="heatmap_tooltip_title">' + title + '</span>';
+                    }
+
+                    if (date) {
+                        tooltipContent += '<span class="heatmap_tooltip_date">' + date + '</span>';
+                    }
+
+                    tooltip.innerHTML = tooltipContent;
+                    day.appendChild(tooltip);
+                });
+
+                day.addEventListener("mouseleave", function () {
+                    const tooltip = day.querySelector(".heatmap_tooltip");
+                    if (tooltip) {
+                        day.removeChild(tooltip);
+                    }
+                });
+
+                if (count == 0 ) {
+                    day.classList.add("heatmap_day_level_0");
+                } else if (count > 0 && count < 1000) {
+                    day.classList.add("heatmap_day_level_1");
+                } else if (count >= 1000 && count < 2000) {
+                    day.classList.add("heatmap_day_level_2");
+                } else if (count >= 2000 && count < 3000) {
+                    day.classList.add("heatmap_day_level_3");
+                } else {
+                    day.classList.add("heatmap_day_level_4");
+                }
+
+                return day;
+            }
+
+            function createWeek() {
+                const week = document.createElement('div');
+                week.className = 'heatmap_week';
+                return week;
+            }
+
+            function createHeatmap() {
+                const container = document.getElementById('heatmap');
+                const startDate = getStartDate();
+                const endDate = new Date();
+                const weekDay = getWeekDay(startDate);
+
+                let currentWeek = createWeek();
+                container.appendChild(currentWeek);
+
+                let currentDate = startDate;
+                let i = 0;
+
+                while (currentDate <= endDate) {
+                    if (i % 7 === 0 && i !== 0) {
+                        currentWeek = createWeek();
+                        container.appendChild(currentWeek);
+                    }
+
+                    const dateString = currentDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+                    const articleDataList = blogInfo.pages.filter(page => page.date === currentDate.toISOString().split('T')[0]);
+
+                    if (articleDataList.length > 0) {
+                        const titles = articleDataList.map(data => data.title);
+                        const title = titles.map(t => `《${t}》`).join('<br />');
+
+                        let count = 0;
+                        let post = articleDataList.length;
+
+                        articleDataList.forEach(data => {
+                            count += parseInt(data.word_count, 10);
+                        });
+
+                        const day = createDay(dateString, title, count, post);
+                        currentWeek.appendChild(day);
+                    } else {
+                        const day = createDay(dateString, '', '0', '0');
+                        currentWeek.appendChild(day);
+                    }
+
+                    i++;
+                    currentDate.setDate(currentDate.getDate() + 1);
                 }
             }
 
-            // 适配移动端
-            let rangeNum;
-            let startDate;
-
-            // 获取屏幕宽度
-            var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-
-            if (screenWidth <= 375) {
-                rangeNum = 5
-                startDate = new Date(today.setMonth(today.getMonth() - 4));
-            } else if (screenWidth < 768) {
-                rangeNum = 6
-                startDate = new Date(today.setMonth(today.getMonth() - 5));
-            } else {
-                rangeNum = 12
-                startDate = new Date(today.setMonth(today.getMonth() - 11));
-            }
-
-            // 绘制热力图
-            cal.paint({
-                theme: currentTheme,
-                range: rangeNum,
-                scale: {
-                    color: {
-                        type: 'threshold',
-                        range: ['#4dd05a', '#37a446', '#166b34', '#14432a',],
-                        domain: [100, 1000, 5000, 10000],
-                    },
-                },
-                domain: {
-                    type: 'month',
-                    gutter: 2,
-                    label: { text: 'MMM', textAlign: 'start', position: 'top' },
-                },
-                subDomain: { type: 'ghDay', radius: 2, width: 10, height: 10, gutter: 2 },
-                date: {
-                    start: startDate,
-                    locale: { weekStart: 1 },
-                },
-                data: {
-                    source: blogInfo.pages, x: "date", y: item => {
-                        return parseInt(item.word_count);
-                    }, groupY: 'sum'
-                },
-            }, [
-                [
-                    Tooltip,
-                    {
-                        text: function (date, value, dayjsDate) {
-                            const postCount = blogInfo.pages.filter(page => page.date === dayjsDate.format('YYYY-MM-DD')).length;
-                            const postText = postCount === 0 ? '' : (postCount === 1 ? '共 1 篇' : `共 ${postCount} 篇`);
-                            const wordText = value ? ' 字 ' : '';
-                            const valueText = value ? value : '';
-
-                            return (
-                                postText +
-                                ' ' +
-                                valueText +
-                                wordText +
-                                '<span class="block">' +
-                                dayjsDate.format('MMM D, YYYY') +
-                                '</span>'
-                            );
-                        },
-                    },
-                ],
-            ]);
-
+            createHeatmap();
         </script>
 
         {{ $jsPage := resources.Get "js/page.js" }}
