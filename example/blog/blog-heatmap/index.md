@@ -247,7 +247,6 @@ function createDay(date, title, count, post) {
 前面的分解是只一些需要注意的细节，下面是完整的 JS：
 
 ```js
-<script>
 // 获取最近一年的文章数据
 {{ $pages := where .Site.RegularPages "Date" ">" (now.AddDate -1 0 0) }}
 {{ $pages := $pages.Reverse }}
@@ -298,7 +297,7 @@ function getStartDate() {
         numMonths = 12;
     }
 
-    const startDate = new Date(today.getFullYear(), today.getMonth() - numMonths + 1, 1);
+    const startDate = new Date(today.getFullYear(), today.getMonth() - numMonths + 1, 1, today.getHours(), today.getMinutes(), today.getSeconds());
 
     while (startDate.getDay() !== 1) {
         startDate.setDate(startDate.getDate() + 1);
@@ -394,9 +393,9 @@ function createHeatmap() {
             container.appendChild(currentWeek);
         }
 
-        const dateString = currentDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        const dateString = `${currentDate.getFullYear()}-${("0" + (currentDate.getMonth()+1)).slice(-2)}-${("0" + (currentDate.getDate())).slice(-2)}`;
 
-        const articleDataList = blogInfo.pages.filter(page => page.date === currentDate.toISOString().split('T')[0]);
+        const articleDataList = blogInfo.pages.filter(page => page.date === dateString);
 
         if (articleDataList.length > 0) {
             const titles = articleDataList.map(data => data.title);
@@ -409,10 +408,12 @@ function createHeatmap() {
                 count += parseInt(data.word_count, 10);
             });
 
-            const day = createDay(dateString, title, count, post);
+            const formattedDate = formatDate(currentDate);
+            const day = createDay(formattedDate, title, count, post);
             currentWeek.appendChild(day);
         } else {
-            const day = createDay(dateString, '', '0', '0');
+            const formattedDate = formatDate(currentDate);
+            const day = createDay(formattedDate, '', '0', '0');
             currentWeek.appendChild(day);
         }
 
@@ -421,8 +422,12 @@ function createHeatmap() {
     }
 }
 
+function formatDate(date) {
+    const options = { month: 'short', day: 'numeric', year: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+}
+
 createHeatmap();
-</>
 ```
 
 ### 三、HTML DIV 容器 {#html}
