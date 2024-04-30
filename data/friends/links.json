@@ -4,19 +4,13 @@
       "name": "Charles Chin",
       "bio": "charleschin.com",
       "url": "https://charleschin.com",
-      "avatar": "/eallion.webp"
+      "avatar": "https://gravatar.eallion.com/avatar/171e4c30959e8c077a6c58b958624b31"
     },
     {
       "name": "博友圈",
       "bio": "博客人的朋友圈，博客收录与文章 RSS 聚合网站。",
       "url": "https://www.boyouquan.com/",
       "avatar": "https://gravatar.eallion.com/avatar/ced4b22c3e7a0a4fb5452c166eee6e0e"
-    },
-    {
-      "name": "Matrix67",
-      "bio": "数学博客",
-      "url": "http://www.matrix67.com",
-      "avatar": "/assets/images/friends/Matrix67_bg_400x400.png"
     },
     {
       "name": "羽中漫步",
@@ -40,7 +34,7 @@
       "name": "太阳博客",
       "bio": "孙老太的晚年",
       "url": "http://www.sunmingxia.com/",
-      "avatar": "https://gravatar.eallion.com/avatar/aab6e5c5ceb1c1c2d92b35bb88dd013c?s=32&d=mm&r=g"
+      "avatar": "https://gravatar.eallion.com/avatar/aab6e5c5ceb1c1c2d92b35bb88dd013c"
     },
     {
       "name": "秦大叔",
@@ -76,13 +70,13 @@
       "name": "FF",
       "bio": "foolish fox",
       "url": "https://foolishfox.cn/",
-      "avatar": "https://gravatar.eallion.com/avatar/53bc457fbba563ce1ce80edda8310241?d=identicon"
+      "avatar": "https://gravatar.eallion.com/avatar/53bc457fbba563ce1ce80edda8310241"
     },
     {
       "name": "Heo",
       "bio": "爱折腾的设计师",
       "url": "https://blog.zhheo.com/",
-      "avatar": "https://blog.zhheo.com/img/avatar.png"
+      "avatar": "https://gravatar.eallion.com/avatar/d0c536c701e0f333db83c1ced5d2b8cd"
     },
     {
       "name": "Bore's Note",
@@ -100,7 +94,7 @@
       "name": "ILY's Blog",
       "bio": "I Love Y",
       "url": "https://ily.cc/",
-      "avatar": "https://q2.qlogo.cn/g?b=qq&nk=1785255046&s=100"
+      "avatar": "https://gravatar.eallion.com/avatar/7cddb8e0e0ae3694b0a8d31c790ebce6"
     },
     {
       "name": "空白生活",
@@ -118,25 +112,25 @@
       "name": "东评西就",
       "bio": "小饿,专注科技互联网、社交媒体运营",
       "url": "https://dongjunke.cn",
-      "avatar": "https://pic.yunshusong.cn/upic/20230204122856.jpg"
+      "avatar": "https://gravatar.eallion.com/avatar/42542189ddb33064599dc88a5149bea7"
     },
     {
       "name": "文武科技柜",
       "bio": "文武科技社的后花园",
       "url": "https://www.wangdu.site/",
-      "avatar": "https://www.wangdu.site/wp-content/uploads/2021/08/favicon.png"
+      "avatar": "https://gravatar.eallion.com/avatar/3f86f3f1aa105924d030b7d3040a0037"
     },
     {
       "name": "lehhair's Blog",
       "bio": "人似秋鸿来有信，事如春梦了无痕",
       "url": "https://blog.lehhair.net/",
-      "avatar": "https://blog.lehhair.net/upload/logo.jpg"
+      "avatar": "https://gravatar.eallion.com/avatar/947bbc64d98c5c85dd1f56758070289b"
     },
     {
       "name": "老孙博客",
       "bio": "曾梦想仗剑走天涯",
       "url": "https://www.imsun.org/",
-      "avatar": "https://g.izt6.com/avatar/2950778b87c48f43c576c08bd67df6b6"
+      "avatar": "https://gravatar.eallion.com/avatar/2950778b87c48f43c576c08bd67df6b6"
     },
     {
       "name": "1900 的博客",
@@ -160,43 +154,43 @@
       "name": "Kezade",
       "bio": "全栈开发，架构师，向往躺平",
       "url": "https://zyxelva.github.io/",
-      "avatar": "https://zyxelva.github.io/medias/avatar.png"
+      "avatar": "https://gravatar.eallion.com/avatar/26c0365e031855e0422df76e17922435"
     },
     {
       "name": "长街短梦",
       "bio": "此行山高路远，我只剩口袋玫瑰一片",
       "url": "https://wangyunzi.com/",
-      "avatar": "https://blog.wangyunzi.com/avatar.png"
+      "avatar": "https://gravatar.eallion.com/avatar/c1b204bab687a23c8b6d7c8de11c7c59"
     },
     {
       "name": "无名小站",
       "bio": "waahah的小巢",
       "url": "https://www.waahah.xyz/",
-      "avatar": "https://waahah.xyz/img/avatar.png"
+      "avatar": "https://gravatar.eallion.com/avatar/1e32e103af5edd4221fdfc0fd0426b14"
     },
     {
       "name": "修远的小屋",
       "bio": "路漫漫其修远兮，吾将上下而求索",
       "url": "https://house.coderxst.top/",
-      "avatar": "https://bu.dusays.com/2023/10/19/6530f7c2623c2.jpg"
+      "avatar": "https://gravatar.eallion.com/avatar/1f43118595a14e11ac8cb1b79861cb78"
     },
     {
       "name": "皮普的数字花园",
       "bio": "设计，摄影，AIGC，代码",
       "url": "https://pipuwong.com/",
-      "avatar": "https://pipuwong.com/wp-content/uploads/2023/12/pipuwongcom-logo.jpg"
+      "avatar": "https://gravatar.eallion.com/avatar/d3af34e32b9a018ed5b467d63beac3ed"
     },
     {
       "name": "恐咖兵糖的blog",
       "bio": "芝士，与你分享！",
       "url": "https://www.ftls.xyz/",
-      "avatar": "https://cdn.ftls.xyz/images/2022/11/zhishi1.jpg"
+      "avatar": "https://gravatar.eallion.com/avatar/e281e7f36ac67dfc2d66848c8ffb3658"
     },
     {
       "name": "半方池水半方田",
       "bio": "只能懂一点点",
       "url": "https://uuanqin.top/",
-      "avatar": "https://cdn.gallery.uuanqin.top/img/avatar.webp"
+      "avatar": "https://gravatar.eallion.com/avatar/8c8c66638b65075ca3432ffe11f8b9bd"
     }
   ]
 }
