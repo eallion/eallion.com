@@ -1,6 +1,17 @@
-<div class="comment-on flex flex-col md:flex-row items-start md:items-center mt-8 capitalize print:hidden">
-    <div id="load-giscus" class="inline-block relative">Load<span class='mx-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Giscus</span><span class="block md:inline-block mr-2 text-sm md:text-base lowercase md:capitalize">or</span></div>
-    <div id="link-to-mastodon" class="flex items-center relative">discuss on <span class='mx-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'><a href="https://e5n.cc/s/{{ .Slug }}" target="_blank" rel="noopener">Mastodon</a></span>{{ partial "icon.html" "external-link-alt" }}</div>
+<div class="comment-on flex flex-col md:flex-row items-start md:items-center mt-8 text-base capitalize print:hidden">
+    <div id="load-giscus" class="inline-flex items-center relative">
+        <span>Load</span>
+        <span class="ml-2 mr-1">{{ partial "icon.html" "giscus" }}</span>
+        <span class='mr-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Giscus</span>
+    </div>
+    <div id="load-giscus-desc" class="block md:inline-block mr-2 text-sm md:text-base lowercase md:capitalize">or</div>
+    <div id="link-to-mastodon" class="flex items-center relative">
+        <span>discuss on </span>
+        <span class="ml-2">{{ partial "icon.html" "mastodon-purple" }}</span>
+        <span class='ml-1 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'><a
+                href="https://e5n.cc/s/{{ .Slug }}" target="_blank" rel="noopener">Mastodon</a></span>
+        <span>{{ partial "icon.html" "external-link-alt" }}</span>
+    </div>
 </div>
 <div id="comments" class=""></div>
 <script>
@@ -40,6 +51,7 @@
     document.getElementById('load-giscus').addEventListener('click', async () => {
         await loadGiscus();
         document.getElementById('load-giscus').classList.add('hidden');
+        document.getElementById('load-giscus-desc').classList.add('!hidden');
         document.getElementById('link-to-mastodon').classList.add('mb-8');
     });
 </script>

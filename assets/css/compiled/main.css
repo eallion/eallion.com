@@ -1812,6 +1812,10 @@ select {
   display:flex
 }
 
+.inline-flex {
+  display:inline-flex
+}
+
 .table {
   display:table
 }
@@ -1822,6 +1826,10 @@ select {
 
 .hidden {
   display:none
+}
+
+.\!hidden {
+  display:none !important
 }
 
 .\!h-px {
