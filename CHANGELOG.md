@@ -1,3 +1,126 @@
+## v4.0.5 (2024-05-01)
+
+### Bugs fixed
+
+- heatmap date string([`d6c3d5b`](https://github.com/eallion/eallion.com/commit/d6c3d5b0afd0626f9c2225eacdf9e77f03240c81)) (by Charles Chin)
+
+### Performance improves
+
+- stats pie chart([`231d645`](https://github.com/eallion/eallion.com/commit/231d64567be2511e227ccd7a0481d66e2a6c0305)) (by Charles Chin)
+- comments([`368a045`](https://github.com/eallion/eallion.com/commit/368a0451c191f82947e48431f78e302cfc49975f)) (by Charles Chin), Closes: #126
+
+## v4.0.4 (2024-04-30)
+
+### New feature
+
+- tor onion location([`49d2f06`](https://github.com/eallion/eallion.com/commit/49d2f06727deda38164f3d82f337e7febc0cf36d)) (by Charles Chin)
+
+### Bugs fixed
+
+- avatar([`2653ae6`](https://github.com/eallion/eallion.com/commit/2653ae6f91cd2cb4dc9c98a5b265a16ad16dc39a)) (by Charles Chin)
+
+### Performance improves
+
+- stats and comments([`0163d55`](https://github.com/eallion/eallion.com/commit/0163d5528f9741e75092765c695cdfd675229ad7)) (by Charles Chin)
+
+## v4.0.3 (2024-04-16)
+
+## v4.0.2 (2024-04-15)
+
+### Bugs fixed
+
+- new theme detail([`d97cabf`](https://github.com/eallion/eallion.com/commit/d97cabf9e6e2d46c70ef58097cea61942a028140)) (by Charles Chin)
+- link rel([`9bc24ea`](https://github.com/eallion/eallion.com/commit/9bc24ea0e54b7c7b2f9ce84e21147edcc4413125)) (by Charles Chin)
+
+### Performance improves
+
+- mastodon api mirror([`565f64b`](https://github.com/eallion/eallion.com/commit/565f64bd77b2d0c8fe68ecad27fc1a4fad6b0d8f)) (by Charles Chin)
+
+## v4.0.1 (2024-04-12)
+
+### Bugs fixed
+
+- blowfish theme custom([`71231b5`](https://github.com/eallion/eallion.com/commit/71231b534cd59dc1c52feced6146abda4b843fd7)) (by Charles Chin)
+
+## v4.0.0 (2024-04-11)
+
+### New feature
+
+- **comment**: click to load comments([`bd67129`](https://github.com/eallion/eallion.com/commit/bd671293833e36a4002da2f20f3e3dfab775056e)) (by Charles Chin)
+- year progress bar([`041f172`](https://github.com/eallion/eallion.com/commit/041f172fbba7cf717dcf140b2f69c8de5cd3606c)) (by Charles Chin)
+- steam header([`255902a`](https://github.com/eallion/eallion.com/commit/255902a532435f479f6a3543a594769af0e968da)) (by Charles Chin)
+- year progress bar on stats page([`402ac8d`](https://github.com/eallion/eallion.com/commit/402ac8d272ff53b1753148c99ca257394fd11ebe)) (by Charles Chin)
+
+### Bugs fixed
+
+- stats scss([`a01a467`](https://github.com/eallion/eallion.com/commit/a01a467969580b2837f9989be65604cc9065e7da)) (by Charles Chin)
+- not by ai assets path([`376d2f6`](https://github.com/eallion/eallion.com/commit/376d2f64fce63f272bca063af8b4916dd37a6c19)) (by Charles Chin)
+- language select icon([`e7ea62d`](https://github.com/eallion/eallion.com/commit/e7ea62de26c6783c3574534f965cd3e02de06a60)) (by Charles Chin)
+- echarts js([`e76f7a5`](https://github.com/eallion/eallion.com/commit/e76f7a5a0448e545d3373ac6ddcc9e2cf3669dd5)) (by Charles Chin)
+- echarts js([`f0a1a57`](https://github.com/eallion/eallion.com/commit/f0a1a57ddf48a27933fbf39ee2cb09374e1d51a7)) (by Charles Chin)
+- mastodon type gifv([`4dd27f1`](https://github.com/eallion/eallion.com/commit/4dd27f12f4e81420da7441ceff68a0741d5e0937)) (by Charles Chin)
+- steam([`7f0b682`](https://github.com/eallion/eallion.com/commit/7f0b682ee292362b5f660585c1f18d29010997fc)) (by Charles Chin)
+
+### Performance improves
+
+- blowfish theme custom([`9f7bcc6`](https://github.com/eallion/eallion.com/commit/9f7bcc68a36f9591c12611cc05ea32b8f5b4c54c)) (by Charles Chin)
+- migrate some css to scss([`6b9006b`](https://github.com/eallion/eallion.com/commit/6b9006ba1675ff4436060270b5233653e2537cfc)) (by Charles Chin)
+- perf([`05796dc`](https://github.com/eallion/eallion.com/commit/05796dc1c24d00ca398cb579886204c92be1f398)) (by Charles Chin)
+- stats page([`2db04c9`](https://github.com/eallion/eallion.com/commit/2db04c91fa62c09f73b311fc19697eb1f8d68257)) (by Charles Chin)
+
+## v3.0.6 (2024-03-24)
+
+### Bugs fixed
+
+- stats echarts([`1e0818e`](https://github.com/eallion/eallion.com/commit/1e0818e59fdf90c0e63090e7b45edda38b89e9ae)) (by Charles Chin)
+
+### Performance improves
+
+- image processing([`136ad5f`](https://github.com/eallion/eallion.com/commit/136ad5f7dc2c59f8fd22b94f3776e31d47bcac10)) (by Charles Chin)
+
+## v3.0.5 (2024-03-22)
+
+### New feature
+
+- steam page([`936ee4c`](https://github.com/eallion/eallion.com/commit/936ee4ccd1f095f94632ec52186f10a125166a6d)) (by Charles Chin)
+- album page([`674692f`](https://github.com/eallion/eallion.com/commit/674692f8ab57cbe2d65025ab56ab7769ea28671f)) (by Charles Chin)
+- album page([`a7a12aa`](https://github.com/eallion/eallion.com/commit/a7a12aad0d9c26efc5c5f0ae87702f515ee1fadf)) (by Charles Chin)
+- neodb card for toot([`e96dfa2`](https://github.com/eallion/eallion.com/commit/e96dfa2ca38619af1c427bd76d8af6c5df841fbf)) (by Charles Chin)
+- stats local([`81093a3`](https://github.com/eallion/eallion.com/commit/81093a3065a545e78e74d5ea4a316b226a1fd79e)) (by Charles Chin)
+- stats page([`f7b85b9`](https://github.com/eallion/eallion.com/commit/f7b85b9181efc9836d5d7f0ae82d586147429f5e)) (by Charles Chin)
+- lightbox migrate back to lightgallery([`398f8f5`](https://github.com/eallion/eallion.com/commit/398f8f5608204b34f42218dee0771ce9354ff077)) (by Charles Chin)
+- movie neodb api([`0df1fa5`](https://github.com/eallion/eallion.com/commit/0df1fa55ddfae611df827165ab811a06b828bdb0)) (by Charles Chin)
+- home video([`f6a27b5`](https://github.com/eallion/eallion.com/commit/f6a27b55b1b1c667bcd0b031f95f88ee3f196e8d)) (by Charles Chin)
+- polyfill([`8b7cfaa`](https://github.com/eallion/eallion.com/commit/8b7cfaab454757ad207fcd3ecc7ca941aece39e2)) (by Charles Chin)
+- giscus self-hosted([`ea56b4e`](https://github.com/eallion/eallion.com/commit/ea56b4ea0665636ededfa7f09c94d005f897c32d)) (by Charles Chin)
+- new post tpl archetypes([`e29951f`](https://github.com/eallion/eallion.com/commit/e29951f7d5436cd0f976c86c8a5059e0efa24aa8)) (by Charles Chin)
+- toot hide preview link([`27ee45f`](https://github.com/eallion/eallion.com/commit/27ee45f41ff1e90d5152341f969537ac276427b2)) (by Charles Chin)
+- friend link live preview screenshot([`f39413e`](https://github.com/eallion/eallion.com/commit/f39413ecec3f10b5accc3ab1303d3ff4ccd7ea05)) (by Charles Chin)
+- mastodon toot api version([`2b0ff5d`](https://github.com/eallion/eallion.com/commit/2b0ff5d70614835d000a484a011f1269000931ec)) (by Charles Chin)
+- mastodon toot api version([`2233f52`](https://github.com/eallion/eallion.com/commit/2233f52d0aefdeb96084559c814c851c06b3212a)) (by Charles Chin)
+
+### Bugs fixed
+
+- movie title margin([`98cc9f2`](https://github.com/eallion/eallion.com/commit/98cc9f2018056a7dc84bc85ea09f6cbe57a21203)) (by Charles Chin)
+- movie([`7295e97`](https://github.com/eallion/eallion.com/commit/7295e977e82a05276e0cd8b02e65ce0b983bcec2)) (by Charles Chin)
+- home ch en spacing([`50aa5fd`](https://github.com/eallion/eallion.com/commit/50aa5fdfb5249396e7e499602eebefb32f4a0a78)) (by Charles Chin)
+- typo([`6d34604`](https://github.com/eallion/eallion.com/commit/6d3460499dce363dc943ba9f0cc4de787f537618)) (by Charles Chin)
+- movie min height([`8faa1de`](https://github.com/eallion/eallion.com/commit/8faa1defbe884ea8a79322008cfd64c6029a25bc)) (by Charles Chin)
+- stats echarts([`9db04b4`](https://github.com/eallion/eallion.com/commit/9db04b4e88f3010be45a040db0a13a6df18a0930)) (by Charles Chin)
+- pages([`1325992`](https://github.com/eallion/eallion.com/commit/132599292a61d443d8d6e547dbbb3d054151e3c6)) (by Charles Chin)
+- movie all cate([`aaf4cfd`](https://github.com/eallion/eallion.com/commit/aaf4cfdf4cb701dae52275b9be154fe7868ce8f4)) (by Charles Chin)
+- stats([`6586ae2`](https://github.com/eallion/eallion.com/commit/6586ae24660edb5130c717738958d5db4317e5f4)) (by Charles Chin)
+- stats([`55cb8ab`](https://github.com/eallion/eallion.com/commit/55cb8abf1194f4cf17bd5824e89a281a31a62f41)) (by Charles Chin)
+- i18n([`89a1106`](https://github.com/eallion/eallion.com/commit/89a1106779bf30e762d2f7d7187ff8da1bb12702)) (by Charles Chin)
+- color theme and css path([`b1b51ce`](https://github.com/eallion/eallion.com/commit/b1b51ceee1a57ec3ff0311ee6d39a5b4e21a28ad)) (by Charles Chin)
+
+### Performance improves
+
+- redirect landing page([`23e18a8`](https://github.com/eallion/eallion.com/commit/23e18a8f7dcb36f0638fa0aa001c60df26a33412)) (by Charles Chin)
+- bilibili shortcode([`bedf2fa`](https://github.com/eallion/eallion.com/commit/bedf2fab0ac5c3672075c68a85e36b31989ac91c)) (by Charles Chin)
+- home detail([`b084f54`](https://github.com/eallion/eallion.com/commit/b084f54803ae99861d6e4712c2bfcade18243155)) (by Charles Chin)
+- home referrer and update notice([`6fc3d3a`](https://github.com/eallion/eallion.com/commit/6fc3d3af6193555035229e24763d9210481af82e)) (by Charles Chin)
+
 ## v3.0.4 (2024-02-05)
 
 ### New feature
