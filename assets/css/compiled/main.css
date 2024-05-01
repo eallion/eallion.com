@@ -1557,11 +1557,6 @@ select {
   margin-right:0.25rem
 }
 
-.mx-2 {
-  margin-left:0.5rem;
-  margin-right:0.5rem
-}
-
 .mx-\[15\%\] {
   margin-left:15%;
   margin-right:15%
@@ -1824,12 +1819,12 @@ select {
   display:grid
 }
 
-.hidden {
-  display:none
-}
-
 .\!hidden {
   display:none !important
+}
+
+.hidden {
+  display:none
 }
 
 .\!h-px {
@@ -1915,6 +1910,18 @@ select {
 
 .h-screen {
   height:100vh
+}
+
+.h-\[300px\] {
+  height:300px
+}
+
+.h-80 {
+  height:20rem
+}
+
+.h-72 {
+  height:18rem
 }
 
 .max-h-3 {
@@ -2024,6 +2031,18 @@ select {
 
 .w-screen {
   width:100vw
+}
+
+.w-\[300px\] {
+  width:300px
+}
+
+.w-80 {
+  width:20rem
+}
+
+.w-72 {
+  width:18rem
 }
 
 .min-w-0 {
