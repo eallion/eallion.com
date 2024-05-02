@@ -8,7 +8,7 @@ tags:
   - cname
   - cloudflare
 slug: "cdn-cname-cloudflare"
-summary: "本文介绍了如何实现图床 CDN 域名国内境外分流。作者首先提出了实现分流的目的,即削减成本、提高性能。然后说明了实现思路,即国内域名 CNAME 指向 Cloudflare 作为回源,再通过Cloudflare Worker 访问 R2 或 B2 存储。作者列出了各服务的免费限额,以小网站为例说明国内外分流的具体配置步骤,包括 R2 绑定域名、Cloudflare for SaaS 接入、添加 CNAME 记录、创建 Worker 等。文末总结了实现分流的关键步骤。"
+summary: "本文介绍了如何实现图床 CDN 域名国内境外分流。作者首先提出了实现分流的目的，即削减成本、提高性能。然后说明了实现思路，即国内域名 CNAME 指向 Cloudflare 作为回源，再通过 Cloudflare Worker 访问 R2 或 B2 存储。作者列出了各服务的免费限额，以小网站为例说明国内外分流的具体配置步骤，包括 R2 绑定域名、Cloudflare for SaaS 接入、添加 CNAME 记录、创建 Worker 等。文末总结了实现分流的关键步骤。"
 draft: false
 date: 2023-07-29T14:35:49+08:00
 ---
@@ -42,10 +42,10 @@ Cloudflare 的 DNS 确实非常优秀，但 Cloudflare 不能分区解析，它�
 对于小网站，比如本博客，以上服务都是免费的，免费额度：
 
 - DNSPod：用的专业版，但免费版本也有分区解析
-- 腾讯云 COS：50G/月；200万请求
+- 腾讯云 COS：50G/月；200 万请求
 - 腾讯云 CDN：10G/月
 - Cloudflare CDN：正常使用无上限
-- Cloudflare R2: 10G/月； 100万/1000万请求
+- Cloudflare R2: 10G/月； 100 万/1000 万请求
 - Backblaze B2: 10G/月； 与 Cloudflare 有 [流量联盟](https://www.backblaze.com/cloud-storage/integrations)
 
 关于腾讯云的配置略过，这里只讲 Cloudflare 的部分。
@@ -480,7 +480,6 @@ Docs：[Integrate Cloudflare Workers with Backblaze B2](https://www.backblaze.co
     switch (BUCKET_NAME) {
       case "$path":
         url.hostname = B2_ENDPOINT;
-        break;
         break;
       case "$host":
         url.hostname = url.hostname.split(".")[0] + "." + B2_ENDPOINT;

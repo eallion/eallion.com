@@ -8,7 +8,7 @@ tags:
   - NeoDB
   - Token
 slug: "neodb_token"
-summary: "这篇文章介绍了如何获取NeoDB的Access Token。首先需要注册NeoDB和Mastodon账号，并登录NeoDB。然后进入NeoDB的开发者中心，创建一个应用并获取AUTH_CODE。最后，通过发送请求，可以获取到有效期为1年的Access Token。"
+summary: "这篇文章介绍了如何获取 NeoDB 的 Access Token。首先需要注册 NeoDB 和 Mastodon 账号，并登录 NeoDB。然后进入 NeoDB 的开发者中心，创建一个应用并获取 AUTH_CODE。最后，通过发送请求，可以获取到有效期为 1 年的 Access Token。"
 series: ["NeoDB"]
 series_weight: 2
 seriesNavigation: true
@@ -69,7 +69,7 @@ https://neodb.social/auth/oauth/authorize/?response_type=code&client_id=CLIENT_I
 
 #### 2.4 最终获取 `Access Token`
 
-最后一步，打开终端、WSL、VPS或者 Postman 这类工具，发送如下的请求，就能返回 `Access Token` 的值了。
+最后一步，打开终端、WSL、VPS 或者 Postman 这类工具，发送如下的请求，就能返回 `Access Token` 的值了。
 
 ```
     curl -X POST https://neodb.social/oauth/token/ \

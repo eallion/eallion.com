@@ -34,7 +34,7 @@ date: 2024-04-30T14:36:07+08:00
 期间尝试了几个版本，网上也有非常多类似的库：
 
 - [ECharts.js](https://echarts.apache.org/examples/zh/editor.html?c=calendar-heatmap)
-- [Heat.js](https://github.com/williamtroup/Heat.js) (没上线就放弃了)
+- [Heat.js](https://github.com/williamtroup/Heat.js) （没上线就放弃了）
 - [contributions-calendar](https://github.com/bohdaq/contributions-calendar)
 - [d3.js](https://github.com/d3/d3) + [Cal-Heatmap.js](https://cal-heatmap.com/docs/showcase#github-profile-contribution-like)
 

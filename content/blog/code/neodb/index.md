@@ -8,7 +8,7 @@ tags:
   - neodb
   - movie
 slug: "neodb"
-summary: "这篇文章介绍了如何使用NeoDB API创建观影页面。文章中包含了注册NeoDB账号、生成NeoDB Token、标记影音、下载NeoDB数据、新建HTML模板等步骤。作者提到他选择将数据下载到本地进行静态化处理，以提高性能。他还提到了注册Mastodon和NeoDB的过程，并简要介绍了Shell Script脚本的使用。最后文章提供了一些必要的CSS和JS代码来修改页面样式和处理数据。"
+summary: "这篇文章介绍了如何使用 NeoDB API 创建观影页面。文章中包含了注册 NeoDB 账号、生成 NeoDB Token、标记影音、下载 NeoDB 数据、新建 HTML 模板等步骤。作者提到他选择将数据下载到本地进行静态化处理，以提高性能。他还提到了注册 Mastodon 和 NeoDB 的过程，并简要介绍了 Shell Script 脚本的使用。最后文章提供了一些必要的 CSS 和 JS 代码来修改页面样式和处理数据。"
 series: ["NeoDB"]
 series_weight: 1
 seriesNavigation: true
@@ -181,7 +181,6 @@ jq -c -s '{data: map(.data[]) | unique | sort_by(.created_time) | reverse, pages
                             </svg>
                         </span>
                         {{ end }}
-                        {{ end }}
                         <span class="rating_star">{{ $rating }}</span>
                     <div class="rating_count hidden">
                         <span>
@@ -192,7 +191,6 @@ jq -c -s '{data: map(.data[]) | unique | sort_by(.created_time) | reverse, pages
                             </svg>
                         </span>
                         <span><a href="https://neodb.social{{ $movie_url }}" target="_blank" rel="noreferrer noopener nofollow">{{ .item.rating_count }} {{ T `movie_count_text` }}</a></span>
-                    </div>
                     </div>
                     <div class="referrer">
                         {{ if eq .item.category $cate_movie }}
@@ -408,7 +406,7 @@ jq -c -s '{data: map(.data[]) | unique | sort_by(.created_time) | reverse, pages
 
 ```
 
-### 7. JS代码
+### 7. JS 代码
 
 其实可以不需要 JS。所有数据都通过脚本和 Hugo 程序处理好了。这一段 JS 主要是用于排序。
 

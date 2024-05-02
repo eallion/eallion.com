@@ -69,7 +69,7 @@ layouts/
 
 ##### 2. 新建 layout 模板 go.html
 
-新建一个页面模板，如：`go.html`，位于Hugo 项目根目录的 `layouts/_default/go.html`。
+新建一个页面模板，如：`go.html`，位于 Hugo 项目根目录的 `layouts/_default/go.html`。
 一个最简单的办法是复制 `single.html` 并重命名为 `go.html`
 
 ```bash
@@ -103,7 +103,6 @@ layouts/
         background: #fff url({{ with resources.Get $redirectLight }}{{ with .Resize "800x webp" }}{{ .RelPermalink }}{{ end }}{{ end }}) no-repeat center center / cover;
         aspect-ratio: 2 / 1;
     }
-
 
     .redirect-nrong {
         position: absolute;

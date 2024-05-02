@@ -75,7 +75,7 @@ PS：修改完，记得 push 到 GitHub 仓库。
 
 到 Vercel 控制台，选择 `Add New` `Project` `Import Git Repository` 选择自己仓库的 `vercel.og` 然后 `Import`，`Framework Preset` 要选择 `Next.js`，然后点击 `Deploy` 等待部署完成。
 部署成功后，打开 “`域名 + /api/og?title= + 内容`” 就可以使用了，API path 是 `/api/og`。
-完整API： `https://og.eallion.vercel.app/api/og?title=`
+完整 API： `https://og.eallion.vercel.app/api/og?title=`
 对于部分地区，可能需要绑定一个域名才能访问。
 
 ### 其他

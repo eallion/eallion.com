@@ -102,7 +102,7 @@ TianliGPT 的摘要，可以在网页上按 F12 打开 DevTools 找到：
 
 把 `summary.json` 文件中的 AI 摘要渲染到每篇文章的开头，修改一下 Hugo 文章的模板文件即可。
 不同主题的模板文件可能不太一样，不过也差不离。
-一般名叫 `single.html` ，位于主题的 `layouts` 或 Hugo 根目录的 `layouts` 下.
+一般名叫 `single.html` ，位于主题的 `layouts` 或 Hugo 根目录的 `layouts` 下。
 比如 DoIt 的模板位于 `themes/DoIt/layouts/posts/single.html` 。
 我把它复制到根目录 <i class="fab fa-github fa-fw"></i>[layouts/posts/single.html](https://github.com/eallion/eallion.com/blob/240215451d1aa3133c929428e6efb238c0baa908/layouts/posts/single.html) 了，[同名模板优先渲染根目录](https://gohugo.io/templates/lookup-order/#hugo-layouts-lookup-rules-with-theme)。
 在文章模板 `single.html` 的 `{{  .Content }}` 之前，插入以下代码：

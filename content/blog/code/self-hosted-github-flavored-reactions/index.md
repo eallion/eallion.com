@@ -111,7 +111,7 @@ wrangler d1 execute emaction \
 wrangler deploy
 ```
 
-然后登录 Cloudflare Worker ，就能找到一个名为 `api-emaction` 的 Worker了。
+然后登录 Cloudflare Worker ，就能找到一个名为 `api-emaction` 的 Worker 了。
 这个名称与克隆代码中的 `package.json` 文件中的名字对应，可自行选择是否修改。
 记住此 Worker 的域名：`https://api-emaction.xxxxxxx.workers.dev`。
 如果用户大多数为国内的，可能需要绑定一个自定义域名才能友好访问。
