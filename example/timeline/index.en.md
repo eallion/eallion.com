@@ -19,6 +19,17 @@ aliases:
     - /milestone
 ---
 
+<style>
+    .thumbnail {
+        min-width: 180px;
+    }
+    @media (min-width: 640px) {
+        .thumbnail {
+            min-width: 300px;
+        }
+    }
+</style>
+
 {{< timeline >}}
 
 {{< timelineItem icon="hugo" header="主题 Blowfish" badge="Apr 10, 2024" >}}

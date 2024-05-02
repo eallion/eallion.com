@@ -19,8 +19,18 @@ aliases:
     - /en/milestone
 ---
 
-{{< timeline >}}
+<style>
+    .thumbnail {
+        min-width: 180px;
+    }
+    @media (min-width: 640px) {
+        .thumbnail {
+            min-width: 300px;
+        }
+    }
+</style>
 
+{{< timeline >}}
 {{< timelineItem icon="hugo" header="主题 Blowfish" badge="Apr 10, 2024" >}}
 Hugo 主题迁移到 <code><a href="https://github.com/nunocoracao/blowfish" target="_blank" rel="noopener noreferrer">blowfish</a></code> 。
 {{< /timelineItem >}}
