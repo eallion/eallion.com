@@ -33,7 +33,7 @@ aliases:
 {{< timeline >}}
 
 {{< timelineItem icon="hugo" header="主题 Blowfish" badge="May 1, 2024" >}}
-2024 年 5 月 1 日 [博客首页](https://www.eallion.com/) 热力图，[统计页](/stats/) 热力图、统计图，饼图都去掉依赖库和插件。用 CSS 和 JS 实现。生成热力图的细节可参考文章：
+2024 年 5 月 1 日 博客首页热力图，统计页热力图、统计图，饼图都去掉依赖库和插件。用 CSS 和 JS 实现。生成热力图的细节可参考文章：
 {{< article link="/blog-heatmap/" >}}
 {{< /timelineItem >}}
 
