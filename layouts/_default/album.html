@@ -35,7 +35,7 @@
             {{ .Content | emojify }}
 
             <div id="album" class="w-full col-gap-2 m-0 p-0 relative box-border mb-4 columns-3 min-h-20">
-                {{- $mastodon_tag_album_api := "https://e5n.cc/api/v1/timelines/tag/ealbum?only_media=true&limit=40&exclude_replies=true&exclude_reblogs=true&only_media=true&max_id=" -}}
+                {{- $mastodon_tag_album_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?only_media=true&tagged=ealbum&limit=40&exclude_replies=true&exclude_reblogs=true&max_id=" -}}
                 {{- with resources.GetRemote $mastodon_tag_album_api }}
                     {{- with .Err }}
                         Album page build failed. API is invalid or unauthorized.
