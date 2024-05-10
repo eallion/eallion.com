@@ -148,3 +148,8 @@ footer nav ul {
         opacity: 1;
     }
 }
+
+.text-shadow-white,
+.text-shadow-hover-white:hover {
+    text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.75), 1px -1px 0 rgba(255, 255, 255, 0.75), -1px 1px 0 rgba(255, 255, 255, 0.75), 1px 1px 0 rgba(255, 255, 255, 0.75);
+}
