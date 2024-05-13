@@ -3,38 +3,38 @@
     "badges": [
       {
         "badgeid": 13,
-        "level": 124,
-        "completion_time": 1709139849,
-        "xp": 353,
-        "scarcity": 11385638
+        "level": 125,
+        "completion_time": 1715193888,
+        "xp": 354,
+        "scarcity": 11291783
       },
       {
         "badgeid": 66,
         "level": 1,
         "completion_time": 1703183460,
         "xp": 50,
-        "scarcity": 34776668
+        "scarcity": 34881105
       },
       {
         "badgeid": 64,
         "level": 1,
         "completion_time": 1678852971,
         "xp": 50,
-        "scarcity": 75610037
+        "scarcity": 75649656
       },
       {
         "badgeid": 2,
         "level": 3,
         "completion_time": 1534584002,
         "xp": 500,
-        "scarcity": 10041250
+        "scarcity": 10055085
       },
       {
         "badgeid": 1,
         "level": 17,
         "completion_time": 1175761888,
         "xp": 850,
-        "scarcity": 6279861
+        "scarcity": 6305389
       },
       {
         "badgeid": 1,
@@ -44,14 +44,14 @@
         "xp": 100,
         "communityitemid": "8838417276",
         "border_color": 0,
-        "scarcity": 86565
+        "scarcity": 86581
       }
     ],
-    "player_xp": 1903,
+    "player_xp": 1904,
     "player_level": 14,
-    "player_xp_needed_to_level_up": 97,
+    "player_xp_needed_to_level_up": 96,
     "player_xp_needed_current_level": 1800,
-    "game_count": 125,
+    "game_count": 126,
     "games": [
       {
         "appid": 1426210,
@@ -1235,6 +1235,19 @@
         "playtime_disconnected": 0
       },
       {
+        "appid": 447120,
+        "name": "Where the Water Tastes Like Wine",
+        "playtime_forever": 0,
+        "img_icon_url": "2647afa3d713e9a56cbbb3458edf2bc9207247e2",
+        "has_community_visible_stats": true,
+        "playtime_windows_forever": 0,
+        "playtime_mac_forever": 0,
+        "playtime_linux_forever": 0,
+        "playtime_deck_forever": 0,
+        "rtime_last_played": 0,
+        "playtime_disconnected": 0
+      },
+      {
         "appid": 464920,
         "name": "Surviving Mars",
         "playtime_forever": 0,
@@ -1727,7 +1740,7 @@
         "avatarmedium": "https://avatars.steamstatic.com/54d22c4e7be1b79620240392cc0fcaab042e4578_medium.jpg",
         "avatarfull": "https://avatars.steamstatic.com/54d22c4e7be1b79620240392cc0fcaab042e4578_full.jpg",
         "avatarhash": "54d22c4e7be1b79620240392cc0fcaab042e4578",
-        "lastlogoff": 1714888318,
+        "lastlogoff": 1715401826,
         "personastate": 0,
         "realname": "Charles Chin",
         "primaryclanid": "103582791433612637",
