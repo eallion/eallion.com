@@ -1,6 +1,6 @@
 ---
-title: "时间线"
-layout: "timeline"
+title: "Milestone"
+layout: "milestone"
 type: "sample"
 date: "2006-04-14 00:00:00"
 showDate: false
@@ -16,7 +16,8 @@ showZenMode: false
 aliases:
     - /en/tl
     - /en/shijianxian
-    - /en/milestone
+    - /en/timeline
+    - /en/lichengbei
 ---
 
 <style>

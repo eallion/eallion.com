@@ -1,6 +1,6 @@
 ---
-title: "时间线"
-layout: "timeline"
+title: "里程碑"
+layout: "milestone"
 type: "sample"
 date: "2006-04-14 00:00:00"
 showDate: false
@@ -14,9 +14,10 @@ showComments: false
 sharingLinks: false
 showZenMode: false
 aliases:
-    - /en/tl
-    - /en/shijianxian
-    - /en/milestone
+    - /tl
+    - /shijianxian
+    - /timeline
+    - /lichengbei
 ---
 
 <style>
