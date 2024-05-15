@@ -26,8 +26,8 @@
   weight = 12
 
 [[main]]
-  name = "Timeline"
-  pageRef = "timeline"
+  name = "Milestone"
+  pageRef = "milestone"
   weight = 13
 
 [[main]]
