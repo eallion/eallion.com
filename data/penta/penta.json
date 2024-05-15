@@ -1,6 +1,22 @@
 {
   "penta": [
     {
+      "src": "20240512-Kaisa.jpg",
+      "alt": "20240512-Kaisa",
+      "champion": "Kaisa",
+      "date": "2024-05-12",
+      "caption": "虚空之女 卡莎",
+      "heroId": "145"
+    },
+    {
+      "src": "20240501-Samira.jpg",
+      "alt": "20240501-Samira",
+      "champion": "Samira",
+      "date": "2024-05-01",
+      "caption": "沙漠玫瑰 莎弥拉",
+      "heroId": "360"
+    },
+    {
       "src": "20240427-Vayne.jpg",
       "alt": "20240427-Vayne",
       "champion": "Vayne",
@@ -655,6 +671,22 @@
       "date": "2015-02-18",
       "caption": "恶魔小丑 萨科",
       "heroId": "35"
+    },
+    {
+      "src": "duowan_lol_corki_20131126_19-49-23.jpg",
+      "alt": "20131126-Corki",
+      "champion": "Corki",
+      "date": "2013-11-26",
+      "caption": "英勇投弹手 库奇",
+      "heroId": "42"
+    },
+    {
+      "src": "duowan_lol_akali_20131125_22-00-00.jpg",
+      "alt": "20131125-akali",
+      "champion": "Akali",
+      "date": "2013-11-25",
+      "caption": "暗影之拳 阿卡丽",
+      "heroId": "84"
     }
   ]
 }
