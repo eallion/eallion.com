@@ -536,7 +536,7 @@ CSS 样式仿照的是 GitHub 的配色，Dark mode 是 GitHub Dimmed 的配色�
     margin-top: 0.25rem;
     margin-right: 0.25rem;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: flex-end;
     text-align: right;
 }
