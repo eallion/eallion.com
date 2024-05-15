@@ -29,6 +29,9 @@ aliases:
             min-width: 300px;
         }
     }
+    ol li {
+        list-style-type: none;
+    }
 </style>
 
 {{< timeline >}}
