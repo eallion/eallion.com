@@ -1,6 +1,14 @@
 {
   "penta": [
     {
+      "src": "20240519-Akshan.png",
+      "alt": "20240519-Akshan",
+      "champion": "Akshan",
+      "date": "2024-05-19",
+      "caption": "影哨 阿克尚",
+      "heroId": "166"
+    },
+    {
       "src": "20240518-Samira.png",
       "alt": "20240518-Samira",
       "champion": "Samira",
