@@ -121,7 +121,7 @@ showZenMode: false
   <a href="https://github.com/eallion/eallion.com/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
     <img class="nozoom" src="https://img.shields.io/badge/License-GLWT-green">
   </a>
-  <a href="https://status.eallion.com" target="_blank" rel="noopener noreferrer">
+  <a href="https://stats.uptimerobot.com/LvmZRfkNGP" target="_blank" rel="noopener noreferrer">
     <img class="nozoom" alt="Uptime Robot ratio (30 days)" src="https://img.shields.io/uptimerobot/ratio/m783953686-5912db7169eea9ce488b60c1?link=https%3A%2F%2Fstatus.eallion.com">
   </a>
   <a href="https://github.com/eallion/eallion.com" target="_blank" rel="noopener noreferrer">
