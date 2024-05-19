@@ -81,7 +81,7 @@
   parent = "更多"
   pre = "external-link-alt"
   # pageRef = "status"
-  url = "https://status.eallion.com"
+  url = "https://stats.uptimerobot.com/LvmZRfkNGP"
   weight = 80
 
 [[main]]
@@ -144,7 +144,7 @@
 
  [[footer]]
    name = "状态"
-   url = "https://status.eallion.com"
+   url = "https://stats.uptimerobot.com/LvmZRfkNGP"
    weight = 60
 
  [[footer]]
