@@ -35,7 +35,7 @@ date: 2024-03-09T16:57:49+08:00
 
 ### 已测试版本
 
-- Memos: [`v0.18.2`](https://github.com/usememos/memos/pkgs/container/memos/168812645?tag=0.18.2)
+- Memos: [`v0.22.0`](https://github.com/usememos/memos/pkgs/container/memos/218207833?tag=0.22.0)
 - Mastodon: [`v4.2.8`](https://github.com/mastodon/mastodon/pkgs/container/mastodon/182724379?tag=v4.2.8)
 
 Mastodon 需要自己的实例，或者具有管理员权限能创建 Webhook 的账号才能使用此方法。
@@ -82,7 +82,7 @@ Mastodon 的 Webhook 目的地 URL 建议绑定域名，不然 Sidekiq 可能处
 #!/bin/bash
 
 # 已测试版本：
-# Memos: v0.18.2 
+# Memos: v0.22.0
 # Mastodon: v4.2.8
 
 # ======================================================
@@ -94,7 +94,7 @@ MEMOS_HOST=""
 # Memos Access Token
 MEMOS_ACCESS_TOKEN=""
 
-# 发布 Memos 的可见性 ('PUBLIC', 'PROTECTED', 'PRIVATE') 三选一
+# 发布 Memos 的可见性 ('PUBLIC', 'PROTECTED', 'PRIVATE', 'VISIBILITY_UNSPECIFIED') 四选一
 MEMOS_VISIBILITY=PUBLIC
 
 # Mastodon Instance
@@ -136,8 +136,7 @@ fi
 if [[ "$MEMOS_HOST" != */ ]]; then
   MEMOS_HOST="$MEMOS_HOST/"
 fi
-MEMOS_API_HOST="${MEMOS_HOST}api/v1/memo"
-AUTHORIZATION="Bearer ${MEMOS_ACCESS_TOKEN}"
+MEMOS_API_HOST="${MEMOS_HOST}api/v1/memos"
 
 # Memos 获取最新的 Memos ID
 MEMOS_URL="${MEMOS_API_HOST}?creatorId=101&rowStatus=NORMAL&limit=1"
@@ -227,11 +226,13 @@ TEXT=$(echo "$TEXT" | sed "s/:star_empty:/🌑/g; s/:star_half:/🌗/g; s/:star_
 TEXT=$(echo "$TEXT" | sed 's/\\n$//')
 
 # 发布 Memos 并获取返回的 JSON 数据
-RESPONSE=$(curl -s -X POST \
-  -H "Accept: application/json" \
-  -H "Authorization: $AUTHORIZATION" \
-  -d "{ \"content\": \"$TEXT\", \"visibility\": \"$MEMOS_VISIBILITY\"}" \
-  $MEMOS_API_HOST)
+RESPONSE=$(curl --request POST \
+  --url $MEMOS_API_HOST \
+  --header "Authorization: Bearer $MEMOS_ACCESS_TOKEN" \
+  --data "{
+  \"content\": \"$TEXT\",
+  \"visibility\": \"$MEMOS_VISIBILITY\"
+}")
 
 # 从返回的 JSON 数据中提取 Memos 的 id 值
 NEW_MEMOS_ID=$(echo "$RESPONSE" | jq -r '.id')
