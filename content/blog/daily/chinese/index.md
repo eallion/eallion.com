@@ -14,6 +14,8 @@ date: 2022-05-23T19:09:25+08:00
 lastmod: 2022-05-23T19:09:25+08:00
 ---
 
+> https://web.archive.org/web/20220520134014/https://mp.weixin.qq.com/s/GZKMemoSIDtKBKOI6orVsQ
+
 《中文大约的确已经死了》原文及转载已被删除，有心人请自行搜索。
 
 原文我以为写得已经很温和了，没想到还是引起了轩然大波。
