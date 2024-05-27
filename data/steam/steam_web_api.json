@@ -6,35 +6,35 @@
         "level": 125,
         "completion_time": 1715193888,
         "xp": 354,
-        "scarcity": 11329321
+        "scarcity": 11359846
       },
       {
         "badgeid": 66,
         "level": 1,
         "completion_time": 1703183460,
         "xp": 50,
-        "scarcity": 34976344
+        "scarcity": 35066239
       },
       {
         "badgeid": 64,
         "level": 1,
         "completion_time": 1678852971,
         "xp": 50,
-        "scarcity": 75684769
+        "scarcity": 75717021
       },
       {
         "badgeid": 2,
         "level": 3,
         "completion_time": 1534584002,
         "xp": 500,
-        "scarcity": 10065973
+        "scarcity": 10075837
       },
       {
         "badgeid": 1,
         "level": 17,
         "completion_time": 1175761888,
         "xp": 850,
-        "scarcity": 6331447
+        "scarcity": 6361311
       },
       {
         "badgeid": 1,
@@ -44,7 +44,7 @@
         "xp": 100,
         "communityitemid": "8838417276",
         "border_color": 0,
-        "scarcity": 86595
+        "scarcity": 86610
       }
     ],
     "player_xp": 1904,
@@ -1740,7 +1740,7 @@
         "avatarmedium": "https://avatars.steamstatic.com/54d22c4e7be1b79620240392cc0fcaab042e4578_medium.jpg",
         "avatarfull": "https://avatars.steamstatic.com/54d22c4e7be1b79620240392cc0fcaab042e4578_full.jpg",
         "avatarhash": "54d22c4e7be1b79620240392cc0fcaab042e4578",
-        "lastlogoff": 1715973703,
+        "lastlogoff": 1716577745,
         "personastate": 0,
         "realname": "Charles Chin",
         "primaryclanid": "103582791433612637",
