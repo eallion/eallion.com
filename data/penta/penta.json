@@ -1,6 +1,22 @@
 {
   "penta": [
     {
+      "src": "20240531-MasterYi.png",
+      "alt": "20240531-MasterYi",
+      "champion": "MasterYi",
+      "date": "2024-05-31",
+      "caption": "无极剑圣 易",
+      "heroId": "11"
+    },
+    {
+      "src": "20240531-Jhin.png",
+      "alt": "20240531-Jhin",
+      "champion": "Jhin",
+      "date": "2024-05-31",
+      "caption": "戏命师 烬",
+      "heroId": "202"
+    },
+    {
       "src": "20240520-Zeri.png",
       "alt": "20240520-Zeri",
       "champion": "Zeri",
