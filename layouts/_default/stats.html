@@ -76,7 +76,7 @@
         {{ partial "breadcrumbs.html" . }}
         {{ end }}
         <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        {{ .Title | emojify }}
+        {{ .Title }}
         </h1>
 
         <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
@@ -360,7 +360,7 @@
                     {{- end -}}
                 </div>
 
-                {{ .Content | emojify }}
+                {{ .Content }}
             </div>
 
             {{ if (.Params.showAuthorBottom | default ( .Site.Params.article.showAuthorBottom | default false)) }}

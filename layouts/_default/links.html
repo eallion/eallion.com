@@ -20,7 +20,7 @@
     {{ partial "breadcrumbs.html" . }}
     {{ end }}
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      {{ .Title | emojify }}
+      {{ .Title }}
     </h1>
 
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
@@ -35,7 +35,7 @@
 
         <div class="article-content max-w-full mb-20 break-words">
 
-            {{ .Content | emojify }}
+            {{ .Content }}
 
             <div class="flex flex-wrap justify-between">
                 {{ range $links.links }}

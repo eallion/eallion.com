@@ -22,7 +22,7 @@
     {{ partial "breadcrumbs.html" . }}
     {{ end }}
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      {{ .Title | emojify }}
+      {{ .Title }}
     </h1>
 
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
@@ -36,7 +36,7 @@
       <div class="min-w-0 min-h-0 max-w-fit">
 
         <div class="article-content max-w-full mb-20">
-          {{ .Content | emojify }}
+          {{ .Content }}
 
             <div class="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-8 gap-x-2.5" view-image>
 
