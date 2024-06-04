@@ -24,9 +24,6 @@ aliases:
     .max-w-prose {
         max-width: 100%;
     }
-    ol li {
-        list-style-type: none;
-    }
     .thumbnail {
         min-width: 180px;
     }
