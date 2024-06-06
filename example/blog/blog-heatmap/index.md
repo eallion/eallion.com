@@ -60,7 +60,7 @@ date: 2024-04-30T14:36:07+08:00
         "pages": [
             {{ range $index, $element := $pages }}
                 {
-                    "title": "{{ .Title }}",
+                    "title": "{{ replace (replace .Title "《" "<") "》" ">" }}",
                     "date": "{{ .Date.Format "2006-01-02" }}",
                     "year": "{{ .Date.Format "2006" }}",
                     "month": "{{ .Date.Format "01" }}",
@@ -254,7 +254,7 @@ var blogInfo = {
     "pages": [
         {{ range $index, $element := $pages }}
             {
-                "title": "{{ .Title }}",
+                "title": "{{ replace (replace .Title "《" "<") "》" ">" }}",
                 "date": "{{ .Date.Format "2006-01-02" }}",
                 "year": "{{ .Date.Format "2006" }}",
                 "month": "{{ .Date.Format "01" }}",
