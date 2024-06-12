@@ -11,7 +11,6 @@ slug: "blog-heatmap"
 summary: "本文介绍了使用 CSS 和 JS 实现博客热力图的方法。通过获取最近一年的文章数据，并根据字数和发布日期生成相应的小方块，不同颜色代表不同级别的字数。同时，还添加了鼠标悬停时显示文章标题、字数等信息的功能。作者对比了几种类似库，并选择了适合自己需求的 heatmap.js 来实现热力图效果。最后给出了完整代码以及 HTML 和 CSS 样式部分。"
 draft: false
 date: 2024-04-30T14:36:07+08:00
-# images: ["/assets/images/og/blog-heatmap.png"]
 ---
 
 ![](heatmap_screenshot.png "效果截图")
