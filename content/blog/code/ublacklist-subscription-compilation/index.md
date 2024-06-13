@@ -18,7 +18,7 @@ date: 2024-06-12T22:29:18+08:00
 ### TL;DR
 
 这是我维护的一个 uBlacklist 插件的订阅地址合集，搜集了网上大部分的订阅地址合并成一个。通过 [Github Actions](https://github.com/eallion/uBlacklist-subscription-compilation/actions/workflows/go.yml) 每周自动更新一次。
-本订阅主要是屏蔽中文 SEO 垃圾站，如机器翻译、AI 生成的内容……
+本订阅主要是屏蔽 Google 等搜索结果中的中文 SEO 垃圾站，如机器翻译、AI 生成的内容……
 
 - 功能：🧱 **屏蔽中文内容农场！**【什么是[内容农场](https://zh.wikipedia.org/wiki/%E5%85%A7%E5%AE%B9%E8%BE%B2%E5%A0%B4)？】
 - 插件：{{< icon "github" >}} [iorate/ublacklist](https://github.com/iorate/ublacklist)
