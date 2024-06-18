@@ -21,11 +21,12 @@
     flex: 1 auto;
     align-items: center;
     line-height: 35px;
-    height: 45px;
+    height: calc(35px + 0.25rem);
     max-width: 100%;
     width: auto;
     text-align: left;
     padding: 0;
+    padding-right: 0.25rem;
     margin-bottom: 1rem;
     position: relative;
     border-radius: 8px;
