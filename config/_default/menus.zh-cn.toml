@@ -133,8 +133,8 @@
    weight = 30
 
  [[footer]]
-   name = "时间线"
-   pageRef = "timeline"
+   name = "里程碑"
+   pageRef = "milestone"
    weight = 40
 
  [[footer]]

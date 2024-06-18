@@ -133,8 +133,8 @@
    weight = 30
 
  [[footer]]
-   name = "Timeline"
-   pageRef = "timeline"
+   name = "Milestone"
+   pageRef = "milestone"
    weight = 40
 
  [[footer]]
