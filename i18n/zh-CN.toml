@@ -252,6 +252,9 @@ other = "删除"
 # === shortcodes/version.html ===
 
 # === 自定义 ===
+[blog_title]
+other = "大大的小蜗牛'博客"
+
 [album_quote]
 other = "我的随手拍。我不会拍照，所以只能叫随手拍。通过 <a href='https://e5n.cc/tags/ealbum' target='_blank' rel='noreferrer noopener nofollow'>#ealbum</a> 引用。"
 

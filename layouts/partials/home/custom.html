@@ -51,14 +51,16 @@
                     {{ end }}
                     <h1 class="mb-2 text-4xl font-extrabold text-neutral-800 dark:text-neutral-200">
                         {{ .Site.Author.name | default .Site.Title }}
+                        {{/*  {{ T `blog_title` | safeHTML }}  */}}
                     </h1>
                     {{/*  {{ with .Site.Author.headline }}  */}}
                     <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
                         {{/*  {{ . | markdownify }}  */}}
-                        <div id="poem_sentence" class="min-h-7">{{ partial "icon.html" "loading" }}</div>
+                        {{/*  <div id="poem_sentence" class="min-h-7">{{ partial "icon.html" "loading" }}</div>  */}}
+                        <div>{{ T `toot_motto` | safeHTML }} - <span class="italic text-base">Louis Pasteur</span></div>
                     </h2>
                     {{/*  {{ end }}  */}}
-                    <div class="mt-3 mb-10 text-2xl">
+                    <div class="my-3 text-2xl">
                         {{ with .Site.Author.links }}
                         <div class="flex flex-wrap">
                             {{ range $links := . }}
@@ -71,6 +73,8 @@
                         </div>
                         {{ end }}
                     </div>
+
+                    <div id="ticker" class="ticker"></div>
 
                     <div class="tailwindcss-heatmap flex flex-col items-end text-[10px] leading-[12px] text-neutral-700 dark:text-neutral-400">
                         <div class="flex flex-row items-end">
@@ -341,13 +345,114 @@
     * 今日诗词V2 JS-SDK 1.2.2
     * 今日诗词API 是一个可以免费调用的诗词接口：https://www.jinrishici.com
     */
-    !function(e){var n,t={},o="jinrishici-token";function i(){return document.getElementById("jinrishici-sentence")||0!=document.getElementsByClassName("jinrishici-sentence").length}function c(){t.load(function(e){var n=document.getElementById("jinrishici-sentence"),t=document.getElementsByClassName("jinrishici-sentence");if(n&&(n.innerText=e.data.content),0!==t.length)for(var o=0;o<t.length;o++)t[o].innerText=e.data.content})}function r(e,n){var t=new XMLHttpRequest;t.open("get",n),t.withCredentials=!0,t.send(),t.onreadystatechange=function(n){if(4===t.readyState){var o=JSON.parse(t.responseText);"success"===o.status?e(o):console.error("今日诗词API加载失败，错误原因："+o.errMessage)}}}t.load=function(n){return e.localStorage&&e.localStorage.getItem(o)?function(e,n){return r(e,"https://v2.jinrishici.com/one.json?client=browser-sdk/1.2&X-User-Token="+encodeURIComponent(n))}(n,e.localStorage.getItem(o)):function(n){return r(function(t){e.localStorage.setItem(o,t.token),n(t)},"https://v2.jinrishici.com/one.json?client=browser-sdk/1.2")}(n)},e.jinrishici=t,i()?c():(n=function(){i()&&c()},"loading"!=document.readyState?n():document.addEventListener?document.addEventListener("DOMContentLoaded",n):document.attachEvent("onreadystatechange",function(){"complete"==document.readyState&&n()}))}(window);
+    // !function(e){var n,t={},o="jinrishici-token";function i(){return document.getElementById("jinrishici-sentence")||0!=document.getElementsByClassName("jinrishici-sentence").length}function c(){t.load(function(e){var n=document.getElementById("jinrishici-sentence"),t=document.getElementsByClassName("jinrishici-sentence");if(n&&(n.innerText=e.data.content),0!==t.length)for(var o=0;o<t.length;o++)t[o].innerText=e.data.content})}function r(e,n){var t=new XMLHttpRequest;t.open("get",n),t.withCredentials=!0,t.send(),t.onreadystatechange=function(n){if(4===t.readyState){var o=JSON.parse(t.responseText);"success"===o.status?e(o):console.error("今日诗词API加载失败，错误原因："+o.errMessage)}}}t.load=function(n){return e.localStorage&&e.localStorage.getItem(o)?function(e,n){return r(e,"https://v2.jinrishici.com/one.json?client=browser-sdk/1.2&X-User-Token="+encodeURIComponent(n))}(n,e.localStorage.getItem(o)):function(n){return r(function(t){e.localStorage.setItem(o,t.token),n(t)},"https://v2.jinrishici.com/one.json?client=browser-sdk/1.2")}(n)},e.jinrishici=t,i()?c():(n=function(){i()&&c()},"loading"!=document.readyState?n():document.addEventListener?document.addEventListener("DOMContentLoaded",n):document.attachEvent("onreadystatechange",function(){"complete"==document.readyState&&n()}))}(window);
 
-    jinrishici.load(function(result) {
-        var sentence = document.querySelector("#poem_sentence")
-        sentence.innerHTML = result.data.content
-    });
+    // jinrishici.load(function(result) {
+    //     var sentence = document.querySelector("#poem_sentence")
+    //     sentence.innerHTML = result.data.content
+    // });
 
+</script>
+
+<script>
+    // 远程 JSON API 地址
+    let jsonUrl = "https://mastodon.api.eallion.com/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true";
+
+    // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
+    (() => {
+        window.Lately = new function () {
+            this.lang = {
+                second: " 秒",
+                minute: " 分钟",
+                hour: " 小时",
+                day: " 天",
+                month: " 个月",
+                year: " 年",
+                ago: "前",
+                error: "NaN"
+            };
+            const format = (date) => {
+                date = new Date(_val(date));
+                const floor = (num, _lang) => Math.floor(num) + _lang,
+                    obj = new function () {
+                        this.second = (Date.now() - date.getTime()) / 1000;
+                        this.minute = this.second / 60;
+                        this.hour = this.minute / 60;
+                        this.day = this.hour / 24;
+                        this.month = this.day / 30;
+                        this.year = this.month / 12
+                    },
+                    key = Object.keys(obj).reverse().find(_ => obj[_] >= 1);
+                return (key ? floor(obj[key], this.lang[key]) : this.lang.error) + this.lang.ago;
+            },
+                _val = (date) => {
+                    date = new Date(date && (typeof date === 'number' ? date : date.replace(/-/g, '/').replace('T', ' ')));
+                    return isNaN(date.getTime()) ? false : date.getTime();
+                };
+            return {
+                init: ({ target = "time", lang } = {}) => {
+                    if (lang) this.lang = lang;
+                    for (let el of document.querySelectorAll(target)) {
+                        const date = _val(el.dateTime) || _val(el.title) || _val(el.innerHTML) || 0;
+                        if (!date) return;
+                        el.title = new Date(date).toLocaleString();
+                        el.innerHTML = format(date);
+                    }
+                },
+                format
+            }
+        }
+    })();
+
+    // 设置宽度
+    const heatmapElement = document.querySelector(".tailwindcss-heatmap");
+    const heatmapWidth = heatmapElement.offsetWidth;
+    const tickerElement = document.querySelector(".ticker");
+    tickerElement.style.width = `${heatmapWidth}px`;
+
+    // 处理 Json 数据
+    if (document.querySelector('#ticker')) {
+        fetch(jsonUrl)
+            .then(res => res.json())
+            .then(res => {
+                var result = '';
+                var data = res;
+                for (var i = 0; i < data.length; i++) {
+                    var tickerTime = new Date(data[i].created_at).toLocaleString();
+                    var tickerContent = getSimpleText(data[i].content)
+                    result += `<li class="ticker-item"><span class="datetime">${tickerTime}</span>：<a href="https://www.eallion.com/mastodon/" target="_self">${tickerContent}</a></li>`;
+                    // result += `<li class="ticker-item"><a href="https://www.eallion.com/mastodon/" target="_self">${tickerContent}</a></li>`;
+                }
+                var tickerDom = document.querySelector('#ticker');
+                var tickerBefore = `<div class="ticker-wrap"><ul class="ticker-list">`;
+                var tickerAfter = `</ul></div>`;
+                resultAll = tickerBefore + result + tickerAfter;
+                tickerDom.innerHTML = resultAll;
+
+                // 相对时间插件
+                window.Lately && Lately.init({
+                    target: '.datetime'
+                });
+            });
+
+        // 滚动效果
+        setInterval(function () {
+            var tickerWrap = document.querySelector(".ticker-list");
+            var tickerItem = tickerWrap.querySelectorAll(".ticker-item");
+            for (var i = 0; i < tickerItem.length; i++) {
+                setTimeout(function () {
+                    tickerWrap.appendChild(tickerItem[0]);
+                }, 2000);
+            }
+        }, 2000);
+    }
+
+    // 提取 HTML 代码中的纯文本内容
+    function getSimpleText(html) {
+        var htmlTags = new RegExp("<.+?>", "g");
+        var simpleText = html.replace(htmlTags, '');
+        return simpleText;
+    }
 </script>
 
 <script>

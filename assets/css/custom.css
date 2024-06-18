@@ -16,6 +16,80 @@
 
 /* Tailwind CSS Custom End */
 
+.ticker {
+    display: flex;
+    flex: 1 auto;
+    align-items: center;
+    line-height: 35px;
+    height: 45px;
+    max-width: 100%;
+    width: auto;
+    text-align: left;
+    padding: 0;
+    margin-bottom: 1rem;
+    position: relative;
+    border-radius: 8px;
+    font-size: 1rem;
+    overflow: hidden;
+    border: 1px dotted rgba(100, 116, 139, 1);
+    border-radius: 4px;
+}
+
+.ticker .ticker-icon {
+    padding-right: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.ticker svg {
+    padding-left: 10px;
+}
+
+.ticker-wrap {
+    overflow: hidden;
+}
+
+.ticker-list {
+    margin: 0;
+    height: 35px;
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+.ticker-item {
+    list-style: none;
+    margin: 0;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-inline-start: 0;
+}
+
+.ticker-item::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1rem' height='1rem' viewBox='0 0 24 24'%3E%3Cpath fill='%2364748b' d='M7 2v2h10V2zm10 2v2h2V4zm2 2v8h2V6zm0 8h-8v2h8zm-8 2H9v2h2zm0 2v2h2v-2zm0 2H7v2h4zm-4 0v-2H5v2zm-2-2V6H3v12zM5 6h2V4H5zm4 0v2h2V6zm2 2v2h2V8zm2 0h2V6h-2zm2 0v4h2V8zM9 8H7v4h2z'/%3E%3C/svg%3E");
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.5rem;
+    text-align: center;
+    margin-bottom: -0.125rem;
+}
+
+.ticker-item a {
+    color: rgba(100, 116, 139, 1);
+    white-space: nowrap;
+    display: inline;
+}
+
+.ticker-item.code {
+    white-space: nowrap !important;
+}
+
+.datetime {
+    color: rgba(100, 116, 139, 1);
+}
+
 .heatmap_week {
     display: flex;
     flex-direction: column;
