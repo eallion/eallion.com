@@ -419,10 +419,16 @@
                 var data = res;
                 for (var i = 0; i < data.length; i++) {
                     var tickerTime = new Date(data[i].created_at).toLocaleString();
-                    var tickerContent = getSimpleText(data[i].content)
+                    var tickerContent = extractTextFromHtml(data[i].content)
+                    const replacements = {
+                        '\\s*:star_empty:\\s*': '🌑',
+                        '\\s*:star_half:\\s*': '🌗',
+                        '\\s*:star_solid:\\s*': '🌕'
+                    };
+                    tickerContent = replaceMultiple(tickerContent, replacements);
                     result += `<li class="ticker-item"><span class="datetime">${tickerTime}</span>：<a href="https://www.eallion.com/mastodon/" target="_self">${tickerContent}</a></li>`;
-                    // result += `<li class="ticker-item"><a href="https://www.eallion.com/mastodon/" target="_self">${tickerContent}</a></li>`;
                 }
+                console.log(result);
                 var tickerDom = document.querySelector('#ticker');
                 var tickerBefore = `<div class="ticker-wrap"><ul class="ticker-list">`;
                 var tickerAfter = `</ul></div>`;
@@ -442,16 +448,26 @@
             for (var i = 0; i < tickerItem.length; i++) {
                 setTimeout(function () {
                     tickerWrap.appendChild(tickerItem[0]);
-                }, 2000);
+                }, 20000000);
             }
-        }, 2000);
+        }, 20000000);
+    }
+
+    // 替换字符串
+    function replaceMultiple(str, replacements) {
+        let result = str;
+        for (const pattern in replacements) {
+            const regex = new RegExp(pattern, 'g');
+            result = result.replace(regex, replacements[pattern]);
+        }
+        return result;
     }
 
     // 提取 HTML 代码中的纯文本内容
-    function getSimpleText(html) {
-        var htmlTags = new RegExp("<.+?>", "g");
-        var simpleText = html.replace(htmlTags, '');
-        return simpleText;
+    function extractTextFromHtml(html) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        return doc.body.textContent || '';
     }
 </script>
 
