@@ -95,6 +95,7 @@ smartTOCHideUnfocusedChildren = false
   showLikes = false
   showTableOfContents = true
   showCards = false
+  orderByWeight = false
   groupByYear = true
   cardView = false
   cardViewScreenWidth = false
