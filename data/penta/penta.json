@@ -1,6 +1,14 @@
 {
   "penta": [
     {
+      "src": "20240622-Samira.jpg",
+      "alt": "20240622-Samira",
+      "champion": "Samira",
+      "date": "2024-06-22",
+      "caption": "沙漠玫瑰 莎弥拉",
+      "heroId": "360"
+    },
+    {
       "src": "20240615-2-LeeSin.png",
       "alt": "20240615-LeeSin",
       "champion": "LeeSin",
