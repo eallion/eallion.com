@@ -45,8 +45,18 @@
                             {{ if not $disableImageOptimization }}
                                 {{ $authorImage = $authorImage.Fill "288x288" }}
                             {{ end }}
-                            <img class="mb-2 rounded-full h-36 w-36 nozoom" width="144" height="144"
-                                alt="{{ $.Site.Author.name | default " Author" }}" src="{{ $authorImage.RelPermalink }}" />
+                            <div class="tailwind-ticker w-auto relative group flex items-end transition-all duration-300">
+                                <div class="rounded-full overflow-hidden min-w-[144px]">
+                                    <img class="mb-2 rounded-full h-36 w-36 nozoom" width="144" height="144"
+                                    alt="{{ $.Site.Author.name | default " Author" }}" src="{{ $authorImage.RelPermalink }}" />
+                                </div>
+                                <div class="absolute bottom-0 left-full -ml-9 mb-1 w-8 h-8 rounded-full flex items-center justify-center group-hover:w-min group-hover:h-8 group-hover:rounded-lg transition-all duration-300">
+                                    <div class="ticker w-9 sm:w-[226px] md:w-[295px] lg:w-[476px] min-w-[36px] transition-all duration-300">
+                                        <div id="ticker"></div>
+                                    </div>
+                                </div>
+                            </div>
+
                         {{ end }}
                     {{ end }}
                     <h1 class="mb-2 text-4xl font-extrabold text-neutral-800 dark:text-neutral-200">
@@ -56,8 +66,8 @@
                     {{/*  {{ with .Site.Author.headline }}  */}}
                     <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
                         {{/*  {{ . | markdownify }}  */}}
-                        {{/*  <div id="poem_sentence" class="min-h-7">{{ partial "icon.html" "loading" }}</div>  */}}
-                        <div>{{ T `toot_motto` | safeHTML }} - <span class="italic text-base">Louis Pasteur</span></div>
+                        <div id="poem_sentence" class="min-h-7">{{ partial "icon.html" "loading" }}</div>
+                        {{/*  <div>{{ T `toot_motto` | safeHTML }} - <span class="italic text-base">Louis Pasteur</span></div>  */}}
                     </h2>
                     {{/*  {{ end }}  */}}
                     <div class="my-3 text-2xl">
@@ -73,8 +83,6 @@
                         </div>
                         {{ end }}
                     </div>
-
-                    <div id="ticker" class="ticker"></div>
 
                     <div class="tailwindcss-heatmap flex flex-col items-end text-[10px] leading-[12px] text-neutral-700 dark:text-neutral-400">
                         <div class="flex flex-row items-end">
@@ -345,12 +353,12 @@
     * 今日诗词V2 JS-SDK 1.2.2
     * 今日诗词API 是一个可以免费调用的诗词接口：https://www.jinrishici.com
     */
-    // !function(e){var n,t={},o="jinrishici-token";function i(){return document.getElementById("jinrishici-sentence")||0!=document.getElementsByClassName("jinrishici-sentence").length}function c(){t.load(function(e){var n=document.getElementById("jinrishici-sentence"),t=document.getElementsByClassName("jinrishici-sentence");if(n&&(n.innerText=e.data.content),0!==t.length)for(var o=0;o<t.length;o++)t[o].innerText=e.data.content})}function r(e,n){var t=new XMLHttpRequest;t.open("get",n),t.withCredentials=!0,t.send(),t.onreadystatechange=function(n){if(4===t.readyState){var o=JSON.parse(t.responseText);"success"===o.status?e(o):console.error("今日诗词API加载失败，错误原因："+o.errMessage)}}}t.load=function(n){return e.localStorage&&e.localStorage.getItem(o)?function(e,n){return r(e,"https://v2.jinrishici.com/one.json?client=browser-sdk/1.2&X-User-Token="+encodeURIComponent(n))}(n,e.localStorage.getItem(o)):function(n){return r(function(t){e.localStorage.setItem(o,t.token),n(t)},"https://v2.jinrishici.com/one.json?client=browser-sdk/1.2")}(n)},e.jinrishici=t,i()?c():(n=function(){i()&&c()},"loading"!=document.readyState?n():document.addEventListener?document.addEventListener("DOMContentLoaded",n):document.attachEvent("onreadystatechange",function(){"complete"==document.readyState&&n()}))}(window);
+    !function(e){var n,t={},o="jinrishici-token";function i(){return document.getElementById("jinrishici-sentence")||0!=document.getElementsByClassName("jinrishici-sentence").length}function c(){t.load(function(e){var n=document.getElementById("jinrishici-sentence"),t=document.getElementsByClassName("jinrishici-sentence");if(n&&(n.innerText=e.data.content),0!==t.length)for(var o=0;o<t.length;o++)t[o].innerText=e.data.content})}function r(e,n){var t=new XMLHttpRequest;t.open("get",n),t.withCredentials=!0,t.send(),t.onreadystatechange=function(n){if(4===t.readyState){var o=JSON.parse(t.responseText);"success"===o.status?e(o):console.error("今日诗词API加载失败，错误原因："+o.errMessage)}}}t.load=function(n){return e.localStorage&&e.localStorage.getItem(o)?function(e,n){return r(e,"https://v2.jinrishici.com/one.json?client=browser-sdk/1.2&X-User-Token="+encodeURIComponent(n))}(n,e.localStorage.getItem(o)):function(n){return r(function(t){e.localStorage.setItem(o,t.token),n(t)},"https://v2.jinrishici.com/one.json?client=browser-sdk/1.2")}(n)},e.jinrishici=t,i()?c():(n=function(){i()&&c()},"loading"!=document.readyState?n():document.addEventListener?document.addEventListener("DOMContentLoaded",n):document.attachEvent("onreadystatechange",function(){"complete"==document.readyState&&n()}))}(window);
 
-    // jinrishici.load(function(result) {
-    //     var sentence = document.querySelector("#poem_sentence")
-    //     sentence.innerHTML = result.data.content
-    // });
+    jinrishici.load(function(result) {
+        var sentence = document.querySelector("#poem_sentence")
+        sentence.innerHTML = result.data.content
+    });
 
 </script>
 
@@ -405,10 +413,12 @@
     })();
 
     // 设置宽度
-    const heatmapElement = document.querySelector(".tailwindcss-heatmap");
-    const heatmapWidth = heatmapElement.offsetWidth;
-    const tickerElement = document.querySelector(".ticker");
-    tickerElement.style.width = `${heatmapWidth}px`;
+    // const heatmapElement = document.querySelector(".tailwindcss-heatmap");
+    // const secondNavElement = mainMenuElement.querySelectorAll("nav")[1]; // 获取第二个nav元素
+    // const heatmapWidth = secondNavElement.offsetWidth;
+    // const heatmapWidth = heatmapElement.offsetWidth;
+    // const tickerElement = document.querySelector(".tailwind-ticker");
+    // tickerElement.style.maxWidth = `${heatmapWidth}px`;
 
     // 处理 Json 数据
     if (document.querySelector('#ticker')) {
@@ -428,7 +438,6 @@
                     tickerContent = replaceMultiple(tickerContent, replacements);
                     result += `<li class="ticker-item"><span class="datetime">${tickerTime}</span>：<a href="https://www.eallion.com/mastodon/" target="_self">${tickerContent}</a></li>`;
                 }
-                console.log(result);
                 var tickerDom = document.querySelector('#ticker');
                 var tickerBefore = `<div class="ticker-wrap"><ul class="ticker-list">`;
                 var tickerAfter = `</ul></div>`;
@@ -448,9 +457,9 @@
             for (var i = 0; i < tickerItem.length; i++) {
                 setTimeout(function () {
                     tickerWrap.appendChild(tickerItem[0]);
-                }, 2000);
+                }, 1500);
             }
-        }, 2000);
+        }, 1500);
     }
 
     // 替换字符串
