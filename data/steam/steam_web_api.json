@@ -6,35 +6,35 @@
         "level": 125,
         "completion_time": 1715193888,
         "xp": 354,
-        "scarcity": 11445872
+        "scarcity": 11516760
       },
       {
         "badgeid": 66,
         "level": 1,
         "completion_time": 1703183460,
         "xp": 50,
-        "scarcity": 35485213
+        "scarcity": 35613739
       },
       {
         "badgeid": 64,
         "level": 1,
         "completion_time": 1678852971,
         "xp": 50,
-        "scarcity": 75852707
+        "scarcity": 75898906
       },
       {
         "badgeid": 2,
         "level": 3,
         "completion_time": 1534584002,
         "xp": 500,
-        "scarcity": 10124404
+        "scarcity": 10143251
       },
       {
         "badgeid": 1,
         "level": 17,
         "completion_time": 1175761888,
         "xp": 850,
-        "scarcity": 6605657
+        "scarcity": 6650738
       },
       {
         "badgeid": 1,
@@ -44,7 +44,7 @@
         "xp": 100,
         "communityitemid": "8838417276",
         "border_color": 0,
-        "scarcity": 86653
+        "scarcity": 86703
       }
     ],
     "player_xp": 1904,
@@ -56,15 +56,15 @@
       {
         "appid": 2923300,
         "name": "Banana",
-        "playtime_2weeks": 5414,
-        "playtime_forever": 5414,
+        "playtime_2weeks": 15345,
+        "playtime_forever": 15345,
         "img_icon_url": "497b3cafb1745dd16ee68d66241a933c92e20246",
         "has_community_visible_stats": true,
-        "playtime_windows_forever": 5414,
+        "playtime_windows_forever": 15345,
         "playtime_mac_forever": 0,
         "playtime_linux_forever": 0,
         "playtime_deck_forever": 0,
-        "rtime_last_played": 1719219694,
+        "rtime_last_played": 1719825456,
         "playtime_disconnected": 0
       },
       {
@@ -1754,8 +1754,8 @@
         "avatarmedium": "https://avatars.steamstatic.com/54d22c4e7be1b79620240392cc0fcaab042e4578_medium.jpg",
         "avatarfull": "https://avatars.steamstatic.com/54d22c4e7be1b79620240392cc0fcaab042e4578_full.jpg",
         "avatarhash": "54d22c4e7be1b79620240392cc0fcaab042e4578",
-        "lastlogoff": 1719021734,
-        "personastate": 4,
+        "lastlogoff": 1719808829,
+        "personastate": 3,
         "realname": "Charles Chin",
         "primaryclanid": "103582791433612637",
         "timecreated": 1175761888,
