@@ -1,0 +1,26 @@
+{{ define "main" }}
+<style>
+    #error-404 > div > div > div {
+        margin-top: -1100px !important;
+    }
+    #error-404 > div > div > div > div > div {
+        margin-bottom: 50px !important;
+    }
+    @media screen and (max-width: 853px){
+        #error-404 div center div div {
+            margin: 18rem 0 5rem;
+        }
+    }
+    @media screen and (max-width: 640px){
+        #error-404 div center div div {
+            margin: 10rem 0 2rem;
+        }
+    }
+</style>
+<h1 class="mb-3 text-4xl font-extrabold">{{ i18n "error.404_title" }}</h1>
+<p class="mb-2 text-neutral-400 dark:text-neutral-500">
+  {{ i18n "error.404_error" }} {{ i18n "error.404_description" }}
+</p>
+<div id="error-404" class="w-auto lg:!w-[1600px] min-h-auto lg:!min-h-[1200px] mt-0 ml-0 lg:!ml-[-25%]"></div>
+<script src="https://volunteer.cdn-go.cn/404/latest/404.js" rendertarget="error-404"></script>
+{{ end }}
