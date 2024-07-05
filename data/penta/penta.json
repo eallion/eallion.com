@@ -1,6 +1,14 @@
 {
   "penta": [
     {
+      "src": "202400706-Lucian.jpg",
+      "alt": "202400706-Lucian",
+      "champion": "Lucian",
+      "date": "2024-07-06",
+      "caption": "圣枪游侠 卢锡安",
+      "heroId": "236"
+    },
+    {
       "src": "20240622-Samira.png",
       "alt": "20240622-Samira",
       "champion": "Samira",
