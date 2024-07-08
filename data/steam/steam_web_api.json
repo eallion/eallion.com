@@ -6,35 +6,35 @@
         "level": 125,
         "completion_time": 1715193888,
         "xp": 354,
-        "scarcity": 11516760
+        "scarcity": 11582104
       },
       {
         "badgeid": 66,
         "level": 1,
         "completion_time": 1703183460,
         "xp": 50,
-        "scarcity": 35613739
+        "scarcity": 35745406
       },
       {
         "badgeid": 64,
         "level": 1,
         "completion_time": 1678852971,
         "xp": 50,
-        "scarcity": 75898906
+        "scarcity": 75944699
       },
       {
         "badgeid": 2,
         "level": 3,
         "completion_time": 1534584002,
         "xp": 500,
-        "scarcity": 10143251
+        "scarcity": 10167684
       },
       {
         "badgeid": 1,
         "level": 17,
         "completion_time": 1175761888,
         "xp": 850,
-        "scarcity": 6650738
+        "scarcity": 6696354
       },
       {
         "badgeid": 1,
@@ -44,7 +44,7 @@
         "xp": 100,
         "communityitemid": "8838417276",
         "border_color": 0,
-        "scarcity": 86703
+        "scarcity": 86704
       }
     ],
     "player_xp": 1904,
@@ -56,28 +56,29 @@
       {
         "appid": 2923300,
         "name": "Banana",
-        "playtime_2weeks": 15345,
-        "playtime_forever": 15345,
+        "playtime_2weeks": 19619,
+        "playtime_forever": 25053,
         "img_icon_url": "497b3cafb1745dd16ee68d66241a933c92e20246",
         "has_community_visible_stats": true,
-        "playtime_windows_forever": 15345,
+        "playtime_windows_forever": 25053,
         "playtime_mac_forever": 0,
         "playtime_linux_forever": 0,
         "playtime_deck_forever": 0,
-        "rtime_last_played": 1719825456,
+        "rtime_last_played": 1720430295,
         "playtime_disconnected": 0
       },
       {
         "appid": 1426210,
         "name": "It Takes Two",
-        "playtime_forever": 1049,
+        "playtime_2weeks": 374,
+        "playtime_forever": 1424,
         "img_icon_url": "6b15f6d81c4fc52056f4928b363b7fac591a945b",
         "has_community_visible_stats": true,
-        "playtime_windows_forever": 1049,
+        "playtime_windows_forever": 1424,
         "playtime_mac_forever": 0,
         "playtime_linux_forever": 0,
         "playtime_deck_forever": 0,
-        "rtime_last_played": 1710679157,
+        "rtime_last_played": 1720280363,
         "playtime_disconnected": 0
       },
       {
@@ -1754,8 +1755,8 @@
         "avatarmedium": "https://avatars.steamstatic.com/54d22c4e7be1b79620240392cc0fcaab042e4578_medium.jpg",
         "avatarfull": "https://avatars.steamstatic.com/54d22c4e7be1b79620240392cc0fcaab042e4578_full.jpg",
         "avatarhash": "54d22c4e7be1b79620240392cc0fcaab042e4578",
-        "lastlogoff": 1719808829,
-        "personastate": 3,
+        "lastlogoff": 1720290404,
+        "personastate": 4,
         "realname": "Charles Chin",
         "primaryclanid": "103582791433612637",
         "timecreated": 1175761888,
