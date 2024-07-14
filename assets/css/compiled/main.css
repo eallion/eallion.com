@@ -2884,11 +2884,6 @@ select {
   line-height:2.5rem
 }
 
-.text-8xl {
-  font-size:6rem;
-  line-height:1
-}
-
 .text-\[0\.6rem\] {
   font-size:0.6rem
 }
@@ -2920,11 +2915,6 @@ select {
 .text-xs {
   font-size:0.75rem;
   line-height:1rem
-}
-
-.text-6xl {
-  font-size:3.75rem;
-  line-height:1
 }
 
 .font-bold {
