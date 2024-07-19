@@ -94,7 +94,7 @@ git submodule update --init --recursive
 
 ```diff
 - git submodule update --remote --merge
-+ pnpm update
++ pnpm theme
 ```
 
 Blowfish 编译 TailwindCSS 的 main.css ，位于 [assets/css/compiled/main.css](https://github.com/eallion/eallion.com/blob/main/assets/css/compiled/main.css)：

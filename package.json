@@ -8,7 +8,8 @@
     "server": "git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir example --minify --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo --disableKinds RSS --printUnusedTemplates --templateMetrics --templateMetricsHints",
     "new": "node scripts/new_post.js",
     "preview": "git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content --minify --forceSyncStatic --ignoreCache --noHTTPCache --disableFastRender -e production --enableGitInfo --templateMetrics --templateMetricsHints",
-    "update": "git submodule update --remote --merge",
+    "syntax": "npx rehype-cli public -o",
+    "theme": "git submodule update --remote --merge",
     "recursive": "git submodule update --init --recursive",
     "dev": "set NODE_ENV=development&&node ./themes/blowfish/node_modules/tailwindcss/lib/cli.js -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
     "build": "set NODE_ENV=production&&node  ./themes/blowfish/node_modules/tailwindcss/lib/cli.js -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit",
@@ -32,12 +33,12 @@
   },
   "homepage": "https://github.com/eallion/eallion.com#readme",
   "dependencies": {
+    "@shikijs/rehype": "^1.10.3",
+    "@types/node": "^20.14.11",
     "axios": "^1.6.8",
     "fs": "0.0.1-security",
     "generate-changelog": "^1.8.0",
-    "next": "14.1.1",
-    "next.js": "^1.0.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "rehype-cli": "^12.0.0",
+    "shiki": "^1.10.3"
   }
 }
