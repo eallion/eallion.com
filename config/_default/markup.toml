@@ -7,7 +7,7 @@
   hardWraps = true
 
 [highlight]
-  codeFences = true
+  codeFences = false
   guessSyntax = true
   lineNos = false
   lineNumbersInTable = true

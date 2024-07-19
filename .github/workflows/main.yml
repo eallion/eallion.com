@@ -29,14 +29,17 @@ jobs:
         run: |
           hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo --templateMetrics --templateMetricsHints
 
-      - name: Ready for Next.js
+      - name: Setup Node LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: yarn
+
+      - name: Install and run Shiki
         run: |
-          mkdir next
-          cp public next/public -rf
-          cp pages next/pages -rf
-          cp vercel.json next/
-          cp next.config.js next/
-          cp package.json next/
+          export NODE_OPTIONS="--max_old_space_size=7168"
+          yarn install
+          yarn run syntax || true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -44,7 +47,7 @@ jobs:
           personal_token: ${{ secrets.personal_token }}
           external_repository: eallion/blog
           publish_branch: main
-          publish_dir: ./next
+          publish_dir: ./public
           # destination_dir: public
           allow_empty_commit: true
           # commit_message: ${{ GitHub.event.head_commit.message }}
@@ -105,15 +108,15 @@ jobs:
       #     PATHS: "https://eallion.com/,https://www.eallion.com/"
       #     FLUSH_TYPE: "delete" # optional
 
-      - name: Install TencentCloud CLI
-        run: |
-          pip install tccli
+      # - name: Install TencentCloud CLI
+      #   run: |
+      #     pip install tccli
 
-      - name: Configure Tccli Credentials
-        run: |
-          tccli configure set secretId ${{ secrets.TENCENTCLOUD_TEO_SECRET_ID }}
-          tccli configure set secretKey ${{ secrets.TENCENTCLOUD_TEO_SECRET_KEY }}
+      # - name: Configure Tccli Credentials
+      #   run: |
+      #     tccli configure set secretId ${{ secrets.TENCENTCLOUD_TEO_SECRET_ID }}
+      #     tccli configure set secretKey ${{ secrets.TENCENTCLOUD_TEO_SECRET_KEY }}
 
-      - name: Create Tencent Cloud TEO Purge Task
-        run: |
-          tccli teo CreatePurgeTask --cli-unfold-argument --ZoneId ${{ secrets.TENCENTCLOUD_TEO_ZONEID }} --Type purge_prefix --Method invalidate --Targets 'https://www.eallion.com/'
+      # - name: Create Tencent Cloud TEO Purge Task
+      #   run: |
+      #     tccli teo CreatePurgeTask --cli-unfold-argument --ZoneId ${{ secrets.TENCENTCLOUD_TEO_ZONEID }} --Type purge_prefix --Method invalidate --Targets 'https://www.eallion.com/'
