@@ -4,6 +4,10 @@
     --media-bg-color-to: #ffffff;
     --media-bg-color-to-dark: rgb(30, 41, 59);
     --media-bg-color-cover: rgba(0, 0, 0, 80%);
+    /* webchat 工具栏的颜色 */
+    --webchat-toolbar-background-color: #1e40af !important;
+    /* webchat 工具栏文字和按钮的颜色 */
+    /* --webchat-toolbar-text-color: #FFF !important; */
 }
 
 html.dark .shiki,
@@ -15,6 +19,79 @@ html.dark .shiki span {
     /* font-weight: var(--shiki-dark-font-weight) !important; */
     /* text-decoration: var(--shiki-dark-text-decoration) !important; */
 }
+
+/* Aliyun Web Chatbox Custom Start */
+/* webchat 对话框如果被遮挡，可以尝试通过 z-index、bottom、right 等设置 来调整*/
+.webchat-container {
+    z-index: 100 !important;
+    bottom: 10px !important;
+    right: 10px !important;
+    border-radius: .25rem !important;
+}
+
+@media screen and (max-width: 768px){
+    .webchat-container {
+        width: calc(100% - 20px) !important;
+    }
+}
+
+/* webchat 的唤起按钮如果被遮挡，可以尝试通过 z-index、bottom、right 等设置 来调整。也可以通过 CSS 进一步定制唤起按钮的形状、大小等。 */
+.webchat-bubble-tip {
+    z-index: 99 !important;
+    bottom: 20px !important;
+    right: 20px !important;
+}
+
+.webchat-container-toolbar {
+    border-top-left-radius: 0.25rem !important;
+    border-top-right-radius: 0.25rem !important;
+}
+
+.nlux-comp-welcomeMessage>.nlux-comp-avatar>.nlux-comp-avatarContainer>.nlux-comp-avatarPicture,
+.nlux-comp-chatItem.nlux-comp-chatItem--received>.nlux-comp-chatItem-participantInfo>.nlux-comp-avatar>.nlux-comp-avatarContainer>.nlux-comp-avatarPicture {
+    background-image: url(/eallion.webp) !important;
+}
+
+.nlux-comp-chatItem.nlux-comp-chatItem--bubblesLayout.nlux-comp-chatItem--received>.nlux-comp-message {
+    color: var(--nlux-aiMsg--txtClr) !important;
+}
+
+.nlux-conversationStarters-container {
+    overflow-y: unset !important;
+}
+
+.nlux-conversationStarters-container>.nlux-comp-conversationStarters button.nlux-comp-conversationStarter {
+    color: var(--nlux-cvStrt--txtClr) !important;
+    background-color: var(--nlux-cvStrt--bgClr) !important;
+}
+
+.nlux-comp-message {
+    border-radius: .25rem !important;
+}
+
+.nlux-comp-message .nlux-markdown-container code {
+    font-size: 0.875rem !important;
+    margin: 0 0.25rem !important;
+}
+
+.nlux-AiChat-root {
+    max-width: 430px !important;
+}
+
+.nlux-AiChat-root>.nlux-chatRoom-container {
+    border-radius: 0 !important;
+}
+
+.nlux-AiChat-root>.nlux-chatRoom-container>.nlux-composer-container {
+    margin-bottom: 10px !important;
+    padding-top: 10px !important;
+    height: 70px !important;
+}
+
+.nlux-AiChat-root>.nlux-chatRoom-container>.nlux-composer-container>.nlux-comp-composer {
+    padding-left: 10px !important;
+}
+/* Aliyun Web Chatbox Custom End */
 
 .bg-yellow-600 {
     background-color: #ca8a04;
