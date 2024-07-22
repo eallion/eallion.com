@@ -6,35 +6,35 @@
         "level": 125,
         "completion_time": 1715193888,
         "xp": 354,
-        "scarcity": 11625002
+        "scarcity": 11645948
       },
       {
         "badgeid": 66,
         "level": 1,
         "completion_time": 1703183460,
         "xp": 50,
-        "scarcity": 35866721
+        "scarcity": 35961676
       },
       {
         "badgeid": 64,
         "level": 1,
         "completion_time": 1678852971,
         "xp": 50,
-        "scarcity": 75986475
+        "scarcity": 76020841
       },
       {
         "badgeid": 2,
         "level": 3,
         "completion_time": 1534584002,
         "xp": 500,
-        "scarcity": 10214964
+        "scarcity": 10230497
       },
       {
         "badgeid": 1,
         "level": 17,
         "completion_time": 1175761888,
         "xp": 850,
-        "scarcity": 6740352
+        "scarcity": 6772533
       },
       {
         "badgeid": 1,
@@ -44,7 +44,7 @@
         "xp": 100,
         "communityitemid": "8838417276",
         "border_color": 0,
-        "scarcity": 86800
+        "scarcity": 86819
       }
     ],
     "player_xp": 1904,
@@ -54,9 +54,23 @@
     "game_count": 127,
     "games": [
       {
+        "appid": 1426210,
+        "name": "It Takes Two",
+        "playtime_2weeks": 322,
+        "playtime_forever": 1746,
+        "img_icon_url": "6b15f6d81c4fc52056f4928b363b7fac591a945b",
+        "has_community_visible_stats": true,
+        "playtime_windows_forever": 1746,
+        "playtime_mac_forever": 0,
+        "playtime_linux_forever": 0,
+        "playtime_deck_forever": 0,
+        "rtime_last_played": 1721491589,
+        "playtime_disconnected": 0
+      },
+      {
         "appid": 2923300,
         "name": "Banana",
-        "playtime_2weeks": 14154,
+        "playtime_2weeks": 4443,
         "playtime_forever": 29503,
         "img_icon_url": "41985ff3280b153012eaaa7dbec6525f8cca22e4",
         "has_community_visible_stats": true,
@@ -65,20 +79,6 @@
         "playtime_linux_forever": 0,
         "playtime_deck_forever": 0,
         "rtime_last_played": 1720717662,
-        "playtime_disconnected": 0
-      },
-      {
-        "appid": 1426210,
-        "name": "It Takes Two",
-        "playtime_2weeks": 654,
-        "playtime_forever": 1703,
-        "img_icon_url": "6b15f6d81c4fc52056f4928b363b7fac591a945b",
-        "has_community_visible_stats": true,
-        "playtime_windows_forever": 1703,
-        "playtime_mac_forever": 0,
-        "playtime_linux_forever": 0,
-        "playtime_deck_forever": 0,
-        "rtime_last_played": 1720715038,
         "playtime_disconnected": 0
       },
       {
@@ -1755,7 +1755,7 @@
         "avatarmedium": "https://avatars.steamstatic.com/54d22c4e7be1b79620240392cc0fcaab042e4578_medium.jpg",
         "avatarfull": "https://avatars.steamstatic.com/54d22c4e7be1b79620240392cc0fcaab042e4578_full.jpg",
         "avatarhash": "54d22c4e7be1b79620240392cc0fcaab042e4578",
-        "lastlogoff": 1720727211,
+        "lastlogoff": 1721491595,
         "personastate": 0,
         "realname": "Charles Chin",
         "primaryclanid": "103582791433612637",
