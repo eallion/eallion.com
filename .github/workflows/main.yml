@@ -29,17 +29,17 @@ jobs:
         run: |
           hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo --templateMetrics --templateMetricsHints
 
-      - name: Setup Node LTS
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20.x
-          cache: yarn
+      # - name: Setup Node LTS
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 20.x
+      #     cache: yarn
 
-      - name: Install and run Shiki
-        run: |
-          export NODE_OPTIONS="--max_old_space_size=7168"
-          yarn install
-          yarn run syntax || true
+      # - name: Install and run Shiki
+      #   run: |
+      #     export NODE_OPTIONS="--max_old_space_size=7168"
+      #     yarn install
+      #     yarn run syntax || true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
