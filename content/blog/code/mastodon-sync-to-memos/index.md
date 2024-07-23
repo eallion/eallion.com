@@ -18,7 +18,11 @@ date: 2024-03-09T16:57:49+08:00
 
 > 最新脚本：[https://gist.github.com/eallion/bf8861eb3292c2351c1067fba3198c26](https://gist.github.com/eallion/bf8861eb3292c2351c1067fba3198c26)
 
-> Update：添加宝塔面板的示例。
+> Update 3：引入 ChatGPT AI (Deepseek) 来判断是否为重复内容
+
+> Update 2：引入中间件 Sink 短网址服务，从 Memos `/m/{ID}` 链接跳转到 Mastodon
+
+> Update 1：添加宝塔面板的示例。
 
 ### TL;DR
 
@@ -35,8 +39,9 @@ date: 2024-03-09T16:57:49+08:00
 
 ### 已测试版本
 
-- Memos: [`v0.22.0`](https://github.com/usememos/memos/pkgs/container/memos/218207833?tag=0.22.0)
-- Mastodon: [`v4.2.8`](https://github.com/mastodon/mastodon/pkgs/container/mastodon/182724379?tag=v4.2.8)
+- Memos: [`v0.22.3`](https://github.com/usememos/memos/pkgs/container/memos/218207833?tag=0.22.0)
+- Mastodon: [`v4.2.10`](https://github.com/mastodon/mastodon/pkgs/container/mastodon/182724379?tag=v4.2.8)
+- Sink: [`v0.1.3`](https://github.com/ccbikai/Sink/releases/tag/v0.1.3)
 
 Mastodon 需要自己的实例，或者具有管理员权限能创建 Webhook 的账号才能使用此方法。
 
@@ -75,41 +80,60 @@ Mastodon 的 Webhook 目的地 URL 建议绑定域名，不然 Sidekiq 可能处
 - `SKIP_MASTODON_REBLOG=`
 - `HOME_DIR=~`
 - `FILE_PATH=$HOME_DIR/.mastodon_memos_id.json`
+- `AI_DIFF=true`
+- `AI_API="https://api.deepseek.com"`
+- `AI_AUTHORIZATION=""`
+- `SINK_HOST="https://s.e5n.cc"`
+- `SINK_NUXT_SITE_TOKEN=""`
 
 > 查找 Mastodon ID： https://`INSTANCE`/api/v1/accounts/lookup?acct=`USERNAME`
 
 ```bash
 #!/bin/bash
 
-# 已测试版本：
-# Memos: v0.22.0
-# Mastodon: v4.2.8
+sleep 5
+
+# Version: 2024.07.22
+
+# 已测试版本:
+# Memos: v0.22.3
+# Mastodon: v4.2.10
+# Sink: v0.1.3
 
 # ======================================================
 # 配置开始
 
 # Memos Host
-MEMOS_HOST=""
+MEMOS_HOST="https://memos.eallion.com/"
 
 # Memos Access Token
-MEMOS_ACCESS_TOKEN=""
+MEMOS_ACCESS_TOKEN="eyJ***"
 
 # 发布 Memos 的可见性 ('PUBLIC', 'PROTECTED', 'PRIVATE', 'VISIBILITY_UNSPECIFIED') 四选一
 MEMOS_VISIBILITY=PUBLIC
 
 # Mastodon Instance
-MASTODON_INSTANCE=""
+MASTODON_INSTANCE="https://e5n.cc/"
 
 # Mastodon ID, Find ID: https://INSTANCE/api/v1/accounts/lookup?acct=USERNAME
-MASTODON_ID=""
+MASTODON_ID="111136231674527355"
 
 # 跳过回复和转嘟
 SKIP_MASTODON_REPLY=true
 SKIP_MASTODON_REBLOG=true
 
-# 获取当前用户的 Home 目录路径及保存 ID 的文件，保持默认，不用更改
+# 获取当前用户的家目录路径及保存 ID 的文件，保持默认，不用更改
 HOME_DIR=~
 FILE_PATH=$HOME_DIR/.mastodon_memos_id.json
+
+# AI 比较文本相似度
+AI_DIFF=true
+AI_API="https://api.deepseek.com"
+AI_AUTHORIZATION="sk-***"
+
+# Deploy Sink: https://github.com/ccbikai/Sink
+SINK_HOST="https://s.e5n.cc"
+SINK_NUXT_SITE_TOKEN="Sink***"
 
 # 配置结束
 # ======================================================
@@ -132,7 +156,7 @@ else
   echo "Local data exist, skipping..."
 fi
 
-# 拼接 API 和 Token
+# 拼接 Memos API 和 Token
 if [[ "$MEMOS_HOST" != */ ]]; then
   MEMOS_HOST="$MEMOS_HOST/"
 fi
@@ -148,6 +172,26 @@ if [[ "$MASTODON_INSTANCE" != */ ]]; then
 fi
 CONTENT_URL="${MASTODON_INSTANCE}api/v1/accounts/${MASTODON_ID}/statuses?limit=1&exclude_replies=${SKIP_MASTODON_REPLY}&exclude_reblogs=${SKIP_MASTODON_REBLOG}"
 
+# 前置判断是否为回复嘟文，减少 AI Token 开支
+LATEST_CONTENT_URL="${MASTODON_INSTANCE}api/v1/accounts/${MASTODON_ID}/statuses?limit=1"
+LATEST_CONTENT_RESPONSE=$(curl -s "$LATEST_CONTENT_URL")
+IS_REPLY=$(echo "$LATEST_CONTENT_RESPONSE" | jq -r '.[0].in_reply_to_id')
+IS_REBLOG=$(echo "$LATEST_CONTENT_RESPONSE" | jq -r '.[0].reblog')
+# 检查 IS_REPLY 是否为 null
+if [ "$IS_REPLY" != "null" ]; then
+  echo "Latest status is reply, exiting..."
+  echo "Skipped: $(TZ=UTC-8 date +"%Y-%m-%d %T")"
+  echo "============================="
+  exit 0
+fi
+# 检查 IS_REBLOG 是否为 null
+if [ "$IS_REBLOG" != "null" ]; then
+  echo "Latest status is reblog, exiting..."
+  echo "Skipped: $(TZ=UTC-8 date +"%Y-%m-%d %T")"
+  echo "============================="
+  exit 0
+fi
+
 # Mastodon 最新 Status 的 ID
 LATEST_MASTODON_ID=$(curl --connect-timeout 60 -s $CONTENT_URL | jq -r '.[0].id')
 
@@ -158,7 +202,7 @@ LOCAL_MASTODON_ID=$(cat "$FILE_PATH" | jq -r '.latest_mastodon_id')
 # Webhook 触发时，判断 Mastodon 最新 ID 是否为暂存 ID，防止重复同步
 if [ "$LATEST_MASTODON_ID" == "$LOCAL_MASTODON_ID" ]; then
   echo "Mastodon no updated, skipping..."
-  echo "Skipped: $(TZ=UTC-8 date +"%Y-%m-%d"" ""%T")"
+  echo "Skipped: $(TZ=UTC-8 date +"%Y-%m-%d %T")"
   echo "============================="
   exit 0
 fi
@@ -169,9 +213,9 @@ MEDIA=$(echo $CONTENT | jq -r '.media_attachments')
 # 判断 Media 的内容
 if [ "$MEDIA" != "null" ]; then
   MEDIAS=$(echo $CONTENT | jq -r '.media_attachments[] | select(.type=="image") | .url')
-  # 拼接图片 
+  # 拼接图片
   images=""
-  for url in $MEDIAS; do 
+  for url in $MEDIAS; do
     images="$images![image]($url)\n"
   done
   TEXT=$(echo "$CONTENT" | jq -r '.content' | lynx -dump -stdin -nonumbers -nolist | tr -d '\n' | sed '/^$/N;s/\n\n/\n/g' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | sed -E 's/ {2,}/ /g')
@@ -184,7 +228,7 @@ fi
 # 判断内容是否为空
 if [ -z "$TEXT" ] || [ "$TEXT" == "\\n" ]; then
   echo "Content is empty, skipping..."
-  echo "Skipped: $(TZ=UTC-8 date +"%Y-%m-%d"" ""%T")"
+  echo "Skipped: $(TZ=UTC-8 date +"%Y-%m-%d %T")"
   echo "============================="
   exit 0
 fi
@@ -194,29 +238,66 @@ TEXT=$(echo "$TEXT" | sed 's/"/\\"/g')
 
 # Webhook 触发时，判断 Memos 最新 ID 是否为暂存 ID
 # 当 Memos 单方面有更新后，验证 Mastodon 和 Memos 的 ID 绑定关系（Todo）
-#if [ "$LATEST_MEMOS_ID" == "$LOCAL_MEMOS_ID" ]; then
+# if [ "$LATEST_MEMOS_ID" == "$LOCAL_MEMOS_ID" ]; then
 #  echo "Memos no updated, skipping..."
-#  echo "Skipped: $(TZ=UTC-8 date +"%Y-%m-%d"" ""%T")"
+#  echo "Skipped: $(TZ=UTC-8 date +"%Y-%m-%d %T")"
 #  echo "============================="
 # exit 0
-#fi
+# fi
 
-# 对比 Matodon 和 Memos 的 Content 内容的 MD5 值（不一定精确）
-# 后期尝试引入 GPT 对比内容
+# 利用 Deepseek 对比 Mastodon 和 Memos 的相似度
 CONTENT_MEMOS=$(curl --connect-timeout 60 -s $MEMOS_URL | jq '.[0].content')
 CONTENT_MASTODON=$TEXT
 
-# 获取最新 Memos 的 MD5
-LATEST_MEMOS_MD5=$(echo $CONTENT_MEMOS | tr -d '"' | md5sum | cut -d' ' -f1)
-# 获取最新 Mastodon 的 MD5
-LATEST_TEXT_MD5=$(echo $TEXT | tr -d '"' | md5sum | cut -d' ' -f1)
+if [[ "$AI_DIFF" == true ]]; then
+    AI_RESPONSE=$(curl -L -X POST "$AI_API/chat/completions" \
+    -H 'Content-Type: application/json' \
+    -H 'Accept: application/json' \
+    -H "Authorization: Bearer $AI_AUTHORIZATION" \
+    --data-raw '{
+      "messages": [
+        {
+          "content": "你是一个比较文本相似度的助手",
+          "role": "system"
+        },
+        {
+          "content": "比较```'"$CONTENT_MEMOS"'```和```'"$CONTENT_MASTODON"'```的相似度，超过50%的相似度就判定为相似，如果相似就回答数字1，如果不相似就回答数字0，除了数字1或者数字0不能回答其他任何内容。",
+          "role": "user"
+        }
+      ],
+      "model": "deepseek-coder",
+      "frequency_penalty": 0,
+      "max_tokens": 2048,
+      "presence_penalty": 0,
+      "stop": null,
+      "stream": false,
+      "temperature": 1,
+      "top_p": 1,
+      "logprobs": false,
+      "top_logprobs": null
+    }')
+    AI_DIFF_RESULT=$(echo "$AI_RESPONSE" | jq -r '.choices[0].message.content')
+    if [ "$AI_DIFF_RESULT" == 1 ]; then
+      echo "[AI] Content is duplicate, skipping..."
+      echo "Skipped: $(TZ=UTC-8 date +"%Y-%m-%d %T")"
+      echo "============================="
+      exit 0
+    fi
+else
+    # 对比 Matodon 和 Memos 的 Content 内容的 MD5 值（不一定精确）
 
-# 通过 MD5 判断内容是否重复
-if [ "$LATEST_TEXT_MD5" == "$LATEST_MEMOS_MD5" ]; then
-  echo "Content is duplicate, skipping..."
-  echo "Skipped: $(TZ=UTC-8 date +"%Y-%m-%d"" ""%T")"
-  echo "============================="
-  exit 0
+    # 获取最新 Memos 的 MD5
+    LATEST_MEMOS_MD5=$(echo $CONTENT_MEMOS | tr -d '"' | md5sum | cut -d' ' -f1)
+    # 获取最新 Mastodon 的 MD5
+    LATEST_TEXT_MD5=$(echo $TEXT | tr -d '"' | md5sum | cut -d' ' -f1)
+
+    # 通过 MD5 判断内容是否重复
+    if [ "$LATEST_TEXT_MD5" == "$LATEST_MEMOS_MD5" ]; then
+      echo "[MD5] Content is duplicate, skipping..."
+      echo "Skipped: $(TZ=UTC-8 date +"%Y-%m-%d %T")"
+      echo "============================="
+      exit 0
+    fi
 fi
 
 # 替换 NeoDB 的评分 Emoji
@@ -226,7 +307,7 @@ TEXT=$(echo "$TEXT" | sed "s/:star_empty:/🌑/g; s/:star_half:/🌗/g; s/:star_
 TEXT=$(echo "$TEXT" | sed 's/\\n$//')
 
 # 发布 Memos 并获取返回的 JSON 数据
-RESPONSE=$(curl --request POST \
+MEMOS_RESPONSE=$(curl --request POST \
   --url $MEMOS_API_HOST \
   --header "Authorization: Bearer $MEMOS_ACCESS_TOKEN" \
   --data "{
@@ -235,7 +316,7 @@ RESPONSE=$(curl --request POST \
 }")
 
 # 从返回的 JSON 数据中提取 Memos 的 id 值
-NEW_MEMOS_ID=$(echo "$RESPONSE" | jq -r '.id')
+NEW_MEMOS_ID=$(echo "$MEMOS_RESPONSE" | jq -r '.uid')
 
 # 更新 JSON 文件中的 latest_memos_id 的值
 jq ".latest_memos_id = \"$NEW_MEMOS_ID\"" "$FILE_PATH" > "${FILE_PATH}.tmp" && mv "${FILE_PATH}.tmp" "$FILE_PATH"
@@ -246,8 +327,18 @@ jq ".latest_mastodon_id = \"$LATEST_MASTODON_ID\"" "$FILE_PATH" > "${FILE_PATH}.
 # 更新 Mastodon 和 Memos 的 ID 的绑定关系，并确保 "bind" 中的数组保留唯一键，键也只有唯一值
 jq ".bind += [{\"$LATEST_MASTODON_ID\": \"$NEW_MEMOS_ID\"}] | .bind = (.bind | unique)" "$FILE_PATH" > "${FILE_PATH}.tmp" && mv "${FILE_PATH}.tmp" "$FILE_PATH"
 
+# POST 到 Sink
+SINK_URL="${MASTODON_INSTANCE}@eallion/${LATEST_MASTODON_ID}"
+SINK_SLUG="${NEW_MEMOS_ID}"
+
+curl -s -X POST \
+     -H "authorization: Bearer ${SINK_NUXT_SITE_TOKEN}" \
+     -H "content-type: application/json" \
+     -d "{\"url\": \"${SINK_URL}\", \"slug\": \"${SINK_SLUG}\"}" \
+     "${SINK_HOST}/api/link/create"
+
 echo "Sync Mastodon to Memos Successful!"
-echo "Done: $(TZ=UTC-8 date +"%Y-%m-%d"" ""%T")"
+echo "Done: $(TZ=UTC-8 date +"%Y-%m-%d %T")"
 echo "============================="
 ```
 
@@ -273,14 +364,14 @@ echo "============================="
 
 ```json
 {
-  "latest_memos_id": "6231",
-  "latest_mastodon_id": "112061852482921394",
+  "latest_memos_id": "JXByygyzXcDwPhTLqHTmWm",
+  "latest_mastodon_id": "112833879053860314",
   "bind": [
     {
-      "112059053750743781": "6230"
+      "112485117943717939": "L9PF4hyXDa2BsW9GdeCRoH"
     },
     {
-      "112061852482921394": "6231"
+      "112486303537198423": "S4q7iMChrturdSa5YDXqvy"
     }
   ]
 }
