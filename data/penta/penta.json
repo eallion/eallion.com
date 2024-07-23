@@ -1,6 +1,22 @@
 {
   "penta": [
     {
+      "src": "20240716-Varus.jpg",
+      "alt": "20240716-Varus",
+      "champion": "Varus",
+      "date": "2024-07-16",
+      "caption": "惩戒之箭 韦鲁斯",
+      "heroId": "110"
+    },
+    {
+      "src": "20240715-Draven.jpg",
+      "alt": "20240715-Draven",
+      "champion": "Draven",
+      "date": "2024-07-15",
+      "caption": "荣耀行刑官 德莱文",
+      "heroId": "119"
+    },
+    {
       "src": "20240713-MissFortune.jpg",
       "alt": "20240713-MissFortune",
       "champion": "MissFortune",
