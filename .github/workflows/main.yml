@@ -91,6 +91,18 @@ jobs:
           # exclude: |
           #   tmp.txt
 
+      - name: Refresh volcengine CDN
+        run: |
+          wget https://github.com/volcengine/volcengine-cli/releases/download/v1.0.26/volcengine-cli_1.0.26_linux_amd64.zip
+          unzip volcengine-cli_1.0.26_linux_amd64.zip
+          chmod a+x ./ve
+
+          ./ve configure set --profile volcengine-hugo-github-actions --region cn-beijing --endpoint cdn.volcengineapi.com --access-key ${{ secrets.VOLC_ACCESS_KEY }} --secret-key ${{ secrets.VOLC_SECRET_KEY }}
+
+          ./ve cdn SubmitRefreshTask --body '{"Delete":true,"Prefix":true,"Type":"dir","Urls":"https://www.eallion.com/"}'
+
+          ./ve configure --profile volcengine-hugo-github-actions
+
       # - name: Upload to Tencent COS CN
       #   uses: zkqiang/tencent-cos-action@v0.1.0
       #   with:
