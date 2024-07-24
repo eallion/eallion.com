@@ -2,3 +2,9 @@
 /zh-tw/*    /   301
 /zh-CN/*    /   301
 /zh-TW/*    /   301
+/cn/*    /   301
+/tw/*    /   301
+/CN/*    /   301
+/TW/*    /   301
+/rss*   /index.xml  301
+/feed*  /index.xml  301
