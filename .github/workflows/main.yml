@@ -99,9 +99,7 @@ jobs:
 
           ./ve configure set --profile volcengine-hugo-github-actions --region cn-beijing --endpoint cdn.volcengineapi.com --access-key ${{ secrets.VOLC_ACCESS_KEY }} --secret-key ${{ secrets.VOLC_SECRET_KEY }}
 
-          ./ve cdn SubmitRefreshTask --body '{"Delete":true,"Prefix":true,"Type":"dir","Urls":"https://www.eallion.com/"}'
-
-          ./ve configure --profile volcengine-hugo-github-actions
+          ./ve cdn SubmitRefreshTask --body '{"Type":"dir","Urls":"https://www.eallion.com/"}' || true
 
       # - name: Upload to Tencent COS CN
       #   uses: zkqiang/tencent-cos-action@v0.1.0
