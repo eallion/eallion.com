@@ -5556,6 +5556,14 @@ pre {
     margin-top:4rem
   }
 
+  .sm\:flex {
+    display:flex
+  }
+
+  .sm\:hidden {
+    display:none
+  }
+
   .sm\:w-1\/2 {
     width:50%
   }
@@ -5606,6 +5614,16 @@ pre {
   .sm\:text-lg {
     font-size:1.125rem;
     line-height:1.75rem
+  }
+
+  .sm\:text-xs {
+    font-size:0.75rem;
+    line-height:1rem
+  }
+
+  .sm\:text-sm {
+    font-size:0.875rem;
+    line-height:1.25rem
   }
 }
 
@@ -5877,6 +5895,11 @@ pre {
   .lg\:py-32 {
     padding-top:8rem;
     padding-bottom:8rem
+  }
+
+  .lg\:text-xl {
+    font-size:1.25rem;
+    line-height:1.75rem
   }
 }
 

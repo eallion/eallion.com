@@ -276,7 +276,7 @@ html.dark .shiki span {
 /* Tailwind CSS Custom End */
 
 .ticker {
-    display: flex;
+    /* display: flex; */
     justify-content: flex-end;
 }
 
