@@ -57,11 +57,11 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Onionsite Pull Webhook
-        uses: eallion/fast-webhook@v1
-        with:
-          url: ${{ secrets.ONION_WEBHOOK_URL }}
-          json: '{"onion": "pull"}'
+      # - name: Onionsite Pull Webhook
+      #   uses: eallion/fast-webhook@v1
+      #   with:
+      #     url: ${{ secrets.ONION_WEBHOOK_URL }}
+      #     json: '{"onion": "pull"}'
 
       # - name: Algolia uploader
       #   uses: wangchucheng/algolia-uploader@master
