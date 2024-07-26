@@ -8,5 +8,6 @@
 /TW/*    /   301
 /rss*   /index.xml  301
 /feed*  /index.xml  301
+/atom*  /index.xml  301
 /api/v1/accounts/111136231674527355/statuses    https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true&exclude_reblogs=true   302
 /api/v1/custom_emojis    https://e5n.cc/api/v1/custom_emojis   302
