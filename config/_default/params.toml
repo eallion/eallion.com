@@ -24,7 +24,8 @@ disableImageOptimization = false
 disableTextInHeader = false
 
 defaultBackgroundImage = "/images/interstellar.jpg"
-defaultFeaturedImage = "/images/featured.svg"
+# defaultFeaturedImage = "/images/featured.svg"
+defaultFeaturedImage = "/images/paris_olympics_2024.webp"
 
 highlightCurrentMenuArea = true
 smartTOC = true
@@ -42,8 +43,9 @@ smartTOCHideUnfocusedChildren = false
 
 [homepage]
   layout = "custom" # valid options: page, profile, hero, card, background, custom
-  homepageImage = "/images/interstellar.jpg" # used in: hero, and card
+  # homepageImage = "/images/interstellar.jpg" # used in: hero, and card
   # homepageImage = "https://api.eallion.com/bing" # used in: hero, and card
+  homepageImage = "/images/paris_olympics_2024.webp" # Paris Olympics 2024
   showRecent = true
   showRecentItems = 9
   showMoreLink = true
