@@ -23,9 +23,9 @@ disableImageZoom = false
 disableImageOptimization = false
 disableTextInHeader = false
 
-defaultBackgroundImage = "/images/interstellar.jpg"
+# defaultBackgroundImage = "/images/interstellar.jpg"
 # defaultFeaturedImage = "/images/featured.svg"
-defaultFeaturedImage = "/images/paris_olympics_2024.webp"
+defaultBackgroundImage = "/images/paris_olympics_2024.webp" # Paris Olympics 2024
 
 highlightCurrentMenuArea = true
 smartTOC = true
