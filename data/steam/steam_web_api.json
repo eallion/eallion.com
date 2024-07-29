@@ -6,35 +6,35 @@
         "level": 125,
         "completion_time": 1715193888,
         "xp": 354,
-        "scarcity": 11645948
+        "scarcity": 11665282
       },
       {
         "badgeid": 66,
         "level": 1,
         "completion_time": 1703183460,
         "xp": 50,
-        "scarcity": 35961676
+        "scarcity": 36056646
       },
       {
         "badgeid": 64,
         "level": 1,
         "completion_time": 1678852971,
         "xp": 50,
-        "scarcity": 76020841
+        "scarcity": 76056048
       },
       {
         "badgeid": 2,
         "level": 3,
         "completion_time": 1534584002,
         "xp": 500,
-        "scarcity": 10230497
+        "scarcity": 10247807
       },
       {
         "badgeid": 1,
         "level": 17,
         "completion_time": 1175761888,
         "xp": 850,
-        "scarcity": 6772533
+        "scarcity": 7255814
       },
       {
         "badgeid": 1,
@@ -44,7 +44,7 @@
         "xp": 100,
         "communityitemid": "8838417276",
         "border_color": 0,
-        "scarcity": 86819
+        "scarcity": 86834
       }
     ],
     "player_xp": 1904,
@@ -54,23 +54,40 @@
     "game_count": 127,
     "games": [
       {
-        "appid": 1426210,
-        "name": "It Takes Two",
-        "playtime_2weeks": 322,
-        "playtime_forever": 1746,
-        "img_icon_url": "6b15f6d81c4fc52056f4928b363b7fac591a945b",
+        "appid": 578080,
+        "name": "PUBG: BATTLEGROUNDS",
+        "playtime_2weeks": 258,
+        "playtime_forever": 45828,
+        "img_icon_url": "609f27278aa70697c13bf99f32c5a0248c381f9d",
         "has_community_visible_stats": true,
-        "playtime_windows_forever": 1746,
+        "playtime_windows_forever": 7315,
         "playtime_mac_forever": 0,
         "playtime_linux_forever": 0,
         "playtime_deck_forever": 0,
-        "rtime_last_played": 1721491589,
+        "rtime_last_played": 1722243301,
+        "content_descriptorids": [
+          2,
+          5
+        ],
+        "playtime_disconnected": 0
+      },
+      {
+        "appid": 1426210,
+        "name": "It Takes Two",
+        "playtime_2weeks": 97,
+        "playtime_forever": 1801,
+        "img_icon_url": "6b15f6d81c4fc52056f4928b363b7fac591a945b",
+        "has_community_visible_stats": true,
+        "playtime_windows_forever": 1801,
+        "playtime_mac_forever": 0,
+        "playtime_linux_forever": 0,
+        "playtime_deck_forever": 0,
+        "rtime_last_played": 1722008862,
         "playtime_disconnected": 0
       },
       {
         "appid": 2923300,
         "name": "Banana",
-        "playtime_2weeks": 4443,
         "playtime_forever": 29503,
         "img_icon_url": "41985ff3280b153012eaaa7dbec6525f8cca22e4",
         "has_community_visible_stats": true,
@@ -218,23 +235,6 @@
         "playtime_linux_forever": 0,
         "playtime_deck_forever": 0,
         "rtime_last_played": 1616903004,
-        "playtime_disconnected": 0
-      },
-      {
-        "appid": 578080,
-        "name": "PUBG: BATTLEGROUNDS",
-        "playtime_forever": 45569,
-        "img_icon_url": "609f27278aa70697c13bf99f32c5a0248c381f9d",
-        "has_community_visible_stats": true,
-        "playtime_windows_forever": 7057,
-        "playtime_mac_forever": 0,
-        "playtime_linux_forever": 0,
-        "playtime_deck_forever": 0,
-        "rtime_last_played": 1615637948,
-        "content_descriptorids": [
-          2,
-          5
-        ],
         "playtime_disconnected": 0
       },
       {
@@ -1755,12 +1755,14 @@
         "avatarmedium": "https://avatars.steamstatic.com/54d22c4e7be1b79620240392cc0fcaab042e4578_medium.jpg",
         "avatarfull": "https://avatars.steamstatic.com/54d22c4e7be1b79620240392cc0fcaab042e4578_full.jpg",
         "avatarhash": "54d22c4e7be1b79620240392cc0fcaab042e4578",
-        "lastlogoff": 1721491595,
-        "personastate": 0,
+        "lastlogoff": 1722197232,
+        "personastate": 1,
         "realname": "Charles Chin",
         "primaryclanid": "103582791433612637",
         "timecreated": 1175761888,
         "personastateflags": 0,
+        "gameextrainfo": "PUBG: BATTLEGROUNDS",
+        "gameid": "578080",
         "loccountrycode": "US",
         "locstatecode": "CA",
         "loccityid": 387
