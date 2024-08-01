@@ -540,13 +540,14 @@
                 for (var i = 0; i < data.length; i++) {
                     var tickerTime = new Date(data[i].created_at).toLocaleString();
                     var tickerContent = extractTextFromHtml(data[i].content)
+                    var tickerUrl = data[i].url;
                     const replacements = {
                         '\\s*:star_empty:\\s*': '🌑',
                         '\\s*:star_half:\\s*': '🌗',
                         '\\s*:star_solid:\\s*': '🌕'
                     };
                     tickerContent = replaceMultiple(tickerContent, replacements);
-                    result += `<li class="ticker-item"><span class="datetime">${tickerTime}</span>：<a href="https://www.eallion.com/mastodon/" target="_self">${tickerContent}</a></li>`;
+                    result += `<li class="ticker-item"><span class="datetime">${tickerTime}</span>：<a href="${tickerUrl}" target="_blank">${tickerContent}</a></li>`;
                 }
                 var tickerDom = document.querySelector('#ticker');
                 var tickerBefore = `<div class="ticker-wrap"><ul class="ticker-list">`;
