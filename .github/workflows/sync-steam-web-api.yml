@@ -1,9 +1,9 @@
 name: Sync Steam Web API
 
 on:
-  schedule:
+  #schedule:
   # every monday
-   - cron: "0 9 * * 1"
+  #  - cron: "0 9 * * 1"
   # watch:
   #   types: [started]
 

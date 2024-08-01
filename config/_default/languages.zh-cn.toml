@@ -23,6 +23,6 @@ title = "大大的小蜗牛"
     { mastodon = "https://e5n.cc/@eallion" },
     { github = "https://github.com/eallion" },
     { x-twitter = "https://x.com/eallion" },
-    { steam = "https://steamcommunity.com/id/eallion" },
     { keybase = "https://keybase.io/eallion" },
+    { steam = "https://steamcommunity.com/id/eallion" },
   ]
