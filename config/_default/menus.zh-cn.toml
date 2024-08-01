@@ -40,11 +40,11 @@
   pageRef = "stats"
   weight = 21
 
-[[main]]
-  name = "Steam"
-  parent = "更多"
-  pageRef = "steam"
-  weight = 22
+# [[main]]
+#   name = "Steam"
+#   parent = "更多"
+#   pageRef = "steam"
+#   weight = 22
 
 [[main]]
   name = "Penta"
