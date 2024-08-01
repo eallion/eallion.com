@@ -29,7 +29,7 @@
 
 <div align="center">
 
-  <img src="static/assets/images/github/blog-flow-light-bg.png">
+  <img src="assets/images/github/blog-flow.png">
 </div>
 
 # 备忘录
@@ -87,14 +87,14 @@ git submodule add https://github.com/eallion/blowfish.git themes/DoIt
 ```bash
 git submodule update --init --recursive
 
-# pnpm recursive
+# bun recursive
 ```
 
 如果上游主题有更新，更新 [主题](https://github.com/eallion/blowfish.git) 和 [mastodon-embed-timeline](https://github.com/eallion/mastodon-embed-timeline.git)：
 
 ```diff
 - git submodule update --remote --merge
-+ pnpm theme
++ bun theme
 ```
 
 Blowfish 编译 TailwindCSS 的 main.css ，位于 [assets/css/compiled/main.css](https://github.com/eallion/eallion.com/blob/main/assets/css/compiled/main.css)：
@@ -104,8 +104,8 @@ Blowfish 编译 TailwindCSS 的 main.css ，位于 [assets/css/compiled/main.css
 # npm install
 # ../..
 
-# pnpm dev
-pnpm build
+# bun dev
+bun build
 ```
 
 ```bash
@@ -136,18 +136,18 @@ https://github.com/eallion/eallion.com/blob/main/layouts/_default/mastodon.html
 https://github.com/eallion/eallion.com/blob/main/data/neodb/movie.json
 ```
 
-### 🧑‍💻 pnpm 命令
+### 🧑‍💻 bun 命令
 
-- `pnpm new` 创建新文章
-- `pnpm server` 启动 Hugo 服务器，文档内容为 `example` 目录
-- `pnpm preview` 启动 Hugo 服务器，即预览线上生成环境，文档内容为 `content` 目录
-- `pnpm update` 更新 Submodule 子项目
-- `pnpm build` 构建 TailwindCSS 适用于生产环境的 main.css
-- `pnpm hugo` 构建 Hugo，一般不用，都是交给 CI/CD 构建
-- `pnpm dev` 启动 TailwindCSS 监听
-- `pnpm recursive` 递归更新 Submodule 子项目，一般第一次克隆本项目时使用
-- `pnpm changelog`  生成 CHANGELOG.md
-- `pnpm vercel` 构建适用于 Vercel 平台的 Hugo，在 Vercel 平台使用
+- `bun new` 创建新文章
+- `bun server` 启动 Hugo 服务器，文档内容为 `example` 目录
+- `bun preview` 启动 Hugo 服务器，即预览线上生成环境，文档内容为 `content` 目录
+- `bun syntax` Shiki 语法高亮
+- `bun update` 更新 Submodule 子项目
+- `bun run build` 构建 TailwindCSS 适用于生产环境的 main.css
+- `bun hugo` 构建 Hugo，一般不用，都是交给 CI/CD 构建
+- `bun dev` 启动 TailwindCSS 监听
+- `bun recursive` 递归更新 Submodule 子项目，一般第一次克隆本项目时使用
+- `bun vercel` 构建适用于 Vercel 平台的 Hugo，在 Vercel 平台使用
 
 ### 🔊 嘀咕页面
 
@@ -165,11 +165,11 @@ git submodule add https://github.com/eallion/mastodon-embed-timeline.git assets/
 ##### 1. **生成新文章**
 
 通过 Hugo 命令 New 一篇新文章模板：  
-现改为 npm (pnpm) 命令：
+现改为 npm (bun) 命令：
 
 ```diff
 - hugo new posts/daily/new_title.md
-+ pnpm new
++ bun new
 
 # node scripts/post_title_prompt.js && bash scripts/format_filename.sh
 ```
@@ -188,8 +188,8 @@ Icon 可以从网上下载，放到 `assets/icons` 目录下，格式为 `.svg`�
 
 ##### 5. **编辑文章**
 
-通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 `pnpm new` 出来的文章。  
-这篇文章在 `example/blog/{title}` 目录下，文件名为：`{title}/index.md`，`{title}` 为`pnpm new` 输入的文字。  
+通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 `bun new` 出来的文章。  
+这篇文章在 `example/blog/{title}` 目录下，文件名为：`{title}/index.md`，`{title}` 为`bun new` 输入的文字。  
 编辑好之后需要把这个文件复制到 `content/blog` 相应的目录中，再 `git push`。  
 缩略图（OG:Image）放在文章同目录下，命名为：`feature*.png`
 
@@ -246,10 +246,10 @@ git push
 
 ```diff
 - ./server.sh
-+ pnpm server
++ bun server
 
 # 查看博客实际效果 👇
-# pnpm preview
+# bun preview
 
 # git submodule update --remote --merge && \
 # start http://192.168.0.5:1313 && \
@@ -297,7 +297,7 @@ git push
 
 ```diff
 - hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
-+ pnpm build
++ bun build
 ```
 
 - `--cleanDestinationDir` 构建前先清理目标目录，即 public
