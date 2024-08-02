@@ -1,3 +1,2 @@
 bash scripts/cf_pages_env_hugo_version.sh
 git add wrangler.toml
-git commit -m "chore: wrangler hugo bump to version"
