@@ -480,3 +480,44 @@ footer nav ul {
 .text-shadow-hover-white:hover {
     text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.75), 1px -1px 0 rgba(255, 255, 255, 0.75), -1px 1px 0 rgba(255, 255, 255, 0.75), 1px 1px 0 rgba(255, 255, 255, 0.75);
 }
+
+#site-footer nav ul li a {
+    white-space: nowrap;
+}
+
+#site-footer div {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.notbyai {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 131px;
+    height: 42px;
+}
+
+.notbyai.written {
+    background-image: url(/assets/images/not-by-ai/written-by-human/svg/written-by-human-not-by-ai-badge-white.svg);
+}
+
+.notbyai.produced {
+    background-image: url(/assets/images/not-by-ai/produced-by-human/svg/produced-by-human-not-by-ai-badge-white.svg);
+}
+
+.notbyai.painted {
+    background-image: url(/assets/images/not-by-ai/painted-by-human/svg/painted-by-human-not-by-ai-badge-white.svg);
+}
+
+.dark .notbyai.written {
+    background-image: url(/assets/images/not-by-ai/written-by-human/svg/written-by-human-not-by-ai-badge-black.svg);
+}
+
+.dark .notbyai.produced {
+    background-image: url(/assets/images/not-by-ai/produced-by-human/svg/produced-by-human-not-by-ai-badge-black.svg);
+}
+
+.dark .notbyai.painted {
+    background-image: url(/assets/images/not-by-ai/painted-by-human/svg/painted-by-human-not-by-ai-badge-black.svg);
+}
