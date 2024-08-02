@@ -14,7 +14,8 @@
     "dev": "NODE_ENV=development&&bun run ./themes/blowfish/node_modules/tailwindcss/lib/cli.js -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
     "build": "NODE_ENV=production&&bun run ./themes/blowfish/node_modules/tailwindcss/lib/cli.js -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit",
     "vercel": "node scripts/hugo_version.js &&  hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo && next build",
-    "winnat": "sudo net stop winnat -y && sudo net start winnat -y"
+    "winnat": "sudo net stop winnat -y && sudo net start winnat -y",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
   "dependencies": {
     "@types/node": "^20.14.13",
     "axios": "^1.7.2",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "husky": "^9.1.4"
   }
 }
