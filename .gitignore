@@ -50,3 +50,5 @@ package-lock.json
 static/.next
 static/node_modules
 .next
+
+bun.lockb
