@@ -1,8 +1,8 @@
-name = "eallion-com"
+name = "eallion-com-cf-pages-origin"
 pages_build_output_dir = "./public"
 
 [vars]
-HUGO_VERSION = "v0.129.0"
+HUGO_VERSION = "v0.130.0"
 
 [env.production.vars]
-HUGO_VERSION = "v0.129.0"
+HUGO_VERSION = "v0.130.0"
