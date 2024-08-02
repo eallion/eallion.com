@@ -123,19 +123,24 @@
 # the copyright notice. Configure as per the main menu above.
 
  [[footer]]
-   name = "Mastodon"
-   pageRef = "mastodon"
-   weight = 20
+   name = "<div id='notbyai' class='notbyai written'></div>"
+   url = "https://notbyai.fyi"
+   weight = 10
 
- [[footer]]
-   name = "Media"
-   pageRef = "media"
-   weight = 30
-
- [[footer]]
-   name = "Milestone"
-   pageRef = "milestone"
-   weight = 40
+#  [[footer]]
+#    name = "Mastodon"
+#    pageRef = "mastodon"
+#    weight = 20
+#
+#  [[footer]]
+#    name = "Media"
+#    pageRef = "media"
+#    weight = 30
+#
+#  [[footer]]
+#    name = "Milestone"
+#    pageRef = "milestone"
+#    weight = 40
 
  [[footer]]
    name = "Stats"
@@ -153,6 +158,7 @@
    weight = 90
 
  [[footer]]
+   pre = "rss"
    name = "RSS"
    url = "https://www.eallion.com/rss"
    weight = 99
