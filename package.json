@@ -13,7 +13,8 @@
     "recursive": "git submodule update --init --recursive",
     "dev": "NODE_ENV=development&&bun run ./themes/blowfish/node_modules/tailwindcss/lib/cli.js -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
     "build": "NODE_ENV=production&&bun run ./themes/blowfish/node_modules/tailwindcss/lib/cli.js -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit",
-    "vercel": "node scripts/hugo_version.js &&  hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo && next build"
+    "vercel": "node scripts/hugo_version.js &&  hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo && next build",
+    "winnat": "sudo net stop winnat -y && sudo net start winnat -y"
   },
   "repository": {
     "type": "git",
