@@ -150,6 +150,6 @@ jobs:
     # # 调用另外的 GitHub Actions 构建 Hugo
     - name: Build Hugo and Deploy
       if: ${{ env.CURRENT_MD5 != env.LOCAL_MD5 }}
-      uses: peter-evans/repository-dispatch@v2
+      uses: peter-evans/repository-dispatch@v3
       with:
           event-type: build-hugo
