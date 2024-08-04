@@ -72,7 +72,6 @@ My favorite motto is:
 * About me: [https://about.eallion.com](https://about.eallion.com/)
 * My Favorites: [https://s.eallion.com](https://s.eallion.com/)
 * Mastodon: [https://www.eallion.com/toot/](https://www.eallion.com/toot/)
-* Steam: [https://www.eallion.com/steam/](https://www.eallion.com/steam/)
 * Album: [https://www.eallion.com/album/](https://www.eallion.com/album/)
 * Watched: [https://www.eallion.com/movie/](https://www.eallion.com/movie/)
 * Goods: [https://www.eallion.com/goods/](https://www.eallion.com/goods/)
