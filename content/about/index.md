@@ -80,7 +80,6 @@ showZenMode: false
 * About me：[https://about.eallion.com](https://about.eallion.com/)
 * 个人网址导航：[https://s.eallion.com](https://s.eallion.com/)
 * 嘀咕：[https://www.eallion.com/toot/](https://www.eallion.com/toot/)
-* Steam：[https://www.eallion.com/steam/](https://www.eallion.com/steam/)
 * 相册：[https://www.eallion.com/album/](https://www.eallion.com/album/)
 * LOL Penta：[https://www.eallion.com/penta/](https://www.eallion.com/penta/)
 * 观影记录：[https://www.eallion.com/movie/](https://www.eallion.com/movie/)
