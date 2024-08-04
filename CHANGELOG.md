@@ -1,3 +1,38 @@
+## v4.0.6 (2024-08-03)
+
+### New feature
+
+- not by ai badge([`605b900`](https://github.com/eallion/eallion.com/commit/605b900842c9e96866350b3c9cdecc6475715d6a)) (by Charles Chin)
+- home ticker mastodon statuses url link([`a36d8cb`](https://github.com/eallion/eallion.com/commit/a36d8cb7632c5a323bdd1bbd7445c2aafe27130c)) (by Charles Chin)
+- **ci**: deploy to cloudflare pages([`1ce11b1`](https://github.com/eallion/eallion.com/commit/1ce11b1fc3e6769f6af1dc008162d24f11bdf871)) (by Charles Chin)
+- disable onion tor site([`7cfd7c1`](https://github.com/eallion/eallion.com/commit/7cfd7c1e1db5d74ea9be47c8c6a1071618fcc075)) (by Charles Chin)
+- cloudflare pages redirects for rss([`2e464f8`](https://github.com/eallion/eallion.com/commit/2e464f8a8fef5d678716fab79102728c215648b1)) (by Charles Chin)
+- aliyun web chatbot ai([`e1ee40c`](https://github.com/eallion/eallion.com/commit/e1ee40c048833a361aed66e00ee299de830f75b5)) (by Charles Chin)
+- shiki syntax highlight([`e328129`](https://github.com/eallion/eallion.com/commit/e328129ecf2b0c9fdaf4885d1044b648d09ff43b)) (by Charles Chin)
+- 404 error page([`9f7f2f1`](https://github.com/eallion/eallion.com/commit/9f7f2f189aa4d616c2ce2d52b103f9cba571d66f)) (by Charles Chin)
+- home ticker refactor([`42684d1`](https://github.com/eallion/eallion.com/commit/42684d11270081564b85f499848620328c9f86c1)) (by Charles Chin)
+- home ticker([`37969fb`](https://github.com/eallion/eallion.com/commit/37969fb1951c7fc97e3bff9fe232f99a301db7e9)) (by Charles Chin)
+- links random([`664f82f`](https://github.com/eallion/eallion.com/commit/664f82fd9d4af5b68719e303a3c999f3285c7b05)) (by Charles Chin)
+
+### Bugs fixed
+
+- hugo server bind([`1587dbe`](https://github.com/eallion/eallion.com/commit/1587dbe13bb2284265145ee597c0eda4251e86b1)) (by Charles Chin)
+- steam app pic([`9f7ee05`](https://github.com/eallion/eallion.com/commit/9f7ee05768b4fa6114fd82bc8deb9b7c942012a9)) (by Charles Chin)
+- typo([`3806c41`](https://github.com/eallion/eallion.com/commit/3806c4131a23bb760c250ae8e4b07817c4f8aa22)) (by Charles Chin)
+- penta champion name([`6724c96`](https://github.com/eallion/eallion.com/commit/6724c96b6c66e9c1f6776a417b4721283c260e1d)) (by Charles Chin)
+- replace angle brackets([`ccbed8c`](https://github.com/eallion/eallion.com/commit/ccbed8cf648ae2ca6cd4009d76d80968fafa16a2)) (by Charles Chin)
+- replace angle brackets([`65781bb`](https://github.com/eallion/eallion.com/commit/65781bbf85b4fbd8a40bcf88ba2f8f464e7e63c1)) (by Charles Chin)
+- migrate media movie search to google([`3d8ad9c`](https://github.com/eallion/eallion.com/commit/3d8ad9c7400d9fce252bc6d3d0d372da50bf6df6)) (by Charles Chin)
+- typo([`5ad8be7`](https://github.com/eallion/eallion.com/commit/5ad8be7aa62ca0c6bb9d0582400af87dffbf6b9f)) (by Charles Chin)
+- menu([`39b7b8b`](https://github.com/eallion/eallion.com/commit/39b7b8bb97422c0c7f96eecab16490da6f0e4a97)) (by Charles Chin)
+- friend link([`8f6cf16`](https://github.com/eallion/eallion.com/commit/8f6cf16182b6cdef74b23dbe557b34812da22f8f)) (by Charles Chin)
+- mastodon ealbum tag([`d4b9eb6`](https://github.com/eallion/eallion.com/commit/d4b9eb6ed6454a5f0a23b2a987295e2818c183b7)) (by Charles Chin)
+- mobile timeline([`927f27e`](https://github.com/eallion/eallion.com/commit/927f27efd1b047deaacea483bfe553a9154fed0a)) (by Charles Chin)
+
+### Performance improves
+
+- mastodon api([`6971998`](https://github.com/eallion/eallion.com/commit/69719987d49f9d75c5ae3a0c3ac7c193c5b28e54)) (by Charles Chin)
+
 ## v4.0.5 (2024-05-01)
 
 ### Bugs fixed
