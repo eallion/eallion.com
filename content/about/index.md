@@ -57,7 +57,7 @@ showZenMode: false
 ### 说明
 
 * 本站使用 [Hugo](https://gohugo.io/) 构建
-* 通过 GitHub Actions 部署至腾讯云 [EdgeOne](https://e5n.cc/s/teo)
+* 通过 GitHub Actions 部署至阿里云 [OSS](https://www.aliyun.com/product/oss) 和 [Cloudflare Pages](https://pages.cloudflare.com/)
 * 主题使用的是 [Blowfish](https://github.com/nunocoracao/blowfish)
 * 嘀咕页面依赖 Mastodon 实例：[https://e5n.cc](https://e5n.cc)  
 * 观影页面依赖 NeoDB：[https://neodb.social](https://neodb.social/users/eallion@e5n.cc/)

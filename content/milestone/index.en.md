@@ -36,6 +36,10 @@ aliases:
 
 {{< timeline >}}
 
+{{< timelineItem icon="volcengine" header="火山引擎" badge="Jul 20, 2024" >}}
+2024 年 7 月 20 日，博客 www 子域名解析到火山引擎实现分区解析，国内解析到阿里云 OSS 和 CDN，国外解析到 Cloudflare Pages。分担 CDN 流量压力。
+{{< /timelineItem >}}
+
 {{< timelineItem icon="chart-bar-solid" header="热力图" badge="May 1, 2024" >}}
 2024 年 5 月 1 日，博客首页热力图，统计页热力图、统计图、饼图都去掉依赖库和插件。用 CSS 和 JS 实现。生成热力图的细节可参考文章：
 {{< article link="/blog-heatmap/" >}}
@@ -60,7 +64,7 @@ aliases:
 {{< /timelineItem >}}
 
 {{< timelineItem icon="openai" header="AI 摘要" badge="Jul 18, 2023" >}}
-2023 年 7 月 18 日，引入 TianliGPT AI 摘要，因技术和性能问题，后改为用 OpenAI 官方的 ChatGPT 预生成。细节可参考文章：
+2023 年 7 月 18 日，引入 TianliGPT AI 摘要，因技术和性能问题，后改为用 OpenAI 官方的 ChatGPT 预生成。现已全部弃用。细节可参考文章：
 {{< article link="/ai-summary/" >}}
 {{< /timelineItem >}}
 

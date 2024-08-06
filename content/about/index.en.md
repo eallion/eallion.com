@@ -49,7 +49,7 @@ My favorite motto is:
 ### Description
 
 * This project powered by [Hugo](https://gohugo.io/)
-* Hosted by [EdgeOne](https://e5n.cc/s/teo) through GitHub Actions
+* Hosted by Alibabacloud [OSS](https://www.aliyun.com/product/oss) through GitHub Actions and [Cloudflare Pages](https://pages.cloudflare.com/)
 * Themed by [Blowfish](https://github.com/nunocoracao/blowfish)
 * The Toot page relies on the Mastodon instance at [https://e5n.cc](https://e5n.cc)
 * The Watched page relies on [https://neodb.social](https://neodb.social/users/eallion@e5n.cc/)
