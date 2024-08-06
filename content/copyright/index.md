@@ -67,8 +67,8 @@ showZenMode: true
 
 本站使用 [Hugo](https://gohugo.io/) 构建：
 
-* 国内：通过 GitHub Actions 部署至腾讯云 [EdgeOne](https://s.e5n.cc/teo) (Jan 6, 2024)
-* 境外：同上
+* 国内：通过 GitHub Actions 部署至阿里云 [OSS](https://www.aliyun.com/product/oss) (Jul 20, 2024)
+* 境外：部署至 Cloudflare Pages
 
 相关代码和服务继承原项目的 License：
 

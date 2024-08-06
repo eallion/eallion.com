@@ -69,8 +69,8 @@ In addition: You are free to copy, reproduce, share, quote, and adapt the conten
 
 This project powered by [Hugo](https://gohugo.io/):
 
-* China Mainland: Hosted by Tencent Cloud [EdgeOne](https://s.e5n.cc/teo) through GitHub Actions (Jan 6, 2024)
-* Oversea: Same
+* China Mainland: Hosted by Alibabacloud [OSS](https://www.aliyun.com/product/oss) through GitHub Actions (Jul 20, 2024)
+* Oversea: Deploy to Cloudflare Pages
 
 The related code and services inherit the original project's license:
 

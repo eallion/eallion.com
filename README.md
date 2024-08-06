@@ -61,18 +61,18 @@ origin  https://git.eallion.com/git/eallion/eallion.com.git (push)
 
 ##### 架构备忘
 
-- 国内：部署至腾讯云 [EdgeOne](https://e5n.cc/s/teo) (2024.01.06)
-- 境外：部署至腾讯云 [EdgeOne](https://e5n.cc/s/teo) (2024.01.06)
+- 国内：部署至阿里云 [OSS](https://www.aliyun.com/product/oss) (Jul 20, 2024)
+- 境外：部署至 [Cloudflare Pages](https://pages.cloudflare.com/) (Jul 20, 2024)
 
 ##### GitHub Actions
 
-> Update:2024.01.06
+> Update: Jul 20, 2024
 
 - https://github.com/eallion/eallion.com/blob/main/.github/workflows/main.yml
 
 ### 🎨 主题 [Blowfish](https://github.com/nunocoracao/blowfish)
 
-> Update：2024.04.10
+> Update：Apr 01, 2024
 
 本博客使用主题为：[Blowfish](https://github.com/nunocoracao/blowfish)
 
@@ -310,7 +310,7 @@ git push
 
 ### 🖼️ 图片
 
-> 因为 jsDelivr 2020.08.15 的 ‘[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)’，现在没有用 GitHub + jsDelivr 当图床了。
+> 因为 jsDelivr Aug 15,2020 的 ‘[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)’，现在没有用 GitHub + jsDelivr 当图床了。
 
 - **方法一**
 
