@@ -105,7 +105,7 @@ Blowfish 编译 TailwindCSS 的 main.css ，位于 [assets/css/compiled/main.css
 # ../..
 
 # bun dev
-bun build
+bun run build
 ```
 
 ```bash
@@ -138,16 +138,18 @@ https://github.com/eallion/eallion.com/blob/main/data/neodb/movie.json
 
 ### 🧑‍💻 bun 命令
 
-- `bun new` 创建新文章
-- `bun server` 启动 Hugo 服务器，文档内容为 `example` 目录
-- `bun preview` 启动 Hugo 服务器，即预览线上生成环境，文档内容为 `content` 目录
-- `bun syntax` Shiki 语法高亮
-- `bun update` 更新 Submodule 子项目
-- `bun run build` 构建 TailwindCSS 适用于生产环境的 main.css
-- `bun hugo` 构建 Hugo，一般不用，都是交给 CI/CD 构建
 - `bun dev` 启动 TailwindCSS 监听
+- `bun hugo` 构建 Hugo，一般不用，都是交给 CI/CD 构建
+- `bun new` 创建新文章，直接输入文章标题，生成到 example 目录
+- `bun prepare` Git Commit Husky 勾子，目前用于提交时更新 Cloudflare Pages Wrangler 的 `HUGO_VERSION`
+- `bun preview` 启动 Hugo 服务器，即预览线上生成环境，文档内容为 `content` 目录
 - `bun recursive` 递归更新 Submodule 子项目，一般第一次克隆本项目时使用
+- `bun run build` 构建 Blowfish 的 TailwindCSS `assets/css/compiled/main.css`
+- `bun server` 启动 Hugo 服务器，文档内容为 `example` 目录
+- `bun shiki` 生成 Shiki 语法高亮，目前已取消
+- `bun theme` 更新 Submodule 子项目
 - `bun vercel` 构建适用于 Vercel 平台的 Hugo，在 Vercel 平台使用
+- `bun winnat` 谨慎使用，用于 Windows 重置 Winnat，解决绑定 1313 端口冲突
 
 ### 🔊 嘀咕页面
 
@@ -225,8 +227,7 @@ Summary 生成 AI 摘要现在添加到 `blog` 目录中的 Markdown 文件中�
 - `友情链接`：数据按 `data` 目录中的 `friends/links.json` 文件更新；
 - `随手拍`：到 [e5n.cc](https://e5n.cc) 发带有 `#ealbum` 标签的 Toot；
 - `好物`：数据按 `data` 目录中的 `goods.json` 文件更新；
-- `Penta`：数据按 `data` 目录中的 `penta.json` 文件更新；
-- `Steam`：数据在 `data` 目录中的 `steam_web_api.json` 每周 GitHub Actions 更新。
+- `Penta`：数据按 `data` 目录中的 `penta.json` 文件更新。
 
 ##### 10. **Push**
 
@@ -297,7 +298,7 @@ git push
 
 ```diff
 - hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
-+ bun build
++ bun hugo
 ```
 
 - `--cleanDestinationDir` 构建前先清理目标目录，即 public
@@ -335,6 +336,12 @@ https://www.eallion.com/assets/images/1970/01/01.jpg
   <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="">
 {{ end }}
 ```
+
+- **文章图片**
+
+> Blowfish 新增
+
+对于文章图片，现在放于文章文件 `index.md` 同级目录
 
 ### 📷 相册
 
