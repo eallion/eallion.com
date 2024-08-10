@@ -15,6 +15,7 @@ title = "Charles Chin's Blog"
 [author]
   name = "Charles Chin"
   image = "images/eallion.png"
+  imageQuality = 96
   headline = "Chance favors the prepared mind."
   bio = "Chance favors the prepared mind."
   links = [
