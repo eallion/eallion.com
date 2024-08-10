@@ -22,6 +22,7 @@ showLikes = false
 disableImageZoom = false
 disableImageOptimization = false
 disableTextInHeader = false
+# backgroundImageWidth = 1200
 
 # defaultBackgroundImage = "/images/interstellar.jpg"
 # defaultFeaturedImage = "/images/featured.svg"
@@ -143,6 +144,12 @@ smartTOCHideUnfocusedChildren = false
 [umamiAnalytics]
   # websiteid = "ABC12345"
   # domain = "llama.yoursite.com"
+  # dataDomains = "yoursite.com,yoursite2.com"
+  # enableTrackEvent = false
+
+[selineAnalytics]
+  # token = "XXXXXX"
+  # enableTrackEvent = false
 
 [buymeacoffee]
 #   identifier = "nunocoracao"

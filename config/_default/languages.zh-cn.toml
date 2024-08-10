@@ -16,6 +16,7 @@ title = "大大的小蜗牛"
 [author]
   name = "大大的小蜗牛"
   image = "images/eallion.png"
+  imageQuality = 96
   headline = "机会总是垂青于有准备的人！"
   bio = "机会总是垂青于有准备的人！"
   links = [
