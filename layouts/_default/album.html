@@ -40,7 +40,7 @@
                     {{- with .Err }}
                         Album page build failed. API is invalid or unauthorized.
                     {{- else -}}
-                    {{- $album := getJSON $mastodon_tag_album_api -}}
+                        {{- $album := . | transform.Unmarshal -}}
                         {{- range $album }}
                             {{ $createdAt := .created_at }}
                             {{ $statusesUrl := .url }}

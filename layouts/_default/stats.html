@@ -46,18 +46,24 @@
 {{$categoryCounts := dict}}
 {{$totalArticles := $articleCount}}
 
-{{ $mastodon := getJSON "data/mastodon/mastodon.json" }}
+{{ $mastodonResource := resources.Get "data/mastodon/mastodon.json" }}
+{{ $mastodon := $mastodonResource | transform.Unmarshal }}
 {{ $statusesCount := index $mastodon 0 "account" "statuses_count" }}
 
-{{ $friends := getJSON "data/friends/links.json" }}
+{{ $friendsResource := resources.Get "data/friends/links.json" }}
+{{ $friends := $friendsResource | transform.Unmarshal }}
 {{ $linkCount := len $friends.links }}
 
-{{ $neodbCount := getJSON "data/neodb/movie_details.json" }}
-{{ $pentaCount := getJSON "data/penta/penta.json" }}
+{{ $neodbCountResource := resources.Get "data/neodb/movie_details.json" }}
+{{ $neodbCount := $neodbCountResource | transform.Unmarshal }}
+
+{{ $pentaCountResource := resources.Get "data/penta/penta.json" }}
+{{ $pentaCount := $pentaCountResource | transform.Unmarshal }}
 
 {{- $steam_web_api_url := "https://steam-web-api.eallion.com/ownedgames" -}}
-{{- $steam_web_api := getJSON "data/steam/steam_web_api.json" -}}
-{{- $steamCount :=$steam_web_api.response.game_count -}}
+{{- $steam_web_apiResource := resources.Get "data/steam/steam_web_api.json" -}}
+{{- $steam_web_api := $steam_web_apiResource | transform.Unmarshal -}}
+{{- $steamCount := $steam_web_api.response.game_count -}}
 
 <article>
     {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}

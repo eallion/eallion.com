@@ -3,7 +3,6 @@
 
 <!-- LOL 英雄头像 API <https://lol.qq.com/cguide/Guide/PublicResources/Images.html#%E9%9D%9E%E7%82%AB%E5%BD%A9%E7%9A%AE%E8%82%A4> -->
 
-{{ $penta := getJSON "data/penta/penta.json" }}
 
 <article>
   {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
@@ -38,10 +37,10 @@
         <div class="article-content max-w-full mb-20">
           {{ .Content }}
 
-            <div class="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-8 gap-x-2.5" view-image>
-
-                {{ range $penta.penta }}
-
+          <div class="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-8 gap-x-2.5" view-image>
+            {{ $pentaResource := resources.Get "data/penta/penta.json" }}
+            {{ $penta := $pentaResource | transform.Unmarshal }}
+            {{ range $penta.penta }}
                 {{ $screenshotSrc := .src }}
                 {{ $screenshot := printf "images/penta/screenshot/%s" $screenshotSrc }}
 
@@ -93,12 +92,9 @@
                         <span>{{ partial "icon.html" "calendar-alt" }}</span>
                         <span class="ml-1">{{ $date }}</span>
                     </div>
-
                 </div>
-
-                {{ end }}
-
-            </div>
+            {{ end }}
+        </div>
 
         </div>
 

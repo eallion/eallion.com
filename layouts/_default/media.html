@@ -1,11 +1,6 @@
 {{ define "main" }}
 {{ .Scratch.Set "scope" "single" }}
 
-{{ $movies := getJSON "data/neodb/movie.json" }}
-{{ $comment_text := $movies.item.comment_text }}
-
-{{ $movie_details := getJSON "data/neodb/movie_details.json" }}
-
 <article>
   {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
   {{ $heroStyle := .Params.heroStyle }}
@@ -73,19 +68,25 @@
             </div>
             <div class="grid gap-1.5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 mt-4 w-full">
 
+                {{ $moviesResource := resources.Get "data/neodb/movie.json" }}
+                {{ $movies := $moviesResource | transform.Unmarshal }}
+                {{ $comment_text := $movies.item.comment_text }}
+
+                {{ $movie_detailsResource := resources.Get "data/neodb/movie_details.json" }}
+                {{ $movie_details := $movie_detailsResource | transform.Unmarshal }}
                 {{ range $movie_details }}
-                {{ $title := .display_title }}
-                {{ $orig_title := .orig_title }}
-                {{ $year := .year }}
-                {{ $rating := float .rating }}
-                {{ $rating_percent := mul $rating 10 }}
-                {{ $movie_url := printf "https://neodb.social%s" .url }}
-                {{ $imdb := printf "https://www.imdb.com/title/%s" .imdb}}
-                {{ $cover := .cover_image_url }}
-                {{ $cover_name := path.Base $cover }}
-                {{ $movieCover := printf "images/neodb/cover/%s" $cover_name }}
-                {{ $brief := .brief }}
-                {{ $category  := .category }}
+                    {{ $title := .display_title }}
+                    {{ $orig_title := .orig_title }}
+                    {{ $year := .year }}
+                    {{ $rating := float .rating }}
+                    {{ $rating_percent := mul $rating 10 }}
+                    {{ $movie_url := printf "https://neodb.social%s" .url }}
+                    {{ $imdb := printf "https://www.imdb.com/title/%s" .imdb}}
+                    {{ $cover := .cover_image_url }}
+                    {{ $cover_name := path.Base $cover }}
+                    {{ $movieCover := printf "images/neodb/cover/%s" $cover_name }}
+                    {{ $brief := .brief }}
+                    {{ $category  := .category }}
 
                 <div class="card m-cate-{{ $category }} group relative overflow-hidden rounded aspect-[2/3]">
                     <div class="relative overflow-hidden w-full pb-150 before:absolute before:h-full before:w-full before:left-0 before:-z-10 before:duration-500 before:-bottom-40 group-hover:before:bottom-0 group-hover:before:bg-gradient-to-b group-hover:before:from-transparent group-hover:before:from-60% group-hover:before:to-[var(--media-bg-color-cover)] group-hover:before:to-100% group-hover:before:z-10">
