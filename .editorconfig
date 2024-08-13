@@ -5,7 +5,7 @@ root = true
 
 [*]
 indent_style = space # 缩进方式
-indent_size = 4 # 缩进大小
+indent_size = 2 # 缩进大小
 end_of_line = lf # 换行符
 charset = utf-8 # 文档编码格式
 trim_trailing_whitespace = true # true 为去掉行尾空格
