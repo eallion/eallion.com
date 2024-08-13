@@ -521,3 +521,32 @@ footer nav ul {
 .dark .notbyai.painted {
     background-image: url(/assets/images/not-by-ai/painted-by-human/svg/painted-by-human-not-by-ai-badge-black.svg);
 }
+
+/* 顶部进度条css */
+#content_progress {
+    /* Positioning */
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 3px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: transparent;
+    color: #2563eb;
+}
+
+#content_progress::-webkit-progress-bar {
+    background-color: transparent;
+}
+
+#content_progress::-webkit-progress-value {
+    background-color: #2563eb;
+}
+
+#content_progress::-moz-progress-bar {
+    background-color: #2563eb;
+}
