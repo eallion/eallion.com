@@ -550,3 +550,15 @@ footer nav ul {
 #content_progress::-moz-progress-bar {
     background-color: #2563eb;
 }
+
+#search-modal header {
+  margin: 0.5rem 0;
+}
+
+#search-query {
+  border-radius: 0.5rem;
+}
+
+#search-results li a {
+  white-space: normal;
+}
