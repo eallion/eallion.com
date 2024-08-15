@@ -34,7 +34,8 @@ win 2003 的系统虽然没有原来用的那几个 linux 主机用着那么方�
 
 随便贴一下我现在用的这个伪静态 url rewrite rules 的完整 httpd.ini 文件内容。
 
-```[ISAPI_Rewrite]
+```
+[ISAPI_Rewrite]
 
 # Defend your computer from some worm attacks
 #RewriteRule .*(?:global.asa|default\.ida|root\.exe|\.\.).* . [F,I,O]
@@ -54,7 +55,7 @@ win 2003 的系统虽然没有原来用的那几个 linux 主机用着那么方�
  # For normal WordPress content, via index.php
  RewriteRule ^/$ /index.php [L]
  RewriteRule /(.*) /index.php/$1 [L]
- ```
+```
 
 伪静态效果为 “域名 +postname” 即为本文地址栏里面的样式。
 

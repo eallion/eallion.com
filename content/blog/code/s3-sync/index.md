@@ -46,7 +46,7 @@ Rclone 生成 Config 很简单，输入 `rclone config` 基本上就是一路选
 
 最终会得到一份这样的 Config 文件：
 
-```config
+```
 [B2]
 ...
 
