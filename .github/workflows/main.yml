@@ -29,17 +29,17 @@ jobs:
         run: |
           hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo --templateMetrics --templateMetricsHints
 
-      # - name: Setup Node LTS
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: 20.x
-      #     cache: yarn
+      - name: Setup Node LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          # cache: yarn
 
-      # - name: Install and run Shiki
-      #   run: |
-      #     export NODE_OPTIONS="--max_old_space_size=7168"
-      #     yarn install
-      #     yarn run syntax || true
+      - name: Install and run Shiki
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=7168"
+          npm install
+          npm run shiki || true
 
       # - name: Deploy to GitHub Pages
       #   uses: peaceiris/actions-gh-pages@v4
@@ -78,6 +78,13 @@ jobs:
       #     admin_key: ${{ secrets.ALGOLIA_ADMIN_KEY }}
       #     index_name: "eallion_blog_en"
       #     index_file_path: public/en/index.json
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }}
 
       - name: Deploy to Aliyun OSS
         uses: fangbinwei/aliyun-oss-website-action@v1

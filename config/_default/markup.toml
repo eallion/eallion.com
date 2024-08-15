@@ -5,9 +5,11 @@
 [goldmark.renderer]
   unsafe = true
   hardWraps = true
+[goldmark.parser.attribute]
+  block = true
 
 [highlight]
-  codeFences = true
+  codeFences = false
   guessSyntax = true
   lineNos = false
   lineNumbersInTable = true
