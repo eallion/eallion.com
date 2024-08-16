@@ -95,6 +95,6 @@ jobs:
     # 调用另外的 GitHub Actions
     - name: Sync NeoDB Data
       if: ${{ env.OLD_SHA256 != env.CURRENT_SHA256 }}
-      uses: peter-evans/repository-dispatch@v2
+      uses: peter-evans/repository-dispatch@v3
       with:
           event-type: sync-neodb
