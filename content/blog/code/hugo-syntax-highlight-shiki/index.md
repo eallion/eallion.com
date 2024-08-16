@@ -140,7 +140,7 @@ export NODE_OPTIONS="--max_old_space_size=7168"
 
 GitHub Actions Workflow：
 
-```bash
+```yaml
 name: Build Hugo and Deploy With Shiki
 
 on:
@@ -177,7 +177,7 @@ jobs:
           yarn install
           yarn run shiki || true
           # 或 👇
-          # npx rehype-cli public -o || true
+          # npx rehype-cli public -o --silent || true
 
       - name: Keep going
         # 后续流程
@@ -185,4 +185,14 @@ jobs:
 
 为了预防 Shiki 报错而中断 Hugo 部署流程，可以加入 `|| true`，即使出错也会继续执行部署流程。常见的报错是以前的博文可能使用了不支持的代码名称。
 
-在 Cloudflare Pages 暂时还不能配置内存限制，可以使用 [cloudflare/wrangler-action](https://github.com/cloudflare/wrangler-action) 这个Actions。
+在 Cloudflare Pages 暂时还不能配置内存限制，可以使用 [cloudflare/wrangler-action](https://github.com/cloudflare/wrangler-action) 这个Actions：
+
+```yaml
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          quiet: true
+          command: pages deploy public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true
+```

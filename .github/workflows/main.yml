@@ -39,7 +39,8 @@ jobs:
         run: |
           export NODE_OPTIONS="--max_old_space_size=7168"
           npm install
-          npm run shiki || true
+          # npm run shiki || true
+          npx rehype-cli public -o --silent || true
 
       # - name: Deploy to GitHub Pages
       #   uses: peaceiris/actions-gh-pages@v4
@@ -84,7 +85,8 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+          quiet: true
+          command: pages deploy public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true
 
       - name: Deploy to Aliyun OSS
         uses: fangbinwei/aliyun-oss-website-action@v1
