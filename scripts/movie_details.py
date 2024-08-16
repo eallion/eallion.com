@@ -1,7 +1,7 @@
 import json
 import requests
 
-with open('data/neodb/movie.json', encoding='utf-8') as f:
+with open('assets/data/neodb/movie.json', encoding='utf-8') as f:
     data = json.load(f)['data']
 
 api_urls = []
@@ -15,5 +15,5 @@ for url in api_urls:
     response = requests.get(url)
     details.append(response.json())
 
-with open('data/neodb/movie_details.json', 'w', encoding='utf-8') as f:
+with open('assets/data/neodb/movie_details.json', 'w', encoding='utf-8') as f:
     json.dump(details, f, ensure_ascii=False)
