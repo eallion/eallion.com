@@ -35,32 +35,32 @@ jobs:
     # 获取本地现有文件中最新的 Count
     - name: Get Local Current MD5
       run: |
-        LOCAL_MD5=$(md5sum data/steam/steam_web_api.json | cut -d ' ' -f 1)
+        LOCAL_MD5=$(md5sum assets/data/steam/steam_web_api.json | cut -d ' ' -f 1)
         echo "LOCAL_MD5=$LOCAL_MD5" >> $GITHUB_ENV
-        rm data/steam/*.json
+        rm assets/data/steam/*.json
 
     # 获取远程最新的 Count
     - name: Get Steam Latest OwnedGames
       run: |
         curl -X 'GET' \
         'https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${{ secrets.STEAM_WEB_API_KEY }}&steamid=76561197989210276&include_appinfo=true&include_played_free_games=true&format=json' \
-        -H 'accept: application/json' > data/steam/owned_games.json
+        -H 'accept: application/json' > assets/data/steam/owned_games.json
 
     - name: Fetch Steam Badges
       run: |
         curl -X 'GET' \
         'https://api.steampowered.com/IPlayerService/GetBadges/v1/?key=${{ secrets.STEAM_WEB_API_KEY }}&steamid=76561197989210276&format=json' \
-        -H 'accept: application/json' > data/steam/badges.json
+        -H 'accept: application/json' > assets/data/steam/badges.json
 
     - name: Fetch Steam Player Summaries
       run: |
         curl -X 'GET' \
         'https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=${{ secrets.STEAM_WEB_API_KEY }}&steamids=76561197989210276&format=json' \
-        -H 'accept: application/json' > data/steam/player.json
+        -H 'accept: application/json' > assets/data/steam/player.json
 
     - name: Merge JSON Files
       run: |
-        cd data/steam
+        cd assets/data/steam
         jq -s 'reduce .[] as $item ({}; . * $item)' *.json > unsorted_steam_web_api.json
 
         # 读取JSON文件并提取games数组
@@ -79,7 +79,7 @@ jobs:
 
         cd ../..
 
-        CURRENT_MD5=$(md5sum data/steam/steam_web_api.json | cut -d ' ' -f 1)
+        CURRENT_MD5=$(md5sum assets/data/steam/steam_web_api.json | cut -d ' ' -f 1)
         echo "CURRENT_MD5=$CURRENT_MD5" >> $GITHUB_ENV
 
     - name: Download Steam Cover
@@ -90,7 +90,7 @@ jobs:
         fi
 
         # 读取本地的 steam_web_api.json 文件内容
-        json=$(cat data/steam/steam_web_api.json)
+        json=$(cat assets/data/steam/steam_web_api.json)
 
         # 提取图片 URL
         appIds=$(echo "$json" | jq -r '.response.games[].appid')
@@ -145,7 +145,7 @@ jobs:
         committer_name: 'github-actions[bot]'
         committer_email: 'github-actions[bot]@users.noreply.github.com'
         add: |
-          './data/steam'
+          './assets/data/steam'
 
     # # 调用另外的 GitHub Actions 构建 Hugo
     - name: Build Hugo and Deploy

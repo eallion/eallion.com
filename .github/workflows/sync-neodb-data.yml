@@ -36,7 +36,7 @@ jobs:
     - name: Get Local Current UUID
       run: |
         CURRENT_UUID() {
-          jq '.data[0].item.uuid' data/neodb/movie.json
+          jq '.data[0].item.uuid' assets/data/neodb/movie.json
         }
         echo "CURRENT_UUID=$(CURRENT_UUID)" >> $GITHUB_ENV
 
@@ -151,7 +151,7 @@ jobs:
         jq -c -s '{data: map(.data[]) | unique | sort_by(.created_time) | reverse, pages: map(.pages)[0], count: map(.count)[0]}' *.json > movie.json
 
         # 更新 NeoDB 数据
-        cp -f movie.json ${{ env.WORK_DIR }}/data/neodb/
+        cp -f movie.json ${{ env.WORK_DIR }}/assets/data/neodb/
 
     - name: Download NeoDB Cover
       if: ${{ env.REMOTE_UUID != env.CURRENT_UUID }}
@@ -162,7 +162,7 @@ jobs:
         fi
 
         # 读取本地的 movie.json 文件内容
-        json=$(cat data/neodb/movie.json)
+        json=$(cat assets/data/neodb/movie.json)
 
         # 提取图片 URL
         image_urls=$(echo "$json" | jq -r '.data[].item.cover_image_url')
@@ -205,7 +205,7 @@ jobs:
         committer_name: 'github-actions[bot]'
         committer_email: 'github-actions[bot]@users.noreply.github.com'
         add: |
-          './data/neodb'
+          './assets/data/neodb'
           './assets/images/neodb/cover'
 
     # # 调用另外的 GitHub Actions 构建 Hugo

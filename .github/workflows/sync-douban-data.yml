@@ -25,7 +25,7 @@ jobs:
 
     - name: OLD_SHA256
       run: |
-        OLD_SHA256=$(sha256sum ${{ env.WORK_DIR }}/data/neodb/movie.json | cut -d ' ' -f 1)
+        OLD_SHA256=$(sha256sum ${{ env.WORK_DIR }}/assets/data/neodb/movie.json | cut -d ' ' -f 1)
         echo "OLD_SHA256=${OLD_SHA256}" >> $GITHUB_ENV
 
     - name: Fetch Movie Data JSON
@@ -34,7 +34,7 @@ jobs:
         id: eallion
         type: movie
         format: json
-        dir: ./data/douban
+        dir: ./assets/data/douban
 
     - name: Sync to NeoDB
       uses: lizheming/doumark-action@master
@@ -59,7 +59,7 @@ jobs:
         id: eallion
         type: book
         format: json
-        dir: ./data/douban
+        dir: ./assets/data/douban
 
     - name: Sync Book to NeoDB
       uses: lizheming/doumark-action@master
@@ -85,11 +85,11 @@ jobs:
         committer_name: 'github-actions[bot]'
         committer_email: 'github-actions[bot]@users.noreply.github.com'
         add: |
-          './data/douban'
+          './assets/data/douban'
 
     - name: CURRENT_SHA256
       run: |
-        CURRENT_SHA256=$(sha256sum ${{ env.WORK_DIR }}/data/neodb/movie.json | cut -d ' ' -f 1)
+        CURRENT_SHA256=$(sha256sum ${{ env.WORK_DIR }}/assets/data/neodb/movie.json | cut -d ' ' -f 1)
         echo "CURRENT_SHA256=${CURRENT_SHA256}" >> $GITHUB_ENV
 
     # 调用另外的 GitHub Actions

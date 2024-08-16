@@ -34,7 +34,7 @@ jobs:
     # 下载最新的 Mastodon
     - name: Download Mastodon Status
       run: |
-        cd data/mastodon/
+        cd assets/data/mastodon/
         rm mastodon.json
         url="https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true&exclude_reblogs=true"
         output="mastodon.json"
@@ -49,7 +49,7 @@ jobs:
         committer_name: 'github-actions[bot]'
         committer_email: 'github-actions[bot]@users.noreply.github.com'
         add: |
-          './data/mastodon'
+          './assets/data/mastodon'
 
     # 调用另外的 GitHub Actions
     - name: Sync NeoDB Data
