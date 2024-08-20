@@ -5,8 +5,9 @@
 [goldmark.renderer]
   unsafe = true
   hardWraps = true
-[goldmark.parser.attribute]
-  block = true
+[goldmark.parser]
+  [goldmark.parser.attribute]
+    block = true
 
 [highlight]
   codeFences = false

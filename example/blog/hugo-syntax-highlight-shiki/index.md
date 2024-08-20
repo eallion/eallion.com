@@ -14,6 +14,8 @@ date: 2024-08-15T22:42:21+08:00
 # images: ["/assets/images/og/在-hugo-中使用-shiki-代码语法高亮器.png"] # Delete this line
 ---
 
+> 除了 Hugo 在其他静态博客如 Hexo 中都可以使用此方法。
+
 ### 官方简介
 
 [Shiki](https://github.com/shikijs/shiki)（式，一个日语词汇，意为 “样式”） 是一款美观而强大的代码语法高亮器，它与 VS Code 的语法高亮引擎一样，基于 TextMate 的语法及主题。Shiki 能为几乎所有主流编程语言提供非常准确且快速的语法高亮。

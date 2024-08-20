@@ -32,9 +32,17 @@ aliases:
             min-width: 300px;
         }
     }
+    ol li section {
+      margin-top: 0.5rem;
+    }
 </style>
 
 {{< timeline >}}
+
+{{< timelineItem icon="shiki" header="Shiki" badge="Aug 15, 2024" >}}
+经过 2 个月测试后，把博客的代码语法高亮器切换到 <code><a href="https://github.com/shikijs/shiki" target="_blank" rel="noopener noreferrer">Shiki</a></code>。细节可参考文章：
+{{< article link="/hugo-syntax-highlight-shiki/" >}}
+{{< /timelineItem >}}
 
 {{< timelineItem icon="volcengine" header="火山引擎" badge="Jul 20, 2024" >}}
 2024 年 7 月 20 日，博客 www 子域名解析到火山引擎实现分区解析，国内解析到阿里云 OSS 和 CDN，国外解析到 Cloudflare Pages。分担 CDN 流量压力。
@@ -64,7 +72,9 @@ aliases:
 {{< /timelineItem >}}
 
 {{< timelineItem icon="openai" header="AI 摘要" badge="Jul 18, 2023" >}}
-2023 年 7 月 18 日，引入 TianliGPT AI 摘要，因技术和性能问题，后改为用 OpenAI 官方的 ChatGPT 预生成。现已全部弃用。细节可参考文章：
+⚠️ DEPRECATED. 已弃用。
+<br />
+2023 年 7 月 18 日，引入 TianliGPT AI 摘要，因技术和性能问题，后改为用 OpenAI 官方的 ChatGPT 预生成。细节可参考文章：
 {{< article link="/ai-summary/" >}}
 {{< /timelineItem >}}
 
