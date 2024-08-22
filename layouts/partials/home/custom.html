@@ -54,7 +54,15 @@
                                 </div>
                                 <div class="absolute bottom-0 left-full -ml-9 mb-1 w-8 h-8 rounded-full flex items-center justify-center group-hover:w-min group-hover:h-8 group-hover:rounded-lg transition-all duration-300">
                                     <div class="ticker hidden sm:flex w-9 sm:w-[226px] md:w-[295px] lg:w-[476px] min-w-[36px] transition-all duration-300">
-                                        <div id="ticker"></div>
+                                      <div id="ticker">
+                                        <div class="ticker-wrap">
+                                          <ul class="ticker-list">
+                                            <li class="ticker-item"><a
+                                                href="https://www.eallion.com/mastodon/" target="_blank">机会总是垂青于有准备的人！</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +76,7 @@
                     {{/*  {{ with .Site.Author.headline }}  */}}
                     <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
                         {{/*  {{ . | markdownify }}  */}}
-                        <div id="poem_sentence" class="min-h-7 text-base md:text-xl">{{ partial "icon.html" "loading" }}</div>
+                        <div id="poem_sentence" class="min-h-7 text-base md:text-xl">明月松间照，清泉石上流。</div>
                         {{/*  <div>{{ T `toot_motto` | safeHTML }} - <span class="italic text-base">Louis Pasteur</span></div>  */}}
                     </h2>
                     {{/*  {{ end }}  */}}
@@ -101,9 +109,479 @@
 
                             <div class="heatmap">
                                 <div class="month mb-1 flex justify-around">
+                                  <span class="hide_by_js">Jan</span><span class="hide_by_js">Feb</span><span class="hide_by_js">Mar</span><span class="hide_by_js">Apr</span><span class="hide_by_js">May</span><span class="hide_by_js">Jun</span><span class="hide_by_js">Jul</span><span class="hide_by_js">Aug</span><span class="hide_by_js">Sep</span><span class="hide_by_js">Oct</span><span class="hide_by_js">Nov</span><span class="hide_by_js">Dec</span>
                                 </div>
                                 <div class="h-[84px]">
-                                    <div id="heatmap" class="flex flex-row"></div>
+                                    <div id="heatmap" class="flex flex-row">
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_1"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                      <div class="heatmap_week hide_by_js">
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                        <div class="heatmap_day heatmap_day_level_0"></div>
+                                      </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -304,6 +782,14 @@
                             return date.toLocaleDateString('en-US', options);
                         }
 
+                        // 获取所有带有 class="hide_by_js" 的元素
+                        var elements = document.querySelectorAll('.hide_by_js');
+
+                        // 遍历这些元素并从 DOM 中删除它们
+                        elements.forEach(function(element) {
+                            element.parentNode.removeChild(element);
+                        });
+
                         createHeatmap();
 
                     </script>
@@ -354,6 +840,7 @@
     /**
     * 今日诗词V2 JS-SDK 1.2.2
     * 今日诗词API 是一个可以免费调用的诗词接口：https://www.jinrishici.com
+    * https://sdk.jinrishici.com/v2/browser/jinrishici.js
     */
     !function(e){var n,t={},o="jinrishici-token";function i(){return document.getElementById("jinrishici-sentence")||0!=document.getElementsByClassName("jinrishici-sentence").length}function c(){t.load(function(e){var n=document.getElementById("jinrishici-sentence"),t=document.getElementsByClassName("jinrishici-sentence");if(n&&(n.innerText=e.data.content),0!==t.length)for(var o=0;o<t.length;o++)t[o].innerText=e.data.content})}function r(e,n){var t=new XMLHttpRequest;t.open("get",n),t.withCredentials=!0,t.send(),t.onreadystatechange=function(n){if(4===t.readyState){var o=JSON.parse(t.responseText);"success"===o.status?e(o):console.error("今日诗词API加载失败，错误原因："+o.errMessage)}}}t.load=function(n){return e.localStorage&&e.localStorage.getItem(o)?function(e,n){return r(e,"https://v2.jinrishici.com/one.json?client=browser-sdk/1.2&X-User-Token="+encodeURIComponent(n))}(n,e.localStorage.getItem(o)):function(n){return r(function(t){e.localStorage.setItem(o,t.token),n(t)},"https://v2.jinrishici.com/one.json?client=browser-sdk/1.2")}(n)},e.jinrishici=t,i()?c():(n=function(){i()&&c()},"loading"!=document.readyState?n():document.addEventListener?document.addEventListener("DOMContentLoaded",n):document.attachEvent("onreadystatechange",function(){"complete"==document.readyState&&n()}))}(window);
 
