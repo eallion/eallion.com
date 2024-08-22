@@ -836,21 +836,6 @@
 {{ if .Site.Params.homepage.layoutBackgroundBlur | default false }}
 <div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
 
-<!--  <script type="text/javascript">
-    /**
-    * 今日诗词V2 JS-SDK 1.2.2
-    * 今日诗词API 是一个可以免费调用的诗词接口：https://www.jinrishici.com
-    * https://sdk.jinrishici.com/v2/browser/jinrishici.js
-    */
-    !function(e){var n,t={},o="jinrishici-token";function i(){return document.getElementById("jinrishici-sentence")||0!=document.getElementsByClassName("jinrishici-sentence").length}function c(){t.load(function(e){var n=document.getElementById("jinrishici-sentence"),t=document.getElementsByClassName("jinrishici-sentence");if(n&&(n.innerText=e.data.content),0!==t.length)for(var o=0;o<t.length;o++)t[o].innerText=e.data.content})}function r(e,n){var t=new XMLHttpRequest;t.open("get",n),t.withCredentials=!0,t.send(),t.onreadystatechange=function(n){if(4===t.readyState){var o=JSON.parse(t.responseText);"success"===o.status?e(o):console.error("今日诗词API加载失败，错误原因："+o.errMessage)}}}t.load=function(n){return e.localStorage&&e.localStorage.getItem(o)?function(e,n){return r(e,"https://v2.jinrishici.com/one.json?client=browser-sdk/1.2&X-User-Token="+encodeURIComponent(n))}(n,e.localStorage.getItem(o)):function(n){return r(function(t){e.localStorage.setItem(o,t.token),n(t)},"https://v2.jinrishici.com/one.json?client=browser-sdk/1.2")}(n)},e.jinrishici=t,i()?c():(n=function(){i()&&c()},"loading"!=document.readyState?n():document.addEventListener?document.addEventListener("DOMContentLoaded",n):document.attachEvent("onreadystatechange",function(){"complete"==document.readyState&&n()}))}(window);
-
-    jinrishici.load(function(result) {
-        var sentence = document.querySelector("#poem_sentence")
-        sentence.innerHTML = result.data.content
-    });
-
-</script>  -->
-
 <script>
     const poemSentences = [
         "一生大笑能几回，斗酒相逢须醉倒。",
@@ -965,52 +950,6 @@
     // 远程 JSON API 地址
     let jsonUrl = "https://www.eallion.com/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true";
 
-    // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
-    (() => {
-        window.Lately = new function () {
-            this.lang = {
-                second: " 秒",
-                minute: " 分钟",
-                hour: " 小时",
-                day: " 天",
-                month: " 个月",
-                year: " 年",
-                ago: "前",
-                error: "NaN"
-            };
-            const format = (date) => {
-                date = new Date(_val(date));
-                const floor = (num, _lang) => Math.floor(num) + _lang,
-                    obj = new function () {
-                        this.second = (Date.now() - date.getTime()) / 1000;
-                        this.minute = this.second / 60;
-                        this.hour = this.minute / 60;
-                        this.day = this.hour / 24;
-                        this.month = this.day / 30;
-                        this.year = this.month / 12
-                    },
-                    key = Object.keys(obj).reverse().find(_ => obj[_] >= 1);
-                return (key ? floor(obj[key], this.lang[key]) : this.lang.error) + this.lang.ago;
-            },
-                _val = (date) => {
-                    date = new Date(date && (typeof date === 'number' ? date : date.replace(/-/g, '/').replace('T', ' ')));
-                    return isNaN(date.getTime()) ? false : date.getTime();
-                };
-            return {
-                init: ({ target = "time", lang } = {}) => {
-                    if (lang) this.lang = lang;
-                    for (let el of document.querySelectorAll(target)) {
-                        const date = _val(el.dateTime) || _val(el.title) || _val(el.innerHTML) || 0;
-                        if (!date) return;
-                        el.title = new Date(date).toLocaleString();
-                        el.innerHTML = format(date);
-                    }
-                },
-                format
-            }
-        }
-    })();
-
     // 设置宽度
     // const heatmapElement = document.querySelector(".tailwindcss-heatmap");
     // const secondNavElement = mainMenuElement.querySelectorAll("nav")[1]; // 获取第二个nav元素
@@ -1027,7 +966,8 @@
                 var result = '';
                 var data = res;
                 for (var i = 0; i < data.length; i++) {
-                    var tickerTime = new Date(data[i].created_at).toLocaleString();
+                    // var tickerTime = new Date(data[i].created_at).toLocaleString();
+                    var tickerTime = new Date(data[i].created_at);
                     var tickerContent = extractTextFromHtml(data[i].content)
                     var tickerUrl = data[i].url;
                     const replacements = {
@@ -1036,7 +976,8 @@
                         '\\s*:star_solid:\\s*': '🌕'
                     };
                     tickerContent = replaceMultiple(tickerContent, replacements);
-                    result += `<li class="ticker-item"><span class="datetime">${tickerTime}</span>：<a href="${tickerUrl}" target="_blank">${tickerContent}</a></li>`;
+                    var relativeTime = getRelativeTime(tickerTime);
+                    result += `<li class="ticker-item"><span class="datetime">${relativeTime}</span>：<a href="${tickerUrl}" target="_blank">${tickerContent}</a></li>`;
                 }
                 var tickerDom = document.querySelector('#ticker');
                 var tickerBefore = `<div class="ticker-wrap"><ul class="ticker-list">`;
@@ -1044,10 +985,6 @@
                 resultAll = tickerBefore + result + tickerAfter;
                 tickerDom.innerHTML = resultAll;
 
-                // 相对时间插件
-                window.Lately && Lately.init({
-                    target: '.datetime'
-                });
             });
 
         // 滚动效果
@@ -1060,6 +997,35 @@
                 }, 1500);
             }
         }, 1500);
+    }
+
+    // 计算相对时间的函数
+    function getRelativeTime(date) {
+        const rtf = new Intl.RelativeTimeFormat('zh-CN', { numeric: "auto", style: 'short' });
+
+        const now = new Date();
+        const diff = now - date;
+
+        const seconds = Math.floor(diff / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+        const months = Math.floor(days / 30);
+        const years = Math.floor(days / 365);
+
+        if (years > 0) {
+            return rtf.format(-years, 'year');
+        } else if (months > 0) {
+            return rtf.format(-months, 'month');
+        } else if (days > 0) {
+            return rtf.format(-days, 'day');
+        } else if (hours > 0) {
+            return rtf.format(-hours, 'hour');
+        } else if (minutes > 0) {
+            return rtf.format(-minutes, 'minute');
+        } else {
+            return rtf.format(-seconds, 'second');
+        }
     }
 
     // 替换字符串
