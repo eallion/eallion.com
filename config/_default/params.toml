@@ -24,9 +24,8 @@ disableImageOptimization = false
 disableTextInHeader = false
 # backgroundImageWidth = 1200
 
-# defaultBackgroundImage = "/images/interstellar.jpg"
+defaultBackgroundImage = "/images/interstellar.webp"
 # defaultFeaturedImage = "/images/featured.svg"
-defaultBackgroundImage = "/images/paris_olympics_2024.webp" # Paris Olympics 2024
 
 highlightCurrentMenuArea = true
 smartTOC = true
@@ -46,7 +45,7 @@ smartTOCHideUnfocusedChildren = false
   layout = "custom" # valid options: page, profile, hero, card, background, custom
   # homepageImage = "/images/interstellar.jpg" # used in: hero, and card
   # homepageImage = "https://api.eallion.com/bing" # used in: hero, and card
-  homepageImage = "/images/paris_olympics_2024.webp" # Paris Olympics 2024
+  homepageImage = "/images/video_WebTitle_batch.mp4" # 黑神话 悟空
   showRecent = true
   showRecentItems = 9
   showMoreLink = true
