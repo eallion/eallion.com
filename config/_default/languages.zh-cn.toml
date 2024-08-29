@@ -13,7 +13,7 @@ title = "大大的小蜗牛"
   description = "机会总是垂青于有准备的人！"
   copyright = "© 2006 - { year } <span class='inline-block'><a href='/copyright/' target='_blank'>eallion.com</a> All Rights Reserved</span>. <span class='inline-block'><a href='https://beian.miit.gov.cn/' target='_blank'>浙ICP备16031768号-2</a></span>"
 
-[author]
+[params.author]
   name = "大大的小蜗牛"
   image = "images/eallion.png"
   imageQuality = 96

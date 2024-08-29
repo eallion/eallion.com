@@ -49,7 +49,7 @@ smartTOCHideUnfocusedChildren = false
   showRecent = true
   showRecentItems = 9
   showMoreLink = true
-  showMoreLinkDest = "blog"
+  showMoreLinkDest = "/blog"
   cardView = true
   showSummary = false
   cardViewScreenWidth = false
@@ -83,7 +83,7 @@ smartTOCHideUnfocusedChildren = false
   showAuthorsBadges = false
   showWordCount = true
   showComments = true
-  sharingLinks = [ "twitter", "facebook", "bluesky", "reddit", "whatsapp", "telegram", "linkedin", "pinterest", "email"]
+  sharingLinks = [ "twitter", "facebook", "bluesky", "mastodon", "reddit", "whatsapp", "telegram", "linkedin", "pinterest", "email"]
   showZenMode = true
 
 [list]
