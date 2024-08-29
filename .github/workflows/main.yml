@@ -27,7 +27,7 @@ jobs:
 
       - name: Build Hugo
         run: |
-          hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo --templateMetrics --templateMetricsHints
+          hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo --disableFastRender --printUnusedTemplates --templateMetrics --templateMetricsHints
 
       - name: Setup Node LTS
         uses: actions/setup-node@v4

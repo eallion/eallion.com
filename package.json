@@ -4,8 +4,8 @@
   "description": "eallion.com hugo blog",
   "private": true,
   "scripts": {
-    "dev": "set NODE_ENV=development&&node ./themes/blowfish/node_modules/tailwindcss/lib/cli.js -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
-    "build": "set NODE_ENV=production&&node  ./themes/blowfish/node_modules/tailwindcss/lib/cli.js -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit",
+    "dev": "cd themes/blowfish && pnpm install && cd ../.. && set NODE_ENV=development && node ./themes/blowfish/node_modules/tailwindcss/lib/cli.js -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
+    "build": "cd themes/blowfish && pnpm install && cd ../.. && set NODE_ENV=production&&node  ./themes/blowfish/node_modules/tailwindcss/lib/cli.js -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit",
     "hugo": "hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo --disableFastRender --printUnusedTemplates --templateMetrics --templateMetricsHints",
     "new": "node scripts/new_post.js",
     "prepare": "husky",
