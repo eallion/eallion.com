@@ -87,25 +87,25 @@ git submodule add https://github.com/eallion/blowfish.git themes/DoIt
 ```bash
 git submodule update --init --recursive
 
-# bun recursive
+# pnpm run recursive
 ```
 
 如果上游主题有更新，更新 [主题](https://github.com/eallion/blowfish.git) 和 [mastodon-embed-timeline](https://github.com/eallion/mastodon-embed-timeline.git)：
 
 ```diff
 - git submodule update --remote --merge
-+ bun theme
++ pnpm run theme
 ```
 
 Blowfish 编译 TailwindCSS 的 main.css ，位于 [assets/css/compiled/main.css](https://github.com/eallion/eallion.com/blob/main/assets/css/compiled/main.css)：
 
 ```bash
 # cd theme/blowfish
-# npm install
-# ../..
+# pnpm install
+# cd ../..
 
-# bun dev
-bun run build
+# pnpm run dev
+pnpm run build
 ```
 
 ```bash
@@ -136,20 +136,20 @@ https://github.com/eallion/eallion.com/blob/main/layouts/_default/mastodon.html
 https://github.com/eallion/eallion.com/blob/main/data/neodb/movie.json
 ```
 
-### 🧑‍💻 bun 命令
+### 🧑‍💻 pnpm 命令
 
-- `bun dev` 启动 TailwindCSS 监听
-- `bun hugo` 构建 Hugo，一般不用，都是交给 CI/CD 构建
-- `bun new` 创建新文章，直接输入文章标题，生成到 example 目录
-- `bun prepare` Git Commit Husky 勾子，目前用于提交时更新 Cloudflare Pages Wrangler 的 `HUGO_VERSION`
-- `bun preview` 启动 Hugo 服务器，即预览线上生成环境，文档内容为 `content` 目录
-- `bun recursive` 递归更新 Submodule 子项目，一般第一次克隆本项目时使用
-- `bun run build` 构建 Blowfish 的 TailwindCSS `assets/css/compiled/main.css`
-- `bun server` 启动 Hugo 服务器，文档内容为 `example` 目录
-- `bun shiki` 生成 Shiki 语法高亮，目前已取消
-- `bun theme` 更新 Submodule 子项目
-- `bun vercel` 构建适用于 Vercel 平台的 Hugo，在 Vercel 平台使用
-- `bun winnat` 谨慎使用，用于 Windows 重置 Winnat，解决绑定 1313 端口冲突
+- `pnpm run dev` 启动 TailwindCSS 监听
+- `pnpm run hugo` 构建 Hugo，一般不用，都是交给 CI/CD 构建
+- `pnpm run new` 创建新文章，直接输入文章标题，生成到 example 目录
+- `pnpm run prepare` Git Commit Husky 勾子，目前用于提交时更新 Cloudflare Pages Wrangler 的 `HUGO_VERSION`
+- `pnpm run preview` 启动 Hugo 服务器，即预览线上生成环境，文档内容为 `content` 目录
+- `pnpm run recursive` 递归更新 Submodule 子项目，一般第一次克隆本项目时使用
+- `pnpm run build` 构建 Blowfish 的 TailwindCSS `assets/css/compiled/main.css`
+- `pnpm run server` 启动 Hugo 服务器，文档内容为 `example` 目录
+- `pnpm run shiki` 生成 Shiki 语法高亮，目前已取消
+- `pnpm run theme` 更新 Submodule 子项目
+- `pnpm run vercel` 构建适用于 Vercel 平台的 Hugo，在 Vercel 平台使用
+- `pnpm run winnat` 谨慎使用，用于 Windows 重置 Winnat，解决绑定 1313 端口冲突
 
 ### 🔊 嘀咕页面
 
@@ -167,13 +167,27 @@ git submodule add https://github.com/eallion/mastodon-embed-timeline.git assets/
 ##### 1. **生成新文章**
 
 通过 Hugo 命令 New 一篇新文章模板：  
-现改为 npm (bun) 命令：
+现改为 pnpm 命令：
 
 ```diff
 - hugo new posts/daily/new_title.md
-+ bun new
++ pnpm run new
 
-# node scripts/post_title_prompt.js && bash scripts/format_filename.sh
+# node scripts/new_post.js
+```
+
+如果需要用上 [彩云小译](https://docs.caiyunapp.com/lingocloud-api/) 自动翻译标题为 slug，需要 Token。
+
+1. 导入 Token
+
+```bash
+export CAIYUN_TOKEN=3975l6lr5pcbvidl6jl2
+```
+
+2. 复制 .env.example 为 .env.local
+
+```txt
+CAIYUN_TOKEN=3975l6lr5pcbvidl6jl2
 ```
 
 ##### 2. **缩略图**
@@ -190,8 +204,8 @@ Icon 可以从网上下载，放到 `assets/icons` 目录下，格式为 `.svg`�
 
 ##### 5. **编辑文章**
 
-通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 `bun new` 出来的文章。  
-这篇文章在 `example/blog/{title}` 目录下，文件名为：`{title}/index.md`，`{title}` 为`bun new` 输入的文字。  
+通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 `pnpm run new` 出来的文章。  
+这篇文章在 `example/blog/{title}` 目录下，文件名为：`{title}/index.md`，`{title}` 为`pnpm run new` 输入的文字。  
 编辑好之后需要把这个文件复制到 `content/blog` 相应的目录中，再 `git push`。  
 缩略图（OG:Image）放在文章同目录下，命名为：`feature*.png`
 
@@ -247,10 +261,10 @@ git push
 
 ```diff
 - ./server.sh
-+ bun server
++ pnpm run server
 
 # 查看博客实际效果 👇
-# bun preview
+# pnpm run preview
 
 # git submodule update --remote --merge && \
 # start http://192.168.0.5:1313 && \
@@ -298,7 +312,7 @@ git push
 
 ```diff
 - hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
-+ bun hugo
++ pnpm run hugo
 ```
 
 - `--cleanDestinationDir` 构建前先清理目标目录，即 public
