@@ -38,7 +38,7 @@ enableEmoji = true
 
 [outputs]
   home = ["HTML", "RSS", "JSON", "JsonFeed"]
-  page = ["HTML", "MarkDown"]
+  page = ["HTML", "RSS"]
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
   term = ["HTML", "RSS"]

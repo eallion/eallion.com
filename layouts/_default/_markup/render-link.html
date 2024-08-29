@@ -5,5 +5,5 @@
 {{- else if or (hasSuffix $host "www.eallion.com") (hasPrefix .Destination "#") -}}
     <a href="{{ .Destination }}" {{ with .Title }}title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
 {{- else -}}
-    <a href="/go/?target={{ .Destination | base64Encode }}" target="_blank" rel="noopener noreferrer" {{ with .Title }}title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+    <a href="{{ .Page.Site.LanguagePrefix }}/go/?target={{ .Destination | base64Encode }}" target="_blank" rel="noopener noreferrer" {{ with .Title }}title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
 {{- end -}}
