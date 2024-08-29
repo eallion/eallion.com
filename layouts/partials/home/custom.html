@@ -54,7 +54,7 @@
                     {{ end }}
                 </div>
                 <div class="relative px-1 py-1 flex flex-col items-center justify-center text-center">
-                    {{ with .Site.Author.image }}
+                    {{ with .Site.Params.Author.image }}
                         {{ $authorImage := "" }}
                         {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
                             {{ $authorImage = resources.GetRemote . }}
@@ -63,12 +63,12 @@
                         {{ end }}
                         {{ if $authorImage }}
                             {{ if not $disableImageOptimization }}
-                                {{ $authorImage = $authorImage.Fill (print "288x288 q" ( $.Site.Author.imagequality | default "96" )) }}
+                                {{ $authorImage = $authorImage.Fill (print "288x288 q" ( $.Site.Params.Author.imagequality | default "96" )) }}
                             {{ end }}
                             <div class="tailwind-ticker w-auto relative group flex items-end transition-all duration-300">
                                 <div class="rounded-full overflow-hidden min-w-[144px]">
                                     <img class="mb-2 rounded-full h-36 w-36 nozoom" width="144" height="144"
-                                    alt="{{ $.Site.Author.name | default " Author" }}" src="{{ $authorImage.RelPermalink }}" />
+                                    alt="{{ $.Site.Params.Author.name | default " Author" }}" src="{{ $authorImage.RelPermalink }}" />
                                 </div>
                                 <div class="absolute bottom-0 left-full -ml-9 mb-1 w-8 h-8 rounded-full flex items-center justify-center group-hover:w-min group-hover:h-8 group-hover:rounded-lg transition-all duration-300">
                                     <div class="ticker hidden sm:flex w-9 sm:w-[226px] md:w-[295px] lg:w-[476px] min-w-[36px] transition-all duration-300">
@@ -88,10 +88,10 @@
                         {{ end }}
                     {{ end }}
                     <h1 class="mb-2 text-4xl font-extrabold text-neutral-800 dark:text-neutral-200">
-                        {{ .Site.Author.name | default .Site.Title }}
+                        {{ .Site.Params.Author.name | default .Site.Title }}
                         {{/*  {{ T `blog_title` | safeHTML }}  */}}
                     </h1>
-                    {{/*  {{ with .Site.Author.headline }}  */}}
+                    {{/*  {{ with .Site.Params.Author.headline }}  */}}
                     <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
                         {{/*  {{ . | markdownify }}  */}}
                         <div id="poem_sentence" class="min-h-7 text-base md:text-xl">明月松间照，清泉石上流。</div>
@@ -99,7 +99,7 @@
                     </h2>
                     {{/*  {{ end }}  */}}
                     <div class="my-3 text-2xl">
-                        {{ with .Site.Author.links }}
+                        {{ with .Site.Params.Author.links }}
                         <div class="flex flex-wrap">
                             {{ range $links := . }}
                             {{ range $name, $url := $links }}
