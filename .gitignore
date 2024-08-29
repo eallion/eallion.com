@@ -40,20 +40,12 @@ node_modules
 
 autocorrect
 
-.hugo_build.lock
 
 settings.json
 
 resources/_gen/
 
-package-lock.json
-
 .hintrc
 static/.next
 static/node_modules
 .next
-
-bun.lockb
-package-lock.json
-pnpm-lock.yaml
-yarn.lock
