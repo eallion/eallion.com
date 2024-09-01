@@ -35,13 +35,13 @@
   },
   "homepage": "https://github.com/eallion/eallion.com#readme",
   "dependencies": {
-    "@shikijs/rehype": "^1.13.0",
-    "@types/node": "^20.14.15",
-    "axios": "^1.7.4",
+    "@shikijs/rehype": "^1.16.1",
+    "@types/node": "^20.16.3",
+    "axios": "^1.7.7",
     "dotenv": "^16.4.5",
     "fs": "0.0.1-security",
-    "husky": "^9.1.4",
+    "husky": "^9.1.5",
     "rehype-cli": "^12.0.0",
-    "shiki": "^1.13.0"
+    "shiki": "^1.16.1"
   }
 }
