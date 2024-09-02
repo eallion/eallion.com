@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-#  schedule:
-#    - cron: 0 16 * * *
+  schedule:
+   - cron: '0 0 1 * *'
   workflow_dispatch:
   repository_dispatch:
     types: [build-hugo]
@@ -14,13 +14,26 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     env:
-      HUGO_CACHEDIR: /tmp/hugo_cache
       DOCKER_CACHEDIR: /tmp/.docker-cache
+      HUGO_CACHEDIR: /tmp/.hugo_cache
+      HUGOMODS_CACHEDIR: /tmp/.hugo_mods_cache
+      PNPM_CACHEDIR: /tmp/.pnpm-cache
+
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: true
           fetch-depth: 0
+
+      - name: Cache Docker images
+        id: cache
+        uses: ScribeMD/docker-cache@0.5.0
+        with:
+          key: docker-${{ runner.os }}-${{ env.DOCKER_ALIYUN_IMG_DEGEST }}
+
+      - name: Pull Docker Images
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: docker pull fangbinwei/aliyun-oss-website-action:v1
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -28,53 +41,29 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
-      - name: Cache Hugo modules
-        uses: actions/cache@v4
-        with:
-          path: /tmp/hugo_cache
-          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-hugomod-
-
-      - name: Cache Hugo build output
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.HUGO_CACHEDIR }}
-          key: ${{ runner.os }}-hugo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-hugo-
-
       - name: Build Hugo
         run: |
-          hugo --forceSyncStatic --gc --minify --enableGitInfo
+          hugo --minify --enableGitInfo
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-          run_install: false
+      # - name: Install pnpm
+      #   uses: pnpm/action-setup@v4
+      #   with:
+      #     version: 9
+      #     run_install: false
 
-      - name: Setup Node LTS
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20.x
-          cache: 'pnpm'
-          cache-dependency-path: '**/pnpm-lock.yaml'
+      # - name: Setup Node LTS
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 20.x
+      #     cache: 'pnpm'
+      #     cache-dependency-path: '**/pnpm-lock.yaml'
 
-      - name: Cache pnpm modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
-
-      - name: Install and run Shiki
-        run: |
-          export NODE_OPTIONS="--max_old_space_size=7168"
-          pnpm install
-          pnpm run shiki || true
-          # npx rehype-cli public -o --silent || true
+      # - name: Install and run Shiki
+      #   run: |
+      #     export NODE_OPTIONS="--max_old_space_size=7168"
+      #     pnpm install
+      #     pnpm run shiki --silent || true
+      #     # npx rehype-cli public -o --silent || true
 
       # - name: Deploy to GitHub Pages
       #   uses: peaceiris/actions-gh-pages@v4
@@ -99,6 +88,20 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           quiet: true
           command: pages deploy public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true
+
+      - name: Aliyun Actions Docker image degest
+        run: |
+          # Check JQ
+          if ! command -v jq &> /dev/null; then
+            echo "jq is not installed. Installing..."
+            sudo apt-get update
+            sudo apt-get install -y jq
+          else
+            echo "jq is already installed."
+          fi
+          # Degest
+          DOCKER_DEGEST=$(curl -s "https://hub.docker.com/v2/namespaces/fangbinwei/repositories/aliyun-oss-website-action/tags/v1" | jq -r '.images[] | select(.architecture == "amd64") | .digest | sub("sha256:"; "")')
+          echo "DOCKER_ALIYUN_IMG_DEGEST=$DOCKER_DEGEST" >> $GITHUB_ENV
 
       - name: Deploy to Aliyun OSS
         uses: docker://fangbinwei/aliyun-oss-website-action:v1
