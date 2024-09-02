@@ -26,8 +26,8 @@
                         {{ end }}
                     {{ end }}
                     {{ if $homepageImage }}
-                    <!-- <img class="w-full h-[1000px] object-cover m-0 nozoom" src="{{ $homepageImage.RelPermalink }}" role="presentation"> -->
-
+                    <img class="w-full h-[1000px] object-cover m-0 nozoom" src="{{ $homepageImage.RelPermalink }}" role="presentation">
+                    {{/*
                     <video
                       class="w-full h-[1000px] object-cover m-0 nozoom"
                       webkit-playsinline="true"
@@ -45,6 +45,7 @@
                       <source src="{{ $homepageImage.RelPermalink }}" type="video/mp4">
                       Your browser does not support the video tag.
                     </video>
+                    */}}
                     <div
                         class="absolute inset-0 h-[1000px] bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
                     </div>
