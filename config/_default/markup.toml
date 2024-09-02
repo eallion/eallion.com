@@ -10,7 +10,7 @@
     block = true
 
 [highlight]
-  codeFences = false
+  codeFences = true
   guessSyntax = true
   lineNos = false
   lineNumbersInTable = true
