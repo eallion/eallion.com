@@ -122,43 +122,48 @@
 # The footer menu is displayed at the bottom of the page, just before
 # the copyright notice. Configure as per the main menu above.
 
- [[footer]]
-   name = "<div id='notbyai' class='notbyai written'></div>"
-   url = "https://notbyai.fyi"
-   weight = 10
+[[footer]]
+  name = "<div id='notbyai' class='notbyai written'></div>"
+  url = "https://notbyai.fyi"
+  weight = 10
 
-#  [[footer]]
-#    name = "Mastodon"
-#    pageRef = "mastodon"
-#    weight = 20
+[[footer]]
+  name = "<div id='nonbot' class='nonbot'></div>"
+  url = "https://nonbot.org/pledged/view/9cefed7c-dc57-4832-84ec-197314fda979"
+  weight = 11
+
+# [[footer]]
+#   name = "Mastodon"
+#   pageRef = "mastodon"
+#   weight = 20
 #
-#  [[footer]]
-#    name = "Media"
-#    pageRef = "media"
-#    weight = 30
+# [[footer]]
+#   name = "Media"
+#   pageRef = "media"
+#   weight = 30
 #
-#  [[footer]]
-#    name = "Milestone"
-#    pageRef = "milestone"
-#    weight = 40
+# [[footer]]
+#   name = "Milestone"
+#   pageRef = "milestone"
+#   weight = 40
 
- [[footer]]
-   name = "Stats"
-   pageRef = "stats"
-   weight = 50
+[[footer]]
+  name = "Stats"
+  pageRef = "stats"
+  weight = 50
 
- [[footer]]
-   name = "Status"
-   url = "https://stats.uptimerobot.com/LvmZRfkNGP"
-   weight = 60
+[[footer]]
+  name = "Status"
+  url = "https://stats.uptimerobot.com/LvmZRfkNGP"
+  weight = 60
 
- [[footer]]
-   name = "About"
-   pageRef = "about"
-   weight = 90
+[[footer]]
+  name = "About"
+  pageRef = "about"
+  weight = 90
 
- [[footer]]
-   pre = "rss"
-   name = "RSS"
-   url = "https://www.eallion.com/rss"
-   weight = 99
+[[footer]]
+  pre = "rss"
+  name = "RSS"
+  url = "https://www.eallion.com/rss"
+  weight = 99
