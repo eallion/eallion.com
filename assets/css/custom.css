@@ -496,6 +496,7 @@ footer nav ul {
     padding: 0;
     width: 131px;
     height: 42px;
+    background-repeat: no-repeat;
 }
 
 .notbyai.written {
@@ -520,6 +521,16 @@ footer nav ul {
 
 .dark .notbyai.painted {
     background-image: url(/assets/images/not-by-ai/painted-by-human/svg/painted-by-human-not-by-ai-badge-black.svg);
+}
+
+.nonbot {
+  display: block;
+  margin: -10px;
+  padding: 0;
+  width: 67px;
+  height: 58px;
+  background-repeat: no-repeat;
+  background-image: url(/assets/images/nonbot/nonbot_pledged_logo.svg);
 }
 
 /* 顶部进度条css */
