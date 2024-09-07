@@ -25,7 +25,7 @@ disableTextInHeader = false
 # backgroundImageWidth = 1200
 
 defaultBackgroundImage = "/images/interstellar.webp"
-# defaultFeaturedImage = "/images/featured.svg"
+defaultFeaturedImage = "/images/featured.svg"
 
 highlightCurrentMenuArea = true
 smartTOC = true
@@ -43,7 +43,7 @@ smartTOCHideUnfocusedChildren = false
 
 [homepage]
   layout = "custom" # valid options: page, profile, hero, card, background, custom
-  homepageImage = "/images/CCTV_End_of_Heat.png" # used in: hero, and card
+  homepageImage = "/images/interstellar.webp" # used in: hero, and card
   # homepageImage = "https://api.eallion.com/bing?type=image&region=zh-CN&dpi=uhd" # used in: hero, and card
   # homepageImage = "/images/video_WebTitle_batch.mp4" # 黑神话 悟空
   showRecent = true
