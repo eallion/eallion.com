@@ -54,7 +54,7 @@
 {{ $friends := $friendsResource | transform.Unmarshal }}
 {{ $linkCount := len $friends.links }}
 
-{{ $neodbCountResource := resources.Get "data/neodb/movie_details.json" }}
+{{ $neodbCountResource := resources.Get "data/neodb/movie.json" }}
 {{ $neodbCount := $neodbCountResource | transform.Unmarshal }}
 
 {{ $pentaCountResource := resources.Get "data/penta/penta.json" }}
@@ -669,7 +669,7 @@
                         <li>{{ T `stats_links` | safeHTML }}<strong><a href="/links/">{{- $linkCount -}}</a></strong> {{ T `stats_links_suffix` | safeHTML }}</li>
                         <li>{{ T `stats_wordcount` | safeHTML }}<strong><a href="/stats/">{{- $totalWords -}}</a></strong> {{ T `stats_wordcount_suffix` | safeHTML }}</li>
                         <li>{{ T `stats_mastodon` | safeHTML }}<strong><a href="/mastodon/">{{- $statusesCount -}}</a></strong> {{ T `stats_mastodon_suffix` | safeHTML }}</li>
-                        <li>{{ T `stats_neodb` | safeHTML }}<strong><a href="/media/">{{- len $neodbCount -}}</a></strong> {{ T `stats_neodb_suffix` | safeHTML }}</li>
+                        <li>{{ T `stats_neodb` | safeHTML }}<strong><a href="/media/">{{- $neodbCount.count -}}</a></strong> {{ T `stats_neodb_suffix` | safeHTML }}</li>
                         <li>{{ T `stats_steam` | safeHTML }}<strong><a href="/steam/">{{- $steamCount -}}</a></strong> {{ T `stats_steam_suffix` | safeHTML }}</li>
                         <li>{{ T `stats_penta` | safeHTML }}<strong><a href="/penta/">{{- len $pentaCount.penta -}}</a></strong> {{ T `stats_penta_suffix` | safeHTML }}</li>
                         <li>{{ T `stats_views` | safeHTML }}<a>99<sup>+</sup></a> {{ T `stats_views_suffix` | safeHTML }}</li>
