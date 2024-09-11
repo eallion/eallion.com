@@ -74,23 +74,22 @@
 
                 {{ $moviesResource := resources.Get "data/neodb/movie.json" }}
                 {{ $movies := $moviesResource | transform.Unmarshal }}
-                {{ $comment_text := $movies.item.comment_text }}
-
-                {{ $movie_detailsResource := resources.Get "data/neodb/movie_details.json" }}
-                {{ $movie_details := $movie_detailsResource | transform.Unmarshal }}
-                {{ range $movie_details }}
-                    {{ $title := .display_title }}
-                    {{ $orig_title := .orig_title }}
-                    {{ $year := .year }}
-                    {{ $rating := float .rating }}
+                {{ range $movies.data }}
+                    {{ $title := .item.title }}
+                    {{ $localizedTitles := .item.localized_title }}
+                    {{ $orig_title := (index (where $localizedTitles "lang" "en") 0).text }}
+                    {{ $rating := float .item.rating }}
                     {{ $rating_percent := mul $rating 10 }}
-                    {{ $movie_url := printf "https://neodb.social%s" .url }}
-                    {{ $imdb := printf "https://www.imdb.com/title/%s" .imdb}}
-                    {{ $cover := .cover_image_url }}
+                    {{ $rating_count := .item.rating_count }}
+                    {{ $movie_url := printf "https://neodb.social%s" .item.url }}
+                    {{ $id := .item.id }}
+                    {{ $cover := .item.cover_image_url }}
                     {{ $cover_name := path.Base $cover }}
                     {{ $movieCover := printf "images/neodb/cover/%s" $cover_name }}
-                    {{ $brief := .brief }}
-                    {{ $category  := .category }}
+                    {{ $brief := .item.brief }}
+                    {{ $category  := .item.category }}
+                    {{ $comment_text := .comment_text }}
+                    {{ $type := .item.type }}
 
                 <div class="card m-cate-{{ $category }} group relative overflow-hidden rounded aspect-[2/3]">
                     <div class="relative overflow-hidden w-full pb-150 before:absolute before:h-full before:w-full before:left-0 before:-z-10 before:duration-500 before:-bottom-40 group-hover:before:bottom-0 group-hover:before:bg-gradient-to-b group-hover:before:from-transparent group-hover:before:from-60% group-hover:before:to-[var(--media-bg-color-cover)] group-hover:before:to-100% group-hover:before:z-10">
@@ -123,10 +122,10 @@
                     </div>
                     <div class="flex flex-col items-start justify-end absolute p-2 w-full h-fit box-border left-0 -bottom-96 transition-all duration-400 ease-in z-10 group-hover:bottom-0">
                         <h2 class="m-0 p-0 text-lg md:text-xl">
-                            <a href="/go/?target={{- $movie_url | base64Encode -}}" target="_blank" class="block text-neutral text-shadow-hover-white m-0 p-0" rel="noreferrer noopener nofollow">{{- $title -}}</a>
+                            <a href="/go/?target={{- $id | base64Encode -}}" target="_blank" class="block text-neutral text-shadow-hover-white m-0 p-0" rel="noreferrer noopener nofollow">{{- $title -}}</a>
                         </h2>
 
-                        <div class="block text-neutral-200 hover:text-primary-600 text-shadow-hover-white text-sm m-0 p-0">{{- $orig_title | default $title -}} ({{- $year -}})</div>
+                        <div class="block text-neutral-200 hover:text-primary-600 text-shadow-hover-white text-sm m-0 p-0">{{- $orig_title | default $title -}}</div>
 
                         <div class="flex items-center mt-1">
                             <div class="flex items-center relative p-0">
@@ -136,30 +135,21 @@
                             <span class="text-xs text-neutral-100 hover:text-[#ff9800] ml-1">{{- $rating | default "Null" -}}</span>
                         </div>
 
-                        {{- if and .genre (ne .genre nil) }}
-                            <div class="w-full relative mt-1 hidden md:flex flex-nowrap overflow-hidden gap-1">
-                                {{ range first 5 .genre }}
-                                <span class="mt-0 inline-block whitespace-nowrap rounded text-white capitalize p-1 text-xs text-neutral-200 bg-neutral-700">{{- . -}}</span>
-                                {{ end }}
-                            </div>
-                        {{- else }}
-                            {{- $category := .category -}}
-                            <div class="w-full relative mt-1 hidden md:flex flex-nowrap overflow-hidden gap-1">
-                                <span class="mt-0 inline-block whitespace-nowrap rounded text-white capitalize p-1 text-xs text-neutral-200 bg-neutral-700">{{- $category -}}</span>
-                            </div>
-                        {{- end -}}
+
+                        <div class="w-full relative mt-1 hidden md:flex flex-nowrap overflow-hidden gap-1">
+                          {{ with $type }}
+                            <span class="mt-0 inline-block whitespace-nowrap rounded text-white capitalize p-1 text-xs text-neutral-200 bg-neutral-700">{{- . -}}</span>
+                          {{ end }}
+                          {{ with $rating_count }}
+                          <span class="mt-0 inline-block whitespace-nowrap rounded text-white capitalize p-1 text-xs text-neutral-200 bg-neutral-700">{{- . -}}&nbsp;人点评</span>
+                          {{ end }}
+                        </div>
 
                         <div class="overflow-hidden my-2">
-                            {{ $id := .id }}
-                            {{ range $item := $movies.data }}
-                                {{ if eq $item.item.id $id }}
-                                    {{ $comment_text := .comment_text }}
-                                    {{ if $comment_text }}
-                                        <p class="text-xs m-0 text-neutral-100 line-clamp-3">短评：{{ $comment_text }}</p>
-                                    {{ else }}
-                                        <p class="text-xs m-0 text-neutral-100 line-clamp-3">简介：{{ $brief }}</p>
-                                    {{ end }}
-                                {{ end }}
+                            {{ if $comment_text }}
+                                <p class="text-xs m-0 text-neutral-100 line-clamp-3">短评：{{ $comment_text }}</p>
+                            {{ else }}
+                                <p class="text-xs m-0 text-neutral-100 line-clamp-3">简介：{{ $brief }}</p>
                             {{ end }}
                         </div>
                         <div class="w-full flex justify-start items-center">
@@ -167,37 +157,29 @@
                                 <h4></h4>
                                 <ul class="pl-0 p-0 m-0 flex space-x-[-10px]">
                                     <li class="neodb w-6 h-6 overflow-hidden pl-0 rounded-full list-none border-2 border-solid border-neutral">
-                                        <a href="/go/?target={{- $movie_url | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">
+                                        <a href="/go/?target={{- $id | base64Encode -}}" target="_blank" class="flex" rel="noreferrer noopener nofollow">
                                             <img src="/assets/images/movie/neodbsocial.jpg" class="nozoom m-0" loading="lazy" alt="NeoDB" no-view>
                                         </a>
                                     </li>
-                                    {{ range .external_resources }}
-                                        {{ $parsedURL := urls.Parse .url }}
-                                        {{ $host := $parsedURL.Hostname }}
-                                        {{ $title := .title }}
-                                        {{ if not (or (strings.Contains .url "imdb.com") (strings.Contains .url "eggplant.place")) }}
+                                      {{ range .item.external_resources }}
+                                      {{ $parsedURL := urls.Parse .url }}
+                                      {{ $host := $parsedURL.Hostname }}
+                                        {{ if not (or (strings.Contains .url "eggplant.place")) }}
                                             {{ if eq $host "books.google.com" }}
-                                                <li class="external-resource w-6 h-6 overflow-hidden pl-0 rounded-full list-none border-2 border-solid border-neutral">
-                                                    <a href="/go/?target={{- .url | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">
-                                                        <img src="/assets/images/movie/google-books.png" class="nozoom m-0" loading="lazy" alt="{{- $title -}}" no-view>
-                                                    </a>
-                                                </li>
-                                            {{ else }}
-                                                <li class="external-resource w-6 h-6 overflow-hidden pl-0 rounded-full list-none border-2 border-solid border-neutral">
-                                                    <a href="/go/?target={{- .url | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">
-                                                        <img src="/assets/images/movie/{{- $host -}}.png" class="nozoom m-0" loading="lazy" alt="{{- $title -}}" no-view>
-                                                    </a>
-                                                </li>
-                                            {{ end }}
+                                                  <li class="external-resource w-6 h-6 overflow-hidden pl-0 rounded-full list-none border-2 border-solid border-neutral">
+                                                      <a href="/go/?target={{- .url | base64Encode -}}" target="_blank" class="flex" rel="noreferrer noopener nofollow">
+                                                          <img src="/assets/images/movie/google-books.png" class="nozoom m-0" loading="lazy" alt="{{- $title -}}" no-view>
+                                                      </a>
+                                                  </li>
+                                              {{ else }}
+                                                  <li class="external-resource w-6 h-6 overflow-hidden pl-0 rounded-full list-none border-2 border-solid border-neutral">
+                                                      <a href="/go/?target={{- .url | base64Encode -}}" target="_blank" class="flex" rel="noreferrer noopener nofollow">
+                                                          <img src="/assets/images/movie/{{- $host -}}.png" class="nozoom m-0" loading="lazy" alt="{{- $title -}}" no-view>
+                                                      </a>
+                                                  </li>
+                                              {{ end }}
                                         {{ end }}
-                                    {{ end }}
-                                    {{ if and ($imdb) (ne $imdb "") }}
-                                        <li class="imdb w-6 h-6 overflow-hidden pl-0 rounded-full list-none border-2 border-solid border-neutral">
-                                            <a href="/go/?target={{- $imdb | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">
-                                                <img src="/assets/images/movie/www.imdb.com.png" class="nozoom m-0" loading="lazy" alt="IMDB" no-view>
-                                            </a>
-                                        </li>
-                                    {{ end }}
+                                      {{ end }}
                                 </ul>
                             </div>
                             <div class="flex items-center pr-2 before:relative before:text-neutral-600 before:mx-1 before:content-['|'] before:text-xs">
