@@ -68,15 +68,15 @@
                 <span class="category-item text-neutral-600 bg-neutral-100 dark:text-neutral-100 dark:bg-neutral-700 text-sm px-3 py-1 mr-2 mb-2 rounded-sm cursor-pointer hover:bg-neutral-700 hover:text-neutral-100 dark:hover:bg-neutral-100 dark:hover:text-neutral-600" data-category="music">{{ T `movie_cate_music` | safeHTML }}</span>
                 <span class="category-item text-neutral-600 bg-neutral-100 dark:text-neutral-100 dark:bg-neutral-700 text-sm px-3 py-1 mr-2 mb-2 rounded-sm cursor-pointer hover:bg-neutral-700 hover:text-neutral-100 dark:hover:bg-neutral-100 dark:hover:text-neutral-600" data-category="game">{{ T `movie_cate_game` | safeHTML }}</span>
                 <span class="category-item text-neutral-600 bg-neutral-100 dark:text-neutral-100 dark:bg-neutral-700 text-sm px-3 py-1 mr-2 mb-2 rounded-sm cursor-pointer hover:bg-neutral-700 hover:text-neutral-100 dark:hover:bg-neutral-100 dark:hover:text-neutral-600" data-category="podcast">{{ T `movie_cate_podcast` | safeHTML }}</span>
-                <span class="text-neutral-600 bg-neutral-100 dark:text-neutral-100 dark:bg-neutral-700 text-sm px-3 py-1 mr-2 mb-2 rounded-sm cursor-pointer hover:bg-neutral-700 hover:text-neutral-100 dark:hover:bg-neutral-100 dark:hover:text-neutral-600 flex justify-center items-center">{{ partial "icon.html" "random" }} <span class="neodb_random ml-1">今天看什么？（Top250 随机）</span></span>
+                <span class="text-neutral-600 bg-neutral-100 dark:text-neutral-100 dark:bg-neutral-700 text-sm px-3 py-1 mr-2 mb-2 rounded-sm cursor-pointer hover:bg-neutral-700 hover:text-neutral-100 dark:hover:bg-neutral-100 dark:hover:text-neutral-600 flex justify-center items-center">{{ partial "icon.html" "random" }} <span class="neodb_random ml-1">今天看什么？（随机）</span></span>
             </div>
 
-            <div class="movie_popup hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-neutral-300 dark:bg-neutral-700 p-5 border border-neutral-300 dark:border-neutral-300 shadow-lg z-50" id="moviePopup">
-              <h2 class="flex flex-row items-end"><a id="movieId" target="_blank" rel="nofollow noopener noreferrer"><div id="movieTitle" class="text-4xl text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 mr-2"></div></a> <span id="randomMovieYear" class="text-xl"></span></h2>
-              <div class="flex flex-row justify-start items-start h-full gap-3">
-                <img id="randomMovieCover" src="" alt="Movie Cover" class="max-h-[405px] aspect-[2/3] m-0 p-0 nozoom">
+            <div class="movie_popup text-sm w-[1024px] max-w-max sm:max-w-fit md:max-w-fit lg:max-w-5xl hidden fixed rounded-md top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-neutral-300 dark:bg-neutral-700 p-5 border border-neutral-300 dark:border-neutral-300 shadow-lg z-50" id="moviePopup">
+              <h2 class="flex flex-row items-end mt-2"><a id="movieId" target="_blank" rel="nofollow noopener noreferrer"><div id="movieTitle" class="text-4xl text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 mr-2"></div></a> <span id="randomMovieYear" class="text-xl"></span></h2>
+              <div class="flex flex-col lg:flex-row justify-start items-start h-full gap-3">
+                <img id="randomMovieCover" src="" alt="Movie Cover" class="self-center max-h-72 md:max-h-80 aspect-[2/3] m-0 p-0 nozoom">
                 <div class="flex flex-col">
-                  <div class="flex flex-row items-center mb-0 mb-2">评分：<div class="flex items-center">
+                  <div class="flex flex-row items-center mt-0 mb-2">评分：<div class="flex items-center">
                     <div class="flex items-center relative p-0">
                         <div class="flex items-center"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="M235.38 98.53A11.82 11.82 0 0 0 225 90.29l-59.45-5.14a4 4 0 0 1-3.32-2.44L139 27.36a11.95 11.95 0 0 0-22.06 0l-23.2 55.35a4 4 0 0 1-3.32 2.44L31 90.29a12 12 0 0 0-6.83 21.07l45.1 39.35a4 4 0 0 1 1.28 4L57 213.22a11.88 11.88 0 0 0 4.67 12.48a11.76 11.76 0 0 0 13.19.53l51.1-31a3.89 3.89 0 0 1 4.08 0l51.1 31a12 12 0 0 0 17.86-13l-13.52-58.54a4 4 0 0 1 1.28-4l45.1-39.35a11.89 11.89 0 0 0 3.52-12.81m-8.78 6.8l-45.1 39.35a12 12 0 0 0-3.82 11.8L191.2 215a4 4 0 0 1-1.56 4.2a3.86 3.86 0 0 1-4.35.17l-51.1-31a11.88 11.88 0 0 0-12.38 0l-51.1 31a3.86 3.86 0 0 1-4.35-.17a4 4 0 0 1-1.56-4.2l13.52-58.54a12 12 0 0 0-3.82-11.8l-45.1-39.33a4 4 0 0 1-1.18-4.33a4 4 0 0 1 3.44-2.75l59.45-5.14a12 12 0 0 0 10-7.31l23.22-55.36a4 4 0 0 1 7.32 0l23.22 55.36a12 12 0 0 0 10 7.31l59.45 5.14a4 4 0 0 1 3.44 2.75a4 4 0 0 1-1.16 4.33"/></svg></div>
                         <div id="ratingWidth" class="flex items-center overflow-hidden absolute top-0"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg><svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="flex-shrink-0"><path fill="#ff9800" d="m234.5 114.38l-45.1 39.36l13.51 58.6a16 16 0 0 1-23.84 17.34l-51.11-31l-51 31a16 16 0 0 1-23.84-17.34l13.49-58.54l-45.11-39.42a16 16 0 0 1 9.11-28.06l59.46-5.15l23.21-55.36a15.95 15.95 0 0 1 29.44 0L166 81.17l59.44 5.15a16 16 0 0 1 9.11 28.06Z"/></svg></div>
@@ -85,14 +85,14 @@
                     <span class="text-sm hover:text-neutral-100 text-[#ff9800] ml-1">(<span id="randomMovieRatingCount"></span>)</span>
                     </div>
                   </div>
-                  <p class="my-2 flex"><span class="whitespace-nowrap">又名：</span><span id="otherTitle"></span></p>
-                  <p class="my-2 flex"><span class="whitespace-nowrap">分类：</span><span id="randomMovieGenre"></span></p>
-                  <p class="my-2 flex"><span class="whitespace-nowrap">导演：</span><span id="movieDirector"></span></p>
-                  <p class="my-2 flex"><span class="whitespace-nowrap">主演：</span><span id="movieActor"></span></p>
-                  <p class="mt-2 mb-0">倒计时：<span class="text-sm">随机影片功能有冷却时间，不能无限随机，倒记时冷却时长为随机的影片时长。倒计时结束后，可随机一部新影片。</p>
+                  <p class="my-2 hidden sm:flex"><span class="whitespace-nowrap">又名：</span><span id="otherTitle" class="leading-8"></span></p>
+                  <p class="my-2 hidden sm:flex"><span class="whitespace-nowrap">分类：</span><span id="randomMovieGenre"></span></p>
+                  <p class="my-2 hidden sm:flex"><span class="whitespace-nowrap">导演：</span><span id="movieDirector"></span></p>
+                  <p class="my-2 hidden sm:flex"><span class="whitespace-nowrap">主演：</span><span id="movieActor" class="leading-8"></span></p>
+                  <p class="mt-2 mb-0 hidden lg:flex"><span class="whitespace-nowrap">倒计时：</span><span class="text-sm">随机影片功能有冷却时间，不能无限随机，倒记时冷却时长为随机的影片时长。倒计时结束后，可随机一部新影片。<span id="countdown"></span></p>
                 </div>
               </div>
-              <p>简介：<span id="movieDescription"></span></p>
+              <p class="hidden lg:flex"><span class="whitespace-nowrap">简介：</span><span id="movieDescription"></span></p>
               <div class="flex justify-center">
                 <button id="closePopup" class="rounded-md bg-neutral-800 py-2 px-4 border border-transparent text-center text-sm text-neutral-100 transition-all shadow-md hover:shadow-lg focus:bg-neutral-700 focus:shadow-none active:bg-neutral-700 hover:bg-neutral-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" type="button">关闭</button>
               </div>
@@ -368,6 +368,7 @@
 <script>
   const spanElement = document.querySelector('.neodb_random');
   const popupElement = document.getElementById('moviePopup');
+  const countdownElement = document.getElementById('countdown');
   const closePopupButton = document.getElementById('closePopup');
 
   // 检查 localStorage 中的倒计时状态、电影标题和 uuid
@@ -377,14 +378,15 @@
   if (randomMovieDuration && randomMovieTitle && randomMovieUUID) {
       const remainingTime = parseInt(randomMovieDuration) - Math.floor(Date.now() / 1000);
       if (remainingTime > 0) {
-          spanElement.innerText = '今天看什么？（Top250 随机）';
+          spanElement.innerText = '今天看什么？（随机）';
+          countdownElement.innerText = `（请等待 ${Math.floor(remainingTime / 60)}:${remainingTime % 60 < 10 ? '0' : ''}${remainingTime % 60}）`;
           spanElement.disabled = true;
           startCountdown(remainingTime, randomMovieTitle, randomMovieUUID);
       } else {
           localStorage.removeItem('randomMovieDuration');
           localStorage.removeItem('randomMovieTitle');
           localStorage.removeItem('randomMovieUUID');
-          spanElement.innerText = '今天看什么？（Top250 随机）';
+          spanElement.innerText = '今天看什么？（随机）';
           spanElement.disabled = false;
       }
   }
@@ -411,11 +413,11 @@
               renderPopup(data);
 
               // 从 duration 中提取第一个数字作为分钟数
-              const durationMatch = data.duration.match(/\d+/);
+              const durationMatch = data.duration.match(/\d+/) || ["90"];
               const minutes = durationMatch ? parseInt(durationMatch[0]) : 0;
 
               // 禁用点击功能并开始倒计时
-              spanElement.innerText = '今天看什么？（Top250 随机）';
+              spanElement.innerText = '今天看什么？（随机）';
               spanElement.disabled = true;
 
               // 存储倒计时状态、电影标题和 uuid
@@ -441,14 +443,16 @@
           remainingTime--;
           const minutesLeft = Math.floor(remainingTime / 60);
           const secondsLeft = remainingTime % 60;
-          spanElement.innerText = '今天看什么？（Top250 随机）';
+          spanElement.innerText = '今天看什么？（随机）';
+          countdownElement.innerText = `（请等待 ${Math.floor(remainingTime / 60)}:${remainingTime % 60 < 10 ? '0' : ''}${remainingTime % 60}）`;
 
           if (remainingTime <= 0) {
               clearInterval(countdownInterval);
               localStorage.removeItem('randomMovieDuration');
               localStorage.removeItem('randomMovieTitle');
               localStorage.removeItem('randomMovieUUID');
-              spanElement.innerText = '今天看什么？（Top250 随机）';
+              spanElement.innerText = '今天看什么？（随机）';
+              countdownElement.innerText = '（倒记时忆结束！）';
               spanElement.disabled = false;
           }
       }, 1000);
@@ -459,7 +463,7 @@
       document.getElementById('movieTitle').innerText = data.title;
       document.getElementById('randomMovieYear').innerText = `(${data.year})`;
       document.getElementById('randomMovieCover').src = data.cover_image_url;
-      document.getElementById('movieDescription').innerText = data.description;
+      document.getElementById('movieDescription').innerText = data.description.trim();
 
       document.getElementById('randomMovieRating').innerText = data.rating;
       document.getElementById('randomMovieRatingCount').innerText = data.rating_count;
@@ -468,7 +472,7 @@
       ratingElement.style.width = `${ratingWidth}%`;
 
       const otherTitle = document.getElementById('otherTitle');
-      otherTitle.innerHTML = ''; // 清空之前的 genre
+      otherTitle.innerHTML = ''; // 清空之前的 other_title
       data.other_title.forEach(other_title => {
           const otherTitleElement = document.createElement('span');
           otherTitleElement.innerText = other_title;
