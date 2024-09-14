@@ -2375,6 +2375,10 @@ select {
   place-self:center
 }
 
+.self-start {
+  align-self:flex-start
+}
+
 .self-center {
   align-self:center
 }
@@ -3009,6 +3013,10 @@ select {
 
 .leading-4 {
   line-height:1rem
+}
+
+.leading-5 {
+  line-height:1.25rem
 }
 
 .leading-6 {
