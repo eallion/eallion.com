@@ -13,26 +13,125 @@
   {{ end }}
   {{ end }}
 
-  <div class="fixed h-auto w-full left-0 right-0 top-0 opacity-0 md:opacity-100 -z-10 after:absolute after:top-0 after:left-0 after:right-0 after:h-full after:bg-gradient-to-b after:from-[var(--media-bg-color-from)] after:from-0% after:to-[var(--media-bg-color-to)] dark:after:to-[var(--media-bg-color-to-dark)] after:to-100%">
-    <video
-        class="video-source object-cover"
-        id="TopGif"
-        width="100%"
-        height="100%"
-        webkit-playsinline="true"
-        x-webkit-airplay="true"
-        playsinline="true"
-        x5-video-player-type="h5"
-        x5-video-orientation="h5"
-        x5-video-player-fullscreen="true"
-        preload="auto"
-        autoplay="true"
-        loop=""
-        muted=""
-        >
-        <source src="" type="video/webm" />
-        <source src="" type="video/mp4" />
-    </video>
+  <div class="fixed h-auto w-full left-0 right-0 top-0 -z-10 after:absolute after:top-0 after:left-0 after:right-0 after:h-full after:bg-gradient-to-b after:from-[var(--media-bg-color-from)] after:from-0% after:to-[var(--media-bg-color-to)] dark:after:to-[var(--media-bg-color-to-dark)] after:to-100%">
+    <div id="player_id" class="video-source object-cover"></div>
+
+    <script type="text/javascript" src="https://player.dogecloud.com/js/loader"></script>
+    <script type="text/javascript">
+        // 获取设备的屏幕宽度和高度
+        const screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        const screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+        // 定义宽大于高和宽小于高的 vcode 列表
+        const wideVcodes = [
+            '316b55455894bf63',
+            '7f253d2bec2b0692',
+            'a12bcc250a6bf95c',
+            '51346b1fe0f1587f',
+            'fa85b94d81515a62',
+            '1d05771431c85566',
+            '0dd3b99d2f886532',
+            'f3d299d9fbd120f8',
+            '83c0b3e69e52d157',
+            '4c9dcec2d7c19f54',
+            'a9115eaab8f64916',
+            'bbd81aff0c9329e5',
+            '4ef51254356091b0',
+            '6ba86e3033e95a73',
+            '164acb8c009c61ab',
+            '801b2887d56bbb76',
+            'e7a6cb81844c685c',
+            '9e051f507676260c',
+            '7b4f5a1362825796',
+            'cdb00a4f9b4b0ed5',
+            'ad66c8a995613ada',
+            '12a73b5f8ed8205f',
+            '0ec7981fe22a06c6',
+            '0c3884900dc5694f',
+            'de14bdd5b08cb41e',
+            '32093313e9fc4e68',
+            '7dc66dea3d8c64ea',
+            '4b6d90c641d7ba28',
+            '75605a6f71e55a14',
+            '2dcb8410fe2438f0',
+            '063e1bdecd5ce238',
+            '2dd2b0f1ecccf91f',
+            'f7b112822292d30c',
+            '65b57b9fcddc3fa5',
+            'fb6f14990eb6c9d2'
+        ];
+
+        const narrowVcodes = [
+            'f4f849418e3c1ebd',
+            'caaf539786a6cd0c',
+            'a14b6e55f469896a',
+            '7b40a0edcbd8e2a4',
+            '4fb6689885fc8ee4',
+            '2ff89a16b7d66188',
+            '6c3300ace5d18057',
+            '1c1498d928667726'
+        ];
+
+        // 存储已经使用过的 vcode
+        let usedVcodes = new Set();
+
+        // 随机选择 vcode
+        function getRandomVcode(vcodeList) {
+            let vcode;
+            do {
+                const randomIndex = Math.floor(Math.random() * vcodeList.length);
+                vcode = vcodeList[randomIndex];
+            } while (usedVcodes.has(vcode)); // 确保 vcode 没有被使用过
+            usedVcodes.add(vcode); // 将 vcode 添加到已使用列表中
+            return vcode;
+        }
+
+        // 获取目标 div 元素
+        let playerDiv = document.getElementById('player_id');
+
+        // 根据宽度和高度的关系设置宽高比和 vcode
+        let aspectRatio, vcode;
+        if (screenWidth > screenHeight) {
+            aspectRatio = 2.25;
+            vcode = getRandomVcode(wideVcodes);
+        } else {
+            aspectRatio = 1 / 1.33;
+            vcode = getRandomVcode(narrowVcodes);
+        }
+
+        // 更新 div 的 id
+        playerDiv.id = `player_${vcode}`;
+
+        // 计算高度
+        const height = screenWidth / aspectRatio;
+
+        // 设置宽度和高度
+        playerDiv.style.width = `${screenWidth}px`;
+        playerDiv.style.height = `${height}px`;
+
+        // 初始化 DogePlayer
+        var player = new DogePlayer({
+            container: playerDiv,
+            userId: 5123,
+            vcode: vcode,
+            autoPlay: true,
+            loop: true,
+            volume: 0,
+            muted: true,
+            vtype: 5,
+            switcher: {
+                controller: false
+            }
+        });
+
+        // 监听播放器准备就绪事件
+        player.on('play', function() {
+            // 获取目标 div 元素
+            const heroBackgroundDiv = document.querySelector('article .single_hero_background');
+            // 移除 style 属性
+            heroBackgroundDiv.removeAttribute('style');
+        });
+    </script>
   </div>
 
   <header id="single_header" class="mt-5 max-w-prose">
@@ -255,63 +354,6 @@
     </section>
 
 </article>
-<script>
-    //背景随机视频
-    document.addEventListener("DOMContentLoaded", function () {
-        // 检测设备类型
-        const isMobileDevice = window.innerWidth < 768 || window.innerHeight < 768;
-
-        if (!isMobileDevice) {
-            //const moviesVideo = document.querySelector(".movies_video");
-            const videoElement = document.querySelector(".video-source");
-            const videoSource = videoElement.querySelector("source");
-
-            const videosName = [
-                'meetyourself_1',
-                'meetyourself_2',
-                'meetyourself_3',
-                'meetyourself_4',
-                'meetyourself_5',
-                'meetyourself_6',
-                'meetyourself_7',
-                'meetyourself_8',
-                // 'inception',
-                'interstellar'
-            ];
-
-            function playRandomVideo(videos) {
-                let randomIndex = Math.floor(Math.random() * videos.length);
-                let name = videos[randomIndex];
-
-                // 检查localStorage中的上次播放的视频名称
-                const lastMovieVideoName = localStorage.getItem('lastMovieVideoName');
-
-                // 如果新视频与上一个视频相同，则继续随机选择，直到找到不同的视频
-                while (name === lastMovieVideoName) {
-                    randomIndex = Math.floor(Math.random() * videos.length);
-                    name = videos[randomIndex];
-                }
-
-                const webmSrc = '/assets/video/movie/' + name + '.webm';
-                const mp4Src = '/assets/video/movie/' + name + '.mp4';
-
-                const webmSource = videoElement.querySelector('source[type="video/webm"]');
-                const mp4Source = videoElement.querySelector('source[type="video/mp4"]');
-                webmSource.setAttribute('src', webmSrc);
-                mp4Source.setAttribute('src', mp4Src);
-
-                videoElement.load();
-
-                // 将当前播放的视频名称存储在localStorage中
-                localStorage.setItem('lastMovieVideoName', name);
-            }
-
-            playRandomVideo(videosName);
-
-            //moviesVideo.classList.remove('opacity-0');
-        }
-    });
-</script>
 
 {{ $lazyloadJS := resources.Get "js/lazyload.iife.min.js" | minify | fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $lazyloadJS.RelPermalink }}" integrity="{{ $lazyloadJS.Data.Integrity }}"></script>

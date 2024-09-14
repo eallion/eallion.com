@@ -5844,10 +5844,6 @@ pre {
   .md\:capitalize {
     text-transform:capitalize
   }
-
-  .md\:opacity-100 {
-    opacity:1
-  }
 }
 
 @media (min-width: 1024px) {
