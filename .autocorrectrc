@@ -1,0 +1,168 @@
+# yaml-language-server: $schema=https://huacnlee.github.io/autocorrect/schema.json
+rules:
+  # 在中英文（中文、日文、韩文）和英文单词之间自动添加空格。
+  # 0 - 关闭，1 - 错误，2 - 警告
+  space-word: 1
+  # 在某些标点符号之间添加空格。
+  space-punctuation: 1
+  # 在括号 ()、[] 附近的中英文之间添加空格。
+  space-bracket: 1
+  # 在 `` 附近的中英文之间添加空格。
+  space-backticks: 1
+  # 在破折号 `-` 之间添加空格。
+  space-dash: 1
+  # 转换为全角。
+  fullwidth: 1
+  # 移除全角标点附近的空格。
+  no-space-fullwidth: 1
+  # 移除全角引号 “”、'' 附近的空格。
+  no-space-fullwidth-quote: 1
+  # 将全角字母数字字符转换为半角。
+  halfwidth-word: 1
+  # 将英文中的全角标点转换为半角。
+  halfwidth-punctuation: 1
+  # 拼写检查
+  spellcheck: 0
+# 在空间上下文中启用或禁用
+context:
+  # 启用或禁用在 Markdown 或 AsciiDoc 等中格式化代码块。
+  codeblock: 1
+textRules:
+  # 没有默认的文本规则。
+spellcheck:
+  words:
+    # 请不要在这里添加一般的英语单词（例如：apple, python）。
+    # 用户可以根据需要将他们的特殊单词添加到他们的 .autocorrectrc 文件中。
+    - GitHub
+    - App Store
+    - AppStore = App Store
+    - Git
+    - Node.js
+    - nodejs = Node.js
+    - VIM
+    - DNS
+    - HTTP
+    - SSL
+    - eallion
+    - iPhone
+    - iPad
+    - macOS
+    - Ubuntu
+    - Linux
+    - charleschin = Charles Chin
+    - NeoDB
+    - Typecho
+    - Wordpress
+fileTypes:
+  # ext: grammar_name
+  # HTML
+  html: html
+  htm: html
+  vue: html
+  ejs: html
+  html.erb: html
+  svelte: html
+  # YAML
+  yaml: yaml
+  yml: yaml
+  # Rust
+  rust: rust
+  rs: rust
+  # SQL
+  sql: sql
+  # Ruby
+  ruby: ruby
+  rb: ruby
+  Gemfile: ruby
+  Rakefile: ruby
+  Profile: ruby
+  gemspec: ruby
+  # Crystal
+  crystal: ruby
+  cr: ruby
+  # Elixir
+  elixir: elixir
+  ex: elixir
+  exs: elixir
+  # JavaScript
+  js: javascript
+  jsx: javascript
+  javascript: javascript
+  ts: javascript
+  tsx: javascript
+  typescript: javascript
+  js.erb: javascript
+  # CSS
+  css: css
+  scss: css
+  sass: css
+  less: css
+  # JSON
+  json: json
+  json5: json
+  # Go
+  go: go
+  # Python
+  python: python
+  py: python
+  # Objective-C
+  objective_c: objective_c
+  objective-c: objective_c
+  m: objective_c
+  h: objective_c
+  # Cocoa 的字符串
+  strings: strings
+  # C#
+  csharp: csharp
+  cs: csharp
+  # Java
+  java: java
+  proto: java
+  # Scala
+  scala: scala
+  # Swift
+  swift: swift
+  # Kotlin
+  kotlin: kotlin
+  kt: kotlin
+  gradle: kotlin
+  # PHP
+  php: php
+  # Dart
+  dart: dart
+  # Markdown
+  markdown: markdown
+  md: markdown
+  mdx: markdown
+  # LaTeX
+  latex: latex
+  tex: latex
+  # AsciiDoc
+  asciidoc: asciidoc
+  adoc: asciidoc
+  asc: asciidoc
+  # Gettext
+  po: gettext
+  pot: gettext
+  # 配置
+  properties: conf
+  conf: conf
+  ini: conf
+  cfg: conf
+  toml: conf
+  # C / C++
+  cc: c
+  cpp: c
+  c: c
+  # XML
+  xml: xml
+  # Notebook
+  jupyter: jupyter
+  ipynb: jupyter
+  # Shell
+  sh: ruby
+  shell: ruby
+  # 文本
+  text: text
+  plain: text
+  txt: text
