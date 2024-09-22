@@ -16,7 +16,7 @@ date: 2024-09-22T20:43:01+08:00
 # images: ["/assets/images/og/chrome-plugin-update--url-cleaner.png"] # Delete this line
 ---
 
-[网址净化器](https://chromewebstore.google.com/detail/npokdddpckpfhlecbgmplgcidebjmkfm) 是一个功能简单的工具：把当前标签页的网址净化成干净的网址。
+[网址净化器](https://chromewebstore.google.com/detail/npokdddpckpfhlecbgmplgcidebjmkfm) 是一个功能简单的工具：把当前标签页的网址净化成干净的网址，支持淘宝、京东、哔哩哔哩等，还支持自定义域名。
 
 原名：「净化淘宝链接」
 
@@ -76,7 +76,7 @@ https://item.taobao.com/item.htm?id=787947803999
 - `b23.tv`
 - `cloud.tencent.com`
 
-**小插曲**：发布 2.0.0 后，看到了 [@Viking](https://x.com/vikingmute) 的[这条推](https://x.com/vikingmute/status/1837016227585347897)，学到了 `field-sizing` 这个 CSS 属性。本来我在这个小细节上还调优了好久，没想到只需要一个 CSS 属性就能解决了，就去掉了相关的 JS 和 CSS，马上更新了这个参数，发布了 2.0.1 版本。
+**小插曲**：发布 2.0.0 后，看到了 [@Viking](https://x.com/vikingmute) 的[这条推](https://x.com/vikingmute/status/1837016227585347897)，学到了 `field-sizing` 这个 CSS 属性。本来我在这个小细节上还调优了好久，没想到只需要一个 CSS 属性就能解决了，就去掉了相关的 JS 和 CSS，马上更新了这个参数，发布了 [2.0.1](https://github.com/eallion/url_cleaner/commit/522dcb6e1efb83247621db35bf1daf7959cb7ef9) 版本。
 
 感兴趣的可以前往安装体验：
 [https://chromewebstore.google.com/detail/npokdddpckpfhlecbgmplgcidebjmkfm](https://chromewebstore.google.com/detail/npokdddpckpfhlecbgmplgcidebjmkfm)

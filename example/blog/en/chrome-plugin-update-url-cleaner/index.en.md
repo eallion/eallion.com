@@ -74,7 +74,7 @@ The built-in whitelist now supports the following by default:
 - `b23.tv`
 - `cloud.tencent.com`
 
-A little side note: After releasing version 2.0.0, I saw [@Viking](https://x.com/vikingmute)'s [tweet](https://x.com/vikingmute/status/1837016227585347897) and learned about the field-sizing CSS property. I had spent a long time optimizing this small detail, but it turned out that just one CSS property could solve the issue. I removed the related JS and CSS, updated this parameter immediately, and released version 2.0.1.
+A little side note: After releasing version 2.0.0, I saw [@Viking](https://x.com/vikingmute)'s [tweet](https://x.com/vikingmute/status/1837016227585347897) and learned about the field-sizing CSS property. I had spent a long time optimizing this small detail, but it turned out that just one CSS property could solve the issue. I removed the related JS and CSS, updated this parameter immediately, and released version [2.0.1](https://github.com/eallion/url_cleaner/commit/522dcb6e1efb83247621db35bf1daf7959cb7ef9).
 
 If you're interested, you can go and install it to experience it:
 [https://chromewebstore.google.com/detail/npokdddpckpfhlecbgmplgcidebjmkfm](https://chromewebstore.google.com/detail/npokdddpckpfhlecbgmplgcidebjmkfm)
