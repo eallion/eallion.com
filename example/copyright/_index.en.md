@@ -1,6 +1,6 @@
 ---
 title: "Copyright"
-date: "2006-04-14 00: 00: 00"
+date: "2006-04-14 00:00:00"
 type: "sample"
 layout: "copyright"
 showDate: false
