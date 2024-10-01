@@ -194,6 +194,26 @@
 
     });
 
+    // 拦截 fetch 请求，替换头像
+    const originalFetch = window.fetch;
+    window.fetch = async function(resource, options) {
+        const response = await originalFetch(resource, options);
+
+        // 检查请求的 URL
+        if (resource.includes('https://files.e5n.cc.eallion.com/accounts/avatars/')) {
+            // 创建一个新的响应，返回 /eallion.webp
+            const newResponse = new Response(null, {
+                status: 302,
+                headers: {
+                    'Location': '/eallion.webp'
+                }
+            });
+            return newResponse;
+        }
+
+        return response;
+    };
+
 </script>
 
 <script>
@@ -206,8 +226,14 @@
       links.forEach(link => {
           const href = link.getAttribute('href');
 
-          // 检查域名是否为 e5n.cc 或 eallion.com
-          const excludedDomains = ['e5n.cc', 'eallion.com'];
+          // 域名白名单
+          const excludedDomains = ['e5n.cc',
+            'eallion.com',
+            'github.com',
+            'neodb.social',
+            's.e5n.cc',
+            'www.eallion.com'
+          ];
           const domain = new URL(href).hostname;
           if (excludedDomains.includes(domain)) {
               return; // 跳过此链接
@@ -216,6 +242,16 @@
           const encodedHref = btoa(encodeURIComponent(href));
           const newHref = 'https://www.eallion.com/go/?target=' + encodedHref;
           link.setAttribute('href', newHref);
+      });
+
+      // 获取所有头像的 img 标签并修改 src 属性
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+          const src = img.getAttribute('src');
+          if (src && src.includes('https://files.e5n.cc.eallion.com/accounts/avatars/')) {
+              img.setAttribute('src', '/eallion.webp');
+              img.setAttribute('data-original-src', src); // 添加调试信息
+          }
       });
   });
 
