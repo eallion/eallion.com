@@ -9,5 +9,4 @@
 /rss*   /index.xml  301
 /feed*  /index.xml  301
 /atom*  /index.xml  301
-/api/v1/* https://e5n.cc/api/v1/:splat  302
 /.well-known/*  https://mastodon.eallion.com/.well-known/:splat  301
