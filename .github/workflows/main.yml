@@ -81,13 +81,13 @@ jobs:
       #     user_name: 'github-actions[bot]'
       #     user_email: 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          quiet: true
-          command: pages deploy public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true
+      # - name: Publish to Cloudflare Pages
+      #   uses: cloudflare/wrangler-action@v3
+      #   with:
+      #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      #     accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      #     quiet: true
+      #     command: pages deploy public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true
 
       - name: Aliyun Actions Docker image degest
         run: |
