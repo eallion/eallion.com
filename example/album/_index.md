@@ -22,4 +22,4 @@ aliases:
     - /gallery
 ---
 
-这是我的随手拍页面。因为我不太会拍照，所以就取名为「随手拍」，实在是称不上相册。通过自己部署的 [Mastodon](https://joinmastodon.org/) 实例 [e5n.cc](https://e5n.cc) 的 API 引用，当发布的嘟文 Tag 为 [#ealbum](https://e5n.cc/tags/ealbum) [e + album] 时，媒体文件将自动解析到本页面，没有特别的用意。
+这是我的随手拍页面。因为我不太会拍照，所以就取名为「随手拍」，实在是称不上相册。通过自己部署的 [Mastodon](https://joinmastodon.org/) 实例 [e5n.cc](https://e5n.cc) 的 API 引用，当发布的嘟文是，媒体文件将自动解析到本页面，没有特别的用意。

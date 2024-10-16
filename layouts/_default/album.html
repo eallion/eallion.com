@@ -1,6 +1,31 @@
 {{ define "main" }}
 {{ .Scratch.Set "scope" "single" }}
 
+<style>
+  .waterfall {
+    list-style: none;
+    column-gap: 0;
+    padding: 0;
+    column-count: 4;
+  }
+  .waterfall .item {
+    width: 100%;
+    padding: 2px;
+    margin: 0;
+    break-inside: avoid;
+  }
+
+  .waterfall .item img {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .view-image-tools{opacity:1;animation:1s 1.5s forwards fadeOut}
+  .view-image-tools:hover{opacity:1;animation:none;transition:opacity .2s}
+  @keyframes fadeOut{to{opacity:0}}
+</style>
+
 <article>
   {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
   {{ $heroStyle := .Params.heroStyle }}
@@ -38,54 +63,11 @@
         <div class="article-content max-w-full mb-20">
             {{ .Content }}
 
-            <div id="album" class="w-full col-gap-2 m-0 p-0 relative box-border mb-4 columns-3 min-h-20">
-                {{- $mastodon_tag_album_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?only_media=true&tagged=ealbum&limit=40&exclude_replies=true&exclude_reblogs=true&max_id=" -}}
-                {{- with resources.GetRemote $mastodon_tag_album_api }}
-                    {{- with .Err }}
-                        Album page build failed. API is invalid or unauthorized.
-                    {{- else -}}
-                        {{- $album := . | transform.Unmarshal -}}
-                        {{- range $album }}
-                            {{ $createdAt := .created_at }}
-                            {{ $statusesUrl := .url }}
-                            {{ $content := .content | markdownify }}
-                            {{ $target := `<a href="https://e5n.cc/tags/ealbum" class="mention hashtag" rel="tag">#<span>ealbum</span></a>` }}
-                            {{ $replacement := `` }}
-                            {{ $content = replace $content $target $replacement }}
-                            {{ $attachments := .media_attachments }}
-                            {{ if gt (len $attachments) 0 }}
-                                {{- $firstAttachment := index $attachments 0 -}}
-                                {{- $type := $firstAttachment.type -}}
-                                {{- $length := len .media_attachments }}
-                                {{ if eq $type "image" }}
-                                    {{ range .media_attachments }}
-                                        <div class="album_wrapper group m-0 overflow-hidden rounded relative break-inside-avoid transition-transform duration-300 w-[33%]">
-                                            <figure class="my-0">
-                                                <img
-                                                    class="my-0 rounded-md block w-full cursor-pointer object-cover h-full scale-100 hover:scale-110 transition-all duration-400 ease-in-out animate-fadeIn lazy"
-                                                    loading="lazy"
-                                                    srcset="
-                                                        {{.url}},
-                                                        {{.url}} 1.5x,
-                                                        {{.url}} 2x"
-                                                    src="{{.url}}"
-                                                    alt="{{.id}}"
-                                                />
-                                            </figure>
-                                            <div class="absolute w-full bg-neutral-500 text-neutral text-sm hidden animate-fadeIn px-2 py-2 bottom-0 text-left overflow-hidden group-hover:block">{{ $content | markdownify }}</div>
-                                            <a href="{{ $statusesUrl }}" target="_blank" class="absolute bg-neutral-900 hidden animate-fadeIn right-0 px-1 rounded-bl top-0 group-hover:block" rel="noreferrer noopener nofollow">
-                                                <span class="photo-title text-neutral text-sm">{{ $createdAt }}</span>
-                                            </a>
-                                            <div class="gutter-sizer w-[1%]"></div>
-                                        </div>
-                                    {{ end }}
-                                {{ end }}
-                            {{ end }}
-                        {{- end -}}
-                    {{- end -}}
-                {{- end -}}
-            </div>
+            <ul class="waterfall" id="waterfall" view-image>
+                <!-- 图片将动态插入到这里 -->
+            </ul>
 
+            <button id="load-more" type="button" class="text-neutral-50 bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">Load More</button>
         </div>
 
       </div>
@@ -94,99 +76,75 @@
 
 </article>
 
-{{ $packeryJS := resources.Get "js/packery.pkgd.min.js" | minify | fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $packeryJS.RelPermalink }}" integrity="{{ $packeryJS.Data.Integrity }}"></script>
+<script>
+  /**
+ * ViewImage.min.js 2.0.2
+ * MIT License - http://www.opensource.org/licenses/mit-license.php
+ * https://tokinx.github.io/ViewImage/
+ */
+ var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.createTemplateTagFirstArg=function(b){return b.raw=b};$jscomp.createTemplateTagFirstArgWithRaw=function(b,a){b.raw=a;return b};$jscomp.arrayIteratorImpl=function(b){var a=0;return function(){return a<b.length?{done:!1,value:b[a++]}:{done:!0}}};$jscomp.arrayIterator=function(b){return{next:$jscomp.arrayIteratorImpl(b)}};$jscomp.makeIterator=function(b){var a="undefined"!=typeof Symbol&&Symbol.iterator&&b[Symbol.iterator];return a?a.call(b):$jscomp.arrayIterator(b)};
+ $jscomp.arrayFromIterator=function(b){for(var a,d=[];!(a=b.next()).done;)d.push(a.value);return d};$jscomp.arrayFromIterable=function(b){return b instanceof Array?b:$jscomp.arrayFromIterator($jscomp.makeIterator(b))};
+ (function(){window.ViewImage=new function(){var b=this;this.target="[view-image] img";this.listener=function(a){if(!(a.ctrlKey||a.metaKey||a.shiftKey||a.altKey)){var d=String(b.target.split(",").map(function(g){return g.trim()+":not([no-view])"})),c=a.target.closest(d);if(c){var e=c.closest("[view-image]")||document.body;d=[].concat($jscomp.arrayFromIterable(e.querySelectorAll(d))).map(function(g){return g.href||g.src});b.display(d,c.href||c.src);a.stopPropagation();a.preventDefault()}}};this.init=
+ function(a){a&&(b.target=a);["removeEventListener","addEventListener"].forEach(function(d){document[d]("click",b.listener,!1)})};this.display=function(a,d){var c=a.indexOf(d),e=(new DOMParser).parseFromString('\n                <div class="view-image">\n                    <style>.view-image{position:fixed;inset:0;z-index:500;padding:1rem;display:flex;flex-direction:column;animation:view-image-in 300ms;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}.view-image__out{animation:view-image-out 300ms}@keyframes view-image-in{0%{opacity:0}}@keyframes view-image-out{100%{opacity:0}}.view-image-btn{width:32px;height:32px;display:flex;justify-content:center;align-items:center;cursor:pointer;border-radius:3px;background-color:rgba(255,255,255,0.2)}.view-image-btn:hover{background-color:rgba(255,255,255,0.5)}.view-image-close__full{position:absolute;inset:0;background-color:rgba(48,55,66,0.3);z-index:unset;cursor:zoom-out;margin:0}.view-image-container{height:0;flex:1;display:flex;align-items:center;justify-content:center;}.view-image-lead{display:contents}.view-image-lead img{position:relative;z-index:1;max-width:100%;max-height:100%;object-fit:contain;border-radius:3px}.view-image-lead__in img{animation:view-image-lead-in 300ms}.view-image-lead__out img{animation:view-image-lead-out 300ms forwards}@keyframes view-image-lead-in{0%{opacity:0;transform:translateY(-20px)}}@keyframes view-image-lead-out{100%{opacity:0;transform:translateY(20px)}}[class*=__out] ~ .view-image-loading{display:block}.view-image-loading{position:absolute;inset:50%;width:8rem;height:2rem;color:#aab2bd;overflow:hidden;text-align:center;margin:-1rem -4rem;z-index:1;display:none}.view-image-loading::after{content:"";position:absolute;inset:50% 0;width:100%;height:3px;background:rgba(255,255,255,0.5);transform:translateX(-100%) translateY(-50%);animation:view-image-loading 800ms -100ms ease-in-out infinite}@keyframes view-image-loading{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}.view-image-tools{position:relative;display:flex;justify-content:space-between;align-content:center;color:#fff;max-width:600px;position: absolute; bottom: 5%; left: 1rem; right: 1rem; backdrop-filter: blur(10px);margin:0 auto;padding:10px;border-radius:5px;background:rgba(0,0,0,0.1);margin-bottom:constant(safe-area-inset-bottom);margin-bottom:env(safe-area-inset-bottom);z-index:1}.view-image-tools__count{width:60px;display:flex;align-items:center;justify-content:center}.view-image-tools__flip{display:flex;gap:10px}.view-image-tools [class*=-close]{margin:0 10px}</style>\n                    <div class="view-image-container">\n                        <div class="view-image-lead"></div>\n                        <div class="view-image-loading"></div>\n                        <div class="view-image-close view-image-close__full"></div>\n                    </div>\n                    <div class="view-image-tools">\n                        <div class="view-image-tools__count">\n                            <span><b class="view-image-index">'+
+ (c+1)+"</b>/"+a.length+'</span>\n                        </div>\n                        <div class="view-image-tools__flip">\n                            <div class="view-image-btn view-image-tools__flip-prev">\n                                <svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M31 36L19 24L31 12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>\n                            </div>\n                            <div class="view-image-btn view-image-tools__flip-next">\n                                <svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M19 12L31 24L19 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>\n                            </div>\n                        </div>\n                        <div class="view-image-btn view-image-close">\n                            <svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M8 8L40 40" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 40L40 8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>\n                        </div>\n                    </div>\n                </div>\n            ',
+ "text/html").body.firstChild,g=function(f){var h={Escape:"close",ArrowLeft:"tools__flip-prev",ArrowRight:"tools__flip-next"};h[f.key]&&e.querySelector(".view-image-"+h[f.key]).click()},l=function(f){var h=new Image,k=e.querySelector(".view-image-lead");k.className="view-image-lead view-image-lead__out";setTimeout(function(){k.innerHTML="";h.onload=function(){setTimeout(function(){k.innerHTML='<img src="'+h.src+'" alt="ViewImage" no-view/>';k.className="view-image-lead view-image-lead__in"},100)};
+ h.src=f},300)};document.body.appendChild(e);l(d);window.addEventListener("keydown",g);e.onclick=function(f){f.target.closest(".view-image-close")?(window.removeEventListener("keydown",g),e.onclick=null,e.classList.add("view-image__out"),setTimeout(function(){return e.remove()},290)):f.target.closest(".view-image-tools__flip")&&(c=f.target.closest(".view-image-tools__flip-prev")?0===c?a.length-1:c-1:c===a.length-1?0:c+1,l(a[c]),e.querySelector(".view-image-index").innerHTML=c+1)}}}})();
 
-{{ $draggabillyJS := resources.Get "js/draggabilly.pkgd.min.js" | minify | fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $draggabillyJS.RelPermalink }}" integrity="{{ $draggabillyJS.Data.Integrity }}"></script>
-
-{{ $imagesloadedJS := resources.Get "js/imagesloaded.pkgd.min.js" | minify | fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $imagesloadedJS.RelPermalink }}" integrity="{{ $imagesloadedJS.Data.Integrity }}"></script>
+</script>
 
 <script>
-    var galleryDom = document.querySelector("#album");
-    // 初始化Masonry
-    var pckry = new Packery(galleryDom, {
-        itemSelector: ".album_wrapper",
-        columnWidth: ".album_wrapper",
-        gutter: ".gutter-sizer",
-        percentPosition: true,
+    const waterfall_container = document.getElementById('waterfall');
+    const loadMoreButton = document.getElementById('load-more');
+    let lastMaxId = localStorage.getItem('lastMaxId') || '';
+
+    function fetchImages(maxId = '') {
+        fetch(`https://e5n.cc/api/v1/accounts/111136231674527355/statuses?only_media=true&limit=10&exclude_replies=true&exclude_reblogs=true&max_id=${maxId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    const newLastMaxId = data[data.length - 1].id;
+                    localStorage.setItem('lastMaxId', lastMaxId);
+                    data.forEach(status => {
+                        status.media_attachments.forEach(media => {
+                            const imgUrl = media.preview_url;
+                            const hrefUrl = media.url;
+                            const existingItem = Array.from(waterfall_container.children).find(item => item.querySelector('img').src === imgUrl);
+
+                            if (!existingItem) {
+                                const item = document.createElement('li');
+                                item.className = 'item';
+                                const original = document.createElement('a');
+                                original.href = hrefUrl
+                                const img = document.createElement('img');
+                                img.src = imgUrl;
+                                original.appendChild(img);
+                                item.appendChild(original);
+                                waterfall_container.appendChild(item);
+                                img.style.aspectRatio = media.meta.small.aspect; // 设置图片的宽高比
+                            } else {
+                                // 删除重复内容
+                                const newItem = document.createElement('li');
+                                newItem.className = 'item';
+                                const newImg = document.createElement('img');
+                                newImg.src = imgUrl;
+                                newItem.appendChild(newImg);
+                                waterfall_container.replaceChild(newItem, existingItem);
+                            }
+                        });
+                    });
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    loadMoreButton.addEventListener('click', () => {
+        fetchImages(lastMaxId);
     });
 
-    pckry.getItemElements().forEach(function (itemElem) {
-        var draggie = new Draggabilly(itemElem);
-        pckry.bindDraggabillyEvents(draggie);
-    });
+    window.ViewImage && ViewImage.init('.waterfall a');
 
-    // 图片加载完成后触发
-    imagesLoaded(galleryDom).on("progress", function () {
-        // 定义块状网格尺寸
-        galleryDom.classList.add("grid");
-
-        // 重排布局
-        pckry.layout();
-
-        // Images done loading
-        pckry.options.itemSelector = ".album_wrapper";
-    });
-
-    // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
-    (() => {
-        let location = window.location.href;
-        let isEnglish = location.indexOf("/en/") !== -1;
-        window.Lately = new function () {
-            this.lang = isEnglish ? {
-                'second': ' Seconds',
-                'minute': ' Minutes',
-                'hour': ' Hours',
-                'day': ' Days',
-                'month': ' Months',
-                'year': ' Years',
-                'ago': ' Ago',
-                'error': 'NaN'
-            } : {
-                second: " 秒",
-                minute: " 分钟",
-                hour: " 小时",
-                day: " 天",
-                month: " 个月",
-                year: " 年",
-                ago: "前",
-                error: "NaN"
-            };
-            const format = (date) => {
-                date = new Date(_val(date));
-                const floor = (num, _lang) => Math.floor(num) + _lang,
-                    obj = new function () {
-                        this.second = (Date.now() - date.getTime()) / 1000;
-                        this.minute = this.second / 60;
-                        this.hour = this.minute / 60;
-                        this.day = this.hour / 24;
-                        this.month = this.day / 30;
-                        this.year = this.month / 12
-                    },
-                    key = Object.keys(obj).reverse().find(_ => obj[_] >= 1);
-                return (key ? floor(obj[key], this.lang[key]) : this.lang.error) + this.lang.ago;
-            },
-                _val = (date) => {
-                    date = new Date(date && (typeof date === 'number' ? date : date.replace(/-/g, '/').replace('T', ' ')));
-                    return isNaN(date.getTime()) ? false : date.getTime();
-                };
-            return {
-                init: ({ target = "time", lang } = {}) => {
-                    if (lang) this.lang = lang;
-                    for (let el of document.querySelectorAll(target)) {
-                        const date = _val(el.dateTime) || _val(el.title) || _val(el.innerHTML) || 0;
-                        if (!date) return;
-                        el.title = new Date(date).toLocaleString();
-                        el.innerHTML = format(date);
-                    }
-                },
-                format
-            }
-        }
-    })();
-    window.Lately && Lately.init({ target: ".photo-title" });
+    // 初始加载
+    fetchImages();
 </script>
 
 {{ end }}
