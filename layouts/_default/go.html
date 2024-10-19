@@ -1,9 +1,7 @@
 {{ define "main" }}
 {{ .Scratch.Set "scope" "single" }}
 
-{{ $redirectLight := "images/redirect/redirect-light.webp"}}
-{{ $redirectDark := "images/redirect/redirect-dark.webp"}}
-{{ $disableImageOptimization := .Site.Params.disableImageOptimization | default false }}
+{{ $warningImage := resources.Get "images/mascot_sir_roderick_warning.png" }}
 
 <article>
 
@@ -13,36 +11,23 @@
 
       <div class="article-content max-w-full">
 
-        <div class="relative flex flex-col items-center break-all w-full h-full max-w-[800px] text-center text-sm mx-auto py-8 shadow-xl rounded-xl">
+        <div class="relative flex flex-col items-center break-all w-full h-full max-w-[800px] text-center text-sm mx-auto pb-8 pt-0 shadow-xl rounded-xl bg-neutral-100 dark:bg-neutral-800">
 
-          <div class="relative px-1 py-1 flex flex-col items-center justify-center text-center">
-            {{ with .Site.Params.Author.image }}
-            {{ $authorImage := "" }}
-            {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
-            {{ $authorImage = resources.GetRemote . }}
-            {{ else }}
-            {{ $authorImage = resources.Get . }}
-            {{ end }}
-            {{ if $authorImage }}
-            {{ if not $disableImageOptimization }}
-            {{ $authorImage = $authorImage.Fill (print "288x288 q" ( $.Site.Params.Author.imagequality | default "96" ))
-            }}
-            {{ end }}
+          <div class="relative px-1 py-1 flex flex-col items-center justify-center text-center w-full rounded-tl-xl rounded-tr-xl bg-gradient-to-b from-primary-500 to-primary-200 dark:from-primary-600 dark:to-primary-800">
+
             <div class="tailwind-ticker w-auto relative group flex items-end transition-all duration-300">
-              <div class="rounded-full overflow-hidden min-w-24	">
-                <img class="mb-2 rounded-full h-24 w-24 nozoom" width="96" height="96"
-                  alt="{{ $.Site.Params.Author.name | default " Author" }}" src="{{ $authorImage.RelPermalink }}" />
+              <div class="overflow-hidden min-w-32">
+                <img class="mb-2 h-32 w-32 nozoom" width="96" height="96"
+                  alt="" src="{{ $warningImage.RelPermalink }}" />
               </div>
             </div>
 
-            {{ end }}
-            {{ end }}
-            <h2 class="mt-0 mb-8 text-2xl text-neutral-900 dark:text-neutral-200">
+            <h2 class="mt-0 mb-8 text-2xl text-neutral-800 text-shadow-white">
               <div>跳转提示</div>
             </h2>
           </div>
 
-          <div class="text-xl font-bold my-2 px-2 text-neutral-800 dark:text-neutral-300">即将离开大大的小蜗牛的博客，前住</div>
+          <div class="text-xl font-bold my-4 px-2 text-neutral-800 dark:text-neutral-300">即将离开大大的小蜗牛的博客，前住</div>
           <a href="" target="_self" rel="noopener noreferrer" aria-label="redirect-link" id="target-link">
             <span id="redirect-link"
               class="block w-fit rounded-lg text-center px-5 py-3 border border-solid border-neutral-400 bg-neutral-200 dark:border-neutral-600 dark:bg-neutral-700">未指定重定向目标。</span>
@@ -51,8 +36,8 @@
           <div class="flex items-center justify-center mt-4 mb-8 flex-wrap">
             <div
               class="flex items-center rounded-lg h-8 cursor-pointer outline-none p-4 bg-primary-700 dark:bg-primary-600">
-              <a href='' target="_self" id='direct-link' class="text-neutral dark:text-neutral-400"
-                rel="noopener noreferrer">立即前往</a></div>
+              <a href='' target="_self" id='direct-link' class="text-neutral hover:text-neutral-300 dark:text-neutral-300"
+                rel="noopener noreferrer">继续访问外部网站</a></div>
           </div>
         </div>
 
