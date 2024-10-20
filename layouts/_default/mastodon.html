@@ -200,7 +200,7 @@
 				const response = await originalFetch(resource, options);
 
 				// 检查请求的 URL
-				if (resource.includes('https://files.e5n.cc.eallion.com/accounts/avatars/')) {
+				if (resource.includes('https://files.e5n.cc/accounts/avatars/')) {
 						// 创建一个新的响应，返回 /eallion.webp
 						const newResponse = new Response(null, {
 								status: 302,
@@ -248,7 +248,7 @@
 			const images = document.querySelectorAll('img');
 			images.forEach(img => {
 					const src = img.getAttribute('src');
-					if (src && src.includes('https://files.e5n.cc.eallion.com/accounts/avatars/')) {
+					if (src && src.includes('https://files.e5n.cc/accounts/avatars/')) {
 							img.setAttribute('src', '/eallion.webp');
 							img.setAttribute('data-original-src', src); // 添加调试信息
 					}
