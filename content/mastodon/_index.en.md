@@ -24,6 +24,9 @@ aliases:
     - /en/x
     - /en/twitter
     - /en/toot
+    - /en/weibo
+    - /en/shuoshuo
+    - /en/bb
 ---
 
 I've been deploying a micro-blogging sub-section of my blog similar to **Whisper** since shortly after my introduction to independent blogging. The main difference is that it is a self-talking, **defense of the desire to express** as opposed to a long blog post. The initial role was to back up QZone, Twitter and Weibo, etc. Feed from [{{< icon "mastodon" >}} Mastodon](https://e5n.cc) , tool: [{{< icon "gitlab" >}} Mastodon embed timeline](https://gitlab.com/idotj/mastodon-embed-timeline) .
