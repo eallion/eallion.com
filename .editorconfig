@@ -4,8 +4,9 @@
 root = true
 
 [*]
-indent_style = space # 缩进方式
+indent_style = tab # 缩进方式
 indent_size = 2 # 缩进大小
+tab_width = 2 # 缩进大小
 end_of_line = lf # 换行符
 charset = utf-8 # 文档编码格式
 trim_trailing_whitespace = true # true 为去掉行尾空格
@@ -17,5 +18,6 @@ indent_style = space
 indent_size = 2
 
 [*.{md,txt}]
-indent_style = space
+indent_style = tab
 trim_trailing_whitespace = false
+tab_width = 2

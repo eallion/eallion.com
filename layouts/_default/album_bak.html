@@ -2,95 +2,95 @@
 {{ .Scratch.Set "scope" "single" }}
 
 <article>
-  {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
-  {{ $heroStyle := .Params.heroStyle }}
-  {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
-  {{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
-  {{ if templates.Exists $heroStyle }}
-  {{ partial $heroStyle . }}
-  {{ else }}
-  {{ partial "partials/hero/basic.html" . }}
-  {{ end }}
-  {{ end }}
+	{{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
+	{{ $heroStyle := .Params.heroStyle }}
+	{{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
+	{{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
+	{{ if templates.Exists $heroStyle }}
+	{{ partial $heroStyle . }}
+	{{ else }}
+	{{ partial "partials/hero/basic.html" . }}
+	{{ end }}
+	{{ end }}
 
-  <header id="single_header" class="mt-5 max-w-prose">
-    {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
-    {{ partial "breadcrumbs.html" . }}
-    {{ end }}
-    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      {{ .Title }}
-    </h1>
+	<header id="single_header" class="mt-5 max-w-prose">
+		{{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
+		{{ partial "breadcrumbs.html" . }}
+		{{ end }}
+		<h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+			{{ .Title }}
+		</h1>
 
-    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-      {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
-    </div>
+		<div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+			{{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
+		</div>
 
-  </header>
+	</header>
 
-  <noscript>
-    Please enable JavaScript to view the Album page.
-  </noscript>
+	<noscript>
+		Please enable JavaScript to view the Album page.
+	</noscript>
 
-  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+	<section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
 
-      <div class="min-w-0 min-h-0 max-w-fit">
+			<div class="min-w-0 min-h-0 max-w-fit">
 
-        <div class="article-content max-w-full mb-20">
-            {{ .Content }}
+				<div class="article-content max-w-full mb-20">
+						{{ .Content }}
 
-            <div id="album" class="w-full col-gap-2 m-0 p-0 relative box-border mb-4 columns-3 min-h-20">
-                {{- $mastodon_tag_album_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?only_media=true&tagged=ealbum&limit=40&exclude_replies=true&exclude_reblogs=true&max_id=" -}}
-                {{- with resources.GetRemote $mastodon_tag_album_api }}
-                    {{- with .Err }}
-                        Album page build failed. API is invalid or unauthorized.
-                    {{- else -}}
-                        {{- $album := . | transform.Unmarshal -}}
-                        {{- range $album }}
-                            {{ $createdAt := .created_at }}
-                            {{ $statusesUrl := .url }}
-                            {{ $content := .content | markdownify }}
-                            {{ $target := `<a href="https://e5n.cc/tags/ealbum" class="mention hashtag" rel="tag">#<span>ealbum</span></a>` }}
-                            {{ $replacement := `` }}
-                            {{ $content = replace $content $target $replacement }}
-                            {{ $attachments := .media_attachments }}
-                            {{ if gt (len $attachments) 0 }}
-                                {{- $firstAttachment := index $attachments 0 -}}
-                                {{- $type := $firstAttachment.type -}}
-                                {{- $length := len .media_attachments }}
-                                {{ if eq $type "image" }}
-                                    {{ range .media_attachments }}
-                                        <div class="album_wrapper group m-0 overflow-hidden rounded relative break-inside-avoid transition-transform duration-300 w-[33%]">
-                                            <figure class="my-0">
-                                                <img
-                                                    class="my-0 rounded-md block w-full cursor-pointer object-cover h-full scale-100 hover:scale-110 transition-all duration-400 ease-in-out animate-fadeIn lazy"
-                                                    loading="lazy"
-                                                    srcset="
-                                                        {{.url}},
-                                                        {{.url}} 1.5x,
-                                                        {{.url}} 2x"
-                                                    src="{{.url}}"
-                                                    alt="{{.id}}"
-                                                />
-                                            </figure>
-                                            <div class="absolute w-full bg-neutral-500 text-neutral text-sm hidden animate-fadeIn px-2 py-2 bottom-0 text-left overflow-hidden group-hover:block">{{ $content | markdownify }}</div>
-                                            <a href="{{ $statusesUrl }}" target="_blank" class="absolute bg-neutral-900 hidden animate-fadeIn right-0 px-1 rounded-bl top-0 group-hover:block" rel="noreferrer noopener nofollow">
-                                                <span class="photo-title text-neutral text-sm">{{ $createdAt }}</span>
-                                            </a>
-                                            <div class="gutter-sizer w-[1%]"></div>
-                                        </div>
-                                    {{ end }}
-                                {{ end }}
-                            {{ end }}
-                        {{- end -}}
-                    {{- end -}}
-                {{- end -}}
-            </div>
+						<div id="album" class="w-full col-gap-2 m-0 p-0 relative box-border mb-4 columns-3 min-h-20">
+								{{- $mastodon_tag_album_api := "https://e5n.cc/api/v1/accounts/111136231674527355/statuses?only_media=true&tagged=ealbum&limit=40&exclude_replies=true&exclude_reblogs=true&max_id=" -}}
+								{{- with resources.GetRemote $mastodon_tag_album_api }}
+										{{- with .Err }}
+												Album page build failed. API is invalid or unauthorized.
+										{{- else -}}
+												{{- $album := . | transform.Unmarshal -}}
+												{{- range $album }}
+														{{ $createdAt := .created_at }}
+														{{ $statusesUrl := .url }}
+														{{ $content := .content | markdownify }}
+														{{ $target := `<a href="https://e5n.cc/tags/ealbum" class="mention hashtag" rel="tag">#<span>ealbum</span></a>` }}
+														{{ $replacement := `` }}
+														{{ $content = replace $content $target $replacement }}
+														{{ $attachments := .media_attachments }}
+														{{ if gt (len $attachments) 0 }}
+																{{- $firstAttachment := index $attachments 0 -}}
+																{{- $type := $firstAttachment.type -}}
+																{{- $length := len .media_attachments }}
+																{{ if eq $type "image" }}
+																		{{ range .media_attachments }}
+																				<div class="album_wrapper group m-0 overflow-hidden rounded relative break-inside-avoid transition-transform duration-300 w-[33%]">
+																						<figure class="my-0">
+																								<img
+																										class="my-0 rounded-md block w-full cursor-pointer object-cover h-full scale-100 hover:scale-110 transition-all duration-400 ease-in-out animate-fadeIn lazy"
+																										loading="lazy"
+																										srcset="
+																												{{.url}},
+																												{{.url}} 1.5x,
+																												{{.url}} 2x"
+																										src="{{.url}}"
+																										alt="{{.id}}"
+																								/>
+																						</figure>
+																						<div class="absolute w-full bg-neutral-500 text-neutral text-sm hidden animate-fadeIn px-2 py-2 bottom-0 text-left overflow-hidden group-hover:block">{{ $content | markdownify }}</div>
+																						<a href="{{ $statusesUrl }}" target="_blank" class="absolute bg-neutral-900 hidden animate-fadeIn right-0 px-1 rounded-bl top-0 group-hover:block" rel="noreferrer noopener nofollow">
+																								<span class="photo-title text-neutral text-sm">{{ $createdAt }}</span>
+																						</a>
+																						<div class="gutter-sizer w-[1%]"></div>
+																				</div>
+																		{{ end }}
+																{{ end }}
+														{{ end }}
+												{{- end -}}
+										{{- end -}}
+								{{- end -}}
+						</div>
 
-        </div>
+				</div>
 
-      </div>
+			</div>
 
-    </section>
+		</section>
 
 </article>
 
@@ -104,89 +104,89 @@
 <script type="text/javascript" src="{{ $imagesloadedJS.RelPermalink }}" integrity="{{ $imagesloadedJS.Data.Integrity }}"></script>
 
 <script>
-    var galleryDom = document.querySelector("#album");
-    // 初始化 Masonry
-    var pckry = new Packery(galleryDom, {
-        itemSelector: ".album_wrapper",
-        columnWidth: ".album_wrapper",
-        gutter: ".gutter-sizer",
-        percentPosition: true,
-    });
+		var galleryDom = document.querySelector("#album");
+		// 初始化 Masonry
+		var pckry = new Packery(galleryDom, {
+				itemSelector: ".album_wrapper",
+				columnWidth: ".album_wrapper",
+				gutter: ".gutter-sizer",
+				percentPosition: true,
+		});
 
-    pckry.getItemElements().forEach(function (itemElem) {
-        var draggie = new Draggabilly(itemElem);
-        pckry.bindDraggabillyEvents(draggie);
-    });
+		pckry.getItemElements().forEach(function (itemElem) {
+				var draggie = new Draggabilly(itemElem);
+				pckry.bindDraggabillyEvents(draggie);
+		});
 
-    // 图片加载完成后触发
-    imagesLoaded(galleryDom).on("progress", function () {
-        // 定义块状网格尺寸
-        galleryDom.classList.add("grid");
+		// 图片加载完成后触发
+		imagesLoaded(galleryDom).on("progress", function () {
+				// 定义块状网格尺寸
+				galleryDom.classList.add("grid");
 
-        // 重排布局
-        pckry.layout();
+				// 重排布局
+				pckry.layout();
 
-        // Images done loading
-        pckry.options.itemSelector = ".album_wrapper";
-    });
+				// Images done loading
+				pckry.options.itemSelector = ".album_wrapper";
+		});
 
-    // 相对时间插件 2.5.2 https://tokinx.github.io/lately/
-    (() => {
-        let location = window.location.href;
-        let isEnglish = location.indexOf("/en/") !== -1;
-        window.Lately = new function () {
-            this.lang = isEnglish ? {
-                'second': ' Seconds',
-                'minute': ' Minutes',
-                'hour': ' Hours',
-                'day': ' Days',
-                'month': ' Months',
-                'year': ' Years',
-                'ago': ' Ago',
-                'error': 'NaN'
-            } : {
-                second: " 秒",
-                minute: " 分钟",
-                hour: " 小时",
-                day: " 天",
-                month: " 个月",
-                year: " 年",
-                ago: "前",
-                error: "NaN"
-            };
-            const format = (date) => {
-                date = new Date(_val(date));
-                const floor = (num, _lang) => Math.floor(num) + _lang,
-                    obj = new function () {
-                        this.second = (Date.now() - date.getTime()) / 1000;
-                        this.minute = this.second / 60;
-                        this.hour = this.minute / 60;
-                        this.day = this.hour / 24;
-                        this.month = this.day / 30;
-                        this.year = this.month / 12
-                    },
-                    key = Object.keys(obj).reverse().find(_ => obj[_] >= 1);
-                return (key ? floor(obj[key], this.lang[key]) : this.lang.error) + this.lang.ago;
-            },
-                _val = (date) => {
-                    date = new Date(date && (typeof date === 'number' ? date : date.replace(/-/g, '/').replace('T', ' ')));
-                    return isNaN(date.getTime()) ? false : date.getTime();
-                };
-            return {
-                init: ({ target = "time", lang } = {}) => {
-                    if (lang) this.lang = lang;
-                    for (let el of document.querySelectorAll(target)) {
-                        const date = _val(el.dateTime) || _val(el.title) || _val(el.innerHTML) || 0;
-                        if (!date) return;
-                        el.title = new Date(date).toLocaleString();
-                        el.innerHTML = format(date);
-                    }
-                },
-                format
-            }
-        }
-    })();
-    window.Lately && Lately.init({ target: ".photo-title" });
+		// 相对时间插件 2.5.2 https://tokinx.github.io/lately/
+		(() => {
+				let location = window.location.href;
+				let isEnglish = location.indexOf("/en/") !== -1;
+				window.Lately = new function () {
+						this.lang = isEnglish ? {
+								'second': ' Seconds',
+								'minute': ' Minutes',
+								'hour': ' Hours',
+								'day': ' Days',
+								'month': ' Months',
+								'year': ' Years',
+								'ago': ' Ago',
+								'error': 'NaN'
+						} : {
+								second: " 秒",
+								minute: " 分钟",
+								hour: " 小时",
+								day: " 天",
+								month: " 个月",
+								year: " 年",
+								ago: "前",
+								error: "NaN"
+						};
+						const format = (date) => {
+								date = new Date(_val(date));
+								const floor = (num, _lang) => Math.floor(num) + _lang,
+										obj = new function () {
+												this.second = (Date.now() - date.getTime()) / 1000;
+												this.minute = this.second / 60;
+												this.hour = this.minute / 60;
+												this.day = this.hour / 24;
+												this.month = this.day / 30;
+												this.year = this.month / 12
+										},
+										key = Object.keys(obj).reverse().find(_ => obj[_] >= 1);
+								return (key ? floor(obj[key], this.lang[key]) : this.lang.error) + this.lang.ago;
+						},
+								_val = (date) => {
+										date = new Date(date && (typeof date === 'number' ? date : date.replace(/-/g, '/').replace('T', ' ')));
+										return isNaN(date.getTime()) ? false : date.getTime();
+								};
+						return {
+								init: ({ target = "time", lang } = {}) => {
+										if (lang) this.lang = lang;
+										for (let el of document.querySelectorAll(target)) {
+												const date = _val(el.dateTime) || _val(el.title) || _val(el.innerHTML) || 0;
+												if (!date) return;
+												el.title = new Date(date).toLocaleString();
+												el.innerHTML = format(date);
+										}
+								},
+								format
+						}
+				}
+		})();
+		window.Lately && Lately.init({ target: ".photo-title" });
 </script>
 
 {{ end }}
