@@ -5,8 +5,8 @@ HUGO_VERSION=$(curl -s https://hugo.eallion.com/)
 
 # 检查是否成功获取版本
 if [ -z "$HUGO_VERSION" ]; then
-  echo "Failed to fetch Hugo version from https://hugo.eallion.com/"
-  exit 1
+	echo "Failed to fetch Hugo version from https://hugo.eallion.com/"
+	exit 1
 fi
 
 # 替换 wrangler.toml 文件中的 HUGO_VERSION

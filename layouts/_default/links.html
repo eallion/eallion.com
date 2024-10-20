@@ -3,75 +3,75 @@
 
 
 <article>
-  {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
-  {{ $heroStyle := .Params.heroStyle }}
-  {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
-  {{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
-  {{ if templates.Exists $heroStyle }}
-  {{ partial $heroStyle . }}
-  {{ else }}
-  {{ partial "partials/hero/basic.html" . }}
-  {{ end }}
-  {{ end }}
+	{{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
+	{{ $heroStyle := .Params.heroStyle }}
+	{{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
+	{{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
+	{{ if templates.Exists $heroStyle }}
+	{{ partial $heroStyle . }}
+	{{ else }}
+	{{ partial "partials/hero/basic.html" . }}
+	{{ end }}
+	{{ end }}
 
-  <header id="single_header" class="mt-5 max-w-prose">
-    {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
-    {{ partial "breadcrumbs.html" . }}
-    {{ end }}
-    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      {{ .Title }}
-    </h1>
+	<header id="single_header" class="mt-5 max-w-prose">
+		{{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
+		{{ partial "breadcrumbs.html" . }}
+		{{ end }}
+		<h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+			{{ .Title }}
+		</h1>
 
-    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-      {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
-    </div>
+		<div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+			{{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
+		</div>
 
-  </header>
+	</header>
 
-  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+	<section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
 
-      <div class="min-w-0 min-h-0 max-w-fit">
+			<div class="min-w-0 min-h-0 max-w-fit">
 
-        <div class="article-content max-w-full mb-20 break-words">
+				<div class="article-content max-w-full mb-20 break-words">
 
-            {{ .Content }}
+						{{ .Content }}
 
-            <div class="links flex flex-wrap justify-between">
-                {{ $linksResource := resources.Get "data/friends/links.json" }}
-                {{ $links := $linksResource | transform.Unmarshal }}
-                {{ range $links.links }}
-                    {{ $name := .name }}
-                    {{ $bio := .bio }}
-                    {{ $url := .url }}
-                    {{ $domainScheme := (replace (replace $url "http://" "") "https://" "") }}
-                    {{ $domainParts := split $domainScheme "/" }}
-                    {{ $domain := index $domainParts 0 }}
-                    {{ $avatar := .avatar }}
-                    <a target="_blank" href="/go/?target={{- $url | base64Encode -}}" title="{{- $name -}}" class="w-[100%] sm:w-[49%] md:w-[33%] mb-0" rel="noopener noreferrer">
-                        <div class="group h-20 mt-1 w-full inline-block bg-gray-100 align-top dark:bg-gray-900 hover:scale-105 transition-transform duration-400 ease-in-out">
-                            <div class="w-24 float-left h-full">
-                                <img class="lazy nozoom w-12 h-12 m-4 rounded-full" loading="lazy" src="{{- $avatar -}}" alt="{{- $name -}}" onerror="this.onerror=null; this.src='/404.png';">
-                            </div>
-                            <div class="my-4 mr-4 ml-24">
-                                <div class="flex items-center overflow-hidden whitespace-nowrap text-ellipsis">
-                                    <span class="w-4 h-4 mr-1"><img class="lazy nozoom mt-0 mb-0 rounded-full" alt src="https://api.eallion.com/favicon/{{- $url | base64Encode -}}"></span>
-                                    <i class="not-italic">{{- $name -}}</i>
-                                </div>
-                                <p class="overflow-hidden whitespace-nowrap text-ellipsis text-neutral-700 mt-0 mb-0 dark:text-neutral-300">{{- $bio -}}</p>
-                            </div>
-                            <div class="hidden rounded border border-solid border-neutral-700 group-hover:block">
-                                <img class="lazy nozoom my-0" loading="lazy" alt src="https://api.eallion.com/screens/{{- strings.TrimSuffix "/" $domain -}}.png ">
-                            </div>
-                        </div>
-                    </a>
-                {{ end }}
-            </div>
+						<div class="links flex flex-wrap justify-between">
+								{{ $linksResource := resources.Get "data/friends/links.json" }}
+								{{ $links := $linksResource | transform.Unmarshal }}
+								{{ range $links.links }}
+										{{ $name := .name }}
+										{{ $bio := .bio }}
+										{{ $url := .url }}
+										{{ $domainScheme := (replace (replace $url "http://" "") "https://" "") }}
+										{{ $domainParts := split $domainScheme "/" }}
+										{{ $domain := index $domainParts 0 }}
+										{{ $avatar := .avatar }}
+										<a target="_blank" href="/go/?target={{- $url | base64Encode -}}" title="{{- $name -}}" class="w-[100%] sm:w-[49%] md:w-[33%] mb-0" rel="noopener noreferrer">
+												<div class="group h-20 mt-1 w-full inline-block bg-gray-100 align-top dark:bg-gray-900 hover:scale-105 transition-transform duration-400 ease-in-out">
+														<div class="w-24 float-left h-full">
+																<img class="lazy nozoom w-12 h-12 m-4 rounded-full" loading="lazy" src="{{- $avatar -}}" alt="{{- $name -}}" onerror="this.onerror=null; this.src='/404.png';">
+														</div>
+														<div class="my-4 mr-4 ml-24">
+																<div class="flex items-center overflow-hidden whitespace-nowrap text-ellipsis">
+																		<span class="w-4 h-4 mr-1"><img class="lazy nozoom mt-0 mb-0 rounded-full" alt src="https://api.eallion.com/favicon/{{- $url | base64Encode -}}"></span>
+																		<i class="not-italic">{{- $name -}}</i>
+																</div>
+																<p class="overflow-hidden whitespace-nowrap text-ellipsis text-neutral-700 mt-0 mb-0 dark:text-neutral-300">{{- $bio -}}</p>
+														</div>
+														<div class="hidden rounded border border-solid border-neutral-700 group-hover:block">
+																<img class="lazy nozoom my-0" loading="lazy" alt src="https://api.eallion.com/screens/{{- strings.TrimSuffix "/" $domain -}}.png ">
+														</div>
+												</div>
+										</a>
+								{{ end }}
+						</div>
 
-        </div>
+				</div>
 
-      </div>
+			</div>
 
-    </section>
+		</section>
 
 </article>
 
@@ -79,32 +79,32 @@
 <script type="text/javascript" src="{{ $lazyloadJS.RelPermalink }}" integrity="{{ $lazyloadJS.Data.Integrity }}"></script>
 
 <script>
-    // Random links
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
+		// Random links
+		function shuffleArray(array) {
+				for (let i = array.length - 1; i > 0; i--) {
+						const j = Math.floor(Math.random() * (i + 1));
+						[array[i], array[j]] = [array[j], array[i]];
+				}
+				return array;
+		}
 
-    function randomizeLinks() {
-        const linksContainer = document.querySelector('.links');
-        const links = Array.from(linksContainer.querySelectorAll('a'));
-        const shuffledLinks = shuffleArray(links);
+		function randomizeLinks() {
+				const linksContainer = document.querySelector('.links');
+				const links = Array.from(linksContainer.querySelectorAll('a'));
+				const shuffledLinks = shuffleArray(links);
 
-        links.forEach(link => link.remove());
+				links.forEach(link => link.remove());
 
-        shuffledLinks.forEach(link => linksContainer.appendChild(link));
-    }
+				shuffledLinks.forEach(link => linksContainer.appendChild(link));
+		}
 
-    randomizeLinks();
+		randomizeLinks();
 </script>
 
 <script>
-    var lazyLoadInstance = new LazyLoad({
-        // Your custom settings go here
-    });
+		var lazyLoadInstance = new LazyLoad({
+				// Your custom settings go here
+		});
 </script>
 
 {{ end }}

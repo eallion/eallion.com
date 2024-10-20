@@ -5,82 +5,82 @@
 {{ $goodsCss := resources.Get "css/goods.css" | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $goodsCss.RelPermalink }}" integrity="{{ $goodsCss.Data.Integrity }}" crossorigin="anonymous">
 <article>
-  {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
-  {{ $heroStyle := .Params.heroStyle }}
-  {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
-  {{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
-  {{ if templates.Exists $heroStyle }}
-  {{ partial $heroStyle . }}
-  {{ else }}
-  {{ partial "partials/hero/basic.html" . }}
-  {{ end }}
-  {{ end }}
-  <header id="single_header" class="mt-5 max-w-prose">
-    {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
-    {{ partial "breadcrumbs.html" . }}
-    {{ end }}
-    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      {{ .Title }}
-    </h1>
-    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-      {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
-    </div>
-  </header>
-  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
-      <div class="min-w-0 min-h-0 max-w-fit">
-        <div class="article-content max-w-full mb-20">
-          {{ .Content }}
-            <div id="goods">
-                {{ range $goods.good}}
-                {{ $goodsSrc := .image }}
-                {{ $goodsSrc := printf "images/goods/%s" $goodsSrc }}
-                {{ $title := .title }}
-                <div class="goods-container img-hide">
-                    <div class="goods-image">
-                        {{ with resources.Get $goodsSrc }}
-                            <figure>
-                                <img
-                                    class="my-0 rounded-md lazy"
-                                    loading="lazy"
-                                    srcset="
-                                    {{ (.Resize "330x").RelPermalink }} 330w,
-                                    {{ (.Resize "660x").RelPermalink }} 660w,
-                                    {{ (.Resize "1024x").RelPermalink }} 1024w,
-                                    {{ (.Resize "1320x").RelPermalink }} 2x"
-                                    src="/assets/images/penta/screenshot.png"
-                                    data-src="{{ (.Resize "1320x").RelPermalink }}"
-                                    alt="{{ $title }}"
-                                />
-                            </figure>
-                        {{ end }}
-                    </div>
-                    <div class="goods-price">{{ .price }}</div>
-                    <div class="goods-title"><a href="{{ .link }}" target="_blank" rel="noreferrer noopener nofollow">{{ .title }}</a></div>
-                    <div class="goods-report-coupon-btn">
-                        {{ if or (not .report) (eq .report "") }}
-                        <div class="goods-report goods-report-empty">
-                            试用报告
-                        </div>
-                        {{ else }}
-                        <div class="goods-report">
-                            <a href="{{ .report }}" target="_blank" rel="noreferrer noopener nofollow">试用报告</a>
-                        </div>
-                        {{ end }}
-                        <div class="goods-coupon">{{ partial "icon.html" "ad" }} <a href="https://www.kubaicai.com/?r=/l/jdlist&kw={{ .title }}&t=223&origin_id=" target="_blank" rel="noreferrer noopener nofollow">搜搜优惠券？</a></div>
-                    </div>
-                    <div class="goods-note">{{ .note | safeHTML }}</div>
-                </div>
-                {{ end }}
-            </div>
-        </div>
-      </div>
-    </section>
+	{{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
+	{{ $heroStyle := .Params.heroStyle }}
+	{{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
+	{{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
+	{{ if templates.Exists $heroStyle }}
+	{{ partial $heroStyle . }}
+	{{ else }}
+	{{ partial "partials/hero/basic.html" . }}
+	{{ end }}
+	{{ end }}
+	<header id="single_header" class="mt-5 max-w-prose">
+		{{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
+		{{ partial "breadcrumbs.html" . }}
+		{{ end }}
+		<h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+			{{ .Title }}
+		</h1>
+		<div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+			{{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
+		</div>
+	</header>
+	<section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+			<div class="min-w-0 min-h-0 max-w-fit">
+				<div class="article-content max-w-full mb-20">
+					{{ .Content }}
+						<div id="goods">
+								{{ range $goods.good}}
+								{{ $goodsSrc := .image }}
+								{{ $goodsSrc := printf "images/goods/%s" $goodsSrc }}
+								{{ $title := .title }}
+								<div class="goods-container img-hide">
+										<div class="goods-image">
+												{{ with resources.Get $goodsSrc }}
+														<figure>
+																<img
+																		class="my-0 rounded-md lazy"
+																		loading="lazy"
+																		srcset="
+																		{{ (.Resize "330x").RelPermalink }} 330w,
+																		{{ (.Resize "660x").RelPermalink }} 660w,
+																		{{ (.Resize "1024x").RelPermalink }} 1024w,
+																		{{ (.Resize "1320x").RelPermalink }} 2x"
+																		src="/assets/images/penta/screenshot.png"
+																		data-src="{{ (.Resize "1320x").RelPermalink }}"
+																		alt="{{ $title }}"
+																/>
+														</figure>
+												{{ end }}
+										</div>
+										<div class="goods-price">{{ .price }}</div>
+										<div class="goods-title"><a href="{{ .link }}" target="_blank" rel="noreferrer noopener nofollow">{{ .title }}</a></div>
+										<div class="goods-report-coupon-btn">
+												{{ if or (not .report) (eq .report "") }}
+												<div class="goods-report goods-report-empty">
+														试用报告
+												</div>
+												{{ else }}
+												<div class="goods-report">
+														<a href="{{ .report }}" target="_blank" rel="noreferrer noopener nofollow">试用报告</a>
+												</div>
+												{{ end }}
+												<div class="goods-coupon">{{ partial "icon.html" "ad" }} <a href="https://www.kubaicai.com/?r=/l/jdlist&kw={{ .title }}&t=223&origin_id=" target="_blank" rel="noreferrer noopener nofollow">搜搜优惠券？</a></div>
+										</div>
+										<div class="goods-note">{{ .note | safeHTML }}</div>
+								</div>
+								{{ end }}
+						</div>
+				</div>
+			</div>
+		</section>
 </article>
 {{ $lazyloadJS := resources.Get "js/lazyload.iife.min.js" | minify | fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $lazyloadJS.RelPermalink }}" integrity="{{ $lazyloadJS.Data.Integrity }}"></script>
 <script>
-    var lazyLoadInstance = new LazyLoad({
-        // Your custom settings go here
-    });
+		var lazyLoadInstance = new LazyLoad({
+				// Your custom settings go here
+		});
 </script>
 {{ end }}

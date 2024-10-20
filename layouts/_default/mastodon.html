@@ -8,46 +8,46 @@
 <link rel="stylesheet" href="{{ $mastodonCustomCss.RelPermalink }}" integrity="{{ $mastodonCustomCss.Data.Integrity }}" crossorigin="anonymous">
 
 <article>
-  {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
-  {{ $heroStyle := .Params.heroStyle }}
-  {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
-  {{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
-  {{ if templates.Exists $heroStyle }}
-  {{ partial $heroStyle . }}
-  {{ else }}
-  {{ partial "partials/hero/basic.html" . }}
-  {{ end }}
-  {{ end }}
+	{{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
+	{{ $heroStyle := .Params.heroStyle }}
+	{{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
+	{{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
+	{{ if templates.Exists $heroStyle }}
+	{{ partial $heroStyle . }}
+	{{ else }}
+	{{ partial "partials/hero/basic.html" . }}
+	{{ end }}
+	{{ end }}
 
-  <header id="single_header" class="mt-5 max-w-prose">
-    {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
-    {{ partial "breadcrumbs.html" . }}
-    {{ end }}
-    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      {{ .Title }}
-    </h1>
-    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-      {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
-    </div>
+	<header id="single_header" class="mt-5 max-w-prose">
+		{{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
+		{{ partial "breadcrumbs.html" . }}
+		{{ end }}
+		<h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+			{{ .Title }}
+		</h1>
+		<div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+			{{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
+		</div>
 
-  </header>
+	</header>
 
-  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+	<section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
 
-      <div class="min-w-0 min-h-0 max-w-fit">
+			<div class="min-w-0 min-h-0 max-w-fit">
 
-        <div class="article-content max-w-full mb-20">
-          {{ .Content }}
-            <div id="mt-container" class="mt-container">
-                <div class="mt-body" role="feed">
-                    <div class="mt-loading-spinner"></div>
-                </div>
-            </div>
-        </div>
+				<div class="article-content max-w-full mb-20">
+					{{ .Content }}
+						<div id="mt-container" class="mt-container">
+								<div class="mt-body" role="feed">
+										<div class="mt-loading-spinner"></div>
+								</div>
+						</div>
+				</div>
 
-      </div>
+			</div>
 
-    </section>
+		</section>
 
 </article>
 
@@ -55,213 +55,213 @@
 
 <script type="module">
 
-    import * as MastodonTimeline from '{{ $js.RelPermalink }}';
+		import * as MastodonTimeline from '{{ $js.RelPermalink }}';
 
-    const myTimeline = new MastodonTimeline.Init({
-        // Id of the <div> containing the timeline
-        mtContainerId: "mt-container",
+		const myTimeline = new MastodonTimeline.Init({
+				// Id of the <div> containing the timeline
+				mtContainerId: "mt-container",
 
-        // Mastodon instance Url including https://
-        instanceUrl: "https://e5n.cc",
+				// Mastodon instance Url including https://
+				instanceUrl: "https://e5n.cc",
 
-        // Choose type of posts to show in the timeline: 'local', 'profile', 'hashtag'
-        // Default: local
-        timelineType: "profile",
+				// Choose type of posts to show in the timeline: 'local', 'profile', 'hashtag'
+				// Default: local
+				timelineType: "profile",
 
-        // Your user ID number on Mastodon instance
-        // Leave it empty if you didn't choose 'profile' as type of timeline
-        userId: "111136231674527355",
+				// Your user ID number on Mastodon instance
+				// Leave it empty if you didn't choose 'profile' as type of timeline
+				userId: "111136231674527355",
 
-        // Your user name on Mastodon instance (including the @ symbol at the beginning)
-        // Leave it empty if you didn't choose 'profile' as type of timeline
-        profileName: "@eallion",
+				// Your user name on Mastodon instance (including the @ symbol at the beginning)
+				// Leave it empty if you didn't choose 'profile' as type of timeline
+				profileName: "@eallion",
 
-        // The name of the hashtag (not including the # symbol)
-        // Leave it empty if you didn't choose 'hashtag' as type of timeline
-        hashtagName: "",
+				// The name of the hashtag (not including the # symbol)
+				// Leave it empty if you didn't choose 'hashtag' as type of timeline
+				hashtagName: "",
 
-        // Class name for the loading spinner (also used in CSS file)
-        spinnerClass: "mt-loading-spinner",
+				// Class name for the loading spinner (also used in CSS file)
+				spinnerClass: "mt-loading-spinner",
 
-        // Preferred color theme: 'light', 'dark' or 'auto'
-        // Default: auto
-        defaultTheme: "auto",
+				// Preferred color theme: 'light', 'dark' or 'auto'
+				// Default: auto
+				defaultTheme: "auto",
 
-        // Maximum number of posts to request to the server
-        // Default: 20
-        maxNbPostFetch: "40",
+				// Maximum number of posts to request to the server
+				// Default: 20
+				maxNbPostFetch: "40",
 
-        // Maximum number of posts to show in the timeline
-        // Default: 20
-        maxNbPostShow: "20",
+				// Maximum number of posts to show in the timeline
+				// Default: 20
+				maxNbPostShow: "20",
 
-        // Specifies the format of the date according to the chosen language/country
-        // Default: British English (day-month-year order)
-        dateLocale: "en-US",
+				// Specifies the format of the date according to the chosen language/country
+				// Default: British English (day-month-year order)
+				dateLocale: "en-US",
 
-        // Customize the date format using the options
-        // Default: DD MMM YYYY
-        dateOptions: {
-            day: "2-digit",
-            month: "short",
-            year: "numeric",
-        },
+				// Customize the date format using the options
+				// Default: DD MMM YYYY
+				dateOptions: {
+						day: "2-digit",
+						month: "short",
+						year: "numeric",
+				},
 
-        // Hide unlisted posts
-        // Default: don't hide
-        hideUnlisted: true,
+				// Hide unlisted posts
+				// Default: don't hide
+				hideUnlisted: true,
 
-        // Hide boosted posts
-        // Default: don't hide
-        hideReblog: false,
+				// Hide boosted posts
+				// Default: don't hide
+				hideReblog: false,
 
-        // Hide replies posts
-        // Default: don't hide
-        hideReplies: true,
+				// Hide replies posts
+				// Default: don't hide
+				hideReplies: true,
 
-        // Hide pinned posts from the profile timeline
-        // Default: don't hide
-        hidePinnedPosts: true,
+				// Hide pinned posts from the profile timeline
+				// Default: don't hide
+				hidePinnedPosts: true,
 
-        // Hide the user account under the user name
-        // Default: don't hide
-        hideUserAccount: false,
+				// Hide the user account under the user name
+				// Default: don't hide
+				hideUserAccount: false,
 
-        // Limit the text content to a maximum number of lines
-        // Use "0" to show no text
-        // Default: "" (unlimited)
-        txtMaxLines: "",
+				// Limit the text content to a maximum number of lines
+				// Use "0" to show no text
+				// Default: "" (unlimited)
+				txtMaxLines: "",
 
-        // Customize the text of the button used for showing/hiding sensitive/spoiler text
-        btnShowMore: "SHOW MORE",
-        btnShowLess: "SHOW LESS",
+				// Customize the text of the button used for showing/hiding sensitive/spoiler text
+				btnShowMore: "SHOW MORE",
+				btnShowLess: "SHOW LESS",
 
-        // Converts Markdown symbol ">" at the beginning of a paragraph into a blockquote HTML tag
-        // Default: false (don't apply)
-        markdownBlockquote: false,
+				// Converts Markdown symbol ">" at the beginning of a paragraph into a blockquote HTML tag
+				// Default: false (don't apply)
+				markdownBlockquote: false,
 
-        // Hide custom emojis available on the server
-        // Default: don't hide
-        hideEmojos: false,
+				// Hide custom emojis available on the server
+				// Default: don't hide
+				hideEmojos: false,
 
-        // Customize the text of the button used for showing a sensitive/spoiler media content
-        btnShowContent: "SHOW CONTENT",
+				// Customize the text of the button used for showing a sensitive/spoiler media content
+				btnShowContent: "SHOW CONTENT",
 
-        // Hide video image preview and load video player instead
-        // Default: don't hide
-        hideVideoPreview: true,
+				// Hide video image preview and load video player instead
+				// Default: don't hide
+				hideVideoPreview: true,
 
-        // Customize the text of the button used for the image preview to play the video
-        btnPlayVideoTxt: "Load and play video",
+				// Customize the text of the button used for the image preview to play the video
+				btnPlayVideoTxt: "Load and play video",
 
-        // Hide preview card if post contains a link, photo or video from a Url
-        // Default: don't hide
-        hidePreviewLink: true,
+				// Hide preview card if post contains a link, photo or video from a Url
+				// Default: don't hide
+				hidePreviewLink: true,
 
-        // Limit the preview text description to a maximum number of lines
-        // Use "0" to show no text
-        // Default: "" (unlimited)
-        previewMaxLines: "",
+				// Limit the preview text description to a maximum number of lines
+				// Use "0" to show no text
+				// Default: "" (unlimited)
+				previewMaxLines: "",
 
-        // Hide replies, boosts and favourites posts counter
-        // Default: don't hide
-        hideCounterBar: false,
+				// Hide replies, boosts and favourites posts counter
+				// Default: don't hide
+				hideCounterBar: false,
 
-        // Show a carousel/lightbox when the user clicks on a picture in a post
-        // Default: not disabled
-        disableCarousel: false,
+				// Show a carousel/lightbox when the user clicks on a picture in a post
+				// Default: not disabled
+				disableCarousel: false,
 
-        // Customize the text of the buttons used for the carousel/lightbox
-        carouselCloseTxt: "Close carousel",
-        carouselPrevTxt: "Previous media item",
-        carouselNextTxt: "Next media item",
+				// Customize the text of the buttons used for the carousel/lightbox
+				carouselCloseTxt: "Close carousel",
+				carouselPrevTxt: "Previous media item",
+				carouselNextTxt: "Next media item",
 
-        // Customize the text of the button pointing to the Mastodon page placed at the end of the timeline
-        // Leave the value empty to hide it
-        btnSeeMore: "See more posts at e5n.cc",
+				// Customize the text of the button pointing to the Mastodon page placed at the end of the timeline
+				// Leave the value empty to hide it
+				btnSeeMore: "See more posts at e5n.cc",
 
-        // Customize the text of the button reloading the list of posts placed at the end of the timeline
-        // Leave the value empty to hide it
-        btnReload: "Refresh",
+				// Customize the text of the button reloading the list of posts placed at the end of the timeline
+				// Leave the value empty to hide it
+				btnReload: "Refresh",
 
-        // Keep searching for the main <div> container before building the timeline. Useful in some cases where extra time is needed to render the page
-        // Default: don't apply
-        insistSearchContainer: true,
+				// Keep searching for the main <div> container before building the timeline. Useful in some cases where extra time is needed to render the page
+				// Default: don't apply
+				insistSearchContainer: true,
 
-        // Defines the maximum time to continue searching for the main <div> container
-        // Default: 3 seconds
-        insistSearchContainerTime: "3000",
+				// Defines the maximum time to continue searching for the main <div> container
+				// Default: 3 seconds
+				insistSearchContainerTime: "3000",
 
-    });
+		});
 
-    // 拦截 fetch 请求，替换头像
-    const originalFetch = window.fetch;
-    window.fetch = async function(resource, options) {
-        const response = await originalFetch(resource, options);
+		// 拦截 fetch 请求，替换头像
+		const originalFetch = window.fetch;
+		window.fetch = async function(resource, options) {
+				const response = await originalFetch(resource, options);
 
-        // 检查请求的 URL
-        if (resource.includes('https://files.e5n.cc.eallion.com/accounts/avatars/')) {
-            // 创建一个新的响应，返回 /eallion.webp
-            const newResponse = new Response(null, {
-                status: 302,
-                headers: {
-                    'Location': '/eallion.webp'
-                }
-            });
-            return newResponse;
-        }
+				// 检查请求的 URL
+				if (resource.includes('https://files.e5n.cc.eallion.com/accounts/avatars/')) {
+						// 创建一个新的响应，返回 /eallion.webp
+						const newResponse = new Response(null, {
+								status: 302,
+								headers: {
+										'Location': '/eallion.webp'
+								}
+						});
+						return newResponse;
+				}
 
-        return response;
-    };
+				return response;
+		};
 
 </script>
 
 <script>
-  // 创建一个 MutationObserver 实例
-  const observer = new MutationObserver(() => {
-      // 获取所有 .mt-post-txt 下的 a 标签
-      const links = document.querySelectorAll('.mt-post-txt a');
+	// 创建一个 MutationObserver 实例
+	const observer = new MutationObserver(() => {
+			// 获取所有 .mt-post-txt 下的 a 标签
+			const links = document.querySelectorAll('.mt-post-txt a');
 
-      // 遍历所有链接并对 href 属性进行 Base64 加密
-      links.forEach(link => {
-          const href = link.getAttribute('href');
+			// 遍历所有链接并对 href 属性进行 Base64 加密
+			links.forEach(link => {
+					const href = link.getAttribute('href');
 
-          // 域名白名单
-          const excludedDomains = ['e5n.cc',
-            'eallion.com',
-            'github.com',
-            'neodb.social',
-            's.e5n.cc',
-            'www.eallion.com'
-          ];
-          const domain = new URL(href).hostname;
-          if (excludedDomains.includes(domain)) {
-              return; // 跳过此链接
-          }
+					// 域名白名单
+					const excludedDomains = ['e5n.cc',
+						'eallion.com',
+						'github.com',
+						'neodb.social',
+						's.e5n.cc',
+						'www.eallion.com'
+					];
+					const domain = new URL(href).hostname;
+					if (excludedDomains.includes(domain)) {
+							return; // 跳过此链接
+					}
 
-          const encodedHref = btoa(encodeURIComponent(href));
-          const newHref = 'https://www.eallion.com/go/?target=' + encodedHref;
-          link.setAttribute('href', newHref);
-      });
+					const encodedHref = btoa(encodeURIComponent(href));
+					const newHref = 'https://www.eallion.com/go/?target=' + encodedHref;
+					link.setAttribute('href', newHref);
+			});
 
-      // 获取所有头像的 img 标签并修改 src 属性
-      const images = document.querySelectorAll('img');
-      images.forEach(img => {
-          const src = img.getAttribute('src');
-          if (src && src.includes('https://files.e5n.cc.eallion.com/accounts/avatars/')) {
-              img.setAttribute('src', '/eallion.webp');
-              img.setAttribute('data-original-src', src); // 添加调试信息
-          }
-      });
-  });
+			// 获取所有头像的 img 标签并修改 src 属性
+			const images = document.querySelectorAll('img');
+			images.forEach(img => {
+					const src = img.getAttribute('src');
+					if (src && src.includes('https://files.e5n.cc.eallion.com/accounts/avatars/')) {
+							img.setAttribute('src', '/eallion.webp');
+							img.setAttribute('data-original-src', src); // 添加调试信息
+					}
+			});
+	});
 
-  // 监听 .mt-body 元素的子节点变化
-  const mtBody = document.querySelector('.mt-body');
-  observer.observe(mtBody, { childList: true, subtree: true });
+	// 监听 .mt-body 元素的子节点变化
+	const mtBody = document.querySelector('.mt-body');
+	observer.observe(mtBody, { childList: true, subtree: true });
 </script>
 
 <noscript>
-  Please enable JavaScript to view the Mastodon Timeline powered by <a href="https://gitlab.com/idotj/mastodon-embed-timeline" target="_blank">Mastodon embed timeline widget</a>.
+	Please enable JavaScript to view the Mastodon Timeline powered by <a href="https://gitlab.com/idotj/mastodon-embed-timeline" target="_blank">Mastodon embed timeline widget</a>.
 </noscript>
 
 {{- end -}}
