@@ -2,28 +2,125 @@
 {{ .Scratch.Set "scope" "single" }}
 
 <style>
-	.waterfall {
-		list-style: none;
-		column-gap: 0;
-		padding: 0;
+	#waterfall {
 		column-count: 4;
-	}
-	.waterfall .item {
-		width: 100%;
-		padding: 2px;
-		margin: 0;
-		break-inside: avoid;
+		column-gap: 10px;
+		position: relative;
 	}
 
-	.waterfall .item img {
-		width: 100%;
+	@media only screen and (max-width: 640px) {
+		#waterfall {
+			column-count: 2;
+		}
+	}
+
+	#waterfall figure a {
+		margin: 0;
+		display: grid;
+		grid-template-rows: 1fr auto;
+		margin-bottom: 10px;
+		break-inside: avoid;
+		position: relative;
+	}
+
+	#waterfall figure a>img {
+		grid-row: 1 / -1;
+		grid-column: 1;
+		margin-top: 0;
+		margin-bottom: 0;
+		border-radius: 0.5rem;
+		transition: transform 0.3s ease, filter 0.3s ease;
+	}
+
+	#waterfall figure:hover img {
+		transform: scale(1.2);
+		z-index: 1;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	.blur {
+		filter: blur(5px);
+	}
+
+	#waterfall figure {
+		position: relative;
+		display: inline-block;
 		margin-top: 0;
 		margin-bottom: 0;
 	}
 
-	.view-image-tools{opacity:1;animation:1s 1.5s forwards fadeOut}
-	.view-image-tools:hover{opacity:1;animation:none;transition:opacity .2s}
-	@keyframes fadeOut{to{opacity:0}}
+	#waterfall figure figcaption {
+		visibility: hidden;
+		opacity: 0;
+		position: absolute;
+		left: 0;
+		right: 0;
+		background: rgba(0, 0, 0, 0.7);
+		color: white;
+		padding: 10px;
+		padding-bottom: 0;
+		margin: 0;
+		text-align: center;
+		transform: scale(1);
+		z-index: 2;
+		border-bottom-left-radius: 0.5rem;
+		border-bottom-right-radius: 0.5rem;
+		transition: transform 0.3s ease, opacity 0.3s ease;
+	}
+
+	#waterfall figure figcaption p {
+		margin-top: 0;
+		margin-bottom: 0;
+		font-size: 12px;
+		text-align: left;
+	}
+
+	#waterfall figure figcaption p a {
+		color: white;
+	}
+
+	#waterfall figure:hover>figcaption {
+		visibility: visible;
+		opacity: 1;
+		transform: scale(1.2);
+	}
+
+	/* Loading spinner */
+	#waterfall>.loading-spinner {
+		position: absolute;
+		width: 3rem;
+		height: 3rem;
+		margin: auto;
+		top: calc(50% - 0.5rem);
+		right: calc(50% - 1.5rem);
+	}
+
+	.loading-spinner {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cg%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 64 64' to='360 64 64' dur='1000ms' repeatCount='indefinite'/%3E%3Cpath d='M64 6.69a57.3 57.3 0 1 1 0 114.61A57.3 57.3 0 0 1 6.69 64' fill='none' stroke='%23404040' stroke-width='12'/%3E%3C/g%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-color: transparent;
+		background-size: min(2.5rem, calc(100% - 0.5rem));
+	}
+
+	/* view image custom */
+	.view-image-tools {
+		opacity: 1;
+		animation: 1s 1.5s forwards fadeOut
+	}
+
+	.view-image-tools:hover {
+		opacity: 1;
+		animation: none;
+		transition: opacity .2s
+	}
+
+	@keyframes fadeOut {
+		to {
+			opacity: 0
+		}
+	}
 </style>
 
 <article>
@@ -58,19 +155,25 @@
 
 	<section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
 
-			<div class="min-w-0 min-h-0 max-w-fit">
+		<div class="min-w-0 min-h-0 max-w-fit">
 
-				<div class="article-content max-w-full mb-20">
-						{{ .Content }}
+			<div class="article-content max-w-full mb-20">
+				{{ .Content }}
 
-						<ul class="waterfall" id="waterfall" view-image>
-								<!-- 图片将动态插入到这里 -->
-						</ul>
-
-						<button id="load-more" type="button" class="text-neutral-50 bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">Load More</button>
+				<div id="waterfall" class="waterfall">
+					<div class="loading-spinner"></div>
+					<div id="list-1"></div>
+					<div id="list-2"></div>
+					<div id="list-3"></div>
+					<div id="list-4"></div>
 				</div>
 
+				<div class="flex justify-center">
+					<button id="loadMore" type="button" class="text-neutral-50 bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mt-20 mb-2">Load More</button>
+				</div>
 			</div>
+
+		</div>
 
 		</section>
 
@@ -93,58 +196,148 @@
 </script>
 
 <script>
-		const waterfall_container = document.getElementById('waterfall');
-		const loadMoreButton = document.getElementById('load-more');
-		let lastMaxId = localStorage.getItem('lastMaxId') || '';
+	const apiUrl = 'https://e5n.cc/api/v1/accounts/111136231674527355/statuses';
+	let maxId = null;
 
-		function fetchImages(maxId = '') {
-				fetch(`https://e5n.cc/api/v1/accounts/111136231674527355/statuses?only_media=true&limit=10&exclude_replies=true&exclude_reblogs=true&max_id=${maxId}`)
-						.then(response => response.json())
-						.then(data => {
-								if (data.length > 0) {
-										const newLastMaxId = data[data.length - 1].id;
-										localStorage.setItem('lastMaxId', lastMaxId);
-										data.forEach(status => {
-												status.media_attachments.forEach(media => {
-														const imgUrl = media.preview_url;
-														const hrefUrl = media.url;
-														const existingItem = Array.from(waterfall_container.children).find(item => item.querySelector('img').src === imgUrl);
-
-														if (!existingItem) {
-																const item = document.createElement('li');
-																item.className = 'item';
-																const original = document.createElement('a');
-																original.href = hrefUrl
-																const img = document.createElement('img');
-																img.src = imgUrl;
-																original.appendChild(img);
-																item.appendChild(original);
-																waterfall_container.appendChild(item);
-																img.style.aspectRatio = media.meta.small.aspect; // 设置图片的宽高比
-														} else {
-																// 删除重复内容
-																const newItem = document.createElement('li');
-																newItem.className = 'item';
-																const newImg = document.createElement('img');
-																newImg.src = imgUrl;
-																newItem.appendChild(newImg);
-																waterfall_container.replaceChild(newItem, existingItem);
-														}
-												});
-										});
-								}
-						})
-						.catch(error => console.error('Error fetching data:', error));
+	async function fetchImages(limit, maxId = null) {
+		const url = new URL(apiUrl);
+		url.searchParams.append('tagged', 'ealbum');
+		url.searchParams.append('only_media', 'true');
+		url.searchParams.append('limit', limit);
+		url.searchParams.append('exclude_replies', 'true');
+		url.searchParams.append('exclude_reblogs', 'true');
+		if (maxId) {
+			url.searchParams.append('max_id', maxId);
 		}
 
-		loadMoreButton.addEventListener('click', () => {
-				fetchImages(lastMaxId);
+		const response = await fetch(url);
+		const data = await response.json();
+		return data;
+	}
+
+	function getShortestList() {
+		const lists = [
+			document.getElementById('list-1'),
+			document.getElementById('list-2'),
+			document.getElementById('list-3'),
+			document.getElementById('list-4')
+		];
+		let shortestList = lists[0];
+		lists.forEach(list => {
+			if (list.offsetHeight < shortestList.offsetHeight) {
+				shortestList = list;
+			}
 		});
+		return shortestList;
+	}
 
-		window.ViewImage && ViewImage.init('.waterfall a');
+	function extractTextFromHTML(htmlString) {
+		// 使用正则表达式去掉 <a> 标签及其内容
+		const strippedString = htmlString.replace(/<a[^>]*>(.*?)<\/a>/g, '$1');
 
-		// 初始加载
-		fetchImages();
+		// 去掉其他 HTML 标签
+		const textOnly = strippedString.replace(/<[^>]+>/g, '');
+
+		return textOnly;
+	}
+	function renderImages(data) {
+		const waterfall = document.getElementById('waterfall');
+		data.forEach((item, index) => {
+			item.media_attachments.forEach(media => {
+				const listId = `list-${(index % 4) + 1}`;
+				const list = document.getElementById(listId);
+
+				const figure = document.createElement('figure')
+
+				const a = document.createElement('a');
+				a.href = media.url;
+
+				const img = document.createElement('img');
+				img.src = media.preview_url;
+				img.style.width = '100%';
+				img.style.height = 'auto';
+				img.style.objectFit = 'cover';
+
+				const figcaption = document.createElement('figcaption');
+				figcaption.innerHTML = '<p><a href="' + item.url + '" target="_blank" no-view>' + extractTextFromHTML(item.content) + '</a></p>';
+
+				const loading = document.querySelector('.loading-spinner');
+				loading.style.display = 'none';
+
+				a.appendChild(img);
+				figure.append(a, figcaption);
+				list.appendChild(figure);
+			});
+		});
+	}
+
+	async function loadInitialImages() {
+		const data = await fetchImages(20);
+		renderImages(data);
+		if (data.length > 0) {
+			maxId = data[data.length - 1].id;
+		}
+		addHoverEffects();
+	}
+
+	async function loadMoreImages() {
+		const data = await fetchImages(12, maxId);
+		if (data.length > 0) {
+			// Insert the first item into the shortest list
+			const shortestList = getShortestList();
+			const firstItem = data[0];
+			const firstItemMedia = data[0].media_attachments[0];
+
+			const figure = document.createElement('figure')
+
+			const a = document.createElement('a');
+			a.href = firstItemMedia.url;
+
+			const img = document.createElement('img');
+			img.src = firstItemMedia.preview_url;
+			img.style.width = '100%';
+			img.style.height = 'auto';
+			img.style.objectFit = 'cover';
+
+			const figcaption = document.createElement('figcaption')
+			figcaption.innerHTML = '<p><a href="' + firstItem.url + '" target="_blank" no-view>' + extractTextFromHTML(firstItem.content) + '</a></p>';
+
+			a.appendChild(img);
+			figure.append(a, figcaption);
+			shortestList.appendChild(figure);
+
+			// Render the rest of the items
+			renderImages(data.slice(1));
+
+			maxId = data[data.length - 1].id;
+			addHoverEffects();
+		}
+	}
+
+	function addHoverEffects() {
+		const images = document.querySelectorAll('#waterfall figure');
+		images.forEach(img => {
+			img.addEventListener('mouseenter', () => {
+				images.forEach(otherImg => {
+					if (otherImg !== img) {
+						otherImg.classList.add('blur');
+					}
+				});
+			});
+			img.addEventListener('mouseleave', () => {
+				images.forEach(otherImg => {
+					otherImg.classList.remove('blur');
+				});
+			});
+		});
+	}
+
+	document.getElementById('loadMore').addEventListener('click', loadMoreImages);
+
+	window.ViewImage && ViewImage.init('figure a');
+
+	// Load initial images when the page loads
+	window.onload = loadInitialImages;
 </script>
 
 {{ end }}
