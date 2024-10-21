@@ -13,7 +13,7 @@ trim_trailing_whitespace = true # true 为去掉行尾空格
 insert_final_newline = true # 结尾是否插入新行
 max_line_length = off # 达到字符数后是否强制换行
 
-[*.{yml,toml,yaml,json}]
+[*.{yml,toml,yaml,json,js,css,scss}]
 indent_style = space
 indent_size = 2
 
