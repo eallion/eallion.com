@@ -194,26 +194,6 @@
 
 		});
 
-		// 拦截 fetch 请求，替换头像
-		const originalFetch = window.fetch;
-		window.fetch = async function(resource, options) {
-				const response = await originalFetch(resource, options);
-
-				// 检查请求的 URL
-				if (resource.includes('https://files.e5n.cc/accounts/avatars/')) {
-						// 创建一个新的响应，返回 /eallion.webp
-						const newResponse = new Response(null, {
-								status: 302,
-								headers: {
-										'Location': '/eallion.webp'
-								}
-						});
-						return newResponse;
-				}
-
-				return response;
-		};
-
 </script>
 
 <script>
@@ -248,10 +228,14 @@
 			const images = document.querySelectorAll('img');
 			images.forEach(img => {
 					const src = img.getAttribute('src');
-					if (src && src.includes('https://files.e5n.cc/accounts/avatars/')) {
-							img.setAttribute('src', '/eallion.webp');
-							img.setAttribute('data-original-src', src); // 添加调试信息
-					}
+					if (src && src.includes('https://files.e5n.cc/accounts/')) {
+						img.setAttribute('src', '/eallion.webp');
+						img.setAttribute('data-original-src', src);
+					} else if (src && src.includes('https://files.e5n.cc/media_attachments/')) {
+						const newSrc = src.replace('https://files.e5n.cc/media_attachments/', 'https://mastodon-s3-files.eallion.com/media_attachments/');
+						img.setAttribute('src', newSrc);
+						img.setAttribute('data-original-src', src);
+				}
 			});
 	});
 
