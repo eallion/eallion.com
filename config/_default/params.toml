@@ -141,10 +141,11 @@ smartTOCHideUnfocusedChildren = false
   # domain = "llama.yoursite.com"
 
 [umamiAnalytics]
-  # websiteid = "ABC12345"
-  # domain = "llama.yoursite.com"
-  # dataDomains = "yoursite.com,yoursite2.com"
-  # enableTrackEvent = false
+  websiteid = "ac705044-a88a-4534-8ef0-f4067c344cff"
+  domain = "a.eallion.com"
+  dataDomains = "www.eallion.com, eallion.com, eallion-com-cf-pages-origin.pages.dev"
+  scriptName = "um4m1.js"
+  enableTrackEvent = true
 
 [selineAnalytics]
   # token = "XXXXXX"
