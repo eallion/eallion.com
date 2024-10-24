@@ -39,6 +39,10 @@ aliases:
 
 {{< timeline >}}
 
+{{< timelineItem icon="aliyun" header="阿里云" badge="Oct 9, 2024" >}}
+2024 年 10 月 9 日，Hugo 部署至阿里云 <a href="https://s.e5n.cc/esa" target="_blank" rel="noopener noreferrer">边缘安全加速 ESA</a> Edge Security Acceleration。
+{{< /timelineItem >}}
+
 {{< timelineItem icon="shiki" header="Shiki" badge="Aug 15, 2024" >}}
 经过 2 个月测试后，把博客的代码语法高亮器切换到 <code><a href="https://github.com/shikijs/shiki" target="_blank" rel="noopener noreferrer">Shiki</a></code>。细节可参考文章：
 {{< article link="/hugo-syntax-highlight-shiki/" >}}
@@ -63,12 +67,12 @@ aliases:
 {{< /timelineItem >}}
 
 {{< timelineItem icon="cloudflare" header="Cloudflare" badge="Jan 8, 2024" >}}
-2024 年 1 月 8 日，域名转出至 Cloudflare ，细节可参考文章：
+2024 年 1 月 8 日，域名转出至 Cloudflare，细节可参考文章：
 {{< article link="/2024-blog-refactor/" >}}
 {{< /timelineItem >}}
 
 {{< timelineItem icon="tencent-cloud" header="EdgeOne" badge="Jan 6, 2024" >}}
-2024 年 1 月 6 日，Hugo 部署至腾讯云 <code><a href="https://e5n.cc/s/teo" target="_blank" rel="noopener noreferrer">EdgeOne</a></code> ，支持 Anycast 。
+2024 年 1 月 6 日，Hugo 部署至腾讯云 <code><a href="https://e5n.cc/s/teo" target="_blank" rel="noopener noreferrer">EdgeOne</a></code> ，支持 Anycast。
 {{< /timelineItem >}}
 
 {{< timelineItem icon="openai" header="AI 摘要" badge="Jul 18, 2023" >}}
@@ -104,11 +108,11 @@ aliases:
 {{< /timelineItem >}}
 
 {{< timelineItem icon="code" header="更换 Typecho" badge="Mar 8, 2011" >}}
-2011 年 3 月 8 日，博客程序迁移到 Typecho 。
+2011 年 3 月 8 日，博客程序迁移到 Typecho。
 {{< /timelineItem >}}
 
 {{< timelineItem icon="star" header="更换域名" badge="Mar 26, 2010" >}}
-2010 年 3 月 26 日，主域名从 <code>eallion.cn</code> 更换为 <code>eallion.com</code>，开始使用 Wordpress 。
+2010 年 3 月 26 日，主域名从 <code>eallion.cn</code> 更换为 <code>eallion.com</code>，开始使用 Wordpress。
 {{< /timelineItem >}}
 
 {{< timelineItem icon="twitter" header="Twitter" badge="Nov 11, 2009" >}}
@@ -116,7 +120,7 @@ aliases:
 {{< /timelineItem >}}
 
 {{< timelineItem icon="steam" header="Steam" badge="Apr 5, 2007" >}}
-2007 年 4 月 5 日，加入 <a href="https://steamcommunity.com/id/eallion/badges/1" target="_blank" rel="noopener noreferrer">Steam</a> 。支持正版 CS 。
+2007 年 4 月 5 日，加入 <a href="https://steamcommunity.com/id/eallion/badges/1" target="_blank" rel="noopener noreferrer">Steam</a> 。支持正版 CS。
 {{< /timelineItem >}}
 
 {{< timelineItem icon="heart-empty" header="生如夏花" badge="Apr 14, 2006" >}}
