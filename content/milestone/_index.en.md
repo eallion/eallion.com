@@ -39,89 +39,93 @@ aliases:
 
 {{< timeline >}}
 
+{{< timelineItem icon="aliyun" header="Aliyun" badge="Oct 9, 2024" >}}
+On October 9, 2024, Hugo was deployed to Aliyun <a href="https://s.e5n.cc/esa" target="_blank" rel="noopener noreferrer">Edge Security Acceleration</a> (ESA).
+{{< /timelineItem >}}
+
 {{< timelineItem icon="shiki" header="Shiki" badge="Aug 15, 2024" >}}
-经过 2 个月测试后，把博客的代码语法高亮器切换到 <code><a href="https://github.com/shikijs/shiki" target="_blank" rel="noopener noreferrer">Shiki</a></code>。细节可参考文章：
+After 2 months of testing, the blog's code syntax highlighter was switched to <code><a href="https://github.com/shikijs/shiki" target="_blank" rel="noopener noreferrer">Shiki</a></code>. For details, refer to the article:
 {{< article link="/hugo-syntax-highlight-shiki/" >}}
 {{< /timelineItem >}}
 
-{{< timelineItem icon="volcengine" header="火山引擎" badge="Jul 20, 2024" >}}
-2024 年 7 月 20 日，博客 www 子域名解析到火山引擎实现分区解析，国内解析到阿里云 OSS 和 CDN，国外解析到 Cloudflare Pages。分担 CDN 流量压力。
+{{< timelineItem icon="volcengine" header="Volcengine" badge="Jul 20, 2024" >}}
+On July 20, 2024, the blog's www subdomain was resolved to Volcengine for regional resolution, with domestic resolution to Aliyun OSS and CDN, and international resolution to Cloudflare Pages. This helped to share the CDN traffic pressure.
 {{< /timelineItem >}}
 
-{{< timelineItem icon="chart-bar-solid" header="热力图" badge="May 1, 2024" >}}
-2024 年 5 月 1 日，博客首页热力图，统计页热力图、统计图、饼图都去掉依赖库和插件。用 CSS 和 JS 实现。生成热力图的细节可参考文章：
+{{< timelineItem icon="chart-bar-solid" header="Heatmap" badge="May 1, 2024" >}}
+On May 1, 2024, the heatmap on the blog's homepage, as well as the heatmap, charts, and pie charts on the statistics page, were all removed from dependencies and plugins. They were implemented using CSS and JS. For details on generating the heatmap, refer to the article:
 {{< article link="/blog-heatmap/" >}}
 {{< /timelineItem >}}
 
-{{< timelineItem icon="hugo" header="主题 Blowfish" badge="Apr 10, 2024" >}}
-2024 年 4 月 10 日，Hugo 主题迁移到 <code><a href="https://github.com/nunocoracao/blowfish" target="_blank" rel="noopener noreferrer">blowfish</a></code> 。
+{{< timelineItem icon="hugo" header="Theme Blowfish" badge="Apr 10, 2024" >}}
+On April 10, 2024, the Hugo theme was migrated to <code><a href="https://github.com/nunocoracao/blowfish" target="_blank" rel="noopener noreferrer">blowfish</a></code>.
 {{< /timelineItem >}}
 
-{{< timelineItem icon="code" header="外链跳转" badge="Feb 3, 2024" >}}
-2024 年 2 月 3 日，为了防止炸弹人，为博客添加了外部链接跳转提示页面，细节可参考文章：
+{{< timelineItem icon="code" header="External Link Redirect" badge="Feb 3, 2024" >}}
+On February 3, 2024, to prevent bombarding, a landing page for external link redirection was added to the blog. For details, refer to the article:
 {{< article link="/hugo-redirect-landing-page/" >}}
 {{< /timelineItem >}}
 
 {{< timelineItem icon="cloudflare" header="Cloudflare" badge="Jan 8, 2024" >}}
-2024 年 1 月 8 日，域名转出至 Cloudflare ，细节可参考文章：
+On January 8, 2024, the domain was transferred to Cloudflare. For details, refer to the article:
 {{< article link="/2024-blog-refactor/" >}}
 {{< /timelineItem >}}
 
 {{< timelineItem icon="tencent-cloud" header="EdgeOne" badge="Jan 6, 2024" >}}
-2024 年 1 月 6 日，Hugo 部署至腾讯云 <code><a href="https://e5n.cc/s/teo" target="_blank" rel="noopener noreferrer">EdgeOne</a></code> ，支持 Anycast 。
+On January 6, 2024, Hugo was deployed to Tencent Cloud <code><a href="https://e5n.cc/s/teo" target="_blank" rel="noopener noreferrer">EdgeOne</a></code>, supporting Anycast.
 {{< /timelineItem >}}
 
-{{< timelineItem icon="openai" header="AI 摘要" badge="Jul 18, 2023" >}}
-⚠️ DEPRECATED. 已弃用。
+{{< timelineItem icon="openai" header="AI Summary" badge="Jul 18, 2023" >}}
+⚠️ DEPRECATED. Discontinued.
 <br />
-2023 年 7 月 18 日，引入 TianliGPT AI 摘要，因技术和性能问题，后改为用 OpenAI 官方的 ChatGPT 预生成。细节可参考文章：
+On July 18, 2023, TianliGPT AI summary was introduced, but due to technical and performance issues, it was later replaced with pre-generated summaries using OpenAI's official ChatGPT. For details, refer to the article:
 {{< article link="/ai-summary/" >}}
 {{< /timelineItem >}}
 
-{{< timelineItem icon="code" header="观影页面" badge="Jul 11, 2023" >}}
-2023 年 7 月 11 日，因为豆瓣的封闭和不稳定，转为利用 NeoDB API 创建观影页面，细节可参考文章：
+{{< timelineItem icon="code" header="Movie Page" badge="Jul 11, 2023" >}}
+On July 11, 2023, due to Douban's closure and instability, a movie page was created using the NeoDB API. For details, refer to the article:
 {{< article link="/neodb/" >}}
 {{< /timelineItem >}}
 
-{{< timelineItem icon="hugo" header="主题 DoIt" badge="Dec 12, 2022" >}}
-2022 年 12 月 12 日，Hugo 主题迁移到 <code><a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer">DoIt</a></code>。
+{{< timelineItem icon="hugo" header="Theme DoIt" badge="Dec 12, 2022" >}}
+On December 12, 2022, the Hugo theme was migrated to <code><a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer">DoIt</a></code>.
 {{< /timelineItem >}}
 
-{{< timelineItem icon="hugo" header="更换 Hugo" badge="Mar 11, 2020" >}}
-2020 年 3 月 11 日，博客程序迁移到 Hugo。主题 <code><a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener noreferrer">theme-hello-friend</a></code>。
+{{< timelineItem icon="hugo" header="Switch to Hugo" badge="Mar 11, 2020" >}}
+On March 11, 2020, the blog platform was migrated to Hugo. The theme used was <code><a href="https://github.com/panr/hugo-theme-hello-friend" target="_blank" rel="noopener noreferrer">theme-hello-friend</a></code>.
 {{< /timelineItem >}}
 
-{{< timelineItem icon="star" header="断舍离" badge="Jun 9, 2019" >}}
-2019 年 6 月 9 日，注销微博、QQ 空间、知乎、豆瓣及其他国内社交平台账号。部分无法注销的平台则清空内容停止活跃。后因标记观影记录找回豆瓣。
+{{< timelineItem icon="star" header="Simplification" badge="Jun 9, 2019" >}}
+On June 9, 2019, accounts on Weibo, QQ Space, Zhihu, Douban, and other domestic social platforms were deactivated. For platforms that could not be deactivated, content was cleared and activity ceased. Later, Douban was reactivated for marking movie records.
 {{< /timelineItem >}}
 
 {{< timelineItem icon="mastodon" header="Mastodon" badge="Apr 22, 2017" >}}
-2017 年 4 月初，自建 Mastodon 并加入 <a href="https://mastodon.social/@eallion/3726552" target="_blank" rel="noopener noreferrer">Mastodon.social</a> 官方实例。
+In early April 2017, a Mastodon instance was self-hosted and joined the official <a href="https://mastodon.social/@eallion/3726552" target="_blank" rel="noopener noreferrer">Mastodon.social</a> instance.
 {{< /timelineItem >}}
 
 {{< timelineItem icon="github" header="GitHub" badge="May 2, 2012" >}}
-2012 年 5 月 2 日，加入 <a href="https://github.com/eallion?tab=overview&from=2012-05-01&to=2012-05-31" target="_blank" rel="noopener noreferrer">GitHub</a> 。
+On May 2, 2012, joined <a href="https://github.com/eallion?tab=overview&from=2012-05-01&to=2012-05-31" target="_blank" rel="noopener noreferrer">GitHub</a>.
 {{< /timelineItem >}}
 
-{{< timelineItem icon="code" header="更换 Typecho" badge="Mar 8, 2011" >}}
-2011 年 3 月 8 日，博客程序迁移到 Typecho 。
+{{< timelineItem icon="code" header="Switch to Typecho" badge="Mar 8, 2011" >}}
+On March 8, 2011, the blog platform was migrated to Typecho.
 {{< /timelineItem >}}
 
-{{< timelineItem icon="star" header="更换域名" badge="Mar 26, 2010" >}}
-2010 年 3 月 26 日，主域名从 <code>eallion.cn</code> 更换为 <code>eallion.com</code>，开始使用 Wordpress 。
+{{< timelineItem icon="star" header="Domain Change" badge="Mar 26, 2010" >}}
+On March 26, 2010, the main domain was changed from <code>eallion.cn</code> to <code>eallion.com</code>, and Wordpress was started to be used.
 {{< /timelineItem >}}
 
 {{< timelineItem icon="twitter" header="Twitter" badge="Nov 11, 2009" >}}
-2009 年 11 月 11 日，加入 <a href="https://twitter.com/eallion/" target="_blank" rel="noopener noreferrer">Twitter</a> 。目前停止活跃。
+On November 11, 2009, joined <a href="https://twitter.com/eallion/" target="_blank" rel="noopener noreferrer">Twitter</a>. Currently inactive.
 {{< /timelineItem >}}
 
 {{< timelineItem icon="steam" header="Steam" badge="Apr 5, 2007" >}}
-2007 年 4 月 5 日，加入 <a href="https://steamcommunity.com/id/eallion/badges/1" target="_blank" rel="noopener noreferrer">Steam</a> 。支持正版 CS 。
+On April 5, 2007, joined <a href="https://steamcommunity.com/id/eallion/badges/1" target="_blank" rel="noopener noreferrer">Steam</a>. Supported the original version of CS.
 {{< /timelineItem >}}
 
-{{< timelineItem icon="heart-empty" header="生如夏花" badge="Apr 14, 2006" >}}
-2006 年，在微软 w.cn 注册 <code>eallion.cn</code> 从 QZone 迁移，开始做个人主页。
-在此之前的域名，跟此 ID 无强关联。略过不表。
+{{< timelineItem icon="heart-empty" header="Life Like a Flower" badge="Apr 14, 2006" >}}
+In 2006, registered <code>eallion.cn</code> on Microsoft w.cn and migrated from QZone to start a personal homepage.
+Domains before this were not strongly associated with this ID. Omitted.
 {{< /timelineItem >}}
 
 {{< /timeline >}}
