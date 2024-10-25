@@ -436,6 +436,10 @@ html.dark .shiki span {
     background-color: #39d353;
 }
 
+.home-article a div div:nth-child(3) {
+  display: none;
+}
+
 li a,
 blockquote a {
     white-space: pre-wrap;
