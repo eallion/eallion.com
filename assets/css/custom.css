@@ -485,6 +485,19 @@ footer nav ul {
     text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.75), 1px -1px 0 rgba(255, 255, 255, 0.75), -1px 1px 0 rgba(255, 255, 255, 0.75), 1px 1px 0 rgba(255, 255, 255, 0.75);
 }
 
+#site-footer nav {
+  display: flex;
+  flex-direction: row;
+}
+@media screen and (max-width: 640px){
+  #site-footer nav {
+    flex-direction: column;
+  }
+  #site-footer nav ul:nth-child(2){
+    margin-top: 1.5rem;
+  }
+}
+
 #site-footer nav ul li a {
     white-space: nowrap;
 }
