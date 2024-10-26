@@ -76,7 +76,7 @@
 			</div>
 		</section>
 </article>
-{{ $lazyloadJS := resources.Get "js/lazyload.iife.min.js" | minify | fingerprint "sha256" }}
+{{ $lazyloadJS := resources.Get "js/lazyload.iife.min.js" | fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $lazyloadJS.RelPermalink }}" integrity="{{ $lazyloadJS.Data.Integrity }}"></script>
 <script>
 		var lazyLoadInstance = new LazyLoad({
