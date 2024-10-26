@@ -148,6 +148,10 @@
 #   weight = 40
 
 [[footer]]
+  name = "</ul><ul class='flex flex-col list-none sm:flex-row'>"
+  weight = 49
+
+[[footer]]
   name = "Stats"
   pageRef = "stats"
   weight = 50
