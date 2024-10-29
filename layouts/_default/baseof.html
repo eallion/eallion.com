@@ -24,7 +24,7 @@
 	{{ partial "partials/header/basic.html" . }}
 	{{ end }}
 	<div class="relative flex flex-col grow">
-		<main id="main-content" class="grow">
+		<main id="main-content" class="grow heti">
 			{{ block "main" . }}{{ end }}
 			{{ if and (.Site.Params.footer.showScrollToTop | default true) (gt .WordCount 1) }}
 			{{- partial "scroll-to-top.html" . -}}
@@ -80,6 +80,14 @@
 				});
 	});
 	</script>
+
+	{{ $hetiJS := resources.Get "js/heti-addon.min.js" | fingerprint "sha256" }}
+	<script type="text/javascript" src="{{ $hetiJS.RelPermalink }}" integrity="{{ $hetiJS.Data.Integrity }}"></script>
+	<script>
+		const heti = new Heti('.heti');
+		heti.autoSpacing();
+	</script>
+
 </body>
 {{ if .Site.Params.buymeacoffee.globalWidget | default false }}
 <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"

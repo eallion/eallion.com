@@ -550,7 +550,7 @@ footer nav ul {
   background-image: url(/assets/images/nonbot/nonbot_pledged_logo.svg);
 }
 
-/* 顶部进度条css */
+/* 顶部进度条 css */
 #content_progress {
     /* Positioning */
     position: fixed;
@@ -589,4 +589,33 @@ footer nav ul {
 
 #search-results li a {
   white-space: normal;
+}
+
+/* heti custom css */
+.heti {
+  font-feature-settings: "halt";
+}
+
+.heti heti-spacing {
+  display: inline;
+}
+
+.heti .heti-spacing-start {
+  margin-inline-end: .25em;
+}
+
+.heti .heti-spacing-end {
+  margin-inline-start: .25em;
+}
+
+.heti heti-adjacent {
+  display: inline;
+}
+
+.heti .heti-adjacent-half {
+  margin-inline-end: -0.5em;
+}
+
+.heti .heti-adjacent-quarter {
+  margin-inline-end: -0.25em;
 }
