@@ -45,49 +45,49 @@ jobs:
         run: |
           hugo --minify --enableGitInfo
 
-      # - name: Install pnpm
-      #   uses: pnpm/action-setup@v4
-      #   with:
-      #     version: 9
-      #     run_install: false
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
 
-      # - name: Setup Node LTS
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: 20.x
-      #     cache: 'pnpm'
-      #     cache-dependency-path: '**/pnpm-lock.yaml'
+      - name: Setup Node LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'pnpm'
+          cache-dependency-path: '**/pnpm-lock.yaml'
 
-      # - name: Install and run Shiki
-      #   run: |
-      #     export NODE_OPTIONS="--max_old_space_size=7168"
-      #     pnpm install
-      #     pnpm run shiki --silent || true
-      #     # npx rehype-cli public -o --silent || true
-
-      # - name: Deploy to GitHub Pages
-      #   uses: peaceiris/actions-gh-pages@v4
-      #   with:
-      #     personal_token: ${{ secrets.personal_token }}
-      #     external_repository: eallion/blog
-      #     publish_branch: main
-      #     publish_dir: ./public
-      #     # destination_dir: public
-      #     allow_empty_commit: true
-      #     # commit_message: ${{ GitHub.event.head_commit.message }}
-      #     full_commit_message: ${{ github.event.head_commit.message }}
-      #     #cname: eallion.com
-      #     force_orphan: true
-      #     user_name: 'github-actions[bot]'
-      #     user_email: 'github-actions[bot]@users.noreply.github.com'
-
-      # - name: Publish to Cloudflare Pages
-      #   uses: cloudflare/wrangler-action@v3
-      #   with:
-      #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      #     accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      #     quiet: true
-      #     command: pages deploy public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true
+#       - name: Install and run Shiki
+#         run: |
+#           export NODE_OPTIONS="--max_old_space_size=7168"
+#           pnpm install
+#           pnpm run shiki --silent || true
+#           # npx rehype-cli public -o --silent || true
+#
+#       - name: Deploy to GitHub Pages
+#         uses: peaceiris/actions-gh-pages@v4
+#         with:
+#           personal_token: ${{ secrets.personal_token }}
+#           external_repository: eallion/blog
+#           publish_branch: main
+#           publish_dir: ./public
+#           # destination_dir: public
+#           allow_empty_commit: true
+#           # commit_message: ${{ GitHub.event.head_commit.message }}
+#           full_commit_message: ${{ github.event.head_commit.message }}
+#           #cname: eallion.com
+#           force_orphan: true
+#           user_name: 'github-actions[bot]'
+#           user_email: 'github-actions[bot]@users.noreply.github.com'
+#
+#       - name: Publish to Cloudflare Pages
+#         uses: cloudflare/wrangler-action@v3
+#         with:
+#           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+#           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+#           quiet: true
+#           command: pages deploy public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true
 
       - name: Aliyun Actions Docker image degest
         run: |
@@ -114,12 +114,21 @@ jobs:
           SKIP_SETTING: true
           INCREMENTAL: true
 
-      - name: Refresh volcengine CDN
+#       - name: Refresh volcengine CDN
+#         run: |
+#           curl -s "https://api.github.com/repos/volcengine/volcengine-cli/releases/latest" | grep "browser_download_url.*linux_amd64.zip" | cut -d : -f 2,3 | tr -d \" | wget -O ve.zip -qi -
+#           unzip -q ve.zip > /dev/null 2>&1
+#           chmod a+x ./ve
+#
+#           ./ve configure set --profile volcengine-hugo-github-actions --region cn-beijing --endpoint cdn.volcengineapi.com --access-key ${{ secrets.VOLC_ACCESS_KEY }} --secret-key ${{ secrets.VOLC_SECRET_KEY }}
+#
+#           ./ve cdn SubmitRefreshTask --body '{"Type":"dir","Urls":"https://www.eallion.com/"}' > /dev/null 2>&1 || true
+
+      - name: Refresh Aliyun ESA
         run: |
-          curl -s "https://api.github.com/repos/volcengine/volcengine-cli/releases/latest" | grep "browser_download_url.*linux_amd64.zip" | cut -d : -f 2,3 | tr -d \" | wget -O ve.zip -qi -
-          unzip -q ve.zip > /dev/null 2>&1
-          chmod a+x ./ve
-
-          ./ve configure set --profile volcengine-hugo-github-actions --region cn-beijing --endpoint cdn.volcengineapi.com --access-key ${{ secrets.VOLC_ACCESS_KEY }} --secret-key ${{ secrets.VOLC_SECRET_KEY }}
-
-          ./ve cdn SubmitRefreshTask --body '{"Type":"dir","Urls":"https://www.eallion.com/"}' > /dev/null 2>&1 || true
+          pnpm install
+          pnpm run esa
+        env:
+          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+          ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
+          ESA_SITE_ID: ${{ secrets.ESA_SITE_ID }}
