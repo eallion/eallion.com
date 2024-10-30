@@ -335,7 +335,7 @@ function createDay(date, title, count, post) {
         }
 
         if (title && parseInt(title, 10) !== 0) {
-            tooltipContent += '<span class="heatmap_tooltip_title">' + title + '</span>';
+            tooltipContent += '<span class="heatmap_tooltip_title">《' + title + '》</span>';
         }
 
         if (date) {
@@ -398,7 +398,7 @@ function createHeatmap() {
 
         if (articleDataList.length > 0) {
             const titles = articleDataList.map(data => data.title);
-            const title = titles.map(t => `《${t}》`).join('<br />');
+            const title = titles.map(t => `${t}`).join('<br />');
 
             let count = 0;
             let post = articleDataList.length;

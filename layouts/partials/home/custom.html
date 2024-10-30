@@ -72,18 +72,17 @@
 																		alt="{{ $.Site.Params.Author.name | default " Author" }}" src="{{ $authorImage.RelPermalink }}" />
 																</div>
 																<div class="absolute bottom-0 left-full -ml-9 mb-1 w-8 h-8 rounded-full flex items-center justify-center group-hover:w-min group-hover:h-8 group-hover:rounded-lg transition-all duration-300">
-																		<div class="ticker hidden sm:flex w-9 sm:w-[226px] md:w-[295px] lg:w-[476px] min-w-[36px] transition-all duration-300">
-																			<div id="ticker">
-																				<div class="ticker-wrap">
-																					<ul class="ticker-list">
-																						<li class="ticker-item"><a
-																								href="https://www.eallion.com/mastodon/" target="_blank">机会总是垂青于有准备的人！</a>
-																						</li>
-																					</ul>
-																				</div>
+																	<div class="ticker hidden sm:flex w-9 sm:w-[226px] md:w-[295px] lg:w-[476px] min-w-[36px] transition-all duration-300">
+																			<div id="ticker" class="flex">
+																				<div class="ticker-header"></div>
+																				<ul class="ticker-list">
+																					<li class="ticker-item">
+																						<a href="https://www.eallion.com/mastodon/" target="_blank" rel="noopener noreferrer">机会总是垂青于有准备的人！</a>
+																					</li>
+																				</ul>
 																			</div>
-																		</div>
-																</div>
+																	</div>
+															</div>
 														</div>
 
 												{{ end }}
@@ -710,7 +709,7 @@
 																}
 
 																if (title && parseInt(title, 10) !== 0) {
-																		tooltipContent += '<span class="heatmap_tooltip_title">' + title + '</span>';
+																		tooltipContent += '<span class="heatmap_tooltip_title">《' + title + '》</span>';
 																}
 
 																if (date) {
@@ -773,7 +772,7 @@
 
 																if (articleDataList.length > 0) {
 																		const titles = articleDataList.map(data => data.title);
-																		const title = titles.map(t => `“${t}”`).join('<br />');
+																		const title = titles.map(t => `${t}`).join('<br />');
 
 																		let count = 0;
 																		let post = articleDataList.length;
@@ -826,7 +825,7 @@
 		<section class="home-article w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
 			{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 			{{ $paginatedPages := .Paginate $pages }}
-			{{ $filteredPages := after 0 $paginatedPages.Pages }}
+			{{ $filteredPages := after 1 $paginatedPages.Pages }}
 			{{ range first 9 $filteredPages }}
 				{{ partial "article-link/card.html" . }}
 			{{ end }}
@@ -956,103 +955,123 @@
 </script>
 
 <script>
-		// 远程 JSON API 地址
-		let jsonUrl = "https://www.eallion.com/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true";
+	// 远程 JSON API 地址
+	let jsonUrl = "https://www.eallion.com/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true";
 
-		// 设置宽度
-		// const heatmapElement = document.querySelector(".tailwindcss-heatmap");
-		// const secondNavElement = mainMenuElement.querySelectorAll("nav")[1];
-		// const heatmapWidth = secondNavElement.offsetWidth;
-		// const heatmapWidth = heatmapElement.offsetWidth;
-		// const tickerElement = document.querySelector(".tailwind-ticker");
-		// tickerElement.style.maxWidth = `${heatmapWidth}px`;
+	// 处理 Json 数据
+	if (document.querySelector('#ticker')) {
+		fetch(jsonUrl)
+			.then(res => res.json())
+			.then(res => {
+				var result = '';
+				var data = res;
+				for (var i = 0; i < data.length; i++) {
+					var tickerTime = new Date(data[i].created_at);
+					var tickerContent = extractTextFromHtml(data[i].content);
+					var tickerUrl = data[i].url;
+					const replacements = {
+						'\\s*:star_empty:\\s*': '🌑',
+						'\\s*:star_half:\\s*': '🌗',
+						'\\s*:star_solid:\\s*': '🌕'
+					};
+					tickerContent = replaceMultiple(tickerContent, replacements);
+					var relativeTime = getRelativeTime(tickerTime);
+					result += `<li class="ticker-item" data-index="${i}">
+									<span class="datetime">${relativeTime}</span>：
+									<a href="${tickerUrl}" target="_blank">${tickerContent}</a>
+								</li>`;
+				}
+				var tickerDom = document.querySelector('#ticker');
+				var tickerBefore = `<div class="ticker-header"></div><ul class="ticker-list">`;
+				var tickerAfter = `</ul>`;
+				resultAll = tickerBefore + result + tickerAfter;
+				tickerDom.innerHTML = resultAll;
 
-		// 处理 Json 数据
-		if (document.querySelector('#ticker')) {
-				fetch(jsonUrl)
-						.then(res => res.json())
-						.then(res => {
-								var result = '';
-								var data = res;
-								for (var i = 0; i < data.length; i++) {
-										// var tickerTime = new Date(data[i].created_at).toLocaleString();
-										var tickerTime = new Date(data[i].created_at);
-										var tickerContent = extractTextFromHtml(data[i].content)
-										var tickerUrl = data[i].url;
-										const replacements = {
-												'\\s*:star_empty:\\s*': '🌑',
-												'\\s*:star_half:\\s*': '🌗',
-												'\\s*:star_solid:\\s*': '🌕'
-										};
-										tickerContent = replaceMultiple(tickerContent, replacements);
-										var relativeTime = getRelativeTime(tickerTime);
-										result += `<li class="ticker-item"><span class="datetime">${relativeTime}</span>：<a href="${tickerUrl}" target="_blank">${tickerContent}</a></li>`;
-								}
-								var tickerDom = document.querySelector('#ticker');
-								var tickerBefore = `<div class="ticker-wrap"><ul class="ticker-list">`;
-								var tickerAfter = `</ul></div>`;
-								resultAll = tickerBefore + result + tickerAfter;
-								tickerDom.innerHTML = resultAll;
-
-						});
+				// 初始化第一个 ticker-item 为 active
+				var tickerItems = document.querySelectorAll('.ticker-item');
+				if (tickerItems.length > 0) {
+					tickerItems[0].classList.add('active');
+				}
 
 				// 滚动效果
-				setInterval(function () {
-						var tickerWrap = document.querySelector(".ticker-list");
-						var tickerItem = tickerWrap.querySelectorAll(".ticker-item");
-						for (var i = 0; i < tickerItem.length; i++) {
-								setTimeout(function () {
-										tickerWrap.appendChild(tickerItem[0]);
-								}, 1500);
-						}
-				}, 1500);
-		}
+				let slideInterval;
+				function slideTickerItem() {
+					var tickerItems = document.querySelectorAll('.ticker-item');
+					if (tickerItems.length > 0) {
+						var activeItem = document.querySelector('.ticker-item.active');
+						var nextIndex = (parseInt(activeItem.getAttribute('data-index')) + 1) % tickerItems.length;
+						var nextItem = document.querySelector(`.ticker-item[data-index="${nextIndex}"]`);
 
-		// 计算相对时间的函数
-		function getRelativeTime(date) {
-				const rtf = new Intl.RelativeTimeFormat('zh-CN', { numeric: "auto", style: 'short' });
+						activeItem.classList.remove('active');
+						activeItem.classList.add('out');
+						nextItem.classList.add('in');
 
-				const now = new Date();
-				const diff = now - date;
-
-				const seconds = Math.floor(diff / 1000);
-				const minutes = Math.floor(seconds / 60);
-				const hours = Math.floor(minutes / 60);
-				const days = Math.floor(hours / 24);
-				const months = Math.floor(days / 30);
-				const years = Math.floor(days / 365);
-
-				if (years > 0) {
-						return rtf.format(-years, 'year');
-				} else if (months > 0) {
-						return rtf.format(-months, 'month');
-				} else if (days > 0) {
-						return rtf.format(-days, 'day');
-				} else if (hours > 0) {
-						return rtf.format(-hours, 'hour');
-				} else if (minutes > 0) {
-						return rtf.format(-minutes, 'minute');
-				} else {
-						return rtf.format(-seconds, 'second');
+						setTimeout(() => {
+							activeItem.classList.remove('out');
+							nextItem.classList.remove('in');
+							nextItem.classList.add('active');
+						}, 300);
+					}
+					slideInterval = setTimeout(slideTickerItem, 3000);
 				}
-		}
+				slideTickerItem();
 
-		// 替换字符串
-		function replaceMultiple(str, replacements) {
-				let result = str;
-				for (const pattern in replacements) {
-						const regex = new RegExp(pattern, 'g');
-						result = result.replace(regex, replacements[pattern]);
-				}
-				return result;
-		}
+				// 暂停和恢复滚动
+				const tickerList = document.querySelector('.ticker-list');
+				tickerList.addEventListener('mouseenter', () => {
+					clearTimeout(slideInterval);
+				});
+				tickerList.addEventListener('mouseleave', () => {
+					slideTickerItem();
+				});
+			});
+	}
 
-		// 提取 HTML 代码中的纯文本内容
-		function extractTextFromHtml(html) {
-				const parser = new DOMParser();
-				const doc = parser.parseFromString(html, 'text/html');
-				return doc.body.textContent || '';
+	// 计算相对时间的函数
+	function getRelativeTime(date) {
+		const rtf = new Intl.RelativeTimeFormat('zh-CN', { numeric: "auto", style: 'short' });
+
+		const now = new Date();
+		const diff = now - date;
+
+		const seconds = Math.floor(diff / 1000);
+		const minutes = Math.floor(seconds / 60);
+		const hours = Math.floor(minutes / 60);
+		const days = Math.floor(hours / 24);
+		const months = Math.floor(days / 30);
+		const years = Math.floor(days / 365);
+
+		if (years > 0) {
+			return rtf.format(-years, 'year');
+		} else if (months > 0) {
+			return rtf.format(-months, 'month');
+		} else if (days > 0) {
+			return rtf.format(-days, 'day');
+		} else if (hours > 0) {
+			return rtf.format(-hours, 'hour');
+		} else if (minutes > 0) {
+			return rtf.format(-minutes, 'minute');
+		} else {
+			return rtf.format(-seconds, 'second');
 		}
+	}
+
+	// 替换字符串
+	function replaceMultiple(str, replacements) {
+		let result = str;
+		for (const pattern in replacements) {
+			const regex = new RegExp(pattern, 'g');
+			result = result.replace(regex, replacements[pattern]);
+		}
+		return result;
+	}
+
+	// 提取 HTML 代码中的纯文本内容
+	function extractTextFromHtml(html) {
+		const parser = new DOMParser();
+		const doc = parser.parseFromString(html, 'text/html');
+		return doc.body.textContent || '';
+	}
 </script>
 
 <script>
