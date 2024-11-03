@@ -20,7 +20,7 @@ jobs:
 
       - name: Fetch Memos JSON
         run: |
-          data_url="https://api.eallion.com/mastodon/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true&exclude_reblogs=true"
+          data_url="https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true&exclude_reblogs=true"
           output_file="output.json"
           curl -s "$data_url" | jq '.[] | {objectID:  (.id | tostring), date: .created_at, content: (.content | gsub("<[^>]*>";"")), uri, title: (.content | gsub("<[^>]*>";"") | rtrimstr("\n") | .[ :20])}' > "$output_file"
           jq -s '.' "$output_file" > mastodon.json
