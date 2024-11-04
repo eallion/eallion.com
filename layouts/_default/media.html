@@ -841,28 +841,19 @@
 		'4jPcgDRllMbFzTO9IhmKsT'
 	];
 
-	// 检查 localStorage 中的倒计时状态、电影标题和 uuid
-	const randomMovieDuration = localStorage.getItem('randomMovieDuration');
-	const randomMovieTitle = localStorage.getItem('randomMovieTitle');
-	const randomMovieUUID = localStorage.getItem('randomMovieUUID');
-	if (randomMovieDuration && randomMovieTitle && randomMovieUUID) {
-		const remainingTime = parseInt(randomMovieDuration) - Math.floor(Date.now() / 1000);
-		if (remainingTime > 0) {
-			spanElement.innerText = '今天看什么？（随机）';
-			countdownElement.innerText = `（请等待 ${Math.floor(remainingTime / 60)}:${remainingTime % 60 < 10 ? '0' : ''}${remainingTime % 60}）`;
-			spanElement.disabled = true;
-			startCountdown(remainingTime, randomMovieTitle, randomMovieUUID);
-		} else {
-			localStorage.removeItem('randomMovieDuration');
-			localStorage.removeItem('randomMovieTitle');
-			localStorage.removeItem('randomMovieUUID');
-			spanElement.innerText = '今天看什么？（随机）';
-			spanElement.disabled = false;
-		}
-	}
+	// 全局变量
+	let randomMovieDuration = localStorage.getItem('randomMovieDuration');
+	let randomMovieTitle = localStorage.getItem('randomMovieTitle');
+	let randomMovieUUID = localStorage.getItem('randomMovieUUID');
+
+	// 初始化时检查 localStorage 中的倒计时状态、电影标题和 uuid
+	checkLocalStorage();
 
 	spanElement.addEventListener('click', function () {
-		if (spanElement.disabled) {
+		// 每次点击时检查 localStorage 中的倒计时状态
+		checkLocalStorage();
+
+		if (remainingTime > 0) {
 			// 如果倒计时正在进行，使用上一次的 uuid 重新请求数据
 			fetch(`https://neodb.social/api/movie/${randomMovieUUID}`)
 				.then(response => response.json())
@@ -874,42 +865,68 @@
 					console.error('Error fetching data:', error);
 				});
 			return;
+		} else {
+			// 从 uuids 数组中随机选择一个 UUID
+			const randomUUID = uuids[Math.floor(Math.random() * uuids.length)];
+
+			fetch(`https://neodb.social/api/movie/${randomUUID}`)
+				.then(response => response.json())
+				.then(data => {
+					// 渲染弹出层
+					renderPopup(data);
+
+					// 从 duration 中提取第一个数字作为分钟数
+					const durationMatch = data.duration.match(/\d+/) || ["90"];
+					const minutes = durationMatch ? parseInt(durationMatch[0]) : 0;
+
+					// 禁用点击功能并开始倒计时
+					spanElement.innerText = '今天看什么？（随机）';
+
+					// 存储倒计时状态、电影标题和 uuid
+					const endTime = Math.floor(Date.now() / 1000) + minutes * 60;
+					localStorage.setItem('randomMovieDuration', endTime.toString());
+					localStorage.setItem('randomMovieTitle', data.title);
+					localStorage.setItem('randomMovieUUID', data.uuid);
+
+					// 更新全局变量
+					randomMovieDuration = endTime.toString();
+					randomMovieTitle = data.title;
+					randomMovieUUID = data.uuid;
+					remainingTime = minutes * 60;
+
+					// 开始倒计时
+					startCountdown(minutes * 60, data.title, data.uuid);
+				})
+				.catch(error => {
+					console.error('Error fetching data:', error);
+				});
 		}
-
-		// 从 uuids 数组中随机选择一个 UUID
-		const randomUUID = uuids[Math.floor(Math.random() * uuids.length)];
-
-		fetch(`https://neodb.social/api/movie/${randomUUID}`)
-			.then(response => response.json())
-			.then(data => {
-				// 渲染弹出层
-				renderPopup(data);
-
-				// 从 duration 中提取第一个数字作为分钟数
-				const durationMatch = data.duration.match(/\d+/) || ["90"];
-				const minutes = durationMatch ? parseInt(durationMatch[0]) : 0;
-
-				// 禁用点击功能并开始倒计时
-				spanElement.innerText = '今天看什么？（随机）';
-				spanElement.disabled = true;
-
-				// 存储倒计时状态、电影标题和 uuid
-				const endTime = Math.floor(Date.now() / 1000) + minutes * 60;
-				localStorage.setItem('randomMovieDuration', endTime.toString());
-				localStorage.setItem('randomMovieTitle', data.title);
-				localStorage.setItem('randomMovieUUID', data.uuid);
-
-				// 开始倒计时
-				startCountdown(minutes * 60, data.title, data.uuid);
-			})
-			.catch(error => {
-				console.error('Error fetching data:', error);
-			});
 	});
 
 	closePopupButton.addEventListener('click', function () {
 		popupElement.style.display = 'none';
 	});
+
+	function checkLocalStorage() {
+		// 检查 localStorage 中的倒计时状态、电影标题和 uuid
+		randomMovieDuration = localStorage.getItem('randomMovieDuration');
+		randomMovieTitle = localStorage.getItem('randomMovieTitle');
+		randomMovieUUID = localStorage.getItem('randomMovieUUID');
+		remainingTime = randomMovieDuration ? parseInt(randomMovieDuration) - Math.floor(Date.now() / 1000) : 0;
+
+		if (randomMovieDuration && randomMovieTitle && randomMovieUUID) {
+			if (remainingTime > 0) {
+				spanElement.innerText = '今天看什么？（随机）';
+				countdownElement.innerText = `（请等待 ${Math.floor(remainingTime / 60)}:${remainingTime % 60 < 10 ? '0' : ''}${remainingTime % 60}）`;
+				startCountdown(remainingTime, randomMovieTitle, randomMovieUUID);
+			} else {
+				localStorage.removeItem('randomMovieDuration');
+				localStorage.removeItem('randomMovieTitle');
+				localStorage.removeItem('randomMovieUUID');
+				spanElement.innerText = '今天看什么？（随机）';
+			}
+		}
+	}
 
 	function startCountdown(remainingTime, title, uuid) {
 		const countdownInterval = setInterval(() => {
@@ -925,8 +942,7 @@
 				localStorage.removeItem('randomMovieTitle');
 				localStorage.removeItem('randomMovieUUID');
 				spanElement.innerText = '今天看什么？（随机）';
-				countdownElement.innerText = '（倒记时忆结束！）';
-				spanElement.disabled = false;
+				countdownElement.innerText = '（倒计时结束！）';
 			}
 		}, 1000);
 	}
