@@ -2,7 +2,7 @@ name = "eallion-com-cf-pages-origin"
 pages_build_output_dir = "./public"
 
 [vars]
-HUGO_VERSION = "v0.136.5"
+HUGO_VERSION = "v0.137.0"
 
 [env.production.vars]
-HUGO_VERSION = "v0.136.5"
+HUGO_VERSION = "v0.137.0"
