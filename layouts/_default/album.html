@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="{{ $justifiedGalleryCss.RelPermalink }}" integrity="{{ $justifiedGalleryCss.Data.Integrity }}" crossorigin="anonymous">
 
 <style>
+	#content_progress {
+		display: none;
+	}
 	/* Loading spinner */
 	.loading-spinner {
 		position: relative;
@@ -98,14 +101,13 @@
 {{ $lazyloadJS := resources.Get "js/lazyload.iife.min.js" | fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $lazyloadJS.RelPermalink }}" integrity="{{ $lazyloadJS.Data.Integrity }}"></script>
 
-{{ $viewImageJS := resources.Get "js/view-image.min.js" | fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $viewImageJS.RelPermalink }}" integrity="{{ $viewImageJS.Data.Integrity }}"></script>
-
 <script>
 	const apiUrl = 'https://e5n.cc/api/v1/accounts/111136231674527355/statuses';
 	let maxId = null;
 	let isLoading = false; // Flag to prevent multiple simultaneous requests
 	let hasMoreData = true; // Flag to indicate if there is more data to load
+	let scrollTimeout = null; // Timeout variable for debouncing scroll event
+	let zoomInstance = null; // Store the medium-zoom instance
 
 	async function fetchImages(limit, maxId = null) {
 			const url = new URL(apiUrl);
@@ -138,24 +140,35 @@
 					item.media_attachments.forEach(media => {
 							const justifiedGallery = document.getElementById('justified-gallery');
 
-							const a = document.createElement('a');
+							const div = document.createElement('div');
 							// a.href = media.url.replace('files.e5n.cc', 'mastodon-s3-files.eallion.com');
-							a.href = media.url;
+							// div.href = media.url;
 
 							const img = document.createElement('img');
 							// img.src = media.preview_url.replace('files.e5n.cc', 'mastodon-s3-files.eallion.com');
 							img.src = media.preview_url;
+							img.setAttribute('data-zoom-src', media.url);
 							img.alt = extractTextFromHTML(item.content);
 							img.loading = 'lazy';
 							img.classList.add('lazy');
 
-							a.appendChild(img);
-							justifiedGallery.appendChild(a);
+							div.appendChild(img);
+							justifiedGallery.appendChild(div);
 					});
 			});
 
 			// Update Justified-Gallery after appending new images
 			$('#justified-gallery').justifiedGallery('norewind');
+
+			// Reinitialize medium-zoom for new images
+			if (zoomInstance) {
+					zoomInstance.detach(); // Detach existing zoom instance
+			}
+			zoomInstance = mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+				margin: 24,
+				background: 'rgba(0,0,0,0.6)',
+				scrollOffset: 0,
+			});
 	}
 
 	async function loadInitialImages() {
@@ -195,14 +208,18 @@
 			});
 	});
 
-	// Infinite Scroll
+	// Infinite Scroll with debounce
 	$(window).scroll(function() {
-			if ($(window).scrollTop() + $(window).height() >= $(document).height() - 10) {
-					loadMoreImages();
+			if (scrollTimeout) {
+					clearTimeout(scrollTimeout);
 			}
-	});
 
-	window.ViewImage && ViewImage.init('.justified-gallery a');
+			scrollTimeout = setTimeout(function() {
+					if ($(window).scrollTop() + $(window).height() >= $(document).height() - 10) {
+							loadMoreImages();
+					}
+			}, 2000); // 2 seconds delay
+	});
 
 	// Load initial images when the page loads
 	window.onload = loadInitialImages;
