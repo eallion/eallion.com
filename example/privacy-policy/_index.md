@@ -25,7 +25,7 @@ aliases:
 引言
 --
 
-欢迎您访问我们的产品。Eallion.com （包括网站等产品提供的服务，以下简称『产品和服务』）是由 大大的小蜗牛（_Charles 'eallion' Chin_）（以下简称『我们』）开发并运营的。确保用户的数据安全和隐私保护是我们的首要任务，本隐私政策载明了您访问和使用我们的产品和服务时所收集的数据及其处理方式。
+欢迎您访问我们的产品。Eallion.com（包括网站等产品提供的服务，以下简称『产品和服务』）是由 大大的小蜗牛（_Charles 'eallion' Chin_）（以下简称『我们』）开发并运营的。确保用户的数据安全和隐私保护是我们的首要任务，本隐私政策载明了您访问和使用我们的产品和服务时所收集的数据及其处理方式。
 
 我们重视用户的隐私。您在使用我们的服务时，我们可能会收集和使用您的相关信息。我们希望通过本《隐私政策》向您说明，在使用我们的服务时，我们如何收集、使用、储存和分享这些信息，以及我们为您提供的访问、更新、控制和保护这些信息的方式。本《隐私政策》与您所使用的 Eallion.com 服务息息相关，希望您仔细阅读，在需要时，按照本《隐私政策》的指引，作出您认为适当的选择。本《隐私政策》中涉及的相关技术词汇，我们尽量以简明扼要的表述，并提供进一步说明的链接，以便您的理解。
 
@@ -212,24 +212,29 @@ aliases:
 
 <script>
     async function getIp() {
-        const currentYear = new Date().getFullYear();
-        let response;
         let ipAddress;
         try {
-            response = await fetch(`https://${currentYear}.ipchaxun.com/`);
-            const data = await response.json();
-            ipAddress = data.ip;
+            // 尝试第一个请求
+            const response = await fetch('https://api.eallion.com/ip');
+            ipAddress = await response.text();
         } catch (error) {
-            response = await fetch('https://v2.jinrishici.com/one.json');
-            const data = await response.json();
-            ipAddress = data.ipAddress;
+            try {
+                // 第一个请求失败，尝试第二个请求
+                const response = await fetch('https://v2.jinrishici.com/one.json');
+                const data = await response.json();
+                ipAddress = data.ipAddress;
+            } catch (error) {
+                // 所有请求都失败，处理错误
+                console.error('All IP fetching attempts failed:', error);
+                ipAddress = 'Network Error'; // 或者你可以设置一个默认值
+            }
         }
         document.getElementById("userAgentIp").innerText = ipAddress;
     }
-getIp();
+    getIp();
 </script>
 
 <script type="text/javascript">
-    var uaInfo = navigator.userAgent;
-    document.getElementById("userAgentDevice").innerHTML = uaInfo;
+var uaInfo = navigator.userAgent;
+document.getElementById("userAgentDevice").innerHTML = uaInfo;
 </script>
