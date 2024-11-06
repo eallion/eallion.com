@@ -212,21 +212,26 @@ aliases:
 
 <script>
     async function getIp() {
-        const currentYear = new Date().getFullYear();
-        let response;
         let ipAddress;
         try {
-            response = await fetch(`https://${currentYear}.ipchaxun.com/`);
-            const data = await response.json();
-            ipAddress = data.ip;
+            // 尝试第一个请求
+            const response = await fetch('https://api.eallion.com/ip');
+            ipAddress = await response.text();
         } catch (error) {
-            response = await fetch('https://v2.jinrishici.com/one.json');
-            const data = await response.json();
-            ipAddress = data.ipAddress;
+            try {
+                // 第一个请求失败，尝试第二个请求
+                const response = await fetch('https://v2.jinrishici.com/one.json');
+                const data = await response.json();
+                ipAddress = data.ipAddress;
+            } catch (error) {
+                // 所有请求都失败，处理错误
+                console.error('All IP fetching attempts failed:', error);
+                ipAddress = 'Network Error'; // 或者你可以设置一个默认值
+            }
         }
         document.getElementById("userAgentIp").innerText = ipAddress;
     }
-getIp();
+    getIp();
 </script>
 
 <script type="text/javascript">
