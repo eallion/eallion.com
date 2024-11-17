@@ -56,10 +56,15 @@
 		try {
 			const target = atob(encodedTarget); // 使用 atob 进行 Base64 解码
 			const decodedTarget = decodeURIComponent(target);
-			document.getElementById('target-link').href = decodedTarget;
-			document.getElementById('direct-link').href = decodedTarget;
+
+			// 检查目标 URL 是否已经包含查询字符串
+			const hasQueryString = decodedTarget.includes('?');
+			const separator = hasQueryString ? '&' : '?';
+
+			document.getElementById('target-link').href = decodedTarget + separator + 'ref=www.eallion.com';
+			document.getElementById('direct-link').href = decodedTarget + separator + 'ref=www.eallion.com';
 			document.getElementById('redirect-link').textContent = decodedTarget; // 在新增的元素中显示原地址
-			document.getElementById('redirect-link').href = decodedTarget;
+			document.getElementById('redirect-link').href = decodedTarget + separator + 'ref=www.eallion.com';
 		} catch (e) {
 			document.getElementById('redirect-link').textContent = '未指定重定向目标。';
 		}
