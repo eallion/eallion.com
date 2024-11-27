@@ -477,11 +477,6 @@ blockquote a {
     margin-bottom: 0;
 }
 
-footer nav ul {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 0.5rem !important;
-}
 
 .packery-drop-placeholder {
     outline: 3px dashed hsla(0, 0%, 0%, 0.5);
@@ -509,6 +504,7 @@ footer nav ul {
   display: flex;
   flex-direction: row;
 }
+
 @media screen and (max-width: 640px){
   #site-footer nav {
     flex-direction: column;
@@ -516,15 +512,13 @@ footer nav ul {
   #site-footer nav ul:nth-child(2){
     margin-top: 1.5rem;
   }
+  #site-footer .nonbot {
+    margin: 0 0 0 -10px;
+  }
 }
 
 #site-footer nav ul li a {
     white-space: nowrap;
-}
-
-#site-footer div {
-    flex-wrap: wrap;
-    gap: 0.5rem;
 }
 
 .notbyai {

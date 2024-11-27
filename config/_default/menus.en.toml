@@ -81,7 +81,7 @@
   parent = "More"
   # pageRef = "status"
   pre = "external-link-alt"
-  url = "https://stats.uptimerobot.com/LvmZRfkNGP"
+  url = "https://stats.uptimerobot.com/LvmZRfkNGP/783953686"
   weight = 80
 
 [[main]]
@@ -148,18 +148,34 @@
 #   weight = 40
 
 [[footer]]
-  name = "</ul><ul class='flex flex-col list-none sm:flex-row'>"
-  weight = 49
-
-[[footer]]
   name = "Stats"
   pageRef = "stats"
   weight = 50
 
 [[footer]]
   name = "Status"
-  url = "https://stats.uptimerobot.com/LvmZRfkNGP"
+  url = "https://stats.uptimerobot.com/LvmZRfkNGP/783953686"
+  weight = 51
+
+[[footer]]
+  name = "Milestone"
+  pageRef = "milestone"
   weight = 60
+
+[[footer]]
+  name = "Copyright"
+  pageRef = "copyright"
+  weight = 61
+
+[[footer]]
+  name = "Privacy Policy"
+  pageRef = "privacy-policy"
+  weight = 62
+
+[[footer]]
+  name = "Links"
+  pageRef = "links"
+  weight = 63
 
 [[footer]]
   name = "About"
