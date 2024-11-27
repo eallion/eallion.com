@@ -69,7 +69,7 @@ In addition: You are free to copy, reproduce, share, quote, and adapt the conten
 
 This project powered by [Hugo](https://gohugo.io/):
 
-* China Mainland: Hosted by Alibabacloud [OSS](https://www.aliyun.com/product/oss) through GitHub Actions (Jul 20, 2024)
+* China Mainland: Hosted by Alibaba Cloud [OSS](https://s.e5n.cc/oss) & [ESA](https://s.e5n.cc/esa) (Oct 9, 2024)
 * Oversea: Deploy to Cloudflare Pages
 
 The related code and services inherit the original project's license:
@@ -77,6 +77,7 @@ The related code and services inherit the original project's license:
 * Hugo: [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE)
 * Theme(Blowfish): [MIT License](https://github.com/nunocoracao/blowfish/blob/main/LICENSE)
 * Source Code: [GLWT License](https://github.com/eallion/eallion.com/blob/main/LICENSE)
+* Content: [Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.zh)
 
 ### Specifically
 
