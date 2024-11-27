@@ -67,7 +67,7 @@ showZenMode: true
 
 本站使用 [Hugo](https://gohugo.io/) 构建：
 
-* 国内：通过 GitHub Actions 部署至阿里云 [OSS](https://www.aliyun.com/product/oss) (Jul 20, 2024)
+* 国内：通过 GitHub Actions 部署至阿里云 [OSS](https://s.e5n.cc/oss) & [ESA](https://s.e5n.cc/esa) (Oct 9, 2024)
 * 境外：部署至 Cloudflare Pages
 
 相关代码和服务继承原项目的 License：
@@ -75,6 +75,7 @@ showZenMode: true
 * Hugo： [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE)
 * Theme(Blowfish)： [MIT License](https://github.com/nunocoracao/blowfish/blob/main/LICENSE)
 * 本站源码： [GLWT License](https://github.com/eallion/eallion.com/blob/main/LICENSE)
+* 文章内容：[署名 - 相同方式共享 4.0 国际 (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.zh)
 
 ### 特别声明
 
