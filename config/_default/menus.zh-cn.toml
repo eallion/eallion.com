@@ -81,7 +81,7 @@
   parent = "更多"
   pre = "external-link-alt"
   # pageRef = "status"
-  url = "https://stats.uptimerobot.com/LvmZRfkNGP"
+  url = "https://stats.uptimerobot.com/LvmZRfkNGP/783953686"
   weight = 80
 
 [[main]]
@@ -132,25 +132,6 @@
   url = "https://nonbot.org/pledged/view/9cefed7c-dc57-4832-84ec-197314fda979"
   weight = 11
 
-# [[footer]]
-#   name = "嘀咕"
-#   pageRef = "mastodon"
-#   weight = 20
-#
-# [[footer]]
-#   name = "书影音"
-#   pageRef = "media"
-#   weight = 30
-#
-# [[footer]]
-#   name = "里程碑"
-#   pageRef = "milestone"
-#   weight = 40
-
-[[footer]]
-  name = "</ul><ul class='flex flex-col list-none sm:flex-row'>"
-  weight = 49
-
 [[footer]]
   name = "统计"
   pageRef = "stats"
@@ -158,8 +139,28 @@
 
 [[footer]]
   name = "状态"
-  url = "https://stats.uptimerobot.com/LvmZRfkNGP"
+  url = "https://stats.uptimerobot.com/LvmZRfkNGP/783953686"
+  weight = 51
+
+[[footer]]
+  name = "里程碑"
+  pageRef = "milestone"
   weight = 60
+
+[[footer]]
+  name = "版权信息"
+  pageRef = "copyright"
+  weight = 61
+
+[[footer]]
+  name = "隐私政策"
+  pageRef = "privacy-policy"
+  weight = 62
+
+[[footer]]
+  name = "友情链接"
+  pageRef = "links"
+  weight = 63
 
 [[footer]]
   name = "关于"
