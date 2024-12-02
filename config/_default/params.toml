@@ -83,7 +83,7 @@ smartTOCHideUnfocusedChildren = false
   showAuthorsBadges = false
   showWordCount = true
   showComments = true
-  sharingLinks = [ "twitter", "facebook", "bluesky", "mastodon", "reddit", "whatsapp", "telegram", "linkedin", "pinterest", "email"]
+  sharingLinks = [ "twitter", "facebook", "mastodon", "reddit", "whatsapp", "telegram", "linkedin", "pinterest", "bluesky", "email"]
   showZenMode = true
 
 [list]
@@ -171,3 +171,7 @@ smartTOCHideUnfocusedChildren = false
   so = "05afe845fd64ce6966deadce74479b5b"
   sogou = "SZM7r2UEOz"
   fediverse ="@eallion@e5n.cc"
+
+[rssnext]
+  feedId = "42331815237783556"
+  userId = "41909911558319104"
