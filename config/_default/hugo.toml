@@ -39,7 +39,7 @@ enableEmoji = true
   priority = 0.5
 
 [outputs]
-  home = ["HTML", "RSS", "JSON", "JsonFeed"]
+  home = ["HTML", "RSS", "JSON"]
   page = ["HTML", "RSS"]
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
@@ -86,11 +86,6 @@ enableEmoji = true
     mediaType = "text/plain"
     isPlainText = true
     isHTML = false
-
-  [JsonFeed]
-    mediaType = "application/feed+json"
-    isPlainText = true
-    notAlternative = true
 
 [mediaTypes]
   ["text/plain"]
