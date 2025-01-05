@@ -63,7 +63,7 @@ date: 2023-07-18T11:45:26+08:00
 
 ##### 2. 数据格式
 
-我选择的是方式 1 ，把所有 AI 摘要放在 `.json` 文件中，这样方便后期维护，也不破坏现有文章。
+我选择的是方式 1，把所有 AI 摘要放在 `.json` 文件中，这样方便后期维护，也不破坏现有文章。
 数据来源：
 
 - TianliGPT 已经生成的摘要
@@ -75,7 +75,7 @@ TianliGPT 的摘要，可以在网页上按 F12 打开 DevTools 找到：
 ![](/assets/images/posts/2023/07/tianligpt_response.png)
 
 把多种方式获取到的 AI 摘要集中起来后，生成一个 `summary.json` 文件。
-在 `data` 目录新建 <i class="fab fa-github fa-fw"></i>[data/summary/summary.json](https://github.com/eallion/eallion.com/blob/240215451d1aa3133c929428e6efb238c0baa908/data/summary/summary.json) 文件， 所有数据复制到其中，数据格式：
+在 `data` 目录新建 <i class="fab fa-github fa-fw"></i>[data/summary/summary.json](https://github.com/eallion/eallion.com/blob/240215451d1aa3133c929428e6efb238c0baa908/data/summary/summary.json) 文件，所有数据复制到其中，数据格式：
 
 ```json
 {
@@ -110,30 +110,44 @@ TianliGPT 的摘要，可以在网页上按 F12 打开 DevTools 找到：
 ```html
 <!-- 其他代码 -->
 
-<!-- 获取数据 -->
-{{ $summary := getJSON "data/summary/summary.json" }}
+{{ $data := dict }}
+{{ $path := "data/summary/summary.json" }}
 
-<!-- 以 slug 作为锚点来对应文章与摘要 -->
+{{ with resources.Get $path }}
+  {{ with . | transform.Unmarshal }}
+    {{ $data = . }}
+  {{ end }}
+{{ else }}
+  {{ errorf "Unable to get global resource %q" $path }}
+{{ end }}
+
 {{ $currentSlug := .Params.slug }}
-{{ $matchingSummary := index (where $summary.summaries "slug" $currentSlug) 0 }}
 
-<div class="post-ai">
-    <div class="ai-title">
-        <i class="fas fa-robot ai-title-icon"></i>
-        <div class="ai-title-text">AI 摘要</div>
+{{- if $data.summaries }}
+  {{ $matchingSummary := index (where $data.summaries "slug" $currentSlug) 0 }}
+
+  {{- if $matchingSummary }}
+    <!-- 渲染 AI 摘要部分 -->
+    <div class="post-ai">
+        <div class="ai-title">
+            <i class="fas fa-robot ai-title-icon"></i>
+            <div class="ai-title-text">AI 摘要</div>
+        </div>
+
+        <div class="ai-explanation ai-explanation-content">
+            {{ if $matchingSummary.summary }}
+                {{ $matchingSummary.summary }}
+            {{ else }}
+                AI 摘要接口暂时失联……
+            {{ end }}
+        </div>
     </div>
-
-    <!-- Typeit 打字机效果 -->
-    <!-- <div id="ai-explanation" class="ai-explanation"></div> -->
-
-    <div class="ai-explanation ai-explanation-content">
-        {{ if $matchingSummary.summary }}
-            {{ $matchingSummary.summary }}
-        {{ else }}
-            AI 摘要接口暂时失联……
-        {{ end }}
-    </div>
-</div>
+  {{- else }}
+    <p>未找到相关内容。</p>
+  {{- end }}
+{{- else }}
+  <p>无法加载总结数据。</p>
+{{- end }}
 
 <!-- 渲染文档正文 -->
 {{ .Content }}
@@ -145,7 +159,7 @@ TianliGPT 的摘要，可以在网页上按 F12 打开 DevTools 找到：
 
 如果需要打字机效果，需要取消 `<div id="ai-explanation" class="ai-explanation"></div>` 的注释。
 需要给 `<div class="ai-explanation-content" style="display: none;">` 添加 `display: none` 隐藏掉，它的作用仅给 Typeit 插件赋值。
-添加 JS ：
+添加 JS：
 
 ```html
 <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
