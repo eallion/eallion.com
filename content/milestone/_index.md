@@ -116,7 +116,7 @@ aliases:
 {{< /timelineItem >}}
 
 {{< timelineItem icon="twitter" header="Twitter" badge="Nov 11, 2009" >}}
-2009 年 11 月 11 日，加入 <a href="https://twitter.com/eallion/" target="_blank" rel="noopener noreferrer">Twitter</a> 。目前停止活跃。
+2009 年 11 月 11 日，加入 <a href="https://x.com/eallion" target="_blank" rel="noopener noreferrer">Twitter</a> 。目前停止活跃。
 {{< /timelineItem >}}
 
 {{< timelineItem icon="steam" header="Steam" badge="Apr 5, 2007" >}}

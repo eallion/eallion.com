@@ -102,7 +102,7 @@
 # [[main]]
 #   identifier = "twitter"
 #   pre = "x-twitter"
-#   url = "https://twitter.com/eallion"
+#   url = "https://x.com/eallion"
 #   weight = 200
 
 [[main]]

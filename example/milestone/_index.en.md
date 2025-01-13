@@ -116,7 +116,7 @@ On March 26, 2010, the main domain was changed from <code>eallion.cn</code> to <
 {{< /timelineItem >}}
 
 {{< timelineItem icon="twitter" header="Twitter" badge="Nov 11, 2009" >}}
-On November 11, 2009, joined <a href="https://twitter.com/eallion/" target="_blank" rel="noopener noreferrer">Twitter</a>. Currently inactive.
+On November 11, 2009, joined <a href="https://x.com/eallion" target="_blank" rel="noopener noreferrer">Twitter</a>. Currently inactive.
 {{< /timelineItem >}}
 
 {{< timelineItem icon="steam" header="Steam" badge="Apr 5, 2007" >}}
