@@ -89,4 +89,4 @@ The original content reproduced on this site will be reprinted with the consent 
 
 ### Contact
 
-* Email: [eallions@gmail.com](mailto:eallions@gmail.com)
+* Email: [eallion.s+blog@gmail.com](mailto:eallion.s+blog@gmail.com)

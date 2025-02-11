@@ -80,7 +80,7 @@ My favorite motto is:
 ### Contact
 
 <div class="badge">
-  <a><img class="nozoom" src="https://img.shields.io/badge/Gmail-eallions@gmail.com-blue?style=flat&labelColor=555&logo=gmail&logoColor=fff"></a>
+  <a><img class="nozoom" src="https://img.shields.io/badge/Gmail-eallion.s+blog@gmail.com-blue?style=flat&labelColor=555&logo=gmail&logoColor=fff"></a>
   <a href="https://keybase.io/eallion/pgp_keys.asc?fingerprint=4f07c9a0617d7166f03be7cc6a9279328406fb6c" target="_blank" rel="noopener noreferrer">
     <img class="nozoom" src="https://img.shields.io/keybase/pgp/eallion?label=Keybase%20OpenPGP&logo=keybase&logoColor=fff&style=flat">
   </a>

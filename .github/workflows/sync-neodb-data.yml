@@ -70,7 +70,7 @@ jobs:
       run: |
         pages=${{ env.REMOTE_PAGES }}
 
-        # 个人使用，新建 WorkDIR ，排除 vercel.json 和 package.json 等
+        # 个人使用，新建 WorkDIR，排除 vercel.json 和 package.json 等
         mkdir neodb
         cd neodb
 
@@ -147,7 +147,7 @@ jobs:
         cp -rn assets/images/neodb/cover/* tmp/images/neodb/
         cd tmp
         git config user.name "eallion"
-        git config user.email "eallions@gmail.com"
+        git config user.email "eallion.s+github@gmail.com"
         git remote set-url --add --push origin https://eallion:${{ secrets.PICLIST_GITHUB_TOKEN }}@github.com/eallion/static.git
         git add .
         git commit -m "chore: sync cover"

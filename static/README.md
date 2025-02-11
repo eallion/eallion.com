@@ -14,7 +14,7 @@
 <https://github.com/eallion/eallion.com/issues/new>  
 
 - Email:
-<eallions@gmail.com>
+<eallion.s+blog@gmail.com>
 
 # 写新文章
 >
