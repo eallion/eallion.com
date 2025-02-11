@@ -31,7 +31,7 @@ We value your privacy. When you use our services, we may collect and use relevan
 
 **By using or continuing to use our services, you agree to the collection, use, storage, and sharing of your relevant information in accordance with this Privacy Policy.**
 
-If you have any questions about this Privacy Policy or related matters, please contact us at <eallions@gmail.com>.
+If you have any questions about this Privacy Policy or related matters, please contact us at <eallion.s+blog@gmail.com>.
 
 This Privacy Policy helps you understand the following:
 

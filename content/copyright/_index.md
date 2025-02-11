@@ -87,4 +87,4 @@ showZenMode: true
 
 ### 联系方式
 
-* Email: [eallions@gmail.com](mailto:eallions@gmail.com)
+* Email: [eallion.s+blog@gmail.com](mailto:eallion.s+blog@gmail.com)
