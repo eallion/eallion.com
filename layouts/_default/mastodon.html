@@ -127,6 +127,11 @@
 				// Default: don't hide
 				hideUserAccount: false,
 
+				// Show only posts with the selected language (ISO 639-1)
+				// Use "en" to show only posts in English
+				// Default: "" (don't filter by language)
+				filterByLanguage: "",
+
 				// Limit the text content to a maximum number of lines
 				// Use "0" to show no text
 				// Default: "" (unlimited)
@@ -225,13 +230,14 @@
 			});
 
 			// 获取所有头像的 img 标签并修改 src 属性
-			const images = document.querySelectorAll('img');
+			const images = document.querySelectorAll('.mt-body .mt-post img');
 			images.forEach(img => {
 					const src = img.getAttribute('src');
-					if (src && src.includes('https://files.e5n.cc/accounts/')) {
-						img.setAttribute('src', '/eallion.webp');
-						img.setAttribute('data-original-src', src);
-					}
+					if (src && src.includes('https://files.e5n.cc/')) {
+						const newSrc = src.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+						img.setAttribute('src', newSrc);
+						img.setAttribute('data-original-src', src); // 可选：保存原始 src
+				}
 			});
 	});
 
