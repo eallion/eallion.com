@@ -89,8 +89,11 @@ showZenMode: false
 
 <div class="badge">
   <a><img class="nozoom" src="https://img.shields.io/badge/Gmail-eallion.s+blog@gmail.com-blue?style=flat&labelColor=555&logo=gmail&logoColor=fff"></a>
-  <a href="https://keybase.io/eallion/pgp_keys.asc?fingerprint=4f07c9a0617d7166f03be7cc6a9279328406fb6c" target="_blank" rel="noopener noreferrer">
-    <img class="nozoom" src="https://img.shields.io/keybase/pgp/eallion?label=Keybase%20OpenPGP&logo=keybase&logoColor=fff&style=flat">
+  <a href="https://matrix.to/#/@eallion:e5n.cc" target="_blank" rel="noopener noreferrer">
+    <img class="nozoom" src="https://img.shields.io/badge/Matrix-@eallion@e5n.cc-blue?style=flat&labelColor=555&logo=Matrix&logoColor=fff">
+  </a>
+  <a href="https://github.com/eallion.gpg?fingerprint=327C873BCB0A151F1A599A3CE685DDDDDDDDDDDD" target="_blank" rel="noopener noreferrer">
+    <img class="nozoom" src="https://img.shields.io/badge/E685DDDDDDDDDDDD-blue?label=GPG%20Key&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTYuMTQgMmMtNi43Ni4wNS05LjMgNi4yNy05LjM0IDcuN3Y1LjlINS4zNXYxNC4yNWgyMS4xOVYxNS41OWgtMS40MlY5Ljc4aC0uMDRjLS4wNy0uMzYtMS42OS03LjgzLTguOTUtNy43OHptLS4yIDQuMjJhNC43NSA0Ljc1IDAgMCAxIDQuNTkgMy41NnY1LjgxaC05LjJWOS44YTQuNzUgNC43NSAwIDAgMSA0LjYtMy41N3oiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTUuNiAzLjJhNy42NSA3LjY1IDAgMCAwLTMuMjUuNzdjLTMuNDggMS43LTMuODggNS42Ni0zLjg4IDUuNjZjMy40NS03LjA1IDguMy02LjA3IDExLjEtNS42M2MwIDAtMS43NC0uODQtMy45OC0uOHptMTEuMTIgMTIuMjFzLTEuNC0uMDItMS42My4xYy0yLjcgMS40LTMuMjYgMS44NC01LjAzIDIuMmMtNS4wMSAxLTguMDQuNzEtMTAuNTIgMS42MmMtMS45LjctNC4yNiAzLjMzLTQuMjYgMy4zM0w1LjMyIDMwbDMuMzUtLjFzLjg4LS43IDEuOTctLjc5YzAgMCAxMC40LjY0IDEzLjIyLTQuMDNjMCAwLTUuMDMgMi41Mi0xMS4yMi44M2MwIDAgMTAuNjcuMzIgMTMuNjgtNi4wN2MtMS4zLjItNC40NyAzLjI4LTEwLjQyIDIuNDhjLjU4LjAzIDcuNjItMS43OCAxMC43LTUuMDJ6Ii8+PC9zdmc+&logoColor=fff&style=flat">
   </a>
 </div>
 
@@ -101,16 +104,13 @@ showZenMode: false
     <img class="nozoom" src="https://img.shields.io/badge/GitHub-@eallion-blue?style=flat&labelColor=555&logo=GitHub&logoColor=fff">
   </a>
   <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer">
-    <img class="nozoom" src="https://img.shields.io/badge/Mastodon-@eallion-blue?style=flat&labelColor=555&logo=mastodon&logoColor=fff">
-  </a>
-  <a href="https://steamcommunity.com/id/eallion" target="_blank" rel="noopener noreferrer">
-    <img class="nozoom" src="https://img.shields.io/badge/Steam-@eallion-blue?style=flat&labelColor=555&logo=Steam&logoColor=fff">
+    <img class="nozoom" src="https://img.shields.io/badge/Mastodon-@eallion:e5n.cc-blue?style=flat&labelColor=555&logo=mastodon&logoColor=fff">
   </a>
   <a href="https://x.com/eallion" target="_blank" rel="noopener noreferrer">
     <img class="nozoom" src="https://img.shields.io/badge/@eallion-blue?style=flat&labelColor=555&logo=x&logoColor=fff">
   </a>
-  <a href="https://keybase.io/eallion" target="_blank" rel="noopener noreferrer">
-    <img class="nozoom" src="https://img.shields.io/badge/Keybase-@eallion-blue?style=flat&labelColor=555&logo=Keybase&logoColor=fff">
+  <a href="https://steamcommunity.com/id/eallion" target="_blank" rel="noopener noreferrer">
+    <img class="nozoom" src="https://img.shields.io/badge/Steam-@eallion-blue?style=flat&labelColor=555&logo=Steam&logoColor=fff">
   </a>
 </div>
 
@@ -143,6 +143,9 @@ showZenMode: false
 ### 鸣谢
 
 <div class="badge">
+  <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">
+    <img class="nozoom" src="https://img.shields.io/badge/-Hugo-FF4088?style=flat&logo=Hugo&logoColor=white">
+  </a>
   <a href="https://html5.org/" target="_blank" rel="noopener noreferrer">
     <img class="nozoom" src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white">
   </a>
@@ -151,9 +154,6 @@ showZenMode: false
   </a>
   <a href="https://www.javascript.com/" target="_blank" rel="noopener noreferrer">
     <img class="nozoom" src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white">
-  </a>
-  <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer">
-    <img class="nozoom" src="https://img.shields.io/badge/-Hugo-FF4088?style=flat&logo=Hugo&logoColor=white">
   </a>
 </div>
 
@@ -191,13 +191,16 @@ showZenMode: false
   <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener noreferrer">
     <img class="nozoom" src="https://img.shields.io/badge/jsDelivr-blue?style=flat&color=blue&labelColor=555&logo=jsDelivr&logoColor=fff">
   </a>
+  <a href="https://joinmastodon.org" target="_blank" rel="noopener noreferrer">
+    <img class="nozoom" src="https://img.shields.io/badge/Mastodon-blue?style=flat&color=blue&labelColor=555&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMjMuMjY4IDUuMzEzYy0uMzUtMi41NzgtMi42MTctNC42MS01LjMwNC01LjAwNEMxNy41MS4yNDIgMTUuNzkyIDAgMTEuODEzIDBoLS4wM2MtMy45OCAwLTQuODM1LjI0Mi01LjI4OC4zMDlDMy44ODIuNjkyIDEuNDk2IDIuNTE4LjkxNyA1LjEyN0MuNjQgNi40MTIuNjEgNy44MzcuNjYxIDkuMTQzYy4wNzQgMS44NzQuMDg4IDMuNzQ1LjI2IDUuNjExYy4xMTggMS4yNC4zMjUgMi40Ny42MiAzLjY4Yy41NSAyLjIzNyAyLjc3NyA0LjA5OCA0Ljk2IDQuODU3YzIuMzM2Ljc5MiA0Ljg0OS45MjMgNy4yNTYuMzhxLjM5OC0uMDkyLjc4Ni0uMjEzYy41ODUtLjE4NCAxLjI3LS4zOSAxLjc3NC0uNzUzYS4wNi4wNiAwIDAgMCAuMDIzLS4wNDN2LTEuODA5YS4wNS4wNSAwIDAgMC0uMDItLjA0MWEuMDUuMDUgMCAwIDAtLjA0Ni0uMDFhMjAuMyAyMC4zIDAgMCAxLTQuNzA5LjU0NWMtMi43MyAwLTMuNDYzLTEuMjg0LTMuNjc0LTEuODE4YTUuNiA1LjYgMCAwIDEtLjMxOS0xLjQzM2EuMDUzLjA1MyAwIDAgMSAuMDY2LS4wNTRjMS41MTcuMzYzIDMuMDcyLjU0NiA0LjYzMi41NDZjLjM3NiAwIC43NSAwIDEuMTI1LS4wMWMxLjU3LS4wNDQgMy4yMjQtLjEyNCA0Ljc2OC0uNDIycS4wNTktLjAxMS4xMS0uMDI0YzIuNDM1LS40NjQgNC43NTMtMS45MiA0Ljk4OS01LjYwNGMuMDA4LS4xNDUuMDMtMS41Mi4wMy0xLjY3Yy4wMDItLjUxMi4xNjctMy42My0uMDI0LTUuNTQ1bS0zLjc0OCA5LjE5NWgtMi41NjFWOC4yOWMwLTEuMzA5LS41NS0xLjk3Ni0xLjY3LTEuOTc2Yy0xLjIzIDAtMS44NDYuNzktMS44NDYgMi4zNXYzLjQwM2gtMi41NDZWOC42NjNjMC0xLjU2LS42MTctMi4zNS0xLjg0OC0yLjM1Yy0xLjExMiAwLTEuNjY4LjY2OC0xLjY3IDEuOTc3djYuMjE4SDQuODIyVjguMTAycTAtMS45NjUgMS4wMTEtMy4xMmMuNjk2LS43NyAxLjYwOC0xLjE2NCAyLjc0LTEuMTY0YzEuMzExIDAgMi4zMDIuNSAyLjk2MiAxLjQ5OGwuNjM4IDEuMDZsLjYzOC0xLjA2Yy42Ni0uOTk5IDEuNjUtMS40OTggMi45Ni0xLjQ5OGMxLjEzIDAgMi4wNDMuMzk1IDIuNzQgMS4xNjRxMS4wMTIgMS4xNTUgMS4wMTIgMy4xMnoiLz48L3N2Zz4=&logoColor=fff">
+  </a>
   <a href="https://cloud.tencent.com" target="_blank" rel="noopener noreferrer">
-    <img class="nozoom" src="https://img.shields.io/badge/Tencent%20Cloud-blue?style=flat&color=blue&labelColor=555&logo=tencent-qq&logoColor=fff">
+    <img class="nozoom" src="https://img.shields.io/badge/Tencent%20Cloud-blue?style=flat&color=blue&labelColor=555&logo=qq&logoColor=fff">
   </a>
   <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">
     <img class="nozoom" src="https://img.shields.io/badge/Vercel-blue?style=flat&color=blue&labelColor=555&logo=Vercel&logoColor=fff">
   </a>
   <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">
-    <img class="nozoom" src="https://img.shields.io/badge/VS%20Code-blue?style=flat&color=blue&labelColor=555&logo=visual-studio-code&logoColor=fff">
+    <img class="nozoom" src="https://img.shields.io/badge/VS%20Code-blue?style=flat&color=blue&labelColor=555&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgMTI4IDEyOCI+PHBhdGggZmlsbD0iI2ZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNOTAuNzY3IDEyNy4xMjZhNy45NyA3Ljk3IDAgMCAwIDYuMzUtLjI0NGwyNi4zNTMtMTIuNjgxYTggOCAwIDAgMCA0LjUzLTcuMjA5VjIxLjAwOWE4IDggMCAwIDAtNC41My03LjIxTDk3LjExNyAxLjEyYTcuOTcgNy45NyAwIDAgMC05LjA5MyAxLjU0OGwtNTAuNDUgNDYuMDI2TDE1LjYgMzIuMDEzYTUuMzMgNS4zMyAwIDAgMC02LjgwNy4zMDJsLTcuMDQ4IDYuNDExYTUuMzM1IDUuMzM1IDAgMCAwLS4wMDYgNy44ODhMMjAuNzk2IDY0TDEuNzQgODEuMzg3YTUuMzM2IDUuMzM2IDAgMCAwIC4wMDYgNy44ODdsNy4wNDggNi40MTFhNS4zMyA1LjMzIDAgMCAwIDYuODA3LjMwM2wyMS45NzQtMTYuNjhsNTAuNDUgNDYuMDI1YTggOCAwIDAgMCAyLjc0MyAxLjc5M1ptNS4yNTItOTIuMTgzTDU3Ljc0IDY0bDM4LjI4IDI5LjA1OFYzNC45NDNaIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=&logoColor=fff">
   </a>
 </div>
