@@ -49,7 +49,15 @@
 							{{ $taxonomyLink = delimit (slice $baseURL "/authors/" $author) "" }}
 						{{ end }}
 					{{ end }}
-					{{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $taxonomyLink) }}
+					{{ $finalLink := $taxonomyLink }}
+					{{ $currentLang := $.Site.Language.Lang }}
+					{{ if eq $.Site.LanguagePrefix "" }}
+						{{ $finalLink = printf "%sauthors/%s/" $baseURL $author }}
+					{{ else }}
+						{{ $finalLink = printf "%s%s/authors/%s/" $baseURL $currentLang $author }}
+					{{ end }}
+
+					{{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $finalLink) }}
 				{{- end -}}
 			{{ end }}
 
@@ -73,12 +81,12 @@
 				.TableOfContents "<ul") }} {{ partial "toc.html" . }} {{ end }} {{ if .Site.Params.article.showRelatedPosts |
 					default false }} sd {{ end }} </div>
 			</div>
-			{{ end }}  */}}
+			{{ end }}	*/}}
 
 			{{/*	Modify default to show toc	*/}}
 			<div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
 				<div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky {{ if hasPrefix .Site.Params.header.layout "fixed" -}}
-				lg:top-[140px]{{ else }}lg:top-10{{ end }}"> {{ partial "toc.html" . }}  </div>
+				lg:top-[140px]{{ else }}lg:top-10{{ end }}"> {{ partial "toc.html" . }}	</div>
 			</div>
 
 			<div class="min-w-0 min-h-0 max-w-fit">
@@ -123,7 +131,7 @@
 			{{ with .File }}
 				{{ $path := .Path }}
 				{{range $translations}}
-					{{ $lang := print "."  .Lang	".md" }}
+					{{ $lang := print "."	.Lang	".md" }}
 					{{ $path = replace $path $lang ".md" }}
 				{{end}}
 			<script>
