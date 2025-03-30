@@ -1,4 +1,59 @@
-## v4.0.6 (2024-08-03)
+## v4.0.7 (2025-03-30)
+
+### New feature
+
+- release v4.0.7([`5a331c2`](https://github.com/eallion/eallion.com/commit/5a331c2d0d6c47f120daeae31fad7fb2d7b58829)) (by Charles Chin)
+- update mastodon embed timeline([`35ae32d`](https://github.com/eallion/eallion.com/commit/35ae32ddb9d81b7d3a109e203ad31499d393da99)) (by Charles Chin)
+- movie search([`5e9cfad`](https://github.com/eallion/eallion.com/commit/5e9cfadcf1900ba038ffafc40f496c1dd8f6bc49)) (by Charles Chin)
+- favicon api([`e05a800`](https://github.com/eallion/eallion.com/commit/e05a8008e62c2ccced0aacc27983b259a9d87b8a)) (by Charles Chin)
+- redirect ref([`80b9deb`](https://github.com/eallion/eallion.com/commit/80b9deb32eed41a5f1edf80eff400b0dfe65eff5)) (by Charles Chin)
+- medium-zoom for album([`5d632c1`](https://github.com/eallion/eallion.com/commit/5d632c1c1847ac728e6c9eae76d5387cfe92dbcb)) (by Charles Chin)
+- aliyun esa purge([`7c7258c`](https://github.com/eallion/eallion.com/commit/7c7258ce00683e101443388e5f8ef675a813660d)) (by Charles Chin)
+- heti custom([`f3e3951`](https://github.com/eallion/eallion.com/commit/f3e3951e412e185279b80f587e8df10a8d4136cf)) (by Charles Chin)
+- umami merge theme([`872e1d4`](https://github.com/eallion/eallion.com/commit/872e1d46b4b25c3312651c46b61be78472edc535)) (by Charles Chin)
+- umami([`369b239`](https://github.com/eallion/eallion.com/commit/369b2393459db7f1c988f92922dcabae116213df)) (by Charles Chin)
+- new og tag of mastodon([`6d1e44f`](https://github.com/eallion/eallion.com/commit/6d1e44fba4b01abe3eceb5c3c484877bff2e0b11)) (by Charles Chin)
+- mastodon album([`7b0cd95`](https://github.com/eallion/eallion.com/commit/7b0cd956aea0f9aba6c26f0fa541b0a11ba93b1b)) (by Charles Chin)
+- media search([`aff6990`](https://github.com/eallion/eallion.com/commit/aff69902ef9539e0ab45ad443ed98bccb039e2ba)) (by Charles Chin)
+- album api([`359b5e3`](https://github.com/eallion/eallion.com/commit/359b5e3115442f098ce2abdfe018d6f70af99fff)) (by Charles Chin)
+- anti mirror([`afb8c3e`](https://github.com/eallion/eallion.com/commit/afb8c3e1c1bfa0262a7298b0669eb73f868cf79d)) (by eallion)
+- neodb media page new bg video via dogecloud [skip ci](%5B%60975d5b7%60%5D(https://github.com/eallion/eallion.com/commit/975d5b7d6cca0672246b8d1d135975f691f4c325)) (by eallion)
+- random movie picker on neodb page([`bed2c44`](https://github.com/eallion/eallion.com/commit/bed2c446f7df28255683f9b6f0044ed4a95d53d8)) (by eallion)
+- nonbot pledged([`531e53c`](https://github.com/eallion/eallion.com/commit/531e53c89382d1d063bb852fecab7c00fd262024)) (by eallion)
+- new home hero([`4ae3985`](https://github.com/eallion/eallion.com/commit/4ae3985d93f03788036cba26963ee44181112227)) (by eallion)
+- github actions cache([`34e0af5`](https://github.com/eallion/eallion.com/commit/34e0af555305c0a25498af5943f8a8a5ecb89f6c)) (by eallion)
+- add noscript tag([`c9d819a`](https://github.com/eallion/eallion.com/commit/c9d819a567241fc219d5f0c8f30b9824cb3f523e)) (by eallion)
+- format relative time with Intl.RelativeTimeFormat([`4d2cc0a`](https://github.com/eallion/eallion.com/commit/4d2cc0a2d95b856ac1c7fff4ab757e07f5d733e9)) (by eallion)
+- shiki highlight([`70fc1a0`](https://github.com/eallion/eallion.com/commit/70fc1a01e4da0d0cf7767242f9a1cfc906b2de51)) (by Charles Chin), Closes: #138
+- content reading progress bar([`1058ec5`](https://github.com/eallion/eallion.com/commit/1058ec56484b69eb91ea32e703ad89e2a641c70f)) (by Charles Chin)
+
+### Bugs fixed
+
+- nas build post cover([`684db05`](https://github.com/eallion/eallion.com/commit/684db05b3a6ef038bd46774fd51ff377b6566867)) (by Charles Chin)
+- new post script([`906b92a`](https://github.com/eallion/eallion.com/commit/906b92a9bb4a0faf00ed349e00aa6c9f564e876c)) (by Charles Chin)
+- comment mastodon link([`a87b8d5`](https://github.com/eallion/eallion.com/commit/a87b8d57c24ded665b94ce539a8f96edd13e81d8)) (by Charles Chin)
+- unknown output format "jsonfeed" for kind "home"([`15988b4`](https://github.com/eallion/eallion.com/commit/15988b4a4c505422ba8b2e68c440d817eb296131)) (by Charles Chin)
+- 2813a5c friend links icon([`4650328`](https://github.com/eallion/eallion.com/commit/4650328a026cfbb7bc771da1467c703a466b2048)) (by Charles Chin)
+- home article feed([`8fee823`](https://github.com/eallion/eallion.com/commit/8fee823dd890e007682b9172395a1329f2827266)) (by Charles Chin)
+- ip api([`6af0719`](https://github.com/eallion/eallion.com/commit/6af07192dee80cad9a50cfd15bdfb5a215d14639)) (by Charles Chin)
+- media random movie([`ce8cc31`](https://github.com/eallion/eallion.com/commit/ce8cc31961704d4a3b8ca267774a28dc7d008a09)) (by Charles Chin)
+- 404([`ed0d361`](https://github.com/eallion/eallion.com/commit/ed0d3616bb061bc60de33b994651643051546575)) (by Charles Chin)
+- mastodon page observer([`f004c53`](https://github.com/eallion/eallion.com/commit/f004c5300b9d52ea1353879f660985c6edb1bf91)) (by Charles Chin)
+- media page regex([`3f8721a`](https://github.com/eallion/eallion.com/commit/3f8721af08705fc0e001a0cabefef2bf37275db9)) (by Charles Chin)
+- mastodon s3 link([`c950fe0`](https://github.com/eallion/eallion.com/commit/c950fe0a3d80520a7c74744fb0826bbed391d704)) (by Charles Chin)
+- typo([`80d1aca`](https://github.com/eallion/eallion.com/commit/80d1aca558bb7ca3ecd498ffa0fef6514e324dfa)) (by eallion)
+- fix btoa ASCII error (not Latin1)([`87fb452`](https://github.com/eallion/eallion.com/commit/87fb452747668f43ca54a2f771d49283b5a625ed)) (by eallion)
+- js disabled style([`1c0d393`](https://github.com/eallion/eallion.com/commit/1c0d393d286ad04ecd43803af51cf12a21ee11ff)) (by eallion)
+- warning caused by data.GetJSON([`2b29fd1`](https://github.com/eallion/eallion.com/commit/2b29fd13d111b49c8d966d8a3ed85051c92a83c3)) (by Charles Chin)
+
+### Performance improves
+
+- update mastodon([`2258bca`](https://github.com/eallion/eallion.com/commit/2258bcafbfb19837c69d71090e71cdddbdee228a)) (by eallion)
+- hugo new script([`c5bfd59`](https://github.com/eallion/eallion.com/commit/c5bfd5985fec5ecb306d073e7418686294c25b57)) (by eallion)
+- fix warning([`0665ece`](https://github.com/eallion/eallion.com/commit/0665ece65861785a1f4b72024c026d3d90226f84)) (by eallion)
+- friends links screenshots cache([`98f3b51`](https://github.com/eallion/eallion.com/commit/98f3b515a5ad41e130f93239a62cdc8522516d49)) (by Charles Chin)
+
+## v4.0.6 (2024-08-04)
 
 ### New feature
 
