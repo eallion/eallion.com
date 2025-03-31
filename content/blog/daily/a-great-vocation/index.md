@@ -1,13 +1,19 @@
 ---
-title: "也说小姐"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["小姐","杂谈","感想","社会"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-01-23 04:21:11'
 draft: false
-slug: "a-great-vocation"
-summary: "文章讲述了作者与隔壁的小姐谈人生和理想的故事。"
-date: "2011-01-23 04:21:11"
-lastmod: "2011-01-23 04:21:11"
+lastmod: '2011-01-23 04:21:11'
+slug: a-great-vocation
+summary: 隔壁曾住着一位小姐，常与她闲聊人生理想。
+tags:
+- 小姐
+- 杂谈
+- 感想
+- 社会
+title: 也说小姐
 ---
 
 好久之前

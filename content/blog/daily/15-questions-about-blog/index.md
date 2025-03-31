@@ -1,16 +1,17 @@
 ---
-title: "独立博客自省问卷 15 题"
-authors: ["eallion"]
-categories: ["日志"]
-tags: 
-  - 日志
-  - 博客
-  - 问卷
-slug: "15-questions-about-blog"
-summary: "这篇文章是关于独立博客的自省问卷，共有 15 个问题。作者回答了每个问题，并附上了解释。其中包括博客更新频率、原创性、对他人的帮助程度、主题和程序的更换与开发等内容。作者还提到了对自己博客域名和流量统计的感受，以及通过广告赚钱和浏览别人博客的目的等。最后，作者总结说内容是最重要的，并表示通过写博客认识新朋友是一种新收获。"
+authors:
+- eallion
+categories:
+- 日志
+date: 2024-10-11 18:45:43+08:00
 draft: false
-date: 2024-10-11T18:45:43+08:00
-# images: ["/assets/images/og/independent-blog-self-examination-questionnaire-15.png"] # Delete this line
+slug: 15-questions-about-blog
+summary: 博主雅余在博客中分享了一份独立博客自省问卷的回答。更新频率随缘，最近几个月才发一篇，主要在Mastodon上活跃。博客内容坚持原创，贴有反AI生成声明，写作目的纯粹自我记录。经常调整博客代码和主题，但保持核心框架不变。对现有域名满意，不关注流量统计和广告收入。
+tags:
+- 日志
+- 博客
+- 问卷
+title: 独立博客自省问卷 15 题
 ---
 
 看到雅余的博客《[独立博客自省问卷 15 题](https://yayu.net/4626.html)》，自省吾身。

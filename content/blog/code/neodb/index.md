@@ -1,19 +1,23 @@
 ---
-title: "NeoDB API 创建观影页面"
-authors: ["eallion"]
-categories: ["代码"]
-tags: 
-  - hugo
-  - blog
-  - neodb
-  - movie
-slug: "neodb"
-summary: "这篇文章介绍了如何使用 NeoDB API 创建观影页面。文章中包含了注册 NeoDB 账号、生成 NeoDB Token、标记影音、下载 NeoDB 数据、新建 HTML 模板等步骤。作者提到他选择将数据下载到本地进行静态化处理，以提高性能。他还提到了注册 Mastodon 和 NeoDB 的过程，并简要介绍了 Shell Script 脚本的使用。最后文章提供了一些必要的 CSS 和 JS 代码来修改页面样式和处理数据。"
-series: ["NeoDB"]
-series_weight: 1
-seriesNavigation: true
+authors:
+- eallion
+categories:
+- 代码
+date: 2023-07-11 23:27:23+08:00
 draft: false
-date: 2023-07-11T23:27:23+08:00
+series:
+- NeoDB
+seriesNavigation: true
+series_weight: 1
+slug: neodb
+summary: 作者因豆瓣服务不稳定，决定将观影数据迁移至NeoDB。先注册Mastodon账号并登录NeoDB，生成API Token后手动标记影音内容或导入旧数据。由于分页限制，编写Shell脚本分批下载数据，需替换自己的Access
+  Token。
+tags:
+- hugo
+- blog
+- neodb
+- movie
+title: NeoDB API 创建观影页面
 ---
 
 ### 前言

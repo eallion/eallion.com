@@ -1,20 +1,23 @@
 ---
-title: "Memos 手动导入数据"
-authors: ["eallion"]
-categories: ["代码"]
-tags:
-    - 嘀咕
-    - 哔哔
-    - Memos
-    - talk
-slug: "memos-import"
-summary: "这篇文章介绍了如何手动导入类似数据到Memos迁移平台。作者首先解释了Memos官方尚未提供导入导出服务的情况，然后介绍了通过操作SQLite数据库文件来实现手动导入的方法。作者指导读者通过发布一条Memos并下载数据库文件，然后将其转换为.csv文件作为模板。接着，作者说明了如何打开和导出数据库文件，并使用编码转换和命令将以前的数据转换为新平台可导入的格式。最后，作者提到了修改文件访问权限和使用SQLite数据管理工具的一些建议。"
-series: ["Memos"]
-series_weight: 2
-seriesNavigation: true
+authors:
+- eallion
+categories:
+- 代码
+date: 2022-11-06 16:31:22+08:00
 draft: false
-date: 2022-11-06T16:31:22+08:00
-lastmod: 2022-11-06T16:31:22+08:00
+lastmod: 2022-11-06 16:31:22+08:00
+series:
+- Memos
+seriesNavigation: true
+series_weight: 2
+slug: memos-import
+summary: Memos没有官方导入功能，但可以直接操作SQLite数据库文件迁移数据。方法一通过命令行操作：先在网页端创建一条memo生成数据库文件，用sqlite3命令导出CSV模板，修改旧数据格式后重新导入，注意文件编码需设为UTF-8-BOM避免中文乱码，
+tags:
+- 嘀咕
+- 哔哔
+- Memos
+- talk
+title: Memos 手动导入数据
 ---
 
 ### 如何手动导入类似数据到 Memos

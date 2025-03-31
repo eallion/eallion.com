@@ -1,13 +1,18 @@
 ---
-title: "Typecho 中英文之间自动加上空格"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["空格","space","pangu"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2019-11-29 09:29:00'
 draft: false
-slug: "autospace"
-summary: "这篇文章介绍了在Typecho中如何实现在中文和英文之间自动加上空格的方法。作者发现之前写的博客排版比较混乱，因此决定统一格式。作者选用了pangu.js这个项目来实现自动加空格的功能，并提供了具体的用法和引用方法。文章中给出了将pangu.js引入到footer.php中，并加上相应的代码的步骤。作者还提到了pangu.js的CDN链接。"
-date: "2019-11-29 09:29:00"
-lastmod: "2019-11-29 09:29:00"
+lastmod: '2019-11-29 09:29:00'
+slug: autospace
+summary: 以前写博客不注意排版，中英文混排显得混乱。现在决定统一格式，自动给中英文加空格。推荐两个工具：pangu.js和text-autospace.js，最终选用pangu.js。使用方法很简单：在footer.php引入pangu.js的CDN链接，
+tags:
+- 空格
+- space
+- pangu
+title: Typecho 中英文之间自动加上空格
 ---
 
 以前写博客，不太注意排版细节，而且那个时候也还没有 Markdown。

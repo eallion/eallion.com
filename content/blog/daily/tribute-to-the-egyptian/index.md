@@ -1,13 +1,20 @@
 ---
-title: "向埃及人民致敬"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["民主","埃及","自由","游行","运动"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-02-12 02:34:00'
 draft: false
-slug: "tribute-to-the-egyptian"
-summary: "埃及人民经过 17 天的示威抗议，成功推翻穆巴拉克政权。文章批评中国居民对自由和民主的冷漠，并回顾了中国历史上的压迫事件。最后提到了法国、意大利和中国都有游行要求领导下台的情况。"
-date: "2011-02-12 02:34:00"
-lastmod: "2011-02-12 02:34:00"
+lastmod: '2011-02-12 02:34:00'
+slug: tribute-to-the-egyptian
+summary: 埃及民众通过17天抗议推翻穆巴拉克政权，迎来民主曙光。对比中国现状，批评民众麻木冷漠、缺乏自由意识，提及天安门事件凸显体制暴力。讽刺国内舆论对历史事件的集体遗忘，用兵马俑比喻顺从的民众。最后以中外游行诉求差异的黑色幽默收尾，暗讽民族主义转移矛盾。
+tags:
+- 民主
+- 埃及
+- 自由
+- 游行
+- 运动
+title: 向埃及人民致敬
 ---
 
 <blockquote > 半岛电视台的直播地址：[http://www.youtube.com/aljazeeraenglish](http://www.youtube.com/aljazeeraenglish?feature=ticker)</blockquote > 伟大的埃及人民经过 17 天的游行示威抗议

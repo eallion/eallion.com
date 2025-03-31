@@ -1,16 +1,18 @@
 ---
-title: "博客 AI 摘要及优化"
-authors: ["eallion"]
-categories: ["代码"]
-tags: 
-  - hugo
-  - blog
-  - ai
-  - summary
-slug: "ai-summary"
-summary: "这篇文章介绍了作者如何使用 AI 摘要插件来优化博客阅读体验。他通过多种方式获取 AI 摘要，并将其保存在本地的 JSON 文件中。然后，他修改了博客模板文件，将 AI 摘要渲染到每篇文章的开头。最后，他还添加了打字机效果和样式来增强显示效果。通过这些优化措施，作者提高了博客阅读的效率和质量。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2023-07-18 11:45:26+08:00
 draft: false
-date: 2023-07-18T11:45:26+08:00
+slug: ai-summary
+summary: AI摘要工具能快速筛选信息价值，帮助判断是否精读。作者因信息过载使用ChatGPT摘要插件，后为博客集成TianliGPT服务，但发现成本过高且不实用。最终决定自行改造，转向静态化方案，通过Python脚本生成本地摘要文件，减少依赖第三方服务，更符合技术博客的极客精神。
+tags:
+- hugo
+- blog
+- ai
+- summary
+title: 博客 AI 摘要及优化
 ---
 
 ### 为何需要 AI 摘要

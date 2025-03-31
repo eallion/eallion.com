@@ -1,18 +1,20 @@
 ---
-title: "启用 Waline"
-authors: ["eallion"]
-categories: ["日志"]
-tags:
-    - hugo
-    - blog
-    - waline
-    - comment
-    - 评论
-slug: "waline"
-summary: "这篇文章介绍了作者决定启用 Waline 评论系统的过程和原因。作者列举了不推荐和推荐的评论系统，并介绍了 Waline 的特性和数据迁移助手。对于部署在 LeanCloud 上，作者解释了没有流控的设计理念。作者还回答了一些关于免费额度是否够用以及是否算软文的问题，并推荐了一些其他好东西。"
+authors:
+- eallion
+categories:
+- 日志
+date: 2020-12-19 15:38:00+08:00
 draft: false
-date: 2020-12-19T15:38:00+08:00
-lastmod: 2020-12-19T15:38:00+08:00
+lastmod: 2020-12-19 15:38:00+08:00
+slug: waline
+summary: 博客评论系统多次更换，从Artalk、Disqus到Twikoo，最终因成本问题选择Waline。作者认为评论系统选择全凭个人喜好，推荐Disqus、Waline、Twikoo等，不推荐Gitalk和Valine。Waline是一款带后端的Valine衍生品，
+tags:
+- hugo
+- blog
+- waline
+- comment
+- 评论
+title: 启用 Waline
 ---
 
 > 更新：评论系统切换到 Artalk。

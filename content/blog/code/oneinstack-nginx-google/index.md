@@ -1,13 +1,19 @@
 ---
-title: "Oneinstack Nginx 反代 Google"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["google","oneinstack","nginx","proxy"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2016-09-08 08:30:00'
 draft: false
-slug: "oneinstack-nginx-google"
-summary: "这篇文章介绍了使用Oneinstack Nginx反代Google的方法。作者建议在安装Oneinstack时只选择反代Google的功能，然后编译Nginx并安装ngx_http_google_filter_module扩展。接下来，安装Let's Encrypt并绑定域名，最后修改配置文件并重启Nginx即可实现反代Google的功能。文章提供了教程供读者参考。"
-date: "2016-09-08 08:30:00"
-lastmod: "2016-09-08 08:30:00"
+lastmod: '2016-09-08 08:30:00'
+slug: oneinstack-nginx-google
+summary: GetGoogle.org域名被墙，翻墙后可直接访问谷歌无需镜像。搭建反代服务步骤：先安装oneinstack仅选nginx，确认版本后下载所需模块源码及依赖包，解压后进入nginx目录进行编译配置，添加各种支持模块并指定openssl、pcre路径。
+tags:
+- google
+- oneinstack
+- nginx
+- proxy
+title: Oneinstack Nginx 反代 Google
 ---
 
 > [`GetGoogle.org`](https://getgoogle.org)

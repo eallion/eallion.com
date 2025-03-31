@@ -1,13 +1,20 @@
 ---
-title: "Web 版 SSH Gateone"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["nginx","gateone","ssh","web","shell"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2016-09-08 09:38:00'
 draft: false
-slug: "gateone"
-summary: "这篇文章介绍了如何在Web服务器上配置Nginx和SSL证书，安装和配置Gateone以及使用Nginx代理端口实现强制跳转到https。文章提供了两种安装Gateone的方法，一种是源码安装，另一种是安装deb包。通过修改配置文件，可以使用简洁美观的地址来访问Gateone。"
-date: "2016-09-08 09:38:00"
-lastmod: "2016-09-08 09:38:00"
+lastmod: '2016-09-08 09:38:00'
+slug: gateone
+summary: Nginx配置SSL证书选用Let's Encrypt，可通过编译或一键包安装。Gateone支持源码和deb两种安装方式：源码安装需先配置Python依赖环境再执行安装命令，deb包直接下载安装。安装后生成默认配置文件，修改端口号等参数即可使用，注意需指定中文编码和端口设置。
+tags:
+- nginx
+- gateone
+- ssh
+- web
+- shell
+title: Web 版 SSH Gateone
 ---
 
 ### 1、配置 Nginx，配置    ssl 证书

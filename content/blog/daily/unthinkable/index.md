@@ -1,13 +1,18 @@
 ---
-title: "原来我也害怕独处"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["日记","睡觉","独处"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-01-18 10:26:02'
 draft: false
-slug: "unthinkable"
-summary: "文章讲述了作者对独处的害怕和不喜欢，睡觉前总是告诉自己要怎样做事情，但醒来后心情又会改变。坐着、站着、走着时作者会冷静沉默安静，只有忙碌才能避免胡思乱想。即使没事可做也会找事做或者发呆喝水来淡化内心的东西。虽然不困但也不愿意去睡觉。最近作息时间令人反感。"
-date: "2011-01-18 10:26:02"
-lastmod: "2011-01-18 10:26:02"
+lastmod: '2011-01-18 10:26:02'
+slug: unthinkable
+summary: 躺着和坐着时对同一件事想法不同，其实是害怕独处。睡前常下决心，醒来却变卦；白天忙碌时异常冷静，靠不停做事或喝水逃避思考。总把自己累到不行才肯睡，但讨厌这种混乱作息。
+tags:
+- 日记
+- 睡觉
+- 独处
+title: 原来我也害怕独处
 ---
 
 <embed src="http://www.xiami.com/widget/0_24433/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>

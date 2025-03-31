@@ -1,13 +1,20 @@
 ---
-title: "哀其不幸，怒其不争啊"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["CS","IEM6","比赛","广州","Tyloo"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-10-03 16:37:24'
 draft: false
-slug: "bullshit"
-summary: "这篇文章介绍了作者观看一场CS比赛时的无心工作和生活的感受。中国Tyloo队与德国Mouz队、芬兰WinFakt队对阵，但表现不佳，导致作者感到失望和愤怒。作者描述了比赛中出现的各种困境和不顺利的情况，让他感到伤感。"
-date: "2011-10-03 16:37:24"
-lastmod: "2011-10-03 16:37:24"
+lastmod: '2011-10-03 16:37:24'
+slug: bullshit
+summary: Tyloo比赛表现糟糕，背身打不死、战术混乱、ECO局被翻盘，枪法变形频繁被秒，看得人又气又无奈，完全影响正常生活状态。
+tags:
+- CS
+- IEM6
+- 比赛
+- 广州
+- Tyloo
+title: 哀其不幸，怒其不争啊
 ---
 
 看个 CS 比赛，看得我无心工作，无心生活。

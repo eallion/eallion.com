@@ -1,13 +1,21 @@
 ---
-title: "eallion.com 月度统计报告与展望"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["博客","统计","报告","分析","展望"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-02-03 00:00:00'
 draft: false
-slug: "statistical-report"
-summary: "本报告为 eallion.com 博客最近 30 天的百度统计报告，分析了访客习惯和网页设计。发现使用 1440*900 分辨率最多，主流浏览器仍然是 IE、Chrome 和 Firefox。访问者以 Windows XP 用户居多，国内访问集中在沿海地区。作者坚持页面简洁和内容原创，并表示会回访留言的朋友。"
-date: "2011-02-03 00:00:00"
-lastmod: "2011-02-03 00:00:00"
+lastmod: '2011-02-03 00:00:00'
+slug: statistical-report
+summary: 博客分析了最近30天的访问数据，发现访客主要使用1440*900等宽屏分辨率，浏览器以主流产品为主。作者坚持简洁原创原则，不会刻意迎合搜索引擎或特定浏览器。统计显示Windows
+  XP用户仍占多数，访问者多来自国内沿海地区及海外。博客主机目前使用电信线路，暂无更换计划。
+tags:
+- 博客
+- 统计
+- 报告
+- 分析
+- 展望
+title: eallion.com 月度统计报告与展望
 ---
 
 <blockquote > 本报告为本博客最近 30 天的百度统计报告，旨在帮忙我分析访客习惯，为来访的朋友提供更优质和人性化的阅读体验。</blockquote>

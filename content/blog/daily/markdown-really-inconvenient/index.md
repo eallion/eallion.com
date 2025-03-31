@@ -1,13 +1,17 @@
 ---
-title: "markdown 确实不方便"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["博客","markdown"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2015-01-19 09:40:00'
 draft: false
-slug: "markdown-really-inconvenient"
-summary: "文章讲述了作者尝试使用 markdown 写博客的经历，一开始不习惯并觉得不方便，但后来改变了看法，认为 markdown 很好用。"
-date: "2015-01-19 09:40:00"
-lastmod: "2015-01-19 09:40:00"
+lastmod: '2015-01-19 09:40:00'
+slug: markdown-really-inconvenient
+summary: 初次尝试markdown写博客很不适应，觉得不如html方便，还遇到编辑器兼容问题。后来彻底改变看法，认为markdown非常好用。
+tags:
+- 博客
+- markdown
+title: markdown 确实不方便
 ---
 
 我自己挑战了一下 markdown，确实如网友们说 —— 不习惯！真的用 markdown 写博客很不习惯，还没有 html 来得快。而且默认的编辑器兼容性也有问题。

@@ -1,13 +1,21 @@
 ---
-title: "Ubuntu ZFS 原生全盘加密"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu", "ZFS", "encryption", "加密", "Linux"]
-slug: "ubuntu-zfs-root-encryption"
-summary: "这篇文章介绍了如何在安装Ubuntu到ZFS文件系统时使用原生加密。作者提供了具体的步骤，包括下载Ubuntu 20.04镜像，制作U盘LiveCD，进入LiveCD后选择试用Ubuntu，打开终端并编辑/usr/share/ubiquity/zsys-setup文件，然后运行ubiquity开始安装Ubuntu。文章还提到这种加密方式比《Ubuntu ZFS加密Home目录》更优秀。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2020-09-11 23:48:35+08:00
 draft: false
-date: 2020-09-11T23:48:35+08:00
-lastmod: 2020-09-11T23:48:35+08:00
+lastmod: 2020-09-11 23:48:35+08:00
+slug: ubuntu-zfs-root-encryption
+summary: Ubuntu 20.04安装镜像支持ZFS文件系统，但默认不提供全盘加密功能。通过修改LiveCD中的zsys-setup文件，可在安装时启用原生加密。具体操作为：找到含rpool的zpool
+  create代码块，添加加密参数并设置密码短语，实现Root、Boot等目录的加密。
+tags:
+- Ubuntu
+- ZFS
+- encryption
+- 加密
+- Linux
+title: Ubuntu ZFS 原生全盘加密
 ---
 
 ### 前言

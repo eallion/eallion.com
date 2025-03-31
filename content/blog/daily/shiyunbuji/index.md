@@ -1,13 +1,15 @@
 ---
-title: "时运不济"
-authors: ["eallion"]
-categories: ["日志"]
-tags: []
+authors:
+- eallion
+categories:
+- 日志
+date: '2014-04-12 13:34:00'
 draft: false
-slug: "shiyunbuji"
-summary: "文章讲述了时运不好的情况下，除了感叹之外，更需要努力。"
-date: "2014-04-12 13:34:00"
-lastmod: "2014-04-12 13:34:00"
+lastmod: '2014-04-12 13:34:00'
+slug: shiyunbuji
+summary: 运气不好别光抱怨，实际行动更重要。
+tags: []
+title: 时运不济
 ---
 
 除了感叹时运不济，更需努力。

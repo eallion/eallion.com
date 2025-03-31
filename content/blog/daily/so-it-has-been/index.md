@@ -1,13 +1,17 @@
 ---
-title: "一直这样吗"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["习惯","钱"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-11-28 22:28:14'
 draft: false
-slug: "so-it-has-been"
-summary: "这篇文章描述了作者多年来出门后钱财总是减少的情况，无论是 50 还是 500 都一样。"
-date: "2008-11-28 22:28:14"
-lastmod: "2008-11-28 22:28:14"
+lastmod: '2008-11-28 22:28:14'
+slug: so-it-has-been
+summary: 出门一趟钱就花得差不多，不管带50还是500，几年来一直如此。
+tags:
+- 习惯
+- 钱
+title: 一直这样吗
 ---
 
 只要出去一转...

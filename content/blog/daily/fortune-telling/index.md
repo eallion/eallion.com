@@ -1,13 +1,17 @@
 ---
-title: "算命"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["算命","八字"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2019-11-05 14:45:00'
 draft: false
-slug: "fortune-telling"
-summary: "国庆回老家，找退休算命先生算命。他说我的八字大，预测了三年的运势，并给了我一道符。去年、今年都不顺利，希望安稳渡过这两年。"
-date: "2019-11-05 14:45:00"
-lastmod: "2019-11-05 14:45:00"
+lastmod: '2019-11-05 14:45:00'
+slug: fortune-telling
+summary: 回老家时找了位像退休干部的算命先生，据说挺准。他说我八字大，预测了未来三年运势，给了道护身符。最近两年特别倒霉，深刻体会到"背时运"的含义，只求平稳熬过这段日子，等待好运到来。
+tags:
+- 算命
+- 八字
+title: 算命
 ---
 
 国庆回老家的时候，

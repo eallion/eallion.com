@@ -1,17 +1,19 @@
 ---
-title: "Gitea 安装备忘"
-authors: ["eallion"]
-categories: ["代码"]
-tags: 
-  - git
-  - gitea
-  - vps
-  - server
-slug: "gitea"
-summary: "这篇文章介绍了使用Docker安装Gitea的备忘录。Gitea是使用Go开发的，对系统资源需求不高，适合在树莓派等设备上运行。文章详细介绍了使用Docker安装Gitea的关键信息，包括镜像名、数据持久化、Nginx反代以及授权等步骤。文中还提到了可以使用Sqlite3数据库或宿主机的Mysql，需要在宿主机的Mysql中授权Gitea的IP访问。最后，通过在浏览器中输入绑定的域名即可访问Gitea。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2021-07-30 01:21:11+08:00
 draft: false
-date: 2021-07-30T01:21:11+08:00
-lastmod: 2021-07-30T01:21:11+08:00
+lastmod: 2021-07-30 01:21:11+08:00
+slug: gitea
+summary: Docker安装Gitea的备忘笔记，适合有Docker和Nginx基础的用户。Gitea资源占用低，树莓派也能跑。使用宿主机Mysql数据库，提供docker-compose.yml配置示例，包含镜像、环境变量和卷挂载设置。官方文档和演示链接已附上。
+tags:
+- git
+- gitea
+- vps
+- server
+title: Gitea 安装备忘
 ---
 
 > DEMO：[https://git.eallion.com/](https://git.eallion.com/)

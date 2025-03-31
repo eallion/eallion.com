@@ -1,16 +1,17 @@
 ---
-title: 爱丽丝梦游仙境症 偶发
-authors: ["eallion"]
+authors:
+- eallion
 categories:
-    - 日志
-tags:
-    - hugo
-    - blog
-slug: aiws-again
+- 日志
+date: 2020-08-30 12:19:31+00:00
 draft: false
-date: 2020-08-30T12:19:31.000Z
-lastmod: 2020-08-30T12:19:31.000Z
 lastmod: '2021-11-21T07:49:48.165Z'
+slug: aiws-again
+summary: 回乡过月半后夜间驾车，因疲劳诱发多年未发的爱丽丝梦游仙境症。症状表现为周围物体比例扭曲，公路、方向盘等显得遥远微小，视觉与认知产生严重冲突。患者意识清醒但需依靠经验控制动作，最终停车等待症状消退才继续行驶。提及童年常发病却误以为普遍现象，直至高中才知是病症。
+tags:
+- hugo
+- blog
+title: 爱丽丝梦游仙境症 偶发
 ---
 
 今天回乡下过 [月半](https://eallion.com/yueban2020/) 去了。晚上开车回家，几十里山路没有遇上什么车，可能是因为精神过于集中，而实际上身体和心态却比较疲劳，竟然 [爱丽丝梦游仙境症 (aiws)](https://eallion.com/aiws/) 又犯了，虽然小时候经常犯，但现在已经三年多没有犯过了，因为我上一次犯的时候我专门查了一下这个症状，也记了一篇 [博客](https://eallion.com/aiws/)。

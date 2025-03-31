@@ -1,14 +1,22 @@
 ---
-title: "Ubuntu 20.10 优化"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","优化","美化","ZFS","gnome"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2020-10-23 10:25:00'
 draft: false
-slug: "ubuntu2010"
-summary: "这篇文章介绍了Ubuntu 20.10的优化方法。内容包括更换软件源、系统设置、设置Sudo免密码、安装基础软件、去除鼠标加速、安装显卡驱动、下载个人配置、安装输入法、双系统时间设置、安装Guake、安装Oh My Tmux、安装Oh My Zsh、配置Vim、配置Grub引导、自动挂载硬盘、安装PulseAudio Volume Control、安装Docker、安装Gnome Shell Extensions、使用Flameshot进行截图、体验macOS Big Sur动态壁纸等。文章提醒读者不要照搬命令，建议最小化安装，并推荐使用清华大学的软件源。文中还附有作者的个人配置备份。"
-date: "2020-10-23 10:25:00"
-lastmod: "2020-10-23 10:25:00"
+lastmod: '2020-10-23 10:25:00'
+slug: ubuntu2010
+summary: 重装Ubuntu 20.10后建议进行基础优化。首先更换软件源，推荐清华源或使用个人备份源，更新系统。根据习惯调整系统设置。个人电脑可设置sudo免密码，修改/etc/sudoers文件添加用户名权限。注意公用电脑不建议免密码设置。
+tags:
+- Ubuntu
+- 优化
+- 美化
+- ZFS
+- gnome
+title: Ubuntu 20.10 优化
 ---
+
 **安装 Ubuntu 后的 20 件事**
 
 ![](/assets/images/posts/2020/10/ubuntu2010.png)

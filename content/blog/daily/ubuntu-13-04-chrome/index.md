@@ -1,13 +1,20 @@
 ---
-title: "Ubuntu 13.04 不能安装 Chrome"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["Ubuntu","Chrome","147","依赖","libudev0"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2013-05-04 14:17:21'
 draft: false
-slug: "ubuntu-13-04-chrome"
-summary: "这篇文章介绍了在Ubuntu 13.04上安装Chrome时遇到的依赖问题。作者使用sudo apt-get install libudev0命令来安装所需的libudev0软件包，但系统提示找不到此软件包。作者在Google上找到了libudev0的下载地址，并提供了i386和amd64两个版本的下载链接。安装完libudev0后，Chrome就可以正常安装了。"
-date: "2013-05-04 14:17:21"
-lastmod: "2013-05-04 14:17:21"
+lastmod: '2013-05-04 14:17:21'
+slug: ubuntu-13-04-chrome
+summary: Ubuntu13.04安装Chrome时遇到依赖问题，提示缺少libudev0但官方源找不到。通过手动下载对应版本的deb包（i386或amd64）安装后，成功解决了依赖问题，Chrome就能正常安装了。
+tags:
+- Ubuntu
+- Chrome
+- '147'
+- 依赖
+- libudev0
+title: Ubuntu 13.04 不能安装 Chrome
 ---
 
 Ubuntu13.04 安装 google-chrome-stable 依赖问题：依赖于 libudev0 (>= 147)

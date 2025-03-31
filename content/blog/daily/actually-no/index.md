@@ -1,13 +1,17 @@
 ---
-title: "其实也没什么"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["坏习惯","处事"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-11-22 22:51:31'
 draft: false
-slug: "actually-no"
-summary: "文章讲述了作者最近发现自己处理事情不好，容易忘记并导致误会产生。作者一直看自己很低微，随意且不解释。但这是个坏习惯。"
-date: "2008-11-22 22:51:31"
-lastmod: "2008-11-22 22:51:31"
+lastmod: '2008-11-22 22:51:31'
+slug: actually-no
+summary: 经常忘记事情导致误会，却总是不解释。习惯性看轻自己，随意对待一切，明知这样不好却改不掉。
+tags:
+- 坏习惯
+- 处事
+title: 其实也没什么
 ---
 
 最近发现...

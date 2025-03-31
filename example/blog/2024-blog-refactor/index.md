@@ -1,15 +1,17 @@
 ---
-title: "2024 博客变化"
-subtitle: "面向死亡编程"
-authors: ["eallion"]
-categories: ["日志"]
-tags: 
-  - daily
-  - 博客
-slug: "2024-blog-refactor"
-summary: "副标题：面向死亡编程。作者在 2023 年底回顾一年，围绕“如果我死了，我的博客怎么办”主题调整个人博客，包括转移域名实现自动续费，使用 GitHub 作为数据源，资源静态化，使用 Git Submodules 独立升级主题，重定向主站到 www 域名等，目的是在自己去世后，博客内容能最大程度保留和继续可访问。"
+authors:
+- eallion
+categories:
+- 日志
+date: 2024-01-08 21:00:02+08:00
 draft: false
-date: 2024-01-08T21:00:02+08:00
+slug: 2024-blog-refactor
+subtitle: 面向死亡编程
+summary: 2023年是后疫情时代第一年，也被称为AI元年，可能是未来十年最好的一年。作者开始深刻思考生死问题，尤其关注数字遗产处理。他将域名转移到Cloudflare并设置自动续费，确保长期在线；同时将GitHub作为核心数据存储和部署平台。博客进行了静态化改造，移除大部分远程依赖，
+tags:
+- daily
+- 博客
+title: 2024 博客变化
 ---
 
 ### 副标题：面向死亡编程

@@ -1,13 +1,19 @@
 ---
-title: "ubuntu wps 不能输入中文解决"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","linux","wps","中文"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2016-05-28 18:32:00'
 draft: false
-slug: "ubuntu-wps-cant-input-chinese"
-summary: "这篇文章介绍了如何解决Ubuntu系统中WPS不能输入中文的问题。作者提到，需要正确设置环境变量来解决WPS文字和表格不能输入中文的问题。"
-date: "2016-05-28 18:32:00"
-lastmod: "2016-05-28 18:32:00"
+lastmod: '2016-05-28 18:32:00'
+slug: ubuntu-wps-cant-input-chinese
+summary: WPS文字和表格无法输入中文是因环境变量未正确设置。解决方法是在/usr/bin/wps和/usr/bin/et文件中添加两行导出命令，分别设置XMODIFIERS和QT_IM_MODULE变量为fcitx输入法。修改后直接针对WPS生效。
+tags:
+- Ubuntu
+- linux
+- wps
+- 中文
+title: ubuntu wps 不能输入中文解决
 ---
 
 wps 文字不能输入中文解决

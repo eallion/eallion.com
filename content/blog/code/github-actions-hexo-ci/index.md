@@ -1,12 +1,20 @@
 ---
-title: "GitHub Actions 自动部署 Hexo 脚本"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["hexo","GitHub","actions","deploy"]
-slug: "github-actions-hexo-ci"
+authors:
+- eallion
+categories:
+- 代码
+date: '2019-12-28 22:53:43'
 draft: false
-date: "2019-12-28 22:53:43"
-lastmod: "2019-12-28 22:53:43"
+lastmod: '2019-12-28 22:53:43'
+slug: github-actions-hexo-ci
+summary: 网上教程常出现GitHub Actions自动部署Hexo的问题，关键在于正确配置Workflow脚本。首先生成SSH密钥对，公钥添加到Pages仓库的Deploy
+  keys并开启写入权限，私钥存入Hexo源文件仓库的Secrets。
+tags:
+- hexo
+- GitHub
+- actions
+- deploy
+title: GitHub Actions 自动部署 Hexo 脚本
 ---
 
 ### 前言

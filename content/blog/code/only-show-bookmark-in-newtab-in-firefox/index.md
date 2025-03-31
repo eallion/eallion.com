@@ -1,13 +1,22 @@
 ---
-title: "让 Firefox 只在新标签页 newtab 显示书签栏"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["google","css","Firefox","书签","新标签页","newtab","bookmark"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2019-05-19 00:45:00'
 draft: false
-slug: "only-show-bookmark-in-newtab-in-firefox"
-summary: "这篇文章介绍了如何让Firefox只在新标签页显示书签栏。最新版的Firefox提供了一个配置选项，可以设置书签栏的显示方式为“仅在新标签页显示书签”。修改方法是在Firefox地址栏输入about:config，搜索browser.toolbars.bookmarks.visibility，将其修改为newtab。文章还提到了在Firefox 69版本及之后，需要将toolkit.legacyUserProfileCustomizations.stylesheets设置为true才能生效。此外，文章还提供了通过自定义CSS来实现在特定标题页显示书签栏的方法。"
-date: "2019-05-19 00:45:00"
-lastmod: "2019-05-19 00:45:00"
+lastmod: '2019-05-19 00:45:00'
+slug: only-show-bookmark-in-newtab-in-firefox
+summary: 2020年12月25日，Firefox开发者版新增默认在新标签页显示书签栏功能。前一天发布的84.0.1版本通过配置项`browser.toolbars.bookmarks.visibility`实现三种显示模式：始终显示、永不显示或仅新标签页显示。
+tags:
+- google
+- css
+- Firefox
+- 书签
+- 新标签页
+- newtab
+- bookmark
+title: 让 Firefox 只在新标签页 newtab 显示书签栏
 ---
 
 ### 更新 3

@@ -1,13 +1,19 @@
 ---
-title: "静态博客评论系统的选择"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["hugo","blog","博客","评论"]
-slug: "comments"
-summary: "这篇文章介绍了选择静态博客评论系统的经验。静态博客没有自带评论系统，需要依赖第三方评论系统。文章提到了三种常见的第三方评论系统：Disqus、基于GitHub的评论系统和Valine。作者评价了每个评论系统的使用感受，并推荐了Utterances作为GitHub类评论系统的首选。同时，文章也提到了Valine的流行和问题，以及一些Valine的衍生产品。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2020-12-03 12:12:12+08:00
 draft: false
-date: 2020-12-03T12:12:12+08:00
-lastmod: 2020-12-03T12:12:12+08:00
+lastmod: 2020-12-03 12:12:12+08:00
+slug: comments
+summary: 静态博客没有内置评论功能，需依赖第三方系统。主流方案分三类：SaaS类如Disqus（国内访问受限）、GitHub Issues衍生工具（如Utterances）、自托管类如Valine（需搭配LeanCloud等PaaS平台）。Disqus体验最佳但国内无法直连，
+tags:
+- hugo
+- blog
+- 博客
+- 评论
+title: 静态博客评论系统的选择
 ---
 
 ### 前言

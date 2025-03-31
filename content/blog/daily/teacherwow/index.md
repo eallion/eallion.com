@@ -1,13 +1,17 @@
 ---
-title: "自言自语 - 教师"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["教师","自言自语"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2010-05-05 09:33:15'
 draft: false
-slug: "teacherwow"
-summary: "教师是光荣职业，但并非所有从事教育的人都伟大。医生、警察也一样。"
-date: "2010-05-05 09:33:15"
-lastmod: "2010-05-05 09:33:15"
+lastmod: '2010-05-05 09:33:15'
+slug: teacherwow
+summary: 教师职业光荣但从业者未必都伟大，医生、警察等行业同理。职业崇高性与个人行为需分开看待。
+tags:
+- 教师
+- 自言自语
+title: 自言自语 - 教师
 ---
 
 首先，我要阐述一下我的观点：

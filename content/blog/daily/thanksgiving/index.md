@@ -1,13 +1,17 @@
 ---
-title: "感恩"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["感恩","感谢"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-11-27 22:59:40'
 draft: false
-slug: "thanksgiving"
-summary: "这篇文章介绍了对父母、自己、朋友以及其他很多人的感谢之情。作者强调要记住并感恩那些应该感谢的人和事情，无论重要与否都要铭记在心。"
-date: "2008-11-27 22:59:40"
-lastmod: "2008-11-27 22:59:40"
+lastmod: '2008-11-27 22:59:40'
+slug: thanksgiving
+summary: 记得感谢父母、自己、朋友和所有该感谢的人。这一年发生了很多事，无论重要与否都记在心里，牢牢记住那些值得感恩的瞬间。
+tags:
+- 感恩
+- 感谢
+title: 感恩
 ---
 
 感谢父母...

@@ -1,13 +1,20 @@
 ---
-title: "SK 获得 CPH CS:GO 挑战赛冠军"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["CS","CS:GO","SK","ESC","Vavle"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2012-04-05 09:26:17'
 draft: false
-slug: "sk-cph-csgo-esc"
-summary: "这篇文章介绍了SK战队在CPH CS:GO挑战赛中获得冠军的消息，同时讨论了CS1.6和CS:S的发展和整合问题。文章提到Valve公司决定开发新一代的CS续作CS:GO，并希望整合各个平台的玩家。文章还分析了CS1.6玩家的流失情况和CS:S对CS1.6的影响，以及CS:GO在竞技游戏领域的地位和发展方向。至此，SK战队在挑战赛中的成绩被看作是对Valve的积极回应，表明大型比赛和顶级选手的支持对于CS:GO的发展至关重要。同时，文章还提到了Valve公司与CS1.6选手和玩家的积极互动，并认为吸引各个平台玩家和烧钱组织比赛可以培养新的明星选手，而对CS1.6玩家的发展问题似乎没有关注。"
-date: "2012-04-05 09:26:17"
-lastmod: "2012-04-05 09:26:17"
+lastmod: '2012-04-05 09:26:17'
+slug: sk-cph-csgo-esc
+summary: CS1.6作为经典FPS游戏因引擎老旧和电竞行业低迷逐渐衰落，Valve推出跨平台续作CS:GO试图整合各版本玩家。初期因侧重CS:S玩家意见导致职业赛事受阻，但Valve逐渐转向听取CS1.6选手建议改进游戏。部分老玩家因技术迁移恐惧抵制CS:GO，
+tags:
+- CS
+- CS:GO
+- SK
+- ESC
+- Vavle
+title: SK 获得 CPH CS:GO 挑战赛冠军
 ---
 
 CS1.6 在游戏史上已成为难以超越的经典

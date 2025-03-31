@@ -1,18 +1,20 @@
 ---
-title: "那，他吃什么？！"
-subtitle: "奈飞版《三体》观后感"
-authors: ["eallion"]
-categories: ["日志"]
-tags: 
-  - 3Body
-  - 3BodyProblem
-  - 三体
-  - 奈飞
-  - Netflix
-slug: "what-does-he-eat"
-summary: "奈飞版《三体》第一季的结尾定格在把云天明送入太空这段情节中。这是我最喜欢的一段情节之一。《三体》我读了两遍，2016 年开车通勤时在喜马拉雅听了一遍。之后又读了一遍。全书让我感怀至深，久久无法忘怀的，就是维德故意告诉程心是云天明送她星星后，他们却“杀死”了他，决定“只送大脑”时，然后她呆呆地说的那句话：——“那，他吃什么？！”"
+authors:
+- eallion
+categories:
+- 日志
+date: 2024-03-26 04:57:27+08:00
 draft: false
-date: 2024-03-26T04:57:27+08:00
+slug: what-does-he-eat
+subtitle: 奈飞版《三体》观后感
+summary: 奈飞版《三体》第一季结尾定格在云天明被送入太空的情节，这段改编引发热议。原著中"只送大脑"的冰冷决策与程心那句"他吃什么"形成强烈冲击，个人生活经历放大了这种情感共鸣。目前三个影视版本中：B站动画版口碑崩坏，腾讯版中规中矩但缺乏灵魂，奈飞版虽改动大胆却完成度高，
+tags:
+- 3Body
+- 3BodyProblem
+- 三体
+- 奈飞
+- Netflix
+title: 那，他吃什么？！
 ---
 
 ![](santi-chengxin-natachishenme.webp)

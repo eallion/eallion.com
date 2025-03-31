@@ -1,13 +1,18 @@
 ---
-title: "这个世界"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["世界","放弃","忍耐"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-11-13 13:39:25'
 draft: false
-slug: "the-world"
-summary: "这篇文章讨论了这个世界给人们带来的不舒服感受，强调了学会忍耐和放弃的重要性。同时提到数字花园以爱发电。"
-date: "2008-11-13 13:39:25"
-lastmod: "2008-11-13 13:39:25"
+lastmod: '2008-11-13 13:39:25'
+slug: the-world
+summary: 生活常令人感到不适，学会忍耐与放下是必要的生存智慧。
+tags:
+- 世界
+- 放弃
+- 忍耐
+title: 这个世界
 ---
 
 这个世界...

@@ -1,13 +1,18 @@
 ---
-title: "做小偷记"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["小偷","做小偷","偷东西"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-02-18 09:12:48'
 draft: false
-slug: "the-thief-has-in-mind"
-summary: "文章是关于作者回忆自己做小偷的经历。他写了一篇《抓小偷记》，记录了自己所干的坏事。"
-date: "2011-02-18 09:12:48"
-lastmod: "2011-02-18 09:12:48"
+lastmod: '2011-02-18 09:12:48'
+slug: the-thief-has-in-mind
+summary: 之前分享过抓小偷的经历，现在聊聊自己当小偷干的坏事。
+tags:
+- 小偷
+- 做小偷
+- 偷东西
+title: 做小偷记
 ---
 
 前边写过一篇《抓小偷记》

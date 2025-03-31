@@ -1,13 +1,16 @@
 ---
-title: "笨拙"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["笨拙"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-05-13 09:49:14'
 draft: false
-slug: "clumsy"
-summary: "这篇文章介绍了作者认为自己有很多想法，尽管有一些深度，但很难表达。作者自称口才笨拙，只是在打字方面较快，同时向老婆表示出当她不与他交流时他会感到急躁的情绪。"
-date: "2011-05-13 09:49:14"
-lastmod: "2011-05-13 09:49:14"
+lastmod: '2011-05-13 09:49:14'
+slug: clumsy
+summary: 想法很多但表达困难，常辞不达意。口才笨拙但打字快，渴望与妻子交流，沉默时会着急。
+tags:
+- 笨拙
+title: 笨拙
 ---
 
 其实我的想法是很多的

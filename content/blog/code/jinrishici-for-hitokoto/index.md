@@ -1,13 +1,20 @@
 ---
-title: "一言 APP 添加 “今日诗词” 官方源 api"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["app","一言","诗词","hitokoto","今日诗词"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2019-05-27 22:08:00'
 draft: false
-slug: "jinrishici-for-hitokoto"
-summary: "这篇文章介绍了一款名为“一言”的手机APP，它在屏幕上随机显示一句话。作者喜欢律诗和绝句，但对美句不感兴趣。然而，APP默认的数据源中没有纯古诗的内容，因此作者修改了APP的源代码，使用了“今日诗词”官方API作为数据源，并提供了自定义分类的选项。作者还解释了如何修改API的参数值以及如何选择喜欢的分类。"
-date: "2019-05-27 22:08:00"
-lastmod: "2019-05-27 22:08:00"
+lastmod: '2019-05-27 22:08:00'
+slug: jinrishici-for-hitokoto
+summary: 用户为手机一言app自定义古诗源，替换默认美句内容。偏好律诗绝句，选用"今日诗词"API。修改配置文件apiConfig.json，添加指定格式的API信息，包括地址、键名等。可自由调整apiId和分类地址，避免编号冲突。
+tags:
+- app
+- 一言
+- 诗词
+- hitokoto
+- 今日诗词
+title: 一言 APP 添加 “今日诗词” 官方源 api
 ---
 
 最近安装了一个在手机屏幕上随机显示一句的 app，最终选择了 [【一言 app】](https://www.coolapk.com/apk/com.hitokoto)

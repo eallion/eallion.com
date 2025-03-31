@@ -1,19 +1,22 @@
 ---
-title: "豆瓣同步到 Notion 和 Neodb"
-authors: ["eallion"]
-categories: ["代码"]
-tags: 
-  - hugo
-  - 豆瓣
-  - neodb
-  - notion
-slug: "douban-sync"
-summary: "本文介绍了如何将豆瓣标记同步到 Notion 和 NeoDB 的方法。作者通过 GitHub Actions 实现了将豆瓣标记的 RSS 同步到 Notion 和 NeoDB，并分享了注意事项。文章还提到，由于豆瓣图片防盗链策略升级，之前引用豆瓣图片的服务都无法使用。作者决定将观影记录迁移到 NeoDB，并对该平台进行捐款和贡献代码。在改造过程中，作者发现了一篇已经有人做好的教程《豆瓣标记导出到 Notion 并同步》，因此放弃自己造轮子，在该教程基础上完成了操作。最后，作者分享了两个坑以及对 Notion Integration 升级后的修改方法。"
-series: ["NeoDB"]
-series_weight: 3
-seriesNavigation: true
+authors:
+- eallion
+categories:
+- 代码
+date: 2023-07-14 22:41:16+08:00
 draft: false
-date: 2023-07-14T22:41:16+08:00
+series:
+- NeoDB
+seriesNavigation: true
+series_weight: 3
+slug: douban-sync
+summary: 怡红公子的GitHub项目已支持豆瓣标记同步到NeoDB。有人分享了通过GitHub Actions将豆瓣RSS最新10条活动记录同步到Notion和NeoDB的方法，但需注意这些记录包含所有活动而不仅限于电影标记。由于豆瓣图片防盗链升级导致服务中断，
+tags:
+- hugo
+- 豆瓣
+- neodb
+- notion
+title: 豆瓣同步到 Notion 和 Neodb
 ---
 
 ### 更新

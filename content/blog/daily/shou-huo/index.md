@@ -1,13 +1,16 @@
 ---
-title: "收获"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["收获"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2012-02-18 12:21:58'
 draft: false
-slug: "shou-huo"
-summary: "文章讲述了一个关于收获的故事，主要内容包括人们在摸索前进的道路上需要努力和摸索，以及与成功人士交流可以带来启发。同时还提到了迷茫和踏青等话题。"
-date: "2012-02-18 12:21:58"
-lastmod: "2012-02-18 12:21:58"
+lastmod: '2012-02-18 12:21:58'
+slug: shou-huo
+summary: 与优秀者交流收获远超长期自学，瞬间明晰方向。未来充满希望，但需亲身实践探索路径。
+tags:
+- 收获
+title: 收获
 ---
 
 跟成功人士谈一席话

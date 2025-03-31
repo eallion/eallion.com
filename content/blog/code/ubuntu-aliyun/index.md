@@ -1,13 +1,19 @@
 ---
-title: "Ubuntu 源 阿里云"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","阿里云","源","更新源"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2016-09-24 15:32:00'
 draft: false
-slug: "ubuntu-aliyun"
-summary: "这篇文章介绍了阿里云对Ubuntu操作系统的支持，提供了Ubuntu的软件源。阿里云通过这个软件源，为用户提供稳定可靠的软件下载和更新服务。这个软件源被称为“大大的小蜗牛”，可以让Ubuntu用户更方便地获取所需的软件资源。"
-date: "2016-09-24 15:32:00"
-lastmod: "2016-09-24 15:32:00"
+lastmod: '2016-09-24 15:32:00'
+slug: ubuntu-aliyun
+summary: 用sudo权限编辑apt软件源配置文件，替换为阿里云镜像源，包含xenial系统的主分支、更新、宇宙、多元宇宙及安全更新仓库地址。
+tags:
+- Ubuntu
+- 阿里云
+- 源
+- 更新源
+title: Ubuntu 源 阿里云
 ---
 
 ```bash

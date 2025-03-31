@@ -1,13 +1,17 @@
 ---
-title: "略"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["略","糊涂"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-12-29 23:12:00'
 draft: false
-slug: "slightly"
-summary: "文章就说了略，其他的什么也没说。"
-date: "2008-12-29 23:12:00"
-lastmod: "2008-12-29 23:12:00"
+lastmod: '2008-12-29 23:12:00'
+slug: slightly
+summary: 心里清楚却故意不说破，揣着明白装糊涂。
+tags:
+- 略
+- 糊涂
+title: 略
 ---
 
 我知道...

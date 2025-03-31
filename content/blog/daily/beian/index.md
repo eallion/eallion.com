@@ -1,13 +1,18 @@
 ---
-title: "备案"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["备案","主机","阿里云"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2016-09-04 13:33:00'
 draft: false
-slug: "beian"
-summary: "这篇文章介绍了作者将自己的主机从原来的位置换到了阿里云，并且通过备案的过程，成功获得了备案号：浙 ICP 备 16031768 号。整个备案过程耗时16天2小时。"
-date: "2016-09-04 13:33:00"
-lastmod: "2016-09-04 13:33:00"
+lastmod: '2016-09-04 13:33:00'
+slug: beian
+summary: 网站迁移至阿里云服务器，耗时16天2小时完成备案，获得备案号浙ICP备16031768号。
+tags:
+- 备案
+- 主机
+- 阿里云
+title: 备案
 ---
 
 主机换到阿里云；

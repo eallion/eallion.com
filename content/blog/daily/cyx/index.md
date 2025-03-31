@@ -1,13 +1,17 @@
 ---
-title: "cyx，一路走好"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["CS","cyx"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2010-07-29 19:11:10'
 draft: false
-slug: "cyx"
-summary: "文章概括：德国 Mouz 明星选手 cyx 不幸逝世，给 CS 界带来巨大打击。他的离世让人们惋惜和震惊，对于中国玩家而言是个重要偶像。他在比赛中展现出了卓越的枪法和技术，深受其他职业选手的模仿和参考。cyx 的去世也让人回忆起其他英年早逝的优秀玩家。无论如何，我们都向 cyx 致敬，并祈愿他们一路走好。"
-date: "2010-07-29 19:11:10"
-lastmod: "2010-07-29 19:11:10"
+lastmod: '2010-07-29 19:11:10'
+slug: cyx
+summary: 午觉睡过头错过IEM上海站直播，发现电竞明星cyx突然离世的消息。作为Mouz战队核心成员，他的去世不仅影响队伍实力，更打击了整个CS圈。作者回忆cyx独特的游戏风格对自己的深刻影响，尤其擅长inferno地图的战术。联想到早年中国选手ooee的早逝，感慨天才选手命运多舛。
+tags:
+- CS
+- cyx
+title: cyx，一路走好
 ---
 
 今天中午睡午觉

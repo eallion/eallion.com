@@ -1,13 +1,19 @@
 ---
-title: "悲从中来"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["CS","上帝","比赛","车"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2012-04-27 12:17:34'
 draft: false
-slug: "beishang"
-summary: "这篇文章介绍了作者遭遇车祸对他参加比赛产生的影响。尽管作者的手受伤了，但他很庆幸这并没有影响到队友，他感叹说上帝总是与他的CS（可能指游戏Counter-Strike）不和。"
-date: "2012-04-27 12:17:34"
-lastmod: "2012-04-27 12:17:34"
+lastmod: '2012-04-27 12:17:34'
+slug: beishang
+summary: 昨晚手被车撞但无大碍，不影响今晚比赛。十年CS生涯总遇不顺，仿佛被命运针对。
+tags:
+- CS
+- 上帝
+- 比赛
+- 车
+title: 悲从中来
 ---
 
 今晚有个比赛

@@ -1,13 +1,18 @@
 ---
-title: "谷歌翻译"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["google","谷歌","翻译"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2013-11-18 12:31:00'
 draft: false
-slug: "gu-ge-fan-yi"
-summary: "这篇文章介绍了一些在Google翻译中输入特定内容后出现有趣结果的段子。其中包括输入一些乱码后听到德语的结果、输入儿歌和河南话听到有趣的语音、以及输入东北腔广东话听到雷人结果等。文章还提到了Google翻译将“啪啪啪”翻译成Flap和Lovemaking等有趣的例子。"
-date: "2013-11-18 12:31:00"
-lastmod: "2013-11-18 12:31:00"
+lastmod: '2013-11-18 12:31:00'
+slug: gu-ge-fan-yi
+summary: Google翻译隐藏搞笑彩蛋：输入特定无意义德语词组朗读会变成电子音乐；重复"鹅"字加机车故障台词播放时产生魔性效果；河南话版"生命如此辉煌"文本朗读神还原；字母表英译中发音变成中式英语；东北腔广东话翻译让本地人崩溃；"啪啪啪"被准确译成"Lovemaking"；韩语和泰语输入朗
+tags:
+- google
+- 谷歌
+- 翻译
+title: 谷歌翻译
 ---
 
 [http://translate.google.com/](http://translate.google.com/)

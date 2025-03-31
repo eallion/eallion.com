@@ -1,18 +1,20 @@
 ---
-title: "中文大约的确已经死了"
-authors: ["eallion"]
-categories: ["分享"]
-tags: 
-    - 中文
-    - 低幼
-    - 巨婴
-    - 敏感
-    - 废话
-slug: "chinese-is-probably-dead"
-summary: "文章指出，现代中文越来越低幼化、敏感化、缺乏创造力和充斥废话。作者认为这是因为成年人接受了这种低龄化的表达方式。他呼吁保护中文的严肃性和力量，并反思中文失去创造力的问题。最后，作者引用姜文的观点，认为年轻人推崇的东西往往是老年人创造和引领的，暗示中文之所以死亡可能与其过早地被年轻化有关。"
+authors:
+- eallion
+categories:
+- 分享
+date: 2022-05-20 21:12:09+08:00
 draft: true
-date: 2022-05-20T21:12:09+08:00
-lastmod: 2022-05-20T21:12:09+08:00
+lastmod: 2022-05-20 21:12:09+08:00
+slug: chinese-is-probably-dead
+summary: 中文网络用语呈现低幼化趋势，疫情中将阳性患者戏称为"小羊人"等词汇流行，严肃事件被过度娱乐化。敏感词泛滥导致"杀"字被符号替代，造成荒谬的语义扭曲。表达方式日益贫瘠，"绝绝子"等万能词泛滥，谐音梗过度使用削弱了语言创造力。这些现象反映出中文正在失去精准性与思想深度，
+tags:
+- 中文
+- 低幼
+- 巨婴
+- 敏感
+- 废话
+title: 中文大约的确已经死了
 ---
 
 > 转载自微信公众号：[https://mp.weixin.qq.com/s/GZKMemoSIDtKBKOI6orVsQ](https://mp.weixin.qq.com/s/GZKMemoSIDtKBKOI6orVsQ)

@@ -1,13 +1,20 @@
 ---
-title: "阿里云 OSS 挂载为数据盘搭建 piwigo 相册"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["阿里云","oss","piwigo","相册","挂载"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2017-04-01 12:03:00'
 draft: false
-slug: "piwigo-in-alioss"
-summary: "这篇文章介绍了如何将阿里云的对象存储OSS的Bucket挂载为ECS的数据盘，并使用piwigo搭建相册。文章提供了详细的步骤，包括安装依赖、编译、设置Bucket等。挂载OSS为数据盘后，可以解析PHP文件，扩展了功能。同时，文章还介绍了piwigo的下载、上传、解压、配置安装等步骤，以及如何优化相册。最后提醒读者替换虚拟信息为自己的相关信息。"
-date: "2017-04-01 12:03:00"
-lastmod: "2017-04-01 12:03:00"
+lastmod: '2017-04-01 12:03:00'
+slug: piwigo-in-alioss
+summary: 将阿里云OSS存储桶挂载到ECS作为数据盘，支持解析PHP文件，突破静态网页限制。具体步骤包括安装依赖、编译ossfs工具、配置Bucket信息并设置权限，最后挂载到指定目录。这种方法能利用OSS低成本高稳定性特点，搭建私人网盘或相册等应用。
+tags:
+- 阿里云
+- oss
+- piwigo
+- 相册
+- 挂载
+title: 阿里云 OSS 挂载为数据盘搭建 piwigo 相册
 ---
 
 > 本文主要分为两部分：

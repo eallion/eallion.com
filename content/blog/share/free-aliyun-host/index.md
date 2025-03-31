@@ -1,13 +1,19 @@
 ---
-title: "免费送阿里云虚拟主机"
-authors: ["eallion"]
-categories: ["分享"]
-tags: ["主机","阿里云","免费主机","虚拟主机"]
+authors:
+- eallion
+categories:
+- 分享
+date: '2016-09-23 14:36:00'
 draft: false
-slug: "free-aliyun-host"
-summary: "阿里云论坛推出免费送虚拟主机活动，但只限新用户领取。分享链接：https://promotion.aliyun.com/ntms/act/freeall.html"
-date: "2016-09-23 14:36:00"
-lastmod: "2016-09-23 14:36:00"
+lastmod: '2016-09-23 14:36:00'
+slug: free-aliyun-host
+summary: 阿里云论坛活动提供免费虚拟邮箱激活码"vaw1xm"，仅限新用户领取。活动页面可搜索"eallion"查看详情。另附9折推荐码"k1x9gh"供使用。
+tags:
+- 主机
+- 阿里云
+- 免费主机
+- 虚拟主机
+title: 免费送阿里云虚拟主机
 ---
 
 > 免费激活码：`vaw1xm`

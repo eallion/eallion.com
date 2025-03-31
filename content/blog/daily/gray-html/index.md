@@ -1,13 +1,19 @@
 ---
-title: "网页黑白代码"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["代码","网页","html","黑白"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2013-04-23 15:09:00'
 draft: false
-slug: "gray-html"
-summary: "这篇文章介绍了网页黑白代码，通过使用最新的网页标准协议以及添加CSS代码，可以实现网页的黑白显示。如果网页没有全站CSS代码，可以在<head>标签和<body>标签之间添加HTML代码来实现。"
-date: "2013-04-23 15:09:00"
-lastmod: "2013-04-23 15:09:00"
+lastmod: '2013-04-23 15:09:00'
+slug: gray-html
+summary: 使用XHTML 1.0过渡型文档声明确保网页标准兼容。通过CSS滤镜实现全站灰度效果，可直接在HTML头部插入样式代码或添加到现有CSS中。核心代码包括DOCTYPE声明和grayscale滤镜属性，支持IE和Webkit内核浏览器。
+tags:
+- 代码
+- 网页
+- html
+- 黑白
+title: 网页黑白代码
 ---
 
 1，确认使用最新的网页标准协议：

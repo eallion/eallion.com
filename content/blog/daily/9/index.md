@@ -1,13 +1,18 @@
 ---
-title: "Search for 9"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["爱","i love you","9"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-09-29 09:55:53'
 draft: false
-slug: "9"
-summary: "这篇文章介绍了一个搜索任务，要求在给定的文本中查找数字9，并使用Ctrl+F快捷键进行高亮显示。文章提供了一串包含大量数字9的字符串，要求读者按照指示进行搜索。"
-date: "2011-09-29 09:55:53"
-lastmod: "2011-09-29 09:55:53"
+lastmod: '2011-09-29 09:55:53'
+slug: '9'
+summary: 数字矩阵呈现特定9和6的排列组合，通过Ctrl+F搜索9可高亮显示其分布规律。
+tags:
+- 爱
+- i love you
+- '9'
+title: Search for 9
 ---
 
 99669999996669999996699666699666999966699666699

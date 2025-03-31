@@ -1,20 +1,23 @@
 ---
-title: "Memos API 获取总条数"
-authors: ["eallion"]
-categories: ["代码"]
-tags:
-    - 嘀咕
-    - 哔哔
-    - Memos
-    - talk
-slug: "memos-total-count"
-summary: "这篇文章介绍了使用Memos API获取总条数的方法。作者指出Memos官方amount API已不再使用，而是要利用Json返回的数据总条数计算Memos的总条数。"
-series: ["Memos"]
-series_weight: 5
-seriesNavigation: true
+authors:
+- eallion
+categories:
+- 代码
+date: 2022-11-06 16:34:22+08:00
 draft: false
-date: 2022-11-06T16:34:22+08:00
-lastmod: 2022-11-06T16:34:22+08:00
+lastmod: 2022-11-06 16:34:22+08:00
+series:
+- Memos
+seriesNavigation: true
+series_weight: 5
+slug: memos-total-count
+summary: Memos官方弃用了`amount` API，改用Json数据计算总条数。示例代码通过请求指定API获取数据长度，并更新页面显示总数。页面加载时自动执行该函数，错误时进行相应处理。
+tags:
+- 嘀咕
+- 哔哔
+- Memos
+- talk
+title: Memos API 获取总条数
 ---
 
 ***更新**：Memos 官方 `amount` API 已弃用。（[Issues #1214](https://github.com/usememos/memos/issues/1214)）

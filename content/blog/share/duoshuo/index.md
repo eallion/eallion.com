@@ -1,13 +1,18 @@
 ---
-title: "多说即将关闭"
-authors: ["eallion"]
-categories: ["分享"]
-tags: ["多说","duoshuo","通知"]
+authors:
+- eallion
+categories:
+- 分享
+date: '2017-03-21 22:51:00'
 draft: false
-slug: "duoshuo"
-summary: "多说评论系统因公司业务调整即将关闭，用户可在 6 月 1 日前导出站点评论数据。感谢多说为公益项目坚持并提供方便的评论系统，希望他们一切顺利。其他替代品有网易云跟贴等。"
-date: "2017-03-21 22:51:00"
-lastmod: "2017-03-21 22:51:00"
+lastmod: '2017-03-21 22:51:00'
+slug: duoshuo
+summary: 多说评论系统因业务调整将于2017年6月1日关闭，用户需提前导出站点评论数据。团队对造成不便表示歉意，感谢用户长期支持。作者感慨多说作为公益项目运营不易，曾亲身体验其便捷性和社交功能。建议用户迁移至网易云跟贴等替代方案。
+tags:
+- 多说
+- duoshuo
+- 通知
+title: 多说即将关闭
 ---
 
 > [重要通知：多说即将关闭](http://dev.duoshuo.com/threads/58d10f50e9a8cb4433fd5c5d)

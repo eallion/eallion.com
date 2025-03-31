@@ -1,13 +1,17 @@
 ---
-title: "败了好多鼠标键盘"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["鼠标","键盘"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2015-07-23 14:48:00'
 draft: false
-slug: "mouse-and-keyboard"
-summary: "文章内容是关于作者购买了多种品牌的鼠标和键盘，但都不满意。他列举了一些具体型号，包括 Logitech、Microsoft、Razer 等，并表示对它们的性能感到失望。"
-date: "2015-07-23 14:48:00"
-lastmod: "2015-07-23 14:48:00"
+lastmod: '2015-07-23 14:48:00'
+slug: mouse-and-keyboard
+summary: 经典鼠标型号包括罗技MX518、微软IE3.0 FK、雷蛇炼狱蝰蛇、卓威EC2系列。键盘推荐戴尔8115、三星PLEOMAX、曜越MEKA87、赛睿6Gv2和富勒FL8000，覆盖不同价位和需求。
+tags:
+- 鼠标
+- 键盘
+title: 败了好多鼠标键盘
 ---
 
 鼠标：

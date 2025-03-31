@@ -1,13 +1,21 @@
 ---
-title: "Ubuntu 19.10 优化"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","优化","美化","ZFS","gnome"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2019-11-29 12:36:00'
 draft: false
-slug: "ubuntu1910"
-summary: "这篇文章介绍了对Ubuntu 19.10的优化方法。包括更换软件源、系统设置、安装GNOME Tweaks、去鼠标加速、安装Gdebi、安装Chrome、安装插件等。同时还提到了Ubuntu 19.10新版本对性能提升的重要性以及安装时可以选择ZFS文件系统和原生支持Nvidia显卡驱动的优点。文章中还推荐了一些常用软件和硬件环境的设置。总体上，这篇文章对Ubuntu 19.10进行了高度评价和详细介绍。"
-date: "2019-11-29 12:36:00"
-lastmod: "2019-11-29 12:36:00"
+lastmod: '2019-11-29 12:36:00'
+slug: ubuntu1910
+summary: Ubuntu 19.10性能提升明显，支持ZFS文件系统和Nvidia显卡驱动原生安装。安装时可选择最小化模式避免预装无用软件，新增安全图形选项解决黑屏问题。系统配置为Intel
+  i5-7500处理器、GTX 1050 Ti显卡、16GB内存，运行GNOME桌面环境。
+tags:
+- Ubuntu
+- 优化
+- 美化
+- ZFS
+- gnome
+title: Ubuntu 19.10 优化
 ---
 
 ![](/assets/images/posts/2019/11/2252212556.png)

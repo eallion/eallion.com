@@ -1,13 +1,18 @@
 ---
-title: "「我谈的话题没什么敏感的」"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["敏感","时政","水果"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2019-06-08 19:33:00'
 draft: false
-slug: "theres-nothing-sensitive-about-what-im-talking-about"
-summary: "这篇文章介绍了一个人谈话题时的敏感与问题。作者提到谈论敏感话题并不是问题的根源，而不敏感的态度才是最大的问题。他举例说明了人们对于物价上涨导致无法负担水果的抱怨，但却很少有人关心为什么会这样。文章指出有些人只关心自己的小确幸，不关心时政、科技、文化等重要问题，直到遇到经济问题时才意识到自己的无力。"
-date: "2019-06-08 19:33:00"
-lastmod: "2019-06-08 19:33:00"
+lastmod: '2019-06-08 19:33:00'
+slug: theres-nothing-sensitive-about-what-im-talking-about
+summary: 回避敏感话题本身就是问题。只关注表面现象而不追问原因，最终连个人生活都难以保障。过度自我封闭会导致对现实变化的迟钝，当危机来临时已无法应对。保持对重要议题的关注和思考，才能避免被动局面。
+tags:
+- 敏感
+- 时政
+- 水果
+title: 「我谈的话题没什么敏感的」
 ---
 
 「我谈的话题没什么敏感的」

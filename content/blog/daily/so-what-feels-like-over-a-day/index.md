@@ -1,13 +1,17 @@
 ---
-title: "感觉像是等什么的过了一天"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["等待","等"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-12-17 21:38:11'
 draft: false
-slug: "so-what-feels-like-over-a-day"
-summary: "文章讲述了作者一天的经历，他感觉像是在等待着什么。早上醒来后感到有点难受，但这只是小问题。作者认为今天与以往不同，这种感觉与人有关。文章提到数字花园和用爱发电的概念。"
-date: "2008-12-17 21:38:11"
-lastmod: "2008-12-17 21:38:11"
+lastmod: '2008-12-17 21:38:11'
+slug: so-what-feels-like-over-a-day
+summary: 一整天都在莫名等待，醒得早还宿醉难受，但都不算大事。隐约觉得今天很特别，可能和某个人有关。
+tags:
+- 等待
+- 等
+title: 感觉像是等什么的过了一天
 ---
 
 感觉像是等什么的过了一天...

@@ -1,17 +1,19 @@
 ---
-title: "Hugo 博客集成 Mastodon"
-authors: ["eallion"]
-categories: ["代码"]
-series: ["Mastodon"]
-tags: 
-  - Mastodon
-  - 长毛象
-  - 博客
-slug: "hugo-blog-embed-mastodon"
-summary: "本文介绍了如何将 Hugo 博客集成到 Mastodon 中。作者首先解释了 API 和 RSS 两种方式可以用来集成 Mastodon，然后详细介绍了使用 API 和 JS 的方法。他使用了一个名为 mastodon-embed-timeline 的 JS 包进行集成，并提供了安装步骤。接下来，作者说明了如何创建一个新的模板文件并修改其中的 CSS 和 JS 引入部分以及配置 Mastodon 参数。最后，作者指导读者在 content 目录下创建一个页面，并插入渲染 Mastodon 容器所需的 HTML 代码。文章给出了具体示例和技巧，帮助读者实现 Hugo 博客与 Mastodon 的集成。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2024-10-20 16:05:03+08:00
 draft: false
-date: 2024-10-20T16:05:03+08:00
-# images: ["/assets/images/og/blog-integration-mastodon.png"] # Delete this line
+series:
+- Mastodon
+slug: hugo-blog-embed-mastodon
+summary: Mastodon时间线可以通过JS插件集成到各类博客中，包括Hugo、Hexo等。作者以Hugo为例，分享将Mastodon嘟文动态展示在博客中的方法。Mastodon支持API和RSS两种数据获取方式，早期采用静态渲染但构建耗时较长，现改用JS动态调用API实现实时加载。
+tags:
+- Mastodon
+- 长毛象
+- 博客
+title: Hugo 博客集成 Mastodon
 ---
 
 ### 说明

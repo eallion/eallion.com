@@ -1,13 +1,18 @@
 ---
-title: "昨天喝醉了... 貌似..."
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["生日","喝酒","醉"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-10-18 11:50:04'
 draft: false
-slug: "drunk-yesterday"
-summary: "文章讲述了作者昨天喝醉后的一些模糊记忆，包括喝了几瓶啤酒和二锅头，感觉有点醉，但清醒后应该要回忆起来。"
-date: "2008-10-18 11:50:04"
-lastmod: "2008-10-18 11:50:04"
+lastmod: '2008-10-18 11:50:04'
+slug: drunk-yesterday
+summary: 朋友ZS生日聚会喝嗨了，先喝了几瓶啤酒，接着灌了两瓶二锅头，又继续喝啤酒。最后喝断片儿了，醒来后提醒自己得保持清醒。
+tags:
+- 生日
+- 喝酒
+- 醉
+title: 昨天喝醉了... 貌似...
 ---
 
 ZS 过生...

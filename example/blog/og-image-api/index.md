@@ -1,13 +1,15 @@
 ---
-title: "部署动态生成 OG Image 的 API"
-authors: ["eallion"]
-categories: ["日志"]
-tags: 
-  - daily
-slug: "og-image-api"
-summary: "文章介绍了部署动态生成 OG Image 的 API，作者使用 @vercel/og 包和 Next.js 应用来生成 Open Graph 图片。然而，由于不支持中文和字体大小限制，作者决定手动生成 OG Image，并分享了压缩字体的方法。文章还提供了具体操作步骤和自定义修改的地方，并推荐了其他相关工具和插件。最后，作者分享了自己目前使用的手动生成 OG Image 工具链接。"
+authors:
+- eallion
+categories:
+- 日志
+date: 2023-11-23 16:05:52+08:00
 draft: false
-date: 2023-11-23T16:05:52+08:00
+slug: og-image-api
+summary: Vercel的@vercel/og包可生成OG Image，但不支持中文。作者曾用得意黑字体搭建Next.js应用生成中文OG图片，后改用思源宋体。由于Vercel免费套餐限制字体大小，需压缩字体体积。现已改为手动生成OG图片。建议参考官方文档解决类似问题。
+tags:
+- daily
+title: 部署动态生成 OG Image 的 API
 ---
 
 ### 前言

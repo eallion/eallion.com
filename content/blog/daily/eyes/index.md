@@ -1,12 +1,20 @@
 ---
-title: "爱笑的眼睛"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["LOST","眼睛","董卿","Kate","Grey"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-02-21 08:55:47'
 draft: false
-slug: "eyes"
-date: "2011-02-21 08:55:47"
-lastmod: "2011-02-21 08:55:47"
+lastmod: '2011-02-21 08:55:47'
+slug: eyes
+summary: 突然意识到自己一直偏爱某种特定类型的眼睛，就像黑暗中突然看见光。这种喜欢从小就有，却直到遇见类似Kate、Grey（戴口罩时）或董卿的眼睛才恍然大悟。最钟爱的是徐熙颜那样的眼睛。
+tags:
+- LOST
+- 眼睛
+- 董卿
+- Kate
+- Grey
+title: 爱笑的眼睛
 ---
 
 以前我自己没发觉

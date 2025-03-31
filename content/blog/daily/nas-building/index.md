@@ -1,16 +1,18 @@
 ---
-title: "NAS 折腾记"
-authors: ["eallion"]
-categories: ["日志"]
-tags: 
-  - NAS
-  - 装机
-  - 折腾
-slug: "nas-building"
-summary: "文章讲述了作者在家中利用闲置硬件组装 NAS 服务器的经历。起初，作者尝试在小主机上安装飞牛 NAS，但因硬件不足而决定使用老旧硬件单独搭建一台物理机。过程中遇到多个意外，包括缺少 VGA 显示器、NAS 死机以及电源线断裂等问题。在解决这些困难后，最终成功完成了装机，并总结出“没事别瞎折腾”的经验教训。此外，文中还列出了详细的配置清单和预算超支情况。整个过程反映了 DIY 装机可能面临的挑战与不确定性，以及对技术细节处理的重要性。"
+authors:
+- eallion
+categories:
+- 日志
+date: 2025-03-18 20:05:36+08:00
 draft: false
-date: 2025-03-18T20:05:36+08:00
-# images: ["/assets/images/og/nas.png"] # Delete this line
+slug: nas-building
+summary: 作者尝试用闲置硬件组装飞牛NAS物理机，主要满足影视服务和文件备份需求。装机过程接连遭遇意外：显示器接口不匹配、NAS死机后排查发现电源线断裂，最终更换主板和电源解决问题。待机功耗25W，读写时30-40W。主要配置包括旧i5
+  7500 CPU、新购微星主板及原有内存硬盘，
+tags:
+- NAS
+- 装机
+- 折腾
+title: NAS 折腾记
 ---
 
 ### 截图

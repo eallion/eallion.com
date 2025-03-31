@@ -1,12 +1,19 @@
 ---
-title: "何去何从"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["离开","毕业","深圳","何去何从"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-11-04 22:22:43'
 draft: false
-slug: "hequhecong"
-date: "2008-11-04 22:22:43"
-lastmod: "2008-11-04 22:22:43"
+lastmod: '2008-11-04 22:22:43'
+slug: hequhecong
+summary: 即将离开却无太多不舍，心态平静如常。对去深圳有些犹豫，虽然向往但似乎别无选择，毕竟那里是多数人的共同目的地。
+tags:
+- 离开
+- 毕业
+- 深圳
+- 何去何从
+title: 何去何从
 ---
 
 马上就要离开了...

@@ -1,13 +1,20 @@
 ---
-title: "判断手机 UA"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["代码","php","ua","user agent","判断"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2015-01-13 10:43:00'
 draft: false
-slug: "judge-phone-ua"
-summary: "这篇文章介绍了如何判断手机的用户代理（User Agent），并根据不同设备跳转或调用不同的模板和CSS。对于不兼容或仅需手机端显示的页面，可以使用JavaScript判断用户代理的代码来实现。代码可插入在<head>标签之前，并将JS文件放在根目录或其他文件夹中，并注意路径。"
-date: "2015-01-13 10:43:00"
-lastmod: "2015-01-13 10:43:00"
+lastmod: '2015-01-13 10:43:00'
+slug: judge-phone-ua
+summary: 移动端适配常需检测用户设备UA，针对不同设备跳转或加载专属模板与样式。PHP代码通过正则匹配常见手机UA关键词实现识别，覆盖安卓、iOS、黑莓等主流移动端标识符，确保精准区分移动设备访问。
+tags:
+- 代码
+- php
+- ua
+- user agent
+- 判断
+title: 判断手机 UA
 ---
 
 现在的网页都会优先考虑兼容手机端，但难免有些样式或者有些排版不能完美兼容，或者有些页面只需要在手机端显示，这时候就需要对访问设备的 UA 进行判断，再跳转或者调用不同的模板和 CSS。

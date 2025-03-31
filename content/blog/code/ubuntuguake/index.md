@@ -1,13 +1,20 @@
 ---
-title: "Ubuntu 配置 Guake"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2019-11-27 02:08:00'
 draft: false
-slug: "ubuntuguake"
-summary: "这篇文章介绍了如何配置Ubuntu的Guake终端。它建议使用源码安装，因为直接安装的Guake版本较旧且中文显示不完整。"
-date: "2019-11-27 02:08:00"
-lastmod: "2019-11-27 02:08:00"
+lastmod: '2019-11-27 02:08:00'
+slug: ubuntuguake
+summary: Guake终端工具美观实用。推荐源码安装以获得最新版本并解决中文显示问题：先更新系统，安装依赖工具，克隆源码库，运行开发环境脚本后编译安装。也可直接通过apt安装，但版本较旧。
+tags:
+- Ubuntu
+- guake
+- onmyzsh
+- evervin
+- pcm
+title: Ubuntu 配置 Guake
 ---
 
 终端推荐安装 Guake ，又好看又方便：

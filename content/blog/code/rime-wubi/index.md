@@ -1,13 +1,20 @@
 ---
-title: "Rime 小狼毫 五笔输入法自定义短语"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["rime","小狼毫","五笔","自定义","短语"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2019-04-19 15:45:00'
 draft: false
-slug: "rime-wubi"
-summary: "这篇文章介绍了如何在Rime小狼毫五笔输入法中自定义短语。作者提供了具体的五个步骤来完成此操作，并包含了最新的更新日期。文章中还提供了代码示例和部分自用设置作为附加内容。"
-date: "2019-04-19 15:45:00"
-lastmod: "2019-04-19 15:45:00"
+lastmod: '2019-04-19 15:45:00'
+slug: rime-wubi
+summary: 在Rime输入法中添加自定义短语，首先进入用户文件夹创建`Custom_phrase.txt`文件，按指定格式填入短语、编码和权重。注意必须用制表符分隔字段，避免过多添加。接着新建`wubi_pinyin.custom.yaml`文件，修改配置以启用自定义短语功能，
+tags:
+- rime
+- 小狼毫
+- 五笔
+- 自定义
+- 短语
+title: Rime 小狼毫 五笔输入法自定义短语
 ---
 
 > 最新更新：2021.01.21  [eallion/dotfiles](https://github.com/eallion/dotfiles/tree/windows/Users/eallion/AppData/Roaming/Rime)

@@ -1,13 +1,20 @@
 ---
-title: "Loord 事件"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["China","CS","loord","Poland","WEM"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2010-11-05 00:32:00'
 draft: false
-slug: "loord"
-summary: "文章讲述了在杭州的全球总决赛中，波兰队员 Loord 因网络问题发表不当言论引起中国玩家的愤怒。中国玩家纷纷在各个平台上谩骂，并组团到国外网站上继续抨击。然而，作者提醒大家不要忘记之前中国队对日本队的侮辱行为，竞技体育应该远离政治色彩。最后，作者认为波兰队员的行为是不职业且没有涉及民族问题。"
-date: "2010-11-05 00:32:00"
-lastmod: "2010-11-05 00:32:00"
+lastmod: '2010-11-05 00:32:00'
+slug: loord
+summary: 杭州WEM全球总决赛上，波兰战队FX队员Loord因网络问题爆粗口"Fucking CHINA"，引发中国玩家激烈反应。国内玩家先在游戏平台谩骂，后组团到国外论坛攻击。作者认为中国社会问题确实存在，但外国选手无权辱骂，同时批评国内玩家双重标准——此前中国战队在比赛中羞辱日本队时，
+tags:
+- China
+- CS
+- loord
+- Poland
+- WEM
+title: Loord 事件
 ---
 
 故事的缘起就是在今天杭州的 WEM 全球总决赛

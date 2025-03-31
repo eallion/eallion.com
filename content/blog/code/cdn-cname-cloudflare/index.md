@@ -1,16 +1,19 @@
 ---
-title: "图床 CDN CNAME 接入 Cloudflare SaaS 实现分流"
-authors: ["eallion"]
-categories: ["代码"]
-tags: 
-  - hugo
-  - blog
-  - cname
-  - cloudflare
-slug: "cdn-cname-cloudflare"
-summary: "本文介绍了如何实现图床 CDN 域名国内境外分流。作者首先提出了实现分流的目的，即削减成本、提高性能。然后说明了实现思路，即国内域名 CNAME 指向 Cloudflare 作为回源，再通过 Cloudflare Worker 访问 R2 或 B2 存储。作者列出了各服务的免费限额，以小网站为例说明国内外分流的具体配置步骤，包括 R2 绑定域名、Cloudflare for SaaS 接入、添加 CNAME 记录、创建 Worker 等。文末总结了实现分流的关键步骤。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2023-07-29 14:35:49+08:00
 draft: false
-date: 2023-07-29T14:35:49+08:00
+slug: cdn-cname-cloudflare
+summary: 国内境外分流方案可降低成本和提升网站性能。国内使用阿里云、腾讯云的CDN和对象存储，境外用Cloudflare CDN搭配R2或Backblaze
+  B2存储。通过Cloudflare for SaaS的CNAME接入实现分流，不转移域名NS到Cloudflare。
+tags:
+- hugo
+- blog
+- cname
+- cloudflare
+title: 图床 CDN CNAME 接入 Cloudflare SaaS 实现分流
 ---
 
 ### TL;DR

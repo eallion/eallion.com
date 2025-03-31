@@ -1,13 +1,20 @@
 ---
-title: "家电决定生活"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["电脑","家电","空调","洗衣机","安定"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2012-06-13 08:28:51'
 draft: false
-slug: "jia-dian-jue-ding-sheng-huo"
-summary: "这篇文章讲述了家电对生活的影响，作者分享了自己购买台式机、洗衣机、空调和饮水机后感受到的生活安定。他还提到花时间打扫屋子，以及数字花园项目。"
-date: "2012-06-13 08:28:51"
-lastmod: "2012-06-13 08:28:51"
+lastmod: '2012-06-13 08:28:51'
+slug: jia-dian-jue-ding-sheng-huo
+summary: 漂泊的年轻人终于安定下来。添置了台式机、洗衣机、空调和饮水机，彻底打扫了乱糟糟的屋子，突然有了扎根生活的踏实感。
+tags:
+- 电脑
+- 家电
+- 空调
+- 洗衣机
+- 安定
+title: 家电决定生活
 ---
 
 现在年轻

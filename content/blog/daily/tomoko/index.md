@@ -1,13 +1,18 @@
 ---
-title: "友子"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["思念","友子","诗"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-11-11 22:52:35'
 draft: false
-slug: "tomoko"
-summary: "文章讲述了作者思念一个名叫友子的人，他们之间的关系像追逐游戏一样。文章提到了数字花园和用爱发电等词语，暗示着友子在作者心中具有特殊意义。"
-date: "2008-11-11 22:52:35"
-lastmod: "2008-11-11 22:52:35"
+lastmod: '2008-11-11 22:52:35'
+slug: tomoko
+summary: 思念如影随形，像阳光下的黑影般挥之不去。两人在追逐中纠缠一生，用最平凡的字眼道尽最深的羁绊。
+tags:
+- 思念
+- 友子
+- 诗
+title: 友子
 ---
 
 我知道...

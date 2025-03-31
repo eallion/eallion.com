@@ -1,13 +1,21 @@
 ---
-title: "Ubuntu Server 安装 Mosh"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","server","vps","ssh","mosh"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2019-11-24 16:12:00'
 draft: false
-slug: "mosh"
-summary: "这篇文章介绍了如何在Ubuntu Server上安装Mosh，以及如何在Ubuntu和手机端安装Mosh客户端。它提供了安装命令和一些配置选项，还分享了如何通过UDP连接和打开防火墙来使用Mosh。此外，文章还提到了Mosh支持修改默认端口和使用Google Authenticator二步验证等功能。"
-date: "2019-11-24 16:12:00"
-lastmod: "2019-11-24 16:12:00"
+lastmod: '2019-11-24 16:12:00'
+slug: mosh
+summary: 服务端和客户端安装Mosh只需运行`sudo apt install mosh`。Ubuntu用户可选用Termius管理多台服务器。手机端推荐JuiceSSH/Termux（安卓）或Blink
+  Shell（iOS）。安装其他系统参考官网。
+tags:
+- Ubuntu
+- server
+- vps
+- ssh
+- mosh
+title: Ubuntu Server 安装 Mosh
 ---
 
 服务端安装 Mosh：

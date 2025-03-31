@@ -1,20 +1,23 @@
 ---
-title: "联邦宇宙及 Mastodon 简介"
-authors: ["eallion"]
-categories: ["日志"]
-tags: 
-  - Fediverse
-  - Mastodon
-  - ActivityPub
-  - 联邦宇宙
-  - 长毛象
-slug: "fediverse"
-summary: "文章介绍了联邦宇宙（Fediverse）和 Mastodon 的概念。联邦宇宙是由一系列自由软件组成的网络，用户可以在不同实例上注册账号并进行互相关注、评论和点赞。Mastodon 是使用 ActivityPub 协议的一个开源社交网络软件，用户可以通过选择支持该协议的实例来加入联邦宇宙。文章还提到了其他联邦宇宙软件如 Misskey 和 GoToSocial，并分享了自建 Mastodon 实例的经验。"
-series: ["Mastodon"]
-series_weight: 1
-seriesNavigation: true
+authors:
+- eallion
+categories:
+- 日志
+date: 2024-01-14 20:58:31+08:00
 draft: false
-date: 2024-01-14T20:58:31+08:00
+series:
+- Mastodon
+seriesNavigation: true
+series_weight: 1
+slug: fediverse
+summary: 联邦宇宙使用起来很简单，选个开放实例注册账号就能玩，不喜欢随时换。不同实例间只要协议相同就能互相交流。自建实例也不难，网上教程很多。作者2017年自建Mastodon，2023年换了新域名e5n.cc继续使用。用手机号比喻：就像不同运营商手机能互相通话，
+tags:
+- Fediverse
+- Mastodon
+- ActivityPub
+- 联邦宇宙
+- 长毛象
+title: 联邦宇宙及 Mastodon 简介
 ---
 
 > <i class="fab fa-mastodon"></i> [@e5n.cc@eallion](https://e5n.cc/@eallion)

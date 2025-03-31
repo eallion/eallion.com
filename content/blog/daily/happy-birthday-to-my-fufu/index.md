@@ -1,13 +1,18 @@
 ---
-title: "福福 生日快乐"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["生日","生日快乐","福福"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2010-09-15 09:15:06'
 draft: false
-slug: "happy-birthday-to-my-fufu"
-summary: "这篇文章介绍了作者对某人的喜欢和祝福。作者提到了自己一见钟情的感觉，并表达了对对方的祝福，希望给对方送上生日快乐的祝福。文章充满了浓厚的情感和对对方的关怀。"
-date: "2010-09-15 09:15:06"
-lastmod: "2010-09-15 09:15:06"
+lastmod: '2010-09-15 09:15:06'
+slug: happy-birthday-to-my-fufu
+summary: 初次见面就心动不已，那份喜欢仿佛命中注定。虽然距离有些远，仍想亲口对你说声生日快乐。
+tags:
+- 生日
+- 生日快乐
+- 福福
+title: 福福 生日快乐
 ---
 
 从第一眼看到你我就喜欢上你了

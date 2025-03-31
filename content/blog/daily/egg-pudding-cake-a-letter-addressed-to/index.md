@@ -1,13 +1,15 @@
 ---
-title: "糕糕写给蛋蛋的信"
-authors: ["eallion"]
-categories: ["日志"]
-tags: []
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-04-01 12:07:33'
 draft: false
-slug: "egg-pudding-cake-a-letter-addressed-to"
-summary: "文章讲述了作者对蛋蛋的道歉和后悔，回忆了他们在一起的美好时光。作者承认自己是个赌徒，欺骗了蛋蛋，并表达了对她的深深爱意和愿意改过自新的决心。最后，作者希望能够得到原谅并重新开始，即使不能成为恋人也希望能保持友谊。"
-date: "2011-04-01 12:07:33"
-lastmod: "2011-04-01 12:07:33"
+lastmod: '2011-04-01 12:07:33'
+slug: egg-pudding-cake-a-letter-addressed-to
+summary: 理工科男生向妻子蛋蛋忏悔。回忆五年婚姻中妻子的种种付出：初入职场的勇敢、照顾生病父亲、精心准备三餐、包容婆媳关系、贴心照料生活细节。承认因沉迷赌球欠债，对妻子冷漠逃避，甚至利用她的信任借钱。如今妻子彻底失望选择离开，他痛悔不已。意识到妻子出身军人家庭却低调隐忍，
+tags: []
+title: 糕糕写给蛋蛋的信
 ---
 
 蛋蛋：

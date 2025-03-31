@@ -1,13 +1,18 @@
 ---
-title: "Shutter 中文乱码问题"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["中文","shutter","乱码"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2016-09-25 20:05:00'
 draft: false
-slug: "shutter-chinese-garbled"
-summary: "这篇文章介绍了一个关于Shutter中文乱码问题的解决方法。该问题包括菜单乱码和提示文字乱码。文章提到，Shutter 0.93.1版本通过对$win->get_name进行UTF-8解码来解决了这个问题。脚本文件需要进行修改，其中第8627行和第108~111行需要进行相应的修改。该方法适用于Ubuntu 16.04.1 LTS 64bit系统。"
-date: "2016-09-25 20:05:00"
-lastmod: "2016-09-25 20:05:00"
+lastmod: '2016-09-25 20:05:00'
+slug: shutter-chinese-garbled
+summary: Ubuntu 16.04系统下Shutter截图工具出现菜单和提示文字乱码。解决方法：修改/usr/bin/shutter文件第8627行，用utf8mb4_decode处理窗口名称；编辑/usr/share/perl5/Shutter/Screenshot/Window.
+tags:
+- 中文
+- shutter
+- 乱码
+title: Shutter 中文乱码问题
 ---
 
 > Ubuntu 16.04.1 LTS 64bit

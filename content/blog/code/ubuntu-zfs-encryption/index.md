@@ -1,13 +1,20 @@
 ---
-title: "Ubuntu ZFS 加密 Home 目录"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu", "ZFS", "encryption", "加密", "Linux"]
-slug: "ubuntu-zfs-encryption"
-summary: "这篇文章介绍了如何在Ubuntu操作系统中使用ZFS文件系统加密Home目录。作者提供了详细的步骤指南，包括创建临时账号、查看ZFS数据集、取消挂载和创建加密数据集等。文章还介绍了如何检测和检查加密是否成功，以及如何使用ZFS的自动快照功能和Grub引导项。最后还提到了安装加密交换空间Swap的步骤和销毁旧的数据集的方法。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2020-09-11 22:37:13+08:00
 draft: false
-date: 2020-09-11T22:37:13+08:00
-lastmod: 2020-09-11T22:37:13+08:00
+lastmod: 2020-09-11 22:37:13+08:00
+slug: ubuntu-zfs-encryption
+summary: Ubuntu 20.04支持ZFS文件系统，安装后可通过临时账号加密Home目录。先创建临时管理员账号并自动登录，随后新建长期用户。查看并记录ZFS数据集名称，取消原用户数据集挂载。最后为长期用户创建加密数据集，需设置密码短语。若遇到挂载冲突需手动排查。
+tags:
+- Ubuntu
+- ZFS
+- encryption
+- 加密
+- Linux
+title: Ubuntu ZFS 加密 Home 目录
 ---
 
 ### 前言

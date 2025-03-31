@@ -1,16 +1,18 @@
 ---
-title: "Hugo 外部链接跳转提示页面"
-authors: ["eallion"]
-categories: ["代码"]
-tags: 
-  - hugo
-  - 博客
-  - 跳转
-  - 折腾
-slug: "hugo-redirect-landing-page"
-summary: "文章介绍了作者为了合规和自我审查，在博客中迁移评论系统并清理链接，通过跳转页面实现外部链接的跳转。作者使用 Hugo 内置模板_render-link.html_进行 base64 编码，并提供了代码示例。同时，作者还介绍了如何创建一个中转页面模板_go.html_以及相关样式和脚本的设置。最后，文章指出这种方法只适用于渲染 Markdown 内容文档，并对自定义 HTML 链接做了说明。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2024-02-03 08:48:24+08:00
 draft: false
-date: 2024-02-03T08:48:24+08:00
+slug: hugo-redirect-landing-page
+summary: 博主因网络合规风险将博客评论迁移至Giscus并清理外链，借鉴他人方案实现外链跳转功能。通过Hugo的render-link.html模板和base64编码，在静态生成时自动处理外链跳转，避免直接暴露原始链接。强调个人网站备案的重要性，建议敏感内容需彻底身份隔离。
+tags:
+- hugo
+- 博客
+- 跳转
+- 折腾
+title: Hugo 外部链接跳转提示页面
 ---
 
 ### 前言

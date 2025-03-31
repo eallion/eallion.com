@@ -1,19 +1,20 @@
 ---
-title: "Chrome 插件更新：网址净化器"
-authors: ["eallion"]
-categories: ["代码"]
-tags: 
-  - Chrome
-  - extension
-  - 插件
-  - 扩展
-  - 网址
-  - 净化
-slug: "chrome-plugin-update-url-cleaner"
-summary: "这篇文章介绍了一个名为网址净化器的 Chrome 插件。该插件可以将当前标签页的网址转换成干净的网址。作者在 15 年前开发了一款电商插件，用于净化淘宝链接。他发现当时美工和客服对 URL 机制不太了解，导致店铺装修和发送给客户的链接过长。因此，他重新开发了这个插件，并进行了更新迁移至 Manifest V3、更改插件名称、添加设置白名单功能以及更新图标等操作。目前内置白名单默认支持多个常见网站，并且支持国际化（i18n）。最后，作者还提到在发布 2.0.0 版本后学习到 CSS 属性 field-sizing 并进行优化，并发布了 2.0.1 版本。感兴趣的读者可以前往 Chrome Web Store 安装体验该插件。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2024-09-22 20:43:01+08:00
 draft: false
-date: 2024-09-22T20:43:01+08:00
-# images: ["/assets/images/og/chrome-plugin-update--url-cleaner.png"] # Delete this line
+slug: chrome-plugin-update-url-cleaner
+summary: 网址净化器是一款浏览器插件，能自动清理网页链接中的冗余参数，生成简洁网址。最初为解决淘宝链接过长问题而开发，现支持京东、哔哩哔哩等平台，并允许用户自定义域名规则。开发者曾观察到电商从业者常分享含大量无用参数的链接，实际只需保留核心ID即可。插件已开源，
+tags:
+- Chrome
+- extension
+- 插件
+- 扩展
+- 网址
+- 净化
+title: Chrome 插件更新：网址净化器
 ---
 
 [网址净化器](https://chromewebstore.google.com/detail/npokdddpckpfhlecbgmplgcidebjmkfm) 是一个功能简单的工具：把当前标签页的网址净化成干净的网址，支持淘宝、京东、哔哩哔哩等，还支持自定义域名。

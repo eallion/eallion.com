@@ -1,16 +1,18 @@
 ---
-title: "Hugo .GitInfo 的替代方案"
-authors: ["eallion"]
-categories: ["代码"]
-tags:
-    - hugo
-    - GitInfo
-    - Git
-slug: "githash"
-summary: "这篇文章介绍了替代Hugo .GitInfo的方法。对于一些CI/CD中使用--depth=1选项的情况，可能会导致在构建过程中丢失content目录中.md文件的.GitInfo。作者通过使用一个替代的字符串来解决这个问题，该字符串可以在模板文件githash.html中进行替换。作者希望有更好的方法可以与大家分享。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2021-08-06 22:05:05+08:00
 draft: false
-date: 2021-08-06T22:05:05+08:00
-lastmod: 2021-08-06T22:05:05+08:00
+lastmod: 2021-08-06 22:05:05+08:00
+slug: githash
+summary: Hugo的`.GitInfo`变量无法正确显示`content`目录下文件的git hash，因为该功能仅追踪网站文件变更。使用`--depth=1`浅克隆时会丢失部分提交历史，导致hash缺失；即使完整克隆，显示的也可能不是最新commit。
+tags:
+- hugo
+- GitInfo
+- Git
+title: Hugo .GitInfo 的替代方案
 ---
 
 ### 前言

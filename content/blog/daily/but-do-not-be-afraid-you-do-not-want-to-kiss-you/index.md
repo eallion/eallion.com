@@ -1,13 +1,16 @@
 ---
-title: "你好，小强"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["小强"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-09-08 22:55:53'
 draft: false
-slug: "but-do-not-be-afraid-you-do-not-want-to-kiss-you"
-summary: "这篇文章介绍了作者在下午出门时遇到了几个挖井工人，他们打开了城市下水道的井盖。作者观察到这些挖井工人长得很专业，他们的金属壳子看起来像大号的七星瓢虫，作者觉得它们很可爱。其中一个挖井工人问作者是否要带一个回去，作者感到傻眼。文章最后提到作者买了一些东西，但是觉得拎不动了，需要扔掉。"
-date: "2011-09-08 22:55:53"
-lastmod: "2011-09-08 22:55:53"
+lastmod: '2011-09-08 22:55:53'
+slug: but-do-not-be-afraid-you-do-not-want-to-kiss-you
+summary: 下午戴美瞳出门心情好，遇见工人掀井盖惊散一群圆润可爱的小强，工人开玩笑问要不要带一只回家。想起妈妈之前说见过小强开会还不信，今天终于见识了。晚上购物买了衣服水果零食，虽然拎得吃力但自称大力士。穿高跟鞋脚疼想扔鞋。
+tags:
+- 小强
+title: 你好，小强
 ---
 
 下午出门

@@ -1,12 +1,17 @@
 ---
-title: "Gridea Hexo Hugo 等 git push 同步到多个仓库"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["hexo"]
-slug: "deploy-to-github-and-coding"
+authors:
+- eallion
+categories:
+- 代码
+date: '2019-12-16 22:58:39'
 draft: false
-date: "2019-12-16 22:58:39"
-lastmod: "2019-12-16 22:58:39"
+lastmod: '2019-12-16 22:58:39'
+slug: deploy-to-github-and-coding
+summary: GitHub Pages和Coding Pages双平台部署博客需要先创建两个仓库并申请对应token。Gridea用户需在APP内配置GitHub
+  Pages，其他静态生成工具直接在博客根目录操作。通过git remote命令添加双推送地址，确保配置正确后检查远程仓库信息。
+tags:
+- hexo
+title: Gridea Hexo Hugo 等 git push 同步到多个仓库
 ---
 
 > 以 GitHub Pages + Coding Pages 为例

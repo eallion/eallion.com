@@ -1,13 +1,20 @@
 ---
-title: "理想中的手机"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["手机","iPhone","i6","android","翻盖"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-02-18 20:51:13'
 draft: false
-slug: "dream-phone"
-summary: "文章讲述了作者对手机的喜好和理想中的手机的设想。作者提到自己喜欢过几款手机，包括 Panasonic x500、Nokia 5320、步步高 i6 和 iPhone。他表示对实体键盘有需求，并希望能够上网看小说。虽然不喜欢发短信，但仍然对手机有简单的要求：能打电话、发短信和上网。最后，作者表达了期待一款 Android + 翻盖手机的愿望，并认为目前市面上还没有符合他理想中手机要求的产品。"
-date: "2011-02-18 20:51:13"
-lastmod: "2011-02-18 20:51:13"
+lastmod: '2011-02-18 20:51:13'
+slug: dream-phone
+summary: 讨厌手机却因某人开始频繁使用，但依然有几款喜欢的机型。早年钟情滑盖的Panasonic x500和周杰伦的广告，后来喜欢小巧智能的Nokia 5320，尤其看重实体键盘的盲打功能。步步高i6青花瓷翻盖机因设计吸引人，iPhone曾是学生时代的梦想，但普及后失去独占欲。
+tags:
+- 手机
+- iPhone
+- i6
+- android
+- 翻盖
+title: 理想中的手机
 ---
 
 其实我真的很讨厌手机的

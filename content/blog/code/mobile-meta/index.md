@@ -1,13 +1,19 @@
 ---
-title: "手机网页 meta 解释"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["代码","html","meta","标签"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2015-01-12 09:58:00'
 draft: false
-slug: "mobile-meta"
-summary: "这篇文章介绍了手机网页的 meta 解释。第一个 meta 标签用于强制让文档的宽度与设备的宽度保持1:1，并且限制文档的最大宽度比例。第二个 meta 标签是 iPhone 设备中 Safari 浏览器的私有标签，允许全屏模式浏览。第三个 meta 标签指定了 iPhone Safari 顶端状态条的样式。第四个 meta 标签告诉设备忽略将页面中的数字识别为电话号码。第五个 meta 标签用于告诉 iPhone Safari 浏览器，该网站对应的 app 是什么，以显示下载 banner。"
-date: "2015-01-12 09:58:00"
-lastmod: "2015-01-12 09:58:00"
+lastmod: '2015-01-12 09:58:00'
+slug: mobile-meta
+summary: 这段HTML代码设置了移动端网页的显示效果。第一个标签让网页宽度与设备一致，禁止缩放；第二个允许iPhone全屏浏览；第三个控制顶部状态栏颜色；第四个防止自动识别电话号码；第五个关联对应的App应用。这些设置主要针对iPhone的Safari浏览器，
+tags:
+- 代码
+- html
+- meta
+- 标签
+title: 手机网页 meta 解释
 ---
 
 ```html

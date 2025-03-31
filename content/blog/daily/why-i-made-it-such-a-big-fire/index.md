@@ -1,13 +1,16 @@
 ---
-title: "我为什么会发这么大的火呢"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["日记"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-11-26 20:30:19'
 draft: false
-slug: "why-i-made-it-such-a-big-fire"
-summary: "这篇文章介绍了作者为什么会非常生气以及他对命运的态度。他提到自己生气的原因，并强调要相信命运的安排，有时候该有的会来，不该有的不要强求。他认为得到了就是幸运，失去了就是命运。"
-date: "2011-11-26 20:30:19"
-lastmod: "2011-11-26 20:30:19"
+lastmod: '2011-11-26 20:30:19'
+slug: why-i-made-it-such-a-big-fire
+summary: 突然发火确实不该，有些东西强求不来。该是你的跑不掉，不是你的留不住，得到是幸运，失去也是天意。
+tags:
+- 日记
+title: 我为什么会发这么大的火呢
 ---
 
 我为什么会发这么大的火呢

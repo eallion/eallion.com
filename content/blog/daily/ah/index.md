@@ -1,13 +1,17 @@
 ---
-title: "嗯"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["只是这样","just"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-12-13 23:08:43'
 draft: false
-slug: "ah"
-summary: "这篇文章介绍了一个大大的小蜗牛，但是具体内容描述不完整。"
-date: "2008-12-13 23:08:43"
-lastmod: "2008-12-13 23:08:43"
+lastmod: '2008-12-13 23:08:43'
+slug: ah
+summary: 就这样...
+tags:
+- 只是这样
+- just
+title: 嗯
 ---
 
 只是这样...

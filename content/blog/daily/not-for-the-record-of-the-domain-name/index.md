@@ -1,13 +1,18 @@
 ---
-title: "暂无法备案的域名后缀"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["域名","备案","阿里云"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2016-10-07 10:45:00'
 draft: false
-slug: "not-for-the-record-of-the-domain-name"
-summary: "这篇文章介绍了阿里云公告中关于暂无法进行网站备案的域名后缀的信息。提到了北京地区暂无法进行网站备案的域名后缀，并建议可以在工信部网站的“公共查询”中查看是否收录该域名后缀，具体方法是点击“域名类型”。"
-date: "2016-10-07 10:45:00"
-lastmod: "2016-10-07 10:45:00"
+lastmod: '2016-10-07 10:45:00'
+slug: not-for-the-record-of-the-domain-name
+summary: 阿里云目前无法备案的域名后缀包括.xyz、.club、.vip等45种通用后缀，北京地区额外限制.name、.info等6种后缀。备案前建议通过工信部官网“公共查询”栏目核实域名类型是否支持。
+tags:
+- 域名
+- 备案
+- 阿里云
+title: 暂无法备案的域名后缀
 ---
 
 阿里云公告的暂无法进行网站备案的域名后缀：

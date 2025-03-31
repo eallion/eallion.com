@@ -1,13 +1,19 @@
 ---
-title: "网页跳转备忘"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["代码","网页","html","跳转"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2013-05-12 17:12:00'
 draft: false
-slug: "gohtml"
-summary: "这篇文章介绍了网页跳转备忘的实现方法，包括HTML和JavaScript的实现。"
-date: "2013-05-12 17:12:00"
-lastmod: "2013-05-12 17:12:00"
+lastmod: '2013-05-12 17:12:00'
+slug: gohtml
+summary: HTML可通过meta标签实现页面刷新或定时跳转，设置content属性控制时间与目标地址。JavaScript提供两种跳转方式：location.href直接跳转，setTimeout实现延迟跳转，时间单位为毫秒。
+tags:
+- 代码
+- 网页
+- html
+- 跳转
+title: 网页跳转备忘
 ---
 
 1、html 的实现：

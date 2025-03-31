@@ -1,13 +1,21 @@
 ---
-title: "Ubuntu 鼠标加速度"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["鼠标","Ubuntu","加速度","鼠标加速","xset m 0"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2016-09-06 23:30:00'
 draft: false
-slug: "ubuntu-mouse-acceleration"
-summary: "这篇文章介绍了作者在重新安装Ubuntu系统后遇到的鼠标灵敏度问题。作者提到尝试使用命令“xset m 0”来调整鼠标加速度，但在关机重启后设置失效。由于网上关于鼠标加速度设置的信息不全面，作者记录下了配置方法并分享给读者，以便日后参考。最后，作者提到在Ubuntu软件中搜索“Mouse”，安装“Keyboard and Mouse”模块可解决此问题。"
-date: "2016-09-06 23:30:00"
-lastmod: "2016-09-06 23:30:00"
+lastmod: '2016-09-06 23:30:00'
+slug: ubuntu-mouse-acceleration
+summary: CS玩家重装Ubuntu后鼠标灵敏度不顺手，用xset m 0命令临时调整但重启失效。解决方法是在启动应用程序里添加xset m 0命令实现开机自启。另可安装Keyboard
+  and Mouse工具调整。适用于Ubuntu 16.04系统搭配Zowie鼠标的情况。
+tags:
+- 鼠标
+- Ubuntu
+- 加速度
+- 鼠标加速
+- xset m 0
+title: Ubuntu 鼠标加速度
 ---
 
 我以前是玩 CS 的，对鼠标的灵敏度非常非常敏感，今天重装了一下笔记本的 Ubuntu，鼠标灵敏度一直不合手感。能用 “xset m 0” 来设置鼠标加速度，但关机重启后，设置又失效了。

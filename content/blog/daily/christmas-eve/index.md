@@ -1,13 +1,18 @@
 ---
-title: "平安夜"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["苹果","平安夜","发财"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-10-24 21:33:25'
 draft: false
-slug: "christmas-eve"
-summary: "文章讲述了作者对平安夜的不喜欢，他们收到朋友送的苹果，并祝愿朋友们发财。"
-date: "2008-10-24 21:33:25"
-lastmod: "2008-10-24 21:33:25"
+lastmod: '2008-10-24 21:33:25'
+slug: christmas-eve
+summary: 平安夜感到孤单，不想过节。朋友送了苹果，希望他们能发财。
+tags:
+- 苹果
+- 平安夜
+- 发财
+title: 平安夜
 ---
 
 平安夜了...

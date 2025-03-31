@@ -1,13 +1,21 @@
 ---
-title: "短链接 url 压缩程序 Polr"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["polr","url","shortener","压缩","短链接"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2017-04-08 23:41:00'
 draft: false
-slug: "polr-url-shortener"
-summary: "这篇文章介绍了短链接url压缩程序Polr的安装教程。作者提到了安装的步骤包括下载源码、使用composer安装、配置虚拟主机、准备MySQL数据库以及安装。作者还推荐使用vps安装而非虚拟主机，并且提到了所需的服务器要求和PHP扩展。最后，作者给出了一个示例供读者参考，并详细说明了安装步骤。"
-date: "2017-04-08 23:41:00"
-lastmod: "2017-04-08 23:41:00"
+lastmod: '2017-04-08 23:41:00'
+slug: polr-url-shortener
+summary: Polr是一个开源的短链接服务程序，支持虚拟主机和VPS安装，但推荐使用VPS以获得最新版本。以Oneinstack的LNMP环境为例，需要服务器满足PHP
+  5.5.9以上、MySQL/MariaDB/SQLite数据库及必要扩展。
+tags:
+- polr
+- url
+- shortener
+- 压缩
+- 短链接
+title: 短链接 url 压缩程序 Polr
 ---
 
 > 开源项目地址：[https://github.com/Cydrobolt/polr](https://github.com/Cydrobolt/polr)

@@ -1,13 +1,16 @@
 ---
-title: "不知道大家还去不去宜昌呢"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["宜昌"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-09-29 22:39:29'
 draft: false
-slug: "i-do-not-know-what-has-to-go-yichang"
-summary: "文章提到了作者计划去宜昌旅游，但由于票务问题和通讯失联，无法确定是否能够如期前往。同时，文章还提到了国庆节期间人们计划去其他地方旅游的情况。"
-date: "2008-09-29 22:39:29"
-lastmod: "2008-09-29 22:39:29"
+lastmod: '2008-09-29 22:39:29'
+slug: i-do-not-know-what-has-to-go-yichang
+summary: 原计划今天去宜昌临时改到明天，但票还没订。发现到武汉的票已售罄，联系小明却停机。行程混乱无人沟通，现在完全不清楚状况。
+tags:
+- 宜昌
+title: 不知道大家还去不去宜昌呢
 ---
 
 昨天说得好好的都今天一起去宜昌后来就改成明天去...

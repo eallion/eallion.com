@@ -1,13 +1,15 @@
 ---
-title: "会飞的蜗牛 trackback"
-authors: ["eallion"]
-categories: ["日志"]
-tags: []
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-01-31 12:28:36'
 draft: false
-slug: "flying-snail-trackback"
-summary: "文章讲述了一个关于资源利用和竞争的故事。作者通过比喻挖井和打猎的方法，说明在任何竞争中都需要综合运气、技巧和策略。同时，他提到人们拥有看不见的资源，如时间成本和知识储备。最后，作者表示应该写一篇文章给对方发 trackback 过来，并表达了数字花园用爱发电的理念。"
-date: "2011-01-31 12:28:36"
-lastmod: "2011-01-31 12:28:36"
+lastmod: '2011-01-31 12:28:36'
+slug: flying-snail-trackback
+summary: 有人反驳"资源匮乏"的说法，认为时间、知识等隐形资源常被忽视。以挖井为例，分散挖浅井和专注挖深井各有利弊，但实际竞争中运气因素也很关键。建议灵活结合两种策略，类似打猎时散弹与精准射击的选择。最后自嘲写得过长，本应另写文章详述。
+tags: []
+title: 会飞的蜗牛 trackback
 ---
 
 [http://www.woniufly.com/418.html](http://www.woniufly.com/418.html)

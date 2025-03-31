@@ -1,13 +1,19 @@
 ---
-title: "VeryCD 时代的结束？"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["verycd","ed2k","电驴","正版"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-01-31 14:29:43'
 draft: false
-slug: "verycd"
-summary: "腾讯近期专题报道取缔 VeryCD 等网站，引发争议。文章作者表示自己是忠实的 VeryCD 用户，认为正版在中国只是伪概念。他指责迅雷用户不理解分享精神，并批评政府行动病态和劣根性。他还提到自己想下载《社交网络》电影却无法找到合适的地方。最后质问取缔 VeryCD 的理由是什么。"
-date: "2011-01-31 14:29:43"
-lastmod: "2011-01-31 14:29:43"
+lastmod: '2011-01-31 14:29:43'
+slug: verycd
+summary: 腾讯近期制作了关于取缔VeryCD等网站的专题。作者作为长期用户表达不满，认为VeryCD对中国网民贡献巨大，批评部分用户只下载不上传的"吸血驴"行为。指出国内知识产权环境不成熟，正版概念模糊。质疑取缔行动的理由，同时自嘲社会病态与自身矛盾——既谴责劣根性又依赖盗版资源，
+tags:
+- verycd
+- ed2k
+- 电驴
+- 正版
+title: VeryCD 时代的结束？
 ---
 
 <blockquote > 这是近期腾讯做的一个关于取缔 VeryCD 等网站的专题

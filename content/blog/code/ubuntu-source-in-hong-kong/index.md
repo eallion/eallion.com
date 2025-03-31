@@ -1,13 +1,19 @@
 ---
-title: "Ubuntu 源 香港中文大学"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","香港","源","更新源"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2016-09-24 16:05:00'
 draft: false
-slug: "ubuntu-source-in-hong-kong"
-summary: "这篇文章介绍了Ubuntu源香港中文大学-大大的小蜗牛。"
-date: "2016-09-24 16:05:00"
-lastmod: "2016-09-24 16:05:00"
+lastmod: '2016-09-24 16:05:00'
+slug: ubuntu-source-in-hong-kong
+summary: 用sudo权限编辑Ubuntu软件源配置文件，替换为香港中文大学的镜像源地址，包含xenial系统的主分支、更新、扩展组件及安全更新仓库。
+tags:
+- Ubuntu
+- 香港
+- 源
+- 更新源
+title: Ubuntu 源 香港中文大学
 ---
 
 ```bash

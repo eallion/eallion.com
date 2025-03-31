@@ -1,16 +1,18 @@
 ---
-title: "CSS 和 JS 实现博客热力图"
-authors: ["eallion"]
-categories: ["代码"]
-tags: 
-  - code
-  - github
-  - heatmap
-  - contributions
-slug: "blog-heatmap"
-summary: "本文介绍了使用 CSS 和 JS 实现博客热力图的方法。通过获取最近一年的文章数据，并根据字数和发布日期生成相应的小方块，不同颜色代表不同级别的字数。同时，还添加了鼠标悬停时显示文章标题、字数等信息的功能。作者对比了几种类似库，并选择了适合自己需求的 heatmap.js 来实现热力图效果。最后给出了完整代码以及 HTML 和 CSS 样式部分。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2024-04-30 14:36:07+08:00
 draft: false
-date: 2024-04-30T14:36:07+08:00
+slug: blog-heatmap
+summary: 博客热力图重新流行，作者尝试多种实现方案后选择纯CSS方案。对比了ECharts.js、Heat.js等库的优缺点，最终参考Koobai的教程完成开发。实现步骤包括引入CSS样式、创建HTML容器、加载JS脚本，效果可在线查看首页和统计页。相比其他方案，
+tags:
+- code
+- github
+- heatmap
+- contributions
+title: CSS 和 JS 实现博客热力图
 ---
 
 ![](heatmap_screenshot.png "效果截图")

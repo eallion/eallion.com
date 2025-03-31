@@ -1,13 +1,20 @@
 ---
-title: "SSH Google Authenticator"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","google","ssh","two factor","authenticator"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2016-09-08 10:55:00'
 draft: false
-slug: "ssh-google-authenticator"
-summary: "这篇文章介绍了如何使用SSH Google Authenticator进行双重验证。文章分为五个步骤：安装SSH服务、安装Google-Authenticator、生成密钥、配置手机app和配置。作者介绍了使用Google的双重验证的原因，并说明了适用于Ubuntu VPS的设置方法。最后，作者提到在使用时需要输入手机app生成的验证码。"
-date: "2016-09-08 10:55:00"
-lastmod: "2016-09-08 10:55:00"
+lastmod: '2016-09-08 10:55:00'
+slug: ssh-google-authenticator
+summary: 为提高SSH登录安全性，改用Google双重验证并更换默认端口。首先安装OpenSSH服务和Google-Authenticator工具，生成密钥后通过手机APP扫描绑定。修改PAM和SSH配置文件启用验证功能，最后重启SSH服务。登录时需输入手机动态验证码，兼顾安全性与便捷性。
+tags:
+- Ubuntu
+- google
+- ssh
+- two factor
+- authenticator
+title: SSH Google Authenticator
 ---
 
 我经常需要用 `SSH` 连加家到自己的电脑上，如果单独用密码验证，存在很多安全隐患，如果用密钥，又很麻烦，所以我选择的是用 Google 的双重验证。顺便换了一个非 22 端口。

@@ -1,13 +1,20 @@
 ---
-title: "Ubuntu 配置 EverVim"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","guake","onmyzsh","evervin","pcm"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2019-11-27 03:08:00'
 draft: false
-slug: "ubuntuevervim"
-summary: "这篇文章介绍了如何在Ubuntu上配置EverVim。首先要安装所需的依赖，然后安装EverVim。接下来，在Vim中安装插件。如果出现提示需要安装You Compute Me, 则可以参考官方教程进行安装。"
-date: "2019-11-27 03:08:00"
-lastmod: "2019-11-27 03:08:00"
+lastmod: '2019-11-27 03:08:00'
+slug: ubuntuevervim
+summary: 安装EverVim前需更新系统并安装vim、python3等依赖包。通过curl命令运行安装脚本自动部署。首次进入vim需执行插件安装命令。若提示ycmd服务关闭，需按官方指引补装YouCompleteMe组件，安装时需额外编译依赖并运行安装脚本。
+tags:
+- Ubuntu
+- guake
+- onmyzsh
+- evervin
+- pcm
+title: Ubuntu 配置 EverVim
 ---
 
 ### 安装 EverVim

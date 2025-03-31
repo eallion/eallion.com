@@ -1,13 +1,19 @@
 ---
-title: "typecho 应对垃圾评论"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["评论","留言","spam","垃圾评论"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2017-05-12 20:12:00'
 draft: false
-slug: "typecho-anti-spam"
-summary: "这篇文章介绍了如何使用Typecho来应对垃圾评论。作者使用了Akismet和Typepad这两个插件来阻止垃圾评论，同时保留了正常评论。作者还提到了使用Ajax插件来提高用户体验，但由于与主题的冲突，评论嵌套功能无法生效。此外，作者还介绍了评论邮件提醒插件和显示评论者操作系统和浏览器图标的插件（虽然数据有些过时，但仍有趣）。"
-date: "2017-05-12 20:12:00"
-lastmod: "2017-05-12 20:12:00"
+lastmod: '2017-05-12 20:12:00'
+slug: typecho-anti-spam
+summary: 最近被大量垃圾评论困扰，不得已提高了评论审核标准。主要使用Akismet和CommentFilter两款插件防spam。Akismet能有效拦截大部分垃圾评论，CommentFilter通过屏蔽机器人、IP、非中文内容及敏感词来过滤，但为避免误伤正常评论，多数情况下仅标记待审核。
+tags:
+- 评论
+- 留言
+- spam
+- 垃圾评论
+title: typecho 应对垃圾评论
 ---
 
 最近真的烦，每天有几千的垃圾评论，我也是醉了。所以把评论条件搞得很严格，也不知道会不会对用户体验产生多少负面影响，也不知道会不会误伤夹杂在其实的正常评论。如果有的话，真的表示抱歉。

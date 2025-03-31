@@ -1,13 +1,20 @@
 ---
-title: "Yandex Browser Beta Ubuntu"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["Ubuntu","linux","yandex","browser","浏览器"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2016-01-28 09:40:00'
 draft: false
-slug: "yandex-browser-ubuntu"
-summary: "这篇文章介绍了Yandex浏览器的Beta版在Ubuntu操作系统上的应用。它强调Yandex浏览器不是Chrome的克隆版本，并提供了该浏览器的下载地址。"
-date: "2016-01-28 09:40:00"
-lastmod: "2016-01-28 09:40:00"
+lastmod: '2016-01-28 09:40:00'
+slug: yandex-browser-ubuntu
+summary: Yandex浏览器测试版推出Ubuntu版本，强调并非Chrome的简单复制品。官网提供中文版Linux系统下载链接。
+tags:
+- Ubuntu
+- linux
+- yandex
+- browser
+- 浏览器
+title: Yandex Browser Beta Ubuntu
 ---
 
 Yandex Browser Beta Ubuntu

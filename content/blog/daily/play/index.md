@@ -1,13 +1,20 @@
 ---
-title: "玩"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["CS","玩","寝室","网吧","3J3F"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-12-22 23:24:34'
 draft: false
-slug: "play"
-summary: "这篇文章介绍了作者玩游戏的经历。作者去网吧打CS（反恐精英），觉得比以前更有技巧，玩得很开心。文章中还提到了3个警察对抗3个匪徒的杀人游戏。"
-date: "2008-12-22 23:24:34"
-lastmod: "2008-12-22 23:24:34"
+lastmod: '2008-12-22 23:24:34'
+slug: play
+summary: 寝室太冷跑去网吧玩，发现CS技术变厉害了，玩了3警3匪的杀人游戏。
+tags:
+- CS
+- 玩
+- 寝室
+- 网吧
+- 3J3F
+title: 玩
 ---
 
 寝室太冷了...

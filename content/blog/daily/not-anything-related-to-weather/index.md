@@ -1,13 +1,18 @@
 ---
-title: "不是什么事情都跟天气有关"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["心情","日记","天气"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-05-11 09:58:37'
 draft: false
-slug: "not-anything-related-to-weather"
-summary: "这篇文章介绍了一个人形容自己的情绪和心境，并将其比喻成和天气一样多变。这个人承认自己陷入了一种间隙性的悲伤和反复无常的情绪。"
-date: "2011-05-11 09:58:37"
-lastmod: "2011-05-11 09:58:37"
+lastmod: '2011-05-11 09:58:37'
+slug: not-anything-related-to-weather
+summary: 情绪如天气般多变，经历季节性的悲伤与间歇性感叹，最终坦然承认自己陷入其中。
+tags:
+- 心情
+- 日记
+- 天气
+title: 不是什么事情都跟天气有关
 ---
 
 季节性的悲伤过

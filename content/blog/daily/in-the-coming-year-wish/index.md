@@ -1,13 +1,19 @@
 ---
-title: "来年愿望"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["工作","愿望","新年","努力"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2015-02-11 16:26:00'
 draft: false
-slug: "in-the-coming-year-wish"
-summary: "文章讲述了作者回顾过去一年的失败和堕落，认识到自己不够努力。他希望明年能实现一个更大的愿望，买一辆价值 20 万以上的车。"
-date: "2015-02-11 16:26:00"
-lastmod: "2015-02-11 16:26:00"
+lastmod: '2015-02-11 16:26:00'
+slug: in-the-coming-year-wish
+summary: 年底回顾感到今年特别失败，主要因为自我放纵和不够努力。去年愿望是买相机，现在定下更大目标：明年买20万以上的车。
+tags:
+- 工作
+- 愿望
+- 新年
+- 努力
+title: 来年愿望
 ---
 
 马上要过年了，回想今年一年来的历程，只能用失败来形容。

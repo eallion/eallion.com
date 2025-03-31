@@ -1,13 +1,20 @@
 ---
-title: "网警如何抓人"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["vpn","网警","抓人","ISP","发贴"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2013-01-10 09:31:22'
 draft: false
-slug: "wang-jing-ru-he-zhua-ren"
-summary: "这篇文章介绍了网警如何对网民进行追踪。文章提到了不同的情况下，网警追踪的流程和可能的结果。根据使用的不同网络代理工具和层数，爆菊几率也有所不同。文章还提到了使用私人VPN和共用VPN以及是否有QQ账号等因素对追踪的影响。"
-date: "2013-01-10 09:31:22"
-lastmod: "2013-01-10 09:31:22"
+lastmod: '2013-01-10 09:31:22'
+slug: wang-jing-ru-he-zhua-ren
+summary: 直接发帖不挂代理会被网警通过服务器IP直接追踪到本人。用单层私人VPN或共用VPN都会被查到真实IP，只是共用VPN需要先入侵服务器获取日志。双层VPN能降低被查概率，私人线路比共用更安全。多层VPN配合删除服务器后，若发帖人使用QQ或其他网络账号仍会被关联真实身份。
+tags:
+- vpn
+- 网警
+- 抓人
+- ISP
+- 发贴
+title: 网警如何抓人
 ---
 
 大致分为下列几种情况：

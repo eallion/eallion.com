@@ -1,13 +1,17 @@
 ---
-title: "2011 年 04 月 15 日"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["日记","点化"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-04-15 07:49:32'
 draft: false
-slug: "reveal"
-summary: "文章内容是关于 2011 年 4 月 15 日的一篇日记，提到了 AI 摘要接口失联、数字花园和爱发电等内容。"
-date: "2011-04-15 07:49:32"
-lastmod: "2011-04-15 07:49:32"
+lastmod: '2011-04-15 07:49:32'
+slug: reveal
+summary: 世界没有不能接受的事，也没有不可改变的观点，关键在于被点醒。
+tags:
+- 日记
+- 点化
+title: 2011 年 04 月 15 日
 ---
 
 其实

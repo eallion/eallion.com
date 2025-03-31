@@ -1,13 +1,17 @@
 ---
-title: "是天堂是地狱都要走"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["天堂","地狱"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-11-06 22:21:41'
 draft: false
-slug: "heaven-is-hell-must-go"
-summary: "文章讲述了作者面对黑暗日子的坚强态度，认为无论是天堂还是地狱都要继续前行生活。"
-date: "2008-11-06 22:21:41"
-lastmod: "2008-11-06 22:21:41"
+lastmod: '2008-11-06 22:21:41'
+slug: heaven-is-hell-must-go
+summary: 人生低谷并非终点，苦难终将过去。无论顺境逆境，生活总要继续向前，时间会抚平一切。保持希望，勇敢面对未知的旅途。
+tags:
+- 天堂
+- 地狱
+title: 是天堂是地狱都要走
 ---
 
 这还不算最黑暗的日子...

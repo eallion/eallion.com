@@ -1,13 +1,20 @@
 ---
-title: "装不了 XP"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["电脑","笔记本","XP","WIN7","Ubuntu"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-11-09 08:20:57'
 draft: false
-slug: "can-not-install-xp"
-summary: "这篇文章介绍了作者购买的新笔记本电脑，并且安装了Ubuntu 11.10和Windows 7双系统。然后作者决定尝试安装Windows XP来满足自己玩CS的需求，但是安装过程中出现了问题，导致硬盘上的分区损坏。作者尝试使用Ghost重新安装了XP，但是发现显卡没有XP的驱动程序。最终作者决定放弃XP，重新从头开始使用Windows 7。"
-date: "2011-11-09 08:20:57"
-lastmod: "2011-11-09 08:20:57"
+lastmod: '2011-11-09 08:20:57'
+slug: can-not-install-xp
+summary: 新笔记本装了Ubuntu和Win7双系统，运行良好。想加装XP玩CS，但Win7和XP模式都不理想。尝试用U盘PE的Ghost安装XP导致分区损坏，干脆低格硬盘。发现GT540显卡没有XP驱动，无奈只能重装Win7。
+tags:
+- 电脑
+- 笔记本
+- XP
+- WIN7
+- Ubuntu
+title: 装不了 XP
 ---
 
 前两天把新买的笔记本折腾得差不多了

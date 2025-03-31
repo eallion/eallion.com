@@ -1,13 +1,20 @@
 ---
-title: "Ubuntu VPS 优化"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","vps","优化","主机","lnmp"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2015-02-05 13:35:00'
 draft: false
-slug: "ubuntu-vps-optimized"
-summary: "这篇文章介绍了如何优化Ubuntu VPS，特别是针对小内存的VPS。如果只需要使用LNMP进行web服务，可以采取以下优化措施：对于小内存VPS，建议安装32位的操作系统。"
-date: "2015-02-05 13:35:00"
-lastmod: "2015-02-05 13:35:00"
+lastmod: '2015-02-05 13:35:00'
+slug: ubuntu-vps-optimized
+summary: 小内存Ubuntu VPS优化LNMP服务时，可先更新系统并卸载非必要软件包如Apache、邮件服务等，清理残留文件。建议安装32位系统以节省资源。
+tags:
+- Ubuntu
+- vps
+- 优化
+- 主机
+- lnmp
+title: Ubuntu VPS 优化
 ---
 
 如果选用小内存的 Ubuntu VPS，而且只需要 LNMP 做 web 服务的话，可以如下优化：

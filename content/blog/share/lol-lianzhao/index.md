@@ -1,13 +1,19 @@
 ---
-title: "细数 LOL 先施法后闪现的迷之连招"
-authors: ["eallion"]
-categories: ["分享"]
-tags: ["LOL","英雄联盟","连招"]
+authors:
+- eallion
+categories:
+- 分享
+date: '2015-06-29 16:55:00'
 draft: false
-slug: "lol-lianzhao"
-summary: "这篇文章介绍了LOL中的一些先施法后闪现的连招，包括酒桶的E+闪现、拉克丝的R+闪现、蔚的Q+闪现、猪妹的Q+闪现/R+闪现等等。还有其他英雄如慎、锤石、皇子、泽拉斯等的连招也被提及。"
-date: "2015-06-29 16:55:00"
-lastmod: "2015-06-29 16:55:00"
+lastmod: '2015-06-29 16:55:00'
+slug: lol-lianzhao
+summary: 多个英雄技能配合闪现的连招技巧，包括酒桶E闪、拉克丝R闪、蔚Q闪、猪妹Q闪/R闪、慎E闪、锤石EQ闪、皇子EQ闪、泽拉斯Q闪、加里奥R闪、盲僧R闪、石头人E闪、VN
+  E闪、狐狸E闪、阿木木R闪、牛头Q闪、蛇女R闪、亚索EQ闪、赵信R闪等操作。
+tags:
+- LOL
+- 英雄联盟
+- 连招
+title: 细数 LOL 先施法后闪现的迷之连招
 ---
 
 01. 酒桶：E + 闪现

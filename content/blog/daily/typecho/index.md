@@ -1,13 +1,19 @@
 ---
-title: "博客从 WordPress 换成 typecho"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["blog","WordPress","博客","typecho"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-01-08 04:45:29'
 draft: false
-slug: "typecho"
-summary: "这篇文章介绍了作者计划将博客从WordPress换成typecho，并解释了为什么做出这个决定。作者认为虽然WordPress功能强大，但随着功能的增加，其载入速度变慢，对负载的要求也越来越高，而且有许多功能对个人独立博客站点来说是多余的。作者觉得typecho在相同环境下载入速度更快，更简洁方便，但当前typecho可供选择的模板和插件较少，作者还在尝试typecho的DEMO。最后，作者表示还没有最终决定是否转到typecho。"
-date: "2011-01-08 04:45:29"
-lastmod: "2011-01-08 04:45:29"
+lastmod: '2011-01-08 04:45:29'
+slug: typecho
+summary: 准备把WordPress博客换成Typecho，觉得WordPress功能太多用不上，加载速度变慢，而个人博客只需要简单写文字发图片。Typecho更轻量快速，但模板插件较少，目前还在犹豫，已建了Typecho测试站点。
+tags:
+- blog
+- WordPress
+- 博客
+- typecho
+title: 博客从 WordPress 换成 typecho
 ---
 
 我计划把博客从 WordPress 换成 typecho

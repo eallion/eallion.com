@@ -1,13 +1,19 @@
 ---
-title: "阿里云 NTP 时间同步服务器"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["时间","阿里云","ntp","时间同步"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2017-05-29 23:35:00'
 draft: false
-slug: "aliyun-ntp"
-summary: "这篇文章介绍了阿里云提供的NTP（网络时间协议）时间同步服务器。作者分享了在安装国内的Windows VPS后遇到的时间同步问题，并提到搜索到阿里云官方文档中关于NTP的内容，以Debian/Ubuntu为例进行了示范。文章中没有提到具体的配置步骤和解决方法。"
-date: "2017-05-29 23:35:00"
-lastmod: "2017-05-29 23:35:00"
+lastmod: '2017-05-29 23:35:00'
+slug: aliyun-ntp
+summary: 国内Windows VPS时间同步失败，国家授时中心IP失效。发现阿里云提供NTP服务器，公网用ntp.aliyun.com，内网用ntp.cloud.aliyuncs.com，还有多个备用地址。Linux系统可通过ntpdate命令同步阿里云NTP时间。
+tags:
+- 时间
+- 阿里云
+- ntp
+- 时间同步
+title: 阿里云 NTP 时间同步服务器
 ---
 
 > 最新更新：2021.01.24

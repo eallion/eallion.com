@@ -1,20 +1,23 @@
 ---
-title: "Memos API 调用渲染页面"
-authors: ["eallion"]
-categories: ["代码"]
-tags:
-    - 嘀咕
-    - 哔哔
-    - Memos
-    - talk
-slug: "memos-api"
-summary: "这篇文章介绍了如何使用Memos API调用渲染嘀咕、微语、说说类的静态页面。首先需要找到自己Memos实例的API，并在合适的位置放置一个CSS选择器作为展示Memos的容器。大多数网站只需要在新建页面中加入相应代码即可。文章还提供了完整的HTML示例和相关插件的参考资料。"
-series: ["Memos"]
-series_weight: 3
-seriesNavigation: true
+authors:
+- eallion
+categories:
+- 代码
+date: 2022-11-06 16:32:22+08:00
 draft: false
-date: 2022-11-06T16:32:22+08:00
-lastmod: 2022-11-06T16:32:22+08:00
+lastmod: 2022-11-06 16:32:22+08:00
+series:
+- Memos
+seriesNavigation: true
+series_weight: 3
+slug: memos-api
+summary: Memos已独立为完整应用，可部署到网站根目录。Hugo用户可参考特定模板文件。教程展示如何通过API调用公开Memos数据到静态页面，需获取实例API地址并设置用户ID。核心步骤是在网页中添加CSS容器，示例提供了基础HTML代码和完整模板。现仅支持公开属性Memos的展示。
+tags:
+- 嘀咕
+- 哔哔
+- Memos
+- talk
+title: Memos API 调用渲染页面
 ---
 
 ***更新**：已把 Memos 剥离出一个完整的应用，可独立部署，到 <i class="fab fa-github fa-fw"></i>[eallion/memos.top](https://github.com/eallion/memos.top) 这个仓库下载部署到网站根目录即可。

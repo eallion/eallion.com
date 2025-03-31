@@ -1,17 +1,19 @@
 ---
-title: "Windows 11 安装软件"
-authors: ["eallion"]
-categories: ["日志"]
-tags: 
-  - Windows
-  - Windows 11
-  - APP
-  - 软件
-slug: "win11-apps"
-summary: "文章主要介绍了作者在重装 Windows 11 系统时，备份和记录当前使用的软件情况。通过 Scoop 工具安装了一系列软件，并列出了详细的版本信息和更新时间。此外，还提到了一些通过 Microsoft Store 或手动下载安装的程序，包括 NVIDIA 驱动、Microsoft Edge 和 Visual Studio Code 等。作者还分享了常用的 Chrome 插件列表，如 Bitwarden 密码管理器、ChatGPT 总结助手等。这种记录方式不仅方便日后查看软件变化，也为系统重装后的恢复提供了便利。"
+authors:
+- eallion
+categories:
+- 日志
+date: 2025-01-26 17:45:44+08:00
 draft: false
-date: 2025-01-26T17:45:44+08:00
-# images: ["/assets/images/og/win11-apps.png"] # Delete this line
+slug: win11-apps
+summary: 用户计划重装系统，想备份当前使用的软件清单以便年底对比。之前记录过Chrome插件和手机应用的两篇博文，但在博客迁移过程中丢失了。通过WinFetch查看了系统配置，包括Windows
+  11专业版、硬件信息和已安装的95个Scoop软件包。使用Scoop命令导出了软件列表，
+tags:
+- Windows
+- Windows 11
+- APP
+- 软件
+title: Windows 11 安装软件
 ---
 
 最近打算重装系统，顺便备份一下现在系统上在用哪些软件，也方便年底看看日常使用的软件有哪些变化。以前有维护过 2 篇博文记录 Chrome 插件和手机应用的文章，找了下没找到，可能是从 Typecho 转到 Hugo 时搞丢了。

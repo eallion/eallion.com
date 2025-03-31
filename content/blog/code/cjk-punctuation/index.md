@@ -1,16 +1,18 @@
 ---
-title: "博客排版 - 挤压中文标点符号"
-authors: ["eallion"]
-categories: ["代码"]
-tags: 
-  - 博客
-  - 标点
-  - 排版
-slug: "cjk-punctuation"
-summary: "本文介绍了如何解决中文标点符号排版时出现的挤压问题。默认情况下，连续的中文全角标点会占用较多空间。为了解决这个问题，可以使用一些 JS 插件或 CSS 属性来实现标点挤压。其中推荐了「赫蹏」（heti）和 ethantw/Han 这两个 JS 插件，以及使用 OpenType 字体的 halt 功能来将全角字符显示为半角形式。此外，在进行中英文混合排版时也需要注意设置 HTML 全局属性 lang，并引入相应的 JS 脚本和自定义 CSS 样式文件。最后，在文章标签上添加 Heti 标签即可让挤压标点插件生效。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2024-10-29 17:31:17+08:00
 draft: false
-date: 2024-10-29T17:31:17+08:00
-# images: ["/assets/images/og/blog-typography-squeeze-the-chinese-punctuation.png"] # Delete this line
+slug: cjk-punctuation
+summary: 中文全角标点连续出现时会产生多余空白。解决方案包括使用赫蹏或Han这类JS插件压缩标点间距，或通过OpenType字体的halt特性实现半角显示（需CSS设置）。建议网页设置lang属性标明语言，例如`<html
+  lang="zh-cn">`。
+tags:
+- 博客
+- 标点
+- 排版
+title: 博客排版 - 挤压中文标点符号
 ---
 
 ### 示例

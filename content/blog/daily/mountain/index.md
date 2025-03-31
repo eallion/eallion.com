@@ -1,13 +1,18 @@
 ---
-title: "山"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["山","爬山","康安古寺"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-12-14 19:58:41'
 draft: false
-slug: "mountain"
-summary: "这篇文章介绍了一个人在山上爬了一整天后，最后在唐安古寺帮着拖地，做了一些功德。文章以一种平和的口吻表达了作者对于这个人所做行为的赞美。"
-date: "2008-12-14 19:58:41"
-lastmod: "2008-12-14 19:58:41"
+lastmod: '2008-12-14 19:58:41'
+slug: mountain
+summary: 爬山累了一天，在唐安古寺帮忙拖地积功德，念句阿弥陀佛。
+tags:
+- 山
+- 爬山
+- 康安古寺
+title: 山
 ---
 
 爬了一天的山...

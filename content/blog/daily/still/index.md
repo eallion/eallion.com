@@ -1,13 +1,16 @@
 ---
-title: "依旧"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["依旧"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2009-01-07 21:23:01'
 draft: false
-slug: "still"
-summary: "这篇文章介绍了作者对于生活的观察和变化。作者提到每年都有一样的事情发生，但是慢慢地一切都开始改变。作者能够看到这些变化，并且理解其中的原因。"
-date: "2009-01-07 21:23:01"
-lastmod: "2009-01-07 21:23:01"
+lastmod: '2009-01-07 21:23:01'
+slug: still
+summary: 时光流逝，每一年看似重复却悄然改变。这些细微变化我都清楚看在眼里，心里也懂。
+tags:
+- 依旧
+title: 依旧
 ---
 
 每年都是这样...

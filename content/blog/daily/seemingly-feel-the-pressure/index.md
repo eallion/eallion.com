@@ -1,13 +1,18 @@
 ---
-title: "貌似感受到压力"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["毕业","压力","随意"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-11-05 20:15:56'
 draft: false
-slug: "seemingly-feel-the-pressure"
-summary: "文章讲述了作者感受到压力，但他对生活持乐观态度，认为只要投入并顺其自然，压力就无所谓。同时提到了毕业和未来的选择问题。"
-date: "2008-11-05 20:15:56"
-lastmod: "2008-11-05 20:15:56"
+lastmod: '2008-11-05 20:15:56'
+slug: seemingly-feel-the-pressure
+summary: 生活态度随意从容，实习也保持这种状态。并非不懂，而是清醒却选择不在乎，一切顺其自然。就像赛前紧张、赛中专注那样，只要全心投入当下，压力便不足为惧。始终乐观，相信慢慢都会好起来。
+tags:
+- 毕业
+- 压力
+- 随意
+title: 貌似感受到压力
 ---
 
 从来不急...

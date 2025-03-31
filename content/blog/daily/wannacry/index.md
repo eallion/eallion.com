@@ -1,12 +1,20 @@
 ---
-title: "WannaCry 勒索病毒"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["安全", "wannacry", "勒索", "病毒", "445"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2017-05-15 11:04:00'
 draft: false
-slug: "wannacry"
-date: "2017-05-15 11:04:00"
-lastmod: "2017-05-15 11:04:00"
+lastmod: '2017-05-15 11:04:00'
+slug: wannacry
+summary: WannaCry勒索病毒主要攻击高校和政府机构，暴露了网络安全意识不足的问题。作者作为计算机专业人士，分享了防护经验：避免使用默认端口、升级操作系统、关闭自动更新、启用系统防火墙、定期多备份数据。特别强调不要依赖第三方安全软件，推荐使用微软自带防护工具。
+tags:
+- 安全
+- wannacry
+- 勒索
+- 病毒
+- '445'
+title: WannaCry 勒索病毒
 ---
 
 ![](/assets/images/posts/2017/05/15/3478243449.jpg)

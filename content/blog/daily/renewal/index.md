@@ -1,13 +1,17 @@
 ---
-title: "续期"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["博客","空间"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-11-26 09:00:58'
 draft: false
-slug: "renewal"
-summary: "文章内容是关于博客续期的问题。虽然作者最近没有更新博客，但他认为这个博客不能不存在。同时，文章还提到了一些其他的信息，如 AI 摘要接口失联和 WCG2012 & 2013 活动等。"
-date: "2011-11-26 09:00:58"
-lastmod: "2011-11-26 09:00:58"
+lastmod: '2011-11-26 09:00:58'
+slug: renewal
+summary: 12月10日博客空间到期，最近没空更新，但必须保留这个博客。
+tags:
+- 博客
+- 空间
+title: 续期
 ---
 
 12 月 10 日空间到期

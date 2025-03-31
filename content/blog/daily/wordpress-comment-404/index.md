@@ -1,13 +1,16 @@
 ---
-title: "WordPress 提交评论出现 404 错误的解决办法"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["提交评论"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2010-07-21 15:40:25'
 draft: false
-slug: "wordpress-comment-404"
-summary: "文章介绍了解决 WordPress 提交评论出现 404 错误的方法。作者在本地测试 WordPress 功能时，发现数据库中多出一个字段导致错误，经过删除该字段后成功修复评论功能。分析原因可能是安装插件后未自动清理数据库所致。作者提醒读者不要随意安装和卸载插件。"
-date: "2010-07-21 15:40:25"
-lastmod: "2010-07-21 15:40:25"
+lastmod: '2010-07-21 15:40:25'
+slug: wordpress-comment-404
+summary: 博客评论功能之前莫名其妙失效，关闭评论是因为无法提交留言。后来在本地测试时发现数据库导入报错，查出服务器数据库里多了个异常字段comment_favicon_url。删除该字段后评论功能恢复正常。推测是之前安装的插件卸载时没清理干净数据库导致，这个意外让博客长期无法接收留言，
+tags:
+- 提交评论
+title: WordPress 提交评论出现 404 错误的解决办法
 ---
 
 本博客的评论重新启动

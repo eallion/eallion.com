@@ -1,13 +1,20 @@
 ---
-title: "电脑配置单"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["CS","游戏","发烧","配置","电脑"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-10-05 09:22:54'
 draft: false
-slug: "computer-configuration"
-summary: "文章介绍了一套游戏电脑的配置单，包括 CPU、主板、内存、硬盘、显卡等各个配件的品牌型号和价格。"
-date: "2011-10-05 09:22:54"
-lastmod: "2011-10-05 09:22:54"
+lastmod: '2011-10-05 09:22:54'
+slug: computer-configuration
+summary: 看中了一套游戏电脑配置，准备努力攒钱购买。配置清单包括品牌型号、数量、当时和现在的单价，以及商家数量等信息。具体配置详情可点击链接查看。
+tags:
+- CS
+- 游戏
+- 发烧
+- 配置
+- 电脑
+title: 电脑配置单
 ---
 
 在中关村在线模拟攒机写了一套看中的游戏配置，看来要奋斗了。

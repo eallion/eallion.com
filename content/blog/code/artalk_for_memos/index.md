@@ -1,19 +1,22 @@
 ---
-title: "Memos 配置 Artalk 评论系统"
-authors: ["eallion"]
-categories: ["代码"]
-tags: 
-  - memos
-  - artalk
-  - 嘀咕
-  - 评论
-slug: "artalk_for_memos"
-summary: "这篇文章介绍了如何配置Artalk评论系统在Memos应用和Memos嘀咕页面中。作者提供了登录Memos应用后台，在系统设置中添加自定义样式和脚本的方法，并给出了需要修改的内容。另外，作者还介绍了在assets/memos.js文件中添加和修改代码的步骤，并在HTML文件中引入Artalk的JS和CSS资源文件。"
-series: ["Memos"]
-series_weight: 6
-seriesNavigation: true
+authors:
+- eallion
+categories:
+- 代码
+date: 2023-05-25 22:13:35+08:00
 draft: false
-date: 2023-05-25T22:13:35+08:00
+series:
+- Memos
+seriesNavigation: true
+series_weight: 6
+slug: artalk_for_memos
+summary: 脚本更新至2023.10.20，仅支持Memos v0.14.0版本。已解决后台界面错乱问题和暗黑模式适配，后者由木木老师完成。受两位老师文章启发，在Memos页面和应用中集成了Artalk评论系统。提供了自定义CSS代码示例，包括基础样式和暗黑模式配色方案，
+tags:
+- memos
+- artalk
+- 嘀咕
+- 评论
+title: Memos 配置 Artalk 评论系统
 ---
 
 > 更新：2023.10.20 此脚本只适配到 Memos v0.14.0

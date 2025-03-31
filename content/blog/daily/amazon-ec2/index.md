@@ -1,13 +1,21 @@
 ---
-title: "Amazon EC2"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["amazon","ec2","vps","vpn","免费"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2012-03-27 09:15:00'
 draft: false
-slug: "amazon-ec2"
-summary: "这篇文章介绍了使用亚马逊EC2 VPS的经验。作者注册了一个EC2 VPS，可以免费使用一年。注册需要一张可以付款的外币信用卡，虚拟信用卡也可以用。文章提供了一个关于EC2的教程，并指出选择micro套餐可以享受一年免费使用。作者选择了Ubuntu 11.10 64位系统，并配置了LNMP环境。作者还表示将来可能会在EC2上建站。"
-date: "2012-03-27 09:15:00"
-lastmod: "2012-03-27 09:15:00"
+lastmod: '2012-03-27 09:15:00'
+slug: amazon-ec2
+summary: 亚马逊EC2提供一年免费VPS体验，注册需外币信用卡，扣款后会返还。可用淘宝虚拟信用卡注册。免费套餐需选micro类型。创建实例时可选用优化好的AMI或自选系统如Ubuntu
+  11.10。用LNMP一键包搭建了环境，未来可能用来建站。附EC2教程链接供参考。
+tags:
+- amazon
+- ec2
+- vps
+- vpn
+- 免费
+title: Amazon EC2
 ---
 
 最近注册了一个亚马逊 EC2 VPS

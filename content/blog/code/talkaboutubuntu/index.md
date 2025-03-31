@@ -1,13 +1,17 @@
 ---
-title: "关于 Ubuntu"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","Linux"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2020-10-23 10:24:00'
 draft: false
-slug: "talkaboutubuntu"
-summary: "这篇文章介绍了作者对Linux和Ubuntu的看法。作者长期使用过多个Linux发行版，但最推荐Ubuntu用于日常桌面环境。作者认为Linux发行版都很相似，只是包管理方式不同。作者不推荐使用滚动更新发行版，并且对于近年来国产Linux软件的质量也持批评态度。作者最初因为喜欢Ubuntu的配色而开始使用，后来一直留在Debian系。作者推荐在服务器上使用Debian stable，并且企业中则应根据领导的选择来决定使用哪个服务器。"
-date: "2020-10-23 10:24:00"
-lastmod: "2020-10-23 10:24:00"
+lastmod: '2020-10-23 10:24:00'
+slug: talkaboutubuntu
+summary: 长期使用多款Linux发行版后，推荐日常桌面环境首选Ubuntu，因其易用性和问题解决便利性。Linus Torvalds使用Fedora也值得参考，但Debian系更适合普通用户。反对盲目推崇Archlinux等滚动更新版本，维护风险较高。批评Deepin系统稳定性差，
+tags:
+- Ubuntu
+- Linux
+title: 关于 Ubuntu
 ---
 
 关于 Linux 和 Ubuntu 的一点愚见。

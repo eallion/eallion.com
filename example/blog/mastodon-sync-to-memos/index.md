@@ -1,19 +1,22 @@
 ---
-title: "Mastodon 同步到 Memos"
-authors: ["eallion"]
-categories: ["代码"]
-tags: 
-  - Mastodon
-  - Memos
-  - Webhook
-  - 脚本
-slug: "mastodon-sync-to-memos"
-summary: "文章介绍了如何使用 Shell 脚本将 Mastodon 上的内容同步到 Memos。作者使用 Shell 脚本实现了这一功能，并提供了详细的配置和操作步骤。脚本会检查最新的 Mastodon 内容，并将其发布到 Memos 上，同时记录 Mastodon ID 和 Memos ID 的绑定关系。同时，作者还分享了自己在使用过程中遇到的问题和解决方案，并给出了具体示例和代码。"
-series: ["Mastodon"]
-series_weight: 2
-seriesNavigation: true
+authors:
+- eallion
+categories:
+- 代码
+date: 2024-03-09 16:57:49+08:00
 draft: false
-date: 2024-03-09T16:57:49+08:00
+series:
+- Mastodon
+seriesNavigation: true
+series_weight: 2
+slug: mastodon-sync-to-memos
+summary: 最新脚本引入ChatGPT AI判断重复内容，新增中间件Sink短网址服务实现Memos跳转Mastodon，提供宝塔面板配置示例。作者因Memos新版本稳定性问题放弃将其作为主力工具，现仅用于备份Mastodon嘟文。偏好Webhook主动推送方案，
+tags:
+- Mastodon
+- Memos
+- Webhook
+- 脚本
+title: Mastodon 同步到 Memos
 ---
 
 > 最新脚本：[https://gist.github.com/eallion/bf8861eb3292c2351c1067fba3198c26](https://gist.github.com/eallion/bf8861eb3292c2351c1067fba3198c26)

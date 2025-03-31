@@ -1,18 +1,20 @@
 ---
-title: "再说评论"
-authors: ["eallion"]
-categories: ["日志"]
-tags: 
-  - twikoo
-  - waline
-  - blog
-  - 评论
-  - comment
-slug: "disqus"
-summary: "这篇文章介绍了作者为什么选择将博客的评论系统从Twikoo和Waline切换为Disqus，并讨论了维护成本增加的问题。作者认为Twikoo和Waline的维护成本较高，而Disqus提供了更完善的功能和更简便的部署。作者还提到了对开源产品提出的无理取闹的功能性建议以及几种部署工具的使用体验和更新文档的问题。作者总结道，为了节省时间和精力，选择了更成熟和易用的Disqus评论系统。"
+authors:
+- eallion
+categories:
+- 日志
+date: 2022-05-20 11:40:19+08:00
 draft: false
-date: 2022-05-20T11:40:19+08:00
-lastmod: 2022-05-20T11:40:19+08:00
+lastmod: 2022-05-20 11:40:19+08:00
+slug: disqus
+summary: 博客评论系统从Twikoo和Waline切换为Disqus，主要因前两者维护成本高、功能臃肿且更新频繁。Disqus虽然不够轻量，但稳定性强，十年如一日无需频繁维护。作者认为独立博客评论功能已非必要，最终选择Artalk验证码方案作为折中。开源产品虽自由却面临功能妥协和社区噪音，
+tags:
+- twikoo
+- waline
+- blog
+- 评论
+- comment
+title: 再说评论
 ---
 
 ### 更新

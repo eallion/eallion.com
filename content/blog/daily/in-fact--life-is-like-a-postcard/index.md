@@ -1,13 +1,15 @@
 ---
-title: "其实生活就像是寄明信片"
-authors: ["eallion"]
-categories: ["日志"]
-tags: []
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-01-28 10:21:18'
 draft: false
-slug: "in-fact--life-is-like-a-postcard"
-summary: "这篇文章讲述了生活就像寄明信片一样，有人期待、不屑、欣喜或漠然。"
-date: "2011-01-28 10:21:18"
-lastmod: "2011-01-28 10:21:18"
+lastmod: '2011-01-28 10:21:18'
+slug: in-fact--life-is-like-a-postcard
+summary: 不同人对同一事物反应各异，有人期待欣喜，有人不屑漠然。
+tags: []
+title: 其实生活就像是寄明信片
 ---
 
 有的人期待

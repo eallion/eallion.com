@@ -1,13 +1,19 @@
 ---
-title: "XHTML1.0 和 CSS3.0 验证"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["xhtml","认证","验证","css3.0"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2010-11-07 06:11:40'
 draft: false
-slug: "authentication"
-summary: "文章讲述了作者的博客无法通过 XHTML1.0 和 CSS3.0 验证，尽管他已经努力改正错误。其中两个地方出现的错误是音乐插件和新浪订阅，但由于这些都是其他网站上的内容，作者无法修改。此外，作者还提到了一个关于字体的问题，并表示不愿意将其更改为 Microsoft YaHei。最后，作者认为自己没有必要花时间去通过这些无聊的验证。"
-date: "2010-11-07 06:11:40"
-lastmod: "2010-11-07 06:11:40"
+lastmod: '2010-11-07 06:11:40'
+slug: authentication
+summary: 博客始终无法通过XHTML1.0和CSS3.0验证，错误从上百个缩减到9个，主要来自第三方插件（亦歌音乐和韩寒新浪订阅）无法修改。CSS验证中微软雅黑字体写法被报错，但作者认为现有写法更优。最终决定放弃追求验证通过，认为不值得为认证耗费精力。
+tags:
+- xhtml
+- 认证
+- 验证
+- css3.0
+title: XHTML1.0 和 CSS3.0 验证
 ---
 
 我想

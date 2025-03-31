@@ -1,13 +1,17 @@
 ---
-title: "伤好了"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["好","痊愈"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-05-10 13:15:01'
 draft: false
-slug: "well-injury"
-summary: "文章讲述了作者伤好后的喜悦心情，可以重新开始打游戏、抱老婆。他表示身体和精神都恢复了，天气也变好了。最后提到博客也会变得更好。"
-date: "2011-05-10 13:15:01"
-lastmod: "2011-05-10 13:15:01"
+lastmod: '2011-05-10 13:15:01'
+slug: well-injury
+summary: 手伤恢复能打游戏和抱老婆，精神状态和心情都变好。天气转晴，妻子身体康复，博客也将恢复正常更新。
+tags:
+- 好
+- 痊愈
+title: 伤好了
 ---
 
 手好了，可以打 CS 了，可以抱老婆了。

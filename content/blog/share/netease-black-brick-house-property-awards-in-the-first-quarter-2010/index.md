@@ -1,13 +1,19 @@
 ---
-title: "网易房产专题 2010 烂砖奖第一季"
-authors: ["eallion"]
-categories: ["分享"]
-tags: ["烂砖奖","网易房产","网易","专题"]
+authors:
+- eallion
+categories:
+- 分享
+date: '2010-05-09 07:54:00'
 draft: false
-slug: "netease-black-brick-house-property-awards-in-the-first-quarter-2010"
-summary: "这篇文章介绍了一个名为“烂砖奖”的房产专题活动，旨在嘲讽炒房者和高房价，并表达对房奴的遗愿。该活动由网易房产发起，已在微博上引起网友的疯传。"
-date: "2010-05-09 07:54:00"
-lastmod: "2010-05-09 07:54:00"
+lastmod: '2010-05-09 07:54:00'
+slug: netease-black-brick-house-property-awards-in-the-first-quarter-2010
+summary: 讽刺房地产乱象的"烂砖奖"引发热议，以颁奖形式调侃炒房、地王和高房价现象，网友在微博广泛传播。该活动由楼市春晚团队策划，矛头直指2010年一季度楼市泡沫，用黑色幽默方式揭露行业畸形现状。
+tags:
+- 烂砖奖
+- 网易房产
+- 网易
+- 专题
+title: 网易房产专题 2010 烂砖奖第一季
 ---
 
 给炒房者力量，为高房价喝彩，汲取地王霸气，传递房奴的遗愿！中国房地产的这些荣耀不容遗忘，我们将以颁奖的形式致以我们最崇高的敬意！我们从这里出发，让泡沫吹的更大更强！烂砖奖 2010 年第一季，现在开盘！

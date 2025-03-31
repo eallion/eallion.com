@@ -1,13 +1,17 @@
 ---
-title: "当我格格不入"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["明白","格格不入"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-11-08 01:24:26'
 draft: false
-slug: "when-i-was-out-of-tune"
-summary: "文章讲述了作者感觉自己与他人不同，无法融入群体的心情。他希望有人能理解他，但很少有人能明白。最重要的是，他自己要明白这一点。"
-date: "2008-11-08 01:24:26"
-lastmod: "2008-11-08 01:24:26"
+lastmod: '2008-11-08 01:24:26'
+slug: when-i-was-out-of-tune
+summary: 感到与他人不同时，内心渴望被少数人理解，但最终发现自我接纳才是关键。
+tags:
+- 明白
+- 格格不入
+title: 当我格格不入
 ---
 
 当我自己觉得跟别人不一样...

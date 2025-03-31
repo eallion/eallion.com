@@ -1,20 +1,23 @@
 ---
-title: "Memos 简介"
-authors: ["eallion"]
-categories: ["代码"]
-tags:
-    - 嘀咕
-    - 哔哔
-    - Memos
-    - talk
-slug: "memos-deployment"
-summary: "这篇文章介绍了Memos简介及其部署方法。作者提到了他最早用的微博客程序是PageCookery，并介绍了“B言B语”和Memos的应用。文章还提供了Memos的常用命令和升级命令，提到如果要对互联网提供Memos访问服务，需要使用Nginx反代5230端口。最后，文章介绍了Memos的数据持久化配置。"
-series: ["Memos"]
-series_weight: 1
-seriesNavigation: true
+authors:
+- eallion
+categories:
+- 代码
+date: 2022-11-06 16:30:22+08:00
 draft: false
-date: 2022-11-06T16:30:22+08:00
-lastmod: 2022-11-06T16:30:22+08:00
+lastmod: 2022-11-06 16:30:22+08:00
+series:
+- Memos
+seriesNavigation: true
+series_weight: 1
+slug: memos-deployment
+summary: 作者从早期使用PageCookery搭建微博客开始，回顾了独立博客圈流行的"B言B语"文化起源，列举了多个衍生版本如LeanCloud、Golang等实现方式。重点介绍了新兴的Memos应用，它虽对标Flomo但被用户开发出微博客功能，并简要提及部署需要VPS或Docker环境。
+tags:
+- 嘀咕
+- 哔哔
+- Memos
+- talk
+title: Memos 简介
 ---
 
 ### 前言

@@ -1,13 +1,20 @@
 ---
-title: "360 前端静态资源库"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["360","cdn","useso","前端","jquery"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2017-03-26 18:32:00'
 draft: false
-slug: "baomitu"
-summary: "这篇文章介绍了360重新上线的前端静态资源库。虽然作者并不是360的忠实粉丝，但他发现360的前端静态资源库有着很好的加载速度、CDN资源和收录项目，并推荐读者使用。"
-date: "2017-03-26 18:32:00"
-lastmod: "2017-03-26 18:32:00"
+lastmod: '2017-03-26 18:32:00'
+slug: baomitu
+summary: 360前端公共库USESO去年关闭引发不满，作者虽非360粉丝但认可其极速浏览器。近期360推出支持HTTP/2的新CDN服务，实测加载速度、资源覆盖和项目收录表现优秀，推荐使用新服务cdn.baomitu.com。
+tags:
+- '360'
+- cdn
+- useso
+- 前端
+- jquery
+title: 360 前端静态资源库
 ---
 
 去年 360 的前端公共库 USESO 关闭的时候，网上哀嚎一片。我有几个站也不能幸免。

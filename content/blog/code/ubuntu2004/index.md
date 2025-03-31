@@ -1,13 +1,20 @@
 ---
-title: "Ubuntu 20.04 优化"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","优化","美化","ZFS","gnome"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2020-05-25 12:36:00'
 draft: false
-slug: "ubuntu2004"
-summary: "这篇文章介绍了如何对Ubuntu 20.04进行优化的步骤。包括更换软件源、系统设置、安装GNOME Tweaks、去除鼠标加速、调整鼠标滚轮速度、免密码使用Sudo等。还介绍了安装常用的软件和扩展，如Chrome、Fcitx、Preload、TLP和CPUFREQ、Guake、Oh My Zsh等。同时还提供了一些其他的优化设置，如配置Vim、Grub引导、自动挂载硬盘、安装Openssh-Server等。最后还提到了安装Docker、Nginx、Mysql、PHP等软件以及使用Gnome Shell Extensions和体验macOS Big Sur动态壁纸。"
-date: "2020-05-25 12:36:00"
-lastmod: "2020-05-25 12:36:00"
+lastmod: '2020-05-25 12:36:00'
+slug: ubuntu2004
+summary: 从Ubuntu 19.10升级到20.04后遇到配置问题，选择重新安装系统。主要优化步骤包括：更换阿里云或清华的国内软件源，备份并修改sources.
+tags:
+- Ubuntu
+- 优化
+- 美化
+- ZFS
+- gnome
+title: Ubuntu 20.04 优化
 ---
 
 ![](/assets/images/posts/2020/09/ubuntu-2004.png)

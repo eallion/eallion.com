@@ -1,18 +1,20 @@
 ---
-title: "uBlacklist 订阅合集"
-authors: ["eallion"]
-categories: ["代码"]
-tags: 
-  - ublacklist
-  - google
-  - 内容农场
-  - 搜索
-  - 插件
-  - 扩展
-slug: "ublacklist-subscription-compilation"
-summary: "这是一个uBlacklist插件的订阅地址合集，用于屏蔽中文SEO垃圾站，如机器翻译、AI生成的内容。通过Github Actions每周自动更新。插件可防止指定的网站出现在搜索引擎结果中，可以添加规则或点击工具栏图标屏蔽指定的网站。规则可使用匹配模式或正则表达式指定，并可通过云存储跨设备同步。支持的搜索引擎有Google、Bing、Brave、DuckDuckGo、Ecosia、Qwant、SearX、Startpage、Yahoo! JAPAN和Yandex。安装插件后，设置订阅黑名单列表并添加订阅地址。还可进行其他设置，如在谷歌搜索结果中屏蔽特定网站。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2024-06-12 22:29:18+08:00
 draft: false
-date: 2024-06-12T22:29:18+08:00
+slug: ublacklist-subscription-compilation
+summary: 这是一个uBlacklist插件订阅合集，每周自动更新，专门屏蔽Google搜索结果中的中文SEO垃圾站和内容农场。订阅源地址为git.io/ublacklist。uBlacklist插件能通过匹配模式或正则表达式规则，阻止指定网站在搜索引擎结果中显示，
+tags:
+- ublacklist
+- google
+- 内容农场
+- 搜索
+- 插件
+- 扩展
+title: uBlacklist 订阅合集
 ---
 
 ### TL;DR

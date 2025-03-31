@@ -1,13 +1,20 @@
 ---
-title: "what is that?"
-authors: ["eallion"]
-categories: ["分享"]
-tags: ["感人","父母","父爱","那是什么"]
+authors:
+- eallion
+categories:
+- 分享
+date: '2010-10-22 12:13:58'
 draft: false
-slug: "whatisthat"
-summary: "文章讲述了一个父亲和儿子坐在长椅上，突然一只麻雀落在他们中间的故事。这是一部由 Constantin Pilavios 执导、Nikos & Constantin Pilavios 编剧的电影，摄影师是 Zoe Manta，音乐由 Christos Triantafillou 创作，声音由 Teo Babouris 负责，混音则是 Kostas Varibobiotis 完成。该电影由 MovieTeller films 制作。"
-date: "2010-10-22 12:13:58"
-lastmod: "2010-10-22 12:13:58"
+lastmod: '2010-10-22 12:13:58'
+slug: whatisthat
+summary: 父子坐在长椅上时，一只麻雀突然落在对面。这部2007年短片由Nikos Zoiopoulos和Panagiotis Bougiouris主演，Constantin
+  Pilavios执导，MovieTeller films制作，包含多语言台词"那是什么？"。
+tags:
+- 感人
+- 父母
+- 父爱
+- 那是什么
+title: what is that?
 ---
 
 那是什么？

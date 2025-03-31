@@ -1,17 +1,19 @@
 ---
-title: "Windows 安装 Rime 小狼毫五笔拼音输入法"
-authors: ["eallion"]
-categories: ["代码"]
-tags: 
-  - rime
-  - 中州韻
-  - weasel
-  - 小狼毫
-  - 五笔
-slug: "weasel"
-summary: "这篇文章介绍了作者在Windows系统中安装和配置Rime小狼毫五笔拼音输入法的过程。由于微软五笔输入法的一些限制不符合作者的需求，他决定重新安装Rime小狼毫。文章还解释了Rime、Plum和Weasel之间的关系，以及它们各自的功能和作用。作者将详细记录了安装过程，并分享了一些个人的自定义设置和使用体验。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2023-04-23 22:50:42+08:00
 draft: false
-date: 2023-04-23T22:50:42+08:00
+slug: weasel
+summary: 重装Win10后改用小狼毫输入法解决微软五笔的符号转换问题。微软五笔会将数字后全角点自动转为句号，影响小数点输入，且代码包裹符号转换不符合需求。小狼毫基于Rime引擎，支持高度自定义，初期上手复杂但习惯后体验优越。
+tags:
+- rime
+- 中州韻
+- weasel
+- 小狼毫
+- 五笔
+title: Windows 安装 Rime 小狼毫五笔拼音输入法
 ---
 
 - [前言](#前言)

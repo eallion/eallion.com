@@ -1,13 +1,19 @@
 ---
-title: "Dokuwiki Nginx 伪静态"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["nginx","doku","dokuwiki","rewrite"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2016-09-29 19:25:00'
 draft: false
-slug: "dokuwiki-nginx-rewrite"
-summary: "这篇文章介绍了关于DokuWiki使用Nginx实现伪静态的方法。作者分享了如何配置Nginx服务器以支持DokuWiki，并将其设置为使用伪静态URL，以提高网站的性能和搜索引擎优化。文章讨论了Nginx的配置文件中需要进行的更改，并提供了具体的代码示例和步骤。通过使用这种伪静态设置，读者可以加速他们的DokuWiki网站，提高用户体验和网站的可见性。"
-date: "2016-09-29 19:25:00"
-lastmod: "2016-09-29 19:25:00"
+lastmod: '2016-09-29 19:25:00'
+slug: dokuwiki-nginx-rewrite
+summary: 这段Nginx配置主要处理URL重写规则。将类似`_media/`开头的请求转到`fetch.php`处理，`_detail/`的转到`detail.php`，`_export/`的转为`doku.php`的导出操作。根路径下如果文件不存在，则把请求重定向到`doku.php`，
+tags:
+- nginx
+- doku
+- dokuwiki
+- rewrite
+title: Dokuwiki Nginx 伪静态
 ---
 
 ```nginx

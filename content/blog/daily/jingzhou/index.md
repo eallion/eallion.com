@@ -1,13 +1,18 @@
 ---
-title: "荆州"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["过往","荆州","亲情"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2009-01-02 13:43:36'
 draft: false
-slug: "jingzhou"
-summary: "这篇文章介绍了一个地方叫荆州，同时提到了一个大个子的小蜗牛。文章描述了一切都很好，亲情浓厚，充满了温暖的感觉。同时，也提到了作者思念一些人和过去的事情。"
-date: "2009-01-02 13:43:36"
-lastmod: "2009-01-02 13:43:36"
+lastmod: '2009-01-02 13:43:36'
+slug: jingzhou
+summary: 荆州生活平静温暖，亲情环绕，时常怀念故人与旧时光。
+tags:
+- 过往
+- 荆州
+- 亲情
+title: 荆州
 ---
 
 在荆州...

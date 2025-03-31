@@ -1,13 +1,18 @@
 ---
-title: "周公解梦"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["梦","周公","解梦"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2012-05-29 09:05:33'
 draft: false
-slug: "zhougongjiemeng"
-summary: "文章讲述了作者昨晚做的三个梦，分别是被追杀、洗澡和眼睛流血。根据周公解梦的解释，被追到意味着被杀，而洗澡则代表身体健康。眼睛流血预示着身体会很健康。"
-date: "2012-05-29 09:05:33"
-lastmod: "2012-05-29 09:05:33"
+lastmod: '2012-05-29 09:05:33'
+slug: zhougongjiemeng
+summary: 昨晚梦见被追杀、洗澡和眼睛流血。解梦说被追杀预示财运好转，洗澡代表身体健康，眼睛流血也是健康吉兆。
+tags:
+- 梦
+- 周公
+- 解梦
+title: 周公解梦
 ---
 
 昨天晚上做了很多梦

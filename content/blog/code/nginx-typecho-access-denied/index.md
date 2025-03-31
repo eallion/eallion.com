@@ -1,13 +1,20 @@
 ---
-title: "Nginx typecho Access denied"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["typecho","nginx","access","denied","403"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2017-03-19 01:08:00'
 draft: false
-slug: "nginx-typecho-access-denied"
-summary: "文章讲述了在重新配置服务器时遇到的问题，即无法打开 typecho 的二级页面，显示 Access denied。官方给出了解决办法：修改 php.ini 文件中的 cgi.fix_pathinfo 为 1，并重启 php 和 nginx。"
-date: "2017-03-19 01:08:00"
-lastmod: "2017-03-19 01:08:00"
+lastmod: '2017-03-19 01:08:00'
+slug: nginx-typecho-access-denied
+summary: 配置Typecho时遇到二级页面无法访问，显示"Access denied"。解决方法是在php.ini中设置cgi.fix_pathinfo=1，OneinStack环境下文件路径为/usr/local/php/etc/php.ini。修改后重启php和nginx服务即可解决。
+tags:
+- typecho
+- nginx
+- access
+- denied
+- '403'
+title: Nginx typecho Access denied
 ---
 
 今天重新配置服务器，又到遇到了这个问题。

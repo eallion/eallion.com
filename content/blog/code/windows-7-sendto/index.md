@@ -1,13 +1,19 @@
 ---
-title: "Win7 Sendto 文件夹"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["WIN7","sendto","系统","发送到"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2015-01-14 10:58:00'
 draft: false
-slug: "windows-7-sendto"
-summary: "这篇文章介绍了Win7系统中的Sendto文件夹，作者喜欢右键菜单中的“发送到……”功能，并分享了如何在Win7系统中找到该文件夹的方法，包括通过搜索和逐级点开的方式进行查找。同时，提供了环境变量%APPDATA%的值作为文件夹路径。"
-date: "2015-01-14 10:58:00"
-lastmod: "2015-01-14 10:58:00"
+lastmod: '2015-01-14 10:58:00'
+slug: windows-7-sendto
+summary: '"发送到"功能很实用，新系统安装后常需清理多余选项。XP系统直接运行"SendTo"就能打开对应文件夹，但Win7不行。Win7可通过搜索"SendTo"或逐层进入路径C:\users\用户名\AppData\Roaming\Microsoft\Windows\SendTo。'
+tags:
+- WIN7
+- sendto
+- 系统
+- 发送到
+title: Win7 Sendto 文件夹
 ---
 
 我个人比较喜欢右键 “发送到……” 这个功能，新装系统也会清理 “发送到……” 里多余的选项，“发送到……” 对应的位置为文件夹 “SendTo”。

@@ -1,13 +1,16 @@
 ---
-title: "《静夜思》鉴赏"
-authors: ["eallion"]
-categories: ["分享"]
-tags: ["静夜思"]
+authors:
+- eallion
+categories:
+- 分享
+date: '2010-05-05 00:44:12'
 draft: false
-slug: "jingyesi"
-summary: "这篇文章介绍了一首诗《静夜思》的鉴赏。诗中描述了诗人在床前看着明月的情景，并通过比喻表达了对故乡的思念之情。文章还分析了诗人矛盾的心境，揭示了他作为一个正常男人在异乡寻求欢愉与思念家乡之间的矛盾心理。"
-date: "2010-05-05 00:44:12"
-lastmod: "2010-05-05 00:44:12"
+lastmod: '2010-05-05 00:44:12'
+slug: jingyesi
+summary: 月光洒在床前像白霜，抬头看月亮时突然想家。打工人孤身在外，面对诱惑内心挣扎，既享受又愧疚。
+tags:
+- 静夜思
+title: 《静夜思》鉴赏
 ---
 
 <strong > 原文：</strong>

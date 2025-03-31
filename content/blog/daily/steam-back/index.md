@@ -1,13 +1,21 @@
 ---
-title: "我的 steam 回来了"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["CS","封禁","账号","steam","解封","申诉"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-01-23 08:00:00'
 draft: false
-slug: "steam-back"
-summary: "这篇文章介绍了作者的steam账号被封禁的经历以及他对此的不满。他解释了CS是正版游戏的一部分，并且表达了对百度和腾讯的不满。作者分享了自己申诉的经历，通过自己的申诉信成功解封了账号。最后，他感到非常惊喜和庆幸，并写了一封感谢信给steam。"
-date: "2011-01-23 08:00:00"
-lastmod: "2011-01-23 08:00:00"
+lastmod: '2011-01-23 08:00:00'
+slug: steam-back
+summary: 玩家因Steam大面积封号损失使用十年的账号，多次申诉未果后自写措辞激烈的英文申诉信，意外成功解封。本想分享申诉模板但已被系统删除，最终庆幸账号回归并发送感谢信。
+tags:
+- CS
+- 封禁
+- 账号
+- steam
+- 解封
+- 申诉
+title: 我的 steam 回来了
 ---
 
 （解释一下：[Steam](http://baike.baidu.com/view/1325872.htm) 账号就是玩正版 CS 的东西。）

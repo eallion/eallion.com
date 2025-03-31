@@ -1,20 +1,23 @@
 ---
-title: "Memos API 公告样式滚动效果"
-authors: ["eallion"]
-categories: ["代码"]
-tags:
-    - 嘀咕
-    - 哔哔
-    - Memos
-    - talk
-slug: "memos-ticker"
-summary: "这篇文章介绍了Memos API公告样式滚动效果以及大大的小蜗牛Memos的简介系列。文章提供了参考代码，包括主页的核心代码、相对时间的实现以及引用的插件和样式表。"
-series: ["Memos"]
-series_weight: 4
-seriesNavigation: true
+authors:
+- eallion
+categories:
+- 代码
+date: 2022-11-06 16:33:22+08:00
 draft: false
-date: 2022-11-06T16:33:22+08:00
-lastmod: 2022-11-06T16:33:22+08:00
+lastmod: 2022-11-06 16:33:22+08:00
+series:
+- Memos
+seriesNavigation: true
+series_weight: 4
+slug: memos-ticker
+summary: 在网页指定位置添加ID为"memos"的div容器用于展示便签内容。通过JavaScript调用Memos API获取数据，使用fetch处理返回的JSON格式便签信息，包括创建时间和内容，最终将解析后的数据显示在页面容器中。需要引入Lately插件处理相对时间显示。
+tags:
+- 嘀咕
+- 哔哔
+- Memos
+- talk
+title: Memos API 公告样式滚动效果
 ---
 
 > 效果参考首页

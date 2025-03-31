@@ -1,13 +1,20 @@
 ---
-title: "typecho1.2 (18.10.23) 新窗口打开链接"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["typecho","代码","php","新窗口","blank"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2019-06-03 12:00:00'
 draft: false
-slug: "typecho-12-blank"
-summary: "这篇文章介绍了一个关于typecho博客平台的修改方法。作者想要实现新窗口打开链接的功能，他在代码中添加了一行代码(target=“_blank” rel=“nofollow”)来实现这个效果。推荐方法二是修改var/HyperDown.php文件，在代码的第507行添加相应的代码。然后在主题的functions.php文件和post.php文件中进行相应的改动。作者表示此方法适用于typecho1.2版本。"
-date: "2019-06-03 12:00:00"
-lastmod: "2019-06-03 12:00:00"
+lastmod: '2019-06-03 12:00:00'
+slug: typecho-12-blank
+summary: 博客针对中文用户习惯，提供了两种实现链接新窗口打开的方法。方法一通过修改系统文件`HyperDown.php`，直接在代码中添加`target=\"_blank\"`属性，但可能影响升级。方法二更推荐，通过在主题的`functions.php`中添加自定义函数实现，
+tags:
+- typecho
+- 代码
+- php
+- 新窗口
+- blank
+title: typecho1.2 (18.10.23) 新窗口打开链接
 ---
 
 本博客主要是面向亚洲访客，简体中文访客。而中文用户是习惯于新窗口打开链接，所以我修改了一下代码。

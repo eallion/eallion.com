@@ -1,17 +1,19 @@
 ---
-title: "在 Hugo 中使用 Shiki"
-authors: ["eallion"]
-categories: ["代码"]
-tags: 
-  - Hugo
-  - Highlight
-  - Shiki
-  - 高亮
-slug: "hugo-syntax-highlight-shiki"
-summary: "本文介绍了如何在 Hugo 中使用 Shiki 代码语法高亮器。Shiki 是一款美观而强大的代码语法高亮器，基于 TextMate 的语法和主题，并能为几乎所有主流编程语言提供准确且快速的语法高亮。与其他代码语法高亮器不同，Shiki 是纯静态的，无需引入庞大的 JS 资源。文章详细介绍了在 Hugo 项目中安装和配置 Shiki 的步骤，包括安装相关插件、设置 Hugo 配置文件以及创建.rehyperc 文件来配置高亮主题等。此外，还提供了适配暗黑模式和生成 Shiki 所需命令行操作等内容。最后还介绍了如何在 GitHub Actions 中使用 Shiki 进行部署，并给出了相应的工作流程示例。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2024-08-15 22:42:21+08:00
 draft: false
-date: 2024-08-15T22:42:21+08:00
-# images: ["/assets/images/og/在-hugo-中使用-shiki-代码语法高亮器.png"] # Delete this line
+slug: hugo-syntax-highlight-shiki
+summary: Shiki是一款基于VS Code语法高亮引擎的代码高亮工具，支持多种编程语言和主题。它无需维护自定义正则表达式、CSS或HTML，直接使用VS
+  Code主题。在Hugo中配置Shiki只需几分钟，
+tags:
+- Hugo
+- Highlight
+- Shiki
+- 高亮
+title: 在 Hugo 中使用 Shiki
 ---
 
 > 除了 Hugo 在其他静态博客如 Hexo 中都可以使用此方法。

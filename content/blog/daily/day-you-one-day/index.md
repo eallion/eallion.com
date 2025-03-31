@@ -1,13 +1,18 @@
 ---
-title: "一天推一天"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["现状","明天","今天"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-12-31 00:14:52'
 draft: false
-slug: "day-you-one-day"
-summary: "这篇文章介绍了一个大大的小蜗牛，他习惯于将任务拖延到明天，然后又继续拖延，对现状感到满足，直到有一天他不得不开始行动。这篇文章提醒读者不要拖延，要及时行动。"
-date: "2008-12-31 00:14:52"
-lastmod: "2008-12-31 00:14:52"
+lastmod: '2008-12-31 00:14:52'
+slug: day-you-one-day
+summary: 拖延成习惯，安于舒适区，直到被迫改变才行动。
+tags:
+- 现状
+- 明天
+- 今天
+title: 一天推一天
 ---
 
 今天推到明天...

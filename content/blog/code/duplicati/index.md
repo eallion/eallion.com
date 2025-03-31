@@ -1,16 +1,21 @@
 ---
-title: "备份工具 Duplicati"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","备份","Duplicati"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2019-11-25 22:30:00'
 draft: false
-slug: "duplicati"
-summary: "这篇文章介绍了备份工具Duplicati的一些特点和使用情况。Duplicati是一个支持多种操作系统的备份工具，如Windows、Linux、MacOS和Synology等。文章提及了在Ubuntu上安装Duplicati的步骤，包括设置IP和启动等操作，可以方便地进行备份设置。"
-date: "2019-11-25 22:30:00"
-lastmod: "2019-11-25 22:30:00"
+lastmod: '2019-11-25 22:30:00'
+slug: duplicati
+summary: Duplicati备份工具兼容Windows、Linux、MacOS和Synology等系统。在Ubuntu上安装需下载deb包并用apt修复依赖，通过命令指定IP地址后启用服务。访问指定地址的8200端口即可配置备份任务。
+tags:
+- Ubuntu
+- 备份
+- Duplicati
+title: 备份工具 Duplicati
 ---
 
- [Duplicati](https://www.duplicati.com/download) 备份工具支持主流的系统，包括：Windows、 Linux、 MacOS、 Synology 等。
+[Duplicati](https://www.duplicati.com/download) 备份工具支持主流的系统，包括：Windows、 Linux、 MacOS、 Synology 等。
 
 Ubuntu 安装：
 

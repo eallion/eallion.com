@@ -1,13 +1,18 @@
 ---
-title: "流年"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["时间","时光","流年"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2012-08-12 13:15:23'
 draft: false
-slug: "liu-nian"
-summary: "文章讲述了时光的流逝和岁月的易逝。作者通过描述自己每天穿城而过，静思流年的场景，表达了对时间流逝的感慨。"
-date: "2012-08-12 13:15:23"
-lastmod: "2012-08-12 13:15:23"
+lastmod: '2012-08-12 13:15:23'
+slug: liu-nian
+summary: 时光在指尖、发间、茶光和树荫间悄然溜走，每日穿行城市时，总忍不住感叹岁月匆匆。
+tags:
+- 时间
+- 时光
+- 流年
+title: 流年
 ---
 
 时光从指尖流逝

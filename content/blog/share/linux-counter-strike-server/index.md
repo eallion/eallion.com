@@ -1,13 +1,21 @@
 ---
-title: "Linux 架设 CS1.6 服务器教程"
-authors: ["eallion"]
-categories: ["分享"]
-tags: ["CS","Ubuntu","server","服务器","linux","red hat"]
+authors:
+- eallion
+categories:
+- 分享
+date: '2012-03-21 13:07:07'
 draft: false
-slug: "linux-counter-strike-server"
-summary: "这篇文章介绍了在Linux系统下架设CS1.6服务器的教程。文章分为多个部分，介绍了存放玩家IP的配置文件，以及CS1.6服务器在Linux系统下的架设和调试方法。文章假设读者已经具备了一台运行Linux操作系统的服务器，并且具备root密码。此外，还介绍了一些基础知识，如网络基础知识、Linux系统的基本命令和远程登录工具的使用方法。最后，文章还提到了在远程安装CS1.6服务端之前需要完成的准备工作。"
-date: "2012-03-21 13:07:07"
-lastmod: "2012-03-21 13:07:07"
+lastmod: '2012-03-21 13:07:07'
+slug: linux-counter-strike-server
+summary: Linux系统因高性能和稳定性成为搭建CS1.6服务器的首选，国外多数服务器采用此方案。教程基于Linux环境，分享架设经验并感谢前人贡献。需准备一台运行Linux的服务器，具备固定局域网IP、网络连通性，建议配置公网IP映射并暂时关闭防火墙（存在风险）。
+tags:
+- CS
+- Ubuntu
+- server
+- 服务器
+- linux
+- red hat
+title: Linux 架设 CS1.6 服务器教程
 ---
 
 > 前言：由于 linux 系统的高性能和稳定性，非常适合作为 cs1.6 这种对服务器硬件要求较高的服务端，（服务器端可达到 1000fps），因此国外绝大多数的 cs1.6 服务器均采用 linux 做为服务器的操作系统。本文也只针对 linux 系统下架设 cs1.6 服务器及其扩展功能展开讨论，本文借鉴了网络上前人的经验，在此对他们无私的奉献表示感谢！这是本人第一次写 cs.16 服务器教程，难免存在疏漏或错误，希望各位同仁批评指正！

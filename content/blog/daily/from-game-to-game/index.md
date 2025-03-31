@@ -1,13 +1,19 @@
 ---
-title: "从游戏到游戏"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["CS","游戏","魂斗罗","俄罗斯方块"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-11-15 18:40:13'
 draft: false
-slug: "from-game-to-game"
-summary: "这篇文章介绍了作者对游戏的回忆和喜爱。他从小时候玩弹珠、掌机到上中学时的FC游戏，特别喜欢Contra魂斗罗。他还提到了自己在CS游戏中的经历和对其的热爱，认为CS是PC平台上最经典的游戏之一。最后，他也提到了喜欢的游戏包括tetris、contra和counter strike。"
-date: "2008-11-15 18:40:13"
-lastmod: "2008-11-15 18:40:13"
+lastmod: '2008-11-15 18:40:13'
+slug: from-game-to-game
+summary: 秋天容易勾起回忆，小时候玩遍弹弓、弹珠等传统游戏，后来迷上电子宠物和掌机，尤其痴迷俄罗斯方块，曾创下连续玩数小时不死的记录。十三四岁沉迷FC游戏，靠交换卡带玩坏多台小霸王，最擅长魂斗罗无伤通关。十五六岁狂热投入CS，经历1.3甩狙时代，见证游戏文化形成，
+tags:
+- CS
+- 游戏
+- 魂斗罗
+- 俄罗斯方块
+title: 从游戏到游戏
 ---
 
 最近总是喜欢回忆...

@@ -1,13 +1,17 @@
 ---
-title: "博客迁移到 Hugo"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["hugo","blog"]
-slug: "hugo"
-summary: "这篇文章介绍了博客从Typecho迁移到Hugo的过程。作者认为维护LNMP类型的博客越来越费精力，决定迁移到静态博客。在Hexo和Hugo之间徘徊，最终选择了Hugo，因为其性能更好。文章解释了作者选择Hugo的原因以及迁移过程中遇到的问题。最终，作者感谢了一位博主的主题并使用了它。现在，作者的博客部署在阿里云的OSS上，并实现了“Serverless”。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2020-05-11 04:43:56+08:00
 draft: false
-date: 2020-05-11T04:43:56+08:00
-lastmod: 2020-05-11T04:43:56+08:00
+lastmod: 2020-05-11 04:43:56+08:00
+slug: hugo
+summary: 折腾一年终于把博客从Typecho迁移到Hugo静态博客。厌倦了维护LNMP服务器的繁琐，尤其讨厌配置服务和数据迁移。之前懒于手写主题模板，2019年发现喜欢的Hexo主题就迁移过去，但疫情中断了进程。最近看到林木木的Hugo博客主题很满意，直接拿来用。
+tags:
+- hugo
+- blog
+title: 博客迁移到 Hugo
 ---
 
 经过了差不多一年的挣扎（实际内心毫无波澜并且好像快忘掉这事了），总算把这个博客从 Typecho 迁移到了静态博客。现在定型为 —— [Hugo](https://gohugo.io/)

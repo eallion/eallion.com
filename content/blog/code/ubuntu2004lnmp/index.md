@@ -1,13 +1,20 @@
 ---
-title: "Ubuntu 20.04.1 配置 LNMP 本地环境备忘"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","Nginx","Mysql","PHP","LNMP"]
+authors:
+- eallion
+categories:
+- 代码
+date: 2020-08-26 03:47:38+08:00
 draft: false
-slug: "ubuntu2004lnmp"
-summary: "这篇文章介绍了在Ubuntu 20.04.1 Desktop版本中配置LNMP（Linux+Nginx+Mysql+PHP）的步骤。作者先介绍了安装Nginx、PHP、Mysql和phpMyAdmin的方法，然后提到了禁止开机启动，需要手动打开的问题。文章还给出了一个提示，即如果在生产环境中不了解各项配置的含义，应避免按照本文进行配置。最后，作者还提到了一个奇怪的bug，即完全移除Apache2时出现的问题。"
-date: 2020-08-26T03:47:38+08:00
-lastmod: 2020-08-26T03:47:38+08:00
+lastmod: 2020-08-26 03:47:38+08:00
+slug: ubuntu2004lnmp
+summary: 在Ubuntu 20.04桌面版配置Nginx、MySQL、PHP和phpMyAdmin。先彻底卸载冲突软件如Apache旧版，清理残留配置。安装Nginx后，添加PHP7.4及常用扩展组件。部署MySQL时需留意初始密码。最后安装phpMyAdmin进行数据库管理。
+tags:
+- Ubuntu
+- Nginx
+- Mysql
+- PHP
+- LNMP
+title: Ubuntu 20.04.1 配置 LNMP 本地环境备忘
 ---
 
 本文主要记录在 Ubuntu 20.04.1 Desktop 版本中配置 Nginx、Mysql、PHP、phpMyAdmin。

@@ -1,13 +1,23 @@
 ---
-title: "无所谓无所畏惧"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["无所谓","畏惧","影响","改变"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-12-10 22:15:05'
 draft: false
-slug: "fear-does-not-matter"
-summary: "这篇文章介绍了一个大胆的小蜗牛，它对任何事情都毫不在意，无所畏惧。它面对任何事情都表现得十分冷静，不容易受到影响或改变。"
-date: "2008-12-10 22:15:05"
-lastmod: "2008-12-10 22:15:05"
+lastmod: '2008-12-10 22:15:05'
+slug: fear-does-not-matter
+summary: '内心强大到对一切无感
+
+  什么都无所谓也不害怕
+
+  外界很难动摇或改变这种状态'
+tags:
+- 无所谓
+- 畏惧
+- 影响
+- 改变
+title: 无所谓无所畏惧
 ---
 
 无所谓无所畏惧...

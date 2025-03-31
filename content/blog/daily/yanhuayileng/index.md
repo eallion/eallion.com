@@ -1,13 +1,16 @@
 ---
-title: "周杰伦：烟花易冷"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["烟花易冷"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2010-04-28 06:43:00'
 draft: false
-slug: "yanhuayileng"
-summary: "周杰伦的歌曲《烟花易冷》表达了人事易分、情感深沉的主题。"
-date: "2010-04-28 06:43:00"
-lastmod: "2010-04-28 06:43:00"
+lastmod: '2010-04-28 06:43:00'
+slug: yanhuayileng
+summary: 古寺钟声里藏着未了情缘，有人枯守孤城等故人归来。旧故里草木疯长，雨声中回荡着千年执念。青史写不尽温柔，烟花易冷人事易分，唯有石板上盘踞的树根记得那句承诺。牧笛声落在野村，缘分最终落地生根，伽蓝寺的雨声里盼着永恒。
+tags:
+- 烟花易冷
+title: 周杰伦：烟花易冷
 ---
 
 繁华声 遁入空门 折煞了世人

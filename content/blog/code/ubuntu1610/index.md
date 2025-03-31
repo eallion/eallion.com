@@ -1,13 +1,20 @@
 ---
-title: "Ubuntu 16.10 优化"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["Ubuntu","优化","ipv6","访客","ubuntu 微信"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2016-10-13 22:30:00'
 draft: false
-slug: "ubuntu1610"
-summary: "这篇文章介绍了对Ubuntu 16.10进行优化的操作。包括更换阿里云软件源、更新系统、安装vim和Guake、进行系统设置、安装输入法、删除Libreoffice和Amazon、解决显示错误、调整Unity显示位置和图标最小化等操作。同时还介绍了安装优化工具、禁用房客Guest、禁用ipv6、设置鼠标加速度和自动挂载硬盘的方法。还推荐了安装openssh-server、Shadownsocks Qt5、状态栏指示器和其他软件的步骤。最后还提及了主题图标推荐和一些其他的操作提示。"
-date: "2016-10-13 22:30:00"
-lastmod: "2016-10-13 22:30:00"
+lastmod: '2016-10-13 22:30:00'
+slug: ubuntu1610
+summary: 将Ubuntu系统的软件源更换为阿里云镜像源，可通过图形界面在系统设置中选择阿里云服务器，或手动编辑sources.list文件替换为阿里云源地址。操作前建议备份原文件，替换完成后运行更新命令升级软件包列表。
+tags:
+- Ubuntu
+- 优化
+- ipv6
+- 访客
+- ubuntu 微信
+title: Ubuntu 16.10 优化
 ---
 
 1、换阿里云软件源

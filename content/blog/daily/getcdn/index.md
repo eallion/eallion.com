@@ -1,13 +1,19 @@
 ---
-title: "getcdn.org Aliyun CDN"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["阿里云","cdn","aliyun","网络分发"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2016-09-12 00:55:00'
 draft: false
-slug: "getcdn"
-summary: "这篇文章介绍了作者使用阿里云、腾讯云和七牛云等云服务商的CDN，而腾讯云还在内测阶段。由于360的USESO停运，作者决定自己做一个前端静态文件加速的工具getcdn.org。作者表示虽然很多组织提供前端库CDN，但在遭遇USESO停运后，自己控制才是可靠的方法。目前getcdn.org只对自己使用，不对外开放。"
-date: "2016-09-12 00:55:00"
-lastmod: "2016-09-12 00:55:00"
+lastmod: '2016-09-12 00:55:00'
+slug: getcdn
+summary: 多家云服务商提供免费CDN服务，包括阿里云、腾讯云和七牛云，均支持HTTPS。作者因收到大量免费流量，搭建了自用前端加速服务getcdn.org。此前360的USESO停运导致多个WordPress站点瘫痪，促使作者意识到依赖第三方CDN的风险。目前getcdn.
+tags:
+- 阿里云
+- cdn
+- aliyun
+- 网络分发
+title: getcdn.org Aliyun CDN
 ---
 
 > `getcdn.org`

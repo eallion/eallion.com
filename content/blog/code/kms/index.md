@@ -1,13 +1,18 @@
 ---
-title: "KMS Windows 激活服务器"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["KMS","Windows","激活"]
-slug: "kms"
-summary: "这篇文章介绍了一个KMS Windows激活服务器，它提供了服务器地址、源码、GVLK KMS客户端安装密钥以及激活教程。这个激活服务器部署在腾讯云香港轻量云服务器上，并且只支持激活VOL版本的Windows和Office。通过KMS方式激活，每次激活的有效期为180天，在一定时间后系统会自动向KMS服务器请求续期。激活过程需要管理员权限打开CMD命令提示符，并且不同版本需要更换对应的ipk密钥。还需要找到OSPP.VBS文件所在的目录。"
+authors:
+- eallion
+categories:
+- 代码
+date: 2020-11-04 12:51:22+08:00
 draft: false
-date: 2020-11-04T12:51:22+08:00
-lastmod: 2020-11-04T12:51:22+08:00
+lastmod: 2020-11-04 12:51:22+08:00
+slug: kms
+summary: 朋友需要激活Windows 10，于是搭建了一个KMS激活服务器，地址是kms.eallion.com，部署在腾讯云香港服务器。该服务仅支持VOL版本的Windows和Office，激活后有效期180天，系统会自动续期。提供了Docker镜像和GitHub源码链接，
+tags:
+- KMS
+- Windows
+- 激活
+title: KMS Windows 激活服务器
 ---
 
 最近因朋友需要激活 Windows 10 ，拉了个 Docker 镜像，建了个激活服务器。

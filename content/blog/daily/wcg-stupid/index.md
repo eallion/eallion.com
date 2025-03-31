@@ -1,13 +1,17 @@
 ---
-title: "WCG Stupid"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["CS","wcg"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2012-03-29 15:10:05'
 draft: false
-slug: "wcg-stupid"
-summary: "文章讨论了世界电子竞技大赛（WCG）取消 PC 游戏启用手机游戏的事件。作者认为 WCG 一直以来都是最专业和品牌效应最好的电竞比赛，但近年来出现了一些不明智的决策，如使用 CS:CZ 版本和 CS:S 等。文章呼吁 WCG 慎重考虑，并希望其能够继续发展。"
-date: "2012-03-29 15:10:05"
-lastmod: "2012-03-29 15:10:05"
+lastmod: '2012-03-29 15:10:05'
+slug: wcg-stupid
+summary: WCG可能取消PC游戏改用手机游戏，引发玩家强烈不满。作为历史最悠久的专业电竞赛事，WCG的成功得益于专业运营、品牌效应及韩国政府和三星的支持。但此前在CS项目上的决策失误已多次引发争议，比如强行使用不受欢迎的游戏版本。这次转型手机游戏被玩家比喻为"世界杯取消足球改玩桌式足球"，
+tags:
+- CS
+- wcg
+title: WCG Stupid
 ---
 
 目前虽然还没有官方消息

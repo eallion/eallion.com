@@ -1,13 +1,18 @@
 ---
-title: "多说 CSS 分享"
-authors: ["eallion"]
-categories: ["代码"]
-tags: ["多说","css","样式"]
+authors:
+- eallion
+categories:
+- 代码
+date: '2015-01-12 10:07:00'
 draft: false
-slug: "share-duoshuo-css"
-summary: "这篇文章介绍了罗磊的独立博客中关于CSS分享以及设计自定义效果展示的内容，以及沈超飞的IT博客中的观点。"
-date: "2015-01-12 10:07:00"
-lastmod: "2015-01-12 10:07:00"
+lastmod: '2015-01-12 10:07:00'
+slug: share-duoshuo-css
+summary: 几个网站展示了用CSS3美化评论区的自定义效果，包括设计达人、罗磊博客等。示例代码演示了如何隐藏版权信息、调整标签样式、修改高亮文字效果，以及移除排序功能等具体操作。
+tags:
+- 多说
+- css
+- 样式
+title: 多说 CSS 分享
 ---
 
 出色的自定义效果展示：

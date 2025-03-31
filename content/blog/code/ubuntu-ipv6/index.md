@@ -1,13 +1,19 @@
 ---
-title: "Ubuntu 禁用 IPv6"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["Ubuntu","ipv6","禁用"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2013-05-04 18:02:00'
 draft: false
-slug: "ubuntu-ipv6"
-summary: "这篇文章介绍了如何禁用Ubuntu的IPv6。作者提供了三种禁用IPv6的方法。方法一是使用命令ip a | grep inet6来确认IPv6是否已禁用。方法二是使用ifconfig命令查看网卡信息，并逐个禁用IPv6，或者直接编辑配置文件来禁用IPv6。方法三是修改GRUB配置文件，添加变量来禁用IPv6，并更新GRUB配置。最后，需要重启系统使修改生效。"
-date: "2013-05-04 18:02:00"
-lastmod: "2013-05-04 18:02:00"
+lastmod: '2013-05-04 18:02:00'
+slug: ubuntu-ipv6
+summary: 记录几个禁用IPv6的常用方法。用`ip a | grep inet6`检查是否生效。推荐方法：修改`/etc/sysctl.conf`文件，添加禁用所有网卡IPv6的配置后执行`sudo
+  sysctl -p`生效。也可通过编辑`/etc/default/grub`文件，
+tags:
+- Ubuntu
+- ipv6
+- 禁用
+title: Ubuntu 禁用 IPv6
 ---
 
 记不住这几个命令，新装系统都要去 google，索性放在这里好了。

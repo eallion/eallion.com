@@ -1,13 +1,17 @@
 ---
-title: "重要不重要"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["重要","值得"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-11-22 23:04:30'
 draft: false
-slug: "important-unimportant"
-summary: "文章讨论了事物的重要性和复杂性之间的关系，作者认为有些事情虽然简单但很重要，而有些事情虽然复杂却不重要。作者强调对于自己来说最重要的是判断一件事是否值得去做。尽管作者曾经做过很多不值得的事情，但他仍在思考这个问题。"
-date: "2008-11-22 23:04:30"
-lastmod: "2008-11-22 23:04:30"
+lastmod: '2008-11-22 23:04:30'
+slug: important-unimportant
+summary: 重要的事往往简单，复杂的事未必重要。关键在于判断是否值得去做，即使有时会犯错选择不值得的事。
+tags:
+- 重要
+- 值得
+title: 重要不重要
 ---
 
 有些事...

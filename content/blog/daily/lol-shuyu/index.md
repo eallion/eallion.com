@@ -1,13 +1,18 @@
 ---
-title: "英雄联盟 lol 名词解释"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["LOL","英雄联盟","League of Legends"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2013-04-13 16:33:00'
 draft: false
-slug: "lol-shuyu"
-summary: "这篇文章介绍了英雄联盟（League of Legends）中一些常用名词的简写。其中包括AP是指法术伤害，AD是指物理伤害，ADC是指远程物理输出，DPS是指近战物理输出。"
-date: "2013-04-13 16:33:00"
-lastmod: "2013-04-13 16:33:00"
+lastmod: '2013-04-13 16:33:00'
+slug: lol-shuyu
+summary: 英雄联盟常用术语包括伤害类型缩写（AP法术、AD物理、ADC远程输出、DPS近战输出）、游戏指令（3/b撤退、mia敌人消失）、战术用语（Gank抓人、Aoe范围攻击、Combo连招）、角色定位（Tank坦克、奶妈治疗）、状态描述（卡/Lag延迟、afk挂机）、地图位置（top上
+tags:
+- LOL
+- 英雄联盟
+- League of Legends
+title: 英雄联盟 lol 名词解释
 ---
 
 英雄联盟 lol（League of Legends）中有一些常用名词的简写：

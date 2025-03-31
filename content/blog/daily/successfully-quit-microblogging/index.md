@@ -1,13 +1,18 @@
 ---
-title: "成功戒掉微博"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["微博","戒","网瘾"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2011-03-16 08:26:23'
 draft: false
-slug: "successfully-quit-microblogging"
-summary: "这篇文章介绍了作者如何成功戒掉微博和其他社交媒体平台的经历。作者通过取消关注所有人、不去浏览微博上的各种内容，以及不及时回复互动等方式，成功戒掉了微博。此外，作者还成功戒掉了QQ、QQ空间、百度贴吧、Twitter等其他社交媒体平台。最后，作者提到腾讯将他的QQ微博账号设为只读，相当于将他的账号封禁。"
-date: "2011-03-16 08:26:23"
-lastmod: "2011-03-16 08:26:23"
+lastmod: '2011-03-16 08:26:23'
+slug: successfully-quit-microblogging
+summary: 成功戒掉微博，方法是取消关注所有人，不看星座、新闻、语录等内容，减少互动。还戒掉了QQ、贴吧、Twitter等多个社交平台。戒掉QQ微博因账号被设为只读，Twitter则通过不主动登录实现。
+tags:
+- 微博
+- 戒
+- 网瘾
+title: 成功戒掉微博
 ---
 
 让自己不去碰鼠标

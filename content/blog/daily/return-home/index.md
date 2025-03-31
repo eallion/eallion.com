@@ -1,13 +1,17 @@
 ---
-title: "回家"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["回家","默默"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2009-01-06 11:59:26'
 draft: false
-slug: "return-home"
-summary: "文章讲述了一个人回家的故事，他在回家的路上经历了很多事情，学到了很多东西。他决定独自承受这些困难，并默默地继续前行。最后，他成功回到了家中，并表达出想要消失的心愿。"
-date: "2009-01-06 11:59:26"
-lastmod: "2009-01-06 11:59:26"
+lastmod: '2009-01-06 11:59:26'
+slug: return-home
+summary: 心里明白了很多事，也学会独自面对。一个人默默扛下所有，踏上归途。或许最终会选择消失，安静地回到原点。
+tags:
+- 回家
+- 默默
+title: 回家
 ---
 
 回家...

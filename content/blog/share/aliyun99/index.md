@@ -1,13 +1,19 @@
 ---
-title: "阿里云服务器 ECS 最新版 VPS 99 元 / 年"
-authors: ["eallion"]
-categories: ["分享"]
-tags: ["服务器", "vps", "阿里云", "ECS"]
+authors:
+- eallion
+categories:
+- 分享
+date: '2018-03-29 23:13:00'
 draft: false
-slug: "aliyun99"
-summary: "这篇文章介绍了阿里云服务器ECS最新版VPS的优惠活动。用户只需以99元的价格购买一年，即可使用1核2G内存、1M带宽和40G SSD硬盘的配置。这个优惠适用于新用户，可以用于稳定建站或学习Linux等用途。限新用户购买。"
-date: "2018-03-29 23:13:00"
-lastmod: "2018-03-29 23:13:00"
+lastmod: '2018-03-29 23:13:00'
+slug: aliyun99
+summary: 套路云推出超低价VPS促销，新用户专享1核2G配置服务器，年付仅99元，三年套餐279元更划算。适合建站或学习Linux，限时优惠省千元以上。
+tags:
+- 服务器
+- vps
+- 阿里云
+- ECS
+title: 阿里云服务器 ECS 最新版 VPS 99 元 / 年
 ---
 
 套路云又出骚东西了，服务器 ECS 最新版 VPS，只要 99 年 1 年，可以买来玩玩。稳定建站或者学习 linux 都还可以。

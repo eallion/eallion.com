@@ -1,13 +1,17 @@
 ---
-title: "停电停网"
-authors: ["eallion"]
-categories: ["日志"]
-tags: ["停电","停网"]
+authors:
+- eallion
+categories:
+- 日志
+date: '2008-10-22 14:37:36'
 draft: false
-slug: "stopping-power-network"
-summary: "文章内容是关于作者回忆自己做小偷的经历，描述了他所干的坏事和对手机的渴望。"
-date: "2008-10-22 14:37:36"
-lastmod: "2008-10-22 14:37:36"
+lastmod: '2008-10-22 14:37:36'
+slug: stopping-power-network
+summary: 最近网络和电力供应调整，白天8点到18点断网，晚上23点到次日6点停电。上网时间大幅减少，生活节奏可能因此改变。
+tags:
+- 停电
+- 停网
+title: 停电停网
 ---
 
 从昨天开始...
