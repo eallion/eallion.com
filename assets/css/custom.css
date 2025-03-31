@@ -460,6 +460,29 @@ html.dark .shiki span {
   display: none;
 }
 
+#main-content .article {
+  display: flex;
+  align-items: center;
+  /* 默认情况（移动端优先）：flex-wrap: wrap; */
+  flex-wrap: wrap;
+}
+
+/* 当屏幕宽度 ≥ 1024px 时，flex-wrap: nowrap; */
+@media (min-width: 1024px) {
+  #main-content .article {
+    flex-wrap: nowrap;
+  }
+}
+
+#main-content .article > div:nth-child(2) > div:nth-child(3) {
+  display: -webkit-box;          /* 使用弹性盒模型 */
+  -webkit-box-orient: vertical;  /* 垂直方向排列 */
+  -webkit-line-clamp: 4;         /* 限制显示 4 行 */
+  overflow: hidden;              /* 超出部分隐藏 */
+  text-overflow: ellipsis;       /* 超出部分显示省略号 */
+  word-break: break-word;        /* 防止长单词溢出 */
+}
+
 li a,
 blockquote a {
     white-space: pre-wrap;
