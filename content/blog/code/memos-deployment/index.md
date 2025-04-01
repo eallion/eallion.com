@@ -3,15 +3,17 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2022-11-06 16:30:22+08:00
+date: 2022-11-06 08:30:22
 draft: false
-lastmod: 2022-11-06 16:30:22+08:00
+lastmod: 2022-11-06 08:30:22
 series:
 - Memos
 seriesNavigation: true
 series_weight: 1
 slug: memos-deployment
-summary: 作者从早期使用PageCookery搭建微博客开始，回顾了独立博客圈流行的"B言B语"文化起源，列举了多个衍生版本如LeanCloud、Golang等实现方式。重点介绍了新兴的Memos应用，它虽对标Flomo但被用户开发出微博客功能，并简要提及部署需要VPS或Docker环境。
+summary: Memos 是一款对标 Flomo 的轻量级微博客应用，适合独立博客用户部署使用。通过 Docker 可快速搭建，建议使用二级域名而非子目录访问。部署时需注意数据持久化，定期备份
+  SQLite 数据库文件 memos_prod.db。Nginx 反代 5230 端口即可对外提供服务，升级时推荐使用 docker compose pull
+  命令避免长时间停机。
 tags:
 - 嘀咕
 - 哔哔
@@ -19,7 +21,6 @@ tags:
 - talk
 title: Memos 简介
 ---
-
 ### 前言
 
 > DEMO：[https://memos.eallion.com](https://memos.eallion.com/)

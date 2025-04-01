@@ -7,7 +7,8 @@ date: '2011-11-09 08:20:57'
 draft: false
 lastmod: '2011-11-09 08:20:57'
 slug: can-not-install-xp
-summary: 新笔记本装了Ubuntu和Win7双系统，运行良好。想加装XP玩CS，但Win7和XP模式都不理想。尝试用U盘PE的Ghost安装XP导致分区损坏，干脆低格硬盘。发现GT540显卡没有XP驱动，无奈只能重装Win7。
+summary: 新笔记本装了 Ubuntu 11.10 和 Win7 双系统后，尝试折腾 XP 以流畅运行 CS，但 Win7 和 XP Mode 均不理想。计划用
+  easyBCD 引导 XP 分区，却因误用 Ghost 版 XP 导致硬盘分区损坏，最终低格硬盘。发现 GT540 显卡无 XP 驱动后，无奈重装 Win7 收场！
 tags:
 - 电脑
 - 笔记本
@@ -16,7 +17,6 @@ tags:
 - Ubuntu
 title: 装不了 XP
 ---
-
 前两天把新买的笔记本折腾得差不多了
 装上了 Ubuntu11.10 和 Win7 双系统
 用起来很不错

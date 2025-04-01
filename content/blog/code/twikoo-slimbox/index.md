@@ -3,11 +3,12 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2021-07-22 21:23:55+08:00
+date: 2021-07-22 13:23:55
 draft: false
-lastmod: 2021-07-22 21:23:55+08:00
+lastmod: 2021-07-22 13:23:55
 slug: twikoo-slimbox
-summary: Twikoo评论系统可通过`onCommentLoaded`API实现图片灯箱效果。开发者参考iMaeGoo的集成方案，将Slimbox2插件应用于博客评论图片。核心代码在评论加载完成后自动为图片包裹链接，并调用灯箱插件。具体实现是为`.
+summary: 通过 Twikoo 的 onCommentLoaded API 实现评论图片灯箱效果，为 .tk-content 中的图片动态添加超链接并排除头像元素，适用于使用
+  Slimbox2 灯箱插件的站点，尤其适配 Hello Friend 主题，具体代码可参考 eallion.com 源码！
 tags:
 - blog
 - code
@@ -16,7 +17,6 @@ tags:
 - 备忘
 title: Twikoo 集成 Slimbox2 灯箱插件
 ---
-
 浏览 Twikoo 的开发者『[iMaeGoo](https://www.imaegoo.com/)』个人博客的时候，里面有一篇文章 [《集成 Twikoo 与 lightGallery 插件，实现评论图片的点击放大》](https://www.imaegoo.com/2021/twikoo-lightgallery/) 提到了 Twikoo 集成 lightGallery 灯箱插件。  
 
 本博客使用的是 Slimbox2 灯箱插件，按照 iMaeGoo 的思路，利用 Twikoo 的 [API](https://twikoo.js.org/api.html#on-comment-loaded) `onCommentLoaded`，很方便的开启的评论的图片灯箱效果。  

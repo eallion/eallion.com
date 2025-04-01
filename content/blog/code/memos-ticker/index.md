@@ -3,15 +3,16 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2022-11-06 16:33:22+08:00
+date: 2022-11-06 08:33:22
 draft: false
-lastmod: 2022-11-06 16:33:22+08:00
+lastmod: 2022-11-06 08:33:22
 series:
 - Memos
 seriesNavigation: true
 series_weight: 4
 slug: memos-ticker
-summary: 在网页指定位置添加ID为"memos"的div容器用于展示便签内容。通过JavaScript调用Memos API获取数据，使用fetch处理返回的JSON格式便签信息，包括创建时间和内容，最终将解析后的数据显示在页面容器中。需要引入Lately插件处理相对时间显示。
+summary: 在网页中展示 Memos 需创建 ID 为 memos 的容器，通过 JS 调用 API 获取数据并处理为 JSON 格式，使用正则替换代码块、图片和链接，最后用
+  CSS 控制滚动效果和样式布局。Lately.js 插件可实现相对时间显示。
 tags:
 - 嘀咕
 - 哔哔
@@ -19,7 +20,6 @@ tags:
 - talk
 title: Memos API 公告样式滚动效果
 ---
-
 > 效果参考首页
 
 1. 首先需要在网页上合适的位置放置一个 CSS 选择器来展示 Memos，ID 命名为 `memos` 好了。

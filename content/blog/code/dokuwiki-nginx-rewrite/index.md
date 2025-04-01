@@ -7,7 +7,8 @@ date: '2016-09-29 19:25:00'
 draft: false
 lastmod: '2016-09-29 19:25:00'
 slug: dokuwiki-nginx-rewrite
-summary: 这段Nginx配置主要处理URL重写规则。将类似`_media/`开头的请求转到`fetch.php`处理，`_detail/`的转到`detail.php`，`_export/`的转为`doku.php`的导出操作。根路径下如果文件不存在，则把请求重定向到`doku.php`，
+summary: 这段 Nginx 配置实现了 URL 重写功能，将媒体文件请求重定向到 fetch.php，详情页请求转向 detail.php，导出请求映射到
+  export 处理器，并确保所有不存在的文件请求都交由 doku.php 处理，同时处理根路径的默认访问！
 tags:
 - nginx
 - doku
@@ -15,7 +16,6 @@ tags:
 - rewrite
 title: Dokuwiki Nginx 伪静态
 ---
-
 ```nginx
 rewrite ^(/)_media/(.*) $1lib/exe/fetch.php?media=$2 last;
 rewrite ^(/)_detail/(.*) $1lib/exe/detail.php?media=$2 last;

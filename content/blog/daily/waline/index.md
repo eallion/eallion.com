@@ -3,11 +3,12 @@ authors:
 - eallion
 categories:
 - 日志
-date: 2020-12-19 15:38:00+08:00
+date: 2020-12-19 07:38:00
 draft: false
-lastmod: 2020-12-19 15:38:00+08:00
+lastmod: 2020-12-19 07:38:00
 slug: waline
-summary: 博客评论系统多次更换，从Artalk、Disqus到Twikoo，最终因成本问题选择Waline。作者认为评论系统选择全凭个人喜好，推荐Disqus、Waline、Twikoo等，不推荐Gitalk和Valine。Waline是一款带后端的Valine衍生品，
+summary: 博客评论系统历经多次迁移，最终选择 Waline 作为解决方案。Waline 是一款安全、快速且支持多种部署方式的评论系统，提供丰富的数据迁移选项。其设计理念避免了
+  LeanCloud 流控问题，免费额度足以满足正常博客需求。选择评论系统应基于个人偏好和实用性，无需过度纠结技术细节。没有完美的方案，只有最适合自己的工具！
 tags:
 - hugo
 - blog
@@ -16,7 +17,6 @@ tags:
 - 评论
 title: 启用 Waline
 ---
-
 > 更新：评论系统切换到 Artalk。
 
 > 更新：因为维护成本偏高，评论系统已迁移至 Disqus。

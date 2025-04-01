@@ -7,13 +7,12 @@ date: '2019-12-16 22:58:39'
 draft: false
 lastmod: '2019-12-16 22:58:39'
 slug: deploy-to-github-and-coding
-summary: GitHub Pages和Coding Pages双平台部署博客需要先创建两个仓库并申请对应token。Gridea用户需在APP内配置GitHub
-  Pages，其他静态生成工具直接在博客根目录操作。通过git remote命令添加双推送地址，确保配置正确后检查远程仓库信息。
+summary: 以 GitHub Pages 和 Coding Pages 为例，需分别创建仓库并申请 token，配置 git remote 添加双推送地址，DNS
+  解析需区分国内外线路，同步后注意 Let's Encrypt 证书续期需暂停解析，因两者更新周期不同！
 tags:
 - hexo
 title: Gridea Hexo Hugo 等 git push 同步到多个仓库
 ---
-
 > 以 GitHub Pages + Coding Pages 为例
 
 ### 准备工作

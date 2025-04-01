@@ -7,7 +7,8 @@ date: '2019-04-19 15:45:00'
 draft: false
 lastmod: '2019-04-19 15:45:00'
 slug: rime-wubi
-summary: 在Rime输入法中添加自定义短语，首先进入用户文件夹创建`Custom_phrase.txt`文件，按指定格式填入短语、编码和权重。注意必须用制表符分隔字段，避免过多添加。接着新建`wubi_pinyin.custom.yaml`文件，修改配置以启用自定义短语功能，
+summary: 在 Rime 输入法中自定义短语需通过修改用户文件夹中的配置文件实现，包括创建 Custom_phrase.txt 并遵循特定格式，以及编辑 wubi_pinyin.custom.yaml
+  以启用自定义短语功能，最后重新部署输入法即可生效！
 tags:
 - rime
 - 小狼毫
@@ -16,7 +17,6 @@ tags:
 - 短语
 title: Rime 小狼毫 五笔输入法自定义短语
 ---
-
 > 最新更新：2021.01.21  [eallion/dotfiles](https://github.com/eallion/dotfiles/tree/windows/Users/eallion/AppData/Roaming/Rime)
 
 ### 第一步

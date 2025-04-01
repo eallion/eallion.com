@@ -7,7 +7,8 @@ date: '2019-11-27 02:08:00'
 draft: false
 lastmod: '2019-11-27 02:08:00'
 slug: ubuntuguake
-summary: Guake终端工具美观实用。推荐源码安装以获得最新版本并解决中文显示问题：先更新系统，安装依赖工具，克隆源码库，运行开发环境脚本后编译安装。也可直接通过apt安装，但版本较旧。
+summary: Guake 是一款美观实用的终端工具，推荐通过源码安装以获得最新版本并解决中文显示问题，具体步骤包括克隆仓库、运行脚本并编译安装，也可直接通过 apt
+  安装但功能可能受限。
 tags:
 - Ubuntu
 - guake
@@ -16,7 +17,6 @@ tags:
 - pcm
 title: Ubuntu 配置 Guake
 ---
-
 终端推荐安装 Guake ，又好看又方便：
 
 ### 安装 Guake

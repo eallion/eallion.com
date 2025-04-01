@@ -7,7 +7,8 @@ date: '2020-10-23 10:25:00'
 draft: false
 lastmod: '2020-10-23 10:25:00'
 slug: ubuntu2010
-summary: 重装Ubuntu 20.10后建议进行基础优化。首先更换软件源，推荐清华源或使用个人备份源，更新系统。根据习惯调整系统设置。个人电脑可设置sudo免密码，修改/etc/sudoers文件添加用户名权限。注意公用电脑不建议免密码设置。
+summary: 重装 Ubuntu 20.10 后推荐进行基础优化，包括更换清华软件源、设置 sudo 免密码、安装常用工具如 Vim 和 Chrome、配置输入法、调整双系统时间同步。接着安装终端增强工具
+  Guake 和 Oh My Zsh，配置 Vim 插件，优化 Grub 引导，自动挂载硬盘并管理音频。
 tags:
 - Ubuntu
 - 优化
@@ -16,7 +17,6 @@ tags:
 - gnome
 title: Ubuntu 20.10 优化
 ---
-
 **安装 Ubuntu 后的 20 件事**
 
 ![](/assets/images/posts/2020/10/ubuntu2010.png)

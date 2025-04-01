@@ -7,7 +7,8 @@ date: '2016-10-17 04:32:00'
 draft: false
 lastmod: '2016-10-17 04:32:00'
 slug: ubuntu-system-icon
-summary: 修改系统托盘图标顺序有两种方式：全局修改需编辑`/usr/share/indicator-application/ordering-override.keyfile`，仅当前用户生效则需将该文件复制到`~/.
+summary: 在 Ubuntu 系统中，可以通过修改 `/usr/share/indicator-application/ordering-override.keyfile`
+  全局调整状态栏托盘图标顺序，或将其复制到 `~/.local/share/indicators/application` 目录下仅对当前用户生效。数值越大图标越靠左，需调整右侧所有图标数值才能实现目标排序。
 tags:
 - Ubuntu
 - 图标
@@ -15,7 +16,6 @@ tags:
 - 状态栏
 title: 修改 Ubuntu 状态栏托盘图标顺序
 ---
-
 状态栏托盘图标顺序，在 `/usr/share/indicator-application/ordering-override.keyfile` 修改：
 
 直接修改这个文件会在所有用户中生效，如果只要在当前用户改变图标顺序，把这个文件复制到 `~/.local/share/indicators/application` 目录下就可以了：

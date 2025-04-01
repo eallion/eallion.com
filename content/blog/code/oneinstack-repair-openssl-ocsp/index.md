@@ -7,8 +7,8 @@ date: '2016-09-26 22:33:00'
 draft: false
 lastmod: '2016-09-26 22:33:00'
 slug: oneinstack-repair-openssl-ocsp
-summary: OpenSSL存在CVE-2016-6304漏洞，需升级修复。常见一键安装包如Oneinstack、LNMP默认OpenSSL版本较旧，需手动重新编译。检查时需通过`nginx
-  -V`命令查看实际OpenSSL版本，而非直接使用`openssl version`。
+summary: Oneinstack 和 LNMP 一键包默认的 OpenSSL 版本未修复 CVE-2016-6304 漏洞，需手动升级。通过 nginx -V
+  确认当前 OpenSSL 版本并记录编译参数，下载新版源码后重新编译 nginx 并替换二进制文件，最后重启服务完成修复！
 tags:
 - oneinstack
 - nginx
@@ -16,7 +16,6 @@ tags:
 - ocsp
 title: Oneinstack 手动修复 OpenSSL OCSP
 ---
-
 > 参考：
 > [http://security.360.cn/cve/CVE-2016-6304/CN.html](http://security.360.cn/cve/CVE-2016-6304/CN.html)  
 > [https://www.openssl.org/news/secadv/20160922.txt](https://www.openssl.org/news/secadv/20160922.txt)

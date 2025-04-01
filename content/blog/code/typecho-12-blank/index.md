@@ -7,7 +7,8 @@ date: '2019-06-03 12:00:00'
 draft: false
 lastmod: '2019-06-03 12:00:00'
 slug: typecho-12-blank
-summary: 博客针对中文用户习惯，提供了两种实现链接新窗口打开的方法。方法一通过修改系统文件`HyperDown.php`，直接在代码中添加`target=\"_blank\"`属性，但可能影响升级。方法二更推荐，通过在主题的`functions.php`中添加自定义函数实现，
+summary: 针对中文用户习惯新窗口打开链接的需求，提供了两种 Typecho 实现方案。方法一直接修改系统文件 var/HyperDown.php，但不利于升级。推荐方法二通过主题
+  functions.php 添加正则替换代码，并调整 post.php 输出逻辑，无需修改核心文件且兼容性更好。
 tags:
 - typecho
 - 代码
@@ -16,7 +17,6 @@ tags:
 - blank
 title: typecho1.2 (18.10.23) 新窗口打开链接
 ---
-
 本博客主要是面向亚洲访客，简体中文访客。而中文用户是习惯于新窗口打开链接，所以我修改了一下代码。
 
 > 推荐方法二

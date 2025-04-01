@@ -3,14 +3,16 @@ authors:
 - eallion
 categories:
 - 日志
-date: 2024-01-14 20:58:31+08:00
+date: 2024-01-14 12:58:31
 draft: false
 series:
 - Mastodon
 seriesNavigation: true
 series_weight: 1
 slug: fediverse
-summary: 联邦宇宙使用起来很简单，选个开放实例注册账号就能玩，不喜欢随时换。不同实例间只要协议相同就能互相交流。自建实例也不难，网上教程很多。作者2017年自建Mastodon，2023年换了新域名e5n.cc继续使用。用手机号比喻：就像不同运营商手机能互相通话，
+summary: 联邦宇宙 (Fediverse) 是一个由独立服务器组成的去中心化社交网络，用户只需注册任意实例账号即可跨平台互动，无需理解复杂技术原理。它通过
+  ActivityPub 等开放协议实现互通，类比电话网络或电子邮件系统的互联逻辑。自建实例门槛低，2C2G 服务器即可运行 Mastodon，推荐使用 Docker
+  部署。Meta 旗下 Threads 的加入印证了联邦化趋势，而轻量级方案如 GoToSocial 更适合低配设备。
 tags:
 - Fediverse
 - Mastodon
@@ -19,7 +21,6 @@ tags:
 - 长毛象
 title: 联邦宇宙及 Mastodon 简介
 ---
-
 > <i class="fab fa-mastodon"></i> [@e5n.cc@eallion](https://e5n.cc/@eallion)
 
 ### 前言：联邦宇宙没有门槛

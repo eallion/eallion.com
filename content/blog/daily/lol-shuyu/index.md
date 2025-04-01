@@ -7,14 +7,14 @@ date: '2013-04-13 16:33:00'
 draft: false
 lastmod: '2013-04-13 16:33:00'
 slug: lol-shuyu
-summary: 英雄联盟常用术语包括伤害类型缩写（AP法术、AD物理、ADC远程输出、DPS近战输出）、游戏指令（3/b撤退、mia敌人消失）、战术用语（Gank抓人、Aoe范围攻击、Combo连招）、角色定位（Tank坦克、奶妈治疗）、状态描述（卡/Lag延迟、afk挂机）、地图位置（top上
+summary: 英雄联盟常用术语解析：AP 代表法术伤害，AD 指物理伤害，ADC 是远程物理输出核心，DPS 为近战物理输出。游戏内交流常用简写如 ID（角色名）、3
+  或 b（撤退）、卡或 Lag（延迟）、Gank（抓人）、KS（抢人头）、ult（大招）等。战术术语包括 Combo（连招）、Aoe（范围伤害）、push（推进）、farm（打钱）、Jungling（打野）。
 tags:
 - LOL
 - 英雄联盟
 - League of Legends
 title: 英雄联盟 lol 名词解释
 ---
-
 英雄联盟 lol（League of Legends）中有一些常用名词的简写：
 
 > AP 是指 法术伤害

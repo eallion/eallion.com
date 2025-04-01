@@ -7,7 +7,8 @@ date: '2011-01-08 04:45:29'
 draft: false
 lastmod: '2011-01-08 04:45:29'
 slug: typecho
-summary: 准备把WordPress博客换成Typecho，觉得WordPress功能太多用不上，加载速度变慢，而个人博客只需要简单写文字发图片。Typecho更轻量快速，但模板插件较少，目前还在犹豫，已建了Typecho测试站点。
+summary: 决定将博客从 WordPress 迁移到 Typecho，因为厌倦了 WordPress 日益臃肿的功能和缓慢的加载速度。虽然 WordPress
+  仍是优秀的开源博客程序，但 Typecho 更简洁高效，适合个人博客的轻量需求。目前 Typecho 的模板和插件生态尚不完善，但迁移过程便捷，已在子目录搭建测试环境供体验。
 tags:
 - blog
 - WordPress
@@ -15,7 +16,6 @@ tags:
 - typecho
 title: 博客从 WordPress 换成 typecho
 ---
-
 我计划把博客从 WordPress 换成 typecho
 没办法我就是爱折腾
 而且我坦白的告诉你们

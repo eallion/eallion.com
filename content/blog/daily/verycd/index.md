@@ -7,7 +7,7 @@ date: '2011-01-31 14:29:43'
 draft: false
 lastmod: '2011-01-31 14:29:43'
 slug: verycd
-summary: 腾讯近期制作了关于取缔VeryCD等网站的专题。作者作为长期用户表达不满，认为VeryCD对中国网民贡献巨大，批评部分用户只下载不上传的"吸血驴"行为。指出国内知识产权环境不成熟，正版概念模糊。质疑取缔行动的理由，同时自嘲社会病态与自身矛盾——既谴责劣根性又依赖盗版资源，
+summary: 腾讯专题讨论取缔 VeryCD 等网站引发争议，作为忠实用户表达不满并批评部分用户破坏共享精神。指出正版与知识产权在中国语境下的矛盾，质疑取缔动机并讽刺社会病态现象。最后以寻找《社交网络》下载资源为例，反讽审查逻辑的荒诞性！
 tags:
 - verycd
 - ed2k
@@ -15,7 +15,6 @@ tags:
 - 正版
 title: VeryCD 时代的结束？
 ---
-
 <blockquote > 这是近期腾讯做的一个关于取缔 VeryCD 等网站的专题
 [http://view.news.qq.com/zt2011/VeryCD/index.htm](http://view.news.qq.com/zt2011/VeryCD/index.htm)</blockquote>
 

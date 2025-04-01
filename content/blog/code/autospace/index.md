@@ -7,14 +7,14 @@ date: '2019-11-29 09:29:00'
 draft: false
 lastmod: '2019-11-29 09:29:00'
 slug: autospace
-summary: 以前写博客不注意排版，中英文混排显得混乱。现在决定统一格式，自动给中英文加空格。推荐两个工具：pangu.js和text-autospace.js，最终选用pangu.js。使用方法很简单：在footer.php引入pangu.js的CDN链接，
+summary: 过去写博客常忽略排版细节，最近发现旧文中英文混杂影响阅读，决定统一添加中英文间距。推荐使用 pangu.js 自动处理，只需在 footer.php
+  引入脚本并调用 spacingElementById 等方法即可生效。支持通过 ID、类名或标签名指定范围，还提供多种 CDN 引用方式。
 tags:
 - 空格
 - space
 - pangu
 title: Typecho 中英文之间自动加上空格
 ---
-
 以前写博客，不太注意排版细节，而且那个时候也还没有 Markdown。
 最近无意中点开几篇老文章看起来比较混乱。
 所以决定统一调整一下格式，其中有一项就是把中英文之间自动加上空格。

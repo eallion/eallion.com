@@ -7,8 +7,8 @@ date: '2010-10-22 12:13:58'
 draft: false
 lastmod: '2010-10-22 12:13:58'
 slug: whatisthat
-summary: 父子坐在长椅上时，一只麻雀突然落在对面。这部2007年短片由Nikos Zoiopoulos和Panagiotis Bougiouris主演，Constantin
-  Pilavios执导，MovieTeller films制作，包含多语言台词"那是什么？"。
+summary: 2007 年短片《那是什么？》讲述一对父子在长椅休息时目睹麻雀飞落的静谧瞬间。由 Constantin Pilavios 执导，Nikos Zoiopoulos
+  与 Panagiotis Bougiouris 分饰父子，MovieTeller films 制作，透过自然音效与极简叙事捕捉生活诗意！
 tags:
 - 感人
 - 父母
@@ -16,7 +16,6 @@ tags:
 - 那是什么
 title: what is that?
 ---
-
 那是什么？
 
 What is that? (Τι είναι αυτό;) 2007

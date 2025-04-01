@@ -7,7 +7,7 @@ date: '2011-01-23 08:00:00'
 draft: false
 lastmod: '2011-01-23 08:00:00'
 slug: steam-back
-summary: 玩家因Steam大面积封号损失使用十年的账号，多次申诉未果后自写措辞激烈的英文申诉信，意外成功解封。本想分享申诉模板但已被系统删除，最终庆幸账号回归并发送感谢信。
+summary: Steam 账号是玩正版 CS 的必要工具，但今年遭遇大面积封号，申诉过程曲折。起初使用模板申诉未果，后亲自撰写措辞严厉的申诉信，意外成功解封。虽原信已被删除，但账号失而复得值得庆幸，最终还发送了感谢信。
 tags:
 - CS
 - 封禁
@@ -17,7 +17,6 @@ tags:
 - 申诉
 title: 我的 steam 回来了
 ---
-
 （解释一下：[Steam](http://baike.baidu.com/view/1325872.htm) 账号就是玩正版 CS 的东西。）
 
 今年我被封了无数个账号 （[here](http://eallion.com/banned-account-list)）

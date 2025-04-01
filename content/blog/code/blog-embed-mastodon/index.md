@@ -3,19 +3,19 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2024-10-20 16:05:03+08:00
+date: 2024-10-20 08:05:03
 draft: false
 series:
 - Mastodon
 slug: hugo-blog-embed-mastodon
-summary: Mastodon时间线可以通过JS插件集成到各类博客中，包括Hugo、Hexo等。作者以Hugo为例，分享将Mastodon嘟文动态展示在博客中的方法。Mastodon支持API和RSS两种数据获取方式，早期采用静态渲染但构建耗时较长，现改用JS动态调用API实现实时加载。
+summary: 通过 JS 插件 mastodon-embed-timeline 可将 Mastodon 时间线集成到 Hugo 等静态博客中，支持 API 动态调用或静态渲染。安装时推荐使用
+  git submodule 方式，需在模板文件中引入 CSS 和 JS 并配置实例参数，最后创建独立页面渲染时间线容器。该方法兼顾加载速度与维护便利性，适合需要展示联邦宇宙动态的博主。
 tags:
 - Mastodon
 - 长毛象
 - 博客
 title: Hugo 博客集成 Mastodon
 ---
-
 ### 说明
 
 所有博客类型（Hugo、Hexo、Wordpress 等）都可以通过这个 JS 插件集成 Mastodon。本文以 Hugo 为例。

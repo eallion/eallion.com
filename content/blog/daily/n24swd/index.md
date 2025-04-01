@@ -3,18 +3,17 @@ authors:
 - eallion
 categories:
 - 日志
-date: 2022-12-08 19:39:59+08:00
+date: 2022-12-08 11:39:59
 draft: false
-lastmod: 2022-12-08 19:39:59+08:00
+lastmod: 2022-12-08 11:39:59
 slug: n24swd
-summary: 高中起长期受非24小时睡眠觉醒障碍困扰，生物钟与自然节律不同步导致作息持续偏移。早期误以为是压力或熬夜所致，多年求医未果。2017年因电竞圈调侃"调24小时时差"的梗突然醒悟，通过正确关键词查到病症资料。确诊后心理负担减轻，学会接纳这种特殊生理特征，目前对生活影响已不大。
+summary: N24SWD 是一种生物钟与 24 小时昼夜节律脱钩的睡眠障碍，患者需不断调整作息以匹配社会常规。长期误以为是压力或习惯问题，直到 2017 年电竞圈的调侃启发正确搜索方向，最终确诊。了解病症后反而释然，将其视为个人特质而非缺陷，生活困扰大幅减轻。
 tags:
 - n24swd
 - 睡眠
 - 综合征
 title: 非 24 小时睡眠觉醒障碍
 ---
-
 > **N24SWD**：[*Non-24-hour sleep–wake disorder*](https://en.wikipedia.org/wiki/Non-24-hour_sleep%E2%80%93wake_disorder) ——[“非 24 小时睡眠-觉醒障碍”](https://en.wikipedia.org/wiki/Non-24-hour_sleep%E2%80%93wake_disorder)
 {.info}
 

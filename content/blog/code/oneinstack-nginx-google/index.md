@@ -7,7 +7,9 @@ date: '2016-09-08 08:30:00'
 draft: false
 lastmod: '2016-09-08 08:30:00'
 slug: oneinstack-nginx-google
-summary: GetGoogle.org域名被墙，翻墙后可直接访问谷歌无需镜像。搭建反代服务步骤：先安装oneinstack仅选nginx，确认版本后下载所需模块源码及依赖包，解压后进入nginx目录进行编译配置，添加各种支持模块并指定openssl、pcre路径。
+summary: 通过 oneinstack 安装 Nginx 并编译 ngx_http_google_filter_module 模块可实现 Google 反代，需依赖
+  pcre 正则和 ngx_http_substitutions_filter_module 等扩展，配合 Let's Encrypt 证书和域名绑定完成 HTTPS
+  配置，最终通过修改 Nginx 配置文件实现搜索功能！
 tags:
 - google
 - oneinstack
@@ -15,7 +17,6 @@ tags:
 - proxy
 title: Oneinstack Nginx 反代 Google
 ---
-
 > [`GetGoogle.org`](https://getgoogle.org)
 >（目前域名已经被墙，现在翻墙还是能够继续使用，但既然都能够翻墙了，也不需要用镜像来搜索了吧。：逃）
 

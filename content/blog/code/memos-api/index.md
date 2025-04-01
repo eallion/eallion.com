@@ -3,15 +3,17 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2022-11-06 16:32:22+08:00
+date: 2022-11-06 08:32:22
 draft: false
-lastmod: 2022-11-06 16:32:22+08:00
+lastmod: 2022-11-06 08:32:22
 series:
 - Memos
 seriesNavigation: true
 series_weight: 3
 slug: memos-api
-summary: Memos已独立为完整应用，可部署到网站根目录。Hugo用户可参考特定模板文件。教程展示如何通过API调用公开Memos数据到静态页面，需获取实例API地址并设置用户ID。核心步骤是在网页中添加CSS容器，示例提供了基础HTML代码和完整模板。现仅支持公开属性Memos的展示。
+summary: Memos 已独立为完整应用，支持通过 API 调用渲染静态页面，需在 HTML 中放置特定容器并配置 JS 脚本。核心步骤包括获取公开 Memos
+  数据、解析标签与多媒体链接、动态加载内容及分页处理。内置样式参考 Twitter 设计，集成相对时间显示、图片灯箱等功能，支持 B 站、网易云等平台内容自动嵌入。部署时需修改实例域名、用户
+  ID 等参数，完整代码可参考 GitHub 仓库 memos.
 tags:
 - 嘀咕
 - 哔哔
@@ -19,7 +21,6 @@ tags:
 - talk
 title: Memos API 调用渲染页面
 ---
-
 ***更新**：已把 Memos 剥离出一个完整的应用，可独立部署，到 <i class="fab fa-github fa-fw"></i>[eallion/memos.top](https://github.com/eallion/memos.top) 这个仓库下载部署到网站根目录即可。
 ***HUGO**：如果使用的是 Hugo 博客框架，可以参考本站的方法：<i class="fab fa-github fa-fw"></i>[layouts/_default/memos.html](https://github.com/eallion/eallion.com/blob/f2f3e5e6657520becd44c6ea660f98b775dbea21/layouts/_default/memos.html)
 

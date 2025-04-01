@@ -7,7 +7,8 @@ date: '2016-09-08 10:55:00'
 draft: false
 lastmod: '2016-09-08 10:55:00'
 slug: ssh-google-authenticator
-summary: 为提高SSH登录安全性，改用Google双重验证并更换默认端口。首先安装OpenSSH服务和Google-Authenticator工具，生成密钥后通过手机APP扫描绑定。修改PAM和SSH配置文件启用验证功能，最后重启SSH服务。登录时需输入手机动态验证码，兼顾安全性与便捷性。
+summary: 通过 Google Authenticator 为 SSH 登录添加双重验证，提升安全性并更换默认端口。适用于 Ubuntu 系统，步骤包括安装
+  OpenSSH 和 Google Authenticator、生成密钥、配置手机应用、修改 PAM 和 SSH 配置文件，最后重启服务。使用 Authy 等应用扫描二维码即可获取动态验证码。
 tags:
 - Ubuntu
 - google
@@ -16,7 +17,6 @@ tags:
 - authenticator
 title: SSH Google Authenticator
 ---
-
 我经常需要用 `SSH` 连加家到自己的电脑上，如果单独用密码验证，存在很多安全隐患，如果用密钥，又很麻烦，所以我选择的是用 Google 的双重验证。顺便换了一个非 22 端口。
 下面的方法同样适用于 Ubuntu VPS，我的几个 VPS 都是这样设置的。
 

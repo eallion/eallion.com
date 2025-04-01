@@ -3,17 +3,16 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2023-08-06 15:25:40+08:00
+date: 2023-08-06 07:25:40
 draft: false
 slug: self-hosted-github-flavored-reactions
-summary: 多种方式可实现文章点赞功能，包括博客自带、评论系统集成、统计代码API或第三方服务。最近发现emaction项目提供前后端代码，能1:1还原GitHub点赞样式。后端部署需Cloudflare账号和Node.js环境，创建D1数据库后克隆代码安装依赖即可。
+summary: 通过 Cloudflare Workers 和 D1 数据库部署 GitHub 风格的点赞功能，前端使用 emaction.frontend 模块实现交互，无需复杂配置即可快速集成到网站中。
 tags:
 - hugo
 - blog
 - reactions
 title: 自部署 GitHub 风格的 Reactions 点赞功能
 ---
-
 ### 前言
 
 各路大佬用了各种方式实现了文章的点赞功能。

@@ -3,14 +3,15 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2024-03-09 16:57:49+08:00
+date: 2024-03-09 08:57:49
 draft: false
 series:
 - Mastodon
 seriesNavigation: true
 series_weight: 2
 slug: mastodon-sync-to-memos
-summary: 最新脚本引入ChatGPT AI判断重复内容，新增中间件Sink短网址服务实现Memos跳转Mastodon，提供宝塔面板配置示例。作者因Memos新版本稳定性问题放弃将其作为主力工具，现仅用于备份Mastodon嘟文。偏好Webhook主动推送方案，
+summary: 该脚本通过 Webhook 实现 Mastodon 嘟文同步到 Memos 的功能，支持跳过回复和转嘟，利用 AI 检测内容相似度避免重复，并通过
+  Sink 短网址服务生成跳转链接。配置需替换关键参数如 API 令牌和实例地址，脚本自动记录 ID 映射关系确保数据一致性。同步成功后会更新本地 JSON 文件并输出日志！
 tags:
 - Mastodon
 - Memos
@@ -18,7 +19,6 @@ tags:
 - 脚本
 title: Mastodon 同步到 Memos
 ---
-
 > 最新脚本：[https://gist.github.com/eallion/bf8861eb3292c2351c1067fba3198c26](https://gist.github.com/eallion/bf8861eb3292c2351c1067fba3198c26)
 
 > Update 3：引入 ChatGPT AI (Deepseek) 来判断是否为重复内容

@@ -3,15 +3,15 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2023-07-11 23:15:21+08:00
+date: 2023-07-11 15:15:21
 draft: false
 series:
 - NeoDB
 seriesNavigation: true
 series_weight: 2
 slug: neodb_token
-summary: 注册NeoDB需要先有Mastodon账号，现在也支持邮箱登录。生成NeoDB的Access Token需先在开发者中心创建应用，填写名称、网址等信息，记录自动生成的Client
-  ID和secret。然后通过特定URL获取授权码，用于换取长期有效的Token。
+summary: 注册 NeoDB 需先拥有 Mastodon 账号，现已支持邮箱登录。生成 Access Token 需在开发者中心创建应用并记录 Client
+  ID，通过授权链接获取 AUTH_CODE，最后用 curl 请求换取有效期为 1 年的 Access Token。
 tags:
 - hugo
 - blog
@@ -19,7 +19,6 @@ tags:
 - Token
 title: NeoDB 获取 Access Token
 ---
-
 ### 1. 注册 Neodb 账号
 
 注册 NeoDB 账号前，需要注册一个 Mastodon 长毛象宇宙的账号，有很多实例可以注册。然后用 Mastodon 账号就可以登录 NeoDB 了。最新的 NeoDB 似乎已经可以绑定邮箱登录了。

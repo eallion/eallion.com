@@ -3,11 +3,12 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2021-07-30 01:21:11+08:00
+date: 2021-07-29 17:21:11
 draft: false
-lastmod: 2021-07-30 01:21:11+08:00
+lastmod: 2021-07-29 17:21:11
 slug: gitea
-summary: Docker安装Gitea的备忘笔记，适合有Docker和Nginx基础的用户。Gitea资源占用低，树莓派也能跑。使用宿主机Mysql数据库，提供docker-compose.yml配置示例，包含镜像、环境变量和卷挂载设置。官方文档和演示链接已附上。
+summary: Docker 安装 Gitea 的关键步骤包括使用 docker-compose.yml 配置容器、数据持久化存储、Nginx 反代实现域名访问以及数据库授权。Gitea
+  资源需求低，适合树莓派等设备，推荐使用宿主机的 Mysql 或 Sqlite3 数据库。安装时需注意容器 IP 变动问题，确保数据库连接正确。
 tags:
 - git
 - gitea
@@ -15,7 +16,6 @@ tags:
 - server
 title: Gitea 安装备忘
 ---
-
 > DEMO：[https://git.eallion.com/](https://git.eallion.com/)
 
 Gitea 有多种安装方式，本文是介绍 Docker 安装 Gitea 时的一些关键信息备忘笔记。  

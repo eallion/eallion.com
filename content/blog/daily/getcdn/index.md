@@ -7,7 +7,8 @@ date: '2016-09-12 00:55:00'
 draft: false
 lastmod: '2016-09-12 00:55:00'
 slug: getcdn
-summary: 多家云服务商提供免费CDN服务，包括阿里云、腾讯云和七牛云，均支持HTTPS。作者因收到大量免费流量，搭建了自用前端加速服务getcdn.org。此前360的USESO停运导致多个WordPress站点瘫痪，促使作者意识到依赖第三方CDN的风险。目前getcdn.
+summary: 许多云服务商如阿里云、腾讯云和七牛云提供免费 CDN 并支持 HTTPS，但腾讯云仍处内测阶段。因近期 360 USESO 停运导致诸多问题，促使自建前端静态文件加速服务
+  getcdn.org。该服务采用域名白名单策略且成本极低，仅供自用不对外开放，强调自主可控的重要性！
 tags:
 - 阿里云
 - cdn
@@ -15,7 +16,6 @@ tags:
 - 网络分发
 title: getcdn.org Aliyun CDN
 ---
-
 > `getcdn.org`
 
 很多云服务商都提供免费的 CDN，我在用的是阿里云，腾讯云，七牛云，都支持 HTTPS，不过腾讯云还在内测。

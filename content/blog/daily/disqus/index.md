@@ -3,11 +3,12 @@ authors:
 - eallion
 categories:
 - 日志
-date: 2022-05-20 11:40:19+08:00
+date: 2022-05-20 03:40:19
 draft: false
-lastmod: 2022-05-20 11:40:19+08:00
+lastmod: 2022-05-20 03:40:19
 slug: disqus
-summary: 博客评论系统从Twikoo和Waline切换为Disqus，主要因前两者维护成本高、功能臃肿且更新频繁。Disqus虽然不够轻量，但稳定性强，十年如一日无需频繁维护。作者认为独立博客评论功能已非必要，最终选择Artalk验证码方案作为折中。开源产品虽自由却面临功能妥协和社区噪音，
+summary: 博客评论系统从 Twikoo 和 Waline 切换为 Disqus，最终又改用 Artalk，主要因前两者维护成本高且功能臃肿，而 Disqus
+  虽非最优解但胜在长期稳定。开源产品的社区噪音与频繁更新反而成为负担，独立博客的评论功能本身也面临存废争议。追求轻量化与低维护成本成为关键考量！
 tags:
 - twikoo
 - waline
@@ -16,7 +17,6 @@ tags:
 - comment
 title: 再说评论
 ---
-
 ### 更新
 
 > 2023-05-13

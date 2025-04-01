@@ -7,14 +7,13 @@ date: '2015-01-12 10:07:00'
 draft: false
 lastmod: '2015-01-12 10:07:00'
 slug: share-duoshuo-css
-summary: 几个网站展示了用CSS3美化评论区的自定义效果，包括设计达人、罗磊博客等。示例代码演示了如何隐藏版权信息、调整标签样式、修改高亮文字效果，以及移除排序功能等具体操作。
+summary: 这段 CSS 代码通过精细的样式调整实现了评论界面的深度美化，包括隐藏默认功能按钮、优化头像悬浮旋转动画、统一蓝白配色方案、重构气泡对话框圆角与阴影，最终呈现清爽现代的扁平化视觉风格！
 tags:
 - 多说
 - css
 - 样式
 title: 多说 CSS 分享
 ---
-
 出色的自定义效果展示：
 
 设计达人：[http://www.shejidaren.com/use-css3-to-create-a-beautiful-comment-ui.html](http://www.shejidaren.com/use-css3-to-create-a-beautiful-comment-ui.html)

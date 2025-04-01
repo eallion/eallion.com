@@ -7,8 +7,9 @@ date: '2019-11-29 12:36:00'
 draft: false
 lastmod: '2019-11-29 12:36:00'
 slug: ubuntu1910
-summary: Ubuntu 19.10性能提升明显，支持ZFS文件系统和Nvidia显卡驱动原生安装。安装时可选择最小化模式避免预装无用软件，新增安全图形选项解决黑屏问题。系统配置为Intel
-  i5-7500处理器、GTX 1050 Ti显卡、16GB内存，运行GNOME桌面环境。
+summary: Ubuntu 19.10 带来了显著的性能提升，原生支持 Nvidia 驱动和 ZFS 文件系统，安装时可选择最小化安装避免冗余软件。优化步骤包括更换软件源、安装
+  GNOME Tweaks、配置鼠标加速、安装常用工具如 Chrome 和 Gdebi，以及终端美化方案如 Oh My Zsh 和 EverVim。此外还推荐了火焰截图、SSH
+  配置和常用软件如 Telegram 和 Spotify。
 tags:
 - Ubuntu
 - 优化
@@ -17,7 +18,6 @@ tags:
 - gnome
 title: Ubuntu 19.10 优化
 ---
-
 ![](/assets/images/posts/2019/11/2252212556.png)
 
 硬件环境：

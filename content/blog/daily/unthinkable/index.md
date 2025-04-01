@@ -7,14 +7,13 @@ date: '2011-01-18 10:26:02'
 draft: false
 lastmod: '2011-01-18 10:26:02'
 slug: unthinkable
-summary: 躺着和坐着时对同一件事想法不同，其实是害怕独处。睡前常下决心，醒来却变卦；白天忙碌时异常冷静，靠不停做事或喝水逃避思考。总把自己累到不行才肯睡，但讨厌这种混乱作息。
+summary: 躺着与坐着时思维差异源于对独处的恐惧。睡前雄心壮志，醒后却心绪全变，唯有忙碌能阻断深度思考，甚至用不停喝水来填满空虚。拒绝早睡实为逃避面对自我，混乱作息已成负担！
 tags:
 - 日记
 - 睡觉
 - 独处
 title: 原来我也害怕独处
 ---
-
 <embed src="http://www.xiami.com/widget/0_24433/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed>
 
 最近我老在想一个问题

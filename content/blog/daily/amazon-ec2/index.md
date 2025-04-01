@@ -7,8 +7,8 @@ date: '2012-03-27 09:15:00'
 draft: false
 lastmod: '2012-03-27 09:15:00'
 slug: amazon-ec2
-summary: 亚马逊EC2提供一年免费VPS体验，注册需外币信用卡，扣款后会返还。可用淘宝虚拟信用卡注册。免费套餐需选micro类型。创建实例时可选用优化好的AMI或自选系统如Ubuntu
-  11.10。用LNMP一键包搭建了环境，未来可能用来建站。附EC2教程链接供参考。
+summary: 最近注册了亚马逊 EC2 VPS 可免费体验一年，需外币信用卡预扣款后返还，淘宝虚拟卡也可用。推荐选择 micro 套餐，教程虽旧但操作不难，建议选用优化
+  AMI 或自配 Ubuntu 系统。已用 LNMP 一键包搭建环境，未来或可建站！
 tags:
 - amazon
 - ec2
@@ -17,7 +17,6 @@ tags:
 - 免费
 title: Amazon EC2
 ---
-
 最近注册了一个亚马逊 EC2 VPS
 可以免费体验一年
 

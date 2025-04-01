@@ -7,7 +7,7 @@ date: '2015-01-12 09:58:00'
 draft: false
 lastmod: '2015-01-12 09:58:00'
 slug: mobile-meta
-summary: 这段HTML代码设置了移动端网页的显示效果。第一个标签让网页宽度与设备一致，禁止缩放；第二个允许iPhone全屏浏览；第三个控制顶部状态栏颜色；第四个防止自动识别电话号码；第五个关联对应的App应用。这些设置主要针对iPhone的Safari浏览器，
+summary: 移动端网页通过 meta 标签优化显示效果，包括强制 1:1 视口比例、禁止缩放、启用全屏模式、定制状态栏样式、禁用电话识别以及关联 App 下载提示。这些设置能提升不同设备的浏览体验！
 tags:
 - 代码
 - html
@@ -15,7 +15,6 @@ tags:
 - 标签
 title: 手机网页 meta 解释
 ---
-
 ```html
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 <meta content="yes" name="apple-mobile-web-app-capable">

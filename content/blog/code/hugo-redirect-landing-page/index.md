@@ -3,10 +3,11 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2024-02-03 08:48:24+08:00
+date: 2024-02-03 00:48:24
 draft: false
 slug: hugo-redirect-landing-page
-summary: 博主因网络合规风险将博客评论迁移至Giscus并清理外链，借鉴他人方案实现外链跳转功能。通过Hugo的render-link.html模板和base64编码，在静态生成时自动处理外链跳转，避免直接暴露原始链接。强调个人网站备案的重要性，建议敏感内容需彻底身份隔离。
+summary: 为规避外链风险，博客采用 Hugo 的 render-link.html 模板实现外链跳转，通过 base64 编码目标链接并添加白名单机制。核心步骤包括修改渲染模板、创建跳转页面布局及背景图适配，最终通过
+  /go/ 路径实现安全跳转。此方案仅适用于 Markdown 内容，需手动处理 Shortcodes 和自定义 HTML 链接！
 tags:
 - hugo
 - 博客
@@ -14,7 +15,6 @@ tags:
 - 折腾
 title: Hugo 外部链接跳转提示页面
 ---
-
 ### 前言
 
 这两天看到「秦大叔」的博客文章《[网站重启](https://qfsyj.com/20240101-start.html)》提到，因为博客评论中别人留下的域名过期被黄网注册链接到了黄网，从而导致因涉黄问题而喝茶。可见在大陆目前的网络环境下，这种可大可小的口袋罪收得越来越紧。

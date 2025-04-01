@@ -3,16 +3,16 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2023-04-21 22:12:55+08:00
+date: 2023-04-21 14:12:55
 draft: false
 slug: umami
-summary: Umami是一款开源轻量级自托管网站统计工具，可替代Google Analytics等产品，适合个人博客和小型网站。作者使用两年后遇到2.0大版本升级，选择全新安装而非保留数据迁移。推荐Docker安装方式，提供了修改后的docker-compose.yml配置示例，
+summary: Umami 是一个轻量级开源网站统计工具，适合替代 Google Analytics 并支持自托管。推荐使用 Docker 安装，通过 Nginx
+  反代实现域名访问，并提供跟踪代码集成到网站。优化包括反广告屏蔽、CDN 部署跟踪代码以及 API 集成技巧。默认账号为 admin，密码为 umami，中文界面需手动切换！
 tags:
 - umami
 - blog
 title: Umami Docker 部署及优化
 ---
-
 [Umami](https://umami.is/) 是一个开源的 Self-hosted 的轻量网站统计分析工具。可替代 Google Analytics、百度统计这些工具。适合个人博客、小型网站使用。
 
 本博客已稳定使用 Umami 两年多。现在正值 Umami 大升级到 2.0 版本。因为是个人网站，统计数据并不是那么重要，索性我就全新安装了 Umami，这里记录一下安装过程，备忘及分享。目前已发布 2.0.1 版本，修复了一些 BUG。

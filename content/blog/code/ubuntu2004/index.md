@@ -7,7 +7,9 @@ date: '2020-05-25 12:36:00'
 draft: false
 lastmod: '2020-05-25 12:36:00'
 slug: ubuntu2004
-summary: 从Ubuntu 19.10升级到20.04后遇到配置问题，选择重新安装系统。主要优化步骤包括：更换阿里云或清华的国内软件源，备份并修改sources.
+summary: 从 Ubuntu 19.10 升级到 20.04 后遇到配置问题，选择全新安装并记录优化过程。包括更换阿里云或清华软件源、安装 GNOME Tweaks
+  调整鼠标加速、配置 Sudo 免密码、安装 Fcitx 输入法和 Oh My Zsh 终端美化工具。详细步骤涵盖系统设置、Grub 引导修复、ZFS 加密、Docker
+  安装及常用软件推荐，如 Chrome、Flameshot 截图工具等。
 tags:
 - Ubuntu
 - 优化
@@ -16,7 +18,6 @@ tags:
 - gnome
 title: Ubuntu 20.04 优化
 ---
-
 ![](/assets/images/posts/2020/09/ubuntu-2004.png)
 
 原来在用 [Ubuntu 19.10](https://eallion.com/ubuntu1910)，通过 `do-release-upgrade` 升级到 Ubuntu 20.04 后，因为一些配置出现了些奇怪的问题，索性重新安装了一次。记录一下安装优化过程。

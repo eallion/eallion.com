@@ -7,7 +7,8 @@ date: '2013-05-12 17:12:00'
 draft: false
 lastmod: '2013-05-12 17:12:00'
 slug: gohtml
-summary: HTML可通过meta标签实现页面刷新或定时跳转，设置content属性控制时间与目标地址。JavaScript提供两种跳转方式：location.href直接跳转，setTimeout实现延迟跳转，时间单位为毫秒。
+summary: HTML 可通过 meta 标签实现页面自动刷新或跳转，JavaScript 则使用 window.location.href 或 setTimeout
+  进行即时或延迟跳转。
 tags:
 - 代码
 - 网页
@@ -15,7 +16,6 @@ tags:
 - 跳转
 title: 网页跳转备忘
 ---
-
 1、html 的实现：
 
 ```html

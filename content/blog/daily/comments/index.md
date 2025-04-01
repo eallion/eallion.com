@@ -3,11 +3,13 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2020-12-03 12:12:12+08:00
+date: 2020-12-03 04:12:12
 draft: false
-lastmod: 2020-12-03 12:12:12+08:00
+lastmod: 2020-12-03 04:12:12
 slug: comments
-summary: 静态博客没有内置评论功能，需依赖第三方系统。主流方案分三类：SaaS类如Disqus（国内访问受限）、GitHub Issues衍生工具（如Utterances）、自托管类如Valine（需搭配LeanCloud等PaaS平台）。Disqus体验最佳但国内无法直连，
+summary: 静态博客需依赖第三方评论系统，主要分为 SaaS 类（如 Disqus）、GitHub Issues 类（如 Utterances）和 PaaS
+  类（如 Valine）。Disqus 虽稳定但国内访问受限，GitHub 类存在网络波动问题，Valine 因安全性和闭源引发争议。衍生品 Twikoo 和 Waline
+  成为新选择，前者基于腾讯云开发，后者专注安全性。
 tags:
 - hugo
 - blog
@@ -15,7 +17,6 @@ tags:
 - 评论
 title: 静态博客评论系统的选择
 ---
-
 ### 前言
 
 静态博客跟传统博客不一样，没有自带评论系统。

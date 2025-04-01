@@ -7,8 +7,8 @@ date: '2016-09-25 00:19:00'
 draft: false
 lastmod: '2016-09-25 00:19:00'
 slug: destination-host-prohibited
-summary: 服务器返回"Destination Host Prohibited"错误通常由iptables配置引起。最快解决方法是卸载iptables，但更推荐检查并修改配置。查看filter表FORWARD链是否存在"REJECT
-  all"规则，
+summary: 服务器 ping 返回 Destination Host Prohibited 错误通常由 iptables 配置导致。快速解决方法是卸载 iptables，或检查并删除
+  filter 表中包含 icmp-host-prohibited 的 REJECT 规则。通过 iptables -L 定位规则行号后用 -D 参数删除即可解决问题！
 tags:
 - Ubuntu
 - ssl
@@ -17,7 +17,6 @@ tags:
 - Destination
 title: Destination Host Prohibited
 ---
-
 ```bash
 ping 1.1.1.1
 From 1.1.1.1 icmp_seq=1 Destination Host Prohibited

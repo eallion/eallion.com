@@ -3,15 +3,15 @@ authors:
 - eallion
 categories:
 - 日志
-date: 2023-11-23 16:05:52+08:00
+date: 2023-11-23 08:05:52
 draft: false
 slug: og-image-api
-summary: Vercel的@vercel/og包可生成OG Image，但不支持中文。作者曾用得意黑字体搭建Next.js应用生成中文OG图片，后改用思源宋体。由于Vercel免费套餐限制字体大小，需压缩字体体积。现已改为手动生成OG图片。建议参考官方文档解决类似问题。
+summary: 利用 Vercel 的 @vercel/og 包可以生成 OG Image，但需注意免费套餐仅支持 1M 体积且默认不支持中文。通过提取特定字符压缩字体、转换背景图为
+  base64 等方法可优化体积，并部署到 Vercel 后通过 API 调用。现已改用手动生成工具 cover.eallion.com！
 tags:
 - daily
 title: 部署动态生成 OG Image 的 API
 ---
-
 ### 前言
 
 > Deprecated：我现在已经手动生成 OG Image 了。

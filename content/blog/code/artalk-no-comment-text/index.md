@@ -3,10 +3,11 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2023-07-04 02:54:27+08:00
+date: 2023-07-03 18:54:27
 draft: false
 slug: artalk-no-comment-text
-summary: Artalk评论系统无评论时可随机显示诗词。通过管理后台前端配置中的"无评论显示文字"插入HTML代码实现，无需额外JS。具体操作为添加今日诗词API提供的图片链接，并调整颜色参数确保在不同背景色下清晰显示。推荐使用LightSlateGray颜色，
+summary: Artalk 评论系统可通过管理后台的前端配置直接嵌入 HTML 代码实现无评论时随机显示诗词效果。使用今日诗词 API 的图片形式调用，并选择
+  LightSlateGray 颜色以适配明暗主题背景。该方法无需侵入性代码即可优雅实现功能，兼顾实用性与美观性。
 tags:
 - hugo
 - blog
@@ -14,7 +15,6 @@ tags:
 - 评论
 title: Artalk 无评论随机显示诗词
 ---
-
 ### 前言
 
 Artalk 无评论时随机显示诗词（今日诗词或一言等）的效果，如本博客截图所示：

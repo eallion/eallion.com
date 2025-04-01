@@ -3,18 +3,18 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2020-11-04 12:51:22+08:00
+date: 2020-11-04 04:51:22
 draft: false
-lastmod: 2020-11-04 12:51:22+08:00
+lastmod: 2020-11-04 04:51:22
 slug: kms
-summary: 朋友需要激活Windows 10，于是搭建了一个KMS激活服务器，地址是kms.eallion.com，部署在腾讯云香港服务器。该服务仅支持VOL版本的Windows和Office，激活后有效期180天，系统会自动续期。提供了Docker镜像和GitHub源码链接，
+summary: 为帮助朋友激活 Windows 10，基于 Docker 部署了 KMS 激活服务器 kms.eallion.com，支持 VOL 版 Windows
+  和 Office 的 180 天循环激活。使用 mikolatero/vlmcsd 镜像搭建，提供详细激活命令和对应版本密钥，需管理员权限执行 CMD 脚本完成配置！
 tags:
 - KMS
 - Windows
 - 激活
 title: KMS Windows 激活服务器
 ---
-
 最近因朋友需要激活 Windows 10 ，拉了个 Docker 镜像，建了个激活服务器。
 
 ### 服务器地址

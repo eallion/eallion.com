@@ -7,7 +7,8 @@ date: '2019-05-19 00:45:00'
 draft: false
 lastmod: '2019-05-19 00:45:00'
 slug: only-show-bookmark-in-newtab-in-firefox
-summary: 2020年12月25日，Firefox开发者版新增默认在新标签页显示书签栏功能。前一天发布的84.0.1版本通过配置项`browser.toolbars.bookmarks.visibility`实现三种显示模式：始终显示、永不显示或仅新标签页显示。
+summary: Firefox 开发者版默认支持在新标签页显示书签栏，普通版可通过修改配置 browser.toolbars.bookmarks.visibility
+  实现类似功能，早期版本需手动编辑 userChrome.css 文件并启用相关选项才能生效。
 tags:
 - google
 - css
@@ -18,7 +19,6 @@ tags:
 - bookmark
 title: 让 Firefox 只在新标签页 newtab 显示书签栏
 ---
-
 ### 更新 3
 
 > 更新时间：2020.12.25

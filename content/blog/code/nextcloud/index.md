@@ -7,8 +7,9 @@ date: '2019-11-25 16:08:00'
 draft: false
 lastmod: '2019-11-25 16:08:00'
 slug: nextcloud
-summary: Nextcloud可通过Ubuntu内置选项或snap快速安装。安装命令为`sudo snap install nextcloud`，若系统无snap需先安装。配置访问端口用`sudo
-  snap set nextcloud ports.http=80 ports.
+summary: Nextcloud 可通过 snap 快速安装，Ubuntu server 内置选项更便捷。配置需设置访问端口，域名需加入 config.php
+  的 trusted_domains 数组。HTTPS 支持 Let's Encrypt 自动签发、自签名或上传购买证书，备份命令 nextcloud.export
+  可生成数据快照。
 tags:
 - Ubuntu
 - server
@@ -17,7 +18,6 @@ tags:
 - snap
 title: Ubuntu Server snap 安装 Nextcloud
 ---
-
 Nextcloud 官网提供了很多种安装方式，我选择通过 snap 安装。
 其实 Ubuntu server 已经内置了 Nextcloud ，安装的时候最后一步选上就可以了。
 

@@ -3,10 +3,10 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2024-06-12 22:29:18+08:00
+date: 2024-06-12 14:29:18
 draft: false
 slug: ublacklist-subscription-compilation
-summary: 这是一个uBlacklist插件订阅合集，每周自动更新，专门屏蔽Google搜索结果中的中文SEO垃圾站和内容农场。订阅源地址为git.io/ublacklist。uBlacklist插件能通过匹配模式或正则表达式规则，阻止指定网站在搜索引擎结果中显示，
+summary: 这是一个 uBlacklist 插件订阅合集，每周自动更新，用于屏蔽 Google 等搜索引擎中的中文 SEO 垃圾站和内容农场。插件支持多种搜索引擎，可通过匹配模式或正则表达式自定义规则，并支持云同步和公共订阅。安装后只需添加订阅地址即可生效，还能手动添加其他屏蔽规则。
 tags:
 - ublacklist
 - google
@@ -16,7 +16,6 @@ tags:
 - 扩展
 title: uBlacklist 订阅合集
 ---
-
 ### TL;DR
 
 这是我维护的一个 uBlacklist 插件的订阅地址合集，搜集了网上大部分的订阅地址合并成一个。通过 [Github Actions](https://github.com/eallion/uBlacklist-subscription-compilation/actions/workflows/go.yml) 每周自动更新一次。

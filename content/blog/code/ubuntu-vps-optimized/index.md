@@ -7,7 +7,8 @@ date: '2015-02-05 13:35:00'
 draft: false
 lastmod: '2015-02-05 13:35:00'
 slug: ubuntu-vps-optimized
-summary: 小内存Ubuntu VPS优化LNMP服务时，可先更新系统并卸载非必要软件包如Apache、邮件服务等，清理残留文件。建议安装32位系统以节省资源。
+summary: 这段代码展示了如何为小内存 Ubuntu VPS 精简系统以优化 LNMP 环境，通过卸载非必要的 Apache、邮件服务等组件来释放资源，最后建议优先安装
+  32 位系统以提升性能！
 tags:
 - Ubuntu
 - vps
@@ -16,7 +17,6 @@ tags:
 - lnmp
 title: Ubuntu VPS 优化
 ---
-
 如果选用小内存的 Ubuntu VPS，而且只需要 LNMP 做 web 服务的话，可以如下优化：
 
 ```bash

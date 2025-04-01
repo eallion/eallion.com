@@ -3,11 +3,12 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2020-08-26 03:47:38+08:00
+date: 2020-08-25 19:47:38
 draft: false
-lastmod: 2020-08-26 03:47:38+08:00
+lastmod: 2020-08-25 19:47:38
 slug: ubuntu2004lnmp
-summary: 在Ubuntu 20.04桌面版配置Nginx、MySQL、PHP和phpMyAdmin。先彻底卸载冲突软件如Apache旧版，清理残留配置。安装Nginx后，添加PHP7.4及常用扩展组件。部署MySQL时需留意初始密码。最后安装phpMyAdmin进行数据库管理。
+summary: 在 Ubuntu 20.04.1 Desktop 中配置 Nginx、MySQL、PHP 和 phpMyAdmin 的完整流程，包括移除冲突软件、安装必要组件、修改验证方式、配置
+  Nginx 访问权限以及管理服务启动选项。
 tags:
 - Ubuntu
 - Nginx
@@ -16,7 +17,6 @@ tags:
 - LNMP
 title: Ubuntu 20.04.1 配置 LNMP 本地环境备忘
 ---
-
 本文主要记录在 Ubuntu 20.04.1 Desktop 版本中配置 Nginx、Mysql、PHP、phpMyAdmin。
 
 提示：如果不太了解各项配置的意思，切勿在服务器生产环境中按本文配置！

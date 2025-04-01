@@ -7,8 +7,8 @@ date: '2019-11-27 01:08:00'
 draft: false
 lastmod: '2019-11-27 01:08:00'
 slug: ubuntuzsh
-summary: 先更新系统并安装Zsh，将其设为默认Shell。安装Oh My Zsh可通过wget、curl或手动下载脚本三种方式任选其一。推荐安装Ubuntu
-  Nerd Font等字体以支持更多符号，下载后直接安装即可。最后可克隆Powerlevel9k主题进行个性化配置。
+summary: 安装 Zsh 并设为默认 Shell 后，可通过 wget、curl 或手动方式安装 Oh My Zsh。推荐搭配 Nerd Font 字体，并安装
+  Powerlevel9k 主题及常用插件如 autojump、zsh-autosuggestions 等。修改 .zshrc 配置文件后执行 source 命令即可生效！
 tags:
 - Ubuntu
 - guake
@@ -17,7 +17,6 @@ tags:
 - pcm
 title: Ubuntu 配置 Oh-My-Zsh
 ---
-
 ### 安装 Oh My Zsh
 
 安装 Zsh：

@@ -7,7 +7,8 @@ date: '2017-05-29 23:35:00'
 draft: false
 lastmod: '2017-05-29 23:35:00'
 slug: aliyun-ntp
-summary: 国内Windows VPS时间同步失败，国家授时中心IP失效。发现阿里云提供NTP服务器，公网用ntp.aliyun.com，内网用ntp.cloud.aliyuncs.com，还有多个备用地址。Linux系统可通过ntpdate命令同步阿里云NTP时间。
+summary: 国内 Windows VPS 时间同步失败时，可改用阿里云 NTP 服务器 ntp.aliyun.com 或内网地址 ntp.cloud.aliyuncs.com，官方文档提供了完整服务器列表，实测在
+  Linux 和 Windows 系统均能成功同步时间！
 tags:
 - 时间
 - 阿里云
@@ -15,7 +16,6 @@ tags:
 - 时间同步
 title: 阿里云 NTP 时间同步服务器
 ---
-
 > 最新更新：2021.01.24
 
 ### 前言

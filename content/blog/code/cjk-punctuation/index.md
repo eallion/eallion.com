@@ -3,18 +3,18 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2024-10-29 17:31:17+08:00
+date: 2024-10-29 09:31:17
 draft: false
 slug: cjk-punctuation
-summary: 中文全角标点连续出现时会产生多余空白。解决方案包括使用赫蹏或Han这类JS插件压缩标点间距，或通过OpenType字体的halt特性实现半角显示（需CSS设置）。建议网页设置lang属性标明语言，例如`<html
-  lang="zh-cn">`。
+summary: '中文排版中连续全角标点会留下过多空白，可通过赫蹏或 Han 等工具优化标点挤压效果。OpenType 字体的 halt 特性也能实现半角显示，但需特定字体支持。推荐在博客中设置
+  lang 属性并引入 heti-addon.js 脚本，配合自定义 CSS 实现自动间距调整。关键步骤包括添加 heti 类名到文章容器，并启用 font-feature-settings:
+  halt 样式。'
 tags:
 - 博客
 - 标点
 - 排版
 title: 博客排版 - 挤压中文标点符号
 ---
-
 ### 示例
 
 连续的中文全角标点符号的默认排版样式，默认 1 个全角标点会占用 2 个字符宽度，当连续的全角标点出现时，会出现大量的空白。（可点击图片）看一个例子：

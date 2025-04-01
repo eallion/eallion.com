@@ -7,7 +7,8 @@ date: '2019-05-27 22:08:00'
 draft: false
 lastmod: '2019-05-27 22:08:00'
 slug: jinrishici-for-hitokoto
-summary: 用户为手机一言app自定义古诗源，替换默认美句内容。偏好律诗绝句，选用"今日诗词"API。修改配置文件apiConfig.json，添加指定格式的API信息，包括地址、键名等。可自由调整apiId和分类地址，避免编号冲突。
+summary: 最近在手机上安装了一言 app 用于随机显示句子，但默认源缺少纯古诗选项。通过修改 apiConfig.json 配置文件，添加今日诗词 API
+  并指定古诗分类，成功实现仅展示律诗和绝句的需求。具体操作包括调整 apiId 和 apiAddress 等参数，确保数据格式匹配且不冲突。
 tags:
 - app
 - 一言
@@ -16,7 +17,6 @@ tags:
 - 今日诗词
 title: 一言 APP 添加 “今日诗词” 官方源 api
 ---
-
 最近安装了一个在手机屏幕上随机显示一句的 app，最终选择了 [【一言 app】](https://www.coolapk.com/apk/com.hitokoto)
 
 本人比较喜欢律诗和绝句，勉强能接受宋词，但是对所谓的美句无感。  

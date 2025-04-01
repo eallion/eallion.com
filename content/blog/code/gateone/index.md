@@ -7,7 +7,8 @@ date: '2016-09-08 09:38:00'
 draft: false
 lastmod: '2016-09-08 09:38:00'
 slug: gateone
-summary: Nginx配置SSL证书选用Let's Encrypt，可通过编译或一键包安装。Gateone支持源码和deb两种安装方式：源码安装需先配置Python依赖环境再执行安装命令，deb包直接下载安装。安装后生成默认配置文件，修改端口号等参数即可使用，注意需指定中文编码和端口设置。
+summary: Nginx 配置 SSL 证书并安装 Gateone，通过源码或 deb 包安装后修改配置文件，设置端口、证书路径等参数，最后通过 Nginx 代理实现
+  HTTPS 访问 Gateone 服务。
 tags:
 - nginx
 - gateone
@@ -16,7 +17,6 @@ tags:
 - shell
 title: Web 版 SSH Gateone
 ---
-
 ### 1、配置 Nginx，配置    ssl 证书
 
 我的 Web Server 用的 Nginx，Gateone 也用到了 Nginx 的代理功能，所以选择了 Nginx。可以自己编译安装，也可以用 oneinstack，LNMP 一键包等；证书用的是 Let's Encrypt。

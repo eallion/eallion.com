@@ -3,11 +3,11 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2023-07-29 14:35:49+08:00
+date: 2023-07-29 06:35:49
 draft: false
 slug: cdn-cname-cloudflare
-summary: 国内境外分流方案可降低成本和提升网站性能。国内使用阿里云、腾讯云的CDN和对象存储，境外用Cloudflare CDN搭配R2或Backblaze
-  B2存储。通过Cloudflare for SaaS的CNAME接入实现分流，不转移域名NS到Cloudflare。
+summary: 通过 Cloudflare for SaaS 实现国内外流量分流，国内使用阿里云或腾讯云 CDN 及对象存储，境外则利用 Cloudflare CDN
+  和 R2 或 Backblaze B2 存储桶。无需将域名 NS 接入 Cloudflare，通过 CNAME 解析和 Worker 代理实现分区解析和资源访问，优化性能并降低成本。
 tags:
 - hugo
 - blog
@@ -15,7 +15,6 @@ tags:
 - cloudflare
 title: 图床 CDN CNAME 接入 Cloudflare SaaS 实现分流
 ---
-
 ### TL;DR
 
 本文比较长，也比较罗嗦，需要实现如下功能请再往下读：

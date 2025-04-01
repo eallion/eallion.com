@@ -7,13 +7,14 @@ date: '2020-10-23 10:24:00'
 draft: false
 lastmod: '2020-10-23 10:24:00'
 slug: talkaboutubuntu
-summary: 长期使用多款Linux发行版后，推荐日常桌面环境首选Ubuntu，因其易用性和问题解决便利性。Linus Torvalds使用Fedora也值得参考，但Debian系更适合普通用户。反对盲目推崇Archlinux等滚动更新版本，维护风险较高。批评Deepin系统稳定性差，
+summary: 长期使用多种 Linux 发行版后，对于日常桌面环境首推 Ubuntu，因其易用性和丰富的解决方案资源。Fedora 虽受 Linus Torvalds
+  青睐，但 Debian 系更实用。不必迷信 Archlinux 或 Gentoo，其维护成本较高，Ubuntu 更适合学习和工作。Deepin 虽流行但不推荐，其稳定性和代码质量欠佳，且
+  Linux 下运行 QQ 或微信并非必要需求。
 tags:
 - Ubuntu
 - Linux
 title: 关于 Ubuntu
 ---
-
 关于 Linux 和 Ubuntu 的一点愚见。
 
 个人长期使用过 Ubuntu、Debian、Gentoo，体验过 Fedora、Manjaro、Archlinux、Deepin 等流行的发行版最少的时间也有一周以上。

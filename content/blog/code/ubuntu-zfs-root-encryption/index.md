@@ -3,12 +3,13 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2020-09-11 23:48:35+08:00
+date: 2020-09-11 15:48:35
 draft: false
-lastmod: 2020-09-11 23:48:35+08:00
+lastmod: 2020-09-11 15:48:35
 slug: ubuntu-zfs-root-encryption
-summary: Ubuntu 20.04安装镜像支持ZFS文件系统，但默认不提供全盘加密功能。通过修改LiveCD中的zsys-setup文件，可在安装时启用原生加密。具体操作为：找到含rpool的zpool
-  create代码块，添加加密参数并设置密码短语，实现Root、Boot等目录的加密。
+summary: Ubuntu 20.04 支持 ZFS 文件系统安装但默认不提供全盘加密功能。通过修改 LiveCD 中的 zsys-setup 文件，在 zpool
+  create 命令前添加加密参数并设置密码短语，可实现原生加密 Root 和 Boot 目录。具体步骤包括编辑文件、添加加密选项并保存后运行安装程序。这种方法比仅加密
+  Home 目录更安全！
 tags:
 - Ubuntu
 - ZFS
@@ -17,7 +18,6 @@ tags:
 - Linux
 title: Ubuntu ZFS 原生全盘加密
 ---
-
 ### 前言
 
 Ubuntu 20.04 的安装镜像支持 ZFS 文件系统（从 19.10 就开始支持了）：

@@ -3,16 +3,15 @@ authors:
 - eallion
 categories:
 - 日志
-date: 2024-05-24 07:28:15+08:00
+date: 2024-05-23 23:28:15
 draft: false
 slug: chinese-internet-is-accelerating
-summary: 一篇微信公众号文章《中文互联网正在加速崩塌》发布几小时后因违规被删除，恰好印证了标题观点。原文存档仍可查看。作者认为中文互联网环境恶化已是公认事实，类似《中文大约的确已经死了》的讨论，表达了对现状的失望与嘲讽。
+summary: 一篇探讨中文互联网现状的文章《中文互联网正在加速崩塌》因违规被删除，仅存活数小时，却以自身命运印证了标题的论断。文章存档仍可查阅，但作者对中文互联网的绝望态度鲜明，认为其现状已无可救药，与《中文大约的确已经死了》观点一致。
 tags:
 - daily
 - read
 title: 读《中文互联网正在加速崩塌》
 ---
-
 ### 吾以此身证此道
 
 《中文互联网正在加速崩塌》这篇文章发布在微信公众号，链接是：[https://mp.weixin.qq.com/s/afg3zHPpEyRzSfOR1Aeh3w](https://mp.weixin.qq.com/s/afg3zHPpEyRzSfOR1Aeh3w)。目前点击链接已经变成如下提示：

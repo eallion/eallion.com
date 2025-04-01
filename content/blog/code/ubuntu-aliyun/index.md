@@ -7,7 +7,8 @@ date: '2016-09-24 15:32:00'
 draft: false
 lastmod: '2016-09-24 15:32:00'
 slug: ubuntu-aliyun
-summary: 用sudo权限编辑apt软件源配置文件，替换为阿里云镜像源，包含xenial系统的主分支、更新、宇宙、多元宇宙及安全更新仓库地址。
+summary: 该命令通过 sudo 权限编辑 Ubuntu 系统的软件源配置文件，将其替换为阿里云镜像源以加速软件包下载，涵盖 main、restricted、universe
+  和 multiverse 等核心仓库及其安全更新！
 tags:
 - Ubuntu
 - 阿里云
@@ -15,7 +16,6 @@ tags:
 - 更新源
 title: Ubuntu 源 阿里云
 ---
-
 ```bash
 sudo vim /etc/apt/sources.list
 ```

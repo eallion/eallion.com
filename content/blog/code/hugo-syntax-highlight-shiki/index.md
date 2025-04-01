@@ -3,11 +3,12 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2024-08-15 22:42:21+08:00
+date: 2024-08-15 14:42:21
 draft: false
 slug: hugo-syntax-highlight-shiki
-summary: Shiki是一款基于VS Code语法高亮引擎的代码高亮工具，支持多种编程语言和主题。它无需维护自定义正则表达式、CSS或HTML，直接使用VS
-  Code主题。在Hugo中配置Shiki只需几分钟，
+summary: Shiki 是一款基于 VS Code 语法高亮引擎的代码高亮工具，支持多种编程语言和主题，无需维护自定义正则表达式或 CSS。在 Hugo 中配置
+  Shiki 只需几分钟，通过 @shikijs/rehype 插件实现纯静态高亮，适合本地或 GitHub Actions 部署。安装需 Node.js 和 Yarn，配置时关闭
+  Hugo 的 codeFences 并创建 .rehyperc 文件定义主题。
 tags:
 - Hugo
 - Highlight
@@ -15,7 +16,6 @@ tags:
 - 高亮
 title: 在 Hugo 中使用 Shiki
 ---
-
 > 除了 Hugo 在其他静态博客如 Hexo 中都可以使用此方法。
 
 ### 官方简介

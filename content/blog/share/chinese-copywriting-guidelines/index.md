@@ -6,11 +6,10 @@ date: '2019-12-02 17:44:00'
 draft: false
 lastmod: '2019-12-02 17:44:00'
 slug: chinese-copywriting-guidelines
-summary: 中文文案排版指南旨在统一写作规范，提升团队协作效率。主要规则包括：中英文、中文与数字间需加空格；数字与单位间不加空格；全角标点不空格；避免重复标点；中文使用全角标点，数字用半角格式。项目提供多语言版本，可通过微信公众号反馈建议。
+summary: 中文文案排版指北旨在统一中文与英文、数字混排时的格式规范，包括中英文间需加空格、数字与单位间不加空格、使用全角中文标点等规则，同时强调专有名词正确大小写和避免不地道缩写。该指南通过工具推荐和案例展示，帮助提升文本可读性与专业性！
 tags: []
 title: 中文文案排版指北
 ---
-
 # 中文文案排版指北
 
 [![devDependency Status](https://david-dm.org/mzlogin/chinese-copywriting-guidelines/dev-status.svg)](https://david-dm.org/mzlogin/chinese-copywriting-guidelines#info=devDependencies)

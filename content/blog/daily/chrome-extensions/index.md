@@ -7,8 +7,8 @@ date: '2019-04-11 00:17:00'
 draft: false
 lastmod: '2019-04-11 00:17:00'
 slug: chrome-extensions
-summary: 记录几个实用的Chrome插件，包括自己开发的淘宝链接净化工具。重点推荐扩展管理器，能一键开关其他插件。常用插件有Adblock Plus拦截广告、Block
-  Site屏蔽网站、Gmail邮件提醒工具Checher Plus，以及清理缓存插件Clear Cache。
+summary: 记录常用 Chrome 插件避免遗忘，包括自开发的净化淘宝链接工具，推荐神器扩展管理器一键开关插件，默认开启 Adblock Plus 等 14
+  款实用工具，按需使用 Chrono 下载器等 27 款扩展提升效率！
 tags:
 - 插件
 - google
@@ -17,7 +17,6 @@ tags:
 - 扩展
 title: 我的 Google Chrome 浏览器安装的插件扩展
 ---
-
 Google Chrome 常用插件做个记录备忘，以免像前几年一次重置账号后忘记需要哪些插件了。  
 其中 “<img src="/assets/images/posts/2019/04/11/pic_012.png"> [净化淘宝链接](https://chrome.google.com/webstore/detail/npokdddpckpfhlecbgmplgcidebjmkfm)  ” 这个插件是我开发的，做电商的应该能用得上，欢迎捧场！
 

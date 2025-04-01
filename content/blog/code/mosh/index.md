@@ -7,8 +7,9 @@ date: '2019-11-24 16:12:00'
 draft: false
 lastmod: '2019-11-24 16:12:00'
 slug: mosh
-summary: 服务端和客户端安装Mosh只需运行`sudo apt install mosh`。Ubuntu用户可选用Termius管理多台服务器。手机端推荐JuiceSSH/Termux（安卓）或Blink
-  Shell（iOS）。安装其他系统参考官网。
+summary: Mosh 是一款基于 UDP 的远程连接工具，支持跨平台使用。服务端和客户端安装均通过 sudo apt install mosh 命令完成，Ubuntu
+  用户也可选择 Termius 管理多台服务器。手机端推荐 JuiceSSH 或 Termux（安卓）以及 Blink Shell（iOS）。使用前需在防火墙开放
+  UDP 端口（默认 60001），云服务器还需配置安全组。
 tags:
 - Ubuntu
 - server
@@ -17,7 +18,6 @@ tags:
 - mosh
 title: Ubuntu Server 安装 Mosh
 ---
-
 服务端安装 Mosh：
 
 ```

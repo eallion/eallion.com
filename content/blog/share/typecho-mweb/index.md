@@ -7,8 +7,9 @@ date: '2017-04-10 08:36:00'
 draft: false
 lastmod: '2017-04-10 08:36:00'
 slug: typecho-mweb
-summary: 手机不离身但电脑用得少了，灵感来了必须马上记下否则容易忘。之前用手机浏览器写博客体验很差，现在发现iOS上支持Markdown的工具MWeb。用它离线发博客只需三步：设置发布服务选Metaweblog
-  API，填博客地址账号密码等基本信息，确保模板里有正确的API链接代码就行。
+summary: 手机不离身却难及时记录灵感，浏览器写博客体验又差。发现 iOS 应用 MWeb 支持 Markdown 离线写作，通过 Metaweblog API
+  配置博客地址、账号密码及 API 即可直接发布。需确保模板包含 EditURI 标签以兼容 API 调用，进阶用法可自定义 header 输出。此篇正是用 MWeb
+  发布！
 tags:
 - typecho
 - mweb
@@ -16,7 +17,6 @@ tags:
 - 离线
 title: iOS 离线发表博客的 APP MWeb
 ---
-
 现在蹲在电脑前面的时间越来越少，但是手机都不会离身。
 有时候出门在外，突然灵感迸发，如果没有及时记录下来，可能就永远也不会再回想起来了。
 反正我自己就是这样的。

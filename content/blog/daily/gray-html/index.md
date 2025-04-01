@@ -7,7 +7,8 @@ date: '2013-04-23 15:09:00'
 draft: false
 lastmod: '2013-04-23 15:09:00'
 slug: gray-html
-summary: 使用XHTML 1.0过渡型文档声明确保网页标准兼容。通过CSS滤镜实现全站灰度效果，可直接在HTML头部插入样式代码或添加到现有CSS中。核心代码包括DOCTYPE声明和grayscale滤镜属性，支持IE和Webkit内核浏览器。
+summary: 该代码片段首先声明使用 XHTML 1.0 Transitional 文档类型以确保网页标准兼容性，随后通过 CSS 的 filter 属性实现全站灰度化效果，兼容
+  IE 的 DXImageTransform 和 WebKit 内核浏览器的 -webkit-filter 语法，可直接嵌入 head 标签内生效。
 tags:
 - 代码
 - 网页
@@ -15,7 +16,6 @@ tags:
 - 黑白
 title: 网页黑白代码
 ---
-
 1，确认使用最新的网页标准协议：
 
 ```html

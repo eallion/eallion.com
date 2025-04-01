@@ -3,15 +3,15 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2023-07-11 23:27:23+08:00
+date: 2023-07-11 15:27:23
 draft: false
 series:
 - NeoDB
 seriesNavigation: true
 series_weight: 1
 slug: neodb
-summary: 作者因豆瓣服务不稳定，决定将观影数据迁移至NeoDB。先注册Mastodon账号并登录NeoDB，生成API Token后手动标记影音内容或导入旧数据。由于分页限制，编写Shell脚本分批下载数据，需替换自己的Access
-  Token。
+summary: 将豆瓣观影数据迁移至 NeoDB 并静态化部署，通过 API 获取数据后本地存储为 JSON 文件，利用 Hugo 生成静态页面，结合自定义 CSS
+  和 JS 实现排序功能，并通过 GitHub Actions 自动化更新数据。SaaS 服务不可靠，自建方案更可控！
 tags:
 - hugo
 - blog
@@ -19,7 +19,6 @@ tags:
 - movie
 title: NeoDB API 创建观影页面
 ---
-
 ### 前言
 
 几个月之前在 [长毛象联邦宇宙](https://mastodon.social/@eallion/110383954479048514) 里问过 NeoDB 官方有没有 API，得到肯定回答后，我就着手计划把观影页面的 API 搬到 NeoDB 了。前几天豆瓣的图片挂掉之后，加快了这一进程。

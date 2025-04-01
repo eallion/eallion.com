@@ -7,7 +7,8 @@ date: '2011-10-05 09:22:54'
 draft: false
 lastmod: '2011-10-05 09:22:54'
 slug: computer-configuration
-summary: 看中了一套游戏电脑配置，准备努力攒钱购买。配置清单包括品牌型号、数量、当时和现在的单价，以及商家数量等信息。具体配置详情可点击链接查看。
+summary: 在中关村在线模拟攒机选配了一套高性能游戏配置，包含 Intel 酷睿 i5 2500K 处理器、微星 N560GTX 显卡、明基 XL2410T
+  显示器等核心组件，总价约 11998 元，为畅玩主流游戏提供了硬件保障！
 tags:
 - CS
 - 游戏
@@ -16,7 +17,6 @@ tags:
 - 电脑
 title: 电脑配置单
 ---
-
 在中关村在线模拟攒机写了一套看中的游戏配置，看来要奋斗了。
 [http://zj.zol.com.cn/diy/detail/7265781.html](http://zj.zol.com.cn/diy/detail/7265781.html)<DIV>
 <TABLE style="BORDER-BOTTOM: #cccccc 1px solid; BORDER-LEFT: #cccccc 1px solid; FONT-SIZE: 12px; BORDER-TOP: #cccccc 1px solid; BORDER-RIGHT: #cccccc 1px solid" id=copyTbl cellSpacing=1>

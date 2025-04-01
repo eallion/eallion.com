@@ -3,18 +3,18 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2021-08-06 22:05:05+08:00
+date: 2021-08-06 14:05:05
 draft: false
-lastmod: 2021-08-06 22:05:05+08:00
+lastmod: 2021-08-06 14:05:05
 slug: githash
-summary: Hugo的`.GitInfo`变量无法正确显示`content`目录下文件的git hash，因为该功能仅追踪网站文件变更。使用`--depth=1`浅克隆时会丢失部分提交历史，导致hash缺失；即使完整克隆，显示的也可能不是最新commit。
+summary: Hugo 的 .GitInfo 变量因设计限制无法正确显示 content 目录的 Commit hash，尤其在浅克隆时更易失效。通过自定义脚本动态替换模板中的占位字符串，可绕过该限制实时显示最新
+  Git hash。该方法需在构建前执行脚本更新模板，虽非官方方案但能有效解决问题。
 tags:
 - hugo
 - GitInfo
 - Git
 title: Hugo .GitInfo 的替代方案
 ---
-
 ### 前言
 
 今天有人问我博客页脚 `footer` 里的 git hash 是怎么显示的，就是页面底部里的 `69d6ffe` 这一串数字。

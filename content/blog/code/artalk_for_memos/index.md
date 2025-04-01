@@ -3,14 +3,15 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2023-05-25 22:13:35+08:00
+date: 2023-05-25 14:13:35
 draft: false
 series:
 - Memos
 seriesNavigation: true
 series_weight: 6
 slug: artalk_for_memos
-summary: 脚本更新至2023.10.20，仅支持Memos v0.14.0版本。已解决后台界面错乱问题和暗黑模式适配，后者由木木老师完成。受两位老师文章启发，在Memos页面和应用中集成了Artalk评论系统。提供了自定义CSS代码示例，包括基础样式和暗黑模式配色方案，
+summary: 在 Memos v0.14.0 中成功集成 Artalk 评论系统，通过自定义 CSS 和 JS 脚本实现暗黑模式适配与界面优化。核心步骤包括修改后台样式、动态加载
+  Artalk 资源、独立页面评论功能嵌入，并需替换 CDN 链接和服务端配置。示例见 eallion.com/memos，完整方案参考相关技术文档！
 tags:
 - memos
 - artalk
@@ -18,7 +19,6 @@ tags:
 - 评论
 title: Memos 配置 Artalk 评论系统
 ---
-
 > 更新：2023.10.20 此脚本只适配到 Memos v0.14.0
 
 > TODO：

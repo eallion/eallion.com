@@ -3,11 +3,11 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2023-07-28 17:06:50+08:00
+date: 2023-07-28 09:06:50
 draft: false
 slug: s3-sync
-summary: 担心腾讯云COS存储不安全，作者用GitHub Actions配合Rclone工具，将静态文件和图片自动同步到GitHub、Cloudflare
-  R2和Backblaze B2作为备份。方案支持所有S3兼容协议的云存储，可快速切换源站。
+summary: 为防范腾讯云 COS 存储风险，通过 GitHub Actions 结合 Rclone 工具将数据同步备份至 GitHub、Cloudflare
+  R2 和 Backblaze B2 平台。该方案支持所有 S3 兼容协议的云存储，配置过程包括生成 Rclone 加密配置文件并上传至 GitHub Secrets，最终实现自动化定时同步与多平台冗余容灾。
 tags:
 - cdn
 - bucket
@@ -15,7 +15,6 @@ tags:
 - r2
 title: 利用 GitHub Actions 同步对象存储
 ---
-
 ### 前言
 
 由于担心腾讯云删库跑路，我决定把存放在腾讯云 COS 上的某个存储桶通过 GitHub Actions 同步备份到 [GitHub](https://github.com/eallion/static)、[Cloudflare R2](https://www.cloudflare.com/developer-platform/r2/)、[Backblaze B2](https://www.backblaze.com/cloud-storage) 上。以及实现《[图床 CDN CNAME 接入 Cloudflare SaaS 实现分流](https://eallion.com/cdn-cname-cloudflare/)》。

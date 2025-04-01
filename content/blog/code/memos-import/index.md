@@ -3,15 +3,16 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2022-11-06 16:31:22+08:00
+date: 2022-11-06 08:31:22
 draft: false
-lastmod: 2022-11-06 16:31:22+08:00
+lastmod: 2022-11-06 08:31:22
 series:
 - Memos
 seriesNavigation: true
 series_weight: 2
 slug: memos-import
-summary: Memos没有官方导入功能，但可以直接操作SQLite数据库文件迁移数据。方法一通过命令行操作：先在网页端创建一条memo生成数据库文件，用sqlite3命令导出CSV模板，修改旧数据格式后重新导入，注意文件编码需设为UTF-8-BOM避免中文乱码，
+summary: Memos 官方未提供数据导入导出功能，但可通过直接操作 SQLite 数据库实现迁移。方法一使用命令行导出 CSV 模板并修改编码为 UTF-8-BOM
+  避免中文乱码，再导入到数据库文件后替换服务器原文件并调整权限。方法二借助 SQLiteStudio 或 Navicat 等工具可视化操作，导出修改后重新导入并替换文件。两种方式均需重启容器生效！
 tags:
 - 嘀咕
 - 哔哔
@@ -19,7 +20,6 @@ tags:
 - talk
 title: Memos 手动导入数据
 ---
-
 ### 如何手动导入类似数据到 Memos
 
 迁移平台后，原来其他平台的数据肯定希望能导入到新平台，但 Memos 官方还没有提供导入导出服务。

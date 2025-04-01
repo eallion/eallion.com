@@ -7,8 +7,8 @@ date: '2017-04-08 23:41:00'
 draft: false
 lastmod: '2017-04-08 23:41:00'
 slug: polr-url-shortener
-summary: Polr是一个开源的短链接服务程序，支持虚拟主机和VPS安装，但推荐使用VPS以获得最新版本。以Oneinstack的LNMP环境为例，需要服务器满足PHP
-  5.5.9以上、MySQL/MariaDB/SQLite数据库及必要扩展。
+summary: Polr 是一款开源的短链接压缩程序，支持虚拟主机和 VPS 安装，但推荐使用 VPS 以获得更好的兼容性。安装过程包括下载源码、配置虚拟主机、准备
+  MySQL 数据库以及通过 composer 安装依赖。具体步骤涉及权限设置、Nginx 配置和在线安装向导，最终可通过域名访问并完成部署。
 tags:
 - polr
 - url
@@ -17,7 +17,6 @@ tags:
 - 短链接
 title: 短链接 url 压缩程序 Polr
 ---
-
 > 开源项目地址：[https://github.com/Cydrobolt/polr](https://github.com/Cydrobolt/polr)
 
 案例：

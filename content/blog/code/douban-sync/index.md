@@ -3,14 +3,16 @@ authors:
 - eallion
 categories:
 - 代码
-date: 2023-07-14 22:41:16+08:00
+date: 2023-07-14 14:41:16
 draft: false
 series:
 - NeoDB
 seriesNavigation: true
 series_weight: 3
 slug: douban-sync
-summary: 怡红公子的GitHub项目已支持豆瓣标记同步到NeoDB。有人分享了通过GitHub Actions将豆瓣RSS最新10条活动记录同步到Notion和NeoDB的方法，但需注意这些记录包含所有活动而不仅限于电影标记。由于豆瓣图片防盗链升级导致服务中断，
+summary: 豆瓣图片防盗链升级导致依赖其图片的服务失效，促使将观影记录迁移至开源平台 NeoDB。怡红公子的 drone-doumark 项目已支持同步到 NeoDB，同时发现现有教程可将豆瓣标记通过
+  RSS 同步至 Notion 和 NeoDB。过程中需注意豆瓣 RSS 仅显示最新 10 条活动记录，且需调整标记可见度参数为公开。Notion 集成功能位置已变更至
+  Connections 选项。
 tags:
 - hugo
 - 豆瓣
@@ -18,7 +20,6 @@ tags:
 - notion
 title: 豆瓣同步到 Notion 和 Neodb
 ---
-
 ### 更新
 
 > 2023-07-24 更新：

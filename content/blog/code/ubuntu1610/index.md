@@ -7,7 +7,9 @@ date: '2016-10-13 22:30:00'
 draft: false
 lastmod: '2016-10-13 22:30:00'
 slug: ubuntu1610
-summary: 将Ubuntu系统的软件源更换为阿里云镜像源，可通过图形界面在系统设置中选择阿里云服务器，或手动编辑sources.list文件替换为阿里云源地址。操作前建议备份原文件，替换完成后运行更新命令升级软件包列表。
+summary: 本文介绍了 Ubuntu 系统优化与软件配置的完整指南，包括更换阿里云软件源、安装常用工具如 vim 和 Guake 终端、设置输入法、禁用不必要的服务如
+  LibreOffice 和 Amazon、调整 Unity 界面、优化鼠标加速度、自动挂载硬盘、配置 SSH 和 Shadowsocks、安装状态栏指示器、配置
+  Oh-My-Zsh、安装 VirtualBox 和 Chrome 浏览器、调整托盘图标...
 tags:
 - Ubuntu
 - 优化
@@ -16,7 +18,6 @@ tags:
 - ubuntu 微信
 title: Ubuntu 16.10 优化
 ---
-
 1、换阿里云软件源
 ---------
 

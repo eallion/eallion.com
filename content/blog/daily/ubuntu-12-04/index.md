@@ -7,7 +7,8 @@ date: '2012-04-26 08:41:31'
 draft: false
 lastmod: '2012-04-26 08:41:31'
 slug: ubuntu-12-04
-summary: Ubuntu 12.04长期支持版今天发布，决定升级。办公完全转到Ubuntu后基本不用Win7了，现在除了玩不了CS1.6其他工作都能完美处理。期待Valve推出Linux版Steam，也希望Google尽快发布Linux版的Drive和Picasa。
+summary: Ubuntu 12.04 长期支持版今日发布，果断升级。办公已全面迁移至 Ubuntu，几乎不再使用 Windows7。除无法运行 CS1.6 外，Ubuntu
+  已能完美胜任所有工作。期待 Valve 推出 Steam for Linux，Google 尽快发布 Drive 和 Picasa 的 Linux 版本！
 tags:
 - CS
 - windows
@@ -16,7 +17,6 @@ tags:
 - google
 title: Ubuntu 12.04 LTS today
 ---
-
 今天是 Ubuntu 新版 12.04 发行的日子
 这是一个长期支版本
 果断升级

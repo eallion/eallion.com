@@ -7,7 +7,7 @@ date: '2010-11-07 06:11:40'
 draft: false
 lastmod: '2010-11-07 06:11:40'
 slug: authentication
-summary: 博客始终无法通过XHTML1.0和CSS3.0验证，错误从上百个缩减到9个，主要来自第三方插件（亦歌音乐和韩寒新浪订阅）无法修改。CSS验证中微软雅黑字体写法被报错，但作者认为现有写法更优。最终决定放弃追求验证通过，认为不值得为认证耗费精力。
+summary: 博客始终无法通过 XHTML1.0 和 CSS3.0 验证，错误从上百个缩减到 9 处，但涉及亦歌音乐插件和韩寒新浪订阅等第三方内容无法修改。微软雅黑字体编码被标记为无效，但出于兼容性考虑不愿改为英文命名。认证并非优先级，不愿为此耗费精力！
 tags:
 - xhtml
 - 认证
@@ -15,7 +15,6 @@ tags:
 - css3.0
 title: XHTML1.0 和 CSS3.0 验证
 ---
-
 我想
 我的博客是永远通不过 XHTML1.0 和 CSS3.0 验证了
 两个验证结果分别如下： [CSS3.0](http://validator.w3.org/check?uri=http://eallion.com&charset=(detect+automatically)&doctype=Inline&group=0)
