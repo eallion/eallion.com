@@ -462,7 +462,7 @@ html.dark .shiki span {
 
 #main-content .article {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   /* 默认情况（移动端优先）：flex-wrap: wrap; */
   flex-wrap: wrap;
 }
