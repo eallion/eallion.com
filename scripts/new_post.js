@@ -89,26 +89,56 @@ rl.question('Input your post title (CJK Available): ', async title => {
 		return oldestDir;
 	};
 
-	const translationResult = await translateText(title, "auto2en");
-	const translatedTitle = translationResult.text;
-	const filteredTitle = translationResult.translated ? translatedTitle.trim().replace(/[^a-zA-Z0-9]/g, '-').toLowerCase() : translatedTitle;
-	console.log(`Your new draft is located in "example/blog/${filteredTitle}"`);
-	exec(`hugo new --kind post --contentDir example --quiet blog/${filteredTitle}/${filteredTitle}.md`);
+	const generateSlug = async (text) => {
+		const translationResult = await translateText(text, "auto2en");
+		if (translationResult.translated) {
+			return translationResult.text.trim().replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+		}
+		return text.trim().replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+	};
 
-	// 创建目录和文件
-	const targetDir = `example/blog/${filteredTitle}`;
-	const oldFile = `${targetDir}/${filteredTitle}.md`;
-	const newFile = `${targetDir}/index.md`;
-	if (!fs.existsSync(targetDir)) {
-		fs.mkdirSync(targetDir);
-	}
-	if (!fs.existsSync(newFile)) {
-		fs.writeFileSync(newFile, '');
-	}
+	const updateFrontMatter = (filePath, title) => {
+		const content = fs.readFileSync(filePath, 'utf8');
+		const lines = content.split('\n');
+		let inFrontMatter = false;
+		const newLines = lines.map(line => {
+			if (line.trim() === '---') {
+				inFrontMatter = !inFrontMatter;
+				return line;
+			}
+			if (inFrontMatter && line.startsWith('title:')) {
+				return `title: "${title}"`;
+			}
+			return line;
+		});
+		fs.writeFileSync(filePath, newLines.join('\n'));
+	};
 
-	// 重命名文件
-	if (fs.existsSync(oldFile)) {
-		fs.renameSync(oldFile, newFile);
+	// 首先用原始标题创建文章
+	const sanitizedTitle = title.trim().replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '-');
+	const tempDir = `example/blog/${sanitizedTitle}`;
+
+	// 使用原始标题创建文章
+	exec(`hugo new --kind post --contentDir example --quiet blog/${sanitizedTitle}/index.md`);
+
+	// 更新 front matter 中的标题
+	updateFrontMatter(`${tempDir}/index.md`, title);
+
+	// 生成翻译后的 slug
+	const slug = await generateSlug(title);
+
+	// 如果生成的 slug 与原始标题不同，进行重命名
+	if (sanitizedTitle !== slug) {
+		const targetDir = `example/blog/${slug}`;
+
+		// 确保目标目录不存在
+		if (fs.existsSync(targetDir)) {
+			fs.rmSync(targetDir, { recursive: true, force: true });
+		}
+
+		// 重命名目录
+		fs.renameSync(tempDir, targetDir);
+		console.log(`Your new draft is located in "example/blog/${slug}"`);
 	}
 
 	// 删除最老的一篇文章所在的目录
