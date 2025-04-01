@@ -141,13 +141,10 @@
 							const justifiedGallery = document.getElementById('justified-gallery');
 
 							const div = document.createElement('div');
-							// a.href = media.url.replace('files.e5n.cc', 'mastodon-s3-files.eallion.com');
-							// div.href = media.url;
 
 							const img = document.createElement('img');
-							// img.src = media.preview_url.replace('files.e5n.cc', 'mastodon-s3-files.eallion.com');
-							img.src = media.preview_url;
-							img.setAttribute('data-zoom-src', media.url);
+							img.src = media.preview_url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com');
+							img.setAttribute('data-zoom-src', media.url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com'));
 							img.alt = extractTextFromHTML(item.content);
 							img.loading = 'lazy';
 							img.classList.add('lazy');
