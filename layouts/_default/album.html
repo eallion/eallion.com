@@ -14,6 +14,7 @@
 		width: 3rem;
 		height: 3rem;
 		margin: 0 auto;
+		display: none;  /* 添加初始状态为隐藏 */
 	}
 
 	.loading-spinner {
@@ -86,6 +87,11 @@
 
 				<div id="justified-gallery"></div>
 				<div class="loading-spinner"></div>
+				<div class="flex justify-center mt-8 mb-8">
+					<button id="load-more" class="px-4 py-2 cursor-pointer text-sm font-medium text-neutral-300 bg-neutral-800 rounded-md hover:bg-neutral-700 dark:bg-neutral-700 dark:hover:bg-neutral-600">
+						加载更多
+					</button>
+				</div>
 
 			</div>
 
@@ -132,34 +138,49 @@
 			// 去掉其他 HTML 标签
 			const textOnly = strippedString.replace(/<[^>]+>/g, '');
 
-			return textOnly;
+			// 移除 #ealbum 标签及前后空格
+			return textOnly.replace(/\s*#ealbum\s*/g, '').trim();
 	}
 
 	function renderImages(data) {
+			// 先将所有新图片添加到临时容器中
+			const fragment = document.createDocumentFragment();
+
 			data.forEach((item, index) => {
 					item.media_attachments.forEach(media => {
-							const justifiedGallery = document.getElementById('justified-gallery');
-
 							const div = document.createElement('div');
+							div.className = 'jg-entry';
 
 							const img = document.createElement('img');
-							img.src = media.preview_url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com');
+							const imgUrl = media.preview_url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com');
+							// 确保设置实际的 src，而不是依赖 lazy load
+							img.src = imgUrl;
 							img.setAttribute('data-zoom-src', media.url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com'));
 							img.alt = extractTextFromHTML(item.content);
 							img.loading = 'lazy';
-							img.classList.add('lazy');
+							img.classList.add('lazy', 'medium-zoom-image');
 
 							div.appendChild(img);
-							justifiedGallery.appendChild(div);
+							fragment.appendChild(div);
 					});
 			});
 
-			// Update Justified-Gallery after appending new images
-			$('#justified-gallery').justifiedGallery('norewind');
+			// 将所有新图片一次性添加到画廊
+			const justifiedGallery = document.getElementById('justified-gallery');
+			justifiedGallery.appendChild(fragment);
+
+			// 重新初始化画廊
+			$('#justified-gallery').justifiedGallery({
+					rowHeight: 200,
+					lastRow: 'hide',
+					margins: 8,
+					border: 0,
+					waitThumbnailsLoad: false  // 不等待缩略图加载
+			});
 
 			// Reinitialize medium-zoom for new images
 			if (zoomInstance) {
-					zoomInstance.detach(); // Detach existing zoom instance
+					zoomInstance.detach();
 			}
 			zoomInstance = mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
 				margin: 24,
@@ -169,30 +190,40 @@
 	}
 
 	async function loadInitialImages() {
-			const data = await fetchImages(12);
+			const loading = document.querySelector('.loading-spinner');
+			loading.style.display = 'block';  // 开始加载时显示
+
+			const data = await fetchImages(24);
 			renderImages(data);
 			if (data.length > 0) {
 					maxId = data[data.length - 1].id;
 			}
+
+			loading.style.display = 'none';  // 加载完成后隐藏
 	}
 
 	async function loadMoreImages() {
-			if (isLoading || !hasMoreData) return; // Prevent multiple simultaneous requests and check if there is more data
+			if (isLoading || !hasMoreData) return;
 			isLoading = true;
 
 			const loading = document.querySelector('.loading-spinner');
-			loading.style.display = 'block'; // Show loading spinner
+			const loadMoreBtn = document.getElementById('load-more');
+			loading.style.display = 'block';
+			loadMoreBtn.disabled = true;
+			loadMoreBtn.style.opacity = '0.5';
 
-			const data = await fetchImages(4, maxId); // Load 10 images
+			const data = await fetchImages(10, maxId);
 			renderImages(data);
 			if (data.length > 0) {
 					maxId = data[data.length - 1].id;
 			} else {
-					hasMoreData = false; // No more data to load
-					$(window).off('scroll'); // Disable infinite scroll
+					hasMoreData = false;
+					loadMoreBtn.style.display = 'none';
 			}
 
-			loading.style.display = 'none'; // Hide loading spinner
+			loading.style.display = 'none';
+			loadMoreBtn.disabled = false;
+			loadMoreBtn.style.opacity = '1';
 			isLoading = false;
 	}
 
@@ -200,22 +231,12 @@
 	$(document).ready(function() {
 			$('#justified-gallery').justifiedGallery({
 					rowHeight: 200,
-					lastRow : 'nojustify',
+					lastRow: 'hide',
 					margins: 8
 			});
-	});
 
-	// Infinite Scroll with debounce
-	$(window).scroll(function() {
-			if (scrollTimeout) {
-					clearTimeout(scrollTimeout);
-			}
-
-			scrollTimeout = setTimeout(function() {
-					if ($(window).scrollTop() + $(window).height() >= $(document).height() - 10) {
-							loadMoreImages();
-					}
-			}, 2000); // 2 seconds delay
+			// Add click event listener to load more button
+			document.getElementById('load-more').addEventListener('click', loadMoreImages);
 	});
 
 	// Load initial images when the page loads
