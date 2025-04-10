@@ -21,4 +21,4 @@ aliases:
     - /en/wusha
 ---
 
-Take a screenshot of LOL, unfortunately only a few screenshots remain. Getting the fifth kill was really fun. Apart from relying on a little skill and strength, it was more important to depend on luck. It was only by chance that one could get the fifth kill. Therefore, the fifth kill would double the happiness.
+Take a screenshot of LOL, unfortunately only a few screenshots remain. Getting the fifth kill was really fun. Apart from relying on a little skill and strength, it was more important to depend on luck. It was only by chance that one could get the fifth kill. Therefore, the fifth kill would double the happiness. Why me call "N24SWD"? [/n24swd](https://www.eallion.com/n24swd/)
