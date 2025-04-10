@@ -76,7 +76,6 @@ aliases:
 {{< /timelineItem >}}
 
 {{< timelineItem icon="openai" header="AI 摘要" badge="Jul 18, 2023" >}}
-⚠️ DEPRECATED. 已弃用。
 <br />
 2023 年 7 月 18 日，引入 TianliGPT AI 摘要，因技术和性能问题，后改为用 OpenAI 官方的 ChatGPT 预生成。细节可参考文章：
 {{< article link="/ai-summary/" >}}
