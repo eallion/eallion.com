@@ -17,7 +17,7 @@ title: CSS 和 JS 实现博客热力图
 ---
 ![](heatmap_screenshot.png "效果截图")
 
-> 查看实时效果：👉[首页](https://www.eallion.com/) / 👉[统计页](https://www.eallion.com/stats)
+> 查看实时效果： 👉[统计页](https://www.eallion.com/stats)
 
 ### TL;DR
 
