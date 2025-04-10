@@ -47,15 +47,15 @@
 #   weight = 22
 
 [[main]]
-  name = "Penta"
-  parent = "更多"
-  pageRef = "penta"
-  weight = 30
-
-[[main]]
   name = "随手拍"
   parent = "更多"
   pageRef = "album"
+  weight = 30
+
+[[main]]
+  name = "LOL 五杀"
+  parent = "更多"
+  pageRef = "penta"
   weight = 40
 
 [[main]]
