@@ -47,15 +47,15 @@
 #   weight = 22
 
 [[main]]
-  name = "Penta"
-  parent = "More"
-  pageRef = "penta"
-  weight = 30
-
-[[main]]
   name = "Album"
   parent = "More"
   pageRef = "album"
+  weight = 30
+
+[[main]]
+  name = "LOL Penta"
+  parent = "More"
+  pageRef = "penta"
   weight = 40
 
 [[main]]
