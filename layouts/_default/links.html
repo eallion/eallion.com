@@ -6,11 +6,11 @@
 	{{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
 	{{ $heroStyle := .Params.heroStyle }}
 	{{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
-	{{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
-	{{ if templates.Exists $heroStyle }}
+	{{ $heroStyle := print "hero/" $heroStyle ".html" }}
+  {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
 	{{ partial $heroStyle . }}
 	{{ else }}
-	{{ partial "partials/hero/basic.html" . }}
+	{{ partial "hero/basic.html" . }}
 	{{ end }}
 	{{ end }}
 
@@ -36,7 +36,7 @@
 
 						{{ .Content }}
 
-						<div class="links flex flex-wrap justify-between">
+						<div class="friends-links flex flex-wrap justify-between">
 								{{ $linksResource := resources.Get "data/friends/links.json" }}
 								{{ $links := $linksResource | transform.Unmarshal }}
 								{{ range $links.links }}
@@ -86,7 +86,7 @@
 		}
 
 		function randomizeLinks() {
-				const linksContainer = document.querySelector('.links');
+				const linksContainer = document.querySelector('.friends-links');
 				const links = Array.from(linksContainer.querySelectorAll('a'));
 				const shuffledLinks = shuffleArray(links);
 

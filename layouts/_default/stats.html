@@ -63,20 +63,27 @@
 {{ $pentaCountResource := resources.Get "data/penta/penta.json" }}
 {{ $pentaCount := $pentaCountResource | transform.Unmarshal }}
 
-{{- $steam_web_api_url := "https://steam-web-api.eallion.com/ownedgames" -}}
-{{- $steam_web_apiResource := resources.Get "data/steam/steam_web_api.json" -}}
-{{- $steam_web_api := $steam_web_apiResource | transform.Unmarshal -}}
-{{- $steamCount := $steam_web_api.response.game_count -}}
+{{- $steam_web_api_url := "https://steam-web-api.eallion.com/IPlayerService/GetOwnedGames/v0001/?steamid=76561197989210276&include_appinfo=false&include_played_free_games=true&format=json" -}}
+{{/*  {{- $steam_web_apiResource := resources.Get "data/steam/steam_web_api.json" -}}  */}}
+{{- $steam_web_apiResource := resources.GetRemote $steam_web_api_url -}}
+{{- $steamCount := 153 -}}
+{{- with $steam_web_apiResource -}}
+  {{- with . | transform.Unmarshal -}}
+    {{- if .response -}}
+      {{- $steamCount = .response.game_count -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 
 <article>
 	{{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
 	{{ $heroStyle := .Params.heroStyle }}
 	{{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
-	{{ $heroStyle := print "partials/hero/" $heroStyle ".html" }}
-	{{ if templates.Exists $heroStyle }}
+	{{ $heroStyle := print "hero/" $heroStyle ".html" }}
+  {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
 	{{ partial $heroStyle . }}
 	{{ else }}
-	{{ partial "partials/hero/basic.html" . }}
+	{{ partial "hero/basic.html" . }}
 	{{ end }}
 	{{ end }}
 
@@ -673,7 +680,7 @@
 						<li>{{ T `stats_wordcount` | safeHTML }}<strong><a href="/stats/">{{- $totalWords -}}</a></strong> {{ T `stats_wordcount_suffix` | safeHTML }}</li>
 						<li>{{ T `stats_mastodon` | safeHTML }}<strong><a href="/mastodon/">{{- $statusesCount -}}</a></strong> {{ T `stats_mastodon_suffix` | safeHTML }}</li>
 						<li>{{ T `stats_neodb` | safeHTML }}<strong><a href="/media/">{{- $neodbCount.count -}}</a></strong> {{ T `stats_neodb_suffix` | safeHTML }}</li>
-						<li>{{ T `stats_steam` | safeHTML }}<strong><a href="/steam/">{{- $steamCount -}}</a></strong> {{ T `stats_steam_suffix` | safeHTML }}</li>
+						<li>{{ T `stats_steam` | safeHTML }}<strong><a href="https://steamcommunity.com/id/eallion">{{- $steamCount -}}</a></strong> {{ T `stats_steam_suffix` | safeHTML }}</li>
 						<li>{{ T `stats_penta` | safeHTML }}<strong><a href="/penta/">{{- len $pentaCount.penta -}}</a></strong> {{ T `stats_penta_suffix` | safeHTML }}</li>
 						<li>{{ T `stats_views` | safeHTML }}<a>99<sup>+</sup></a> {{ T `stats_views_suffix` | safeHTML }}</li>
 						<li>{{ T `stats_comments` | safeHTML }}<a>99<sup>+</sup></a>{{ T `stats_comments_suffix` | safeHTML }}</li>
@@ -1244,7 +1251,7 @@
 
 		{{ partial "article-pagination.html" . }}
 		{{ if .Params.showComments | default (.Site.Params.article.showComments | default false) }}
-		{{ if templates.Exists "partials/comments.html" }}
+		{{ if templates.Exists "comments.html" }}
 		<div class="pt-3">
 		<hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
 		<div class="pt-3">
