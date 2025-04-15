@@ -1,7 +1,10 @@
 ---
 title: "Milestone"
-layout: "milestone"
-type: "sample"
+layout: "single"
+type: "milestone"
+kind: "page"
+outputs: ["html"]
+slug: "milestone"
 date: "2006-04-14 00:00:00"
 showDate: false
 showAuthor: false
@@ -21,7 +24,7 @@ aliases:
 ---
 
 <style>
-    .max-w-prose {
+    .article-content {
         max-width: 100%;
     }
     .thumbnail {
