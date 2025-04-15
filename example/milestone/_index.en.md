@@ -76,7 +76,6 @@ On January 6, 2024, Hugo was deployed to Tencent Cloud <code><a href="https://e5
 {{< /timelineItem >}}
 
 {{< timelineItem icon="openai" header="AI Summary" badge="Jul 18, 2023" >}}
-<br />
 On July 18, 2023, TianliGPT AI summary was introduced, but due to technical and performance issues, it was later replaced with pre-generated summaries using OpenAI's official ChatGPT. For details, refer to the article:
 {{< article link="/ai-summary/" >}}
 {{< /timelineItem >}}
