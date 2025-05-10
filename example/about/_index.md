@@ -24,7 +24,7 @@ showZenMode: false
     </blockquote>
 </div>
 
-<img class="nozoom" src="/eallion.webp" alt="eallion" class="about-avatar">
+<img class="nozoom" src="/eallion.webp" alt="eallion">
 
 我是「蜗牛」，不过一般都使用「大大的小蜗牛」作为网名。
 本名没有什么内涵，略去不表。
@@ -90,7 +90,7 @@ showZenMode: false
 <div class="badge">
   <a><img class="nozoom" src="https://img.shields.io/badge/Gmail-eallion.s+blog@gmail.com-blue?style=flat&labelColor=555&logo=gmail&logoColor=fff"></a>
   <a href="https://matrix.to/#/@eallion:e5n.cc" target="_blank" rel="noopener noreferrer">
-    <img class="nozoom" src="https://img.shields.io/badge/Matrix-@eallion:e5n.cc-blue?style=flat&labelColor=555&logo=Matrix&logoColor=fff">
+    <img class="nozoom" src="https://img.shields.io/badge/Matrix-@eallion@e5n.cc-blue?style=flat&labelColor=555&logo=Matrix&logoColor=fff">
   </a>
   <a href="https://github.com/eallion.gpg?fingerprint=327C873BCB0A151F1A599A3CE685DDDDDDDDDDDD" target="_blank" rel="noopener noreferrer">
     <img class="nozoom" src="https://img.shields.io/badge/E685DDDDDDDDDDDD-blue?label=GPG%20Key&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTYuMTQgMmMtNi43Ni4wNS05LjMgNi4yNy05LjM0IDcuN3Y1LjlINS4zNXYxNC4yNWgyMS4xOVYxNS41OWgtMS40MlY5Ljc4aC0uMDRjLS4wNy0uMzYtMS42OS03LjgzLTguOTUtNy43OHptLS4yIDQuMjJhNC43NSA0Ljc1IDAgMCAxIDQuNTkgMy41NnY1LjgxaC05LjJWOS44YTQuNzUgNC43NSAwIDAgMSA0LjYtMy41N3oiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMTUuNiAzLjJhNy42NSA3LjY1IDAgMCAwLTMuMjUuNzdjLTMuNDggMS43LTMuODggNS42Ni0zLjg4IDUuNjZjMy40NS03LjA1IDguMy02LjA3IDExLjEtNS42M2MwIDAtMS43NC0uODQtMy45OC0uOHptMTEuMTIgMTIuMjFzLTEuNC0uMDItMS42My4xYy0yLjcgMS40LTMuMjYgMS44NC01LjAzIDIuMmMtNS4wMSAxLTguMDQuNzEtMTAuNTIgMS42MmMtMS45LjctNC4yNiAzLjMzLTQuMjYgMy4zM0w1LjMyIDMwbDMuMzUtLjFzLjg4LS43IDEuOTctLjc5YzAgMCAxMC40LjY0IDEzLjIyLTQuMDNjMCAwLTUuMDMgMi41Mi0xMS4yMi44M2MwIDAgMTAuNjcuMzIgMTMuNjgtNi4wN2MtMS4zLjItNC40NyAzLjI4LTEwLjQyIDIuNDhjLjU4LjAzIDcuNjItMS43OCAxMC43LTUuMDJ6Ii8+PC9zdmc+&logoColor=fff&style=flat">
@@ -104,7 +104,7 @@ showZenMode: false
     <img class="nozoom" src="https://img.shields.io/badge/GitHub-@eallion-blue?style=flat&labelColor=555&logo=GitHub&logoColor=fff">
   </a>
   <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer">
-    <img class="nozoom" src="https://img.shields.io/badge/Mastodon-@eallion@e5n.cc-blue?style=flat&labelColor=555&logo=mastodon&logoColor=fff">
+    <img class="nozoom" src="https://img.shields.io/badge/Mastodon-@eallion:e5n.cc-blue?style=flat&labelColor=555&logo=mastodon&logoColor=fff">
   </a>
   <a href="https://x.com/eallion" target="_blank" rel="noopener noreferrer">
     <img class="nozoom" src="https://img.shields.io/badge/@eallion-blue?style=flat&labelColor=555&logo=x&logoColor=fff">
@@ -130,7 +130,7 @@ showZenMode: false
     <img class="nozoom" src="https://img.shields.io/github/v/tag/eallion/eallion.com">
   </a>
   <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer">
-    <img class="nozoom" src="https://img.shields.io/github/commits-since/eallion/eallion.com/v4.0.7/main">
+    <img class="nozoom" src="https://img.shields.io/github/commits-since/eallion/eallion.com/v4.0.8/main">
   </a>
   <a href="https://github.com/eallion/eallion.com/commits/main" target="_blank" rel="noopener noreferrer">
     <img class="nozoom" src="https://img.shields.io/github/last-commit/eallion/eallion.com">

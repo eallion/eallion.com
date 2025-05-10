@@ -24,7 +24,7 @@ showZenMode: false
     </blockquote>
 </div>
 
-<img class="nozoom" src="/eallion.webp" alt="eallion" class="about-avatar">
+<img class="nozoom" src="/eallion.webp" alt="eallion">
 
 我是「蜗牛」，不过一般都使用「大大的小蜗牛」作为网名。
 本名没有什么内涵，略去不表。
@@ -130,7 +130,7 @@ showZenMode: false
     <img class="nozoom" src="https://img.shields.io/github/v/tag/eallion/eallion.com">
   </a>
   <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer">
-    <img class="nozoom" src="https://img.shields.io/github/commits-since/eallion/eallion.com/v4.0.7/main">
+    <img class="nozoom" src="https://img.shields.io/github/commits-since/eallion/eallion.com/v4.0.8/main">
   </a>
   <a href="https://github.com/eallion/eallion.com/commits/main" target="_blank" rel="noopener noreferrer">
     <img class="nozoom" src="https://img.shields.io/github/last-commit/eallion/eallion.com">

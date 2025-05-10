@@ -523,7 +523,7 @@ blockquote a {
     text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.75), 1px -1px 0 rgba(255, 255, 255, 0.75), -1px 1px 0 rgba(255, 255, 255, 0.75), 1px 1px 0 rgba(255, 255, 255, 0.75);
 }
 
-#site-footer nav {
+/* #site-footer nav {
   display: flex;
   flex-direction: row;
 }
@@ -538,9 +538,17 @@ blockquote a {
   #site-footer .nonbot {
     margin: 0 0 0 -10px;
   }
-}
+} */
 
-#site-footer nav ul li a {
+/* #site-footer nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+} */
+
+
+#site-footer nav ul li a,
+.nested-menu a {
     white-space: nowrap;
 }
 
@@ -578,13 +586,32 @@ blockquote a {
 }
 
 .nonbot {
-  display: block;
-  margin: -10px;
-  padding: 0;
-  width: 67px;
-  height: 58px;
-  background-repeat: no-repeat;
-  background-image: url(/assets/images/nonbot/nonbot_pledged_logo.svg);
+    display: block;
+    margin: -10px;
+    padding: 0;
+    width: 67px;
+    height: 58px;
+    background-repeat: no-repeat;
+    background-image: url(/assets/images/nonbot/nonbot_pledged_logo.svg);
+}
+
+.modelcontextprotocol {
+    display: block;
+    margin: 0;
+    margin: -10px;
+    padding: 0;
+    width: 288px;
+    height: 42px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.modelcontextprotocol {
+    background-image: url(/assets/images/modelcontextprotocol/modelcontextprotocol-light.svg);
+}
+
+.dark .modelcontextprotocol {
+    background-image: url(/assets/images/modelcontextprotocol/modelcontextprotocol-dark.svg);
 }
 
 /* 顶部进度条 css */
