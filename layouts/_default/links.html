@@ -36,32 +36,35 @@
 
 						{{ .Content }}
 
-						<div class="friends-links flex flex-wrap justify-between">
-								{{ $linksResource := resources.Get "data/friends/links.json" }}
-								{{ $links := $linksResource | transform.Unmarshal }}
-								{{ range $links.links }}
-										{{ $name := .name }}
-										{{ $bio := .bio }}
-										{{ $url := .url }}
-										{{ $domainScheme := (replace (replace $url "http://" "") "https://" "") }}
-										{{ $domainParts := split $domainScheme "/" }}
-										{{ $domain := index $domainParts 0 }}
-										{{ $avatar := .avatar }}
-										<a target="_blank" href="/go/?target={{- $url | base64Encode -}}" title="{{- $name -}}" class="w-[100%] sm:w-[49%] md:w-[33%] mb-0" rel="noopener noreferrer">
-												<div class="group h-20 mt-1 w-full inline-block bg-gray-100 align-top dark:bg-gray-900 hover:scale-105 transition-transform duration-400 ease-in-out">
-														<div class="w-24 float-left h-full">
-																<img class="lazy nozoom w-12 h-12 m-4 rounded-full" loading="lazy" src="{{- $avatar -}}" alt="{{- $name -}}" onerror="this.onerror=null; this.src='/404.png';">
-														</div>
-														<div class="my-4 mr-4 ml-24">
-																<div class="flex items-center overflow-hidden whitespace-nowrap text-ellipsis">
-																		<span class="w-4 h-4 mr-1"><img class="lazy nozoom mt-0 mb-0 rounded-full" alt src="https://api.eallion.com/favicon?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=16&url={{- $url -}}"></span>
-																		<i class="not-italic">{{- $name -}}</i>
+						<!-- 添加 not-prose 类来避免 prose 样式的影响 -->
+						<div class="not-prose">
+								<div class="friends-links grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+										{{ $linksResource := resources.Get "data/friends/links.json" }}
+										{{ $links := $linksResource | transform.Unmarshal }}
+										{{ range $links.links }}
+												{{ $name := .name }}
+												{{ $bio := .bio }}
+												{{ $url := .url }}
+												{{ $domainScheme := (replace (replace $url "http://" "") "https://" "") }}
+												{{ $domainParts := split $domainScheme "/" }}
+												{{ $domain := index $domainParts 0 }}
+												{{ $avatar := .avatar }}
+												<a target="_blank" href="/go/?target={{- $url | base64Encode -}}" title="{{- $name -}}" class="block" rel="noopener noreferrer">
+														<div class="group flex items-center p-4 bg-gray-100 dark:bg-gray-900 rounded-lg hover:scale-105 transition-all duration-300 ease-in-out">
+																<div class="flex-shrink-0 mr-4">
+																		<img class="lazy nozoom w-16 h-16 rounded-full m-0" loading="lazy" src="{{- $avatar -}}" alt="{{- $name -}}" onerror="this.onerror=null; this.src='/404.png';">
 																</div>
-																<p class="overflow-hidden whitespace-nowrap text-ellipsis text-neutral-700 mt-0 mb-0 dark:text-neutral-300">{{- $bio -}}</p>
+																<div class="flex-grow min-w-0">
+																		<div class="flex items-center mb-2">
+																				<img class="lazy nozoom w-4 h-4 mr-2 m-0" alt="" src="https://api.eallion.com/favicon?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=16&url={{- $url -}}">
+																				<span class="font-medium text-neutral-900 dark:text-neutral-100 truncate">{{- $name -}}</span>
+																		</div>
+																		<p class="text-sm text-neutral-700 dark:text-neutral-300 line-clamp-2 m-0">{{- $bio -}}</p>
+																</div>
 														</div>
-												</div>
-										</a>
-								{{ end }}
+												</a>
+										{{ end }}
+								</div>
 						</div>
 
 				</div>

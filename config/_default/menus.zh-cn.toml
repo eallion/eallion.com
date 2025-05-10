@@ -105,11 +105,11 @@
 #   url = "https://x.com/eallion"
 #   weight = 200
 
-[[main]]
-  identifier = "mastodon"
-  pre = "mastodon"
-  weight = 300
-  url = "https://e5n.cc/@eallion"
+# [[main]]
+#   identifier = "mastodon"
+#   pre = "mastodon"
+#   weight = 300
+#   url = "https://e5n.cc/@eallion"
 
 # [[main]]
 #   identifier = "github"
@@ -117,30 +117,31 @@
 #   url = "https://github.com/eallion/eallion.com"
 #   weight = 400
 
+[[main]]
+  identifier = "deepwiki"
+  pre = "deepwiki"
+  url = "https://deepwiki.com/eallion/eallion.com"
+  weight = 500
+
 
 # -- Footer Menu --
 # The footer menu is displayed at the bottom of the page, just before
 # the copyright notice. Configure as per the main menu above.
 
-[[footer]]
-  name = "<div id='notbyai' class='notbyai written'></div>"
-  url = "https://notbyai.fyi"
-  weight = 10
-
-[[footer]]
-  name = "<div id='nonbot' class='nonbot'></div>"
-  url = "https://nonbot.org/pledged/view/9cefed7c-dc57-4832-84ec-197314fda979"
-  weight = 11
+# [[footer]]
+#   name = "<div id='notbyai' class='notbyai written'></div>"
+#   url = "https://notbyai.fyi"
+#   weight = 10
+#
+# [[footer]]
+#   name = "<div id='nonbot' class='nonbot'></div>"
+#   url = "https://nonbot.org/pledged/view/9cefed7c-dc57-4832-84ec-197314fda979"
+#   weight = 11
 
 [[footer]]
   name = "统计"
   pageRef = "stats"
   weight = 50
-
-[[footer]]
-  name = "状态"
-  url = "https://stats.uptimerobot.com/LvmZRfkNGP/783953686"
-  weight = 51
 
 [[footer]]
   name = "里程碑"
@@ -166,6 +167,11 @@
   name = "关于"
   pageRef = "about"
   weight = 90
+
+[[footer]]
+  name = "Status <svg width='1rem' height='1rem' viewBox='0 0 32 32'><path fill='currentcolor' d='M18 5v2h5.563L11.28 19.281l1.438 1.438L25 8.437V14h2V5zM5 9v18h18V14l-2 2v9H7V11h9l2-2z'></path></svg>"
+  url = "https://stats.uptimerobot.com/LvmZRfkNGP/783953686"
+  weight = 91
 
 [[footer]]
   pre = "rss"

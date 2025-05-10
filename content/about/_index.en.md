@@ -24,7 +24,7 @@ showZenMode: false
     </blockquote>
 </div>
 
-<img class="nozoom" src="/eallion.webp" alt="eallion" class="about-avatar">
+<img class="nozoom" src="/eallion.webp" alt="eallion">
 
 I'm Charles Chin. `eallion` has been my nickname for over 20 years.
 AKA: 大大的小蜗牛。
@@ -122,7 +122,7 @@ My favorite motto is:
     <img class="nozoom" src="https://img.shields.io/github/v/tag/eallion/eallion.com">
   </a>
   <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer">
-    <img class="nozoom" src="https://img.shields.io/github/commits-since/eallion/eallion.com/v4.0.7/main">
+    <img class="nozoom" src="https://img.shields.io/github/commits-since/eallion/eallion.com/v4.0.8/main">
   </a>
   <a href="https://github.com/eallion/eallion.com/commits/main" target="_blank" rel="noopener noreferrer">
     <img class="nozoom" src="https://img.shields.io/github/last-commit/eallion/eallion.com">

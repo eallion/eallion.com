@@ -8,13 +8,13 @@
 
 <div align="center">
 
-[![Build Hugo and Deploy](https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.com/actions/workflows/main.yml)
+[![Build Hugo and Deploy](https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg)](https://github.com/eallion/eallion.com/actions/workflows/main.yml) [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/eallion/eallion.com)
 
 </div>
 
 <div align="center">
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_shield) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v4.0.7/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com) [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/9pjg.svg)](https://betteruptime.com/?utm_source=status_badge)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_shield) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v4.0.8/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com) [![Better Uptime Badge](https://betteruptime.com/status-badges/v1/monitor/9pjg.svg)](https://betteruptime.com/?utm_source=status_badge)
 </div>
 <div align="center">
 
@@ -72,7 +72,7 @@ origin  https://git.eallion.com/git/eallion/eallion.com.git (push)
 
 ### 🎨 主题 [Blowfish](https://github.com/nunocoracao/blowfish)
 
-> Update：Apr 01, 2024
+> Update: Apr 01, 2024
 
 本博客使用主题为：[Blowfish](https://github.com/nunocoracao/blowfish)
 
@@ -97,7 +97,7 @@ git submodule update --init --recursive
 + pnpm run theme
 ```
 
-Blowfish 编译 TailwindCSS 的 main.css ，位于 [assets/css/compiled/main.css](https://github.com/eallion/eallion.com/blob/main/assets/css/compiled/main.css)：
+Blowfish 编译 TailwindCSS 的 main.css，位于 [assets/css/compiled/main.css](https://github.com/eallion/eallion.com/blob/main/assets/css/compiled/main.css)：
 
 ```bash
 # cd theme/blowfish
@@ -228,7 +228,7 @@ Icon 可以从网上下载，放到 `assets/icons` 目录下，格式为 `.svg`�
 
 Summary 生成 AI 摘要现在添加到 `blog` 目录中的 Markdown 文件中的 Front Matter 中，依然采用手动生成的方式。
 
-##### 8. **生成 缩略图(OG:image)**
+##### 8. **生成 缩略图 (OG:image)**
 
 打开 https://cover.eallion.com ([备用](https://github.com/rutikwankhade/CoverView)) 生成缩略图，此缩略图如果命名为 `feature*.png` 也可以当成 [oEmbed](https://oembed.com/)(OG image)，放到博客文章同目录下。
 
@@ -325,7 +325,7 @@ git push
 
 ### 🖼️ 图片
 
-> 因为 jsDelivr Aug 15,2020 的 ‘[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)’，现在没有用 GitHub + jsDelivr 当图床了。
+> 因为 jsDelivr Aug 15,2020 的‘[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)’，现在没有用 GitHub + jsDelivr 当图床了。
 
 - **方法一**
 
