@@ -1,7 +1,26 @@
-## v4.0.7 (2025-03-30)
+## v4.0.8 (2025-05-11)
 
 ### New feature
 
+- mastodon webfinger([`264ea64`](https://github.com/eallion/eallion.com/commit/264ea640409b8b680e82924f3595e44feb554f01)) (by Charles Chin)
+- migrate to hugo new version about partials([`3bd22b6`](https://github.com/eallion/eallion.com/commit/3bd22b60ada02903f07aa4fda8aa99676f078aec)) (by Charles Chin)
+- album images acceleration([`ef331c0`](https://github.com/eallion/eallion.com/commit/ef331c0a6c6c6957224dd4866cef4332c2386475)) (by Charles Chin)
+- deepseek ai summary python script([`b81dded`](https://github.com/eallion/eallion.com/commit/b81ddedacc84d636f6a6dff6d3fc889eb382b973)) (by Charles Chin)
+
+### Bugs fixed
+
+- blog list style([`302757e`](https://github.com/eallion/eallion.com/commit/302757ebdeca42ccfec5ade73e514eb9e36d5372)) (by Charles Chin)
+- comment style typo([`9b915f4`](https://github.com/eallion/eallion.com/commit/9b915f4bd7e2fd0a32f1b2cd1e182f7e8862e748)) (by Charles Chin)
+
+### Performance improves
+
+- album style([`4f760e0`](https://github.com/eallion/eallion.com/commit/4f760e00d8e655a7609f04600835e60d35468d0a)) (by Charles Chin)
+
+## v4.0.7 (2025-04-01)
+
+### New feature
+
+- deepseek ai summary python script([`688e47a`](https://github.com/eallion/eallion.com/commit/688e47a8eb945757c5576de33dbf0e56c99fd2c7)) (by Charles Chin)
 - release v4.0.7([`5a331c2`](https://github.com/eallion/eallion.com/commit/5a331c2d0d6c47f120daeae31fad7fb2d7b58829)) (by Charles Chin)
 - update mastodon embed timeline([`35ae32d`](https://github.com/eallion/eallion.com/commit/35ae32ddb9d81b7d3a109e203ad31499d393da99)) (by Charles Chin)
 - movie search([`5e9cfad`](https://github.com/eallion/eallion.com/commit/5e9cfadcf1900ba038ffafc40f496c1dd8f6bc49)) (by Charles Chin)
@@ -29,6 +48,7 @@
 
 ### Bugs fixed
 
+- theme bug([`5ad4d9f`](https://github.com/eallion/eallion.com/commit/5ad4d9f872071d52819bb8a45c2c0eeec2f84758)) (by Charles Chin)
 - nas build post cover([`684db05`](https://github.com/eallion/eallion.com/commit/684db05b3a6ef038bd46774fd51ff377b6566867)) (by Charles Chin)
 - new post script([`906b92a`](https://github.com/eallion/eallion.com/commit/906b92a9bb4a0faf00ed349e00aa6c9f564e876c)) (by Charles Chin)
 - comment mastodon link([`a87b8d5`](https://github.com/eallion/eallion.com/commit/a87b8d57c24ded665b94ce539a8f96edd13e81d8)) (by Charles Chin)
@@ -721,7 +741,7 @@
 - enable gitlab([`096abcf`](https://github.com/eallion/eallion.com/commit/096abcf768f32de1640bfdecf979044df8b71cf0)) (by Charles Chin)
 - enable changecrab([`66c1dfb`](https://github.com/eallion/eallion.com/commit/66c1dfb4f01198ed85aaf38b3ed3ccbff5552b6c)) (by Charles Chin)
 - add noto serif tc for talk pages([`7389938`](https://github.com/eallion/eallion.com/commit/7389938fe8e83e46a4c33fa1a65a6b0493798411)) (by Charles Chin)
-- 嘀咕页面img表情和md表情的图片正则([`f373cc0`](https://github.com/eallion/eallion.com/commit/f373cc09b4047833e9a438dbdf6a6aa506d73eb2)) (by Charles Chin)
+- 嘀咕页面 img 表情和 md 表情的图片正则 ([`f373cc0`](https://github.com/eallion/eallion.com/commit/f373cc09b4047833e9a438dbdf6a6aa506d73eb2)) (by Charles Chin)
 - change jinrishici api to gushi.ci([`d431a6e`](https://github.com/eallion/eallion.com/commit/d431a6ea64f87cc3ca5dab851494459f97aa59d7)) (by Charles Chin)
 
 ### Bugs fixed
