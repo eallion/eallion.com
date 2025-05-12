@@ -114,22 +114,45 @@
 	let hasMoreData = true; // Flag to indicate if there is more data to load
 	let scrollTimeout = null; // Timeout variable for debouncing scroll event
 	let zoomInstance = null; // Store the medium-zoom instance
+	let cachedImages = []; // 存储已加载但未显示的图片数据
+	let displayedCount = 0; // 当前显示的图片数量
+	const ROWS_PER_LOAD = 2; // 初始显示的行数
+	const IMAGES_PER_ROW = 4; // 估计每行显示的图片数量
+	const IMAGES_TO_SHOW = ROWS_PER_LOAD * IMAGES_PER_ROW; // 每次显示的图片数量
 
-	async function fetchImages(limit, maxId = null) {
-			const url = new URL(apiUrl);
-			url.searchParams.append('tagged', 'ealbum');
-			url.searchParams.append('only_media', 'true');
-			url.searchParams.append('limit', limit);
-			url.searchParams.append('exclude_replies', 'true');
-			url.searchParams.append('exclude_reblogs', 'true');
-			if (maxId) {
-					url.searchParams.append('max_id', maxId);
-			}
+	async function fetchImages(limit, currentMaxId = null) {
+    try {
+        const url = new URL(apiUrl);
+        url.searchParams.append('only_media', 'true');
+        url.searchParams.append('limit', limit);
+        url.searchParams.append('exclude_replies', 'true');
+        url.searchParams.append('exclude_reblogs', 'true');
+        if (currentMaxId) {
+            url.searchParams.append('max_id', currentMaxId);
+        }
 
-			const response = await fetch(url);
-			const data = await response.json();
-			return data;
-	}
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+
+        if (!data.length) {
+            hasMoreData = false;
+            return [];
+        }
+
+        maxId = data[data.length - 1].id;
+        return data.filter(item =>
+            item.media_attachments.some(media =>
+                media.description && /ealbum/i.test(media.description.replace(/\n/g, ''))
+            )
+        );
+    } catch (error) {
+        console.error('Error fetching images:', error);
+        return [];
+    }
+}
 
 	function extractTextFromHTML(htmlString) {
 			// 使用正则表达式去掉 <a> 标签及其内容
@@ -142,102 +165,168 @@
 			return textOnly.replace(/\s*#ealbum\s*/g, '').trim();
 	}
 
-	function renderImages(data) {
-			// 先将所有新图片添加到临时容器中
-			const fragment = document.createDocumentFragment();
+	async function renderImages(data, startFrom = displayedCount) {
+    const fragment = document.createDocumentFragment();
+    const itemsPerLoad = ROWS_PER_LOAD * IMAGES_PER_ROW;
+    const startIndex = startFrom;
+    const endIndex = Math.min(startFrom + itemsPerLoad, data.length);
 
-			data.forEach((item, index) => {
-					item.media_attachments.forEach(media => {
-							const div = document.createElement('div');
-							div.className = 'jg-entry';
+    for (let i = startIndex; i < endIndex; i++) {
+        const item = data[i];
+        if (!item) continue; // 跳过空项
 
-							const img = document.createElement('img');
-							const imgUrl = media.preview_url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com');
-							// 确保设置实际的 src，而不是依赖 lazy load
-							img.src = imgUrl;
-							img.setAttribute('data-zoom-src', media.url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com'));
-							img.alt = extractTextFromHTML(item.content);
-							img.loading = 'lazy';
-							img.classList.add('lazy', 'medium-zoom-image');
+        item.media_attachments.forEach(media => {
+            const div = document.createElement('div');
+            div.className = 'jg-entry';
 
-							div.appendChild(img);
-							fragment.appendChild(div);
-					});
-			});
+            const img = document.createElement('img');
+            const imgUrl = media.preview_url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com');
+            img.src = imgUrl;
+            img.setAttribute('data-zoom-src', media.url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com'));
+            img.alt = extractTextFromHTML(item.content);
+            img.loading = 'lazy';
+            img.classList.add('lazy', 'medium-zoom-image');
 
-			// 将所有新图片一次性添加到画廊
-			const justifiedGallery = document.getElementById('justified-gallery');
-			justifiedGallery.appendChild(fragment);
+            div.appendChild(img);
+            fragment.appendChild(div);
+        });
+    }
 
-			// 重新初始化画廊
-			$('#justified-gallery').justifiedGallery({
-					rowHeight: 200,
-					lastRow: 'hide',
-					margins: 8,
-					border: 0,
-					waitThumbnailsLoad: false  // 不等待缩略图加载
-			});
+    const justifiedGallery = document.getElementById('justified-gallery');
+    justifiedGallery.appendChild(fragment);
 
-			// Reinitialize medium-zoom for new images
-			if (zoomInstance) {
-					zoomInstance.detach();
-			}
-			zoomInstance = mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
-				margin: 24,
-				background: 'rgba(0,0,0,0.6)',
-				scrollOffset: 0,
-			});
-	}
+    // 判断是否是最后一批数据
+    const isLastBatch = !hasMoreData && endIndex >= data.length;
+
+    $('#justified-gallery').justifiedGallery({
+        rowHeight: 200,
+        lastRow: isLastBatch ? 'nojustify' : 'hide',
+        margins: 8,
+        border: 0,
+        waitThumbnailsLoad: false
+    });
+
+    displayedCount = endIndex;
+
+    if (zoomInstance) {
+        zoomInstance.detach();
+    }
+    zoomInstance = mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+        margin: 24,
+        background: 'rgba(0,0,0,0.6)',
+        scrollOffset: 0,
+    });
+}
 
 	async function loadInitialImages() {
-			const loading = document.querySelector('.loading-spinner');
-			loading.style.display = 'block';  // 开始加载时显示
+    const loading = document.querySelector('.loading-spinner');
+    loading.style.display = 'block';
 
-			const data = await fetchImages(24);
-			renderImages(data);
-			if (data.length > 0) {
-					maxId = data[data.length - 1].id;
-			}
+    try {
+        // 获取初始数据
+        const data = await fetchImages(40);
+        if (data.length > 0) {
+            cachedImages = [...data];
+            await renderImages(cachedImages);
+        }
 
-			loading.style.display = 'none';  // 加载完成后隐藏
-	}
+        const loadMoreBtn = document.getElementById('load-more');
+        loadMoreBtn.style.display = cachedImages.length > displayedCount ? 'block' : 'none';
+
+        // 预加载下一页数据
+        if (hasMoreData) {
+            const newData = await fetchImages(40, maxId);
+            if (newData && newData.length > 0) {
+                const newFilteredData = newData.filter(newItem =>
+                    !cachedImages.some(existingItem => existingItem.id === newItem.id)
+                );
+                if (newFilteredData.length > 0) {
+                    cachedImages.push(...newFilteredData);
+                    console.log('Added new cached images, total:', cachedImages.length);
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error in loadInitialImages:', error);
+    } finally {
+        loading.style.display = 'none';
+    }
+}
 
 	async function loadMoreImages() {
-			if (isLoading || !hasMoreData) return;
-			isLoading = true;
+    if (isLoading) return;
+    isLoading = true;
 
-			const loading = document.querySelector('.loading-spinner');
-			const loadMoreBtn = document.getElementById('load-more');
-			loading.style.display = 'block';
-			loadMoreBtn.disabled = true;
-			loadMoreBtn.style.opacity = '0.5';
+    const loading = document.querySelector('.loading-spinner');
+    const loadMoreBtn = document.getElementById('load-more');
+    loading.style.display = 'block';
+    loadMoreBtn.disabled = true;
+    loadMoreBtn.style.opacity = '0.5';
 
-			const data = await fetchImages(10, maxId);
-			renderImages(data);
-			if (data.length > 0) {
-					maxId = data[data.length - 1].id;
-			} else {
-					hasMoreData = false;
-					loadMoreBtn.style.display = 'none';
-			}
+    try {
+        // 显示下一批缓存的图片
+        await renderImages(cachedImages);
+        console.log('Displayed count:', displayedCount, 'Cached images:', cachedImages.length);
 
-			loading.style.display = 'none';
-			loadMoreBtn.disabled = false;
-			loadMoreBtn.style.opacity = '1';
-			isLoading = false;
-	}
+        // 当显示的图片接近缓存数量时，请求新数据
+        if (displayedCount >= cachedImages.length - IMAGES_TO_SHOW && hasMoreData) {
+            console.log('Fetching new data with max_id:', maxId);
+            const newData = await fetchImages(40, maxId);
+
+            if (newData && newData.length > 0) {
+                const newFilteredData = newData.filter(newItem =>
+                    !cachedImages.some(existingItem => existingItem.id === newItem.id)
+                );
+                if (newFilteredData.length > 0) {
+                    cachedImages.push(...newFilteredData);
+                    console.log('Added new images, total cached:', cachedImages.length);
+                }
+            } else {
+                hasMoreData = false;
+                console.log('No more data available');
+            }
+        }
+
+        // 判断是否需要显示加载更多按钮
+        const hasMoreToShow = displayedCount < cachedImages.length || hasMoreData;
+        loadMoreBtn.style.display = hasMoreToShow ? 'block' : 'none';
+
+        // 如果是最后一批数据，显示最后一行
+        if (!hasMoreToShow) {
+            console.log('Showing last row');
+            $('#justified-gallery').justifiedGallery({
+                rowHeight: 200,
+                lastRow: 'nojustify',
+                margins: 8,
+                border: 0,
+                waitThumbnailsLoad: false
+            });
+        }
+    } catch (error) {
+        console.error('Error in loadMoreImages:', error);
+        hasMoreData = false;
+        loadMoreBtn.style.display = 'none';
+    } finally {
+        loading.style.display = 'none';
+        loadMoreBtn.disabled = false;
+        loadMoreBtn.style.opacity = '1';
+        isLoading = false;
+    }
+}
 
 	// Initialize Justified-Gallery
 	$(document).ready(function() {
-			$('#justified-gallery').justifiedGallery({
-					rowHeight: 200,
-					lastRow: 'hide',
-					margins: 8
-			});
+    $('#justified-gallery').justifiedGallery({
+        rowHeight: 200,
+        lastRow: 'hide',
+        margins: 8,
+        border: 0,
+        waitThumbnailsLoad: false
+    });
 
-			// Add click event listener to load more button
-			document.getElementById('load-more').addEventListener('click', loadMoreImages);
-	});
+    document.getElementById('load-more').addEventListener('click', loadMoreImages);
+    loadInitialImages();
+});
 
 	// Load initial images when the page loads
 	window.onload = loadInitialImages;
