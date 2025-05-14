@@ -46,6 +46,21 @@
 			opacity: 0
 		}
 	}
+
+    .jg-entry {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .jg-entry:hover {
+        transform: translateY(-2px);
+    }
+
+    /* 确保图片填充容器 */
+    .jg-entry img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 </style>
 
 <article>
@@ -53,7 +68,7 @@
 	{{ $heroStyle := .Params.heroStyle }}
 	{{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
 	{{ $heroStyle := print "hero/" $heroStyle ".html" }}
-  {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
+	{{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
 	{{ partial $heroStyle . }}
 	{{ else }}
 	{{ partial "hero/basic.html" . }}
@@ -177,7 +192,8 @@
 
         item.media_attachments.forEach(media => {
             const div = document.createElement('div');
-            div.className = 'jg-entry';
+            // 添加新的样式类
+            div.className = 'jg-entry border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative';
 
             const img = document.createElement('img');
             const imgUrl = media.preview_url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com');
