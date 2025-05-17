@@ -49,9 +49,18 @@
 {{$categoryCounts := dict}}
 {{$totalArticles := $articleCount}}
 
-{{ $mastodonResource := resources.Get "data/mastodon/mastodon.json" }}
-{{ $mastodon := $mastodonResource | transform.Unmarshal }}
-{{ $statusesCount := index $mastodon 0 "account" "statuses_count" }}
+{{- $mastodon_api_url := "https://www.eallion.com/api/v1/accounts/111136231674527355/statuses" -}}
+{{- $mastodonResource := resources.GetRemote $mastodon_api_url -}}
+{{- $statusesCount := 0 -}}
+{{- with $mastodonResource -}}
+  {{- with . | transform.Unmarshal -}}
+    {{- with index . 0 -}}
+      {{- if .account -}}
+        {{- $statusesCount = .account.statuses_count -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 
 {{ $friendsResource := resources.Get "data/friends/links.json" }}
 {{ $friends := $friendsResource | transform.Unmarshal }}
@@ -289,38 +298,20 @@
 								<div class="heatmap_week hide_by_js">
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
 								</div>
 								<div class="heatmap_week hide_by_js">
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
 								</div>
 								<div class="heatmap_week hide_by_js">
 									<div class="heatmap_day heatmap_day_level_0"></div>
@@ -350,45 +341,9 @@
 									<div class="heatmap_day heatmap_day_level_0"></div>
 								</div>
 								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_1"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_1"></div>
 									<div class="heatmap_day heatmap_day_level_1"></div>
 									<div class="heatmap_day heatmap_day_level_1"></div>
@@ -407,9 +362,9 @@
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_1"></div>
 								</div>
 								<div class="heatmap_week hide_by_js">
@@ -442,6 +397,186 @@
 								<div class="heatmap_week hide_by_js">
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
@@ -470,7 +605,16 @@
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
 									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
@@ -487,74 +631,11 @@
 								<div class="heatmap_week hide_by_js">
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_1"></div>
 									<div class="heatmap_day heatmap_day_level_1"></div>
 									<div class="heatmap_day heatmap_day_level_1"></div>
 									<div class="heatmap_day heatmap_day_level_1"></div>
 									<div class="heatmap_day heatmap_day_level_1"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
 								</div>
 								<div class="heatmap_week hide_by_js">
 									<div class="heatmap_day heatmap_day_level_0"></div>
@@ -581,58 +662,22 @@
 									<div class="heatmap_day heatmap_day_level_1"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+								</div>
+								<div class="heatmap_week hide_by_js">
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_0"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
+									<div class="heatmap_day heatmap_day_level_1"></div>
 									<div class="heatmap_day heatmap_day_level_1"></div>
 								</div>
 								<div class="heatmap_week hide_by_js">
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_1"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-								</div>
-								<div class="heatmap_week hide_by_js">
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
-									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
 									<div class="heatmap_day heatmap_day_level_0"></div>
