@@ -958,71 +958,61 @@
 
 	// 处理 Json 数据
 	if (document.querySelector('#ticker')) {
-		fetch(jsonUrl)
-			.then(res => res.json())
-			.then(res => {
-				var result = '';
-				var data = res;
-				for (var i = 0; i < data.length; i++) {
-					var tickerTime = new Date(data[i].created_at);
-					var tickerContent = extractTextFromHtml(data[i].content);
-					var tickerUrl = data[i].url;
-					const replacements = {
-						'\\s*:star_empty:\\s*': '🌑',
-						'\\s*:star_half:\\s*': '🌗',
-						'\\s*:star_solid:\\s*': '🌕'
-					};
-					tickerContent = replaceMultiple(tickerContent, replacements);
-					var relativeTime = getRelativeTime(tickerTime);
-					result += `<li class="ticker-item" data-index="${i}">
-									<span class="datetime">${relativeTime}</span>：
-									<a href="${tickerUrl}" target="_blank">${tickerContent}</a>
-								</li>`;
-				}
-				var tickerDom = document.querySelector('#ticker');
-				var tickerBefore = `<div class="ticker-header"></div><ul class="ticker-list">`;
-				var tickerAfter = `</ul>`;
-				resultAll = tickerBefore + result + tickerAfter;
-				tickerDom.innerHTML = resultAll;
+    fetch(jsonUrl)
+        .then(res => res.json())
+        .then(res => {
+            var result = '';
+            var data = res;
+            for (var i = 0; i < data.length; i++) {
+                var tickerTime = new Date(data[i].created_at);
+                var tickerContent = extractTextFromHtml(data[i].content);
+                var tickerUrl = data[i].url;
+                const replacements = {
+                    '\\s*:star_empty:\\s*': '🌑',
+                    '\\s*:star_half:\\s*': '🌗',
+                    '\\s*:star_solid:\\s*': '🌕'
+                };
+                tickerContent = replaceMultiple(tickerContent, replacements);
+                var relativeTime = getRelativeTime(tickerTime);
+                result += `<li class="ticker-item" data-index="${i}">
+                            <span class="datetime">${relativeTime}</span>：
+                            <a href="${tickerUrl}" target="_blank">${tickerContent}</a>
+                        </li>`;
+            }
+            var tickerDom = document.querySelector('#ticker');
+            var tickerBefore = `<div class="ticker-header"></div><ul class="ticker-list">`;
+            var tickerAfter = `</ul>`;
+            resultAll = tickerBefore + result + tickerAfter;
+            tickerDom.innerHTML = resultAll;
 
-				// 初始化第一个 ticker-item 为 active
-				var tickerItems = document.querySelectorAll('.ticker-item');
-				if (tickerItems.length > 0) {
-					tickerItems[0].classList.add('active');
-				}
+            // 初始化第一个 ticker-item 为 active
+            var tickerItems = document.querySelectorAll('.ticker-item');
+            if (tickerItems.length > 0) {
+                tickerItems[0].classList.add('active');
+            }
 
-				// 滚动效果
-				let slideInterval;
-				function slideTickerItem() {
-					var tickerItems = document.querySelectorAll('.ticker-item');
-					if (tickerItems.length > 0) {
-						var activeItem = document.querySelector('.ticker-item.active');
-						var nextIndex = (parseInt(activeItem.getAttribute('data-index')) + 1) % tickerItems.length;
-						var nextItem = document.querySelector(`.ticker-item[data-index="${nextIndex}"]`);
+            // 滚动效果
+            function slideTickerItem() {
+                var tickerItems = document.querySelectorAll('.ticker-item');
+                if (tickerItems.length > 0) {
+                    var activeItem = document.querySelector('.ticker-item.active');
+                    var nextIndex = (parseInt(activeItem.getAttribute('data-index')) + 1) % tickerItems.length;
+                    var nextItem = document.querySelector(`.ticker-item[data-index="${nextIndex}"]`);
 
-						activeItem.classList.remove('active');
-						activeItem.classList.add('out');
-						nextItem.classList.add('in');
+                    activeItem.classList.remove('active');
+                    activeItem.classList.add('out');
+                    nextItem.classList.add('in');
 
-						setTimeout(() => {
-							activeItem.classList.remove('out');
-							nextItem.classList.remove('in');
-							nextItem.classList.add('active');
-						}, 300);
-					}
-					slideInterval = setTimeout(slideTickerItem, 3000);
-				}
-				slideTickerItem();
-
-				// 暂停和恢复滚动
-				const tickerList = document.querySelector('.ticker-list');
-				tickerList.addEventListener('mouseenter', () => {
-					clearTimeout(slideInterval);
-				});
-				tickerList.addEventListener('mouseleave', () => {
-					slideTickerItem();
-				});
-			});
+                    setTimeout(() => {
+                        activeItem.classList.remove('out');
+                        nextItem.classList.remove('in');
+                        nextItem.classList.add('active');
+                    }, 300);
+                }
+                setTimeout(slideTickerItem, 3000);
+            }
+            slideTickerItem();
+        });
 	}
 
 	// 计算相对时间的函数
