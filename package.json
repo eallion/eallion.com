@@ -44,7 +44,6 @@
   "homepage": "https://github.com/eallion/eallion.com#readme",
   "devDependencies": {
     "@types/node": "^20.19.0",
-    "hugo-bin": "^0.144.8",
     "nyc": "^15.1.0",
     "source-map-support": "^0.5.21",
     "ts-node": "^8.10.2",
