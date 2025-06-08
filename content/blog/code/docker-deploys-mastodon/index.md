@@ -15,7 +15,7 @@ date: 2025-06-09T00:05:54+08:00
 draft: false
 slug: docker-deploy-mastodon
 subtitle:
-summary:
+summary: 使用 Docker 部署 Mastodon 实例时，需注意选择合适的用户名和域名，因为一旦加入联邦宇宙，这些信息将无法更改。部署前应确定实例规模，以便进行相应优化。基本步骤包括准备 VPS、安装 Docker 和相关插件，并配置必要的文件如 compose.yml 和 .env.production。在设置过程中，要根据提示输入信息并生成环境变量文件，确保正确配置数据库、Redis 及 Elasticsearch 等服务。此外，还需通过反向代理工具如 Nginx 或 Cloudflare Tunnels 来管理流量，并创建管理员账号以维护实例。最后，通过调整目录权限和 SSL 配置来保证安全性与稳定性。
 ---
 
 ### 前言
