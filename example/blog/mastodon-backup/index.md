@@ -34,7 +34,7 @@ summary: 备份 Mastodon 可以通过命令行工具 rclone 实现，将数据�
 
 ### 安装配置 Rclone
 
-1. 在自己的电脑上安装 Rclone，参考：<https://rclone.org/install/>
+1. 安装 Rclone，参考：<https://rclone.org/install/>
 2. 生成 Rclone config
 
 - https://developers.cloudflare.com/r2/examples/rclone/
@@ -148,14 +148,6 @@ echo "Backup completed and synced to cloud storage!"
 ```bash
 # 每天凌晨 2 点执行备份脚本
 0 2 * * * timeout 2h /bin/bash /home/debian_username/mastodon_backup.sh >> /home/debian_username/mastodon_backup.log 2>&1
-```
-
-### 备份验证
-
-定期检查备份文件是否完整，可以使用 `rclone check` 命令来验证备份的完整性：
-
-```bash
-rclone check COS:mastodon-backup-1251444444/ R2:mastodon-backup-1251444444/
 ```
 
 ### 结语

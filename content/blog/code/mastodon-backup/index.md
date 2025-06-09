@@ -34,7 +34,7 @@ summary: 备份 Mastodon 可以通过命令行工具 rclone 实现，将数据�
 
 ### 安装配置 Rclone
 
-1. 在自己的电脑上安装 Rclone，参考：<https://rclone.org/install/>
+1. 安装 Rclone，参考：<https://rclone.org/install/>
 2. 生成 Rclone config
 
 - https://developers.cloudflare.com/r2/examples/rclone/
@@ -74,8 +74,8 @@ endpoint = cos.ap-nanjing.myqcloud.com
 
 # 设置需要备份的其他目录（绝对路径）
 backup_dirs=(
-    "/home/debian_username/docker/certimate:certimate"
-    "/home/debian_username/docker/n8n:n8n"
+	"/home/debian_username/docker/certimate:certimate"
+	"/home/debian_username/docker/n8n:n8n"
 )
 
 # 同步的目的地，必须和 rclone.conf 配置的远程存储名称样同
@@ -104,35 +104,35 @@ backup_dirs+=("${pg_dump_file}:pgsql")
 # 创建备份文件
 backup_files=()
 for item in "${backup_dirs[@]}"; do
-    dir=$(echo "$item" | cut -d':' -f1)
-    prefix=$(echo "$item" | cut -d':' -f2)
-    backup_file="${prefix}+${datetime}.tar.gz"
+	dir=$(echo "$item" | cut -d':' -f1)
+	prefix=$(echo "$item" | cut -d':' -f2)
+	backup_file="${prefix}+${datetime}.tar.gz"
 
-    if [[ "$prefix" == "pgsql" ]]; then
-        # 处理PostgreSQL备份文件
-        if [[ -f "$dir" ]]; then
-            tar -czf "${backup_file}" -C "$(dirname "$dir")" "$(basename "$dir")"
-            rm -f "${dir}"  # 删除临时导出的dump文件
-            backup_files+=("${backup_file}")
-        else
-            echo "Warning: PostgreSQL dump file '$dir' does not exist. Skipping..."
-        fi
-    else
-        # 处理目录备份
-        if [[ -d "$dir" ]]; then
-            tar -czf "${backup_file}" -C "$(dirname "$dir")" "$(basename "$dir")"
-            backup_files+=("${backup_file}")
-        else
-            echo "Warning: Directory '$dir' does not exist. Skipping..."
-        fi
-    fi
+	if [[ "$prefix" == "pgsql" ]]; then
+		# 处理PostgreSQL备份文件
+		if [[ -f "$dir" ]]; then
+			tar -czf "${backup_file}" -C "$(dirname "$dir")" "$(basename "$dir")"
+			rm -f "${dir}"  # 删除临时导出的dump文件
+			backup_files+=("${backup_file}")
+		else
+			echo "Warning: PostgreSQL dump file '$dir' does not exist. Skipping..."
+		fi
+	else
+		# 处理目录备份
+		if [[ -d "$dir" ]]; then
+			tar -czf "${backup_file}" -C "$(dirname "$dir")" "$(basename "$dir")"
+			backup_files+=("${backup_file}")
+		else
+			echo "Warning: Directory '$dir' does not exist. Skipping..."
+		fi
+	fi
 done
 
 # 同步到云存储，如果有多个远程存储，则用 for 循环同步
 for remote in "${remotes[@]}"; do
-    for file in "${backup_files[@]}"; do
-        rclone copy "${file}" "${remote}:${bucket_name}/"
-    done
+	for file in "${backup_files[@]}"; do
+		rclone copy "${file}" "${remote}:${bucket_name}/"
+	done
 done
 
 # 删除本地备份文件
@@ -148,14 +148,6 @@ echo "Backup completed and synced to cloud storage!"
 ```bash
 # 每天凌晨 2 点执行备份脚本
 0 2 * * * timeout 2h /bin/bash /home/debian_username/mastodon_backup.sh >> /home/debian_username/mastodon_backup.log 2>&1
-```
-
-### 备份验证
-
-定期检查备份文件是否完整，可以使用 `rclone check` 命令来验证备份的完整性：
-
-```bash
-rclone check COS:mastodon-backup-1251444444/ R2:mastodon-backup-1251444444/
 ```
 
 ### 结语
