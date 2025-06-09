@@ -152,13 +152,8 @@ jobs:
           ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
           ESA_SITE_ID: ${{ secrets.ESA_SITE_ID }}
 
-      - name: Check for content changes
-        id: check_changes
-        run: |
-          git diff --quiet ${{ github.event.before }} ${{ github.event.after }} -- 'content/**' || echo "changes=true" >> $GITHUB_OUTPUT
-
       - name: Trigger n8n webhook
-        if: success() && (steps.check_changes.outputs.changes == 'true' || github.event_name != 'push')
+        if: success()
         uses: distributhor/workflow-webhook@v3
         with:
           webhook_url: ${{ secrets.N8N_WEBHOOK_URL }}
