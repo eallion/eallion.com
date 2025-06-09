@@ -43,10 +43,18 @@ summary: 使用 Docker 部署 Mastodon 实例时，需注意选择合适的用�
 ### 前置条件
 
 - 服务器：一台 VPS，2C2G 以上；
-- 域名：一个域名，也可以是 social.example.com 这样的二级域名；
+- 域名：一个域名，也可以是 `social.example.com` `mastodon.example.com` 这样的二级域名；
 - Docker：安装 Docker 和 Compose 插件；
 - 可选：s3 对象存储；
 - 可选：Nginx、Caddy 或 Cloudflare Tunnels 反代。
+
+#### Docker Stats
+
+```shell
+docker stats --no-stream
+```
+
+![docker-stats](mastodon-docker-stats.png)
 
 ### 部署 Mastodon
 
@@ -70,7 +78,7 @@ touch .env.production
 
 1. postgres:14 我用的是我自己的优化版本，加了 repack 扩展，能更好地清理数据库碎片，提升性能：
    https://github.com/eallion/postgresql-14-alpine-pg-repack
-2. 如果不需要搜索功能，可以用 `#` 注释掉 `es:` 部分，同时要检查其他服务 depends_on 是否有依赖 `es`，如果有也要注释掉。
+2. 如果不需要全文搜索功能，可以用 `#` 注释掉 `es:`（ElasticSearch）部分，同时要检查其他服务 depends_on 是否有依赖 `es`，如果有也要注释掉，ElasticSearch 大概占用 600-800MB 内存，也可换成更轻量的 [OpenSearch](https://github.com/opensearch-project/opensearch)。
 
 ```yaml
 services:
@@ -573,10 +581,10 @@ docker exec mastodon-db-1 pg_repack -U postgres -d postgres
 # 备份数据库，然后备份 name_of_the_backup.dump
 docker exec mastodon-db-1 pg_dump -Fc -U postgres postgres > name_of_the_backup.dump
 
-# 数据库迁移
+# 数据库迁移，升级 PostgreSQL 或者 Mastodon 版本时可能用得上
 docker compose run --rm web bundle exec rake db:migrate
 
-# 清理文件
+# 清理文件。注意阅读文档，看命令的具体作用
 docker compose run --rm web tootctl media remove-orphans
 docker compose run --rm web tootctl media remove --days=10
 docker compose run --rm web tootctl media remove --days=10 --prune-profiles
@@ -584,3 +592,7 @@ docker compose run --rm web tootctl preview_cards remove --days=10
 docker compose run --rm web tootctl statuses remove --days=10
 docker compose run --rm web tootctl emoji purge --remote-only
 ```
+
+### 主题
+
+我在用：[TangerineUI](https://github.com/nileane/TangerineUI-for-Mastodon)，其他的有：[Mastodon-Modern](https://git.gay/freeplay/Mastodon-Modern) 也不错。还有不少的主题也还不错。
