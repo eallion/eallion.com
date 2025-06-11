@@ -59,23 +59,23 @@ n8n 的部署方式有很多种，Docker、Kubernetes、云服务等，这里就
 
 我的流程中用到了以上几个节点，需要同步到其他平台，可模仿添加即可。
 
-可选：也可以在编辑流程时，再根据需要配置凭证：
+可选：也可以在编辑流程时，再根据需要来配置凭证：
 
 ![](n8n-create-credential.png)
 
 #### 导入流程
 
-我直接导出我最新的 n8n 流程文件（已脱敏），导入后，编辑凭证信息即可使用。
+我导出了我最新的 n8n 流程文件（已脱敏），在其他 n8n 中导入后，编辑凭证信息即可使用。
 
 内容太长了，贴到 Gist 上：[n8n_sync_mastodon_to_memos_blinko_github_notion.json](https://gist.github.com/eallion/4e7ed09ab48b774628b21b9e67efe124)
 
-除以下载文件导入外，还可以在 n8n 中新建一个 Workflow，在编辑器中，点击右上角的「Import from URL...」，填入 Gist 的 Raw 链接：`https://gist.githubusercontent.com/eallion/4e7ed09ab48b774628b21b9e67efe124/raw/de066041ba842ea98f3c3ea4c435cd8e7c76c1c9/n8n_sync_mastodon_to_memos_blinko_github_notion.json`
+除了下载这个文件导入外，更简便的方法是在 n8n 中新建一个 Workflow，在编辑器中，点击右上角的「Import from URL...」，填入 Gist 的 Raw 链接：`https://gist.githubusercontent.com/eallion/4e7ed09ab48b774628b21b9e67efe124/raw/de066041ba842ea98f3c3ea4c435cd8e7c76c1c9/n8n_sync_mastodon_to_memos_blinko_github_notion.json`
 
-导入完成后，一定要双击点开每个节点编辑一下。
+导入完成后，一定要双击点开每个节点编辑成自己的信息。
 
 ### 配置 Mastodon
 
-复制 n8n 流程中的 Webhook 节点 `Production URL`
+现在可以配置 Mastodon 了，复制 n8n 流程中的 Webhook 节点 `Production URL`
 
 ![](n8n-webhook-url.png)
 
@@ -103,3 +103,13 @@ n8n 的部署方式有很多种，Docker、Kubernetes、云服务等，这里就
 从运行历史看，流程运行正常，耗时在 160 毫秒左右：
 
 ![](n8n-executions.png)
+
+### 注意事项
+
+不要在短时间内频繁操作 Mastodon，比如不要非常快速的发布嘟文、回复或转发等，每次操作都会触发 n8n 流程，可能出现第二次操作时，第一次操作触发的流程还没完成的情况。
+这会导致什么情况呢？因为流程中请求 Mastodon 的 API 时，是没有携带 Statuses ID 参数的，会导致短时间内多次请求同一内容，从而备份重复了。
+初次设计这个流程时就想到了，但完成了一半了懒得改了，只要慢一点点就没事。
+
+### Todo
+
+- [ ] Webhook 触发时锁定 Statuses ID。
