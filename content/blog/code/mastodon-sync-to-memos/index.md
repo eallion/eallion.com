@@ -21,6 +21,8 @@ title: Mastodon 同步到 Memos
 ---
 > 最新脚本：[https://gist.github.com/eallion/bf8861eb3292c2351c1067fba3198c26](https://gist.github.com/eallion/bf8861eb3292c2351c1067fba3198c26)
 
+> Update 4：现在已改用 n8n 备份 Mastodon 嘟文，详见《[n8n 玩法之备份 Mastodon 嘟文](https://www.eallion.com/n8n-backup-mastodon-statuses/)》
+
 > Update 3：引入 ChatGPT AI (Deepseek) 来判断是否为重复内容
 
 > Update 2：引入中间件 Sink 短网址服务，从 Memos `/m/{ID}` 链接跳转到 Mastodon
@@ -89,7 +91,7 @@ Mastodon 的 Webhook 目的地 URL 建议绑定域名，不然 Sidekiq 可能处
 - `SINK_HOST="https://s.e5n.cc"`
 - `SINK_NUXT_SITE_TOKEN=""`
 
-> 查找 Mastodon ID： https://`INSTANCE`/api/v1/accounts/lookup?acct=`USERNAME`
+> 查找 Mastodon ID：https://`INSTANCE`/api/v1/accounts/lookup?acct=`USERNAME`
 
 ```bash
 #!/bin/bash
@@ -264,7 +266,7 @@ if [[ "$AI_DIFF" == true ]]; then
           "role": "system"
         },
         {
-          "content": "比较```'"$CONTENT_MEMOS"'```和```'"$CONTENT_MASTODON"'```的相似度，超过50%的相似度就判定为相似，如果相似就回答数字1，如果不相似就回答数字0，除了数字1或者数字0不能回答其他任何内容。",
+          "content": "比较```'"$CONTENT_MEMOS"'```和```'"$CONTENT_MASTODON"'```的相似度，超过 50% 的相似度就判定为相似，如果相似就回答数字 1，如果不相似就回答数字 0，除了数字 1 或者数字 0 不能回答其他任何内容。",
           "role": "user"
         }
       ],
