@@ -60,6 +60,25 @@ const slug = path.replace(/\/$/, ''); // 去除末尾的斜杠
 - 如果 `404` 就发布到 Mastodon
 - 发布后创建 Sink 短链接
 
+### Mastodon 创建应用
+
+在 Mastodon 实例中创建一个应用：
+
+- `应用名称`： 随便填
+- `应用网站`： `https://n8n.example.com/rest/oauth2-credential/callback`
+- `重定向 URI`： `https://n8n.example.com/rest/oauth2-credential/callback`
+- `权限范围`： `write:statuses`、可选 `write:media`
+
+![](n8n-mastodon-applications.png)
+
+### n8n 凭证
+
+在 n8n 面板中，点右上角的三角形，选择 Create Credentials，创建一个 Mastodon 凭证。
+
+注意：Mastodon 不能用官方的，需要选择 OAuth2 API
+
+![](n8n-mastodon-credential.png)
+
 ### n8n 流程
 
 复制这个流程代码，保存为 `.json` 文件，然后在 n8n 中导入。

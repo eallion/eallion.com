@@ -53,7 +53,6 @@ n8n 的部署方式有很多种，Docker、Kubernetes、云服务等，这里就
 
 在 n8n 面板中，点右上角的三角形，选择 Create Credentials，创建需要的凭证。
 其他的平台，如：Memos、Blinko、Sink 没有官方的凭证，是通过 HTTP Request 节点来实现认证的。
-注意：Mastodon 不能用官方的，需要选择 OAuth2 API
 
 ![](n8n-credentials.png)
 
