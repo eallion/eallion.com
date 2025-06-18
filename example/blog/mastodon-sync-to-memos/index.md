@@ -21,7 +21,7 @@ title: Mastodon 同步到 Memos
 
 > 最新脚本：[https://gist.github.com/eallion/bf8861eb3292c2351c1067fba3198c26](https://gist.github.com/eallion/bf8861eb3292c2351c1067fba3198c26)
 
-> Update 4：现在已改用 n8n 备份 Mastodon 嘟文，详见《[n8n 玩法之备份 Mastodon 嘟文](https://www.eallion.com/n8n-backup-mastodon-statuses/)》
+> Update 4：现在已改用 n8n 备份 Mastodon 嘟文，详见《[n8n 之备份 Mastodon 嘟文](https://www.eallion.com/n8n-backup-mastodon-statuses/)》
 
 > Update 3：引入 ChatGPT AI (Deepseek) 来判断是否为重复内容
 

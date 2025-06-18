@@ -1,5 +1,5 @@
 ---
-title: "n8n 玩法之备份 Mastodon 嘟文"
+title: "n8n 之备份 Mastodon 嘟文"
 authors:
 - eallion
 categories:

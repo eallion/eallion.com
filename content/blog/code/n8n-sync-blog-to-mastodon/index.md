@@ -1,5 +1,5 @@
 ---
-title: "n8n 玩法之同步博客到 Mastodon"
+title: "n8n 之同步博客到 Mastodon"
 authors:
 - eallion
 categories:
@@ -24,7 +24,7 @@ summary: 使用 n8n 可以实现将博客内容自动同步到 Mastodon 的流�
 
 有很多方式来同步博客内容到 Mastodon，比如我曾经就是使用的 GitHub Actions 在构建时就同步了。但我们不是已经部署了一个 n8n 吗？就把同步流程搬到 n8n 上了。
 
-n8n 是一个强大的自动化工具，可以用来备份 Mastodon 嘟文——《[n8n 玩法之备份 Mastodon 嘟文](https://www.eallion.com/n8n-backup-mastodon-statuses/)》。今天我们来看看如何使用 n8n 将博客内容同步到 Mastodon。
+n8n 是一个强大的自动化工具，可以用来备份 Mastodon 嘟文——《[n8n 之备份 Mastodon 嘟文](https://www.eallion.com/n8n-backup-mastodon-statuses/)》。今天我们来看看如何使用 n8n 将博客内容同步到 Mastodon。
 
 ### 流程简介
 
