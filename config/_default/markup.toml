@@ -8,6 +8,12 @@
 [goldmark.parser]
   [goldmark.parser.attribute]
     block = true
+[goldmark.extensions]
+  [goldmark.extensions.passthrough]
+    enable = true
+    [goldmark.extensions.passthrough.delimiters]
+      block = [['\[', '\]'], ['$$', '$$']]
+      inline = [['\(', '\)']]
 
 [highlight]
   codeFences = true

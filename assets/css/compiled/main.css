@@ -1,4 +1,4 @@
-/*! tailwindcss v4.1.6 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.1.10 | MIT License | https://tailwindcss.com */
 /*! Blowfish | MIT License | https://github.com/nunocoracao/blowfish */
 @layer properties;
 #zen-mode-button {
@@ -1569,8 +1569,8 @@ body.zen-mode-enable {
   .overflow-visible {
     overflow: visible;
   }
-  .overflow-y-scroll {
-    overflow-y: scroll;
+  .overflow-y-auto {
+    overflow-y: auto;
   }
   .overscroll-contain {
     overscroll-behavior: contain;
@@ -4149,6 +4149,9 @@ body a, body button {
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
 }
+button, [role="button"] {
+  cursor: pointer;
+}
 .icon svg {
   height: 1em;
   width: 1em;
@@ -4173,7 +4176,7 @@ body a, body button {
     padding-right: calc(var(--spacing) * 4);
   }
 }
-.prose ul>li, .prose ol>li {
+.prose ul > li, .prose ol > li {
   &:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) {
     margin-right: calc(var(--spacing) * 7);
   }
@@ -4184,7 +4187,7 @@ body a, body button {
     padding-left: calc(var(--spacing) * 0);
   }
 }
-.prose ol>li:before, .prose ul>li:before {
+.prose ol > li:before, .prose ul > li:before {
   &:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) {
     right: calc(var(--spacing) * 1);
   }
@@ -4202,8 +4205,16 @@ body a, body button {
     padding-left: calc(var(--spacing) * 0);
   }
 }
-.prose div.min-w-0.max-w-prose>*:first-child {
+.prose div.min-w-0.max-w-prose > *:first-child {
   margin-top: calc(var(--spacing) * 3);
+}
+#TableOfContents {
+  max-width: 25vw;
+}
+#TOCView {
+  max-height: calc(100vh - 150px);
+  min-height: 0;
+  overflow-x: hidden;
 }
 .toc ul, .toc li {
   list-style-type: none;
@@ -4227,7 +4238,7 @@ body a, body button {
     color: rgba(var(--color-neutral-400), 1);
   }
 }
-.toc ul>li {
+.toc ul > li {
   &:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) {
     margin-right: calc(var(--spacing) * 0);
   }
@@ -4239,7 +4250,7 @@ body a, body button {
   position: relative;
   z-index: 0;
 }
-.highlight:hover>.copy-button {
+.highlight:hover > .copy-button {
   visibility: visible;
 }
 .copy-button {
@@ -4250,6 +4261,10 @@ body a, body button {
   z-index: 10;
   width: calc(var(--spacing) * 20);
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   border-top-right-radius: var(--radius-md);
   border-bottom-left-radius: var(--radius-md);
   background-color: rgba(var(--color-neutral-200), 1);
@@ -4281,6 +4296,10 @@ body a, body button {
 .katex-display {
   overflow: auto hidden;
 }
+.katex-display {
+  padding-right: 2px;
+  width: calc(100% - 2px);
+}
 table {
   display: block;
   overflow: auto;
@@ -4305,6 +4324,9 @@ a {
   &:is(.dark *) {
     color: rgba(var(--color-neutral-200), 1);
   }
+}
+.prose-invert .highlight pre > code {
+  background-color: unset;
 }
 .chroma .lntd, .chroma .lntd pre {
   margin: calc(var(--spacing) * 0);
@@ -4514,6 +4536,45 @@ pre {
   top: -150px;
   height: 0px;
   visibility: hidden;
+}
+.center-relative-left {
+  left: calc(max(-50vw, -800px) + 50%);
+}
+.margin-0 {
+  margin: 0;
+}
+.margin-top-\[-15px\] {
+  margin-top: -15px;
+}
+.margin-top-\[0\.5rem\] {
+  margin-top: 0.5rem;
+}
+.margin-right-\[10px\] {
+  margin-right: 10px;
+}
+.margin-left-\[0px\] {
+  margin-left: 0px;
+}
+.padding-main-menu {
+  padding: 2px 0 3px 0;
+}
+.padding-top-\[5px\] {
+  padding-top: 5px;
+}
+.z-index-\[-10\] {
+  z-index: -10;
+}
+.z-index-80 {
+  z-index: 80;
+}
+.z-index-100 {
+  z-index: 100;
+}
+.z-index-500 {
+  z-index: 500;
+}
+[id^="fn"], [id^="fnref"] {
+  scroll-margin-top: 145px;
 }
 @screen sm {
   .thumbnail {
