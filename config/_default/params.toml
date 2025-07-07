@@ -152,7 +152,7 @@ excludedSections = ["milestone"]
   websiteid = "ac705044-a88a-4534-8ef0-f4067c344cff"
   domain = "a.eallion.com"
   dataDomains = "www.eallion.com, eallion.com, eallion-com-cf-pages-origin.pages.dev"
-  scriptName = "um4m1.js"
+  scriptName = "dnsauth.js"
   enableTrackEvent = true
 
 [selineAnalytics]
