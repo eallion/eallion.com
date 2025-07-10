@@ -52,7 +52,7 @@
 												<a target="_blank" href="/go/?target={{- $url | base64Encode -}}" title="{{- $name -}}" class="block" rel="noopener noreferrer">
 														<div class="group flex items-center p-4 bg-gray-100 dark:bg-gray-900 rounded-lg hover:scale-105 transition-all duration-300 ease-in-out">
 																<div class="flex-shrink-0 mr-4">
-																		<img class="lazy nozoom w-16 h-16 rounded-full m-0" loading="lazy" src="{{- $avatar -}}" alt="{{- $name -}}" onerror="this.onerror=null; this.src='/404.png';">
+																		<img class="lazy nozoom w-16 h-16 rounded-full m-0" loading="lazy" src="https://api.eallion.com/gravatar/{{- $avatar -}}" alt="{{- $name -}}" onerror="this.onerror=null; this.src='/404.png';">
 																</div>
 																<div class="flex-grow min-w-0">
 																		<div class="flex items-center mb-2">
