@@ -120,37 +120,34 @@ jobs:
 #           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 #           quiet: true
 #           command: pages deploy public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true
-
-      - name: Deploy to Aliyun OSS
-        if: ${{ always() && !cancelled() }}  # 只要工作流没有被取消就执行
-        uses: docker://fangbinwei/aliyun-oss-website-action:v1
-        env:
-          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-          ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
-          BUCKET: eallion-com
-          ENDPOINT: oss-cn-shanghai.aliyuncs.com
-          FOLDER: public
-          SKIP_SETTING: true
-          INCREMENTAL: true
-
-#       - name: Refresh volcengine CDN
+#
+#       - name: Deploy to Aliyun OSS
+#         if: ${{ always() && !cancelled() }}  # 只要工作流没有被取消就执行
+#         uses: docker://fangbinwei/aliyun-oss-website-action:v1
+#         env:
+#           ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+#           ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
+#           BUCKET: eallion-com
+#           ENDPOINT: oss-cn-shanghai.aliyuncs.com
+#           FOLDER: public
+#           SKIP_SETTING: true
+#           INCREMENTAL: true
+#
+#       - name: Refresh Aliyun ESA
 #         run: |
-#           curl -s "https://api.github.com/repos/volcengine/volcengine-cli/releases/latest" | grep "browser_download_url.*linux_amd64.zip" | cut -d : -f 2,3 | tr -d \" | wget -O ve.zip -qi -
-#           unzip -q ve.zip > /dev/null 2>&1
-#           chmod a+x ./ve
-#
-#           ./ve configure set --profile volcengine-hugo-github-actions --region cn-beijing --endpoint cdn.volcengineapi.com --access-key ${{ secrets.VOLC_ACCESS_KEY }} --secret-key ${{ secrets.VOLC_SECRET_KEY }}
-#
-#           ./ve cdn SubmitRefreshTask --body '{"Type":"dir","Urls":"https://www.eallion.com/"}' > /dev/null 2>&1 || true
+#           pnpm install
+#           pnpm run esa
+#         env:
+#           ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+#           ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
+#           ESA_SITE_ID: ${{ secrets.ESA_SITE_ID }}
 
-      - name: Refresh Aliyun ESA
-        run: |
-          pnpm install
-          pnpm run esa
-        env:
-          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-          ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
-          ESA_SITE_ID: ${{ secrets.ESA_SITE_ID }}
+      - name: Deploy to EdgeOne Pages
+        uses: TencentEdgeOne/edgeone-pages-action@v1
+        with:
+          token: ${{ secrets.EDGEONE_API_TOKEN }}
+          project-name: "eallionblog"
+          build-path: "./public"
 
       - name: Trigger n8n webhook
         if: success()
