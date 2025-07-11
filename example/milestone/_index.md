@@ -2,7 +2,6 @@
 title: "里程碑"
 layout: "single"
 type: "milestone"
-kind: "page"
 outputs: ["html"]
 slug: "milestone"
 date: "2006-04-14 00:00:00"

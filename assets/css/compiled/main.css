@@ -1,4 +1,4 @@
-/*! tailwindcss v4.1.10 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
 /*! Blowfish | MIT License | https://github.com/nunocoracao/blowfish */
 @layer properties;
 #zen-mode-button {
@@ -291,11 +291,17 @@ body.zen-mode-enable {
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
+  .left-\[calc\(max\(-50vw\,-800px\)\+50\%\)\] {
+    left: calc(max(-50vw, -800px) + 50%);
+  }
   .left-full {
     left: 100%;
   }
   .-z-10 {
     z-index: calc(10 * -1);
+  }
+  .z-2 {
+    z-index: 2;
   }
   .z-10 {
     z-index: 10;
@@ -303,11 +309,17 @@ body.zen-mode-enable {
   .z-30 {
     z-index: 30;
   }
+  .z-80 {
+    z-index: 80;
+  }
+  .z-100 {
+    z-index: 100;
+  }
+  .z-500 {
+    z-index: 500;
+  }
   .z-\[1\] {
     z-index: 1;
-  }
-  .z-\[2\] {
-    z-index: 2;
   }
   .z-\[999\] {
     z-index: 999;
@@ -848,6 +860,12 @@ body.zen-mode-enable {
   .\!mt-0 {
     margin-top: calc(var(--spacing) * 0) !important;
   }
+  .-mt-\[2px\] {
+    margin-top: calc(2px * -1);
+  }
+  .-mt-\[15px\] {
+    margin-top: calc(15px * -1);
+  }
   .mt-0 {
     margin-top: calc(var(--spacing) * 0);
   }
@@ -881,17 +899,20 @@ body.zen-mode-enable {
   .mt-20 {
     margin-top: calc(var(--spacing) * 20);
   }
-  .mt-\[-2px\] {
-    margin-top: -2px;
-  }
   .mt-\[0\.1rem\] {
     margin-top: 0.1rem;
+  }
+  .mt-\[0\.5rem\] {
+    margin-top: 0.5rem;
   }
   .-mr-48 {
     margin-right: calc(var(--spacing) * -48);
   }
   .-mr-\[100\%\] {
     margin-right: calc(100% * -1);
+  }
+  .mr-0 {
+    margin-right: calc(var(--spacing) * 0);
   }
   .mr-1 {
     margin-right: calc(var(--spacing) * 1);
@@ -907,6 +928,9 @@ body.zen-mode-enable {
   }
   .mr-5 {
     margin-right: calc(var(--spacing) * 5);
+  }
+  .mr-\[10px\] {
+    margin-right: 10px;
   }
   .mr-auto {
     margin-right: auto;
@@ -1989,6 +2013,15 @@ body.zen-mode-enable {
   .pt-16 {
     padding-top: calc(var(--spacing) * 16);
   }
+  .pt-\[2px\] {
+    padding-top: 2px;
+  }
+  .pt-\[5px\] {
+    padding-top: 5px;
+  }
+  .pr-0 {
+    padding-right: calc(var(--spacing) * 0);
+  }
   .pr-2 {
     padding-right: calc(var(--spacing) * 2);
   }
@@ -2015,6 +2048,9 @@ body.zen-mode-enable {
   }
   .pb-150 {
     padding-bottom: calc(var(--spacing) * 150);
+  }
+  .pb-\[3px\] {
+    padding-bottom: 3px;
   }
   .pl-0 {
     padding-left: calc(var(--spacing) * 0);
@@ -4209,7 +4245,9 @@ button, [role="button"] {
   margin-top: calc(var(--spacing) * 3);
 }
 #TableOfContents {
-  max-width: 25vw;
+  @media (width >= 1024px) {
+    max-width: 25vw;
+  }
 }
 #TOCView {
   max-height: calc(100vh - 150px);
@@ -4519,9 +4557,7 @@ pre {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: calc(100% + 40px);
   z-index: -10;
-  margin-left: -20px;
 }
 .hero_gradient {
   width: 100%;
@@ -4536,42 +4572,6 @@ pre {
   top: -150px;
   height: 0px;
   visibility: hidden;
-}
-.center-relative-left {
-  left: calc(max(-50vw, -800px) + 50%);
-}
-.margin-0 {
-  margin: 0;
-}
-.margin-top-\[-15px\] {
-  margin-top: -15px;
-}
-.margin-top-\[0\.5rem\] {
-  margin-top: 0.5rem;
-}
-.margin-right-\[10px\] {
-  margin-right: 10px;
-}
-.margin-left-\[0px\] {
-  margin-left: 0px;
-}
-.padding-main-menu {
-  padding: 2px 0 3px 0;
-}
-.padding-top-\[5px\] {
-  padding-top: 5px;
-}
-.z-index-\[-10\] {
-  z-index: -10;
-}
-.z-index-80 {
-  z-index: 80;
-}
-.z-index-100 {
-  z-index: 100;
-}
-.z-index-500 {
-  z-index: 500;
 }
 [id^="fn"], [id^="fnref"] {
   scroll-margin-top: 145px;

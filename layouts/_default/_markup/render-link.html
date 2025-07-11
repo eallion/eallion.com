@@ -12,3 +12,4 @@
 {{ else }}
     <a href="{{ .Destination }}" {{ with .Title }}title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
 {{ end }}
+{{- /* Trim EOF */ -}}
