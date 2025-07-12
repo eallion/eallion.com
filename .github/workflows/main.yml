@@ -75,8 +75,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           personal_token: ${{ secrets.personal_token }}
-          external_repository: eallion/eallion.github.io
-          publish_branch: blog
+          external_repository: eallion/blog
+          publish_branch: main
           publish_dir: ./public
           # destination_dir: public
           allow_empty_commit: true
@@ -109,7 +109,6 @@ jobs:
 
       - name: Refresh Aliyun ESA
         run: |
-          pnpm install
           pnpm run esa
         env:
           ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
