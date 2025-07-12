@@ -42,7 +42,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22.x
+          node-version: 20.x
           cache: 'pnpm'
           cache-dependency-path: '**/pnpm-lock.yaml'
 
@@ -71,21 +71,21 @@ jobs:
 #           pnpm run shiki --silent || true
 #           # npx rehype-cli public -o --silent || true
 #
-#       - name: Deploy to GitHub Pages
-#         uses: peaceiris/actions-gh-pages@v4
-#         with:
-#           personal_token: ${{ secrets.personal_token }}
-#           external_repository: eallion/blog
-#           publish_branch: main
-#           publish_dir: ./public
-#           # destination_dir: public
-#           allow_empty_commit: true
-#           # commit_message: ${{ GitHub.event.head_commit.message }}
-#           full_commit_message: ${{ github.event.head_commit.message }}
-#           #cname: eallion.com
-#           force_orphan: true
-#           user_name: 'github-actions[bot]'
-#           user_email: 'github-actions[bot]@users.noreply.github.com'
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.personal_token }}
+          external_repository: eallion/eallion.github.io
+          publish_branch: blog
+          publish_dir: ./public
+          # destination_dir: public
+          allow_empty_commit: true
+          # commit_message: ${{ GitHub.event.head_commit.message }}
+          full_commit_message: ${{ github.event.head_commit.message }}
+          #cname: eallion.com
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
 #
 #       - name: Publish to Cloudflare Pages
 #         uses: cloudflare/wrangler-action@v3
