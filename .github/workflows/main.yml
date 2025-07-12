@@ -14,7 +14,6 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     env:
-      DOCKER_CACHEDIR: /tmp/.buildx-cache
       HUGO_CACHEDIR: /tmp/.hugo_cache
       HUGOMODS_CACHEDIR: /tmp/.hugo_mods_cache
       PNPM_CACHEDIR: /tmp/.pnpm-store
@@ -24,31 +23,6 @@ jobs:
         with:
           submodules: true
           fetch-depth: 0
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-        id: buildx
-
-      - name: Get Docker image digest
-        id: image-info
-        run: |
-          DIGEST=$(curl -s "https://hub.docker.com/v2/namespaces/fangbinwei/repositories/aliyun-oss-website-action/tags/v1" | jq -r '.images[] | select(.architecture == "amd64") | .digest')
-          echo "digest=${DIGEST}" >> $GITHUB_OUTPUT
-
-      - name: Cache Docker layers
-        id: docker-cache
-        continue-on-error: true
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.DOCKER_CACHEDIR }}
-          key: ${{ runner.os }}-docker-aliyunoss-${{ steps.image-info.outputs.digest }}
-          restore-keys: |
-            ${{ runner.os }}-docker-aliyunoss-
-
-      - name: Pull Docker image
-        if: ${{ steps.docker-cache.outputs.cache-hit != 'true' }}  # 只在缓存未命中时执行
-        run: |
-          docker pull fangbinwei/aliyun-oss-website-action:v1
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -68,7 +42,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 22.x
           cache: 'pnpm'
           cache-dependency-path: '**/pnpm-lock.yaml'
 
@@ -120,34 +94,34 @@ jobs:
 #           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 #           quiet: true
 #           command: pages deploy public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true
-#
-#       - name: Deploy to Aliyun OSS
-#         if: ${{ always() && !cancelled() }}  # 只要工作流没有被取消就执行
-#         uses: docker://fangbinwei/aliyun-oss-website-action:v1
-#         env:
-#           ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-#           ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
-#           BUCKET: eallion-com
-#           ENDPOINT: oss-cn-shanghai.aliyuncs.com
-#           FOLDER: public
-#           SKIP_SETTING: true
-#           INCREMENTAL: true
-#
-#       - name: Refresh Aliyun ESA
-#         run: |
-#           pnpm install
-#           pnpm run esa
-#         env:
-#           ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-#           ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
-#           ESA_SITE_ID: ${{ secrets.ESA_SITE_ID }}
 
-      - name: Deploy to EdgeOne Pages
-        uses: TencentEdgeOne/edgeone-pages-action@v1
-        with:
-          token: ${{ secrets.EDGEONE_API_TOKEN }}
-          project-name: "eallionblog"
-          build-path: "./public"
+      - name: Deploy to Aliyun OSS
+        if: ${{ always() && !cancelled() }}  # 只要工作流没有被取消就执行
+        uses: docker://fangbinwei/aliyun-oss-website-action:v1
+        env:
+          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+          ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
+          BUCKET: eallion-com
+          ENDPOINT: oss-cn-shanghai.aliyuncs.com
+          FOLDER: public
+          SKIP_SETTING: true
+          INCREMENTAL: true
+
+      - name: Refresh Aliyun ESA
+        run: |
+          pnpm install
+          pnpm run esa
+        env:
+          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+          ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
+          ESA_SITE_ID: ${{ secrets.ESA_SITE_ID }}
+
+#       - name: Deploy to EdgeOne Pages
+#         uses: TencentEdgeOne/edgeone-pages-action@v1
+#         with:
+#           token: ${{ secrets.EDGEONE_API_TOKEN }}
+#           project-name: "eallionblog"
+#           build-path: "./public"
 
       - name: Trigger n8n webhook
         if: success()
