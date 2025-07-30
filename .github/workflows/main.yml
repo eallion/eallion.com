@@ -107,13 +107,13 @@ jobs:
           SKIP_SETTING: true
           INCREMENTAL: true
 
-      - name: Refresh Aliyun ESA
-        run: |
-          pnpm run esa
-        env:
-          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-          ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
-          ESA_SITE_ID: ${{ secrets.ESA_SITE_ID }}
+#       - name: Refresh Aliyun ESA
+#         run: |
+#           pnpm run esa
+#         env:
+#           ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+#           ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
+#           ESA_SITE_ID: ${{ secrets.ESA_SITE_ID }}
 
 #       - name: Deploy to EdgeOne Pages
 #         uses: TencentEdgeOne/edgeone-pages-action@v1
