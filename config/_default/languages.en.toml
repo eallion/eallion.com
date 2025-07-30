@@ -23,6 +23,6 @@ title = "Charles Chin's Blog"
     { mastodon = "https://e5n.cc/@eallion" },
     { github = "https://github.com/eallion" },
     { x-twitter = "https://x.com/eallion" },
-    { deltachat = "https://i.delta.chat/#D0A986902C90835C0C89AB3DC94378E55054798A&a=eallion%40e5n.cc&n=Charles%20Chin&i=at-15Z0wXVpLYe0xxexIuWo6&s=5dE_UjFa0R-U5m3umyqsgrYt" },
+    { deltachat = "openpgp4fpr:eallion@e5n.cc" },
     { steam = "https://steamcommunity.com/id/eallion" },
   ]
