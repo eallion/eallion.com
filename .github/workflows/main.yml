@@ -34,35 +34,35 @@ jobs:
         run: |
           hugo --minify --enableGitInfo
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
+#       - name: Install pnpm
+#         uses: pnpm/action-setup@v4
+#         with:
+#           version: 9
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20.x
-          cache: 'pnpm'
-          cache-dependency-path: '**/pnpm-lock.yaml'
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 20.x
+#           cache: 'pnpm'
+#           cache-dependency-path: '**/pnpm-lock.yaml'
 
-      - name: Get pnpm store directory
-        id: pnpm-store
-        shell: bash
-        run: |
-          echo "PNPM_STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
-          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+#       - name: Get pnpm store directory
+#         id: pnpm-store
+#         shell: bash
+#         run: |
+#           echo "PNPM_STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
+#           echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-      - name: Cache pnpm store
-        uses: actions/cache@v4
-        with:
-          path: |
-            ${{ env.PNPM_STORE_PATH }}
-            **/node_modules
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}-
-            ${{ runner.os }}-pnpm-store-
+#       - name: Cache pnpm store
+#         uses: actions/cache@v4
+#         with:
+#           path: |
+#             ${{ env.PNPM_STORE_PATH }}
+#             **/node_modules
+#           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ github.sha }}
+#           restore-keys: |
+#             ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}-
+#             ${{ runner.os }}-pnpm-store-
 
 #       - name: Install and run Shiki
 #         run: |
@@ -70,23 +70,23 @@ jobs:
 #           pnpm install
 #           pnpm run shiki --silent || true
 #           # npx rehype-cli public -o --silent || true
-#
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          personal_token: ${{ secrets.personal_token }}
-          external_repository: eallion/blog
-          publish_branch: main
-          publish_dir: ./public
-          # destination_dir: public
-          allow_empty_commit: true
-          # commit_message: ${{ GitHub.event.head_commit.message }}
-          full_commit_message: ${{ github.event.head_commit.message }}
-          #cname: eallion.com
-          force_orphan: true
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-#
+
+#       - name: Deploy to GitHub Pages
+#         uses: peaceiris/actions-gh-pages@v4
+#         with:
+#           personal_token: ${{ secrets.personal_token }}
+#           external_repository: eallion/blog
+#           publish_branch: main
+#           publish_dir: ./public
+#           # destination_dir: public
+#           allow_empty_commit: true
+#           # commit_message: ${{ GitHub.event.head_commit.message }}
+#           full_commit_message: ${{ github.event.head_commit.message }}
+#           #cname: eallion.com
+#           force_orphan: true
+#           user_name: 'github-actions[bot]'
+#           user_email: 'github-actions[bot]@users.noreply.github.com'
+
 #       - name: Publish to Cloudflare Pages
 #         uses: cloudflare/wrangler-action@v3
 #         with:
