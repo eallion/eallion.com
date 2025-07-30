@@ -24,6 +24,6 @@ title = "大大的小蜗牛"
     { mastodon = "https://e5n.cc/@eallion" },
     { github = "https://github.com/eallion" },
     { x-twitter = "https://x.com/eallion" },
-    { deltachat = "mailto:eallion@e5n.cc" },
+    { deltachat = "https://i.delta.chat/#a=eallion%40e5n.cc&n=Charles%20Chin" },
     { steam = "https://steamcommunity.com/id/eallion" },
   ]
