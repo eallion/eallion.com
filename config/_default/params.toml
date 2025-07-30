@@ -149,10 +149,10 @@ excludedSections = ["milestone"]
   # domain = "llama.yoursite.com"
 
 [umamiAnalytics]
-  websiteid = "ac705044-a88a-4534-8ef0-f4067c344cff"
-  domain = "a.eallion.com"
-  dataDomains = "www.eallion.com, eallion.com, eallion-com-cf-pages-origin.pages.dev"
-  scriptName = "dnsauth.js"
+  websiteid = ""
+  domain = ""
+  dataDomains = ""
+  scriptName = ""
   enableTrackEvent = true
 
 [selineAnalytics]
