@@ -2,6 +2,10 @@
 
 # Edit at https://www.toptal.com/developers/gitignore?templates=hugo,node,linux,macos,nextjs,nuxtjs,windows,jetbrains,visualstudiocode,remix+cloudflarepages,remix+cloudflareworkers,vercel
 
+### Custom ###
+
+.edgeone
+
 ### Hugo ###
 
 # Generated files by hugo
