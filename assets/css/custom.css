@@ -656,30 +656,30 @@ blockquote a {
 }
 
 /* heti custom css */
-.heti {
+article {
   font-feature-settings: "halt";
 }
 
-.heti heti-spacing {
+article heti-spacing {
   display: inline;
 }
 
-.heti .heti-spacing-start {
+article .heti-spacing-start {
   margin-inline-end: .25em;
 }
 
-.heti .heti-spacing-end {
+article .heti-spacing-end {
   margin-inline-start: .25em;
 }
 
-.heti heti-adjacent {
+article heti-adjacent {
   display: inline;
 }
 
-.heti .heti-adjacent-half {
+article .heti-adjacent-half {
   margin-inline-end: -0.5em;
 }
 
-.heti .heti-adjacent-quarter {
+article .heti-adjacent-quarter {
   margin-inline-end: -0.25em;
 }

@@ -1,0 +1,18 @@
+<script>
+  {{ if not .Site.Params.disableImageZoom | default true }}
+  mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+    margin: 24,
+    background: 'rgba(0,0,0,0.5)',
+    scrollOffset: 0,
+  })
+  {{ end }}
+</script>
+
+<!-- Heti Spacing https://sivan.github.io/heti/#javascript -->
+
+{{ $hetiJS := resources.Get "js/heti-addon.min.js" | fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $hetiJS.RelPermalink }}" integrity="{{ $hetiJS.Data.Integrity }}"></script>
+<script>
+  const heti = new Heti('article');
+  heti.autoSpacing();
+</script>
