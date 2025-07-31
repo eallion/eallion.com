@@ -3,75 +3,75 @@
 
 
 <article>
-	{{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
-	{{ $heroStyle := .Params.heroStyle }}
-	{{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
-	{{ $heroStyle := print "hero/" $heroStyle ".html" }}
+  {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
+  {{ $heroStyle := .Params.heroStyle }}
+  {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
+  {{ $heroStyle := print "hero/" $heroStyle ".html" }}
   {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
-	{{ partial $heroStyle . }}
-	{{ else }}
-	{{ partial "hero/basic.html" . }}
-	{{ end }}
-	{{ end }}
+  {{ partial $heroStyle . }}
+  {{ else }}
+  {{ partial "hero/basic.html" . }}
+  {{ end }}
+  {{ end }}
 
-	<header id="single_header" class="mt-5 max-w-prose">
-		{{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
-		{{ partial "breadcrumbs.html" . }}
-		{{ end }}
-		<h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-			{{ .Title }}
-		</h1>
+  <header id="single_header" class="mt-5 max-w-prose">
+    {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
+    {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      {{ .Title }}
+    </h1>
 
-		<div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-			{{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
-		</div>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
+    </div>
 
-	</header>
+  </header>
 
-	<section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
 
-			<div class="min-w-0 min-h-0 max-w-fit">
+      <div class="min-w-0 min-h-0 max-w-fit">
 
-				<div class="article-content max-w-full mb-20 break-words">
+        <div class="article-content max-w-full mb-20 break-words">
 
-						{{ .Content }}
+            {{ .Content }}
 
-						<!-- 添加 not-prose 类来避免 prose 样式的影响 -->
-						<div class="not-prose">
-								<div class="friends-links grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-										{{ $linksResource := resources.Get "data/friends/links.json" }}
-										{{ $links := $linksResource | transform.Unmarshal }}
-										{{ range $links.links }}
-												{{ $name := .name }}
-												{{ $bio := .bio }}
-												{{ $url := .url }}
-												{{ $domainScheme := (replace (replace $url "http://" "") "https://" "") }}
-												{{ $domainParts := split $domainScheme "/" }}
-												{{ $domain := index $domainParts 0 }}
-												{{ $avatar := .avatar }}
-												<a target="_blank" href="/go/?target={{- $url | base64Encode -}}" title="{{- $name -}}" class="block" rel="noopener noreferrer">
-														<div class="group flex items-center p-4 bg-gray-100 dark:bg-gray-900 rounded-lg hover:scale-105 transition-all duration-300 ease-in-out">
-																<div class="flex-shrink-0 mr-4">
-																		<img class="lazy nozoom w-16 h-16 rounded-full m-0" loading="lazy" src="https://api.eallion.com/gravatar/{{- $avatar -}}" alt="{{- $name -}}" onerror="this.onerror=null; this.src='/404.png';">
-																</div>
-																<div class="flex-grow min-w-0">
-																		<div class="flex items-center mb-2">
-																				<img class="lazy nozoom w-4 h-4 mr-2 m-0" alt="" src="https://api.eallion.com/favicon?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=16&url={{- $url -}}">
-																				<span class="font-medium text-neutral-900 dark:text-neutral-100 truncate">{{- $name -}}</span>
-																		</div>
-																		<p class="text-sm text-neutral-700 dark:text-neutral-300 line-clamp-2 m-0">{{- $bio -}}</p>
-																</div>
-														</div>
-												</a>
-										{{ end }}
-								</div>
-						</div>
+            <!-- 添加 not-prose 类来避免 prose 样式的影响 -->
+            <div class="not-prose">
+                <div class="friends-links grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    {{ $linksResource := resources.Get "data/friends/links.json" }}
+                    {{ $links := $linksResource | transform.Unmarshal }}
+                    {{ range $links.links }}
+                        {{ $name := .name }}
+                        {{ $bio := .bio }}
+                        {{ $url := .url }}
+                        {{ $domainScheme := (replace (replace $url "http://" "") "https://" "") }}
+                        {{ $domainParts := split $domainScheme "/" }}
+                        {{ $domain := index $domainParts 0 }}
+                        {{ $avatar := .avatar }}
+                        <a target="_blank" href="/go/?target={{- $url | base64Encode -}}" title="{{- $name -}}" class="block" rel="noopener noreferrer">
+                            <div class="group flex items-center p-4 bg-gray-100 dark:bg-gray-900 rounded-lg hover:scale-105 transition-all duration-300 ease-in-out">
+                                <div class="flex-shrink-0 mr-4">
+                                    <img class="lazy nozoom w-16 h-16 rounded-full m-0" loading="lazy" src="https://api.eallion.com/gravatar/{{- $avatar -}}" alt="{{- $name -}}" onerror="this.onerror=null; this.src='/404.png';">
+                                </div>
+                                <div class="flex-grow min-w-0">
+                                    <div class="flex items-center mb-2">
+                                        <img class="lazy nozoom w-4 h-4 mr-2 m-0" alt="" src="https://api.eallion.com/favicon?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=16&url={{- $url -}}">
+                                        <span class="font-medium text-neutral-900 dark:text-neutral-100 truncate">{{- $name -}}</span>
+                                    </div>
+                                    <p class="text-sm text-neutral-700 dark:text-neutral-300 line-clamp-2 m-0">{{- $bio -}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    {{ end }}
+                </div>
+            </div>
 
-				</div>
+        </div>
 
-			</div>
+      </div>
 
-		</section>
+    </section>
 
 </article>
 
@@ -79,32 +79,32 @@
 <script type="text/javascript" src="{{ $lazyloadJS.RelPermalink }}" integrity="{{ $lazyloadJS.Data.Integrity }}"></script>
 
 <script>
-		// Random links
-		function shuffleArray(array) {
-				for (let i = array.length - 1; i > 0; i--) {
-						const j = Math.floor(Math.random() * (i + 1));
-						[array[i], array[j]] = [array[j], array[i]];
-				}
-				return array;
-		}
+    // Random links
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
 
-		function randomizeLinks() {
-				const linksContainer = document.querySelector('.friends-links');
-				const links = Array.from(linksContainer.querySelectorAll('a'));
-				const shuffledLinks = shuffleArray(links);
+    function randomizeLinks() {
+        const linksContainer = document.querySelector('.friends-links');
+        const links = Array.from(linksContainer.querySelectorAll('a'));
+        const shuffledLinks = shuffleArray(links);
 
-				links.forEach(link => link.remove());
+        links.forEach(link => link.remove());
 
-				shuffledLinks.forEach(link => linksContainer.appendChild(link));
-		}
+        shuffledLinks.forEach(link => linksContainer.appendChild(link));
+    }
 
-		randomizeLinks();
+    randomizeLinks();
 </script>
 
 <script>
-		var lazyLoadInstance = new LazyLoad({
-				// Your custom settings go here
-		});
+    var lazyLoadInstance = new LazyLoad({
+        // Your custom settings go here
+    });
 </script>
 
 {{ end }}

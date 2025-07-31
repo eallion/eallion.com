@@ -5,72 +5,72 @@
 
 <article>
 
-	<section class="flex flex-col max-w-full mt-0 prose dark:prose-invert">
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert">
 
-		<div class="min-w-0 min-h-0">
+    <div class="min-w-0 min-h-0">
 
-			<div class="article-content max-w-full">
+      <div class="article-content max-w-full">
 
-				<div class="relative flex flex-col items-center break-all w-full h-full max-w-[800px] text-center text-sm mx-auto pb-8 pt-0 shadow-xl rounded-xl bg-neutral-100 dark:bg-neutral-800">
+        <div class="relative flex flex-col items-center break-all w-full h-full max-w-[800px] text-center text-sm mx-auto pb-8 pt-0 shadow-xl rounded-xl bg-neutral-100 dark:bg-neutral-800">
 
-					<div class="relative px-1 py-1 flex flex-col items-center justify-center text-center w-full rounded-tl-xl rounded-tr-xl bg-gradient-to-b from-primary-500 to-primary-200 dark:from-primary-600 dark:to-primary-800">
+          <div class="relative px-1 py-1 flex flex-col items-center justify-center text-center w-full rounded-tl-xl rounded-tr-xl bg-gradient-to-b from-primary-500 to-primary-200 dark:from-primary-600 dark:to-primary-800">
 
-						<div class="tailwind-ticker w-auto relative group flex items-end transition-all duration-300">
-							<div class="overflow-hidden min-w-32">
-								<img class="mb-2 h-32 w-32 nozoom" width="96" height="96"
-									alt="" src="{{ $warningImage.RelPermalink }}" />
-							</div>
-						</div>
+            <div class="tailwind-ticker w-auto relative group flex items-end transition-all duration-300">
+              <div class="overflow-hidden min-w-32">
+                <img class="mb-2 h-32 w-32 nozoom" width="96" height="96"
+                  alt="" src="{{ $warningImage.RelPermalink }}" />
+              </div>
+            </div>
 
-						<h2 class="mt-0 mb-8 text-2xl text-neutral-800 text-shadow-white">
-							<div>跳转提示</div>
-						</h2>
-					</div>
+            <h2 class="mt-0 mb-8 text-2xl text-neutral-800 text-shadow-white">
+              <div>跳转提示</div>
+            </h2>
+          </div>
 
-					<div class="text-xl font-bold my-4 px-2 text-neutral-800 dark:text-neutral-300">即将离开大大的小蜗牛的博客，前住</div>
-					<a href="" target="_self" rel="noopener noreferrer" aria-label="redirect-link" id="target-link">
-						<span id="redirect-link"
-							class="block w-fit rounded-lg text-center px-5 py-3 border border-solid border-neutral-400 bg-neutral-200 dark:border-neutral-600 dark:bg-neutral-700">未指定重定向目标。</span>
-					</a>
-					<div class="mt-2 px-2 text-neutral-600 dark:text-neutral-400">请自行识别该链接是否安全，请注意您的帐号和财产安全。</div>
-					<div class="flex items-center justify-center mt-4 mb-8 flex-wrap">
-						<div
-							class="flex items-center rounded-lg h-8 cursor-pointer outline-none p-4 bg-primary-700 dark:bg-primary-600">
-							<a href='' target="_self" id='direct-link' class="text-neutral hover:text-neutral-300 dark:text-neutral-300"
-								rel="noopener noreferrer">继续访问外部网站</a></div>
-					</div>
-				</div>
+          <div class="text-xl font-bold my-4 px-2 text-neutral-800 dark:text-neutral-300">即将离开大大的小蜗牛的博客，前住</div>
+          <a href="" target="_self" rel="noopener noreferrer" aria-label="redirect-link" id="target-link">
+            <span id="redirect-link"
+              class="block w-fit rounded-lg text-center px-5 py-3 border border-solid border-neutral-400 bg-neutral-200 dark:border-neutral-600 dark:bg-neutral-700">未指定重定向目标。</span>
+          </a>
+          <div class="mt-2 px-2 text-neutral-600 dark:text-neutral-400">请自行识别该链接是否安全，请注意您的帐号和财产安全。</div>
+          <div class="flex items-center justify-center mt-4 mb-8 flex-wrap">
+            <div
+              class="flex items-center rounded-lg h-8 cursor-pointer outline-none p-4 bg-primary-700 dark:bg-primary-600">
+              <a href='' target="_self" id='direct-link' class="text-neutral hover:text-neutral-300 dark:text-neutral-300"
+                rel="noopener noreferrer">继续访问外部网站</a></div>
+          </div>
+        </div>
 
-			</div>
+      </div>
 
-		</div>
+    </div>
 
-	</section>
+  </section>
 
 </article>
 
 <script>
-	const params = new URLSearchParams(window.location.search);
-	const encodedTarget = params.get('target');
-	if (encodedTarget) {
-		try {
-			const target = atob(encodedTarget); // 使用 atob 进行 Base64 解码
-			const decodedTarget = decodeURIComponent(target);
+  const params = new URLSearchParams(window.location.search);
+  const encodedTarget = params.get('target');
+  if (encodedTarget) {
+    try {
+      const target = atob(encodedTarget); // 使用 atob 进行 Base64 解码
+      const decodedTarget = decodeURIComponent(target);
 
-			// 检查目标 URL 是否已经包含查询字符串
-			const hasQueryString = decodedTarget.includes('?');
-			const separator = hasQueryString ? '&' : '?';
+      // 检查目标 URL 是否已经包含查询字符串
+      const hasQueryString = decodedTarget.includes('?');
+      const separator = hasQueryString ? '&' : '?';
 
-			document.getElementById('target-link').href = decodedTarget + separator + 'ref=www.eallion.com';
-			document.getElementById('direct-link').href = decodedTarget + separator + 'ref=www.eallion.com';
-			document.getElementById('redirect-link').textContent = decodedTarget; // 在新增的元素中显示原地址
-			document.getElementById('redirect-link').href = decodedTarget + separator + 'ref=www.eallion.com';
-		} catch (e) {
-			document.getElementById('redirect-link').textContent = '未指定重定向目标。';
-		}
-	} else {
-		document.getElementById('redirect-link').textContent = '未指定重定向目标。';
-	}
+      document.getElementById('target-link').href = decodedTarget + separator + 'ref=www.eallion.com';
+      document.getElementById('direct-link').href = decodedTarget + separator + 'ref=www.eallion.com';
+      document.getElementById('redirect-link').textContent = decodedTarget; // 在新增的元素中显示原地址
+      document.getElementById('redirect-link').href = decodedTarget + separator + 'ref=www.eallion.com';
+    } catch (e) {
+      document.getElementById('redirect-link').textContent = '未指定重定向目标。';
+    }
+  } else {
+    document.getElementById('redirect-link').textContent = '未指定重定向目标。';
+  }
 </script>
 
 {{ end }}
