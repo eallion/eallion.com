@@ -5,102 +5,102 @@
 
 
 <article>
-	{{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
-	{{ $heroStyle := .Params.heroStyle }}
-	{{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
-	{{ $heroStyle := print "hero/" $heroStyle ".html" }}
+  {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
+  {{ $heroStyle := .Params.heroStyle }}
+  {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
+  {{ $heroStyle := print "hero/" $heroStyle ".html" }}
   {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
-	{{ partial $heroStyle . }}
-	{{ else }}
-	{{ partial "hero/basic.html" . }}
-	{{ end }}
-	{{ end }}
+  {{ partial $heroStyle . }}
+  {{ else }}
+  {{ partial "hero/basic.html" . }}
+  {{ end }}
+  {{ end }}
 
-	<header id="single_header" class="mt-5 max-w-prose">
-		{{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
-		{{ partial "breadcrumbs.html" . }}
-		{{ end }}
-		<h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-			{{ .Title }}
-		</h1>
+  <header id="single_header" class="mt-5 max-w-prose">
+    {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
+    {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      {{ .Title }}
+    </h1>
 
-		<div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-			{{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
-		</div>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
+    </div>
 
-	</header>
+  </header>
 
-	<section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
 
-			<div class="min-w-0 min-h-0 max-w-fit">
+      <div class="min-w-0 min-h-0 max-w-fit">
 
-				<div class="article-content max-w-full mb-20">
-					{{ .Content }}
+        <div class="article-content max-w-full mb-20">
+          {{ .Content }}
 
-					<div class="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-8 gap-x-2.5" view-image>
-						{{ $pentaResource := resources.Get "data/penta/penta.json" }}
-						{{ $penta := $pentaResource | transform.Unmarshal }}
-						{{ range $penta.penta }}
-								{{ $screenshotSrc := .src }}
-								{{ $screenshot := printf "images/penta/screenshot/%s" $screenshotSrc }}
+          <div class="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-8 gap-x-2.5" view-image>
+            {{ $pentaResource := resources.Get "data/penta/penta.json" }}
+            {{ $penta := $pentaResource | transform.Unmarshal }}
+            {{ range $penta.penta }}
+                {{ $screenshotSrc := .src }}
+                {{ $screenshot := printf "images/penta/screenshot/%s" $screenshotSrc }}
 
-								{{ $date := dateFormat "Jan 2, 2006" .date }}
-								{{ $caption := .caption }}
+                {{ $date := dateFormat "Jan 2, 2006" .date }}
+                {{ $caption := .caption }}
 
-								{{ $championSrc := .champion }}
-								{{ $champion := printf "images/penta/hero/%s.png" $championSrc }}
-								{{ $heroId := .heroId }}
+                {{ $championSrc := .champion }}
+                {{ $champion := printf "images/penta/hero/%s.png" $championSrc }}
+                {{ $heroId := .heroId }}
 
-								<div class="flex justify-center items-center m-0 mb-2 flex-col">
-										<div class="group relative overflow-hidden rounded w-full h-full">
-												{{ with resources.Get $screenshot }}
-														<figure class="my-0">
-																<img
-																		class="my-0 rounded-md block w-full cursor-pointer object-cover h-full scale-100 hover:scale-110 transition-all duration-400 ease-in-out animate-fadeIn lazy"
-																		loading="lazy"
-																		srcset="
-																		{{ (.Resize "330x").RelPermalink }} 330w,
-																		{{ (.Resize "660x").RelPermalink }} 660w,
-																		{{ (.Resize "1024x").RelPermalink }} 1024w,
-																		{{ (.Resize "1320x").RelPermalink }} 2x"
-																		src="/assets/images/penta/screenshot.png"
-																		data-src="{{ (.Resize "1320x").RelPermalink }}"
-																		alt="{{ $caption }} {{ $date }}"
-																/>
-														</figure>
-												{{ end }}
-										</div>
-										{{ with resources.Get $champion }}
-												{{ with .Resize "18x webp" }}
-														<a href="https://101.qq.com/#/hero-detail?heroid={{ $heroId }}" class="flex justify-center items-center my-2 text-neutral-900 dark:text-neutral-300" target="_blank" rel="noreferrer noopener nofollow">
-																<span class="leading-4 mr-1">
-																		<img class="w-4 h-4 mt-0 mb-0 lazy nozoom"
-																				loading="lazy"
-																				src="/assets/images/penta/hero.png"
-																				data-src="{{ .RelPermalink }}"
-																				alt="{{ $championSrc }} {{ $champion }}"
-																				no-view>
-																</span>
-																<span class="text-sm text-inherit whitespace-nowrap max-w-full text-ellipsis overflow-hidden">
-																		{{ $caption }}
-																</span>
-														</a>
-												{{ end }}
-										{{ end }}
+                <div class="flex justify-center items-center m-0 mb-2 flex-col">
+                    <div class="group relative overflow-hidden rounded w-full h-full">
+                        {{ with resources.Get $screenshot }}
+                            <figure class="my-0">
+                                <img
+                                    class="my-0 rounded-md block w-full cursor-pointer object-cover h-full scale-100 hover:scale-110 transition-all duration-400 ease-in-out animate-fadeIn lazy"
+                                    loading="lazy"
+                                    srcset="
+                                    {{ (.Resize "330x").RelPermalink }} 330w,
+                                    {{ (.Resize "660x").RelPermalink }} 660w,
+                                    {{ (.Resize "1024x").RelPermalink }} 1024w,
+                                    {{ (.Resize "1320x").RelPermalink }} 2x"
+                                    src="/assets/images/penta/screenshot.png"
+                                    data-src="{{ (.Resize "1320x").RelPermalink }}"
+                                    alt="{{ $caption }} {{ $date }}"
+                                />
+                            </figure>
+                        {{ end }}
+                    </div>
+                    {{ with resources.Get $champion }}
+                        {{ with .Resize "18x webp" }}
+                            <a href="https://101.qq.com/#/hero-detail?heroid={{ $heroId }}" class="flex justify-center items-center my-2 text-neutral-900 dark:text-neutral-300" target="_blank" rel="noreferrer noopener nofollow">
+                                <span class="leading-4 mr-1">
+                                    <img class="w-4 h-4 mt-0 mb-0 lazy nozoom"
+                                        loading="lazy"
+                                        src="/assets/images/penta/hero.png"
+                                        data-src="{{ .RelPermalink }}"
+                                        alt="{{ $championSrc }} {{ $champion }}"
+                                        no-view>
+                                </span>
+                                <span class="text-sm text-inherit whitespace-nowrap max-w-full text-ellipsis overflow-hidden">
+                                    {{ $caption }}
+                                </span>
+                            </a>
+                        {{ end }}
+                    {{ end }}
 
-										<div class="flex items-center justify-center text-xs opacity-70 mb-3">
-												<span>{{ partial "icon.html" "calendar-alt" }}</span>
-												<span class="ml-1">{{ $date }}</span>
-										</div>
-								</div>
-						{{ end }}
-				</div>
+                    <div class="flex items-center justify-center text-xs opacity-70 mb-3">
+                        <span>{{ partial "icon.html" "calendar-alt" }}</span>
+                        <span class="ml-1">{{ $date }}</span>
+                    </div>
+                </div>
+            {{ end }}
+        </div>
 
-				</div>
+        </div>
 
-			</div>
+      </div>
 
-		</section>
+    </section>
 
 </article>
 
@@ -108,9 +108,9 @@
 <script type="text/javascript" src="{{ $lazyloadJS.RelPermalink }}" integrity="{{ $lazyloadJS.Data.Integrity }}"></script>
 
 <script>
-		var lazyLoadInstance = new LazyLoad({
-				// Your custom settings go here
-		});
+    var lazyLoadInstance = new LazyLoad({
+        // Your custom settings go here
+    });
 </script>
 
 {{ end }}

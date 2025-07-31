@@ -5,47 +5,47 @@
 <link rel="stylesheet" href="{{ $justifiedGalleryCss.RelPermalink }}" integrity="{{ $justifiedGalleryCss.Data.Integrity }}" crossorigin="anonymous">
 
 <style>
-	#content_progress {
-		display: none;
-	}
-	/* Loading spinner */
-	.loading-spinner {
-		position: relative;
-		width: 3rem;
-		height: 3rem;
-		margin: 0 auto;
-		display: none;  /* 添加初始状态为隐藏 */
-	}
+  #content_progress {
+    display: none;
+  }
+  /* Loading spinner */
+  .loading-spinner {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto;
+    display: none;  /* 添加初始状态为隐藏 */
+  }
 
-	.loading-spinner {
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cg%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 64 64' to='360 64 64' dur='1000ms' repeatCount='indefinite'/%3E%3Cpath d='M64 6.69a57.3 57.3 0 1 1 0 114.61A57.3 57.3 0 0 1 6.69 64' fill='none' stroke='%23404040' stroke-width='12'/%3E%3C/g%3E%3C/svg%3E");
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-color: transparent;
-		background-size: min(2.5rem, calc(100% - 0.5rem));
-	}
+  .loading-spinner {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cg%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 64 64' to='360 64 64' dur='1000ms' repeatCount='indefinite'/%3E%3Cpath d='M64 6.69a57.3 57.3 0 1 1 0 114.61A57.3 57.3 0 0 1 6.69 64' fill='none' stroke='%23404040' stroke-width='12'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: transparent;
+    background-size: min(2.5rem, calc(100% - 0.5rem));
+  }
 
-	.justified-gallery > a > .jg-caption, .justified-gallery > div > .jg-caption, .justified-gallery > figure > .jg-caption {
-		line-height: 1.5;
-	}
+  .justified-gallery > a > .jg-caption, .justified-gallery > div > .jg-caption, .justified-gallery > figure > .jg-caption {
+    line-height: 1.5;
+  }
 
-	/* view image custom */
-	.view-image-tools {
-		opacity: 1;
-		animation: 1s 1.5s forwards fadeOut
-	}
+  /* view image custom */
+  .view-image-tools {
+    opacity: 1;
+    animation: 1s 1.5s forwards fadeOut
+  }
 
-	.view-image-tools:hover {
-		opacity: 1;
-		animation: none;
-		transition: opacity .2s
-	}
+  .view-image-tools:hover {
+    opacity: 1;
+    animation: none;
+    transition: opacity .2s
+  }
 
-	@keyframes fadeOut {
-		to {
-			opacity: 0
-		}
-	}
+  @keyframes fadeOut {
+    to {
+      opacity: 0
+    }
+  }
 
     .jg-entry {
         transition: transform 0.2s ease-in-out;
@@ -64,55 +64,55 @@
 </style>
 
 <article>
-	{{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
-	{{ $heroStyle := .Params.heroStyle }}
-	{{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
-	{{ $heroStyle := print "hero/" $heroStyle ".html" }}
-	{{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
-	{{ partial $heroStyle . }}
-	{{ else }}
-	{{ partial "hero/basic.html" . }}
-	{{ end }}
-	{{ end }}
+  {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
+  {{ $heroStyle := .Params.heroStyle }}
+  {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
+  {{ $heroStyle := print "hero/" $heroStyle ".html" }}
+  {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
+  {{ partial $heroStyle . }}
+  {{ else }}
+  {{ partial "hero/basic.html" . }}
+  {{ end }}
+  {{ end }}
 
-	<header id="single_header" class="mt-5 max-w-prose">
-		{{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
-		{{ partial "breadcrumbs.html" . }}
-		{{ end }}
-		<h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-			{{ .Title }}
-		</h1>
+  <header id="single_header" class="mt-5 max-w-prose">
+    {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
+    {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      {{ .Title }}
+    </h1>
 
-		<div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-			{{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
-		</div>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
+    </div>
 
-	</header>
+  </header>
 
-	<noscript>
-		Please enable JavaScript to view the Album page.
-	</noscript>
+  <noscript>
+    Please enable JavaScript to view the Album page.
+  </noscript>
 
-	<section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
 
-		<div class="min-w-0 min-h-0 max-w-fit">
+    <div class="min-w-0 min-h-0 max-w-fit">
 
-			<div class="article-content max-w-full mb-20">
-				{{ .Content }}
+      <div class="article-content max-w-full mb-20">
+        {{ .Content }}
 
-				<div id="justified-gallery"></div>
-				<div class="loading-spinner"></div>
-				<div class="flex justify-center mt-8 mb-8">
-					<button id="load-more" class="px-4 py-2 cursor-pointer text-sm font-medium text-neutral-300 bg-neutral-800 rounded-md hover:bg-neutral-700 dark:bg-neutral-700 dark:hover:bg-neutral-600">
-						加载更多
-					</button>
-				</div>
+        <div id="justified-gallery"></div>
+        <div class="loading-spinner"></div>
+        <div class="flex justify-center mt-8 mb-8">
+          <button id="load-more" class="px-4 py-2 cursor-pointer text-sm font-medium text-neutral-300 bg-neutral-800 rounded-md hover:bg-neutral-700 dark:bg-neutral-700 dark:hover:bg-neutral-600">
+            加载更多
+          </button>
+        </div>
 
-			</div>
+      </div>
 
-		</div>
+    </div>
 
-		</section>
+    </section>
 
 </article>
 
@@ -123,19 +123,19 @@
 <script type="text/javascript" src="{{ $lazyloadJS.RelPermalink }}" integrity="{{ $lazyloadJS.Data.Integrity }}"></script>
 
 <script>
-	const apiUrl = 'https://e5n.cc/api/v1/accounts/111136231674527355/statuses';
-	let maxId = null;
-	let isLoading = false; // Flag to prevent multiple simultaneous requests
-	let hasMoreData = true; // Flag to indicate if there is more data to load
-	let scrollTimeout = null; // Timeout variable for debouncing scroll event
-	let zoomInstance = null; // Store the medium-zoom instance
-	let cachedImages = []; // 存储已加载但未显示的图片数据
-	let displayedCount = 0; // 当前显示的图片数量
-	const ROWS_PER_LOAD = 2; // 初始显示的行数
-	const IMAGES_PER_ROW = 4; // 估计每行显示的图片数量
-	const IMAGES_TO_SHOW = ROWS_PER_LOAD * IMAGES_PER_ROW; // 每次显示的图片数量
+  const apiUrl = 'https://e5n.cc/api/v1/accounts/111136231674527355/statuses';
+  let maxId = null;
+  let isLoading = false; // Flag to prevent multiple simultaneous requests
+  let hasMoreData = true; // Flag to indicate if there is more data to load
+  let scrollTimeout = null; // Timeout variable for debouncing scroll event
+  let zoomInstance = null; // Store the medium-zoom instance
+  let cachedImages = []; // 存储已加载但未显示的图片数据
+  let displayedCount = 0; // 当前显示的图片数量
+  const ROWS_PER_LOAD = 2; // 初始显示的行数
+  const IMAGES_PER_ROW = 4; // 估计每行显示的图片数量
+  const IMAGES_TO_SHOW = ROWS_PER_LOAD * IMAGES_PER_ROW; // 每次显示的图片数量
 
-	async function fetchImages(limit, currentMaxId = null) {
+  async function fetchImages(limit, currentMaxId = null) {
     try {
         const url = new URL(apiUrl);
         url.searchParams.append('only_media', 'true');
@@ -169,18 +169,18 @@
     }
 }
 
-	function extractTextFromHTML(htmlString) {
-			// 使用正则表达式去掉 <a> 标签及其内容
-			const strippedString = htmlString.replace(/<a[^>]*>(.*?)<\/a>/g, '$1');
+  function extractTextFromHTML(htmlString) {
+      // 使用正则表达式去掉 <a> 标签及其内容
+      const strippedString = htmlString.replace(/<a[^>]*>(.*?)<\/a>/g, '$1');
 
-			// 去掉其他 HTML 标签
-			const textOnly = strippedString.replace(/<[^>]+>/g, '');
+      // 去掉其他 HTML 标签
+      const textOnly = strippedString.replace(/<[^>]+>/g, '');
 
-			// 移除 #ealbum 标签及前后空格
-			return textOnly.replace(/\s*#ealbum\s*/g, '').trim();
-	}
+      // 移除 #ealbum 标签及前后空格
+      return textOnly.replace(/\s*#ealbum\s*/g, '').trim();
+  }
 
-	async function renderImages(data, startFrom = displayedCount) {
+  async function renderImages(data, startFrom = displayedCount) {
     const fragment = document.createDocumentFragment();
     const itemsPerLoad = ROWS_PER_LOAD * IMAGES_PER_ROW;
     const startIndex = startFrom;
@@ -234,7 +234,7 @@
     });
 }
 
-	async function loadInitialImages() {
+  async function loadInitialImages() {
     const loading = document.querySelector('.loading-spinner');
     loading.style.display = 'block';
 
@@ -269,7 +269,7 @@
     }
 }
 
-	async function loadMoreImages() {
+  async function loadMoreImages() {
     if (isLoading) return;
     isLoading = true;
 
@@ -330,8 +330,8 @@
     }
 }
 
-	// Initialize Justified-Gallery
-	$(document).ready(function() {
+  // Initialize Justified-Gallery
+  $(document).ready(function() {
     $('#justified-gallery').justifiedGallery({
         rowHeight: 200,
         lastRow: 'hide',
@@ -344,14 +344,14 @@
     loadInitialImages();
 });
 
-	// Load initial images when the page loads
-	window.onload = loadInitialImages;
+  // Load initial images when the page loads
+  window.onload = loadInitialImages;
 </script>
 
 <script>
-	var lazyLoadInstance = new LazyLoad({
-			// Your custom settings go here
-	});
+  var lazyLoadInstance = new LazyLoad({
+      // Your custom settings go here
+  });
 </script>
 
 {{ end }}

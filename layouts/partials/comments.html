@@ -1,57 +1,57 @@
 <div class="comment-on flex flex-col md:flex-row items-start md:items-center mt-8 text-base capitalize print:hidden">
-		<div id="load-giscus" class="inline-flex items-center relative">
-				<span class="cursor-pointer">Click to load</span>
-				<span class="ml-2 mr-1 cursor-pointer">{{ partial "icon.html" "giscus" }}</span>
-				<span class='mr-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Giscus</span>
-		</div>
-		<div id="load-giscus-desc" class="block md:inline-block mr-2 text-sm md:text-base lowercase md:capitalize">or</div>
-		<div id="link-to-mastodon" class="flex items-center relative">
-				<span class="cursor-pointer">discuss on </span>
-				<span class="ml-2 cursor-pointer">{{ partial "icon.html" "mastodon-purple" }}</span>
-				<span class='ml-1 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'><a
-								href="https://s.e5n.cc/{{ .Slug }}" target="_blank" rel="noopener">Mastodon</a></span>
-				<span>{{ partial "icon.html" "external-link-alt" }}</span>
-		</div>
+    <div id="load-giscus" class="inline-flex items-center relative">
+        <span class="cursor-pointer">Click to load</span>
+        <span class="ml-2 mr-1 cursor-pointer">{{ partial "icon.html" "giscus" }}</span>
+        <span class='mr-2 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Giscus</span>
+    </div>
+    <div id="load-giscus-desc" class="block md:inline-block mr-2 text-sm md:text-base lowercase md:capitalize">or</div>
+    <div id="link-to-mastodon" class="flex items-center relative">
+        <span class="cursor-pointer">discuss on </span>
+        <span class="ml-2 cursor-pointer">{{ partial "icon.html" "mastodon-purple" }}</span>
+        <span class='ml-1 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'><a
+                href="https://s.e5n.cc/{{ .Slug }}" target="_blank" rel="noopener">Mastodon</a></span>
+        <span>{{ partial "icon.html" "external-link-alt" }}</span>
+    </div>
 </div>
 <div id="comments" class=""></div>
 <script>
-		function loadGiscus() {
-				return new Promise((resolve) => {
-						const script = document.createElement('script');
-						script.src = 'https://giscus.app/client.js';
-						script.setAttribute('data-repo', 'eallion/eallion.com');
-						script.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnkyNjI2Njk1MDg=');
-						script.setAttribute('data-category', 'Giscus');
-						script.setAttribute('data-category-id', 'DIC_kwDOD6gExM4CS9eF');
-						script.setAttribute('data-mapping', 'pathname');
-						script.setAttribute('data-strict', '1');
-						script.setAttribute('data-reactions-enabled', '1');
-						script.setAttribute('data-emit-metadata', '0');
-						script.setAttribute('data-input-position', 'bottom');
-						script.setAttribute('data-lang', 'zh-CN');
-						script.setAttribute('data-loading', 'lazy');
-						script.setAttribute('crossorigin', 'anonymous');
-						script.async = true;
+    function loadGiscus() {
+        return new Promise((resolve) => {
+            const script = document.createElement('script');
+            script.src = 'https://giscus.app/client.js';
+            script.setAttribute('data-repo', 'eallion/eallion.com');
+            script.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnkyNjI2Njk1MDg=');
+            script.setAttribute('data-category', 'Giscus');
+            script.setAttribute('data-category-id', 'DIC_kwDOD6gExM4CS9eF');
+            script.setAttribute('data-mapping', 'pathname');
+            script.setAttribute('data-strict', '1');
+            script.setAttribute('data-reactions-enabled', '1');
+            script.setAttribute('data-emit-metadata', '0');
+            script.setAttribute('data-input-position', 'bottom');
+            script.setAttribute('data-lang', 'zh-CN');
+            script.setAttribute('data-loading', 'lazy');
+            script.setAttribute('crossorigin', 'anonymous');
+            script.async = true;
 
-						const htmlElement = document.documentElement;
-						if (htmlElement.classList.contains('dark')) {
-								script.setAttribute('data-theme', 'dark_dimmed');
-						} else {
-								script.setAttribute('data-theme', 'light');
-						}
+            const htmlElement = document.documentElement;
+            if (htmlElement.classList.contains('dark')) {
+                script.setAttribute('data-theme', 'dark_dimmed');
+            } else {
+                script.setAttribute('data-theme', 'light');
+            }
 
-						script.addEventListener('load', () => {
-								resolve();
-						});
+            script.addEventListener('load', () => {
+                resolve();
+            });
 
-						document.getElementById('comments').appendChild(script);
-				});
-		}
+            document.getElementById('comments').appendChild(script);
+        });
+    }
 
-		document.getElementById('load-giscus').addEventListener('click', async () => {
-				await loadGiscus();
-				document.getElementById('load-giscus').classList.add('!hidden');
-				document.getElementById('load-giscus-desc').classList.add('!hidden');
-				document.getElementById('link-to-mastodon').classList.add('mb-8');
-		});
+    document.getElementById('load-giscus').addEventListener('click', async () => {
+        await loadGiscus();
+        document.getElementById('load-giscus').classList.add('!hidden');
+        document.getElementById('load-giscus-desc').classList.add('!hidden');
+        document.getElementById('link-to-mastodon').classList.add('mb-8');
+    });
 </script>
