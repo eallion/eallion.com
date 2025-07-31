@@ -374,7 +374,7 @@ https://www.eallion.com/assets/images/1970/01/01.jpg
 
 This project is licensed under [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN)  
 Hugo is licensed under [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE)  
-Theme Blowfish is licensed under [MIT](https://github.com/nunocoracao/blowfish?tab=MIT-1-ov-file)  
+Theme Blowfish is licensed under [MIT](https://github.com/nunocoracao/blowfish/blob/main/LICENSE)  
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_large)
 
