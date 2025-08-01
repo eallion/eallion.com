@@ -6,7 +6,7 @@ main:
       imports: https://cnb.cool/eallion/env/-/blob/main/eallion.com/envs.yml
       stages:
         - name: build-hugo
-          image: hugomods/hugo:base
+          image: hugomods/hugo:base-0.148.0
           commands:
             - hugo --minify
         - name: deploy-to-edgeone
