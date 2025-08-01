@@ -1,0 +1,15 @@
+main:
+  push:
+    - name: hugo-build-deploy-edgeone-pages
+      runner:
+        cpus: 8
+      imports: https://cnb.cool/eallion/env/-/blob/main/eallion.com/envs.yml
+      stages:
+        - name: build-hugo
+          image: hugomods/hugo:base
+          commands:
+            - hugo --minify
+        - name: deploy-to-edgeone
+          image: tencentcom/deploy-eopages:latest
+          script: |
+            edgeone pages deploy ./public -n hugo-blog -t 4J6UjF1ic9/HXLpTH5ZMWwhtby0+660n40v1Ar/0Qpc=

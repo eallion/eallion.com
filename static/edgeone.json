@@ -1,0 +1,54 @@
+{
+  "name": "hugo-blog",
+  "outputDirectory": "./public",
+  "nodeVersion": "22.11.0",
+  "redirects": [
+    {
+      "source": "/.well-known/*",
+      "destination": "https://m.eallion.com/.well-known/:splat",
+      "statusCode": 301
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/rss*",
+      "destination": "/index.xml"
+    },
+    {
+      "source": "/feed*",
+      "destination": "/index.xml"
+    },
+    {
+      "source": "/atom*",
+      "destination": "/index.xml"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/v1/accounts/111136231674527355/statuses",
+      "headers": [
+        {
+          "key": "Content-type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/api/v1/custom_emojis",
+      "headers": [
+        {
+          "key": "Content-type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ]
+}
