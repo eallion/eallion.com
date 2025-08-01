@@ -12,4 +12,4 @@ main:
         - name: deploy-to-edgeone
           image: tencentcom/deploy-eopages:latest
           script: |
-            edgeone pages deploy ./public -n hugo-blog -t 4J6UjF1ic9/HXLpTH5ZMWwhtby0+660n40v1Ar/0Qpc=
+            edgeone pages deploy ./public -n hugo-blog -t $EDGEONE_PAGES_API_TOKEN
