@@ -47,7 +47,7 @@ aliases:
 
 {{< timelineItem icon="shiki" header="Shiki" badge="Aug 15, 2024" >}}
 经过 2 个月测试后，把博客的代码语法高亮器切换到 <code><a href="https://github.com/shikijs/shiki" target="_blank" rel="noopener noreferrer">Shiki</a></code>。细节可参考文章：
-{{< article link="/hugo-syntax-highlight-shiki/" >}}
+{{< article link="/hugo-syntax-highlight-shiki/" showSummary=true compactSummary=true >}}
 {{< /timelineItem >}}
 
 {{< timelineItem icon="volcengine" header="火山引擎" badge="Jul 20, 2024" >}}
@@ -56,7 +56,7 @@ aliases:
 
 {{< timelineItem icon="chart-bar-solid" header="热力图" badge="May 1, 2024" >}}
 2024 年 5 月 1 日，博客首页热力图，统计页热力图、统计图、饼图都去掉依赖库和插件。用 CSS 和 JS 实现。生成热力图的细节可参考文章：
-{{< article link="/blog-heatmap/" >}}
+{{< article link="/blog-heatmap/" showSummary=true compactSummary=true >}}
 {{< /timelineItem >}}
 
 {{< timelineItem icon="hugo" header="主题 Blowfish" badge="Apr 10, 2024" >}}
@@ -65,12 +65,12 @@ aliases:
 
 {{< timelineItem icon="code" header="外链跳转" badge="Feb 3, 2024" >}}
 2024 年 2 月 3 日，为了防止炸弹人，为博客添加了外部链接跳转提示页面，细节可参考文章：
-{{< article link="/hugo-redirect-landing-page/" >}}
+{{< article link="/hugo-redirect-landing-page/" showSummary=true compactSummary=true >}}
 {{< /timelineItem >}}
 
 {{< timelineItem icon="cloudflare" header="Cloudflare" badge="Jan 8, 2024" >}}
 2024 年 1 月 8 日，域名转出至 Cloudflare，细节可参考文章：
-{{< article link="/2024-blog-refactor/" >}}
+{{< article link="/2024-blog-refactor/" showSummary=true compactSummary=true >}}
 {{< /timelineItem >}}
 
 {{< timelineItem icon="tencent-cloud" header="EdgeOne" badge="Jan 6, 2024" >}}
@@ -79,12 +79,12 @@ aliases:
 
 {{< timelineItem icon="openai" header="AI 摘要" badge="Jul 18, 2023" >}}
 2023 年 7 月 18 日，引入 TianliGPT AI 摘要，因技术和性能问题，后改为用 OpenAI 官方的 ChatGPT 预生成。细节可参考文章：
-{{< article link="/ai-summary/" >}}
+{{< article link="/ai-summary/" showSummary=true compactSummary=true >}}
 {{< /timelineItem >}}
 
 {{< timelineItem icon="code" header="观影页面" badge="Jul 11, 2023" >}}
 2023 年 7 月 11 日，因为豆瓣的封闭和不稳定，转为利用 NeoDB API 创建观影页面，细节可参考文章：
-{{< article link="/neodb/" >}}
+{{< article link="/neodb/" showSummary=true compactSummary=true >}}
 {{< /timelineItem >}}
 
 {{< timelineItem icon="hugo" header="主题 DoIt" badge="Dec 12, 2022" >}}

@@ -194,77 +194,6 @@ html.dark .shiki span {
 /* GenericUnderline */ .dark .chroma .gl {  }
 /* TextWhitespace */ .dark .chroma .w {  }
 
-/* Aliyun Web Chatbox Custom Start */
-/* .webchat-container {
-    z-index: 100 !important;
-    bottom: 10px !important;
-    right: 10px !important;
-    border-radius: .25rem !important;
-}
-
-@media screen and (max-width: 768px){
-    .webchat-container {
-        width: calc(100% - 20px) !important;
-    }
-}
-
-.webchat-bubble-tip {
-    z-index: 99 !important;
-    bottom: 20px !important;
-    right: 20px !important;
-}
-
-.webchat-container-toolbar {
-    border-top-left-radius: 0.25rem !important;
-    border-top-right-radius: 0.25rem !important;
-}
-
-.nlux-comp-welcomeMessage>.nlux-comp-avatar>.nlux-comp-avatarContainer>.nlux-comp-avatarPicture,
-.nlux-comp-chatItem.nlux-comp-chatItem--received>.nlux-comp-chatItem-participantInfo>.nlux-comp-avatar>.nlux-comp-avatarContainer>.nlux-comp-avatarPicture {
-    background-image: url(/eallion.webp) !important;
-}
-
-.nlux-comp-chatItem.nlux-comp-chatItem--bubblesLayout.nlux-comp-chatItem--received>.nlux-comp-message {
-    color: var(--nlux-aiMsg--txtClr) !important;
-}
-
-.nlux-conversationStarters-container {
-    overflow-y: unset !important;
-}
-
-.nlux-conversationStarters-container>.nlux-comp-conversationStarters button.nlux-comp-conversationStarter {
-    color: var(--nlux-cvStrt--txtClr) !important;
-    background-color: var(--nlux-cvStrt--bgClr) !important;
-}
-
-.nlux-comp-message {
-    border-radius: .25rem !important;
-}
-
-.nlux-comp-message .nlux-markdown-container code {
-    font-size: 0.875rem !important;
-    margin: 0 0.25rem !important;
-}
-
-.nlux-AiChat-root {
-    max-width: 430px !important;
-}
-
-.nlux-AiChat-root>.nlux-chatRoom-container {
-    border-radius: 0 !important;
-}
-
-.nlux-AiChat-root>.nlux-chatRoom-container>.nlux-composer-container {
-    margin-bottom: 10px !important;
-    padding-top: 10px !important;
-    height: 70px !important;
-}
-
-.nlux-AiChat-root>.nlux-chatRoom-container>.nlux-composer-container>.nlux-comp-composer {
-    padding-left: 10px !important;
-} */
-/* Aliyun Web Chatbox Custom End */
-
 .bg-yellow-600 {
     background-color: #ca8a04;
 }
@@ -546,7 +475,7 @@ blockquote a {
   gap: 10px;
 } */
 
-
+/*
 #site-footer nav ul li a,
 .nested-menu a {
     white-space: nowrap;
@@ -594,25 +523,7 @@ blockquote a {
     background-repeat: no-repeat;
     background-image: url(/assets/images/nonbot/nonbot_pledged_logo.svg);
 }
-
-.modelcontextprotocol {
-    display: block;
-    margin: 0;
-    margin: -10px;
-    padding: 0;
-    width: 288px;
-    height: 42px;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.modelcontextprotocol {
-    background-image: url(/assets/images/modelcontextprotocol/modelcontextprotocol-light.svg);
-}
-
-.dark .modelcontextprotocol {
-    background-image: url(/assets/images/modelcontextprotocol/modelcontextprotocol-dark.svg);
-}
+*/
 
 /* 顶部进度条 css */
 #content_progress {
