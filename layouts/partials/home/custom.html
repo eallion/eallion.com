@@ -26,7 +26,11 @@
                         {{ end }}
                     {{ end }}
                     {{ if $homepageImage }}
-                    <img class="w-full h-[1000px] object-cover nozoom mt-0 mr-0 mb-0 ml-0" src="{{ $homepageImage.RelPermalink }}" role="presentation" style="margin: 0">
+                        <img
+                          id="homepage-background-image"
+                          class="nozoom mt-0 mr-0 mb-0 ml-0 h-[1000px] w-full object-cover"
+                          src="{{ $homepageImage.RelPermalink }}"
+                          role="presentation">
                     {{/*
                     <video
                       class="w-full h-[1000px] object-cover nozoom mt-0 mr-0 mb-0 ml-0"
@@ -46,15 +50,13 @@
                       Your browser does not support the video tag.
                     </video>
                     */}}
-                    <div
-                        class="absolute inset-0 h-[1000px] bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
-                    </div>
-                    <div
-                        class="opacity-60 absolute inset-0 h-[1000px] bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
-                    </div>
+                      <div
+                        class="from-neutral absolute inset-0 h-[1000px] bg-gradient-to-t to-transparent mix-blend-normal dark:from-neutral-800"></div>
+                      <div
+                        class="from-neutral absolute inset-0 h-[1000px] bg-gradient-to-t to-neutral-100 opacity-60 mix-blend-normal dark:from-neutral-800 dark:to-neutral-800"></div>
                     {{ end }}
-                </div>
-                <div class="relative px-1 py-1 flex flex-col items-center justify-center text-center">
+                  </div>
+                  <div class="relative flex flex-col items-center justify-center px-1 py-1 text-center">
                     {{ with .Site.Params.Author.image }}
                         {{ $authorImage := "" }}
                         {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
@@ -68,7 +70,7 @@
                             {{ end }}
                             <div class="tailwind-ticker w-auto relative group flex items-end transition-all duration-300">
                                 <div class="rounded-full overflow-hidden min-w-[144px]">
-                                    <img class="mb-2 rounded-full h-36 w-36 nozoom" width="144" height="144"
+                                    <img class="mb-2 h-36 w-36 nozoom rounded-full" width="144" height="144"
                                     alt="{{ $.Site.Params.Author.name | default " Author" }}" src="{{ $authorImage.RelPermalink }}" />
                                 </div>
                                 <div class="absolute bottom-0 left-full -ml-9 mb-1 w-8 h-8 rounded-full flex items-center justify-center group-hover:w-min group-hover:h-8 group-hover:rounded-lg transition-all duration-300">
@@ -103,7 +105,7 @@
                         <div class="flex flex-wrap">
                             {{ range $links := . }}
                             {{ range $name, $url := $links }}
-                            <a class="px-1 hover:text-primary-400 text-primary-800 dark:text-primary-200" href="{{ $url }}" target="_blank"
+                            <a class="hover:text-primary-400 text-primary-800 dark:text-primary-200 px-1" href="{{ $url }}" target="_blank"
                                 aria-label="{{ $name | title }}" rel="me noopener noreferrer">{{ partial
                                 "icon.html" $name }}</a>
                             {{ end }}
@@ -1064,6 +1066,12 @@
 
 {{ $backgroundBlur := resources.Get "js/background-blur.js" }}
 {{ $backgroundBlur = $backgroundBlur | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
-<script type="text/javascript" src="{{ $backgroundBlur.RelPermalink }}" integrity="{{ $backgroundBlur.Data.Integrity }}" data-target-id="background-blur"></script>
+<script
+  type="text/javascript"
+  src="{{ $backgroundBlur.RelPermalink }}"
+  integrity="{{ $backgroundBlur.Data.Integrity }}"
+  data-target-id="background-blur"
+  data-image-id="homepage-background-image"
+  {{ if $homepageImage }}data-image-url="{{ $homepageImage.RelPermalink }}"{{ end }}></script>
 
 {{ end }}
