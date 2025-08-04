@@ -20,6 +20,7 @@ title = "Charles Chin's Blog"
   bio = "Chance favors the prepared mind."
   links = [
     { email = "mailto:eallion.s+blog@gmail.com" },
+    { keyoxide = "https://keyoxide.org/E685DDDDDDDDDDDD" },
     { mastodon = "https://e5n.cc/@eallion" },
     { github = "https://github.com/eallion" },
     { x-twitter = "https://x.com/eallion" },
