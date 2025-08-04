@@ -30,3 +30,16 @@ main:
             domain: "eallion.com"
             urls:
               - "https://www.eallion.com/"
+        # - name: deploy-to-oss
+        #   env:
+        #     ACCESS_KEY_ID: $ACCESS_KEY_ID
+        #     ACCESS_KEY_SECRET: $ACCESS_KEY_SECRET
+        #     BUCKET: eallion-com
+        #     ENDPOINT: oss-cn-shanghai.aliyuncs.com
+        #     FOLDER: public
+        #     CNAME: false
+        #     SKIP_SETTING: true
+        #     INCREMENTAL: true
+        #   image: fangbinwei/aliyun-oss-website-action:v1
+        #   timeout: 2h
+        #   script: aliyun-oss-website-action
