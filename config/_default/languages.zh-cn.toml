@@ -20,11 +20,10 @@ title = "大大的小蜗牛"
   headline = "机会总是垂青于有准备的人！"
   bio = "机会总是垂青于有准备的人！"
   links = [
-    { email = "mailto:eallion.s+blog@gmail.com" },
     { keyoxide = "https://keyoxide.org/E685DDDDDDDDDDDD" },
     { mastodon = "https://e5n.cc/@eallion" },
     { github = "https://github.com/eallion" },
     { x-twitter = "https://x.com/eallion" },
-    { deltachat = "https://i.delta.chat/#a=eallion%40e5n.cc&n=Charles%20Chin" },
     { steam = "https://steamcommunity.com/id/eallion" },
+    { email = "mailto:eallion.s+blog@gmail.com" }
   ]
