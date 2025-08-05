@@ -213,7 +213,7 @@ We may revise the terms of this Privacy Policy from time to time, and such revis
         let ipAddress;
         try {
             // 尝试第一个请求
-            const response = await fetch('https://api.eallion.com/ip');
+            const response = await fetch('https://ddns.oray.com/checkip');
             ipAddress = await response.text();
         } catch (error) {
             try {
