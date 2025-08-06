@@ -1,8 +1,3 @@
-languageCode = "zh-cn"
-languageName = "简体中文"
-weight = 1
-title = "大大的小蜗牛"
-
 [params]
   displayName = "简体中文"
   isoCode = "zh-cn"
@@ -20,10 +15,10 @@ title = "大大的小蜗牛"
   headline = "机会总是垂青于有准备的人！"
   bio = "机会总是垂青于有准备的人！"
   links = [
+    { email = "mailto:eallion.s+blog@gmail.com" },
     { keyoxide = "https://keyoxide.org/E685DDDDDDDDDDDD" },
     { mastodon = "https://e5n.cc/@eallion" },
     { github = "https://github.com/eallion" },
     { x-twitter = "https://x.com/eallion" },
-    { steam = "https://steamcommunity.com/id/eallion" },
-    { email = "mailto:eallion.s+blog@gmail.com" }
+    { steam = "https://steamcommunity.com/id/eallion" }
   ]

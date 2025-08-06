@@ -11,86 +11,86 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  name = "Blog"
+  name = "博客"
   pageRef = "blog"
   weight = 10
 
 [[main]]
-  name = "Mastodon"
+  name = "嘀咕"
   pageRef = "mastodon"
   weight = 11
 
 [[main]]
-  name = "Media"
+  name = "书影音"
   pageRef = "media"
   weight = 12
 
 [[main]]
-  name = "Milestone"
+  name = "里程碑"
   pageRef = "milestone"
   weight = 13
 
 [[main]]
-  name = "More"
+  name = "更多"
   weight = 20
 
 [[main]]
-  name = "Stats"
-  parent = "More"
+  name = "统计"
+  parent = "更多"
   pageRef = "stats"
   weight = 21
 
 # [[main]]
 #   name = "Steam"
-#   parent = "More"
+#   parent = "更多"
 #   pageRef = "steam"
 #   weight = 22
 
 [[main]]
-  name = "Album"
-  parent = "More"
+  name = "随手拍"
+  parent = "更多"
   pageRef = "album"
   weight = 30
 
 [[main]]
-  name = "LOL Penta"
-  parent = "More"
+  name = "LOL 五杀"
+  parent = "更多"
   pageRef = "penta"
   weight = 40
 
 [[main]]
-  name = "Goods"
-  parent = "More"
+  name = "好物分享"
+  parent = "更多"
   pageRef = "goods"
   weight = 50
 
 [[main]]
-  name = "Copyright"
-  parent = "More"
+  name = "版权信息"
+  parent = "更多"
   pageRef = "copyright"
   weight = 60
 
 [[main]]
-  name = "Privacy Policy"
-  parent = "More"
+  name = "隐私政策"
+  parent = "更多"
   pageRef = "privacy-policy"
   weight = 70
 
 [[main]]
   name = "Status"
-  parent = "More"
-  # pageRef = "status"
+  parent = "更多"
   pre = "external-link-alt"
+  # pageRef = "status"
   url = "https://status.eallion.com/"
   weight = 80
 
 [[main]]
-  name = "Friends"
+  name = "友情链接"
   pageRef = "links"
   weight = 90
 
 [[main]]
-  name = "About"
+  name = "关于"
   pageRef = "about"
   weight = 100
 
@@ -117,74 +117,59 @@
 #   url = "https://github.com/eallion/eallion.com"
 #   weight = 400
 
-[[main]]
-  identifier = "deepwiki"
-  pre = "deepwiki"
-  url = "https://deepwiki.com/eallion/eallion.com"
-  weight = 500
+# [[main]]
+#   identifier = "deepwiki"
+#   pre = "deepwiki"
+#   url = "https://deepwiki.com/eallion/eallion.com"
+#   weight = 500
 
 
 # -- Footer Menu --
 # The footer menu is displayed at the bottom of the page, just before
 # the copyright notice. Configure as per the main menu above.
 
-[[footer]]
-  name = "<div id='notbyai' class='notbyai written'></div>"
-  url = "https://notbyai.fyi"
-  weight = 10
-
-[[footer]]
-  name = "<div id='nonbot' class='nonbot'></div>"
-  url = "https://nonbot.org/pledged/view/9cefed7c-dc57-4832-84ec-197314fda979"
-  weight = 11
-
 # [[footer]]
-#   name = "Mastodon"
-#   pageRef = "mastodon"
-#   weight = 20
+#   name = "<div id='notbyai' class='notbyai written'></div>"
+#   url = "https://notbyai.fyi"
+#   weight = 10
 #
 # [[footer]]
-#   name = "Media"
-#   pageRef = "media"
-#   weight = 30
-#
-# [[footer]]
-#   name = "Milestone"
-#   pageRef = "milestone"
-#   weight = 40
+#   name = "<div id='nonbot' class='nonbot'></div>"
+#   url = "https://nonbot.org/pledged/view/9cefed7c-dc57-4832-84ec-197314fda979"
+#   weight = 11
 
 [[footer]]
-  name = "Stats"
+  name = "统计"
   pageRef = "stats"
   weight = 50
 
 [[footer]]
-  name = "Milestone"
+  name = "里程碑"
   pageRef = "milestone"
   weight = 60
 
 [[footer]]
-  name = "Copyright"
+  name = "版权信息"
   pageRef = "copyright"
   weight = 61
 
 [[footer]]
-  name = "Privacy Policy"
+  name = "隐私政策"
   pageRef = "privacy-policy"
   weight = 62
 
 [[footer]]
-  name = "Links"
+  name = "友情链接"
   pageRef = "links"
   weight = 63
 
 [[footer]]
-  name = "About"
+  name = "关于"
   pageRef = "about"
   weight = 90
 
 [[footer]]
-  name = "Status <svg width='1rem' height='1rem' viewBox='0 0 32 32'><path fill='currentcolor' d='M18 5v2h5.563L11.28 19.281l1.438 1.438L25 8.437V14h2V5zM5 9v18h18V14l-2 2v9H7V11h9l2-2z'></path></svg>"
+  name = "Status <svg width='1rem' height='1rem' viewBox='0 0 32 32'><path fill='currentColor' d='M18 5v2h5.563L11.28 19.281l1.438 1.438L25 8.437V14h2V5zM5 9v18h18V14l-2 2v9H7V11h9l2-2z'></path></svg>"
   url = "https://status.eallion.com/"
   weight = 91
 
