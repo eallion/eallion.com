@@ -4,9 +4,9 @@
 
 theme = "blowfish"
 baseURL = "https://www.eallion.com"
-defaultContentLanguage = "zh-cn"
+# defaultContentLanguage = "zh-cn"
 # disableLanguages = ['it'] #to allow translation work requiring shipping to production
-
+disableLanguages = ['en']
 # pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
 
 enableRobotsTXT = true
@@ -40,10 +40,10 @@ enableEmoji = true
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
-  page = ["HTML", "RSS"]
-  section = ["HTML", "RSS"]
-  taxonomy = ["HTML", "RSS"]
-  term = ["HTML", "RSS"]
+  page = ["HTML"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
 
 [related]
   threshold = 0
@@ -81,15 +81,7 @@ enableEmoji = true
   blog = "/:slug/" # Don't miss the last slash: "/"
   tags = "/tags/:slug/" # Don't miss the last slash: "/"
 
-[outputFormats]
-  [MarkDown]
-    mediaType = "text/plain"
-    isPlainText = true
-    isHTML = false
-
 [mediaTypes]
-  ["text/plain"]
-    suffixes = ["md"]
 
   ["application/feed+json"]
     suffixes = ["feed"]

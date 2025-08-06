@@ -30,9 +30,24 @@ jobs:
           hugo-version: '0.148.2'
           extended: true
 
-      - name: Build Hugo
-        run: |
-          hugo --minify --enableGitInfo
+      - name: Cache Hugo Resources
+        uses: actions/cache@v4
+        id: cache-hugo
+        with:
+          path: |
+            resources/_gen
+            ${{ env.HUGO_CACHEDIR }}
+          key: ${{ runner.os }}-hugo-${{ hashFiles('content/**', 'assets/**', 'layouts/**', 'config.toml', 'pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
+
+      - name: Cache Hugo Modules
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.HUGOMODS_CACHEDIR }}
+          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugomod-
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -46,19 +61,17 @@ jobs:
           cache: 'pnpm'
           cache-dependency-path: '**/pnpm-lock.yaml'
 
-      - name: Get pnpm store directory
-        id: pnpm-store
-        shell: bash
-        run: |
-          echo "PNPM_STORE_PATH=$(pnpm store path)" >> $GITHUB_ENV
-
       - name: Cache pnpm store
         uses: actions/cache@v4
         with:
-          path: ${{ env.PNPM_STORE_PATH }}
+          path: ${{ env.PNPM_CACHEDIR }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+
+      - name: Build Hugo
+        run: |
+          hugo --minify --enableGitInfo --gc
 
 #       - name: Install and run Shiki
 #         run: |
