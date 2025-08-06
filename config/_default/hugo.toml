@@ -4,7 +4,7 @@
 
 theme = "blowfish"
 baseURL = "https://www.eallion.com"
-# defaultContentLanguage = "zh-cn"
+defaultContentLanguage = "zh-cn"
 # disableLanguages = ['it'] #to allow translation work requiring shipping to production
 disableLanguages = ['en']
 # pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
