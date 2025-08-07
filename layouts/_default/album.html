@@ -191,20 +191,22 @@
         if (!item) continue; // 跳过空项
 
         item.media_attachments.forEach(media => {
-            const div = document.createElement('div');
-            // 添加新的样式类
-            div.className = 'jg-entry border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative';
+            if (media.description && /ealbum/i.test(media.description.replace(/\n/g, ''))) {
+                const div = document.createElement('div');
+                // 添加新的样式类
+                div.className = 'jg-entry border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative';
 
-            const img = document.createElement('img');
-            const imgUrl = media.preview_url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com');
-            img.src = imgUrl;
-            img.setAttribute('data-zoom-src', media.url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com'));
-            img.alt = extractTextFromHTML(item.content);
-            img.loading = 'lazy';
-            img.classList.add('lazy', 'medium-zoom-image');
+                const img = document.createElement('img');
+                const imgUrl = media.preview_url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com');
+                img.src = imgUrl;
+                img.setAttribute('data-zoom-src', media.url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com'));
+                img.alt = extractTextFromHTML(item.content);
+                img.loading = 'lazy';
+                img.classList.add('lazy', 'medium-zoom-image');
 
-            div.appendChild(img);
-            fragment.appendChild(div);
+                div.appendChild(img);
+                fragment.appendChild(div);
+            }
         });
     }
 
@@ -236,34 +238,64 @@
 
   async function loadInitialImages() {
     const loading = document.querySelector('.loading-spinner');
+    const searchHint = document.createElement('div');
+    searchHint.className = 'search-hint';
+    searchHint.style.display = 'none';
+    searchHint.textContent = '正在搜索符合条件的图片...';
+    document.body.appendChild(searchHint);
+
     loading.style.display = 'block';
+    const MIN_IMAGES_TO_SHOW = 16; // 至少显示 16 张图片
+    const MAX_REQUEST_TIMES = 10; // 最大请求次数
+    let requestCount = 0;
+
+    // 启动 2 秒计时器
+    const searchTimer = setTimeout(() => {
+        if (displayedCount === 0) {
+            searchHint.style.display = 'block';
+        }
+    }, 2000);
 
     try {
-        // 获取初始数据
-        const data = await fetchImages(40);
-        if (data.length > 0) {
-            cachedImages = [...data];
-            await renderImages(cachedImages);
+        let currentMaxId = null;
+        let totalImages = 0;
+
+        while (totalImages < MIN_IMAGES_TO_SHOW && hasMoreData && requestCount < MAX_REQUEST_TIMES) {
+            requestCount++;
+            const data = await fetchImages(40, currentMaxId);
+            if (data.length > 0) {
+                cachedImages.push(...data);
+                await renderImages(cachedImages);
+                totalImages = displayedCount;
+                currentMaxId = maxId;
+
+                // 如果已显示图片，清除提示
+                if (totalImages > 0) {
+                    clearTimeout(searchTimer);
+                    searchHint.style.display = 'none';
+                }
+            } else {
+                hasMoreData = false;
+                break;
+            }
         }
+
+        // 请求完成后清除计时器
+        clearTimeout(searchTimer);
 
         const loadMoreBtn = document.getElementById('load-more');
         loadMoreBtn.style.display = cachedImages.length > displayedCount ? 'block' : 'none';
 
-        // 预加载下一页数据
-        if (hasMoreData) {
-            const newData = await fetchImages(40, maxId);
-            if (newData && newData.length > 0) {
-                const newFilteredData = newData.filter(newItem =>
-                    !cachedImages.some(existingItem => existingItem.id === newItem.id)
-                );
-                if (newFilteredData.length > 0) {
-                    cachedImages.push(...newFilteredData);
-                    console.log('Added new cached images, total:', cachedImages.length);
-                }
-            }
+        // 如果达到最大请求次数仍无图片
+        if (requestCount >= MAX_REQUEST_TIMES && displayedCount === 0) {
+            searchHint.textContent = '没有找到符合条件的图片';
+            searchHint.style.display = 'block';
         }
     } catch (error) {
         console.error('Error in loadInitialImages:', error);
+        clearTimeout(searchTimer);
+        searchHint.textContent = '加载失败，请稍后重试';
+        searchHint.style.display = 'block';
     } finally {
         loading.style.display = 'none';
     }
@@ -341,11 +373,12 @@
     });
 
     document.getElementById('load-more').addEventListener('click', loadMoreImages);
-    loadInitialImages();
 });
 
   // Load initial images when the page loads
-  window.onload = loadInitialImages;
+  window.onload = function() {
+    loadInitialImages();
+  };
 </script>
 
 <script>
