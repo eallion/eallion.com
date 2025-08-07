@@ -43,7 +43,7 @@ aliases:
 
 {{< timelineItem icon="code" header="English" badge="Aug 7, 2025" >}}
 2025 年 8 月 7 日，取消了多语言配置，只保留了中文版博客。
-<br/>
+<br />
 现在连中文博客都不写了，更不会学习写英文博客了。一年半的时间，只写一篇英文博客，还是一篇关于 Chrome 插件的更新通知。
 {{< /timelineItem >}}
 
