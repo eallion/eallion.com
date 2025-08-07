@@ -1,12 +1,6 @@
 {{ define "main" }}
 {{ .Scratch.Set "scope" "single" }}
 
-{{ $mastodonCss := resources.Get "lib/mastodon-embed-timeline/dist/mastodon-timeline.min.css" | minify | fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ $mastodonCss.RelPermalink }}" integrity="{{ $mastodonCss.Data.Integrity }}" crossorigin="anonymous">
-
-{{ $mastodonCustomCss := resources.Get "css/mastodon-timeline-custom.scss" | toCSS | minify | fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ $mastodonCustomCss.RelPermalink }}" integrity="{{ $mastodonCustomCss.Data.Integrity }}" crossorigin="anonymous">
-
 <article>
   {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
   {{ $heroStyle := .Params.heroStyle }}
@@ -26,7 +20,7 @@
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
       {{ .Title }}
     </h1>
-    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+    <div class="mt-1 mb-6 text-base text-neutral-500 print:hidden">
       {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
     </div>
 
@@ -34,286 +28,348 @@
 
   <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
 
-      <div class="min-w-0 min-h-0 max-w-fit">
+    <div class="min-w-0 min-h-0 max-w-fit">
 
-        <div class="article-content max-w-full mb-20">
-          {{ .Content }}
-            <div id="mt-container" class="mt-container">
-                <div class="mt-body" role="feed">
-                    <div class="mt-loading-spinner"></div>
-                </div>
-            </div>
+      <div class="article-content max-w-full mb-20">
+        {{ .Content }}
+
+        <div class="mt-container w-full max-w-full sm:max-w-[87.5%] mx-auto p-0 sm:p-5">
+
         </div>
 
       </div>
-
-    </section>
-
+    </div>
+  </section>
 </article>
 
-{{ $js := resources.Get "lib/mastodon-embed-timeline/dist/mastodon-timeline.esm.js" }}
-
-<script type="module">
-
-    import * as MastodonTimeline from '{{ $js.RelPermalink }}';
-
-    const myTimeline = new MastodonTimeline.Init({
-        // Id of the <div> containing the timeline
-        // 包含时间轴的 <div> 的 ID
-        mtContainerId: "mt-container",
-
-        // Mastodon instance Url including https://
-        // Mastodon 实例地址，需包含 https://
-        instanceUrl: "https://www.eallion.com",
-
-        // Choose type of posts to show in the timeline: 'local', 'profile', 'hashtag'
-        // Default: local
-        // 选择在时间轴中显示的嘟文类型：'local'(本地)、'profile'(个人)、'hashtag'(话题标签)
-        // 默认值：local
-        timelineType: "profile",
-
-        // Your user ID number on Mastodon instance
-        // Leave it empty if you didn't choose 'profile' as type of timeline
-        // Mastodon 实例上的用户 ID 号
-        // 如果没有选择 'profile' 作为时间轴类型，则留空
-        userId: "111136231674527355",
-
-        // Your user name on Mastodon instance (including the @ symbol at the beginning)
-        // Leave it empty if you didn't choose 'profile' as type of timeline
-        // Mastodon 实例上的用户名（包括开头的 @ 符号）
-        // 如果没有选择 'profile' 作为时间轴类型，则留空
-        profileName: "@eallion",
-
-        // The name of the hashtag (not including the # symbol)
-        // Leave it empty if you didn't choose 'hashtag' as type of timeline
-        // 话题标签名称（不包括 # 符号）
-        // 如果没有选择 'hashtag' 作为时间轴类型，则留空
-        hashtagName: "",
-
-        // Class name for the loading spinner (also used in CSS file)
-        // 加载动画的 CSS 类名（在 CSS 文件中也会用到）
-        spinnerClass: "mt-loading-spinner",
-
-        // Preferred color theme: 'light', 'dark' or 'auto'
-        // Default: auto
-        // 首选颜色主题：'light'(亮色)、'dark'(暗色) 或 'auto'(自动)
-        // 默认值：auto
-        defaultTheme: "auto",
-
-        // Maximum number of posts to request to the server
-        // Default: 20
-        // 向服务器请求的最大嘟文数量
-        // 默认值：20
-        maxNbPostFetch: "40",
-
-        // Maximum number of posts to show in the timeline
-        // Default: 20
-        // 在时间轴中显示的最大嘟文数量
-        // 默认值：20
-        maxNbPostShow: "20",
-
-        // Specifies the format of the date according to the chosen language/country
-        // Default: British English (day-month-year order)
-        // 根据所选语言/国家指定日期格式
-        // 默认值：英式英语（日 - 月 - 年顺序）
-        dateLocale: "en-US",
-
-        // Customize the date format using the options
-        // Default: DD MMM YYYY
-        // 使用选项自定义日期格式
-        // 默认值：DD MMM YYYY
-        dateOptions: {
-            day: "2-digit",    // 日期
-            month: "short",    // 月份
-            year: "numeric",   // 年份
-        },
-
-        // Hide unlisted posts
-        // Default: don't hide
-        // 隐藏未公开的嘟文
-        // 默认值：不隐藏
-        hideUnlisted: true,
-
-        // Hide boosted posts
-        // Default: don't hide
-        // 隐藏转发的嘟文
-        // 默认值：不隐藏
-        hideReblog: true,
-
-        // Hide replies posts
-        // Default: don't hide
-        // 隐藏回复的嘟文
-        // 默认值：不隐藏
-        hideReplies: true,
-
-        // Hide pinned posts from the profile timeline
-        // Default: don't hide
-        // 在个人资料时间轴中隐藏置顶嘟文
-        // 默认值：不隐藏
-        hidePinnedPosts: true,
-
-        // Hide the user account under the user name
-        // Default: don't hide
-        // 隐藏用户名下方的账号信息
-        // 默认值：不隐藏
-        hideUserAccount: false,
-
-        // Show only posts with the selected language (ISO 639-1)
-        // Use "en" to show only posts in English
-        // Default: "" (don't filter by language)
-        // 仅显示选定语言的嘟文（ISO 639-1 标准）
-        // 使用"en"只显示英文嘟文
-        // 默认值：""（不按语言过滤）
-        filterByLanguage: "",
-
-        // Limit the text content to a maximum number of lines
-        // Use "0" to show no text
-        // Default: "" (unlimited)
-        // 限制文本内容的最大行数
-        // 使用"0"表示不显示文本
-        // 默认值：""（无限制）
-        txtMaxLines: "",
-
-        // Customize the text of the button used for showing/hiding sensitive/spoiler text
-        // 自定义显示/隐藏敏感内容/剧透文本的按钮文字
-        btnShowMore: "SHOW MORE",
-        btnShowLess: "SHOW LESS",
-
-        // Converts Markdown symbol ">" at the beginning of a paragraph into a blockquote HTML tag
-        // Default: false (don't apply)
-        // 将段落开头的 Markdown 符号 ">" 转换为 blockquote HTML 标签
-        // 默认值：false（不转换）
-        markdownBlockquote: false,
-
-        // Hide custom emojis available on the server
-        // Default: don't hide
-        // 隐藏服务器上可用的自定义表情符号
-        // 默认值：不隐藏
-        hideEmojos: false,
-
-        // Customize the text of the button used for showing a sensitive/spoiler media content
-        // 自定义显示敏感内容/剧透媒体内容的按钮文字
-        btnShowContent: "SHOW CONTENT",
-
-        // Hide video image preview and load video player instead
-        // Default: don't hide
-        // 隐藏视频图片预览并直接加载视频播放器
-        // 默认值：不隐藏
-        hideVideoPreview: true,
-
-        // Customize the text of the button used for the image preview to play the video
-        // 自定义图片预览中用于播放视频的按钮文字
-        btnPlayVideoTxt: "Load and play video",
-
-        // Hide preview card if post contains a link, photo or video from a Url
-        // Default: don't hide
-        // 如果嘟文包含链接、照片或视频 URL，则隐藏预览卡片
-        // 默认值：不隐藏
-        hidePreviewLink: true,
-
-        // Limit the preview text description to a maximum number of lines
-        // Use "0" to show no text
-        // Default: "" (unlimited)
-        // 限制预览文本描述的最大行数
-        // 使用"0"表示不显示文本
-        // 默认值：""（无限制）
-        previewMaxLines: "",
-
-        // Hide replies, boosts and favourites posts counter
-        // Default: don't hide
-        // 隐藏回复、转发和收藏计数器
-        // 默认值：不隐藏
-        hideCounterBar: false,
-
-        // Show a carousel/lightbox when the user clicks on a picture in a post
-        // Default: not disabled
-        // 当用户点击嘟文中的图片时显示轮播/灯箱效果
-        // 默认值：不禁用
-        disableCarousel: false,
-
-        // Customize the text of the buttons used for the carousel/lightbox
-        // 自定义轮播/灯箱按钮的文字
-        carouselCloseTxt: "Close carousel",
-        carouselPrevTxt: "Previous media item",
-        carouselNextTxt: "Next media item",
-
-        // Customize the text of the button pointing to the Mastodon page placed at the end of the timeline
-        // Leave the value empty to hide it
-        // 自定义时间轴底部指向 Mastodon 页面的按钮文字
-        // 留空则隐藏此按钮
-        btnSeeMore: "See more posts at e5n.cc",
-
-        // Customize the text of the button reloading the list of posts placed at the end of the timeline
-        // Leave the value empty to hide it
-        // 自定义时间轴底部重新加载嘟文列表的按钮文字
-        // 留空则隐藏此按钮
-        btnReload: "Refresh",
-
-        // Keep searching for the main <div> container before building the timeline
-        // Useful in some cases where extra time is needed to render the page
-        // Default: don't apply
-        // 在构建时间轴之前持续搜索主 <div> 容器
-        // 在某些需要额外时间渲染页面的情况下很有用
-        // 默认值：不启用
-        insistSearchContainer: true,
-
-        // Defines the maximum time to continue searching for the main <div> container
-        // Default: 3 seconds
-        // 定义持续搜索主 <div> 容器的最大时间
-        // 默认值：3 秒
-        insistSearchContainerTime: "3000",
-
-    });
-
-</script>
-
 <script>
-  // 创建一个 MutationObserver 实例
-  const observer = new MutationObserver(() => {
-      // 获取所有 .mt-post-txt 下的 a 标签
-      const links = document.querySelectorAll('.mt-post-txt a');
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      const response = await fetch('https://www.eallion.com/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true');
+      const data = await response.json();
+      const container = document.querySelector('.mt-container');
 
-      // 遍历所有链接并对 href 属性进行 Base64 加密
-      links.forEach(link => {
-          const href = link.getAttribute('href');
+      data.forEach(post => {
+        const article = document.createElement('article');
+        article.className = 'border border-neutral-400 dark:border-neutral-500 rounded-xl mb-8 p-4 pb-3 shadow-sm transition-all duration-200';
 
-          // 域名白名单
-          const excludedDomains = ['e5n.cc',
-            'eallion.com',
-            'github.com',
-            'neodb.social',
-            's.e5n.cc',
-            'www.eallion.com'
-          ];
-          const domain = new URL(href).hostname;
-          if (excludedDomains.includes(domain)) {
-              return; // 跳过此链接
-          }
-
-          const encodedHref = btoa(encodeURIComponent(href));
-          const newHref = 'https://www.eallion.com/go/?target=' + encodedHref;
-          link.setAttribute('href', newHref);
-      });
-
-      // 获取所有头像的 img 标签并修改 src 属性
-      const images = document.querySelectorAll('.mt-body .mt-post img');
-      images.forEach(img => {
-          const src = img.getAttribute('src');
-          if (src && src.includes('https://files.e5n.cc/')) {
-            const newSrc = src.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
-            img.setAttribute('src', newSrc);
-            img.setAttribute('data-original-src', src); // 可选：保存原始 src
+        // 判断是否为转发
+        if (post.reblog) {
+          article.innerHTML += `
+                                <div class="mt-reblog flex items-center gap-2 mb-2 text-neutral-500 text-sm">
+                                  <span class="text-green-500">🔄</span>
+                                  <span>Charles Chin 转发了</span>
+                                </div>
+                              `;
         }
-      });
-  });
 
-  // 监听 .mt-body 元素的子节点变化
-  const mtBody = document.querySelector('.mt-body');
-  observer.observe(mtBody, { childList: true, subtree: true });
+        // 头像部分
+        article.innerHTML += `
+                              <div class="flex items-center flex-row gap-2 mb-4">
+                                <div class="mt-reblog-avatar w-12 h-12 rounded-lg mr-3 flex-shrink-0 relative">
+                                  <img
+                                    src="${post.reblog ? post.reblog.account.avatar : '/eallion.png'}"
+                                    alt="头像"
+                                    class="w-full h-full mt-0 mb-0 object-cover rounded-lg nozoom"
+                                    onerror="this.src='/assets/images/mastodon/missing.png'"
+                                  >
+                                  ${post.reblog ? '<div class="mt-reblog-avatar-overlay absolute -bottom-1 -right-1 w-2/3 h-2/3 nozoom"><img src="/favicon-32x32.png" alt="Boost" class="w-full h-full mt-0 mb-0 object-cover nozoom"></div>' : ''}
+                                </div>
+                                <div class="flex-1 flex flex-row items-start min-w-0">
+                                  <div class="flex flex-col flex-wrap items-start gap-0 mb-1">
+                                    <span class="mt-accout-name font-semibold hover:font-extrabold text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-100">${post.reblog ? post.reblog.account.display_name : 'Charles Chin'}</span>
+                                    <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" class="mt-accout-id text-neutral-700 dark:text-neutral-200 text-sm hover:underline">${post.reblog ? post.reblog.account.acct : '@eallion@e5n.cc'}</a>
+                                  </div>
+                                  <div class="inline sm:hidden px-2 py-1.5 text-neutral-600 hover:text-neutral-700 dark:hover:text-neutral-400 text-sm ml-auto">
+                                    <span class="mt-footer-date"><a href="${post.url || 'https://e5n.cc/@eallion'}" target="_blank" rel="noopener noreferrer" class="text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400">${getRelativeTime(post.created_at)}</a></span>
+                                  </div>
+                                  <div class="hidden sm:flex flex-row items-center gap-1.5 ml-auto px-2 text-sm ">
+                                    <span class="mt-meta-language">
+                                      ${post.language ?
+                                        (post.language.toLowerCase() === 'zh' || post.language.toLowerCase() === 'zh-cn' ? 'zh-CN' : post.language)
+                                        : ''}
+                                    </span>
+                                    ${post.content.includes('http') ? '<span class="mt-meta-link"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="48;0"/></path><path stroke-dasharray="12" stroke-dashoffset="12" d="M13 11l7 -7"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="12;0"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M21 3h-6M21 3v6"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" values="8;0"/></path></g></svg></span>' : ''}
+                                    ${post.media_attachments.length > 0 ? '<span class="mt-meta-image"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4"><path stroke-linecap="round" d="M5 10C5 8.89543 5.89543 8 7 8L41 8C42.1046 8 43 8.89543 43 10V38C43 39.1046 42.1046 40 41 40H7C5.89543 40 5 39.1046 5 38V10Z" clip-rule="evenodd"/><path stroke-linecap="round" d="M14.5 18C15.3284 18 16 17.3284 16 16.5C16 15.6716 15.3284 15 14.5 15C13.6716 15 13 15.6716 13 16.5C13 17.3284 13.6716 18 14.5 18Z" clip-rule="evenodd"/><path fill="#2f88ff" d="M15 24L20 28L26 21L43 34V38C43 39.1046 42.1046 40 41 40H7C5.89543 40 5 39.1046 5 38V34L15 24Z"/></g></svg></span>' : ''}
+                                    ${post.in_reply_to_id ? '<span class="mt-meta-reply"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24"><path fill="currentColor" d="M12 23a1 1 0 0 1-1-1v-3H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-4.1l-3.7 3.71c-.2.18-.44.29-.7.29zm-9-8H1V3a2 2 0 0 1 2-2h16v2H3z"/></svg></span>' : ''}
+                                    ${post.reblog ? '<span class="mt-meta-reblog"><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M272 416c17.7 0 32-14.3 32-32s-14.3-32-32-32H160c-17.7 0-32-14.3-32-32V192h32c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-64-64c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-9.2 9.2-11.9 22.9-6.9 34.9S19.1 192 32.1 192h32v128c0 53 43 96 96 96h112zm32-320c-17.7 0-32 14.3-32 32s14.3 32 32 32h112c17.7 0 32 14.3 32 32v128h-32c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l64 64c12.5 12.5 32.8 12.5 45.3 0l64-64c9.2-9.2 11.9-22.9 6.9-34.9S556.9 320 543.9 320h-32V192c0-53-43-96-96-96z"/></svg></span>' : ''}
+                                    <span class="mt-meta-visibility">
+                                      ${post.visibility === 'direct' ? '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-envelope status__visibility-icon" title="私下提及" aria-label="私下提及" role="img"><path fill="#d32f2f" d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"></path></svg>' :
+                                        post.visibility === 'unlisted' ? '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-unlock status__visibility-icon" title="悄悄公开" aria-label="悄悄公开" role="img"><path fill="#388e3c" d="M484-80q-84 0-157.5-32t-128-86.5Q144-253 112-326.5T80-484q0-146 93-257.5T410-880q-18 99 11 193.5T521-521q71 71 165.5 100T880-410q-26 144-138 237T484-80Zm0-80q88 0 163-44t118-121q-86-8-163-43.5T464-465q-61-61-97-138t-43-163q-77 43-120.5 118.5T160-484q0 135 94.5 229.5T484-160Zm-20-305Z"></path></svg>' :
+                                        post.visibility === 'private' ? '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-lock status__visibility-icon" title="关注者" aria-label="关注者" role="img"><path fill="#ffa000" d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"></path></svg>' :
+                                        '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-globe status__visibility-icon" title="公开" aria-label="公开" role="img"><path fill="#1976d2" d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q41-45 62.5-100.5T800-480q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z"></path></svg>'}
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            `;
+
+        // 内容部分
+        article.innerHTML += `
+          <div class="mt-content mb-4">
+            <p class="mb-2">
+              ${encodeExternalLinks(post.reblog ? post.reblog.content : post.content)}
+            </p>
+
+            ${post.media_attachments.length > 0 ? `
+              <div class="mt-images-container bg-[linear-gradient(135deg,#f5f5f580,#e0e0e080)] dark:bg-[linear-gradient(135deg,#33333380,#55555580)] mb-3 aspect-[16/9] rounded-lg overflow-hidden relative">
+                ${((post.sensitive === true) || (post.reblog && post.reblog.sensitive === true)) ? `
+                  <div class="absolute inset-0 bg-neutral-800 opacity-99 flex flex-col items-center justify-center z-10 rounded-lg cursor-pointer" onclick="this.style.display='none'">
+                    <div class="text-white font-bold text-lg mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="8rem" height="8rem" viewBox="0 0 16 16"><path fill="currentColor" d="M1 7a6 6 0 0 1 11.99-.34q.175.194.302.446l.59 1.18Q13.999 7.662 14 7a7 7 0 1 0-7.713 6.964l.484-.968A6 6 0 0 1 1 7m8.854-1.146a.5.5 0 0 0-.708-.708L6.25 8.043L4.854 6.646a.5.5 0 1 0-.708.708l1.75 1.75a.5.5 0 0 0 .708 0zm.749 1.7l-3.496 6.998A1 1 0 0 0 8.002 16h6.996a1 1 0 0 0 .895-1.448l-3.5-6.999a1 1 0 0 0-1.79 0m1.395 1.941v3.002a.5.5 0 1 1-1 0V9.495a.5.5 0 1 1 1 0m-.5 5.504a.5.5 0 1 1 0-1a.5.5 0 0 1 0 1"/></svg></div>
+                    <div class="text-neutral-400 text-3xl mt-4 mb-4">NSFW</div>
+                    <div class="flex items-center text-neutral-400 text-xl"><span><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 36 36"><path fill="currentColor" d="M30.4 17.6c-1.8-1.9-4.2-3.2-6.7-3.7q-1.65-.45-3.3-.6c2.8-3.3 2.3-8.3-1-11.1s-8.3-2.3-11.1 1s-2.3 8.3 1 11.1c.6.5 1.2.9 1.8 1.1v2.2l-1.6-1.5c-1.4-1.4-3.7-1.4-5.2 0c-1.4 1.4-1.5 3.6-.1 5l4.6 5.4c.2 1.4.7 2.7 1.4 3.9c.5.9 1.2 1.8 1.9 2.5v1.9c0 .6.4 1 1 1h13.6c.5 0 1-.5 1-1v-2.6c1.9-2.3 2.9-5.2 2.9-8.1v-5.8c.1-.4 0-.6-.2-.7m-22-9.4c0-3.3 2.7-5.9 6-5.8c3.3 0 5.9 2.7 5.8 6c0 1.8-.8 3.4-2.2 4.5v-5a3.4 3.4 0 0 0-3.4-3.2c-1.8-.1-3.4 1.4-3.4 3.2v5.2c-1.7-1-2.7-2.9-2.8-4.9M28.7 24c.1 2.6-.8 5.1-2.5 7.1c-.2.2-.4.4-.4.7v2.1H14.2v-1.4c0-.3-.2-.6-.4-.8c-.7-.6-1.3-1.3-1.8-2.2c-.6-1-1-2.2-1.2-3.4c0-.2-.1-.4-.2-.6l-4.8-5.7c-.3-.3-.5-.7-.5-1.2c0-.4.2-.9.5-1.2c.7-.6 1.7-.6 2.4 0l2.9 2.9v3l1.9-1V7.9c.1-.7.7-1.3 1.5-1.2c.7 0 1.4.5 1.4 1.2v11.5l2 .4v-4.6c.1-.1.2-.1.3-.2c.7 0 1.4.1 2.1.2v5.1l1.6.3v-5.2l1.2.3c.5.1 1 .3 1.5.5v5l1.6.3v-4.6c.9.4 1.7 1 2.4 1.7z" class="clr-i-outline clr-i-outline-path-1"/><path fill="none" d="M0 0h36v36H0z"/></svg></span>点击显示图片</div>
+                  </div>
+                ` : ''}
+                ${(() => {
+                  const media = post.media_attachments;
+                  const aspectRatio = media[0].meta?.small?.aspect || 1;
+                  const isLandscape = aspectRatio > 1;
+
+                  let html;
+                  if (media.length === 1) {
+                    const imgWidth = media[0].meta?.small?.width || 0;
+
+                    const previewUrl = media[0].preview_url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+                    const url = media[0].url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+
+                    html = `
+                      <a href="${url}" nozoom><img src="${previewUrl}"
+                          alt="${media[0].description}"
+                          class="w-full h-full lazy"
+                          data-original-width="${imgWidth}"
+                          loading="lazy"></a>
+                    `;
+                  } else if (media.length === 2) {
+                    html = `
+                      <div class="grid grid-cols-2 h-full gap-2.5 nozoom">
+                        ${media.map((item, index) => {
+                          const itemAspect = item.meta?.small?.aspect || 1;
+                          const imgWidth = item.meta?.small?.width || 0;
+
+                          const previewUrl = item.preview_url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+                          const url = item.url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+
+                          return `
+                            <a href="${url}"><img src="${previewUrl}"
+                                alt="${item.description}"
+                                class="w-full h-full lazy"
+                                data-original-width="${imgWidth}"
+                                loading="lazy"></a>
+                          `;
+                        }).join('')}
+                      </div>
+                    `;
+                  } else if (media.length === 3) {
+                    html = `
+                      <div class="grid grid-cols-2 grid-rows-2 h-full gap-2.5 nozoom">
+
+                        ${(() => {
+                          const previewUrl0 = media[0].preview_url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+                          const url0 = media[0].url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+                          const previewUrl1 = media[1].preview_url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+                          const url1 = media[1].url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+                          const previewUrl2 = media[2].preview_url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+                          const url2 = media[2].url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+
+                          return `
+                            <a href="${url0}"><img src="${previewUrl0}"
+                                alt="${media[0].description}"
+                                class="row-span-2 w-full h-full lazy"
+                                data-original-width="${media[0].meta?.small?.width || 0}"
+                                loading="lazy"></a>
+                            <a href="${url1}"><img src="${previewUrl1}"
+                                alt="${media[1].description}"
+                                class="w-full h-full lazy"
+                                data-original-width="${media[1].meta?.small?.width || 0}"
+                                loading="lazy"></a>
+                            <a href="${url2}"><img src="${previewUrl2}"
+                                alt="${media[2].description}"
+                                class="w-full h-full lazy"
+                                data-original-width="${media[2].meta?.small?.width || 0}"
+                                loading="lazy"></a>
+                          `;
+                        })()}
+                      </div>
+                    `;
+                  } else {
+                    html = `
+                      <div class="grid grid-cols-2 grid-rows-2 h-full gap-2.5 nozoom">
+                        ${media.slice(0,4).map((item, index) => {
+
+                          const previewUrl = item.preview_url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+                          const url = item.url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+
+                          return `
+                            <a href="${url}">
+                              <img src="${previewUrl}"
+                                  alt="${item.description}"
+                                  class="w-full h-full lazy"
+                                  data-original-width="${item.meta?.small?.width || 0}"
+                                  loading="lazy"></a>
+                          `;
+                        }).join('')}
+                      </div>
+                    `;
+                  }
+
+                  window.ViewImage && ViewImage.init('.mt-content img');
+
+                  const adjustImageFit = () => {
+                    const images = article.querySelectorAll('.mt-images-container img');
+                    const container = article.querySelector('.mt-images-container');
+
+                    if (images.length > 0 && container) {
+                      const containerWidth = container.offsetWidth;
+
+                      images.forEach(img => {
+                        const originalWidth = parseInt(img.dataset.originalWidth) || 0;
+
+                        if (originalWidth > 0) {
+                          let compareWidth = containerWidth;
+
+
+                          const isMultiImage = img.closest('.grid') !== null;
+                          if (isMultiImage) {
+                            compareWidth = containerWidth / 2 - 5;
+                          }
+
+
+                          if (originalWidth < compareWidth) {
+                            img.classList.add('object-contain');
+                          } else {
+                            img.classList.add('object-cover');
+                          }
+                        }
+                      });
+                    }
+                  };
+
+                  setTimeout(adjustImageFit, 100);
+
+                  return html;
+
+                })()}
+              </div>
+            ` : ''}
+
+          </div>
+        `;
+
+        // 底部按钮
+        article.innerHTML += `
+                              <div class="flex justify-between sm:justify-start items-center gap-4 pt-3 border-t border-neutral-300 dark:border-neutral-700">
+                                <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
+                                  <span><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M204.2 18.4c12 5 19.8 16.6 19.8 29.6v80h112c97.2 0 176 78.8 176 176c0 113.3-81.5 163.9-100.2 174.1c-2.5 1.4-5.3 1.9-8.1 1.9c-10.9 0-19.7-8.9-19.7-19.7c0-7.5 4.3-14.4 9.8-19.5c9.4-8.8 22.2-26.4 22.2-56.7c0-53-43-96-96-96h-96v80c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-160-160c-12.5-12.5-12.5-32.8 0-45.3l160-160c9.2-9.2 22.9-11.9 34.9-6.9z" /></svg></span>
+                                  ${post.replies_count ? `<span class="mt-footer-reply">${post.replies_count}</span>` : ''}
+                                </button>
+                                <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
+                                  <span><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M118.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-9.2 9.2-11.9 22.9-6.9 34.9S19.1 160 32 160h32v224c0 53 43 96 96 96h128c17.7 0 32-14.3 32-32s-14.3-32-32-32H160c-17.7 0-32-14.3-32-32V160h32c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-64-64zm338.8 429.2c12.5 12.5 32.8 12.5 45.3 0l64-64c9.2-9.2 11.9-22.9 6.9-34.9S556.9 352 544 352h-32V128c0-53-43-96-96-96H288c-17.7 0-32 14.3-32 32s14.3 32 32 32h128c17.7 0 32 14.3 32 32v224h-32c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l64 64z" /></svg></span>
+                                  ${post.reblogs_count ? `<span class="mt-footer-reblog">${post.reblogs_count}</span>` : ''}
+
+                                </button>
+                                <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
+                                  <span><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1l-73.6 144.2l-159.9 25.4c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5l-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2l144.4-73.4L432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2l-25.3-159.9l114.4-114.5c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3z" /></svg></span>
+                                  ${post.favourites_count ? `<span class="mt-footer-favourit">${post.favourites_count}</span>` : ''}
+
+                                </button>
+                                <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
+                                  <span><svg xmlns="http://www.w3.org/2000/svg" width="0.75rem" height="1rem" viewBox="0 0 384 512"><path fill="currentColor" d="M64 0C28.7 0 0 28.7 0 64v416c0 11.5 6.2 22.2 16.2 27.8s22.3 5.5 32.2-.4L192 421.3l143.5 86.1c9.9 5.9 22.2 6.1 32.2.4S384 491.5 384 480V64c0-35.3-28.7-64-64-64z" /></svg></span>
+                                  ${post.bookmarked ? `<span class="mt-footer-bookmarked">${post.bookmarked}</span>` : ''}
+
+                                </button>
+                                <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
+                                  <span><svg xmlns="http://www.w3.org/2000/svg" width="0.88rem" height="1rem" viewBox="0 0 448 512"><path fill="currentColor"d="M0 256a56 56 0 1 1 112 0a56 56 0 1 1-112 0m168 0a56 56 0 1 1 112 0a56 56 0 1 1-112 0m224-56a56 56 0 1 1 0 112a56 56 0 1 1 0-112" /></svg></span>
+                                </button>
+                                <div class="hidden sm:inline px-2 py-1.5 text-neutral-600 hover:text-neutral-700 dark:hover:text-neutral-400 text-sm ml-auto">
+                                  <span class="mt-footer-date"><a href="${post.url || 'https://e5n.cc/@eallion'}" target="_blank" rel="noopener noreferrer" class="text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400">${getRelativeTime(post.created_at)}</a></span>
+                                </div>
+                              </div>
+                            `;
+
+          container.appendChild(article);
+        });
+      } catch (error) {
+        console.error('Error fetching Mastodon data:', error);
+      }
+    });
+// 在 getRelativeTime 函数之后添加以下函数
+
+function encodeExternalLinks(content) {
+  // 定义需要保留的域名白名单
+  const allowedDomains = ['e5n.cc', 'eallion.com', 'www.eallion.com'];
+
+  // 匹配 <a> 标签的正则表达式
+  const linkRegex = /<a[^>]*href\s*=\s*["']([^"']*)["'][^>]*>/gi;
+
+  // 替换内容中的链接
+  return content.replace(linkRegex, (match, url) => {
+    try {
+      // 如果 URL 不是以 http 或 https 开头，跳过处理
+      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        return match;
+      }
+
+      const urlObj = new URL(url);
+      const hostname = urlObj.hostname;
+
+      // 检查是否为允许的域名
+      const isAllowedDomain = allowedDomains.some(domain =>
+        hostname === domain || hostname.endsWith('.' + domain)
+      );
+
+      // 如果是允许的域名，直接返回原标签
+      if (isAllowedDomain) {
+        return match;
+      }
+
+      // 对于外部链接，进行 Base64 编码并重定向
+      const encodedUrl = btoa(url); // Base64 编码
+      const redirectUrl = `https://www.eallion.com/go/?target=${encodedUrl}`;
+
+      // 替换 href 属性
+      return match.replace(url, redirectUrl);
+    } catch (e) {
+      // 如果 URL 解析失败，返回原始标签
+      return match;
+    }
+  });
+}
+
+// 计算相对时间的函数
+function getRelativeTime(dateString) {
+  const rtf = new Intl.RelativeTimeFormat('zh-CN', { numeric: "auto", style: 'short' });
+  const now = new Date();
+  const date = new Date(dateString);
+  const diff = now - date;
+
+  const seconds = Math.floor(diff / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+  const months = Math.floor(days / 30);
+  const years = Math.floor(days / 365);
+
+  // 获取原始格式化的相对时间（如 "3 天前"）
+  let formattedTime;
+  if (years > 0) {
+    formattedTime = rtf.format(-years, 'year');
+  } else if (months > 0) {
+    formattedTime = rtf.format(-months, 'month');
+  } else if (days > 0) {
+    formattedTime = rtf.format(-days, 'day');
+  } else if (hours > 0) {
+    formattedTime = rtf.format(-hours, 'hour');
+  } else if (minutes > 0) {
+    formattedTime = rtf.format(-minutes, 'minute');
+  } else {
+    formattedTime = rtf.format(-seconds, 'second');
+  }
+
+  return formattedTime.replace(/(\d+)([^\d]+)/, '$1 $2');
+};
 </script>
 
-<noscript>
-  Please enable JavaScript to view the Mastodon Timeline powered by <a href="https://gitlab.com/idotj/mastodon-embed-timeline" target="_blank">Mastodon embed timeline widget</a>.
-</noscript>
+{{ $viewJS := resources.Get "js/view-image.min.js" | fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $viewJS.RelPermalink }}" integrity="{{ $viewJS.Data.Integrity }}"></script>
 
-{{- end -}}
+{{ end }}
