@@ -29,24 +29,6 @@
     line-height: 1.5;
   }
 
-  /* view image custom */
-  .view-image-tools {
-    opacity: 1;
-    animation: 1s 1.5s forwards fadeOut
-  }
-
-  .view-image-tools:hover {
-    opacity: 1;
-    animation: none;
-    transition: opacity .2s
-  }
-
-  @keyframes fadeOut {
-    to {
-      opacity: 0
-    }
-  }
-
     .jg-entry {
         transition: transform 0.2s ease-in-out;
     }
@@ -100,7 +82,7 @@
       <div class="article-content max-w-full mb-20">
         {{ .Content }}
 
-        <div id="justified-gallery" class="view-image"></div>
+        <div id="justified-gallery"></div>
         <div class="loading-spinner"></div>
         <div class="flex justify-center mt-8 mb-8">
           <button id="load-more" class="px-4 py-2 cursor-pointer text-sm font-medium text-neutral-300 bg-neutral-800 rounded-md hover:bg-neutral-700 dark:bg-neutral-700 dark:hover:bg-neutral-600">
