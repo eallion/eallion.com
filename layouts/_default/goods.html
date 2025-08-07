@@ -40,7 +40,7 @@
                         {{ with resources.Get $goodsSrc }}
                             <figure>
                                 <img
-                                    class="my-0 rounded-md lazy"
+                                    class="my-0 rounded-md lazy view-image"
                                     loading="lazy"
                                     srcset="
                                     {{ (.Resize "330x").RelPermalink }} 330w,
@@ -83,4 +83,11 @@
         // Your custom settings go here
     });
 </script>
+
+{{ $viewJS := resources.Get "js/view-image.min.js" | fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $viewJS.RelPermalink }}" integrity="{{ $viewJS.Data.Integrity }}"></script>
+<script>
+    window.ViewImage && ViewImage.init('.goods-image img');
+</script>
+
 {{ end }}

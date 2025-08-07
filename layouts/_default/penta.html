@@ -74,7 +74,7 @@
                         {{ with .Resize "18x webp" }}
                             <a href="https://101.qq.com/#/hero-detail?heroid={{ $heroId }}" class="flex justify-center items-center my-2 text-neutral-900 dark:text-neutral-300" target="_blank" rel="noreferrer noopener nofollow">
                                 <span class="leading-4 mr-1">
-                                    <img class="w-4 h-4 mt-0 mb-0 lazy nozoom"
+                                    <img class="w-4 h-4 mt-0 mb-0 lazy nozoom no-view"
                                         loading="lazy"
                                         src="/assets/images/penta/hero.png"
                                         data-src="{{ .RelPermalink }}"
@@ -111,6 +111,12 @@
     var lazyLoadInstance = new LazyLoad({
         // Your custom settings go here
     });
+</script>
+
+{{ $viewJS := resources.Get "js/view-image.min.js" | fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $viewJS.RelPermalink }}" integrity="{{ $viewJS.Data.Integrity }}"></script>
+<script>
+    window.ViewImage && ViewImage.init('figure img');
 </script>
 
 {{ end }}

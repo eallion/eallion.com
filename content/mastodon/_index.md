@@ -29,4 +29,4 @@ aliases:
     - /bb
 ---
 
-我从接触独立博客开始不久，就一直在博客中部署了一个类似「**嘀咕**」（Whisper）的微博客子栏目。主要是区别于博客长文的自言自语，「保卫表达欲」。最初的作用是备份 QQ 说说、Twitter 和微博等。信息流来自 [{{< icon "mastodon" >}} Mastodon](https://e5n.cc) ，工具：[{{< icon "gitlab" >}} Mastodon embed timeline](https://gitlab.com/idotj/mastodon-embed-timeline) 。
+我从接触独立博客开始不久，就一直在博客中部署了一个类似「**嘀咕**」（Whisper）的微博客子栏目。主要是区别于博客长文的自言自语，「保卫表达欲」。最初的作用是备份 QQ 说说、Twitter 和微博等。信息流来自 [{{< icon "mastodon" >}} Mastodon](https://e5n.cc) 。
