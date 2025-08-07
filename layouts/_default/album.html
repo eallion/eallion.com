@@ -100,7 +100,7 @@
       <div class="article-content max-w-full mb-20">
         {{ .Content }}
 
-        <div id="justified-gallery"></div>
+        <div id="justified-gallery" class="view-image"></div>
         <div class="loading-spinner"></div>
         <div class="flex justify-center mt-8 mb-8">
           <button id="load-more" class="px-4 py-2 cursor-pointer text-sm font-medium text-neutral-300 bg-neutral-800 rounded-md hover:bg-neutral-700 dark:bg-neutral-700 dark:hover:bg-neutral-600">
@@ -199,10 +199,10 @@
                 const img = document.createElement('img');
                 const imgUrl = media.preview_url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com');
                 img.src = imgUrl;
-                img.setAttribute('data-zoom-src', media.url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com'));
+                // img.setAttribute('data-zoom-src', media.url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com'));
                 img.alt = extractTextFromHTML(item.content);
                 img.loading = 'lazy';
-                img.classList.add('lazy', 'medium-zoom-image');
+                img.classList.add('lazy', 'nozoom');
 
                 div.appendChild(img);
                 fragment.appendChild(div);
@@ -226,14 +226,14 @@
 
     displayedCount = endIndex;
 
-    if (zoomInstance) {
-        zoomInstance.detach();
-    }
-    zoomInstance = mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
-        margin: 24,
-        background: 'rgba(0,0,0,0.6)',
-        scrollOffset: 0,
-    });
+    // if (zoomInstance) {
+    //     zoomInstance.detach();
+    // }
+    // zoomInstance = mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+    //     margin: 24,
+    //     background: 'rgba(0,0,0,0.6)',
+    //     scrollOffset: 0,
+    // });
 }
 
   async function loadInitialImages() {
@@ -385,6 +385,12 @@
   var lazyLoadInstance = new LazyLoad({
       // Your custom settings go here
   });
+</script>
+
+{{ $viewJS := resources.Get "js/view-image.min.js" | fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $viewJS.RelPermalink }}" integrity="{{ $viewJS.Data.Integrity }}"></script>
+<script>
+    window.ViewImage && ViewImage.init('.justified-gallery img');
 </script>
 
 {{ end }}
