@@ -33,7 +33,68 @@
       <div class="article-content max-w-full mb-20">
         {{ .Content }}
 
-        <div class="mt-container w-full max-w-full sm:max-w-[87.5%] mx-auto p-0 sm:p-5">
+        <div class="flex w-full mt-10 flex-wrap justify-center gap-5">
+
+          <div class="order-2 md:order-1 mt-container w-full max-w-full md:max-w-[calc(100%-282px)] p-0">
+          </div>
+
+          <div class="order-1 md:order-2 relative md:sticky ease-in-out duration-300 top-unset md:top-20 w-full md:w-[262px] h-full md:h-[540px] mb-10 md:mb-0">
+            <div class="h-unset md:h-[540px] w-full md:w-[262px] max-w-full md:max-w-[262px] bg-neutral-50 dark:bg-neutral-800 rounded-xl shadow-md overflow-hidden transition-colors duration-300 hover:shadow-lg">
+              <div class="h-24 bg-gradient-to-b from-[#563ACC] to-[#6364FF] relative">
+                <div class="absolute -bottom-10 left-4">
+                  <div class="h-20 w-20 rounded-xl bg-neutral dark:bg-[#858AFA] p-2 shadow-md overflow-hidden cursor-pointer"><a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer"><img
+                      src="/eallion.png" alt="Charles Chin"
+                      class="h-full w-full object-cover rounded-lg mt-0 mb-0 no-view nozoom"></a></div>
+                </div>
+                <div class="absolute top-2 right-2 bg-primary-500 text-neutral-50 p-1 rounded-full"
+                  title="This account has been verified as authentic by our team."><svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                      d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"></path>
+                  </svg></div>
+                <div
+                  class="absolute bottom-2 right-2 bg-neutral/10 backdrop-blur-sm border border-neutral/20 text-neutral px-3 py-1.5 rounded-full z-50 text-xs flex items-center gap-1.5 shadow-sm"
+                  title="Account creation date"><svg xmlns="http://www.w3.org/2000/svg" width="0.875rem" height="0.875rem" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m8-10a8 8 0 1 0-16 0a8 8 0 0 0 16 0m-4-1a1 1 0 0 1 0 2h-3c-1.1 0-2-.9-2-2V7a1 1 0 0 1 2 0v4z"/></svg><span
+                    class="text-[10px] font-medium">加入于 <span id="accountCreationDate">1</span></span></div>
+              </div>
+              <div class="p-4 pt-12">
+                <div class="mb-3">
+                  <h3 class="mt-0 mb-0 truncate cursor-pointer"><a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" class="font-bold text-neutral-900 dark:text-neutral-50">Charles Chin</a></h3>
+                  <p class="mt-0 mb-0 truncate"><a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 dark:text-neutral-400">eallion@e5n.cc</a></p>
+                </div>
+                <div class="flex flex-col h-auto md:h-28 justify-between">
+                  <div class="hidden md:block">
+                    <p class="mt-0 mb-0 text-neutral-600 dark:text-neutral-300">
+                      Welcome!
+                      <ul class="mt-0 mb-0 flex flex-col text-sm text-neutral-600 dark:text-neutral-300">
+                        <li class="mx-0 list-item">It's a single mode Mastodon.</li>
+                        <li class="mx-0 list-item">Registrations closed.</li>
+                        <li class="mx-0 list-item">Private but public readable.</li>
+                        <li class="mx-0 list-item"><ruby>中文<rt>Chinese</rt></ruby> content with a little English mixed in.</li>
+                        <li class="mx-0 list-item">Talk to myself.</li>
+                        <li class="mx-0 list-item">talk about myself.</li>
+                      </ul>
+                    </p>
+                  </div>
+                  <div class="flex justify-between items-center mb-0 mt-auto">
+                    <div>
+                      <div class="text-xs text-neutral-500 dark:text-neutral-400">关注者</div>
+                      <div class="font-semibold dark:text-neutral-200 flex items-center"><span id="followers">-1</span></div>
+                    </div>
+                    <div>
+                      <div class="text-xs text-neutral-500 dark:text-neutral-400">正在关注</div>
+                      <div class="font-semibold dark:text-neutral-200 flex items-center"><span id="following">0</span></div>
+                    </div>
+                    <div>
+                      <div class="text-xs text-neutral-500 dark:text-neutral-400">嘟文</div>
+                      <div class="font-semibold dark:text-neutral-200 flex items-center"><span id="statuses">0</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
 
@@ -48,6 +109,15 @@
       const response = await fetch('https://www.eallion.com/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true');
       const data = await response.json();
       const container = document.querySelector('.mt-container');
+      const followers = document.getElementById('followers');
+      const following = document.getElementById('following');
+      const statuses = document.getElementById('statuses');
+      const accountCreationDate = document.getElementById('accountCreationDate');
+
+      followers.textContent = data[0].account.followers_count;
+      following.textContent = data[0].account.following_count;
+      statuses.textContent = data[0].account.statuses_count;
+      accountCreationDate.textContent = getRelativeTime(data[0].account.created_at);
 
       data.forEach(post => {
         const article = document.createElement('article');
@@ -70,7 +140,7 @@
                                   <img
                                     src="${post.reblog ? post.reblog.account.avatar : '/eallion.png'}"
                                     alt="头像"
-                                    class="w-full h-full mt-0 mb-0 object-cover rounded-lg no-view"
+                                    class="w-full h-full mt-0 mb-0 object-cover rounded-lg no-view nozoom"
                                     no-view
                                     onerror="this.src='/assets/images/mastodon/missing.png'"
                                   >
@@ -81,10 +151,10 @@
                                     <span class="mt-accout-name font-semibold hover:font-extrabold text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-100">${post.reblog ? post.reblog.account.display_name : 'Charles Chin'}</span>
                                     <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" class="mt-accout-id text-neutral-700 dark:text-neutral-200 text-sm hover:underline">${post.reblog ? post.reblog.account.acct : '@eallion@e5n.cc'}</a>
                                   </div>
-                                  <div class="inline sm:hidden px-2 py-1.5 text-neutral-600 hover:text-neutral-700 dark:hover:text-neutral-400 text-sm ml-auto">
+                                  <div class="inline md:hidden px-2 py-1.5 text-neutral-600 hover:text-neutral-700 dark:hover:text-neutral-400 text-sm ml-auto">
                                     <span class="mt-footer-date"><a href="${post.url || 'https://e5n.cc/@eallion'}" target="_blank" rel="noopener noreferrer" class="text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400">${getRelativeTime(post.created_at)}</a></span>
                                   </div>
-                                  <div class="hidden sm:flex flex-row items-center gap-1.5 ml-auto px-2 text-sm ">
+                                  <div class="hidden md:flex flex-row items-center gap-1.5 ml-auto px-2 text-sm ">
                                     <span class="mt-meta-language">
                                       ${post.language ?
                                         (post.language.toLowerCase() === 'zh' || post.language.toLowerCase() === 'zh-cn' ? 'zh-CN' : post.language)
@@ -263,7 +333,7 @@
 
         // 底部按钮
         article.innerHTML += `
-                              <div class="flex justify-between sm:justify-start items-center gap-4 pt-3 border-t border-neutral-300 dark:border-neutral-700">
+                              <div class="flex justify-between md:justify-start items-center gap-4 pt-3 border-t border-neutral-300 dark:border-neutral-700">
                                 <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
                                   <span><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M204.2 18.4c12 5 19.8 16.6 19.8 29.6v80h112c97.2 0 176 78.8 176 176c0 113.3-81.5 163.9-100.2 174.1c-2.5 1.4-5.3 1.9-8.1 1.9c-10.9 0-19.7-8.9-19.7-19.7c0-7.5 4.3-14.4 9.8-19.5c9.4-8.8 22.2-26.4 22.2-56.7c0-53-43-96-96-96h-96v80c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-160-160c-12.5-12.5-12.5-32.8 0-45.3l160-160c9.2-9.2 22.9-11.9 34.9-6.9z" /></svg></span>
                                   ${post.replies_count ? `<span class="mt-footer-reply">${post.replies_count}</span>` : ''}
@@ -286,7 +356,7 @@
                                 <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
                                   <span><svg xmlns="http://www.w3.org/2000/svg" width="0.88rem" height="1rem" viewBox="0 0 448 512"><path fill="currentColor"d="M0 256a56 56 0 1 1 112 0a56 56 0 1 1-112 0m168 0a56 56 0 1 1 112 0a56 56 0 1 1-112 0m224-56a56 56 0 1 1 0 112a56 56 0 1 1 0-112" /></svg></span>
                                 </button>
-                                <div class="hidden sm:inline px-2 py-1.5 text-neutral-600 hover:text-neutral-700 dark:hover:text-neutral-400 text-sm ml-auto">
+                                <div class="hidden md:inline px-2 py-1.5 text-neutral-600 hover:text-neutral-700 dark:hover:text-neutral-400 text-sm ml-auto">
                                   <span class="mt-footer-date"><a href="${post.url || 'https://e5n.cc/@eallion'}" target="_blank" rel="noopener noreferrer" class="text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400">${getRelativeTime(post.created_at)}</a></span>
                                 </div>
                               </div>
