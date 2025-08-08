@@ -45,7 +45,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', async () => {
     try {
-      const response = await fetch('https://www.eallion.com/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true');
+      const response = await fetch('https://mastodon.social/api/v1/accounts/107666/statuses?limit=20&exclude_replies=true&only_media=true');
       const data = await response.json();
       const container = document.querySelector('.mt-container');
 
@@ -70,10 +70,11 @@
                                   <img
                                     src="${post.reblog ? post.reblog.account.avatar : '/eallion.png'}"
                                     alt="头像"
-                                    class="w-full h-full mt-0 mb-0 object-cover rounded-lg nozoom"
+                                    class="w-full h-full mt-0 mb-0 object-cover rounded-lg no-view"
+                                    no-view
                                     onerror="this.src='/assets/images/mastodon/missing.png'"
                                   >
-                                  ${post.reblog ? '<div class="mt-reblog-avatar-overlay absolute -bottom-1 -right-1 w-2/3 h-2/3 nozoom"><img src="/favicon-32x32.png" alt="Boost" class="w-full h-full mt-0 mb-0 object-cover nozoom"></div>' : ''}
+                                  ${post.reblog ? '<div class="mt-reblog-avatar-overlay absolute -bottom-1 -right-1 w-2/3 h-2/3 no-view"><img src="/favicon-32x32.png" alt="Boost" class="w-full h-full mt-0 mb-0 object-cover nozoom" no-view></div>' : ''}
                                 </div>
                                 <div class="flex-1 flex flex-row items-start min-w-0">
                                   <div class="flex flex-col flex-wrap items-start gap-0 mb-1">
@@ -105,155 +106,148 @@
                             `;
 
         // 内容部分
+        // 定义工具函数
+        const replaceFileUrl = url => url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+        const getImageObjectFitClass = (imgWidth, aspectRatio) =>
+            (imgWidth < 320 || aspectRatio < 0.56 || aspectRatio > 2.3) ? 'object-contain' : 'object-cover';
+
         article.innerHTML += `
-          <div class="mt-content mb-4">
-            <p class="mb-2">
-              ${encodeExternalLinks(post.reblog ? post.reblog.content : post.content)}
-            </p>
+                            <div class="mt-content mb-4">
+                                <p class="mb-2">
+                                    ${encodeExternalLinks(post.reblog?.content || post.content)}
+                                </p>
 
-            ${post.media_attachments.length > 0 ? `
-              <div class="mt-images-container bg-[linear-gradient(135deg,#f5f5f580,#e0e0e080)] dark:bg-[linear-gradient(135deg,#33333380,#55555580)] mb-3 aspect-[16/9] rounded-lg overflow-hidden relative">
-                ${((post.sensitive === true) || (post.reblog && post.reblog.sensitive === true)) ? `
-                  <div class="absolute inset-0 bg-neutral-800 opacity-99 flex flex-col items-center justify-center z-10 rounded-lg cursor-pointer" onclick="this.style.display='none'">
-                    <div class="text-white font-bold text-lg mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="8rem" height="8rem" viewBox="0 0 16 16"><path fill="currentColor" d="M1 7a6 6 0 0 1 11.99-.34q.175.194.302.446l.59 1.18Q13.999 7.662 14 7a7 7 0 1 0-7.713 6.964l.484-.968A6 6 0 0 1 1 7m8.854-1.146a.5.5 0 0 0-.708-.708L6.25 8.043L4.854 6.646a.5.5 0 1 0-.708.708l1.75 1.75a.5.5 0 0 0 .708 0zm.749 1.7l-3.496 6.998A1 1 0 0 0 8.002 16h6.996a1 1 0 0 0 .895-1.448l-3.5-6.999a1 1 0 0 0-1.79 0m1.395 1.941v3.002a.5.5 0 1 1-1 0V9.495a.5.5 0 1 1 1 0m-.5 5.504a.5.5 0 1 1 0-1a.5.5 0 0 1 0 1"/></svg></div>
-                    <div class="text-neutral-400 text-3xl mt-4 mb-4">NSFW</div>
-                    <div class="flex items-center text-neutral-400 text-xl"><span><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 36 36"><path fill="currentColor" d="M30.4 17.6c-1.8-1.9-4.2-3.2-6.7-3.7q-1.65-.45-3.3-.6c2.8-3.3 2.3-8.3-1-11.1s-8.3-2.3-11.1 1s-2.3 8.3 1 11.1c.6.5 1.2.9 1.8 1.1v2.2l-1.6-1.5c-1.4-1.4-3.7-1.4-5.2 0c-1.4 1.4-1.5 3.6-.1 5l4.6 5.4c.2 1.4.7 2.7 1.4 3.9c.5.9 1.2 1.8 1.9 2.5v1.9c0 .6.4 1 1 1h13.6c.5 0 1-.5 1-1v-2.6c1.9-2.3 2.9-5.2 2.9-8.1v-5.8c.1-.4 0-.6-.2-.7m-22-9.4c0-3.3 2.7-5.9 6-5.8c3.3 0 5.9 2.7 5.8 6c0 1.8-.8 3.4-2.2 4.5v-5a3.4 3.4 0 0 0-3.4-3.2c-1.8-.1-3.4 1.4-3.4 3.2v5.2c-1.7-1-2.7-2.9-2.8-4.9M28.7 24c.1 2.6-.8 5.1-2.5 7.1c-.2.2-.4.4-.4.7v2.1H14.2v-1.4c0-.3-.2-.6-.4-.8c-.7-.6-1.3-1.3-1.8-2.2c-.6-1-1-2.2-1.2-3.4c0-.2-.1-.4-.2-.6l-4.8-5.7c-.3-.3-.5-.7-.5-1.2c0-.4.2-.9.5-1.2c.7-.6 1.7-.6 2.4 0l2.9 2.9v3l1.9-1V7.9c.1-.7.7-1.3 1.5-1.2c.7 0 1.4.5 1.4 1.2v11.5l2 .4v-4.6c.1-.1.2-.1.3-.2c.7 0 1.4.1 2.1.2v5.1l1.6.3v-5.2l1.2.3c.5.1 1 .3 1.5.5v5l1.6.3v-4.6c.9.4 1.7 1 2.4 1.7z" class="clr-i-outline clr-i-outline-path-1"/><path fill="none" d="M0 0h36v36H0z"/></svg></span>点击显示图片</div>
-                  </div>
-                ` : ''}
-                ${(() => {
-                  const media = post.media_attachments;
-                  const aspectRatio = media[0].meta?.small?.aspect || 1;
-                  const isLandscape = aspectRatio > 1;
+                                ${post.media_attachments.length > 0 ? `
+                                    <div class="mt-images-container mb-3 aspect-[16/9] rounded-xl shadow-xl overflow-hidden relative">
+                                        <canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-cover"
+                                                data-blurhash="${post.media_attachments[0].blurhash}"></canvas>
 
-                  let html;
-                  if (media.length === 1) {
-                    const imgWidth = media[0].meta?.small?.width || 0;
+                                        ${(post.sensitive || post.reblog?.sensitive) ? `
+                                            <div class="absolute inset-0 bg-neutral-800 opacity-99 flex flex-col items-center justify-center z-10 rounded-lg cursor-pointer"
+                                                onclick="this.style.display='none'">
+                                                <div class="text-white font-bold text-lg mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="8rem" height="8rem" viewBox="0 0 16 16"><path fill="currentColor" d="M1 7a6 6 0 0 1 11.99-.34q.175.194.302.446l.59 1.18Q13.999 7.662 14 7a7 7 0 1 0-7.713 6.964l.484-.968A6 6 0 0 1 1 7m8.854-1.146a.5.5 0 0 0-.708-.708L6.25 8.043L4.854 6.646a.5.5 0 1 0-.708.708l1.75 1.75a.5.5 0 0 0 .708 0zm.749 1.7l-3.496 6.998A1 1 0 0 0 8.002 16h6.996a1 1 0 0 0 .895-1.448l-3.5-6.999a1 1 0 0 0-1.79 0m1.395 1.941v3.002a.5.5 0 1 1-1 0V9.495a.5.5 0 1 1 1 0m-.5 5.504a.5.5 0 1 1 0-1a.5.5 0 0 1 0 1"/></svg></div>
+                                                <div class="text-neutral-400 text-3xl mt-4 mb-4">NSFW</div>
+                                                <div class="flex items-center text-neutral-400 text-xl"><span><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 36 36"><path fill="currentColor" d="M30.4 17.6c-1.8-1.9-4.2-3.2-6.7-3.7q-1.65-.45-3.3-.6c2.8-3.3 2.3-8.3-1-11.1s-8.3-2.3-11.1 1s-2.3 8.3 1 11.1c.6.5 1.2.9 1.8 1.1v2.2l-1.6-1.5c-1.4-1.4-3.7-1.4-5.2 0c-1.4 1.4-1.5 3.6-.1 5l4.6 5.4c.2 1.4.7 2.7 1.4 3.9c.5.9 1.2 1.8 1.9 2.5v1.9c0 .6.4 1 1 1h13.6c.5 0 1-.5 1-1v-2.6c1.9-2.3 2.9-5.2 2.9-8.1v-5.8c.1-.4 0-.6-.2-.7m-22-9.4c0-3.3 2.7-5.9 6-5.8c3.3 0 5.9 2.7 5.8 6c0 1.8-.8 3.4-2.2 4.5v-5a3.4 3.4 0 0 0-3.4-3.2c-1.8-.1-3.4 1.4-3.4 3.2v5.2c-1.7-1-2.7-2.9-2.8-4.9M28.7 24c.1 2.6-.8 5.1-2.5 7.1c-.2.2-.4.4-.4.7v2.1H14.2v-1.4c0-.3-.2-.6-.4-.8c-.7-.6-1.3-1.3-1.8-2.2c-.6-1-1-2.2-1.2-3.4c0-.2-.1-.4-.2-.6l-4.8-5.7c-.3-.3-.5-.7-.5-1.2c0-.4.2-.9.5-1.2c.7-.6 1.7-.6 2.4 0l2.9 2.9v3l1.9-1V7.9c.1-.7.7-1.3 1.5-1.2c.7 0 1.4.5 1.4 1.2v11.5l2 .4v-4.6c.1-.1.2-.1.3-.2c.7 0 1.4.1 2.1.2v5.1l1.6.3v-5.2l1.2.3c.5.1 1 .3 1.5.5v5l1.6.3v-4.6c.9.4 1.7 1 2.4 1.7z" class="clr-i-outline clr-i-outline-path-1"/><path fill="none" d="M0 0h36v36H0z"/></svg></span>点击显示图片</div>
+                                            </div>
+                                        ` : ''}
 
-                    const previewUrl = media[0].preview_url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
-                    const url = media[0].url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+                                        ${(() => {
+                                            const mediaItems = post.media_attachments;
+                                            let mediaHtml = '';
 
-                    html = `
-                      <a href="${url}" nozoom><img src="${previewUrl}"
-                          alt="${media[0].description}"
-                          class="w-full h-full lazy"
-                          data-original-width="${imgWidth}"
-                          loading="lazy"></a>
-                    `;
-                  } else if (media.length === 2) {
-                    html = `
-                      <div class="grid grid-cols-2 h-full gap-2.5 nozoom">
-                        ${media.map((item, index) => {
-                          const itemAspect = item.meta?.small?.aspect || 1;
-                          const imgWidth = item.meta?.small?.width || 0;
+                                            if (mediaItems.length === 1) {
+                                                const singleMedia = mediaItems[0];
+                                                const objectFitClass = getImageObjectFitClass(
+                                                    singleMedia.meta?.small?.width,
+                                                    singleMedia.meta?.small?.aspect
+                                                );
+                                                mediaHtml = `
+                                                    <a href="${replaceFileUrl(singleMedia.url)}">
+                                                        <img src="${replaceFileUrl(singleMedia.preview_url)}"
+                                                            alt="${singleMedia.description}"
+                                                            class="w-full h-full lazy ${objectFitClass}"
+                                                            nozoom loading="lazy">
+                                                    </a>
+                                                `;
 
-                          const previewUrl = item.preview_url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
-                          const url = item.url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+                                            } else if (mediaItems.length === 2) {
+                                                mediaHtml = `
+                                                    <div class="flex flex-row h-full gap-2.5">
+                                                        ${mediaItems.map(mediaItem => {
+                                                            const objectFitClass = getImageObjectFitClass(
+                                                                mediaItem.meta?.small?.width,
+                                                                mediaItem.meta?.small?.aspect
+                                                            );
+                                                            return `
+                                                                <div class="w-1/2 rounded-xl overflow-hidden">
+                                                                    <a href="${replaceFileUrl(mediaItem.url)}">
+                                                                        <img src="${replaceFileUrl(mediaItem.preview_url)}"
+                                                                            alt="${mediaItem.description}"
+                                                                            class="w-full h-full lazy ${objectFitClass}"
+                                                                            nozoom loading="lazy">
+                                                                    </a>
+                                                                </div>
+                                                            `;
+                                                        }).join('')}
+                                                    </div>
+                                                `;
 
-                          return `
-                            <a href="${url}"><img src="${previewUrl}"
-                                alt="${item.description}"
-                                class="w-full h-full lazy"
-                                data-original-width="${imgWidth}"
-                                loading="lazy"></a>
-                          `;
-                        }).join('')}
-                      </div>
-                    `;
-                  } else if (media.length === 3) {
-                    html = `
-                      <div class="grid grid-cols-2 grid-rows-2 h-full gap-2.5 nozoom">
+                                            } else if (mediaItems.length === 3) {
+                                                const [firstItem, secondItem, thirdItem] = mediaItems;
+                                                const firstFitClass = getImageObjectFitClass(
+                                                    firstItem.meta?.small?.width,
+                                                    firstItem.meta?.small?.aspect
+                                                );
+                                                const secondFitClass = getImageObjectFitClass(
+                                                    secondItem.meta?.small?.width,
+                                                    secondItem.meta?.small?.aspect
+                                                );
+                                                const thirdFitClass = getImageObjectFitClass(
+                                                    thirdItem.meta?.small?.width,
+                                                    thirdItem.meta?.small?.aspect
+                                                );
 
-                        ${(() => {
-                          const previewUrl0 = media[0].preview_url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
-                          const url0 = media[0].url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
-                          const previewUrl1 = media[1].preview_url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
-                          const url1 = media[1].url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
-                          const previewUrl2 = media[2].preview_url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
-                          const url2 = media[2].url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+                                                mediaHtml = `
+                                                    <div class="flex h-full gap-2.5">
+                                                        <div class="w-1/2 overflow-hidden rounded-xl">
+                                                            <a href="${replaceFileUrl(firstItem.url)}">
+                                                                <img src="${replaceFileUrl(firstItem.preview_url)}"
+                                                                    alt="${firstItem.description}"
+                                                                    class="w-full h-full lazy ${firstFitClass}"
+                                                                    nozoom loading="lazy">
+                                                            </a>
+                                                        </div>
+                                                        <div class="w-1/2 flex flex-col gap-2.5">
+                                                            <div class="h-1/2 overflow-hidden rounded-xl">
+                                                                <a href="${replaceFileUrl(secondItem.url)}">
+                                                                    <img src="${replaceFileUrl(secondItem.preview_url)}"
+                                                                        alt="${secondItem.description}"
+                                                                        class="w-full h-full lazy ${secondFitClass}"
+                                                                        nozoom loading="lazy">
+                                                                </a>
+                                                            </div>
+                                                            <div class="h-1/2 overflow-hidden rounded-xl">
+                                                                <a href="${replaceFileUrl(thirdItem.url)}">
+                                                                    <img src="${replaceFileUrl(thirdItem.preview_url)}"
+                                                                        alt="${thirdItem.description}"
+                                                                        class="w-full h-full lazy ${thirdFitClass}"
+                                                                        nozoom loading="lazy">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                `;
 
-                          return `
-                            <a href="${url0}"><img src="${previewUrl0}"
-                                alt="${media[0].description}"
-                                class="row-span-2 w-full h-full lazy"
-                                data-original-width="${media[0].meta?.small?.width || 0}"
-                                loading="lazy"></a>
-                            <a href="${url1}"><img src="${previewUrl1}"
-                                alt="${media[1].description}"
-                                class="w-full h-full lazy"
-                                data-original-width="${media[1].meta?.small?.width || 0}"
-                                loading="lazy"></a>
-                            <a href="${url2}"><img src="${previewUrl2}"
-                                alt="${media[2].description}"
-                                class="w-full h-full lazy"
-                                data-original-width="${media[2].meta?.small?.width || 0}"
-                                loading="lazy"></a>
-                          `;
-                        })()}
-                      </div>
-                    `;
-                  } else {
-                    html = `
-                      <div class="grid grid-cols-2 grid-rows-2 h-full gap-2.5 nozoom">
-                        ${media.slice(0,4).map((item, index) => {
+                                            } else {
+                                                mediaHtml = `
+                                                    <div class="grid grid-cols-2 grid-rows-2 h-full gap-2.5">
+                                                        ${mediaItems.slice(0,4).map(mediaItem => {
+                                                            const objectFitClass = getImageObjectFitClass(
+                                                                mediaItem.meta?.small?.width,
+                                                                mediaItem.meta?.small?.aspect
+                                                            );
+                                                            return `
+                                                                <div class="h-full w-full overflow-hidden rounded-xl">
+                                                                    <a href="${replaceFileUrl(mediaItem.url)}">
+                                                                        <img src="${replaceFileUrl(mediaItem.preview_url)}"
+                                                                            alt="${mediaItem.description}"
+                                                                            class="w-full h-full lazy ${objectFitClass}"
+                                                                            nozoom loading="lazy">
+                                                                    </a>
+                                                                </div>
+                                                            `;
+                                                        }).join('')}
+                                                    </div>
+                                                `;
+                                            }
 
-                          const previewUrl = item.preview_url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
-                          const url = item.url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
-
-                          return `
-                            <a href="${url}">
-                              <img src="${previewUrl}"
-                                  alt="${item.description}"
-                                  class="w-full h-full lazy"
-                                  data-original-width="${item.meta?.small?.width || 0}"
-                                  loading="lazy"></a>
-                          `;
-                        }).join('')}
-                      </div>
-                    `;
-                  }
-
-                  window.ViewImage && ViewImage.init('.mt-content img');
-
-                  const adjustImageFit = () => {
-                    const images = article.querySelectorAll('.mt-images-container img');
-                    const container = article.querySelector('.mt-images-container');
-
-                    if (images.length > 0 && container) {
-                      const containerWidth = container.offsetWidth;
-
-                      images.forEach(img => {
-                        const originalWidth = parseInt(img.dataset.originalWidth) || 0;
-
-                        if (originalWidth > 0) {
-                          let compareWidth = containerWidth;
-
-
-                          const isMultiImage = img.closest('.grid') !== null;
-                          if (isMultiImage) {
-                            compareWidth = containerWidth / 2 - 5;
-                          }
-
-
-                          if (originalWidth < compareWidth) {
-                            img.classList.add('object-contain');
-                          } else {
-                            img.classList.add('object-cover');
-                          }
-                        }
-                      });
-                    }
-                  };
-
-                  setTimeout(adjustImageFit, 100);
-
-                  return html;
-
-                })()}
-              </div>
-            ` : ''}
-
-          </div>
-        `;
+                                            window.ViewImage?.init('.mt-images-container a');
+                                            return mediaHtml;
+                                        })()}
+                                    </div>
+                                ` : ''}
+                            </div>
+                        `;
 
         // 底部按钮
         article.innerHTML += `
@@ -292,7 +286,6 @@
         console.error('Error fetching Mastodon data:', error);
       }
     });
-// 在 getRelativeTime 函数之后添加以下函数
 
 function encodeExternalLinks(content) {
   // 定义需要保留的域名白名单
@@ -367,6 +360,72 @@ function getRelativeTime(dateString) {
 
   return formattedTime.replace(/(\d+)([^\d]+)/, '$1 $2');
 };
+</script>
+
+{{ $fastBlurhashJS := resources.Get "js/fast-blurhash.min.js" | fingerprint "sha256" }}
+<script type="module">
+  // 导入 Blurhash 解码器
+  import { decodeBlurHash } from '{{ $fastBlurhashJS.RelPermalink }}?v=1.1.4';
+
+  // 主渲染函数
+  async function renderBlurhashCanvases() {
+    // 选择所有带 data-blurhash 属性的 canvas
+    const canvases = document.querySelectorAll('canvas[data-blurhash]');
+
+    for (const canvas of canvases) {
+      const blurhash = canvas.getAttribute('data-blurhash');
+      if (!blurhash) continue;
+
+      // 解码 Blurhash（同步操作）
+      const pixels = decodeBlurHash(blurhash, 32, 32);
+
+      // 设置 canvas 尺寸
+      canvas.width = 32;
+      canvas.height = 32;
+
+      // 绘制到 canvas
+      const ctx = canvas.getContext('2d');
+      const imageData = new ImageData(pixels, 32, 32);
+      ctx.putImageData(imageData, 0, 0);
+    }
+  }
+
+  // 使用 MutationObserver 检测 DOM 变化
+  function setupObserver() {
+    const observer = new MutationObserver(mutations => {
+      let shouldRender = false;
+
+      // 检查是否新增了带 data-blurhash 的 canvas
+      mutations.forEach(mutation => {
+        if (mutation.type !== 'childList') return;
+
+        mutation.addedNodes.forEach(node => {
+          if (node.nodeName === 'CANVAS' && node.dataset.blurhash) {
+            shouldRender = true;
+          }
+          // 检查子节点中的 canvas
+          if (node.querySelectorAll) {
+            const canvases = node.querySelectorAll('canvas[data-blurhash]');
+            if (canvases.length > 0) shouldRender = true;
+          }
+        });
+      });
+
+      if (shouldRender) renderBlurhashCanvases();
+    });
+
+    // 开始观察整个文档
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+
+    // 初始渲染已有元素
+    renderBlurhashCanvases();
+  }
+
+  // 页面加载完成后启动 Observer
+  document.addEventListener('DOMContentLoaded', setupObserver);
 </script>
 
 {{ $viewJS := resources.Get "js/view-image.min.js" | fingerprint "sha256" }}
