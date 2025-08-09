@@ -1,6 +1,17 @@
 {{ define "main" }}
 {{ .Scratch.Set "scope" "single" }}
 
+<style>
+footer nav {
+  display: none;
+}
+@media (width >= 853px) {
+  footer nav {
+    display: flex;
+  }
+}
+</style>
+
 <article>
 
   <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert">
@@ -27,21 +38,41 @@
         </div>
 
         <div class="p-6">
+
           <div class="scrolling-container overflow-hidden rounded-xl bg-[#f9fafb] dark:bg-neutral-800 p-4">
             <div class="flex flex-col items-center scrolling-wrapper animate-scroll-left hover:animation-paused">
 
-              <div class="text-xl font-bold my-4 px-2 text-neutral-800 dark:text-neutral-100">即将离开大大的小蜗牛的博客，前住：</div>
+              <div class="text-xl font-bold mt-1 mb-8 px-2 text-neutral-800 dark:text-neutral-100 mr-auto">即将离开「大大的小蜗牛」的博客，前往：</div>
+
               <span id="redirect-link"
-                class="block w-fit max-w-full rounded-lg text-center px-5 py-3 border border-solid border-neutral-400 bg-neutral dark:border-neutral-600 dark:bg-neutral-100 text-neutral-800 break-words">未指定重定向目标。</span>
+                class="block w-full max-w-full rounded-lg text-left px-5 py-3 border border-solid border-neutral-400 bg-neutral dark:border-neutral-600 dark:bg-neutral-100 text-neutral-800 break-words">未指定重定向目标。</span>
 
-              <div class="flex items-center justify-center mt-4 mb-8 flex-wrap">
-                <div
-                  class="flex items-center rounded-full h-10 cursor-pointer outline-none p-4 bg-primary-700 dark:bg-primary-600">
-                  <a href='' target="_self" id='direct-link' class="text-neutral hover:text-neutral dark:hover:text-neutral"
-                    rel="noopener noreferrer">继续访问外部网站</a>
+              <div class="w-full flex flex-col md:flex-row justify-between mt-8 mb-8">
+
+                <div class="flex self-center gap-4">
+
+                  <button type="button" id="direct-link" class="text-neutral bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                  继续访问外部网站
+                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                  </button>
+                  <button type="button" onclick="goBackToA()" class="text-neutral bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                  返回
+                  </button>
+
                 </div>
-              </div>
 
+                <div class="hidden md:block">
+                  <button type="button" onclick="window.close()" class="py-2.5 px-5 text-sm font-medium text-neutral-900 focus:outline-none bg-neutral rounded-lg border border-neutral-200 hover:bg-neutral-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-neutral-200 dark:focus:ring-neutral-700 dark:bg-neutral-800 dark:text-neutral-400 dark:border-neutral-600 dark:hover:text-neutral dark:hover:bg-neutral-700">关闭</button>
+                </div>
+
+              </div>
+              <div>
+                <p class="text-sm mt-2 mb-2 px-4 text-neutral-600 dark:text-neutral-300">
+                  如果您点击「继续访问外部网站」就会离开本网站。该链接不属于本网站，我们无法确认该网页是否安全。
+                </p>
+              </div>
             </div>
           </div>
 
@@ -52,13 +83,14 @@
                   d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
                   clip-rule="evenodd" />
               </svg>
-              注意事项
+              安全小贴士
             </h3>
             <ul class="mt-2 text-sm text-[#1d4ed8] list-disc pl-5 space-y-1">
-              <li>该链接不属于本网站</li>
-              <li>无操作时，不会自动跳转到目标网站</li>
-              <li>我们无法确认该网页是否安全</li>
-              <li>请注意您的帐号和财产安全</li>
+              <li>仔细辨认网址是否为钓鱼网站、山寨网站、镜像网站</li>
+              <li>请注意信息安全，请不要随便输入账号、密码和隐私信息</li>
+              <li>请注意财产安全，不确定时，不要进行任何金钱交易操作</li>
+              <li>不要下载来历不明的软件，不要忽略安全软件的提醒</li>
+              <li>不是认为自己的隐私信息不重要，没人看得上</li>
             </ul>
           </div>
         </div>
@@ -84,7 +116,13 @@
       const hasQueryString = decodedTarget.includes('?');
       const separator = hasQueryString ? '&' : '?';
 
-      document.getElementById('direct-link').href = decodedTarget + separator + 'ref=www.eallion.com';
+      const directLink = decodedTarget + separator + 'ref=www.eallion.com';
+      const directLinkId = document.getElementById('direct-link')
+
+      directLinkId.addEventListener('click', () => {
+        window.open(directLink, "_self");
+      });
+
       document.getElementById('redirect-link').textContent = decodedTarget; // 在新增的元素中显示原地址
       document.getElementById('redirect-link').href = decodedTarget + separator + 'ref=www.eallion.com';
     } catch (e) {
@@ -93,6 +131,14 @@
   } else {
     document.getElementById('redirect-link').textContent = '未指定重定向目标。';
   }
+  function goBackToA() {
+    if (window.opener && !window.opener.closed) {
+      window.opener.focus();
+      window.close();
+    } else {
+      window.close();
+    }
+}
 </script>
 
 {{ end }}
