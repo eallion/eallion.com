@@ -125,20 +125,37 @@
 
         // 判断是否为转发
         if (post.reblog) {
-          article.innerHTML += `
-                                <div class="mt-reblog flex items-center gap-2 mb-2 text-neutral-500 text-sm">
-                                  <span class="text-green-500">🔄</span>
-                                  <span>Charles Chin 转发了</span>
-                                </div>
-                              `;
+
+        article.innerHTML += `
+                              <div class="mt-reblog flex items-center gap-2 mb-2 text-neutral-500 text-sm">
+                                <span class="text-green-500">🔄</span>
+                                <span>Charles Chin 转发了</span>
+                              </div>
+                            `;
         }
+
+        // 定义工具函数
+        const replaceFileUrl = url => url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+        const getImageObjectFitClass = (imgWidth, aspectRatio, isSingleImage = false) => {
+            if (isSingleImage) {
+                // 单张图片的特殊规则：仅当宽高比在 1.33-1.78 之间时使用 object-cover
+                return (imgWidth > 640 && (aspectRatio >= 1.33 && aspectRatio <= 1.78))
+                    ? 'object-cover'
+                    : 'object-contain';
+            } else {
+                // 多张图片的原始规则
+                return (imgWidth < 320 || aspectRatio < 0.56 || aspectRatio > 2.3)
+                    ? 'object-contain'
+                    : 'object-cover';
+            }
+        };
 
         // 头像部分
         article.innerHTML += `
                               <div class="flex items-center flex-row gap-2 mb-4">
                                 <div class="mt-reblog-avatar w-12 h-12 rounded-lg mr-3 flex-shrink-0 relative">
                                   <img
-                                    src="${post.reblog ? post.reblog.account.avatar : '/eallion.png'}"
+                                    src="${post.reblog ? replaceFileUrl(post.reblog.account.avatar) : '/eallion.png'}"
                                     alt="头像"
                                     class="w-full h-full mt-0 mb-0 object-cover rounded-lg no-view nozoom"
                                     no-view
@@ -176,21 +193,6 @@
                             `;
 
         // 内容部分
-        // 定义工具函数
-        const replaceFileUrl = url => url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
-        const getImageObjectFitClass = (imgWidth, aspectRatio, isSingleImage = false) => {
-            if (isSingleImage) {
-                // 单张图片的特殊规则：仅当宽高比在 1.33-1.78 之间时使用 object-cover
-                return (imgWidth > 640 && (aspectRatio >= 1.33 && aspectRatio <= 1.78))
-                    ? 'object-cover'
-                    : 'object-contain';
-            } else {
-                // 多张图片的原始规则
-                return (imgWidth < 320 || aspectRatio < 0.56 || aspectRatio > 2.3)
-                    ? 'object-contain'
-                    : 'object-cover';
-            }
-        };
 
         article.innerHTML += `
                               <div class="mt-content mb-4">
