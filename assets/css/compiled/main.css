@@ -246,6 +246,7 @@ body.zen-mode-enable {
       "Courier New", monospace;
     --spacing: 0.25rem;
     --container-xs: 20rem;
+    --container-lg: 32rem;
     --container-xl: 36rem;
     --container-3xl: 48rem;
     --container-7xl: 80rem;
@@ -672,8 +673,8 @@ body.zen-mode-enable {
   .my-3 {
     margin-block: calc(var(--spacing) * 3);
   }
-  .my-4 {
-    margin-block: calc(var(--spacing) * 4);
+  .ms-2 {
+    margin-inline-start: calc(var(--spacing) * 2);
   }
   .me-2 {
     margin-inline-end: calc(var(--spacing) * 2);
@@ -1412,6 +1413,9 @@ body.zen-mode-enable {
   .h-3 {
     height: calc(var(--spacing) * 3);
   }
+  .h-3\.5 {
+    height: calc(var(--spacing) * 3.5);
+  }
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
@@ -1423,9 +1427,6 @@ body.zen-mode-enable {
   }
   .h-8 {
     height: calc(var(--spacing) * 8);
-  }
-  .h-10 {
-    height: calc(var(--spacing) * 10);
   }
   .h-12 {
     height: calc(var(--spacing) * 12);
@@ -1523,6 +1524,9 @@ body.zen-mode-enable {
   .w-3 {
     width: calc(var(--spacing) * 3);
   }
+  .w-3\.5 {
+    width: calc(var(--spacing) * 3.5);
+  }
   .w-4 {
     width: calc(var(--spacing) * 4);
   }
@@ -1570,9 +1574,6 @@ body.zen-mode-enable {
   }
   .w-auto {
     width: auto;
-  }
-  .w-fit {
-    width: fit-content;
   }
   .w-full {
     width: 100%;
@@ -2328,6 +2329,9 @@ body.zen-mode-enable {
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
+  .py-2\.5 {
+    padding-block: calc(var(--spacing) * 2.5);
+  }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
   }
@@ -2905,10 +2909,6 @@ body.zen-mode-enable {
     --tw-ease: var(--ease-out);
     transition-timing-function: var(--ease-out);
   }
-  .outline-none {
-    --tw-outline-style: none;
-    outline-style: none;
-  }
   .select-none {
     -webkit-user-select: none;
     user-select: none;
@@ -3367,6 +3367,13 @@ body.zen-mode-enable {
       }
     }
   }
+  .hover\:bg-neutral-100 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: rgba(var(--color-neutral-100), 1);
+      }
+    }
+  }
   .hover\:bg-neutral-300 {
     &:hover {
       @media (hover: hover) {
@@ -3399,6 +3406,13 @@ body.zen-mode-enable {
     &:hover {
       @media (hover: hover) {
         background-color: rgba(var(--color-primary-600), 1);
+      }
+    }
+  }
+  .hover\:bg-primary-800 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: rgba(var(--color-primary-800), 1);
       }
     }
   }
@@ -3552,6 +3566,11 @@ body.zen-mode-enable {
       }
     }
   }
+  .focus\:z-10 {
+    &:focus {
+      z-index: 10;
+    }
+  }
   .focus\:translate-y-0 {
     &:focus {
       --tw-translate-y: calc(var(--spacing) * 0);
@@ -3576,6 +3595,22 @@ body.zen-mode-enable {
   .focus\:opacity-90 {
     &:focus {
       opacity: 90%;
+    }
+  }
+  .focus\:ring-4 {
+    &:focus {
+      --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus\:ring-neutral-200 {
+    &:focus {
+      --tw-ring-color: rgba(var(--color-neutral-200), 1);
+    }
+  }
+  .focus\:ring-primary-300 {
+    &:focus {
+      --tw-ring-color: rgba(var(--color-primary-300), 1);
     }
   }
   .focus\:ring-primary-500 {
@@ -4249,6 +4284,11 @@ body.zen-mode-enable {
       display: inline;
     }
   }
+  .rtl\:rotate-180 {
+    &:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) {
+      rotate: 180deg;
+    }
+  }
   .rtl\:border-r {
     &:where(:dir(rtl), [dir="rtl"], [dir="rtl"] *) {
       border-right-style: var(--tw-border-style);
@@ -4664,6 +4704,15 @@ body.zen-mode-enable {
       }
     }
   }
+  .dark\:hover\:bg-primary-700 {
+    &:is(.dark *) {
+      &:hover {
+        @media (hover: hover) {
+          background-color: rgba(var(--color-primary-700), 1);
+        }
+      }
+    }
+  }
   .dark\:hover\:bg-primary-900 {
     &:is(.dark *) {
       &:hover {
@@ -4740,6 +4789,20 @@ body.zen-mode-enable {
     &:is(.dark *) {
       &:focus {
         background-color: rgba(var(--color-primary-900), 1);
+      }
+    }
+  }
+  .dark\:focus\:ring-neutral-700 {
+    &:is(.dark *) {
+      &:focus {
+        --tw-ring-color: rgba(var(--color-neutral-700), 1);
+      }
+    }
+  }
+  .dark\:focus\:ring-primary-800 {
+    &:is(.dark *) {
+      &:focus {
+        --tw-ring-color: rgba(var(--color-primary-800), 1);
       }
     }
   }
