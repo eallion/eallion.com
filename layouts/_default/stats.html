@@ -49,19 +49,6 @@
 {{$categoryCounts := dict}}
 {{$totalArticles := $articleCount}}
 
-{{- $mastodon_api_url := "https://www.eallion.com/api/v1/accounts/111136231674527355/statuses" -}}
-{{- $mastodonResource := resources.GetRemote $mastodon_api_url -}}
-{{- $statusesCount := 0 -}}
-{{- with $mastodonResource -}}
-  {{- with . | transform.Unmarshal -}}
-    {{- with index . 0 -}}
-      {{- if .account -}}
-        {{- $statusesCount = .account.statuses_count -}}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-{{- $statusesCountDisplay := cond (or (not $statusesCount) (eq $statusesCount 0)) "999+" $statusesCount -}}
 
 {{ $friendsResource := resources.Get "data/friends/links.json" }}
 {{ $friends := $friendsResource | transform.Unmarshal }}
@@ -69,22 +56,47 @@
 
 {{ $neodbCountResource := resources.Get "data/neodb/movie.json" }}
 {{ $neodbCount := $neodbCountResource | transform.Unmarshal }}
+{{ $tvCount := 0 }}
+{{ $movieCount := 0 }}
+{{ $bookCount := 0 }}
+{{ range $neodbCount.data }}
+  {{ if eq .item.category "tv" }}
+    {{ $tvCount = add $tvCount 1 }}
+  {{ else if eq .item.category "movie" }}
+    {{ $movieCount = add $movieCount 1 }}
+  {{ else if eq .item.category "book" }}
+    {{ $bookCount = add $bookCount 1 }}
+  {{ end }}
+{{ end }}
 
 {{ $pentaCountResource := resources.Get "data/penta/penta.json" }}
 {{ $pentaCount := $pentaCountResource | transform.Unmarshal }}
 
-{{- $steam_web_api_url := "https://steam-web-api.eallion.com/IPlayerService/GetOwnedGames/v0001/?steamid=76561197989210276&include_appinfo=false&include_played_free_games=true&format=json" -}}
-{{/*  {{- $steam_web_apiResource := resources.Get "data/steam/steam_web_api.json" -}}  */}}
-{{- $steam_web_apiResource := resources.GetRemote $steam_web_api_url -}}
-{{- $steamCount := 0 -}}
-{{- with $steam_web_apiResource -}}
-  {{- with . | transform.Unmarshal -}}
-    {{- if .response -}}
-      {{- $steamCount = .response.game_count -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-{{- $steamCountDisplay := cond (or (not $steamCount) (eq $steamCount 0)) "99+" $steamCount -}}
+{{ $lastCommitDate := "Now" }}
+{{ $commitsUrl := "https://api.github.com/repos/eallion/eallion.com/commits?per_page=1" }}
+{{ with $commitsResource := resources.GetRemote $commitsUrl (dict "timeout" "15s") }}
+  {{ with $commitsData := $commitsResource | transform.Unmarshal }}
+    {{ with $commit := index $commitsData 0 }}
+      {{ with $date := $commit.commit.committer.date }}
+        {{ $lastCommitDate = $date }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $steamGameCount := "-" }}
+
+{{ $steamApiUrl := "https://steam-web-api.eallion.com/IPlayerService/GetOwnedGames/v0001/?steamid=76561197989210276&include_appinfo=false&include_played_free_games=true&format=json" }}
+
+{{ with $steamResource := resources.GetRemote $steamApiUrl (dict "timeout" "15s") }}
+  {{ with $steamData := $steamResource | transform.Unmarshal }}
+    {{ with $response := $steamData.response }}
+      {{ with $gameCount := $response.game_count }}
+        {{ $steamGameCount = $gameCount }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
 
 <article>
   {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
@@ -170,573 +182,1017 @@
 
       <div class="article-content max-w-full mb-20">
 
-        <div class="tailwindcss-heatmap mx-auto flex flex-col items-end max-w-fit text-[10px] leading-[12px] text-neutral-700 dark:text-neutral-400">
-          <div class="flex flex-row items-end">
+        <div class="w-full bg-neutral dark:bg-neutral-700 py-8 rounded-xl shadow-md mt-4">
+          <div class="flex flex-col md:flex-row items-center justify-center text-center pb-5 font-bold text-2xl mb-2"><span>文章热力图</span><span>Github-flavored Heatmap</span></div>
+          <div class="tailwindcss-heatmap mx-auto flex flex-col items-end max-w-fit text-[10px] leading-[12px] text-neutral-700 dark:text-neutral-400">
+            <div class="flex flex-row items-end">
 
-            <div class="flex flex-col justify-end items-end mr-1 mt-1 text-right">
-              <span>Mon</span>
-              <span>&nbsp;</span>
-              <span>Wed</span>
-              <span>&nbsp;</span>
-              <span>Fri</span>
-              <span>&nbsp;</span>
-              <span>Sun</span>
+              <div class="flex flex-col justify-end items-end mr-1 mt-1 text-right">
+                <span>Mon</span>
+                <span>&nbsp;</span>
+                <span>Wed</span>
+                <span>&nbsp;</span>
+                <span>Fri</span>
+                <span>&nbsp;</span>
+                <span>Sun</span>
+              </div>
+
+                <div class="heatmap">
+                  <div class="month mb-1 flex justify-around">
+                  <span class="hide_by_js">Jan</span><span class="hide_by_js">Feb</span><span class="hide_by_js">Mar</span><span class="hide_by_js">Apr</span><span class="hide_by_js">May</span><span class="hide_by_js">Jun</span><span class="hide_by_js">Jul</span><span class="hide_by_js">Aug</span><span class="hide_by_js">Sep</span><span class="hide_by_js">Oct</span><span class="hide_by_js">Nov</span><span class="hide_by_js">Dec</span>
+                  </div>
+                  <div class="h-[84px]">
+                    <div id="heatmap" class="flex flex-row">
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_1"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    <div class="heatmap_week hide_by_js">
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                      <div class="heatmap_day heatmap_day_level_0"></div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
             </div>
 
-            <div class="heatmap">
-              <div class="month mb-1 flex justify-around">
-              <span class="hide_by_js">Jan</span><span class="hide_by_js">Feb</span><span class="hide_by_js">Mar</span><span class="hide_by_js">Apr</span><span class="hide_by_js">May</span><span class="hide_by_js">Jun</span><span class="hide_by_js">Jul</span><span class="hide_by_js">Aug</span><span class="hide_by_js">Sep</span><span class="hide_by_js">Oct</span><span class="hide_by_js">Nov</span><span class="hide_by_js">Dec</span>
+            <div class="flex mt-2 items-center">
+              <span class="">{{ T `heatmap_less` | safeHTML }}</span>
+              <div class="flex flex-row items-center gap-[2px] w-max h-[10px] mx-1">
+                <span class="block w-[10px] h-[10px] rounded-sm bg-[#ebedf0] dark:bg-[#161b22]"></span>
+                <span class="block w-[10px] h-[10px] rounded-sm bg-[#9be9a8] dark:bg-[#0e4429]"></span>
+                <span class="block w-[10px] h-[10px] rounded-sm bg-[#40c463] dark:bg-[#006d32]"></span>
+                <span class="block w-[10px] h-[10px] rounded-sm bg-[#30a14e] dark:bg-[#26a641]"></span>
+                <span class="block w-[10px] h-[10px] rounded-sm bg-[#216e39] dark:bg-[#39d353]"></span>
               </div>
-              <div class="h-[84px]">
-                <div id="heatmap" class="flex flex-row">
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_1"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                <div class="heatmap_week hide_by_js">
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                  <div class="heatmap_day heatmap_day_level_0"></div>
-                </div>
-                </div>
-              </div>
+              <span class="">{{ T `heatmap_more` | safeHTML }}</span>
             </div>
 
           </div>
+        </div>
 
-          <div class="flex mt-2 items-center">
-            <span class="">{{ T `heatmap_less` | safeHTML }}</span>
-            <div class="flex flex-row items-center gap-[2px] w-max h-[10px] mx-1">
-              <span class="block w-[10px] h-[10px] rounded-sm bg-[#ebedf0] dark:bg-[#161b22]"></span>
-              <span class="block w-[10px] h-[10px] rounded-sm bg-[#9be9a8] dark:bg-[#0e4429]"></span>
-              <span class="block w-[10px] h-[10px] rounded-sm bg-[#40c463] dark:bg-[#006d32]"></span>
-              <span class="block w-[10px] h-[10px] rounded-sm bg-[#30a14e] dark:bg-[#26a641]"></span>
-              <span class="block w-[10px] h-[10px] rounded-sm bg-[#216e39] dark:bg-[#39d353]"></span>
+        <div class="year-progress w-full bg-neutral dark:bg-neutral-700 py-8 rounded-xl shadow-md my-10">
+          <div class="flex flex-col items-center">
+          <div class="flex flex-col md:flex-row items-center justify-center text-center pb-5 font-bold text-2xl mb-2"><span><span id="year-emoji"></span>年度进度</span><span class="hidden md:inline ml-1.5">/</span><span><span id="current_year"></span>年已过去<span id="year_progress"></span></span></div>
+            <div class="w-full max-w-11/12 h-3 bg-neutral-200 dark:bg-neutral-600 rounded-full overflow-hidden">
+              <div id="year-progress-bar" class="h-full bg-primary-500 rounded-full" style="width: 0%"></div>
             </div>
-            <span class="">{{ T `heatmap_more` | safeHTML }}</span>
           </div>
-
         </div>
 
-        <div class="blog_status">
-          <ul>
-            <li>{{ T `stats_year_progress` | safeHTML }}<strong><a href="/go/?target=aHR0cHM6Ly90d2l0dGVyLmNvbS95ZWFyX3Byb2dyZXNz" target="_blank" rel="noopener noreferrer" aria-label="current_year"><span id="current_year"></span></a></strong> {{ T `stats_year_progress_suffix` | safeHTML }} <a href="/go/?target=aHR0cHM6Ly90d2l0dGVyLmNvbS95ZWFyX3Byb2dyZXNz" target="_blank" rel="noopener noreferrer" aria-label="current_year"><span id="year_progress"></span></a></li>
-            <li class="group relative w-max">{{ T `stats_blog_online` | safeHTML }}<strong><a><span id="stats_blog_online_year"></span></a></strong> {{ T `stats_blog_online_year` | safeHTML }} <strong><a><span id="stats_blog_online_month"></span></a></strong> {{ T `stats_blog_online_month` | safeHTML }} <strong><a><span id="stats_blog_online_day"></span></a></strong> {{ T `stats_blog_online_day` | safeHTML }} <strong><a><span id="stats_blog_online_hour"></span></a></strong> {{ T `stats_blog_online_hour` | safeHTML }}<span class="pointer-events-none absolute -top-8 right-0 w-max rounded bg-neutral-700 px-2 py-2 text-sm font-medium text-neutral-50 opacity-0 shadow transition-opacity group-hover:opacity-100">Since: Mar 26, 2010. 14:41:14</span></li>
-            <li>{{ T `stats_blogs` | safeHTML }}<strong><a href="/blog/">{{- $articleCount -}}</a></strong> {{ T `stats_blogs_suffix` | safeHTML }}</li>
-            <li>{{ T `stats_pages` | safeHTML }}<strong><a href="/stats/">{{- $pageCount -}}</a></strong> {{ T `stats_pages_suffix` | safeHTML }}</li>
-            <li>{{ T `stats_authors` | safeHTML }}<strong><a href="/authors/">2 </a></strong> {{ T `stats_authors_suffix` | safeHTML }}</li>
-            <li>{{ T `stats_categories` | safeHTML }}<strong><a href="/categories/">{{- $categoryCount -}}</a></strong> {{ T `stats_categories_suffix` | safeHTML }}</li>
-            <li>{{ T `stats_series` | safeHTML }}<strong><a href="/series/">3 </a></strong> {{ T `stats_series_suffix` | safeHTML }}</li>
-            <li>{{ T `stats_tags` | safeHTML }}<strong><a href="/tags/">{{- $tagCount -}}</a></strong> {{ T `stats_tags_suffix` | safeHTML }}</li>
-            <li>{{ T `stats_links` | safeHTML }}<strong><a href="/links/">{{- $linkCount -}}</a></strong> {{ T `stats_links_suffix` | safeHTML }}</li>
-            <li>{{ T `stats_wordcount` | safeHTML }}<strong><a href="/stats/">{{- $totalWords -}}</a></strong> {{ T `stats_wordcount_suffix` | safeHTML }}</li>
-            <li>{{ T `stats_mastodon` | safeHTML }}<strong><a href="/mastodon/">{{- $statusesCountDisplay -}}</a></strong> {{ T `stats_mastodon_suffix` | safeHTML }}</li>
-            <li>{{ T `stats_neodb` | safeHTML }}<strong><a href="/media/">{{- $neodbCount.count -}}</a></strong> {{ T `stats_neodb_suffix` | safeHTML }}</li>
-            <li>{{ T `stats_steam` | safeHTML }}<strong><a href="https://steamcommunity.com/id/eallion">{{- $steamCountDisplay -}}</a></strong> {{ T `stats_steam_suffix` | safeHTML }}</li>
-            <li>{{ T `stats_penta` | safeHTML }}<strong><a href="/penta/">{{- len $pentaCount.penta -}}</a></strong> {{ T `stats_penta_suffix` | safeHTML }}</li>
-            <li>{{ T `stats_views` | safeHTML }}<a>99<sup>+</sup></a> {{ T `stats_views_suffix` | safeHTML }}</li>
-            <li>{{ T `stats_comments` | safeHTML }}<a>99<sup>+</sup></a>{{ T `stats_comments_suffix` | safeHTML }}</li>
-          </ul>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-10">
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            <div class="flex justify-between mt-0 mb-0">
+              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">文章</h3>
+              <div
+                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
+                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 20 20"><path fill="currentColor" d="M13 0a2 2 0 0 1 2 2H6a2 2 0 0 0-2 2v12a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/><path fill="currentColor" d="M18 5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2zm-7 5H7V5h4zm5-4h-4V5h4zm0 2h-4V7h4zm0 2h-4V9h4zm0 2H7v-1h9zm0 2H7v-1h9zm0 2H7v-1h9z"/></svg></span></div>
+            </div>
+            <div class="flex items-end justify-between">
+              <div class="text-3xl font-bold text-neutral-900 dark:text-white">{{- lang.FormatNumber 0 (default 0 $articleCount) -}}</div>
+            </div>
+          </div>
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            <div class="flex justify-between mb-0">
+              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">页面</h3>
+              <div
+                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
+                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"><path d="M36.91 3.486c2.546.223 4.45 2.212 4.627 4.762c.225 3.227.463 8.38.463 15.752s-.238 12.525-.463 15.752c-.177 2.55-2.081 4.539-4.627 4.762C34.12 44.76 29.885 45 24 45s-10.121-.24-12.91-.486c-2.546-.223-4.45-2.212-4.627-4.762C6.238 36.525 6 31.372 6 24s.238-12.525.463-15.752c.177-2.55 2.081-4.539 4.627-4.762C13.88 3.24 18.115 3 24 3s10.121.24 12.91.486M42 24H6"/><path d="M41.45 40.418c-4.077-4.07-6.887-6.31-8.644-7.521c-1.42-.98-3.172-.82-4.495.29c-1.543 1.293-4.03 3.531-7.811 7.313a183 183 0 0 0-4.217 4.345M18 33a3 3 0 1 1-6 0a3 3 0 0 1 6 0m-5-16h22m-22-6.5h12"/></g></svg></span></div>
+            </div>
+            <div class="flex items-end justify-between">
+              <div class="text-3xl font-bold text-neutral-900 dark:text-white">{{- $pageCount | default 0 -}}</div>
+            </div>
+          </div>
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            <div class="flex justify-between mb-0">
+              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">作者</h3>
+              <div
+                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
+                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5a2.5 2.5 0 1 0 0 5a2.5 2.5 0 0 0 0-5M4 8a4 4 0 1 1 8 0a4 4 0 0 1-8 0m13-.5a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3M14 9a3 3 0 1 1 6 0a3 3 0 0 1-6 0M2 16.25A2.25 2.25 0 0 1 4.25 14h7.5A2.25 2.25 0 0 1 14 16.25v.106l-1.509 1.509a3.7 3.7 0 0 0-.97 1.712l-.194.779C10.485 20.75 9.397 21 8 21c-2.828 0-4.39-1.025-5.208-2.195a4.5 4.5 0 0 1-.778-2.07A3 3 0 0 1 2 16.529v-.278m1.5.245v.012l.007.08c.007.074.023.188.055.329c.066.281.198.656.459 1.029C4.514 18.65 5.578 19.5 8 19.5s3.486-.85 3.98-1.555a3 3 0 0 0 .513-1.358l.006-.08l.001-.012v-.245a.75.75 0 0 0-.75-.75h-7.5a.75.75 0 0 0-.75.75zm15.6-3.826l-5.903 5.903a2.7 2.7 0 0 0-.706 1.247l-.458 1.831a1.087 1.087 0 0 0 1.319 1.318l1.83-.457a2.7 2.7 0 0 0 1.248-.707l5.902-5.902A2.286 2.286 0 0 0 19.1 12.67"/></svg></span></div>
+            </div>
+            <div class="flex items-end justify-between">
+              <div class="text-3xl font-bold text-neutral-900 dark:text-white">4</div>
+            </div>
+          </div>
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            <div class="flex justify-between mb-0">
+              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">分类列表</h3>
+              <div
+                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
+                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 24 24"><path fill="currentColor" d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1m10 0h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1M10 13H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1m7 0a4 4 0 1 1-3.995 4.2L13 17l.005-.2A4 4 0 0 1 17 13"/></svg></span></div>
+            </div>
+            <div class="flex items-end justify-between">
+              <div class="text-3xl font-bold text-neutral-900 dark:text-white">{{- $categoryCount | default 0 -}}</div>
+            </div>
+          </div>
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            <div class="flex justify-between mb-0">
+              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">系列文章</h3>
+              <div
+                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
+                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 20 20"><path fill="currentColor" d="M13.981 2H6.018s-.996 0-.996 1h9.955c0-1-.996-1-.996-1m2.987 3c0-1-.995-1-.995-1H4.027s-.995 0-.995 1v1h13.936zm1.99 1l-.588-.592V7H1.63V5.408L1.041 6C.452 6.592.03 6.75.267 8c.236 1.246 1.379 8.076 1.549 9c.186 1.014 1.217 1 1.217 1h13.936s1.03.014 1.217-1c.17-.924 1.312-7.754 1.549-9c.235-1.25-.187-1.408-.777-2M14 11.997c0 .554-.449 1.003-1.003 1.003H7.003A1.003 1.003 0 0 1 6 11.997V10h1v2h6v-2h1z"/></svg></span></div>
+            </div>
+            <div class="flex items-end justify-between">
+              <div class="text-3xl font-bold text-neutral-900 dark:text-white">3</div>
+            </div>
+          </div>
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            <div class="flex justify-between mb-0">
+              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">标签</h3>
+              <div
+                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
+                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M13.172 2a2 2 0 0 1 1.414.586l6.71 6.71a2.4 2.4 0 0 1 0 3.408l-4.592 4.592a2.4 2.4 0 0 1-3.408 0l-6.71-6.71A2 2 0 0 1 6 9.172V3a1 1 0 0 1 1-1zM2 7v6.172a2 2 0 0 0 .586 1.414l6.71 6.71a2.4 2.4 0 0 0 3.191.193"/><circle cx="10.5" cy="6.5" r=".5" fill="currentColor"/></g></svg></span></div>
+            </div>
+            <div class="flex items-end justify-between">
+              <div class="text-3xl font-bold text-neutral-900 dark:text-white">{{- lang.FormatNumber 0 (default 0 $tagCount) -}}</div>
+            </div>
+          </div>
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            <div class="flex justify-between mb-0">
+              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">友情链接</h3>
+              <div
+                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
+                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.5rem" viewBox="0 0 1792 1536"><path fill="currentColor" d="M1792 1120v320q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h96V832H960v192h96q40 0 68 28t28 68v320q0 40-28 68t-68 28H736q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h96V832H320v192h96q40 0 68 28t28 68v320q0 40-28 68t-68 28H96q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h96V832q0-52 38-90t90-38h512V512h-96q-40 0-68-28t-28-68V96q0-40 28-68t68-28h320q40 0 68 28t28 68v320q0 40-28 68t-68 28h-96v192h512q52 0 90 38t38 90v192h96q40 0 68 28t28 68"/></svg></span></div>
+            </div>
+            <div class="flex items-end justify-between">
+              <div class="text-3xl font-bold text-neutral-900 dark:text-white">{{- $linkCount | default 0 -}}</div>
+            </div>
+          </div>
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            <div class="flex justify-between mb-0">
+              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">博客字数</h3>
+              <div
+                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
+                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 256 256"><path fill="currentColor" d="M200 24H72a16 16 0 0 0-16 16v24H40a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h16v24a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16V40a16 16 0 0 0-16-16m-40 80h40v48h-40ZM72 40h128v48h-40v-8a16 16 0 0 0-16-16H72ZM40 80h104v96H40Zm32 136v-24h72a16 16 0 0 0 16-16v-8h40v48Zm-3.76-62.06l-12-48a8 8 0 1 1 15.52-3.88l6.76 27l6.32-12.66a8 8 0 0 1 14.32 0l6.32 12.66l6.76-27a8 8 0 0 1 15.52 3.88l-12 48a8 8 0 0 1-6.89 6a9 9 0 0 1-.87.05a8 8 0 0 1-7.16-4.42L92 137.89l-8.84 17.69a8 8 0 0 1-14.92-1.64"/></svg></span></div>
+            </div>
+            <div class="flex items-end justify-between">
+              <div class="text-3xl font-bold text-neutral-900 dark:text-white">{{- lang.FormatNumber 0 (default 0 $totalWords) -}}</div>
+            </div>
+          </div>
         </div>
 
-        <h3 id="{{ T `stats_annual_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_annual_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_annual_header` | safeHTML }}</h3>
+        <div class="stats-cards grid grid-cols-1 md:grid-cols-3 gap-4 my-20">
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
+            <div class="h-32 relative">
+              <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900"></div>
+              <div class="absolute inset-0 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 128 128"><path fill="#ff4088" d="m71.2 8.5l36.7 21.3c4.3 2.5 7 7.2 7 12.2v43.7c0 5.6-3 10.7-7.8 13.4l-36.4 20.5c-4.8 2.7-10.7 2.7-15.5-.1l-33.5-19.3c-5.3-3-8.5-8.6-8.5-14.7V44.1c0-6.1 3.2-11.8 8.4-15L54.4 8.8c5.1-3.2 11.6-3.3 16.8-.3"/><path fill="#c9177e" d="M63 126c-3.5 0-6.9-.9-10-2.7L19.5 104c-6.6-3.8-10.7-10.9-10.7-18.5V44.1c0-7.7 3.9-14.6 10.4-18.7L52.1 5.1c6.5-4 14.6-4.1 21.2-.3L110 26.1c5.7 3.3 9.2 9.4 9.2 15.9v43.7c0 7.1-3.8 13.7-10 17.2l-36.4 20.5c-3 1.7-6.4 2.6-9.8 2.6m0-115.3c-2.2 0-4.4.6-6.3 1.8l-33 20.3c-4 2.4-6.3 6.7-6.3 11.3v41.5c0 4.5 2.4 8.7 6.3 11l33.5 19.3c3.5 2 7.8 2 11.3.1l36.4-20.5c3.5-2 5.6-5.6 5.6-9.6V42.1c0-3.5-1.9-6.7-4.9-8.5L69 12.3c-1.8-1.1-3.9-1.6-6-1.6"/><path fill="#fff" d="M38.6 96.9V30.5h13.9v24.2h23V30.5h13.9v66.4H75.5v-29h-23v29z"/></svg>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-10"></div>
+              <div class="absolute bottom-3 left-4">
+                <h3 class="text-xl font-bold text-neutral">Analytics</h3>
+                <p class="text-sm text-neutral-200"></p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-1 hover:line-clamp-none overflow-x-hidden">已停止使用网站统计工具。</p>
+              <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
+                <div class="max-w-3/12 overflow-ellipsis text-left">
+                  <div class="text-xs text-neutral-500 dark:text-neutral-400">浏览量</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span class="line-through decoration-2">&nbsp;999&nbsp;</span><sup>+</sup></div>
+                </div>
+                <div class="max-w-3/12overflow-ellipsis text-center">
+                  <div class="text-xs text-neutral-500 dark:text-neutral-400">评论数</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span class="line-through decoration-2">&nbsp;999&nbsp;</span><sup>+</sup></div>
+                </div>
+                <div class="max-w-6/12 overflow-ellipsis text-right">
+                  <div class="text-xs text-neutral-500 dark:text-neutral-400">博客年龄</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span id="stats_blog_online_year"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
+            <div class="h-32 relative">
+              <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900"></div>
+              <div class="absolute inset-0 flex items-center justify-center"><svg width="75" height="79" viewBox="0 0 75 79" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M73.8393 17.4898C72.6973 9.00165 65.2994 2.31235 56.5296 1.01614C55.05 0.797115 49.4441 0 36.4582 0H36.3612C23.3717 0 20.585 0.797115 19.1054 1.01614C10.5798 2.27644 2.79399 8.28712 0.904997 16.8758C-0.00358524 21.1056 -0.100549 25.7949 0.0682394 30.0965C0.308852 36.2651 0.355538 42.423 0.91577 48.5665C1.30307 52.6474 1.97872 56.6957 2.93763 60.6812C4.73325 68.042 12.0019 74.1676 19.1233 76.6666C26.7478 79.2728 34.9474 79.7055 42.8039 77.9162C43.6682 77.7151 44.5217 77.4817 45.3645 77.216C47.275 76.6092 49.5123 75.9305 51.1571 74.7385C51.1797 74.7217 51.1982 74.7001 51.2112 74.6753C51.2243 74.6504 51.2316 74.6229 51.2325 74.5948V68.6416C51.2321 68.6154 51.2259 68.5896 51.2142 68.5661C51.2025 68.5426 51.1858 68.522 51.1651 68.5058C51.1444 68.4896 51.1204 68.4783 51.0948 68.4726C51.0692 68.4669 51.0426 68.467 51.0171 68.4729C45.9835 69.675 40.8254 70.2777 35.6502 70.2682C26.7439 70.2682 24.3486 66.042 23.6626 64.2826C23.1113 62.762 22.7612 61.1759 22.6212 59.5646C22.6197 59.5375 22.6247 59.5105 22.6357 59.4857C22.6466 59.4609 22.6633 59.4391 22.6843 59.422C22.7053 59.4048 22.73 59.3929 22.7565 59.3871C22.783 59.3813 22.8104 59.3818 22.8367 59.3886C27.7864 60.5826 32.8604 61.1853 37.9522 61.1839C39.1768 61.1839 40.3978 61.1839 41.6224 61.1516C46.7435 61.008 52.1411 60.7459 57.1796 59.7621C57.3053 59.7369 57.431 59.7154 57.5387 59.6831C65.4861 58.157 73.0493 53.3672 73.8178 41.2381C73.8465 40.7606 73.9184 36.2364 73.9184 35.7409C73.9219 34.0569 74.4606 23.7949 73.8393 17.4898Z" fill="url(#paint0_linear_549_34)"/><path d="M61.2484 27.0263V48.114H52.8916V27.6475C52.8916 23.3388 51.096 21.1413 47.4437 21.1413C43.4287 21.1413 41.4177 23.7409 41.4177 28.8755V40.0782H33.1111V28.8755C33.1111 23.7409 31.0965 21.1413 27.0815 21.1413C23.4507 21.1413 21.6371 23.3388 21.6371 27.6475V48.114H13.2839V27.0263C13.2839 22.7176 14.384 19.2946 16.5843 16.7572C18.8539 14.2258 21.8311 12.926 25.5264 12.926C29.8036 12.926 33.0357 14.5705 35.1905 17.8559L37.2698 21.346L39.3527 17.8559C41.5074 14.5705 44.7395 12.926 49.0095 12.926C52.7013 12.926 55.6784 14.2258 57.9553 16.7572C60.1531 19.2922 61.2508 22.7152 61.2484 27.0263Z" fill="white"/><defs><linearGradient id="paint0_linear_549_34" x1="37.0692" y1="0" x2="37.0692" y2="79" gradientUnits="userSpaceOnUse"><stop stop-color="#6364FF"/><stop offset="1" stop-color="#563ACC"/></linearGradient></defs></svg></div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-10"></div>
+              <div class="absolute bottom-3 left-4">
+                <h3 class="text-xl font-bold text-neutral">Mastodon</h3>
+                <p class="text-sm text-neutral-200"></p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-1 hover:line-clamp-none overflow-x-hidden">免费、开源的去中心化社交媒体平台。<a href="https://e5n.cc/@eallion" rel="noopener noreferrer" target="_blank">@eallion@e5n.cc</a></p>
+              <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
+                <div class="max-w-1/3 overflow-ellipsis text-left">
+                  <div class="text-xs text-neutral-500 dark:text-neutral-400">关注者</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span id="mastodon-followers">-1</span></div>
+                </div>
+                <div class="max-w-1/3 overflow-ellipsis text-center">
+                  <div class="text-xs text-neutral-500 dark:text-neutral-400">正在关注</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span id="mastodon-following">-</span></div>
+                </div>
+                <div class="max-w-1/3 overflow-ellipsis text-right">
+                  <div class="text-xs text-neutral-500 dark:text-neutral-400">嘟文</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span id="mastodon-statuses">-</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
+            <div class="h-32 relative">
+              <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900"></div>
+              <div class="absolute inset-0 flex items-center justify-center"><svg width="64" height="64"
+                  viewBox="0 0 107.60636 107.60636" data-svgdocument="" x="0" y="0" version="1.1" sodipodi:docname="logo.svg"
+                  inkscape:version="1.1 (c4e8f9e, 2021-05-24)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:svg="http://www.w3.org/2000/svg">
+                  <defs id="_SabXoCmWUJmxvMwSINRGH"
+                    transform="matrix(1.1728515134752755, 0, 0, 1.1728515134752755, -34.46172819025348, -40.976997984526726)">
+                    <rect x="86.353256" y="25.158035" width="217.58301" height="60.515274" id="rect4965" />
+                  </defs>
+                  <g id="_WTrHMt3eZfxcQKrYJirRK" transform="matrix(0.95294163,0,0,0.95294163,-45.741197,-190.14988)">
+                    <path id="_1MYZsbAYvxe5D-50H3pho" fill="#000000" transform="matrix(1.2602785,0,0,1.2602785,27.519653,192.79657)"
+                      data-type="polygon" d="M 82.1,74 75,81.1 v 0 L 82.1,74 74,65.9 v 0 z" />
+                    <path id="_oL3QJlwkbW1Nmdh3qAlDC" fill="#000000" transform="matrix(1.2602785,0,0,1.2602785,27.45702,193.17499)"
+                      data-type="rect" data-x="64.5" data-y="51.5" data-width="0" data-height="9.8" d="M 64.5,51.5" />
+                    <path id="_sK1htog-8Op55rgRI5hDg"
+                      d="m 61.1,52.9 v 0 0 l -4.9,4.9 c 2.5,1.2 4.3,3.8 4.3,6.9 0,4.2 -3.4,7.6 -7.6,7.6 -3,0 -5.6,-1.8 -6.9,-4.3 L 40.1,73.9 40,74 61,95 69.1,86.9 v 0 c -3.2,0 -5.9,-2.6 -5.9,-5.9 0,-3.3 2.6,-5.9 5.9,-5.9 3.2,0 5.9,2.6 5.9,5.9 l 7.1,-7.1 -8.1,-8 v 0 l -0.6,-0.6 c 0.1,0 0.3,0 0.4,0 3.2,0 5.9,-2.6 5.9,-5.9 0,-1.5 -0.6,-2.8 -1.5,-3.9 -1,-0.9 -2.4,-1.5 -3.9,-1.5 -3.2,0 -5.9,2.6 -5.9,5.9 0,0.1 0,0.3 0,0.4 L 68,59.9 v 0 z"
+                      fill="#083b66" transform="matrix(1.2602785,0,0,1.2602785,27.51993,192.73364)" style="fill:#ffb380" />
+                    <path id="_OMWHsyuaoclMfPE9tvM7V"
+                      d="m 46.5,49.5 c -4.2,0 -7.6,-3.4 -7.6,-7.6 0,-3 1.7,-5.6 4.2,-6.8 l -5.9,-5.9 v 0 l -21,21 22.2,22.2 9.5,-9.5 c -0.3,0.6 -0.4,1.3 -0.4,2 0,2.9 2.4,5.3 5.3,5.3 2.9,0 5.3,-2.4 5.3,-5.3 0,-2.9 -2.4,-5.3 -5.3,-5.3 -0.7,0 -1.4,0.1 -2,0.4 l 8.6,-8.6 -6,-6 c -1.3,2.3 -3.9,4.1 -6.9,4.1 z"
+                      fill="#8dcaff" transform="matrix(1.2602785,0,0,1.2602785,27.583487,192.79709)" />
+                    <path id="_jAk8zpl6O80_21e1JT4hk"
+                      d="m 83.3,27.4 -8.7,-8.7 c 0.1,0 0.3,0 0.4,0 3.2,0 5.9,-2.6 5.9,-5.9 C 80.9,9.6 78.3,7 75,7 c -3.2,0 -5.9,2.6 -5.9,5.9 0,0.1 0,0.3 0,0.4 L 61,5.2 l -21,21 -0.7,0.8 -0.4,0.4 9.5,9.5 c -0.6,-0.2 -1.2,-0.3 -1.8,-0.3 -2.9,0 -5.3,2.4 -5.3,5.3 0,2.9 2.4,5.3 5.3,5.3 2.9,0 5.3,-2.4 5.3,-5.3 0,-0.5 -0.1,-0.9 -0.2,-1.4 0,-0.2 -0.1,-0.3 -0.1,-0.5 l 0.5,0.5 9.2,9.2 0.4,-0.4 0.8,-0.8 6.8,-6.8 c 0,0 0,0 0,0 -3.2,0 -5.9,-2.6 -5.9,-5.9 0,-3.3 2.6,-5.9 5.9,-5.9 3.2,0 5.9,2.6 5.9,5.9 0,0 0,0 0,0 z"
+                      fill="#c0d9b4" transform="matrix(1.2602785,0,0,1.2602785,27.709267,192.98645)" />
+                    <path id="_GDSYpBtYoW2GJpRZoPCot" fill="#000000" transform="matrix(1.2602785,0,0,1.2602785,27.456932,192.67065)"
+                      data-type="rect" data-x="61.1" data-y="52.9" data-width="0" data-height="0" d="M 61.1,52.9" />
+                    <path id="_NldltLD5fZQlQrgFsakaC" fill="#000000" transform="matrix(1.2602785,0,0,1.2602785,27.456932,192.67065)"
+                      data-type="rect" data-x="61.1" data-y="52.9" data-width="0" data-height="0" d="M 61.1,52.9" />
+                    <path id="_TbX_b0jxU8J0Cb3YWVDy6" d="m 51.6,40.5 h 0.3 L 51.5,40 c 0,0.1 0,0.3 0.1,0.5 z" fill="#000000"
+                      transform="matrix(1.2602785,0,0,1.2602785,27.708767,192.98587)" />
+                  </g>
+                </svg>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-10"></div>
+              <div class="absolute bottom-3 left-4">
+                <h3 class="text-xl font-bold text-neutral">NeoDB</h3>
+                <p class="text-sm text-neutral-200"></p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-1 hover:line-clamp-none overflow-x-hidden">NeoDB 致力于提供一个涵盖书籍、影视、音乐、游戏、播客的自由开放互联的收藏评论空间。你可以在这里管理收藏、记录想法，以及发现新的内容和朋友。</p>
+              <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
+                <div class="max-w-1/3 overflow-ellipsis text-left">
+                  <div class="text-xs text-neutral-500 dark:text-neutral-400">电影</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{- $movieCount -}}</div>
+                </div>
+                <div class="max-w-1/3 overflow-ellipsis text-center">
+                  <div class="text-xs text-neutral-500 dark:text-neutral-400">电视剧</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{- $tvCount -}}</div>
+                </div>
+                <div class="max-w-1/3 overflow-ellipsis text-right">
+                  <div class="text-xs text-neutral-500 dark:text-neutral-400">阅读</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{- $bookCount -}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
+            <div class="h-32 relative">
+              <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900"></div>
+              <div class="absolute inset-0 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24"><path fill="#fff" d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-10"></div>
+              <div class="absolute bottom-3 left-4">
+                <h3 class="text-xl font-bold text-neutral">GitHub</h3>
+                <p class="text-sm text-neutral-200"></p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-1 hover:line-clamp-none overflow-x-hidden">Build and ship software on a single, collaborative platform.</p>
+              <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
+                <div class="max-w-2/5 overflow-ellipsis text-left">
+                  <div class="text-xs text-neutral-500 dark:text-neutral-400">Last Commit</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span id="last-commit-date" data-date="{{ $lastCommitDate }}">-</span></div>
+                </div>
+                <div class="max-w-3/5 overflow-ellipsis text-center">
+                  <button type="button" onclick="window.open('https://github.com/eallion/eallion.com', '_blank')" class="text-neutral-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    <a href="https://github.com/eallion/eallion.com" target="_blank" rel="noopener noreferrer" class="text-neutral-300 hover:text-neutral">View Details</a>
+                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
+            <div class="h-32 relative">
+              <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900"></div>
+              <div class="absolute inset-0 flex items-center justify-center"><svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 512 512"><symbol id="b" viewBox="-32 -32 64 64"><linearGradient id="a" x1="7762.648" x2="7762.648" y1="-8454.313" y2="-8453.313" gradientTransform="matrix(63.931 0 0 64 -496273.844 541044)" gradientUnits="userSpaceOnUse"><stop offset="0" style="stop-color:#111d2e"/><stop offset=".212" style="stop-color:#051839"/><stop offset=".407" style="stop-color:#0a1b48"/><stop offset=".581" style="stop-color:#132e62"/><stop offset=".738" style="stop-color:#144b7e"/><stop offset=".873" style="stop-color:#136497"/><stop offset="1" style="stop-color:#1387b8"/></linearGradient><path d="M-30.7 9.2C-26.7 22.4-14.5 32 0 32c17.7 0 32-14.3 32-32S17.7-32 0-32c-17 0-30.9 13.2-32 29.9 2.1 3.5 2.9 5.6 1.3 11.3" style="fill:url(#a)"/><path d="M-1.7-8v.2L-9.5 3.5c-1.3-.1-2.5.2-3.7.7-.5.2-1 .5-1.5.8l-17.2-7.1s-.4 6.5 1.3 11.4l12.2 5c.6 2.7 2.5 5.1 5.2 6.3 4.5 1.9 9.7-.3 11.6-4.8.5-1.2.7-2.4.7-3.7l11.2-8h.3c6.7 0 12.2-5.5 12.2-12.2s-5.4-12.2-12.2-12.2C3.8-20.2-1.7-14.7-1.7-8m-1.8 23c-1.5 3.5-5.5 5.1-9 3.7-1.5-.7-2.8-1.8-3.5-3.4l4 1.6c2.6 1.1 5.5-.1 6.6-2.7s-.1-5.5-2.7-6.6L-12.3 6c1.6-.6 3.4-.6 5 .1 1.7.7 3 2 3.7 3.7s.7 3.5.1 5.2M10.5.1C6 .1 2.4-3.5 2.4-8s3.6-8.1 8.1-8.1 8.1 3.6 8.1 8.1S15 .1 10.5.1M4.4-8c0-3.4 2.7-6.1 6.1-6.1s6.1 2.7 6.1 6.1-2.7 6.1-6.1 6.1S4.4-4.7 4.4-8" style="fill:#fff"/></symbol><use xlink:href="#b" width="64" height="64" x="-32" y="-32" style="overflow:visible" transform="matrix(8 0 0 8 256 256)"/></svg>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-10"></div>
+              <div class="absolute bottom-3 left-4">
+                <h3 class="text-xl font-bold text-neutral">Steam</h3>
+                <p class="text-sm text-neutral-200"></p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-1 hover:line-clamp-none overflow-x-hidden">Steam 是畅玩游戏、讨论游戏、创造游戏的快乐所在。</p>
+              <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
+                <div class="max-w-2/5 overflow-ellipsis text-left">
+                  <div class="text-xs text-neutral-500 dark:text-neutral-400">游戏库</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span>{{ $steamGameCount }}</span></div>
+                </div>
+                <div class="max-w-3/5 overflow-ellipsis text-center">
+                  <button type="button" onclick="window.open('https://steamcommunity.com/id/eallion', '_blank')" class="text-neutral-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                  <a href="https://steamcommunity.com/id/eallion" target="_blank" rel="noopener noreferrer" class="text-neutral-300 hover:text-neutral">View Details</a>
+                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
+            <div class="h-32 relative">
+              <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900"></div>
+              <div class="absolute inset-0 flex items-center justify-center"><svg width="64" height="64" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 341.20001 363.94666" height="363.94666" width="341.20001" xml:space="preserve" id="svg2" version="1.1"><defs id="defs6" /><g transform="matrix(1.3333333,0,0,-1.3333333,0,363.94667)" id="g10"><g transform="scale(0.1)" id="g12"><path id="path14" style="fill:#c29739;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 154.094,1897.88 C 55.8789,1719.89 0,1516 0,1299.28 0,1082.49 55.8789,878.48 154.094,700.371 V 1897.88" /><path id="path16" style="fill:#c29739;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 1279.52,2557.1 c -103.84,0 -204.55,-12.53 -301.227,-35.36 v -197.92 c 95.677,26.96 196.617,41.75 301.227,41.75 598.96,0 1084.55,-475.85 1084.55,-1063.1 0,-264.44 -98.74,-506.298 -261.72,-692.22 l -30.87,-108.559 -68.59,-240.082 c 335.88,226.59 556.32,606.7 556.32,1037.431 -0.23,694.92 -573.11,1258.06 -1279.69,1258.06" /><path id="path18" style="fill:#c29739;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 978.293,646.449 H 1981.12 c 166.06,170.66 268.35,401.631 268.35,656.021 0,525.1 -434.26,950.68 -969.95,950.68 -105.19,0 -206.31,-16.73 -301.227,-46.95 V 646.449" /><path id="path20" style="fill:#c29739;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 862.273,2729.59 H 132.227 l 137.89,-281.36 V 281.238 L 132.227,0 H 1807.75 l 151.86,532.43 H 862.273 v 2197.16" /></g></g></svg>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-10"></div>
+              <div class="absolute bottom-3 left-4">
+                <h3 class="text-xl font-bold text-neutral">LOL Penta</h3>
+                <p class="text-sm text-neutral-200"></p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-1 hover:line-clamp-none overflow-x-hidden">英雄联盟五杀靠的是 99% 的技术和 1% 的运气，但运气才是决定性的。</p>
+              <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
+                <div class="max-w-2/5 overflow-ellipsis text-left">
+                  <div class="text-xs text-neutral-500 dark:text-neutral-400">五杀截图</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{- len $pentaCount.penta | default 0 -}}</div>
+                </div>
+                <div class="max-w-3/5 overflow-ellipsis text-center">
+                  <button type="button" onclick="window.open('/penta', '_blank')" class="text-neutral-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                  <a href="/penta" target="_blank" rel="noopener noreferrer" class="text-neutral-300 hover:text-neutral">View Details</a>
+                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <div class="bar-chart">
+        <h3 id="techstack" class="headerLink mt-0"><a href="#TeckStack" class="header-mark" title="header-mark">TechStack</a></h3>
+
+        <div class="badge techstack flex flex-row overflow-hidden gap-2">
+          <a href="https://github.com/eallion/eallion.com/blob/main/LICENSE" target="_blank" rel="noopener noreferrer"
+            aria-label="badge">
+            <img class="nozoom" alt src="https://img.shields.io/badge/License-GLWT-green">
+          </a>
+          <a href="https://status.eallion.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt alt="Uptime Robot ratio (30 days)"
+              src="https://status.eallion.com/api/badge/2/uptime/168">
+          </a>
+          <a href="https://github.com/eallion/eallion.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt src="https://img.shields.io/github/repo-size/eallion/eallion.com">
+          </a>
+          <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt src="https://img.shields.io/github/v/tag/eallion/eallion.com">
+          </a>
+          <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt src="https://img.shields.io/github/commits-since/eallion/eallion.com/v4.0.8/main">
+          </a>
+          <a href="https://github.com/eallion/eallion.com/commits/main" target="_blank" rel="noopener noreferrer"
+            aria-label="badge">
+            <img class="nozoom" alt src="https://img.shields.io/github/last-commit/eallion/eallion.com">
+          </a>
+          <a href="https://github.com/eallion/eallion.com/issues/new" target="_blank" rel="noopener noreferrer"
+            aria-label="badge">
+            <img class="nozoom" alt src="https://img.shields.io/github/issues/eallion/eallion.com?logo=GitHub&color=4ec100&style=flat">
+          </a>
+          <a href="https://wakatime.com/@018dff59-cb93-47dc-bf2d-945cab4bdaae" target="_blank" rel="noopener noreferrer"
+            aria-label="badge">
+            <img class="nozoom" alt
+              src="https://wakatime.com/badge/user/018dff59-cb93-47dc-bf2d-945cab4bdaae/project/018dffa2-e555-41e5-b4b8-abdc7df6ea3d.svg"
+              alt="Total time coded since Mar 2 2024" />
+          </a>
+          <a href="https://github.com/eallion/eallion.com/actions/workflows/main.yml" target="_blank" rel="noopener noreferrer"
+            aria-label="badge">
+            <img class="nozoom" alt
+              src="https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg?branch=main"
+              alt="Build Hugo and Deploy" />
+          </a>
+          <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_shield" target="_blank" rel="noopener noreferrer"
+            aria-label="badge">
+            <img class="nozoom" alt
+              src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=shield"
+              alt="FOSSA Status" />
+          </a>
+          <a href="https://www.debian.org/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt src="https://img.shields.io/badge/-Debian-A81D33?style=flat&logo=debian&logoColor=white">
+          </a>
+          </a>
+          <a href="https://html5.org/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white">
+          </a>
+          <a href="https://www.w3.org/Style/CSS/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt src="https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css&logoColor=white">
+          </a>
+          <a href="https://www.javascript.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white">
+          </a>
+          <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt src="https://img.shields.io/badge/-Hugo-FF4088?style=flat&logo=Hugo&logoColor=white">
+          </a>
+          <a href="https://e5n.cc" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt src="https://img.shields.io/badge/-Mastodon-6364FF?style=flat&logo=mastodon&logoColor=white">
+          </a>
+          <a href="https://n8n.io" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt src="https://img.shields.io/badge/-n8n-EA4B71?style=flat&logo=n8n&logoColor=white">
+          </a>
+          <a href="https://changedetection.io" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt src="https://img.shields.io/badge/-ChangeDetection-3056D3?style=flat&logo=changedetection&logoColor=white">
+          </a>
+          <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/-Node.js-5FA04E?style=flat&logo=nodedotjs&logoColor=white">
+          </a>
+          <a href="https://pnpm.io/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/-PNPM-F69220?style=flat&logo=pnpm&logoColor=white">
+          </a>
+          <a href="https://www.aliyun.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/Aliyun-primary?style=flat&color=blue&labelColor=555&logo=Alibaba-Cloud&logoColor=fff">
+          </a>
+          <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/Cloudflare-primary?style=flat&color=blue&labelColor=555&logo=cloudflare&logoColor=fff">
+          </a>
+          <a href="https://docker.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/Docker-primary?style=flat&color=blue&labelColor=555&logo=Docker&logoColor=fff">
+          </a>
+          <a href="https://giscus.app/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/Giscus-primary?style=flat&color=blue&labelColor=555&logoColor=fff&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IndoaXRlIiBkPSJNNiAyTDIgOGwxMCAxNEwyMiA4bC00LTZ6Ii8+PC9zdmc+">
+          </a>
+          <a href="https://www.github.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/GitHub-primary?style=flat&color=blue&labelColor=555&logo=GitHub&logoColor=fff">
+          </a>
+          <a href="https://github.com/actions" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/GitHub%20Actions-primary?style=flat&color=blue&labelColor=555&logo=GitHub-Actions&logoColor=fff">
+          </a>
+          <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/Google-primary?style=flat&color=blue&labelColor=555&logo=Google&logoColor=fff">
+          </a>
+          <a href="https://fonts.google.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/Google%20Fonts-primary?style=flat&color=blue&labelColor=555&logo=Google-Fonts&logoColor=fff">
+          </a>
+          <a href="https://gravatar.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/Gravatar-primary?style=flat&color=blue&labelColor=555&logo=Gravatar&logoColor=fff">
+          </a>
+          <a href="https://iconify.design/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/Iconify-primary?style=flat&color=blue&labelColor=555&logo=iconify&logoColor=fff">
+          </a>
+          <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/jsDelivr-primary?style=flat&color=blue&labelColor=555&logo=jsDelivr&logoColor=fff">
+          </a>
+          <a href="https://www.openai.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/OpenAI-412991?style=flat&color=blue&labelColor=555&logo=openai&logoColor=fff">
+          </a>
+          <a href="https://cloud.tencent.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/Tencent%20Cloud-primary?style=flat&color=blue&labelColor=555&logo=qq&logoColor=fff">
+          </a>
+          <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/Vercel-primary?style=flat&color=blue&labelColor=555&logo=Vercel&logoColor=fff">
+          </a>
+          <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/VS%20Code-primary?style=flat&color=blue&labelColor=555&logo=vscodium&logoColor=fff">
+          </a>
+        </div>
+
+        <h3 id="{{ T `stats_annual_header` | safeHTML }}" class="headerLink mt-0"><a href="#{{ T `stats_annual_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_annual_header` | safeHTML }}</h3>
+
+        <div class="bar-chart mb-24">
           {{ $currentYear := now.Year }}
           {{ $maxCount := 0 }}
           {{ range $year := (seq 2006 $currentYear) }}
@@ -762,9 +1218,9 @@
           {{ end }}
         </div>
 
-        <h3 id="{{ T `stats_category_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_category_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_category_header` | safeHTML }}</h3>
+        <h3 id="{{ T `stats_category_header` | safeHTML }}" class="headerLink mt-0"><a href="#{{ T `stats_category_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_category_header` | safeHTML }}</h3>
 
-        <div class="category flex items-center flex-col lg:flex-row gap-8 lg:gap-16 mx-auto max-w-full lg:max-w-fit">
+        <div class="category flex items-center flex-col lg:flex-row gap-8 lg:gap-16 mx-auto max-w-full lg:max-w-fit mb-24">
           <svg id="cate-pie-chart" class="w-80 h-80"></svg>
           <div class="labels">
             <h3 class="mb-6">{{ T `stats_category_sub_header` | safeHTML }}</h3>
@@ -780,113 +1236,7 @@
           </div>
         </div>
 
-        <h3 id="{{ T `stats_status_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_status_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_status_header` | safeHTML }}</h3>
-
-        <div class="badge status">
-          <a href="https://github.com/eallion/eallion.com/blob/main/LICENSE" target="_blank" rel="noopener noreferrer"
-            aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/badge/License-GLWT-green">
-          </a>
-          <a href="https://status.eallion.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt alt="Uptime Robot ratio (30 days)"
-              src="https://status.eallion.com/api/badge/2/uptime/168">
-          </a>
-          <a href="https://github.com/eallion/eallion.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/github/repo-size/eallion/eallion.com">
-          </a>
-          <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/github/v/tag/eallion/eallion.com">
-          </a>
-          <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/github/commits-since/eallion/eallion.com/v4.0.8/main">
-          </a>
-          <a href="https://github.com/eallion/eallion.com/commits/main" target="_blank" rel="noopener noreferrer"
-            aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/github/last-commit/eallion/eallion.com">
-          </a>
-          <a href="https://wakatime.com/@018dff59-cb93-47dc-bf2d-945cab4bdaae" target="_blank" rel="noopener noreferrer"
-            aria-label="badge">
-            <img class="nozoom" alt
-              src="https://wakatime.com/badge/user/018dff59-cb93-47dc-bf2d-945cab4bdaae/project/018dffa2-e555-41e5-b4b8-abdc7df6ea3d.svg"
-              alt="Total time coded since Mar 2 2024" />
-          </a>
-        </div>
-
-        <h3 id="{{ T `stats_thanks_header` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_thanks_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_thanks_header` | safeHTML }}</h3>
-
-        <div class="badge techstack">
-          <a href="https://html5.org/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white">
-          </a>
-          <a href="https://www.w3.org/Style/CSS/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white">
-          </a>
-          <a href="https://www.javascript.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white">
-          </a>
-          <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/badge/-Hugo-FF4088?style=flat&logo=Hugo&logoColor=white">
-          </a>
-          <a href="https://www.aliyun.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/Aliyun-blue?style=flat&color=blue&labelColor=555&logo=Alibaba-Cloud&logoColor=fff">
-          </a>
-          <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/Cloudflare-blue?style=flat&color=blue&labelColor=555&logo=cloudflare&logoColor=fff">
-          </a>
-          <a href="https://docker.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/Docker-blue?style=flat&color=blue&labelColor=555&logo=Docker&logoColor=fff">
-          </a>
-          <a href="https://giscus.app/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/Giscus-blue?style=flat&color=blue&labelColor=555&logoColor=fff&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IndoaXRlIiBkPSJNNiAyTDIgOGwxMCAxNEwyMiA4bC00LTZ6Ii8+PC9zdmc+">
-          </a>
-          <a href="https://www.github.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/GitHub-blue?style=flat&color=blue&labelColor=555&logo=GitHub&logoColor=fff">
-          </a>
-          <a href="https://github.com/actions" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/GitHub%20Actions-blue?style=flat&color=blue&labelColor=555&logo=GitHub-Actions&logoColor=fff">
-          </a>
-          <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/Google-blue?style=flat&color=blue&labelColor=555&logo=Google&logoColor=fff">
-          </a>
-          <a href="https://fonts.google.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/Google%20Fonts-blue?style=flat&color=blue&labelColor=555&logo=Google-Fonts&logoColor=fff">
-          </a>
-          <a href="https://gravatar.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/Gravatar-blue?style=flat&color=blue&labelColor=555&logo=Gravatar&logoColor=fff">
-          </a>
-          <a href="https://iconify.design/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/Iconify-blue?style=flat&color=blue&labelColor=555&logo=iconify&logoColor=fff">
-          </a>
-          <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/jsDelivr-blue?style=flat&color=blue&labelColor=555&logo=jsDelivr&logoColor=fff">
-          </a>
-          <a href="https://cloud.tencent.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/Tencent%20Cloud-blue?style=flat&color=blue&labelColor=555&logo=qq&logoColor=fff">
-          </a>
-          <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/Vercel-blue?style=flat&color=blue&labelColor=555&logo=Vercel&logoColor=fff">
-          </a>
-          <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/VS%20Code-blue?style=flat&color=blue&labelColor=555&logo=vscodium&logoColor=fff">
-          </a>
-        </div>
-
-        <h3 id="{{ T `stats_tag_cloud` | safeHTML }}" class="headerLink"><a href="#{{ T `stats_tag_cloud` | safeHTML }}" class="header-mark" title="header-mark"></a><a href="/tags/">{{ T `stats_tag_cloud` | safeHTML }}</a></h3>
+        <h3 id="{{ T `stats_tag_cloud` | safeHTML }}" class="headerLink mt-0"><a href="#{{ T `stats_tag_cloud` | safeHTML }}" class="header-mark" title="header-mark"></a><a href="/tags/">{{ T `stats_tag_cloud` | safeHTML }}</a></h3>
 
         <div class="tag-cloud-tags">
           {{- range $.Site.Taxonomies.tags.ByCount -}}
@@ -965,51 +1315,147 @@
       const yearProgress = getYearProgress();
       const progressDiv = document.getElementById("year_progress");
       progressDiv.innerHTML = yearProgress + "%";
+
+      // 以 2 月 4 日为起点计算季节 emoji
+      function getSpringBasedYearProgress() {
+        const now = new Date();
+        const currentYear = now.getFullYear();
+        // 以 2 月 4 日为起点
+        const startOfYear = new Date(currentYear, 1, 4, 0, 0, 0, 0);
+        // 结束日期为下一年的 2 月 3 日
+        const endOfYear = new Date(currentYear + 1, 1, 3, 23, 59, 59, 999);
+        const yearDuration = endOfYear - startOfYear;
+        const yearProgress = ((now - startOfYear) / yearDuration) * 100;
+        return yearProgress.toFixed(2);
+      }
+
+      // 添加季节表情符号
+      const yearEmoji = document.getElementById("year-emoji");
+      if (yearEmoji) {
+        const progress = parseFloat(getSpringBasedYearProgress());
+        if (progress <= 25) {
+          yearEmoji.innerHTML = "🌸"; // 春天
+        } else if (progress <= 50) {
+          yearEmoji.innerHTML = "⛱️"; // 夏天
+        } else if (progress <= 75) {
+          yearEmoji.innerHTML = "🍂"; // 秋天
+        } else {
+          yearEmoji.innerHTML = "❄️"; // 冬天
+        }
+      }
+
+      // 更新进度条宽度
+      const progressBar = document.getElementById("year-progress-bar");
+      if (progressBar) {
+        progressBar.style.width = yearProgress + "%";
+      }
     </script>
 
     <script type="text/javascript">
       // Whois Creation Date: 2010-03-26T14:41:14Z
       const now = new Date();
-      const currentYear = now.getFullYear();
-      const currentMonth = now.getMonth();
-      const currentSysDate = now.getDate();
-      const currentHour = now.getHours();
+      const onlineStartDate = new Date(2010, 2, 26, 14, 41, 14); // 2010-03-26T14:41:14Z
+      const diffTime = Math.abs(now - onlineStartDate);
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+      const years = Math.floor(diffDays / 365);
 
-      const targetDate = new Date(currentYear, 2, 26);
-      const targetHour = 14;
-
-      let years, months, days, hours;
-
-      if (currentMonth > 2 || (currentMonth === 2 && currentSysDate >= 26)) {
-        years = currentYear - 2010;
-        months = currentMonth - 2;
-        days = currentSysDate - 26;
-        hours = currentHour - targetHour;
-      } else {
-        years = currentYear - 2011;
-        months = currentMonth + 10;
-        days = currentSysDate - 26;
-        hours = currentHour - targetHour;
-      }
-
-      if (hours < 0) {
-        hours += 24;
-        days--;
-      }
-      if (days < 0) {
-        days += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
-        months--;
-      }
-      if (months < 0) {
-        months += 12;
-        years--;
-      }
-
-      document.getElementById('stats_blog_online_year').innerText = `${years}`;
-      document.getElementById('stats_blog_online_month').innerText = `${months}`;
-      document.getElementById('stats_blog_online_day').innerText = `${days}`;
-      document.getElementById('stats_blog_online_hour').innerText = `${hours}`;
+      // 只显示年和总天数
+      document.getElementById('stats_blog_online_year').innerHTML = `${diffDays}天 <span class="text-xs">(${years}yrs)</span>`;
     </script>
+
+    <script type="text/javascript">
+      // 从 Mastodon API 获取数据并更新页面显示
+      async function updateMastodonStats() {
+        const mastodonApiUrl = 'https://www.eallion.com/api/v1/accounts/111136231674527355/statuses';
+
+        // 默认数据
+        const defaultFollowers = '-1';
+        const defaultFollowing = '99+';
+        const defaultStatuses = '999+';
+
+        // 获取页面元素
+        const followersElement = document.getElementById('mastodon-followers');
+        const followingElement = document.getElementById('mastodon-following');
+        const statusesElement = document.getElementById('mastodon-statuses');
+
+        try {
+          // 设置 15 秒超时
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 15000);
+
+          const response = await fetch(mastodonApiUrl, {
+            signal: controller.signal
+          });
+
+          clearTimeout(timeoutId);
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const data = await response.json();
+
+          if (data && data.length > 0 && data[0].account) {
+            const account = data[0].account;
+
+            if (followersElement) {
+              followersElement.textContent = account.followers_count.toLocaleString();
+            }
+
+            if (followingElement) {
+              followingElement.textContent = account.following_count.toLocaleString();
+            }
+
+            if (statusesElement) {
+              statusesElement.textContent = account.statuses_count.toLocaleString();
+            }
+          } else {
+            // 数据格式不正确，使用默认值
+            if (followersElement) followersElement.textContent = defaultFollowers;
+            if (followingElement) followingElement.textContent = defaultFollowing;
+            if (statusesElement) statusesElement.textContent = defaultStatuses;
+          }
+        } catch (error) {
+          // 超时或出错时使用默认值
+          if (followersElement) followersElement.textContent = defaultFollowers;
+          if (followingElement) followingElement.textContent = defaultFollowing;
+          if (statusesElement) statusesElement.textContent = defaultStatuses;
+        }
+      }
+
+        // 计算相对时间的函数
+        function getRelativeTime(dateString) {
+          const rtf = new Intl.RelativeTimeFormat('zh-CN', { numeric: "auto", style: 'short' });
+          const now = new Date();
+          const date = new Date(dateString);
+          const diff = now - date;
+
+          const seconds = Math.floor(diff / 1000);
+          const minutes = Math.floor(seconds / 60);
+          const hours = Math.floor(minutes / 60);
+          const days = Math.floor(hours / 24);
+          const months = Math.floor(days / 30);
+          const years = Math.floor(days / 365);
+
+          // 获取原始格式化的相对时间（如 "3 天前"）
+          let formattedTime;
+          if (years > 0) {
+            formattedTime = rtf.format(-years, 'year');
+          } else if (months > 0) {
+            formattedTime = rtf.format(-months, 'month');
+          } else if (days > 0) {
+            formattedTime = rtf.format(-days, 'day');
+          } else if (hours > 0) {
+            formattedTime = rtf.format(-hours, 'hour');
+          } else if (minutes > 0) {
+            formattedTime = rtf.format(-minutes, 'minute');
+          } else {
+            formattedTime = rtf.format(-seconds, 'second');
+          }
+
+          return formattedTime.replace(/(\d+)([^\d]+)/, '$1 $2');
+        };
+      </script>
 
     <script type="text/javascript">
       // Pie Chart
@@ -1282,13 +1728,31 @@
         element.parentNode.removeChild(element);
       });
 
-      createHeatmap();
-
     </script>
 
-    {{ $jsPage := resources.Get "js/page.js" }}
-    {{ $jsPage = $jsPage | resources.Minify | resources.Fingerprint "sha512" }}
-    <script type="text/javascript" src="{{ $jsPage.RelPermalink }}" integrity="{{ $jsPage.Data.Integrity }}"></script>
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+          // Badge 滚动效果
+          const container = document.querySelector('.techstack');
+          const content = container.innerHTML;
+          container.innerHTML = `
+            <div class="scroll-content">
+              ${content}
+              ${content} <!-- 复制内容实现无缝循环 -->
+            </div>
+          `;
+
+          // Github Card Last Commit
+          const lastCommitDateElement = document.getElementById("last-commit-date");
+          const commitDate = lastCommitDateElement.getAttribute("data-date");
+          lastCommitDateElement.textContent = getRelativeTime(commitDate);
+
+          updateMastodonStats();
+          createHeatmap();
+
+        });
+    </script>
 
     </section>
   <footer class="pt-8 max-w-prose print:hidden">
