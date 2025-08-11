@@ -381,15 +381,30 @@ function encodeExternalLinks(content) {
   // 替换内容中的链接
   return content.replace(linkRegex, (match, url) => {
     try {
-      // 如果 URL 不是以 http 或 https 开头，跳过处理
-      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      // 检查是否为允许的域名
+      let hostname;
+      try {
+        // 尝试解析 URL 获取主机名
+        const urlObj = new URL(url);
+        hostname = urlObj.hostname;
+        pathname = urlObj.pathname;
+      } catch (urlError) {
+        // 如果 URL 解析失败，可能是相对链接或特殊协议
+        // 在这种情况下，我们仍然需要检查是否应该加密
+        // 对于相对链接或特殊协议，我们默认不加密
         return match;
       }
 
-      const urlObj = new URL(url);
-      const hostname = urlObj.hostname;
+      // 检查是否是 e5n.cc 域名下的链接
+      if (hostname === 'e5n.cc' || hostname === 's.e5n.cc') {
+        // 如果链接已包含 target="_blank"，则不重复添加
+        if (!match.includes('target="_blank"')) {
+          // 在 </a> 标签前插入 target="_blank"
+          return match.replace(/>/, ' target="_blank">');
+        }
+        return match;
+      }
 
-      // 检查是否为允许的域名
       const isAllowedDomain = allowedDomains.some(domain =>
         hostname === domain || hostname.endsWith('.' + domain)
       );
@@ -399,14 +414,14 @@ function encodeExternalLinks(content) {
         return match;
       }
 
-      // 对于外部链接，进行 Base64 编码并重定向
+      // 对于非白名单域名的所有链接，进行 Base64 编码并重定向
       const encodedUrl = btoa(url); // Base64 编码
       const redirectUrl = `https://www.eallion.com/go/?target=${encodedUrl}`;
 
       // 替换 href 属性
       return match.replace(url, redirectUrl);
     } catch (e) {
-      // 如果 URL 解析失败，返回原始标签
+      // 如果处理过程中出现任何错误，返回原始标签
       return match;
     }
   });
