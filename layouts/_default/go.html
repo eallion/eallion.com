@@ -42,35 +42,42 @@ footer nav {
           <div class="scrolling-container overflow-hidden rounded-xl bg-[#f9fafb] dark:bg-neutral-800 p-4">
             <div class="flex flex-col items-center scrolling-wrapper animate-scroll-left hover:animation-paused">
 
-              <div class="text-xl font-bold mt-1 mb-8 px-2 text-neutral-800 dark:text-neutral-100 mr-auto">即将离开「大大的小蜗牛」的博客，前往：</div>
+              <div class="text-xl font-bold mt-1 mb-8 px-2 text-neutral-800 dark:text-neutral-100 mr-auto">即将离开<span class="inline-block">「大大的小蜗牛」</span>的博客，前往：</div>
 
-              <span id="redirect-link"
-                class="block w-full max-w-full rounded-lg text-left px-5 py-3 border border-solid border-neutral-400 bg-neutral dark:border-neutral-600 dark:bg-neutral-100 text-neutral-800 break-words">未指定重定向目标。</span>
+              <!-- <span id="redirect-link0"
+                class="block w-full max-w-full rounded-lg text-left px-5 py-3 border border-solid border-neutral-400 bg-neutral dark:border-neutral-600 dark:bg-neutral-100 text-neutral-800 break-words">未指定重定向目标。</span> -->
 
-              <div class="w-full flex flex-col md:flex-row justify-between mt-8 mb-8">
 
-                <div class="flex self-center gap-4">
+              <div class="flex w-full max-w-full">
+                <span class="inline-flex items-center px-3 text-sm text-neutral-900 bg-neutral-200 border rounded-e-0 border-neutral-300 border-e-0 rounded-s-md dark:bg-neutral-600 dark:text-neutral-400 dark:border-neutral-600">
+                  <img id="domain-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjVyZW0iIGhlaWdodD0iMS41cmVtIiB2aWV3Qm94PSIwIDAgMTI4IDEyOCI+PHBhdGggZmlsbD0iIzFlYmJlZSIgZD0iTTEyNi4xMSA2Ni44MzRjMC05LjgyLTIuNTM5LTE5LjAzNC02Ljk5MS0yNy4wNTFDMTM4LjA5Ny0zLjE2NyA5OC43ODUgMy4xMyA5Ni41OTYgMy41NThjLTguMzI4IDEuNjI5LTE2LjAzNCA0LjI0OS0yMy4xNDIgNy41NjZhNTYgNTYgMCAwIDAtMy4xNjYtLjA5Yy0yNi41MjUgMC00OC43MjkgMTguNTAxLTU0LjQxMSA0My4zMDNjMTMuOTgtMTUuNjg0IDIzLjc2NS0yMi4wMTIgMjkuNjI0LTI0LjU0NHEtMS40MDIgMS4yNTQtMi43NTEgMi41MzJsLS44ODUuODU1Yy0uNTk0LjU3MS0xLjE4NiAxLjE0My0xLjc2NSAxLjcyYy0uMzQ0LjM0My0uNjguNjg5LTEuMDE5IDEuMDM1Yy0uNTE0LjUyMi0xLjAyNiAxLjA0NC0xLjUyNyAxLjU2OWwtMS4wNTIgMS4xMjJxLS43MDQuNzUyLTEuMzkgMS41MDZsLTEuMDUzIDEuMTc1YTE0MyAxNDMgMCAwIDAtMy41MTYgNC4wOTlxLS41MjIuNjI5LTEuMDMxIDEuMjU2cS0uNTQ5LjY4LTEuMDgzIDEuMzU2cS0uNTI0LjY1Ny0xLjAzNCAxLjMxMmwtLjk1MyAxLjI0NmMtLjM1Ni40NjktLjcxNS45MzgtMS4wNjMgMS40MDRsLS43MzEuOTk4YTE3NCAxNzQgMCAwIDAtNi4wNDEgOC43OTZsLS4wMTMuMDIxYy0uNDc5Ljc0Ny0uOTQxIDEuNDgyLTEuMzk1IDIuMjExbC0uMDc0LjEycS0uNjggMS4wOTYtMS4zMTkgMi4xNjRsLS4wNDUuMDc1YTE4MiAxODIgMCAwIDAtMy4xNzIgNS41MDFDNy41NjIgODAuOTc3IDUuMTE0IDg3LjM0MyA1LjAwOCA4Ny43MmMtMTUuODc2IDU2Ljc1OSAzMy42NzQgMzIuNzkxIDQwLjU4OCAyOS4yMTNjNy40NDUgMy42NzggMTUuODI3IDUuOTczIDI0LjY5MiA1Ljk3M0M5NC41NjMgMTIyLjkwNSAxMTUuMjEzIDEwNyAxMjIuOSA4Nkg5My41NjljLTQuMzQgNy0xMi42OTQgMTIuMDQ5LTIyLjI5MyAxMi4wNDlDNTcuMjExIDk4LjA0OSA0NS44MSA4NyA0NS44MSA3NGg3OS44NDJjLjMwMy0yIC40NTgtNC43My40NTgtNy4xNjZNMTMuNTI2IDExNi44MTdjLTMuOTE2LTQuMDE1LTQuNjA4LTEzLjc5NSA0LjAzMi0zMS42MTZjNC4zNiAxMi41MzcgMTMuMDYxIDIzLjA0MSAyNC4zMDcgMjkuNzA4Yy01LjU5MyAzLjA3OS0yMC40NDEgMTAuMDA5LTI4LjMzOSAxLjkwOE00NS42ODcgNTljLjQ0Ni0xMyAxMS41NjQtMjMuMDA1IDI1LjIyNi0yMy4wMDVTOTUuNjk0IDQ2IDk2LjE0IDU5em00NC43NzYtNDQuMjA0YzUuMTY2LTIuNDk1IDE3Ljk1OC03Ljc3MSAyNS4yMi0yLjg3MWM0LjgwNyAzLjI0NSA4LjY2MyA4LjM0IDIuMDQyIDI1LjQ5OWMtNi4zNTEtMTAuMjEzLTE1LjkwNS0xOC4yMjQtMjcuMjYyLTIyLjYyOCIvPjwvc3ZnPg==" class="icon-img rounded-md w-6 h-6 mt-0 mb-0">
+                </span>
+                <div type="text" id="redirect-link" class="rounded-none rounded-e-lg bg-neutral-50 border text-neutral-600 dark:text-neutral-300 focus:ring-primary-400 focus:border-primary-500 block flex-1 min-w-0 w-full text-sm border-neutral-300 p-2.5  dark:bg-neutral-700 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"></div>
+              </div>
 
-                  <button type="button" id="direct-link" class="text-neutral bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+
+              <div class="w-full flex flex-col md:flex-row justify-between mt-8 mb-8 gap-4">
+
+                  <button type="button" id="direct-link" class="max-w-fit self-center-safe text-neutral bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                   继续访问外部网站
                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                     </svg>
                   </button>
-                  <button type="button" onclick="goBackToA()" class="text-neutral bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                <div class="flex self-center gap-4">
+                  <button type="button" onclick="goBack()" class="py-2.5 px-5 text-sm font-medium text-neutral-900 focus:outline-none bg-neutral rounded-lg border border-neutral-200 hover:bg-neutral-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-neutral-200 dark:focus:ring-neutral-700 dark:bg-neutral-800 dark:text-neutral-400 dark:border-neutral-600 dark:hover:text-neutral dark:hover:bg-neutral-700">
                   返回
                   </button>
 
-                </div>
-
-                <div class="hidden md:block">
+                <div class="">
                   <button type="button" onclick="window.close()" class="py-2.5 px-5 text-sm font-medium text-neutral-900 focus:outline-none bg-neutral rounded-lg border border-neutral-200 hover:bg-neutral-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-neutral-200 dark:focus:ring-neutral-700 dark:bg-neutral-800 dark:text-neutral-400 dark:border-neutral-600 dark:hover:text-neutral dark:hover:bg-neutral-700">关闭</button>
                 </div>
 
+                </div>
               </div>
               <div>
                 <p class="text-sm mt-2 mb-2 px-4 text-neutral-600 dark:text-neutral-300">
-                  如果您点击「继续访问外部网站」就会离开本网站。该链接不属于本网站，我们无法确认该网页是否安全。
+                  如果您点击<span class="inline-block">「继续访问外部网站」</span>就会离开本网站。该链接不属于本网站，我们无法确认该网页是否安全。
                 </p>
               </div>
             </div>
@@ -108,37 +115,90 @@ footer nav {
   const params = new URLSearchParams(window.location.search);
   const encodedTarget = params.get('target');
   if (encodedTarget) {
-    try {
-      const target = atob(encodedTarget); // 使用 atob 进行 Base64 解码
-      const decodedTarget = decodeURIComponent(target);
+      try {
+          const target = atob(encodedTarget);
+          const decodedTarget = decodeURIComponent(target);
 
-      // 检查目标 URL 是否已经包含查询字符串
-      const hasQueryString = decodedTarget.includes('?');
-      const separator = hasQueryString ? '&' : '?';
+          // 检查目标 URL 是否已经包含查询字符串
+          const hasQueryString = decodedTarget.includes('?');
+          const separator = hasQueryString ? '&' : '?';
+          const directLink = decodedTarget + separator + 'ref=www.eallion.com';
 
-      const directLink = decodedTarget + separator + 'ref=www.eallion.com';
-      const directLinkId = document.getElementById('direct-link')
+          // 设置重定向链接
+          const directLinkId = document.getElementById('direct-link');
+          directLinkId.addEventListener('click', () => {
+              window.open(directLink, "_self");
+          });
+          document.getElementById('redirect-link').textContent = decodedTarget;
+          document.getElementById('redirect-link').href = directLink;
 
-      directLinkId.addEventListener('click', () => {
-        window.open(directLink, "_self");
-      });
+          // 新增功能：提取域名获取 favicon
+          // 提取域名的函数
+          function extractDomain(url) {
+              try {
+                  // 处理以//开头的 URL (protocol-relative)
+                  let sanitizedUrl = url;
+                  if (sanitizedUrl.startsWith('//')) {
+                      sanitizedUrl = 'https:' + sanitizedUrl;
+                  }
+                  // 处理缺少协议的 URL
+                  else if (!sanitizedUrl.includes('://')) {
+                      sanitizedUrl = 'https://' + sanitizedUrl;
+                  }
 
-      document.getElementById('redirect-link').textContent = decodedTarget; // 在新增的元素中显示原地址
-      document.getElementById('redirect-link').href = decodedTarget + separator + 'ref=www.eallion.com';
-    } catch (e) {
-      document.getElementById('redirect-link').textContent = '未指定重定向目标。';
-    }
+                  // 使用 URL 接口解析域名
+                  const urlObj = new URL(sanitizedUrl);
+                  return urlObj.protocol + '//' + urlObj.hostname;
+              } catch (e) {
+                  console.error('域名提取失败：', e);
+                  return null;
+              }
+          }
+
+          // 提取域名
+          const domain = extractDomain(decodedTarget);
+
+          // 设置 favicon 图片
+          const iconImg = document.getElementById('domain-icon');
+          if (domain) {
+              const faviconUrl = `https://api.eallion.com/favicon?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=64&url=${encodeURIComponent(domain)}`;
+
+              // 保存原始源
+              const defaultSrc = iconImg.src;
+
+              // 尝试加载新图标
+              iconImg.onerror = function() {
+                  // 加载失败时恢复默认图标
+                  this.onerror = null;
+                  this.src = defaultSrc;
+              };
+
+              // 设置新图片源
+              iconImg.src = faviconUrl;
+          }
+      } catch (e) {
+          document.getElementById('redirect-link').textContent = '未指定重定向目标。';
+      }
   } else {
-    document.getElementById('redirect-link').textContent = '未指定重定向目标。';
+      document.getElementById('redirect-link').textContent = '未指定重定向目标。';
   }
-  function goBackToA() {
+
+  function goBack() {
+    // 如果有打开者窗口，则聚焦它
     if (window.opener && !window.opener.closed) {
       window.opener.focus();
-      window.close();
-    } else {
-      window.close();
     }
-}
+
+    // 尝试关闭当前窗口
+    window.close();
+
+    // 处理无法关闭的情况（非脚本打开的窗口）
+    setTimeout(() => {
+      if (!window.closed) {
+        window.location.href = "/"; // 重定向到首页
+      }
+    }, 1000);
+  }
 </script>
 
 {{ end }}
