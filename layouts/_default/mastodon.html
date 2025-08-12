@@ -40,23 +40,41 @@
 
           <div class="order-1 md:order-2 relative md:sticky ease-in-out duration-300 top-unset md:top-20 w-full md:w-[262px] h-full md:h-[540px] mb-10 md:mb-0">
             <div class="h-unset md:h-[540px] w-full md:w-[262px] max-w-full md:max-w-[262px] bg-neutral-50 dark:bg-neutral-800 rounded-xl shadow-md overflow-hidden transition-colors duration-300 hover:shadow-lg">
-              <div class="h-24 bg-gradient-to-b from-[#563ACC] to-[#6364FF] relative">
+              <div class="h-24 bg-gradient-to-b from-primary-600 to-primary-400 dark:from-primary-600 dark:to-primary-900 relative">
                 <div class="absolute -bottom-10 left-4">
-                  <div class="h-20 w-20 rounded-xl bg-neutral dark:bg-[#858AFA] p-2 shadow-md overflow-hidden cursor-pointer"><a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer"><img
+                  <div class="h-20 w-20 rounded-xl bg-neutral dark:bg-primary-600 p-2 shadow-md overflow-hidden cursor-pointer"><a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer"><img
                       src="/eallion.png" alt="Charles Chin"
                       class="h-full w-full object-cover rounded-lg mt-0 mb-0 no-view nozoom"></a></div>
                 </div>
-                <div class="absolute top-2 right-2 bg-primary-500 text-neutral-50 p-1 rounded-full"
-                  title="This account has been verified as authentic by our team."><svg xmlns="http://www.w3.org/2000/svg"
+                <div class="absolute top-2 right-2 bg-primary-400 text-neutral-50 p-1 rounded-full"
+                  alt="This account has been verified as authentic by our team."><svg xmlns="http://www.w3.org/2000/svg"
                     class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd"
                       d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                       clip-rule="evenodd"></path>
                   </svg></div>
-                <div
-                  class="absolute bottom-2 right-2 bg-neutral/10 backdrop-blur-sm border border-neutral/20 text-neutral px-3 py-1.5 rounded-full z-50 text-xs flex items-center gap-1.5 shadow-sm"
-                  title="Account creation date"><svg xmlns="http://www.w3.org/2000/svg" width="0.875rem" height="0.875rem" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m8-10a8 8 0 1 0-16 0a8 8 0 0 0 16 0m-4-1a1 1 0 0 1 0 2h-3c-1.1 0-2-.9-2-2V7a1 1 0 0 1 2 0v4z"/></svg><span
-                    class="text-[10px] font-medium">加入于 <span id="accountCreationDate">1</span></span></div>
+                <a
+                  href="/go/?target=aHR0cHM6Ly9tYXN0b2Rvbi5zb2NpYWwvQGVhbGxpb24vMzcyNjU1Mg=="
+                  target="_blank"
+                  class="absolute hover:pr-12 bottom-2 right-2 bg-neutral/10 backdrop-blur-sm border border-neutral/20 text-neutral hover:text-neutral dark:hover:text-neutral px-3 py-1.5 rounded-full hover:rounded-full z-50 text-xs flex items-center gap-1.5 shadow-sm group w-max hover:cursor-pointer text-center"
+                  alt="Sat, Apr 22, 2017. 05:13:40"><svg xmlns="http://www.w3.org/2000/svg" width="0.875rem" height="0.875rem"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor" fill-rule="evenodd"
+                      d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10m8-10a8 8 0 1 0-16 0a8 8 0 0 0 16 0m-4-1a1 1 0 0 1 0 2h-3c-1.1 0-2-.9-2-2V7a1 1 0 0 1 2 0v4z" />
+                  </svg><span class="text-xs font-medium">
+                    加入于
+                    <span class="relative inline-block min-w-8">
+                      <span id="account-creation-date" class="relative opacity-100 visible transition-all duration-300 ease-in-out
+                        pointer-events-none group-hover:opacity-0 group-hover:invisible">
+                        -
+                      </span>
+                      <span class="absolute inline-block whitespace-nowrap top-0 left-0 opacity-0 invisible transition-all duration-300 ease-in-out
+                        pointer-events-none group-hover:opacity-100 group-hover:visible">
+                        Apr. 22, 2017
+                      </span>
+                    </span>
+                  </span>
+                </a>
               </div>
               <div class="p-4 pt-12">
                 <div class="mb-3">
@@ -112,7 +130,7 @@
       const followers = document.getElementById('followers');
       const following = document.getElementById('following');
       const statuses = document.getElementById('statuses');
-      const accountCreationDate = document.getElementById('accountCreationDate');
+      const accountCreationDate = document.getElementById('account-creation-date');
 
       followers.textContent = data[0].account.followers_count;
       following.textContent = data[0].account.following_count;
