@@ -86,7 +86,9 @@
 {{ $commitsUrl := "https://api.github.com/repos/eallion/eallion.com/commits?per_page=1" }}
 {{ $contributorsUrl := "https://api.github.com/repos/eallion/eallion.com/contributors?anon=1&page=1" }}
 {{ $repoUrl := "https://api.github.com/repos/eallion/eallion.com" }}
-{{ with $commitsResource := resources.GetRemote $commitsUrl (dict "timeout" "15s") }}
+<!-- 添加一个时间戳用于避免缓存 -->
+{{ $timestamp := now.Unix }}
+{{ with $commitsResource := resources.GetRemote $commitsUrl (dict "timeout" "15s" "key" (printf "%s-%d" $commitsUrl $timestamp)) }}
   {{ with $commitsData := $commitsResource | transform.Unmarshal }}
     {{ with $commit := index $commitsData 0 }}
       {{ with $date := $commit.commit.committer.date }}
@@ -99,14 +101,14 @@
     {{ end }}
   {{ end }}
 {{ end }}
-{{ with $contributorsResource := resources.GetRemote $contributorsUrl (dict "timeout" "15s") }}
+{{ with $contributorsResource := resources.GetRemote $contributorsUrl (dict "timeout" "15s" "key" (printf "%s-%d" $contributorsUrl $timestamp)) }}
   {{ with $contributorsData := $contributorsResource | transform.Unmarshal }}
     {{ range $contributorsData }}
       {{ $totalCommits = add $totalCommits .contributions }}
     {{ end }}
   {{ end }}
 {{ end }}
-{{ with $repoResource := resources.GetRemote $repoUrl (dict "timeout" "15s") }}
+{{ with $repoResource := resources.GetRemote $repoUrl (dict "timeout" "15s" "key" (printf "%s-%d" $repoUrl $timestamp)) }}
   {{ with $repoData := $repoResource | transform.Unmarshal }}
     {{ with $size := $repoData.size }}
       {{ $sizeInMB := div (float $size) 1024 }}
@@ -119,9 +121,9 @@
   {{ end }}
 {{ end }}
 
-{{ $steamGameCount := "-" }}
-{{ $totalPlayedTime := "0.00" }}
-{{ $lastPlayed := "CS2" }}
+{{ $steamGameCount := "157" }}
+{{ $totalPlayedTime := "3000.00" }}
+{{ $lastPlayed := "PUBG: BATTLEGROUNDS" }}
 {{ $steamApiUrl := "https://steam-web-api.eallion.com/IPlayerService/GetOwnedGames/v0001/?steamid=76561197989210276&include_appinfo=true&include_played_free_games=true&format=json" }}
 {{ with $steamResource := resources.GetRemote $steamApiUrl (dict "timeout" "15s") }}
   {{ with $steamData := $steamResource | transform.Unmarshal }}
@@ -921,7 +923,13 @@
                 </div>
                 <div class="max-w-6/12 overflow-ellipsis text-center">
                   <div class="text-xs text-neutral-500 dark:text-neutral-400">博客年龄</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span id="stats_blog_online_year"></span></div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral inline whitespace-nowrap group relative">
+                    <span class="truncate max-w-[120px] inline-block align-bottom"><span id="stats_blog_online_year"></span></span>
+                    <span class="w-max max-w-sm hidden group-hover:block absolute right-0 bottom-full bg-neutral-900 text-neutral text-sm rounded py-2 px-3 shadow-lg z-50 hover:z-50 whitespace-nowrap -translate-y-1.5">
+                        Creation: Fri, Mar 26, 2010. 14:41
+                      <div class="absolute top-full right-1/4 transform translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-neutral-900"></div>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -980,7 +988,7 @@
               </div>
             </div>
             <div class="p-4">
-              <p class="flex items-center text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">Let's build from here. <svg class="ml-2 mr-1 inline-block" width="1em" height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6.0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6.0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1.0-6.2-.3-40.4-.3-61.4.0.0-70 15-84.7-29.8.0.0-11.4-29.1-27.8-36.6.0.0-22.9-15.7 1.6-15.4.0.0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5.0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9.0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4.0 33.7-.3 75.4-.3 83.6.0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6.0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9.0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg> <a href="https://github.com/eallion/eallion.com/tree/{{- $commitHashLong -}}" target="_blank"><span class="bg-[#818b981f] text-primary-600  !text-xs m-0 py-0.5 px-1 whitespace-break-spaces !font-normal rounded-md underline underline-offset-4">{{- $commitHashShort -}}</span></a></p>
+              <p class="flex items-center text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">Let's build from here. <svg class="ml-2 mr-1 inline-block" width="1em" height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6.0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6.0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1.0-6.2-.3-40.4-.3-61.4.0.0-70 15-84.7-29.8.0.0-11.4-29.1-27.8-36.6.0.0-22.9-15.7 1.6-15.4.0.0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5.0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9.0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4.0 33.7-.3 75.4-.3 83.6.0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6.0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9.0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg> <a href="https://github.com/eallion/eallion.com/tree/{{- $commitHashLong -}}" target="_blank"><span class="bg-[#818b981f] dark:bg-[#656c7633] text-primary-[#0969da] dark:text-primary-[#478be6] !text-xs m-0 py-0.5 px-1 whitespace-break-spaces !font-normal rounded-md underline underline-offset-4">{{- $commitHashShort -}}</span></a></p>
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
                 <div class="max-w-2/5 overflow-ellipsis text-center">
                   <div class="text-xs text-neutral-500 dark:text-neutral-400">Commits</div>
@@ -1090,19 +1098,31 @@
               </div>
             </div>
             <div class="p-4">
-              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden"><i>"Pay. Don't play."</i> <svg class="ml-2 mr-1 inline-block mb-0.5" xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24"><path fill="currentColor" d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658a3.4 3.4 0 0 1 1.912-.59q.094.001.188.006l2.861-4.142V8.91a4.53 4.53 0 0 1 4.524-4.524c2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911l.004.159a3.39 3.39 0 0 1-3.39 3.396a3.41 3.41 0 0 1-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0M7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25a2.551 2.551 0 0 0 3.337-3.324a2.547 2.547 0 0 0-3.255-1.413l1.523.63a1.878 1.878 0 0 1-1.445 3.467zm11.415-9.303a3.02 3.02 0 0 0-3.015-3.015a3.015 3.015 0 1 0 3.015 3.015m-5.273-.005a2.264 2.264 0 1 1 4.531 0a2.267 2.267 0 0 1-2.266 2.265a2.264 2.264 0 0 1-2.265-2.265"/></svg>Steam  是畅玩游戏、讨论游戏、创造游戏的快乐所在。</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">"Pay. Don't play." Steam  是畅玩游戏、讨论游戏、创造游戏的快乐所在。</p>
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
                 <div class="max-w-2/11 overflow-ellipsis text-center">
                   <div class="text-xs text-neutral-500 dark:text-neutral-400">游戏库</div>
                   <div class="font-semibold text-neutral-900 dark:text-neutral"><span>{{ $steamGameCount }}</span></div>
                 </div>
-                <div class="max-w-5/11 overflow-ellipsis text-center overflow-hidden">
+                <div class="max-w-5/11 overflow-ellipsis text-center">
                   <div class="text-xs text-neutral-500 dark:text-neutral-400">最近游玩</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral inline whitespace-nowrap"><span>{{ $lastPlayed }}</span></div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral inline whitespace-nowrap group relative">
+                    <span class="truncate max-w-[120px] inline-block align-bottom">{{ $lastPlayed }}</span>
+                    <span class="w-max max-w-sm hidden group-hover:block absolute bottom-full left-1/2 bg-neutral-900 text-neutral text-sm rounded py-2 px-3 shadow-lg z-50 hover:z-50 whitespace-nowrap -translate-x-1/2 -translate-y-1.5">
+                      {{ $lastPlayed }}
+                      <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-neutral-900"></div>
+                    </span>
+                  </div>
                 </div>
                 <div class="max-w-4/11 overflow-ellipsis text-center">
                   <div class="text-xs text-neutral-500 dark:text-neutral-400">总游戏时间</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span>{{- lang.FormatNumber 0 (default 0 $totalPlayedTime) -}} 小时</span></div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral inline whitespace-nowrap group relative">
+                    <span class="truncate max-w-[120px] inline-block align-bottom"><span>{{- lang.FormatNumber 0 (default 0 $totalPlayedTime) -}} 小时</span></span>
+                    <span class="w-max max-w-sm hidden group-hover:block absolute right-0 bottom-full bg-neutral-900 text-neutral text-sm rounded py-2 px-3 shadow-lg z-50 hover:z-50 whitespace-nowrap -translate-y-1.5">
+                      统计时间：<span id="total-played-time" data-date="{{ $lastCommitDate }}">-</span>
+                      <div class="absolute top-full right-1/4 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-neutral-900"></div>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1126,7 +1146,7 @@
               </div>
             </div>
             <div class="p-4">
-              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden"><svg class="mr-1 mb-0.5 inline-block" xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24"><path fill="currentColor" d="m1.912 0l1.212 2.474v19.053L1.912 24h14.73l1.337-4.682H8.33V0ZM12 1.516c-.913 0-1.798.112-2.648.312v1.74A9.7 9.7 0 0 1 12 3.2c5.267 0 9.536 4.184 9.536 9.348a9.2 9.2 0 0 1-2.3 6.086l-.273.954l-.602 2.112c2.952-1.993 4.89-5.335 4.89-9.122C23.25 6.468 18.213 1.516 12 1.516m0 2.673c-.924 0-1.814.148-2.648.414v13.713h8.817a8.25 8.25 0 0 0 2.36-5.768c0-4.617-3.818-8.359-8.529-8.359M2.104 7.312A10.86 10.86 0 0 0 .75 12.576c0 1.906.492 3.7 1.355 5.266z"/></svg>英雄联盟五杀靠的是 99% 的技术和 1% 的运气，但运气才是决定性的。</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">英雄联盟五杀靠的是 99% 的技术和 1% 的运气，技术很重要，但运气才是决定性的。</p>
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
                 <div class="max-w-2/5 overflow-ellipsis text-center">
                   <div class="text-xs text-neutral-500 dark:text-neutral-400">五杀截图</div>
@@ -1134,7 +1154,7 @@
                 </div>
                 <div class="max-w-3/5 overflow-ellipsis text-center">
                   <button type="button" onclick="window.open('/penta', '_blank')" class="text-neutral-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                  <a href="/penta" target="_blank" rel="noopener noreferrer" class="text-neutral-300 hover:text-neutral">View Details</a>
+                  <a href="/penta" target="_blank" rel="noopener noreferrer" class="text-neutral hover:text-neutral">View Details</a>
                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                     </svg>
@@ -1238,6 +1258,10 @@
           <a href="https://cloud.tencent.com/product/teo" target="_blank" rel="noopener noreferrer" aria-label="badge">
             <img class="nozoom" alt
               src="https://img.shields.io/badge/-EdgeOne-016eff?style=flat&logoColor=fff&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik00NzEuNCAxOTVjLTM1LjEgNC44LTg2LjEgMjQuNC0xMTAuNCA0Mi4zLTIuNyAyLTUuNiAzLjgtOC42IDUuNC02LjQgNC4zLTEyLjUgOS0xOC40IDE0LjEtMzIuMiAyNy4xLTU5LjMgNjMuMS03NC42IDk4LjktOC4xIDE5LjItMTAuOCAyNy0xOC41IDU1LjctMi41IDkuOC02IDE0LjItMTEuNCAxNC4yLTkuMyAwLTU3LjEgMjAuNS03MS45IDMwLjYtMTEuMSA3LjgtMzcuOCAzMS43LTQyLjYgMzguMi0yNSAzNC4yLTI5LjcgNDIuOC0zNy43IDY3LjktNi45IDIxLjktOS44IDQwLjctOS44IDYzLjQgMCA1Ni44IDE5LjYgMTA0LjQgNTkuNyAxNDQuNCAyNC43IDI0LjggNTMuOCA0Mi42IDgzLjcgNTEgMzUuMiA5LjggMjQuOSA5LjYgMzAwLjEgOS42IDIzMS4yIDAgMjU1LjEtLjMgMjcwLjYtMyAxOC45LTMuNSA0Ny4xLTEwLjkgNTAuNC0xMy40IDEuMi0uOSA1LTIuOCA4LjQtNC4xIDguMi0zLjIgMjctMTUuNSA0MS4xLTI2LjcgNDUuOC0zNi42IDc0LjQtOTcuNCA3NC42LTE1OCAwLTE3LjUtNi45LTU3LjUtMTEuNi02Ni40LTEuMy0yLjMtMi4yLTQuOS0yLjctNy41IDAtMy4yLTEzLjctMjkuOS0xNy41LTM0LjMtMi45LTMuNi01LjYtNy4zLTguMi0xMS4yLTYuOS0xMS4xLTE1LjgtMjAuNS0zMy4xLTM0LjktMTcuMy0xNC44LTI4LjUtMjIuNS0zNy40LTI2LTIuOS0xLTUuNi0yLjMtOC4yLTMuOS0yLjUtMS44LTM0LjYtMTMuNi00My40LTE1LjgtMTAuOS0xLjYtMjItMi41LTMzLTIuOC0yOS45LTEuMS01MS42IDEuMS02Ni44IDYuOC01LjMgMi0xMy42IDQuOC0xOC4xIDYuNC0xMC44IDMuNi0zMyAxNS43LTQzLjUgMjMuNy0yMi41IDE3LjMtNjguOCA1OC43LTk0LjIgODQuNi0xMCAxMC4yLTEyOC4yIDEyNC4xLTE2Ny4yIDE2MS4yLTkuOCA5LjMtMjQuNCAyMy43LTMyLjYgMzEuOWwtMTQuOCAxNC44LTI5LjYtMS4zYy0xNS4yLS41LTMwLjMtMS43LTQ1LjQtMy42LTQ2LjMtNy43LTg0LjQtNDIuNi05Ny04OS0zLjctMTMuNi00LjEtNDcuOS0uNy02MS40IDUuOS0yMy4yIDIyLjgtNDkuOSA0MS41LTY1LjYgMTkuNy0xNi41IDU0LjMtMjguOCA4MS0yOC44IDMyLjEgMCA2Ny43IDE2LjUgOTkuMiA0NS45IDYgNS41IDE0LjkgMTMuMyAxOS42IDE3LjMgNC44IDMuOSAxMy43IDExLjcgMTkuNiAxNy4zIDYgNS43IDExLjkgMTAuNCAxMy4zIDEwLjQgMy4yIDAgMTAuMi01LjkgMzUuNC0zMC42IDExLjktMTEuOCAyMS43LTIyLjUgMjEuNy0yMy43cy03LjgtOC45LTE3LjMtMTYuOWMtOS42LTguMi0xOC43LTE2LTIwLjMtMTcuOC0zLjQtMy45LTM1LjItMjkuOC01MS42LTQyLTE3LTEyLjMtMzUuOC0yMi4yLTU1LjYtMjkuMi04LjctMy40LTE2LjItNi44LTE2LjUtOC0uOS0yLjMgMTAuMy0zNC42IDE1LjctNDQuNSAxMS0yMS4yIDI1LjEtMzkuMiA0NS40LTU4LjQgMTguNS0xNy41IDQ4LjctMzQuMiA3Mi43LTQwLjIgMy45LS45IDEyLjMtMy4yIDE4LjctNC44IDguNS0yLjMgMTguMy0zLjIgMzcuNC0zLjIgMjIuMiAwIDI4LjMuNyA0NC41IDQuOEM1OTAuOSAyODggNjE0LjggMzAwIDYzOSAzMjFjMTUuNSAxMy42IDMxLjYgMzIuNCA0MS43IDQ5LjcgNC43IDcuOSA5LjEgMTQuNiA5LjggMTUuMiA0LjMtLjEgOC43LS44IDEyLjgtMiA2LjQtMS40IDI0LTMuMiAzOS4yLTMuNyAzMC45LTEuNCAzMS44LTEuOCAyNS4yLTE0LjMtMS44LTMuNi00LjQtOS44LTUuNy0xMy43LTEuNi00LjctMy43LTkuMS02LjMtMTMuMy0xLjgtMi44LTMuNS01LjgtNC45LTguOS0zLjktOC4yLTIwLjEtMjkuOS0zNS4zLTQ3LjMtMTguNC0yMS01MS4xLTQ1LjYtNzguMi01OC44LTYuNy0zLjMtMTMuNC02LjctMjAuMS0xMC0zLjItMS42LTguOS0zLjYtMzIuNC0xMC45LTI5LjgtMTAtNzYuMy0xMy4xLTExMy40LThtMzAzLjcgMzEwYzMyLjggOC40IDUxIDE5IDcwLjIgNDEuNSAyMCAyMi45IDI3LjQgNDMuNiAyOC4zIDc3LjMuOCAyMC45LjQgMjQtMy45IDM3LjItNi4xIDE4LjgtMTIgMzAuNS0yMSA0MS42LTE3LjMgMjEuMi00Mi40IDM3LjUtNjYuMSA0My4xLTEyLjEgMi0yNC40IDMuNC0zNi42IDQuMS0zMyAyLjEtMzAwLjQgMi4zLTMwMS43LjItLjUtLjkgMTguNC0yMC40IDQyLjEtNDMuMSAyMy43LTIzIDQ4LjMtNDYuOSA1NC43LTUzLjIgMTkuMi0xOC45IDkyLjktODkuNCAxMDMuNC05OC45IDMuOS0zLjUgNy43LTcuMiAxMS4zLTExLjEgMi4zLTMuNiAyNi43LTIxLjIgMzcuMi0yNi43IDUuMi0yLjggMTUuNS02LjkgMjIuOC05LjMgNy4zLTIuMSAxNC4yLTQuMyAxNS4xLTQuNiA1LjEtMS45IDM0LjctLjYgNDQuMiAxLjltMCAwIi8+PC9zdmc+">
+          </a>
+          <a href="https://forgejo.org/" target="_blank" rel="noopener noreferrer" aria-label="badge">
+            <img class="nozoom" alt
+              src="https://img.shields.io/badge/-Forgejo-FB923C?style=flat&logo=forgejo&logoColor=fff">
           </a>
           <a href="https://giscus.app/" target="_blank" rel="noopener noreferrer" aria-label="badge">
             <img class="nozoom" alt
@@ -1899,8 +1923,10 @@
 
           // Github Card Last Commit
           const lastCommitDateElement = document.getElementById("last-commit-date");
+          const totalPlayedTimeElement = document.getElementById("total-played-time");
           const commitDate = lastCommitDateElement.getAttribute("data-date");
           lastCommitDateElement.textContent = getRelativeTime(commitDate);
+          totalPlayedTimeElement.textContent = getRelativeTime(commitDate);
 
           updateMastodonStats();
 
