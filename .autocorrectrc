@@ -29,6 +29,7 @@ context:
   codeblock: 1
 textRules:
   # 没有默认的文本规则。
+  - "浙ICP备16031768号-2": 0
 spellcheck:
   words:
     # 请不要在这里添加一般的英语单词（例如：apple, python）。
@@ -53,6 +54,28 @@ spellcheck:
     - NeoDB
     - Typecho
     - Wordpress
+    - Hugo
+    - Blog
+    - Mastodon
+    - EdgeOne
+    - AI
+    - OpenAI
+    - ChatGPT
+    - n8n
+    - Docker
+    - Debian
+    - Linux
+    - NAS
+    - fnOS
+    - fnOS = fnOS
+    - uBlacklist
+    - Cloudflare
+    - Vercel
+    - Markdown
+    - JavaScript
+    - CSS
+    - Chrome
+    - Firefox
 fileTypes:
   # ext: grammar_name
   # HTML
