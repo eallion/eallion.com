@@ -279,7 +279,7 @@
                               {{ if eq $host "books.google.com" }}
                                 <li class="external-resource w-6 h-6 overflow-hidden pl-0 rounded-full list-none border-2 border-solid border-neutral">
                                   <a href="/go/?target={{- .url | base64Encode -}}" target="_blank" class="flex" rel="noreferrer noopener nofollow">
-                                    <img src="/assets/images/movie/google-books.png" class="nozoom m-0" loading="lazy" alt="{{- $title -}}" no-view>
+                                    <img src="/assets/images/movie/google-books.png" class="nozoom !m-0" loading="lazy" alt="{{- $title -}}" no-view>
                                   </a>
                                 </li>
                               {{ else }}
