@@ -80,7 +80,7 @@ aliases:
 {{< /timelineItem >}}
 
 {{< timelineItem icon="tencent-cloud" header="EdgeOne" badge="Jan 6, 2024" >}}
-2024 年 1 月 6 日，Hugo 部署至腾讯云 <code><a href="https://e5n.cc/s/teo" target="_blank" rel="noopener noreferrer">EdgeOne</a></code> ，支持 Anycast。
+2024 年 1 月 6 日，Hugo 部署至腾讯云 <code><a href="https://s.e5n.cc/teo" target="_blank" rel="noopener noreferrer">EdgeOne</a></code> ，支持 Anycast。
 {{< /timelineItem >}}
 
 {{< timelineItem icon="openai" header="AI 摘要" badge="Jul 18, 2023" >}}

@@ -74,7 +74,7 @@ On January 8, 2024, the domain was transferred to Cloudflare. For details, refer
 {{< /timelineItem >}}
 
 {{< timelineItem icon="tencent-cloud" header="EdgeOne" badge="Jan 6, 2024" >}}
-On January 6, 2024, Hugo was deployed to Tencent Cloud <code><a href="https://e5n.cc/s/teo" target="_blank" rel="noopener noreferrer">EdgeOne</a></code>, supporting Anycast.
+On January 6, 2024, Hugo was deployed to Tencent Cloud <code><a href="https://s.e5n.cc/teo" target="_blank" rel="noopener noreferrer">EdgeOne</a></code>, supporting Anycast.
 {{< /timelineItem >}}
 
 {{< timelineItem icon="openai" header="AI Summary" badge="Jul 18, 2023" >}}
