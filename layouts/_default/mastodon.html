@@ -219,9 +219,7 @@
                                   </p>
 
                                   ${post.media_attachments.length > 0 ? `
-                                      <div class="mt-images-container mb-3 aspect-[16/9] rounded-xl shadow-xl overflow-hidden relative">
-                                          <canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-cover"
-                                                  data-blurhash="${post.media_attachments[0].blurhash}"></canvas>
+                                      <div class="mt-images-container mb-3 aspect-[16/9] rounded-xl overflow-hidden relative">
 
                                           ${(post.sensitive || post.reblog?.sensitive) ? `
                                               <div class="absolute inset-0 bg-neutral-800 opacity-99 flex flex-col items-center justify-center z-10 rounded-lg cursor-pointer"
@@ -244,24 +242,33 @@
                                                       true // 标记为单张图片
                                                   );
                                                   mediaHtml = `
-                                                      <a href="${replaceFileUrl(singleMedia.url)}">
-                                                          <img src="${replaceFileUrl(singleMedia.preview_url)}"
-                                                              alt="${singleMedia.description}"
-                                                              class="w-full h-full lazy ${objectFitClass}"
-                                                              nozoom loading="lazy">
-                                                      </a>
+                                                      <div class="flex flex-row h-full">
+                                                        <div class="w-full rounded-xl overflow-hidden">
+                                                        <canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-cover"
+                                                            data-blurhash="${singleMedia.blurhash}"></canvas>
+                                                                <a href="${replaceFileUrl(singleMedia.url)}">
+                                                                    <img src="${replaceFileUrl(singleMedia.preview_url)}"
+                                                                        alt="${singleMedia.description}"
+                                                                        class="w-full h-full lazy ${objectFitClass}"
+                                                                        nozoom loading="lazy">
+                                                                </a>
+                                                        </div>
+                                                      </div>
                                                   `;
 
                                               } else if (mediaItems.length === 2) {
                                                   mediaHtml = `
                                                       <div class="flex flex-row h-full gap-2.5">
-                                                          ${mediaItems.map(mediaItem => {
+                                                          ${mediaItems.map((mediaItem, index) => {
                                                               const objectFitClass = getImageObjectFitClass(
                                                                   mediaItem.meta?.small?.width,
                                                                   mediaItem.meta?.small?.aspect
                                                               );
+                                                              const alignmentClass = index === 0 ? 'left-0' : 'right-0';
                                                               return `
-                                                                  <div class="w-1/2 rounded-xl overflow-hidden">
+                                                                  <div class="relative w-1/2 rounded-xl overflow-hidden">
+                                                                      <canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-contai ${alignmentClass}"
+                                                                          data-blurhash="${mediaItem.blurhash}"></canvas>
                                                                       <a href="${replaceFileUrl(mediaItem.url)}">
                                                                           <img src="${replaceFileUrl(mediaItem.preview_url)}"
                                                                               alt="${mediaItem.description}"
@@ -291,7 +298,9 @@
 
                                                   mediaHtml = `
                                                       <div class="flex h-full gap-2.5">
-                                                          <div class="w-1/2 overflow-hidden rounded-xl">
+                                                          <div class="relative w-1/2 overflow-hidden rounded-xl">
+                                                              <canvas class="absolute inset-0 -z-1 w-full h-full top-0 left-0 object-contain"
+                                                                  data-blurhash="${firstItem.blurhash}"></canvas>
                                                               <a href="${replaceFileUrl(firstItem.url)}">
                                                                   <img src="${replaceFileUrl(firstItem.preview_url)}"
                                                                       alt="${firstItem.description}"
@@ -300,7 +309,9 @@
                                                               </a>
                                                           </div>
                                                           <div class="w-1/2 flex flex-col gap-2.5">
-                                                              <div class="h-1/2 overflow-hidden rounded-xl">
+                                                              <div class="relative h-1/2 overflow-hidden rounded-xl">
+                                                                  <canvas class="absolute inset-0 -z-1 w-full h-full top-0 right-0 object-contain"
+                                                                      data-blurhash="${secondItem.blurhash}"></canvas>
                                                                   <a href="${replaceFileUrl(secondItem.url)}">
                                                                       <img src="${replaceFileUrl(secondItem.preview_url)}"
                                                                           alt="${secondItem.description}"
@@ -308,7 +319,9 @@
                                                                           nozoom loading="lazy">
                                                                   </a>
                                                               </div>
-                                                              <div class="h-1/2 overflow-hidden rounded-xl">
+                                                              <div class="relative h-1/2 overflow-hidden rounded-xl">
+                                                                  <canvas class="absolute inset-0 -z-1 w-full h-full bottom-0 right-0 object-contain"
+                                                                      data-blurhash="${thirdItem.blurhash}"></canvas>
                                                                   <a href="${replaceFileUrl(thirdItem.url)}">
                                                                       <img src="${replaceFileUrl(thirdItem.preview_url)}"
                                                                           alt="${thirdItem.description}"
@@ -329,7 +342,9 @@
                                                                   mediaItem.meta?.small?.aspect
                                                               );
                                                               return `
-                                                                  <div class="h-full w-full overflow-hidden rounded-xl">
+                                                                  <div class="relative h-full w-full overflow-hidden rounded-xl">
+                                                                      <canvas class="absolute inset-0 -z-1 w-full h-full bottom-0 right-0 object-contain"
+                                                                          data-blurhash="${mediaItem.blurhash}"></canvas>
                                                                       <a href="${replaceFileUrl(mediaItem.url)}">
                                                                           <img src="${replaceFileUrl(mediaItem.preview_url)}"
                                                                               alt="${mediaItem.description}"
