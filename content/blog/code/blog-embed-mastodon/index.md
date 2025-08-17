@@ -63,7 +63,7 @@ git submodule add https://github.com/eallion/mastodon-embed-timeline.git assets/
 
 把 mastodon-embed-timeline 下载到博客的 `assets/lib` 这个目录，这个目录可以随便选，只要记得这个路径就可以了。
 
-![](git-submodule.png)
+![](/assets/images/posts/2024/10/20/git-submodule.png)
 
 注意事项：
 
@@ -76,7 +76,7 @@ git submodule add https://github.com/eallion/mastodon-embed-timeline.git assets/
 更好的方式可以从主题的 `themes/xxx/layouts/_default` 复制一个模板文件过来，改名为 `mastodon.html`。
 `mastodon.html` 可以是其他名字，如 `bb.html` `shuoshuo.html` `whisper.html`
 
-![](layouts-mastodon.png)
+![](/assets/images/posts/2024/10/20/layouts-mastodon.png)
 
 ### 模板内容
 
@@ -283,7 +283,7 @@ Front Matter 里需要指定 `layout` 的名称，要跟模板名称对应上。
 </div>
 ```
 
-![](frontmatter-layout.png)
+![](/assets/images/posts/2024/10/20/frontmatter-layout.png)
 
 小技巧：Hugo 自带 `aliases` 参数，在 Front Matter 里写上这个参数，可以把这些需要的页面重定向到此页面，不需要另外新建那些页面。
 

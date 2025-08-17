@@ -19,7 +19,7 @@ title: Windows 11 安装软件
 
 ### WinFetch
 
-```
+```bash
 C:\Users\eallion>winfetch
 
  eallion@EALLION
@@ -226,7 +226,7 @@ C:\Users\eallion>winfetch
 
 常驻插件：
 
-![](chrome-extensions-2025.png)
+![](/assets/images/posts/2024/01/26/chrome-extensions-2025.png)
 
 由 [Extension List](https://chromewebstore.google.com/detail/cboicfdginkkdfppcjighdkchdlebdjp) 导出，Chrome 插件也由此插件管理。
 

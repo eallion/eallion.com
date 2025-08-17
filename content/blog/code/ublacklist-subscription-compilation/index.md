@@ -33,9 +33,9 @@ title: uBlacklist 订阅合集
 
 您可以为搜索结果添加规则或点击工具栏图标以屏蔽指定的网站。规则可以通过以下方式指定：[匹配模式](https://developer.mozilla.org/zh-CN/docs/mozilla/add-ons/webextensions/match_patterns) (示例： `*://*.example.com/*`，这样的话会屏蔽 example.org 网站) 或使用[正则表达式](https://developer.mozilla.org/zh-CN/docs/web/javascript/guide/regular_expressions) (示例： `/example\.(net|org)/`，这样的话可以屏蔽 example.net 和 example.org 两个网站).
 
-您可以通过云存储跨设备同步规则集。 目前，支持 Google Drive 和 Dropbox。
+您可以通过云存储跨设备同步规则集。目前，支持 Google Drive 和 Dropbox。
 
-您还可以订阅公共规则集。 该网站列出了一些订阅：[https://iorate.github.io/ublacklist/subscriptions](https://iorate.github.io/ublacklist/subscriptions)
+您还可以订阅公共规则集。该网站列出了一些订阅：[https://iorate.github.io/ublacklist/subscriptions](https://iorate.github.io/ublacklist/subscriptions)
 
 ### 支持的搜索引擎
 
@@ -79,7 +79,7 @@ title: uBlacklist 订阅合集
 
 如下图所示：
 
-![](x2yWi62OWl.png)
+![](/assets/images/posts/2024/06/12/x2yWi62OWl.png)
 
 <blockquote>
 订阅源地址的完整内容如下：
@@ -110,9 +110,9 @@ location: https://raw.githubusercontent.com/eallion/uBlacklist-subscription-comp
 > 在谷歌的搜索结果中将不会显示以下网站
 > 你可以使用 匹配模式 或 正则表达式。
 > 要使用页面标题来屏蔽网站，请在正则表达式前添加「title」。
-> 例如: *://*.example.com/*
-> 例如: /example\.(net|org)/
-> 例如: title/Example Domain/
+> 例如：*://*.example.com/*
+> 例如：/example\.(net|org)/
+> 例如：title/Example Domain/
 
 ```bash
 *://*/so.php

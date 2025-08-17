@@ -25,7 +25,7 @@ summary: n8n 是一个强大的自动化工具，可以用来备份 Mastodon 嘟
 以前体验过 n8n，但是源于自己的成见，觉得它的流程节点太多了，任何一个节点出问题都会影响到整个流程的鲁棒性。人总是健忘的，好比自己的博客，半年没写了，前两天突然打算写一篇博客，已经不知道怎么下手了，不是忘了这就是忘了那，打了 5 次补丁才把一篇文章按自己当初的博客要求给完成。
 后来看到木木老师的《[Memos & n8n，秒接入 AI](https://immmmm.com/get-ai-memos/)》，我也决定再次部署 n8n 试试用它来备份 Mastodon 嘟文，半年下来很流畅，很稳定。
 
-![](n8n-sync.png)
+![](/assets/images/posts/2025/06/11/n8n-sync.png)
 
 > 显示 Deactivated 的节点（灰色）表示已停用。
 
@@ -54,13 +54,13 @@ n8n 的部署方式有很多种，Docker、Kubernetes、云服务等，这里就
 在 n8n 面板中，点右上角的三角形，选择 Create Credentials，创建需要的凭证。
 其他的平台，如：Memos、Blinko、Sink 没有官方的凭证，是通过 HTTP Request 节点来实现认证的。
 
-![](n8n-credentials.png)
+![](/assets/images/posts/2025/06/11/n8n-credentials.png)
 
 我的流程中用到了以上几个节点，需要同步到其他平台，可模仿添加即可。
 
 可选：也可以在编辑流程时，再根据需要来配置凭证：
 
-![](n8n-create-credential.png)
+![](/assets/images/posts/2025/06/11/n8n-create-credential.png)
 
 #### 导入流程
 
@@ -76,11 +76,11 @@ n8n 的部署方式有很多种，Docker、Kubernetes、云服务等，这里就
 
 现在可以配置 Mastodon 了，复制 n8n 流程中的 Webhook 节点 `Production URL`
 
-![](n8n-webhook-url.png)
+![](/assets/images/posts/2025/06/11/n8n-webhook-url.png)
 
 然后在 Mastodon 的设置中，`管理` `Webhooks` `新增端点` 添加一个 Webhook，填入上面的 URL，启用事件选择：`status.created`，然后保存。
 
-![](n8n-mastodon-webhook.png)
+![](/assets/images/posts/2025/06/11/n8n-mastodon-webhook.png)
 
 ### 总结
 
@@ -101,7 +101,7 @@ n8n 的部署方式有很多种，Docker、Kubernetes、云服务等，这里就
 
 从运行历史看，流程运行正常，耗时在 160 毫秒左右：
 
-![](n8n-executions.png)
+![](/assets/images/posts/2025/06/11/n8n-executions.png)
 
 ### 注意事项
 

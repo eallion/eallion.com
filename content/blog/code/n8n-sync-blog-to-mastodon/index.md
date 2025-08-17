@@ -50,7 +50,7 @@ const slug = path.replace(/\/$/, ''); // 去除末尾的斜杠
 
 ### 具体流程
 
-![](n8n-post-mastodon.png)
+![](/assets/images/posts/2025/06/14/n8n-post-mastodon.png)
 
 - 触发器：监测 GitHub 博客仓库的 Push
 - 触发后睡眠 5 分钟，等待 CI/CD 构建和 CDN 刷新，根据自己的时间调整
@@ -64,12 +64,12 @@ const slug = path.replace(/\/$/, ''); // 去除末尾的斜杠
 
 在 Mastodon 实例中创建一个应用：
 
-- `应用名称`： 随便填
+- `应用名称`：随便填
 - `应用网站`： `https://n8n.example.com/rest/oauth2-credential/callback`
 - `重定向 URI`： `https://n8n.example.com/rest/oauth2-credential/callback`
 - `权限范围`： `write:statuses`、可选 `write:media`
 
-![](n8n-mastodon-applications.png)
+![](/assets/images/posts/2025/06/14/n8n-mastodon-applications.png)
 
 ### n8n 凭证
 
@@ -77,7 +77,7 @@ const slug = path.replace(/\/$/, ''); // 去除末尾的斜杠
 
 注意：Mastodon 不能用官方的，需要选择 OAuth2 API
 
-![](n8n-mastodon-credential.png)
+![](/assets/images/posts/2025/06/14/n8n-mastodon-credential.png)
 
 ### n8n 流程
 

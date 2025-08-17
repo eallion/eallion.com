@@ -154,4 +154,4 @@ echo "Backup completed and synced to cloud storage!"
 
 通过以上步骤，可以定期备份 Mastodon 的数据到云存储中，确保数据的安全性和可靠性。备份脚本可以根据实际需求进行调整，比如添加更多的目录备份、修改备份频率等。
 
-![](cloudflare-r2-backup.png)
+![](/assets/images/posts/2025/06/09/cloudflare-r2-backup.png)

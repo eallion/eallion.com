@@ -45,7 +45,7 @@ scm=20140767.59990_33_63_246_113_412_1727011349105.1%7Citem%7C832964446361
 https://item.taobao.com/item.htm?id=787947803999
 ```
 
-![](qszy_url_cleaner_screenshot.png)
+![](/assets/images/posts/2024/09/22/qszy_url_cleaner_screenshot.png)
 
 而且，有的客服（还有运营）会做手脚，把里面阿里妈妈的 PID 更换成自己的，吃高佣淘宝客回扣，有同行半年可以吃出来一套房。
 

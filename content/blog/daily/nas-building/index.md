@@ -16,7 +16,7 @@ title: NAS 折腾记
 
 ### 截图
 
-![](fnos.png)
+![](/assets/images/posts/2025/03/18/fnos.png)
 
 ### 源起
 
@@ -27,7 +27,7 @@ title: NAS 折腾记
 
 当时还发了一张[预算清单](https://e5n.cc/@eallion/114120432589048794)：
 
-![](nas-yusuan.png)
+![](/assets/images/posts/2025/03/18/nas-yusuan.png)
 
 ### 意外
 
@@ -60,7 +60,7 @@ title: NAS 折腾记
 拆机时，发现了一个离大谱的事情，电源的 24pin 接口，有一根线居然是他妈的断的！而且这个头子是变形的。
 可能是鬼打墙了，装机时为什么没发现呢。这个变形我瞄了一眼的，我当时觉得应该不影响使用吧。
 
-![](nas-dianyuanxian.png)
+![](/assets/images/posts/2025/03/18/nas-dianyuanxian.png)
 
 #### 3. 意外三，换主板和电源
 
@@ -79,7 +79,7 @@ title: NAS 折腾记
 
 功耗：待机功耗 25W 左右，读写功耗 30-40W，解码 4K 40-50W。
 
-![](nas-gonghao.jpg)
+![](/assets/images/posts/2025/03/18/nas-gonghao.jpg)
 
 ### 配置清单
 

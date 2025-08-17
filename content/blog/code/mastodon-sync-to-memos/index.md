@@ -70,7 +70,7 @@ Mastodon 前往 `https://{INSTANCE}/admin/webhooks` 创建一个 Webhook。
 宝塔的是：`https://webhook.mybtserver.com:8888/hook?access_key=ACCESSKEY`
 Mastodon 的 Webhook 目的地 URL 建议绑定域名，不然 Sidekiq 可能处理不了。
 
-![](mastodon-webhook.png)
+![](/assets/images/posts/2024/03/09/mastodon-webhook.png)
 
 ### 脚本内容
 
@@ -351,7 +351,7 @@ echo "============================="
 
 宝塔面板如果用 Webhook 插件，可以直接把上面的脚本内容复制到 Webhook 插件的脚本中。不用另外在服务器中手动创建 `.sh` 文件。
 
-![](bt-webhook.png)
+![](/assets/images/posts/2024/03/09/bt-webhook.png)
 
 ### JSON 数据文件内容
 

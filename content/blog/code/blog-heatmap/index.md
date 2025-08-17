@@ -15,7 +15,8 @@ tags:
 - contributions
 title: CSS 和 JS 实现博客热力图
 ---
-![](heatmap_screenshot.png "效果截图")
+
+![](/assets/images/posts/2024/04/30heatmap_screenshot.png "效果截图")
 
 > 查看实时效果： 👉[统计页](https://www.eallion.com/stats)
 

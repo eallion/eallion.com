@@ -18,7 +18,7 @@ title: 博客排版 - 挤压中文标点符号
 ### 示例
 
 连续的中文全角标点符号的默认排版样式，默认 1 个全角标点会占用 2 个字符宽度，当连续的全角标点出现时，会出现大量的空白。（可点击图片）看一个例子：
-<a href="https://sivan.github.io/heti/#javascript" target="_blank"><img src="heti-addon.png" class="nozoom"></a>
+<a href="https://sivan.github.io/heti/#javascript" target="_blank"><img src="/assets/images/posts/2024/10/29/heti-addon.png" class="nozoom"></a>
 
 ### 解决方案
 
