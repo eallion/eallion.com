@@ -7,8 +7,8 @@ date: 2023-07-11 15:27:23
 draft: false
 series:
 - NeoDB
-seriesNavigation: true
-series_weight: 1
+seriesOpened: true
+series_order: 1
 slug: neodb
 summary: 将豆瓣观影数据迁移至 NeoDB 并静态化部署，通过 API 获取数据后本地存储为 JSON 文件，利用 Hugo 生成静态页面，结合自定义 CSS
   和 JS 实现排序功能，并通过 GitHub Actions 自动化更新数据。SaaS 服务不可靠，自建方案更可控！

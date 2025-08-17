@@ -8,8 +8,8 @@ draft: false
 lastmod: 2022-11-06 08:34:22
 series:
 - Memos
-seriesNavigation: true
-series_weight: 5
+seriesOpened: true
+series_order: 5
 slug: memos-total-count
 summary: Memos 官方废弃了 amount API，建议通过解析 Json 返回数据的长度属性来统计总条数。示例代码通过 fetch 请求 stats
   接口获取数据，计算数组长度后更新页面元素显示总数，并在页面加载时自动执行。错误处理保留了扩展空间。

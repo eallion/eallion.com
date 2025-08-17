@@ -7,8 +7,8 @@ date: 2023-07-14 14:41:16
 draft: false
 series:
 - NeoDB
-seriesNavigation: true
-series_weight: 3
+seriesOpened: true
+series_order: 3
 slug: douban-sync
 summary: 豆瓣图片防盗链升级导致依赖其图片的服务失效，促使将观影记录迁移至开源平台 NeoDB。怡红公子的 drone-doumark 项目已支持同步到 NeoDB，同时发现现有教程可将豆瓣标记通过
   RSS 同步至 Notion 和 NeoDB。过程中需注意豆瓣 RSS 仅显示最新 10 条活动记录，且需调整标记可见度参数为公开。Notion 集成功能位置已变更至

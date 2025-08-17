@@ -8,8 +8,8 @@ draft: false
 lastmod: 2022-11-06 08:33:22
 series:
 - Memos
-seriesNavigation: true
-series_weight: 4
+seriesOpened: true
+series_order: 4
 slug: memos-ticker
 summary: 在网页中展示 Memos 需创建 ID 为 memos 的容器，通过 JS 调用 API 获取数据并处理为 JSON 格式，使用正则替换代码块、图片和链接，最后用
   CSS 控制滚动效果和样式布局。Lately.js 插件可实现相对时间显示。

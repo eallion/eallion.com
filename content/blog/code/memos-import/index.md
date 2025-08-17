@@ -8,8 +8,8 @@ draft: false
 lastmod: 2022-11-06 08:31:22
 series:
 - Memos
-seriesNavigation: true
-series_weight: 2
+seriesOpened: true
+series_order: 2
 slug: memos-import
 summary: Memos 官方未提供数据导入导出功能，但可通过直接操作 SQLite 数据库实现迁移。方法一使用命令行导出 CSV 模板并修改编码为 UTF-8-BOM
   避免中文乱码，再导入到数据库文件后替换服务器原文件并调整权限。方法二借助 SQLiteStudio 或 Navicat 等工具可视化操作，导出修改后重新导入并替换文件。两种方式均需重启容器生效！

@@ -7,8 +7,8 @@ date: 2024-01-14 12:58:31
 draft: false
 series:
 - Mastodon
-seriesNavigation: true
-series_weight: 1
+seriesOpened: true
+series_order: 1
 slug: fediverse
 summary: 联邦宇宙 (Fediverse) 是一个由独立服务器组成的去中心化社交网络，用户只需注册任意实例账号即可跨平台互动，无需理解复杂技术原理。它通过
   ActivityPub 等开放协议实现互通，类比电话网络或电子邮件系统的互联逻辑。自建实例门槛低，2C2G 服务器即可运行 Mastodon，推荐使用 Docker

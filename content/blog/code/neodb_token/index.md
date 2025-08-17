@@ -7,8 +7,8 @@ date: 2023-07-11 15:15:21
 draft: false
 series:
 - NeoDB
-seriesNavigation: true
-series_weight: 2
+seriesOpened: true
+series_order: 2
 slug: neodb_token
 summary: 注册 NeoDB 需先拥有 Mastodon 账号，现已支持邮箱登录。生成 Access Token 需在开发者中心创建应用并记录 Client
   ID，通过授权链接获取 AUTH_CODE，最后用 curl 请求换取有效期为 1 年的 Access Token。

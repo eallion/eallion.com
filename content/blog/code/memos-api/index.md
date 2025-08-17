@@ -8,8 +8,8 @@ draft: false
 lastmod: 2022-11-06 08:32:22
 series:
 - Memos
-seriesNavigation: true
-series_weight: 3
+seriesOpened: true
+series_order: 3
 slug: memos-api
 summary: Memos 已独立为完整应用，支持通过 API 调用渲染静态页面，需在 HTML 中放置特定容器并配置 JS 脚本。核心步骤包括获取公开 Memos
   数据、解析标签与多媒体链接、动态加载内容及分页处理。内置样式参考 Twitter 设计，集成相对时间显示、图片灯箱等功能，支持 B 站、网易云等平台内容自动嵌入。部署时需修改实例域名、用户

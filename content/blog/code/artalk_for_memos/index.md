@@ -7,8 +7,8 @@ date: 2023-05-25 14:13:35
 draft: false
 series:
 - Memos
-seriesNavigation: true
-series_weight: 6
+seriesOpened: true
+series_order: 6
 slug: artalk_for_memos
 summary: 在 Memos v0.14.0 中成功集成 Artalk 评论系统，通过自定义 CSS 和 JS 脚本实现暗黑模式适配与界面优化。核心步骤包括修改后台样式、动态加载
   Artalk 资源、独立页面评论功能嵌入，并需替换 CDN 链接和服务端配置。示例见 eallion.com/memos，完整方案参考相关技术文档！

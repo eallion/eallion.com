@@ -7,8 +7,8 @@ date: 2024-03-09 08:57:49
 draft: false
 series:
 - Mastodon
-seriesNavigation: true
-series_weight: 2
+seriesOpened: true
+series_order: 2
 slug: mastodon-sync-to-memos
 summary: 该脚本通过 Webhook 实现 Mastodon 嘟文同步到 Memos 的功能，支持跳过回复和转嘟，利用 AI 检测内容相似度避免重复，并通过
   Sink 短网址服务生成跳转链接。配置需替换关键参数如 API 令牌和实例地址，脚本自动记录 ID 映射关系确保数据一致性。同步成功后会更新本地 JSON 文件并输出日志！

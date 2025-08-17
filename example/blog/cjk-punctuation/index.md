@@ -6,8 +6,7 @@ categories:
 date: 2024-10-29 17:31:17+08:00
 draft: false
 slug: cjk-punctuation
-summary: 中文全角标点连续出现时会产生多余空白。解决方案包括使用赫蹏或Han这类JS插件压缩标点间距，或通过OpenType字体的halt特性实现半角显示（需CSS设置）。建议网页设置lang属性标明语言，例如`<html
-  lang="zh-cn">`。
+summary: 中文全角标点连续出现时会产生多余空白。解决方案包括使用赫蹏或 Han 这类 JS 插件压缩标点间距，或通过 OpenType 字体的 halt 特性实现半角显示（需 CSS 设置）。建议网页设置 lang 属性标明语言，例如`<html lang="zh-cn">`。
 tags:
 - 博客
 - 标点
