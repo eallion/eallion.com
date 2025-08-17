@@ -14,6 +14,7 @@
 /resources/_gen/
 /assets/jsconfig.json
 hugo_stats.json
+content/blog/*.md
 
 # Executable may be added to repository
 

@@ -8,8 +8,9 @@
     <div id="link-to-mastodon" class="flex items-center relative">
         <span class="cursor-pointer">discuss on </span>
         <span class="ml-2 cursor-pointer">{{ partial "icon.html" "mastodon-purple" }}</span>
-        <span class='ml-1 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'><a
-                href="/s/{{ .Slug }}" target="_blank" rel="noopener">Mastodon</a></span>
+        <span class='ml-1 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>
+            <a href="/s/{{ .Params.slug | default .File.TranslationBaseName }}" target="_blank" rel="noopener">Mastodon</a>
+        </span>
         <span>{{ partial "icon.html" "external-link-alt" }}</span>
     </div>
 </div>
