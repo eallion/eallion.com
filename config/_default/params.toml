@@ -27,7 +27,7 @@ disableTextInHeader = false
 # backgroundImageWidth = 1200
 
 defaultBackgroundImage = "/images/interstellar.webp"
-defaultFeaturedImage = "/images/featured.svg"
+defaultFeaturedImage = "/images/featured-default.webp"
 
 highlightCurrentMenuArea = true
 smartTOC = true

@@ -78,8 +78,8 @@ enableEmoji = true
 # Custom
 
 [permalinks]
-  blog = "/:slug/" # Don't miss the last slash: "/"
-  tags = "/tags/:slug/" # Don't miss the last slash: "/"
+  blog = "/:contentbasename/" # Don't miss the last slash: "/"
+  tags = "/tags/:contentbasename/" # Don't miss the last slash: "/"
 
 [mediaTypes]
 

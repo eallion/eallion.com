@@ -166,6 +166,16 @@ git submodule add https://github.com/eallion/mastodon-embed-timeline.git assets/
 
 ### ✏️ 写新文章
 
+##### Breaking Change
+
+现在用 Directus 管理文章，不再用 Hugo 命令生成。
+
+```bash
+# pnpm install
+
+pnpm run directus # node scripts/aliyun-esa-purge.js
+```
+
 ##### 1. **生成新文章**
 
 通过 Hugo 命令 New 一篇新文章模板：  
