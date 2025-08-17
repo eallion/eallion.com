@@ -20,6 +20,8 @@ aliases:
     - /en/stat
     - /en/status
     - /en/tongji
+    - /en/analytic
+    - /en/analytics
 ---
 
 Ref<sup>1</sup>: The same article may contain multiple categories, the same below.

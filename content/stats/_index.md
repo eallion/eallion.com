@@ -20,6 +20,8 @@ aliases:
     - /stat
     - /status
     - /tongji
+    - /analytic
+    - /analytics
 ---
 
 注<sup>1</sup>：同一文章可能包含多个分类，下同。
