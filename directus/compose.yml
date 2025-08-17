@@ -1,0 +1,35 @@
+services:
+  directus:
+    image: directus/directus:latest
+    container_name: directus
+    ports:
+      - "8055:8055"
+    volumes:
+      - ./database:/directus/database
+      - ./extensions:/directus/extensions
+      - ./uploads:/directus/uploads
+    environment:
+      # General
+      - DB_CLIENT=sqlite3
+      - DB_FILENAME=/directus/database/data.db
+
+      # Admin User
+      - ADMIN_EMAIL=eallion@example.com
+      - ADMIN_PASSWORD=
+
+      # Security
+      - SECRET=https://jwtsecrets.com/#generator
+      - KEY=https://jwtsecrets.com/#generator
+      - PUBLIC_URL=https://directus.example.com
+
+      # File Storage
+      # - STORAGE_LOCATIONS=local
+      # - STORAGE_LOCAL_DRIVER=s3
+      # - STORAGE_LOCAL_ROOT=/directus/uploads
+      - STORAGE_LOCATIONS=s3
+      - STORAGE_S3_DRIVER=s3
+      - STORAGE_S3_KEY=
+      - STORAGE_S3_SECRET=
+      - STORAGE_S3_BUCKET=directus
+      - STORAGE_S3_REGION=auto
+      - STORAGE_S3_ENDPOINT=https://ACCOUNT_ID.r2.cloudflarestorage.com
