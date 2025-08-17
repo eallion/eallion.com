@@ -44,6 +44,12 @@
   "homepage": "https://github.com/eallion/eallion.com#readme",
   "devDependencies": {
     "@types/node": "^22.17.0",
+    "axios": "^1.11.0",
+    "dotenv": "^17.2.1",
+    "fs": "0.0.1-security",
+    "husky": "^9.1.7",
+    "glob": "^11.0.3",
+    "gray-matter": "^4.0.3",
     "nyc": "^17.1.0",
     "source-map-support": "^0.5.21",
     "ts-node": "^10.9.2",
@@ -55,10 +61,5 @@
     "@alicloud/tea-console": "^1.0.0",
     "@alicloud/tea-typescript": "^1.8.0",
     "@alicloud/tea-util": "^1.4.10",
-    "axios": "^1.11.0",
-    "dotenv": "^17.2.1",
-    "edgeone": "^1.0.32",
-    "fs": "0.0.1-security",
-    "husky": "^9.1.7"
   }
 }
