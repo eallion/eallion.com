@@ -73,8 +73,10 @@ jobs:
         run: |
           pnpm install
           pnpm run directus
-        # env:
-        #   # DIRECTUS_API_KEY: ${{ secrets.DIRECTUS_API_KEY }}
+        env:
+          DIRECTUS_API_URL: ${{ secrets.DIRECTUS_API_URL }}
+          DIRECTUS_FILES_URL: ${{ secrets.DIRECTUS_FILES_URL }}
+          DIRECTUS_S3_URL: ${{ secrets.DIRECTUS_S3_URL }}
 
       - name: Build Hugo
         run: |
