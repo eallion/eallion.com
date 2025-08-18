@@ -1,6 +1,14 @@
 {
   "penta": [
     {
+      "src": "20250818-LeeSin.jpg",
+      "alt": "20250818-LeeSin",
+      "champion": "LeeSin",
+      "date": "2025-08-18",
+      "caption": "盲僧 李青",
+      "heroId": "64"
+    },
+    {
       "src": "20240716-Varus.jpg",
       "alt": "20240716-Varus",
       "champion": "Varus",
