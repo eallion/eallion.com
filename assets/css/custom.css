@@ -920,7 +920,6 @@ html.dark .shiki span {
   padding-right: 0.5rem;
   margin-bottom: 1rem;
   position: relative;
-  font-size: 0.875rem;
   overflow: hidden;
   background-color: #9BEA6B;
   border-radius: 9999rem;
@@ -951,6 +950,15 @@ html.dark .shiki span {
   left: 0;
   opacity: 0;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.ticker-item .datetime {
+  font-size: 0.875rem;
+
+
+}.ticker-item .datetime::after {
+  content: '：';
+  margin-inline-end: -.5em;
 }
 
 .ticker-item.active {
