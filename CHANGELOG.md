@@ -1,3 +1,76 @@
+## v5.0.1 (2025-08-18)
+
+### Bug fix
+
+- Bug fixes
+- Style
+
+## v5.0.0 (2025-08-18)
+
+### New feature
+
+- **docs**: article content migrate to directus([`6bcf786`](https://github.com/eallion/eallion.com/commit/6bcf7862baa25b7d8ea9199c8128c7c6c966938d)) (by Charles Chin), Closes: #158
+- rm example for directus([`e17410d`](https://github.com/eallion/eallion.com/commit/e17410da8d6af7c8fd570d1d707751217e8646a3)) (by Charles Chin)
+- directus import markdown article node js scripts([`382be0a`](https://github.com/eallion/eallion.com/commit/382be0a754330050126f3e8401450701749a4fe9)) (by Charles Chin)
+- rm featured article cover local([`126ae0e`](https://github.com/eallion/eallion.com/commit/126ae0eaa14867ed1c1eafb4562442b4c4ca5bfb)) (by Charles Chin)
+- rm blog article posts for directus([`ffa6d84`](https://github.com/eallion/eallion.com/commit/ffa6d840ec160e461a9ade056be719bc630369c4)) (by Charles Chin)
+- mv featured([`4950f10`](https://github.com/eallion/eallion.com/commit/4950f10483efc33a751c4139c9a114973476d34b)) (by Charles Chin)
+- rm featured images in article folder([`8e685ce`](https://github.com/eallion/eallion.com/commit/8e685ce7418177e09f3fc73b81229485cbd0683d)) (by Charles Chin)
+- mv article images to statics([`4dd13ba`](https://github.com/eallion/eallion.com/commit/4dd13ba8faca107191ac6abfa7d1c14734a9c67c)) (by Charles Chin)
+- currency update([`f991bba`](https://github.com/eallion/eallion.com/commit/f991bbaee333859698ec180e75ce348ae0091956)) (by Charles Chin)
+- sink update([`32c5158`](https://github.com/eallion/eallion.com/commit/32c5158227dc7f0ec0d8d8042e1a40f8f06ad7f5)) (by Charles Chin)
+- autocorrect update([`20fd7c4`](https://github.com/eallion/eallion.com/commit/20fd7c4e888b3f2b224a25a9a4ee5cd0ca1e8dd1)) (by Charles Chin)
+- view image js([`bbdb5e6`](https://github.com/eallion/eallion.com/commit/bbdb5e612a3897b4a2d1da6c9f534fc7c29a91eb)) (by Charles Chin)
+- cnb deploy to oss backup([`e3bcb2d`](https://github.com/eallion/eallion.com/commit/e3bcb2d30185abbb6bb174843b0ecb959f3534ac)) (by Charles Chin)
+- keyoxide([`c7cf4b9`](https://github.com/eallion/eallion.com/commit/c7cf4b9ef78e7303674c49cf31fd4d9b6c6b632a)) (by Charles Chin)
+- cnb pipeline([`9da929c`](https://github.com/eallion/eallion.com/commit/9da929c6f5aec899fd806d9c74bb22f53d6c0a6a)) (by Charles Chin)
+- cnb([`3bae70d`](https://github.com/eallion/eallion.com/commit/3bae70da736c808aebce0988139dd73dd1981e8e)) (by Charles Chin)
+- editor config indent style space([`ca024fa`](https://github.com/eallion/eallion.com/commit/ca024faa439d3c9398116a95110d31e97c1aa732)) (by Charles Chin)
+- html tpl extend footer and head([`3f58036`](https://github.com/eallion/eallion.com/commit/3f5803639d2c965a3df92a645663e67ba5f50567)) (by Charles Chin)
+- delta chat([`c5d18fc`](https://github.com/eallion/eallion.com/commit/c5d18fcceae39dfe37581f53e1408885e04da654)) (by Charles Chin)
+- disable umami([`580d3d3`](https://github.com/eallion/eallion.com/commit/580d3d3a2c2b47a1c07b32158cfccbc5af3efad6)) (by Charles Chin)
+- umami custom script name([`5aa0c93`](https://github.com/eallion/eallion.com/commit/5aa0c9317648e3676a9f730a1672674e89aa9eac)) (by Charles Chin)
+- movie icon([`a51831b`](https://github.com/eallion/eallion.com/commit/a51831bc23c9f4f13627344ef1980d592bcb27df)) (by Charles Chin)
+- moontv search link([`9eaf239`](https://github.com/eallion/eallion.com/commit/9eaf239ce79921be143e7b6328bfe739620c3bd9)) (by Charles Chin)
+- album([`1b5afef`](https://github.com/eallion/eallion.com/commit/1b5afef3737dfc0d46bf7becd7128adb9671fcd6)) (by Charles Chin)
+
+### Bugs fixed
+
+- stats page aliases([`442b97b`](https://github.com/eallion/eallion.com/commit/442b97b59eccdf4d1b581cec711c4c4a18745280)) (by Charles Chin)
+- front matter series([`63ed994`](https://github.com/eallion/eallion.com/commit/63ed994cefbdeabda54082671512729970b3b09e)) (by Charles Chin)
+- mastodon url base64 encode([`d6a7db4`](https://github.com/eallion/eallion.com/commit/d6a7db4cab41b59fa1361e0d93f4e5d7f6e9ee90)) (by Charles Chin)
+- mastodon reblog avatar mirror([`ceb7a6f`](https://github.com/eallion/eallion.com/commit/ceb7a6f5902e6a254bd6528469ca0e9a1808fe17)) (by Charles Chin)
+- revert disableTextInHeader config([`64f2d18`](https://github.com/eallion/eallion.com/commit/64f2d184988da64f916b8ac0caf118f242af65dc)) (by Charles Chin)
+- mastodon only 1 image style([`50c195d`](https://github.com/eallion/eallion.com/commit/50c195d3a80ceed932e58071951ed821785d47d1)) (by Charles Chin)
+- mastodon api url([`0dfb744`](https://github.com/eallion/eallion.com/commit/0dfb744dfe033bb43f22f5865f088669c80c66d9)) (by Charles Chin)
+- config language([`b7824b6`](https://github.com/eallion/eallion.com/commit/b7824b673463e3d918a60ebb35f858e4fd8e0633)) (by Charles Chin)
+- revoke edgeone api token([`994e58c`](https://github.com/eallion/eallion.com/commit/994e58c7fb407edc73b5cd3cb33baf629dd65272)) (by Charles Chin)
+- cnb deploy([`8a5929d`](https://github.com/eallion/eallion.com/commit/8a5929d43a42dcf9c7ebc5432ca08b7ff3a02d0e)) (by Charles Chin)
+- fetch data failure when network error([`43e1f7f`](https://github.com/eallion/eallion.com/commit/43e1f7f0fbde0d1085951abffe3984630246320c)) (by Charles Chin)
+- revert delta chat([`2a99afe`](https://github.com/eallion/eallion.com/commit/2a99afe519d740c826018713a95403b6daae9e4c)) (by Charles Chin)
+- delta chat protocol([`a02b77e`](https://github.com/eallion/eallion.com/commit/a02b77e292ff100be6c2abe8e40213470e21433f)) (by Charles Chin)
+- delta chat([`0c59f77`](https://github.com/eallion/eallion.com/commit/0c59f777149badfce02654d54d664867a9db1b38)) (by Charles Chin)
+- ignore warning [skip ci](%5B%608e1b123%60%5D(https://github.com/eallion/eallion.com/commit/8e1b123f6a5b10ca50ef908e8dc737a8fec38d5a)) (by Charles Chin)
+- fix umami([`d2e57bb`](https://github.com/eallion/eallion.com/commit/d2e57bbc4bc89fa4490f9a23d8e0cdd3b0e5770d)) (by Charles Chin)
+- mastodon statuses stats([`7f79d1d`](https://github.com/eallion/eallion.com/commit/7f79d1d2cff2ccf3a846939a49c56d5aeb59c7b4)) (by Charles Chin)
+
+### Performance improves
+
+- directus([`4f2212d`](https://github.com/eallion/eallion.com/commit/4f2212d7c5e15698761c0a325ef4aec1f1edd82e)) (by Charles Chin)
+- mastodon timeline images container([`04e5e9e`](https://github.com/eallion/eallion.com/commit/04e5e9eb7c6008e1277e57d5121dfae078999db2)) (by Charles Chin)
+- album fetch api([`f54d7c1`](https://github.com/eallion/eallion.com/commit/f54d7c12e9701946dbe75dff3fd4253c1400b2b0)) (by Charles Chin)
+- hugo build([`b0b828b`](https://github.com/eallion/eallion.com/commit/b0b828bf9add93d03f9aa37dbd6781f595cfe3e9)) (by Charles Chin)
+- update friends links([`abbd368`](https://github.com/eallion/eallion.com/commit/abbd368bcbcfef1942c2e81c385fafff3730b649)) (by Charles Chin)
+- workflow trigger n8n webhook [skip ci](%5B%602a09b39%60%5D(https://github.com/eallion/eallion.com/commit/2a09b396130abc6d910641f3b7985be60ce34f40)) (by Charles Chin)
+- gh actions cache([`9d872e0`](https://github.com/eallion/eallion.com/commit/9d872e0ec2d3e60b929ac41d607d459b1c6fae72)) (by Charles Chin)
+- mastodon([`07b321f`](https://github.com/eallion/eallion.com/commit/07b321f0714aaf3930bc5a45f16c70278b0120d4)) (by Charles Chin)
+
+### BREAKING CHANGES
+
+- article content migrate to directus
+
+  migrate article content to directus.
+
 ## v4.0.8 (2025-05-11)
 
 ### New feature
