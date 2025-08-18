@@ -961,60 +961,68 @@
   // 处理 Json 数据
   if (document.querySelector('#ticker')) {
     fetch(jsonUrl)
-        .then(res => res.json())
-        .then(res => {
-            var result = '';
-            var data = res;
-            for (var i = 0; i < data.length; i++) {
-                var tickerTime = new Date(data[i].created_at);
-                var tickerContent = extractTextFromHtml(data[i].content);
-                var tickerUrl = data[i].url;
-                const replacements = {
-                    '\\s*:star_empty:\\s*': '🌑',
-                    '\\s*:star_half:\\s*': '🌗',
-                    '\\s*:star_solid:\\s*': '🌕'
-                };
-                tickerContent = replaceMultiple(tickerContent, replacements);
-                var relativeTime = getRelativeTime(tickerTime);
-                result += `<li class="ticker-item" data-index="${i}">
-                            <span class="datetime">${relativeTime}</span>：
-                            <a href="${tickerUrl}" target="_blank">${tickerContent}</a>
-                        </li>`;
-            }
-            var tickerDom = document.querySelector('#ticker');
-            var tickerBefore = `<div class="ticker-header"></div><ul class="ticker-list">`;
-            var tickerAfter = `</ul>`;
-            resultAll = tickerBefore + result + tickerAfter;
-            tickerDom.innerHTML = resultAll;
+      .then(res => res.json())
+      .then(data => {
+        // 处理数据并生成 HTML
+        const result = data.map((item, i) => {
+          const tickerTime = new Date(item.created_at);
+          const tickerUrl = item.url;
+          const relativeTime = getRelativeTime(tickerTime);
 
-            // 初始化第一个 ticker-item 为 active
-            var tickerItems = document.querySelectorAll('.ticker-item');
-            if (tickerItems.length > 0) {
-                tickerItems[0].classList.add('active');
-            }
+          // 判断是否为转帖
+          const isReblog = item.reblog && Object.keys(item.reblog).length > 0;
+          const content = isReblog ? item.reblog.content : item.content;
 
-            // 滚动效果
-            function slideTickerItem() {
-                var tickerItems = document.querySelectorAll('.ticker-item');
-                if (tickerItems.length > 0) {
-                    var activeItem = document.querySelector('.ticker-item.active');
-                    var nextIndex = (parseInt(activeItem.getAttribute('data-index')) + 1) % tickerItems.length;
-                    var nextItem = document.querySelector(`.ticker-item[data-index="${nextIndex}"]`);
+          // 提取并处理文本内容
+          let tickerContent = extractTextFromHtml(content);
+          tickerContent = replaceMultiple(tickerContent);
 
-                    activeItem.classList.remove('active');
-                    activeItem.classList.add('out');
-                    nextItem.classList.add('in');
+          // 生成 HTML
+          return `
+            <li class="ticker-item" data-index="${i}">
+              <span class="datetime ml-1">${relativeTime}</span>
+              <a href="${tickerUrl}" target="_blank">${isReblog ? '【转】' : ''}${tickerContent}</a>
+            </li>
+          `;
+        }).join('');
 
-                    setTimeout(() => {
-                        activeItem.classList.remove('out');
-                        nextItem.classList.remove('in');
-                        nextItem.classList.add('active');
-                    }, 300);
-                }
-                setTimeout(slideTickerItem, 3000);
-            }
-            slideTickerItem();
-        });
+        // 更新 DOM
+        const tickerDom = document.querySelector('#ticker');
+        tickerDom.innerHTML = `
+          <div class="ticker-header"></div>
+          <ul class="ticker-list">${result}</ul>
+        `;
+
+        // 初始化第一个 ticker-item 为 active
+        const tickerItems = document.querySelectorAll('.ticker-item');
+        if (tickerItems.length > 0) {
+          tickerItems[0].classList.add('active');
+        }
+
+        // 启动滚动效果
+        slideTickerItem();
+      });
+  }
+
+  // 滚动效果
+  function slideTickerItem() {
+    var tickerItems = document.querySelectorAll('.ticker-item');
+    if (tickerItems.length > 0) {
+      var activeItem = document.querySelector('.ticker-item.active');
+      var nextIndex = (parseInt(activeItem.getAttribute('data-index')) + 1) % tickerItems.length;
+      var nextItem = document.querySelector(`.ticker-item[data-index="${nextIndex}"]`);
+
+      activeItem.classList.remove('active');
+      activeItem.classList.add('out');
+      nextItem.classList.add('in');
+
+      setTimeout(() => {
+        activeItem.classList.remove('out');
+        nextItem.classList.remove('in');
+        nextItem.classList.add('active');
+      }, 300);
+    }
+    setTimeout(slideTickerItem, 3000);
   }
 
   // 计算相对时间的函数
@@ -1047,7 +1055,13 @@
   }
 
   // 替换字符串
-  function replaceMultiple(str, replacements) {
+  function replaceMultiple(str) {
+    const replacements = {
+      '\\s*:star_empty:\\s*': '🌑',
+      '\\s*:star_half:\\s*': '🌗',
+      '\\s*:star_solid:\\s*': '🌕'
+    };
+
     let result = str;
     for (const pattern in replacements) {
       const regex = new RegExp(pattern, 'g');
@@ -1063,7 +1077,6 @@
     return doc.body.textContent || '';
   }
 </script>
-
 {{ $backgroundBlur := resources.Get "js/background-blur.js" }}
 {{ $backgroundBlur = $backgroundBlur | resources.Minify | resources.Fingerprint (.Site.Params.fingerprintAlgorithm | default "sha512") }}
 <script
