@@ -1,16 +1,18 @@
 // sync-directus.js
 // 这个脚本从 Directus API 获取文章数据，并生成 Hugo Markdown 文件
+require('dotenv').config({ path: '.env.local' });
 
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 
+
 // -------------------------------------------------------------
-// 配置部分
+// 配置部分（支持从环境变量读取）
 // -------------------------------------------------------------
-const DIRECTUS_API_URL = 'https://admin.eallion.com/items/Article';
-const DIRECTUS_FILES_URL = 'https://admin.eallion.com/files/'; // Directus 文件 API 的基础 URL
-const S3_ASSETS_URL = 'https://directus-assets.eallion.com/'; // 新的 S3 域名
+const DIRECTUS_API_URL = process.env.DIRECTUS_API_URL;
+const DIRECTUS_FILES_URL = process.env.DIRECTUS_FILES_URL; // Directus 文件 API 的基础 URL
+const DIRECTUS_S3_URL = process.env.DIRECTUS_S3_URL; // S3 域名
 const HUGO_CONTENT_DIR = path.join(__dirname, '..', 'content', 'blog');
 
 // Directus API 分页设置
@@ -109,7 +111,7 @@ async function createMarkdownFiles(articles) {
         // 特别处理 featureimage：获取文件元数据并拼接带扩展名的 S3 URL
         const fileName = await getFileMeta(value);
         if (fileName) {
-          const imageUrl = `${S3_ASSETS_URL}${fileName}`;
+          const imageUrl = `${DIRECTUS_S3_URL}${fileName}`;
           frontMatter[key] = imageUrl;
         } else {
           console.warn(`警告：无法为 ID ${value} 获取文件名，跳过 featureimage。`);

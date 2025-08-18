@@ -6,14 +6,14 @@ const matter = require('gray-matter');
 const axios = require('axios');
 
 // 配置 Directus - 现在支持 .env.local 覆盖
-const DIRECTUS_URL = process.env.DIRECTUS_URL || 'https://cloud.directus.io';
+const DIRECTUS_API_URL = process.env.DIRECTUS_API_URL || 'https://cloud.directus.io';
 const DIRECTUS_EMAIL = process.env.DIRECTUS_EMAIL;
 const DIRECTUS_PASSWORD = process.env.DIRECTUS_PASSWORD;
 const BLOG_DIR = process.env.BLOG_DIR || path.join(__dirname, '../content/blog');
 
 // 创建 Axios 实例
 const directus = axios.create({
-  baseURL: DIRECTUS_URL,
+  baseURL: DIRECTUS_API_URL,
   headers: {
     'Content-Type': 'application/json'
   }
@@ -27,7 +27,7 @@ let tokenExpiry = null;
 // 登录获取访问令牌
 async function login() {
   try {
-    const response = await axios.post(`${DIRECTUS_URL}/auth/login`, {
+    const response = await axios.post(`${DIRECTUS_API_URL}/auth/login`, {
       email: DIRECTUS_EMAIL,
       password: DIRECTUS_PASSWORD
     });
@@ -51,7 +51,7 @@ async function login() {
 // 刷新访问令牌
 async function refreshAccessToken() {
   try {
-    const response = await axios.post(`${DIRECTUS_URL}/auth/refresh`, {
+    const response = await axios.post(`${DIRECTUS_API_URL}/auth/refresh`, {
       refresh_token: refreshToken
     });
 
