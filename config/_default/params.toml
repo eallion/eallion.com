@@ -43,6 +43,21 @@ smartTOCHideUnfocusedChildren = false
   showAppearanceSwitcher = true
   showScrollToTop = true
 
+[author]
+  name = "大大的小蜗牛"
+  image = "images/eallion.png"
+  imageQuality = 96
+  headline = "机会总是垂青于有准备的人！"
+  bio = "机会总是垂青于有准备的人！"
+  links = [
+    { email = "mailto:eallion.s+blog@gmail.com" },
+    { keyoxide = "https://keyoxide.org/E685DDDDDDDDDDDD" },
+    { mastodon = "https://e5n.cc/@eallion" },
+    { github = "https://github.com/eallion" },
+    { x-twitter = "https://x.com/eallion" },
+    { steam = "https://steamcommunity.com/id/eallion" }
+  ]
+
 [homepage]
   layout = "custom" # valid options: page, profile, hero, card, background, custom
   homepageImage = "/images/interstellar.webp" # used in: hero, and card
