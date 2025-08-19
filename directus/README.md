@@ -2,10 +2,14 @@
 
 [Directus](https://directus.io/) 是一个开源的 Headless CMS，用于构建 API 和内容管理系统。
 
-```bash
-# pnpm install
-# or
-# npm install js-yaml dotenv glob gray-matter axios
+### Docker 部署
 
-pnpm run directus # `node scripts/directus-fetch-articles.js`
+```bash
+wget https://raw.githubusercontent.com/eallion/eallion.com/refs/heads/main/directus/compose.yml
+
+vim compose.yml
+
+docker compose up -d
 ```
+
+获取文章的脚本在目录 `scripts/directus-fetch-articles.js`。需要 Access Token。
