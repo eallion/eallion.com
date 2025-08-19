@@ -40,12 +40,11 @@
           <div class="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-8 gap-x-2.5" view-image>
             {{ $pentaResource := resources.Get "data/penta/penta.json" }}
             {{ $penta := $pentaResource | transform.Unmarshal }}
-            {{ range $penta.penta }}
-                {{ $screenshotSrc := .src }}
-                {{ $screenshot := printf "images/penta/screenshot/%s" $screenshotSrc }}
+            {{ range $penta }}
+                {{ $screenshotSrc := .screenshot }}
 
                 {{ $date := dateFormat "Jan 2, 2006" .date }}
-                {{ $caption := .caption }}
+                {{ $caption := printf "%s - %s" .title .name }}
 
                 {{ $championSrc := .champion }}
                 {{ $champion := printf "images/penta/hero/%s.png" $championSrc }}
@@ -53,40 +52,29 @@
 
                 <div class="flex justify-center items-center m-0 mb-2 flex-col">
                     <div class="group relative overflow-hidden rounded w-full h-full">
-                        {{ with resources.Get $screenshot }}
-                            <figure class="my-0">
+                            <figure class="mt-0 mb-0">
                                 <img
-                                    class="my-0 rounded-md block w-full cursor-pointer object-cover h-full scale-100 hover:scale-110 transition-all duration-400 ease-in-out animate-fadeIn lazy"
+                                    class="mt-0 mb-0 rounded-md block w-full cursor-pointer object-cover h-full scale-100 hover:scale-110 transition-all duration-400 ease-in-out animate-fadeIn lazy"
                                     loading="lazy"
-                                    srcset="
-                                    {{ (.Resize "330x").RelPermalink }} 330w,
-                                    {{ (.Resize "660x").RelPermalink }} 660w,
-                                    {{ (.Resize "1024x").RelPermalink }} 1024w,
-                                    {{ (.Resize "1320x").RelPermalink }} 2x"
                                     src="/assets/images/penta/screenshot.png"
-                                    data-src="{{ (.Resize "1320x").RelPermalink }}"
+                                    data-src="https://images.eallion.com/directus/files/{{- $screenshotSrc -}}"
                                     alt="{{ $caption }} {{ $date }}"
                                 />
                             </figure>
-                        {{ end }}
                     </div>
-                    {{ with resources.Get $champion }}
-                        {{ with .Resize "18x webp" }}
                             <a href="https://101.qq.com/#/hero-detail?heroid={{ $heroId }}" class="flex justify-center items-center my-2 text-neutral-900 dark:text-neutral-300" target="_blank" rel="noreferrer noopener nofollow">
                                 <span class="leading-4 mr-1">
                                     <img class="w-4 h-4 mt-0 mb-0 lazy nozoom no-view"
                                         loading="lazy"
                                         src="/assets/images/penta/hero.png"
-                                        data-src="{{ .RelPermalink }}"
-                                        alt="{{ $championSrc }} {{ $champion }}"
+                                        data-src="https://game.gtimg.cn/images/lol/act/img/champion/{{- $championSrc -}}.png"
+                                        alt="{{ $championSrc }}"
                                         no-view>
                                 </span>
                                 <span class="text-sm text-inherit whitespace-nowrap max-w-full text-ellipsis overflow-hidden">
                                     {{ $caption }}
                                 </span>
                             </a>
-                        {{ end }}
-                    {{ end }}
 
                     <div class="flex items-center justify-center text-xs opacity-70 mb-3">
                         <span>{{ partial "icon.html" "calendar-alt" }}</span>

@@ -1,4 +1,4 @@
-// sync-directus.js
+// directus-fetch-articles.js
 // 这个脚本从 Directus API 获取文章数据，并生成 Hugo Markdown 文件
 require('dotenv').config({ path: '.env.local' });
 
@@ -13,6 +13,7 @@ const yaml = require('js-yaml');
 const DIRECTUS_API_URL = process.env.DIRECTUS_API_URL;
 const DIRECTUS_S3_URL = process.env.DIRECTUS_S3_URL; // S3 域名
 const HUGO_CONTENT_DIR = path.join(__dirname, '..', 'content', 'blog');
+const PENTA_JSON_PATH = path.join(__dirname, '..', 'assets', 'data', 'penta', 'penta.json');
 
 // Directus API 分页设置
 const API_LIMIT = 100; // Directus 的默认限制通常是 100
@@ -28,7 +29,7 @@ const API_LIMIT = 100; // Directus 的默认限制通常是 100
  */
 async function fetchAllArticles(offset = 0) {
   console.log(`正在获取数据，偏移量：${offset}...`);
-  const response = await fetch(`${DIRECTUS_API_URL}?limit=${API_LIMIT}&offset=${offset}&fields=*,tags.Tag_id.*,categories.Category_id.*,authors.Author_id.*,serieses.Series_id.*,featureimage.*`);
+  const response = await fetch(`${DIRECTUS_API_URL}items/Article?limit=${API_LIMIT}&offset=${offset}&fields=*,tags.Tag_id.*,categories.Category_id.*,authors.Author_id.*,serieses.Series_id.*,featureimage.*`);
   const data = await response.json();
 
   if (!data || !data.data) {
@@ -45,6 +46,66 @@ async function fetchAllArticles(offset = 0) {
   } else {
     return articles;
   }
+}
+
+/**
+ * 递归地从 Directus API 获取所有 Penta 数据
+ * @param {number} offset 当前偏移量
+ * @returns {Promise<Array>} 返回所有 Penta 数据的数组
+ */
+async function fetchAllPentaData(offset = 0) {
+  console.log(`正在获取 Penta 数据，偏移量：${offset}...`);
+  const response = await fetch(`${DIRECTUS_API_URL}items/Penta?limit=${API_LIMIT}&offset=${offset}&fields=*,screenshot.*`);
+  const data = await response.json();
+
+  if (!data || !data.data) {
+    console.error('Penta API 返回的数据结构不正确。');
+    return [];
+  }
+
+  const pentaItems = data.data;
+
+  // 如果返回的项目数量等于 API_LIMIT，表示可能还有更多数据，继续获取下一页
+  if (pentaItems.length === API_LIMIT) {
+    const nextItems = await fetchAllPentaData(offset + API_LIMIT);
+    return pentaItems.concat(nextItems);
+  } else {
+    return pentaItems;
+  }
+}
+
+/**
+ * 保存 Penta 数据到 JSON 文件
+ * @param {Array} pentaData Penta 数据数组
+ */
+function savePentaDataToJson(pentaData) {
+  // 确保目标目录存在
+  const pentaDir = path.dirname(PENTA_JSON_PATH);
+  if (!fs.existsSync(pentaDir)) {
+    console.log(`创建目录：${pentaDir}`);
+    fs.mkdirSync(pentaDir, { recursive: true });
+  }
+
+  // 处理 Penta 数据中的截图字段
+  const processedData = pentaData.map(item => {
+    const processedItem = { ...item };
+
+    // 处理 screenshot 字段，只保留 filename_disk 的值
+    if (processedItem.screenshot && typeof processedItem.screenshot === 'object') {
+      if (processedItem.screenshot.filename_disk) {
+        processedItem.screenshot = `${processedItem.screenshot.filename_disk}`;
+      } else {
+        // 如果没有 filename_disk，删除整个 screenshot 字段
+        delete processedItem.screenshot;
+      }
+    }
+
+    return processedItem;
+  });
+
+  // 写入 JSON 文件
+  fs.writeFileSync(PENTA_JSON_PATH, JSON.stringify(processedData, null, 2), 'utf-8');
+  console.log(`成功保存 ${processedData.length} 条 Penta 数据到 ${PENTA_JSON_PATH}`);
 }
 
 /**
@@ -178,12 +239,22 @@ async function createMarkdownFiles(articles) {
 // 主函数，执行脚本
 async function main() {
   try {
+    // 获取并处理文章数据
     const allArticles = await fetchAllArticles();
     if (allArticles.length > 0) {
       await createMarkdownFiles(allArticles);
       console.log('所有文章已成功同步完成！');
     } else {
       console.log('未找到任何文章数据。');
+    }
+
+    // 获取并保存 Penta 数据
+    const allPentaData = await fetchAllPentaData();
+    if (allPentaData.length > 0) {
+      savePentaDataToJson(allPentaData);
+      console.log('所有 Penta 数据已成功保存！');
+    } else {
+      console.log('未找到任何 Penta 数据。');
     }
   } catch (error) {
     console.error('同步过程中发生错误：', error);
