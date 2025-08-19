@@ -11,7 +11,6 @@ const yaml = require('js-yaml');
 // 配置部分（支持从环境变量读取）
 // -------------------------------------------------------------
 const DIRECTUS_API_URL = process.env.DIRECTUS_API_URL;
-const DIRECTUS_FILES_URL = process.env.DIRECTUS_FILES_URL; // Directus 文件 API 的基础 URL
 const DIRECTUS_S3_URL = process.env.DIRECTUS_S3_URL; // S3 域名
 const HUGO_CONTENT_DIR = path.join(__dirname, '..', 'content', 'blog');
 
@@ -29,7 +28,7 @@ const API_LIMIT = 100; // Directus 的默认限制通常是 100
  */
 async function fetchAllArticles(offset = 0) {
   console.log(`正在获取数据，偏移量：${offset}...`);
-  const response = await fetch(`${DIRECTUS_API_URL}?limit=${API_LIMIT}&offset=${offset}&fields=*,tags.Tag_id.*,categories.Category_id.*,authors.Author_id.*,serieses.Series_id.*`);
+  const response = await fetch(`${DIRECTUS_API_URL}?limit=${API_LIMIT}&offset=${offset}&fields=*,tags.Tag_id.*,categories.Category_id.*,authors.Author_id.*,serieses.Series_id.*,featureimage.*`);
   const data = await response.json();
 
   if (!data || !data.data) {
@@ -53,18 +52,6 @@ async function fetchAllArticles(offset = 0) {
  * @param {string} fileId Directus 文件 ID
  * @returns {Promise<string|null>} 返回带扩展名的文件名，如果失败则返回 null
  */
-async function getFileMeta(fileId) {
-  try {
-    const response = await fetch(`${DIRECTUS_FILES_URL}${fileId}?fields=filename_disk`);
-    const data = await response.json();
-    if (data && data.data && data.data.filename_disk) {
-      return data.data.filename_disk;
-    }
-  } catch (error) {
-    console.error(`无法获取文件元数据：${fileId}`, error);
-  }
-  return null;
-}
 
 /**
  * 将文章列表追加到 static/llms.txt 文件
@@ -142,15 +129,14 @@ async function createMarkdownFiles(articles) {
       } else if (key === 'authors' && Array.isArray(value)) {
         // 提取 authors 的 username
         frontMatter[key] = value.map(author => author.Author_id.username);
-      } else if (key === 'featureimage' && typeof value === 'string') {
-        // 特别处理 featureimage：获取文件元数据并拼接带扩展名的 S3 URL
-        const fileName = await getFileMeta(value);
-        if (fileName) {
-          const imageUrl = `${DIRECTUS_S3_URL}${fileName}`;
-          frontMatter[key] = imageUrl;
-        } else {
-          console.warn(`警告：无法为 ID ${value} 获取文件名，跳过 featureimage。`);
-        }
+      } else if (key === 'featureimage' && value && typeof value === 'object') {
+          // 特别处理 featureimage：从对象中提取 filename_disk 值
+          if (value.filename_disk) {
+            const imageUrl = `${DIRECTUS_S3_URL}${value.filename_disk}`;
+            frontMatter[key] = imageUrl;
+          } else {
+            console.warn(`警告：featureimage 对象中没有 filename_disk 字段`);
+          }
       } else if (key === 'summary' && typeof value === 'string') {
         // 处理 summary 字段：移除换行符并转义双引号
         const cleanedSummary = value.replace(/\r?\n|\r/g, ' ').replace(/"/g, '\\"');
