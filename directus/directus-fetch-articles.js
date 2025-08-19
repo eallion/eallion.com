@@ -29,7 +29,7 @@ const API_LIMIT = 100; // Directus 的默认限制通常是 100
  */
 async function fetchAllArticles(offset = 0) {
   console.log(`正在获取数据，偏移量：${offset}...`);
-  const response = await fetch(`${DIRECTUS_API_URL}?limit=${API_LIMIT}&offset=${offset}&fields=*,tags.Tag_id.*,categories.Category_id.*,authors.Author_id.*`);
+  const response = await fetch(`${DIRECTUS_API_URL}?limit=${API_LIMIT}&offset=${offset}&fields=*,tags.Tag_id.*,categories.Category_id.*,authors.Author_id.*,serieses.Series_id.*`);
   const data = await response.json();
 
   if (!data || !data.data) {
@@ -64,6 +64,38 @@ async function getFileMeta(fileId) {
     console.error(`无法获取文件元数据：${fileId}`, error);
   }
   return null;
+}
+
+/**
+ * 将文章列表追加到 static/llms.txt 文件
+ * @param {Array} articles 文章数据数组
+ */
+function appendToLLMFile(articles) {
+  const llmFilePath = path.join(__dirname, '..', 'static', 'llms.txt');
+
+  // 确保 static 目录存在
+  const staticDir = path.join(__dirname, '..', 'static');
+  if (!fs.existsSync(staticDir)) {
+    console.log(`创建目录：${staticDir}`);
+    fs.mkdirSync(staticDir, { recursive: true });
+  }
+
+  let llmContent = '\n';
+
+  // 按照指定格式生成内容
+  for (const article of articles) {
+    if (article.slug && article.title) {
+      const title = article.title.replace(/\[/g, '\\[').replace(/\]/g, '\\]'); // 转义标题中的方括号
+      const slug = article.slug;
+      const summary = article.summary ? article.summary.replace(/\r?\n|\r/g, ' ').trim() : '';
+
+      llmContent += `- [${title}](https://www.eallion.com/${slug}/) : ${summary}\n`;
+    }
+  }
+
+  // 追加到文件末尾
+  fs.appendFileSync(llmFilePath, llmContent, 'utf-8');
+  console.log(`成功追加 ${articles.length} 篇文章到 ${llmFilePath}`);
 }
 
 /**
@@ -104,6 +136,9 @@ async function createMarkdownFiles(articles) {
       } else if (key === 'categories' && Array.isArray(value)) {
         // 提取 categories 的 name
         frontMatter[key] = value.map(cat => cat.Category_id.name);
+      }  else if (key === 'serieses' && Array.isArray(value)) {
+        // 提取 series 的 name，并将字段名从 serieses 改为 series
+        frontMatter['series'] = value.map(series => series.Series_id.name);
       } else if (key === 'authors' && Array.isArray(value)) {
         // 提取 authors 的 username
         frontMatter[key] = value.map(author => author.Author_id.username);
@@ -149,6 +184,9 @@ async function createMarkdownFiles(articles) {
     fs.writeFileSync(filePath, markdownContent, 'utf-8');
     console.log(`成功创建文件：${filePath}`);
   }
+
+  // 追加到 static/llms.txt 文件
+  appendToLLMFile(articles);
 }
 
 // 主函数，执行脚本
