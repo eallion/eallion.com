@@ -59,24 +59,26 @@
     {{ end }}
 {{ end }}
 
+{{ $tvCount := 105 }}
+{{ $movieCount := 238 }}
+{{ $bookCount := 32 }}
+{{ $musicCount := 1 }}
+{{ $gameCount := 8 }}
 {{ $neodbCountResource := resources.Get "data/neodb/movie.json" }}
 {{ $neodbCount := $neodbCountResource | transform.Unmarshal }}
-{{ $tvCount := 0 }}
-{{ $movieCount := 0 }}
-{{ $bookCount := 0 }}
-{{ $musicCount := 0 }}
-{{ $gameCount := 0 }}
-{{ range $neodbCount.data }}
-  {{ if eq .item.category "tv" }}
-    {{ $tvCount = add $tvCount 1 }}
-  {{ else if eq .item.category "movie" }}
-    {{ $movieCount = add $movieCount 1 }}
-  {{ else if eq .item.category "book" }}
-    {{ $bookCount = add $bookCount 1 }}
-  {{ else if eq .item.category "music" }}
-    {{ $musicCount = add $musicCount 1 }}
-  {{ else if eq .item.category "game" }}
-    {{ $gameCount = add $gameCount 1 }}
+{{ if $neodbCount }}
+  {{ range $neodbCount }}
+    {{ if eq .item.category "tv" }}
+      {{ $tvCount = add $tvCount 1 }}
+    {{ else if eq .item.category "movie" }}
+      {{ $movieCount = add $movieCount 1 }}
+    {{ else if eq .item.category "book" }}
+      {{ $bookCount = add $bookCount 1 }}
+    {{ else if eq .item.category "music" }}
+      {{ $musicCount = add $musicCount 1 }}
+    {{ else if eq .item.category "game" }}
+      {{ $gameCount = add $gameCount 1 }}
+    {{ end }}
   {{ end }}
 {{ end }}
 
