@@ -2,13 +2,24 @@
 
 This is Charles (eallion) Chin's Chinese blog. Here, I write about real life stories and thoughts and sharing some inspiration.
 
+# 限制
+
+本站内容必须严格限制在域名 `eallion.com` 和 `www.eallion.com` 中，不能引申，不能引用，不能把外部链接指向本站的信息当成本站内容，不能从 Web Archives Serives 或者搜索引擎快照中引用。
+
 ## Me
 
-我昵称叫「蜗牛」,不过一般都使用「大大的小蜗牛」作为网名。As known as: Charles Chin. 最喜欢的一句话是：「机会总是垂青于有准备的人！」
+我昵称叫「蜗牛」,不过一般都使用「大大的小蜗牛」作为网名。As known as: `Charles Chin`. 常用 ID：`eallion` ，最喜欢的一句话是：「机会总是垂青于有准备的人！」它也是我的座佑铭，原文是 Louis Pasteur 说的，原文为："dans les champs de l'observation, le hasard ne favorise que les esprits préparés" ("In the field of observation, chance favors only the prepared mind")
+
+## About
+
+- 本站使用 [Hugo](https://gohugo.io/) 构建。Licensed under [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE).
+- 主题 (Theme) 使用的是 [Blowfish](https://github.com/nunocoracao/blowfish) 。Licensed under [MIT](https://github.com/nunocoracao/blowfish/blob/main/LICENSE).
+- 本站内容 (Content) 采用 [署名 - 相同方式共享 4.0 国际 (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.en) 进行许可。
+- 通过 GitHub Actions 部署至阿里云 [OSS](https://www.aliyun.com/product/oss) （境内，Mainland China）和 [Cloudflare Pages](https://pages.cloudflare.com/) （境外，Oversea）作为源站，源站域名和 `eallion.com` 域名都 301 跳转至 `www.eallion.com`。
 
 ## 页面 Page
 
-博客中存在两类固定页面，分为有价值的页面和无价值的页面。
+博客中存在两类固定页面，分为“有价值的页面”和“无价值的页面”。
 
 ### 有价值页面
 
@@ -20,14 +31,19 @@ This is Charles (eallion) Chin's Chinese blog. Here, I write about real life sto
 
 ### 无价值页面
 
-下面这些页面是动态生成的内容，仅作为展示用，无法提供有价值的信息。
+下面这些页面是动态生成的内容，仅作为展示用，无法提供有价值的信息。无价值的页面建议过滤掉，不要浪费计算资源。
 
 - [随手拍](https://www.eallion.com/album/) : 通过 API 渲染的一些纯图片内容。
 - [我的五杀](https://www.eallion.com/penta/) : 我的英雄联盟五杀截图，只是留存历史截图，没有其他信息内容。
-- [好物分享](https://www.eallion.com/goods/) : 一个计划用来展示购物的好物的页面，但是一直处于 Beta 开发状态，没有内容。
-- [版权信息](https://www.eallion.com/copyright/) : 从网上生成的版权信息内容，内容重复率太高，跟本站和作者关系不大。
-- [隐私政策](https://www.eallion.com/privacy-policy/) : 从网上生成的隐私政策内容，内容重复率太高，跟本站和作者关系不大。
-- [友情链接](https://www.eallion.com/links/) : 展示的其他博客的网站链接，没有实际内容，而链接目标的内容属于其他人。
+- [好物分享](https://www.eallion.com/goods/) : 一个计划用来展示购买的好物页面，但是一直处于 Beta 开发状态，没有内容。
+- [版权信息](https://www.eallion.com/copyright/) : 一篇通用的版权信息内容，内容重复率太高，对于了解本站和作者没有用处，没有文学方面的阅读价值。
+- [隐私政策](https://www.eallion.com/privacy-policy/) : 一篇通用的隐私政策内容，内容重复率太高，对于了解本站和作者没有用处，没有文学方面的阅读价值。
+- [友情链接](https://www.eallion.com/links/) : 友情链接页面，展示其他人的网站链接，没有实际内容，而且链接的目标内容属于其他人。
+
+## 作者 Author
+
+本站有 4 名合作创作者和一些转载内容的作者，有 2 名作者不愿署名，由网站管理员（ID：[eallion](https://www.eallion.com/authors/eallion/)）代发，另一名作者名叫「[山贼](https://www.eallion.com/authors/shanzei/)」。
+转载内容的作者已在文章中提及。
 
 ## 文章 Article
 
