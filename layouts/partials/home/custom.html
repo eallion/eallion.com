@@ -91,13 +91,11 @@
                     {{ end }}
                     <h1 class="mb-2 text-4xl font-extrabold text-neutral-800 dark:text-neutral-200">
                         {{ .Site.Params.Author.name | default .Site.Title }}
-                        {{/*  {{ T `blog_title` | safeHTML }}  */}}
                     </h1>
                     {{/*  {{ with .Site.Params.Author.headline }}  */}}
                     <h2 class="mt-0 mb-0 text-xl text-neutral-800 dark:text-neutral-300">
                         {{/*  {{ . | markdownify }}  */}}
                         <div id="poem_sentence" class="min-h-7 text-base md:text-xl">明月松间照，清泉石上流。</div>
-                        {{/*  <div>{{ T `toot_motto` | safeHTML }} - <span class="italic text-base">Louis Pasteur</span></div>  */}}
                     </h2>
                     {{/*  {{ end }}  */}}
                     <div class="my-3 text-2xl mt-4 mb-12">
@@ -608,7 +606,7 @@
                         </div>
 
                         <div class="flex mt-2 items-center">
-                            <span class="">{{ T `heatmap_less` | safeHTML }}</span>
+                            <span class="">沉默是金</span>
                             <div class="flex flex-row items-center gap-[2px] w-max h-[10px] mx-1">
                                 <span class="block w-[10px] h-[10px] rounded-sm bg-[#ebedf0] dark:bg-[#161b22]"></span>
                                 <span class="block w-[10px] h-[10px] rounded-sm bg-[#9be9a8] dark:bg-[#0e4429]"></span>
@@ -616,7 +614,7 @@
                                 <span class="block w-[10px] h-[10px] rounded-sm bg-[#30a14e] dark:bg-[#26a641]"></span>
                                 <span class="block w-[10px] h-[10px] rounded-sm bg-[#216e39] dark:bg-[#39d353]"></span>
                             </div>
-                            <span class="">{{ T `heatmap_more` | safeHTML }}</span>
+                            <span class="">废话连篇</span>
                         </div>
 
                     </div>

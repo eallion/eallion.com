@@ -733,7 +733,7 @@
             </div>
 
             <div class="flex mt-2 items-center">
-              <span class="">{{ T `heatmap_less` | safeHTML }}</span>
+              <span class="">沉默是金</span>
               <div class="flex flex-row items-center gap-[2px] w-max h-[10px] mx-1">
                 <span class="block w-[10px] h-[10px] rounded-sm bg-[#ebedf0] dark:bg-[#161b22]"></span>
                 <span class="block w-[10px] h-[10px] rounded-sm bg-[#9be9a8] dark:bg-[#0e4429]"></span>
@@ -741,7 +741,7 @@
                 <span class="block w-[10px] h-[10px] rounded-sm bg-[#30a14e] dark:bg-[#26a641]"></span>
                 <span class="block w-[10px] h-[10px] rounded-sm bg-[#216e39] dark:bg-[#39d353]"></span>
               </div>
-              <span class="">{{ T `heatmap_more` | safeHTML }}</span>
+              <span class="">废话连篇</span>
             </div>
 
           </div>
@@ -1331,7 +1331,7 @@
           </a>
         </div>
 
-        <h3 id="{{ T `stats_annual_header` | safeHTML }}" class="headerLink mt-0"><a href="#{{ T `stats_annual_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_annual_header` | safeHTML }}</h3>
+        <h3 id="按年份统计 - 文章数" class="headerLink mt-0"><a href="#按年份统计 - 文章数" class="header-mark" title="header-mark"></a>按年份统计 - 文章数</h3>
 
         <div class="bar-chart mb-24">
           {{ $currentYear := now.Year }}
@@ -1359,25 +1359,25 @@
           {{ end }}
         </div>
 
-        <h3 id="{{ T `stats_category_header` | safeHTML }}" class="headerLink mt-0"><a href="#{{ T `stats_category_header` | safeHTML }}" class="header-mark" title="header-mark"></a>{{ T `stats_category_header` | safeHTML }}</h3>
+        <h3 id="按分类统计 - 文章数" class="headerLink mt-0"><a href="#按分类统计 - 文章数" class="header-mark" title="header-mark"></a>按分类统计 - 文章数</h3>
 
         <div class="category flex items-center flex-col lg:flex-row gap-8 lg:gap-16 mx-auto max-w-full lg:max-w-fit mb-24">
           <svg id="cate-pie-chart" class="w-80 h-80"></svg>
           <div class="labels">
-            <h3 class="mb-6">{{ T `stats_category_sub_header` | safeHTML }}</h3>
+            <h3 class="mb-6">分类统计</h3>
             <ul>
               {{ $cateCounter := 0 }}
               {{ range $category, $pages := .Site.Taxonomies.categories }}
                 {{ $cateCounter = add $cateCounter 1 }}
                 {{ $cateCount := len $pages }}
                 {{ $catePercentage := div (mul (float $cateCount) 100) $articleCount }}
-                <li id="cate-{{ $cateCounter }}" class="cate-{{ $cateCounter }}" data-percentage='{{ printf "%.2f" $catePercentage }}'>{{ $category }}: {{ $cateCount }} {{ T `stats_category_count` | safeHTML }} （{{ printf "%.2f" $catePercentage }}%）</li>
+                <li id="cate-{{ $cateCounter }}" class="cate-{{ $cateCounter }}" data-percentage='{{ printf "%.2f" $catePercentage }}'>{{ $category }}: {{ $cateCount }} 篇（{{ printf "%.2f" $catePercentage }}%）</li>
               {{ end }}
             </ul>
           </div>
         </div>
 
-        <h3 id="{{ T `stats_tag_cloud` | safeHTML }}" class="headerLink mt-0"><a href="#{{ T `stats_tag_cloud` | safeHTML }}" class="header-mark" title="header-mark"></a><a href="/tags/">{{ T `stats_tag_cloud` | safeHTML }}</a></h3>
+        <h3 id="标签云" class="headerLink mt-0"><a href="#标签云" class="header-mark" title="header-mark"></a><a href="/tags/">标签云</a></h3>
 
         <div class="tag-cloud-tags">
           {{- range $.Site.Taxonomies.tags.ByCount -}}
