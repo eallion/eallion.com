@@ -2,7 +2,3 @@
 	path = themes/blowfish
 	url = https://github.com/eallion/blowfish.git
 	branch = main
-[submodule "assets/lib/mastodon-embed-timeline"]
-	path = assets/lib/mastodon-embed-timeline
-	url = https://github.com/eallion/mastodon-embed-timeline.git
-	branch = master
