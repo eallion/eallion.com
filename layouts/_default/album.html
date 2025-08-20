@@ -1,48 +1,155 @@
 {{ define "main" }}
 {{ .Scratch.Set "scope" "single" }}
 
-{{ $justifiedGalleryCss := resources.Get "lib/justified-gallery/justifiedGallery.min.css" | fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ $justifiedGalleryCss.RelPermalink }}" integrity="{{ $justifiedGalleryCss.Data.Integrity }}" crossorigin="anonymous">
+{{/* 1. 资源加载部分 (保持不变) */}}
+{{ $photoswipeCss := resources.Get "css/photoswipe.css" | fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $photoswipeCss.RelPermalink }}" integrity="{{ $photoswipeCss.Data.Integrity }}" crossorigin="anonymous">
+
+{{ $lazyloadJS := resources.Get "js/lazyload.iife.min.js" | fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $lazyloadJS.RelPermalink }}" integrity="{{ $lazyloadJS.Data.Integrity }}"></script>
+
+{{ $photoswipeJS := resources.Get "js/photoswipe.esm.min.js" | fingerprint "sha256" }}
+{{ $photoswipeLightboxJS := resources.Get "js/photoswipe-lightbox.esm.min.js" | fingerprint "sha256" }}
+{{ $photoswipeCaptionJS := resources.Get "js/photoswipe-dynamic-caption-plugin.esm.min.js" | fingerprint "sha256" }}
+{{ $fastBlurhashJS := resources.Get "js/fast-blurhash.min.js" | fingerprint "sha256" }}
+
 
 <style>
-  #content_progress {
+  .album-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    padding-top: 20px;
+    min-height: 300px;
+  }
+
+  .album-gallery a {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .album-gallery a:hover {
+    transform: scale(1.05);
+  }
+
+  .album-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0
+  }
+
+  .album-loader {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2em;
+    color: #888;
+  }
+
+  .pswp-caption-content {
+    display: none;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: left;
+  }
+
+  .pswp-caption-title {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: bold;
+  }
+
+  .pswp-caption-body p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .pswp__dynamic-caption {
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    transition: opacity 120ms linear !important;
+    /* override default */
+  }
+
+  .pswp-caption-content {
     display: none;
   }
-  /* Loading spinner */
-  .loading-spinner {
-    position: relative;
-    width: 3rem;
-    height: 3rem;
-    margin: 0 auto;
-    display: none;  /* 添加初始状态为隐藏 */
+
+  .pswp__dynamic-caption a {
+    color: #fff;
   }
 
-  .loading-spinner {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cg%3E%3CanimateTransform attributeName='transform' type='rotate' from='0 64 64' to='360 64 64' dur='1000ms' repeatCount='indefinite'/%3E%3Cpath d='M64 6.69a57.3 57.3 0 1 1 0 114.61A57.3 57.3 0 0 1 6.69 64' fill='none' stroke='%23404040' stroke-width='12'/%3E%3C/g%3E%3C/svg%3E");
+  .pswp__dynamic-caption--faded {
+    opacity: 0 !important;
+  }
+
+  .pswp__dynamic-caption--aside {
+    width: auto;
+    max-width: 300px;
+    padding: 20px 15px 20px 20px;
+    margin-top: 70px;
+  }
+
+  .pswp__dynamic-caption--below {
+    width: auto;
+    max-width: 700px;
+    padding: 15px 0 0;
+  }
+
+  .pswp__dynamic-caption--on-hor-edge {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .pswp__dynamic-caption--mobile {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 15px;
+
+    right: 0;
+    bottom: 0;
+
+    /* override styles that were set via JS.
+    as they interfere with size measurement */
+    top: auto !important;
+    left: 0 !important;
+  }
+
+  .album-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
-    background-color: transparent;
-    background-size: min(2.5rem, calc(100% - 0.5rem));
   }
 
-  .justified-gallery > a > .jg-caption, .justified-gallery > div > .jg-caption, .justified-gallery > figure > .jg-caption {
-    line-height: 1.5;
+  /* 隐藏 LazyLoad 的加载文字 */
+  .lazyload:not([src]):not([src*="data:"])::before,
+  .lazy:not([src]):not([src*="data:"])::before,
+  .lazyloading:not([src]):not([src*="data:"])::before {
+    content: "" !important;
+    display: none !important;
   }
 
-    .jg-entry {
-        transition: transform 0.2s ease-in-out;
-    }
-
-    .jg-entry:hover {
-        transform: translateY(-2px);
-    }
-
-    /* 确保图片填充容器 */
-    .jg-entry img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  /* 确保图片在加载过程中不显示任何文字 */
+  .album-gallery img:not([src]):not([src*="data:"]),
+  .album-gallery img[src=""] {
+    color: transparent;
+    text-indent: -9999px;
+    font-size: 0;
+  }
 </style>
 
 <article>
@@ -64,315 +171,342 @@
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
       {{ .Title }}
     </h1>
-
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
     </div>
-
   </header>
-
   <noscript>
     Please enable JavaScript to view the Album page.
   </noscript>
-
   <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
-
-    <div class="min-w-0 min-h-0 max-w-fit">
-
+    <div class="min-w-0 min-h-0 max-w-full">
       <div class="article-content max-w-full mb-20">
         {{ .Content }}
 
-        <div id="justified-gallery"></div>
-        <div class="loading-spinner"></div>
-        <div class="flex justify-center mt-8 mb-8">
-          <button id="load-more" class="px-4 py-2 cursor-pointer text-sm font-medium text-neutral-300 bg-neutral-800 rounded-md hover:bg-neutral-700 dark:bg-neutral-700 dark:hover:bg-neutral-600">
-            加载更多
-          </button>
+        <div class="album-gallery" id="ealbum-gallery">
+            <p class="album-loader" id="album-loader"></p>
         </div>
 
       </div>
-
     </div>
-
-    </section>
-
+  </section>
 </article>
 
-{{ $justifiedGalleryJS := resources.Get "lib/justified-gallery/jquery.justifiedGallery.min.js" | fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $justifiedGalleryJS.RelPermalink }}" integrity="{{ $justifiedGalleryJS.Data.Integrity }}"></script>
+<script type="module">
+  // 导入 PhotoSwipe 模块
+  import PhotoSwipeLightbox from '{{ $photoswipeLightboxJS.RelPermalink }}';
+  import PhotoSwipeDynamicCaption from '{{ $photoswipeCaptionJS.RelPermalink }}';
+  import { decodeBlurHash } from '{{ $fastBlurhashJS.RelPermalink }}';
 
-{{ $lazyloadJS := resources.Get "js/lazyload.iife.min.js" | fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $lazyloadJS.RelPermalink }}" integrity="{{ $lazyloadJS.Data.Integrity }}"></script>
+  const galleryContainer = document.getElementById('ealbum-gallery');
+  const loader = document.getElementById('album-loader');
+  const apiUrl = 'https://www.eallion.com/api/v1/ealbum.json';
 
-<script>
-  const apiUrl = 'https://e5n.cc/api/v1/accounts/111136231674527355/statuses';
-  let maxId = null;
-  let isLoading = false; // Flag to prevent multiple simultaneous requests
-  let hasMoreData = true; // Flag to indicate if there is more data to load
-  let scrollTimeout = null; // Timeout variable for debouncing scroll event
-  let zoomInstance = null; // Store the medium-zoom instance
-  let cachedImages = []; // 存储已加载但未显示的图片数据
-  let displayedCount = 0; // 当前显示的图片数量
-  const ROWS_PER_LOAD = 2; // 初始显示的行数
-  const IMAGES_PER_ROW = 4; // 估计每行显示的图片数量
-  const IMAGES_TO_SHOW = ROWS_PER_LOAD * IMAGES_PER_ROW; // 每次显示的图片数量
+  // 创建 Intersection Observer 实例
+  let intersectionObserver;
+  let blurhashDecodeQueue = []; // 解码头队列
+  let isProcessingQueue = false; // 是否正在处理队列
 
-  async function fetchImages(limit, currentMaxId = null) {
+  const lazyLoadInstance = new LazyLoad({
+    elements_selector: ".lazy"
+  });
+
+  const backEasing = {
+    in: 'cubic-bezier(0.6, -0.28, 0.7, 1)',
+    out: 'cubic-bezier(0.3, 0, 0.32, 1.275)',
+    inOut: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+  };
+
+  const lightbox = new PhotoSwipeLightbox({
+    showHideAnimationType: 'zoom',
+    showAnimationDuration: 1000,
+    hideAnimationDuration: 1000,
+    imageClickAction: 'close',
+    tapAction: 'close',
+
+    // tap delay is removed if set to false
+    doubleTapAction: false,
+    zoom: false,
+    arrowPrev: false,
+    arrowNext: false,
+    bgOpacity: 0.95,
+    counter: false,
+    gallery: '#ealbum-gallery',
+    children: 'a',
+    pswpModule: () => import('{{ $photoswipeJS.RelPermalink }}'),
+  });
+
+  const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
+    type: 'aside', // 改为 'aside' 使文字显示在图片旁边（左侧）
+    captionContent: '.pswp-caption-content',
+    // 可选：添加额外的配置来自定义位置和样式
+    horizontalEdgeThreshold: 200, // 距离水平边缘的阈值
+    mobileCaptionStyle: 'below' // 在移动设备上仍然显示在下方
+  });
+
+  lightbox.on('firstUpdate', () => {
+  lightbox.pswp.options.easing = backEasing.out;
+  });
+  lightbox.on('initialZoomInEnd', () => {
+    lightbox.pswp.options.easing = backEasing.inOut;
+  });
+  lightbox.on('close', () => {
+    lightbox.pswp.options.easing = backEasing.in;
+  });
+  lightbox.init();
+
+  // 将 blurhash 解码为 data URL
+  function blurHashToDataUrl(blurhash, width, height) {
     try {
-        const url = new URL(apiUrl);
-        url.searchParams.append('only_media', 'true');
-        url.searchParams.append('limit', limit);
-        url.searchParams.append('exclude_replies', 'true');
-        url.searchParams.append('exclude_reblogs', 'true');
-        if (currentMaxId) {
-            url.searchParams.append('max_id', currentMaxId);
-        }
+      // 确保 blurhash 有效
+      if (!blurhash || typeof blurhash !== 'string') {
+        return '';
+      }
 
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
+      // 确保尺寸参数有效
+      const w = Math.max(1, Math.min(64, width || 16));
+      const h = Math.max(1, Math.min(64, height || 16));
 
-        if (!data.length) {
-            hasMoreData = false;
-            return [];
-        }
-
-        maxId = data[data.length - 1].id;
-        return data.filter(item =>
-            item.media_attachments.some(media =>
-                media.description && /ealbum/i.test(media.description.replace(/\n/g, ''))
-            )
-        );
+      const pixels = decodeBlurHash(blurhash, w, h);
+      const canvas = document.createElement('canvas');
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      const imageData = ctx.createImageData(w, h);
+      imageData.data.set(pixels);
+      ctx.putImageData(imageData, 0, 0);
+      return canvas.toDataURL();
     } catch (error) {
-        console.error('Error fetching images:', error);
-        return [];
+      console.error('BlurHash 解码失败：', error);
+      return ''; // 返回空字符串，使用默认占位符
     }
-}
-
-  function extractTextFromHTML(htmlString) {
-      // 使用正则表达式去掉 <a> 标签及其内容
-      const strippedString = htmlString.replace(/<a[^>]*>(.*?)<\/a>/g, '$1');
-
-      // 去掉其他 HTML 标签
-      const textOnly = strippedString.replace(/<[^>]+>/g, '');
-
-      // 移除 #ealbum 标签及前后空格
-      return textOnly.replace(/\s*#ealbum\s*/g, '').trim();
   }
 
-  async function renderImages(data, startFrom = displayedCount) {
-    const fragment = document.createDocumentFragment();
-    const itemsPerLoad = ROWS_PER_LOAD * IMAGES_PER_ROW;
-    const startIndex = startFrom;
-    const endIndex = Math.min(startFrom + itemsPerLoad, data.length);
-
-    for (let i = startIndex; i < endIndex; i++) {
-        const item = data[i];
-        if (!item) continue; // 跳过空项
-
-        item.media_attachments.forEach(media => {
-            if (media.description && /ealbum/i.test(media.description.replace(/\n/g, ''))) {
-                const div = document.createElement('div');
-                // 添加新的样式类
-                div.className = 'jg-entry border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative';
-
-                const img = document.createElement('img');
-                const imgUrl = media.preview_url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com');
-                img.src = imgUrl;
-                // img.setAttribute('data-zoom-src', media.url.replace('files.e5n.cc', 'mstd-s3-files.eallion.com'));
-                img.alt = extractTextFromHTML(item.content);
-                img.loading = 'lazy';
-                img.classList.add('lazy', 'nozoom');
-
-                div.appendChild(img);
-                fragment.appendChild(div);
-            }
-        });
+  // 处理解码头队列
+  async function processDecodeQueue() {
+    if (isProcessingQueue || blurhashDecodeQueue.length === 0) {
+      return;
     }
 
-    const justifiedGallery = document.getElementById('justified-gallery');
-    justifiedGallery.appendChild(fragment);
+    isProcessingQueue = true;
 
-    // 判断是否是最后一批数据
-    const isLastBatch = !hasMoreData && endIndex >= data.length;
+    while (blurhashDecodeQueue.length > 0) {
+      const { img, photo } = blurhashDecodeQueue.shift();
 
-    $('#justified-gallery').justifiedGallery({
-        rowHeight: 200,
-        lastRow: isLastBatch ? 'nojustify' : 'hide',
-        margins: 8,
-        border: 0,
-        waitThumbnailsLoad: false
+      // 生成一个小尺寸的占位图（例如 16x16 像素）
+      const placeholderUrl = blurHashToDataUrl(photo.blurhash, 16, Math.round(16 * photo.height / photo.width));
+      if (placeholderUrl) {
+        // 将 blurhash 图像设置为背景
+        img.style.backgroundImage = `url(${placeholderUrl})`;
+      } else {
+        // 解码失败时使用背景色
+        img.style.backgroundColor = '#f0f0f0';
+      }
+
+      // 添加小延迟以避免阻塞主线程
+      await new Promise(resolve => setTimeout(resolve, 5));
+    }
+
+    isProcessingQueue = false;
+  }
+
+  // 检查元素是否在视口附近
+  function isNearViewport(element, threshold = 200) {
+    if (!element) return false;
+
+    const rect = element.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    return (
+      rect.top >= -threshold &&
+      rect.bottom <= windowHeight + threshold
+    );
+  }
+
+  // 立即处理靠近视口的图片
+  function processVisibleImages() {
+    const lazyImages = document.querySelectorAll('.album-gallery img[data-blurhash]');
+    lazyImages.forEach(img => {
+      // 确保元素存在且有 photoData 属性
+      if (img && img.dataset && img.dataset.photoData) {
+        try {
+          const photoData = JSON.parse(img.dataset.photoData);
+          if (photoData && isNearViewport(img, 300)) {
+            const placeholderUrl = blurHashToDataUrl(
+              photoData.blurhash,
+              16,
+              Math.round(16 * photoData.height / photoData.width)
+            );
+
+            if (placeholderUrl) {
+              // 将 blurhash 图像设置为背景
+              img.style.backgroundImage = `url(${placeholderUrl})`;
+            } else {
+              // 解码失败时使用背景色
+              img.style.backgroundColor = '#f0f0f0';
+            }
+
+            // 移除已处理的标记
+            img.removeAttribute('data-blurhash');
+            img.removeAttribute('data-photo-data');
+          }
+        } catch (e) {
+          console.error('处理图片时出错：', e);
+          // 出错时移除标记避免重复处理
+          img.removeAttribute('data-blurhash');
+          img.removeAttribute('data-photo-data');
+        }
+      }
     });
+  }
 
-    displayedCount = endIndex;
+  // 观察器回调函数
+  function handleIntersection(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
 
-    // if (zoomInstance) {
-    //     zoomInstance.detach();
-    // }
-    // zoomInstance = mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
-    //     margin: 24,
-    //     background: 'rgba(0,0,0,0.6)',
-    //     scrollOffset: 0,
-    // });
-}
+        // 确保元素存在且有 photoData 属性
+        if (img && img.dataset && img.dataset.photoData) {
+          try {
+            const photoData = JSON.parse(img.dataset.photoData);
 
-  async function loadInitialImages() {
-    const loading = document.querySelector('.loading-spinner');
-    const searchHint = document.createElement('div');
-    searchHint.className = 'search-hint';
-    searchHint.style.display = 'none';
-    searchHint.textContent = '正在搜索符合条件的图片...';
-    document.body.appendChild(searchHint);
-
-    loading.style.display = 'block';
-    const MIN_IMAGES_TO_SHOW = 16; // 至少显示 16 张图片
-    const MAX_REQUEST_TIMES = 10; // 最大请求次数
-    let requestCount = 0;
-
-    // 启动 2 秒计时器
-    const searchTimer = setTimeout(() => {
-        if (displayedCount === 0) {
-            searchHint.style.display = 'block';
-        }
-    }, 2000);
-
-    try {
-        let currentMaxId = null;
-        let totalImages = 0;
-
-        while (totalImages < MIN_IMAGES_TO_SHOW && hasMoreData && requestCount < MAX_REQUEST_TIMES) {
-            requestCount++;
-            const data = await fetchImages(40, currentMaxId);
-            if (data.length > 0) {
-                cachedImages.push(...data);
-                await renderImages(cachedImages);
-                totalImages = displayedCount;
-                currentMaxId = maxId;
-
-                // 如果已显示图片，清除提示
-                if (totalImages > 0) {
-                    clearTimeout(searchTimer);
-                    searchHint.style.display = 'none';
-                }
-            } else {
-                hasMoreData = false;
-                break;
+            // 确保 photoData 有效
+            if (photoData && photoData.blurhash) {
+              // 将需要解码的图片加入队列
+              blurhashDecodeQueue.push({ img, photo: photoData });
+              processDecodeQueue();
             }
+          } catch (e) {
+            console.error('解析 photoData 时出错：', e);
+          }
+
+          // 停止观察已处理的元素
+          observer.unobserve(img);
         }
+      }
+    });
+  }
 
-        // 请求完成后清除计时器
-        clearTimeout(searchTimer);
-
-        const loadMoreBtn = document.getElementById('load-more');
-        loadMoreBtn.style.display = cachedImages.length > displayedCount ? 'block' : 'none';
-
-        // 如果达到最大请求次数仍无图片
-        if (requestCount >= MAX_REQUEST_TIMES && displayedCount === 0) {
-            searchHint.textContent = '没有找到符合条件的图片';
-            searchHint.style.display = 'block';
-        }
-    } catch (error) {
-        console.error('Error in loadInitialImages:', error);
-        clearTimeout(searchTimer);
-        searchHint.textContent = '加载失败，请稍后重试';
-        searchHint.style.display = 'block';
-    } finally {
-        loading.style.display = 'none';
-    }
-}
-
-  async function loadMoreImages() {
-    if (isLoading) return;
-    isLoading = true;
-
-    const loading = document.querySelector('.loading-spinner');
-    const loadMoreBtn = document.getElementById('load-more');
-    loading.style.display = 'block';
-    loadMoreBtn.disabled = true;
-    loadMoreBtn.style.opacity = '0.5';
-
+  async function loadAlbum() {
     try {
-        // 显示下一批缓存的图片
-        await renderImages(cachedImages);
-        console.log('Displayed count:', displayedCount, 'Cached images:', cachedImages.length);
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
 
-        // 当显示的图片接近缓存数量时，请求新数据
-        if (displayedCount >= cachedImages.length - IMAGES_TO_SHOW && hasMoreData) {
-            console.log('Fetching new data with max_id:', maxId);
-            const newData = await fetchImages(40, maxId);
+      galleryContainer.innerHTML = '';
+      const fragment = document.createDocumentFragment();
 
-            if (newData && newData.length > 0) {
-                const newFilteredData = newData.filter(newItem =>
-                    !cachedImages.some(existingItem => existingItem.id === newItem.id)
-                );
-                if (newFilteredData.length > 0) {
-                    cachedImages.push(...newFilteredData);
-                    console.log('Added new images, total cached:', cachedImages.length);
-                }
-            } else {
-                hasMoreData = false;
-                console.log('No more data available');
-            }
-        }
+      // 创建 Intersection Observer
+      intersectionObserver = new IntersectionObserver(handleIntersection, {
+        rootMargin: '200px' // 提前 200px 开始加载
+      });
 
-        // 判断是否需要显示加载更多按钮
-        const hasMoreToShow = displayedCount < cachedImages.length || hasMoreData;
-        loadMoreBtn.style.display = hasMoreToShow ? 'block' : 'none';
+      data.forEach(item => {
+        // 确保 item 和 media_attachments 存在
+        if (!item || !item.media_attachments) return;
 
-        // 如果是最后一批数据，显示最后一行
-        if (!hasMoreToShow) {
-            console.log('Showing last row');
-            $('#justified-gallery').justifiedGallery({
-                rowHeight: 200,
-                lastRow: 'nojustify',
-                margins: 8,
-                border: 0,
-                waitThumbnailsLoad: false
+        item.media_attachments.forEach(photo => {
+          // 确保 photo 对象包含必要字段
+          if (!photo || !photo.url || !photo.preview_url) return;
+
+          const link = document.createElement('a');
+          link.href = photo.url;
+
+          // 使用高清图的尺寸
+          link.dataset.pswpWidth = photo.h_width || photo.width;
+          link.dataset.pswpHeight = photo.h_height || photo.height;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+
+          const img = document.createElement('img');
+          img.classList.add('lazy');
+
+          // 设置默认的背景色
+          img.style.backgroundColor = '#f0f0f0';
+          img.alt = photo.description || '相册图片';
+          img.width = photo.width || 1;
+          img.height = photo.height || 1;
+          img.style.aspectRatio = `${photo.width || 1} / ${photo.height || 1}`;
+
+          // 设置默认的 src 值
+          img.src = '/assets/images/album/x20.png';
+
+          // 重要：data-src 用于 LazyLoad
+          img.dataset.src = photo.preview_url;
+
+          // 保存 blurhash 和 photo 数据，稍后解码
+          if (photo.blurhash) {
+            img.dataset.blurhash = photo.blurhash;
+            img.dataset.photoData = JSON.stringify({
+              blurhash: photo.blurhash,
+              width: photo.width || 1,
+              height: photo.height || 1,
+              preview_url: photo.preview_url
             });
-        }
+
+            // 添加到观察器
+            fragment.appendChild(link);
+            link.appendChild(img);
+
+            // 先处理可见区域的图片
+            setTimeout(processVisibleImages, 0);
+          } else {
+            // 没有 blurhash 时使用 preview_url 作为 src
+            img.src = photo.preview_url;
+          }
+
+          const caption = document.createElement('div');
+          caption.className = 'pswp-caption-content';
+          let captionHTML = '';
+          if (photo.description) {
+            captionHTML += `<div class="pswp-caption-title">${photo.description}</div>`;
+          }
+          if (photo.content) {
+            captionHTML += `<div class="pswp-caption-body">${photo.content}</div>`;
+          }
+          caption.innerHTML = captionHTML;
+
+          link.appendChild(caption);
+          fragment.appendChild(link);
+
+          // 为有 blurhash 的图片添加观察
+          if (photo.blurhash) {
+            setTimeout(() => {
+              if (img.parentNode) { // 确保元素已添加到 DOM
+                intersectionObserver.observe(img);
+              }
+            }, 0);
+          }
+        });
+      });
+
+      galleryContainer.appendChild(fragment);
+      lazyLoadInstance.update();
+
     } catch (error) {
-        console.error('Error in loadMoreImages:', error);
-        hasMoreData = false;
-        loadMoreBtn.style.display = 'none';
-    } finally {
-        loading.style.display = 'none';
-        loadMoreBtn.disabled = false;
-        loadMoreBtn.style.opacity = '1';
-        isLoading = false;
+      console.error("无法加载相册：", error);
+      loader.innerText = '无法加载相册数据，请稍后再试。';
     }
-}
+  }
 
-  // Initialize Justified-Gallery
-  $(document).ready(function() {
-    $('#justified-gallery').justifiedGallery({
-        rowHeight: 200,
-        lastRow: 'hide',
-        margins: 8,
-        border: 0,
-        waitThumbnailsLoad: false
-    });
+  // 页面加载完成后开始加载相册
+  document.addEventListener('DOMContentLoaded', loadAlbum);
 
-    document.getElementById('load-more').addEventListener('click', loadMoreImages);
-});
-
-  // Load initial images when the page loads
-  window.onload = function() {
-    loadInitialImages();
-  };
-</script>
-
-<script>
-  var lazyLoadInstance = new LazyLoad({
-      // Your custom settings go here
+  // 监听滚动事件，处理可见区域的图片
+  let scrollTimer;
+  window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(processVisibleImages, 100);
   });
-</script>
 
-{{ $viewJS := resources.Get "js/view-image.min.js" | fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $viewJS.RelPermalink }}" integrity="{{ $viewJS.Data.Integrity }}"></script>
-<script>
-    window.ViewImage && ViewImage.init('.justified-gallery img');
+  // 页面可见性变化时也处理图片
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+      setTimeout(processVisibleImages, 100);
+    }
+  });
 </script>
 
 {{ end }}
