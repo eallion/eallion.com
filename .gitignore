@@ -4,17 +4,18 @@
 
 ### Custom ###
 
-.edgeone
+.edgeone/
+content/blog/*.md
+assets/data/penta/
 
 ### Hugo ###
 
 # Generated files by hugo
 
-/public/
-/resources/_gen/
-/assets/jsconfig.json
+public/
+resources/_gen/
+assets/jsconfig.json
 hugo_stats.json
-content/blog/*.md
 
 # Executable may be added to repository
 
