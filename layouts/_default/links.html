@@ -40,34 +40,38 @@
             <div class="not-prose">
                 <div class="friends-links grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {{ $linksResource := resources.Get "data/friends/links.json" }}
-                    {{ $links := $linksResource | transform.Unmarshal }}
-                    {{ range $links }}
-                        {{ $name := .name }}
-                        {{ $biography := .biography }}
-                        {{ $url := .url }}
-                        {{ $domainScheme := (replace (replace $url "http://" "") "https://" "") }}
-                        {{ $domainParts := split $domainScheme "/" }}
-                        {{ $domain := index $domainParts 0 }}
-                        {{ $avatar := .avatar }}
-                        <a target="_blank" href="/go/?target={{- $url | base64Encode -}}" title="{{- $name -}}" class="block"
-                            rel="noopener noreferrer">
-                            <div
-                                class="group flex items-center p-4 bg-gray-100 dark:bg-gray-900 rounded-lg hover:scale-105 transition-all duration-300 ease-in-out">
-                                <div class="flex-shrink-0 mr-4">
-                                    <img class="lazy nozoom w-16 h-16 rounded-full m-0" loading="lazy"
-                                        src="https://cn.cravatar.com/avatar/{{- $avatar -}}" alt="{{- $name -}}"
-                                        onerror="this.onerror=null; this.src='/404.png';">
-                                </div>
-                                <div class="flex-grow min-w-0">
-                                    <div class="flex items-center mb-2">
-                                        <img class="lazy nozoom w-4 h-4 mr-2 m-0" alt=""
-                                            src="https://t3.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=16&url={{- $url -}}">
-                                        <span class="font-medium text-neutral-900 dark:text-neutral-100 truncate">{{- $name -}}</span>
+                    {{ if $linksResource }}
+                        {{ $links := $linksResource | transform.Unmarshal }}
+                        {{ if $links }}
+                            {{ range $links }}
+                                {{ $name := .name }}
+                                {{ $biography := .biography }}
+                                {{ $url := .url }}
+                                {{ $domainScheme := (replace (replace $url "http://" "") "https://" "") }}
+                                {{ $domainParts := split $domainScheme "/" }}
+                                {{ $domain := index $domainParts 0 }}
+                                {{ $avatar := .avatar }}
+                                <a target="_blank" href="/go/?target={{- $url | base64Encode -}}" title="{{- $name -}}" class="block"
+                                    rel="noopener noreferrer">
+                                    <div
+                                        class="group flex items-center p-4 bg-gray-100 dark:bg-gray-900 rounded-lg hover:scale-105 transition-all duration-300 ease-in-out">
+                                        <div class="flex-shrink-0 mr-4">
+                                            <img class="lazy nozoom w-16 h-16 rounded-full m-0" loading="lazy"
+                                                src="https://cn.cravatar.com/avatar/{{- $avatar -}}" alt="{{- $name -}}"
+                                                onerror="this.onerror=null; this.src='/404.png';">
+                                        </div>
+                                        <div class="flex-grow min-w-0">
+                                            <div class="flex items-center mb-2">
+                                                <img class="lazy nozoom w-4 h-4 mr-2 m-0" alt=""
+                                                    src="https://t3.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=16&url={{- $url -}}">
+                                                <span class="font-medium text-neutral-900 dark:text-neutral-100 truncate">{{- $name -}}</span>
+                                            </div>
+                                            <p class="text-sm text-neutral-700 dark:text-neutral-300 line-clamp-2 m-0">{{- $biography -}}</p>
+                                        </div>
                                     </div>
-                                    <p class="text-sm text-neutral-700 dark:text-neutral-300 line-clamp-2 m-0">{{- $biography -}}</p>
-                                </div>
-                            </div>
-                        </a>
+                                </a>
+                            {{ end }}
+                        {{ end }}
                     {{ end }}
                 </div>
             </div>

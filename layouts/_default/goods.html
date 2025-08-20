@@ -28,41 +28,45 @@
       <div class="min-w-0 min-h-0 max-w-fit">
         <div class="article-content max-w-full mb-20">
             {{ .Content }}
-                <div id="goods">
-                    {{ $goodsResource := resources.Get "data/goods/goods.json" }}
+            <div id="goods">
+                {{ $goodsResource := resources.Get "data/goods/goods.json" }}
+                {{ if $goodsResource }}
                     {{ $goods := $goodsResource | transform.Unmarshal }}
-                    {{ range sort $goods "date" "desc" }}
-                    {{ $goodsSrc := .image }}
-                    <div class="goods-container img-hide">
-                        <div class="goods-image">
-                                <figure>
-                                    <img
-                                        class="my-0 rounded-md lazy"
-                                        loading="lazy"
-                                        src="/assets/images/goods/goods.webp"
-                                        data-src="https://images.eallion.com/directus/files/{{- $goodsSrc -}}"
-                                        alt="{{- .title -}}"
-                                    />
-                                </figure>
-                        </div>
-                        <div class="goods-price">{{- .currency -}}{{- printf "%.2f" (float .price) -}}</div>
-                        <div class="goods-title"><a href="/go/?target={{- .link | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">{{- .title -}}</a></div>
-                        <div class="goods-report-coupon-btn">
-                            {{ if or (not .report) (eq .report "") }}
-                            <div class="goods-report goods-report-empty">
-                                试用报告
+                    {{ if $goods }}
+                        {{ range sort $goods "date" "desc" }}
+                            {{ $goodsSrc := .image }}
+                            <div class="goods-container img-hide">
+                                <div class="goods-image">
+                                    <figure>
+                                        <img
+                                            class="my-0 rounded-md lazy"
+                                            loading="lazy"
+                                            src="/assets/images/goods/goods.webp"
+                                            data-src="https://images.eallion.com/directus/files/{{- $goodsSrc -}}"
+                                            alt="{{- .title -}}"
+                                        />
+                                    </figure>
+                                </div>
+                                <div class="goods-price">{{- .currency -}}{{- printf "%.2f" (float .price) -}}</div>
+                                <div class="goods-title"><a href="/go/?target={{- .link | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">{{- .title -}}</a></div>
+                                <div class="goods-report-coupon-btn">
+                                    {{ if or (not .report) (eq .report "") }}
+                                        <div class="goods-report goods-report-empty">
+                                            试用报告
+                                        </div>
+                                    {{ else }}
+                                        <div class="goods-report">
+                                            <a href="{{- .report -}}" target="_blank" rel="noreferrer noopener nofollow">试用报告</a>
+                                        </div>
+                                    {{ end }}
+                                    <div class="goods-coupon">{{ partial "icon.html" "ad" }} <a href="https://www.kubaicai.com/?r=/l/ddlist&kw={{ .title }}&t=223&origin_id=" target="_blank" rel="noreferrer noopener nofollow">搜搜优惠券？</a></div>
+                                </div>
+                                <div class="goods-note">{{ .note | safeHTML }}</div>
                             </div>
-                            {{ else }}
-                            <div class="goods-report">
-                                <a href="{{- .report -}}" target="_blank" rel="noreferrer noopener nofollow">试用报告</a>
-                            </div>
-                            {{ end }}
-                            <div class="goods-coupon">{{ partial "icon.html" "ad" }} <a href="https://www.kubaicai.com/?r=/l/ddlist&kw={{ .title }}&t=223&origin_id=" target="_blank" rel="noreferrer noopener nofollow">搜搜优惠券？</a></div>
-                        </div>
-                        <div class="goods-note">{{ .note | safeHTML }}</div>
-                    </div>
+                        {{ end }}
                     {{ end }}
-                </div>
+                {{ end }}
+            </div>
             </div>
         </div>
     </section>
