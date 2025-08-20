@@ -6,7 +6,13 @@
 
 .edgeone/
 content/blog/*.md
+assets/data/friends/
+assets/data/goods/
+assets/data/mastodon/
+assets/data/neodb/
 assets/data/penta/
+assets/data/steam/
+assets/data/summary/
 
 ### Hugo ###
 
