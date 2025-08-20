@@ -50,9 +50,14 @@
 {{$totalArticles := $articleCount}}
 
 
+{{ $linkCount := 36 }}
 {{ $friendsResource := resources.Get "data/friends/links.json" }}
-{{ $friends := $friendsResource | transform.Unmarshal }}
-{{ $linkCount := len $friends }}
+{{ if $friendsResource }}
+    {{ $friends := $friendsResource | transform.Unmarshal }}
+    {{ if $friends }}
+        {{ $linkCount = len $friends }}
+    {{ end }}
+{{ end }}
 
 {{ $neodbCountResource := resources.Get "data/neodb/movie.json" }}
 {{ $neodbCount := $neodbCountResource | transform.Unmarshal }}
@@ -75,8 +80,14 @@
   {{ end }}
 {{ end }}
 
+{{ $pentaCount := 103 }}
 {{ $pentaCountResource := resources.Get "data/penta/penta.json" }}
-{{ $pentaCount := $pentaCountResource | transform.Unmarshal }}
+{{ if $pentaCountResource }}
+    {{ $penta := $friendsResource | transform.Unmarshal }}
+    {{ if $penta }}
+        {{ $pentaCount = len $penta }}
+    {{ end }}
+{{ end }}
 
 {{ $lastCommitDate := "Now" }}
 {{ $totalCommits := 0 }}
@@ -838,7 +849,7 @@
                 <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.5rem" viewBox="0 0 1792 1536"><path fill="currentColor" d="M1792 1120v320q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h96V832H960v192h96q40 0 68 28t28 68v320q0 40-28 68t-68 28H736q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h96V832H320v192h96q40 0 68 28t28 68v320q0 40-28 68t-68 28H96q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h96V832q0-52 38-90t90-38h512V512h-96q-40 0-68-28t-28-68V96q0-40 28-68t68-28h320q40 0 68 28t28 68v320q0 40-28 68t-68 28h-96v192h512q52 0 90 38t38 90v192h96q40 0 68 28t28 68"/></svg></span></div>
             </div>
             <div class="flex items-end justify-between">
-              <div class="text-3xl font-bold text-neutral-900 dark:text-neutral">{{- $linkCount | default 0 -}}</div>
+              <div class="text-3xl font-bold text-neutral-900 dark:text-neutral">{{- $linkCount | default 36 -}}</div>
             </div>
           </div>
           <div
@@ -1114,7 +1125,7 @@
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
                 <div class="max-w-2/5 overflow-ellipsis text-center">
                   <div class="text-xs text-neutral-500 dark:text-neutral-400">五杀截图</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{- len $pentaCount | default 0 -}}</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{- $pentaCount | default 103 -}}</div>
                 </div>
                 <div class="max-w-3/5 overflow-ellipsis text-center">
                   <button type="button" onclick="window.open('/penta', '_blank')" class="text-neutral-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
