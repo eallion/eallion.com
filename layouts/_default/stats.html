@@ -52,7 +52,7 @@
 
 {{ $friendsResource := resources.Get "data/friends/links.json" }}
 {{ $friends := $friendsResource | transform.Unmarshal }}
-{{ $linkCount := len $friends.links }}
+{{ $linkCount := len $friends }}
 
 {{ $neodbCountResource := resources.Get "data/neodb/movie.json" }}
 {{ $neodbCount := $neodbCountResource | transform.Unmarshal }}
