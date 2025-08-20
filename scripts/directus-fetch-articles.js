@@ -15,6 +15,7 @@ const DIRECTUS_S3_URL = process.env.DIRECTUS_S3_URL; // S3 域名
 const HUGO_CONTENT_DIR = path.join(__dirname, '..', 'content', 'blog');
 const PENTA_JSON_PATH = path.join(__dirname, '..', 'assets', 'data', 'penta', 'penta.json');
 const GOODS_JSON_PATH = path.join(__dirname, '..', 'assets', 'data', 'goods', 'goods.json');
+const FRIENDS_LINKS_JSON_PATH = path.join(__dirname, '..', 'assets', 'data', 'friends', 'links.json');
 
 // Directus API 分页设置
 const API_LIMIT = 100; // Directus 的默认限制通常是 100
@@ -102,6 +103,32 @@ async function fetchAllGoodsData(offset = 0) {
 }
 
 /**
+ * 递归地从 Directus API 获取所有 Friends Links 数据
+ * @param {number} offset 当前偏移量
+ * @returns {Promise<Array>} 返回所有 Friends Links 数据的数组
+ */
+async function fetchAllFriendsLinksData(offset = 0) {
+  console.log(`正在获取 Friends Links 数据，偏移量：${offset}...`);
+  const response = await fetch(`${DIRECTUS_API_URL}items/Friendslinks?limit=${API_LIMIT}&offset=${offset}`);
+  const data = await response.json();
+
+  if (!data || !data.data) {
+    console.error('Friends Links API 返回的数据结构不正确。');
+    return [];
+  }
+
+  const friendsLinksItems = data.data;
+
+  // 如果返回的项目数量等于 API_LIMIT，表示可能还有更多数据，继续获取下一页
+  if (friendsLinksItems.length === API_LIMIT) {
+    const nextItems = await fetchAllFriendsLinksData(offset + API_LIMIT);
+    return friendsLinksItems.concat(nextItems);
+  } else {
+    return friendsLinksItems;
+  }
+}
+
+/**
  * 保存 Penta 数据到 JSON 文件
  * @param {Array} pentaData Penta 数据数组
  */
@@ -167,6 +194,23 @@ function saveGoodsDataToJson(goodsData) {
   // 写入 JSON 文件
   fs.writeFileSync(GOODS_JSON_PATH, JSON.stringify(processedData, null, 2), 'utf-8');
   console.log(`成功保存 ${processedData.length} 条 Goods 数据到 ${GOODS_JSON_PATH}`);
+}
+
+/**
+ * 保存 Friends Links 数据到 JSON 文件
+ * @param {Array} friendsLinksData Friends Links 数据数组
+ */
+function saveFriendsLinksDataToJson(friendsLinksData) {
+  // 确保目标目录存在
+  const friendsLinksDir = path.dirname(FRIENDS_LINKS_JSON_PATH);
+  if (!fs.existsSync(friendsLinksDir)) {
+    console.log(`创建目录：${friendsLinksDir}`);
+    fs.mkdirSync(friendsLinksDir, { recursive: true });
+  }
+
+  // 写入 JSON 文件（无需特殊处理）
+  fs.writeFileSync(FRIENDS_LINKS_JSON_PATH, JSON.stringify(friendsLinksData, null, 2), 'utf-8');
+  console.log(`成功保存 ${friendsLinksData.length} 条 Friends Links 数据到 ${FRIENDS_LINKS_JSON_PATH}`);
 }
 
 /**
@@ -325,6 +369,15 @@ async function main() {
       console.log('所有 Goods 数据已成功保存！');
     } else {
       console.log('未找到任何 Goods 数据。');
+    }
+
+    // 获取并保存 Friends Links 数据
+    const allFriendsLinksData = await fetchAllFriendsLinksData();
+    if (allFriendsLinksData.length > 0) {
+      saveFriendsLinksDataToJson(allFriendsLinksData);
+      console.log('所有 Friends Links 数据已成功保存！');
+    } else {
+      console.log('未找到任何 Friends Links 数据。');
     }
   } catch (error) {
     console.error('同步过程中发生错误：', error);
