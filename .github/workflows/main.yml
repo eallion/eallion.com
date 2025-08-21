@@ -69,12 +69,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Run Directus sync script fetch articles
+      - name: Fetch Directus articles
         run: |
           pnpm install
           pnpm run directus
         env:
           DIRECTUS_API_URL: ${{ secrets.DIRECTUS_API_URL }}
+          DIRECTUS_ACCESS_TOKEN: ${{ secrets.DIRECTUS_ACCESS_TOKEN }}
           DIRECTUS_FILES_URL: ${{ secrets.DIRECTUS_FILES_URL }}
           DIRECTUS_S3_URL: ${{ secrets.DIRECTUS_S3_URL }}
           NEODB_ACCESS_TOKEN: ${{ secrets.NEODB_ACCESS_TOKEN }}
