@@ -19,10 +19,10 @@ jobs:
       PNPM_CACHEDIR: /tmp/.pnpm-store
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           submodules: true
-          fetch-depth: 0
+          fetch-depth: 1
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -116,15 +116,15 @@ jobs:
 
       - name: Deploy to Aliyun OSS
         if: ${{ always() && !cancelled() }}  # 只要工作流没有被取消就执行
-        uses: docker://fangbinwei/aliyun-oss-website-action:v1
-        env:
-          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-          ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
-          BUCKET: eallion-com
-          ENDPOINT: oss-cn-shanghai.aliyuncs.com
-          FOLDER: public
-          SKIP_SETTING: true
-          INCREMENTAL: true
+        uses: fangbinwei/aliyun-oss-website-action:v1
+        with:
+          accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
+          accessKeySecret: ${{ secrets.ACCESS_KEY_SECRET }}
+          bucket: eallion-com
+          endpoint: oss-cn-shanghai.aliyuncs.com
+          folder: public
+          skipSetting: true
+          incremental: true
 
       - name: Refresh Aliyun ESA
         run: |
