@@ -1296,6 +1296,9 @@ body.zen-mode-enable {
   .ml-2 {
     margin-left: calc(var(--spacing) * 2);
   }
+  .ml-2\.5 {
+    margin-left: calc(var(--spacing) * 2.5);
+  }
   .ml-3 {
     margin-left: calc(var(--spacing) * 3);
   }
@@ -4949,15 +4952,6 @@ body.zen-mode-enable {
       &:hover {
         @media (hover: hover) {
           background-color: rgba(var(--color-neutral-100), 1);
-        }
-      }
-    }
-  }
-  .dark\:hover\:bg-neutral-600 {
-    &:is(.dark *) {
-      &:hover {
-        @media (hover: hover) {
-          background-color: rgba(var(--color-neutral-600), 1);
         }
       }
     }

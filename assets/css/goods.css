@@ -63,15 +63,12 @@
 
 .goods-price {
     font-family: DINPro, monospace !important;
-    color: #999;
-    font-size: 0.875rem;
-    line-height: 1.4rem;
+    color: #333;
 }
 
 .goods-note {
     color: #999;
     font-size: 0.875rem;
-    line-height: 1.3rem;
 }
 
 .goods-report-coupon-btn {
