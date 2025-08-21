@@ -116,7 +116,7 @@ jobs:
 
       - name: Deploy to Aliyun OSS
         if: ${{ always() && !cancelled() }}  # 只要工作流没有被取消就执行
-        uses: fangbinwei/aliyun-oss-website-action:v1
+        uses: fangbinwei/aliyun-oss-website-action@v1
         with:
           accessKeyId: ${{ secrets.ACCESS_KEY_ID }}
           accessKeySecret: ${{ secrets.ACCESS_KEY_SECRET }}
