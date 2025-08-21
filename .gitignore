@@ -13,6 +13,8 @@ assets/data/neodb/
 assets/data/penta/
 assets/data/steam/
 assets/data/summary/
+# Can be `git add static/llms.txt` to add the file to the repository
+static/llms.txt
 
 ### Hugo ###
 
