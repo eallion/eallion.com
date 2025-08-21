@@ -94,6 +94,11 @@
   pageRef = "about"
   weight = 100
 
+[[main]]
+  name = "llms.txt"
+  pageRef = "/llms.txt"
+  weight = 999
+
 # [[main]]
 #   name = "Test"
 #   pageRef = "pagTest"
