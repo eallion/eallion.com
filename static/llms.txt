@@ -49,6 +49,10 @@ This is Charles (eallion) Chin's Chinese blog. Here, I write about real life sto
 
 - [https://www.eallion.com/index.xml](https://www.eallion.com/index.xml)
 
+## Sitemap
+
+- [https://www.eallion.com/sitemap.xml](https://www.eallion.com/sitemap.xml)
+
 ## 文章 Article
 
 博客中的文章是博客的主要内容，记录的从 2006 年到现在的一些个人经历、想法、灵感、故事等。
