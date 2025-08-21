@@ -1,10 +1,11 @@
+'use strict';
 // 依赖的模块可通过下载工程中的模块依赖文件或右上角的获取 SDK 依赖信息查看
-import ESA20240910 from '@alicloud/esa20240910';
-import OpenApi from '@alicloud/openapi-client';
-import Util from '@alicloud/tea-util';
-import Credential from '@alicloud/credentials';
+const ESA20240910 = require('@alicloud/esa20240910');
+const OpenApi = require('@alicloud/openapi-client');
+const Util = require('@alicloud/tea-util');
+const Credential = require('@alicloud/credentials');
 
-export default class Client {
+class Client {
 
   /**
    * 使用凭据或 AK/SK 初始化账号 Client
@@ -34,7 +35,7 @@ export default class Client {
 
     // Endpoint 请参考 https://api.aliyun.com/product/ESA
     config.endpoint = `esa.cn-hangzhou.aliyuncs.com`;
-    return new ESA20240910(config);
+    return new ESA20240910.default(config);
   }
 
   static async main(args) {
@@ -42,7 +43,7 @@ export default class Client {
     let purgeCachesRequest = new ESA20240910.PurgeCachesRequest({
       siteId: process.env['ESA_SITE_ID'],
       type: "purgeall",
-      Content: '{ "PurgeAll": true }'
+      content: '{ "PurgeAll": true }'
     });
     let runtime = new Util.RuntimeOptions({ });
     try {
@@ -61,4 +62,5 @@ export default class Client {
   }
 }
 
+exports.Client = Client;
 Client.main(process.argv.slice(2));
