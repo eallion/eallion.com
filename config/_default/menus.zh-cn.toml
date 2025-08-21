@@ -77,14 +77,6 @@
   weight = 70
 
 [[main]]
-  name = "Status"
-  parent = "更多"
-  pre = "external-link-alt"
-  # pageRef = "status"
-  url = "https://status.eallion.com/"
-  weight = 80
-
-[[main]]
   name = "友情链接"
   pageRef = "links"
   weight = 90
@@ -93,11 +85,6 @@
   name = "关于"
   pageRef = "about"
   weight = 100
-
-[[main]]
-  name = "llms.txt"
-  pageRef = "/llms.txt"
-  weight = 999
 
 # [[main]]
 #   name = "Test"
@@ -164,11 +151,6 @@
   weight = 62
 
 [[footer]]
-  name = "友情链接"
-  pageRef = "links"
-  weight = 63
-
-[[footer]]
   name = "关于"
   pageRef = "about"
   weight = 90
@@ -183,3 +165,8 @@
   name = "RSS"
   url = "https://www.eallion.com/rss"
   weight = 99
+
+[[footer]]
+  name = "llms.txt"
+  pageRef = "/llms.txt"
+  weight = 999
