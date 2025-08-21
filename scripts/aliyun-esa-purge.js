@@ -1,80 +1,64 @@
-'use strict';
-// This file is auto-generated, don't edit it
 // 依赖的模块可通过下载工程中的模块依赖文件或右上角的获取 SDK 依赖信息查看
-const OpenApi = require('@alicloud/openapi-client');
-const Console = require('@alicloud/tea-console');
-const OpenApiUtil = require('@alicloud/openapi-util');
-const Util = require('@alicloud/tea-util');
-const Tea = require('@alicloud/tea-typescript');
+import ESA20240910 from '@alicloud/esa20240910';
+import OpenApi from '@alicloud/openapi-client';
+import Util from '@alicloud/tea-util';
+import Credential from '@alicloud/credentials';
 
-class Client {
+export default class Client {
 
   /**
-   * 使用 AK&SK 初始化账号 Client
-   * @return Client
+   * 使用凭据或 AK/SK 初始化账号 Client
+   * @returns ESA20240910
    * @throws Exception
    */
   static createClient() {
-    // 工程代码泄露可能会导致 AccessKey 泄露，并威胁账号下所有资源的安全性。以下代码示例仅供参考。
-    // 建议使用更安全的 STS 方式，更多鉴权访问方式请参见：https://help.aliyun.com/document_detail/378664.html。
-    let config = new OpenApi.Config({
-      // 必填，请确保代码运行环境设置了环境变量 ACCESS_KEY_ID
-      accessKeyId: process.env['ACCESS_KEY_ID'],
-      // 必填，请确保代码运行环境设置了环境变量 ACCESS_KEY_SECRET
-      accessKeySecret: process.env['ACCESS_KEY_SECRET'],
-    });
+    let config;
+
+    // 检查是否提供了 AK/SK
+    const accessKeyId = process.env['ACCESS_KEY_ID'];
+    const accessKeySecret = process.env['ACCESS_KEY_SECRET'];
+
+    if (accessKeyId && accessKeySecret) {
+      // 使用 AK/SK 方式
+      config = new OpenApi.Config({
+        accessKeyId: accessKeyId,
+        accessKeySecret: accessKeySecret,
+      });
+    } else {
+      // 使用凭据方式
+      let credential = new Credential();
+      config = new OpenApi.Config({
+        credential: credential,
+      });
+    }
+
     // Endpoint 请参考 https://api.aliyun.com/product/ESA
     config.endpoint = `esa.cn-hangzhou.aliyuncs.com`;
-    return new OpenApi.default(config);
-  }
-
-  /**
-   * API 相关
-   * @param path string Path parameters
-   * @return OpenApi.Params
-   */
-  static createApiInfo() {
-    let params = new OpenApi.Params({
-      // 接口名称
-      action: 'PurgeCaches',
-      // 接口版本
-      version: '2024-09-10',
-      // 接口协议
-      protocol: 'HTTPS',
-      // 接口 HTTP 方法
-      method: 'POST',
-      authType: 'AK',
-      style: 'RPC',
-      // 接口 PATH
-      pathname: `/`,
-      // 接口请求体内容格式
-      reqBodyType: 'json',
-      // 接口响应体内容格式
-      bodyType: 'json',
-    });
-    return params;
+    return new ESA20240910(config);
   }
 
   static async main(args) {
     let client = Client.createClient();
-    let params = Client.createApiInfo();
-    // query params
-    let queries = { };
-    queries['SiteId'] = process.env['ESA_SITE_ID'];
-    queries['Type'] = 'directory';
-    queries['Content'] = '{"Directories":["https://www.eallion.com/"]}';
-    // runtime options
-    let runtime = new Util.RuntimeOptions({ });
-    let request = new OpenApi.OpenApiRequest({
-      query: OpenApiUtil.default.query(queries),
+    let purgeCachesRequest = new ESA20240910.PurgeCachesRequest({
+      siteId: process.env['ESA_SITE_ID'],
+      type: "purgeall",
+      Content: '{ "PurgeAll": true }'
     });
-    // 复制代码运行请自行打印 API 的返回值
-    // 返回值实际为 Map 类型，可从 Map 中获得三类数据：响应体 body、响应头 headers、HTTP 返回的状态码 statusCode。
-    let resp = await client.callApi(params, request, runtime);
-    Console.default.log(Util.default.toJSONString(resp));
+    let runtime = new Util.RuntimeOptions({ });
+    try {
+      // 复制代码运行请自行打印 API 的返回值
+      let resp = await client.purgeCachesWithOptions(purgeCachesRequest, runtime);
+      console.log(JSON.stringify(resp, null, 2));
+    } catch (error) {
+      // 此处仅做打印展示，请谨慎对待异常处理，在工程项目中切勿直接忽略异常。
+      // 错误 message
+      console.log(error.message);
+      // 诊断地址
+      if (error.data && error.data["Recommend"]) {
+        console.log(error.data["Recommend"]);
+      }
+    }
   }
-
 }
 
-exports.Client = Client;
 Client.main(process.argv.slice(2));
