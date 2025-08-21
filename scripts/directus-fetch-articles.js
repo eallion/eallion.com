@@ -11,6 +11,7 @@ const yaml = require('js-yaml');
 // 配置部分（支持从环境变量读取）
 // -------------------------------------------------------------
 const DIRECTUS_API_URL = process.env.DIRECTUS_API_URL;
+const DIRECTUS_ACCESS_TOKEN = process.env.DIRECTUS_ACCESS_TOKEN;
 const DIRECTUS_S3_URL = process.env.DIRECTUS_S3_URL; // S3 域名
 const NEODB_ACCESS_TOKEN = process.env.NEODB_ACCESS_TOKEN; // NeoDB 访问令牌
 const HUGO_CONTENT_DIR = path.join(__dirname, '..', 'content', 'blog');
@@ -33,7 +34,11 @@ const API_LIMIT = 100; // Directus 的默认限制通常是 100
  */
 async function fetchAllArticles(offset = 0) {
   console.log(`正在获取数据，偏移量：${offset}...`);
-  const response = await fetch(`${DIRECTUS_API_URL}items/Article?limit=${API_LIMIT}&offset=${offset}&fields=*,tags.Tag_id.*,categories.Category_id.*,authors.Author_id.*,serieses.Series_id.*,featureimage.*`);
+  const response = await fetch(`${DIRECTUS_API_URL}items/Article?limit=${API_LIMIT}&offset=${offset}&fields=*,tags.Tag_id.*,categories.Category_id.*,authors.Author_id.*,serieses.Series_id.*,featureimage.*`, {
+    headers: {
+      'Authorization': `Bearer ${DIRECTUS_ACCESS_TOKEN}`
+    }
+  });
   const data = await response.json();
 
   if (!data || !data.data) {
@@ -59,7 +64,11 @@ async function fetchAllArticles(offset = 0) {
  */
 async function fetchAllPentaData(offset = 0) {
   console.log(`正在获取 Penta 数据，偏移量：${offset}...`);
-  const response = await fetch(`${DIRECTUS_API_URL}items/Penta?limit=${API_LIMIT}&offset=${offset}&fields=*,screenshot.*`);
+  const response = await fetch(`${DIRECTUS_API_URL}items/Penta?limit=${API_LIMIT}&offset=${offset}&fields=*,screenshot.*`, {
+    headers: {
+      'Authorization': `Bearer ${DIRECTUS_ACCESS_TOKEN}`
+    }
+  });
   const data = await response.json();
 
   if (!data || !data.data) {
@@ -85,7 +94,11 @@ async function fetchAllPentaData(offset = 0) {
  */
 async function fetchAllGoodsData(offset = 0) {
   console.log(`正在获取 Goods 数据，偏移量：${offset}...`);
-  const response = await fetch(`${DIRECTUS_API_URL}items/Goods?limit=${API_LIMIT}&offset=${offset}&fields=*,image.*`);
+  const response = await fetch(`${DIRECTUS_API_URL}items/Goods?limit=${API_LIMIT}&offset=${offset}&fields=*,image.*`, {
+    headers: {
+      'Authorization': `Bearer ${DIRECTUS_ACCESS_TOKEN}`
+    }
+  });
   const data = await response.json();
 
   if (!data || !data.data) {
@@ -111,7 +124,11 @@ async function fetchAllGoodsData(offset = 0) {
  */
 async function fetchAllFriendsLinksData(offset = 0) {
   console.log(`正在获取 Friends Links 数据，偏移量：${offset}...`);
-  const response = await fetch(`${DIRECTUS_API_URL}items/Friendslinks?limit=${API_LIMIT}&offset=${offset}`);
+  const response = await fetch(`${DIRECTUS_API_URL}items/Friendslinks?limit=${API_LIMIT}&offset=${offset}`, {
+    headers: {
+      'Authorization': `Bearer ${DIRECTUS_ACCESS_TOKEN}`
+    }
+  });
   const data = await response.json();
 
   if (!data || !data.data) {
