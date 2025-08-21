@@ -57,10 +57,9 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
+    "@alicloud/credentials": "^2.4.4",
+    "@alicloud/esa20240910": "^2.29.1",
     "@alicloud/openapi-client": "^0.4.15",
-    "@alicloud/openapi-util": "^0.3.2",
-    "@alicloud/tea-console": "^1.0.0",
-    "@alicloud/tea-typescript": "^1.8.0",
     "@alicloud/tea-util": "^1.4.10",
     "js-yaml": "^4.1.0"
   }
