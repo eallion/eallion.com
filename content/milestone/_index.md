@@ -42,7 +42,7 @@ aliases:
 {{< timeline >}}
 
 {{< timelineItem icon="directus" header="Directus" badge="Aug 18, 2025" >}}
-2025 年 8 月 18 日，博客文章用 Headless CMS Directus 管理。请求 API 的 <code><a href="https://github.com/eallion/eallion.com/blob/main/directus/directus-fetch-articles.js" target="_blank" rel="noopener noreferrer">node scripts/directus-fetch-articles.js</a></code>。
+2025 年 8 月 18 日，博客文章用 Headless CMS Directus 管理。请求 API 的 <code><a href="https://github.com/eallion/eallion.com/blob/main/scripts/directus-fetch-articles.js" target="_blank" rel="noopener noreferrer">node scripts/directus-fetch-articles.js</a></code>。
 {{< /timelineItem >}}
 
 {{< timelineItem icon="code" header="English" badge="Aug 7, 2025" >}}
