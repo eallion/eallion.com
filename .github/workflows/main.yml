@@ -37,7 +37,7 @@ jobs:
           path: |
             resources/_gen
             ${{ env.HUGO_CACHEDIR }}
-          key: ${{ runner.os }}-hugo-${{ hashFiles('content/**', 'assets/**', 'layouts/**', 'config.toml', 'pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-hugo-${{ hashFiles('content/**', 'assets/**', 'layouts/**', 'config/**', 'static/**', 'pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-hugo-
 
@@ -84,13 +84,6 @@ jobs:
         run: |
           hugo --minify --enableGitInfo --gc
 
-#       - name: Install and run Shiki
-#         run: |
-#           export NODE_OPTIONS="--max_old_space_size=7168"
-#           pnpm install
-#           pnpm run shiki --silent || true
-#           # npx rehype-cli public -o --silent || true
-
 #       - name: Deploy to GitHub Pages
 #         uses: peaceiris/actions-gh-pages@v4
 #         with:
@@ -106,14 +99,6 @@ jobs:
 #           force_orphan: true
 #           user_name: 'github-actions[bot]'
 #           user_email: 'github-actions[bot]@users.noreply.github.com'
-
-#       - name: Publish to Cloudflare Pages
-#         uses: cloudflare/wrangler-action@v3
-#         with:
-#           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-#           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-#           quiet: true
-#           command: pages deploy public --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }} --commit-dirty=true
 
       - name: Deploy to Aliyun OSS
         if: ${{ always() && !cancelled() }}  # 只要工作流没有被取消就执行
@@ -134,25 +119,3 @@ jobs:
           ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
           ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
           ESA_SITE_ID: ${{ secrets.ESA_SITE_ID }}
-
-#       - name: Deploy to EdgeOne Pages
-#         uses: TencentEdgeOne/edgeone-pages-action@v1
-#         with:
-#           token: ${{ secrets.EDGEONE_API_TOKEN }}
-#           project-name: "eallionblog"
-#           build-path: "./public"
-
-      - name: Trigger n8n webhook
-        if: success()
-        uses: distributhor/workflow-webhook@v3
-        with:
-          webhook_url: ${{ secrets.N8N_WEBHOOK_URL }}
-          data: |
-            {
-              "deployment_status": "success",
-              "repository": "${{ github.repository }}",
-              "commit": "${{ github.sha }}",
-              "event_name": "${{ github.event_name }}",
-              "ref": "${{ github.ref }}",
-              "timestamp": "${{ github.event.head_commit.timestamp }}"
-            }
