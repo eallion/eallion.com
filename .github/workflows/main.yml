@@ -5,10 +5,22 @@ on:
     branches:
       - main
   schedule:
-   - cron: '0 0 1 * *'
+    - cron: '0 0 1 * *'
   workflow_dispatch:
+    inputs:
+      build_content:
+        description: "选择构建范围："
+        required: true
+        default: 'build-hugo'
+        type: choice
+        options:
+          - 'build-album'
+          - 'build-hugo'
+          - 'build-mastodon'
+          - 'build-media'
+          - 'build-penta'
   repository_dispatch:
-    types: [build-hugo]
+    types: [build-album, build-hugo, build-mastodon, build-media, build-penta]
 
 jobs:
   build-deploy:
@@ -17,6 +29,14 @@ jobs:
       HUGO_CACHEDIR: /tmp/.hugo_cache
       HUGOMODS_CACHEDIR: /tmp/.hugo_mods_cache
       PNPM_CACHEDIR: /tmp/.pnpm-store
+      ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+      ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
+      DIRECTUS_ACCESS_TOKEN: ${{ secrets.DIRECTUS_ACCESS_TOKEN }}
+      DIRECTUS_API_URL: ${{ secrets.DIRECTUS_API_URL }}
+      DIRECTUS_FILES_URL: ${{ secrets.DIRECTUS_FILES_URL }}
+      DIRECTUS_S3_URL: ${{ secrets.DIRECTUS_S3_URL }}
+      ESA_SITE_ID: ${{ secrets.ESA_SITE_ID }}
+      NEODB_ACCESS_TOKEN: ${{ secrets.NEODB_ACCESS_TOKEN }}
 
     steps:
       - uses: actions/checkout@v5
@@ -49,7 +69,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-hugomod-
 
-      - name: Install pnpm
+      - name: Install PNPM
         uses: pnpm/action-setup@v4
         with:
           version: 9
@@ -61,7 +81,7 @@ jobs:
           cache: 'pnpm'
           cache-dependency-path: '**/pnpm-lock.yaml'
 
-      - name: Cache pnpm store
+      - name: Cache PNPM Store
         uses: actions/cache@v4
         with:
           path: ${{ env.PNPM_CACHEDIR }}
@@ -69,39 +89,33 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Fetch Directus articles
+      - name: Install Dependencies
         run: |
           pnpm install
-          pnpm run directus
-        env:
-          DIRECTUS_API_URL: ${{ secrets.DIRECTUS_API_URL }}
-          DIRECTUS_ACCESS_TOKEN: ${{ secrets.DIRECTUS_ACCESS_TOKEN }}
-          DIRECTUS_FILES_URL: ${{ secrets.DIRECTUS_FILES_URL }}
-          DIRECTUS_S3_URL: ${{ secrets.DIRECTUS_S3_URL }}
-          NEODB_ACCESS_TOKEN: ${{ secrets.NEODB_ACCESS_TOKEN }}
+
+      - name: Setup Aliyun CLI
+        uses: aliyun/setup-aliyun-cli-action@v1
+        with:
+          version: "latest"
+
+      - name: Configure Aliyun CLI
+        run: |
+          aliyun configure set --profile default \
+            --access-key-id ${{ secrets.ALIYUN_ACCESS_KEY_ID }} \
+            --access-key-secret ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }} \
+            --region cn-shanghai
 
       - name: Build Hugo
+        if: github.event_name == 'push' || github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-hugo') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-hugo')
         run: |
+          # Fetch Directus articles (all data)
+          pnpm run directus
+
+          # Build Hugo
           hugo --minify --enableGitInfo --gc
 
-#       - name: Deploy to GitHub Pages
-#         uses: peaceiris/actions-gh-pages@v4
-#         with:
-#           personal_token: ${{ secrets.personal_token }}
-#           external_repository: eallion/blog
-#           publish_branch: main
-#           publish_dir: ./public
-#           # destination_dir: public
-#           allow_empty_commit: true
-#           # commit_message: ${{ GitHub.event.head_commit.message }}
-#           full_commit_message: ${{ github.event.head_commit.message }}
-#           #cname: eallion.com
-#           force_orphan: true
-#           user_name: 'github-actions[bot]'
-#           user_email: 'github-actions[bot]@users.noreply.github.com'
-
       - name: Deploy to Aliyun OSS
-        if: ${{ always() && !cancelled() }}  # 只要工作流没有被取消就执行
+        if: github.event_name == 'push' || github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-hugo') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-hugo')
         uses: docker://ghcr.io/eallion/aliyun-oss-website-action:v1
         env:
           ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
@@ -112,10 +126,79 @@ jobs:
           SKIP_SETTING: true
           INCREMENTAL: true
 
-      - name: Refresh Aliyun ESA
+      - name: Purge Aliyun ESA
+        if: github.event_name == 'push' || github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-hugo') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-hugo')
         run: |
-          pnpm run esa
-        env:
-          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-          ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
-          ESA_SITE_ID: ${{ secrets.ESA_SITE_ID }}
+          aliyun esa PurgeCaches --SiteId ${{ secrets.ESA_SITE_ID }} --Type purgeall --Content {"PurgeAll":true}
+
+      - name: Build Hugo Album
+        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-album') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-album')
+        run: |
+          # Fetch Directus articles (all data)
+          pnpm run album
+
+          # Build Album
+          hugo --minify --enableGitInfo --gc
+
+      - name: Purge Aliyun ESA Album
+        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-album') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-album')
+        run: |
+          aliyun oss cp public/album/index.html oss://eallion-com/album/index.html --delete --force
+          aliyun esa PurgeCaches \
+            --SiteId ${{ secrets.ESA_SITE_ID }} \
+            --Type file \
+            --Content '{"Files":["https://www.eallion.com/album/index.html"]}'
+
+      - name: Build Hugo Mastodon
+        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-mastodon') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-mastodon')
+        run: |
+          # Fetch Directus articles (all data)
+          pnpm run mastodon
+
+          # Build Mastodon
+          hugo --minify --enableGitInfo --gc
+
+      - name: Purge Aliyun ESA Mastodon
+        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-mastodon') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-mastodon')
+        run: |
+          aliyun oss cp public/mastodon/index.html oss://eallion-com/mastodon/index.html --delete --force
+          aliyun esa PurgeCaches \
+            --SiteId ${{ secrets.ESA_SITE_ID }} \
+            --Type file \
+            --Content '{"Files":["https://www.eallion.com/mastodon/index.html"]}'
+
+      - name: Build Hugo Media
+        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-media') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-media')
+        run: |
+          # Fetch Directus articles (all data)
+          pnpm run media
+
+          # Build Media
+          hugo --minify --enableGitInfo --gc
+
+      - name: Purge Aliyun ESA Media
+        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-media') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-media')
+        run: |
+          aliyun oss cp public/media/index.html oss://eallion-com/media/index.html --delete --force
+          aliyun esa PurgeCaches \
+            --SiteId ${{ secrets.ESA_SITE_ID }} \
+            --Type file \
+            --Content '{"Files":["https://www.eallion.com/media/index.html"]}'
+
+      - name: Build Hugo Penta
+        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-penta') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-penta')
+        run: |
+          # Fetch Directus articles (all data)
+          pnpm run penta
+
+          # Build Penta
+          hugo --minify --enableGitInfo --gc
+
+      - name: Purge Aliyun ESA Penta
+        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-penta') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-penta')
+        run: |
+          aliyun oss cp public/penta/index.html oss://eallion-com/penta/index.html --delete --force
+          aliyun esa PurgeCaches \
+            --SiteId ${{ secrets.ESA_SITE_ID }} \
+            --Type file \
+            --Content '{"Files":["https://www.eallion.com/penta/index.html"]}'
