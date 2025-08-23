@@ -134,7 +134,7 @@ jobs:
       - name: Build Hugo Album
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-album') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-album')
         run: |
-          # Fetch Directus articles (all data)
+          # Fetch Directus Album
           pnpm run directus:album
 
           # Build Album
@@ -152,7 +152,7 @@ jobs:
       - name: Build Hugo Mastodon
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-mastodon') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-mastodon')
         run: |
-          # Fetch Directus articles (all data)
+          # Fetch Latest 30 Mastodon Statuses
           pnpm run directus:mastodon
           pnpm run directus:latest
 
@@ -167,12 +167,12 @@ jobs:
           aliyun esa PurgeCaches \
             --SiteId ${{ secrets.ESA_SITE_ID }} \
             --Type file \
-            --Content '{"Files":["https://www.eallion.com/mastodon/index.html","https://www.eallion.com/index.html"]}'
+            --Content '{"Files":["https://www.eallion.com/mastodon/index.html", "https://www.eallion.com/index.html"]}'
 
       - name: Build Hugo Media
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-media') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-media')
         run: |
-          # Fetch Directus articles (all data)
+          # Fetch NeoDB Completed
           pnpm run directus:media
 
           # Build Media
@@ -190,7 +190,7 @@ jobs:
       - name: Build Hugo Penta
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-penta') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-penta')
         run: |
-          # Fetch Directus articles (all data)
+          # Fetch Directus Penta
           pnpm run directus:penta
 
           # Build Penta
