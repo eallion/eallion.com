@@ -59,6 +59,34 @@
     {{ end }}
 {{ end }}
 
+{{ $mastodonData := "" }}
+{{ $followersCount := "-1" }}
+{{ with resources.Get "data/mastodon/mastodon.json" }}
+  {{ $mastodonData = . | transform.Unmarshal }}
+  {{ if and $mastodonData (gt (len $mastodonData) 0) }}
+    {{ $firstPost := index $mastodonData 0 }}
+    {{ if $firstPost.account }}
+      {{ $followersCount = $firstPost.account.followers_count }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $followingCount := "302" }}
+{{ if and $mastodonData (gt (len $mastodonData) 0) }}
+  {{ $firstPost := index $mastodonData 0 }}
+  {{ if $firstPost.account }}
+    {{ $followingCount = $firstPost.account.following_count }}
+  {{ end }}
+{{ end }}
+
+{{ $statusesCount := "2792" }}
+{{ if and $mastodonData (gt (len $mastodonData) 0) }}
+  {{ $firstPost := index $mastodonData 0 }}
+  {{ if $firstPost.account }}
+    {{ $statusesCount = $firstPost.account.statuses_count }}
+  {{ end }}
+{{ end }}
+
 {{ $tvCount := 105 }}
 {{ $movieCount := 238 }}
 {{ $bookCount := 32 }}
@@ -933,15 +961,15 @@
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
                 <div class="max-w-1/3 overflow-ellipsis text-center">
                   <div class="text-xs text-neutral-500 dark:text-neutral-400">关注者</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span id="mastodon-followers">-1</span></div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{ $followersCount }}</div>
                 </div>
                 <div class="max-w-1/3 overflow-ellipsis text-center">
                   <div class="text-xs text-neutral-500 dark:text-neutral-400">正在关注</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span id="mastodon-following">-</span></div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{ $followingCount }}</div>
                 </div>
                 <div class="max-w-1/3 overflow-ellipsis text-center">
                   <div class="text-xs text-neutral-500 dark:text-neutral-400">嘟文</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span id="mastodon-statuses">-</span></div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{- lang.FormatNumber 0 (default 0 $statusesCount) -}}</div>
                 </div>
               </div>
             </div>
@@ -1517,67 +1545,7 @@
 
       document.getElementById('stats_blog_online_year').innerHTML = `${diffDaysLocale}天 <span class="text-xs">(${years}yrs)</span>`;
     </script>
-
     <script type="text/javascript">
-      // 从 Mastodon API 获取数据并更新页面显示
-      async function updateMastodonStats() {
-        const mastodonApiUrl = 'https://www.eallion.com/api/v1/accounts/111136231674527355/statuses';
-
-        // 默认数据
-        const defaultFollowers = '-1';
-        const defaultFollowing = '99+';
-        const defaultStatuses = '999+';
-
-        // 获取页面元素
-        const followersElement = document.getElementById('mastodon-followers');
-        const followingElement = document.getElementById('mastodon-following');
-        const statusesElement = document.getElementById('mastodon-statuses');
-
-        try {
-          // 设置 15 秒超时
-          const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 15000);
-
-          const response = await fetch(mastodonApiUrl, {
-            signal: controller.signal
-          });
-
-          clearTimeout(timeoutId);
-
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          const data = await response.json();
-
-          if (data && data.length > 0 && data[0].account) {
-            const account = data[0].account;
-
-            if (followersElement) {
-              followersElement.textContent = account.followers_count.toLocaleString();
-            }
-
-            if (followingElement) {
-              followingElement.textContent = account.following_count.toLocaleString();
-            }
-
-            if (statusesElement) {
-              statusesElement.textContent = account.statuses_count.toLocaleString();
-            }
-          } else {
-            // 数据格式不正确，使用默认值
-            if (followersElement) followersElement.textContent = defaultFollowers;
-            if (followingElement) followingElement.textContent = defaultFollowing;
-            if (statusesElement) statusesElement.textContent = defaultStatuses;
-          }
-        } catch (error) {
-          // 超时或出错时使用默认值
-          if (followersElement) followersElement.textContent = defaultFollowers;
-          if (followingElement) followingElement.textContent = defaultFollowing;
-          if (statusesElement) statusesElement.textContent = defaultStatuses;
-        }
-      }
-
         // 计算相对时间的函数
         function getRelativeTime(dateString) {
           const rtf = new Intl.RelativeTimeFormat('zh-CN', { numeric: "auto", style: 'short' });
@@ -1904,8 +1872,6 @@
           const commitDate = lastCommitDateElement.getAttribute("data-date");
           lastCommitDateElement.textContent = getRelativeTime(commitDate);
           totalPlayedTimeElement.textContent = getRelativeTime(commitDate);
-
-          updateMastodonStats();
 
           createHeatmap();
 
