@@ -35,7 +35,347 @@
 
         <div class="flex w-full mt-10 flex-wrap justify-center gap-5">
 
+          {{ $mastodonData := "" }}
+          {{ with resources.Get "data/mastodon/mastodon.json" }}
+            {{ $mastodonData = . | transform.Unmarshal }}
+          {{ end }}
+
           <div class="order-2 md:order-1 mt-container w-full max-w-full md:max-w-[calc(100%-282px)] p-0">
+            {{ if $mastodonData }}
+              {{ range $post := $mastodonData }}
+                {{ $postContent := $post.content }}
+                {{ if $post.reblog }}
+                  {{ $postContent = $post.reblog.content }}
+                {{ end }}
+
+                <article class="border border-neutral-400 dark:border-neutral-500 rounded-xl mb-8 p-4 pb-3 shadow-sm transition-all duration-200">
+
+                  {{ if $post.reblog }}
+                    <div class="mt-reblog flex items-center gap-2 mb-2 text-neutral-500 text-sm">
+                      <span class="text-green-500">🔄</span>
+                      <span>Charles Chin 转发了</span>
+                    </div>
+                  {{ end }}
+
+                  <!-- 头像部分 -->
+                  <div class="flex items-center flex-row gap-2">
+                    <div class="mt-reblog-avatar w-12 h-12 rounded-lg mr-3 flex-shrink-0 relative">
+                      {{ $avatarUrl := "/eallion.png" }}
+                      {{ if $post.reblog }}
+                        {{ $avatarUrl = replace $post.reblog.account.avatar "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}
+                      {{ end }}
+                      <img src="{{ $avatarUrl }}" alt="头像" class="w-full h-full mt-0 mb-0 object-cover rounded-lg no-view nozoom" no-view onerror="this.src='/assets/images/mastodon/missing.png'">
+                      {{ if $post.reblog }}
+                        <div class="mt-reblog-avatar-overlay absolute -bottom-1 -right-1 w-2/3 h-2/3 no-view">
+                          <img src="/favicon-32x32.png" alt="Boost" class="w-full h-full mt-0 mb-0 object-cover nozoom" no-view>
+                        </div>
+                      {{ end }}
+                    </div>
+                    <div class="flex-1 flex flex-row items-start min-w-0">
+                      <div class="flex flex-col flex-wrap items-start gap-0 mb-1">
+                        {{ $displayName := "Charles Chin" }}
+                        {{ $acct := "@eallion@e5n.cc" }}
+                        {{ if $post.reblog }}
+                          {{ $displayName = $post.reblog.account.display_name }}
+                          {{ $acct = $post.reblog.account.acct }}
+                        {{ end }}
+                        <span class="mt-accout-name font-semibold hover:font-extrabold text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-100">{{ $displayName }}</span>
+                        <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" class="mt-accout-id text-neutral-700 dark:text-neutral-200 text-sm hover:underline">{{ $acct }}</a>
+                      </div>
+                      <div class="inline md:hidden px-2 py-1.5 text-neutral-600 hover:text-neutral-700 dark:hover:text-neutral-400 text-sm ml-auto">
+                        {{ $postUrl := default "https://e5n.cc/@eallion" $post.url }}
+                        <span class="mt-footer-date" data-created-at="{{ $post.created_at }}"><a href="{{ $postUrl }}" target="_blank" rel="noopener noreferrer" class="text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400">-</a></span>
+                      </div>
+                      <div class="hidden md:flex flex-row items-center gap-1.5 ml-auto px-2 text-sm ">
+                        <span class="mt-meta-language">
+                          {{ if $post.language }}
+                            {{ if or (eq $post.language "zh") (eq $post.language "zh-cn") }}
+                              zh-CN
+                            {{ else }}
+                              {{ $post.language }}
+                            {{ end }}
+                          {{ end }}
+                        </span>
+                        {{ if (findRE "http" $postContent) }}
+                          <span class="mt-meta-link"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="48;0"/></path><path stroke-dasharray="12" stroke-dashoffset="12" d="M13 11l7 -7"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="12;0"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M21 3h-6M21 3v6"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" values="8;0"/></path></g></svg></span>
+                        {{ end }}
+                        {{ if gt (len $post.media_attachments) 0 }}
+                          <span class="mt-meta-image"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4"><path stroke-linecap="round" d="M5 10C5 8.89543 5.89543 8 7 8L41 8C42.1046 8 43 8.89543 43 10V38C43 39.1046 42.1046 40 41 40H7C5.89543 40 5 39.1046 5 38V10Z" clip-rule="evenodd"/><path stroke-linecap="round" d="M14.5 18C15.3284 18 16 17.3284 16 16.5C16 15.6716 15.3284 15 14.5 15C13.6716 15 13 15.6716 13 16.5C13 17.3284 13.6716 18 14.5 18Z" clip-rule="evenodd"/><path fill="#2f88ff" d="M15 24L20 28L26 21L43 34V38C43 39.1046 42.1046 40 41 40H7C5.89543 40 5 39.1046 5 38V34L15 24Z"/></g></svg></span>
+                        {{ end }}
+                        {{ if $post.in_reply_to_id }}
+                          <span class="mt-meta-reply"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24"><path fill="currentColor" d="M12 23a1 1 0 0 1-1-1v-3H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-4.1l-3.7 3.71c-.2.18-.44.29-.7.29zm-9-8H1V3a2 2 0 0 1 2-2h16v2H3z"/></svg></span>
+                        {{ end }}
+                        {{ if $post.reblog }}
+                          <span class="mt-meta-reblog"><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M272 416c17.7 0 32-14.3 32-32s-14.3-32-32-32H160c-17.7 0-32-14.3-32-32V192h32c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-64-64c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-9.2 9.2-11.9 22.9-6.9 34.9S19.1 192 32.1 192h32v128c0 53 43 96 96 96h112zm32-320c-17.7 0-32 14.3-32 32s14.3 32 32 32h112c17.7 0 32 14.3 32 32v128h-32c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l64 64c12.5 12.5 32.8 12.5 45.3 0l64-64c9.2-9.2 11.9-22.9 6.9-34.9S556.9 320 543.9 320h-32V192c0-53-43-96-96-96z"/></svg></span>
+                        {{ end }}
+                        <span class="mt-meta-visibility">
+                          {{ if eq $post.visibility "direct" }}
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-envelope status__visibility-icon" title="私下提及" aria-label="私下提及" role="img"><path fill="#d32f2f" d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"></path></svg>
+                          {{ else if eq $post.visibility "unlisted" }}
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-unlock status__visibility-icon" title="悄悄公开" aria-label="悄悄公开" role="img"><path fill="#388e3c" d="M484-80q-84 0-157.5-32t-128-86.5Q144-253 112-326.5T80-484q0-146 93-257.5T410-880q-18 99 11 193.5T521-521q71 71 165.5 100T880-410q-26 144-138 237T484-80Zm0-80q88 0 163-44t118-121q-86-8-163-43.5T464-465q-61-61-97-138t-43-163q-77 43-120.5 118.5T160-484q0 135 94.5 229.5T484-160Zm-20-305Z"></path></svg>
+                          {{ else if eq $post.visibility "private" }}
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-lock status__visibility-icon" title="关注者" aria-label="关注者" role="img"><path fill="#ffa000" d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"></path></svg>
+                          {{ else }}
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-globe status__visibility-icon" title="公开" aria-label="公开" role="img"><path fill="#1976d2" d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q41-45 62.5-100.5T800-480q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z"></path></svg>
+                          {{ end }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {{ $currentPostId := $post.id }}
+                  {{ $inReplyToId := $post.in_reply_to_id }}
+                  {{ $isThread := false }}
+                  {{ $threadPosition := 1 }}
+                  {{ $threadTotal := 1 }}
+
+                  {{ if $inReplyToId }}
+                    {{ $isThread = true }}
+                    {{ $threadPosition = 1 }}
+                    {{ $currentReplyId := $inReplyToId }}
+
+                    <!-- 向上查找串的开始 -->
+                    {{ range $checkPost := $mastodonData }}
+                      {{ if eq $checkPost.id $currentReplyId }}
+                        {{ $threadPosition = add $threadPosition 1 }}
+                        {{ if $checkPost.in_reply_to_id }}
+                          {{ $currentReplyId = $checkPost.in_reply_to_id }}
+                        {{ else }}
+                          {{ break }}
+                        {{ end }}
+                      {{ end }}
+                    {{ end }}
+
+                    <!-- 计算串的总长度 -->
+                    {{ $threadTotal = $threadPosition }}
+                    {{ range $checkPost := $mastodonData }}
+                      {{ if eq $checkPost.in_reply_to_id $currentPostId }}
+                        {{ $threadTotal = add $threadTotal 1 }}
+                      {{ end }}
+                    {{ end }}
+                  {{ else }}
+                    <!-- 检查是否有回复当前帖子的 -->
+                    {{ range $checkPost := $mastodonData }}
+                      {{ if eq $checkPost.in_reply_to_id $currentPostId }}
+                        {{ $isThread = true }}
+                        {{ $threadTotal = add $threadTotal 1 }}
+                      {{ end }}
+                    {{ end }}
+                  {{ end }}
+
+                  {{ if $isThread }}
+                    <div class="align-middle inline-flex items-center text-[10px] leading-none uppercase opacity-75 font-bold gap-1 border rounded-md p-1">
+                      <span data-icon="thread" class="icon  " style="width: 12px; height: 12px;">
+                        <svg viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z"></path><path fill="currentColor" d="M18 16a3 3 0 1 1 0 6a3 3 0 0 1 0-6ZM15.5 4a4.5 4.5 0 1 1 0 9h-7a2.5 2.5 0 0 0 0 5H13a1 1 0 1 1 0 2H8.5a4.5 4.5 0 1 1 0-9h7a2.5 2.5 0 0 0 0-5H11a1 1 0 1 1 0-2h4.5ZM18 18a1 1 0 1 0 0 2a1 1 0 0 0 0-2ZM6 2a3 3 0 1 1 0 6a3 3 0 0 1 0-6Zm0 2a1 1 0 1 0 0 2a1 1 0 0 0 0-2Z"></path></g></svg>
+                      </span>
+                      嘟文串 {{ $threadPosition }}/X
+                    </div>
+                  {{ end }}
+
+                  <!-- 内容部分 -->
+                  <div class="mt-content mb-4">
+                    <p class="mb-2">
+                      {{ $postContent | safeHTML }}
+                    </p>
+
+                    {{ if gt (len $post.media_attachments) 0 }}
+                      <div class="mt-images-container mb-3 aspect-[16/9] rounded-xl overflow-hidden relative">
+                        {{ if or $post.sensitive (and $post.reblog $post.reblog.sensitive) }}
+                          <div class="absolute inset-0 bg-neutral-800 opacity-99 flex flex-col items-center justify-center z-10 rounded-lg cursor-pointer" onclick="this.style.display='none'">
+                            <div class="text-white font-bold text-lg mb-2">⚠️</div>
+                            <div class="text-neutral-400 text-3xl mt-4 mb-4">NSFW</div>
+                            <div class="flex items-center text-neutral-400 text-xl">点击显示图片</div>
+                          </div>
+                        {{ end }}
+
+                        {{ $mediaCount := len $post.media_attachments }}
+                        {{ if eq $mediaCount 1 }}
+                          <!-- 单张图片 -->
+                          {{ $mediaItem := index $post.media_attachments 0 }}
+                          {{ $imgWidth := 0 }}
+                          {{ $aspectRatio := 1 }}
+                          {{ if $mediaItem.meta }}
+                            {{ if $mediaItem.meta.small }}
+                              {{ $imgWidth = $mediaItem.meta.small.width }}
+                              {{ $aspectRatio = $mediaItem.meta.small.aspect }}
+                            {{ end }}
+                          {{ end }}
+                          {{ $objectFitClass := "object-contain" }}
+                          {{ if and (gt $imgWidth 640) (ge $aspectRatio 1.33) (le $aspectRatio 1.78) }}
+                            {{ $objectFitClass = "object-cover" }}
+                          {{ end }}
+                          <div class="flex flex-row h-full">
+                            <div class="w-full rounded-xl overflow-hidden">
+                              {{ if $mediaItem.blurhash }}
+                                <canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-cover" data-blurhash="{{ $mediaItem.blurhash }}"></canvas>
+                              {{ end }}
+                              <a href="{{ replace $mediaItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}">
+                                <img src="{{ replace $mediaItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}" alt="{{ $mediaItem.description }}" class="w-full h-full {{ $objectFitClass }}" nozoom loading="lazy">
+                              </a>
+                            </div>
+                          </div>
+                        {{ else if eq $mediaCount 2 }}
+                          <!-- 两张图片 -->
+                          <div class="flex flex-row h-full gap-2.5">
+                            {{ range $index, $mediaItem := first 2 $post.media_attachments }}
+                              {{ $imgWidth := 0 }}
+                              {{ $aspectRatio := 1 }}
+                              {{ if $mediaItem.meta }}
+                                {{ if $mediaItem.meta.small }}
+                                  {{ $imgWidth = $mediaItem.meta.small.width }}
+                                  {{ $aspectRatio = $mediaItem.meta.small.aspect }}
+                                {{ end }}
+                              {{ end }}
+                              {{ $objectFitClass := "object-cover" }}
+                              {{ if or (lt $imgWidth 320) (lt $aspectRatio 0.56) (gt $aspectRatio 2.3) }}
+                                {{ $objectFitClass = "object-contain" }}
+                              {{ end }}
+                              {{ $alignmentClass := "" }}
+                              {{ if eq $index 0 }}{{ $alignmentClass = "left-0" }}{{ else }}{{ $alignmentClass = "right-0" }}{{ end }}
+                              <div class="relative w-1/2 rounded-xl overflow-hidden">
+                                {{ if $mediaItem.blurhash }}
+                                  <canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-contain {{ $alignmentClass }}" data-blurhash="{{ $mediaItem.blurhash }}"></canvas>
+                                {{ end }}
+                                <a href="{{ replace $mediaItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}">
+                                  <img src="{{ replace $mediaItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}" alt="{{ $mediaItem.description }}" class="w-full h-full {{ $objectFitClass }}" nozoom loading="lazy">
+                                </a>
+                              </div>
+                            {{ end }}
+                          </div>
+                        {{ else if eq $mediaCount 3 }}
+                          <!-- 三张图片 -->
+                          {{ $firstItem := index $post.media_attachments 0 }}
+                          {{ $secondItem := index $post.media_attachments 1 }}
+                          {{ $thirdItem := index $post.media_attachments 2 }}
+
+                          {{ $firstImgWidth := 0 }}
+                          {{ $firstAspectRatio := 1 }}
+                          {{ if $firstItem.meta }}
+                            {{ if $firstItem.meta.small }}
+                              {{ $firstImgWidth = $firstItem.meta.small.width }}
+                              {{ $firstAspectRatio = $firstItem.meta.small.aspect }}
+                            {{ end }}
+                          {{ end }}
+                          {{ $firstObjectFitClass := "object-cover" }}
+                          {{ if or (lt $firstImgWidth 320) (lt $firstAspectRatio 0.56) (gt $firstAspectRatio 2.3) }}
+                            {{ $firstObjectFitClass = "object-contain" }}
+                          {{ end }}
+
+                          {{ $secondImgWidth := 0 }}
+                          {{ $secondAspectRatio := 1 }}
+                          {{ if $secondItem.meta }}
+                            {{ if $secondItem.meta.small }}
+                              {{ $secondImgWidth = $secondItem.meta.small.width }}
+                              {{ $secondAspectRatio = $secondItem.meta.small.aspect }}
+                            {{ end }}
+                          {{ end }}
+                          {{ $secondObjectFitClass := "object-cover" }}
+                          {{ if or (lt $secondImgWidth 320) (lt $secondAspectRatio 0.56) (gt $secondAspectRatio 2.3) }}
+                            {{ $secondObjectFitClass = "object-contain" }}
+                          {{ end }}
+
+                          {{ $thirdImgWidth := 0 }}
+                          {{ $thirdAspectRatio := 1 }}
+                          {{ if $thirdItem.meta }}
+                            {{ if $thirdItem.meta.small }}
+                              {{ $thirdImgWidth = $thirdItem.meta.small.width }}
+                              {{ $thirdAspectRatio = $thirdItem.meta.small.aspect }}
+                            {{ end }}
+                          {{ end }}
+                          {{ $thirdObjectFitClass := "object-cover" }}
+                          {{ if or (lt $thirdImgWidth 320) (lt $thirdAspectRatio 0.56) (gt $thirdAspectRatio 2.3) }}
+                            {{ $thirdObjectFitClass = "object-contain" }}
+                          {{ end }}
+
+                          <div class="flex h-full gap-2.5">
+                            <div class="relative w-1/2 overflow-hidden rounded-xl">
+                              {{ if $firstItem.blurhash }}
+                                <canvas class="absolute inset-0 -z-1 w-full h-full top-0 left-0 object-contain" data-blurhash="{{ $firstItem.blurhash }}"></canvas>
+                              {{ end }}
+                              <a href="{{ replace $firstItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}">
+                                <img src="{{ replace $firstItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}" alt="{{ $firstItem.description }}" class="w-full h-full {{ $firstObjectFitClass }}" nozoom loading="lazy">
+                              </a>
+                            </div>
+                            <div class="w-1/2 flex flex-col gap-2.5">
+                              <div class="relative h-1/2 overflow-hidden rounded-xl">
+                                {{ if $secondItem.blurhash }}
+                                  <canvas class="absolute inset-0 -z-1 w-full h-full top-0 right-0 object-contain" data-blurhash="{{ $secondItem.blurhash }}"></canvas>
+                                {{ end }}
+                                <a href="{{ replace $secondItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}">
+                                  <img src="{{ replace $secondItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}" alt="{{ $secondItem.description }}" class="w-full h-full {{ $secondObjectFitClass }}" nozoom loading="lazy">
+                                </a>
+                              </div>
+                              <div class="relative h-1/2 overflow-hidden rounded-xl">
+                                {{ if $thirdItem.blurhash }}
+                                  <canvas class="absolute inset-0 -z-1 w-full h-full bottom-0 right-0 object-contain" data-blurhash="{{ $thirdItem.blurhash }}"></canvas>
+                                {{ end }}
+                                <a href="{{ replace $thirdItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}">
+                                  <img src="{{ replace $thirdItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}" alt="{{ $thirdItem.description }}" class="w-full h-full {{ $thirdObjectFitClass }}" nozoom loading="lazy">
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        {{ else }}
+                          <!-- 四张或更多图片 -->
+                          <div class="grid grid-cols-2 grid-rows-2 h-full gap-2.5">
+                            {{ range first 4 $post.media_attachments }}
+                              {{ $imgWidth := 0 }}
+                              {{ $aspectRatio := 1 }}
+                              {{ if .meta }}
+                                {{ if .meta.small }}
+                                  {{ $imgWidth = .meta.small.width }}
+                                  {{ $aspectRatio = .meta.small.aspect }}
+                                {{ end }}
+                              {{ end }}
+                              {{ $objectFitClass := "object-cover" }}
+                              {{ if or (lt $imgWidth 320) (lt $aspectRatio 0.56) (gt $aspectRatio 2.3) }}
+                                {{ $objectFitClass = "object-contain" }}
+                              {{ end }}
+                              <div class="relative overflow-hidden rounded-xl">
+                                {{ if .blurhash }}
+                                  <canvas class="absolute inset-0 -z-1 w-full h-full object-contain" data-blurhash="{{ .blurhash }}"></canvas>
+                                {{ end }}
+                                <a href="{{ replace .url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}">
+                                  <img src="{{ replace .preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}" alt="{{ .description }}" class="w-full h-full {{ $objectFitClass }}" nozoom loading="lazy">
+                                </a>
+                              </div>
+                            {{ end }}
+                          </div>
+                        {{ end }}
+                      </div>
+                    {{ end }}
+                  </div>
+
+                  <!-- 底部按钮 -->
+                  <div class="flex justify-between md:justify-start items-center gap-4 pt-3 border-t border-neutral-300 dark:border-neutral-700">
+                    {{ $postUrl := default "https://e5n.cc/@eallion" $post.url }}
+                    <button onclick="window.open('{{ $postUrl }}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
+                      <span><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M204.2 18.4c12 5 19.8 16.6 19.8 29.6v80h112c97.2 0 176 78.8 176 176c0 113.3-81.5 163.9-100.2 174.1c-2.5 1.4-5.3 1.9-8.1 1.9c-10.9 0-19.7-8.9-19.7-19.7c0-7.5 4.3-14.4 9.8-19.5c9.4-8.8 22.2-26.4 22.2-56.7c0-53-43-96-96-96h-96v80c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-160-160c-12.5-12.5-12.5-32.8 0-45.3l160-160c9.2-9.2 22.9-11.9 34.9-6.9z" /></svg></span>
+                      {{ if $post.replies_count }}<span class="mt-footer-reply">{{ $post.replies_count }}</span>{{ end }}
+                    </button>
+                    <button onclick="window.open('{{ $postUrl }}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
+                      <span><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M118.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-9.2 9.2-11.9 22.9-6.9 34.9S19.1 160 32 160h32v224c0 53 43 96 96 96h128c17.7 0 32-14.3 32-32s-14.3-32-32-32H160c-17.7 0-32-14.3-32-32V160h32c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-64-64zm338.8 429.2c12.5 12.5 32.8 12.5 45.3 0l64-64c9.2-9.2 11.9-22.9 6.9-34.9S556.9 352 544 352h-32V128c0-53-43-96-96-96H288c-17.7 0-32 14.3-32 32s14.3 32 32 32h128c17.7 0 32 14.3 32 32v224h-32c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l64 64z" /></svg></span>
+                      {{ if $post.reblogs_count }}<span class="mt-footer-reblog">{{ $post.reblogs_count }}</span>{{ end }}
+                    </button>
+                    <button onclick="window.open('{{ $postUrl }}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
+                      <span><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1l-73.6 144.2l-159.9 25.4c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5l-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2l144.4-73.4L432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2l-25.3-159.9l114.4-114.5c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3z" /></svg></span>
+                      {{ if $post.favourites_count }}<span class="mt-footer-favourit">{{ $post.favourites_count }}</span>{{ end }}
+                    </button>
+                    <button onclick="window.open('{{ $postUrl }}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
+                      <span><svg xmlns="http://www.w3.org/2000/svg" width="0.75rem" height="1rem" viewBox="0 0 384 512"><path fill="currentColor" d="M64 0C28.7 0 0 28.7 0 64v416c0 11.5 6.2 22.2 16.2 27.8s22.3 5.5 32.2-.4L192 421.3l143.5 86.1c9.9 5.9 22.2 6.1 32.2.4S384 491.5 384 480V64c0-35.3-28.7-64-64-64z" /></svg></span>
+                      {{ if $post.bookmarked }}<span class="mt-footer-favourit">{{ $post.bookmarked }}</span>{{ end }}
+                    </button>
+                    <button onclick="window.open('{{ $postUrl }}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
+                      <span><svg xmlns="http://www.w3.org/2000/svg" width="0.88rem" height="1rem" viewBox="0 0 448 512"><path fill="currentColor"d="M0 256a56 56 0 1 1 112 0a56 56 0 1 1-112 0m168 0a56 56 0 1 1 112 0a56 56 0 1 1-112 0m224-56a56 56 0 1 1 0 112a56 56 0 1 1 0-112" /></svg></span>
+                    </button>
+                    <div class="hidden md:inline px-2 py-1.5 text-neutral-600 hover:text-neutral-700 dark:hover:text-neutral-400 text-sm ml-auto">
+                      <span class="mt-footer-date" data-created-at="{{ $post.created_at }}"><a href="{{ $postUrl }}" target="_blank" rel="noopener noreferrer" class="text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400">-</a></span>
+                    </div>
+                  </div>
+
+                </article>
+              {{ end }}
+            {{ end }}
           </div>
 
           <div class="order-1 md:order-2 relative md:sticky ease-in-out duration-300 top-unset md:top-20 w-full md:w-[262px] h-full md:h-[540px] mb-10 md:mb-0">
@@ -54,9 +394,9 @@
                       clip-rule="evenodd"></path>
                   </svg></div>
                 <a
-                  href="/go/?target=aHR0cHM6Ly9tYXN0b2Rvbi5zb2NpYWwvQGVhbGxpb24vMzcyNjU1Mg=="
+                  href="https://mastodon.social/@eallion/3726552"
                   target="_blank"
-                  class="absolute hover:pr-12 bottom-2 right-2 bg-neutral/10 backdrop-blur-sm border border-neutral/20 text-neutral hover:text-neutral dark:hover:text-neutral px-3 py-1.5 rounded-full hover:rounded-full z-50 text-xs flex items-center gap-1.5 shadow-sm group w-max hover:cursor-pointer text-center"
+                  class="absolute bottom-2 right-2 bg-neutral/10 backdrop-blur-sm border border-neutral/20 text-neutral hover:text-neutral dark:hover:text-neutral px-3 py-1.5 rounded-full hover:rounded-full z-50 text-xs flex items-center gap-1.5 shadow-sm w-max hover:cursor-pointer text-center"
                   alt="Sat, Apr 22, 2017. 05:13:40"><svg xmlns="http://www.w3.org/2000/svg" width="0.875rem" height="0.875rem"
                     viewBox="0 0 24 24">
                     <path fill="currentColor" fill-rule="evenodd"
@@ -64,13 +404,11 @@
                   </svg><span class="text-xs font-medium">
                     加入于
                     <span class="relative inline-block min-w-8">
-                      <span id="account-creation-date" class="relative opacity-100 visible transition-all duration-300 ease-in-out
-                        pointer-events-none group-hover:opacity-0 group-hover:invisible">
-                        -
-                      </span>
-                      <span class="absolute inline-block whitespace-nowrap top-0 left-0 opacity-0 invisible transition-all duration-300 ease-in-out
-                        pointer-events-none group-hover:opacity-100 group-hover:visible">
-                        Apr. 22, 2017
+                      <span class="relative opacity-100 visible transition-all duration-300 ease-in-out
+                        pointer-events-none"
+                        {{ if and $mastodonData (gt (len $mastodonData) 0) }}
+                        data-created-at="2017-04-22T05:13:40.810Z"
+                        {{ end }}>Apr. 22, 2017
                       </span>
                     </span>
                   </span>
@@ -98,15 +436,39 @@
                   <div class="flex justify-between items-center mb-0 mt-auto">
                     <div>
                       <div class="text-xs text-neutral-500 dark:text-neutral-400">关注者</div>
-                      <div class="font-semibold dark:text-neutral-200 flex items-center"><span id="followers">-1</span></div>
+                      <div class="font-semibold dark:text-neutral-200 flex items-center">
+                        <span id="followers">
+                          {{ if and $mastodonData (gt (len $mastodonData) 0) }}
+                            {{ (index $mastodonData 0).account.followers_count }}
+                          {{ else }}
+                            -1
+                          {{ end }}
+                        </span>
+                      </div>
                     </div>
                     <div>
                       <div class="text-xs text-neutral-500 dark:text-neutral-400">正在关注</div>
-                      <div class="font-semibold dark:text-neutral-200 flex items-center"><span id="following">0</span></div>
+                      <div class="font-semibold dark:text-neutral-200 flex items-center">
+                        <span id="following">
+                          {{ if and $mastodonData (gt (len $mastodonData) 0) }}
+                            {{ (index $mastodonData 0).account.following_count }}
+                          {{ else }}
+                            0
+                          {{ end }}
+                        </span>
+                      </div>
                     </div>
                     <div>
                       <div class="text-xs text-neutral-500 dark:text-neutral-400">嘟文</div>
-                      <div class="font-semibold dark:text-neutral-200 flex items-center"><span id="statuses">0</span></div>
+                      <div class="font-semibold dark:text-neutral-200 flex items-center">
+                        <span id="statuses">
+                          {{ if and $mastodonData (gt (len $mastodonData) 0) }}
+                            {{ (index $mastodonData 0).account.statuses_count }}
+                          {{ else }}
+                            0
+                          {{ end }}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -122,344 +484,6 @@
 </article>
 
 <script>
-  document.addEventListener('DOMContentLoaded', async () => {
-    try {
-      const response = await fetch('https://www.eallion.com/api/v1/accounts/111136231674527355/statuses?limit=20&exclude_replies=true');
-      const data = await response.json();
-      const container = document.querySelector('.mt-container');
-      const followers = document.getElementById('followers');
-      const following = document.getElementById('following');
-      const statuses = document.getElementById('statuses');
-      const accountCreationDate = document.getElementById('account-creation-date');
-
-      followers.textContent = data[0].account.followers_count;
-      following.textContent = data[0].account.following_count;
-      statuses.textContent = data[0].account.statuses_count;
-      accountCreationDate.textContent = getRelativeTime(data[0].account.created_at);
-
-      data.forEach(post => {
-        const article = document.createElement('article');
-        article.className = 'border border-neutral-400 dark:border-neutral-500 rounded-xl mb-8 p-4 pb-3 shadow-sm transition-all duration-200';
-
-        // 判断是否为转发
-        if (post.reblog) {
-
-        article.innerHTML += `
-                              <div class="mt-reblog flex items-center gap-2 mb-2 text-neutral-500 text-sm">
-                                <span class="text-green-500">🔄</span>
-                                <span>Charles Chin 转发了</span>
-                              </div>
-                            `;
-        }
-
-        // 定义工具函数
-        const replaceFileUrl = url => url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
-        const getImageObjectFitClass = (imgWidth, aspectRatio, isSingleImage = false) => {
-            if (isSingleImage) {
-                // 单张图片的特殊规则：仅当宽高比在 1.33-1.78 之间时使用 object-cover
-                return (imgWidth > 640 && (aspectRatio >= 1.33 && aspectRatio <= 1.78))
-                    ? 'object-cover'
-                    : 'object-contain';
-            } else {
-                // 多张图片的原始规则
-                return (imgWidth < 320 || aspectRatio < 0.56 || aspectRatio > 2.3)
-                    ? 'object-contain'
-                    : 'object-cover';
-            }
-        };
-
-        // 头像部分
-        article.innerHTML += `
-                              <div class="flex items-center flex-row gap-2 mb-4">
-                                <div class="mt-reblog-avatar w-12 h-12 rounded-lg mr-3 flex-shrink-0 relative">
-                                  <img
-                                    src="${post.reblog ? replaceFileUrl(post.reblog.account.avatar) : '/eallion.png'}"
-                                    alt="头像"
-                                    class="w-full h-full mt-0 mb-0 object-cover rounded-lg no-view nozoom"
-                                    no-view
-                                    onerror="this.src='/assets/images/mastodon/missing.png'"
-                                  >
-                                  ${post.reblog ? '<div class="mt-reblog-avatar-overlay absolute -bottom-1 -right-1 w-2/3 h-2/3 no-view"><img src="/favicon-32x32.png" alt="Boost" class="w-full h-full mt-0 mb-0 object-cover nozoom" no-view></div>' : ''}
-                                </div>
-                                <div class="flex-1 flex flex-row items-start min-w-0">
-                                  <div class="flex flex-col flex-wrap items-start gap-0 mb-1">
-                                    <span class="mt-accout-name font-semibold hover:font-extrabold text-neutral-700 hover:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-100">${post.reblog ? post.reblog.account.display_name : 'Charles Chin'}</span>
-                                    <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" class="mt-accout-id text-neutral-700 dark:text-neutral-200 text-sm hover:underline">${post.reblog ? post.reblog.account.acct : '@eallion@e5n.cc'}</a>
-                                  </div>
-                                  <div class="inline md:hidden px-2 py-1.5 text-neutral-600 hover:text-neutral-700 dark:hover:text-neutral-400 text-sm ml-auto">
-                                    <span class="mt-footer-date"><a href="${post.url || 'https://e5n.cc/@eallion'}" target="_blank" rel="noopener noreferrer" class="text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400">${getRelativeTime(post.created_at)}</a></span>
-                                  </div>
-                                  <div class="hidden md:flex flex-row items-center gap-1.5 ml-auto px-2 text-sm ">
-                                    <span class="mt-meta-language">
-                                      ${post.language ?
-                                        (post.language.toLowerCase() === 'zh' || post.language.toLowerCase() === 'zh-cn' ? 'zh-CN' : post.language)
-                                        : ''}
-                                    </span>
-                                    ${post.content.includes('http') ? '<span class="mt-meta-link"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="48;0"/></path><path stroke-dasharray="12" stroke-dashoffset="12" d="M13 11l7 -7"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="12;0"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M21 3h-6M21 3v6"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" values="8;0"/></path></g></svg></span>' : ''}
-                                    ${post.media_attachments.length > 0 ? '<span class="mt-meta-image"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4"><path stroke-linecap="round" d="M5 10C5 8.89543 5.89543 8 7 8L41 8C42.1046 8 43 8.89543 43 10V38C43 39.1046 42.1046 40 41 40H7C5.89543 40 5 39.1046 5 38V10Z" clip-rule="evenodd"/><path stroke-linecap="round" d="M14.5 18C15.3284 18 16 17.3284 16 16.5C16 15.6716 15.3284 15 14.5 15C13.6716 15 13 15.6716 13 16.5C13 17.3284 13.6716 18 14.5 18Z" clip-rule="evenodd"/><path fill="#2f88ff" d="M15 24L20 28L26 21L43 34V38C43 39.1046 42.1046 40 41 40H7C5.89543 40 5 39.1046 5 38V34L15 24Z"/></g></svg></span>' : ''}
-                                    ${post.in_reply_to_id ? '<span class="mt-meta-reply"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24"><path fill="currentColor" d="M12 23a1 1 0 0 1-1-1v-3H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-4.1l-3.7 3.71c-.2.18-.44.29-.7.29zm-9-8H1V3a2 2 0 0 1 2-2h16v2H3z"/></svg></span>' : ''}
-                                    ${post.reblog ? '<span class="mt-meta-reblog"><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M272 416c17.7 0 32-14.3 32-32s-14.3-32-32-32H160c-17.7 0-32-14.3-32-32V192h32c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-64-64c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-9.2 9.2-11.9 22.9-6.9 34.9S19.1 192 32.1 192h32v128c0 53 43 96 96 96h112zm32-320c-17.7 0-32 14.3-32 32s14.3 32 32 32h112c17.7 0 32 14.3 32 32v128h-32c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l64 64c12.5 12.5 32.8 12.5 45.3 0l64-64c9.2-9.2 11.9-22.9 6.9-34.9S556.9 320 543.9 320h-32V192c0-53-43-96-96-96z"/></svg></span>' : ''}
-                                    <span class="mt-meta-visibility">
-                                      ${post.visibility === 'direct' ? '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-envelope status__visibility-icon" title="私下提及" aria-label="私下提及" role="img"><path fill="#d32f2f" d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"></path></svg>' :
-                                        post.visibility === 'unlisted' ? '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-unlock status__visibility-icon" title="悄悄公开" aria-label="悄悄公开" role="img"><path fill="#388e3c" d="M484-80q-84 0-157.5-32t-128-86.5Q144-253 112-326.5T80-484q0-146 93-257.5T410-880q-18 99 11 193.5T521-521q71 71 165.5 100T880-410q-26 144-138 237T484-80Zm0-80q88 0 163-44t118-121q-86-8-163-43.5T464-465q-61-61-97-138t-43-163q-77 43-120.5 118.5T160-484q0 135 94.5 229.5T484-160Zm-20-305Z"></path></svg>' :
-                                        post.visibility === 'private' ? '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-lock status__visibility-icon" title="关注者" aria-label="关注者" role="img"><path fill="#ffa000" d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"></path></svg>' :
-                                        '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-globe status__visibility-icon" title="公开" aria-label="公开" role="img"><path fill="#1976d2" d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q41-45 62.5-100.5T800-480q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z"></path></svg>'}
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            `;
-
-        // 内容部分
-
-        article.innerHTML += `
-                              <div class="mt-content mb-4">
-                                  <p class="mb-2">
-                                      ${encodeExternalLinks(post.reblog?.content || post.content)}
-                                  </p>
-
-                                  ${post.media_attachments.length > 0 ? `
-                                      <div class="mt-images-container mb-3 aspect-[16/9] rounded-xl overflow-hidden relative">
-
-                                          ${(post.sensitive || post.reblog?.sensitive) ? `
-                                              <div class="absolute inset-0 bg-neutral-800 opacity-99 flex flex-col items-center justify-center z-10 rounded-lg cursor-pointer"
-                                                  onclick="this.style.display='none'">
-                                                  <div class="text-white font-bold text-lg mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="8rem" height="8rem" viewBox="0 0 16 16"><path fill="currentColor" d="M1 7a6 6 0 0 1 11.99-.34q.175.194.302.446l.59 1.18Q13.999 7.662 14 7a7 7 0 1 0-7.713 6.964l.484-.968A6 6 0 0 1 1 7m8.854-1.146a.5.5 0 0 0-.708-.708L6.25 8.043L4.854 6.646a.5.5 0 1 0-.708.708l1.75 1.75a.5.5 0 0 0 .708 0zm.749 1.7l-3.496 6.998A1 1 0 0 0 8.002 16h6.996a1 1 0 0 0 .895-1.448l-3.5-6.999a1 1 0 0 0-1.79 0m1.395 1.941v3.002a.5.5 0 1 1-1 0V9.495a.5.5 0 1 1 1 0m-.5 5.504a.5.5 0 1 1 0-1a.5.5 0 0 1 0 1"/></svg></div>
-                                                  <div class="text-neutral-400 text-3xl mt-4 mb-4">NSFW</div>
-                                                  <div class="flex items-center text-neutral-400 text-xl"><span><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 36 36"><path fill="currentColor" d="M30.4 17.6c-1.8-1.9-4.2-3.2-6.7-3.7q-1.65-.45-3.3-.6c2.8-3.3 2.3-8.3-1-11.1s-8.3-2.3-11.1 1s-2.3 8.3 1 11.1c.6.5 1.2.9 1.8 1.1v2.2l-1.6-1.5c-1.4-1.4-3.7-1.4-5.2 0c-1.4 1.4-1.5 3.6-.1 5l4.6 5.4c.2 1.4.7 2.7 1.4 3.9c.5.9 1.2 1.8 1.9 2.5v1.9c0 .6.4 1 1 1h13.6c.5 0 1-.5 1-1v-2.6c1.9-2.3 2.9-5.2 2.9-8.1v-5.8c.1-.4 0-.6-.2-.7m-22-9.4c0-3.3 2.7-5.9 6-5.8c3.3 0 5.9 2.7 5.8 6c0 1.8-.8 3.4-2.2 4.5v-5a3.4 3.4 0 0 0-3.4-3.2c-1.8-.1-3.4 1.4-3.4 3.2v5.2c-1.7-1-2.7-2.9-2.8-4.9M28.7 24c.1 2.6-.8 5.1-2.5 7.1c-.2.2-.4.4-.4.7v2.1H14.2v-1.4c0-.3-.2-.6-.4-.8c-.7-.6-1.3-1.3-1.8-2.2c-.6-1-1-2.2-1.2-3.4c0-.2-.1-.4-.2-.6l-4.8-5.7c-.3-.3-.5-.7-.5-1.2c0-.4.2-.9.5-1.2c.7-.6 1.7-.6 2.4 0l2.9 2.9v3l1.9-1V7.9c.1-.7.7-1.3 1.5-1.2c.7 0 1.4.5 1.4 1.2v11.5l2 .4v-4.6c.1-.1.2-.1.3-.2c.7 0 1.4.1 2.1.2v5.1l1.6.3v-5.2l1.2.3c.5.1 1 .3 1.5.5v5l1.6.3v-4.6c.9.4 1.7 1 2.4 1.7z" class="clr-i-outline clr-i-outline-path-1"/><path fill="none" d="M0 0h36v36H0z"/></svg></span>点击显示图片</div>
-                                              </div>
-                                          ` : ''}
-
-                                          ${(() => {
-                                              const mediaItems = post.media_attachments;
-                                              let mediaHtml = '';
-
-                                              if (mediaItems.length === 1) {
-                                                  const singleMedia = mediaItems[0];
-                                                  const objectFitClass = getImageObjectFitClass(
-                                                      singleMedia.meta?.small?.width,
-                                                      singleMedia.meta?.small?.aspect,
-                                                      true // 标记为单张图片
-                                                  );
-                                                  mediaHtml = `
-                                                      <div class="flex flex-row h-full">
-                                                        <div class="w-full rounded-xl overflow-hidden">
-                                                        <canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-cover"
-                                                            data-blurhash="${singleMedia.blurhash}"></canvas>
-                                                                <a href="${replaceFileUrl(singleMedia.url)}">
-                                                                    <img src="${replaceFileUrl(singleMedia.preview_url)}"
-                                                                        alt="${singleMedia.description}"
-                                                                        class="w-full h-full lazy ${objectFitClass}"
-                                                                        nozoom loading="lazy">
-                                                                </a>
-                                                        </div>
-                                                      </div>
-                                                  `;
-
-                                              } else if (mediaItems.length === 2) {
-                                                  mediaHtml = `
-                                                      <div class="flex flex-row h-full gap-2.5">
-                                                          ${mediaItems.map((mediaItem, index) => {
-                                                              const objectFitClass = getImageObjectFitClass(
-                                                                  mediaItem.meta?.small?.width,
-                                                                  mediaItem.meta?.small?.aspect
-                                                              );
-                                                              const alignmentClass = index === 0 ? 'left-0' : 'right-0';
-                                                              return `
-                                                                  <div class="relative w-1/2 rounded-xl overflow-hidden">
-                                                                      <canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-contai ${alignmentClass}"
-                                                                          data-blurhash="${mediaItem.blurhash}"></canvas>
-                                                                      <a href="${replaceFileUrl(mediaItem.url)}">
-                                                                          <img src="${replaceFileUrl(mediaItem.preview_url)}"
-                                                                              alt="${mediaItem.description}"
-                                                                              class="w-full h-full lazy ${objectFitClass}"
-                                                                              nozoom loading="lazy">
-                                                                      </a>
-                                                                  </div>
-                                                              `;
-                                                          }).join('')}
-                                                      </div>
-                                                  `;
-
-                                              } else if (mediaItems.length === 3) {
-                                                  const [firstItem, secondItem, thirdItem] = mediaItems;
-                                                  const firstFitClass = getImageObjectFitClass(
-                                                      firstItem.meta?.small?.width,
-                                                      firstItem.meta?.small?.aspect
-                                                  );
-                                                  const secondFitClass = getImageObjectFitClass(
-                                                      secondItem.meta?.small?.width,
-                                                      secondItem.meta?.small?.aspect
-                                                  );
-                                                  const thirdFitClass = getImageObjectFitClass(
-                                                      thirdItem.meta?.small?.width,
-                                                      thirdItem.meta?.small?.aspect
-                                                  );
-
-                                                  mediaHtml = `
-                                                      <div class="flex h-full gap-2.5">
-                                                          <div class="relative w-1/2 overflow-hidden rounded-xl">
-                                                              <canvas class="absolute inset-0 -z-1 w-full h-full top-0 left-0 object-contain"
-                                                                  data-blurhash="${firstItem.blurhash}"></canvas>
-                                                              <a href="${replaceFileUrl(firstItem.url)}">
-                                                                  <img src="${replaceFileUrl(firstItem.preview_url)}"
-                                                                      alt="${firstItem.description}"
-                                                                      class="w-full h-full lazy ${firstFitClass}"
-                                                                      nozoom loading="lazy">
-                                                              </a>
-                                                          </div>
-                                                          <div class="w-1/2 flex flex-col gap-2.5">
-                                                              <div class="relative h-1/2 overflow-hidden rounded-xl">
-                                                                  <canvas class="absolute inset-0 -z-1 w-full h-full top-0 right-0 object-contain"
-                                                                      data-blurhash="${secondItem.blurhash}"></canvas>
-                                                                  <a href="${replaceFileUrl(secondItem.url)}">
-                                                                      <img src="${replaceFileUrl(secondItem.preview_url)}"
-                                                                          alt="${secondItem.description}"
-                                                                          class="w-full h-full lazy ${secondFitClass}"
-                                                                          nozoom loading="lazy">
-                                                                  </a>
-                                                              </div>
-                                                              <div class="relative h-1/2 overflow-hidden rounded-xl">
-                                                                  <canvas class="absolute inset-0 -z-1 w-full h-full bottom-0 right-0 object-contain"
-                                                                      data-blurhash="${thirdItem.blurhash}"></canvas>
-                                                                  <a href="${replaceFileUrl(thirdItem.url)}">
-                                                                      <img src="${replaceFileUrl(thirdItem.preview_url)}"
-                                                                          alt="${thirdItem.description}"
-                                                                          class="w-full h-full lazy ${thirdFitClass}"
-                                                                          nozoom loading="lazy">
-                                                                  </a>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                  `;
-
-                                              } else {
-                                                  mediaHtml = `
-                                                      <div class="grid grid-cols-2 grid-rows-2 h-full gap-2.5">
-                                                          ${mediaItems.slice(0,4).map(mediaItem => {
-                                                              const objectFitClass = getImageObjectFitClass(
-                                                                  mediaItem.meta?.small?.width,
-                                                                  mediaItem.meta?.small?.aspect
-                                                              );
-                                                              return `
-                                                                  <div class="relative h-full w-full overflow-hidden rounded-xl">
-                                                                      <canvas class="absolute inset-0 -z-1 w-full h-full bottom-0 right-0 object-contain"
-                                                                          data-blurhash="${mediaItem.blurhash}"></canvas>
-                                                                      <a href="${replaceFileUrl(mediaItem.url)}">
-                                                                          <img src="${replaceFileUrl(mediaItem.preview_url)}"
-                                                                              alt="${mediaItem.description}"
-                                                                              class="w-full h-full lazy ${objectFitClass}"
-                                                                              nozoom loading="lazy">
-                                                                      </a>
-                                                                  </div>
-                                                              `;
-                                                          }).join('')}
-                                                      </div>
-                                                  `;
-                                              }
-
-                                              window.ViewImage?.init('.mt-images-container a');
-                                              return mediaHtml;
-                                          })()}
-                                      </div>
-                                  ` : ''}
-                              </div>
-                          `;
-
-        // 底部按钮
-        article.innerHTML += `
-                              <div class="flex justify-between md:justify-start items-center gap-4 pt-3 border-t border-neutral-300 dark:border-neutral-700">
-                                <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
-                                  <span><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M204.2 18.4c12 5 19.8 16.6 19.8 29.6v80h112c97.2 0 176 78.8 176 176c0 113.3-81.5 163.9-100.2 174.1c-2.5 1.4-5.3 1.9-8.1 1.9c-10.9 0-19.7-8.9-19.7-19.7c0-7.5 4.3-14.4 9.8-19.5c9.4-8.8 22.2-26.4 22.2-56.7c0-53-43-96-96-96h-96v80c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-160-160c-12.5-12.5-12.5-32.8 0-45.3l160-160c9.2-9.2 22.9-11.9 34.9-6.9z" /></svg></span>
-                                  ${post.replies_count ? `<span class="mt-footer-reply">${post.replies_count}</span>` : ''}
-                                </button>
-                                <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
-                                  <span><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M118.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-9.2 9.2-11.9 22.9-6.9 34.9S19.1 160 32 160h32v224c0 53 43 96 96 96h128c17.7 0 32-14.3 32-32s-14.3-32-32-32H160c-17.7 0-32-14.3-32-32V160h32c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-64-64zm338.8 429.2c12.5 12.5 32.8 12.5 45.3 0l64-64c9.2-9.2 11.9-22.9 6.9-34.9S556.9 352 544 352h-32V128c0-53-43-96-96-96H288c-17.7 0-32 14.3-32 32s14.3 32 32 32h128c17.7 0 32 14.3 32 32v224h-32c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l64 64z" /></svg></span>
-                                  ${post.reblogs_count ? `<span class="mt-footer-reblog">${post.reblogs_count}</span>` : ''}
-
-                                </button>
-                                <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
-                                  <span><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1l-73.6 144.2l-159.9 25.4c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5l-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2l144.4-73.4L432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2l-25.3-159.9l114.4-114.5c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3z" /></svg></span>
-                                  ${post.favourites_count ? `<span class="mt-footer-favourit">${post.favourites_count}</span>` : ''}
-
-                                </button>
-                                <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
-                                  <span><svg xmlns="http://www.w3.org/2000/svg" width="0.75rem" height="1rem" viewBox="0 0 384 512"><path fill="currentColor" d="M64 0C28.7 0 0 28.7 0 64v416c0 11.5 6.2 22.2 16.2 27.8s22.3 5.5 32.2-.4L192 421.3l143.5 86.1c9.9 5.9 22.2 6.1 32.2.4S384 491.5 384 480V64c0-35.3-28.7-64-64-64z" /></svg></span>
-                                  ${post.bookmarked ? `<span class="mt-footer-bookmarked">${post.bookmarked}</span>` : ''}
-
-                                </button>
-                                <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400 hover:bg-neutral-300 dark:hover:bg-neutral-700 rounded-md transition-all duration-200 text-sm">
-                                  <span><svg xmlns="http://www.w3.org/2000/svg" width="0.88rem" height="1rem" viewBox="0 0 448 512"><path fill="currentColor"d="M0 256a56 56 0 1 1 112 0a56 56 0 1 1-112 0m168 0a56 56 0 1 1 112 0a56 56 0 1 1-112 0m224-56a56 56 0 1 1 0 112a56 56 0 1 1 0-112" /></svg></span>
-                                </button>
-                                <div class="hidden md:inline px-2 py-1.5 text-neutral-600 hover:text-neutral-700 dark:hover:text-neutral-400 text-sm ml-auto">
-                                  <span class="mt-footer-date"><a href="${post.url || 'https://e5n.cc/@eallion'}" target="_blank" rel="noopener noreferrer" class="text-neutral-600 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-400">${getRelativeTime(post.created_at)}</a></span>
-                                </div>
-                              </div>
-                            `;
-
-          container.appendChild(article);
-        });
-      } catch (error) {
-        console.error('Error fetching Mastodon data:', error);
-      }
-    });
-
-function encodeExternalLinks(content) {
-  // 定义需要保留的域名白名单
-  const allowedDomains = ['e5n.cc', 'eallion.com', 'www.eallion.com'];
-
-  // 匹配 <a> 标签的正则表达式
-  const linkRegex = /<a[^>]*href\s*=\s*["']([^"']*)["'][^>]*>/gi;
-
-  // 替换内容中的链接
-  return content.replace(linkRegex, (match, url) => {
-    try {
-      // 检查是否为允许的域名
-      let hostname;
-      try {
-        // 尝试解析 URL 获取主机名
-        const urlObj = new URL(url);
-        hostname = urlObj.hostname;
-        pathname = urlObj.pathname;
-      } catch (urlError) {
-        // 如果 URL 解析失败，可能是相对链接或特殊协议
-        // 在这种情况下，我们仍然需要检查是否应该加密
-        // 对于相对链接或特殊协议，我们默认不加密
-        return match;
-      }
-
-      // 检查是否是 e5n.cc 域名下的链接
-      if (hostname === 'e5n.cc' || hostname === 's.e5n.cc') {
-        // 如果链接已包含 target="_blank"，则不重复添加
-        if (!match.includes('target="_blank"')) {
-          // 在 </a> 标签前插入 target="_blank"
-          return match.replace(/>/, ' target="_blank">');
-        }
-        return match;
-      }
-
-      const isAllowedDomain = allowedDomains.some(domain =>
-        hostname === domain || hostname.endsWith('.' + domain)
-      );
-
-      // 如果是允许的域名，直接返回原标签
-      if (isAllowedDomain) {
-        return match;
-      }
-
-      // 对于非白名单域名的所有链接，进行 Base64 编码并重定向
-      const encodedUrl = btoa(url); // Base64 编码
-      const redirectUrl = `https://www.eallion.com/go/?target=${encodedUrl}`;
-
-      // 替换 href 属性
-      return match.replace(url, redirectUrl);
-    } catch (e) {
-      // 如果处理过程中出现任何错误，返回原始标签
-      return match;
-    }
-  });
-}
-
 // 计算相对时间的函数
 function getRelativeTime(dateString) {
   const rtf = new Intl.RelativeTimeFormat('zh-CN', { numeric: "auto", style: 'short' });
@@ -474,7 +498,6 @@ function getRelativeTime(dateString) {
   const months = Math.floor(days / 30);
   const years = Math.floor(days / 365);
 
-  // 获取原始格式化的相对时间（如 "3 天前"）
   let formattedTime;
   if (years > 0) {
     formattedTime = rtf.format(-years, 'year');
@@ -491,7 +514,26 @@ function getRelativeTime(dateString) {
   }
 
   return formattedTime.replace(/(\d+)([^\d]+)/, '$1 $2');
-};
+}
+
+// 更新所有带有 data-created-at 属性的时间元素
+function updateRelativeTimes() {
+  const timeElements = document.querySelectorAll('[data-created-at]');
+  timeElements.forEach(element => {
+    const dateString = element.getAttribute('data-created-at');
+    if (dateString) {
+      element.textContent = getRelativeTime(dateString);
+    }
+  });
+}
+
+// 页面加载完成后初始化时间显示
+document.addEventListener('DOMContentLoaded', function() {
+  updateRelativeTimes();
+  // 每分钟更新一次时间显示
+  setInterval(updateRelativeTimes, 60000);
+});
+
 </script>
 
 {{ $fastBlurhashJS := resources.Get "js/fast-blurhash.min.js" | fingerprint "sha256" }}
