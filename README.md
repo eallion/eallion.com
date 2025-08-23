@@ -120,10 +120,10 @@ https://github.com/eallion/eallion.com/blob/main/assets/css/compiled/main.css
 https://github.com/eallion/eallion.com/blob/main/assets/css/custom.css
 ```
 
-- 自定义 JS 在 `assets/js/` 如：[pangu.custom.js](https://github.com/eallion/eallion.com/blob/main/assets/js/pangu.custom.js)：
+- 自定义 JS 在 `assets/js/` 如：[lazyload.iife.min.js](https://github.com/eallion/eallion.com/blob/main/assets/js/lazyload.iife.min.js)：
 
 ```bash
-https://github.com/eallion/eallion.com/blob/main/assets/js/pangu.custom.js
+https://github.com/eallion/eallion.com/blob/main/assets/js/lazyload.iife.min.js
 ```
 
 - 自定义模板，如嘀咕、豆瓣等页面，在 `layouts/_default` 如：[layouts/_default/mastodon.html](https://github.com/eallion/eallion.com/blob/main/layouts/_default/mastodon.html)：
@@ -132,43 +132,50 @@ https://github.com/eallion/eallion.com/blob/main/assets/js/pangu.custom.js
 https://github.com/eallion/eallion.com/blob/main/layouts/_default/mastodon.html
 ```
 
-- 页面数据在 `data` 如书影音数据：[data/neodb/movie.json](https://github.com/eallion/eallion.com/blob/main/data/neodb/movie.json)：
+- 页面数据在 `data` 如书影音数据：[assets/data/neodb/movie.json](https://github.com/eallion/eallion.com/blob/main/assets/data/neodb/movie.json)：
 
 ```bash
-https://github.com/eallion/eallion.com/blob/main/data/neodb/movie.json
+https://github.com/eallion/eallion.com/blob/main/assets/data/neodb/movie.json
 ```
 
 ### 🧑‍💻 pnpm 命令
 
+- `pnpm run build` 构建 Blowfish 的 TailwindCSS `assets/css/compiled/main.css`
+- `pnpm run build-linux` Linux 构建 Blowfish 的 TailwindCSS `assets/css/compiled/main.css`
+- `pnpm run build-windows` Windows 构建 Blowfish 的 TailwindCSS `assets/css/compiled/main.css`
 - `pnpm run dev` 启动 TailwindCSS 监听
+- `pnpm run dev-linux` Linux 启动 TailwindCSS 监听
+- `pnpm run dev-windows` Windows 启动 TailwindCSS 监听
+- `pnpm run directus`: 获取 Directus 数据
+- `pnpm run directus:album`: 获取 Directus 随手拍数据
+- `pnpm run directus:goods`: 获取 Directus 好物推荐数据
+- `pnpm run directus:links`: 获取 Directus 友情链接数据
+- `pnpm run directus:mastodon`: 获取 Mastodon API 数据
+- `pnpm run directus:neodb`: 获取官方 NeoDB API 数据
+- `pnpm run directus:penta`: 获取 Directus 五杀数据
 - `pnpm run hugo` 构建 Hugo，一般不用，都是交给 CI/CD 构建
 - `pnpm run new` 创建新文章，直接输入文章标题，生成到 example 目录
-- `pnpm run prepare` Git Commit Husky 勾子，目前用于提交时更新 Cloudflare Pages Wrangler 的 `HUGO_VERSION`
-- `pnpm run preview` 启动 Hugo 服务器，即预览线上生成环境，文档内容为 `content` 目录
+- `pnpm run prepare` Git Commit Husky 勾子，目前用于提交时更新各个平台环境变量的 `HUGO_VERSION`
+- `pnpm run preview` 启动 Hugo 服务器，即预览线上生成环境，会重新获取 Directus 数据
 - `pnpm run recursive` 递归更新 Submodule 子项目，一般第一次克隆本项目时使用
-- `pnpm run build` 构建 Blowfish 的 TailwindCSS `assets/css/compiled/main.css`
-- `pnpm run server` 启动 Hugo 服务器，文档内容为 `example` 目录
-- `pnpm run shiki` 生成 Shiki 语法高亮，目前已取消
+- `pnpm run server` 启动 Hugo 服务器
+- `pnpm run shiki` 生成 Shiki 语法高亮
 - `pnpm run theme` 更新 Submodule 子项目
-- `pnpm run vercel` 构建适用于 Vercel 平台的 Hugo，在 Vercel 平台使用
-- `pnpm run winnat` 谨慎使用，用于 Windows 重置 Winnat，解决绑定 1313 端口冲突
 
 ### 🔊 嘀咕页面
 
 嘀咕页面 [`https://www.eallion.com/mastodon`](https://www.eallion.com/mastodon/) 为 Mastodon 个人实例 [`e5n.cc`](https://e5n.cc/@eallion) 的数据展示。  
-利用 [mastodon-embed-timeline](https://gitlab.com/idotj/mastodon-embed-timeline) 这个项目集成到博客页面。  
+目前是自己写的页面样式。  
 
-通过 Git submodule 添加：
-
-```bash
-git submodule add https://github.com/eallion/mastodon-embed-timeline.git assets/lib/mastodon-embed-timeline
-```
+但也可以利用 [mastodon-embed-timeline](https://gitlab.com/idotj/mastodon-embed-timeline) 这个项目集成到博客页面。
 
 ### ✏️ 写新文章
 
 **Breaking Change**
 
 现在用 Directus 管理文章，不再用 Hugo 命令生成。
+
+写新文章，直接在 Directus 后台创建文章即可。
 
 ```bash
 # pnpm install
@@ -381,17 +388,17 @@ https://www.eallion.com/assets/images/1970/01/01.jpg
 
 > Blowfish 新增
 
-对于文章图片，现在放于文章文件 `index.md` 同级目录
+对于文章图片，现在放在 CDN 中引用，OG Image 在 Directus 中上传。
 
 ### 📷 相册
 
-现在的相册页面采用 e5n.cc 的 `#ealbum` 标签动态渲染，只是一个示例页面。
+现在的相册页面采用 e5n.cc 的图片 ALT 描述中包含 `ealbum` 字符串的图片动态渲染，只是一个示例页面。
 
-- <https://www.eallion.com/photos/>
+- <https://www.eallion.com/album/>
 
 ### 📷 LOL 五杀
 
-数据按 `data/penta/penta.json` 格式维护即可，五杀截图放到 `static/assets/images/penta/screenshot` 目录。  
+在 Directus 后台操作，数据按 `assets/data/penta/penta.json` 格式维护即可，五杀截图上传到 Directus 对应的 s3, 社区时会直接引用 CDN。  
 英雄头像腾讯官方 API [https://lol.qq.com/cguide/Guide/PublicResources/Images.html](https://lol.qq.com/cguide/Guide/PublicResources/Images.html#%E8%8B%B1%E9%9B%84%E5%A4%B4%E5%83%8F)
 
 - <https://www.eallion.com/penta/>

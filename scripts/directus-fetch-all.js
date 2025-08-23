@@ -13,11 +13,13 @@ const DIRECTUS_ACCESS_TOKEN = process.env.DIRECTUS_ACCESS_TOKEN;
 const DIRECTUS_S3_URL = process.env.DIRECTUS_S3_URL; // S3 域名
 const NEODB_ACCESS_TOKEN = process.env.NEODB_ACCESS_TOKEN; // NeoDB 访问令牌
 const HUGO_CONTENT_DIR = path.join(__dirname, '..', 'content', 'blog');
-const PENTA_JSON_PATH = path.join(__dirname, '..', 'assets', 'data', 'penta', 'penta.json');
-const GOODS_JSON_PATH = path.join(__dirname, '..', 'assets', 'data', 'goods', 'goods.json');
+// 各个数据文件的路径
+const ALBUM_JSON_PATH = path.join(__dirname, '..', 'assets', 'data', 'album', 'album.json');
 const FRIENDS_LINKS_JSON_PATH = path.join(__dirname, '..', 'assets', 'data', 'friends', 'links.json');
-const NEODB_JSON_PATH = path.join(__dirname, '..', 'assets', 'data', 'neodb', 'movie.json');
+const GOODS_JSON_PATH = path.join(__dirname, '..', 'assets', 'data', 'goods', 'goods.json');
 const MASTODON_JSON_PATH = path.join(__dirname, '..', 'assets', 'data', 'mastodon', 'mastodon.json');
+const NEODB_JSON_PATH = path.join(__dirname, '..', 'assets', 'data', 'neodb', 'movie.json');
+const PENTA_JSON_PATH = path.join(__dirname, '..', 'assets', 'data', 'penta', 'penta.json');
 
 // Directus API 分页设置
 const API_LIMIT = 100; // Directus 的默认限制通常是 100
@@ -56,6 +58,36 @@ async function fetchAllArticles(offset = 0) {
     return articles.concat(nextArticles);
   } else {
     return articles;
+  }
+}
+
+/**
+ * 递归地从 Directus API 获取所有 Album 数据
+ * @param {number} offset 当前偏移量
+ * @returns {Promise<Array>} 返回所有 Album 数据的数组
+ */
+async function fetchAllAlbumData(offset = 0) {
+  console.log(`正在获取 Album 数据，偏移量：${offset}...`);
+  const response = await fetch(`${DIRECTUS_API_URL}items/Album?limit=${API_LIMIT}&offset=${offset}`, {
+    headers: {
+      'Authorization': `Bearer ${DIRECTUS_ACCESS_TOKEN}`
+    }
+  });
+  const data = await response.json();
+
+  if (!data || !data.data) {
+    console.error('Album API 返回的数据结构不正确。');
+    return [];
+  }
+
+  const albumItems = data.data;
+
+  // 如果返回的项目数量等于 API_LIMIT，表示可能还有更多数据，继续获取下一页
+  if (albumItems.length === API_LIMIT) {
+    const nextItems = await fetchAllAlbumData(offset + API_LIMIT);
+    return albumItems.concat(nextItems);
+  } else {
+    return albumItems;
   }
 }
 
@@ -277,6 +309,23 @@ async function fetchMastodonData() {
 }
 
 /**
+ * 保存 Album 数据到 JSON 文件
+ * @param {Array} albumData Album 数据数组
+ */
+function saveAlbumDataToJson(albumData) {
+  // 确保目标目录存在
+  const albumDir = path.dirname(ALBUM_JSON_PATH);
+  if (!fs.existsSync(albumDir)) {
+    console.log(`创建目录：${albumDir}`);
+    fs.mkdirSync(albumDir, { recursive: true });
+  }
+
+  // 写入 JSON 文件（无需特殊处理）
+  fs.writeFileSync(ALBUM_JSON_PATH, JSON.stringify(albumData, null, 2), 'utf-8');
+  console.log(`成功保存 ${albumData.length} 条 Album 数据到 ${ALBUM_JSON_PATH}`);
+}
+
+/**
  * 保存 Penta 数据到 JSON 文件
  * @param {Array} pentaData Penta 数据数组
  */
@@ -396,17 +445,12 @@ function saveMastodonDataToJson(mastodonData) {
 }
 
 /**
- * 从 Directus API 获取文件元数据
- * @param {string} fileId Directus 文件 ID
- * @returns {Promise<string|null>} 返回带扩展名的文件名，如果失败则返回 null
- */
-
-/**
- * 将文章列表追加到 static/llms.txt 文件
+ * 将文章列表追加到 static/llms.txt static/llms-full.txt 文件
  * @param {Array} articles 文章数据数组
  */
 function appendToLLMFile(articles) {
   const llmFilePath = path.join(__dirname, '..', 'static', 'llms.txt');
+  const llmFullFilePath = path.join(__dirname, '..', 'static', 'llms-full.txt');
 
   // 确保 static 目录存在
   const staticDir = path.join(__dirname, '..', 'static');
@@ -416,6 +460,7 @@ function appendToLLMFile(articles) {
   }
 
   let llmContent = '\n';
+  let llmFullContent = '\n';
 
   // 按照指定格式生成内容
   for (const article of articles) {
@@ -423,14 +468,18 @@ function appendToLLMFile(articles) {
       const title = article.title.replace(/\[/g, '\\[').replace(/\]/g, '\\]'); // 转义标题中的方括号
       const slug = article.slug;
       const summary = article.summary ? article.summary.replace(/\r?\n|\r/g, ' ').trim() : '';
+      const content = article.content ? article.content : '';
 
       llmContent += `- [${title}](https://www.eallion.com/${slug}/) : ${summary}\n`;
+      llmFullContent += `- [${title}](https://www.eallion.com/${slug}/) : \n""" ${content} """\n`;
     }
   }
 
   // 追加到文件末尾
   fs.appendFileSync(llmFilePath, llmContent, 'utf-8');
   console.log(`成功追加 ${articles.length} 篇文章到 ${llmFilePath}`);
+  fs.appendFileSync(llmFullFilePath, llmFullContent, 'utf-8');
+  console.log(`成功追加 ${articles.length} 篇文章到 ${llmFullFilePath}`);
 }
 
 /**
@@ -533,6 +582,15 @@ async function main() {
       console.log('所有文章已成功同步完成！');
     } else {
       console.log('未找到任何文章数据。');
+    }
+
+    // 获取并保存 Album 数据
+    const allAlbumData = await fetchAllAlbumData();
+    if (allAlbumData.length > 0) {
+      saveAlbumDataToJson(allAlbumData);
+      console.log('所有 Album 数据已成功保存！');
+    } else {
+      console.log('未找到任何 Album 数据。');
     }
 
     // 获取并保存 Penta 数据

@@ -7,25 +7,28 @@
     "buildTags": "extended"
   },
   "scripts": {
-    "dev": "cd themes/blowfish && npm install && cd ../.. && set NODE_ENV=development && npx @tailwindcss/cli -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
     "build": "cd themes/blowfish && npm install && cd ../.. && set NODE_ENV=production && npx @tailwindcss/cli -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit",
-    "dev-windows": "cd themes/blowfish && npm install && cd ../.. && set NODE_ENV=development && npx @tailwindcss/cli -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
-    "build-windows": "cd themes/blowfish && npm install && cd ../.. && set NODE_ENV=production && npx @tailwindcss/cli -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit",
-    "dev-linux": "NODE_ENV=development npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
     "build-linux": "NODE_ENV=production npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/css/compiled/main.css --jit",
-    "directus": "node scripts/directus-fetch-articles.js",
-    "esa": "node scripts/aliyun-esa-purge.js",
-    "hns": "net stop hns && net start hns",
-    "hugo": "hugo --minify --enableGitInfo",
+    "build-windows": "cd themes/blowfish && npm install && cd ../.. && set NODE_ENV=production && npx @tailwindcss/cli -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit",
+    "dev": "cd themes/blowfish && npm install && cd ../.. && set NODE_ENV=development && npx @tailwindcss/cli -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
+    "dev-linux": "NODE_ENV=development npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
+    "dev-windows": "cd themes/blowfish && npm install && cd ../.. && set NODE_ENV=development && npx @tailwindcss/cli -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
+    "directus": "node scripts/directus-fetch-all.js",
+    "directus:album": "node scripts/directus-fetch-album.js",
+    "directus:goods": "node scripts/directus-fetch-goods.js",
+    "directus:latest": "node scripts/directus-fetch-latest-10-articles.js",
+    "directus:links": "node scripts/directus-fetch-friends-links.js",
+    "directus:mastodon": "node scripts/directus-fetch-mastodon.js",
+    "directus:neodb": "node scripts/directus-fetch-neodb.js",
+    "directus:penta": "node scripts/directus-fetch-penta.js",
+    "hugo": "hugo --minify --gc --enableGitInfo",
     "new": "node scripts/new_post.js",
     "prepare": "husky",
-    "preview": "node scripts/directus-fetch-articles.js && git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content -e production --enableGitInfo --minify --disableKinds RSS --renderToMemory",
+    "preview": "node scripts/directus-fetch-articles.js && git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content -e production --enableGitInfo --gc --minify --disableKinds RSS --renderToMemory",
     "recursive": "git submodule update --init --recursive",
-    "server": "git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content -e production --enableGitInfo --minify --disableKinds RSS --renderToMemory",
+    "server": "git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content -e production --enableGitInfo --gc --minify --disableKinds RSS --renderToMemory",
     "shiki": "npx rehype-cli public -o",
-    "theme": "git submodule update --remote --merge",
-    "vercel": "node scripts/vercel_env_hugo_version.js &&  hugo --minify --enableGitInfo && next build",
-    "winnat": "net stop winnat -y && net start winnat -y"
+    "theme": "git submodule update --remote --merge"
   },
   "repository": {
     "type": "git",
@@ -43,7 +46,7 @@
     "url": "https://github.com/eallion/eallion.com/issues"
   },
   "homepage": "https://github.com/eallion/eallion.com#readme",
-  "devDependencies": {
+  "dependencies": {
     "@types/node": "^22.17.2",
     "axios": "^1.11.0",
     "dotenv": "^17.2.1",
@@ -51,16 +54,10 @@
     "glob": "^11.0.3",
     "gray-matter": "^4.0.3",
     "husky": "^9.1.7",
+    "js-yaml": "^4.1.0",
     "nyc": "^17.1.0",
     "source-map-support": "^0.5.21",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
-  },
-  "dependencies": {
-    "@alicloud/credentials": "^2.4.4",
-    "@alicloud/esa20240910": "^2.29.1",
-    "@alicloud/openapi-client": "^0.4.15",
-    "@alicloud/tea-util": "^1.4.10",
-    "js-yaml": "^4.1.0"
   }
 }
