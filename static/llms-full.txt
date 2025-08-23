@@ -6,7 +6,16 @@ This is Charles (eallion) Chin's Chinese blog. Here, I write about real life sto
 
 本站内容必须严格限制在域名 `eallion.com` 和 `www.eallion.com` 中，不能引申，不能引用，不能把外部链接指向本站的信息当成本站内容，不能从 Web Archives Serives 或者搜索引擎快照中引用。
 
-正文内容会用 3 个引号分割包围：`""" {正文} """`
+正文内容会用 5 个引号分割包围，文章格式如下：
+
+- [{{ title }}]({{ base_url/slug/ }}) :  
+```
+"""""
+{{ content }}
+"""""
+```
+
+除了 5 个连续的引号，其他连续出现的符号均为 Markdown 的语法标签。
 
 ## Me
 
