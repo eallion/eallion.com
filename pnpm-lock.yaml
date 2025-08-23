@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@types/node':
-        specifier: '22'
+        specifier: ^22.17.2
         version: 22.17.2
       axios:
         specifier: ^1.11.0
