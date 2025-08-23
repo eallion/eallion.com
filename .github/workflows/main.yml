@@ -162,10 +162,11 @@ jobs:
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-mastodon') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-mastodon')
         run: |
           aliyun oss cp public/mastodon/index.html oss://eallion-com/mastodon/index.html --delete --force
+          aliyun oss cp public/index.html oss://eallion-com/index.html --delete --force
           aliyun esa PurgeCaches \
             --SiteId ${{ secrets.ESA_SITE_ID }} \
             --Type file \
-            --Content '{"Files":["https://www.eallion.com/mastodon/index.html"]}'
+            --Content '{"Files":["https://www.eallion.com/mastodon/index.html","https://www.eallion.com/index.html"]}'
 
       - name: Build Hugo Media
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-media') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-media')
