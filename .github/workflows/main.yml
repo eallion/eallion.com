@@ -135,7 +135,7 @@ jobs:
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-album') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-album')
         run: |
           # Fetch Directus articles (all data)
-          pnpm run album
+          pnpm run directus:album
 
           # Build Album
           hugo --minify --enableGitInfo --gc
@@ -153,7 +153,8 @@ jobs:
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-mastodon') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-mastodon')
         run: |
           # Fetch Directus articles (all data)
-          pnpm run mastodon
+          pnpm run directus:mastodon
+          pnpm run directus:latest
 
           # Build Mastodon
           hugo --minify --enableGitInfo --gc
@@ -172,7 +173,7 @@ jobs:
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-media') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-media')
         run: |
           # Fetch Directus articles (all data)
-          pnpm run media
+          pnpm run directus:media
 
           # Build Media
           hugo --minify --enableGitInfo --gc
@@ -190,7 +191,7 @@ jobs:
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-penta') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-penta')
         run: |
           # Fetch Directus articles (all data)
-          pnpm run penta
+          pnpm run directus:penta
 
           # Build Penta
           hugo --minify --enableGitInfo --gc
