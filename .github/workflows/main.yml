@@ -101,9 +101,13 @@ jobs:
       - name: Configure Aliyun CLI
         run: |
           aliyun configure set --profile default \
-            --access-key-id ${{ secrets.ALIYUN_ACCESS_KEY_ID }} \
-            --access-key-secret ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }} \
-            --region cn-shanghai
+            --mode "AK" \
+            --access-key-id ${{ secrets.ACCESS_KEY_ID }} \
+            --access-key-secret ${{ secrets.ACCESS_KEY_SECRET }} \
+            --region cn-hangzhou \
+            --language zh \
+            --output_format json \
+            --site china
 
       - name: Build Hugo
         if: github.event_name == 'push' || github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-hugo') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-hugo')
