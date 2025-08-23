@@ -104,7 +104,7 @@ jobs:
             --mode "AK" \
             --access-key-id ${{ secrets.ACCESS_KEY_ID }} \
             --access-key-secret ${{ secrets.ACCESS_KEY_SECRET }} \
-            --region cn-hangzhou \
+            --region cn-shanghai \
             --language zh
 
       - name: Build Hugo
@@ -145,7 +145,7 @@ jobs:
       - name: Purge Aliyun ESA Album
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-album') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-album')
         run: |
-          aliyun oss cp public/album/index.html oss://eallion-com/album/index.html --force --endpoint oss-cn-hangzhou.aliyuncs.com
+          aliyun oss cp public/album/index.html oss://eallion-com/album/index.html --force
           aliyun esa PurgeCaches \
             --SiteId ${{ secrets.ESA_SITE_ID }} \
             --Type file \
@@ -164,8 +164,8 @@ jobs:
       - name: Purge Aliyun ESA Mastodon
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-mastodon') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-mastodon')
         run: |
-          aliyun oss cp public/mastodon/index.html oss://eallion-com/mastodon/index.html --force --endpoint oss-cn-hangzhou.aliyuncs.com
-          aliyun oss cp public/index.html oss://eallion-com/index.html --force --endpoint oss-cn-hangzhou.aliyuncs.com
+          aliyun oss cp public/mastodon/index.html oss://eallion-com/mastodon/index.html --force
+          aliyun oss cp public/index.html oss://eallion-com/index.html --force
           aliyun esa PurgeCaches \
             --SiteId ${{ secrets.ESA_SITE_ID }} \
             --Type file \
@@ -183,7 +183,7 @@ jobs:
       - name: Purge Aliyun ESA Media
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-media') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-media')
         run: |
-          aliyun oss cp public/media/index.html oss://eallion-com/media/index.html --force --endpoint oss-cn-hangzhou.aliyuncs.com
+          aliyun oss cp public/media/index.html oss://eallion-com/media/index.html --force
           aliyun esa PurgeCaches \
             --SiteId ${{ secrets.ESA_SITE_ID }} \
             --Type file \
@@ -201,7 +201,7 @@ jobs:
       - name: Purge Aliyun ESA Penta
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-penta') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-penta')
         run: |
-          aliyun oss cp public/penta/index.html oss://eallion-com/penta/index.html --force --endpoint oss-cn-hangzhou.aliyuncs.com
+          aliyun oss cp public/penta/index.html oss://eallion-com/penta/index.html --force
           aliyun esa PurgeCaches \
             --SiteId ${{ secrets.ESA_SITE_ID }} \
             --Type file \
