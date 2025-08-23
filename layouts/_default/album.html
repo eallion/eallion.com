@@ -1,7 +1,6 @@
 {{ define "main" }}
 {{ .Scratch.Set "scope" "single" }}
 
-{{/* 1. 资源加载部分 (保持不变) */}}
 {{ $photoswipeCss := resources.Get "css/photoswipe.css" | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $photoswipeCss.RelPermalink }}" integrity="{{ $photoswipeCss.Data.Integrity }}" crossorigin="anonymous">
 
@@ -183,8 +182,48 @@
       <div class="article-content max-w-full mb-20">
         {{ .Content }}
 
+        {{ $albumData := "" }}
+        {{ with resources.Get "data/album/album.json" }}
+          {{ $albumData = . | transform.Unmarshal }}
+        {{ end }}
+
         <div class="album-gallery" id="ealbum-gallery">
-            <p class="album-loader" id="album-loader"></p>
+          {{ if $albumData }}
+            {{ range $albumData }}
+              {{ $photo := . }}
+              {{ if and $photo.url $photo.preview_url }}
+                <a href="{{ $photo.url }}"
+                  data-pswp-width="{{ default $photo.width $photo.preview_width }}"
+                  data-pswp-height="{{ default $photo.height $photo.preview_height }}"
+                  target="_blank"
+                  rel="noopener noreferrer">
+
+                  <img class="lazy"
+                    style="background-color: #f0f0f0; aspect-ratio: {{ default 1 $photo.width }} / {{ default 1 $photo.height }};"
+                    alt="{{ default "相册图片" $photo.description }}"
+                    width="{{ default 1 $photo.width }}"
+                    height="{{ default 1 $photo.height }}"
+                    src="/assets/images/album/x20.png"
+                    data-src="{{ $photo.preview_url }}"
+                    {{ if $photo.blurhash }}
+                      data-blurhash="{{ $photo.blurhash }}"
+                      data-photo-data='{"blurhash":"{{ $photo.blurhash }}","width":{{ default 1 $photo.width }},"height":{{ default 1 $photo.height }},"preview_url":"{{ $photo.preview_url }}"}'
+                    {{ end }}>
+
+                  <div class="pswp-caption-content">
+                    {{ if $photo.description }}
+                      <div class="pswp-caption-title">{{ $photo.description }}</div>
+                    {{ end }}
+                    {{ if $photo.content }}
+                      <div class="pswp-caption-body">{{ $photo.content | safeHTML }}</div>
+                    {{ end }}
+                  </div>
+                </a>
+              {{ end }}
+            {{ end }}
+          {{ else }}
+            <p class="album-loader">无法加载相册数据。</p>
+          {{ end }}
         </div>
 
       </div>
@@ -197,10 +236,6 @@
   import PhotoSwipeLightbox from '{{ $photoswipeLightboxJS.RelPermalink }}';
   import PhotoSwipeDynamicCaption from '{{ $photoswipeCaptionJS.RelPermalink }}';
   import { decodeBlurHash } from '{{ $fastBlurhashJS.RelPermalink }}';
-
-  const galleryContainer = document.getElementById('ealbum-gallery');
-  const loader = document.getElementById('album-loader');
-  const apiUrl = 'https://www.eallion.com/api/v1/ealbum.json';
 
   // 创建 Intersection Observer 实例
   let intersectionObserver;
@@ -223,8 +258,6 @@
     hideAnimationDuration: 1000,
     imageClickAction: 'close',
     tapAction: 'close',
-
-    // tap delay is removed if set to false
     doubleTapAction: false,
     zoom: false,
     arrowPrev: false,
@@ -237,15 +270,14 @@
   });
 
   const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
-    type: 'aside', // 改为 'aside' 使文字显示在图片旁边（左侧）
+    type: 'aside',
     captionContent: '.pswp-caption-content',
-    // 可选：添加额外的配置来自定义位置和样式
-    horizontalEdgeThreshold: 200, // 距离水平边缘的阈值
-    mobileCaptionStyle: 'below' // 在移动设备上仍然显示在下方
+    horizontalEdgeThreshold: 200,
+    mobileCaptionStyle: 'below'
   });
 
   lightbox.on('firstUpdate', () => {
-  lightbox.pswp.options.easing = backEasing.out;
+    lightbox.pswp.options.easing = backEasing.out;
   });
   lightbox.on('initialZoomInEnd', () => {
     lightbox.pswp.options.easing = backEasing.inOut;
@@ -258,15 +290,11 @@
   // 将 blurhash 解码为 data URL
   function blurHashToDataUrl(blurhash, width, height) {
     try {
-      // 确保 blurhash 有效
       if (!blurhash || typeof blurhash !== 'string') {
         return '';
       }
-
-      // 确保尺寸参数有效
       const w = Math.max(1, Math.min(64, width || 16));
       const h = Math.max(1, Math.min(64, height || 16));
-
       const pixels = decodeBlurHash(blurhash, w, h);
       const canvas = document.createElement('canvas');
       canvas.width = w;
@@ -278,7 +306,7 @@
       return canvas.toDataURL();
     } catch (error) {
       console.error('BlurHash 解码失败：', error);
-      return ''; // 返回空字符串，使用默认占位符
+      return '';
     }
   }
 
@@ -287,46 +315,32 @@
     if (isProcessingQueue || blurhashDecodeQueue.length === 0) {
       return;
     }
-
     isProcessingQueue = true;
-
     while (blurhashDecodeQueue.length > 0) {
       const { img, photo } = blurhashDecodeQueue.shift();
-
-      // 生成一个小尺寸的占位图（例如 16x16 像素）
       const placeholderUrl = blurHashToDataUrl(photo.blurhash, 16, Math.round(16 * photo.height / photo.width));
       if (placeholderUrl) {
-        // 将 blurhash 图像设置为背景
         img.style.backgroundImage = `url(${placeholderUrl})`;
       } else {
-        // 解码失败时使用背景色
         img.style.backgroundColor = '#f0f0f0';
       }
-
-      // 添加小延迟以避免阻塞主线程
       await new Promise(resolve => setTimeout(resolve, 5));
     }
-
     isProcessingQueue = false;
   }
 
   // 检查元素是否在视口附近
   function isNearViewport(element, threshold = 200) {
     if (!element) return false;
-
     const rect = element.getBoundingClientRect();
     const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-    return (
-      rect.top >= -threshold &&
-      rect.bottom <= windowHeight + threshold
-    );
+    return (rect.top >= -threshold && rect.bottom <= windowHeight + threshold);
   }
 
   // 立即处理靠近视口的图片
   function processVisibleImages() {
     const lazyImages = document.querySelectorAll('.album-gallery img[data-blurhash]');
     lazyImages.forEach(img => {
-      // 确保元素存在且有 photoData 属性
       if (img && img.dataset && img.dataset.photoData) {
         try {
           const photoData = JSON.parse(img.dataset.photoData);
@@ -336,22 +350,16 @@
               16,
               Math.round(16 * photoData.height / photoData.width)
             );
-
             if (placeholderUrl) {
-              // 将 blurhash 图像设置为背景
               img.style.backgroundImage = `url(${placeholderUrl})`;
             } else {
-              // 解码失败时使用背景色
               img.style.backgroundColor = '#f0f0f0';
             }
-
-            // 移除已处理的标记
             img.removeAttribute('data-blurhash');
             img.removeAttribute('data-photo-data');
           }
         } catch (e) {
           console.error('处理图片时出错：', e);
-          // 出错时移除标记避免重复处理
           img.removeAttribute('data-blurhash');
           img.removeAttribute('data-photo-data');
         }
@@ -364,137 +372,36 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const img = entry.target;
-
-        // 确保元素存在且有 photoData 属性
         if (img && img.dataset && img.dataset.photoData) {
           try {
             const photoData = JSON.parse(img.dataset.photoData);
-
-            // 确保 photoData 有效
             if (photoData && photoData.blurhash) {
-              // 将需要解码的图片加入队列
               blurhashDecodeQueue.push({ img, photo: photoData });
               processDecodeQueue();
             }
           } catch (e) {
             console.error('解析 photoData 时出错：', e);
           }
-
-          // 停止观察已处理的元素
           observer.unobserve(img);
         }
       }
     });
   }
 
-  async function loadAlbum() {
-    try {
-      const response = await fetch(apiUrl);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
+  // 页面加载完成后初始化
+  document.addEventListener('DOMContentLoaded', () => {
+    intersectionObserver = new IntersectionObserver(handleIntersection, {
+      rootMargin: '200px'
+    });
+    const lazyImages = document.querySelectorAll('.album-gallery img[data-blurhash]');
+    lazyImages.forEach(img => {
+      intersectionObserver.observe(img);
+    });
+    setTimeout(processVisibleImages, 0);
+    lazyLoadInstance.update();
+  });
 
-      galleryContainer.innerHTML = '';
-      const fragment = document.createDocumentFragment();
-
-      // 创建 Intersection Observer
-      intersectionObserver = new IntersectionObserver(handleIntersection, {
-        rootMargin: '200px' // 提前 200px 开始加载
-      });
-
-      data.forEach(item => {
-        // 确保 item 和 media_attachments 存在
-        if (!item || !item.media_attachments) return;
-
-        item.media_attachments.forEach(photo => {
-          // 确保 photo 对象包含必要字段
-          if (!photo || !photo.url || !photo.preview_url) return;
-
-          const link = document.createElement('a');
-          link.href = photo.url;
-
-          // 使用高清图的尺寸
-          link.dataset.pswpWidth = photo.h_width || photo.width;
-          link.dataset.pswpHeight = photo.h_height || photo.height;
-          link.target = '_blank';
-          link.rel = 'noopener noreferrer';
-
-          const img = document.createElement('img');
-          img.classList.add('lazy');
-
-          // 设置默认的背景色
-          img.style.backgroundColor = '#f0f0f0';
-          img.alt = photo.description || '相册图片';
-          img.width = photo.width || 1;
-          img.height = photo.height || 1;
-          img.style.aspectRatio = `${photo.width || 1} / ${photo.height || 1}`;
-
-          // 设置默认的 src 值
-          img.src = '/assets/images/album/x20.png';
-
-          // 重要：data-src 用于 LazyLoad
-          img.dataset.src = photo.preview_url;
-
-          // 保存 blurhash 和 photo 数据，稍后解码
-          if (photo.blurhash) {
-            img.dataset.blurhash = photo.blurhash;
-            img.dataset.photoData = JSON.stringify({
-              blurhash: photo.blurhash,
-              width: photo.width || 1,
-              height: photo.height || 1,
-              preview_url: photo.preview_url
-            });
-
-            // 添加到观察器
-            fragment.appendChild(link);
-            link.appendChild(img);
-
-            // 先处理可见区域的图片
-            setTimeout(processVisibleImages, 0);
-          } else {
-            // 没有 blurhash 时使用 preview_url 作为 src
-            img.src = photo.preview_url;
-          }
-
-          const caption = document.createElement('div');
-          caption.className = 'pswp-caption-content';
-          let captionHTML = '';
-          if (photo.description) {
-            captionHTML += `<div class="pswp-caption-title">${photo.description}</div>`;
-          }
-          if (photo.content) {
-            captionHTML += `<div class="pswp-caption-body">${photo.content}</div>`;
-          }
-          caption.innerHTML = captionHTML;
-
-          link.appendChild(caption);
-          fragment.appendChild(link);
-
-          // 为有 blurhash 的图片添加观察
-          if (photo.blurhash) {
-            setTimeout(() => {
-              if (img.parentNode) { // 确保元素已添加到 DOM
-                intersectionObserver.observe(img);
-              }
-            }, 0);
-          }
-        });
-      });
-
-      galleryContainer.appendChild(fragment);
-      lazyLoadInstance.update();
-
-    } catch (error) {
-      console.error("无法加载相册：", error);
-      loader.innerText = '无法加载相册数据，请稍后再试。';
-    }
-  }
-
-  // 页面加载完成后开始加载相册
-  document.addEventListener('DOMContentLoaded', loadAlbum);
-
-  // 监听滚动事件，处理可见区域的图片
+  // 监听滚动事件
   let scrollTimer;
   window.addEventListener('scroll', () => {
     clearTimeout(scrollTimer);
