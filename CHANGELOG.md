@@ -1,3 +1,34 @@
+## v5.0.2 (2025-08-23)
+
+### New feature
+
+- directus([`410ecf5`](https://github.com/eallion/eallion.com/commit/410ecf55a6117fac8eb88ee6e81ae27d9d634d40)) (by Charles Chin)
+- llms-full.txt base([`40a0160`](https://github.com/eallion/eallion.com/commit/40a01602c1be26c3fafda20b8205bf849e59e2ce)) (by Charles Chin)
+- home ticker static([`d2363bc`](https://github.com/eallion/eallion.com/commit/d2363bcc0988552630451095c99ae317bb92bd27)) (by Charles Chin)
+- stats local data([`da7b572`](https://github.com/eallion/eallion.com/commit/da7b572f790ab4e082a0f396a9cad6ce5a48c041)) (by Charles Chin)
+- build album static([`b327a88`](https://github.com/eallion/eallion.com/commit/b327a889af424437233df4e0f5350bdbe5b49f41)) (by Charles Chin)
+- build mastodon static([`5b1ac53`](https://github.com/eallion/eallion.com/commit/5b1ac53cd51e21154835528503f8a27ffef4b621)) (by Charles Chin)
+- aliyun esa purge all([`83bda53`](https://github.com/eallion/eallion.com/commit/83bda53f977fd56a8a18c696bcdeda018d612aa1)) (by Charles Chin)
+- migrate album  page to directus([`362bcfe`](https://github.com/eallion/eallion.com/commit/362bcfe8daedd2221e6504d818e2fb85bba70fd2)) (by Charles Chin), Closes: #165
+- migrate media page to directus([`b41da9f`](https://github.com/eallion/eallion.com/commit/b41da9f361c8ddc5f0c6d658db2766e90972e28a)) (by Charles Chin), Closes: #161
+- migrate friendslinks page to directus([`deb36df`](https://github.com/eallion/eallion.com/commit/deb36df51b2003b5e9285f61e60b35192e38fddf)) (by Charles Chin), Closes: #164
+- migrate goods page to directus([`406caea`](https://github.com/eallion/eallion.com/commit/406caea2c3eb2c623a49b7e2d78b4a7a34cc6cc6)) (by Charles Chin), Closes: #162
+- migrate penta to directus([`4f0c8b8`](https://github.com/eallion/eallion.com/commit/4f0c8b89e8313a3f89a7bbf6628c14aacb16f373)) (by Charles Chin)
+- authors([`3e19ef4`](https://github.com/eallion/eallion.com/commit/3e19ef47faa1ec9e63249bccd0b020f1a5f93e11)) (by Charles Chin)
+- llms.txt([`1889875`](https://github.com/eallion/eallion.com/commit/1889875bdcc7bc1c96f3923d09a4f64eab3fbd54)) (by Charles Chin)
+
+### Bugs fixed
+
+- use common js([`000db6d`](https://github.com/eallion/eallion.com/commit/000db6d46d3aee5eb887e8e34db23cca54912a6e)) (by Charles Chin)
+- update dep packages([`73d87f4`](https://github.com/eallion/eallion.com/commit/73d87f4d8b0981c5972efbb8b2d44c79bb31ff5a)) (by Charles Chin)
+- fix the data file does not exist build error([`fd44c76`](https://github.com/eallion/eallion.com/commit/fd44c768ea68893be04419259cce2ff488789b4c)) (by Charles Chin)
+- stats heatmap no javascript([`4d6e089`](https://github.com/eallion/eallion.com/commit/4d6e08950b144f794b0340090f78ca7ec67205f2)) (by Charles Chin)
+- directus fetch series([`012b99d`](https://github.com/eallion/eallion.com/commit/012b99d71c35eea821b41decf2243f5847926149)) (by Charles Chin)
+
+### Performance improves
+
+- update directus fetch script([`b40d228`](https://github.com/eallion/eallion.com/commit/b40d228914606d96784b170de60dc7ae5da71fc0)) (by Charles Chin)
+
 ## v5.0.1 (2025-08-18)
 
 ### Bug fix
