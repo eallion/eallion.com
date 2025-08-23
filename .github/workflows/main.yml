@@ -106,7 +106,6 @@ jobs:
             --access-key-secret ${{ secrets.ACCESS_KEY_SECRET }} \
             --region cn-hangzhou \
             --language zh \
-            --output_format json \
             --site china
 
       - name: Build Hugo
