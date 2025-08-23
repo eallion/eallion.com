@@ -113,7 +113,7 @@
 {{ $pentaCount := 103 }}
 {{ $pentaCountResource := resources.Get "data/penta/penta.json" }}
 {{ if $pentaCountResource }}
-    {{ $penta := $friendsResource | transform.Unmarshal }}
+    {{ $penta := $pentaCountResource | transform.Unmarshal }}
     {{ if $penta }}
         {{ $pentaCount = len $penta }}
     {{ end }}
