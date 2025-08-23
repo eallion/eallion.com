@@ -2692,6 +2692,10 @@ body.zen-mode-enable {
     --tw-leading: 12px;
     line-height: 12px;
   }
+  .leading-none {
+    --tw-leading: 1;
+    line-height: 1;
+  }
   .\!font-normal {
     --tw-font-weight: var(--font-weight-normal) !important;
     font-weight: var(--font-weight-normal) !important;

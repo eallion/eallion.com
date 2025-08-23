@@ -6,6 +6,7 @@
 
 .edgeone/
 content/blog/*.md
+assets/data/album/
 assets/data/friends/
 assets/data/goods/
 assets/data/mastodon/
@@ -15,6 +16,7 @@ assets/data/steam/
 assets/data/summary/
 # Can be `git add static/llms.txt` to add the file to the repository
 static/llms.txt
+static/llms-full.txt
 
 ### Hugo ###
 
