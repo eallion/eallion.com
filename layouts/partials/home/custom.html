@@ -76,12 +76,57 @@
                                 <div class="absolute bottom-0 left-full -ml-9 mb-1 w-8 h-8 rounded-full flex items-center justify-center group-hover:w-min group-hover:h-8 group-hover:rounded-lg transition-all duration-300">
                                   <div class="ticker hidden sm:flex w-9 sm:w-[226px] md:w-[295px] lg:w-[476px] min-w-[36px] transition-all duration-300">
                                       <div id="ticker" class="flex">
-                                        <div class="ticker-header"></div>
-                                        <ul class="ticker-list">
-                                          <li class="ticker-item">
-                                            <a href="https://www.eallion.com/mastodon/" target="_blank" rel="noopener noreferrer">机会总是垂青于有准备的人！</a>
-                                          </li>
-                                        </ul>
+                                        {{ $mastodonData := "" }}
+                                        {{ with resources.Get "data/mastodon/mastodon.json" }}
+                                          {{ $mastodonData = . | transform.Unmarshal }}
+                                        {{ end }}
+
+                                        {{ if $mastodonData }}
+                                          {{ if gt (len $mastodonData) 0 }}
+                                            <div class="ticker-header"></div>
+                                            <ul class="ticker-list">
+                                              {{ range $index, $item := first 10 $mastodonData }}
+                                                {{ $isReblog := false }}
+                                                {{ $content := "" }}
+
+                                                {{ if and $item.reblog $item.reblog.content }}
+                                                  {{ $isReblog = true }}
+                                                  {{ $content = $item.reblog.content }}
+                                                {{ else if $item.content }}
+                                                  {{ $content = $item.content }}
+                                                {{ end }}
+
+                                                {{ if $content }}
+                                                  {{ $textContent := $content | plainify }}
+                                                  {{ $textContent = replace $textContent ":star_empty:" "🌑" }}
+                                                  {{ $textContent = replace $textContent ":star_half:" "🌗" }}
+                                                  {{ $textContent = replace $textContent ":star_solid:" "🌕" }}
+
+                                                  <li class="ticker-item{{ if eq $index 0 }} active{{ end }}" data-index="{{ $index }}" data-created-at="{{ $item.created_at }}">
+                                                    <span class="datetime ml-1" data-time="{{ $item.created_at }}"></span>
+                                                    <a href="{{ $item.url }}" target="_blank" rel="noopener noreferrer">{{ if $isReblog }}【转】{{ end }}{{ $textContent }}</a>
+                                                  </li>
+                                                {{ end }}
+                                              {{ end }}
+                                            </ul>
+                                          {{ else }}
+                                            <div class="ticker-header"></div>
+                                            <ul class="ticker-list">
+                                              <li class="ticker-item active" data-index="0">
+                                                <span class="datetime ml-1">刚刚</span>
+                                                <a href="https://www.eallion.com/mastodon/" target="_blank" rel="noopener noreferrer">暂无动态数据</a>
+                                              </li>
+                                            </ul>
+                                          {{ end }}
+                                        {{ else }}
+                                          <div class="ticker-header"></div>
+                                          <ul class="ticker-list">
+                                            <li class="ticker-item active" data-index="0">
+                                              <span class="datetime ml-1">刚刚</span>
+                                              <a href="https://www.eallion.com/mastodon/" target="_blank" rel="noopener noreferrer">机会总是垂青于有准备的人！</a>
+                                            </li>
+                                          </ul>
+                                        {{ end }}
                                       </div>
                                   </div>
                               </div>
@@ -953,76 +998,6 @@
 </script>
 
 <script>
-  // 远程 JSON API 地址
-  let jsonUrl = "https://www.eallion.com/api/v1/accounts/111136231674527355/statuses?limit=10&exclude_replies=true&exclude_reblogs=true";
-
-  // 处理 Json 数据
-  if (document.querySelector('#ticker')) {
-    fetch(jsonUrl)
-      .then(res => res.json())
-      .then(data => {
-        // 处理数据并生成 HTML
-        const result = data.map((item, i) => {
-          const tickerTime = new Date(item.created_at);
-          const tickerUrl = item.url;
-          const relativeTime = getRelativeTime(tickerTime);
-
-          // 判断是否为转帖
-          const isReblog = item.reblog && Object.keys(item.reblog).length > 0;
-          const content = isReblog ? item.reblog.content : item.content;
-
-          // 提取并处理文本内容
-          let tickerContent = extractTextFromHtml(content);
-          tickerContent = replaceMultiple(tickerContent);
-
-          // 生成 HTML
-          return `
-            <li class="ticker-item" data-index="${i}">
-              <span class="datetime ml-1">${relativeTime}</span>
-              <a href="${tickerUrl}" target="_blank">${isReblog ? '【转】' : ''}${tickerContent}</a>
-            </li>
-          `;
-        }).join('');
-
-        // 更新 DOM
-        const tickerDom = document.querySelector('#ticker');
-        tickerDom.innerHTML = `
-          <div class="ticker-header"></div>
-          <ul class="ticker-list">${result}</ul>
-        `;
-
-        // 初始化第一个 ticker-item 为 active
-        const tickerItems = document.querySelectorAll('.ticker-item');
-        if (tickerItems.length > 0) {
-          tickerItems[0].classList.add('active');
-        }
-
-        // 启动滚动效果
-        slideTickerItem();
-      });
-  }
-
-  // 滚动效果
-  function slideTickerItem() {
-    var tickerItems = document.querySelectorAll('.ticker-item');
-    if (tickerItems.length > 0) {
-      var activeItem = document.querySelector('.ticker-item.active');
-      var nextIndex = (parseInt(activeItem.getAttribute('data-index')) + 1) % tickerItems.length;
-      var nextItem = document.querySelector(`.ticker-item[data-index="${nextIndex}"]`);
-
-      activeItem.classList.remove('active');
-      activeItem.classList.add('out');
-      nextItem.classList.add('in');
-
-      setTimeout(() => {
-        activeItem.classList.remove('out');
-        nextItem.classList.remove('in');
-        nextItem.classList.add('active');
-      }, 300);
-    }
-    setTimeout(slideTickerItem, 3000);
-  }
-
   // 计算相对时间的函数
   function getRelativeTime(date) {
     const rtf = new Intl.RelativeTimeFormat('zh-CN', { numeric: "auto", style: 'short' });
@@ -1052,27 +1027,53 @@
     }
   }
 
-  // 替换字符串
-  function replaceMultiple(str) {
-    const replacements = {
-      '\\s*:star_empty:\\s*': '🌑',
-      '\\s*:star_half:\\s*': '🌗',
-      '\\s*:star_solid:\\s*': '🌕'
-    };
-
-    let result = str;
-    for (const pattern in replacements) {
-      const regex = new RegExp(pattern, 'g');
-      result = result.replace(regex, replacements[pattern]);
-    }
-    return result;
+  // 更新相对时间显示
+  function updateRelativeTimes() {
+    const timeElements = document.querySelectorAll('.ticker-item .datetime[data-time]');
+    timeElements.forEach(element => {
+      const timeStr = element.getAttribute('data-time');
+      if (timeStr) {
+        const date = new Date(timeStr);
+        element.textContent = getRelativeTime(date);
+      }
+    });
   }
 
-  // 提取 HTML 代码中的纯文本内容
-  function extractTextFromHtml(html) {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-    return doc.body.textContent || '';
+  // 滚动效果
+  function slideTickerItem() {
+    const tickerItems = document.querySelectorAll('.ticker-item');
+    if (tickerItems.length > 1) {
+      const activeItem = document.querySelector('.ticker-item.active');
+      if (activeItem) {
+        const nextIndex = (parseInt(activeItem.getAttribute('data-index')) + 1) % tickerItems.length;
+        const nextItem = document.querySelector(`.ticker-item[data-index="${nextIndex}"]`);
+
+        if (nextItem) {
+          activeItem.classList.remove('active');
+          activeItem.classList.add('out');
+          nextItem.classList.add('in');
+
+          setTimeout(() => {
+            activeItem.classList.remove('out');
+            nextItem.classList.remove('in');
+            nextItem.classList.add('active');
+          }, 300);
+        }
+      }
+    }
+    setTimeout(slideTickerItem, 3000);
+  }
+
+  // 初始化
+  if (document.querySelector('#ticker')) {
+    // 更新相对时间
+    updateRelativeTimes();
+
+    // 启动滚动效果
+    slideTickerItem();
+
+    // 定期更新相对时间（每分钟更新一次）
+    setInterval(updateRelativeTimes, 60000);
   }
 </script>
 {{ $backgroundBlur := resources.Get "js/background-blur.js" }}
