@@ -44,13 +44,7 @@ async function createMarkdownFiles(articles) {
   console.log(`总共获取到 ${articles.length} 篇文章。`);
 
   for (const article of articles) {
-    const { slug, content, code, ...otherFields } = article;
-
-    // 检查 slug 是否存在，如果不存在则跳过
-    if (!slug) {
-      console.warn('警告：发现一篇文章没有 slug 字段，已跳过。');
-      continue;
-    }
+    let { slug, content, code, ...otherFields } = article;
 
     // 构建 Front Matter 对象
     const frontMatter = {};
@@ -60,6 +54,13 @@ async function createMarkdownFiles(articles) {
       if (key === 'id' || value === null || value === undefined) {
         continue;
       }
+
+      newSlug = slug
+        .trim() // 去掉首尾空格或换行符
+        .replace(/\s+/g, '-') // 如果中间有空格替换为 -
+        .toLowerCase(); // 如果有大写，转换为小写
+
+      frontMatter['slug'] = newSlug;
 
       if (key === 'tags' && Array.isArray(value)) {
         // 提取 tags 的 name
@@ -110,7 +111,7 @@ async function createMarkdownFiles(articles) {
     }
 
     // 写入文件
-    const filePath = path.join(HUGO_CONTENT_DIR, `${slug}.md`);
+    const filePath = path.join(HUGO_CONTENT_DIR, `${newSlug}.md`);
     fs.writeFileSync(filePath, markdownContent, 'utf-8');
     console.log(`成功创建文件：${filePath}`);
   }
