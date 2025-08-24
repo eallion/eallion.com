@@ -20,7 +20,7 @@ const rl = readline.createInterface({
 
 rl.question('Input your post title (CJK Available): ', async title => {
 	const translateText = async (source, direction) => {
-		const url = "http://api.interpreter.caiyunai.com/v1/translator";
+		const url = "https://api.interpreter.caiyunai.com/v1/translator";
 		const token = process.env.CAIYUN_TOKEN || '3975l6lr5pcbvidl6jl2'; // 使用环境变量中的 token，如果没有则使用公共 token
 
 		const payload = {
