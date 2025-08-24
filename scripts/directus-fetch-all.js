@@ -497,7 +497,7 @@ async function createMarkdownFiles(articles) {
   console.log(`总共获取到 ${articles.length} 篇文章。`);
 
   for (const article of articles) {
-    let { slug, content, code, title, ...otherFields } = article;
+    let { slug, content, code, ...otherFields } = article;
 
     // 构建 Front Matter 对象
     const frontMatter = {};
