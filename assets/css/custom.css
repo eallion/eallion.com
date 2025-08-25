@@ -901,6 +901,10 @@ html.dark .shiki span {
   padding-bottom: 150%;
 }
 
+.icon {
+  margin-bottom: -0.125rem;
+}
+
 /* Tailwind CSS Custom End */
 
 .ticker {

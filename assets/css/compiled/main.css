@@ -1230,6 +1230,9 @@ body.zen-mode-enable {
   .\!mb-9 {
     margin-bottom: calc(var(--spacing) * 9) !important;
   }
+  .-mb-0\.5 {
+    margin-bottom: calc(var(--spacing) * -0.5);
+  }
   .-mb-1 {
     margin-bottom: calc(var(--spacing) * -1);
   }

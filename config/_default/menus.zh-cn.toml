@@ -16,7 +16,7 @@
   weight = 10
 
 [[main]]
-  name = "嘀咕<sup>🔥</sup>"
+  name = "嘀咕"
   pageRef = "mastodon"
   weight = 11
 
