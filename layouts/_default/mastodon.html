@@ -605,4 +605,8 @@ document.addEventListener('DOMContentLoaded', function() {
 {{ $viewJS := resources.Get "js/view-image.min.js" | fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $viewJS.RelPermalink }}" integrity="{{ $viewJS.Data.Integrity }}"></script>
 
+<script>
+    window.ViewImage && ViewImage.init('.mt-images-container a');
+</script>
+
 {{ end }}
