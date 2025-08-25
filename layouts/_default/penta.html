@@ -40,7 +40,8 @@
           <div class="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-8 gap-x-2.5" view-image>
             {{ $pentaResource := resources.Get "data/penta/penta.json" }}
             {{ $penta := $pentaResource | transform.Unmarshal }}
-            {{ range $penta }}
+            {{ $sortedPenta := sort $penta "date" "desc" }}
+            {{ range $sortedPenta }}
                 {{ $screenshotSrc := .screenshot }}
 
                 {{ $date := dateFormat "Jan 2, 2006" .date }}
