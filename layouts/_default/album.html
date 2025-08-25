@@ -189,7 +189,8 @@
 
         <div class="album-gallery" id="ealbum-gallery">
           {{ if $albumData }}
-            {{ range $albumData }}
+            {{ $sortedAlbumData := sort $albumData "date" "desc" }}
+            {{ range $sortedAlbumData }}
               {{ $photo := . }}
               {{ if and $photo.url $photo.preview_url }}
                 <a href="{{ $photo.url }}"
