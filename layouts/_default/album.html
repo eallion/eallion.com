@@ -254,9 +254,7 @@
   };
 
   const lightbox = new PhotoSwipeLightbox({
-    showHideAnimationType: 'zoom',
-    showAnimationDuration: 1000,
-    hideAnimationDuration: 1000,
+    showHideAnimationType: 'none',
     imageClickAction: 'close',
     tapAction: 'close',
     doubleTapAction: false,
@@ -267,6 +265,7 @@
     counter: false,
     gallery: '#ealbum-gallery',
     children: 'a',
+    showHideAnimationType: 'zoom',
     pswpModule: () => import('{{ $photoswipeJS.RelPermalink }}'),
   });
 
@@ -275,16 +274,6 @@
     captionContent: '.pswp-caption-content',
     horizontalEdgeThreshold: 200,
     mobileCaptionStyle: 'below'
-  });
-
-  lightbox.on('firstUpdate', () => {
-    lightbox.pswp.options.easing = backEasing.out;
-  });
-  lightbox.on('initialZoomInEnd', () => {
-    lightbox.pswp.options.easing = backEasing.inOut;
-  });
-  lightbox.on('close', () => {
-    lightbox.pswp.options.easing = backEasing.in;
   });
   lightbox.init();
 
