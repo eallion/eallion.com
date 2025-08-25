@@ -3945,6 +3945,11 @@ body.zen-mode-enable {
       display: flex;
     }
   }
+  .sm\:inline {
+    @media (width >= 640px) {
+      display: inline;
+    }
+  }
   .sm\:w-1\/2 {
     @media (width >= 640px) {
       width: calc(1/2 * 100%);

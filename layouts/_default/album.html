@@ -1,155 +1,19 @@
 {{ define "main" }}
 {{ .Scratch.Set "scope" "single" }}
 
-{{ $photoswipeCss := resources.Get "css/photoswipe.css" | fingerprint "sha256" }}
-<link rel="stylesheet" href="{{ $photoswipeCss.RelPermalink }}" integrity="{{ $photoswipeCss.Data.Integrity }}" crossorigin="anonymous">
+{{ $justifiedGalleryCss := resources.Get "css/justifiedGallery.min.css" | fingerprint "sha256" }}
+<link rel="stylesheet" href="{{ $justifiedGalleryCss.RelPermalink }}" integrity="{{ $justifiedGalleryCss.Data.Integrity }}" crossorigin="anonymous">
+
+{{ $justifiedGalleryJS := resources.Get "js/jquery.justifiedGallery.min.js" | fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $justifiedGalleryJS.RelPermalink }}" integrity="{{ $justifiedGalleryJS.Data.Integrity }}"></script>
+
+{{ $fastBlurhashJS := resources.Get "js/fast-blurhash.min.js" | fingerprint "sha256" }}
 
 {{ $lazyloadJS := resources.Get "js/lazyload.iife.min.js" | fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $lazyloadJS.RelPermalink }}" integrity="{{ $lazyloadJS.Data.Integrity }}"></script>
 
-{{ $photoswipeJS := resources.Get "js/photoswipe.esm.min.js" | fingerprint "sha256" }}
-{{ $photoswipeLightboxJS := resources.Get "js/photoswipe-lightbox.esm.min.js" | fingerprint "sha256" }}
-{{ $photoswipeCaptionJS := resources.Get "js/photoswipe-dynamic-caption-plugin.esm.min.js" | fingerprint "sha256" }}
-{{ $fastBlurhashJS := resources.Get "js/fast-blurhash.min.js" | fingerprint "sha256" }}
-
-
-<style>
-  .album-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
-    padding-top: 20px;
-    min-height: 300px;
-  }
-
-  .album-gallery a {
-    display: block;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-  }
-
-  .album-gallery a:hover {
-    transform: scale(1.05);
-  }
-
-  .album-gallery img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    margin-top: 0;
-    margin-bottom: 0
-  }
-
-  .album-loader {
-    text-align: center;
-    padding: 40px;
-    font-size: 1.2em;
-    color: #888;
-  }
-
-  .pswp-caption-content {
-    display: none;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    text-align: left;
-  }
-
-  .pswp-caption-title {
-    margin: 0 0 10px 0;
-    font-size: 18px;
-    line-height: 1.4;
-    font-weight: bold;
-  }
-
-  .pswp-caption-body p {
-    margin: 0;
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
-  .pswp__dynamic-caption {
-    color: #fff;
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    transition: opacity 120ms linear !important;
-    /* override default */
-  }
-
-  .pswp-caption-content {
-    display: none;
-  }
-
-  .pswp__dynamic-caption a {
-    color: #fff;
-  }
-
-  .pswp__dynamic-caption--faded {
-    opacity: 0 !important;
-  }
-
-  .pswp__dynamic-caption--aside {
-    width: auto;
-    max-width: 300px;
-    padding: 20px 15px 20px 20px;
-    margin-top: 70px;
-  }
-
-  .pswp__dynamic-caption--below {
-    width: auto;
-    max-width: 700px;
-    padding: 15px 0 0;
-  }
-
-  .pswp__dynamic-caption--on-hor-edge {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  .pswp__dynamic-caption--mobile {
-    width: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 10px 15px;
-
-    right: 0;
-    bottom: 0;
-
-    /* override styles that were set via JS.
-    as they interfere with size measurement */
-    top: auto !important;
-    left: 0 !important;
-  }
-
-  .album-gallery img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-
-  /* 隐藏 LazyLoad 的加载文字 */
-  .lazyload:not([src]):not([src*="data:"])::before,
-  .lazy:not([src]):not([src*="data:"])::before,
-  .lazyloading:not([src]):not([src*="data:"])::before {
-    content: "" !important;
-    display: none !important;
-  }
-
-  /* 确保图片在加载过程中不显示任何文字 */
-  .album-gallery img:not([src]):not([src*="data:"]),
-  .album-gallery img[src=""] {
-    color: transparent;
-    text-indent: -9999px;
-    font-size: 0;
-  }
-</style>
+{{ $viewJS := resources.Get "js/view-image.min.js" | fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $viewJS.RelPermalink }}" integrity="{{ $viewJS.Data.Integrity }}"></script>
 
 <article>
   {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
@@ -174,236 +38,120 @@
       {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
     </div>
   </header>
+
   <noscript>
-    Please enable JavaScript to view the Album page.
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+      <strong class="font-bold">Error!</strong>
+      <span class="block sm:inline">Please enable JavaScript to view the Album page for layout and lazy loading.</span>
+    </div>
   </noscript>
+
   <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
     <div class="min-w-0 min-h-0 max-w-full">
       <div class="article-content max-w-full mb-20">
         {{ .Content }}
 
-        {{ $albumData := "" }}
-        {{ with resources.Get "data/album/album.json" }}
-          {{ $albumData = . | transform.Unmarshal }}
-        {{ end }}
+        {{ $albumData := resources.Get "data/album/album.json" | unmarshal }}
+        {{ $sortedAlbum := sort $albumData "date" "desc" }}
 
-        <div class="album-gallery" id="ealbum-gallery">
-          {{ if $albumData }}
-            {{ $sortedAlbumData := sort $albumData "date" "desc" }}
-            {{ range $sortedAlbumData }}
-              {{ $photo := . }}
-              {{ if and $photo.url $photo.preview_url }}
-                <a href="{{ $photo.url }}"
-                  data-pswp-width="{{ default $photo.width $photo.preview_width }}"
-                  data-pswp-height="{{ default $photo.height $photo.preview_height }}"
-                  target="_blank"
-                  rel="noopener noreferrer">
+        <div id="ealbum" class="justified-gallery">
+          {{ range $sortedAlbum }}
+            <div>
+              <a href="{{ .url }}" data-blurhash="{{ .blurhash }}">
+                <img class="lazy"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                    data-src="{{ .preview_url }}"
+                    alt="{{ .description | default .content | markdownify }}"
+                    width="{{ .preview_width }}"
+                    height="{{ .preview_height }}"
+                    />
+              </a>
+              <div class="jg-caption">
+                {{ $content := .content | plainify | safeHTML }}
 
-                  <img class="lazy"
-                    style="background-color: #f0f0f0; aspect-ratio: {{ default 1 $photo.width }} / {{ default 1 $photo.height }};"
-                    alt="{{ default "相册图片" $photo.description }}"
-                    width="{{ default 1 $photo.width }}"
-                    height="{{ default 1 $photo.height }}"
-                    src="/assets/images/album/x20.png"
-                    data-src="{{ $photo.preview_url }}"
-                    {{ if $photo.blurhash }}
-                      data-blurhash="{{ $photo.blurhash }}"
-                      data-photo-data='{"blurhash":"{{ $photo.blurhash }}","width":{{ default 1 $photo.width }},"height":{{ default 1 $photo.height }},"preview_url":"{{ $photo.preview_url }}"}'
-                    {{ end }}>
+                {{ $description := .description | markdownify }}
+                {{ $description = replace $description "<br>" "" }}
+                {{ $description = replace $description "<br/>" "" }}
+                {{ $description = replace $description "<br />" "" }}
+                {{ $description = replace $description "\n" "" }}
+                {{ $description = replace $description "\r" "" }}
+                {{ $description = $description | chomp }}
+                {{ $description = $description | safeHTML }}
 
-                  <div class="pswp-caption-content">
-                    {{ if $photo.description }}
-                      <div class="pswp-caption-title">{{ $photo.description }}</div>
-                    {{ end }}
-                    {{ if $photo.content }}
-                      <div class="pswp-caption-body">{{ $photo.content | safeHTML }}</div>
-                    {{ end }}
-                  </div>
-                </a>
-              {{ end }}
-            {{ end }}
-          {{ else }}
-            <p class="album-loader">无法加载相册数据。</p>
+                <a href="https://e5n.cc/@eallion/{{- .statuses_id | plainify -}}" target="_blank" rel="noopener noreferrer" no-view>{{ $description | default $content }}</a>
+                </div>
+            </div>
           {{ end }}
         </div>
 
       </div>
     </div>
   </section>
-</article>
 
 <script type="module">
-  // 导入 PhotoSwipe 模块
-  import PhotoSwipeLightbox from '{{ $photoswipeLightboxJS.RelPermalink }}';
-  import PhotoSwipeDynamicCaption from '{{ $photoswipeCaptionJS.RelPermalink }}';
+
   import { decodeBlurHash } from '{{ $fastBlurhashJS.RelPermalink }}';
 
-  // 创建 Intersection Observer 实例
-  let intersectionObserver;
-  let blurhashDecodeQueue = []; // 解码头队列
-  let isProcessingQueue = false; // 是否正在处理队列
+  $(document).ready(function () {
+    $("#ealbum").justifiedGallery({
+      rowHeight: 220,
+      maxRowHeight: -1,
+      margins: 12,
+      lastRow: 'nojustify',
+      selector: 'a, div:not(.jg-caption) a',
+      captions: true,
+      cssAnimation: true,
+      imagesAnimationDuration: 300,
+      waitThumbnailsLoad: false
+    }).on('jg.complete', function () {
+      // Initialize LazyLoad with callbacks to handle blurhash background
+      var lazyLoadInstance = new LazyLoad({
+        elements_selector: ".lazy",
+        callback_enter: function(element) {
+          // Get the parent <a> tag
+          const parentLink = $(element).closest('a');
+          const blurhash = parentLink.data('blurhash');
 
-  const lazyLoadInstance = new LazyLoad({
-    elements_selector: ".lazy"
-  });
+          if (blurhash) {
+            try {
+              // Decode blurhash to create a placeholder image
+              const pixels = decodeBlurHash(blurhash, 16, 16);
 
-  const backEasing = {
-    in: 'cubic-bezier(0.6, -0.28, 0.7, 1)',
-    out: 'cubic-bezier(0.3, 0, 0.32, 1.275)',
-    inOut: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
-  };
+              const canvas = document.createElement('canvas');
+              canvas.width = 16;
+              canvas.height = 16;
+              const ctx = canvas.getContext('2d');
+              const imageData = ctx.createImageData(16, 16);
+              imageData.data.set(pixels);
+              ctx.putImageData(imageData, 0, 0);
 
-  const lightbox = new PhotoSwipeLightbox({
-    showHideAnimationType: 'none',
-    imageClickAction: 'close',
-    tapAction: 'close',
-    doubleTapAction: false,
-    zoom: false,
-    arrowPrev: false,
-    arrowNext: false,
-    bgOpacity: 0.95,
-    counter: false,
-    gallery: '#ealbum-gallery',
-    children: 'a',
-    showHideAnimationType: 'zoom',
-    pswpModule: () => import('{{ $photoswipeJS.RelPermalink }}'),
-  });
-
-  const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
-    type: 'aside',
-    captionContent: '.pswp-caption-content',
-    horizontalEdgeThreshold: 200,
-    mobileCaptionStyle: 'below'
-  });
-  lightbox.init();
-
-  // 将 blurhash 解码为 data URL
-  function blurHashToDataUrl(blurhash, width, height) {
-    try {
-      if (!blurhash || typeof blurhash !== 'string') {
-        return '';
-      }
-      const w = Math.max(1, Math.min(64, width || 16));
-      const h = Math.max(1, Math.min(64, height || 16));
-      const pixels = decodeBlurHash(blurhash, w, h);
-      const canvas = document.createElement('canvas');
-      canvas.width = w;
-      canvas.height = h;
-      const ctx = canvas.getContext('2d');
-      const imageData = ctx.createImageData(w, h);
-      imageData.data.set(pixels);
-      ctx.putImageData(imageData, 0, 0);
-      return canvas.toDataURL();
-    } catch (error) {
-      console.error('BlurHash 解码失败：', error);
-      return '';
-    }
-  }
-
-  // 处理解码头队列
-  async function processDecodeQueue() {
-    if (isProcessingQueue || blurhashDecodeQueue.length === 0) {
-      return;
-    }
-    isProcessingQueue = true;
-    while (blurhashDecodeQueue.length > 0) {
-      const { img, photo } = blurhashDecodeQueue.shift();
-      const placeholderUrl = blurHashToDataUrl(photo.blurhash, 16, Math.round(16 * photo.height / photo.width));
-      if (placeholderUrl) {
-        img.style.backgroundImage = `url(${placeholderUrl})`;
-      } else {
-        img.style.backgroundColor = '#f0f0f0';
-      }
-      await new Promise(resolve => setTimeout(resolve, 5));
-    }
-    isProcessingQueue = false;
-  }
-
-  // 检查元素是否在视口附近
-  function isNearViewport(element, threshold = 200) {
-    if (!element) return false;
-    const rect = element.getBoundingClientRect();
-    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-    return (rect.top >= -threshold && rect.bottom <= windowHeight + threshold);
-  }
-
-  // 立即处理靠近视口的图片
-  function processVisibleImages() {
-    const lazyImages = document.querySelectorAll('.album-gallery img[data-blurhash]');
-    lazyImages.forEach(img => {
-      if (img && img.dataset && img.dataset.photoData) {
-        try {
-          const photoData = JSON.parse(img.dataset.photoData);
-          if (photoData && isNearViewport(img, 300)) {
-            const placeholderUrl = blurHashToDataUrl(
-              photoData.blurhash,
-              16,
-              Math.round(16 * photoData.height / photoData.width)
-            );
-            if (placeholderUrl) {
-              img.style.backgroundImage = `url(${placeholderUrl})`;
-            } else {
-              img.style.backgroundColor = '#f0f0f0';
+              // Set the blurhash image as background
+              parentLink.css({
+                'background-image': `url(${canvas.toDataURL()})`,
+                'background-size': 'cover'
+              });
+            } catch (e) {
+              console.error('Failed to decode blurhash:', e);
             }
-            img.removeAttribute('data-blurhash');
-            img.removeAttribute('data-photo-data');
           }
-        } catch (e) {
-          console.error('处理图片时出错：', e);
-          img.removeAttribute('data-blurhash');
-          img.removeAttribute('data-photo-data');
+        },
+        callback_loaded: function(element) {
+          // Remove the background once the image has fully loaded
+          const parentLink = $(element).closest('a');
+          parentLink.css('background-image', 'none');
+        },
+        callback_error: function(element) {
+          // Also remove the background if there's an error loading the image
+          const parentLink = $(element).closest('a');
+          parentLink.css('background-image', 'none');
         }
-      }
-    });
-  }
+      });
 
-  // 观察器回调函数
-  function handleIntersection(entries, observer) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        if (img && img.dataset && img.dataset.photoData) {
-          try {
-            const photoData = JSON.parse(img.dataset.photoData);
-            if (photoData && photoData.blurhash) {
-              blurhashDecodeQueue.push({ img, photo: photoData });
-              processDecodeQueue();
-            }
-          } catch (e) {
-            console.error('解析 photoData 时出错：', e);
-          }
-          observer.unobserve(img);
-        }
-      }
+      window.ViewImage && ViewImage.init('.justified-gallery a');
     });
-  }
-
-  // 页面加载完成后初始化
-  document.addEventListener('DOMContentLoaded', () => {
-    intersectionObserver = new IntersectionObserver(handleIntersection, {
-      rootMargin: '200px'
-    });
-    const lazyImages = document.querySelectorAll('.album-gallery img[data-blurhash]');
-    lazyImages.forEach(img => {
-      intersectionObserver.observe(img);
-    });
-    setTimeout(processVisibleImages, 0);
-    lazyLoadInstance.update();
-  });
-
-  // 监听滚动事件
-  let scrollTimer;
-  window.addEventListener('scroll', () => {
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(processVisibleImages, 100);
-  });
-
-  // 页面可见性变化时也处理图片
-  document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) {
-      setTimeout(processVisibleImages, 100);
-    }
   });
 </script>
+
+</article>
 
 {{ end }}
