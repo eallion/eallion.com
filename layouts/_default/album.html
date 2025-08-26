@@ -57,29 +57,29 @@
         {{ $sortedAlbum := sort $albumData "date" "desc" }}
           <div id="ealbum" class="justified-gallery">
             {{ range $sortedAlbum }}
+                {{ $content := .content | plainify | safeHTML }}
+
+                {{ $description := .description | markdownify }}
+                {{ $description = replace $description "<br>" "" }}
+                {{ $description = replace $description "<br/>" "" }}
+                {{ $description = replace $description "<br />" "" }}
+                {{ $description = replace $description "\n" "" }}
+                {{ $description = replace $description "\r" "" }}
+                {{ $description = replace $description "ealbum" "" }}
+                {{ $description = $description | chomp }}
+                {{ $description = $description | safeHTML }}
               <div>
                 <a href="{{ .url }}" data-blurhash="{{ .blurhash }}">
                   <img class="lazy"
                       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                       data-src="{{ .preview_url }}"
-                      alt="{{ .description | default .content | markdownify }}"
+                      alt="{{ $description | default $content | markdownify }}"
                       width="{{ .preview_width }}"
                       height="{{ .preview_height }}"
                       />
                 </a>
                 <div class="jg-caption">
-                  {{ $content := .content | plainify | safeHTML }}
-
-                  {{ $description := .description | markdownify }}
-                  {{ $description = replace $description "<br>" "" }}
-                  {{ $description = replace $description "<br/>" "" }}
-                  {{ $description = replace $description "<br />" "" }}
-                  {{ $description = replace $description "\n" "" }}
-                  {{ $description = replace $description "\r" "" }}
-                  {{ $description = $description | chomp }}
-                  {{ $description = $description | safeHTML }}
-
-                  <a href="https://e5n.cc/@eallion/{{- .statuses_id | plainify -}}" target="_blank" rel="noopener noreferrer" no-view>{{ $description | default $content }}</a>
+                  <a href="https://e5n.cc/@eallion/{{- .statuses_id | plainify -}}" class="text-neutral hover:text-neutral" target="_blank" rel="noopener noreferrer" no-view>{{ $description | default $content }}</a>
                   </div>
               </div>
             {{ end }}
