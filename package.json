@@ -17,7 +17,7 @@
     "directus:album": "node scripts/directus-fetch-album.js",
     "directus:goods": "node scripts/directus-fetch-goods.js",
     "directus:latest": "node scripts/directus-fetch-latest-10-articles.js",
-    "directus:links": "node scripts/directus-fetch-friends-links.js",
+    "directus:friendslinks": "node scripts/directus-fetch-friends-links.js",
     "directus:mastodon": "node scripts/directus-fetch-mastodon.js",
     "directus:neodb": "node scripts/directus-fetch-neodb.js",
     "directus:penta": "node scripts/directus-fetch-penta.js",

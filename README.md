@@ -149,7 +149,7 @@ https://github.com/eallion/eallion.com/blob/main/assets/data/neodb/movie.json
 - `pnpm run directus`: 获取 Directus 数据
 - `pnpm run directus:album`: 获取 Directus 随手拍数据
 - `pnpm run directus:goods`: 获取 Directus 好物推荐数据
-- `pnpm run directus:links`: 获取 Directus 友情链接数据
+- `pnpm run directus:friendslinks`: 获取 Directus 友情链接数据
 - `pnpm run directus:mastodon`: 获取 Mastodon API 数据
 - `pnpm run directus:neodb`: 获取官方 NeoDB API 数据
 - `pnpm run directus:penta`: 获取 Directus 五杀数据

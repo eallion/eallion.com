@@ -15,12 +15,14 @@ on:
         type: choice
         options:
           - 'build-album'
+          - 'build-friendslinks'
+          - 'build-goods'
           - 'build-hugo'
           - 'build-mastodon'
           - 'build-media'
           - 'build-penta'
   repository_dispatch:
-    types: [build-album, build-hugo, build-mastodon, build-media, build-penta]
+    types: [build-album, build-friendslinks, build-goods, build-hugo, build-mastodon, build-media, build-penta]
 
 jobs:
   build-deploy:
@@ -206,3 +208,39 @@ jobs:
             --SiteId ${{ secrets.ESA_SITE_ID }} \
             --Type file \
             --Content '{"Files":["https://www.eallion.com/penta/index.html"]}'
+
+      - name: Build Hugo Goods
+        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-goods') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-goods')
+        run: |
+          # Fetch Directus Goods
+          pnpm run directus:goods
+
+          # Build Goods
+          hugo --minify --enableGitInfo --gc
+
+      - name: Purge Aliyun ESA Goods
+        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-goods') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-goods')
+        run: |
+          aliyun oss cp public/goods/index.html oss://eallion-com/goods/index.html --force
+          aliyun esa PurgeCaches \
+            --SiteId ${{ secrets.ESA_SITE_ID }} \
+            --Type file \
+            --Content '{"Files":["https://www.eallion.com/goods/index.html"]}'
+
+      - name: Build Hugo Friends Links
+        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-friendslinks') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-friendslinks')
+        run: |
+          # Fetch Directus Friends Links
+          pnpm run directus:friendslinks
+
+          # Build Friends Links
+          hugo --minify --enableGitInfo --gc
+
+      - name: Purge Aliyun ESA Friends Links
+        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-friendslinks') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-friendslinks')
+        run: |
+          aliyun oss cp public/links/index.html oss://eallion-com/links/index.html --force
+          aliyun esa PurgeCaches \
+            --SiteId ${{ secrets.ESA_SITE_ID }} \
+            --Type file \
+            --Content '{"Files":["https://www.eallion.com/links/index.html"]}'
