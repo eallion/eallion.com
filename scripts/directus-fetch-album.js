@@ -43,10 +43,36 @@ async function fetchAllAlbumData(offset = 0) {
 }
 
 /**
+ * 替换 Album 数据中的文件 URL 域名
+ * @param {Array} albumData Album 数据数组
+ * @returns {Array} 处理后的 Album 数据数组
+ */
+function replaceAlbumUrls(albumData) {
+  return albumData.map(item => {
+    // 确保 item 是对象且包含必要的属性
+    if (item && typeof item === 'object') {
+      // 替换 url 字段中的域名
+      if (item.url && typeof item.url === 'string') {
+        item.url = item.url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+      }
+
+      // 替换 preview_url 字段中的域名
+      if (item.preview_url && typeof item.preview_url === 'string') {
+        item.preview_url = item.preview_url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+      }
+    }
+    return item;
+  });
+}
+
+/**
  * 保存 Album 数据到 JSON 文件
  * @param {Array} albumData Album 数据数组
  */
 function saveAlbumDataToJson(albumData) {
+  // 处理 URL 替换
+  const processedAlbumData = replaceAlbumUrls(albumData);
+
   // 确保目标目录存在
   const albumDir = path.dirname(ALBUM_JSON_PATH);
   if (!fs.existsSync(albumDir)) {
@@ -55,8 +81,8 @@ function saveAlbumDataToJson(albumData) {
   }
 
   // 写入 JSON 文件（无需特殊处理）
-  fs.writeFileSync(ALBUM_JSON_PATH, JSON.stringify(albumData, null, 2), 'utf-8');
-  console.log(`成功保存 ${albumData.length} 条 Album 数据到 ${ALBUM_JSON_PATH}`);
+  fs.writeFileSync(ALBUM_JSON_PATH, JSON.stringify(processedAlbumData, null, 2), 'utf-8');
+  console.log(`成功保存 ${processedAlbumData.length} 条 Album 数据到 ${ALBUM_JSON_PATH}`);
 }
 
 // 主函数
