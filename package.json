@@ -15,6 +15,7 @@
     "dev-windows": "cd themes/blowfish && npm install && cd ../.. && set NODE_ENV=development && npx @tailwindcss/cli -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
     "directus": "node scripts/directus-fetch-all.js",
     "directus:album": "node scripts/directus-fetch-album.js",
+    "directus:anynow": "node scripts/directus-fetch-anynow.js",
     "directus:goods": "node scripts/directus-fetch-goods.js",
     "directus:latest": "node scripts/directus-fetch-latest-10-articles.js",
     "directus:friendslinks": "node scripts/directus-fetch-friends-links.js",
