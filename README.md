@@ -148,6 +148,7 @@ https://github.com/eallion/eallion.com/blob/main/assets/data/neodb/movie.json
 - `pnpm run dev-windows` Windows 启动 TailwindCSS 监听
 - `pnpm run directus`: 获取 Directus 数据
 - `pnpm run directus:album`: 获取 Directus 随手拍数据
+- `pnpm run directus:anynow`: 获取 Directus AnyNow 数据
 - `pnpm run directus:goods`: 获取 Directus 好物推荐数据
 - `pnpm run directus:friendslinks`: 获取 Directus 友情链接数据
 - `pnpm run directus:mastodon`: 获取 Mastodon API 数据
