@@ -68,14 +68,17 @@
                 {{ $description = replace $description "ealbum" "" }}
                 {{ $description = $description | chomp }}
                 {{ $description = $description | safeHTML }}
+
+                {{ $url := replace .url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}
+                {{ $preview_url := replace .preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}
               <div>
-                <a href="{{ .url }}" data-blurhash="{{ .blurhash }}">
+                <a href="{{- $url -}}" data-blurhash="{{- .blurhash -}}">
                   <img class="lazy"
                       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                      data-src="{{ .preview_url }}"
-                      alt="{{ $description | default $content | markdownify }}"
-                      width="{{ .preview_width }}"
-                      height="{{ .preview_height }}"
+                      data-src="{{- $preview_url -}}"
+                      alt="{{- $description | default $content | markdownify -}}"
+                      width="{{- .preview_width -}}"
+                      height="{{- .preview_height -}}"
                       />
                 </a>
                 <div class="jg-caption">
@@ -91,7 +94,7 @@
 
 <script type="module">
 
-  import { decodeBlurHash } from '{{ $fastBlurhashJS.RelPermalink }}';
+  import { decodeBlurHash } from '{{- $fastBlurhashJS.RelPermalink -}}';
 
   $(document).ready(function () {
     $("#ealbum").justifiedGallery({
