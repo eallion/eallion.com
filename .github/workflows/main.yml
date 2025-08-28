@@ -20,10 +20,10 @@ on:
           - 'build-goods'
           - 'build-hugo'
           - 'build-mastodon'
-          - 'build-media'
+          - 'build-neodb'
           - 'build-penta'
   repository_dispatch:
-    types: [build-album, build-anynow, build-friendslinks, build-goods, build-hugo, build-mastodon, build-media, build-penta]
+    types: [build-album, build-anynow, build-friendslinks, build-goods, build-hugo, build-mastodon, build-neodb, build-penta]
 
 jobs:
   build-deploy:
@@ -175,7 +175,7 @@ jobs:
             --Content '{"Files":["https://www.eallion.com/mastodon/index.html", "https://www.eallion.com/index.html"]}'
 
       - name: Build Hugo Media
-        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-media') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-media')
+        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-neodb') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-neodb')
         run: |
           # Fetch NeoDB Completed
           pnpm run directus:media
@@ -184,7 +184,7 @@ jobs:
           hugo --minify --enableGitInfo --gc
 
       - name: Purge Aliyun ESA Media
-        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-media') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-media')
+        if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-neodb') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-neodb')
         run: |
           aliyun oss cp public/media/index.html oss://eallion-com/media/index.html --force
           aliyun esa PurgeCaches \
