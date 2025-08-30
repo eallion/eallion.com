@@ -193,10 +193,12 @@
                           <!-- 单张图片 -->
                           {{ $mediaItem := index $post.media_attachments 0 }}
                           {{ $imgWidth := 0 }}
+                          {{ $imgHeight := 0 }}
                           {{ $aspectRatio := 1 }}
                           {{ if $mediaItem.meta }}
                             {{ if $mediaItem.meta.small }}
                               {{ $imgWidth = $mediaItem.meta.small.width }}
+                              {{ $imgHeight = $mediaItem.meta.small.height }}
                               {{ $aspectRatio = $mediaItem.meta.small.aspect }}
                             {{ end }}
                           {{ end }}
@@ -204,13 +206,17 @@
                           {{ if and (gt $imgWidth 640) (ge $aspectRatio 1.33) (le $aspectRatio 1.78) }}
                             {{ $objectFitClass = "object-cover" }}
                           {{ end }}
+                          {{ $mediaStyleName := "!mastodon.webp" }}
+                          {{ if gt $imgHeight 400 }}
+                            {{ $mediaStyleName = "!mastodon400.webp" }}
+                          {{ end }}
                           <div class="flex flex-row h-full">
                             <div class="w-full rounded-xl overflow-hidden">
                               {{ if $mediaItem.blurhash }}
                                 <canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-cover" data-blurhash="{{ $mediaItem.blurhash }}"></canvas>
                               {{ end }}
-                              <a href="{{ replace $mediaItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}">
-                                <img src="{{ replace $mediaItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}" alt="{{ $mediaItem.description }}" class="w-full h-full {{ $objectFitClass }}" nozoom loading="lazy">
+                              <a href="{{ replace $mediaItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.webp">
+                                <img src="{{ replace $mediaItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" alt="{{ $mediaItem.description }}" class="w-full h-full {{ $objectFitClass }}" nozoom loading="lazy">
                               </a>
                             </div>
                           </div>
@@ -236,8 +242,8 @@
                                 {{ if $mediaItem.blurhash }}
                                   <canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-contain {{ $alignmentClass }}" data-blurhash="{{ $mediaItem.blurhash }}"></canvas>
                                 {{ end }}
-                                <a href="{{ replace $mediaItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}">
-                                  <img src="{{ replace $mediaItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}" alt="{{ $mediaItem.description }}" class="w-full h-full {{ $objectFitClass }}" nozoom loading="lazy">
+                                <a href="{{ replace $mediaItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.webp">
+                                  <img src="{{ replace $mediaItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" alt="{{ $mediaItem.description }}" class="w-full h-full {{ $objectFitClass }}" nozoom loading="lazy">
                                 </a>
                               </div>
                             {{ end }}
@@ -292,8 +298,8 @@
                               {{ if $firstItem.blurhash }}
                                 <canvas class="absolute inset-0 -z-1 w-full h-full top-0 left-0 object-contain" data-blurhash="{{ $firstItem.blurhash }}"></canvas>
                               {{ end }}
-                              <a href="{{ replace $firstItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}">
-                                <img src="{{ replace $firstItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}" alt="{{ $firstItem.description }}" class="w-full h-full {{ $firstObjectFitClass }}" nozoom loading="lazy">
+                              <a href="{{ replace $firstItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.webp">
+                                <img src="{{ replace $firstItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" alt="{{ $firstItem.description }}" class="w-full h-full {{ $firstObjectFitClass }}" nozoom loading="lazy">
                               </a>
                             </div>
                             <div class="w-1/2 flex flex-col gap-2.5">
@@ -301,16 +307,16 @@
                                 {{ if $secondItem.blurhash }}
                                   <canvas class="absolute inset-0 -z-1 w-full h-full top-0 right-0 object-contain" data-blurhash="{{ $secondItem.blurhash }}"></canvas>
                                 {{ end }}
-                                <a href="{{ replace $secondItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}">
-                                  <img src="{{ replace $secondItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}" alt="{{ $secondItem.description }}" class="w-full h-full {{ $secondObjectFitClass }}" nozoom loading="lazy">
+                                <a href="{{ replace $secondItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.webp">
+                                  <img src="{{ replace $secondItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" alt="{{ $secondItem.description }}" class="w-full h-full {{ $secondObjectFitClass }}" nozoom loading="lazy">
                                 </a>
                               </div>
                               <div class="relative h-1/2 overflow-hidden rounded-xl">
                                 {{ if $thirdItem.blurhash }}
                                   <canvas class="absolute inset-0 -z-1 w-full h-full bottom-0 right-0 object-contain" data-blurhash="{{ $thirdItem.blurhash }}"></canvas>
                                 {{ end }}
-                                <a href="{{ replace $thirdItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}">
-                                  <img src="{{ replace $thirdItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}" alt="{{ $thirdItem.description }}" class="w-full h-full {{ $thirdObjectFitClass }}" nozoom loading="lazy">
+                                <a href="{{ replace $thirdItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.webp">
+                                  <img src="{{ replace $thirdItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" alt="{{ $thirdItem.description }}" class="w-full h-full {{ $thirdObjectFitClass }}" nozoom loading="lazy">
                                 </a>
                               </div>
                             </div>
@@ -335,8 +341,8 @@
                                 {{ if .blurhash }}
                                   <canvas class="absolute inset-0 -z-1 w-full h-full object-contain" data-blurhash="{{ .blurhash }}"></canvas>
                                 {{ end }}
-                                <a href="{{ replace .url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}">
-                                  <img src="{{ replace .preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}" alt="{{ .description }}" class="w-full h-full {{ $objectFitClass }}" nozoom loading="lazy">
+                                <a href="{{ replace .url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.webp">
+                                  <img src="{{ replace .preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" alt="{{ .description }}" class="w-full h-full {{ $objectFitClass }}" nozoom loading="lazy">
                                 </a>
                               </div>
                             {{ end }}

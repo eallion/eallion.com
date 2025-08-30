@@ -55,13 +55,14 @@
                     <div class="flex justify-center items-center m-0 mb-2 flex-col">
                         <div class="group relative overflow-hidden rounded w-full h-full">
                                 <figure class="mt-0 mb-0">
-                                    <img
-                                        class="mt-0 mb-0 rounded-md block w-full cursor-pointer object-cover h-full scale-100 hover:scale-110 transition-all duration-400 ease-in-out animate-fadeIn lazy"
-                                        loading="lazy"
-                                        src="/assets/images/penta/screenshot.png"
-                                        data-src="https://images.eallion.com/directus/files/{{- $screenshotSrc -}}"
-                                        alt="{{ $caption }} {{ $date }}"
-                                    />
+                                    <a href="https://images.eallion.com/directus/files/{{- $screenshotSrc -}}!pentaoriginal.webp">
+                                        <img
+                                            class="mt-0 mb-0 rounded-md block w-full cursor-pointer object-cover h-full scale-100 hover:scale-110 transition-all duration-400 ease-in-out animate-fadeIn lazy"
+                                            loading="lazy"
+                                            src="/assets/images/penta/screenshot.png"
+                                            data-src="https://images.eallion.com/directus/files/{{- $screenshotSrc -}}!penta.webp"
+                                            alt="{{ $caption }} {{ $date }}"
+                                        /></a>
                                 </figure>
                         </div>
                         <div class="w-11/12 flex justify-between items-center mt-2 mb-12 gap-5">
@@ -109,7 +110,7 @@
 {{ $viewJS := resources.Get "js/view-image.min.js" | fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $viewJS.RelPermalink }}" integrity="{{ $viewJS.Data.Integrity }}"></script>
 <script>
-    window.ViewImage && ViewImage.init('figure img');
+    window.ViewImage && ViewImage.init('figure a');
 </script>
 
 {{ end }}
