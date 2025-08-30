@@ -178,7 +178,7 @@ jobs:
         if: (github.event_name == 'workflow_dispatch' && github.event.inputs.build_content == 'build-neodb') || (github.event_name == 'repository_dispatch' && github.event.action == 'build-neodb')
         run: |
           # Fetch NeoDB Completed
-          pnpm run directus:media
+          pnpm run directus:neodb
 
           # Build Media
           hugo --minify --enableGitInfo --gc
