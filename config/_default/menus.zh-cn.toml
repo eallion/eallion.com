@@ -65,20 +65,21 @@
   weight = 50
 
 [[main]]
+  name = "友情链接"
+  parent = "更多"
+  pageRef = "links"
+  weight = 70
+
+[[main]]
   name = "版权信息"
   parent = "更多"
   pageRef = "copyright"
-  weight = 60
+  weight = 80
 
 [[main]]
   name = "隐私政策"
   parent = "更多"
   pageRef = "privacy-policy"
-  weight = 70
-
-[[main]]
-  name = "友情链接"
-  pageRef = "links"
   weight = 90
 
 [[main]]

@@ -45,7 +45,7 @@ smartTOCHideUnfocusedChildren = false
 
 [author]
   name = "大大的小蜗牛"
-  image = "images/eallion.png"
+  image = "https://images.eallion.com/avatar/eallion.png!hugo.webp"
   imageQuality = 96
   headline = "机会总是垂青于有准备的人！"
   bio = "机会总是垂青于有准备的人！"
@@ -84,7 +84,7 @@ smartTOCHideUnfocusedChildren = false
   layoutBackgroundBlur = true # only used when heroStyle equals background
   showBreadcrumbs = true
   showDraftLabel = true
-  showEdit = true
+  showEdit = false
   editURL = "https://github.com/eallion/eallion.com/tree/main/content"
   editAppendPath = true
   seriesOpened = false
@@ -122,8 +122,7 @@ smartTOCHideUnfocusedChildren = false
 
 [sitemap]
   excludedKinds = []
-
-excludedSections = ["milestone"]
+  excludedSections = ["milestone"]
 
 [layouts]
   [layouts.milestone]
@@ -151,7 +150,7 @@ excludedSections = ["milestone"]
   cardView = false
   cardViewScreenWidth = false
 
-[firebase]
+# [firebase]
   # apiKey = "AIzaSyB5tqlqDky77Vb4Tc4apiHV4hRZI18KGiY"
   # authDomain = "blowfish-21fff.firebaseapp.com"
   # projectId = "blowfish-21fff"
@@ -160,27 +159,27 @@ excludedSections = ["milestone"]
   # appId = "1:60108104191:web:039842ebe1370698b487ca"
   # measurementId = "G-PEDMYR1V0K"
 
-[fathomAnalytics]
+# [fathomAnalytics]
   # site = "ABC12345"
   # domain = "llama.yoursite.com"
 
-[umamiAnalytics]
-  websiteid = ""
-  domain = ""
-  dataDomains = ""
-  scriptName = ""
-  enableTrackEvent = true
+# [umamiAnalytics]
+  # websiteid = ""
+  # domain = ""
+  # dataDomains = ""
+  # scriptName = ""
+  # enableTrackEvent = true
 
-[selineAnalytics]
+# [selineAnalytics]
   # token = "XXXXXX"
   # enableTrackEvent = false
 
-[buymeacoffee]
-#   identifier = "nunocoracao"
-#   globalWidget = true
-#   globalWidgetMessage = ""
-#   globalWidgetColor = "#FFDD00"
-#   globalWidgetPosition = "Right"
+# [buymeacoffee]
+  # identifier = "nunocoracao"
+  # globalWidget = true
+  # globalWidgetMessage = ""
+  # globalWidgetColor = "#FFDD00"
+  # globalWidgetPosition = "Right"
 
 [verification]
   # google = ""
@@ -200,5 +199,5 @@ excludedSections = ["milestone"]
   feedId = "42331815237783556"
   userId = "41909911558319104"
 
-[advertisement]
+# [advertisement]
   # adsense = ""
