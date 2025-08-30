@@ -74,20 +74,34 @@ async function createMarkdownFiles(articles) {
       } else if (key === 'authors' && Array.isArray(value)) {
         // 提取 authors 的 username
         frontMatter[key] = value.map(author => author.Author_id.username);
-      } else if (key === 'featureimage' && value && typeof value === 'object') {
+      } else if (key === 'featureimage') {
           // 特别处理 featureimage：从对象中提取 filename_disk 值
-          if (value.filename_disk) {
-            const imageUrl = `${DIRECTUS_S3_URL}${value.filename_disk}`;
-            frontMatter[key] = imageUrl;
-          } else {
-            console.warn(`警告：featureimage 对象中没有 filename_disk 字段`);
+          try {
+            if (value && typeof value === 'object' && 'filename_disk' in value) {
+              if (value.filename_disk) {
+                const imageUrl = `${DIRECTUS_S3_URL}${value.filename_disk}`;
+                frontMatter[key] = imageUrl;
+              } else {
+                console.warn(`警告：featureimage 对象中的 filename_disk 字段为空`);
+              }
+            } else {
+              console.warn(`警告：featureimage 字段不是预期的对象格式`);
+            }
+          } catch (error) {
+            console.error(`处理 featureimage 时发生错误：${error.message}`);
+            // 可选：将错误信息添加到 frontMatter 中以便追踪
+            frontMatter[key] = null;
           }
       } else if (key === 'summary' && typeof value === 'string') {
-        // 处理 summary 字段：移除换行符并转义双引号
-        const cleanedSummary = value.replace(/\r?\n|\r/g, ' ').replace(/"/g, '\\"');
-        // 将 cleanedSummary 包装在双引号中，强制其在 YAML 中为单行
-        frontMatter[key] = `"${cleanedSummary}"`;
+        // 处理 summary 字段：移除换行符
+        const cleanedSummary = value.replace(/\r?\n|\r/g, ' ');
+        frontMatter[key] = cleanedSummary;
       } else {
+        // 添加 null 检查
+        if (value === null || value === undefined) {
+          console.log(`跳过空值字段：${key}`);
+          return;
+        }
         frontMatter[key] = value;
       }
     }
@@ -95,10 +109,8 @@ async function createMarkdownFiles(articles) {
     // 构建 Markdown 内容
     let markdownContent = '';
 
-    // 添加 Front Matter
-    markdownContent += '---\n';
-    markdownContent += yaml.dump(frontMatter, { skipInvalid: true, sortKeys: false });
-    markdownContent += '---\n\n';
+    // 添加 Front Matter (使用 JSON 格式)
+    markdownContent += JSON.stringify(frontMatter, null, 2) + '\n\n';
 
     // 添加 code 字段内容（如果有）
     if (code) {
