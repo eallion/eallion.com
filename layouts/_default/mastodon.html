@@ -225,16 +225,22 @@
                           <div class="flex flex-row h-full gap-2.5">
                             {{ range $index, $mediaItem := first 2 $post.media_attachments }}
                               {{ $imgWidth := 0 }}
+                              {{ $imgHeight := 0 }}
                               {{ $aspectRatio := 1 }}
                               {{ if $mediaItem.meta }}
                                 {{ if $mediaItem.meta.small }}
                                   {{ $imgWidth = $mediaItem.meta.small.width }}
+                                  {{ $imgHeight = $mediaItem.meta.small.height }}
                                   {{ $aspectRatio = $mediaItem.meta.small.aspect }}
                                 {{ end }}
                               {{ end }}
                               {{ $objectFitClass := "object-cover" }}
                               {{ if or (lt $imgWidth 320) (lt $aspectRatio 0.56) (gt $aspectRatio 2.3) }}
                                 {{ $objectFitClass = "object-contain" }}
+                              {{ end }}
+                              {{ $mediaStyleName := "!mastodon.webp" }}
+                              {{ if gt $imgHeight 400 }}
+                                {{ $mediaStyleName = "!mastodon400.webp" }}
                               {{ end }}
                               {{ $alignmentClass := "" }}
                               {{ if eq $index 0 }}{{ $alignmentClass = "left-0" }}{{ else }}{{ $alignmentClass = "right-0" }}{{ end }}
@@ -255,10 +261,12 @@
                           {{ $thirdItem := index $post.media_attachments 2 }}
 
                           {{ $firstImgWidth := 0 }}
+                          {{ $firstImgHeight := 0 }}
                           {{ $firstAspectRatio := 1 }}
                           {{ if $firstItem.meta }}
                             {{ if $firstItem.meta.small }}
                               {{ $firstImgWidth = $firstItem.meta.small.width }}
+                              {{ $firstImgHeight = $firstItem.meta.small.height }}
                               {{ $firstAspectRatio = $firstItem.meta.small.aspect }}
                             {{ end }}
                           {{ end }}
@@ -266,12 +274,18 @@
                           {{ if or (lt $firstImgWidth 320) (lt $firstAspectRatio 0.56) (gt $firstAspectRatio 2.3) }}
                             {{ $firstObjectFitClass = "object-contain" }}
                           {{ end }}
+                          {{ $firstMediaStyleName := "!mastodon.webp" }}
+                          {{ if gt $firstImgHeight 400 }}
+                            {{ $firstMediaStyleName = "!mastodon400.webp" }}
+                          {{ end }}
 
                           {{ $secondImgWidth := 0 }}
+                          {{ $secondImgHeight := 0 }}
                           {{ $secondAspectRatio := 1 }}
                           {{ if $secondItem.meta }}
                             {{ if $secondItem.meta.small }}
                               {{ $secondImgWidth = $secondItem.meta.small.width }}
+                              {{ $secondImgHeight = $secondItem.meta.small.height }}
                               {{ $secondAspectRatio = $secondItem.meta.small.aspect }}
                             {{ end }}
                           {{ end }}
@@ -279,18 +293,28 @@
                           {{ if or (lt $secondImgWidth 320) (lt $secondAspectRatio 0.56) (gt $secondAspectRatio 2.3) }}
                             {{ $secondObjectFitClass = "object-contain" }}
                           {{ end }}
+                          {{ $secondMediaStyleName := "!mastodon.webp" }}
+                          {{ if gt $secondImgHeight 400 }}
+                            {{ $secondMediaStyleName = "!mastodon400.webp" }}
+                          {{ end }}
 
                           {{ $thirdImgWidth := 0 }}
+                          {{ $thirdImgHeight := 0 }}
                           {{ $thirdAspectRatio := 1 }}
                           {{ if $thirdItem.meta }}
                             {{ if $thirdItem.meta.small }}
                               {{ $thirdImgWidth = $thirdItem.meta.small.width }}
+                              {{ $thirdImgHeight = $thirdItem.meta.small.height }}
                               {{ $thirdAspectRatio = $thirdItem.meta.small.aspect }}
                             {{ end }}
                           {{ end }}
                           {{ $thirdObjectFitClass := "object-cover" }}
                           {{ if or (lt $thirdImgWidth 320) (lt $thirdAspectRatio 0.56) (gt $thirdAspectRatio 2.3) }}
                             {{ $thirdObjectFitClass = "object-contain" }}
+                          {{ end }}
+                          {{ $thirdMediaStyleName := "!mastodon.webp" }}
+                          {{ if gt $thirdImgHeight 400 }}
+                            {{ $thirdMediaStyleName = "!mastodon400.webp" }}
                           {{ end }}
 
                           <div class="flex h-full gap-2.5">
@@ -299,16 +323,16 @@
                                 <canvas class="absolute inset-0 -z-1 w-full h-full top-0 left-0 object-contain" data-blurhash="{{ $firstItem.blurhash }}"></canvas>
                               {{ end }}
                               <a href="{{ replace $firstItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.webp">
-                                <img src="{{ replace $firstItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" alt="{{ $firstItem.description }}" class="w-full h-full {{ $firstObjectFitClass }}" nozoom loading="lazy">
+                                <img src="{{ replace $firstItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $firstMediaStyleName }}" alt="{{ $firstItem.description }}" class="w-full h-full {{ $firstObjectFitClass }}" nozoom loading="lazy">
                               </a>
                             </div>
                             <div class="w-1/2 flex flex-col gap-2.5">
                               <div class="relative h-1/2 overflow-hidden rounded-xl">
                                 {{ if $secondItem.blurhash }}
-                                  <canvas class="absolute inset-0 -z-1 w-full h-full top-0 right-0 object-contain" data-blurhash="{{ $secondItem.blurhash }}"></canvas>
+                                  <canvas class="absolute inset-0 -z-1 -w-full h-full top-0 right-0 object-contain" data-blurhash="{{ $secondItem.blurhash }}"></canvas>
                                 {{ end }}
                                 <a href="{{ replace $secondItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.webp">
-                                  <img src="{{ replace $secondItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" alt="{{ $secondItem.description }}" class="w-full h-full {{ $secondObjectFitClass }}" nozoom loading="lazy">
+                                  <img src="{{ replace $secondItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $secondMediaStyleName }}" alt="{{ $secondItem.description }}" class="w-full h-full {{ $secondObjectFitClass }}" nozoom loading="lazy">
                                 </a>
                               </div>
                               <div class="relative h-1/2 overflow-hidden rounded-xl">
@@ -316,7 +340,7 @@
                                   <canvas class="absolute inset-0 -z-1 w-full h-full bottom-0 right-0 object-contain" data-blurhash="{{ $thirdItem.blurhash }}"></canvas>
                                 {{ end }}
                                 <a href="{{ replace $thirdItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.webp">
-                                  <img src="{{ replace $thirdItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" alt="{{ $thirdItem.description }}" class="w-full h-full {{ $thirdObjectFitClass }}" nozoom loading="lazy">
+                                  <img src="{{ replace $thirdItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $thirdMediaStyleName }}" alt="{{ $thirdItem.description }}" class="w-full h-full {{ $thirdObjectFitClass }}" nozoom loading="lazy">
                                 </a>
                               </div>
                             </div>
@@ -326,16 +350,22 @@
                           <div class="grid grid-cols-2 grid-rows-2 h-full gap-2.5">
                             {{ range first 4 $post.media_attachments }}
                               {{ $imgWidth := 0 }}
+                              {{ $imgHeight := 0 }}
                               {{ $aspectRatio := 1 }}
                               {{ if .meta }}
                                 {{ if .meta.small }}
                                   {{ $imgWidth = .meta.small.width }}
+                                  {{ $imgHeight = .meta.small.height }}
                                   {{ $aspectRatio = .meta.small.aspect }}
                                 {{ end }}
                               {{ end }}
                               {{ $objectFitClass := "object-cover" }}
                               {{ if or (lt $imgWidth 320) (lt $aspectRatio 0.56) (gt $aspectRatio 2.3) }}
                                 {{ $objectFitClass = "object-contain" }}
+                              {{ end }}
+                              {{ $mediaStyleName := "!mastodon.webp" }}
+                              {{ if gt $imgHeight 400 }}
+                                {{ $mediaStyleName = "!mastodon400.webp" }}
                               {{ end }}
                               <div class="relative overflow-hidden rounded-xl">
                                 {{ if .blurhash }}
