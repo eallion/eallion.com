@@ -1335,3 +1335,11 @@ article .heti-adjacent-quarter {
     opacity: 0
   }
 }
+
+.full-screen {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  width: calc(100vw - 1.25rem);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}

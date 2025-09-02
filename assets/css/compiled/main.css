@@ -4258,6 +4258,11 @@ body.zen-mode-enable {
       display: block;
     }
   }
+  .lg\:flex {
+    @media (width >= 1024px) {
+      display: flex;
+    }
+  }
   .lg\:grid {
     @media (width >= 1024px) {
       display: grid;

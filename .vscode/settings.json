@@ -35,6 +35,8 @@
     "rehype",
     "Shiki",
     "techstack",
+    "vcode",
+    "vtype",
     "webp"
   ]
 }
