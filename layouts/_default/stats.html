@@ -129,34 +129,55 @@
 {{ $repoUrl := "https://api.github.com/repos/eallion/eallion.com" }}
 <!-- 添加一个时间戳用于避免缓存 -->
 {{ $timestamp := now.Unix }}
-{{ with $commitsResource := resources.GetRemote $commitsUrl (dict "timeout" "15s" "key" (printf "%s-%d" $commitsUrl $timestamp)) }}
-  {{ with $commitsData := $commitsResource | transform.Unmarshal }}
-    {{ with $commit := index $commitsData 0 }}
-      {{ with $date := $commit.commit.committer.date }}
-        {{ $lastCommitDate = $date }}
-      {{ end }}
-      {{ with $sha := $commit.sha }}
-        {{ $commitHashLong = $sha }}
-        {{ $commitHashShort = slicestr $sha 0 7 }}
+{{ with try (resources.GetRemote $commitsUrl (dict "timeout" "15s" "key" (printf "%s-%d" $commitsUrl $timestamp))) }}
+  {{ if .Err }}
+    <!-- GitHub commits API 请求失败，使用默认值 -->
+    {{ warnf "Failed to fetch commits data: %s" .Err }}
+  {{ else }}
+    {{ with $commitsResource := .Value }}
+      {{ with $commitsData := $commitsResource | transform.Unmarshal }}
+        {{ with $commit := index $commitsData 0 }}
+          {{ with $date := $commit.commit.committer.date }}
+            {{ $lastCommitDate = $date }}
+          {{ end }}
+          {{ with $sha := $commit.sha }}
+            {{ $commitHashLong = $sha }}
+            {{ $commitHashShort = slicestr $sha 0 7 }}
+          {{ end }}
+        {{ end }}
       {{ end }}
     {{ end }}
   {{ end }}
 {{ end }}
-{{ with $contributorsResource := resources.GetRemote $contributorsUrl (dict "timeout" "15s" "key" (printf "%s-%d" $contributorsUrl $timestamp)) }}
-  {{ with $contributorsData := $contributorsResource | transform.Unmarshal }}
-    {{ range $contributorsData }}
-      {{ $totalCommits = add $totalCommits .contributions }}
+{{ with try (resources.GetRemote $contributorsUrl (dict "timeout" "15s" "key" (printf "%s-%d" $contributorsUrl $timestamp))) }}
+  {{ if .Err }}
+    <!-- GitHub contributors API 请求失败，使用默认值 -->
+    {{ warnf "Failed to fetch contributors data: %s" .Err }}
+  {{ else }}
+    {{ with $contributorsResource := .Value }}
+      {{ with $contributorsData := $contributorsResource | transform.Unmarshal }}
+        {{ range $contributorsData }}
+          {{ $totalCommits = add $totalCommits .contributions }}
+        {{ end }}
+      {{ end }}
     {{ end }}
   {{ end }}
 {{ end }}
-{{ with $repoResource := resources.GetRemote $repoUrl (dict "timeout" "15s" "key" (printf "%s-%d" $repoUrl $timestamp)) }}
-  {{ with $repoData := $repoResource | transform.Unmarshal }}
-    {{ with $size := $repoData.size }}
-      {{ $sizeInMB := div (float $size) 1024 }}
-      {{ if ge $sizeInMB 1000 }}
-        {{ $repoSize = printf "%.2f GB" (div $sizeInMB 1024) }}
-      {{ else }}
-        {{ $repoSize = printf "%.2f MB" $sizeInMB }}
+{{ with try (resources.GetRemote $repoUrl (dict "timeout" "15s" "key" (printf "%s-%d" $repoUrl $timestamp))) }}
+  {{ if .Err }}
+    <!-- GitHub repo API 请求失败，使用默认值 -->
+    {{ warnf "Failed to fetch repo data: %s" .Err }}
+  {{ else }}
+    {{ with $repoResource := .Value }}
+      {{ with $repoData := $repoResource | transform.Unmarshal }}
+        {{ with $size := $repoData.size }}
+          {{ $sizeInMB := div (float $size) 1024 }}
+          {{ if ge $sizeInMB 1000 }}
+            {{ $repoSize = printf "%.2f GB" (div $sizeInMB 1024) }}
+          {{ else }}
+            {{ $repoSize = printf "%.2f MB" $sizeInMB }}
+          {{ end }}
+        {{ end }}
       {{ end }}
     {{ end }}
   {{ end }}
@@ -166,29 +187,36 @@
 {{ $totalPlayedTime := "3000.00" }}
 {{ $lastPlayed := "PUBG: BATTLEGROUNDS" }}
 {{ $steamApiUrl := "https://steam-web-api.eallion.com/IPlayerService/GetOwnedGames/v0001/?steamid=76561197989210276&include_appinfo=true&include_played_free_games=true&format=json" }}
-{{ with $steamResource := resources.GetRemote $steamApiUrl (dict "timeout" "15s") }}
-  {{ with $steamData := $steamResource | transform.Unmarshal }}
-    {{ with $response := $steamData.response }}
-      {{ with $gameCount := $response.game_count }}
-        {{ $steamGameCount = $gameCount }}
-      {{ end }}
+{{ with try (resources.GetRemote $steamApiUrl (dict "timeout" "15s")) }}
+  {{ if .Err }}
+    <!-- Steam API 请求失败，使用默认值 -->
+    {{ warnf "Failed to fetch Steam data: %s" .Err }}
+  {{ else }}
+    {{ with $steamResource := .Value }}
+      {{ with $steamData := $steamResource | transform.Unmarshal }}
+        {{ with $response := $steamData.response }}
+          {{ with $gameCount := $response.game_count }}
+            {{ $steamGameCount = $gameCount }}
+          {{ end }}
 
-      {{ $totalMinutes := 0 }}
-      {{ range $game := $response.games }}
-        {{ $totalMinutes = add $totalMinutes $game.playtime_forever }}
-      {{ end }}
-      {{ $totalPlayedTime = printf "%.2f" (div (float $totalMinutes) 60) }}
+          {{ $totalMinutes := 0 }}
+          {{ range $game := $response.games }}
+            {{ $totalMinutes = add $totalMinutes $game.playtime_forever }}
+          {{ end }}
+          {{ $totalPlayedTime = printf "%.2f" (div (float $totalMinutes) 60) }}
 
-      {{ $latestTime := 0 }}
-      {{ $latestGame := "" }}
-      {{ range $game := $response.games }}
-        {{ if and (gt $game.rtime_last_played $latestTime) (ne $game.rtime_last_played 0) }}
-          {{ $latestTime = $game.rtime_last_played }}
-          {{ $latestGame = $game.name }}
+          {{ $latestTime := 0 }}
+          {{ $latestGame := "" }}
+          {{ range $game := $response.games }}
+            {{ if and (gt $game.rtime_last_played $latestTime) (ne $game.rtime_last_played 0) }}
+              {{ $latestTime = $game.rtime_last_played }}
+              {{ $latestGame = $game.name }}
+            {{ end }}
+          {{ end }}
+          {{ if ne $latestTime 0 }}
+            {{ $lastPlayed = $latestGame }}
+          {{ end }}
         {{ end }}
-      {{ end }}
-      {{ if ne $latestTime 0 }}
-        {{ $lastPlayed = $latestGame }}
       {{ end }}
     {{ end }}
   {{ end }}
