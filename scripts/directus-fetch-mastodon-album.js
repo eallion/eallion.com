@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Mastodon API 配置
-const MASTODON_API_BASE_URL = 'https://e5n.cc/api/v1/accounts/111136231674527355/statuses?only_media=true&limit=40';
+const MASTODON_API_URL = 'https://e5n.cc/api/v1/accounts/111136231674527355/statuses?only_media=true&limit=40';
 const MASTODON_JSON_PATH = path.join(__dirname, '..', 'assets', 'data', 'album', 'album.json');
 
 /**
@@ -21,7 +21,7 @@ async function fetchMastodonData() {
   try {
     while (true) {
       // 构造请求 URL
-      let requestUrl = MASTODON_API_BASE_URL;
+      let requestUrl = MASTODON_API_URL;
       if (maxId) {
         requestUrl += `&max_id=${maxId}`;
       }
