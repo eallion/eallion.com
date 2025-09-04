@@ -37,7 +37,7 @@ const MASTODON_API_URL = 'https://e5n.cc/api/v1/accounts/111136231674527355/stat
  * @returns {Promise<Array>} 返回所有文章的数组
  */
 async function fetchAllArticles(offset = 0) {
-  console.log(`正在获取数据，偏移量：${offset}...`);
+  // console.log(`正在获取数据，偏移量：${offset}...`);
   const response = await fetch(`${DIRECTUS_API_URL}items/Article?limit=${API_LIMIT}&offset=${offset}&fields=*,tags.Tag_id.*,categories.Category_id.*,authors.Author_id.*,serieses.Series_id.*,featureimage.*`, {
     headers: {
       'Authorization': `Bearer ${DIRECTUS_ACCESS_TOKEN}`
@@ -108,7 +108,7 @@ async function fetchAllAlbumData() {
         )
       );
 
-      console.log(`本页获取到 ${data.length} 条数据，筛选后剩余 ${filteredData.length} 条`);
+      // console.log(`本页获取到 ${data.length} 条数据，筛选后剩余 ${filteredData.length} 条`);
       allData = allData.concat(filteredData);
 
       // 设置下一页的 max_id 为当前页最后一条数据的 id
@@ -135,7 +135,7 @@ async function fetchAllAlbumData() {
  * @returns {Promise<Array>} 返回所有 Penta 数据的数组
  */
 async function fetchAllPentaData(offset = 0) {
-  console.log(`正在获取 Penta 数据，偏移量：${offset}...`);
+  // console.log(`正在获取 Penta 数据，偏移量：${offset}...`);
   const response = await fetch(`${DIRECTUS_API_URL}items/Penta?limit=${API_LIMIT}&offset=${offset}&fields=*,screenshot.*`, {
     headers: {
       'Authorization': `Bearer ${DIRECTUS_ACCESS_TOKEN}`
@@ -165,7 +165,7 @@ async function fetchAllPentaData(offset = 0) {
  * @returns {Promise<Array>} 返回所有 Goods 数据的数组
  */
 async function fetchAllGoodsData(offset = 0) {
-  console.log(`正在获取 Goods 数据，偏移量：${offset}...`);
+  // console.log(`正在获取 Goods 数据，偏移量：${offset}...`);
   const response = await fetch(`${DIRECTUS_API_URL}items/Goods?limit=${API_LIMIT}&offset=${offset}&fields=*,image.*`, {
     headers: {
       'Authorization': `Bearer ${DIRECTUS_ACCESS_TOKEN}`
@@ -195,7 +195,7 @@ async function fetchAllGoodsData(offset = 0) {
  * @returns {Promise<Array>} 返回所有 Friends Links 数据的数组
  */
 async function fetchAllFriendsLinksData(offset = 0) {
-  console.log(`正在获取 Friends Links 数据，偏移量：${offset}...`);
+  // console.log(`正在获取 Friends Links 数据，偏移量：${offset}...`);
   const response = await fetch(`${DIRECTUS_API_URL}items/Friendslinks?limit=${API_LIMIT}&offset=${offset}`, {
     headers: {
       'Authorization': `Bearer ${DIRECTUS_ACCESS_TOKEN}`
@@ -290,7 +290,7 @@ async function fetchAllNeoDBData() {
  * @returns {Promise<Array|null>} 返回该页的数据或null
  */
 async function fetchNeoDBPage(page) {
-  console.log(`正在获取 NeoDB 数据，页码：${page}...`);
+  // console.log(`正在获取 NeoDB 数据，页码：${page}...`);
 
   try {
     const response = await fetch(
@@ -639,7 +639,7 @@ async function createMarkdownFiles(articles) {
     // 写入文件
     const filePath = path.join(HUGO_CONTENT_DIR, `${newSlug}.md`);
     fs.writeFileSync(filePath, markdownContent, 'utf-8');
-    console.log(`成功创建文件：${filePath}`);
+    // console.log(`成功创建文件：${filePath}`);
   }
 
   // 追加到 static/llms.txt 文件
