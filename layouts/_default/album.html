@@ -54,10 +54,12 @@
         {{ $albumData := resources.Get "data/album/album.json" | unmarshal }}
         {{ if $albumData }}
 
-        {{ $sortedAlbum := sort $albumData "date" "desc" }}
+        {{ $sortedAlbum := sort $albumData "created_at" "desc" }}
           <div id="ealbum" class="justified-gallery">
             {{ range $sortedAlbum }}
-                {{ $content := .content | plainify | safeHTML }}
+              {{ $statusId := .id }}
+              {{ range .media_attachments }}
+                {{ $content := .description | plainify | safeHTML }}
 
                 {{ $description := .description | markdownify }}
                 {{ $description = replace $description "<br>" "" }}
@@ -77,14 +79,15 @@
                       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                       data-src="{{- $preview_url -}}!album.webp"
                       alt="{{- $description | default $content | markdownify -}}"
-                      width="{{- .preview_width -}}"
-                      height="{{- .preview_height -}}"
+                      width="{{- .meta.small.width | default .width -}}"
+                      height="{{- .meta.small.height | default .height -}}"
                       />
                 </a>
                 <div class="jg-caption">
-                  <a href="https://e5n.cc/@eallion/{{- .statuses_id | plainify -}}" class="text-neutral hover:text-neutral" target="_blank" rel="noopener noreferrer" no-view>{{ $description | default $content }}</a>
+                  <a href="https://e5n.cc/@eallion/{{- $statusId | plainify -}}" class="text-neutral hover:text-neutral" target="_blank" rel="noopener noreferrer" no-view>{{ $description | default $content }}</a>
                   </div>
               </div>
+              {{ end }}
             {{ end }}
           </div>
         {{ end }}
