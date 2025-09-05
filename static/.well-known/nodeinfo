@@ -2,11 +2,11 @@
   "links": [
     {
       "rel": "http://nodeinfo.diaspora.software/ns/schema/2.0",
-      "href": "https://m.eallion.com/nodeinfo/2.0"
+      "href": "https://gts.eallion.com/nodeinfo/2.0"
     },
     {
       "rel": "http://nodeinfo.diaspora.software/ns/schema/2.1",
-      "href": "https://m.eallion.com/nodeinfo/2.1"
+      "href": "https://gts.eallion.com/nodeinfo/2.1"
     }
   ]
 }
