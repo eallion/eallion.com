@@ -74,10 +74,10 @@
                 {{ $url := replace .url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}
                 {{ $preview_url := replace .preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}
               <div>
-                <a href="{{- $url -}}!albumoriginal.webp" data-blurhash="{{- .blurhash -}}">
+                <a href="{{- $url -}}!albumoriginal.avif" data-blurhash="{{- .blurhash -}}">
                   <img class="lazy"
                       src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                      data-src="{{- $preview_url -}}!album.webp"
+                      data-src="{{- $preview_url -}}!album.avif"
                       alt="{{- $description | default $content | markdownify -}}"
                       width="{{- .meta.small.width | default .width -}}"
                       height="{{- .meta.small.height | default .height -}}"
