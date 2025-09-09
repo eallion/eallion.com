@@ -1,19 +1,19 @@
 {
   "subject": "acct:eallion@eallion.com",
   "aliases": [
-    "https://gts.eallion.com/users/eallion",
-    "https://gts.eallion.com/@eallion"
+    "https://m.eallion.com/users/eallion",
+    "https://m.eallion.com/@eallion"
   ],
   "links": [
     {
       "rel": "http://webfinger.net/rel/profile-page",
       "type": "text/html",
-      "href": "https://gts.eallion.com/@eallion"
+      "href": "https://m.eallion.com/@eallion"
     },
     {
       "rel": "self",
       "type": "application/activity+json",
-      "href": "https://gts.eallion.com/users/eallion"
+      "href": "https://m.eallion.com/users/eallion"
     }
   ]
 }
