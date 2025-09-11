@@ -54,16 +54,20 @@
 
                     <div class="flex justify-center items-center m-0 mb-2 flex-col">
                         <div class="group relative overflow-hidden rounded w-full h-full">
-                                <figure class="mt-0 mb-0">
-                                    <a href="https://images.eallion.com/directus/files/{{- $screenshotSrc -}}!pentaoriginal.avif">
+                            <figure class="mt-0 mb-0">
+                                <a href="https://images.eallion.com/directus/files/{{- $screenshotSrc -}}!pentaoriginal.avif">
+                                    <picture class="block mt-0 mb-0">
+                                        <source data-srcset="https://images.eallion.com/directus/files/{{- $screenshotSrc -}}!penta.avif" type="image/avif">
                                         <img
                                             class="mt-0 mb-0 rounded-md block w-full cursor-pointer object-cover h-full scale-100 hover:scale-110 transition-all duration-400 ease-in-out animate-fadeIn lazy"
                                             loading="lazy"
                                             src="/assets/images/penta/screenshot.png"
-                                            data-src="https://images.eallion.com/directus/files/{{- $screenshotSrc -}}!penta.avif"
+                                            data-src="https://images.eallion.com/directus/files/{{- $screenshotSrc -}}"
                                             alt="{{ $caption }} {{ $date }}"
-                                        /></a>
-                                </figure>
+                                        />
+                                    </picture>
+                                </a>
+                            </figure>
                         </div>
                         <div class="w-11/12 flex justify-between items-center mt-2 mb-12 gap-5">
                             <a href="https://101.qq.com/#/hero-detail?heroid={{ $heroId }}" class="flex justify-center items-center text-neutral-900 dark:text-neutral-300" target="_blank" rel="noreferrer noopener nofollow">
