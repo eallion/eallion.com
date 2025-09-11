@@ -37,14 +37,19 @@
                             {{ $goodsSrc := .image }}
                             <div class="goods-container img-hide">
                                 <div class="goods-image">
-                                    <figure>
-                                        <img
-                                            class="my-0 rounded-md lazy"
-                                            loading="lazy"
-                                            src="/assets/images/goods/goods.webp"
-                                            data-src="https://images.eallion.com/directus/files/{{- $goodsSrc -}}"
-                                            alt="{{- .title -}}"
-                                        />
+                                    <figure class="mt-0 mb-0">
+                                        <a href="https://images.eallion.com/directus/files/{{- $goodsSrc -}}!goodsoriginal.avif">
+                                            <picture class="block mt-0 mb-0">
+                                                <source data-srcset="https://images.eallion.com/directus/files/{{- $goodsSrc -}}!goods.avif" type="image/avif">
+                                                <img
+                                                    class="my-0 rounded-md lazy"
+                                                    loading="lazy"
+                                                    src="/assets/images/goods/goods.webp"
+                                                    data-src="https://images.eallion.com/directus/files/{{- $goodsSrc -}}"
+                                                    alt="{{- .title -}}"
+                                                />
+                                            </picture>
+                                        </a>
                                     </figure>
                                 </div>
                                 <div class="goods-price flex justify-start items-center"><span>{{- .currency -}}{{- printf "%.2f" (float .price) -}}</span><span class="ml-2.5 text-sm text-neutral-400">({{ dateFormat "Jan 2, 2006" .date }})</span></div>
@@ -82,7 +87,7 @@
 {{ $viewJS := resources.Get "js/view-image.min.js" | fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $viewJS.RelPermalink }}" integrity="{{ $viewJS.Data.Integrity }}"></script>
 <script>
-    window.ViewImage && ViewImage.init('.goods-image img');
+    window.ViewImage && ViewImage.init('.goods-image a');
 </script>
 
 {{ end }}

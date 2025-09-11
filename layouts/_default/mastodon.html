@@ -216,7 +216,16 @@
                                 <canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-cover" data-blurhash="{{ $mediaItem.blurhash }}"></canvas>
                               {{ end }}
                               <a href="{{ replace $mediaItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.avif">
-                                <img src="{{ replace $mediaItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" alt="{{ $mediaItem.description }}" class="w-full h-full {{ $objectFitClass }}" nozoom loading="lazy">
+                                  <picture class="block mt-0 mb-0 w-full h-full {{ $objectFitClass }}">
+                                      <source srcset="{{ replace $mediaItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" type="image/avif">
+                                      <img
+                                          loading="lazy"
+                                          src="{{ replace $mediaItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}"
+                                          alt="{{ $mediaItem.description }}"
+                                          class="w-full h-full {{ $objectFitClass }}"
+                                          nozoom
+                                      />
+                                  </picture>
                               </a>
                             </div>
                           </div>
@@ -249,7 +258,16 @@
                                   <canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-contain {{ $alignmentClass }}" data-blurhash="{{ $mediaItem.blurhash }}"></canvas>
                                 {{ end }}
                                 <a href="{{ replace $mediaItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.avif">
-                                  <img src="{{ replace $mediaItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" alt="{{ $mediaItem.description }}" class="w-full h-full {{ $objectFitClass }}" nozoom loading="lazy">
+                                    <picture class="block mt-0 mb-0 w-full h-full {{ $objectFitClass }}">
+                                        <source srcset="{{ replace $mediaItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" type="image/avif">
+                                        <img
+                                            loading="lazy"
+                                            src="{{ replace $mediaItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}"
+                                            alt="{{ $mediaItem.description }}"
+                                            class="w-full h-full {{ $objectFitClass }}"
+                                            nozoom
+                                        />
+                                    </picture>
                                 </a>
                               </div>
                             {{ end }}
@@ -323,7 +341,15 @@
                                 <canvas class="absolute inset-0 -z-1 w-full h-full top-0 left-0 object-contain" data-blurhash="{{ $firstItem.blurhash }}"></canvas>
                               {{ end }}
                               <a href="{{ replace $firstItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.avif">
-                                <img src="{{ replace $firstItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $firstMediaStyleName }}" alt="{{ $firstItem.description }}" class="w-full h-full {{ $firstObjectFitClass }}" nozoom loading="lazy">
+                                  <picture class="block mt-0 mb-0 w-full h-full {{ $firstObjectFitClass }}">
+                                      <source srcset="{{ replace $firstItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $firstMediaStyleName }}" type="image/avif">
+                                      <img
+                                          src="{{ replace $firstItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}"
+                                          alt="{{ $firstItem.description }}"
+                                          class="w-full h-full {{ $firstObjectFitClass }}"
+                                          nozoom
+                                      />
+                                  </picture>
                               </a>
                             </div>
                             <div class="w-1/2 flex flex-col gap-2.5">
@@ -332,7 +358,15 @@
                                   <canvas class="absolute inset-0 -z-1 -w-full h-full top-0 right-0 object-contain" data-blurhash="{{ $secondItem.blurhash }}"></canvas>
                                 {{ end }}
                                 <a href="{{ replace $secondItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.avif">
-                                  <img src="{{ replace $secondItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $secondMediaStyleName }}" alt="{{ $secondItem.description }}" class="w-full h-full {{ $secondObjectFitClass }}" nozoom loading="lazy">
+                                    <picture class="block mt-0 mb-0 w-full h-full {{ $secondObjectFitClass }}">
+                                        <source srcset="{{ replace $secondItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $secondMediaStyleName }}" type="image/avif">
+                                        <img
+                                            src="{{ replace $secondItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}"
+                                            alt="{{ $secondItem.description }}"
+                                            class="w-full h-full {{ $secondObjectFitClass }}"
+                                            nozoom
+                                        />
+                                    </picture>
                                 </a>
                               </div>
                               <div class="relative h-1/2 overflow-hidden rounded-xl">
@@ -340,7 +374,15 @@
                                   <canvas class="absolute inset-0 -z-1 w-full h-full bottom-0 right-0 object-contain" data-blurhash="{{ $thirdItem.blurhash }}"></canvas>
                                 {{ end }}
                                 <a href="{{ replace $thirdItem.url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.avif">
-                                  <img src="{{ replace $thirdItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $thirdMediaStyleName }}" alt="{{ $thirdItem.description }}" class="w-full h-full {{ $thirdObjectFitClass }}" nozoom loading="lazy">
+                                    <picture class="block mt-0 mb-0 w-full h-full {{ $thirdObjectFitClass }}">
+                                        <source srcset="{{ replace $thirdItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $thirdMediaStyleName }}" type="image/avif">
+                                        <img
+                                            src="{{ replace $thirdItem.preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}"
+                                            alt="{{ $thirdItem.description }}"
+                                            class="w-full h-full {{ $thirdObjectFitClass }}"
+                                            nozoom
+                                        />
+                                    </picture>
                                 </a>
                               </div>
                             </div>
@@ -373,6 +415,18 @@
                                 {{ end }}
                                 <a href="{{ replace .url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.avif">
                                   <img src="{{ replace .preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" alt="{{ .description }}" class="w-full h-full {{ $objectFitClass }}" nozoom loading="lazy">
+                                </a>
+                                <a href="{{ replace .url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}!mastodonview.avif">
+                                    <picture class="block mt-0 mb-0 w-full h-full {{ $objectFitClass }}">
+                                        <source srcset="{{ replace .preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}{{ $mediaStyleName }}" type="image/avif">
+                                        <img
+                                            loading="lazy"
+                                            src="{{ replace .preview_url "https://files.e5n.cc/" "https://mstd-s3-files.eallion.com/" }}"
+                                            alt="{{ .description }}"
+                                            class="w-full h-full {{ $objectFitClass }}"
+                                            nozoom
+                                        />
+                                    </picture>
                                 </a>
                               </div>
                             {{ end }}
