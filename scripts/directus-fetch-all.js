@@ -618,6 +618,13 @@ async function createMarkdownFiles(articles) {
       }
     }
 
+    // 如果 description 为空或不存在，使用 summary 的值替代
+    if (!frontMatter.description && frontMatter.summary) {
+      // 从 summary 中移除引号（如果存在）
+      const summaryValue = frontMatter.summary.toString().replace(/^"(.*)"$/, '$1');
+      frontMatter.description = summaryValue;
+    }
+
     // 构建 Markdown 内容
     let markdownContent = '';
 
