@@ -1,7 +1,6 @@
 {{ define "main" }}
 {{ .Scratch.Set "scope" "single" }}
 
-
 <article>
   {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
   {{ $heroStyle := .Params.heroStyle }}
@@ -66,7 +65,7 @@
                                                     src="https://t3.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=16&url={{- $url -}}">
                                                 <span class="font-medium text-neutral-900 dark:text-neutral-100 truncate">{{- $name -}}</span>
                                             </div>
-                                            <p class="text-sm text-neutral-700 dark:text-neutral-300 line-clamp-2 m-0">{{- $biography -}}</p>
+                                            <p class="text-sm text-neutral-700 dark:text-neutral-300 line-clamp-2 m-0 min-h-10">{{- $biography -}}</p>
                                         </div>
                                     </div>
                                 </a>
