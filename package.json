@@ -48,9 +48,9 @@
   },
   "homepage": "https://github.com/eallion/eallion.com#readme",
   "dependencies": {
-    "@types/node": "^22.18.0",
-    "axios": "^1.11.0",
-    "dotenv": "^17.2.1",
+    "@types/node": "^22.18.4",
+    "axios": "^1.12.2",
+    "dotenv": "^17.2.2",
     "fs": "0.0.1-security",
     "glob": "^11.0.3",
     "gray-matter": "^4.0.3",
