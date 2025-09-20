@@ -1281,6 +1281,17 @@ blockquote a {
   white-space: normal;
 }
 
+/* go to top */
+#top-scroller a[href="#the-top"] {
+  background-color: #334155;
+  color: #f9fafb;
+}
+
+.dark #top-scroller a[href="#the-top"] {
+  background-color: #94a3b8;
+  color: #1e293b;
+}
+
 /* heti custom css */
 article {
   font-feature-settings: "halt";
