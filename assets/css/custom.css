@@ -1292,6 +1292,19 @@ blockquote a {
   color: #1e293b;
 }
 
+@font-face {
+    font-family: fontmin;
+    src: url(https://cdn.eallion.com/fonts/price.woff2);
+    font-weight: normal;
+    font-style: normal;
+}
+
+.price {
+    font-family: fontmin, Verdana, Helvetica, monospace !important;
+    color: #333;
+    font-weight: 600;
+}
+
 /* heti custom css */
 article {
   font-feature-settings: "halt";

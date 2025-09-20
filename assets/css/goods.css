@@ -1,10 +1,4 @@
 /* goods-------- start*/
-@font-face {
-    font-family: DINPro;
-    src: url(/assets/fonts/DINPro/DINPro.otf);
-    font-weight: normal;
-    font-style: normal;
-}
 
 :root {
     --code-bg: rgb(245, 245, 245);
@@ -59,11 +53,6 @@
 .goods-title a {
     font-size: 0.875rem;
     text-decoration: none;
-}
-
-.goods-price {
-    font-family: DINPro, monospace !important;
-    color: #333;
 }
 
 .goods-note {

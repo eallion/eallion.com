@@ -52,7 +52,7 @@
                                         </a>
                                     </figure>
                                 </div>
-                                <div class="goods-price flex justify-start items-center"><span>{{- .currency -}}{{- printf "%.2f" (float .price) -}}</span><span class="ml-2.5 text-sm text-neutral-400">({{ dateFormat "Jan 2, 2006" .date }})</span></div>
+                                <div class="flex justify-start items-center"><span class="price">{{- .currency -}}{{- printf "%.2f" (float .price) -}}</span><span class="ml-2.5 text-sm text-neutral-400">({{ dateFormat "Jan 2, 2006" .date }})</span></div>
                                 <div class="goods-title"><a href="/go/?target={{- .link | base64Encode -}}" target="_blank" rel="noreferrer noopener nofollow">{{- .title -}}</a></div>
                                 <div class="goods-report-coupon-btn">
                                     {{ if or (not .report) (eq .report "") }}
