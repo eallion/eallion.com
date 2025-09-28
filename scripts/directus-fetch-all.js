@@ -38,7 +38,7 @@ const MASTODON_API_URL = 'https://e5n.cc/api/v1/accounts/111136231674527355/stat
  */
 async function fetchAllArticles(offset = 0) {
   // console.log(`正在获取数据，偏移量：${offset}...`);
-  const response = await fetch(`${DIRECTUS_API_URL}items/Article?limit=${API_LIMIT}&offset=${offset}&fields=*,tags.Tag_id.*,categories.Category_id.*,authors.Author_id.*,serieses.Series_id.*,featureimage.*`, {
+  const response = await fetch(`${DIRECTUS_API_URL}items/Article?limit=${API_LIMIT}&offset=${offset}&fields=*,tags.Tag_id.*,categories.Category_id.*,authors.Author_id.*,serieses.Series_id.*,featureimage.*&filter[draft][_eq]=false`, {
     headers: {
       'Authorization': `Bearer ${DIRECTUS_ACCESS_TOKEN}`
     }

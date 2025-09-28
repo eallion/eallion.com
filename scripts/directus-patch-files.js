@@ -1,4 +1,4 @@
-// 需要先安装依赖:
+// 需要先安装依赖：
 // npm install dotenv axios form-data
 
 require('dotenv').config({ path: '.env.local' });
@@ -47,7 +47,7 @@ async function fetchAllFiles(offset = 0) {
       return files;
     }
   } catch (error) {
-    console.error('获取文件数据时出错:', error.response?.data || error.message);
+    console.error('获取文件数据时出错：', error.response?.data || error.message);
     return [];
   }
 }
@@ -65,14 +65,14 @@ function findLocalFile(downloadFilename) {
     if (matchedFile) {
       return path.join(IMAGES_DIR, matchedFile);
     }
-    
+
     // 查找前缀匹配的文件（处理 uuid 生成的不同格式）
     const prefix = downloadFilename.split('.')[0];
     const prefixMatchedFile = files.find(file => file.startsWith(prefix));
     if (prefixMatchedFile) {
       return path.join(IMAGES_DIR, prefixMatchedFile);
     }
-    
+
     return null;
   } catch (error) {
     console.error(`查找本地文件 ${downloadFilename} 时出错:`, error.message);
@@ -90,14 +90,14 @@ async function patchFile(fileId, filePath) {
     // 创建 multipart/form-data 请求
     const formData = new FormData();
     formData.append('file', fs.createReadStream(filePath));
-    
+
     // 使用 axios 发送 PATCH 请求
     const response = await directus.patch(`/files/${fileId}`, formData, {
       headers: {
         ...formData.getHeaders()
       }
     });
-    
+
     console.log(`✅ 成功更新文件 ${fileId} (${path.basename(filePath)})`);
     return response.data;
   } catch (error) {
@@ -113,7 +113,7 @@ async function main() {
   try {
     // 检查 images 目录是否存在
     if (!fs.existsSync(IMAGES_DIR)) {
-      console.error(`❌ images 目录不存在: ${IMAGES_DIR}`);
+      console.error(`❌ images 目录不存在：${IMAGES_DIR}`);
       process.exit(1);
     }
 
@@ -128,24 +128,24 @@ async function main() {
       // 检查是否有 filename_download 字段
       if (file.filename_download) {
         const localFilePath = findLocalFile(file.filename_download);
-        
+
         if (localFilePath) {
           console.log(`🔄 正在更新文件 ${file.id} (${file.filename_download})...`);
           await patchFile(file.id, localFilePath);
           updatedCount++;
         } else {
-          console.log(`⚠️  未找到本地文件: ${file.filename_download}`);
+          console.log(`⚠️  未找到本地文件：${file.filename_download}`);
           notFoundCount++;
         }
       }
     }
 
     console.log(`\n📊 更新完成:`);
-    console.log(`   成功更新: ${updatedCount} 个文件`);
-    console.log(`   未找到本地文件: ${notFoundCount} 个文件`);
-    
+    console.log(`   成功更新：${updatedCount} 个文件`);
+    console.log(`   未找到本地文件：${notFoundCount} 个文件`);
+
   } catch (error) {
-    console.error('❌ 执行过程中出错:', error.message);
+    console.error('❌ 执行过程中出错：', error.message);
     process.exit(1);
   }
 }

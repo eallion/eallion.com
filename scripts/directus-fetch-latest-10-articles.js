@@ -16,7 +16,7 @@ const HUGO_CONTENT_DIR = path.join(__dirname, '..', 'content', 'blog');
  */
 async function fetchLatest10Articles() {
   console.log('正在获取最近 10 篇文章...');
-  const response = await fetch(`${DIRECTUS_API_URL}items/Article?fields=*,tags.Tag_id.*,categories.Category_id.*,authors.Author_id.*,serieses.Series_id.*,featureimage.*&sort=-date&limit=10`, {
+  const response = await fetch(`${DIRECTUS_API_URL}items/Article?fields=*,tags.Tag_id.*,categories.Category_id.*,authors.Author_id.*,serieses.Series_id.*,featureimage.*&sort=-date&limit=10&filter[draft][_eq]=false`, {
     headers: {
       'Authorization': `Bearer ${DIRECTUS_ACCESS_TOKEN}`
     }
