@@ -7,12 +7,8 @@
     "buildTags": "extended"
   },
   "scripts": {
-    "build": "cd themes/blowfish && npm install && cd ../.. && set NODE_ENV=production && npx @tailwindcss/cli -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit",
-    "build-linux": "NODE_ENV=production npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/css/compiled/main.css --jit",
-    "build-windows": "cd themes/blowfish && npm install && cd ../.. && set NODE_ENV=production && npx @tailwindcss/cli -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit",
-    "dev": "cd themes/blowfish && npm install && cd ../.. && set NODE_ENV=development && npx @tailwindcss/cli -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
-    "dev-linux": "NODE_ENV=development npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
-    "dev-windows": "cd themes/blowfish && npm install && cd ../.. && set NODE_ENV=development && npx @tailwindcss/cli -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
+    "build": "cd themes/blowfish && npm install && cd ../.. && cross-env NODE_ENV=production npx @tailwindcss/cli -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit",
+    "dev": "cd themes/blowfish && npm install && cd ../.. && cross-env NODE_ENV=development npx @tailwindcss/cli -c ./themes/blowfish/tailwind.config.js -i ./themes/blowfish/assets/css/main.css -o ./assets/css/compiled/main.css --jit -w",
     "directus": "node scripts/directus-fetch-all.js",
     "directus:album": "node scripts/directus-fetch-mastodon-album.js",
     "directus:anynow": "node scripts/directus-fetch-anynow.js",
@@ -25,9 +21,9 @@
     "hugo": "hugo --minify --gc --enableGitInfo",
     "new": "node scripts/new_post.js",
     "prepare": "husky",
-    "preview": "node scripts/directus-fetch-articles.js && git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content -e production --enableGitInfo --gc --minify --disableKinds RSS --renderToMemory",
+    "preview": "node scripts/directus-fetch-articles.js && git submodule update --remote --merge && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content -e production --enableGitInfo --gc --minify --disableKinds RSS --renderToMemory",
     "recursive": "git submodule update --init --recursive",
-    "server": "git submodule update --remote --merge && start http://192.168.0.5:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content -e production --enableGitInfo --gc --minify --disableKinds RSS --renderToMemory",
+    "server": "git submodule update --remote --merge && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content -e production --enableGitInfo --gc --minify --disableKinds RSS --renderToMemory",
     "shiki": "npx rehype-cli public -o",
     "theme": "git submodule update --remote --merge"
   },
@@ -48,9 +44,10 @@
   },
   "homepage": "https://github.com/eallion/eallion.com#readme",
   "dependencies": {
-    "@types/node": "^22.18.6",
+    "@types/node": "^22.18.8",
     "axios": "^1.12.2",
-    "dotenv": "^17.2.2",
+    "cross-env": "^7.0.3",
+    "dotenv": "^17.2.3",
     "fs": "0.0.1-security",
     "glob": "^11.0.3",
     "gray-matter": "^4.0.3",
@@ -59,6 +56,6 @@
     "nyc": "^17.1.0",
     "source-map-support": "^0.5.21",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   }
 }
