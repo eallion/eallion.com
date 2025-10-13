@@ -20,67 +20,67 @@
   pageRef = "mastodon"
   weight = 11
 
+# [[main]]
+#   name = "书影音"
+#   pageRef = "media"
+#   weight = 12
+#
+# [[main]]
+#   name = "更多"
+#   weight = 20
+
 [[main]]
-  name = "书影音"
-  pageRef = "media"
-  weight = 12
+  name = "统计"
+  # parent = "更多"
+  pageRef = "stats"
+  weight = 21
 
 [[main]]
   name = "里程碑"
   pageRef = "milestone"
-  weight = 13
-
-[[main]]
-  name = "更多"
-  weight = 20
-
-[[main]]
-  name = "统计"
-  parent = "更多"
-  pageRef = "stats"
-  weight = 21
+  weight = 22
 
 # [[main]]
 #   name = "Steam"
 #   parent = "更多"
 #   pageRef = "steam"
-#   weight = 22
-
-[[main]]
-  name = "随手拍"
-  parent = "更多"
-  pageRef = "album"
-  weight = 30
-
-[[main]]
-  name = "LOL 五杀"
-  parent = "更多"
-  pageRef = "penta"
-  weight = 40
-
-[[main]]
-  name = "好物分享"
-  parent = "更多"
-  pageRef = "goods"
-  weight = 50
+#   weight = 23
+#
+# [[main]]
+#   name = "随手拍"
+#   parent = "更多"
+#   pageRef = "album"
+#   weight = 30
+#
+# [[main]]
+#   name = "LOL 五杀"
+#   parent = "更多"
+#   pageRef = "penta"
+#   weight = 40
+#
+# [[main]]
+#   name = "好物分享"
+#   parent = "更多"
+#   pageRef = "goods"
+#   weight = 50
 
 [[main]]
   name = "友情链接"
-  parent = "更多"
+  # parent = "更多"
   pageRef = "links"
   weight = 70
 
-[[main]]
-  name = "版权信息"
-  parent = "更多"
-  pageRef = "copyright"
-  weight = 80
-
-[[main]]
-  name = "隐私政策"
-  parent = "更多"
-  pageRef = "privacy-policy"
-  weight = 90
+# [[main]]
+#   name = "版权信息"
+#   # parent = "更多"
+#   pageRef = "copyright"
+#   weight = 80
+#
+# [[main]]
+#   name = "隐私政策"
+#   # parent = "更多"
+#   pageRef = "privacy-policy"
+#   weight = 90
 
 [[main]]
   name = "关于"
@@ -142,14 +142,19 @@
   weight = 60
 
 [[footer]]
+  name = "友情链接"
+  pageRef = "links"
+  weight = 61
+
+[[footer]]
   name = "版权信息"
   pageRef = "copyright"
-  weight = 61
+  weight = 62
 
 [[footer]]
   name = "隐私政策"
   pageRef = "privacy-policy"
-  weight = 62
+  weight = 63
 
 [[footer]]
   name = "关于"
