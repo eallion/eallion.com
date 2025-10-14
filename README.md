@@ -87,16 +87,15 @@ git submodule add https://github.com/eallion/blowfish.git themes/DoIt
 克隆博客后同时克隆 [主题](https://github.com/eallion/blowfish.git) 和 [mastodon-embed-timeline](https://github.com/eallion/mastodon-embed-timeline.git)：
 
 ```bash
-git submodule update --init --recursive
-
-# pnpm run recursive
+pnpm run theme:init
+# git submodule update --init --recursive
 ```
 
 如果上游主题有更新，更新 [主题](https://github.com/eallion/blowfish.git) 和 [mastodon-embed-timeline](https://github.com/eallion/mastodon-embed-timeline.git)：
 
 ```diff
-- git submodule update --remote --merge
-+ pnpm run theme
+pnpm run theme:update
+# git submodule update --remote --force themes/blowfish
 ```
 
 Blowfish 编译 TailwindCSS 的 main.css，位于 [assets/css/compiled/main.css](https://github.com/eallion/eallion.com/blob/main/assets/css/compiled/main.css)：
@@ -158,10 +157,10 @@ https://github.com/eallion/eallion.com/blob/main/assets/data/neodb/movie.json
 - `pnpm run new` 创建新文章，直接输入文章标题，生成到 example 目录
 - `pnpm run prepare` Git Commit Husky 勾子，目前用于提交时更新各个平台环境变量的 `HUGO_VERSION`
 - `pnpm run preview` 启动 Hugo 服务器，即预览线上生成环境，会重新获取 Directus 数据
-- `pnpm run recursive` 递归更新 Submodule 子项目，一般第一次克隆本项目时使用
 - `pnpm run server` 启动 Hugo 服务器
 - `pnpm run shiki` 生成 Shiki 语法高亮
-- `pnpm run theme` 更新 Submodule 子项目
+- `pnpm run theme:init` 递归更新 Submodule 子项目，一般第一次克隆本项目时使用
+- `pnpm run theme:update` 更新 Submodule 子项目
 
 ### 🔊 嘀咕页面
 

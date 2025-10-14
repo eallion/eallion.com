@@ -960,7 +960,9 @@ html.dark .shiki span {
   font-size: 0.875rem;
 
 
-}.ticker-item .datetime::after {
+}
+
+.ticker-item .datetime::after {
   content: '：';
   margin-inline-end: -.5em;
 }
@@ -1097,7 +1099,7 @@ html.dark .shiki span {
 }
 
 /* 首页隐藏文章 Summary */
-#main-content .home-article>div>div:nth-child(3)>div:nth-child(3) {
+#main-content .home-article>article>div:nth-child(2)>div:nth-child(3) {
   display: none !important;
 }
 
@@ -1293,56 +1295,113 @@ blockquote a {
 }
 
 @font-face {
-    font-family: fontmin;
-    src: url(https://cdn.eallion.com/fonts/price.woff2);
-    font-weight: normal;
-    font-style: normal;
+  font-family: fontmin;
+  src: url(https://cdn.eallion.com/fonts/price.woff2);
+  font-weight: normal;
+  font-style: normal;
 }
 
 .price {
-    font-family: fontmin, Verdana, Helvetica, monospace !important;
-    color: #333;
-    font-weight: 600;
+  font-family: fontmin, Verdana, Helvetica, monospace !important;
+  color: #333;
+  font-weight: 600;
 }
 
 /* heti custom css */
+/* --------------------------------------------------
+ * 1. 根容器和间距重置
+ * -------------------------------------------------- */
+
 article {
-  font-feature-settings: "halt";
+  /* JS 库通常在具有此类的容器中查找并操作内容 */
+  /* 默认 CJK 间距（0.02em） */
+  letter-spacing: 0.02em;
 }
+
+article a,
+article abbr,
+article code,
+article heti-spacing,
+/* Heti JS 插入的元素 */
+article [lang=en-US] {
+  /* 覆盖 article 的 0.02em 间距，保持 normal 间距 */
+  letter-spacing: normal;
+}
+
+/* --------------------------------------------------
+ * 2. CJK/ANS 字符间距 (heti-spacing)
+ * -------------------------------------------------- */
 
 article heti-spacing {
+  /* 确保元素按内联块显示 */
   display: inline;
+  /* 保持 letter-spacing 为 normal（已在上一组规则中定义） */
 }
 
+/* 在 ANS 字符段之前（紧接 CJK 之后）添加 0.25em 间距 */
 article .heti-spacing-start {
-  margin-inline-end: .25em;
+  margin-inline-end: 0.25em;
 }
 
+/* 在 ANS 字符段之后（紧接 CJK 之前）添加 0.25em 间距 */
 article .heti-spacing-end {
-  margin-inline-start: .25em;
+  margin-inline-start: 0.25em;
 }
+
+/* 修正紧随 heti-spacing 后的上/下标的外边距 */
+article heti-spacing+sup,
+article heti-spacing+sub {
+  margin-inline-start: 0;
+}
+
+/* --------------------------------------------------
+ * 3. 相邻标点间距修正 (heti-adjacent)
+ * -------------------------------------------------- */
 
 article heti-adjacent {
+  /* 确保元素按内联块显示 */
   display: inline;
+  /* 启用浏览器对相邻标点间距的优化 */
+  text-spacing-trim: space-all;
+  unicode-bidi: isolate;
 }
 
+/* 0.5em 负外边距，用于紧凑或重叠标点（例如：句号 + 引号） */
 article .heti-adjacent-half {
   margin-inline-end: -0.5em;
 }
 
+/* 0.25em 负外边距，用于轻微调整标点间距 */
 article .heti-adjacent-quarter {
   margin-inline-end: -0.25em;
 }
 
-.mt-container article .invisible {
-  visibility: visible;
+/* --------------------------------------------------
+ * 4. 其它 JS 依赖的内联元素基础样式
+ * -------------------------------------------------- */
+
+article sub,
+article sup {
+  /* 确保上/下标能正确应用相对定位和字体 */
+  position: relative;
+  margin-inline-start: 0.25em;
+  margin-inline-end: 0.25em;
+  font-size: 0.75em;
+  font-family: "Helvetica Neue", helvetica, arial, "Heti Hei", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-style: normal;
+  line-height: 1;
+  vertical-align: baseline;
 }
 
-.mt-container article img {
-  margin-top: 0;
-  margin-bottom: 0;
+article sub {
+  bottom: -0.25em;
 }
 
+article sup {
+  top: -0.5em;
+}
+
+/* view image */
 .view-image-tools {
   opacity: 1;
   animation: 1s 1.5s forwards fadeOut

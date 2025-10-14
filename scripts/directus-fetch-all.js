@@ -665,32 +665,32 @@ async function main() {
       console.log('未找到任何文章数据。');
     }
 
-    // 获取并保存 Album 数据（现在使用 Mastodon API）
-    const allAlbumData = await fetchAllAlbumData();
-    if (allAlbumData.length > 0) {
-      saveAlbumDataToJson(allAlbumData);
-      console.log('所有 Album 数据已成功保存！');
-    } else {
-      console.log('未找到任何 Album 数据。');
-    }
+    // // 获取并保存 Album 数据（现在使用 Mastodon API）
+    // const allAlbumData = await fetchAllAlbumData();
+    // if (allAlbumData.length > 0) {
+    //   saveAlbumDataToJson(allAlbumData);
+    //   console.log('所有 Album 数据已成功保存！');
+    // } else {
+    //   console.log('未找到任何 Album 数据。');
+    // }
 
-    // 获取并保存 Penta 数据
-    const allPentaData = await fetchAllPentaData();
-    if (allPentaData.length > 0) {
-      savePentaDataToJson(allPentaData);
-      console.log('所有 Penta 数据已成功保存！');
-    } else {
-      console.log('未找到任何 Penta 数据。');
-    }
+    // // 获取并保存 Penta 数据
+    // const allPentaData = await fetchAllPentaData();
+    // if (allPentaData.length > 0) {
+    //   savePentaDataToJson(allPentaData);
+    //   console.log('所有 Penta 数据已成功保存！');
+    // } else {
+    //   console.log('未找到任何 Penta 数据。');
+    // }
 
-    // 获取并保存 Goods 数据
-    const allGoodsData = await fetchAllGoodsData();
-    if (allGoodsData.length > 0) {
-      saveGoodsDataToJson(allGoodsData);
-      console.log('所有 Goods 数据已成功保存！');
-    } else {
-      console.log('未找到任何 Goods 数据。');
-    }
+    // // 获取并保存 Goods 数据
+    // const allGoodsData = await fetchAllGoodsData();
+    // if (allGoodsData.length > 0) {
+    //   saveGoodsDataToJson(allGoodsData);
+    //   console.log('所有 Goods 数据已成功保存！');
+    // } else {
+    //   console.log('未找到任何 Goods 数据。');
+    // }
 
     // 获取并保存 Friends Links 数据
     const allFriendsLinksData = await fetchAllFriendsLinksData();
@@ -700,15 +700,15 @@ async function main() {
     } else {
       console.log('未找到任何 Friends Links 数据。');
     }
-
-    // 获取并保存 NeoDB 数据
-    const allNeoDBData = await fetchAllNeoDBData();
-    if (allNeoDBData.length > 0) {
-      saveNeoDBDataToJson(allNeoDBData);
-      console.log('所有 NeoDB 数据已成功保存！');
-    } else {
-      console.log('未找到任何 NeoDB 数据。');
-    }
+//
+//     // 获取并保存 NeoDB 数据
+//     const allNeoDBData = await fetchAllNeoDBData();
+//     if (allNeoDBData.length > 0) {
+//       saveNeoDBDataToJson(allNeoDBData);
+//       console.log('所有 NeoDB 数据已成功保存！');
+//     } else {
+//       console.log('未找到任何 NeoDB 数据。');
+//     }
 
     // 获取并保存 Mastodon 数据
     const mastodonData = await fetchMastodonData();

@@ -59,8 +59,6 @@ showZenMode: false
 * 本站使用 [Hugo](https://gohugo.io/) 构建
 * 通过 GitHub Actions 部署至阿里云 [OSS](https://www.aliyun.com/product/oss) 和 [Cloudflare Pages](https://pages.cloudflare.com/)
 * 主题使用的是 [Blowfish](https://github.com/nunocoracao/blowfish)
-* 嘀咕页面依赖 Mastodon 实例：[https://e5n.cc](https://e5n.cc)  
-* 观影页面依赖 NeoDB：[https://neodb.social](https://neodb.social/users/eallion@e5n.cc/)
 * 评论系统处于半关闭状态，依赖 Giscus：[https://giscus.app](https://giscus.app/)
 
 ### 版权信息
@@ -79,11 +77,9 @@ showZenMode: false
 
 * About me：[https://about.eallion.com](https://about.eallion.com/)
 * 个人网址导航：[https://s.eallion.com](https://s.eallion.com/)
-* 嘀咕：[https://www.eallion.com/toot/](https://www.eallion.com/toot/)
-* 相册：[https://www.eallion.com/album/](https://www.eallion.com/album/)
-* LOL Penta：[https://www.eallion.com/penta/](https://www.eallion.com/penta/)
-* 观影记录：[https://www.eallion.com/movie/](https://www.eallion.com/movie/)
-* 好物分享：[https://www.eallion.com/goods/](https://www.eallion.com/goods/)
+* Mastodon：[https://www.eallion.com/mastodon](https://www.eallion.com/mastodon)
+* 相册：[hhttps://e5n.cc/@eallion/media](https://e5n.cc/@eallion/media)
+* 观影记录：[hhttps://neodb.social/users/eallion/](https://neodb.social/users/eallion/)
 
 ### 联系方式
 
