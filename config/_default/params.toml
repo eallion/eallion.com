@@ -29,6 +29,9 @@ disableTextInHeader = false
 defaultBackgroundImage = "/images/interstellar.webp"
 defaultFeaturedImage = "/images/featured-default.webp"
 
+hotlinkFeatureImage = true
+imagePosition = "50% 50%"
+
 highlightCurrentMenuArea = true
 smartTOC = true
 smartTOCHideUnfocusedChildren = false
@@ -179,7 +182,7 @@ smartTOCHideUnfocusedChildren = false
   # globalWidget = true
   # globalWidgetMessage = ""
   # globalWidgetColor = "#FFDD00"
-  # globalWidgetPosition = "Right"
+  # globalWidgetPosition = "right"
 
 [verification]
   # google = ""

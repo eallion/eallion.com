@@ -22,10 +22,10 @@
     "new": "node scripts/new_post.js",
     "prepare": "husky",
     "preview": "node scripts/directus-fetch-articles.js && git submodule update --remote --merge && open-cli http://127.0.0.1:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content -e production --enableGitInfo --gc --minify --disableKinds RSS --renderToMemory",
-    "recursive": "git submodule update --init --recursive",
     "server": "git submodule update --remote --merge && open-cli http://127.0.0.1:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content -e production --enableGitInfo --gc --minify --disableKinds RSS --renderToMemory",
     "shiki": "npx rehype-cli public -o",
-    "theme": "git submodule update --remote --merge"
+    "theme:update": "git submodule update --remote --force themes/blowfish",
+    "theme:init": "git submodule update --init --recursive"
   },
   "repository": {
     "type": "git",
@@ -48,7 +48,7 @@
     "dotenv": "^17.2.3"
   },
   "devDependencies": {
-    "@types/node": "^22.18.8",
+    "@types/node": "^22.18.10",
     "cross-env": "^7.0.3",
     "glob": "^11.0.3",
     "gray-matter": "^4.0.3",

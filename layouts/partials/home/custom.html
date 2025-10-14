@@ -10,12 +10,15 @@
         <div class="mx-auto max-w-7xl p-0">
             <div class="relative sm:overflow-hidden">
                 <div class="fixed inset-x-0 top-0 -z-10">
+                    {{ $useDefault := true }}
                     {{ $homepageImage := "" }}
                     {{ with .Site.Params.defaultBackgroundImage }}
                         {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
                             {{ $homepageImage = resources.GetRemote . }}
+                            {{ $useDefault = false }}
                         {{ else }}
                             {{ $homepageImage = resources.Get . }}
+                            {{ $useDefault = false }}
                         {{ end }}
                     {{ end }}
                     {{ with .Site.Params.homepage.homepageImage }}
@@ -26,11 +29,17 @@
                         {{ end }}
                     {{ end }}
                     {{ if $homepageImage }}
+                        {{ $style := "" }}
+                        {{ $defaultPosition := cond $useDefault site.Params.imagePosition false }}
+                        {{ with $.Params.imagePosition | default $defaultPosition }}
+                          {{ $style = printf "object-position: %s;" . }}
+                        {{ end }}
                         <img
                           id="background-image"
                           class="nozoom mt-0 mr-0 mb-0 ml-0 h-[1000px] w-full object-cover"
                           src="{{ $homepageImage.RelPermalink }}"
-                          role="presentation">
+                          role="presentation"
+                          {{ if $style }}style="{{ $style | safeCSS }}"{{ end }}>
                     {{/*
                     <video
                       class="w-full h-[1000px] object-cover nozoom mt-0 mr-0 mb-0 ml-0"
@@ -65,13 +74,18 @@
                             {{ $authorImage = resources.Get . }}
                         {{ end }}
                         {{ if $authorImage }}
+                            {{ $final := $authorImage }}
                             {{ if not $disableImageOptimization }}
-                                {{ $authorImage = $authorImage.Fill (print "288x288 q" ( $.Site.Params.Author.imagequality | default "96" )) }}
+                                {{ $final = $authorImage.Fill (print "288x288 q" ( $.Site.Params.Author.imagequality | default "96" )) }}
                             {{ end }}
                             <div class="tailwind-ticker w-auto relative group flex items-end transition-all duration-300">
                                 <div class="rounded-full overflow-hidden min-w-[144px]">
-                                    <img class="mb-2 h-36 w-36 nozoom rounded-full" width="144" height="144"
-                                    alt="{{ $.Site.Params.Author.name | default " Author" }}" src="{{ $authorImage.RelPermalink }}" />
+                                    <img class="mb-2 h-36 w-36 nozoom rounded-full"
+                                      width="144"
+                                      height="144"
+                                      alt="{{ $.Site.Params.Author.name | default `Author` }}"
+                                      src="{{ $final.RelPermalink }}"
+                                      data-zoom-src="{{ $authorImage.RelPermalink }}">
                                 </div>
                                 <div class="absolute bottom-0 left-full -ml-9 mb-1 w-8 h-8 rounded-full flex items-center justify-center group-hover:w-min group-hover:h-8 group-hover:rounded-lg transition-all duration-300">
                                   <div class="ticker hidden sm:flex w-9 sm:w-[226px] md:w-[295px] lg:w-[476px] min-w-[36px] transition-all duration-300">
@@ -148,9 +162,14 @@
                         <div class="flex flex-wrap">
                             {{ range $links := . }}
                             {{ range $name, $url := $links }}
-                            <a class="hover:text-primary-400 text-primary-800 dark:text-primary-200 px-1" href="{{ $url }}" target="_blank"
-                                aria-label="{{ $name | title }}" rel="me noopener noreferrer">{{ partial
-                                "icon.html" $name }}</a>
+                            <a class="hover:text-primary-400 text-primary-800 dark:text-primary-200 px-1"
+                              href="{{ $url }}"
+                              target="_blank"
+                              aria-label="{{ $name | title }}"
+                              title="{{ $name | title }}"
+                              rel="me noopener noreferrer">
+                              {{ partial "icon.html" $name }}
+                            </a>
                             {{ end }}
                             {{ end }}
                         </div>

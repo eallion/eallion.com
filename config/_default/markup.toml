@@ -6,6 +6,7 @@
   unsafe = true
   hardWraps = true
 [goldmark.parser]
+    wrapStandAloneImageWithinParagraph = false
   [goldmark.parser.attribute]
     block = true
 [goldmark.extensions]
