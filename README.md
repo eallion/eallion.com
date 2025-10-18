@@ -114,7 +114,7 @@ pnpm run build
 https://github.com/eallion/eallion.com/blob/main/assets/css/compiled/main.css
 ```
 
-- 自定义 CSS 在 `assets/css/` 如：[assets/css/mastodon-timeline-custom.scss](<https://github.com/eallion/eallion.com/blob/main/assets/css/mastodon-timeline-custom.scss>)：
+- 自定义 CSS 在 `assets/css/` 如：[custom.css](<https://github.com/eallion/eallion.com/blob/main/assets/css/custom.css>)：
 
 ```bash
 https://github.com/eallion/eallion.com/blob/main/assets/css/custom.css
@@ -126,13 +126,15 @@ https://github.com/eallion/eallion.com/blob/main/assets/css/custom.css
 https://github.com/eallion/eallion.com/blob/main/assets/js/lazyload.iife.min.js
 ```
 
-- 自定义模板，如嘀咕、书影音等页面，在 `layouts/_default` 如：[layouts/_default/mastodon.html](https://github.com/eallion/eallion.com/blob/main/layouts/_default/mastodon.html)：
+- 自定义模板，如嘀咕、书影音等页面，在 `layouts/_default/` 如：[layouts/_default/mastodon.html](https://github.com/eallion/eallion.com/blob/main/layouts/_default/mastodon.html)：
 
 ```bash
 https://github.com/eallion/eallion.com/blob/main/layouts/_default/mastodon.html
 ```
 
-- 页面数据在 `data` 如书影音数据：[assets/data/neodb/movie.json](https://github.com/eallion/eallion.com/blob/main/assets/data/neodb/movie.json)：
+- 页面数据在 `assets/data/` 如书影音数据：[assets/data/neodb/movie.json](https://github.com/eallion/eallion.com/blob/main/assets/data/neodb/movie.json)：
+
+但是现在是通过 Directus API 获取数据，只有在构建时才创建这个目录和对应的文件。
 
 ```bash
 https://github.com/eallion/eallion.com/blob/main/assets/data/neodb/movie.json
@@ -180,6 +182,8 @@ https://github.com/eallion/eallion.com/blob/main/assets/data/neodb/movie.json
 # pnpm install
 
 pnpm run directus # node scripts/directus-fetch-articles.js
+
+# pnpm run directus:latest # Fetch latest 10 articles only
 
 pnpm run preview # Preview Server
 
@@ -381,11 +385,11 @@ git push
 
 > 因为 jsDelivr Aug 15,2020 的‘[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)’，现在没有用 GitHub + jsDelivr 当图床了。
 
-##### **文章配图**
+#### **文章配图**
 
-目录方案是上传到 CDN 图床，文章中引用图片 URL。
+目前方案是上传到 CDN 图床，文章中引用图片 URL。
 
-##### **文章题图 (Feature Image)**
+#### **文章题图 (Feature Image)**
 
 - **Method 1：远程图片**
 
@@ -404,6 +408,11 @@ hotlinkFeatureImage = true
 > 通过 Hugo 处理图片，生成不同尺寸的图片。
 
 把题图放在文章同目录下，命名为 `feature*.png` 或 `feature*.jpg`。
+
+#### **文章页背景图**
+
+默认引用 `featureImage` 支持远程图片 URL 作为背景图。  
+或者：把背景图放在文章同目录下，命名为 `background*.png` 或 `background*.jpg`。
 
 ### 📄 LICENSE
 
