@@ -1,6 +1,21 @@
 {{ define "main" }}
 {{ .Scratch.Set "scope" "single" }}
 
+<style>
+  .invisible {
+    font-size: 0;
+    line-height: 0;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    position: absolute;
+  }
+
+  .ellipsis:after {
+    content: "…";
+  }
+</style>
+
 <article>
   {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
   {{ $heroStyle := .Params.heroStyle }}
