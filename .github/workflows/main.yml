@@ -115,6 +115,8 @@ jobs:
         run: |
           # Fetch Directus articles (all data)
           pnpm run directus
+          pnpm run directus:neodb-count
+          pnpm run directus:penta-count
 
           # Build Hugo
           hugo --minify --enableGitInfo --gc

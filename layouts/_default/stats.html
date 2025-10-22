@@ -87,36 +87,22 @@
   {{ end }}
 {{ end }}
 
-{{ $tvCount := 105 }}
-{{ $movieCount := 238 }}
-{{ $bookCount := 32 }}
-{{ $musicCount := 1 }}
-{{ $gameCount := 8 }}
+{{ $totalCount := 390 }}
 {{ $neodbCountResource := resources.Get "data/neodb/movie.json" }}
-{{ $neodbCount := $neodbCountResource | transform.Unmarshal }}
-{{ if $neodbCount }}
-  {{ range $neodbCount }}
-    {{ if eq .item.category "tv" }}
-      {{ $tvCount = add $tvCount 1 }}
-    {{ else if eq .item.category "movie" }}
-      {{ $movieCount = add $movieCount 1 }}
-    {{ else if eq .item.category "book" }}
-      {{ $bookCount = add $bookCount 1 }}
-    {{ else if eq .item.category "music" }}
-      {{ $musicCount = add $musicCount 1 }}
-    {{ else if eq .item.category "game" }}
-      {{ $gameCount = add $gameCount 1 }}
-    {{ end }}
+{{ with $neodbCountResource }}
+  {{ $neodbCount := . | transform.Unmarshal }}
+  {{ if $neodbCount }}
+    {{ $totalCount = $neodbCount.count }}
   {{ end }}
 {{ end }}
 
 {{ $pentaCount := 103 }}
 {{ $pentaCountResource := resources.Get "data/penta/penta.json" }}
-{{ if $pentaCountResource }}
-    {{ $penta := $pentaCountResource | transform.Unmarshal }}
-    {{ if $penta }}
-        {{ $pentaCount = len $penta }}
-    {{ end }}
+{{ with $pentaCountResource }}
+  {{ $penta := . | transform.Unmarshal }}
+  {{ if $penta }}
+    {{ $pentaCount = (index $penta 0).count }}
+  {{ end }}
 {{ end }}
 
 {{ $lastCommitDate := "Now" }}
@@ -944,7 +930,7 @@
               </div>
             </div>
             <div class="p-4">
-              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">已停止使用网站统计工具。</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">已停止使用网站统计分析工具。</p>
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
                 <div class="max-w-3/12 overflow-ellipsis text-center">
                   <div class="text-xs text-neutral-500 dark:text-neutral-400">浏览量</div>
@@ -1042,6 +1028,42 @@
             class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
             <div class="h-32 relative">
               <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900">
+                {{ with resources.Get "images/stats/steam.webp" }}
+                <div class="absolute inset-0 opacity-20 dark:opacity-30"
+                    style="background-image: url('{{ .RelPermalink }}'); background-size: cover; background-position: center;">
+                </div>
+                {{ end }}
+              </div>
+              <div class="absolute inset-0 flex items-center justify-center"><svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 512 512"><symbol id="b" viewBox="-32 -32 64 64"><linearGradient id="a" x1="7762.648" x2="7762.648" y1="-8454.313" y2="-8453.313" gradientTransform="matrix(63.931 0 0 64 -496273.844 541044)" gradientUnits="userSpaceOnUse"><stop offset="0" style="stop-color:#111d2e"/><stop offset=".212" style="stop-color:#051839"/><stop offset=".407" style="stop-color:#0a1b48"/><stop offset=".581" style="stop-color:#132e62"/><stop offset=".738" style="stop-color:#144b7e"/><stop offset=".873" style="stop-color:#136497"/><stop offset="1" style="stop-color:#1387b8"/></linearGradient><path d="M-30.7 9.2C-26.7 22.4-14.5 32 0 32c17.7 0 32-14.3 32-32S17.7-32 0-32c-17 0-30.9 13.2-32 29.9 2.1 3.5 2.9 5.6 1.3 11.3" style="fill:url(#a)"/><path d="M-1.7-8v.2L-9.5 3.5c-1.3-.1-2.5.2-3.7.7-.5.2-1 .5-1.5.8l-17.2-7.1s-.4 6.5 1.3 11.4l12.2 5c.6 2.7 2.5 5.1 5.2 6.3 4.5 1.9 9.7-.3 11.6-4.8.5-1.2.7-2.4.7-3.7l11.2-8h.3c6.7 0 12.2-5.5 12.2-12.2s-5.4-12.2-12.2-12.2C3.8-20.2-1.7-14.7-1.7-8m-1.8 23c-1.5 3.5-5.5 5.1-9 3.7-1.5-.7-2.8-1.8-3.5-3.4l4 1.6c2.6 1.1 5.5-.1 6.6-2.7s-.1-5.5-2.7-6.6L-12.3 6c1.6-.6 3.4-.6 5 .1 1.7.7 3 2 3.7 3.7s.7 3.5.1 5.2M10.5.1C6 .1 2.4-3.5 2.4-8s3.6-8.1 8.1-8.1 8.1 3.6 8.1 8.1S15 .1 10.5.1M4.4-8c0-3.4 2.7-6.1 6.1-6.1s6.1 2.7 6.1 6.1-2.7 6.1-6.1 6.1S4.4-4.7 4.4-8" style="fill:#fff"/></symbol><use xlink:href="#b" width="64" height="64" x="-32" y="-32" style="overflow:visible" transform="matrix(8 0 0 8 256 256)"/></svg>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-10"></div>
+              <div class="absolute bottom-3 left-4">
+                <h3 class="text-xl font-bold text-neutral">Steam</h3>
+                <p class="text-sm text-neutral-200"></p>
+              </div>
+            </div>
+            <div class="p-4">
+              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">"Pay. Don't play." Steam  是畅玩游戏、讨论游戏、创造游戏的快乐所在。</p>
+              <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
+                <div class="max-w-2/11 overflow-ellipsis text-center">
+                  <div class="text-xs text-neutral-500 dark:text-neutral-400">游戏库</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span>{{ $steamGameCount }}</span></div>
+                </div>
+                <div class="max-w-3/5 overflow-ellipsis text-center">
+                  <button type="button" onclick="window.open('https://steamcommunity.com/id/eallion', '_blank')" class="text-neutral-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                  <a href="https://steamcommunity.com/id/eallion" target="_blank" rel="noopener noreferrer" class="text-neutral hover:text-neutral">View Details</a>
+                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
+            <div class="h-32 relative">
+              <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900">
                 {{ with resources.Get "images/stats/neodb.webp" }}
                 <div class="absolute inset-0 opacity-20 dark:opacity-30"
                     style="background-image: url('{{ .RelPermalink }}'); background-size: cover; background-position: center;">
@@ -1089,73 +1111,17 @@
             <div class="p-4">
               <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">致力于提供一个涵盖书籍、影视、音乐、游戏、播客的自由开放互联的收藏评论空间。</p>
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
-                <div class="max-w-1/3 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">看过</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral">🎞️{{- $movieCount -}}</div>
+                <div class="max-w-2/5 overflow-ellipsis text-center">
+                  <div class="text-xs text-neutral-500 dark:text-neutral-400">书影音标记</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{- $totalCount | default 390 -}}</div>
                 </div>
-                <div class="max-w-1/3 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">看过</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral">📺{{- $tvCount -}}</div>
-                </div>
-                <div class="max-w-1/3 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">读过</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral">📘{{- $bookCount -}}</div>
-                </div>
-                <div class="max-w-1/3 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">听过</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral">🎶{{- $musicCount -}}</div>
-                </div>
-                <div class="max-w-1/3 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">玩过</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral flex items-center gap-1"><span class="mb-0.5"><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 32 32"><g fill="none"><path fill="currentColor" d="m4.434 14.79l9.13-4.67L11.634 8c-7.2 0-7.2 6.79-7.2 6.79m22.696 0L18 10.12L19.93 8c7.2 0 7.2 6.79 7.2 6.79"/><path fill="#604f9e" d="M27.178 12.511C26.668 10.371 24.82 9 22.601 9H9.369c-2.209 0-4.067 1.371-4.577 3.511c0 0-3.638 11.655-2.609 15.208c.33 1.142 1.41 1.807 2.2 2.16a1.44 1.44 0 0 0 1.488-.207s4.632-3.966 5.002-4.246s.82-.426 1.28-.426h7.695c.46 0 .91.156 1.279.426l5.012 4.246c.42.343 1.126.367 1.489.207c.78-.342 1.859-1.018 2.199-2.16c.999-3.553-2.649-15.208-2.649-15.208"/><path fill="#fcd53f" d="M22.714 13.59a1 1 0 1 0 0-2a1 1 0 0 0 0 2"/><path fill="#86d72f" d="M22.714 18.11a1 1 0 1 0 0-2a1 1 0 0 0 0 2"/><path fill="#00a6ed" d="M20.454 15.85a1 1 0 1 0 0-2a1 1 0 0 0 0 2"/><path fill="#f8312f" d="M24.974 15.85a1 1 0 1 0 0-2a1 1 0 0 0 0 2"/><path fill="#a4aeeb" d="M9.674 17.04a2.15 2.15 0 1 0 0-4.3a2.15 2.15 0 0 0 0 4.3m10 5.82a2.15 2.15 0 1 0 0-4.3a2.15 2.15 0 0 0 0 4.3m-5.38-2.8h.4c.28 0 .55.19.58.47c.07.36-.21.68-.56.68h-.43a.58.58 0 0 0-.58.58v.43c0 .35-.32.63-.68.56c-.28-.05-.47-.32-.47-.6v-.4a.58.58 0 0 0-.58-.58h-.43c-.35 0-.63-.32-.56-.68c.05-.28.32-.47.6-.47h.4c.32 0 .58-.26.58-.58v-.43c0-.35.32-.63.68-.56c.28.05.47.32.47.6v.4c0 .32.26.58.58.58"/></g></svg></span>{{- $gameCount -}}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
-            <div class="h-32 relative">
-              <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900">
-                {{ with resources.Get "images/stats/steam.webp" }}
-                <div class="absolute inset-0 opacity-20 dark:opacity-30"
-                    style="background-image: url('{{ .RelPermalink }}'); background-size: cover; background-position: center;">
-                </div>
-                {{ end }}
-              </div>
-              <div class="absolute inset-0 flex items-center justify-center"><svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 512 512"><symbol id="b" viewBox="-32 -32 64 64"><linearGradient id="a" x1="7762.648" x2="7762.648" y1="-8454.313" y2="-8453.313" gradientTransform="matrix(63.931 0 0 64 -496273.844 541044)" gradientUnits="userSpaceOnUse"><stop offset="0" style="stop-color:#111d2e"/><stop offset=".212" style="stop-color:#051839"/><stop offset=".407" style="stop-color:#0a1b48"/><stop offset=".581" style="stop-color:#132e62"/><stop offset=".738" style="stop-color:#144b7e"/><stop offset=".873" style="stop-color:#136497"/><stop offset="1" style="stop-color:#1387b8"/></linearGradient><path d="M-30.7 9.2C-26.7 22.4-14.5 32 0 32c17.7 0 32-14.3 32-32S17.7-32 0-32c-17 0-30.9 13.2-32 29.9 2.1 3.5 2.9 5.6 1.3 11.3" style="fill:url(#a)"/><path d="M-1.7-8v.2L-9.5 3.5c-1.3-.1-2.5.2-3.7.7-.5.2-1 .5-1.5.8l-17.2-7.1s-.4 6.5 1.3 11.4l12.2 5c.6 2.7 2.5 5.1 5.2 6.3 4.5 1.9 9.7-.3 11.6-4.8.5-1.2.7-2.4.7-3.7l11.2-8h.3c6.7 0 12.2-5.5 12.2-12.2s-5.4-12.2-12.2-12.2C3.8-20.2-1.7-14.7-1.7-8m-1.8 23c-1.5 3.5-5.5 5.1-9 3.7-1.5-.7-2.8-1.8-3.5-3.4l4 1.6c2.6 1.1 5.5-.1 6.6-2.7s-.1-5.5-2.7-6.6L-12.3 6c1.6-.6 3.4-.6 5 .1 1.7.7 3 2 3.7 3.7s.7 3.5.1 5.2M10.5.1C6 .1 2.4-3.5 2.4-8s3.6-8.1 8.1-8.1 8.1 3.6 8.1 8.1S15 .1 10.5.1M4.4-8c0-3.4 2.7-6.1 6.1-6.1s6.1 2.7 6.1 6.1-2.7 6.1-6.1 6.1S4.4-4.7 4.4-8" style="fill:#fff"/></symbol><use xlink:href="#b" width="64" height="64" x="-32" y="-32" style="overflow:visible" transform="matrix(8 0 0 8 256 256)"/></svg>
-              </div>
-              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-10"></div>
-              <div class="absolute bottom-3 left-4">
-                <h3 class="text-xl font-bold text-neutral">Steam</h3>
-                <p class="text-sm text-neutral-200"></p>
-              </div>
-            </div>
-            <div class="p-4">
-              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">"Pay. Don't play." Steam  是畅玩游戏、讨论游戏、创造游戏的快乐所在。</p>
-              <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
-                <div class="max-w-2/11 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">游戏库</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span>{{ $steamGameCount }}</span></div>
-                </div>
-                <div class="max-w-5/11 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">最近游玩</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral inline whitespace-nowrap group relative">
-                    <span class="truncate max-w-[120px] inline-block align-bottom">{{ $lastPlayed }}</span>
-                    <span class="w-max max-w-sm hidden group-hover:block absolute bottom-full left-1/2 bg-neutral-900 text-neutral text-sm rounded py-2 px-3 shadow-lg z-50 hover:z-50 whitespace-nowrap -translate-x-1/2 -translate-y-1.5">
-                      {{ $lastPlayed }}
-                      <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-neutral-900"></div>
-                    </span>
-                  </div>
-                </div>
-                <div class="max-w-4/11 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">总游戏时间</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral inline whitespace-nowrap group relative">
-                    <span class="truncate max-w-[120px] inline-block align-bottom"><span>{{- lang.FormatNumber 0 (default 0 $totalPlayedTime) -}} 小时</span></span>
-                    <span class="w-max max-w-sm hidden group-hover:block absolute right-0 bottom-full bg-neutral-900 text-neutral text-sm rounded py-2 px-3 shadow-lg z-50 hover:z-50 whitespace-nowrap -translate-y-1.5">
-                      统计时间：<span id="total-played-time" data-date="{{ $lastCommitDate }}">-</span>
-                      <div class="absolute top-full right-1/4 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-neutral-900"></div>
-                    </span>
-                  </div>
+                <div class="max-w-3/5 overflow-ellipsis text-center">
+                  <button type="button" onclick="window.open('https://neodb.social/users/eallion/', '_blank')" class="text-neutral-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                  <a href="https://neodb.social/users/eallion/" target="_blank" rel="noopener noreferrer" class="text-neutral hover:text-neutral">View Details</a>
+                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 10">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                    </svg>
+                  </button>
                 </div>
               </div>
             </div>
@@ -1186,8 +1152,8 @@
                   <div class="font-semibold text-neutral-900 dark:text-neutral">{{- $pentaCount | default 103 -}}</div>
                 </div>
                 <div class="max-w-3/5 overflow-ellipsis text-center">
-                  <button type="button" onclick="window.open('/penta', '_blank')" class="text-neutral-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                  <a href="/penta" target="_blank" rel="noopener noreferrer" class="text-neutral hover:text-neutral">View Details</a>
+                  <button type="button" onclick="window.open('https://e5n.cc/@eallion/tagged/LOL', '_blank')" class="text-neutral-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                  <a href="https://e5n.cc/@eallion/tagged/LOL" target="_blank" rel="noopener noreferrer" class="text-neutral hover:text-neutral">View Details</a>
                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                     </svg>
