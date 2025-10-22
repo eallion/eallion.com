@@ -25,10 +25,10 @@ aliases:
 
 🔗 我的友链信息：
 
-> 标题：大大的小蜗牛  
+> 标题：eallion's Blog  
 > URL：[https://www.eallion.com](https://www.eallion.com)  
 > Avatar：[https://www.eallion.com/eallion.png](https://www.eallion.com/eallion.png)  
 > Gravatar：[https://gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31](https://gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31)  
 > 描述：机会总是垂青于有准备的人  
-> Title：Charles Chin&#39;s blog  
-> Description：_Chance favors the prepared mind_
+> Title: eallion's Blog  
+> Description:_Chance favors the prepared mind_
