@@ -87,12 +87,12 @@
   {{ end }}
 {{ end }}
 
-{{ $totalCount := 390 }}
+{{ $neodbMarked := 390 }}
 {{ $neodbCountResource := resources.Get "data/neodb/movie.json" }}
 {{ with $neodbCountResource }}
   {{ $neodbCount := . | transform.Unmarshal }}
   {{ if $neodbCount }}
-    {{ $totalCount = $neodbCount.count }}
+    {{ $neodbMarked = $neodbCount.count }}
   {{ end }}
 {{ end }}
 
@@ -930,7 +930,7 @@
               </div>
             </div>
             <div class="p-4">
-              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">已停止使用网站统计分析工具。</p>
+              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">已停止使用网站统计工具。</p>
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
                 <div class="max-w-3/12 overflow-ellipsis text-center">
                   <div class="text-xs text-neutral-500 dark:text-neutral-400">浏览量</div>
@@ -1045,7 +1045,7 @@
             <div class="p-4">
               <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">"Pay. Don't play." Steam  是畅玩游戏、讨论游戏、创造游戏的快乐所在。</p>
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
-                <div class="max-w-2/11 overflow-ellipsis text-center">
+                <div class="max-w-2/5 overflow-ellipsis text-center">
                   <div class="text-xs text-neutral-500 dark:text-neutral-400">游戏库</div>
                   <div class="font-semibold text-neutral-900 dark:text-neutral"><span>{{ $steamGameCount }}</span></div>
                 </div>
@@ -1113,7 +1113,7 @@
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
                 <div class="max-w-2/5 overflow-ellipsis text-center">
                   <div class="text-xs text-neutral-500 dark:text-neutral-400">书影音标记</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{- $totalCount | default 390 -}}</div>
+                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{- $neodbMarked -}}</div>
                 </div>
                 <div class="max-w-3/5 overflow-ellipsis text-center">
                   <button type="button" onclick="window.open('https://neodb.social/users/eallion/', '_blank')" class="text-neutral-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
@@ -1862,10 +1862,10 @@
 
           // Github Card Last Commit
           const lastCommitDateElement = document.getElementById("last-commit-date");
-          const totalPlayedTimeElement = document.getElementById("total-played-time");
+          // const totalPlayedTimeElement = document.getElementById("total-played-time");
           const commitDate = lastCommitDateElement.getAttribute("data-date");
           lastCommitDateElement.textContent = getRelativeTime(commitDate);
-          totalPlayedTimeElement.textContent = getRelativeTime(commitDate);
+          // totalPlayedTimeElement.textContent = getRelativeTime(commitDate);
 
           createHeatmap();
 
