@@ -25,11 +25,11 @@ showZenMode: true
 
 ### 标题
 
-『大大的小蜗牛』
+『eallion's Blog』
 
 ### 说明
 
-大大的小蜗牛的个人博客。
+eallion 的个人博客。
 
 ### 隐私条款
 
