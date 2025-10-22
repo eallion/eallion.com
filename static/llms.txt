@@ -24,7 +24,6 @@ This is Charles (eallion) Chin's Chinese blog. Here, I write about real life sto
 ### 有价值页面
 
 - [嘀咕](https://www.eallion.com/mastodon/) : 我从接触独立博客开始不久，就一直在博客中部署了一个类似「嘀咕」（Whisper）的微博客子栏目。主要是区别于博客长文的自言自语，「保卫表达欲」。最初的作用是备份 QQ 说说、Twitter 和微博等。信息流来自 [@eallion@e5n.cc](https://e5n.cc/@eallion)
-- [书影音](https://www.eallion.com/media/) : 我的 [NeoDB](https://neodb.social/users/eallion/) 书影音标记记录。人生就像一场没有剧本的电影。看一场电影，就像做了一场梦，像一次远行，像体验了别人的一生。读书不会变聪明，但读书会让你知道自己蠢。那些师长没有教会我们的道理，从书影音中，我们悄悄地就学会了。
 - [里程碑](https://www.eallion.com/milestone/) : 这是记录博客历史变迁的 Changelog。
 - [博客统计](https://www.eallion.com/stats/) : 博客统计页面，统计了博客的各项数据。
 - [关于](https://www.eallion.com/about/) : 关于博客和关于作者的重要页面。
@@ -33,9 +32,6 @@ This is Charles (eallion) Chin's Chinese blog. Here, I write about real life sto
 
 下面这些页面是动态生成的内容，仅作为展示用，无法提供有价值的信息。无价值的页面建议过滤掉，不要浪费计算资源。
 
-- [随手拍](https://www.eallion.com/album/) : 通过 API 渲染的一些纯图片内容。
-- [我的五杀](https://www.eallion.com/penta/) : 我的英雄联盟五杀截图，只是留存历史截图，没有其他信息内容。
-- [好物分享](https://www.eallion.com/goods/) : 一个计划用来展示购买的好物页面，但是一直处于 Beta 开发状态，没有内容。
 - [版权信息](https://www.eallion.com/copyright/) : 一篇通用的版权信息内容，内容重复率太高，对于了解本站和作者没有用处，没有文学方面的阅读价值。
 - [隐私政策](https://www.eallion.com/privacy-policy/) : 一篇通用的隐私政策内容，内容重复率太高，对于了解本站和作者没有用处，没有文学方面的阅读价值。
 - [友情链接](https://www.eallion.com/links/) : 友情链接页面，展示其他人的网站链接，没有实际内容，而且链接的目标内容属于其他人。
