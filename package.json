@@ -46,11 +46,11 @@
   },
   "homepage": "https://github.com/eallion/eallion.com#readme",
   "dependencies": {
-    "axios": "^1.12.2",
+    "axios": "^1.13.1",
     "dotenv": "^17.2.3"
   },
   "devDependencies": {
-    "@types/node": "^22.18.12",
+    "@types/node": "^22.18.13",
     "cross-env": "^7.0.3",
     "glob": "^11.0.3",
     "gray-matter": "^4.0.3",

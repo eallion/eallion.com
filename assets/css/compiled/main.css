@@ -1,4 +1,4 @@
-/*! tailwindcss v4.1.14 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.1.16 | MIT License | https://tailwindcss.com */
 /*! Blowfish | MIT License | https://github.com/nunocoracao/blowfish */
 @layer properties;
 #zen-mode-button {
@@ -1261,9 +1261,6 @@ body.zen-mode-enable {
   .mb-0 {
     margin-bottom: calc(var(--spacing) * 0);
   }
-  .mb-0\.5 {
-    margin-bottom: calc(var(--spacing) * 0.5);
-  }
   .mb-1 {
     margin-bottom: calc(var(--spacing) * 1);
   }
@@ -1645,9 +1642,6 @@ body.zen-mode-enable {
   .max-w-2\/5 {
     max-width: calc(2/5 * 100%);
   }
-  .max-w-2\/11 {
-    max-width: calc(2/11 * 100%);
-  }
   .max-w-3\/5 {
     max-width: calc(3/5 * 100%);
   }
@@ -1656,12 +1650,6 @@ body.zen-mode-enable {
   }
   .max-w-3xl {
     max-width: var(--container-3xl);
-  }
-  .max-w-4\/11 {
-    max-width: calc(4/11 * 100%);
-  }
-  .max-w-5\/11 {
-    max-width: calc(5/11 * 100%);
   }
   .max-w-6\/12 {
     max-width: calc(6/12 * 100%);
