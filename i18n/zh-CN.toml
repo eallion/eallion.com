@@ -254,3 +254,6 @@ other = "删除"
 # === 自定义 ===
 [blog_title]
 other = "大大的小蜗牛'博客"
+
+[shortcode]
+recent_articles = "更多文章："

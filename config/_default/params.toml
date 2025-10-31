@@ -57,7 +57,6 @@ smartTOCHideUnfocusedChildren = false
     { keyoxide = "https://keyoxide.org/E685DDDDDDDDDDDD" },
     { mastodon = "https://e5n.cc/@eallion" },
     { github = "https://github.com/eallion" },
-    { x-twitter = "https://x.com/eallion" },
     { steam = "https://steamcommunity.com/id/eallion" }
   ]
 
@@ -65,7 +64,7 @@ smartTOCHideUnfocusedChildren = false
   layout = "custom" # valid options: page, profile, hero, card, background, custom
   homepageImage = "/images/interstellar.webp" # used in: hero, and card
   showRecent = true
-  showRecentItems = 9
+  showRecentItems = 6
   showMoreLink = true
   showMoreLinkDest = "/blog"
   cardView = true
