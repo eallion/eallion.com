@@ -1099,7 +1099,7 @@ html.dark .shiki span {
 }
 
 /* 修改列表页 Summary 样式 */
-#main-content section>article>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) a:not([href^="/tags/"]) {
+#main-content section>article>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) a[href*="slug"] {
   display: none !important;
 }
 #main-content section>article>div:nth-child(2)>div:nth-child(3) {
@@ -1111,8 +1111,8 @@ html.dark .shiki span {
 }
 
 /* 首页隐藏文章 Summary */
-#main-content .home-article>article>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) a:not([href^="/tags/"]),
-#main-content .home-article>article>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) a:nth-of-type(n+7),
+#main-content .home-article>article>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) a[href*="slug"],
+#main-content .home-article>article>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) a:nth-of-type(n+6),
 #main-content .home-article>article>div:nth-child(2)>div:nth-child(3) {
   display: none !important;
 }
