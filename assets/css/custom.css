@@ -1098,17 +1098,23 @@ html.dark .shiki span {
   background-color: #39d353;
 }
 
-/* 首页隐藏文章 Summary */
-#main-content .home-article>article>div:nth-child(2)>div:nth-child(3) {
+/* 修改列表页 Summary 样式 */
+#main-content section>article>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) a:not([href^="/tags/"]) {
   display: none !important;
 }
+#main-content section>article>div:nth-child(2)>div:nth-child(3) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 
-/* 修改列表页 Summary 样式 */
-#main-content .article {
-  display: flex;
-  align-items: flex-start;
-  /* 默认情况（移动端优先）：flex-wrap: wrap; */
-  flex-wrap: wrap;
+/* 首页隐藏文章 Summary */
+#main-content .home-article>article>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) a:not([href^="/tags/"]),
+#main-content .home-article>article>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) a:nth-of-type(n+7),
+#main-content .home-article>article>div:nth-child(2)>div:nth-child(3) {
+  display: none !important;
 }
 
 /* 当屏幕宽度 ≥ 1024px 时，flex-wrap: nowrap; */
