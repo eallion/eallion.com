@@ -187,15 +187,15 @@
                         <div class="w-5/6 max-w-5/6 flex justify-start mt-8 mb-4">
                           <div class="relative flex items-center">
                             <div
-                              class="z-10 h-6 w-6 rounded-full bg-blue-500 border-4 border-white ring-4 ring-blue-500 dark:border-neutral-700 dark:ring-blue-500">
+                              class="z-10 h-6 w-6 rounded-full bg-blue-500 border-4 border-white ring-4 ring-blue-500 dark:border-neutral-700 dark:ring-blue-500 shrink-0">
                             </div>
                             <div class="ml-4 p-2 text-sm text-left font-medium text-gray-700 dark:text-gray-300">
                               <div class="flex cursor-pointer mb-2">
                                 <span
                                   class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">Nov 1, 2025</span>
                               </div>
-                              <div class="text-base font-semibold text-gray-900 dark:text-white">[Now] 零号事件 (wip)：AnyNow βeta 版本开发中</div>
-                              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1"> Q4 2025, 62% completed. Directus deployed as backend.</p>
+                              <div class="text-base font-semibold text-gray-900 dark:text-white">[Now] 零号事件：AnyNow βeta 版本开发中</div>
+                              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1"> Work in process. Q4 2025, 62% completed. Directus deployed as backend.</p>
                             </div>
                           </div>
                         </div>
@@ -307,7 +307,7 @@
                                       d="M246 287h553c125 0 225 100 225 225S924 737 799 737H0V532c0-135 111-245 246-245m133 348V401h-31v179L236 401h-31v234h31V457l112 178zm182-109v-24h-96v-76h110v-25H434v234h144v-25H465v-84zm101 29-35-152h-35l55 234h29l47-162 4-20 4 20 47 162h29l57-234h-35l-32 152-4 31-7-31-41-152h-30l-41 152-6 31z" />
                                   </svg> {{ .Title | emojify }}</h2>
                               </a>
-                              <p class="text-left mb-0">摘要：{{ .Summary | markdownify | safeHTML }}</p>
+                              <p class="text-left mb-0 line-clamp-6">摘要：{{ .Summary | markdownify | safeHTML }}</p>
                             </div>
                           </div>
                         </div>
