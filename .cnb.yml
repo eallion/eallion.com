@@ -6,7 +6,7 @@ main:
       imports: https://cnb.cool/eallion/env/-/blob/main/eallion.com/envs.yml
       stages:
         - name: build-hugo
-          image: hugomods/hugo:base-0.151.0
+          image: hugomods/hugo:base-0.152.2
           timeout: 10m
           commands:
             - hugo --minify

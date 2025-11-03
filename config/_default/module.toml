@@ -1,7 +1,7 @@
 [hugoVersion]
   extended = true
   min = "0.141.0"
-  max = "0.151.0"
+  max = "0.152.2"
 
 [mounts]
   source = "content"
