@@ -267,12 +267,15 @@ body.zen-mode-enable {
     --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
     --font-weight-light: 300;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
+    --tracking-tight: -0.025em;
     --tracking-normal: 0em;
     --leading-snug: 1.375;
     --radius-sm: 0.25rem;
@@ -1388,11 +1391,11 @@ body.zen-mode-enable {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
   }
-  .line-clamp-6 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 6;
+  .line-clamp-none {
+    overflow: visible;
+    display: block;
+    -webkit-box-orient: horizontal;
+    -webkit-line-clamp: unset;
   }
   .\!block {
     display: block !important;
@@ -1551,9 +1554,6 @@ body.zen-mode-enable {
   }
   .min-h-0 {
     min-height: calc(var(--spacing) * 0);
-  }
-  .min-h-7 {
-    min-height: calc(var(--spacing) * 7);
   }
   .min-h-10 {
     min-height: calc(var(--spacing) * 10);
@@ -4330,6 +4330,14 @@ body.zen-mode-enable {
   .lg\:ml-auto {
     @media (width >= 1024px) {
       margin-left: auto;
+    }
+  }
+  .lg\:line-clamp-6 {
+    @media (width >= 1024px) {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 6;
     }
   }
   .lg\:block {
