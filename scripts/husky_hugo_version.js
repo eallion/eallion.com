@@ -1,21 +1,19 @@
 const axios = require('axios');
 const fs = require('fs');
 
-// 1. 获取 config.toml 的内容并提取 min 和 max 版本号
+// 1. 从 hugo-latest.txt 获取最新的 Hugo 版本号
 async function getHugoVersions() {
-    const url = 'https://raw.githubusercontent.com/nunocoracao/blowfish/refs/heads/main/config.toml';
+    const url = 'https://raw.githubusercontent.com/nunocoracao/blowfish/refs/heads/main/release-versions/hugo-latest.txt';
     const response = await axios.get(url);
-    const toml = response.data;
+    const version = response.data.trim();
 
-    const minMatch = toml.match(/min\s*=\s*"([\d.]+)"/);
-    const maxMatch = toml.match(/max\s*=\s*"([\d.]+)"/);
-    
-    if (!minMatch) throw new Error('未找到 min 版本号');
-    if (!maxMatch) throw new Error('未找到 max 版本号');
-    
+    if (!version) throw new Error('未获取到版本号');
+
+    // 去掉版本号前的 'v' 前缀（如果存在）
+    const cleanVersion = version.replace(/^v/, '');
+
     return {
-        min: minMatch[1],
-        max: maxMatch[1]
+        hugoVersion: cleanVersion
     };
 }
 
@@ -23,19 +21,13 @@ async function getHugoVersions() {
 function updateModuleToml(versions) {
     const file = 'config/_default/module.toml';
     let content = fs.readFileSync(file, 'utf8');
-    
-    // 更新 min 版本号
-    content = content.replace(
-        /(min\s*=\s*")([\d.]+)(")/,
-        `$1${versions.min}$3`
-    );
-    
-    // 更新 max 版本号
+
+    // 更新 Hugo 版本号
     content = content.replace(
         /(max\s*=\s*")([\d.]+)(")/,
-        `$1${versions.max}$3`
+        `$1${versions.hugoVersion}$3`
     );
-    
+
     fs.writeFileSync(file, content);
 }
 
@@ -88,9 +80,9 @@ function updateGithubWorkflow(version) {
 (async () => {
     const versions = await getHugoVersions();
     updateModuleToml(versions);
-    updateVercelJson(versions.max);
-    updateCnbYml(versions.max);
-    updateWranglerToml(versions.max);
-    updateGithubWorkflow(versions.max);
-    console.log(`已将 Hugo 最小版本号更新为 ${versions.min}，最大版本号更新为 ${versions.max}`);
+    updateVercelJson(versions.hugoVersion);
+    updateCnbYml(versions.hugoVersion);
+    updateWranglerToml(versions.hugoVersion);
+    updateGithubWorkflow(versions.hugoVersion);
+    console.log(`已将 Hugo 版本更新为 ${versions.hugoVersion}`);
 })();
