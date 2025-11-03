@@ -23,7 +23,7 @@ showLikes = false
 disableImageZoom = true
 disableImageOptimization = true
 disableImageOptimizationMD = true
-disableTextInHeader = false
+disableTextInHeader = true
 # backgroundImageWidth = 1200
 
 defaultBackgroundImage = "/images/interstellar.webp"
