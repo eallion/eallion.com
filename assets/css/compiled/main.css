@@ -1321,6 +1321,9 @@ body.zen-mode-enable {
   .ml-4 {
     margin-left: calc(var(--spacing) * 4);
   }
+  .ml-12 {
+    margin-left: calc(var(--spacing) * 12);
+  }
   .ml-auto {
     margin-left: auto;
   }
@@ -1641,6 +1644,9 @@ body.zen-mode-enable {
   }
   .w-auto {
     width: auto;
+  }
+  .w-fit {
+    width: fit-content;
   }
   .w-full {
     width: 100%;
@@ -4322,6 +4328,16 @@ body.zen-mode-enable {
   .lg\:mt-0 {
     @media (width >= 1024px) {
       margin-top: calc(var(--spacing) * 0);
+    }
+  }
+  .lg\:mr-2 {
+    @media (width >= 1024px) {
+      margin-right: calc(var(--spacing) * 2);
+    }
+  }
+  .lg\:mb-0 {
+    @media (width >= 1024px) {
+      margin-bottom: calc(var(--spacing) * 0);
     }
   }
   .lg\:ml-auto {
