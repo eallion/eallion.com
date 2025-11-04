@@ -26,7 +26,7 @@
     "preview": "node scripts/directus-fetch-articles.js && git submodule update --remote --merge && open-cli http://127.0.0.1:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content -e production --enableGitInfo --gc --minify --disableKinds RSS --renderToMemory",
     "server": "git submodule update --remote --merge && open-cli http://127.0.0.1:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content -e production --enableGitInfo --gc --minify --disableKinds RSS --renderToMemory",
     "shiki": "npx rehype-cli public -o",
-    "theme:update": "git submodule update --remote --force themes/blowfish",
+    "theme:update": "git submodule update --remote --force themes/blowfish && bash scripts/update_hugo.sh",
     "theme:init": "git submodule update --init --recursive"
   },
   "repository": {
@@ -50,7 +50,7 @@
     "dotenv": "^17.2.3"
   },
   "devDependencies": {
-    "@types/node": "^22.18.13",
+    "@types/node": "^22.19.0",
     "cross-env": "^7.0.3",
     "glob": "^11.0.3",
     "gray-matter": "^4.0.3",
