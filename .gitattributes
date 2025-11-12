@@ -1,31 +1,58 @@
-# Set default behaviour, in case users don't have core.autocrlf set.
-*                 text=auto
+#####################################################################
+# 1. 换行符标准化 (EOL Normalization)
+#    确保所有文本文件在 Git 中以 LF 存储，签出时根据系统自动转换。
 
-# Explicitly declare text files we want to always be normalized and converted 
-# to native line endings on checkout.
-*.go              text eol=lf
-*.js              text eol=lf
-*.css             text eol=lf
-*.html            text eol=lf
-*.xml             text eol=lf
-*.md              text eol=lf
-*.json            text eol=lf
-# Denote all files that are truly binary and should not be modified.
-*.png             binary
-*.jpg             binary
-*.gif             binary
-# SVG files should not be modified
-*.svg -text
-# Fonts
-*.ttf             binary
-*.eot             binary
-*.otf             binary
-*.woff            binary
-*.woff2           binary
+# 针对常见的文本文件类型
+*.css          text eol=lf
+*.htm          text eol=lf
+*.html         text eol=lf
+*.js           text eol=lf
+*.json         text eol=lf
+*.md           text eol=lf
+*.markdown     text eol=lf
+*.py           text eol=lf
+*.sh           text eol=lf
+*.toml         text eol=lf
+*.txt          text eol=lf
+*.xml          text eol=lf
+*.yml          text eol=lf
+*.yaml         text eol=lf
+# Hugo 配置和模板文件
+*.go           text eol=lf
+*.tpl          text eol=lf
+*.scss         text eol=lf
+*.sass         text eol=lf
+.gitignore     text eol=lf
+.gitmodules    text eol=lf
+.editorconfig  text eol=lf
+# 确保所有剩余文件都由 Git 自动处理（默认行为，但明确列出更安全）
+# 这是 Git 的默认设置，通常在 .git/config 中控制，但这里显式配置。
+* text=auto
+# -------------------------------------------------------------------
+# 2. 标识为二进制文件
+#    强制 Git 将这些文件视为二进制文件，避免对其进行 EOL 转换和 Diff 操作。
+*.eot          binary
+*.gif          binary
+*.heic         binary
+*.ico          binary
+*.jpg          binary
+*.jpeg         binary
+*.mp3          binary
+*.mp4          binary
+*.ogg          binary
+*.otf          binary
+*.pdf          binary
+*.png          binary
+*.ttf          binary
+*.webp         binary
+*.woff         binary
+*.woff2        binary
+# 矢量图像
+*.svg          text
 # RC files (like .babelrc or .eslintrc)
-*.*rc             text
+*.*rc          text
 # Ignore files (like .npmignore or .gitignore)
-*.*ignore         text
+*.*ignore      text
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.jpeg filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text

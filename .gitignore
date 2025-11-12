@@ -6,15 +6,12 @@
 
 .edgeone/
 content/blog/*.md
-assets/data/album/
-assets/data/friends/
-assets/data/goods/
-assets/data/mastodon/
-assets/data/neodb/
-assets/data/penta/
-assets/data/steam/
-assets/data/summary/
-# Can be `git add static/llms.txt` to add the file to the repository
+
+assets/data/*
+!assets/data/friends/
+!assets/data/neodb/
+!assets/data/penta/
+
 static/llms.txt
 static/llms-full.txt
 
@@ -36,6 +33,7 @@ hugo.linux
 # Temporary lock file while building
 
 /.hugo_build.lock
+hugo_build.lock
 
 # Executables
 *.swf

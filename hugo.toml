@@ -1,0 +1,236 @@
+baseURL = 'https://www.eallion.com/'
+defaultContentLanguage = "zh-cn"
+languageCode = 'zh-cn'
+languageName = "简体中文"
+title = "eallion's Blog"
+theme = 'pehe'
+
+summaryLength = 20 # <- 20 words are approximately 160 characters
+# googleAnalytics = 'G-MEASUREMENT_ID' # <- Your GA-4
+# disqusShortname = 'your-disqus-shortname' # <- Get form here : https://disqus.com
+
+hasCJKLanguage = true
+
+buildDrafts = false
+buildFuture = false
+
+enableEmoji = true
+enableRobotsTXT = true
+
+# Suppress warnings about raw HTML in Markdown
+ignoreLogs = ['warning-goldmark-raw-html']
+
+ignoreFiles = [
+  "data/llms/*"
+]
+
+[params]
+  isoCode = "zh-cn"
+  rtl = false
+  dateFormat = "Jan 2, 2006"
+  # Meta description, not exceeding 160 characters, used for the meta description within the HTML head
+  description = 'Gemini, Millennials, Normie, Kōjigen, N24SWD, AIWS, Upekkha.'
+  mainSections = 'blog'
+
+[params.Author]
+  name = 'Charles Chin'
+  bio = 'Gemini, Millennials, Normie, Kōjigen, N24SWD, AIWS, Upekkha.'
+  avatar = '/eallion.webp'
+  links = [
+    { email = "mailto:eallion.s+blog@gmail.com" },
+    { keyoxide = "https://keyoxide.org/E685DDDDDDDDDDDD" },
+    { mastodon = "https://e5n.cc/@eallion" },
+    { github = "https://github.com/eallion" },
+    { steam = "https://steamcommunity.com/id/eallion" }
+  ]
+
+[params.verification]
+  google = "9Mvl_9FEM5JphVmp-u9ljtlChFohWuBBFjlSS89QKVU"
+  bing = "68A03C00DAFAD54E3739A8D372D9371B"
+  yandex = "ff49a8cfbbaad423"
+  pinterest = "b9e3534b99f9bd82f3b8688a1fa122a8"
+  baidu = "ZWIiTFJWJkGQ11ZJ"
+  so = "05afe845fd64ce6966deadce74479b5b"
+  sogou = "SZM7r2UEOz"
+  fediverse ="@eallion@e5n.cc"
+
+[params.rssnext]
+  feedId = "42331815237783556"
+  userId = "41909911558319104"
+
+[pagination]
+  pagerSize = 7 # <- Set the desired number of posts per page
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  author = "authors"
+  series = "series"
+  slug = "slug"
+
+[sitemap]
+  changefreq = 'always'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+[related]
+  threshold = 0
+  toLower = false
+
+    [[related.indices]]
+        name = "tags"
+        weight = 100
+
+    [[related.indices]]
+        name = "categories"
+        weight = 100
+
+    [[related.indices]]
+        name = "series"
+        weight = 50
+
+    [[related.indices]]
+        name = "authors"
+        weight = 20
+
+    [[related.indices]]
+        name = "date"
+        weight = 10
+
+    [[related.indices]]
+      applyFilter = false
+      name = 'fragmentrefs'
+      type = 'fragments'
+      weight = 10
+
+[permalinks]
+  blog = "/:contentbasename/" # Don't miss the last slash: "/"
+  tags = "/tags/:contentbasename/" # Don't miss the last slash: "/"
+
+[mediaTypes]
+
+  ["application/feed+json"]
+    suffixes = ["feed"]
+
+[menus] # Menu management
+  [[menus.main]]
+    name = '首页'
+    pageRef = '/'
+    weight = 10
+  [[menus.main]]
+    name = '嘀咕'
+    pageRef = '/mastodon/'
+    weight = 20
+  # [[menus.main]]
+  #   name = '统计'
+  #   pageRef = '/stats/'
+  #   weight = 25
+  [[menus.main]]
+    name = '里程碑'
+    pageRef = '/milestone/'
+    weight = 35
+  [[menus.main]]
+    name = '友情链接'
+    pageRef = '/links/'
+    weight = 45
+  [[menus.main]]
+    name = 'About'
+    pageRef = '/about'
+    weight = 99
+
+  [[menus.footer]]
+    name = '首页'
+    pageRef = '/'
+    weight = 10
+  [[menus.footer]]
+    name = '嘀咕'
+    pageRef = '/mastodon/'
+    weight = 20
+  [[menus.footer]]
+    name = '统计'
+    pageRef = '/stats/'
+    weight = 25
+  [[menus.footer]]
+    name = '里程碑'
+    pageRef = '/milestone/'
+    weight = 35
+  [[menus.footer]]
+    name = '版权信息'
+    pageRef = '/copyright/'
+    weight = 36
+  [[menus.footer]]
+    name = '隐私政策'
+    pageRef = '/privacy-policy/'
+    weight = 37
+  [[menus.footer]]
+    name = '友情链接'
+    pageRef = '/links/'
+    weight = 45
+  [[menus.footer]]
+    name = 'Status'
+    url = 'https://status.eallion.com?rel=www.eallion.com'
+    weight = 86
+    post = '<svg class="inline-block pb-1" width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M18 5v2h5.563L11.28 19.281l1.438 1.438L25 8.437V14h2V5zM5 9v18h18V14l-2 2v9H7V11h9l2-2z"></path></svg>'
+  [[menus.footer]]
+    name = 'DeepWiki'
+    url = 'https://deepwiki.com/eallion/eallion.com?rel=www.eallion.com'
+    weight = 87
+    post = '<svg class="inline-block pb-1" width="1em" height="1em" viewBox="0 0 32 32"><path fill="currentColor" d="M18 5v2h5.563L11.28 19.281l1.438 1.438L25 8.437V14h2V5zM5 9v18h18V14l-2 2v9H7V11h9l2-2z"></path></svg>'
+  [[menus.footer]]
+    name = 'RSS'
+    pre = '<svg class="inline-block pb-1" role="img" width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>RSS</title><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg>'
+    url = '/index.xml'
+    weight = 88
+  [[menus.footer]]
+    name = 'llms.txt'
+    url = '/llms.txt'
+    weight = 89
+  [[menus.footer]]
+    name = 'About'
+    pageRef = '/about'
+    weight = 99
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+      hardWraps = true
+    [markup.goldmark.parser]
+        wrapStandAloneImageWithinParagraph = false
+      [markup.goldmark.parser.attribute]
+          block = true
+    [markup.goldmark.extensions]
+    [markup.goldmark.extensions.passthrough]
+        enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+        block = [['\[', '\]'], ['$$', '$$']]
+        inline = [['\(', '\)']]
+
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    lineNumbersInTable = false
+    lineNoStart = 1
+    tabWidth = 2
+    # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
+    # false 是必要的设置 (https://github.com/dillonzq/LoveIt/issues/158)
+    noClasses = false
+    style = 'onedark'
+
+  [markup.tableOfContents]
+    endLevel = 5
+    ordered = false
+    startLevel = 3
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"

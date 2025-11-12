@@ -1,913 +1,189 @@
-/* Tailwind CSS Custom */
-:root {
-  --media-bg-color-from: rgba(255, 255, 255, 5%);
-  --media-bg-color-to: #ffffff;
-  --media-bg-color-to-dark: rgb(30, 41, 59);
-  --media-bg-color-cover: rgba(0, 0, 0, 80%);
-  /* webchat 工具栏的颜色 */
-  /* --webchat-toolbar-background-color: #1e40af !important; */
-}
-
-html.dark .shiki,
-html.dark .shiki span {
-  color: var(--shiki-dark) !important;
-  background-color: var(--shiki-dark-bg) !important;
-  /* 可选，用于定义字体样式 */
-  /* font-style: var(--shiki-dark-font-style) !important; */
-  /* font-weight: var(--shiki-dark-font-weight) !important; */
-  /* text-decoration: var(--shiki-dark-text-decoration) !important; */
-}
-
-/* Chroma GitHub */
-/* Background */
-.bg {
-  background-color: #fff;
-}
-
-/* PreWrapper */
-.chroma {
-  background-color: #fff;
-}
-
-/* Other */
-.chroma .x {}
-
-/* Error */
-.chroma .err {
-  color: #a61717;
-  background-color: #e3d2d2
-}
-
-/* CodeLine */
-.chroma .cl {}
-
-/* LineLink */
-.chroma .lnlinks {
-  outline: none;
-  text-decoration: none;
-  color: inherit
-}
-
-/* LineTableTD */
-.chroma .lntd {
-  vertical-align: top;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-/* LineTable */
-.chroma .lntable {
-  border-spacing: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-/* LineHighlight */
-.chroma .hl {
-  background-color: #e5e5e5
-}
-
-/* LineNumbersTable */
-.chroma .lnt {
-  white-space: pre;
-  -webkit-user-select: none;
-  user-select: none;
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
-  color: #7f7f7f
-}
-
-/* LineNumbers */
-.chroma .ln {
-  white-space: pre;
-  -webkit-user-select: none;
-  user-select: none;
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
-  color: #7f7f7f
-}
-
-/* Line */
-.chroma .line {
-  display: flex;
-}
-
-/* Keyword */
-.chroma .k {
-  color: #000;
-  font-weight: bold
-}
-
-/* KeywordConstant */
-.chroma .kc {
-  color: #000;
-  font-weight: bold
-}
-
-/* KeywordDeclaration */
-.chroma .kd {
-  color: #000;
-  font-weight: bold
-}
-
-/* KeywordNamespace */
-.chroma .kn {
-  color: #000;
-  font-weight: bold
-}
-
-/* KeywordPseudo */
-.chroma .kp {
-  color: #000;
-  font-weight: bold
-}
-
-/* KeywordReserved */
-.chroma .kr {
-  color: #000;
-  font-weight: bold
-}
-
-/* KeywordType */
-.chroma .kt {
-  color: #458;
-  font-weight: bold
-}
-
-/* Name */
-.chroma .n {}
-
-/* NameAttribute */
-.chroma .na {
-  color: #008080
-}
-
-/* NameBuiltin */
-.chroma .nb {
-  color: #0086b3
-}
-
-/* NameBuiltinPseudo */
-.chroma .bp {
-  color: #999
-}
-
-/* NameClass */
-.chroma .nc {
-  color: #458;
-  font-weight: bold
-}
-
-/* NameConstant */
-.chroma .no {
-  color: #008080
-}
-
-/* NameDecorator */
-.chroma .nd {
-  color: #3c5d5d;
-  font-weight: bold
-}
-
-/* NameEntity */
-.chroma .ni {
-  color: #800080
-}
-
-/* NameException */
-.chroma .ne {
-  color: #900;
-  font-weight: bold
-}
-
-/* NameFunction */
-.chroma .nf {
-  color: #900;
-  font-weight: bold
-}
-
-/* NameFunctionMagic */
-.chroma .fm {}
-
-/* NameLabel */
-.chroma .nl {
-  color: #900;
-  font-weight: bold
-}
-
-/* NameNamespace */
-.chroma .nn {
-  color: #555
-}
-
-/* NameOther */
-.chroma .nx {}
-
-/* NameProperty */
-.chroma .py {}
-
-/* NameTag */
-.chroma .nt {
-  color: #000080
-}
-
-/* NameVariable */
-.chroma .nv {
-  color: #008080
-}
-
-/* NameVariableClass */
-.chroma .vc {
-  color: #008080
-}
-
-/* NameVariableGlobal */
-.chroma .vg {
-  color: #008080
-}
-
-/* NameVariableInstance */
-.chroma .vi {
-  color: #008080
-}
-
-/* NameVariableMagic */
-.chroma .vm {}
-
-/* Literal */
-.chroma .l {}
-
-/* LiteralDate */
-.chroma .ld {}
-
-/* LiteralString */
-.chroma .s {
-  color: #d14
-}
-
-/* LiteralStringAffix */
-.chroma .sa {
-  color: #d14
-}
-
-/* LiteralStringBacktick */
-.chroma .sb {
-  color: #d14
-}
-
-/* LiteralStringChar */
-.chroma .sc {
-  color: #d14
-}
-
-/* LiteralStringDelimiter */
-.chroma .dl {
-  color: #d14
-}
-
-/* LiteralStringDoc */
-.chroma .sd {
-  color: #d14
-}
-
-/* LiteralStringDouble */
-.chroma .s2 {
-  color: #d14
-}
-
-/* LiteralStringEscape */
-.chroma .se {
-  color: #d14
-}
-
-/* LiteralStringHeredoc */
-.chroma .sh {
-  color: #d14
-}
-
-/* LiteralStringInterpol */
-.chroma .si {
-  color: #d14
-}
-
-/* LiteralStringOther */
-.chroma .sx {
-  color: #d14
-}
-
-/* LiteralStringRegex */
-.chroma .sr {
-  color: #009926
-}
-
-/* LiteralStringSingle */
-.chroma .s1 {
-  color: #d14
-}
-
-/* LiteralStringSymbol */
-.chroma .ss {
-  color: #990073
-}
-
-/* LiteralNumber */
-.chroma .m {
-  color: #099
-}
-
-/* LiteralNumberBin */
-.chroma .mb {
-  color: #099
-}
-
-/* LiteralNumberFloat */
-.chroma .mf {
-  color: #099
-}
-
-/* LiteralNumberHex */
-.chroma .mh {
-  color: #099
-}
-
-/* LiteralNumberInteger */
-.chroma .mi {
-  color: #099
-}
-
-/* LiteralNumberIntegerLong */
-.chroma .il {
-  color: #099
-}
-
-/* LiteralNumberOct */
-.chroma .mo {
-  color: #099
-}
-
-/* Operator */
-.chroma .o {
-  color: #000;
-  font-weight: bold
-}
-
-/* OperatorWord */
-.chroma .ow {
-  color: #000;
-  font-weight: bold
-}
-
-/* Punctuation */
-.chroma .p {}
-
-/* Comment */
-.chroma .c {
-  color: #998;
-  font-style: italic
-}
-
-/* CommentHashbang */
-.chroma .ch {
-  color: #998;
-  font-style: italic
-}
-
-/* CommentMultiline */
-.chroma .cm {
-  color: #998;
-  font-style: italic
-}
-
-/* CommentSingle */
-.chroma .c1 {
-  color: #998;
-  font-style: italic
-}
-
-/* CommentSpecial */
-.chroma .cs {
-  color: #999;
-  font-weight: bold;
-  font-style: italic
-}
-
-/* CommentPreproc */
-.chroma .cp {
-  color: #999;
-  font-weight: bold;
-  font-style: italic
-}
-
-/* CommentPreprocFile */
-.chroma .cpf {
-  color: #999;
-  font-weight: bold;
-  font-style: italic
-}
-
-/* Generic */
-.chroma .g {}
-
-/* GenericDeleted */
-.chroma .gd {
-  color: #000;
-  background-color: #fdd
-}
-
-/* GenericEmph */
-.chroma .ge {
-  color: #000;
-  font-style: italic
-}
-
-/* GenericError */
-.chroma .gr {
-  color: #a00
-}
-
-/* GenericHeading */
-.chroma .gh {
-  color: #999
-}
-
-/* GenericInserted */
-.chroma .gi {
-  color: #000;
-  background-color: #dfd
-}
-
-/* GenericOutput */
-.chroma .go {
-  color: #888
-}
-
-/* GenericPrompt */
-.chroma .gp {
-  color: #555
-}
-
-/* GenericStrong */
-.chroma .gs {
-  font-weight: bold
-}
-
-/* GenericSubheading */
-.chroma .gu {
-  color: #aaa
-}
-
-/* GenericTraceback */
-.chroma .gt {
-  color: #a00
-}
-
-/* GenericUnderline */
-.chroma .gl {
-  text-decoration: underline
-}
-
-/* TextWhitespace */
-.chroma .w {
-  color: #bbb
-}
-
-/* Chroma OneDark */
-/* Background */
-.dark .bg {
-  color: #abb2bf;
-  background-color: #282c34;
-}
-
-/* PreWrapper */
-.dark .chroma {
-  color: #abb2bf;
-  background-color: #282c34;
-}
-
-/* Other */
-.dark .chroma .x {}
-
-/* Error */
-.dark .chroma .err {}
-
-/* CodeLine */
-.dark .chroma .cl {}
-
-/* LineLink */
-.dark .chroma .lnlinks {
-  outline: none;
-  text-decoration: none;
-  color: inherit
-}
-
-/* LineTableTD */
-.dark .chroma .lntd {
-  vertical-align: top;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-/* LineTable */
-.dark .chroma .lntable {
-  border-spacing: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-/* LineHighlight */
-.dark .chroma .hl {
-  background-color: #3d4148
-}
-
-/* LineNumbersTable */
-.dark .chroma .lnt {
-  white-space: pre;
-  -webkit-user-select: none;
-  user-select: none;
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
-  color: #55595f
-}
-
-/* LineNumbers */
-.dark .chroma .ln {
-  white-space: pre;
-  -webkit-user-select: none;
-  user-select: none;
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
-  color: #55595f
-}
-
-/* Line */
-.dark .chroma .line {
-  display: flex;
-}
-
-/* Keyword */
-.dark .chroma .k {
-  color: #c678dd
-}
-
-/* KeywordConstant */
-.dark .chroma .kc {
-  color: #e5c07b
-}
-
-/* KeywordDeclaration */
-.dark .chroma .kd {
-  color: #c678dd
-}
-
-/* KeywordNamespace */
-.dark .chroma .kn {
-  color: #c678dd
-}
-
-/* KeywordPseudo */
-.dark .chroma .kp {
-  color: #c678dd
-}
-
-/* KeywordReserved */
-.dark .chroma .kr {
-  color: #c678dd
-}
-
-/* KeywordType */
-.dark .chroma .kt {
-  color: #e5c07b
-}
-
-/* Name */
-.dark .chroma .n {
-  color: #e06c75
-}
-
-/* NameAttribute */
-.dark .chroma .na {
-  color: #e06c75
-}
-
-/* NameBuiltin */
-.dark .chroma .nb {
-  color: #e5c07b
-}
-
-/* NameBuiltinPseudo */
-.dark .chroma .bp {
-  color: #e06c75
-}
-
-/* NameClass */
-.dark .chroma .nc {
-  color: #e5c07b
-}
-
-/* NameConstant */
-.dark .chroma .no {
-  color: #e06c75
-}
-
-/* NameDecorator */
-.dark .chroma .nd {
-  color: #61afef
-}
-
-/* NameEntity */
-.dark .chroma .ni {
-  color: #e06c75
-}
-
-/* NameException */
-.dark .chroma .ne {
-  color: #e06c75
-}
-
-/* NameFunction */
-.dark .chroma .nf {
-  color: #61afef;
-  font-weight: bold
-}
-
-/* NameFunctionMagic */
-.dark .chroma .fm {
-  color: #56b6c2;
-  font-weight: bold
-}
-
-/* NameLabel */
-.dark .chroma .nl {
-  color: #e06c75
-}
-
-/* NameNamespace */
-.dark .chroma .nn {
-  color: #e06c75
-}
-
-/* NameOther */
-.dark .chroma .nx {
-  color: #e06c75
-}
-
-/* NameProperty */
-.dark .chroma .py {
-  color: #e06c75
-}
-
-/* NameTag */
-.dark .chroma .nt {
-  color: #e06c75
-}
-
-/* NameVariable */
-.dark .chroma .nv {
-  color: #e06c75
-}
-
-/* NameVariableClass */
-.dark .chroma .vc {
-  color: #e06c75
-}
-
-/* NameVariableGlobal */
-.dark .chroma .vg {
-  color: #e06c75
-}
-
-/* NameVariableInstance */
-.dark .chroma .vi {
-  color: #e06c75
-}
-
-/* NameVariableMagic */
-.dark .chroma .vm {
-  color: #e06c75
-}
-
-/* Literal */
-.dark .chroma .l {}
-
-/* LiteralDate */
-.dark .chroma .ld {}
-
-/* LiteralString */
-.dark .chroma .s {
-  color: #98c379
-}
-
-/* LiteralStringAffix */
-.dark .chroma .sa {
-  color: #98c379
-}
-
-/* LiteralStringBacktick */
-.dark .chroma .sb {
-  color: #98c379
-}
-
-/* LiteralStringChar */
-.dark .chroma .sc {
-  color: #98c379
-}
-
-/* LiteralStringDelimiter */
-.dark .chroma .dl {
-  color: #98c379
-}
-
-/* LiteralStringDoc */
-.dark .chroma .sd {
-  color: #98c379
-}
+/* CSS Custom */
+
+/* Tailwindcss Custom */
+/* 关键：只选择不是 <pre> 标签的直接子元素的 <code> */
+.prose code:not(pre > code) {
+  /* GitHub Light */
+  background-color: #f6f8fa;
+  color: #24292f;
 
-/* LiteralStringDouble */
-.dark .chroma .s2 {
-  color: #98c379
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 0.2em 0.4em;
+  font-family:
+    "JetBrains Maple Mono",
+    "JetBrainsMono Nerd Font Mono",
+    "JetBrainsMono Nerd Font",
+    "JetBrainsMonoNL Nerd Font",
+    "JetBrainsMono NF",
+    "JetBrains Mono NL",
+    "JetBrains Mono",
+    "Fira Code",
+    "Cascadia Code",
+    "Source Code Pro",
+    "Iosevka",
+    "Menlo",
+    "Consolas",
+    "SF Mono",
+    ui-monospace,
+    monospace;
+  font-size: 0.875em;
+  line-height: normal;
+  display: inline-block;
 }
 
-/* LiteralStringEscape */
-.dark .chroma .se {
-  color: #98c379
-}
-
-/* LiteralStringHeredoc */
-.dark .chroma .sh {
-  color: #98c379
-}
+/* Tailwind CSS Blockquote p */
+.prose {
 
-/* LiteralStringInterpol */
-.dark .chroma .si {
-  color: #98c379
+  /* 移除第一个 <p> 标签前的 `open-quote` */
+  :where(blockquote p:first-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::before {
+    content: '';
+  }
 }
 
-/* LiteralStringOther */
-.dark .chroma .sx {
-  color: #98c379
-}
+.prose {
 
-/* LiteralStringRegex */
-.dark .chroma .sr {
-  color: #98c379
+  /* 移除最后一个 <p> 标签后的 `close-quote` */
+  :where(blockquote p:last-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {
+    content: '';
+  }
 }
 
-/* LiteralStringSingle */
-.dark .chroma .s1 {
-  color: #98c379
+/* icon shortcodes 的宽高限制 */
+.icon svg {
+  width: 1em;
+  /* 默认宽度 */
+  height: 1em;
+  /* 默认高度 */
+  vertical-align: middle;
+  /* 保持图标垂直对齐 */
 }
 
-/* LiteralStringSymbol */
-.dark .chroma .ss {
-  color: #98c379
-}
+/* * ----------------------------------------------------
+ * 自定义 CSS 样式（为了处理 .TableOfContents 渲染的结构）
+ * ----------------------------------------------------
+ */
 
-/* LiteralNumber */
-.dark .chroma .m {
-  color: #d19a66
+/* TOC 滚动容器样式优化 */
+.toc-scroll-wrapper {
+  /* 自定义滚动条样式 */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  /* 禁用横向滚动，防止页面抖动 */
+  overflow-x: hidden;
 }
 
-/* LiteralNumberBin */
-.dark .chroma .mb {
-  color: #d19a66
+/* TOC 容器默认样式 - JS 会动态设置 max-height */
+@media (min-width: 1024px) {
+  .toc-scroll-wrapper {
+    /* 默认最大高度，防止 JS 加载前布局跳动 */
+    max-height: calc(100vh - 10rem);
+  }
 }
 
-/* LiteralNumberFloat */
-.dark .chroma .mf {
-  color: #d19a66
+.toc-scroll-wrapper::-webkit-scrollbar {
+  width: 6px;
 }
 
-/* LiteralNumberHex */
-.dark .chroma .mh {
-  color: #d19a66
+.toc-scroll-wrapper::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-/* LiteralNumberInteger */
-.dark .chroma .mi {
-  color: #d19a66
+.toc-scroll-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  transition: background-color 0.2s;
 }
 
-/* LiteralNumberIntegerLong */
-.dark .chroma .il {
-  color: #d19a66
+.toc-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* LiteralNumberOct */
-.dark .chroma .mo {
-  color: #d19a66
+/* 移除默认的 Hugo TOC nav 标签样式 */
+.toc-content-wrapper nav {
+  all: unset;
+  display: block;
 }
 
-/* Operator */
-.dark .chroma .o {
-  color: #56b6c2
+/* TOC 内容不超出容器宽度 */
+.toc-content-wrapper {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
-/* OperatorWord */
-.dark .chroma .ow {
-  color: #56b6c2
+/* 重置所有列表样式 */
+.toc-content-wrapper ul {
+  @apply list-none p-0 m-0;
 }
-
-/* Punctuation */
-.dark .chroma .p {}
 
-/* Comment */
-.dark .chroma .c {
-  color: #7f848e
+.toc-content-wrapper li {
+  @apply m-0;
 }
 
-/* CommentHashbang */
-.dark .chroma .ch {
-  color: #7f848e
+/* 一级标题链接（H2） */
+.toc-content-wrapper > nav > ul > li > a {
+  @apply block py-2 px-3 my-1 rounded-lg text-sm font-medium text-zinc-700 transition-all duration-200 ease-in-out;
+  @apply hover:bg-zinc-200/60 hover:text-zinc-900 hover:translate-x-0.5;
+  position: relative;
 }
 
-/* CommentMultiline */
-.dark .chroma .cm {
-  color: #7f848e
+/* 一级标题激活状态 */
+.toc-content-wrapper > nav > ul > li > a.active {
+  @apply bg-white text-zinc-900 font-bold shadow-sm;
+  padding-left: calc(0.75rem - 3px);
 }
 
-/* CommentSingle */
-.dark .chroma .c1 {
-  color: #7f848e
+/* 二级及以下标题容器 */
+.toc-content-wrapper ul ul {
+  @apply pl-4 mt-1 mb-2 border-l border-zinc-200/60;
 }
 
-/* CommentSpecial */
-.dark .chroma .cs {
-  color: #7f848e
+/* 二级标题链接（H3） */
+.toc-content-wrapper ul ul li > a {
+  @apply block py-1.5 px-2 my-0.5 rounded text-xs text-zinc-600 transition-all duration-150 ease-in-out;
+  @apply hover:bg-zinc-100 hover:text-zinc-800 hover:translate-x-0.5;
 }
 
-/* CommentPreproc */
-.dark .chroma .cp {
-  color: #7f848e
+/* 二级标题激活状态 */
+.toc-content-wrapper ul ul li > a.active {
+  @apply bg-zinc-50 text-zinc-800 font-semibold;
 }
 
-/* CommentPreprocFile */
-.dark .chroma .cpf {
-  color: #7f848e
+/* 三级标题链接（H4） */
+.toc-content-wrapper ul ul ul li > a {
+  @apply text-xs text-zinc-500 py-1 px-2;
+  @apply hover:text-zinc-700 hover:bg-zinc-50;
 }
 
-/* Generic */
-.dark .chroma .g {}
-
-/* GenericDeleted */
-.dark .chroma .gd {
-  color: #e06c75
+/* 三级标题激活状态 */
+.toc-content-wrapper ul ul ul li > a.active {
+  @apply text-zinc-700 font-medium bg-zinc-50/90;
 }
-
-/* GenericEmph */
-.dark .chroma .ge {}
-
-/* GenericError */
-.dark .chroma .gr {}
 
-/* GenericHeading */
-.dark .chroma .gh {}
-
-/* GenericInserted */
-.dark .chroma .gi {
-  color: #98c379;
-  font-weight: bold
+/* 四级标题链接（H5） */
+.toc-content-wrapper ul ul ul ul li > a {
+  @apply text-xs text-zinc-400 py-0.5 px-2;
+  @apply hover:text-zinc-600;
 }
-
-/* GenericOutput */
-.dark .chroma .go {}
-
-/* GenericPrompt */
-.dark .chroma .gp {}
-
-/* GenericStrong */
-.dark .chroma .gs {}
 
-/* GenericSubheading */
-.dark .chroma .gu {}
-
-/* GenericTraceback */
-.dark .chroma .gt {}
-
-/* GenericUnderline */
-.dark .chroma .gl {}
-
-/* TextWhitespace */
-.dark .chroma .w {}
-
-.bg-yellow-600 {
-  background-color: #ca8a04;
+/* 四级标题激活状态 */
+.toc-content-wrapper ul ul ul ul li > a.active {
+  @apply text-zinc-600 font-medium;
 }
 
-.pb-150 {
-  padding-bottom: 150%;
+/* 为激活链接添加平滑的过渡效果 */
+.toc-content-wrapper a {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.icon {
-  margin-bottom: -0.125rem;
+/* 鼠标悬停时的轻微缩放效果 */
+.toc-content-wrapper a:hover {
+  transform: translateX(2px);
 }
-
-/* Tailwind CSS Custom End */
 
-.ticker {
+/* 首页嘀咕 Ticker */
+/* .ticker {
   justify-content: flex-end;
 }
 
@@ -1003,9 +279,11 @@ html.dark .shiki span {
 
 .ticker-item.code {
   white-space: nowrap !important;
-}
+} */
 
-.heatmap_week {
+/* 热力图 Heatmap */
+
+/* .heatmap_week {
   display: flex;
   flex-direction: column;
 }
@@ -1096,112 +374,7 @@ html.dark .shiki span {
 
 .dark .heatmap_day_level_4 {
   background-color: #39d353;
-}
-
-/* 修改列表页 Summary 样式 */
-#main-content section>article>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) a[href*="slug"] {
-  display: none !important;
-}
-#main-content section>article>div:nth-child(2)>div:nth-child(3) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-
-/* 首页隐藏文章 Summary */
-#main-content .home-article>article>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) a[href*="slug"],
-#main-content .home-article>article>div:nth-child(2)>div:nth-child(2)>div:nth-child(2) a:nth-of-type(n+6),
-#main-content .home-article>article>div:nth-child(2)>div:nth-child(3) {
-  display: none !important;
-}
-
-/* 当屏幕宽度 ≥ 1024px 时，flex-wrap: nowrap; */
-@media (min-width: 1024px) {
-  #main-content .article {
-    flex-wrap: nowrap;
-  }
-}
-
-#main-content .article>div:nth-child(3)>div:nth-child(3) {
-  display: -webkit-box !important;
-  -webkit-box-orient: vertical !important;
-  -webkit-line-clamp: 4 !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  word-break: break-word !important;
-}
-
-li a,
-blockquote a {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  word-break: break-word;
-}
-
-.badge {
-  margin-bottom: 1rem;
-}
-
-.badge a img {
-  display: inline-block;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-
-.packery-drop-placeholder {
-  outline: 3px dashed hsla(0, 0%, 0%, 0.5);
-  outline-offset: -6px;
-  -webkit-transition: -webkit-transform 0.2s;
-  transition: transform 0.2s;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-.text-shadow-white,
-.text-shadow-hover-white:hover {
-  text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.75), 1px -1px 0 rgba(255, 255, 255, 0.75), -1px 1px 0 rgba(255, 255, 255, 0.75), 1px 1px 0 rgba(255, 255, 255, 0.75);
-}
-
-/*
-#site-footer nav {
-  display: flex;
-  flex-direction: row;
-}
-
-@media screen and (max-width: 640px){
-  #site-footer nav {
-    flex-direction: column;
-  }
-  #site-footer nav ul:nth-child(2){
-    margin-top: 1.5rem;
-  }
-  #site-footer .nonbot {
-    margin: 0 0 0 -10px;
-  }
 } */
-
-/* #site-footer nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-*/
-
-#site-footer nav ul li a,
-.nested-menu a {
-  white-space: nowrap;
-}
 
 /*
 .notbyai {
@@ -1248,187 +421,245 @@ blockquote a {
 }
 */
 
-/* 顶部进度条 css */
-#content_progress {
-  /* Positioning */
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
-  height: 3px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: none;
-  background: transparent;
-  color: #2563eb;
+/* 原生 CSS 中文排版优化 - 替代 Heti JavaScript 方案 */
+/* 基于原生 CSS 属性，无需 JavaScript */
+
+/* =====================================================
+ * 1. 基础中文排版优化
+ * ===================================================== */
+
+/* 为整个页面启用中文排版优化 */
+html {
+  /* 启用原生的中文标点符号间距优化 */
+  text-spacing: ideograph-alpha ideograph-numeric ideograph-parenthesis;
+  /* 自动字符间距优化 */
+  text-autospace: ideograph;
 }
 
-#content_progress::-webkit-progress-bar {
-  background-color: transparent;
-}
+/* =====================================================
+ * 2. 文章内容中文排版优化
+ * ===================================================== */
 
-#content_progress::-webkit-progress-value {
-  background-color: #2563eb;
-}
-
-#content_progress::-moz-progress-bar {
-  background-color: #2563eb;
-}
-
-#search-modal header {
-  margin: 0.5rem 0;
-}
-
-#search-query {
-  border-radius: 0.5rem;
-}
-
-#search-results li a {
-  white-space: normal;
-}
-
-/* go to top */
-#top-scroller a[href="#the-top"] {
-  background-color: #334155;
-  color: #f9fafb;
-}
-
-.dark #top-scroller a[href="#the-top"] {
-  background-color: #94a3b8;
-  color: #1e293b;
-}
-
-@font-face {
-  font-family: fontmin;
-  src: url(https://cdn.eallion.com/fonts/price.woff2);
-  font-weight: normal;
-  font-style: normal;
-}
-
-.price {
-  font-family: fontmin, Verdana, Helvetica, monospace !important;
-  color: #333;
-  font-weight: 600;
-}
-
-/* heti custom css */
-/* --------------------------------------------------
- * 1. 根容器和间距重置
- * -------------------------------------------------- */
-
+/* 替换 Heti JS 的 CJK 间距优化 */
 article {
-  /* JS 库通常在具有此类的容器中查找并操作内容 */
-  /* 默认 CJK 间距（0.02em） */
+  /* 基础字符间距（适配中文阅读）*/
   letter-spacing: 0.02em;
+
+  /* 原生中文排版优化 */
+  text-spacing: ideograph-alpha ideograph-numeric ideograph-parenthesis trim-ideograph;
+  text-autospace: ideograph;
+
+  /* 悬挂标点符号优化 */
+  hanging-punctuation: first allow-end;
+
+  /* 文本渲染优化（针对中文） */
+  text-rendering: optimizeLegibility;
+
+  /* 字体特性优化 */
+  font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
+}
+
+/* 排除英文内容和特殊元素 */
+article a {
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 article a,
 article abbr,
 article code,
-article heti-spacing,
-/* Heti JS 插入的元素 */
-article [lang=en-US] {
-  /* 覆盖 article 的 0.02em 间距，保持 normal 间距 */
+article pre,
+article [lang="en"],
+article [lang="en-US"] {
   letter-spacing: normal;
+  text-spacing: normal;
+  text-autospace: none;
 }
 
-/* --------------------------------------------------
- * 2. CJK/ANS 字符间距 (heti-spacing)
- * -------------------------------------------------- */
+/* =====================================================
+ * 3. Tailwind Typography 集成优化
+ * ===================================================== */
 
-article heti-spacing {
-  /* 确保元素按内联块显示 */
-  display: inline;
-  /* 保持 letter-spacing 为 normal（已在上一组规则中定义） */
+/* 针对 .prose 元素的中文排版优化 */
+.prose {
+  /* 使用原生 CSS 替代 Heti JS 的标点符号间距处理 */
+  text-spacing: ideograph-alpha ideograph-numeric ideograph-parenthesis trim-ideograph;
+
+  /* 悬挂标点符号（处理中文引号、括号等）*/
+  hanging-punctuation: first allow-end;
+
+  /* 中英混排间距优化 */
+  text-autospace: ideograph;
 }
 
-/* 在 ANS 字符段之前（紧接 CJK 之后）添加 0.25em 间距 */
-article .heti-spacing-start {
-  margin-inline-end: 0.25em;
+/* 在 prose 内部的中文段落优化 */
+.prose p:lang(zh),
+.prose p:lang(ja),
+.prose p:lang(ko),
+.prose div:lang(zh) {
+  /* 文本渲染优化 */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* 在 ANS 字符段之后（紧接 CJK 之前）添加 0.25em 间距 */
-article .heti-spacing-end {
-  margin-inline-start: 0.25em;
+/* =====================================================
+ * 4. 标点符号挤压优化（替代 Heti-adjacent）
+ * ===================================================== */
+
+/* 相邻标点符号间距优化 */
+.prose {
+  /* 控制标点符号之间的间距 */
+  text-spacing:
+    ideograph-alpha
+    ideograph-numeric
+    ideograph-parenthesis
+    trim-ideograph;
 }
 
-/* 修正紧随 heti-spacing 后的上/下标的外边距 */
-article heti-spacing+sup,
-article heti-spacing+sub {
-  margin-inline-start: 0;
+/* 针对特殊标点组合的优化 */
+.prose p {
+  /* 优化标点挤压 */
+  text-spacing-trim: trim-ideograph;
+
+  /* 悬挂标点处理 */
+  hanging-punctuation: first allow-end;
 }
 
-/* --------------------------------------------------
- * 3. 相邻标点间距修正 (heti-adjacent)
- * -------------------------------------------------- */
+/* =====================================================
+ * 5. 数字和英文间距优化（替代 Heti-spacing）
+ * ===================================================== */
 
-article heti-adjacent {
-  /* 确保元素按内联块显示 */
-  display: inline;
-  /* 启用浏览器对相邻标点间距的优化 */
-  text-spacing-trim: space-all;
-  unicode-bidi: isolate;
+/* 中英文之间自动添加适当间距 - 使用原生 CSS */
+article,
+.prose {
+  /* 启用中英文混排间距自动优化 */
+  text-autospace: ideograph;
+
+  /* 明确指定字符间距优化 */
+  text-spacing: ideograph-alpha;
 }
 
-/* 0.5em 负外边距，用于紧凑或重叠标点（例如：句号 + 引号） */
-article .heti-adjacent-half {
-  margin-inline-end: -0.5em;
+/* 数字和单位之间的间距优化 */
+.prose {
+  /* 处理数字和单位符号之间的间距 */
+  text-spacing: ideograph-numeric;
 }
 
-/* 0.25em 负外边距，用于轻微调整标点间距 */
-article .heti-adjacent-quarter {
-  margin-inline-end: -0.25em;
+/* =====================================================
+ * 6. Material Design 3 主题集成
+ * ===================================================== */
+
+/* 适配 Material Design 3 的中文排版 */
+.md\\:prose-lg {
+  /* 保持 Material Design 的间距比例，同时优化中文排版 */
+  text-spacing:
+    ideograph-alpha
+    ideograph-numeric
+    ideograph-parenthesis
+    trim-ideograph;
 }
 
-/* --------------------------------------------------
- * 4. 其它 JS 依赖的内联元素基础样式
- * -------------------------------------------------- */
+/* =====================================================
+ * 7. 响应式中文排版优化
+ * ===================================================== */
 
-article sub,
-article sup {
-  /* 确保上/下标能正确应用相对定位和字体 */
-  position: relative;
-  margin-inline-start: 0.25em;
-  margin-inline-end: 0.25em;
-  font-size: 0.75em;
-  font-family: "Helvetica Neue", helvetica, arial, "Heti Hei", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-style: normal;
-  line-height: 1;
-  vertical-align: baseline;
-}
-
-article sub {
-  bottom: -0.25em;
-}
-
-article sup {
-  top: -0.5em;
-}
-
-/* view image */
-.view-image-tools {
-  opacity: 1;
-  animation: 1s 1.5s forwards fadeOut
-}
-
-.view-image-tools:hover {
-  opacity: 1;
-  animation: none;
-  transition: opacity .2s
-}
-
-@keyframes fadeOut {
-  to {
-    opacity: 0
+/* 移动端中文排版优化 */
+@media (max-width: 768px) {
+  article,
+  .prose {
+    /* 移动端略微收紧间距 */
+    letter-spacing: 0.01em;
+    text-spacing: ideograph-alpha;
   }
 }
 
-.full-screen {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  width: calc(100vw - 1.25rem);
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+/* =====================================================
+ * 8. 兼容性保障
+ * ===================================================== */
+
+/* 为不支持原生 CSS 特性的浏览器提供降级方案 */
+@supports not (text-spacing: ideograph-alpha) {
+  article,
+  .prose {
+    /* 回退方案：使用 font-feature-settings */
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+}
+
+@supports not (hanging-punctuation: first) {
+  .prose p {
+    /* 为不支持 hanging-punctuation 的浏览器提供基本优化 */
+    text-indent: 0;
+  }
+}
+
+/* =====================================================
+ * 9. 特定内容类型优化
+ * ===================================================== */
+
+/* 引用块中文排版优化 */
+.prose blockquote {
+  /* 引用中的中文优化 */
+  text-spacing: ideograph-alpha ideograph-parenthesis;
+  hanging-punctuation: first allow-end;
+}
+
+/* 列表项中文排版优化 */
+.prose li {
+  /* 列表项中的中文优化 */
+  text-spacing: ideograph-alpha;
+  hanging-punctuation: none;
+}
+
+/* 表格中文排版优化 */
+.prose table {
+  /* 表格中的中文优化 */
+  text-spacing: ideograph-alpha;
+}
+
+/* 针对所有在 .timeline 容器内的 h3 元素应用隐藏样式 */
+.timeline h3 {
+  /* 目标：视觉隐藏，但在文档流中保留可滚动的位置 */
+
+  opacity: 0 !important;
+  position: absolute !important;
+  pointer-events: none !important;
+
+  /* 确保元素不占用实际空间，避免布局干扰 */
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border-width: 0 !important;
+}
+
+@layer components {
+    /* 1. 查找所有 .timeline-item 元素 */
+    .timeline-item:last-child {
+        /* 2. 针对最后一个 .timeline-item 元素，选择其内部的 .timeline-item-line 子元素 */
+        /* 关键：使用 @apply 结合 CSS 选择器 */
+        .timeline-item-line {
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+}
+
+.text-gradient-mastodon {
+    /* 渐变背景：从 #6364FF 到 #563ACC */
+    background: linear-gradient(to bottom, #6364FF, #563ACC);
+
+    /* 将背景裁剪到文本形状 */
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* 使文本颜色透明，以显示背景 */
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: bold;
 }

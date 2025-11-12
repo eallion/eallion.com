@@ -1,0 +1,59 @@
+/* Theme Pehtheme input.css */
+
+@import 'tailwindcss';
+
+@import './chroma.css';
+@import './custom.css';
+
+@plugin '@tailwindcss/typography';
+
+@source '../../layouts/**/*.html';
+@source '../../layouts/**/*.js';
+
+@source '../../themes/pehtheme/layouts/**/*.html';
+@source '../../themes/pehtheme/layouts/**/*.js';
+
+@source '../../content/**/*.md';
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility insert-link {
+  @apply before:absolute before:content-[''] before:z-10 before:top-0 before:right-0 before:left-0 before:bottom-0 before:pointer-events-auto;
+}
+
+@utility close {
+  display: none;
+}
+
+@utility open {
+  display: block;
+}
+
+/* * 🛠️ 解决 Tailwind Typography 导致的行内代码块反引号问题
+ * 目标：移除 .prose code::before 和 ::after 插入的字符
+ */
+
+@layer components {
+  /* 确保这个选择器足够具体，能够覆盖 Tailwind 插件生成的样式 */
+  .prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::before,
+  .prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::after {
+    content: none !important;
+  }
+}

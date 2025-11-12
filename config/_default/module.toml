@@ -1,9 +1,0 @@
-[hugoVersion]
-  extended = true
-  min = "0.141.0"
-  max = "0.152.2"
-
-[mounts]
-  source = "content"
-  target = "content"
-  excludeFiles = "blog/markdown-syntax/*"

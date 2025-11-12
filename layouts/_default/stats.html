@@ -1,14 +1,13 @@
 {{ define "main" }}
-{{ .Scratch.Set "scope" "single" }}
 
-{{ $statsCss := resources.Get "css/stats.scss" | toCSS | minify | fingerprint "sha256" }}
+{{ $statsCss := resources.Get "css/stats.css" | toCSS | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $statsCss.RelPermalink }}" integrity="{{ $statsCss.Data.Integrity }}" crossorigin="anonymous">
 
 {{- /* Stats */ -}}
 {{$articleCount := 0}}
 
 {{$pageCount := 0}}
-{{ $allPages := where .Site.Pages "Type" "=" "sample" }}
+{{ $allPages := where .Site.Pages "Type" "=" "page" }}
 {{ $pageCount := len $allPages }}
 
 {{$categoryCount := 0}}
@@ -208,745 +207,164 @@
   {{ end }}
 {{ end }}
 
-<article>
-  {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
-  {{ $heroStyle := .Params.heroStyle }}
-  {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
-  {{ $heroStyle := print "hero/" $heroStyle ".html" }}
-  {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
-  {{ partial $heroStyle . }}
-  {{ else }}
-  {{ partial "hero/basic.html" . }}
-  {{ end }}
-  {{ end }}
+{{- partial "content/breadcrumb.html" . -}}
 
-  <header id="single_header" class="mt-5 max-w-prose">
-    {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
-    {{ partial "breadcrumbs.html" . }}
-    {{ end }}
-    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-    {{ .Title }}
-    </h1>
+<div class="gap-6 mb-14" data-pagefind-ignore="all">
 
-    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-    {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
-    </div>
+  <article>
 
-    {{ $authorsData := .Site.Data.authors }}
-    {{ $taxonomies := .Site.Taxonomies.authors }}
-    {{ $baseURL := .Site.BaseURL }}
-    {{ $taxonomyLink := 0 }}
-    {{ $showAuthor := 0 }}
+    <header class="not-prose">
 
-    {{ if not (strings.HasSuffix $baseURL "/") }}
-    {{ $baseURL = delimit (slice $baseURL "/") "" }}
-    {{ end }}
+      <h1 id="title" class="text-4xl font-bold leading-normal">{{ .Title }}</h1>
 
-    {{ if not (.Params.showAuthorBottom | default ( .Site.Params.article.showAuthorBottom | default false)) }}
-
-    {{ if .Params.showAuthor | default (.Site.Params.article.showAuthor | default true) }}
-      {{ $showAuthor = 1 }}
-      {{ partial "author.html" . }}
-    {{ end }}
-
-    {{ range $author := .Page.Params.authors }}
-      {{ $authorData := index $authorsData $author }}
-      {{- if $authorData -}}
-      {{ range $taxonomyname, $taxonomy := $taxonomies }}
-        {{ if (eq $taxonomyname $author) }}
-        {{ $taxonomyLink = delimit (slice $baseURL "/authors/" $author) "" }}
-        {{ end }}
-      {{ end }}
-      {{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $taxonomyLink) }}
-      {{- end -}}
-    {{ end }}
-
-    {{ if or $taxonomyLink $showAuthor }}
-    <div class="mb-5"></div>
-    {{ end }}
-
-    {{ end }}
-  </header>
+    </header>
 
   <noscript>
     Please enable JavaScript to view the Stat page.
   </noscript>
 
-  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
-
-    {{ if or (and (.Params.showTableOfContents | default (.Site.Params.article.showTableOfContents | default false)) (in
-    .TableOfContents "<ul")) (.Site.Params.article.showRelatedPosts | default false) }} <div
-    class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
-    <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky {{ if hasPrefix .Site.Params.header.layout "fixed" -}}
-      lg:top-[140px]{{ else }}lg:top-10{{ end }}">
-
-      {{ if and (.Params.showTableOfContents | default (.Site.Params.article.showTableOfContents | default false)) (in
-      .TableOfContents "<ul") }} {{ partial "toc.html" . }} {{ end }} {{ if .Site.Params.article.showRelatedPosts |
-      default false }} sd {{ end }} </div>
-    </div>
-    {{ end }}
+  <section class="flex flex-col max-w-full mt-0 lg:flex-row">
 
     <div class="min-w-0 min-h-0 max-w-fit">
 
-      {{ partial "series/series.html" . }}
-
       <div class="article-content max-w-full mb-20">
-
-        <div class="w-full bg-neutral dark:bg-neutral-700 py-8 rounded-xl shadow-md mt-4">
-          <div class="flex flex-col md:flex-row items-center justify-center text-center pb-5 font-bold text-2xl mb-2"><span>文章热力图</span><span>Github-flavored Heatmap</span></div>
-          <div class="tailwindcss-heatmap mx-auto flex flex-col items-end max-w-fit text-[10px] leading-[12px] text-neutral-700 dark:text-neutral-400">
-            <div class="flex flex-row items-end">
-
-              <div class="flex flex-col justify-end items-end mr-1 mt-1 text-center">
-                <span>Mon</span>
-                <span>&nbsp;</span>
-                <span>Wed</span>
-                <span>&nbsp;</span>
-                <span>Fri</span>
-                <span>&nbsp;</span>
-                <span>Sun</span>
-              </div>
-
-                <div class="heatmap">
-                  <div class="month mb-1 flex justify-around">
-                  <span class="hide_by_js">Jan</span><span class="hide_by_js">Feb</span><span class="hide_by_js">Mar</span><span class="hide_by_js">Apr</span><span class="hide_by_js">May</span><span class="hide_by_js">Jun</span><span class="hide_by_js">Jul</span><span class="hide_by_js">Aug</span><span class="hide_by_js">Sep</span><span class="hide_by_js">Oct</span><span class="hide_by_js">Nov</span><span class="hide_by_js">Dec</span>
-                  </div>
-                                <div class="h-[84px]">
-                                    <div id="heatmap" class="flex flex-row">
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_1"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                      <div class="heatmap_week hide_by_js">
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                        <div class="heatmap_day heatmap_day_level_0"></div>
-                                      </div>
-                                    </div>
-                                </div>
-                            </div>
-
-            </div>
-
-            <div class="flex mt-2 items-center">
-              <span class="">沉默是金</span>
-              <div class="flex flex-row items-center gap-[2px] w-max h-[10px] mx-1">
-                <span class="block w-[10px] h-[10px] rounded-sm bg-[#ebedf0] dark:bg-[#161b22]"></span>
-                <span class="block w-[10px] h-[10px] rounded-sm bg-[#9be9a8] dark:bg-[#0e4429]"></span>
-                <span class="block w-[10px] h-[10px] rounded-sm bg-[#40c463] dark:bg-[#006d32]"></span>
-                <span class="block w-[10px] h-[10px] rounded-sm bg-[#30a14e] dark:bg-[#26a641]"></span>
-                <span class="block w-[10px] h-[10px] rounded-sm bg-[#216e39] dark:bg-[#39d353]"></span>
-              </div>
-              <span class="">废话连篇</span>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="year-progress w-full bg-neutral dark:bg-neutral-700 py-8 rounded-xl shadow-md my-10">
-          <div class="flex flex-col items-center">
-          <div class="flex flex-col md:flex-row items-center justify-center text-center pb-5 font-bold text-2xl mb-2"><span><span id="year-emoji"></span>年度进度</span><span class="hidden md:inline ml-1.5">/</span><span><span id="current_year"></span>年已过去<span id="year_progress"></span></span></div>
-            <div class="w-full max-w-11/12 h-3 bg-neutral-200 dark:bg-neutral-600 rounded-full overflow-hidden">
-              <div id="year-progress-bar" class="h-full bg-primary-500 rounded-full" style="width: 0%"></div>
-            </div>
-          </div>
-        </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-10">
           <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            class="bg-zinc rounded-xl shadow-md p-5 border border-zinc-100 transition-colors duration-200">
             <div class="flex justify-between mt-0 mb-0">
-              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">文章</h3>
+              <h3 class="mt-0 mb-0 text-lg font-medium text-zinc-700">文章</h3>
               <div
-                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
-                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 20 20"><path fill="currentColor" d="M13 0a2 2 0 0 1 2 2H6a2 2 0 0 0-2 2v12a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/><path fill="currentColor" d="M18 5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2zm-7 5H7V5h4zm5-4h-4V5h4zm0 2h-4V7h4zm0 2h-4V9h4zm0 2H7v-1h9zm0 2H7v-1h9zm0 2H7v-1h9z"/></svg></span></div>
+                class="h-10 w-10 rounded-lg bg-linear-to-br from-blue-100 to-blue-100 flex items-center justify-center">
+                <span class="text-blue-600" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 20 20"><path fill="currentColor" d="M13 0a2 2 0 0 1 2 2H6a2 2 0 0 0-2 2v12a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/><path fill="currentColor" d="M18 5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2zm-7 5H7V5h4zm5-4h-4V5h4zm0 2h-4V7h4zm0 2h-4V9h4zm0 2H7v-1h9zm0 2H7v-1h9zm0 2H7v-1h9z"/></svg></span></div>
             </div>
             <div class="flex items-end justify-between">
-              <div class="text-3xl font-bold text-neutral-900 dark:text-neutral">{{- lang.FormatNumber 0 (default 0 $articleCount) -}}</div>
+              <div class="text-3xl font-bold text-zinc-900">{{- lang.FormatNumber 0 (default 0 $articleCount) -}}</div>
             </div>
           </div>
           <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            class="bg-zinc rounded-xl shadow-md p-5 border border-zinc-100 transition-colors duration-200">
             <div class="flex justify-between mb-0">
-              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">页面</h3>
+              <h3 class="mt-0 mb-0 text-lg font-medium text-zinc-700">页面</h3>
               <div
-                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
-                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"><path d="M36.91 3.486c2.546.223 4.45 2.212 4.627 4.762c.225 3.227.463 8.38.463 15.752s-.238 12.525-.463 15.752c-.177 2.55-2.081 4.539-4.627 4.762C34.12 44.76 29.885 45 24 45s-10.121-.24-12.91-.486c-2.546-.223-4.45-2.212-4.627-4.762C6.238 36.525 6 31.372 6 24s.238-12.525.463-15.752c.177-2.55 2.081-4.539 4.627-4.762C13.88 3.24 18.115 3 24 3s10.121.24 12.91.486M42 24H6"/><path d="M41.45 40.418c-4.077-4.07-6.887-6.31-8.644-7.521c-1.42-.98-3.172-.82-4.495.29c-1.543 1.293-4.03 3.531-7.811 7.313a183 183 0 0 0-4.217 4.345M18 33a3 3 0 1 1-6 0a3 3 0 0 1 6 0m-5-16h22m-22-6.5h12"/></g></svg></span></div>
+                class="h-10 w-10 rounded-lg bg-linear-to-br from-blue-100 to-blue-100 flex items-center justify-center">
+                <span class="text-blue-600" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"><path d="M36.91 3.486c2.546.223 4.45 2.212 4.627 4.762c.225 3.227.463 8.38.463 15.752s-.238 12.525-.463 15.752c-.177 2.55-2.081 4.539-4.627 4.762C34.12 44.76 29.885 45 24 45s-10.121-.24-12.91-.486c-2.546-.223-4.45-2.212-4.627-4.762C6.238 36.525 6 31.372 6 24s.238-12.525.463-15.752c.177-2.55 2.081-4.539 4.627-4.762C13.88 3.24 18.115 3 24 3s10.121.24 12.91.486M42 24H6"/><path d="M41.45 40.418c-4.077-4.07-6.887-6.31-8.644-7.521c-1.42-.98-3.172-.82-4.495.29c-1.543 1.293-4.03 3.531-7.811 7.313a183 183 0 0 0-4.217 4.345M18 33a3 3 0 1 1-6 0a3 3 0 0 1 6 0m-5-16h22m-22-6.5h12"/></g></svg></span></div>
             </div>
             <div class="flex items-end justify-between">
-              <div class="text-3xl font-bold text-neutral-900 dark:text-neutral">{{- $pageCount | default 0 -}}</div>
+              <div class="text-3xl font-bold text-zinc-900">{{- $pageCount | default 0 -}}</div>
             </div>
           </div>
           <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            class="bg-zinc rounded-xl shadow-md p-5 border border-zinc-100 transition-colors duration-200">
             <div class="flex justify-between mb-0">
-              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">作者</h3>
+              <h3 class="mt-0 mb-0 text-lg font-medium text-zinc-700">作者</h3>
               <div
-                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
-                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5a2.5 2.5 0 1 0 0 5a2.5 2.5 0 0 0 0-5M4 8a4 4 0 1 1 8 0a4 4 0 0 1-8 0m13-.5a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3M14 9a3 3 0 1 1 6 0a3 3 0 0 1-6 0M2 16.25A2.25 2.25 0 0 1 4.25 14h7.5A2.25 2.25 0 0 1 14 16.25v.106l-1.509 1.509a3.7 3.7 0 0 0-.97 1.712l-.194.779C10.485 20.75 9.397 21 8 21c-2.828 0-4.39-1.025-5.208-2.195a4.5 4.5 0 0 1-.778-2.07A3 3 0 0 1 2 16.529v-.278m1.5.245v.012l.007.08c.007.074.023.188.055.329c.066.281.198.656.459 1.029C4.514 18.65 5.578 19.5 8 19.5s3.486-.85 3.98-1.555a3 3 0 0 0 .513-1.358l.006-.08l.001-.012v-.245a.75.75 0 0 0-.75-.75h-7.5a.75.75 0 0 0-.75.75zm15.6-3.826l-5.903 5.903a2.7 2.7 0 0 0-.706 1.247l-.458 1.831a1.087 1.087 0 0 0 1.319 1.318l1.83-.457a2.7 2.7 0 0 0 1.248-.707l5.902-5.902A2.286 2.286 0 0 0 19.1 12.67"/></svg></span></div>
+                class="h-10 w-10 rounded-lg bg-linear-to-br from-blue-100 to-blue-100 flex items-center justify-center">
+                <span class="text-blue-600" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5a2.5 2.5 0 1 0 0 5a2.5 2.5 0 0 0 0-5M4 8a4 4 0 1 1 8 0a4 4 0 0 1-8 0m13-.5a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3M14 9a3 3 0 1 1 6 0a3 3 0 0 1-6 0M2 16.25A2.25 2.25 0 0 1 4.25 14h7.5A2.25 2.25 0 0 1 14 16.25v.106l-1.509 1.509a3.7 3.7 0 0 0-.97 1.712l-.194.779C10.485 20.75 9.397 21 8 21c-2.828 0-4.39-1.025-5.208-2.195a4.5 4.5 0 0 1-.778-2.07A3 3 0 0 1 2 16.529v-.278m1.5.245v.012l.007.08c.007.074.023.188.055.329c.066.281.198.656.459 1.029C4.514 18.65 5.578 19.5 8 19.5s3.486-.85 3.98-1.555a3 3 0 0 0 .513-1.358l.006-.08l.001-.012v-.245a.75.75 0 0 0-.75-.75h-7.5a.75.75 0 0 0-.75.75zm15.6-3.826l-5.903 5.903a2.7 2.7 0 0 0-.706 1.247l-.458 1.831a1.087 1.087 0 0 0 1.319 1.318l1.83-.457a2.7 2.7 0 0 0 1.248-.707l5.902-5.902A2.286 2.286 0 0 0 19.1 12.67"/></svg></span></div>
             </div>
             <div class="flex items-end justify-between">
-              <div class="text-3xl font-bold text-neutral-900 dark:text-neutral">4</div>
+              <div class="text-3xl font-bold text-zinc-900">4</div>
             </div>
           </div>
           <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            class="bg-zinc rounded-xl shadow-md p-5 border border-zinc-100 transition-colors duration-200">
             <div class="flex justify-between mb-0">
-              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">分类列表</h3>
+              <h3 class="mt-0 mb-0 text-lg font-medium text-zinc-700">分类列表</h3>
               <div
-                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
-                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 24 24"><path fill="currentColor" d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1m10 0h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1M10 13H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1m7 0a4 4 0 1 1-3.995 4.2L13 17l.005-.2A4 4 0 0 1 17 13"/></svg></span></div>
+                class="h-10 w-10 rounded-lg bg-linear-to-br from-blue-100 to-blue-100 flex items-center justify-center">
+                <span class="text-blue-600" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 24 24"><path fill="currentColor" d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1m10 0h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1M10 13H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1m7 0a4 4 0 1 1-3.995 4.2L13 17l.005-.2A4 4 0 0 1 17 13"/></svg></span></div>
             </div>
             <div class="flex items-end justify-between">
-              <div class="text-3xl font-bold text-neutral-900 dark:text-neutral">{{- $categoryCount | default 0 -}}</div>
+              <div class="text-3xl font-bold text-zinc-900">{{- $categoryCount | default 0 -}}</div>
             </div>
           </div>
           <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            class="bg-zinc rounded-xl shadow-md p-5 border border-zinc-100 transition-colors duration-200">
             <div class="flex justify-between mb-0">
-              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">系列文章</h3>
+              <h3 class="mt-0 mb-0 text-lg font-medium text-zinc-700">系列文章</h3>
               <div
-                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
-                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 20 20"><path fill="currentColor" d="M13.981 2H6.018s-.996 0-.996 1h9.955c0-1-.996-1-.996-1m2.987 3c0-1-.995-1-.995-1H4.027s-.995 0-.995 1v1h13.936zm1.99 1l-.588-.592V7H1.63V5.408L1.041 6C.452 6.592.03 6.75.267 8c.236 1.246 1.379 8.076 1.549 9c.186 1.014 1.217 1 1.217 1h13.936s1.03.014 1.217-1c.17-.924 1.312-7.754 1.549-9c.235-1.25-.187-1.408-.777-2M14 11.997c0 .554-.449 1.003-1.003 1.003H7.003A1.003 1.003 0 0 1 6 11.997V10h1v2h6v-2h1z"/></svg></span></div>
+                class="h-10 w-10 rounded-lg bg-linear-to-br from-blue-100 to-blue-100 flex items-center justify-center">
+                <span class="text-blue-600" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 20 20"><path fill="currentColor" d="M13.981 2H6.018s-.996 0-.996 1h9.955c0-1-.996-1-.996-1m2.987 3c0-1-.995-1-.995-1H4.027s-.995 0-.995 1v1h13.936zm1.99 1l-.588-.592V7H1.63V5.408L1.041 6C.452 6.592.03 6.75.267 8c.236 1.246 1.379 8.076 1.549 9c.186 1.014 1.217 1 1.217 1h13.936s1.03.014 1.217-1c.17-.924 1.312-7.754 1.549-9c.235-1.25-.187-1.408-.777-2M14 11.997c0 .554-.449 1.003-1.003 1.003H7.003A1.003 1.003 0 0 1 6 11.997V10h1v2h6v-2h1z"/></svg></span></div>
             </div>
             <div class="flex items-end justify-between">
-              <div class="text-3xl font-bold text-neutral-900 dark:text-neutral">3</div>
+              <div class="text-3xl font-bold text-zinc-900">3</div>
             </div>
           </div>
           <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            class="bg-zinc rounded-xl shadow-md p-5 border border-zinc-100 transition-colors duration-200">
             <div class="flex justify-between mb-0">
-              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">标签</h3>
+              <h3 class="mt-0 mb-0 text-lg font-medium text-zinc-700">标签</h3>
               <div
-                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
-                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M13.172 2a2 2 0 0 1 1.414.586l6.71 6.71a2.4 2.4 0 0 1 0 3.408l-4.592 4.592a2.4 2.4 0 0 1-3.408 0l-6.71-6.71A2 2 0 0 1 6 9.172V3a1 1 0 0 1 1-1zM2 7v6.172a2 2 0 0 0 .586 1.414l6.71 6.71a2.4 2.4 0 0 0 3.191.193"/><circle cx="10.5" cy="6.5" r=".5" fill="currentColor"/></g></svg></span></div>
+                class="h-10 w-10 rounded-lg bg-linear-to-br from-blue-100 to-blue-100 flex items-center justify-center">
+                <span class="text-blue-600" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M13.172 2a2 2 0 0 1 1.414.586l6.71 6.71a2.4 2.4 0 0 1 0 3.408l-4.592 4.592a2.4 2.4 0 0 1-3.408 0l-6.71-6.71A2 2 0 0 1 6 9.172V3a1 1 0 0 1 1-1zM2 7v6.172a2 2 0 0 0 .586 1.414l6.71 6.71a2.4 2.4 0 0 0 3.191.193"/><circle cx="10.5" cy="6.5" r=".5" fill="currentColor"/></g></svg></span></div>
             </div>
             <div class="flex items-end justify-between">
-              <div class="text-3xl font-bold text-neutral-900 dark:text-neutral">{{- lang.FormatNumber 0 (default 0 $tagCount) -}}</div>
+              <div class="text-3xl font-bold text-zinc-900">{{- lang.FormatNumber 0 (default 0 $tagCount) -}}</div>
             </div>
           </div>
           <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            class="bg-zinc rounded-xl shadow-md p-5 border border-zinc-100 transition-colors duration-200">
             <div class="flex justify-between mb-0">
-              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">友情链接</h3>
+              <h3 class="mt-0 mb-0 text-lg font-medium text-zinc-700">友情链接</h3>
               <div
-                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
-                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.5rem" viewBox="0 0 1792 1536"><path fill="currentColor" d="M1792 1120v320q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h96V832H960v192h96q40 0 68 28t28 68v320q0 40-28 68t-68 28H736q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h96V832H320v192h96q40 0 68 28t28 68v320q0 40-28 68t-68 28H96q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h96V832q0-52 38-90t90-38h512V512h-96q-40 0-68-28t-28-68V96q0-40 28-68t68-28h320q40 0 68 28t28 68v320q0 40-28 68t-68 28h-96v192h512q52 0 90 38t38 90v192h96q40 0 68 28t28 68"/></svg></span></div>
+                class="h-10 w-10 rounded-lg bg-linear-to-br from-blue-100 to-blue-100 flex items-center justify-center">
+                <span class="text-blue-600" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.5rem" viewBox="0 0 1792 1536"><path fill="currentColor" d="M1792 1120v320q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h96V832H960v192h96q40 0 68 28t28 68v320q0 40-28 68t-68 28H736q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h96V832H320v192h96q40 0 68 28t28 68v320q0 40-28 68t-68 28H96q-40 0-68-28t-28-68v-320q0-40 28-68t68-28h96V832q0-52 38-90t90-38h512V512h-96q-40 0-68-28t-28-68V96q0-40 28-68t68-28h320q40 0 68 28t28 68v320q0 40-28 68t-68 28h-96v192h512q52 0 90 38t38 90v192h96q40 0 68 28t28 68"/></svg></span></div>
             </div>
             <div class="flex items-end justify-between">
-              <div class="text-3xl font-bold text-neutral-900 dark:text-neutral">{{- $linkCount | default 36 -}}</div>
+              <div class="text-3xl font-bold text-zinc-900">{{- $linkCount | default 36 -}}</div>
             </div>
           </div>
           <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md p-5 border border-neutral-100 dark:border-neutral-700 transition-colors duration-200">
+            class="bg-zinc rounded-xl shadow-md p-5 border border-zinc-100 transition-colors duration-200">
             <div class="flex justify-between mb-0">
-              <h3 class="mt-0 mb-0 text-lg font-medium text-neutral-700 dark:text-neutral-200">博客字数</h3>
+              <h3 class="mt-0 mb-0 text-lg font-medium text-zinc-700">博客字数</h3>
               <div
-                class="h-10 w-10 rounded-lg bg-gradient-to-br from-primary-100 to-primary-100 dark:from-primary-900 dark:to-primary-900 flex items-center justify-center">
-                <span class="text-primary-600 dark:text-primary-300" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 256 256"><path fill="currentColor" d="M200 24H72a16 16 0 0 0-16 16v24H40a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h16v24a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16V40a16 16 0 0 0-16-16m-40 80h40v48h-40ZM72 40h128v48h-40v-8a16 16 0 0 0-16-16H72ZM40 80h104v96H40Zm32 136v-24h72a16 16 0 0 0 16-16v-8h40v48Zm-3.76-62.06l-12-48a8 8 0 1 1 15.52-3.88l6.76 27l6.32-12.66a8 8 0 0 1 14.32 0l6.32 12.66l6.76-27a8 8 0 0 1 15.52 3.88l-12 48a8 8 0 0 1-6.89 6a9 9 0 0 1-.87.05a8 8 0 0 1-7.16-4.42L92 137.89l-8.84 17.69a8 8 0 0 1-14.92-1.64"/></svg></span></div>
+                class="h-10 w-10 rounded-lg bg-linear-to-br from-blue-100 to-blue-100 flex items-center justify-center">
+                <span class="text-blue-600" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="1.75rem" height="1.75rem" viewBox="0 0 256 256"><path fill="currentColor" d="M200 24H72a16 16 0 0 0-16 16v24H40a16 16 0 0 0-16 16v96a16 16 0 0 0 16 16h16v24a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16V40a16 16 0 0 0-16-16m-40 80h40v48h-40ZM72 40h128v48h-40v-8a16 16 0 0 0-16-16H72ZM40 80h104v96H40Zm32 136v-24h72a16 16 0 0 0 16-16v-8h40v48Zm-3.76-62.06l-12-48a8 8 0 1 1 15.52-3.88l6.76 27l6.32-12.66a8 8 0 0 1 14.32 0l6.32 12.66l6.76-27a8 8 0 0 1 15.52 3.88l-12 48a8 8 0 0 1-6.89 6a9 9 0 0 1-.87.05a8 8 0 0 1-7.16-4.42L92 137.89l-8.84 17.69a8 8 0 0 1-14.92-1.64"/></svg></span></div>
             </div>
             <div class="flex items-end justify-between">
-              <div class="text-3xl font-bold text-neutral-900 dark:text-neutral">{{- lang.FormatNumber 0 (default 0 $totalWords) -}}</div>
+              <div class="text-3xl font-bold text-zinc-900">{{- lang.FormatNumber 0 (default 0 $totalWords) -}}</div>
             </div>
           </div>
         </div>
 
         <div class="stats-cards grid grid-cols-1 md:grid-cols-3 gap-4 my-20">
           <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
+            class="bg-zinc rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
             <div class="h-32 relative">
-              <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900">
-                {{ with resources.Get "images/stats/hugo.avif" }}
-                <div class="absolute inset-0 opacity-20 dark:opacity-30"
+              <div class="absolute inset-0 bg-linear-to-b from-zinc-900 to-zinc-600">
+                {{ with resources.Get "images/stats/hugo.webp" }}
+                <div class="absolute inset-0 opacity-20"
                     style="background-image: url('{{ .RelPermalink }}'); background-size: cover; background-position: center;">
                 </div>
                 {{ end }}
               </div>
               <div class="absolute inset-0 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 128 128"><path fill="#ff4088" d="m71.2 8.5l36.7 21.3c4.3 2.5 7 7.2 7 12.2v43.7c0 5.6-3 10.7-7.8 13.4l-36.4 20.5c-4.8 2.7-10.7 2.7-15.5-.1l-33.5-19.3c-5.3-3-8.5-8.6-8.5-14.7V44.1c0-6.1 3.2-11.8 8.4-15L54.4 8.8c5.1-3.2 11.6-3.3 16.8-.3"/><path fill="#c9177e" d="M63 126c-3.5 0-6.9-.9-10-2.7L19.5 104c-6.6-3.8-10.7-10.9-10.7-18.5V44.1c0-7.7 3.9-14.6 10.4-18.7L52.1 5.1c6.5-4 14.6-4.1 21.2-.3L110 26.1c5.7 3.3 9.2 9.4 9.2 15.9v43.7c0 7.1-3.8 13.7-10 17.2l-36.4 20.5c-3 1.7-6.4 2.6-9.8 2.6m0-115.3c-2.2 0-4.4.6-6.3 1.8l-33 20.3c-4 2.4-6.3 6.7-6.3 11.3v41.5c0 4.5 2.4 8.7 6.3 11l33.5 19.3c3.5 2 7.8 2 11.3.1l36.4-20.5c3.5-2 5.6-5.6 5.6-9.6V42.1c0-3.5-1.9-6.7-4.9-8.5L69 12.3c-1.8-1.1-3.9-1.6-6-1.6"/><path fill="#fff" d="M38.6 96.9V30.5h13.9v24.2h23V30.5h13.9v66.4H75.5v-29h-23v29z"/></svg>
               </div>
-              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-10"></div>
+              <div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black to-transparent h-10"></div>
               <div class="absolute bottom-3 left-4">
-                <h3 class="text-xl font-bold text-neutral">Analytics</h3>
-                <p class="text-sm text-neutral-200"></p>
+                <h3 class="text-xl font-bold text-zinc-50">Analytics</h3>
+                <p class="text-sm text-zinc-200"></p>
               </div>
             </div>
             <div class="p-4">
-              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">已停止使用网站统计工具。</p>
+              <p class="text-sm text-zinc-600 mt-0 mb-4 line-clamp-2 overflow-x-hidden">已停止使用网站统计工具。</p>
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
-                <div class="max-w-3/12 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">浏览量</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span class="line-through decoration-2 cursor-not-allowed">&nbsp;999&nbsp;</span><sup>+</sup></div>
+                <div class="max-w-3/12 text-ellipsis text-center">
+                  <div class="text-xs text-zinc-500">浏览量</div>
+                  <div class="font-semibold text-zinc-900"><span class="line-through decoration-2 cursor-not-allowed">&nbsp;999&nbsp;</span><sup>+</sup></div>
                 </div>
                 <div class="max-w-3/12overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">评论数</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span class="line-through decoration-2 cursor-not-allowed">&nbsp;999&nbsp;</span><sup>+</sup></div>
+                  <div class="text-xs text-zinc-500">评论数</div>
+                  <div class="font-semibold text-zinc-900"><span class="line-through decoration-2 cursor-not-allowed">&nbsp;999&nbsp;</span><sup>+</sup></div>
                 </div>
-                <div class="max-w-6/12 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">博客年龄</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral inline whitespace-nowrap group relative">
+                <div class="max-w-6/12 text-ellipsis text-center">
+                  <div class="text-xs text-zinc-500">博客年龄</div>
+                  <div class="font-semibold text-zinc-900 inline whitespace-nowrap group relative">
                     <span class="truncate max-w-[120px] inline-block align-bottom"><span id="stats_blog_online_year"></span></span>
-                    <span class="w-max max-w-sm hidden group-hover:block absolute right-0 bottom-full bg-neutral-900 text-neutral text-sm rounded py-2 px-3 shadow-lg z-50 hover:z-50 whitespace-nowrap -translate-y-1.5">
+                    <span class="w-max max-w-sm hidden group-hover:block absolute right-0 bottom-full bg-zinc-900 text-zinc-50 text-sm rounded-sm py-2 px-3 shadow-lg z-50 hover:z-50 whitespace-nowrap -translate-y-1.5">
                         Creation: Fri, Mar 26, 2010. 14:41
-                      <div class="absolute top-full right-1/4 transform translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-neutral-900"></div>
+                      <div class="absolute top-full right-1/4 transform translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-zinc-900"></div>
                     </span>
                   </div>
                 </div>
@@ -954,104 +372,104 @@
             </div>
           </div>
           <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
+            class="bg-zinc rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
             <div class="h-32 relative">
-              <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900">
+              <div class="absolute inset-0 bg-linear-to-b from-zinc-900 to-zinc-600">
                 {{ with resources.Get "images/stats/mastodon.webp" }}
-                <div class="absolute inset-0 opacity-20 dark:opacity-30"
+                <div class="absolute inset-0 opacity-20"
                     style="background-image: url('{{ .RelPermalink }}'); background-size: cover; background-position: center;">
                 </div>
                 {{ end }}
               </div>
               <div class="absolute inset-0 flex items-center justify-center"><svg width="75" height="79" viewBox="0 0 75 79" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M73.8393 17.4898C72.6973 9.00165 65.2994 2.31235 56.5296 1.01614C55.05 0.797115 49.4441 0 36.4582 0H36.3612C23.3717 0 20.585 0.797115 19.1054 1.01614C10.5798 2.27644 2.79399 8.28712 0.904997 16.8758C-0.00358524 21.1056 -0.100549 25.7949 0.0682394 30.0965C0.308852 36.2651 0.355538 42.423 0.91577 48.5665C1.30307 52.6474 1.97872 56.6957 2.93763 60.6812C4.73325 68.042 12.0019 74.1676 19.1233 76.6666C26.7478 79.2728 34.9474 79.7055 42.8039 77.9162C43.6682 77.7151 44.5217 77.4817 45.3645 77.216C47.275 76.6092 49.5123 75.9305 51.1571 74.7385C51.1797 74.7217 51.1982 74.7001 51.2112 74.6753C51.2243 74.6504 51.2316 74.6229 51.2325 74.5948V68.6416C51.2321 68.6154 51.2259 68.5896 51.2142 68.5661C51.2025 68.5426 51.1858 68.522 51.1651 68.5058C51.1444 68.4896 51.1204 68.4783 51.0948 68.4726C51.0692 68.4669 51.0426 68.467 51.0171 68.4729C45.9835 69.675 40.8254 70.2777 35.6502 70.2682C26.7439 70.2682 24.3486 66.042 23.6626 64.2826C23.1113 62.762 22.7612 61.1759 22.6212 59.5646C22.6197 59.5375 22.6247 59.5105 22.6357 59.4857C22.6466 59.4609 22.6633 59.4391 22.6843 59.422C22.7053 59.4048 22.73 59.3929 22.7565 59.3871C22.783 59.3813 22.8104 59.3818 22.8367 59.3886C27.7864 60.5826 32.8604 61.1853 37.9522 61.1839C39.1768 61.1839 40.3978 61.1839 41.6224 61.1516C46.7435 61.008 52.1411 60.7459 57.1796 59.7621C57.3053 59.7369 57.431 59.7154 57.5387 59.6831C65.4861 58.157 73.0493 53.3672 73.8178 41.2381C73.8465 40.7606 73.9184 36.2364 73.9184 35.7409C73.9219 34.0569 74.4606 23.7949 73.8393 17.4898Z" fill="url(#paint0_linear_549_34)"/><path d="M61.2484 27.0263V48.114H52.8916V27.6475C52.8916 23.3388 51.096 21.1413 47.4437 21.1413C43.4287 21.1413 41.4177 23.7409 41.4177 28.8755V40.0782H33.1111V28.8755C33.1111 23.7409 31.0965 21.1413 27.0815 21.1413C23.4507 21.1413 21.6371 23.3388 21.6371 27.6475V48.114H13.2839V27.0263C13.2839 22.7176 14.384 19.2946 16.5843 16.7572C18.8539 14.2258 21.8311 12.926 25.5264 12.926C29.8036 12.926 33.0357 14.5705 35.1905 17.8559L37.2698 21.346L39.3527 17.8559C41.5074 14.5705 44.7395 12.926 49.0095 12.926C52.7013 12.926 55.6784 14.2258 57.9553 16.7572C60.1531 19.2922 61.2508 22.7152 61.2484 27.0263Z" fill="white"/><defs><linearGradient id="paint0_linear_549_34" x1="37.0692" y1="0" x2="37.0692" y2="79" gradientUnits="userSpaceOnUse"><stop stop-color="#6364FF"/><stop offset="1" stop-color="#563ACC"/></linearGradient></defs></svg></div>
-              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-10"></div>
+              <div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black to-transparent h-10"></div>
               <div class="absolute bottom-3 left-4">
-                <h3 class="text-xl font-bold text-neutral">Mastodon</h3>
-                <p class="text-sm text-neutral-200"></p>
+                <h3 class="text-xl font-bold text-zinc-50">Mastodon</h3>
+                <p class="text-sm text-zinc-200"></p>
               </div>
             </div>
             <div class="p-4">
-              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">免费、开源的去中心化社交媒体平台。</p>
+              <p class="text-sm text-zinc-600 mt-0 mb-4 line-clamp-2 overflow-x-hidden">免费、开源的去中心化社交媒体平台。</p>
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
-                <div class="max-w-1/3 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">关注者</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{ $followersCount }}</div>
+                <div class="max-w-1/3 text-ellipsis text-center">
+                  <div class="text-xs text-zinc-500">关注者</div>
+                  <div class="font-semibold text-zinc-900">{{ $followersCount }}</div>
                 </div>
-                <div class="max-w-1/3 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">正在关注</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{ $followingCount }}</div>
+                <div class="max-w-1/3 text-ellipsis text-center">
+                  <div class="text-xs text-zinc-500">正在关注</div>
+                  <div class="font-semibold text-zinc-900">{{ $followingCount }}</div>
                 </div>
-                <div class="max-w-1/3 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">嘟文</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{- lang.FormatNumber 0 (default 0 $statusesCount) -}}</div>
+                <div class="max-w-1/3 text-ellipsis text-center">
+                  <div class="text-xs text-zinc-500">嘟文</div>
+                  <div class="font-semibold text-zinc-900">{{- lang.FormatNumber 0 (default 0 $statusesCount) -}}</div>
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
+            class="bg-zinc rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
             <div class="h-32 relative">
-              <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900">
+              <div class="absolute inset-0 bg-linear-to-b from-zinc-900 to-zinc-600">
                 {{ with resources.Get "images/stats/github.webp" }}
-                <div class="absolute inset-0 opacity-20 dark:opacity-30"
+                <div class="absolute inset-0 opacity-20"
                     style="background-image: url('{{ .RelPermalink }}'); background-size: cover; background-position: center;">
                 </div>
                 {{ end }}
               </div>
               <div class="absolute inset-0 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24"><path fill="#fff" d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
               </div>
-              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-10"></div>
+              <div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black to-transparent h-10"></div>
               <div class="absolute bottom-3 left-4">
-                <h3 class="text-xl font-bold text-neutral">GitHub</h3>
-                <p class="text-sm text-neutral-200"></p>
+                <h3 class="text-xl font-bold text-zinc-50">GitHub</h3>
+                <p class="text-sm text-zinc-200"></p>
               </div>
             </div>
             <div class="p-4">
-              <p class="flex items-center text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">Let's build from here. <svg class="ml-2 mr-1 inline-block" width="1em" height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6.0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6.0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1.0-6.2-.3-40.4-.3-61.4.0.0-70 15-84.7-29.8.0.0-11.4-29.1-27.8-36.6.0.0-22.9-15.7 1.6-15.4.0.0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5.0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9.0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4.0 33.7-.3 75.4-.3 83.6.0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6.0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9.0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg> <a href="https://github.com/eallion/eallion.com/tree/{{- $commitHashLong -}}" target="_blank"><span class="bg-[#818b981f] dark:bg-[#656c7633] text-primary-[#0969da] dark:text-primary-[#478be6] !text-xs m-0 py-0.5 px-1 whitespace-break-spaces !font-normal rounded-md underline underline-offset-4">{{- $commitHashShort -}}</span></a></p>
+              <p class="flex items-center text-sm text-zinc-600 mt-0 mb-4 line-clamp-2 overflow-x-hidden">Let's build from here. <svg class="ml-2 mr-1 inline-block" width="1em" height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6.0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6.0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1.0-6.2-.3-40.4-.3-61.4.0.0-70 15-84.7-29.8.0.0-11.4-29.1-27.8-36.6.0.0-22.9-15.7 1.6-15.4.0.0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5.0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9.0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4.0 33.7-.3 75.4-.3 83.6.0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6.0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9.0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg> <a href="https://github.com/eallion/eallion.com/tree/{{- $commitHashLong -}}" target="_blank" rel="noopener noreferrer"><span class="bg-[#818b981f] text-[#0969da] text-xs! m-0 py-0.5 px-1 whitespace-break-spaces font-normal! rounded-md underline underline-offset-4">{{- $commitHashShort -}}</span></a></p>
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
-                <div class="max-w-2/5 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">Commits</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{- lang.FormatNumber 0 (default 0 $totalCommits) -}}</div>
+                <div class="max-w-2/5 text-ellipsis text-center">
+                  <div class="text-xs text-zinc-500">Commits</div>
+                  <div class="font-semibold text-zinc-900">{{- lang.FormatNumber 0 (default 0 $totalCommits) -}}</div>
                 </div>
-                <div class="max-w-2/5 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">Last Commit</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span id="last-commit-date" data-date="{{ $lastCommitDate }}">-</span></div>
+                <div class="max-w-2/5 text-ellipsis text-center">
+                  <div class="text-xs text-zinc-500">Last Commit</div>
+                  <div class="font-semibold text-zinc-900"><span id="last-commit-date" data-date="{{ $lastCommitDate }}">-</span></div>
                 </div>
-                <div class="max-w-2/5 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">Repo Size</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{ $repoSize }}<span class="text-xs text-neutral-400"></span></div>
+                <div class="max-w-2/5 text-ellipsis text-center">
+                  <div class="text-xs text-zinc-500">Repo Size</div>
+                  <div class="font-semibold text-zinc-900">{{ $repoSize }}<span class="text-xs text-zinc-400"></span></div>
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
+            class="bg-zinc rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
             <div class="h-32 relative">
-              <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900">
+              <div class="absolute inset-0 bg-linear-to-b from-zinc-900 to-zinc-600">
                 {{ with resources.Get "images/stats/steam.webp" }}
-                <div class="absolute inset-0 opacity-20 dark:opacity-30"
+                <div class="absolute inset-0 opacity-20"
                     style="background-image: url('{{ .RelPermalink }}'); background-size: cover; background-position: center;">
                 </div>
                 {{ end }}
               </div>
               <div class="absolute inset-0 flex items-center justify-center"><svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 512 512"><symbol id="b" viewBox="-32 -32 64 64"><linearGradient id="a" x1="7762.648" x2="7762.648" y1="-8454.313" y2="-8453.313" gradientTransform="matrix(63.931 0 0 64 -496273.844 541044)" gradientUnits="userSpaceOnUse"><stop offset="0" style="stop-color:#111d2e"/><stop offset=".212" style="stop-color:#051839"/><stop offset=".407" style="stop-color:#0a1b48"/><stop offset=".581" style="stop-color:#132e62"/><stop offset=".738" style="stop-color:#144b7e"/><stop offset=".873" style="stop-color:#136497"/><stop offset="1" style="stop-color:#1387b8"/></linearGradient><path d="M-30.7 9.2C-26.7 22.4-14.5 32 0 32c17.7 0 32-14.3 32-32S17.7-32 0-32c-17 0-30.9 13.2-32 29.9 2.1 3.5 2.9 5.6 1.3 11.3" style="fill:url(#a)"/><path d="M-1.7-8v.2L-9.5 3.5c-1.3-.1-2.5.2-3.7.7-.5.2-1 .5-1.5.8l-17.2-7.1s-.4 6.5 1.3 11.4l12.2 5c.6 2.7 2.5 5.1 5.2 6.3 4.5 1.9 9.7-.3 11.6-4.8.5-1.2.7-2.4.7-3.7l11.2-8h.3c6.7 0 12.2-5.5 12.2-12.2s-5.4-12.2-12.2-12.2C3.8-20.2-1.7-14.7-1.7-8m-1.8 23c-1.5 3.5-5.5 5.1-9 3.7-1.5-.7-2.8-1.8-3.5-3.4l4 1.6c2.6 1.1 5.5-.1 6.6-2.7s-.1-5.5-2.7-6.6L-12.3 6c1.6-.6 3.4-.6 5 .1 1.7.7 3 2 3.7 3.7s.7 3.5.1 5.2M10.5.1C6 .1 2.4-3.5 2.4-8s3.6-8.1 8.1-8.1 8.1 3.6 8.1 8.1S15 .1 10.5.1M4.4-8c0-3.4 2.7-6.1 6.1-6.1s6.1 2.7 6.1 6.1-2.7 6.1-6.1 6.1S4.4-4.7 4.4-8" style="fill:#fff"/></symbol><use xlink:href="#b" width="64" height="64" x="-32" y="-32" style="overflow:visible" transform="matrix(8 0 0 8 256 256)"/></svg>
               </div>
-              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-10"></div>
+              <div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black to-transparent h-10"></div>
               <div class="absolute bottom-3 left-4">
-                <h3 class="text-xl font-bold text-neutral">Steam</h3>
-                <p class="text-sm text-neutral-200"></p>
+                <h3 class="text-xl font-bold text-zinc-50">Steam</h3>
+                <p class="text-sm text-zinc-200"></p>
               </div>
             </div>
             <div class="p-4">
-              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">"Pay. Don't play." Steam  是畅玩游戏、讨论游戏、创造游戏的快乐所在。</p>
+              <p class="text-sm text-zinc-600 mt-0 mb-4 line-clamp-2 overflow-x-hidden">"Pay. Don't play." Steam  是畅玩游戏、讨论游戏、创造游戏的快乐所在。</p>
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
-                <div class="max-w-2/5 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">游戏库</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral"><span>{{ $steamGameCount }}</span></div>
+                <div class="max-w-2/5 text-ellipsis text-center">
+                  <div class="text-xs text-zinc-500">游戏库</div>
+                  <div class="font-semibold text-zinc-900"><span>{{ $steamGameCount }}</span></div>
                 </div>
-                <div class="max-w-3/5 overflow-ellipsis text-center">
-                  <button type="button" onclick="window.open('https://steamcommunity.com/id/eallion', '_blank')" class="text-neutral-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                  <a href="https://steamcommunity.com/id/eallion" target="_blank" rel="noopener noreferrer" class="text-neutral hover:text-neutral">View Details</a>
+                <div class="max-w-3/5 text-ellipsis text-center">
+                  <button type="button" onclick="window.open('https://steamcommunity.com/id/eallion', '_blank')" class="text-zinc-300 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-hidden focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
+                  <a href="https://steamcommunity.com/id/eallion" target="_blank" rel="noopener noreferrer" class="text-zinc-50 hover:text-zinc-50">View Details</a>
                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                     </svg>
@@ -1061,11 +479,11 @@
             </div>
           </div>
           <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
+            class="bg-zinc rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
             <div class="h-32 relative">
-              <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900">
+              <div class="absolute inset-0 bg-linear-to-b from-zinc-900 to-zinc-600">
                 {{ with resources.Get "images/stats/neodb.webp" }}
-                <div class="absolute inset-0 opacity-20 dark:opacity-30"
+                <div class="absolute inset-0 opacity-20"
                     style="background-image: url('{{ .RelPermalink }}'); background-size: cover; background-position: center;">
                 </div>
                 {{ end }}
@@ -1102,22 +520,22 @@
                   </g>
                 </svg>
               </div>
-              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-10"></div>
+              <div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black to-transparent h-10"></div>
               <div class="absolute bottom-3 left-4">
-                <h3 class="text-xl font-bold text-neutral">NeoDB</h3>
-                <p class="text-sm text-neutral-200"></p>
+                <h3 class="text-xl font-bold text-zinc-50">NeoDB</h3>
+                <p class="text-sm text-zinc-200"></p>
               </div>
             </div>
             <div class="p-4">
-              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">致力于提供一个涵盖书籍、影视、音乐、游戏、播客的自由开放互联的收藏评论空间。</p>
+              <p class="text-sm text-zinc-600 mt-0 mb-4 line-clamp-2 overflow-x-hidden">致力于提供一个涵盖书籍、影视、音乐、游戏、播客的自由开放互联的收藏评论空间。</p>
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
-                <div class="max-w-2/5 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">书影音标记</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{- $neodbMarked -}}</div>
+                <div class="max-w-2/5 text-ellipsis text-center">
+                  <div class="text-xs text-zinc-500">书影音标记</div>
+                  <div class="font-semibold text-zinc-900">{{- $neodbMarked -}}</div>
                 </div>
-                <div class="max-w-3/5 overflow-ellipsis text-center">
-                  <button type="button" onclick="window.open('https://neodb.social/users/eallion/', '_blank')" class="text-neutral-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                  <a href="https://neodb.social/users/eallion/" target="_blank" rel="noopener noreferrer" class="text-neutral hover:text-neutral">View Details</a>
+                <div class="max-w-3/5 text-ellipsis text-center">
+                  <button type="button" onclick="window.open('https://neodb.social/users/eallion/', '_blank')" class="text-zinc-300 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-hidden focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
+                  <a href="https://neodb.social/users/eallion/" target="_blank" rel="noopener noreferrer" class="text-zinc-50 hover:text-zinc-50">View Details</a>
                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                     </svg>
@@ -1127,33 +545,33 @@
             </div>
           </div>
           <div
-            class="bg-neutral dark:bg-neutral-700 rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
+            class="bg-zinc rounded-xl shadow-md overflow-hidden transition-colors duration-200 hover:shadow-lg mb-4">
             <div class="h-32 relative">
-              <div class="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-600 dark:from-neutral-700 dark:to-neutral-900">
+              <div class="absolute inset-0 bg-linear-to-b from-zinc-900 to-zinc-600">
                 {{ with resources.Get "images/stats/lol.webp" }}
-                <div class="absolute inset-0 opacity-20 dark:opacity-30"
+                <div class="absolute inset-0 opacity-20"
                     style="background-image: url('{{ .RelPermalink }}'); background-size: cover; background-position: center;">
                 </div>
                 {{ end }}
               </div>
               <div class="absolute inset-0 flex items-center justify-center"><svg width="64" height="64" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 341.20001 363.94666" height="363.94666" width="341.20001" xml:space="preserve" id="svg2" version="1.1"><defs id="defs6" /><g transform="matrix(1.3333333,0,0,-1.3333333,0,363.94667)" id="g10"><g transform="scale(0.1)" id="g12"><path id="path14" style="fill:#c29739;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 154.094,1897.88 C 55.8789,1719.89 0,1516 0,1299.28 0,1082.49 55.8789,878.48 154.094,700.371 V 1897.88" /><path id="path16" style="fill:#c29739;fill-opacity:1;fill-rule:nonzero;stroke:none" d="m 1279.52,2557.1 c -103.84,0 -204.55,-12.53 -301.227,-35.36 v -197.92 c 95.677,26.96 196.617,41.75 301.227,41.75 598.96,0 1084.55,-475.85 1084.55,-1063.1 0,-264.44 -98.74,-506.298 -261.72,-692.22 l -30.87,-108.559 -68.59,-240.082 c 335.88,226.59 556.32,606.7 556.32,1037.431 -0.23,694.92 -573.11,1258.06 -1279.69,1258.06" /><path id="path18" style="fill:#c29739;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 978.293,646.449 H 1981.12 c 166.06,170.66 268.35,401.631 268.35,656.021 0,525.1 -434.26,950.68 -969.95,950.68 -105.19,0 -206.31,-16.73 -301.227,-46.95 V 646.449" /><path id="path20" style="fill:#c29739;fill-opacity:1;fill-rule:nonzero;stroke:none" d="M 862.273,2729.59 H 132.227 l 137.89,-281.36 V 281.238 L 132.227,0 H 1807.75 l 151.86,532.43 H 862.273 v 2197.16" /></g></g></svg>
               </div>
-              <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-10"></div>
+              <div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black to-transparent h-10"></div>
               <div class="absolute bottom-3 left-4">
-                <h3 class="text-xl font-bold text-neutral">LOL Penta</h3>
-                <p class="text-sm text-neutral-200"></p>
+                <h3 class="text-xl font-bold text-zinc-50">LOL Penta</h3>
+                <p class="text-sm text-zinc-200"></p>
               </div>
             </div>
             <div class="p-4">
-              <p class="text-sm text-neutral-600 dark:text-neutral-300 mt-0 mb-4 line-clamp-2 overflow-x-hidden">英雄联盟五杀靠的是 99% 的技术和 1% 的运气，技术很重要，但运气才是决定性的。</p>
+              <p class="text-sm text-zinc-600 mt-0 mb-4 line-clamp-2 overflow-x-hidden">英雄联盟五杀靠的是 99% 的技术和 1% 的运气，技术很重要，但运气才是决定性的。</p>
               <div class="flex w-full justify-between items-center-safe gap-2 mb-0">
-                <div class="max-w-2/5 overflow-ellipsis text-center">
-                  <div class="text-xs text-neutral-500 dark:text-neutral-400">五杀截图</div>
-                  <div class="font-semibold text-neutral-900 dark:text-neutral">{{- $pentaCount | default 103 -}}</div>
+                <div class="max-w-2/5 text-ellipsis text-center">
+                  <div class="text-xs text-zinc-500">五杀截图</div>
+                  <div class="font-semibold text-zinc-900">{{- $pentaCount | default 103 -}}</div>
                 </div>
-                <div class="max-w-3/5 overflow-ellipsis text-center">
-                  <button type="button" onclick="window.open('https://e5n.cc/@eallion/tagged/LOL', '_blank')" class="text-neutral-300 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                  <a href="https://e5n.cc/@eallion/tagged/LOL" target="_blank" rel="noopener noreferrer" class="text-neutral hover:text-neutral">View Details</a>
+                <div class="max-w-3/5 text-ellipsis text-center">
+                  <button type="button" onclick="window.open('https://e5n.cc/@eallion/tagged/LOL', '_blank')" class="text-zinc-300 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-hidden focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
+                  <a href="https://e5n.cc/@eallion/tagged/LOL" target="_blank" rel="noopener noreferrer" class="text-zinc-50 hover:text-zinc-50">View Details</a>
                     <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 10">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                     </svg>
@@ -1162,208 +580,6 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <h3 id="techstack" class="headerLink mt-0"><a href="#TeckStack" class="header-mark" title="header-mark">TechStack</a></h3>
-
-        <div class="badge techstack flex flex-row overflow-hidden gap-2">
-          <a href="https://github.com/eallion/eallion.com/actions/workflows/main.yml" target="_blank" rel="noopener noreferrer"
-            aria-label="badge">
-            <img class="nozoom" alt
-              src="https://github.com/eallion/eallion.com/actions/workflows/main.yml/badge.svg?branch=main"
-              alt="Build Hugo and Deploy" />
-          </a>
-          <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_shield" target="_blank" rel="noopener noreferrer"
-            aria-label="badge">
-            <img class="nozoom" alt
-              src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=shield"
-              alt="FOSSA Status" />
-          </a>
-          <a href="https://github.com/eallion/eallion.com/blob/main/LICENSE" target="_blank" rel="noopener noreferrer"
-            aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/badge/License-GLWT-green">
-          </a>
-          <a href="https://status.eallion.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt alt="Uptime Robot ratio (30 days)"
-              src="https://status.eallion.com/api/badge/2/uptime/168">
-          </a>
-          <a href="https://github.com/eallion/eallion.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/github/repo-size/eallion/eallion.com">
-          </a>
-          <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/github/v/tag/eallion/eallion.com">
-          </a>
-          <a href="https://github.com/eallion/eallion.com/tags" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/github/commits-since/eallion/eallion.com/v5.0.2/main">
-          </a>
-          <a href="https://github.com/eallion/eallion.com/commits/main" target="_blank" rel="noopener noreferrer"
-            aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/github/last-commit/eallion/eallion.com">
-          </a>
-          <a href="https://github.com/eallion/eallion.com/issues/new" target="_blank" rel="noopener noreferrer"
-            aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/github/issues/eallion/eallion.com?logo=GitHub&color=4ec100&style=flat">
-          </a>
-          <a href="https://wakatime.com/@018dff59-cb93-47dc-bf2d-945cab4bdaae" target="_blank" rel="noopener noreferrer"
-            aria-label="badge">
-            <img class="nozoom" alt
-              src="https://wakatime.com/badge/user/018dff59-cb93-47dc-bf2d-945cab4bdaae/project/018dffa2-e555-41e5-b4b8-abdc7df6ea3d.svg"
-              alt="Total time coded since Mar 2 2024" />
-          </a>
-          </a>
-          <a href="https://html5.org/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white">
-          </a>
-          <a href="https://www.w3.org/Style/CSS/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css&logoColor=white">
-          </a>
-          <a href="https://www.javascript.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white">
-          </a>
-          <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/badge/-Hugo-FF4088?style=flat&logo=Hugo&logoColor=white">
-          </a>
-          <a href="https://www.aliyun.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Aliyun-FF6A00?style=flat&color=FF6A00&logo=Alibaba-Cloud&logoColor=fff">
-          </a>
-          <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Cloudflare-F38020?style=flat&logo=cloudflare&logoColor=fff">
-          </a>
-          <a href="https://workers.cloudflare.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Cloudflare%20Workers-F38020?style=flat&logo=cloudflareworkers&logoColor=fff">
-          </a>
-          <a href="https://pages.cloudflare.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Cloudflare%20Pages-F38020?style=flat&logo=cloudflarepages&logoColor=fff">
-          </a>
-          <a href="https://changedetection.io" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/badge/-ChangeDetection-3056D3?style=flat&logo=changedetection&logoColor=white">
-          </a>
-          <a href="https://www.debian.org/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/badge/-Debian-A81D33?style=flat&logo=debian&logoColor=white">
-          </a>
-          <a href="https://docker.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=fff">
-          </a>
-          <a href="https://emojidb.org/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/Emoji-EB8E00?style=flat&logoColor=fff&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEyIDJDNi40NyAyIDIgNi41IDIgMTJhMTAgMTAgMCAwIDAgMTAgMTAgMTAgMTAgMCAwIDAgMTAtMTBBMTAgMTAgMCAwIDAgMTIgMm0zLjUgNkExLjUgMS41IDAgMCAxIDE3IDkuNWExLjUgMS41IDAgMCAxLTEuNSAxLjVBMS41IDEuNSAwIDAgMSAxNCA5LjUgMS41IDEuNSAwIDAgMSAxNS41IDhtLTcgMEExLjUgMS41IDAgMCAxIDEwIDkuNSAxLjUgMS41IDAgMCAxIDguNSAxMSAxLjUgMS41IDAgMCAxIDcgOS41IDEuNSAxLjUgMCAwIDEgOC41IDhtMy41IDkuNWMtMi4zMyAwLTQuMzEtMS40Ni01LjExLTMuNWgxMC4yMmMtLjgxIDIuMDQtMi43OCAzLjUtNS4xMSAzLjUiLz48L3N2Zz4=">
-          </a>
-          <a href="https://cloud.tencent.com/product/teo" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-EdgeOne-016eff?style=flat&logoColor=fff&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik00NzEuNCAxOTVjLTM1LjEgNC44LTg2LjEgMjQuNC0xMTAuNCA0Mi4zLTIuNyAyLTUuNiAzLjgtOC42IDUuNC02LjQgNC4zLTEyLjUgOS0xOC40IDE0LjEtMzIuMiAyNy4xLTU5LjMgNjMuMS03NC42IDk4LjktOC4xIDE5LjItMTAuOCAyNy0xOC41IDU1LjctMi41IDkuOC02IDE0LjItMTEuNCAxNC4yLTkuMyAwLTU3LjEgMjAuNS03MS45IDMwLjYtMTEuMSA3LjgtMzcuOCAzMS43LTQyLjYgMzguMi0yNSAzNC4yLTI5LjcgNDIuOC0zNy43IDY3LjktNi45IDIxLjktOS44IDQwLjctOS44IDYzLjQgMCA1Ni44IDE5LjYgMTA0LjQgNTkuNyAxNDQuNCAyNC43IDI0LjggNTMuOCA0Mi42IDgzLjcgNTEgMzUuMiA5LjggMjQuOSA5LjYgMzAwLjEgOS42IDIzMS4yIDAgMjU1LjEtLjMgMjcwLjYtMyAxOC45LTMuNSA0Ny4xLTEwLjkgNTAuNC0xMy40IDEuMi0uOSA1LTIuOCA4LjQtNC4xIDguMi0zLjIgMjctMTUuNSA0MS4xLTI2LjcgNDUuOC0zNi42IDc0LjQtOTcuNCA3NC42LTE1OCAwLTE3LjUtNi45LTU3LjUtMTEuNi02Ni40LTEuMy0yLjMtMi4yLTQuOS0yLjctNy41IDAtMy4yLTEzLjctMjkuOS0xNy41LTM0LjMtMi45LTMuNi01LjYtNy4zLTguMi0xMS4yLTYuOS0xMS4xLTE1LjgtMjAuNS0zMy4xLTM0LjktMTcuMy0xNC44LTI4LjUtMjIuNS0zNy40LTI2LTIuOS0xLTUuNi0yLjMtOC4yLTMuOS0yLjUtMS44LTM0LjYtMTMuNi00My40LTE1LjgtMTAuOS0xLjYtMjItMi41LTMzLTIuOC0yOS45LTEuMS01MS42IDEuMS02Ni44IDYuOC01LjMgMi0xMy42IDQuOC0xOC4xIDYuNC0xMC44IDMuNi0zMyAxNS43LTQzLjUgMjMuNy0yMi41IDE3LjMtNjguOCA1OC43LTk0LjIgODQuNi0xMCAxMC4yLTEyOC4yIDEyNC4xLTE2Ny4yIDE2MS4yLTkuOCA5LjMtMjQuNCAyMy43LTMyLjYgMzEuOWwtMTQuOCAxNC44LTI5LjYtMS4zYy0xNS4yLS41LTMwLjMtMS43LTQ1LjQtMy42LTQ2LjMtNy43LTg0LjQtNDIuNi05Ny04OS0zLjctMTMuNi00LjEtNDcuOS0uNy02MS40IDUuOS0yMy4yIDIyLjgtNDkuOSA0MS41LTY1LjYgMTkuNy0xNi41IDU0LjMtMjguOCA4MS0yOC44IDMyLjEgMCA2Ny43IDE2LjUgOTkuMiA0NS45IDYgNS41IDE0LjkgMTMuMyAxOS42IDE3LjMgNC44IDMuOSAxMy43IDExLjcgMTkuNiAxNy4zIDYgNS43IDExLjkgMTAuNCAxMy4zIDEwLjQgMy4yIDAgMTAuMi01LjkgMzUuNC0zMC42IDExLjktMTEuOCAyMS43LTIyLjUgMjEuNy0yMy43cy03LjgtOC45LTE3LjMtMTYuOWMtOS42LTguMi0xOC43LTE2LTIwLjMtMTcuOC0zLjQtMy45LTM1LjItMjkuOC01MS42LTQyLTE3LTEyLjMtMzUuOC0yMi4yLTU1LjYtMjkuMi04LjctMy40LTE2LjItNi44LTE2LjUtOC0uOS0yLjMgMTAuMy0zNC42IDE1LjctNDQuNSAxMS0yMS4yIDI1LjEtMzkuMiA0NS40LTU4LjQgMTguNS0xNy41IDQ4LjctMzQuMiA3Mi43LTQwLjIgMy45LS45IDEyLjMtMy4yIDE4LjctNC44IDguNS0yLjMgMTguMy0zLjIgMzcuNC0zLjIgMjIuMiAwIDI4LjMuNyA0NC41IDQuOEM1OTAuOSAyODggNjE0LjggMzAwIDYzOSAzMjFjMTUuNSAxMy42IDMxLjYgMzIuNCA0MS43IDQ5LjcgNC43IDcuOSA5LjEgMTQuNiA5LjggMTUuMiA0LjMtLjEgOC43LS44IDEyLjgtMiA2LjQtMS40IDI0LTMuMiAzOS4yLTMuNyAzMC45LTEuNCAzMS44LTEuOCAyNS4yLTE0LjMtMS44LTMuNi00LjQtOS44LTUuNy0xMy43LTEuNi00LjctMy43LTkuMS02LjMtMTMuMy0xLjgtMi44LTMuNS01LjgtNC45LTguOS0zLjktOC4yLTIwLjEtMjkuOS0zNS4zLTQ3LjMtMTguNC0yMS01MS4xLTQ1LjYtNzguMi01OC44LTYuNy0zLjMtMTMuNC02LjctMjAuMS0xMC0zLjItMS42LTguOS0zLjYtMzIuNC0xMC45LTI5LjgtMTAtNzYuMy0xMy4xLTExMy40LThtMzAzLjcgMzEwYzMyLjggOC40IDUxIDE5IDcwLjIgNDEuNSAyMCAyMi45IDI3LjQgNDMuNiAyOC4zIDc3LjMuOCAyMC45LjQgMjQtMy45IDM3LjItNi4xIDE4LjgtMTIgMzAuNS0yMSA0MS42LTE3LjMgMjEuMi00Mi40IDM3LjUtNjYuMSA0My4xLTEyLjEgMi0yNC40IDMuNC0zNi42IDQuMS0zMyAyLjEtMzAwLjQgMi4zLTMwMS43LjItLjUtLjkgMTguNC0yMC40IDQyLjEtNDMuMSAyMy43LTIzIDQ4LjMtNDYuOSA1NC43LTUzLjIgMTkuMi0xOC45IDkyLjktODkuNCAxMDMuNC05OC45IDMuOS0zLjUgNy43LTcuMiAxMS4zLTExLjEgMi4zLTMuNiAyNi43LTIxLjIgMzcuMi0yNi43IDUuMi0yLjggMTUuNS02LjkgMjIuOC05LjMgNy4zLTIuMSAxNC4yLTQuMyAxNS4xLTQuNiA1LjEtMS45IDM0LjctLjYgNDQuMiAxLjltMCAwIi8+PC9zdmc+">
-          </a>
-          <a href="https://forgejo.org/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Forgejo-FB923C?style=flat&logo=forgejo&logoColor=fff">
-          </a>
-          <a href="https://giscus.app/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Giscus-5dadec?style=flat&logoColor=fff&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IndoaXRlIiBkPSJNNiAyTDIgOGwxMCAxNEwyMiA4bC00LTZ6Ii8+PC9zdmc+">
-          </a>
-          <a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Git-F05032?style=flat&logo=git&logoColor=fff">
-          </a>
-          <a href="https://www.github.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-GitHub-181717?style=flat&logo=GitHub&logoColor=fff">
-          </a>
-          <a href="https://github.com/actions" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-GitHub%20Actions-2088FF?style=flat&logo=githubactions&logoColor=fff">
-          </a>
-          <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-GitHub%20Pages-222222?style=flat&logo=githubpages&logoColor=fff">
-          </a>
-          <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Google-4285F4?style=flat&logo=Google&logoColor=fff">
-          </a>
-          <a href="https://fonts.google.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Google%20Fonts-4285F4?style=flat&logo=Google-Fonts&logoColor=fff">
-          </a>
-          <a href="https://gravatar.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Gravatar-1E8CBE?style=flat&logo=Gravatar&logoColor=fff">
-          </a>
-          <a href="https://www.iconfont.cn/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-iconfont-00f9e5?style=flat&logoColor=fff&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSIjMDBmOWU1IiBkPSJNODcuMSA1NGMuNi44LjkgMS44LjggMi44Qzg3LjEgNzYuOSA3MC41IDkzIDUwLjEgOTNTMTMgNzYuOSAxMi4yIDU2LjdjLS4xLTEgLjItMiAuOC0yLjhMNDYuOSA5YzEuNy0yLjMgNS4xLTIuMyA2LjkgMHoiLz48cGF0aCBkPSJNMzcuOSA2OC45Yy03LjcgNi45LTE5LjQgNi4zLTI2LjQtMS4zLTYuOS03LjctNi4zLTE5LjQgMS4zLTI2LjQgNy43LTYuOSAxOS40LTYuMyAyNi40IDEuM3M2LjQgMTkuNC0xLjMgMjYuNCIvPjxwYXRoIGQ9Ik0yNS40IDc1LjRjLTUuNiAwLTExLjEtMi4zLTE1LjEtNi43LTcuNS04LjQtNi45LTIxLjMgMS40LTI4LjggNC4xLTMuNyA5LjMtNS42IDE0LjctNS4zczEwLjUgMi42IDE0LjIgNi43YzcuNSA4LjQgNi45IDIxLjMtMS40IDI4LjgtNCAzLjYtOC45IDUuMy0xMy44IDUuM20wLTM3LjNjLTQuMiAwLTguMiAxLjUtMTEuNCA0LjQtNi45IDYuMy03LjUgMTctMS4yIDIzLjkgMyAzLjQgNy4yIDUuMyAxMS43IDUuNnM4LjktMS40IDEyLjItNC40YzYuOS02LjMgNy41LTE3IDEuMi0yMy45LTMtMy40LTcuMi01LjMtMTEuNy01LjZ6Ii8+PHBhdGggZD0iTTE4LjcgNDcuNmMtNC4xIDMuNy00LjQgOS45LS43IDEzLjkgMy43IDQuMSA5LjkgNC40IDEzLjkuNyAxLjQtMS4yIDIuMy0yLjcgMi44LTQuM3ptNi4xLTExLjhMNDUuNCA3LjRDNDYuNSA1LjkgNDguMyA1IDUwLjIgNXMzLjYuOSA0LjcgMi40bDIwLjMgMjguNS00LjEuM0w1Mi4zIDkuNWMtLjUtLjYtMS4yLTEtMi0xcy0xLjUuNC0yIDFMMjguNSAzNi42em0tNi41IDM2LjdjMS43IDMuMyA0LjEgNi4zIDYuOSA5IDYuNyA2LjQgMTUuNSAxMCAyNC44IDEwczE4LTMuNSAyNC43LTEwYzMtMi45IDUuNC02LjIgNy4yLTkuOGw0LjktMi42Yy0yIDUuNi01LjMgMTAuNy05LjcgMTQuOS03LjQgNy4xLTE3IDExLTI3LjIgMTEtMTAuMSAwLTE5LjktMy45LTI3LjItMTAuOS00LjMtNC4xLTcuNS05LTkuNi0xNC41LjEgMCA1LjIgMi45IDUuMiAyLjkiLz48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSItMjQ3LjYyNSIgeDI9Ii0yNDYuODcyIiB5MT0iMTQzMi4wNiIgeTI9IjE0MzIuMDYiIGdyYWRpZW50VHJhbnNmb3JtPSJyb3RhdGUoNDUgNzY5MzAuOTQ4IDQ4NzE0Ljk4KXNjYWxlKDQ3Ljk1ODIpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDBmOWU1Ii8+PHN0b3Agb2Zmc2V0PSIuNTY4IiBzdG9wLWNvbG9yPSIjMjk5ZGY0Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNGE1NGZmIi8+PC9saW5lYXJHcmFkaWVudD48cGF0aCBmaWxsPSJ1cmwoI2EpIiBkPSJNNDIuNSA2Mi41YzIuOS02LjggMS43LTE1LTMuOC0yMC42LTYuOS03LTE4LjMtNy40LTI1LjctLjktLjUuNS0xLjEgMS0xLjYgMS42LS4yLjItLjEuNC4xLjVMNDIgNjIuN2MuMi4xLjUgMCAuNS0uMiIvPjxwYXRoIGQ9Im00Mi41IDYyLjUgMS42LjdjMS4xLTIuNiAxLjctNS40IDEuNy04LjIgMC01LjItMi0xMC40LTUuOS0xNC40LTQtNC05LjMtNi0xNC41LTYtNC44IDAtOS43IDEuNy0xMy42IDUuMS0uNi41LTEuMiAxLjEtMS43IDEuNy0uNC41LS41LjktLjUgMS40IDAgLjcuMyAxLjQgMSAxLjdMNDEgNjQuMWMuNC4yLjguMyAxLjEuM3MuOC0uMSAxLjEtLjMuNi0uNS44LS45emwtMS41LS42IDEuMy42LS44LTEuMmMtLjIuMi0uNS40LS41LjZsMS4zLjYtLjgtMS4yLjggMS4yVjYxYy0uMyAwLS41LjEtLjguMmwuOCAxLjJWNjF2MS40bC44LTEuMmMtLjItLjItLjUtLjItLjgtLjJ2MS40bC44LTEuMi0zMC42LTE5LjYtLjggMS4yaDEuNGMwLS41LS4yLS45LS43LTEuMmwtLjggMS4ySDEzaC0xLjRsMS4xIDFjLjItLjMuNC0uNi40LTFoLTEuNGwxLjEgMWMuNS0uNS45LTEgMS40LTEuNCAzLjItMi44IDcuMi00LjIgMTEuMi00LjIgNC40IDAgOC44IDEuNyAxMi4xIDVzNC45IDcuNiA0LjkgMTEuOWMwIDIuMy0uNSA0LjctMS40IDYuOHptMTkuNiA2LjRjNy43IDYuOSAxOS40IDYuMyAyNi40LTEuMyA2LjktNy43IDYuMy0xOS40LTEuMy0yNi40LTcuNy02LjktMTkuNC02LjMtMjYuNCAxLjNzLTYuNCAxOS40IDEuMyAyNi40Ii8+PHBhdGggZD0iTTYwLjggNzAuMWMtOC40LTcuNS05LTIwLjUtMS40LTI4LjggMy43LTQuMSA4LjctNi40IDE0LjItNi43IDUuNC0uMyAxMC43IDEuNiAxNC43IDUuMyA4LjQgNy41IDkgMjAuNSAxLjQgMjguOC00IDQuNC05LjYgNi43LTE1LjEgNi43LTQuOSAwLTkuOC0xLjctMTMuOC01LjNtMTIuOS0zMmMtNC41LjItOC43IDIuMi0xMS43IDUuNi02LjMgNi45LTUuNyAxNy43IDEuMiAyMy45IDMuNCAzIDcuNyA0LjYgMTIuMiA0LjRzOC43LTIuMiAxMS43LTUuNmM2LjMtNi45IDUuNy0xNy43LTEuMi0yMy45LTMuMi0yLjktNy4yLTQuNC0xMS40LTQuNHoiLz48cGF0aCBkPSJNODEuMyA0Ny41YzQuMSAzLjcgNC40IDkuOS43IDEzLjktMy43IDQuMS05LjkgNC40LTEzLjkuNy0xLjQtMS4yLTIuMy0yLjctMi44LTQuM3oiLz48bGluZWFyR3JhZGllbnQgaWQ9ImIiIHgxPSItMzEyLjY0NCIgeDI9Ii0zMTEuODkxIiB5MT0iMTQ5Ny4wNzkiIHkyPSIxNDk3LjA3OSIgZ3JhZGllbnRUcmFuc2Zvcm09InNjYWxlKC00Ny45NTgyIDQ3Ljk1ODIpcm90YXRlKDQ1IDE2NDkuMDYgMTEyNC4yNTcpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMDBmOWU1Ii8+PHN0b3Agb2Zmc2V0PSIuNTY4IiBzdG9wLWNvbG9yPSIjMjk5ZGY0Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNGE1NGZmIi8+PC9saW5lYXJHcmFkaWVudD48cGF0aCBmaWxsPSJ1cmwoI2IpIiBkPSJNNTcuNSA2Mi41Yy0yLjktNi44LTEuNy0xNSAzLjgtMjAuNiA2LjktNyAxOC4zLTcuNCAyNS43LS45LjUuNSAxLjEgMSAxLjYgMS42LjIuMi4xLjQtLjEuNUw1OCA2Mi42Yy0uMi4yLS41LjEtLjUtLjEiLz48cGF0aCBkPSJtNTcuNSA2Mi41IDEuNi0uN2MtMS0yLjItMS40LTQuNC0xLjQtNi44IDAtNC4zIDEuNi04LjYgNC45LTExLjkgMy4yLTMuMyA3LjctNSAxMi4xLTUgNCAwIDggMS40IDExLjIgNC4yLjUuNSAxIC45IDEuNCAxLjRsMS4xLTFIODdjMCAuMy4yLjcuNCAxbDEuMS0xaC0xLjQgMS40bC0uOC0xLjJjLS40LjMtLjcuOC0uNyAxLjJoMS40bC0uOC0xLjJMNTcgNjEuMmwuOCAxLjJWNjFjLS4yIDAtLjUuMS0uOC4ybC44IDEuMlY2MXYxLjRsLjgtMS4yYy0uMy0uMi0uNS0uMi0uOC0uMnYxLjRsLjgtMS4yLS44IDEuMiAxLjMtLjZjLS4yLS4zLS4zLS41LS41LS42bC0uOCAxLjIgMS4zLS42emwtMS42LjdjLjIuNC41LjguOC45LjMuMi44LjMgMS4xLjNzLjgtLjEgMS4xLS4zbDMwLjUtMTkuN2MuNi0uNC45LTEuMS45LTEuNyAwLS41LS4yLTEtLjUtMS40LS41LS42LTEuMS0xLjEtMS43LTEuNy0zLjgtMy40LTguNy01LjEtMTMuNi01LjEtNS4zIDAtMTAuNiAyLTE0LjUgNnMtNS45IDkuMi01LjkgMTQuNGMwIDIuOC42IDUuNiAxLjcgOC4yLjEgMCAxLjctLjYgMS43LS42Ii8+PC9zdmc+">
-          </a>
-          <a href="https://iconify.design/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Iconify-026C9C?style=flat&logo=iconify&logoColor=fff">
-          </a>
-          <a href="https://www.jsdelivr.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-jsDelivr-E84D3D?style=flat&logo=jsDelivr&logoColor=fff">
-          </a>
-          <a href="https://github.com/louislam/uptime-kuma" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Uptime%20Kuma-5CDD8B?style=flat&logo=uptimekuma&logoColor=fff">
-          </a>
-          <a href="https://e5n.cc" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/badge/-Mastodon-6364FF?style=flat&logo=mastodon&logoColor=white">
-          </a>
-          <a href="https://n8n.io" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt src="https://img.shields.io/badge/-n8n-EA4B71?style=flat&logo=n8n&logoColor=white">
-          </a>
-          <a href="https://neodb.social/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-NeoDB-083b66?style=flat&logoColor=fff&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDcuNjA2IDEwNy42MDYiPjxwYXRoIGQ9Im03OS4wODQgODIuNDQ2LTguNTI3IDguNTI3emwtOS43MjgtOS43Mjh6IiBkYXRhLXR5cGU9InBvbHlnb24iLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJtNTMuODYzIDU3LjA0NS01Ljg4NSA1Ljg4NWE5LjE2IDkuMTYgMCAwIDEgNS4xNjUgOC4yODcgOS4xMjMgOS4xMjMgMCAwIDEtOS4xMjggOS4xMjdjLTMuNjAzIDAtNi43MjUtMi4xNjItOC4yODYtNS4xNjRsLTcuMDg2IDcuMDg2LS4xMi4xMiAyNS4yMiAyNS4yMiA5LjcyOC05LjcyOGMtMy44NDMgMC03LjA4Ni0zLjEyMi03LjA4Ni03LjA4NXMzLjEyMy03LjA4NiA3LjA4Ni03LjA4NmMzLjg0MyAwIDcuMDg2IDMuMTIyIDcuMDg2IDcuMDg2bDguNTI3LTguNTI3LTkuNzI4LTkuNjA4LS43Mi0uNzJoLjQ4YzMuODQzIDAgNy4wODUtMy4xMjMgNy4wODUtNy4wODYgMC0xLjgwMi0uNzItMy4zNjMtMS44MDEtNC42ODRhNy4wOCA3LjA4IDAgMCAwLTQuNjg0LTEuODAyYy0zLjg0MyAwLTcuMDg2IDMuMTIzLTcuMDg2IDcuMDg2di40OGwtLjQ4LS40OHoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMzYuMzkgNTMuMDIyYTkuMTIzIDkuMTIzIDAgMCAxLTkuMTI4LTkuMTI3YzAtMy42MDMgMi4wNDEtNi43MjYgNS4wNDQtOC4xNjdsLTcuMDg2LTcuMDg2TDAgNTMuODYybDI2LjY2IDI2LjY2MyAxMS40MS0xMS40MDljLS4zNi43Mi0uNDggMS41NjEtLjQ4IDIuNDAyIDAgMy40ODMgMi44ODEgNi4zNjUgNi4zNjQgNi4zNjVTNTAuMzIgNzUgNTAuMzIgNzEuNTE3cy0yLjg4Mi02LjM2NS02LjM2NS02LjM2NWMtLjg0IDAtMS42ODEuMTItMi40MDIuNDhsMTAuMzI5LTEwLjMyOC03LjIwNi03LjIwNmMtMS41NjEgMi43NjItNC42ODQgNC45MjQtOC4yODcgNC45MjQiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNODAuNzA2IDI2LjY2IDcwLjI1NyAxNi4yMTNoLjQ4YzMuODQ0IDAgNy4wODctMy4xMjIgNy4wODctNy4wODUgMC0zLjg0NC0zLjEyMy02Ljk2Ni03LjA4Ni02Ljk2Ni0zLjg0MyAwLTcuMDg2IDMuMTIyLTcuMDg2IDcuMDg2di40OEw1My45MjQtLjAwMWwtMjUuMjIgMjUuMjItLjg0Ljk2MS0uNDgxLjQ4IDExLjQwOSAxMS40MXEtMS4wOC0uMzYtMi4xNjItLjM2Yy0zLjQ4MyAwLTYuMzY1IDIuODgyLTYuMzY1IDYuMzY1czIuODgyIDYuMzY1IDYuMzY1IDYuMzY1IDYuMzY1LTIuODgyIDYuMzY1LTYuMzY1YzAtLjYtLjEyLTEuMDgxLS4yNC0xLjY4MiAwLS4yNC0uMTItLjM2LS4xMi0uNmwuNi42IDExLjA1IDExLjA1LjQ4LS40ODEuOTYtLjk2IDguMTY3LTguMTY3Yy0zLjg0MyAwLTcuMDg1LTMuMTIzLTcuMDg1LTcuMDg2czMuMTIyLTcuMDg2IDcuMDg1LTcuMDg2YzMuODQzIDAgNy4wODYgMy4xMjMgNy4wODYgNy4wODZ6Ii8+PHBhdGggZD0iTTQyLjYzNCA0Mi4zOTNoLjM2bC0uNDgtLjZjMCAuMTIgMCAuMzYuMTIuNiIvPjwvc3ZnPg==">
-          </a>
-          <a href="https://nginx.org/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Nginx-009639?style=flat&logo=nginx&logoColor=fff">
-          </a>
-          <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Node.js-5FA04E?style=flat&logo=nodedotjs&logoColor=white">
-          </a>
-          <a href="https://notion.so/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Notion-000000?style=flat&logo=notion&logoColor=fff">
-          </a>
-          <a href="https://pnpm.io/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-PNPM-F69220?style=flat&logo=pnpm&logoColor=white">
-          </a>
-          <a href="https://www.openai.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-OpenAI-412991?style=flat&logo=openai&logoColor=fff">
-          </a>
-          <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Tailwind%20CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=fff">
-          </a>
-          <a href="https://cloud.tencent.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Tencent%20Cloud-016eff?style=flat&logoColor=fff&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik00NzEuNCAxOTVjLTM1LjEgNC44LTg2LjEgMjQuNC0xMTAuNCA0Mi4zLTIuNyAyLTUuNiAzLjgtOC42IDUuNC02LjQgNC4zLTEyLjUgOS0xOC40IDE0LjEtMzIuMiAyNy4xLTU5LjMgNjMuMS03NC42IDk4LjktOC4xIDE5LjItMTAuOCAyNy0xOC41IDU1LjctMi41IDkuOC02IDE0LjItMTEuNCAxNC4yLTkuMyAwLTU3LjEgMjAuNS03MS45IDMwLjYtMTEuMSA3LjgtMzcuOCAzMS43LTQyLjYgMzguMi0yNSAzNC4yLTI5LjcgNDIuOC0zNy43IDY3LjktNi45IDIxLjktOS44IDQwLjctOS44IDYzLjQgMCA1Ni44IDE5LjYgMTA0LjQgNTkuNyAxNDQuNCAyNC43IDI0LjggNTMuOCA0Mi42IDgzLjcgNTEgMzUuMiA5LjggMjQuOSA5LjYgMzAwLjEgOS42IDIzMS4yIDAgMjU1LjEtLjMgMjcwLjYtMyAxOC45LTMuNSA0Ny4xLTEwLjkgNTAuNC0xMy40IDEuMi0uOSA1LTIuOCA4LjQtNC4xIDguMi0zLjIgMjctMTUuNSA0MS4xLTI2LjcgNDUuOC0zNi42IDc0LjQtOTcuNCA3NC42LTE1OCAwLTE3LjUtNi45LTU3LjUtMTEuNi02Ni40LTEuMy0yLjMtMi4yLTQuOS0yLjctNy41IDAtMy4yLTEzLjctMjkuOS0xNy41LTM0LjMtMi45LTMuNi01LjYtNy4zLTguMi0xMS4yLTYuOS0xMS4xLTE1LjgtMjAuNS0zMy4xLTM0LjktMTcuMy0xNC44LTI4LjUtMjIuNS0zNy40LTI2LTIuOS0xLTUuNi0yLjMtOC4yLTMuOS0yLjUtMS44LTM0LjYtMTMuNi00My40LTE1LjgtMTAuOS0xLjYtMjItMi41LTMzLTIuOC0yOS45LTEuMS01MS42IDEuMS02Ni44IDYuOC01LjMgMi0xMy42IDQuOC0xOC4xIDYuNC0xMC44IDMuNi0zMyAxNS43LTQzLjUgMjMuNy0yMi41IDE3LjMtNjguOCA1OC43LTk0LjIgODQuNi0xMCAxMC4yLTEyOC4yIDEyNC4xLTE2Ny4yIDE2MS4yLTkuOCA5LjMtMjQuNCAyMy43LTMyLjYgMzEuOWwtMTQuOCAxNC44LTI5LjYtMS4zYy0xNS4yLS41LTMwLjMtMS43LTQ1LjQtMy42LTQ2LjMtNy43LTg0LjQtNDIuNi05Ny04OS0zLjctMTMuNi00LjEtNDcuOS0uNy02MS40IDUuOS0yMy4yIDIyLjgtNDkuOSA0MS41LTY1LjYgMTkuNy0xNi41IDU0LjMtMjguOCA4MS0yOC44IDMyLjEgMCA2Ny43IDE2LjUgOTkuMiA0NS45IDYgNS41IDE0LjkgMTMuMyAxOS42IDE3LjMgNC44IDMuOSAxMy43IDExLjcgMTkuNiAxNy4zIDYgNS43IDExLjkgMTAuNCAxMy4zIDEwLjQgMy4yIDAgMTAuMi01LjkgMzUuNC0zMC42IDExLjktMTEuOCAyMS43LTIyLjUgMjEuNy0yMy43cy03LjgtOC45LTE3LjMtMTYuOWMtOS42LTguMi0xOC43LTE2LTIwLjMtMTcuOC0zLjQtMy45LTM1LjItMjkuOC01MS42LTQyLTE3LTEyLjMtMzUuOC0yMi4yLTU1LjYtMjkuMi04LjctMy40LTE2LjItNi44LTE2LjUtOC0uOS0yLjMgMTAuMy0zNC42IDE1LjctNDQuNSAxMS0yMS4yIDI1LjEtMzkuMiA0NS40LTU4LjQgMTguNS0xNy41IDQ4LjctMzQuMiA3Mi43LTQwLjIgMy45LS45IDEyLjMtMy4yIDE4LjctNC44IDguNS0yLjMgMTguMy0zLjIgMzcuNC0zLjIgMjIuMiAwIDI4LjMuNyA0NC41IDQuOEM1OTAuOSAyODggNjE0LjggMzAwIDYzOSAzMjFjMTUuNSAxMy42IDMxLjYgMzIuNCA0MS43IDQ5LjcgNC43IDcuOSA5LjEgMTQuNiA5LjggMTUuMiA0LjMtLjEgOC43LS44IDEyLjgtMiA2LjQtMS40IDI0LTMuMiAzOS4yLTMuNyAzMC45LTEuNCAzMS44LTEuOCAyNS4yLTE0LjMtMS44LTMuNi00LjQtOS44LTUuNy0xMy43LTEuNi00LjctMy43LTkuMS02LjMtMTMuMy0xLjgtMi44LTMuNS01LjgtNC45LTguOS0zLjktOC4yLTIwLjEtMjkuOS0zNS4zLTQ3LjMtMTguNC0yMS01MS4xLTQ1LjYtNzguMi01OC44LTYuNy0zLjMtMTMuNC02LjctMjAuMS0xMC0zLjItMS42LTguOS0zLjYtMzIuNC0xMC45LTI5LjgtMTAtNzYuMy0xMy4xLTExMy40LThtMzAzLjcgMzEwYzMyLjggOC40IDUxIDE5IDcwLjIgNDEuNSAyMCAyMi45IDI3LjQgNDMuNiAyOC4zIDc3LjMuOCAyMC45LjQgMjQtMy45IDM3LjItNi4xIDE4LjgtMTIgMzAuNS0yMSA0MS42LTE3LjMgMjEuMi00Mi40IDM3LjUtNjYuMSA0My4xLTEyLjEgMi0yNC40IDMuNC0zNi42IDQuMS0zMyAyLjEtMzAwLjQgMi4zLTMwMS43LjItLjUtLjkgMTguNC0yMC40IDQyLjEtNDMuMSAyMy43LTIzIDQ4LjMtNDYuOSA1NC43LTUzLjIgMTkuMi0xOC45IDkyLjktODkuNCAxMDMuNC05OC45IDMuOS0zLjUgNy43LTcuMiAxMS4zLTExLjEgMi4zLTMuNiAyNi43LTIxLjIgMzcuMi0yNi43IDUuMi0yLjggMTUuNS02LjkgMjIuOC05LjMgNy4zLTIuMSAxNC4yLTQuMyAxNS4xLTQuNiA1LjEtMS45IDM0LjctLjYgNDQuMiAxLjltMCAwIi8+PC9zdmc+">
-          </a>
-          <a href="https://ubuntu.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Ubuntu-E95420?style=flat&logo=ubuntu&logoColor=fff">
-          </a>
-          <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Unsplash-000000?style=flat&logo=unsplash&logoColor=fff">
-          </a>
-          <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-Vercel-000000?style=flat&logo=Vercel&logoColor=fff">
-          </a>
-          <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer" aria-label="badge">
-            <img class="nozoom" alt
-              src="https://img.shields.io/badge/-VS%20Code-2196f3?style=flat&logoColor=fff&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxcmVtIiBoZWlnaHQ9IjFyZW0iIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTExLjUgMTEuMTlWNC44TDcuMyA3Ljk5TTEuMTcgNi4wN2EuNi42IDAgMCAxLS4wMS0uODFMMiA0LjQ4Yy4xNC0uMTMuNDgtLjE4LjczIDBsMi4zOSAxLjgzbDUuNTUtNS4wOWMuMjItLjIyLjYxLS4zMiAxLjA1LS4wOGwyLjggMS4zNGMuMjUuMTUuNDkuMzguNDkuODF2OS40OWMwIC4yOC0uMi41OC0uNDIuN2wtMy4wOCAxLjQ4Yy0uMjIuMDktLjY0IDAtLjc5LS4xNEw1LjExIDkuNjlsLTIuMzggMS44M2MtLjI3LjE4LS42LjEzLS43NCAwbC0uODQtLjc3Yy0uMjItLjIzLS4yLS42MS4wNC0uODRsMi4xLTEuOSIvPjwvc3ZnPg==">
-          </a>
         </div>
 
         <h3 id="按年份统计 - 文章数" class="headerLink mt-0"><a href="#按年份统计 - 文章数" class="header-mark" title="header-mark"></a>按年份统计 - 文章数</h3>
@@ -1423,109 +639,7 @@
         {{ .Content }}
       </div>
 
-      {{ if (.Params.showAuthorBottom | default ( .Site.Params.article.showAuthorBottom | default false)) }}
-
-      {{ if .Params.showAuthor | default (.Site.Params.article.showAuthor | default true) }}
-        {{ $showAuthor = 1 }}
-        {{ partial "author.html" . }}
-      {{ end }}
-
-      {{ range $author := .Page.Params.authors }}
-        {{ $authorData := index $authorsData $author }}
-        {{- if $authorData -}}
-        {{ range $taxonomyname, $taxonomy := $taxonomies }}
-          {{ if (eq $taxonomyname $author) }}
-          {{ $taxonomyLink = delimit (slice $baseURL "/authors/" $author) "" }}
-          {{ end }}
-        {{ end }}
-        {{ partial "author-extra.html" (dict "context" . "data" $authorData "link" $taxonomyLink) }}
-        {{- end -}}
-      {{ end }}
-
-      {{ if or $taxonomyLink $showAuthor }}
-      <div class="mb-10"></div>
-      {{ end }}
-
-      {{ end }}
-
-      {{ partial "series/series-closed.html" . }}
-      {{ partial "sharing-links.html" . }}
-      {{ partial "related.html" . }}
     </div>
-
-    {{ $translations := .AllTranslations }}
-    {{ with .File }}
-      {{ $path := .Path }}
-      {{range $translations}}
-      {{ $lang := print "."  .Lang  ".md" }}
-      {{ $path = replace $path $lang ".md" }}
-      {{end}}
-    <script>
-      var oid = "views_{{ $path }}"
-      var oid_likes = "likes_{{ $path }}"
-    </script>
-    {{ end }}
-
-    <script type="text/javascript">
-      // 年度进度条
-      const current_year = new Date().getFullYear();
-      const yearDiv = document.getElementById("current_year");
-      yearDiv.innerHTML = current_year;
-
-      function isLeapYear(year) {
-        return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-      }
-
-      function getYearProgress() {
-        const now = new Date();
-        const currentYear = now.getFullYear();
-        const startOfYear = new Date(currentYear, 0, 1, 0, 0, 0, 0);
-        const endOfYear = isLeapYear(currentYear)
-          ? new Date(currentYear + 1, 0, 1, 0, 0, 0, 0)
-          : new Date(currentYear, 11, 31, 23, 59, 59, 999);
-        const yearDuration = endOfYear - startOfYear;
-        const yearProgress = ((now - startOfYear) / yearDuration) * 100;
-        return yearProgress.toFixed(2);
-      }
-
-      const yearProgress = getYearProgress();
-      const progressDiv = document.getElementById("year_progress");
-      progressDiv.innerHTML = yearProgress + "%";
-
-      // 以 2 月 4 日为起点计算季节 emoji
-      function getSpringBasedYearProgress() {
-        const now = new Date();
-        const currentYear = now.getFullYear();
-        // 以 2 月 4 日为起点
-        const startOfYear = new Date(currentYear, 1, 4, 0, 0, 0, 0);
-        // 结束日期为下一年的 2 月 3 日
-        const endOfYear = new Date(currentYear + 1, 1, 3, 23, 59, 59, 999);
-        const yearDuration = endOfYear - startOfYear;
-        const yearProgress = ((now - startOfYear) / yearDuration) * 100;
-        return yearProgress.toFixed(2);
-      }
-
-      // 添加季节表情符号
-      const yearEmoji = document.getElementById("year-emoji");
-      if (yearEmoji) {
-        const progress = parseFloat(getSpringBasedYearProgress());
-        if (progress <= 25) {
-          yearEmoji.innerHTML = "🌸"; // 春天
-        } else if (progress <= 50) {
-          yearEmoji.innerHTML = "⛱️"; // 夏天
-        } else if (progress <= 75) {
-          yearEmoji.innerHTML = "🍂"; // 秋天
-        } else {
-          yearEmoji.innerHTML = "❄️"; // 冬天
-        }
-      }
-
-      // 更新进度条宽度
-      const progressBar = document.getElementById("year-progress-bar");
-      if (progressBar) {
-        progressBar.style.width = yearProgress + "%";
-      }
-    </script>
 
     <script type="text/javascript">
       // Whois Creation Date: 2010-03-26T14:41:14Z
@@ -1539,6 +653,7 @@
 
       document.getElementById('stats_blog_online_year').innerHTML = `${diffDaysLocale}天 <span class="text-xs">(${years}yrs)</span>`;
     </script>
+
     <script type="text/javascript">
         // 计算相对时间的函数
         function getRelativeTime(dateString) {
@@ -1655,211 +770,9 @@
       });
     </script>
 
-    <script type="text/javascript">
-      // Heatmap
-      // 获取最近一年的文章数据
-      {{ $pages := where .Site.RegularPages "Date" ">" (now.AddDate -1 0 0) }}
-      {{ $pages := $pages.Reverse }}
-      var blogInfo = {
-        "pages": [
-          {{ range $index, $element := $pages }}
-            {
-              "title": "{{ replace (replace .Title "《" "〈") "》" "〉" }}",
-              "date": "{{ .Date.Format "2006-01-02" }}",
-              "year": "{{ .Date.Format "2006" }}",
-              "month": "{{ .Date.Format "01" }}",
-              "day": "{{ .Date.Format "02" }}",
-              "word_count": "{{ .WordCount }}"
-            }{{ if ne (add $index 1) (len $pages) }},{{ end }}
-            {{ end }}
-        ]
-      };
-      // console.log(blogInfo)
-
-      let currentDate = new Date();
-      currentDate.setFullYear(currentDate.getFullYear() - 1);
-
-      let startDate;
-
-      let monthDiv = document.querySelector('.month');
-      let monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-      if (window.innerWidth < 768) {
-        numMonths = 6;
-      } else {
-        numMonths = 12;
-      }
-
-      let startMonthIndex = (currentDate.getMonth() - (numMonths - 1) + 12) % 12;
-      for (let i = startMonthIndex; i < startMonthIndex + numMonths; i++) {
-        let monthSpan = document.createElement('span');
-        let monthIndex = i % 12;
-        monthSpan.textContent = monthNames[monthIndex];
-        monthDiv.appendChild(monthSpan);
-      }
-
-      function getStartDate() {
-        const today = new Date();
-
-        if (window.innerWidth < 768) {
-          numMonths = 6;
-        } else {
-          numMonths = 12;
-        }
-
-        const startDate = new Date(today.getFullYear(), today.getMonth() - numMonths + 1, 1, today.getHours(), today.getMinutes(), today.getSeconds());
-
-        while (startDate.getDay() !== 1) {
-          startDate.setDate(startDate.getDate() + 1);
-        }
-
-        return startDate;
-      }
-
-      function getWeekDay(date) {
-        const day = date.getDay();
-        return day === 0 ? 6 : day - 1;
-      }
-
-      function createDay(date, title, count, post) {
-        const day = document.createElement("div");
-
-        day.className = "heatmap_day";
-
-        day.setAttribute("data-title", title);
-        day.setAttribute("data-count", count);
-        day.setAttribute("data-post", post);
-        day.setAttribute("data-date", date);
-
-        day.addEventListener("mouseenter", function () {
-          const tooltip = document.createElement("div");
-          tooltip.className = "heatmap_tooltip";
-
-          let tooltipContent = "";
-
-          if (post && parseInt(post, 10) !== 0) {
-            tooltipContent += '<span class="heatmap_tooltip_post">' + '共 ' + post + ' 篇' + '</span>';
-          }
-
-          if (count && parseInt(count, 10) !== 0) {
-            tooltipContent += '<span class="heatmap_tooltip_count">' + ' ' + count + ' 字；' + '</span>';
-          }
-
-          if (title && parseInt(title, 10) !== 0) {
-            tooltipContent += '<span class="heatmap_tooltip_title">《' + title + '》</span>';
-          }
-
-          if (date) {
-            tooltipContent += '<span class="heatmap_tooltip_date">' + date + '</span>';
-          }
-
-          tooltip.innerHTML = tooltipContent;
-          day.appendChild(tooltip);
-        });
-
-        day.addEventListener("mouseleave", function () {
-          const tooltip = day.querySelector(".heatmap_tooltip");
-          if (tooltip) {
-            day.removeChild(tooltip);
-          }
-        });
-
-        if (count == 0 ) {
-          day.classList.add("heatmap_day_level_0");
-        } else if (count > 0 && count < 1000) {
-          day.classList.add("heatmap_day_level_1");
-        } else if (count >= 1000 && count < 2000) {
-          day.classList.add("heatmap_day_level_2");
-        } else if (count >= 2000 && count < 3000) {
-          day.classList.add("heatmap_day_level_3");
-        } else {
-          day.classList.add("heatmap_day_level_4");
-        }
-
-        return day;
-      }
-
-      function createWeek() {
-        const week = document.createElement('div');
-        week.className = 'heatmap_week';
-        return week;
-      }
-
-      function createHeatmap() {
-        const container = document.getElementById('heatmap');
-        const startDate = getStartDate();
-        const endDate = new Date();
-        const weekDay = getWeekDay(startDate);
-
-        let currentWeek = createWeek();
-        container.appendChild(currentWeek);
-
-        let currentDate = startDate;
-        let i = 0;
-
-        while (currentDate <= endDate) {
-          if (i % 7 === 0 && i !== 0) {
-            currentWeek = createWeek();
-            container.appendChild(currentWeek);
-          }
-
-          const dateString = `${currentDate.getFullYear()}-${("0" + (currentDate.getMonth()+1)).slice(-2)}-${("0" + (currentDate.getDate())).slice(-2)}`;
-
-          const articleDataList = blogInfo.pages.filter(page => page.date === dateString);
-
-          if (articleDataList.length > 0) {
-            const titles = articleDataList.map(data => data.title);
-            const title = titles.map(t => `${t}`).join('<br />');
-
-            let count = 0;
-            let post = articleDataList.length;
-
-            articleDataList.forEach(data => {
-              count += parseInt(data.word_count, 10);
-            });
-
-            const formattedDate = formatDate(currentDate);
-            const day = createDay(formattedDate, title, count, post);
-            currentWeek.appendChild(day);
-          } else {
-            const formattedDate = formatDate(currentDate);
-            const day = createDay(formattedDate, '', '0', '0');
-            currentWeek.appendChild(day);
-          }
-
-          i++;
-          currentDate.setDate(currentDate.getDate() + 1);
-        }
-      }
-
-      function formatDate(date) {
-        const options = { month: 'short', day: 'numeric', year: 'numeric' };
-        return date.toLocaleDateString('en-US', options);
-      }
-
-      // 获取所有带有 class="hide_by_js" 的元素
-      var elements = document.querySelectorAll('.hide_by_js');
-
-      // 遍历这些元素并从 DOM 中删除它们
-      elements.forEach(function(element) {
-        element.parentNode.removeChild(element);
-      });
-
-    </script>
-
     <script>
         // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
-          // Badge 滚动效果
-          const container = document.querySelector('.techstack');
-          const content = container.innerHTML;
-          container.innerHTML = `
-            <div class="scroll-content">
-              ${content}
-              ${content} <!-- 复制内容实现无缝循环 -->
-            </div>
-          `;
-
           // Github Card Last Commit
           const lastCommitDateElement = document.getElementById("last-commit-date");
           // const totalPlayedTimeElement = document.getElementById("total-played-time");
@@ -1979,22 +892,8 @@
 
     </section>
 
-  <footer class="pt-8 max-w-prose print:hidden">
+  </article>
 
-    {{ partial "article-pagination.html" . }}
-    {{ if .Params.showComments | default (.Site.Params.article.showComments | default false) }}
-    {{ if templates.Exists "comments.html" }}
-    <div class="pt-3">
-    <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
-    <div class="pt-3">
-      {{ partial "comments.html" . }}
-    </div>
-    </div>
-    {{ else }}
-    {{ warnf "[BLOWFISH] Comments are enabled for %s but no comments partial exists." .File.Path }}
-    {{ end }}
-    {{ end }}
-  </footer>
-</article>
+</div>
 
 {{ end }}

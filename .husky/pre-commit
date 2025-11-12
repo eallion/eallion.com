@@ -1,2 +1,2 @@
 node scripts/husky_hugo_version.js
-git add wrangler.toml vercel.json .cnb.yml .github/workflows/main.yml
+git add wrangler.toml .github/workflows/main.yml

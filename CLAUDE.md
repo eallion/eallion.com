@@ -2,248 +2,127 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Language Rule
+## Project Overview
 
-**IMPORTANT**: Always respond in Chinese for all interactions in this repository. Use simplified Chinese (简体中文) for all responses, documentation, comments, and any communication while working with this codebase.
-
-## Overview
-
-This is a Hugo-based personal blog for Charles 'eallion' Chin, using the [Blowfish theme](https://github.com/nunocoracao/blowfish). The site features blog posts, Mastodon feed aggregation, media tracking (NeoDB), and various personal data sections. Content is managed through Directus (headless CMS) and deployed to both Aliyun OSS (China) and Cloudflare Pages (international).
-
-## Repository Structure
-
-```
-├── archetypes/         # Hugo content templates
-├── assets/            # CSS, images, JS, icons (static assets)
-│   ├── css/          # Compiled TailwindCSS + custom styles
-│   ├── data/         # Site data files
-│   ├── icons/        # SVG icons
-│   ├── images/       # Image assets
-│   └── js/           # JavaScript files
-├── config/_default/  # Hugo configuration (hugo.toml)
-├── content/          # Hugo content (mostly empty, content from Directus)
-├── data/             # Hugo data files (authors, etc.)
-├── directus/         # Directus configuration
-├── layouts/          # Hugo templates (custom pages)
-├── scripts/          # Node.js scripts for data fetching and automation
-├── static/           # Static files served as-is
-└── themes/blowfish/  # Blowfish theme (git submodule)
-```
+This is a Hugo static site blog (eallion.com) that uses a custom theme called "pehtheme" and integrates with multiple external services including Directus CMS, Mastodon, NeoDB, and various APIs. The site is deployed to both Cloudflare Pages and Alibaba Cloud OSS.
 
 ## Key Technologies
 
-- **Hugo** (v0.152.2) - Static site generator
-- **Blowfish** theme - TailwindCSS-based Hugo theme
-- **TailwindCSS** - CSS framework (compiled via Node scripts)
-- **Directus** - Headless CMS for content management
-- **Node.js** - Scripts for data fetching and automation
-- **pnpm** - Package manager
+- **Hugo**: Static site generator (v0.116.0+)
+- **TailwindCSS v4**: CSS framework with custom build process
+- **Directus**: Headless CMS for content management
+- **Node.js**: Build scripts and API integrations
+- **pnpm**: Package manager
 
-## Common Commands
+## Development Commands
 
-### Development Workflow
+### Core Development
 
 ```bash
-# Install dependencies
-pnpm install
-
-# Initialize theme submodules (after git clone)
-pnpm run theme:init
-
-# Start TailwindCSS in watch mode
+# Start development server with live reload
 pnpm run dev
 
-# Fetch Directus data (articles, media, etc.)
-pnpm run directus
-
-# Start Hugo dev server with live reload
-pnpm run server
-```
-
-### Building for Production
-
-```bash
-# Build TailwindCSS (production)
+# Build for production
 pnpm run build
 
-# Build Hugo site
-pnpm run hugo
-
-# Or preview with production settings (recommended)
-pnpm run preview
+# Clean all generated files
+pnpm run clean
 ```
 
-### Content Management (Directus)
-
-Articles are managed in Directus CMS. To fetch content:
+### Content Management
 
 ```bash
-# Fetch all data from Directus
+# Fetch all content from Directus CMS
 pnpm run directus
 
-# Fetch specific sections
-pnpm run directus:album       # Photo album (Mastodon with #ealbum tag)
-pnpm run directus:anynow      # AnyNow feed
+# Fetch specific data types
+pnpm run directus:article      # Blog articles
+pnpm run directus:mastodon     # Mastodon posts
+pnpm run directus:neodb        # NeoDB book/movie data
 pnpm run directus:friendslinks # Friends links
-pnpm run directus:goods       # Product recommendations
-pnpm run directus:latest      # Latest 10 articles
-pnpm run directus:mastodon    # Mastodon feed
-pnpm run directus:neodb       # NeoDB media data
-pnpm run directus:neodb-count # NeoDB counts
-pnpm run directus:penta       # Penta stats
-pnpm run directus:penta-count # Penta counts
+pnpm run directus:album        # Photo albums
 ```
 
 ### Theme Management
 
 ```bash
+# Initialize git submodules for theme
+pnpm run theme:init
+
 # Update theme to latest version
 pnpm run theme:update
-
-# Recursively initialize submodules
-pnpm run theme:init
 ```
 
-### Other Utilities
+### Utility Scripts
 
 ```bash
-# Generate syntax highlighting
-pnpm run shiki
-
-# Create new post (legacy method - now uses Directus)
+# Create new blog post
 pnpm run new
 
-# Prepare husky hooks
-pnpm run prepare
+# Generate LLMs.txt file
+pnpm run llms
 ```
 
-## Environment Configuration
+## Architecture
 
-Create `.env.local` from `.env.example`:
+### Content Flow
 
-```bash
-cp .env.example .env.local
-```
+1. **Primary CMS**: Directus manages all blog content, articles are fetched via API
+2. **Static Generation**: Hugo builds static site from fetched content
+3. **CSS Pipeline**: TailwindCSS v4 compiles from `assets/css/input.css` to `assets/css/main.css`
+4. **Deployment**: GitHub Actions deploy to multiple platforms
 
-Required environment variables:
-- `DIRECTUS_API_URL` - Directus instance URL
-- `DIRECTUS_ACCESS_TOKEN` - Directus authentication token
-- `DIRECTUS_S3_URL` - Directus file storage URL
-- `ACCESS_KEY_ID` / `ACCESS_KEY_SECRET` - Aliyun OSS credentials
-- `ESA_SITE_ID` - Aliyun ESA cache purge ID
-- `NEODB_ACCESS_TOKEN` - NeoDB API token
+### Directory Structure
 
-See `.env.example` for complete list.
+- `content/`: Hugo content files (blog posts in markdown)
+- `assets/css/`: TailwindCSS source and compiled styles
+- `assets/data/`: JSON data fetched from APIs (generated during build)
+- `scripts/`: Node.js build scripts and API integrations
+- `layouts/`: Hugo template overrides
+- `static/`: Static assets served as-is
 
-## Content Architecture
+### External Integrations
 
-### Primary Content Types
+- **Directus CMS**: Primary content management via REST API
+- **Mastodon (e5n.cc)**: Social media posts for "嘀咕" page
+- **NeoDB**: Book and movie tracking data
+- **Cloudflare Pages**: Primary hosting
+- **Alibaba Cloud OSS**: Secondary hosting for China
 
-1. **Blog Posts** (`/blog/`) - Managed in Directus, fetched via `directus:articles`
-2. **Mastodon Feed** (`/mastodon/`) - Aggregated from personal instance e5n.cc
-3. **Media Tracking** (`/media/`) - Movies/books/music from NeoDB
-4. **Photo Album** (`/album/`) - Mastodon posts tagged #ealbum
-5. **Goods** (`/goods/`) - Product recommendations
-6. **Friends Links** (`/links/`) - Friend websites
-7. **Penta Stats** (`/penta/`) - Gaming statistics
-8. **Now Page** (`/now/`) - Current activities
+## Environment Setup
 
-### Data Flow
+1. Copy `.env.example` to `.env.local`
+2. Configure required API tokens and endpoints:
+   - `DIRECTUS_API_URL`: Directus CMS endpoint
+   - `DIRECTUS_ACCESS_TOKEN`: API authentication token
+   - `NEODB_ACCESS_TOKEN`: NeoDB API access
+   - Additional tokens for various integrations
 
-1. **Content Creation**: Articles created in Directus CMS
-2. **Data Fetching**: Scripts in `/scripts/directus-*.js` fetch data from Directus API
-3. **Hugo Build**: Hugo processes templates and generates static files
-4. **Deployment**: Deployed to Aliyun OSS (China) via GitHub Actions
+## Build Process
 
-### Hugo Configuration
+1. **CSS Compilation**: TailwindCSS v4 processes `assets/css/input.css`
+2. **Content Fetching**: Scripts pull data from Directus and other APIs
+3. **Hugo Build**: Static site generation with minification
+4. **Deployment**: Automated via GitHub Actions
 
-Main config at `config/_default/hugo.toml`:
-- Theme: Blowfish
-- Base URL: https://www.eallion.com
-- Default language: zh-cn
-- Chinese language support enabled
-- Output formats: HTML, RSS, JSON
-- Taxonomies: tags, categories, authors, series
+## Key Files to Understand
+
+- `hugo.toml`: Main Hugo configuration with site settings, menus, and build options
+- `package.json`: Scripts and dependencies for the build process
+- `scripts/directus-fetch-*.js`: API integration scripts for different data sources
+- `assets/css/input.css`: TailwindCSS entry point with custom configurations
 
 ## Theme Customization
 
-**Blowfish theme** is integrated as a git submodule at `themes/blowfish`. **Do not modify theme files directly.**
+The project uses a git submodule for the "pehtheme" Hugo theme. Customizations should be made in:
 
-Customizations:
-- **CSS**: Custom styles in `assets/css/custom.css`, compiled TailwindCSS in `assets/css/compiled/main.css`
-- **Templates**: Custom layouts in `layouts/_default/` (e.g., `mastodon.html`)
-- **Assets**: Icons in `assets/icons/`, images in `assets/images/`
+- `layouts/`: Template overrides
+- `assets/css/custom.css`: Custom styles
+- `static/`: Custom static assets
 
-To update theme:
-```bash
-pnpm run theme:update  # Updates to latest version
-```
+## Important Notes
 
-## Custom Pages and Data
-
-### Custom Layouts
-
-- `layouts/_default/mastodon.html` - Mastodon feed page
-- `layouts/_default/section.mastodon.html` - Mastodon section layout
-- `layouts/_default/taxonomy.mastodon.html` - Mastodon taxonomy
-
-### Data Directories
-
-- `assets/data/` - Generated data files (from Directus during build)
-- `data/authors/` - Author information
-- `content/` - Hugo content (mostly empty - content fetched from Directus)
-
-## Git Workflow
-
-**Pre-commit Hook**: `.husky/pre-commit` automatically:
-1. Updates Hugo version in configuration files
-2. Stages updated files to git
-
-This runs automatically on `git commit`.
-
-## CI/CD Pipeline
-
-GitHub Actions workflow (`.github/workflows/main.yml`) handles:
-- Hugo build (v0.152.2)
-- Directus data fetching
-- Deployment to Aliyun OSS
-- Cache purging for Aliyun ESA
-
-Build triggers:
-- Push to `main` branch (full build)
-- Manual dispatch (selective builds)
-- Scheduled monthly builds
-
-## Deployment Architecture
-
-- **Domestic (China)**: Aliyun OSS + ESA cache
-- **International**: Cloudflare Pages
-- Backup repositories: GitLab, Codeberg, private Git
-
-See README.md for complete deployment documentation and remote URL configuration.
-
-## Scripts Overview
-
-All scripts are in `/scripts/` directory:
-
-- **directus-*.js**: Fetch data from Directus API
-- **husky_hugo_version.js**: Updates Hugo version in config (runs on commit)
-- **new_post.js**: Create new post (legacy method)
-- **shikify.ts**: Generate syntax highlighting
-- **update_hugo.sh**: Update Hugo version
-- **update_featured_images.py**: Update featured images
-
-## Development Tips
-
-1. **Always fetch data before building**: Run `pnpm run directus` before `pnpm run hugo`
-2. **Use preview mode**: `pnpm run preview` for production-like builds
-3. **Watch mode for CSS**: `pnpm run dev` watches for TailwindCSS changes
-4. **Selective builds**: Use specific `directus:*` commands for targeted sections
-5. **Environment variables**: Required for Directus integration and deployment
-6. **Theme updates**: Keep Blowfish theme updated with `pnpm run theme:update`
-
-## License
-
-- Project: GLWTPL (祝你好运公共许可证)
-- Hugo: Apache License 2.0
-- Blowfish Theme: MIT
+- Content is primarily managed through Directus CMS, not local markdown files
+- The build process automatically fetches fresh data from all APIs
+- TailwindCSS v4 has a different build process than previous versions
+- Site supports Chinese content with CJK language configuration

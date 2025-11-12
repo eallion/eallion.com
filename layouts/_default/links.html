@@ -1,87 +1,108 @@
 {{ define "main" }}
-{{ .Scratch.Set "scope" "single" }}
 
-<article>
-  {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
-  {{ $heroStyle := .Params.heroStyle }}
-  {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
-  {{ $heroStyle := print "hero/" $heroStyle ".html" }}
-  {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
-  {{ partial $heroStyle . }}
-  {{ else }}
-  {{ partial "hero/basic.html" . }}
-  {{ end }}
-  {{ end }}
+{{- partial "content/breadcrumb.html" . -}}
 
-  <header id="single_header" class="mt-5 max-w-prose">
-    {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
-    {{ partial "breadcrumbs.html" . }}
-    {{ end }}
-    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      {{ .Title }}
-    </h1>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-0 md:mb-14" data-pagefind-ignore="all">
 
-    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-      {{ partial "article-meta/basic.html" (dict "context" . "scope" "single") }}
-    </div>
+    <article class="md:col-span-2 prose lg:prose-lg">
 
-  </header>
+        <header class="not-prose">
 
-  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+            <h1 id="title" class="text-4xl font-bold leading-normal">{{ .Title }}</h1>
 
-      <div class="min-w-0 min-h-0 max-w-fit">
+        </header>
 
-        <div class="article-content max-w-full mb-20 break-words">
+        <section class="flex flex-col max-w-full mt-0 prose lg:flex-row">
 
-            {{ .Content }}
+            <div class="min-w-0 min-h-0 max-w-fit">
 
-            <!-- 添加 not-prose 类来避免 prose 样式的影响 -->
-            <div class="not-prose">
-                <div class="friends-links grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    {{ $linksResource := resources.Get "data/friends/links.json" }}
-                    {{ if $linksResource }}
-                        {{ $links := $linksResource | transform.Unmarshal }}
-                        {{ if $links }}
-                            {{ range $links }}
-                                {{ $name := .name }}
-                                {{ $biography := .biography }}
-                                {{ $url := .url }}
-                                {{ $domainScheme := (replace (replace $url "http://" "") "https://" "") }}
-                                {{ $domainParts := split $domainScheme "/" }}
-                                {{ $domain := index $domainParts 0 }}
-                                {{ $avatar := .avatar }}
-                                <a target="_blank" href="/go/?target={{- $url | base64Encode -}}" title="{{- $name -}}" class="block"
-                                    rel="noopener noreferrer">
-                                    <div
-                                        class="group flex items-center p-4 bg-gray-100 dark:bg-gray-900 rounded-lg hover:scale-105 transition-all duration-300 ease-in-out">
-                                        <div class="flex-shrink-0 mr-4">
-                                            <img class="lazy nozoom w-16 h-16 rounded-full m-0" loading="lazy"
-                                                src="https://cn.cravatar.com/avatar/{{- $avatar -}}" alt="{{- $name -}}"
-                                                onerror="this.onerror=null; this.src='/404.png';">
-                                        </div>
-                                        <div class="flex-grow min-w-0">
-                                            <div class="flex items-center mb-2">
-                                                <img class="lazy nozoom w-4 h-4 mr-2 m-0" alt=""
-                                                    src="https://t3.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=16&url={{- $url -}}">
-                                                <span class="font-medium text-neutral-900 dark:text-neutral-100 truncate">{{- $name -}}</span>
-                                            </div>
-                                            <p class="text-sm text-neutral-700 dark:text-neutral-300 line-clamp-2 m-0 min-h-10">{{- $biography -}}</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            {{ end }}
-                        {{ end }}
-                    {{ end }}
+                <div id="content" class="prose lg:prose-lg w-full">
+
+                    {{ .Content }}
+
                 </div>
+
             </div>
 
+        </section>
+
+    </article>
+
+        <!-- Aside -->
+    <aside class="md:col-span-1">
+        <div class="lg:sticky lg:top-8 mb-13">
+            <div class="rounded-2xl p-8 text-zinc-700 bg-zinc-100 mb-10 flex flex-col items-center justify-center gap-6">
+
+            <!-- {{- partial "anynow.html" . -}} -->
+
+            <div class="shrink-0">
+                <img class="h-20 w-20 rounded-full object-cover ring-4 ring-white shadow-lg" width="144" height="144" alt="Charles Chin" src="/eallion.webp">
+            </div>
+
+            <div class="flex items-center justify-center gap-0.5 text-zinc-950 hover:cursor-text">
+                <svg class="w-auto" height="28" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 106 30">
+                    <path d="M77.378 0q2.953 0 4.68 1.116 1.728 1.116 2.484 3.168.792 2.052.792 4.932v11.088q0 2.844-.792 4.969-.756 2.124-2.483 3.311-1.728 1.152-4.681 1.152-2.952 0-4.716-1.152-1.763-1.152-2.52-3.275-.755-2.16-.756-5.04V9.216q0-2.88.757-4.932.791-2.088 2.52-3.168Q74.425 0 77.377 0M11.305 3.276H4.068v9.648h5.869v2.88H4.068v10.692h7.308v2.916H0V.252h11.305zM29.42 29.412h-3.853l-1.332-7.344h-5.94l-1.403 7.344h-3.817L19.27.252h3.923zm7.026-2.916H43.9v2.916H32.38V.252h4.068zm14.309 0h7.452v2.916h-11.52V.252h4.068zm14.453 2.916h-3.996V.252h3.996zM101.133.062q1.449 0 2.449.75 1 .7 1.5 2.1.5 1.35.5 3.3v23.2h-3.649v-22.4q0-2.25-.701-3.15-.65-.95-2.05-.95-1.25 0-2.55.75t-2.45 1.95v23.8h-3.65V.512h3.65v3a12.4 12.4 0 0 1 3.15-2.45 7.53 7.53 0 0 1 3.801-1M77.378 3.169q-1.62 0-2.484.648-.828.612-1.116 1.8-.288 1.152-.288 2.772v12.78q0 1.62.288 2.844.288 1.188 1.116 1.872.864.648 2.484.648t2.448-.648q.828-.684 1.116-1.872.288-1.224.289-2.844V8.388q0-1.62-.289-2.772-.288-1.188-1.116-1.8-.828-.648-2.448-.648M18.837 19.152h4.86l-2.448-13.14z"/>
+                </svg>
+            </div>
+
+            <div class="group relative text-center px-0">
+                <p class="font-semibold italic transition-opacity duration-300 group-hover:opacity-0">
+                    Chance favors the prepared mind!
+                </p>
+                <p class="font-semibold italic absolute top-0 left-0 right-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    机会总是垂青于有准备的人！
+                </p>
+            </div>
+
+            <div class="w-full grid grid-cols-4 gap-4 px-6 pt-4 border-t border-zinc-200">
+                {{- /* 使用 partialCached 缓存整个统计 partial */ -}}
+                {{- partialCached "content/stats-partial.html" . -}}
+            </div>
+
+            </div>
         </div>
+    </aside>
+</div>
 
-      </div>
-
-    </section>
-
-</article>
+<!-- 添加 not-prose 类来避免 prose 样式的影响 -->
+<div class="not-prose border-t border-gray-200 pt-12 mb-12">
+    <div class="friends-links grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {{ $linksResource := resources.Get "data/friends/links.json" }}
+        {{ if $linksResource }}
+            {{ $links := $linksResource | transform.Unmarshal }}
+            {{ if $links }}
+        {{ range $links }}
+        {{ $name := .name }}
+        {{ $biography := .biography }}
+        {{ $url := .url }}
+        {{ $domainScheme := (replace (replace $url "http://" "") "https://" "") }}
+        {{ $domainParts := split $domainScheme "/" }}
+        {{ $domain := index $domainParts 0 }}
+        {{ $avatar := .avatar }}
+        <a target="_blank" href="/go/?target={{- $url | base64Encode -}}" title="{{- $name -}}" class="block"
+            rel="noopener noreferrer">
+            <div
+            class="group flex items-center p-4 bg-gray-100 rounded-lg hover:scale-105 transition-all duration-300 ease-in-out">
+            <div class="shrink-0 mr-4">
+        <img class="lazy nozoom w-16 h-16 rounded-full m-0" loading="lazy"
+            src="https://cn.cravatar.com/avatar/{{- $avatar -}}" alt="{{- $name -}}"
+            onerror="this.onerror=null; this.src='/404.png';">
+            </div>
+            <div class="grow min-w-0">
+        <div class="flex items-center mb-2">
+            <img class="lazy nozoom w-4 h-4 mr-2 m-0" alt=""
+            src="https://t3.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=16&url={{- $url -}}">
+            <span class="font-medium text-neutral-900 truncate">{{- $name -}}</span>
+        </div>
+        <p class="text-sm text-neutral-700 line-clamp-2 m-0 min-h-10">{{- $biography -}}</p>
+            </div>
+            </div>
+        </a>
+        {{ end }}
+            {{ end }}
+        {{ end }}
+    </div>
+</div>
 
 {{ $lazyloadJS := resources.Get "js/lazyload.iife.min.js" | fingerprint "sha256" }}
 <script type="text/javascript" src="{{ $lazyloadJS.RelPermalink }}" integrity="{{ $lazyloadJS.Data.Integrity }}"></script>

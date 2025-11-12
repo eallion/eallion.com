@@ -14,7 +14,7 @@
 
 <div align="center">
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_shield) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v5.0.2/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com) [![Better Uptime Badge](https://status.eallion.com/api/badge/2/uptime/168)](https://status.eallion.com/)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_shield) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v6.0.0/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com) [![Better Uptime Badge](https://status.eallion.com/api/badge/2/uptime/168)](https://status.eallion.com/)
 </div>
 <div align="center">
 
@@ -33,6 +33,8 @@
 
   <img src="assets/images/github/blog-flow.png">
 </div>
+
+hugo gen chromastyles --style=onedark > assets/css/chroma.css
 
 # 备忘录
 
@@ -73,16 +75,16 @@ origin  https://git.eallion.com/eallion/eallion.com (push)
 
 - https://github.com/eallion/eallion.com/blob/main/.github/workflows/main.yml
 
-### 🎨 主题 [Blowfish](https://github.com/nunocoracao/blowfish)
+### 🎨 主题 [Pehe](https://github.com/eallion/pehe)
 
-> Update: Apr 01, 2024
+> Update: Nov 19, 2025
 
-本博客使用主题为：[Blowfish](https://github.com/nunocoracao/blowfish)
+本博客使用主题为：[Pehe](https://github.com/eallion/pehe)
 
 此次更新，主题使用 `git submodule` 的方式引入，不破坏原主题任何文件结构，所有自定义样式不再在 Theme 目录下修改。
 
 ```bash
-git submodule add https://github.com/eallion/blowfish.git themes/blowfish
+git submodule add https://github.com/eallion/pehe.git themes/pehe
 ```
 
 克隆博客后同时克隆子模块：
@@ -96,13 +98,13 @@ pnpm run theme:init
 
 ```bash
 pnpm run theme:update
-# git submodule update --remote --force themes/blowfish
+# git submodule update --remote --force themes/pehe
 ```
 
-Blowfish 编译 TailwindCSS 的 main.css，位于 [assets/css/compiled/main.css](https://github.com/eallion/eallion.com/blob/main/assets/css/compiled/main.css)：
+Pehe 编译 TailwindCSS 的 main.css，位于 [assets/css/main.css](https://github.com/eallion/eallion.com/blob/main/assets/css/main.css)：
 
 ```bash
-# cd theme/blowfish
+# cd theme/pehe
 # pnpm install
 # cd ../..
 
@@ -111,7 +113,7 @@ pnpm run build
 ```
 
 ```bash
-https://github.com/eallion/eallion.com/blob/main/assets/css/compiled/main.css
+https://github.com/eallion/eallion.com/blob/main/assets/css/main.css
 ```
 
 - 自定义 CSS 在 `assets/css/` 如：[custom.css](<https://github.com/eallion/eallion.com/blob/main/assets/css/custom.css>)：
@@ -142,7 +144,7 @@ https://github.com/eallion/eallion.com/blob/main/assets/data/neodb/movie.json
 
 ### 🧑‍💻 pnpm 命令
 
-- `pnpm run build` 构建 Blowfish 的 TailwindCSS `assets/css/compiled/main.css`
+- `pnpm run build` 构建 Pehe 的 TailwindCSS `assets/css/main.css`
 - `pnpm run dev` 启动 TailwindCSS 监听
 - `pnpm run directus`: 获取 Directus 数据
 - `pnpm run directus:album`: 获取 Directus 随手拍数据
@@ -416,9 +418,9 @@ hotlinkFeatureImage = true
 
 ### 📄 LICENSE
 
-This project is licensed under [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN)  
-Hugo is licensed under [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE)  
-Theme Blowfish is licensed under [MIT](https://github.com/nunocoracao/blowfish/blob/main/LICENSE)  
+This project is licensed under [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN)
+Hugo is licensed under [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE)
+Theme Pehe is licensed under [MIT](https://github.com/eallion/pehe/blob/main/LICENSE)  
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_large)
 

@@ -3,18 +3,40 @@ const fs = require('fs');
 
 // 1. 从 hugo-latest.txt 获取最新的 Hugo 版本号
 async function getHugoVersions() {
-    const url = 'https://raw.githubusercontent.com/nunocoracao/blowfish/refs/heads/main/release-versions/hugo-latest.txt';
-    const response = await axios.get(url);
-    const version = response.data.trim();
+    // 首选：使用 GitHub Releases API 获取最新 release（包含 tag_name）
+    const apiLatest = 'https://api.github.com/repos/gohugoio/hugo/releases/latest';
+    try {
+        const response = await axios.get(apiLatest, {
+            headers: {
+                Accept: 'application/vnd.github.v3+json',
+                'User-Agent': 'eallion-hugo-version-script'
+            }
+        });
 
-    if (!version) throw new Error('未获取到版本号');
+        const tag = (response.data && (response.data.tag_name || response.data.name)) || '';
+        if (!tag) throw new Error('未从 GitHub Releases 获取到 tag');
 
-    // 去掉版本号前的 'v' 前缀（如果存在）
-    const cleanVersion = version.replace(/^v/, '');
+        const cleanVersion = tag.replace(/^v/, '').trim();
+        return { hugoVersion: cleanVersion };
+    } catch (err) {
+        // 失败时回退：使用 tags 列表，取第一个 tag
+        const apiTags = 'https://api.github.com/repos/gohugoio/hugo/tags';
+        const resp2 = await axios.get(apiTags, {
+            headers: {
+                Accept: 'application/vnd.github.v3+json',
+                'User-Agent': 'eallion-hugo-version-script'
+            }
+        });
 
-    return {
-        hugoVersion: cleanVersion
-    };
+        if (Array.isArray(resp2.data) && resp2.data.length > 0) {
+            const name = resp2.data[0].name || '';
+            const clean = name.replace(/^v/, '').trim();
+            if (clean) return { hugoVersion: clean };
+        }
+
+        // 无法获取版本，抛出原始错误
+        throw err;
+    }
 }
 
 // 2. 更新 module.toml
@@ -79,9 +101,9 @@ function updateGithubWorkflow(version) {
 // 7. 主流程
 (async () => {
     const versions = await getHugoVersions();
-    updateModuleToml(versions);
-    updateVercelJson(versions.hugoVersion);
-    updateCnbYml(versions.hugoVersion);
+    // updateModuleToml(versions);
+    // updateVercelJson(versions.hugoVersion);
+    // updateCnbYml(versions.hugoVersion);
     updateWranglerToml(versions.hugoVersion);
     updateGithubWorkflow(versions.hugoVersion);
     console.log(`已将 Hugo 版本更新为 ${versions.hugoVersion}`);

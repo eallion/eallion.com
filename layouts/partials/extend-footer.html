@@ -1,8 +1,0 @@
-<!-- Heti Spacing https://sivan.github.io/heti/#javascript -->
-
-{{ $hetiJS := resources.Get "js/heti-addon.min.js" | fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $hetiJS.RelPermalink }}" integrity="{{ $hetiJS.Data.Integrity }}"></script>
-<script>
-  const heti = new Heti('article');
-  heti.autoSpacing();
-</script>

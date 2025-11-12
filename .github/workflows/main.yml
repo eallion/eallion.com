@@ -51,7 +51,7 @@ jobs:
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.152.2'
-          extended: true
+          extended: false
 
       - name: Cache Hugo Resources
         uses: actions/cache@v4
@@ -75,12 +75,12 @@ jobs:
       - name: Setup PNPM
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 22.x
           cache: 'pnpm'
           cache-dependency-path: '**/pnpm-lock.yaml'
 
@@ -161,22 +161,26 @@ jobs:
               ;;
             "hugo"|"hugo")
               echo "📚 Fetching full site data..."
-              pnpm run directus
-              pnpm run directus:neodb-count
-              pnpm run directus:penta-count
+              pnpm run directus:article
+              pnpm run directus:friendslinks
+              pnpm run directus:neodb
+              pnpm run directus:penta
               ;;
             *)
               echo "⚠️  Unknown build type: $BUILD_TYPE, building full site..."
               echo "📚 Fetching full site data..."
-              pnpm run directus
-              pnpm run directus:neodb-count
-              pnpm run directus:penta-count
+              pnpm run directus:article
+              pnpm run directus:friendslinks
+              pnpm run directus:neodb
+              pnpm run directus:penta
               ;;
           esac
 
           # Build Hugo site
           echo "🏗️  Building Hugo site..."
-          hugo --minify --enableGitInfo --gc
+          pnpm run build:hugo
+          pnpm run llms
+          pnpm run build:pagefind
 
           echo "✅ Build completed for: $BUILD_TYPE"
 

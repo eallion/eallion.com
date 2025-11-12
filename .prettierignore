@@ -7,13 +7,13 @@ node_modules
 package.json
 
 # Hugo
-assets/lib
-assets/css/compiled
 content
 themes
 public
 static
 *.md
+*.svg
+**/icons.html
 
 # Invalid nodes and unexpected tokens, mostly caused by unmatched tags in Hugo statements.
 # For example:
@@ -24,10 +24,3 @@ static
 #     {{ end }}
 #
 # This create an unclose node
-
-# Custom by eallion
-
-assets/css
-assets/data
-layouts
-example
