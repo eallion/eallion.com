@@ -1,3 +1,46 @@
+## v6.0.0 (2025-11-19)
+
+### New feature
+
+- migrate to theme pehe([`a49a096`](https://github.com/eallion/eallion.com/commit/a49a096107febaf0db311df15225c7fdfe37e4ff)) (by Charles Chin)
+- new home view([`43fda4a`](https://github.com/eallion/eallion.com/commit/43fda4af0019b57ae2acbc48c7815f3c3ca9678f)) (by Charles Chin)
+- update stats page([`143e42c`](https://github.com/eallion/eallion.com/commit/143e42ccb5d2b633aab82085834fac1386d312b4)) (by Charles Chin)
+- rm pages([`92bd36c`](https://github.com/eallion/eallion.com/commit/92bd36ccbf7534f88e66b5953d2cce7a28d8cc4a)) (by Charles Chin)
+- update npm([`794bdba`](https://github.com/eallion/eallion.com/commit/794bdba70d2a89015699589f4564ad3a025217fc)) (by Charles Chin)
+- pnpm cross env for linux and windows([`ae8dbbf`](https://github.com/eallion/eallion.com/commit/ae8dbbf6cb5b0e8c7722e64ca1827eaf0ef7d530)) (by Charles Chin)
+- directus article description([`36aae7b`](https://github.com/eallion/eallion.com/commit/36aae7bfb39bc4a3fdad010c92d7fd6c06645a7c)) (by Charles Chin)
+- html5 picture tag([`d58bcde`](https://github.com/eallion/eallion.com/commit/d58bcde2339a49d51ebd31e837f865729faf6e0e)) (by Charles Chin)
+- mastodon slug bridge([`aa98b33`](https://github.com/eallion/eallion.com/commit/aa98b33cc10a2b9640efd827e7e083deca22b1a1)) (by Charles Chin)
+- cdn imagemogr2 format avif([`c9de496`](https://github.com/eallion/eallion.com/commit/c9de4966c425b18754849d191cad55902d39c328)) (by Charles Chin)
+- cdn imagemogr2 format avif([`5f5e30b`](https://github.com/eallion/eallion.com/commit/5f5e30bbf2209736e1f575dc52834524ae644015)) (by Charles Chin)
+- album fetch mastodon media([`34a1811`](https://github.com/eallion/eallion.com/commit/34a181189f4b9d267694256a16204c2e08e262be)) (by Charles Chin)
+- media full screen toggle and youtube trailer([`1eae46b`](https://github.com/eallion/eallion.com/commit/1eae46b8ce74bb0882b4c745788dd4ecdf55661b)) (by Charles Chin)
+- fetch article into json front matter([`381b4a3`](https://github.com/eallion/eallion.com/commit/381b4a308d0637bed01371ed1c67dc4934af2e7a)) (by Charles Chin)
+- s3 image process style([`ee1786a`](https://github.com/eallion/eallion.com/commit/ee1786a929e77d81b95e8ae8494640ad35ed4233)) (by Charles Chin)
+- replace s3 files domain([`266bf11`](https://github.com/eallion/eallion.com/commit/266bf1131a4ffe3eac0fbaf0b44c02db9d3c9bd0)) (by Charles Chin)
+
+### Bugs fixed
+
+- home anynow([`b7611ca`](https://github.com/eallion/eallion.com/commit/b7611cab1093fba41250edf1424161bc972a9573)) (by Charles Chin)
+- directus fetch article exclude draft([`78653c9`](https://github.com/eallion/eallion.com/commit/78653c9758e294dc7c674447780076d2dd4c6faa)) (by Charles Chin)
+- mastodon slug bridge value([`6a9db51`](https://github.com/eallion/eallion.com/commit/6a9db514632c26e320f5a8c74b3d95151b45ebab)) (by Charles Chin)
+- mastodon slug bridge value([`714fb31`](https://github.com/eallion/eallion.com/commit/714fb31cf140fb018741d768076b3dd58e6a0741)) (by Charles Chin)
+- mastodon slug bridge value([`51da609`](https://github.com/eallion/eallion.com/commit/51da60962d2f1b7d7d1beaa0ada7769396275fa0)) (by Charles Chin)
+- fetch album from mastodon([`672cd8f`](https://github.com/eallion/eallion.com/commit/672cd8fcfc35917acf39a21c922e714834d4dec4)) (by Charles Chin)
+- mastodon s3 style name([`1ed8933`](https://github.com/eallion/eallion.com/commit/1ed8933d9610779b9582baf20211b953f67b1014)) (by Charles Chin)
+- ci error([`0a6adcb`](https://github.com/eallion/eallion.com/commit/0a6adcb9a64235c7d4dafb57932486ece3b18cd1)) (by Charles Chin)
+- view image plugin([`89d96e7`](https://github.com/eallion/eallion.com/commit/89d96e76a6d7b954d54080deac740689523fadd2)) (by Charles Chin)
+- fetch directus script title([`61ddcce`](https://github.com/eallion/eallion.com/commit/61ddcce68a8a8108085b039f567067ca1ced9ca1)) (by Charles Chin)
+- stats penta count([`e9bac5f`](https://github.com/eallion/eallion.com/commit/e9bac5f50df81bd46d97ad30a2163e8176f92ee0)) (by Charles Chin)
+
+### Performance improves
+
+- build get remote catch error stats([`92cf99c`](https://github.com/eallion/eallion.com/commit/92cf99c7fc5e5f5d8e198f6738237e7a190f5025)) (by Charles Chin)
+- replace mastodon s3 files domain([`4396c66`](https://github.com/eallion/eallion.com/commit/4396c663123cb120bc642acc825747d576f356f3)) (by Charles Chin)
+- sort by date([`1085bbf`](https://github.com/eallion/eallion.com/commit/1085bbfbf449816c4927086bfd0ae96d9244190e)) (by Charles Chin)
+- sort by date([`8ad66ec`](https://github.com/eallion/eallion.com/commit/8ad66ec6a4cd037180c64c5cb0e168a9cdc06119)) (by Charles Chin)
+- directus fetch slug perf([`c339026`](https://github.com/eallion/eallion.com/commit/c3390263920df48dca16e7e82f518d314679b0b9)) (by Charles Chin)
+
 ## v5.0.2 (2025-08-23)
 
 ### New feature
