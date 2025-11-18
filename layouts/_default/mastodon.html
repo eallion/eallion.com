@@ -45,28 +45,35 @@
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14" data-pagefind-ignore="all">
 
-  <article class="md:col-span-2 prose lg:prose-lg">
+  <article class="md:col-span-2 not-prose">
 
-    <header class="not-prose">
+    <header>
 
       <h1 id="title" class="text-4xl font-bold leading-normal">{{ .Title }}</h1>
 
     </header>
 
-    <div id="content" class="mb-14">
+    <section class="flex flex-col max-w-full mt-0 prose lg:flex-row dark:prose-invert">
 
-      {{- .Content -}}
+      <div class="min-w-0 min-h-0 max-w-fit">
 
-      <div class="flex w-full mt-10 flex-wrap justify-center gap-5">
-        <div class="mt-container w-full max-w-full p-0">
-          <div id="mt-loading-spinner" class="mt-conatiner-spinner not-prose flex flex-col items-center">
-            <span class="font-semibold">Loading...</span>
-            <img src="/assets/images/mastodon/loading.gif" alt="loading">
+        <div id="content" class="prose lg:prose-lg dark:prose-invert w-full">
+
+          {{ .Content }}
+
+          <div class="flex w-full mt-10 flex-wrap justify-center gap-5">
+            <div class="mt-container w-full max-w-full p-0">
+              <div id="mt-loading-spinner" class="mt-conatiner-spinner not-prose flex flex-col items-center">
+                <span class="font-semibold">Loading...</span>
+                <img src="/assets/images/mastodon/loading.gif" alt="loading">
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
 
-    </div>
+    </section>
 
   </article>
 
@@ -75,13 +82,13 @@
 
     <div class="lg:sticky lg:top-8 mb-13">
 
-      <div class="rounded-2xl p-8 text-zinc-700 bg-zinc-100 mb-10 flex flex-col items-center justify-center gap-0">
+      <div class="rounded-2xl p-8 text-zinc-700 dark:text-[#adbac7] bg-zinc-100 dark:bg-[#2d333b] mb-10 flex flex-col items-center justify-center gap-0">
 
           <div class="shrink-0">
-              <img class="h-20 w-20 rounded-full object-cover ring-4 ring-white shadow-lg" width="144" height="144" alt="Charles Chin" src="/eallion.webp">
+              <img class="h-20 w-20 rounded-full object-cover ring-4 ring-gray-200 dark:ring-[#cdd9e51a] shadow-lg" width="144" height="144" alt="Charles Chin" src="/eallion.webp">
           </div>
 
-          <div class="flex items-center justify-center mt-4 text-2xl text-zinc-950 hover:cursor-text">
+          <div class="flex items-center justify-center mt-4 text-2xl text-zinc-950 dark:text-[#adbac7] hover:cursor-text">
             <div class="font-semibold">Charles Chin</div>
             <div class="flex items-center ml-1"><svg viewBox="0 0 22 22" fill="#1d9bf0" aria-label="认证账号" role="img" class="inline-block" width="1em" height="1em" data-testid="icon-verified"><g><path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"></path></g></svg></div>
           </div>
@@ -90,12 +97,12 @@
               <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" aria-label="mastodon" class="hover:underline">@eallion@e5n.cc</a>
           </div>
 
-          <div class="w-full px-0 pt-2 border-t border-zinc-200">
+          <div class="w-full px-0 pt-2 border-t border-zinc-200 dark:border-[#cdd9e51a]">
 
               <div class="p-4">
                 <div class="flex flex-col justify-between">
                     <p class="text-xl">👋 Welcome!</p>
-                      <ul class="mt-6 mb-2 flex flex-col prose">
+                      <ul class="mt-6 mb-2 flex flex-col prose dark:prose-invert">
                         <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">It's a single mode Mastodon.</li>
                         <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Registrations closed.</li>
                         <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Private but public readable.</li>
@@ -109,21 +116,21 @@
 
           </div>
 
-          <div class="w-full grid grid-cols-3 gap-4 px-6 pt-4 border-t border-zinc-200">
+          <div class="w-full grid grid-cols-3 gap-4 px-6 pt-4 border-t border-zinc-200 dark:border-[#cdd9e51a]">
             <div class="flex flex-col items-center">
-              <div class="text-zinc-500">关注者</div>
+              <div class="text-zinc-500 dark:text-[#768390]">关注者</div>
               <div class="font-semibold flex items-center">
                 <span id="followers">-1</span>
               </div>
             </div>
             <div class="flex flex-col items-center">
-              <div class="text-zinc-500">正在关注</div>
+              <div class="text-zinc-500 dark:text-[#768390]">正在关注</div>
               <div class="font-semibold flex items-center">
                 <span id="following">0</span>
               </div>
             </div>
             <div class="flex flex-col items-center">
-              <div class="text-zinc-500">嘟文</div>
+              <div class="text-zinc-500 dark:text-[#768390]">嘟文</div>
               <div class="font-semibold flex items-center">
                 <span id="statuses">0</span>
               </div>
@@ -155,13 +162,13 @@
 
       data.forEach(post => {
         const article = document.createElement('article');
-        article.className = 'border border-zinc-400 rounded-xl mb-8 p-4 pb-3 shadow-sm transition-all duration-200';
+        article.className = 'bg-white dark:bg-[#2d333b] border dark:border-[#cdd9e51a] rounded-lg mb-8 last:mb-0 p-4 pb-3 shadow-xs hover:shadow-md transition-shadow duration-300';
 
         // 判断是否为转发
         if (post.reblog) {
           article.innerHTML += `
             <div class="mt-reblog flex items-center gap-2 mb-2 text-zinc-500 text-sm">
-              <span class="text-green-500">🔄</span>
+              <span class="text-green-500 dark:text-[#768390]">🔄</span>
               <span>Charles Chin 转发了</span>
             </div>
           `;
@@ -184,8 +191,8 @@
         // 头像部分
         article.innerHTML += `
           <div class="flex items-center flex-row gap-2">
-            <div class="mt-reblog-avatar w-12 h-12 rounded-lg mr-3 flex-shrink-0 relative">
-              <img src="${post.reblog ? replaceFileUrl(post.reblog.account.avatar) : '/eallion.webp'}" alt="头像" class="w-full h-full !mt-0 !mb-0 object-cover rounded-lg no-view nozoom" no-view onerror="this.src='/assets/images/mastodon/missing.png'">
+            <div class="mt-reblog-avatar w-12 h-12 mr-3 flex-shrink-0 relative">
+              <img src="${post.reblog ? replaceFileUrl(post.reblog.account.avatar) : '/eallion.webp'}" alt="头像" class="w-full h-full object-cover rounded-lg no-view nozoom outline-1 outline-zinc-400 dark:outline-[#cdd9e51a]" no-view onerror="this.src='/assets/images/mastodon/missing.png'">
               ${post.reblog ? '<div class="mt-reblog-avatar-overlay absolute -bottom-1 -right-1 w-2/3 h-2/3 no-view"><img src="/favicon-32x32.png" alt="Boost" class="w-full h-full mt-0 mb-0 object-cover nozoom" no-view></div>' : ''}
             </div>
             <div class="flex-1 flex flex-row items-start min-w-0">
@@ -193,7 +200,7 @@
                 <span class="mt-accout-name font-semibold hover:font-extrabold text-zinc-700-700 hover:text-zinc-900">${post.reblog ? post.reblog.account.display_name : 'Charles Chin'}</span>
                 <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" class="mt-accout-id decoration-auto no-underline hover:underline">${post.reblog ? post.reblog.account.acct : '@eallion@e5n.cc'}</a>
               </div>
-              <div class="inline md:hidden px-2 py-1.5 text-zinc-700-600 hover:text-zinc-900-700 text-sm ml-auto">
+              <div class="inline md:hidden px-2 py-1.5 text-zinc-700 hover:text-zinc-900 text-sm ml-auto">
                 <span class="mt-footer-date" data-created-at="${post.created_at}">
                   <a href="${post.url || 'https://e5n.cc/@eallion'}" target="_blank" rel="noopener noreferrer" class="no-underline text-zinc-600 hover:text-zinc-900-700">-</a>
                 </span>
@@ -221,7 +228,7 @@
 
         // 内容部分
         article.innerHTML += `
-          <div class="mt-content mb-4">
+          <div class="mt-content mb-4 prose dark:prose-invert">
             <p class="mb-2">
               ${encodeExternalLinks(post.reblog?.content || post.content)}
             </p>
@@ -252,7 +259,7 @@
                         <div class="w-full rounded-xl overflow-hidden">
                           ${singleMedia.blurhash ? `<canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-cover" data-blurhash="${singleMedia.blurhash}"></canvas>` : ''}
                           <a href="${replaceFileUrl(singleMedia.url)}">
-                            <picture class="block !mt-0 !mb-0 w-full h-full ${objectFitClass}">
+                            <picture class="block w-full h-full ${objectFitClass}">
                               <source srcset="${replaceFileUrl(singleMedia.preview_url)}!mastodon.avif" type="image/avif">
                               <img src="${replaceFileUrl(singleMedia.preview_url)}" alt="${singleMedia.description}" class="w-full h-full ${objectFitClass}" nozoom loading="lazy">
                             </picture>
@@ -273,7 +280,7 @@
                             <div class="relative w-1/2 rounded-xl overflow-hidden">
                               ${mediaItem.blurhash ? `<canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-contain ${alignmentClass}" data-blurhash="${mediaItem.blurhash}"></canvas>` : ''}
                               <a href="${replaceFileUrl(mediaItem.url)}">
-                                <picture class="block !mt-0 !mb-0 w-full h-full ${objectFitClass}">
+                                <picture class="block w-full h-full ${objectFitClass}">
                                   <source srcset="${replaceFileUrl(mediaItem.preview_url)}!mastodon.avif" type="image/avif">
                                   <img src="${replaceFileUrl(mediaItem.preview_url)}" alt="${mediaItem.description}" class="w-full h-full ${objectFitClass}" nozoom loading="lazy">
                                 </picture>
@@ -303,7 +310,7 @@
                         <div class="relative w-1/2 overflow-hidden rounded-xl">
                           ${firstItem.blurhash ? `<canvas class="absolute inset-0 -z-1 w-full h-full top-0 left-0 object-contain" data-blurhash="${firstItem.blurhash}"></canvas>` : ''}
                           <a href="${replaceFileUrl(firstItem.url)}">
-                            <picture class="block !mt-0 !mb-0 w-full h-full ${firstFitClass}">
+                            <picture class="block w-full h-full ${firstFitClass}">
                               <source srcset="${replaceFileUrl(firstItem.preview_url)}!mastodon.avif" type="image/avif">
                               <img src="${replaceFileUrl(firstItem.preview_url)}" alt="${firstItem.description}" class="w-full h-full ${firstFitClass}" nozoom loading="lazy">
                             </picture>
@@ -313,7 +320,7 @@
                           <div class="relative h-1/2 overflow-hidden rounded-xl">
                             ${secondItem.blurhash ? `<canvas class="absolute inset-0 -z-1 w-full h-full top-0 right-0 object-contain" data-blurhash="${secondItem.blurhash}"></canvas>` : ''}
                             <a href="${replaceFileUrl(secondItem.url)}">
-                              <picture class="block !mt-0 !mb-0 w-full h-full ${secondFitClass}">
+                              <picture class="block w-full h-full ${secondFitClass}">
                                 <source srcset="${replaceFileUrl(secondItem.preview_url)}!mastodon.avif" type="image/avif">
                                 <img src="${replaceFileUrl(secondItem.preview_url)}" alt="${secondItem.description}" class="w-full h-full ${secondFitClass}" nozoom loading="lazy">
                               </picture>
@@ -322,7 +329,7 @@
                           <div class="relative h-1/2 overflow-hidden rounded-xl">
                             ${thirdItem.blurhash ? `<canvas class="absolute inset-0 -z-1 w-full h-full bottom-0 right-0 object-contain" data-blurhash="${thirdItem.blurhash}"></canvas>` : ''}
                             <a href="${replaceFileUrl(thirdItem.url)}">
-                              <picture class="block !mt-0 !mb-0 w-full h-full ${thirdFitClass}">
+                              <picture class="block w-full h-full ${thirdFitClass}">
                                 <source srcset="${replaceFileUrl(thirdItem.preview_url)}!mastodon.avif" type="image/avif">
                                 <img src="${replaceFileUrl(thirdItem.preview_url)}" alt="${thirdItem.description}" class="w-full h-full ${thirdFitClass}" nozoom loading="lazy">
                               </picture>
@@ -343,7 +350,7 @@
                             <div class="relative overflow-hidden rounded-xl">
                               ${mediaItem.blurhash ? `<canvas class="absolute inset-0 -z-1 w-full h-full object-contain" data-blurhash="${mediaItem.blurhash}"></canvas>` : ''}
                               <a href="${replaceFileUrl(mediaItem.url)}">
-                                <picture class="block !mt-0 !mb-0 w-full h-full ${objectFitClass}">
+                                <picture class="block w-full h-full ${objectFitClass}">
                                   <source srcset="${replaceFileUrl(mediaItem.preview_url)}!mastodon.avif" type="image/avif">
                                   <img src="${replaceFileUrl(mediaItem.preview_url)}" alt="${mediaItem.description}" class="w-full h-full ${objectFitClass}" nozoom loading="lazy">
                                 </picture>
@@ -365,29 +372,29 @@
 
         // 底部按钮
         article.innerHTML += `
-          <div class="flex justify-between md:justify-start items-center gap-4 pt-3 border-t border-zinc-300">
-            <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700-600 hover:text-zinc-900-700 hover:bg-zinc-300 rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
+          <div class="flex justify-between md:justify-start items-center gap-4 pt-3 border-t border-zinc-300 dark:border-[#cdd9e51a]">
+            <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7] hover:bg-zinc-300 dark:hover:bg-[#22272e] rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
               <span><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M204.2 18.4c12 5 19.8 16.6 19.8 29.6v80h112c97.2 0 176 78.8 176 176c0 113.3-81.5 163.9-100.2 174.1c-2.5 1.4-5.3 1.9-8.1 1.9c-10.9 0-19.7-8.9-19.7-19.7c0-7.5 4.3-14.4 9.8-19.5c9.4-8.8 22.2-26.4 22.2-56.7c0-53-43-96-96-96h-96v80c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-160-160c-12.5-12.5-12.5-32.8 0-45.3l160-160c9.2-9.2 22.9-11.9 34.9-6.9z" /></svg></span>
               ${post.replies_count ? `<span class="mt-footer-reply">${post.replies_count}</span>` : ''}
             </button>
-            <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700-600 hover:text-zinc-900-700 hover:bg-zinc-300 rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
+            <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7] hover:bg-zinc-300 dark:hover:bg-[#22272e] rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
               <span><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M118.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-9.2 9.2-11.9 22.9-6.9 34.9S19.1 160 32 160h32v224c0 53 43 96 96 96h128c17.7 0 32-14.3 32-32s-14.3-32-32-32H160c-17.7 0-32-14.3-32-32V160h32c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-64-64zm338.8 429.2c12.5 12.5 32.8 12.5 45.3 0l64-64c9.2-9.2 11.9-22.9 6.9-34.9S556.9 352 544 352h-32V128c0-53-43-96-96-96H288c-17.7 0-32 14.3-32 32s14.3 32 32 32h128c17.7 0 32 14.3 32 32v224h-32c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l64 64z" /></svg></span>
               ${post.reblogs_count ? `<span class="mt-footer-reblog">${post.reblogs_count}</span>` : ''}
             </button>
-            <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700-600 hover:text-zinc-900-700 hover:bg-zinc-300 rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
+            <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7] hover:bg-zinc-300 dark:hover:bg-[#22272e] rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
               <span><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1l-73.6 144.2l-159.9 25.4c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5l-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2l144.4-73.4L432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2l-25.3-159.9l114.4-114.5c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3z" /></svg></span>
               ${post.favourites_count ? `<span class="mt-footer-favourit">${post.favourites_count}</span>` : ''}
             </button>
-            <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700-600 hover:text-zinc-900-700 hover:bg-zinc-300 rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
+            <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7] hover:bg-zinc-300 dark:hover:bg-[#22272e] rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
               <span><svg xmlns="http://www.w3.org/2000/svg" width="0.75rem" height="1rem" viewBox="0 0 384 512"><path fill="currentColor" d="M64 0C28.7 0 0 28.7 0 64v416c0 11.5 6.2 22.2 16.2 27.8s22.3 5.5 32.2-.4L192 421.3l143.5 86.1c9.9 5.9 22.2 6.1 32.2.4S384 491.5 384 480V64c0-35.3-28.7-64-64-64z" /></svg></span>
               ${post.bookmarked ? `<span class="mt-footer-favourit">${post.bookmarked}</span>` : ''}
             </button>
-            <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700-600 hover:text-zinc-900-700 hover:bg-zinc-300 rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
+            <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7] hover:bg-zinc-300 dark:hover:bg-[#22272e] rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
               <span><svg xmlns="http://www.w3.org/2000/svg" width="0.88rem" height="1rem" viewBox="0 0 448 512"><path fill="currentColor" d="M0 256a56 56 0 1 1 112 0a56 56 0 1 1-112 0m168 0a56 56 0 1 1 112 0a56 56 0 1 1-112 0m224-56a56 56 0 1 1 0 112a56 56 0 1 1 0-112" /></svg></span>
             </button>
-            <div class="hidden md:inline px-2 py-1.5 text-zinc-700-600 hover:text-zinc-900-700 text-sm ml-auto">
+            <div class="hidden md:inline px-2 py-1.5 text-zinc-700 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7] text-sm ml-auto">
               <span class="mt-footer-date" data-created-at="${post.created_at}">
-                <a href="${post.url || 'https://e5n.cc/@eallion'}" target="_blank" rel="noopener noreferrer" class="no-underline text-zinc-600 hover:text-zinc-900-700">-</a>
+                <a href="${post.url || 'https://e5n.cc/@eallion'}" target="_blank" rel="noopener noreferrer" class="no-underline text-zinc-600 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7]">-</a>
               </span>
             </div>
           </div>

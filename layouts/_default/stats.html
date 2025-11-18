@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-{{ $statsCss := resources.Get "css/stats.css" | toCSS | minify | fingerprint "sha256" }}
+{{ $statsCss := resources.Get "css/stats.css" | minify | fingerprint "sha256" }}
 <link rel="stylesheet" href="{{ $statsCss.RelPermalink }}" integrity="{{ $statsCss.Data.Integrity }}" crossorigin="anonymous">
 
 {{- /* Stats */ -}}

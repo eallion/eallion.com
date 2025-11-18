@@ -178,8 +178,8 @@ jobs:
 
           # Build Hugo site
           echo "🏗️  Building Hugo site..."
-          pnpm run build:hugo
           pnpm run llms
+          pnpm run build:hugo
           pnpm run build:pagefind
 
           echo "✅ Build completed for: $BUILD_TYPE"

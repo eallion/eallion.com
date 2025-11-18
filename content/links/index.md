@@ -25,13 +25,17 @@ aliases:
 
 🔗 我的友链信息：
 
-> **标题**：eallion's Blog  
-> **URL**: [https://www.eallion.com](https://www.eallion.com)  
-> **Username**: eallion  
-> **Author**: Charles Chin  
-> **Email**: eallion.s+blog@gmail.com  
-> **OpenPGP**: [https://keyoxide.org/E685DDDDDDDDDDDD](https://keyoxide.org/E685DDDDDDDDDDDD)  
-> **Avatar**: [https://avatars.githubusercontent.com/u/1698841?v=4](https://avatars.githubusercontent.com/u/1698841?v=4)  
-> **Gravatar**: [https://gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31](https://gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31)  
-> **描述**：机会总是垂青于有准备的人  
-> **Description**: Chance favors the prepared mind  
+| Meta：          | 信息：                                                                                                     |
+| --------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Title**       | eallion's Blog                                                                                             |
+| **URL**         | [https://www.eallion.com](https://www.eallion.com)                                                         |
+| **Username**    | eallion                                                                                                    |
+| **Author**      | Charles Chin                                                                                               |
+| **Description** | Chance favors the prepared mind!                                                                           |
+| **中文标题**    | 大大的小蜗牛                                                                                               |
+| **中文作者**    | 大大的小蜗牛                                                                                               |
+| **中文描述**    | 机会总是垂青于有准备的人！                                                                                 |
+| **Email**       | eallion.s+blog@gmail.com                                                                                   |
+| **OpenPGP**     | [https://keyoxide.org/E685DDDDDDDDDDDD](https://keyoxide.org/E685DDDDDDDDDDDD)                             |
+| **Avatar**      | [https://avatars.githubusercontent.com/u/1698841?v=4](https://avatars.githubusercontent.com/u/1698841?v=4) |
+| **Gravatar**    | [171e4c30959e8c077a6c58b958624b31](https://gravatar.com/avatar/171e4c30959e8c077a6c58b958624b31)           |

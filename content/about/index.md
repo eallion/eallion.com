@@ -18,7 +18,7 @@ sharingLinks: false
 showZenMode: false
 ---
 
-<img class="nozoom" src="/eallion.webp" alt="eallion">
+<img class="nozoom not-prose" src="/eallion.webp" alt="eallion">
 
 > **eallion**: 一个有故事的音译自造词。
 
@@ -33,7 +33,7 @@ ID 也从以前用的 "snaiL" 改成了 "eallion"。
 
 最喜欢的一句话，得于叔叔手札——「机会总是垂青于有准备的人！」
 
-> [Chance favors the prepared mind.](https://en.wikipedia.org/wiki/Louis_Pasteur#Career) - *Louis Pasteur*
+> <a href="https://en.wikipedia.org/wiki/Louis_Pasteur#Career" target="_target">Chance favors the prepared mind.</a> - <em>Louis Pasteur</em>
 
 浅显易懂，并无玄机。后得知出处，是为座右铭。
 
@@ -50,7 +50,7 @@ ID 也从以前用的 "snaiL" 改成了 "eallion"。
 
 ### 声明
 
-本人只活跃在 [`GitHub`](https://github.com/eallion)、[`Mastodon`](https://e5n.cc/@eallion)、[`Steam`](https://steamcommunity.com/id/eallion)上，其他平台同名账号绝非本人所有。
+本人只活跃在 [`GitHub`](https://github.com/eallion)、[`Mastodon`](https://e5n.cc/@eallion)、[`Steam`](https://steamcommunity.com/id/eallion) 上，其他平台同名账号绝非本人所有。
 
 本站拥有唯一域名 `eallion.com` 、二级域名 `www.eallion.com`。除此之外的相关、相似域名，除非由本人实名认证，或者备案在本人名下，否则皆为他人所有，或者被他人盗用信息，与本人无关。
 

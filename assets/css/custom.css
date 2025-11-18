@@ -1,5 +1,30 @@
 /* CSS Custom */
 
+/*
+.dark: Github Dark Dimmed Theme Colors
+
+背景
+canvas-default  #22272e  主背景色 (Body Background)
+canvas-overlay  #2d333b  弹窗、下拉菜单、以及 Hover 状态
+canvas-inset  #1c2128  代码块背景、嵌入式面板
+canvas-subtle  #252a33  侧边栏或次级背景 (有时也用 inset)
+
+文字
+fg-default  #adbac7  主文字颜色 (Primary Text)
+fg-muted  #768390  次要文字、注释、说明
+fg-subtle  #545d68  占位符、极弱文字
+fg-on-emphasis  #ffffff  按钮上的文字（高亮背景下）
+
+边框
+border-default  #444c56  主要边框颜色 (Cards, Inputs)
+border-muted  #373e47  次要分割线
+border-subtle  #cdd9e51a  极淡边框 (10% 透明度)
+*/
+
+
+.dark .chroma {
+  background-color: #2d333b;
+}
 /* Tailwindcss Custom */
 /* 关键：只选择不是 <pre> 标签的直接子元素的 <code> */
 .prose code:not(pre > code) {
@@ -32,9 +57,15 @@
   display: inline-block;
 }
 
+.dark .prose code:not(pre > code) {
+  /* GitHub Light */
+  background-color: #656c7633;
+  color: #d1d7e0;
+  border: 1px solid #444c56;
+}
+
 /* Tailwind CSS Blockquote p */
 .prose {
-
   /* 移除第一个 <p> 标签前的 `open-quote` */
   :where(blockquote p:first-of-type):not(:where([class~="not-prose"], [class~="not-prose"] *))::before {
     content: '';
@@ -59,324 +90,16 @@
   /* 保持图标垂直对齐 */
 }
 
-/* * ----------------------------------------------------
- * 自定义 CSS 样式（为了处理 .TableOfContents 渲染的结构）
- * ----------------------------------------------------
- */
-
-/* TOC 滚动容器样式优化 */
-.toc-scroll-wrapper {
-  /* 自定义滚动条样式 */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-  /* 禁用横向滚动，防止页面抖动 */
-  overflow-x: hidden;
+/* 添加 hr 样式 */
+hr {
+  @apply border-zinc-200;
 }
 
-/* TOC 容器默认样式 - JS 会动态设置 max-height */
-@media (min-width: 1024px) {
-  .toc-scroll-wrapper {
-    /* 默认最大高度，防止 JS 加载前布局跳动 */
-    max-height: calc(100vh - 10rem);
-  }
+.dark hr {
+  @apply border-[#444c56];
 }
 
-.toc-scroll-wrapper::-webkit-scrollbar {
-  width: 6px;
-}
-
-.toc-scroll-wrapper::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.toc-scroll-wrapper::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-  transition: background-color 0.2s;
-}
-
-.toc-scroll-wrapper::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-/* 移除默认的 Hugo TOC nav 标签样式 */
-.toc-content-wrapper nav {
-  all: unset;
-  display: block;
-}
-
-/* TOC 内容不超出容器宽度 */
-.toc-content-wrapper {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-}
-
-/* 重置所有列表样式 */
-.toc-content-wrapper ul {
-  @apply list-none p-0 m-0;
-}
-
-.toc-content-wrapper li {
-  @apply m-0;
-}
-
-/* 一级标题链接（H2） */
-.toc-content-wrapper > nav > ul > li > a {
-  @apply block py-2 px-3 my-1 rounded-lg text-sm font-medium text-zinc-700 transition-all duration-200 ease-in-out;
-  @apply hover:bg-zinc-200/60 hover:text-zinc-900 hover:translate-x-0.5;
-  position: relative;
-}
-
-/* 一级标题激活状态 */
-.toc-content-wrapper > nav > ul > li > a.active {
-  @apply bg-white text-zinc-900 font-bold shadow-sm;
-  padding-left: calc(0.75rem - 3px);
-}
-
-/* 二级及以下标题容器 */
-.toc-content-wrapper ul ul {
-  @apply pl-4 mt-1 mb-2 border-l border-zinc-200/60;
-}
-
-/* 二级标题链接（H3） */
-.toc-content-wrapper ul ul li > a {
-  @apply block py-1.5 px-2 my-0.5 rounded text-xs text-zinc-600 transition-all duration-150 ease-in-out;
-  @apply hover:bg-zinc-100 hover:text-zinc-800 hover:translate-x-0.5;
-}
-
-/* 二级标题激活状态 */
-.toc-content-wrapper ul ul li > a.active {
-  @apply bg-zinc-50 text-zinc-800 font-semibold;
-}
-
-/* 三级标题链接（H4） */
-.toc-content-wrapper ul ul ul li > a {
-  @apply text-xs text-zinc-500 py-1 px-2;
-  @apply hover:text-zinc-700 hover:bg-zinc-50;
-}
-
-/* 三级标题激活状态 */
-.toc-content-wrapper ul ul ul li > a.active {
-  @apply text-zinc-700 font-medium bg-zinc-50/90;
-}
-
-/* 四级标题链接（H5） */
-.toc-content-wrapper ul ul ul ul li > a {
-  @apply text-xs text-zinc-400 py-0.5 px-2;
-  @apply hover:text-zinc-600;
-}
-
-/* 四级标题激活状态 */
-.toc-content-wrapper ul ul ul ul li > a.active {
-  @apply text-zinc-600 font-medium;
-}
-
-/* 为激活链接添加平滑的过渡效果 */
-.toc-content-wrapper a {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* 鼠标悬停时的轻微缩放效果 */
-.toc-content-wrapper a:hover {
-  transform: translateX(2px);
-}
-
-/* 首页嘀咕 Ticker */
-/* .ticker {
-  justify-content: flex-end;
-}
-
-#ticker {
-  display: flex;
-  flex: 1 auto;
-  align-items: center;
-  line-height: 32px;
-  height: calc(32px + 0.25rem);
-  max-width: 100%;
-  width: auto;
-  text-align: left;
-  padding: 0;
-  padding-right: 0.5rem;
-  margin-bottom: 1rem;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(to bottom, #6364FF, #563ACC);
-  border-radius: 9999rem;
-}
-
-.ticker-list {
-  width: 100%;
-  overflow: hidden;
-  margin: 0;
-  height: 32px;
-  list-style: none;
-  padding-inline-start: 0;
-  position: relative;
-}
-
-.ticker-item {
-  list-style: none;
-  margin: 0;
-  width: 100%;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  padding-inline-start: 0;
-  color: #fff;
-  font-size: 0.875rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-
-.ticker-item .datetime {
-  font-size: 0.875rem;
-
-
-}
-
-.ticker-item .datetime::after {
-  content: '：';
-  margin-inline-end: -.5em;
-}
-
-.ticker-item.active {
-  text-decoration-line: none;
-  opacity: 1;
-  transform: translateY(0);
-  z-index: 99;
-}
-
-.ticker-item.out {
-  opacity: 0;
-  transform: translateY(-100%);
-}
-
-.ticker-item.in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.ticker-header::before {
-  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1.2rem' height='1.2rem' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M7 2v2h10V2zm10 2v2h2V4zm2 2v8h2V6zm0 8h-8v2h8zm-8 2H9v2h2zm0 2v2h2v-2zm0 2H7v2h4zm-4 0v-2H5v2zm-2-2V6H3v12zM5 6h2V4H5zm4 0v2h2V6zm2 2v2h2V8zm2 0h2V6h-2zm2 0v4h2V8zM9 8H7v4h2z'/%3E%3C/svg%3E");
-  white-space: nowrap;
-  display: inline-block;
-  vertical-align: middle;
-  margin-bottom: -0.25rem;
-  width: 1.25rem;
-  text-align: center;
-  margin-left: 0.5rem;
-}
-
-.ticker-item a {
-  color: #fff;
-  white-space: nowrap;
-  display: inline;
-}
-
-.ticker-item.code {
-  white-space: nowrap !important;
-} */
-
-/* 热力图 Heatmap */
-
-/* .heatmap_week {
-  display: flex;
-  flex-direction: column;
-}
-
-.heatmap_day {
-  width: 10px;
-  height: 10px;
-  background-color: #ebedf0;
-  margin: 1px;
-  border-radius: 2px;
-  display: inline-block;
-  position: relative;
-}
-
-.heatmap_tooltip {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  width: max-content;
-  background-color: #24292f;
-  color: #fff;
-  font-size: 12px;
-  line-height: 16px;
-  padding: 8px;
-  border-radius: 3px;
-  white-space: pre-wrap;
-  opacity: 1;
-  transition: 0.3s;
-  z-index: 1000;
-  text-align: right;
-  transform: translateX(-50%);
-}
-
-.dark .heatmap_tooltip {
-  background-color: #636e7b;
-  color: #cdd9e5;
-}
-
-.heatmap_tooltip_count,
-.heatmap_tooltip_post {
-  display: inline-block;
-}
-
-.heatmap_tooltip_title,
-.heatmap_tooltip_date {
-  display: block;
-}
-
-.heatmap_tooltip_date {
-  margin: 0 0.25rem;
-}
-
-.heatmap_day_level_0 {
-  background-color: #ebedf0;
-}
-
-.heatmap_day_level_1 {
-  background-color: #9be9a8;
-}
-
-.heatmap_day_level_2 {
-  background-color: #40c463;
-}
-
-.heatmap_day_level_3 {
-  background-color: #30a14e;
-}
-
-.heatmap_day_level_4 {
-  background-color: #216e39;
-}
-
-.dark .heatmap_day_level_0 {
-  background-color: #161b22;
-}
-
-.dark .heatmap_day_level_1 {
-  background-color: #0e4429;
-}
-
-.dark .heatmap_day_level_2 {
-  background-color: #006d32;
-}
-
-.dark .heatmap_day_level_3 {
-  background-color: #26a641;
-}
-
-.dark .heatmap_day_level_4 {
-  background-color: #39d353;
-} */
-
-/*
+/* 添加 "not by AI" 徽章 */
 .notbyai {
     display: block;
     margin: 0;
@@ -410,16 +133,151 @@
     background-image: url(/assets/images/not-by-ai/painted-by-human/svg/painted-by-human-not-by-ai-badge-black.svg);
 }
 
+/* 添加 "Non Bot" 徽章 */
 .nonbot {
     display: block;
-    margin: -10px;
+    margin: 0;
     padding: 0;
-    width: 67px;
-    height: 58px;
+    width: 52px;
+    height: 42px;
     background-repeat: no-repeat;
     background-image: url(/assets/images/nonbot/nonbot_pledged_logo.svg);
 }
-*/
+
+/* * ----------------------------------------------------
+ * 自定义 CSS 样式（为了处理 .TableOfContents 渲染的结构）
+ * ----------------------------------------------------
+ */
+
+/* TOC 滚动容器样式优化 */
+.toc-scroll-wrapper {
+  /* 自定义滚动条样式 */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  /* 禁用横向滚动，防止页面抖动 */
+  overflow-x: hidden;
+}
+
+.dark .toc-scroll-wrapper {
+  scrollbar-color: #22272e transparent;
+}
+
+/* TOC 容器默认样式 - JS 会动态设置 max-height */
+@media (min-width: 1024px) {
+  .toc-scroll-wrapper {
+    /* 默认最大高度，防止 JS 加载前布局跳动 */
+    max-height: calc(100vh - 10rem);
+  }
+}
+
+.toc-scroll-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.toc-scroll-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toc-scroll-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  transition: background-color 0.2s;
+}
+
+.dark .toc-scroll-wrapper::-webkit-scrollbar-thumb {
+  background-color: #22272e;
+}
+
+.toc-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.dark .toc-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: #22272e;
+}
+
+/* 移除默认的 Hugo TOC nav 标签样式 */
+.toc-content-wrapper nav {
+  all: unset;
+  display: block;
+}
+
+/* TOC 内容不超出容器宽度 */
+.toc-content-wrapper {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+/* 重置所有列表样式 */
+.toc-content-wrapper ul {
+  @apply list-none p-0 m-0;
+}
+
+.toc-content-wrapper li {
+  @apply m-0;
+}
+
+/* 一级标题链接（H2） */
+.toc-content-wrapper > nav > ul > li > a {
+  @apply block py-2 px-3 my-1 rounded-lg text-sm font-medium text-zinc-700 dark:text-[#768390] transition-all duration-200 ease-in-out;
+  @apply hover:bg-zinc-200/60 dark:hover:bg-[#2d333b] hover:text-zinc-900 dark:hover:text-[#adbac7] hover:translate-x-0.5;
+  position: relative;
+}
+
+/* 一级标题激活状态 */
+.toc-content-wrapper > nav > ul > li > a.active {
+  @apply bg-white dark:bg-[#22272e] text-zinc-900 dark:text-[#adbac7] font-bold shadow-sm;
+  padding-left: calc(0.75rem - 3px);
+}
+
+/* 二级及以下标题容器 */
+.toc-content-wrapper ul ul {
+  @apply pl-4 mt-1 mb-2 border-l border-zinc-200/60 dark:border-[#444c56]/60;
+}
+
+/* 二级标题链接（H3） */
+.toc-content-wrapper ul ul li > a {
+  @apply block py-1.5 px-2 my-0.5 rounded text-xs text-zinc-600 dark:text-[#768390] transition-all duration-150 ease-in-out;
+  @apply hover:bg-zinc-100 dark:hover:bg-[#2d333b] hover:text-zinc-800 dark:hover:text-[#adbac7] hover:translate-x-0.5;
+}
+
+/* 二级标题激活状态 */
+.toc-content-wrapper ul ul li > a.active {
+  @apply bg-zinc-50 dark:bg-[#22272e] text-zinc-800 dark:text-[#adbac7] font-semibold;
+}
+
+/* 三级标题链接（H4） */
+.toc-content-wrapper ul ul ul li > a {
+  @apply text-xs text-zinc-500 dark:text-[#768390] py-1 px-2;
+  @apply hover:text-zinc-700 dark:hover:text-[#adbac7];
+}
+
+/* 三级标题激活状态 */
+.toc-content-wrapper ul ul ul li > a.active {
+  @apply text-zinc-700 dark:text-[#adbac7] font-medium bg-zinc-50/90 dark:bg-[#22272e]/90;
+}
+
+/* 四级标题链接（H5） */
+.toc-content-wrapper ul ul ul ul li > a {
+  @apply text-xs text-zinc-400 py-0.5 px-2 dark:text-[#768390] dark:bg-[#22272e];
+  @apply hover:text-zinc-600 dark:hover:text-[#adbac7];
+}
+
+/* 四级标题激活状态 */
+.toc-content-wrapper ul ul ul ul li > a.active {
+  @apply text-zinc-600 dark:text-[#adbac7] font-medium;
+}
+
+/* 为激活链接添加平滑的过渡效果 */
+.toc-content-wrapper a {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 鼠标悬停时的轻微缩放效果 */
+.toc-content-wrapper a:hover {
+  transform: translateX(2px);
+}
 
 /* 原生 CSS 中文排版优化 - 替代 Heti JavaScript 方案 */
 /* 基于原生 CSS 属性，无需 JavaScript */
