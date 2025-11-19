@@ -1,3 +1,9 @@
+## v6.0.1 (2025-11-20)
+
+### New feature
+
+- support darkmode and fix bugs([`2ebb919`](https://github.com/eallion/eallion.com/commit/2ebb9197e0e97705a0e6d9fb3af51854400cae0b)) (by Charles Chin)
+
 ## v6.0.0 (2025-11-19)
 
 ### New feature
