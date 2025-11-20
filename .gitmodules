@@ -1,3 +1,3 @@
 [submodule "themes/pehe"]
 	path = themes/pehe
-	url = https://github.com/eallion/pehe.git
+	url = git@github.com:eallion/pehe.git

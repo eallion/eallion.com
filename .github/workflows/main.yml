@@ -44,7 +44,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          submodules: true
+          submodules: recursive
           fetch-depth: 1
 
       - name: Setup Hugo
