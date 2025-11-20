@@ -55,14 +55,14 @@ aliases:
 
 我们提供服务时，不会收集、储存和使用与您有关的信息。
 
-* 本博客无 `Google analytics`、`Umami` `Plausible` 等统计系统。
+* 本博客无 `Google analytics`、`Umami`、`Plausible` 等统计系统。
 
-* Giscus 评论系统基于您的**主动提交**会读取您的 `GitHub` 信息：
+* Giscus 评论系统基于您的**主动登录**会读取您的 `GitHub` 信息：
 
   * Read access to metadata
   * Read and write access to discussions
 
-如果您不提供相关信息，不影响浏览本站。
+如果您不登录 Giscus，不影响浏览本站。
 
 **以下是您浏览本站时提供的公开信息（基于本地浏览器检测）：**
 

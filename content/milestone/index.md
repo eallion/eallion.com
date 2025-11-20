@@ -24,7 +24,7 @@ aliases:
 
 ### 主题 Pehe {#主题-Pehe}
 
-{{< timeline-item date="Nov 19, 2025" index="1" title="主题 Pehe" >}}博客主题迁移到 [Pehe](https://github.com/eallion/pehe)（[Pehtheme-hugo](https://github.com/fauzanmy/pehtheme-hugo) enhanced）。<br>Fork 了 pehtheme，升级到 TailwindCSS v4 并作了大量修改，修复大量 Bug，完善大量功能。{{< /timeline-item >}}
+{{< timeline-item date="Nov 19, 2025" index="1" title="主题 Pehe" >}}博客主题迁移到 [Pehe](https://github.com/eallion/pehe)（[Pehtheme-hugo](https://github.com/fauzanmy/pehtheme-hugo) enhanced）。<br>Fork 了 pehtheme，升级到 TailwindCSS v4 并作了大量修改，修复大量 Bug，完善大量功能。如：Pagefind、Darkmode…{{< /timeline-item >}}
 
 ### Directus {#directus}
 
