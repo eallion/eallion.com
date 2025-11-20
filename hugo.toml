@@ -44,6 +44,11 @@ ignoreFiles = [
     { steam = "https://steamcommunity.com/id/eallion" }
   ]
 
+[params.StyleName]
+  # CDN 里的处理处理样式，如：https://cloud.tencent.com/document/product/436/42214
+  delimiter = "!"
+  style = "hugo.avif"
+
 [params.verification]
   google = "9Mvl_9FEM5JphVmp-u9ljtlChFohWuBBFjlSS89QKVU"
   bing = "68A03C00DAFAD54E3739A8D372D9371B"
