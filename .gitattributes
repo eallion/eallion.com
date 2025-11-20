@@ -1,7 +1,6 @@
 #####################################################################
 # 1. 换行符标准化 (EOL Normalization)
 #    确保所有文本文件在 Git 中以 LF 存储，签出时根据系统自动转换。
-
 # 针对常见的文本文件类型
 *.css          text eol=lf
 *.htm          text eol=lf
@@ -64,4 +63,5 @@
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 *.mov filter=lfs diff=lfs merge=lfs -text
 *.avi filter=lfs diff=lfs merge=lfs -text
+*.avif filter=lfs diff=lfs merge=lfs -text
 * !text !filter !merge !diff
