@@ -45,6 +45,7 @@
     --color-white: #fff;
     --spacing: 0.25rem;
     --container-sm: 24rem;
+    --container-lg: 32rem;
     --container-3xl: 48rem;
     --container-4xl: 56rem;
     --container-7xl: 80rem;
@@ -1194,6 +1195,9 @@
   .max-w-full {
     max-width: 100%;
   }
+  .max-w-lg {
+    max-width: var(--container-lg);
+  }
   .max-w-none {
     max-width: none;
   }
@@ -1594,6 +1598,9 @@
       background-color: color-mix(in oklab, var(--color-black) 40%, transparent);
     }
   }
+  .bg-blue-500 {
+    background-color: var(--color-blue-500);
+  }
   .bg-blue-600 {
     background-color: var(--color-blue-600);
   }
@@ -1629,6 +1636,9 @@
   }
   .bg-zinc-100 {
     background-color: var(--color-zinc-100);
+  }
+  .bg-zinc-800 {
+    background-color: var(--color-zinc-800);
   }
   .bg-zinc-900 {
     background-color: var(--color-zinc-900);
@@ -3140,6 +3150,11 @@
   .dark\:bg-\[\#768390\] {
     &:where(.dark, .dark *) {
       background-color: #768390;
+    }
+  }
+  .dark\:bg-blue-700 {
+    &:where(.dark, .dark *) {
+      background-color: var(--color-blue-700);
     }
   }
   .dark\:text-\[\#768390\] {
