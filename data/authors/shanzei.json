@@ -1,0 +1,10 @@
+{
+  "name": "山贼",
+  "image" : "https://images.eallion.com/avatar/shanzei.png!hugo.webp",
+  "headline" : "山寨版山贼",
+  "bio": "山寨版山贼",
+  "social": [
+    { "email" : "mailto:shanzei@eallion.com" },
+    { "globe": "https://www.eallion.com/categories/sz/" }
+  ]
+}

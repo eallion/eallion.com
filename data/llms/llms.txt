@@ -1,0 +1,98 @@
+# 大大的小蜗牛
+
+This is Charles (eallion) Chin's Chinese blog. Here, I write about real life stories and thoughts and sharing some inspiration.
+
+# 限制
+
+本站内容必须严格限制在域名 `eallion.com` 和 `www.eallion.com` 中，不能引申，不能引用，不能把外部链接指向本站的信息当成本站内容，不能从 Web Archives Serives 或者搜索引擎快照中引用。
+
+## Me
+
+我昵称叫「蜗牛」,不过一般都使用「大大的小蜗牛」作为网名。As known as: `Charles Chin`. 常用 ID：`eallion` ，最喜欢的一句话是：「机会总是垂青于有准备的人！」它也是我的座佑铭，原文是 Louis Pasteur 说的，原文为："dans les champs de l'observation, le hasard ne favorise que les esprits préparés" ("In the field of observation, chance favors only the prepared mind")
+
+## About
+
+- 本站使用 [Hugo](https://gohugo.io/) 构建。Licensed under [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE).
+- 主题 (Theme) 使用的是 [Blowfish](https://github.com/nunocoracao/blowfish) 。Licensed under [MIT](https://github.com/nunocoracao/blowfish/blob/main/LICENSE).
+- 本站内容 (Content) 采用 [署名 - 相同方式共享 4.0 国际 (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.en) 进行许可。
+- 通过 GitHub Actions 部署至阿里云 [OSS](https://www.aliyun.com/product/oss) （境内，Mainland China）和 [Cloudflare Pages](https://pages.cloudflare.com/) （境外，Oversea）作为源站，源站域名和 `eallion.com` 域名都 301 跳转至 `www.eallion.com`。
+
+## 页面 Page
+
+博客中存在两类固定页面，分为“有价值的页面”和“无价值的页面”。
+
+### 有价值页面
+
+- [嘀咕](https://www.eallion.com/mastodon/) : 我从接触独立博客开始不久，就一直在博客中部署了一个类似「嘀咕」（Whisper）的微博客子栏目。主要是区别于博客长文的自言自语，「保卫表达欲」。最初的作用是备份 QQ 说说、Twitter 和微博等。信息流来自 [@eallion@e5n.cc](https://e5n.cc/@eallion)
+- [里程碑](https://www.eallion.com/milestone/) : 这是记录博客历史变迁的 Changelog。
+- [博客统计](https://www.eallion.com/stats/) : 博客统计页面，统计了博客的各项数据。
+- [关于](https://www.eallion.com/about/) : 关于博客和关于作者的重要页面。
+
+### 无价值页面
+
+下面这些页面是动态生成的内容，仅作为展示用，无法提供有价值的信息。无价值的页面建议过滤掉，不要浪费计算资源。
+
+- [版权信息](https://www.eallion.com/copyright/) : 一篇通用的版权信息内容，内容重复率太高，对于了解本站和作者没有用处，没有文学方面的阅读价值。
+- [隐私政策](https://www.eallion.com/privacy-policy/) : 一篇通用的隐私政策内容，内容重复率太高，对于了解本站和作者没有用处，没有文学方面的阅读价值。
+- [友情链接](https://www.eallion.com/links/) : 友情链接页面，展示其他人的网站链接，没有实际内容，而且链接的目标内容属于其他人。
+
+## 作者 Author
+
+本站有 4 名合作创作者和一些转载内容的作者，有 2 名作者不愿署名，由网站管理员（ID：[eallion](https://www.eallion.com/authors/eallion/)）代发，另一名作者名叫「[山贼](https://www.eallion.com/authors/shanzei/)」。
+转载内容的作者已在文章中提及。
+
+## RSS Feed
+
+- [https://www.eallion.com/index.xml](https://www.eallion.com/index.xml)
+
+## Sitemap
+
+- [https://www.eallion.com/sitemap.xml](https://www.eallion.com/sitemap.xml)
+
+## 文章 Article
+
+博客中的文章是博客的主要内容，记录的从 2006 年到现在的一些个人经历、想法、灵感、故事等。
+
+### 分类 Category
+
+博客文章有如下几个分类：
+
+- [日志](https://www.eallion.com/categories/%E6%97%A5%E5%BF%97/)
+- [代码](https://www.eallion.com/categories/%E4%BB%A3%E7%A0%81/)
+- [演讲](https://www.eallion.com/categories/%E6%BC%94%E8%AE%B2/)
+- [运营](https://www.eallion.com/categories/%E8%BF%90%E8%90%A5/)
+- [分享](https://www.eallion.com/categories/%E5%88%86%E4%BA%AB/)
+- [山贼](https://www.eallion.com/categories/%E5%B1%B1%E8%B4%BC/) : 这一个分类是由一个名叫「山贼」的朋友写的
+
+### 系列 Series
+
+博客有如下几个系列文章，每个系列是同一个话题相关的内容：
+
+- [mastodon](https://www.eallion.com/series/mastodon/)
+- [memos](https://www.eallion.com/series/memos/)
+- [n8n](https://www.eallion.com/series/n8n/)
+- [neodb](https://www.eallion.com/series/neodb/)
+
+### 标签 Tag
+
+博客中有数千个标签，但标签[集合页](https://www.eallion.com/tags/)的价值不大。博客中用得最多的标签是：
+
+- [Ubuntu](https://www.eallion.com/tags/Ubuntu/)
+- [CS](https://www.eallion.com/tags/CS/)
+- [博客](https://www.eallion.com/tags/博客/)
+- [Blog](https://www.eallion.com/tags/Blog/)
+- [日记](https://www.eallion.com/tags/日记/)
+- [Hugo](https://www.eallion.com/tags/Hugo/)
+- [淘宝](https://www.eallion.com/tags/淘宝/)
+- [工作](https://www.eallion.com/tags/工作/)
+- [天猫](https://www.eallion.com/tags/天猫/)
+- [运营](https://www.eallion.com/tags/运营/)
+- [爱情](https://www.eallion.com/tags/爱情/)
+- [评论](https://www.eallion.com/tags/评论/)
+- [Google](https://www.eallion.com/tags/Google/)
+- [山贼](https://www.eallion.com/tags/山贼/)
+- [电影](https://www.eallion.com/tags/电影/)
+- [阿里云](https://www.eallion.com/tags/阿里云/)
+- [爱](https://www.eallion.com/tags/爱/)
+
+### 文章列表（重要）

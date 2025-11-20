@@ -1,0 +1,13 @@
+{
+  "name" : "Charles Chin",
+  "image" : "https://images.eallion.com/avatar/eallion.png!hugo.webp",
+  "headline" : "机会总是垂青于有准备的人！",
+  "bio" : "Gemini, Millennials, Normie, Kōjigen, N24SWD, AIWS, Upekkha.",
+  "social" : [
+    { "email": "mailto:eallion.s+blog@gmail.com" },
+    { "keyoxide": "https://keyoxide.org/E685DDDDDDDDDDDD" },
+    { "mastodon": "https://e5n.cc/@eallion" },
+    { "github": "https://github.com/eallion" },
+    { "steam": "https://steamcommunity.com/id/eallion" }
+  ]
+}
