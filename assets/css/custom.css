@@ -21,20 +21,7 @@ border-muted  #373e47  次要分割线
 border-subtle  #cdd9e51a  极淡边框 (10% 透明度)
 */
 
-
-.dark .chroma {
-  background-color: #2d333b;
-}
-/* Tailwindcss Custom */
-/* 关键：只选择不是 <pre> 标签的直接子元素的 <code> */
-.prose code:not(pre > code) {
-  /* GitHub Light */
-  background-color: #f6f8fa;
-  color: #24292f;
-
-  border: 1px solid #d0d7de;
-  border-radius: 6px;
-  padding: 0.2em 0.4em;
+code {
   font-family:
     "JetBrains Maple Mono",
     "JetBrainsMono Nerd Font Mono",
@@ -53,6 +40,20 @@ border-subtle  #cdd9e51a  极淡边框 (10% 透明度)
     ui-monospace,
     monospace;
   font-size: 0.875em;
+}
+
+.dark .chroma {
+  background-color: #2d333b;
+}
+/* Tailwindcss Custom */
+/* 关键：只选择不是 <pre> 标签的直接子元素的 <code> */
+.prose code:not(pre > code) {
+  /* GitHub Light */
+  background-color: #f6f8fa;
+  color: #24292f;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 0.2em 0.4em;
   line-height: normal;
   display: inline-block;
 }

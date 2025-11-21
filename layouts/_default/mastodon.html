@@ -1,5 +1,8 @@
 {{ define "main" }}
-
+<link rel="preconnect" href="https://e5n.cc">
+<link rel="dns-prefetch" href="https://e5n.cc">
+<link rel="preconnect" href="https://mstd-s3-files.eallion.com">
+<link rel="dns-prefetch" href="https://mstd-s3-files.eallion.com">
 <style>
   .mt-content a {
     text-decoration: none;
@@ -139,10 +142,15 @@
                 <span class="font-semibold">Loading...</span>
                 <img src="/assets/images/mastodon/loading.gif" alt="loading">
               </div>
-              <div id="mt-update-button-placeholder" class="mt-update-alert hidden">
+              <div id="mt-update-button-placeholder" class="mt-update-alert mb-8 hidden">
                 </div>
               <div id="mt-posts-wrapper" class="mt-posts-wrapper">
                 </div>
+            </div>
+            <div class="w-fit mx-auto my-8 border dark:border-[#444c56] rounded-full px-6 py-2 hover:bg-zinc-200 dark:hover:bg-[#252a33] cursor-pointer">
+              <a href="" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center not-prose gap-1">
+                <div>点击查看更多</div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="inline-block" aria-hidden="true" fill="currentColor" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"></path></svg></a>
             </div>
           </div>
         </div>
@@ -223,7 +231,7 @@
 
 <script>
   // --- Constants and Global Variables ---
-  const API_URL = 'https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=13&exclude_replies=true';
+  const API_URL = 'https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=13&exclude_replies=true&exclude_reblogs=true';
   const CACHE_KEY = 'mastodon_cache';
   const PENDING_KEY = 'mastodon_pending_update';
   const CACHE_LIFETIME = 7 * 24 * 60 * 60 * 1000; // 7 天 (首次缓存有效期)
@@ -389,7 +397,7 @@
           <div class="flex-1 flex flex-row items-start min-w-0">
             <div class="flex flex-col flex-wrap items-start gap-0 mb-1">
               <span class="mt-accout-name font-semibold hover:font-extrabold text-zinc-700-700 hover:text-zinc-900">${post.reblog ? post.reblog.account.display_name : 'Charles Chin'}</span>
-              <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" class="mt-accout-id decoration-auto no-underline hover:underline">${post.reblog ? post.reblog.account.acct : '@eallion@e5n.cc'}</a>
+              <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" class="mt-accout-id text-base decoration-auto no-underline hover:underline">${post.reblog ? post.reblog.account.acct : '@eallion@e5n.cc'}</a>
             </div>
             <div class="inline md:hidden px-2 py-1.5 text-zinc-700 hover:text-zinc-900 text-sm ml-auto">
               <span class="mt-footer-date" data-created-at="${post.created_at}">
@@ -419,7 +427,7 @@
 
       // 内容部分
       article.innerHTML += `
-        <div class="mt-content mb-4 prose dark:prose-invert">
+        <div class="mt-content my-4 prose dark:prose-invert">
           ${encodeExternalLinks(post.reblog?.content || post.content)}
 
           ${post.media_attachments.length > 0 ? `
@@ -445,9 +453,9 @@
                   );
                   mediaHtml = `
                     <div class="flex flex-row h-full">
-                      <div class="w-full rounded-xl overflow-hidden">
-                        ${singleMedia.blurhash ? `<canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-cover" data-blurhash="${singleMedia.blurhash}"></canvas>` : ''}
-                        <a href="${replaceFileUrl(singleMedia.url)}">
+                      <div class="relative w-full rounded-xl overflow-hidden">
+                        ${singleMedia.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 object-cover" data-blurhash="${singleMedia.blurhash}"></canvas>` : ''}
+                        <a href="${replaceFileUrl(singleMedia.url)}" class="relative z-10">
                           <picture class="block w-full h-full ${objectFitClass}">
                             <source srcset="${replaceFileUrl(singleMedia.preview_url)}!mastodon.avif" type="image/avif">
                             <img src="${replaceFileUrl(singleMedia.preview_url)}" alt="${singleMedia.description}" class="w-full h-full ${objectFitClass}" nozoom loading="lazy">
@@ -467,8 +475,8 @@
                         const alignmentClass = index === 0 ? 'left-0' : 'right-0';
                         return `
                           <div class="relative w-1/2 rounded-xl overflow-hidden">
-                            ${mediaItem.blurhash ? `<canvas class="absolute inset-0 -z-1 w-full h-full top-0 object-contain ${alignmentClass}" data-blurhash="${mediaItem.blurhash}"></canvas>` : ''}
-                            <a href="${replaceFileUrl(mediaItem.url)}">
+                            ${mediaItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 object-contain ${alignmentClass}" data-blurhash="${mediaItem.blurhash}"></canvas>` : ''}
+                            <a href="${replaceFileUrl(mediaItem.url)}" class="relative z-10">
                               <picture class="block w-full h-full ${objectFitClass}">
                                 <source srcset="${replaceFileUrl(mediaItem.preview_url)}!mastodon.avif" type="image/avif">
                                 <img src="${replaceFileUrl(mediaItem.preview_url)}" alt="${mediaItem.description}" class="w-full h-full ${objectFitClass}" nozoom loading="lazy">
@@ -497,8 +505,8 @@
                   mediaHtml = `
                     <div class="flex h-full gap-2.5">
                       <div class="relative w-1/2 overflow-hidden rounded-xl">
-                        ${firstItem.blurhash ? `<canvas class="absolute inset-0 -z-1 w-full h-full top-0 left-0 object-contain" data-blurhash="${firstItem.blurhash}"></canvas>` : ''}
-                        <a href="${replaceFileUrl(firstItem.url)}">
+                        ${firstItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 left-0 object-contain" data-blurhash="${firstItem.blurhash}"></canvas>` : ''}
+                        <a href="${replaceFileUrl(firstItem.url)}" class="relative z-10">
                           <picture class="block w-full h-full ${firstFitClass}">
                             <source srcset="${replaceFileUrl(firstItem.preview_url)}!mastodon.avif" type="image/avif">
                             <img src="${replaceFileUrl(firstItem.preview_url)}" alt="${firstItem.description}" class="w-full h-full ${firstFitClass}" nozoom loading="lazy">
@@ -507,8 +515,8 @@
                       </div>
                       <div class="w-1/2 flex flex-col gap-2.5">
                         <div class="relative h-1/2 overflow-hidden rounded-xl">
-                          ${secondItem.blurhash ? `<canvas class="absolute inset-0 -z-1 w-full h-full top-0 right-0 object-contain" data-blurhash="${secondItem.blurhash}"></canvas>` : ''}
-                          <a href="${replaceFileUrl(secondItem.url)}">
+                          ${secondItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 right-0 object-contain" data-blurhash="${secondItem.blurhash}"></canvas>` : ''}
+                          <a href="${replaceFileUrl(secondItem.url)}" class="relative z-10">
                             <picture class="block w-full h-full ${secondFitClass}">
                               <source srcset="${replaceFileUrl(secondItem.preview_url)}!mastodon.avif" type="image/avif">
                               <img src="${replaceFileUrl(secondItem.preview_url)}" alt="${secondItem.description}" class="w-full h-full ${secondFitClass}" nozoom loading="lazy">
@@ -516,8 +524,8 @@
                           </a>
                         </div>
                         <div class="relative h-1/2 overflow-hidden rounded-xl">
-                          ${thirdItem.blurhash ? `<canvas class="absolute inset-0 -z-1 w-full h-full bottom-0 right-0 object-contain" data-blurhash="${thirdItem.blurhash}"></canvas>` : ''}
-                          <a href="${replaceFileUrl(thirdItem.url)}">
+                          ${thirdItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full bottom-0 right-0 object-contain" data-blurhash="${thirdItem.blurhash}"></canvas>` : ''}
+                          <a href="${replaceFileUrl(thirdItem.url)}" class="relative z-10">
                             <picture class="block w-full h-full ${thirdFitClass}">
                               <source srcset="${replaceFileUrl(thirdItem.preview_url)}!mastodon.avif" type="image/avif">
                               <img src="${replaceFileUrl(thirdItem.preview_url)}" alt="${thirdItem.description}" class="w-full h-full ${thirdFitClass}" nozoom loading="lazy">
@@ -537,8 +545,8 @@
                         );
                         return `
                           <div class="relative overflow-hidden rounded-xl">
-                            ${mediaItem.blurhash ? `<canvas class="absolute inset-0 -z-1 w-full h-full object-contain" data-blurhash="${mediaItem.blurhash}"></canvas>` : ''}
-                            <a href="${replaceFileUrl(mediaItem.url)}">
+                            ${mediaItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full object-contain" data-blurhash="${mediaItem.blurhash}"></canvas>` : ''}
+                            <a href="${replaceFileUrl(mediaItem.url)}" class="relative z-10">
                               <picture class="block w-full h-full ${objectFitClass}">
                                 <source srcset="${replaceFileUrl(mediaItem.preview_url)}!mastodon.avif" type="image/avif">
                                 <img src="${replaceFileUrl(mediaItem.preview_url)}" alt="${mediaItem.description}" class="w-full h-full ${objectFitClass}" nozoom loading="lazy">
@@ -672,8 +680,8 @@
       const countText = newCount > 0 ? `${newCount} 条新嘟文` : '嘟文已更新';
 
       updateButtonPlaceholder.innerHTML = `
-        <div class="flex items-center justify-center p-2 bg-blue-500 text-white dark:bg-blue-700 rounded-md shadow-lg transition-all mx-auto max-w-lg cursor-pointer" onclick="loadNewContent()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1.2rem" height="1.2rem" viewBox="0 0 24 24" class="mr-2 animate-spin-slow"><path fill="currentColor" d="M12 4V2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10c0-1.28-.24-2.5-.7-3.6l-1.77 1.77c.36.75.57 1.58.57 2.37c0 4.42-3.58 8-8 8s-8-3.58-8-8s3.58-8 8-8c1.55 0 2.97.45 4.2 1.22L12 9V4zM16 4h4v4h-4z"/></svg>
+        <div class="flex items-center justify-center w-fit mx-auto border dark:border-[#444c56] rounded-full px-6 py-2 hover:bg-zinc-200 dark:hover:bg-[#252a33] cursor-pointer" onclick="loadNewContent()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="16" stroke-dashoffset="16" d="M12 3c4.97 0 9 4.03 9 9"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="16;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path><path stroke-dasharray="64" stroke-dashoffset="64" stroke-opacity="0.3" d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.2s" values="64;0"/></path></g></svg>
             <span>点击查看 ${countText}</span>
         </div>
       `;

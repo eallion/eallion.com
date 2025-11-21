@@ -48,6 +48,9 @@ ignoreFiles = [
   # CDN 里的处理处理样式，如：https://cloud.tencent.com/document/product/436/42214
   delimiter = "!"
   style = "hugo.avif"
+  featured = "hugo_featured.avif"
+  card = "hugo_card.avif"
+  list = "hugo_list.avif"
 
 [params.verification]
   google = "9Mvl_9FEM5JphVmp-u9ljtlChFohWuBBFjlSS89QKVU"

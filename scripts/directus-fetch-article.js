@@ -13,7 +13,7 @@ const DIRECTUS_S3_URL = process.env.DIRECTUS_S3_URL;
 const HUGO_CONTENT_DIR = path.join(__dirname, '..', 'content', 'blog');
 
 // 默认图片 URL
-const DEFAULT_IMAGE_URL = 'https://images.eallion.com/directus/files/26d28614-96a9-42f9-99aa-e0c2425fdb72.jpg';
+const DEFAULT_IMAGE_URL = 'https://images.eallion.com/directus/files/ce35a8bb-fbda-468c-9aa8-d3599e538566.jpg';
 
 /**
  * 从 Directus API 分页获取所有非草稿文章
