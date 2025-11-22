@@ -33,3 +33,8 @@ services:
       - STORAGE_S3_BUCKET=directus
       - STORAGE_S3_REGION=auto
       - STORAGE_S3_ENDPOINT=https://ACCOUNT_ID.r2.cloudflarestorage.com
+    deploy:
+      resources:
+        limits:
+          cpus: '0.25'
+          memory: 256M

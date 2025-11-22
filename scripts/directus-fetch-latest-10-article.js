@@ -13,7 +13,8 @@ const DIRECTUS_S3_URL = process.env.DIRECTUS_S3_URL;
 const HUGO_CONTENT_DIR = path.join(__dirname, '..', 'content', 'blog');
 
 // 默认图片 URL
-const DEFAULT_IMAGE_URL = 'https://images.eallion.com/directus/files/ce35a8bb-fbda-468c-9aa8-d3599e538566.jpg';
+// 默认图片 URL (已移除)
+// const DEFAULT_IMAGE_URL = 'https://images.eallion.com/directus/files/ce35a8bb-fbda-468c-9aa8-d3599e538566.jpg';
 
 /**
  * 从 Directus API 获取最新的 10 篇非草稿文章
@@ -116,11 +117,10 @@ async function createMarkdownFiles(articles) {
     }
 
     // --- 处理 featureimage 字段，并将其重命名为 image ---
-    let imageUrl = DEFAULT_IMAGE_URL;
+    // --- 处理 featureimage 字段，并将其重命名为 image ---
     if (featureimage && typeof featureimage === 'object' && 'filename_disk' in featureimage && featureimage.filename_disk) {
-        imageUrl = `${DIRECTUS_S3_URL}${featureimage.filename_disk}`;
+        frontMatter['image'] = `${DIRECTUS_S3_URL}${featureimage.filename_disk}`;
     }
-    frontMatter['image'] = imageUrl;
 
 
     // 如果 description 为空或不存在，使用 summary 的值替代

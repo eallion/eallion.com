@@ -4,7 +4,7 @@
   "headline" : "山寨版山贼",
   "bio": "山寨版山贼",
   "social": [
-    { "email" : "mailto:shanzei@eallion.com" },
-    { "globe": "https://www.eallion.com/categories/sz/" }
+    { "email" : "shanzei@eallion.com" },
+    { "site": "https://www.eallion.com/categories/sz/" }
   ]
 }

@@ -1,0 +1,28 @@
+threshold = 0
+toLower = false
+
+  [[indices]]
+      name = "tags"
+      weight = 100
+
+  [[indices]]
+      name = "categories"
+      weight = 100
+
+  [[indices]]
+      name = "series"
+      weight = 50
+
+  [[indices]]
+      name = "authors"
+      weight = 20
+
+  [[indices]]
+      name = "date"
+      weight = 10
+
+  [[indices]]
+    applyFilter = false
+    name = 'fragmentrefs'
+    type = 'fragments'
+    weight = 10

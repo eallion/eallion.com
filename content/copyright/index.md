@@ -65,6 +65,8 @@ eallion 的个人博客。
 
 此外：不必经过我的同意，也可任意复制、转载、分享、引用、演绎本站内容。哪怕您进行商业活动，我也不会要求您对复制、转载、分享、引用、演绎的内容进行署名或声明来源。但经过 [特别声明](#%E7%89%B9%E5%88%AB%E5%A3%B0%E6%98%8E) 的内容除外。
 
+> 但不是『[CC0 1.0 通用(CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/deed.zh-hans)』无版权。
+
 本站使用 [Hugo](https://gohugo.io/) 构建：
 
 * 国内：通过 GitHub Actions 部署至阿里云 [OSS](https://s.e5n.cc/oss) & [ESA](https://s.e5n.cc/esa) (Oct 9, 2024)

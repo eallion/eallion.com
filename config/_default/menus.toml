@@ -1,0 +1,77 @@
+# Menu 图标用 Pre 或 Post，且图标存放到 assets/icons/ 或 themes/pehe/assets/icons/
+[[main]]
+  name = '首页'
+  pageRef = '/'
+  weight = 10
+[[main]]
+  name = '嘀咕'
+  pageRef = '/mastodon/'
+  weight = 20
+# [[main]]
+#   name = '统计'
+#   pageRef = '/stats/'
+#   weight = 25
+[[main]]
+  name = '里程碑'
+  pageRef = '/milestone/'
+  weight = 35
+[[main]]
+  name = '友情链接'
+  pageRef = '/links/'
+  weight = 45
+[[main]]
+  name = 'About'
+  pageRef = '/about'
+  weight = 99
+
+[[footer]]
+  name = '首页'
+  pageRef = '/'
+  weight = 10
+[[footer]]
+  name = '嘀咕'
+  pageRef = '/mastodon/'
+  weight = 20
+[[footer]]
+  name = '统计'
+  pageRef = '/stats/'
+  weight = 25
+[[footer]]
+  name = '里程碑'
+  pageRef = '/milestone/'
+  weight = 35
+[[footer]]
+  name = '版权信息'
+  pageRef = '/copyright/'
+  weight = 36
+[[footer]]
+  name = '隐私政策'
+  pageRef = '/privacy-policy/'
+  weight = 37
+[[footer]]
+  name = '友情链接'
+  pageRef = '/links/'
+  weight = 45
+[[footer]]
+  name = 'Status'
+  url = 'https://status.eallion.com?rel=www.eallion.com'
+  weight = 86
+  post = "external-link"
+[[footer]]
+  name = 'DeepWiki'
+  url = 'https://deepwiki.com/eallion/eallion.com?rel=www.eallion.com'
+  weight = 87
+  post = "external-link"
+[[footer]]
+  name = 'RSS'
+  pre = "rss"
+  url = '/index.xml'
+  weight = 88
+[[footer]]
+  name = 'llms.txt'
+  url = '/llms.txt'
+  weight = 89
+[[footer]]
+  name = 'About'
+  pageRef = '/about'
+  weight = 99

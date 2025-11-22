@@ -1,0 +1,31 @@
+[goldmark]
+  [goldmark.renderer]
+    unsafe = true
+    hardWraps = true
+  [goldmark.parser]
+      wrapStandAloneImageWithinParagraph = false
+    [goldmark.parser.attribute]
+        block = true
+  [goldmark.extensions]
+  [goldmark.extensions.passthrough]
+      enable = true
+  [goldmark.extensions.passthrough.delimiters]
+      block = [['\[', '\]'], ['$$', '$$']]
+      inline = [['\(', '\)']]
+
+[highlight]
+  codeFences = true
+  guessSyntax = true
+  lineNos = false
+  lineNumbersInTable = false
+  lineNoStart = 1
+  tabWidth = 2
+  # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
+  # false 是必要的设置 (https://github.com/dillonzq/LoveIt/issues/158)
+  noClasses = false
+  style = 'onedark'
+
+[tableOfContents]
+  endLevel = 5
+  ordered = false
+  startLevel = 3

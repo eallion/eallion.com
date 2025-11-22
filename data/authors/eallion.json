@@ -4,9 +4,9 @@
   "headline" : "机会总是垂青于有准备的人！",
   "bio" : "Gemini, Millennials, Normie, Kōjigen, N24SWD, AIWS, Upekkha.",
   "social" : [
-    { "email": "mailto:eallion.s+blog@gmail.com" },
+    { "email": "eallion.s+blog@gmail.com" },
     { "keyoxide": "https://keyoxide.org/E685DDDDDDDDDDDD" },
-    { "mastodon": "https://e5n.cc/@eallion" },
+    { "mastodon": "@eallion@e5n.cc" },
     { "github": "https://github.com/eallion" },
     { "steam": "https://steamcommunity.com/id/eallion" }
   ]

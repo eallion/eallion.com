@@ -1047,6 +1047,9 @@
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
+  .h-7 {
+    height: calc(var(--spacing) * 7);
+  }
   .h-8 {
     height: calc(var(--spacing) * 8);
   }
@@ -1055,6 +1058,9 @@
   }
   .h-12 {
     height: calc(var(--spacing) * 12);
+  }
+  .h-13 {
+    height: calc(var(--spacing) * 13);
   }
   .h-16 {
     height: calc(var(--spacing) * 16);
@@ -1594,6 +1600,9 @@
       background-color: color-mix(in oklab, var(--color-black) 40%, transparent);
     }
   }
+  .bg-blue-500 {
+    background-color: var(--color-blue-500);
+  }
   .bg-blue-600 {
     background-color: var(--color-blue-600);
   }
@@ -1689,6 +1698,12 @@
     --tw-gradient-to: var(--color-zinc-600);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
+  .fill-current {
+    fill: currentcolor;
+  }
+  .fill-white {
+    fill: var(--color-white);
+  }
   .object-contain {
     object-fit: contain;
   }
@@ -1700,6 +1715,9 @@
   }
   .p-1 {
     padding: calc(var(--spacing) * 1);
+  }
+  .p-1\.5 {
+    padding: calc(var(--spacing) * 1.5);
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
@@ -1847,6 +1865,10 @@
   .text-4xl {
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
   }
   .text-base {
     font-size: var(--text-base);
@@ -2281,12 +2303,6 @@
       content: var(--tw-content);
     }
   }
-  .after\:mr-1 {
-    &::after {
-      content: var(--tw-content);
-      margin-right: calc(var(--spacing) * 1);
-    }
-  }
   .after\:ml-2 {
     &::after {
       content: var(--tw-content);
@@ -2297,24 +2313,6 @@
     &::after {
       content: var(--tw-content);
       opacity: 30%;
-    }
-  }
-  .after\:opacity-50 {
-    &::after {
-      content: var(--tw-content);
-      opacity: 50%;
-    }
-  }
-  .after\:content-\[\'\,\'\] {
-    &::after {
-      --tw-content: ',';
-      content: var(--tw-content);
-    }
-  }
-  .after\:content-\[\'\.\'\] {
-    &::after {
-      --tw-content: '.';
-      content: var(--tw-content);
     }
   }
   .after\:content-\[\'❯\'\] {
@@ -2988,6 +2986,16 @@
   .lg\:flex {
     @media (width >= 64rem) {
       display: flex;
+    }
+  }
+  .lg\:w-2\/5 {
+    @media (width >= 64rem) {
+      width: calc(2/5 * 100%);
+    }
+  }
+  .lg\:w-3\/5 {
+    @media (width >= 64rem) {
+      width: calc(3/5 * 100%);
     }
   }
   .lg\:max-w-fit {

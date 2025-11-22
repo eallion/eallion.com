@@ -604,7 +604,7 @@ async function createMarkdownFiles(articles) {
           // 特别处理 featureimage：从对象中提取 filename_disk 值
           if (value.filename_disk) {
             const imageUrl = `${DIRECTUS_S3_URL}${value.filename_disk}`;
-            frontMatter[key] = imageUrl;
+            frontMatter['image'] = imageUrl;
           } else {
             console.warn(`警告：featureimage 对象中没有 filename_disk 字段`);
           }

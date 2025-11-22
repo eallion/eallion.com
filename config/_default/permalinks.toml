@@ -1,0 +1,2 @@
+blog = "/:contentbasename/" # Don't miss the last slash: "/"
+tags = "/tags/:contentbasename/" # Don't miss the last slash: "/"

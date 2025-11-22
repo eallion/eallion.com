@@ -1,0 +1,100 @@
+hero = true
+selection_category = "精选"
+isoCode = "zh-cn"
+rtl = false
+dateFormat = "Jan 2, 2006"
+logo = "/eallion.webp"
+slogan = "Chance favors the prepared mind!"
+slogan_hover = "机会总是垂青于有准备的人！"
+preconnect = "https://images.eallion.com"
+creativecommons = "by-sa"
+copyright_name = "eallion.com"
+icp = "浙ICP备16031768号-2"
+description = 'Gemini, Millennials, Normie, Kōjigen, N24SWD, AIWS, Upekkha. Geeker, Gamer, Blogger.'
+keywords = ["Gemini", "Millennials", "Normie", "Kōjigen", "N24SWD", "AIWS", "Upekkha", "Geeker", "Gamer", "Blogger"]
+mainSections = 'blog'
+
+# 是否开启外链跳转提示
+redirect = true
+# 外链跳转白名单域名列表
+safe_hosts = [
+  "creativecommons.org",
+  "e5n.cc",
+  "eallion.com",
+  "github.com",
+  "gov.cn",
+  "kubaicai.com"
+]
+
+not_by_ai = true
+
+nonbot = "https://nonbot.org/submissions/view/9cefed7c-dc57-4832-84ec-197314fda979"
+
+# Powered_by to set: | hugo | theme | full |
+powered_by = "full"
+
+# Save svg_title to 'assets/icons/title.svg'
+svg_title = "title"
+
+# Global Follow to set: | mastodon | newsletter |
+follow = "mastodon"
+
+# Site Social Media
+[[social]]
+  name = "Mastodon"
+  url = "https://e5n.cc/@eallion"
+  icon = "mastodon"
+[[social]]
+  name = "GitHub"
+  url = "https://github.com/eallion"
+  icon = "github"
+[[social]]
+  name = "Twitter"
+  url = "https://x.com/eallion"
+  icon = "twitter"
+[[social]]
+  name = "Steam"
+  url = "https://steamcommunity.com/id/eallion"
+  icon = "steam"
+
+# Site.Author & Default Author (if no authors in data/authors/*.json)
+[Author]
+  id = "eallion"
+  name = 'Charles Chin'
+  bio = 'Gemini, Millennials, Normie, Kōjigen, N24SWD, AIWS, Upekkha. Geeker, Gamer, Blogger.'
+  avatar = '/eallion.webp'
+  email = "eallion.s+blog@gmail.com"
+
+  # Brand ID with svg
+  svg = "eallion"
+
+  # Author Social Media
+  social = [
+    { email = "eallion.s+blog@gmail.com" },
+    { keyoxide = "https://keyoxide.org/E685DDDDDDDDDDDD" },
+    { mastodon = "@eallion@e5n.cc" },
+    { github = "https://github.com/eallion" },
+    { steam = "https://steamcommunity.com/id/eallion" }
+  ]
+
+[StyleName]
+  # CDN 里的处理处理样式，如：https://cloud.tencent.com/document/product/436/42214
+  delimiter = "!"
+  style = "hugo.avif"
+  featured = "hugo_featured.avif"
+  card = "hugo_card.avif"
+  list = "hugo_list.avif"
+
+[verification]
+  google = "9Mvl_9FEM5JphVmp-u9ljtlChFohWuBBFjlSS89QKVU"
+  bing = "68A03C00DAFAD54E3739A8D372D9371B"
+  yandex = "ff49a8cfbbaad423"
+  pinterest = "b9e3534b99f9bd82f3b8688a1fa122a8"
+  baidu = "ZWIiTFJWJkGQ11ZJ"
+  so = "05afe845fd64ce6966deadce74479b5b"
+  sogou = "SZM7r2UEOz"
+  fediverse ="@eallion@e5n.cc"
+
+[rssnext]
+  feedId = "42331815237783556"
+  userId = "41909911558319104"

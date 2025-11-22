@@ -1,0 +1,5 @@
+home = ["HTML", "RSS"]
+page = ["HTML"]
+section = ["HTML"]
+taxonomy = ["HTML"]
+term = ["HTML"]

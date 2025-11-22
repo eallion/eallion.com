@@ -1,0 +1,28 @@
+baseURL = 'https://www.eallion.com/'
+defaultContentLanguage = "zh-cn"
+languageCode = 'zh-cn'
+languageName = "简体中文"
+title = "eallion's Blog"
+theme = 'pehe'
+
+summaryLength = 20 # <- 20 words are approximately 160 characters
+# googleAnalytics = 'G-MEASUREMENT_ID' # <- Your GA-4
+# disqusShortname = 'your-disqus-shortname' # <- Get form here : https://disqus.com
+
+hasCJKLanguage = true
+
+buildDrafts = false
+buildFuture = false
+
+enableEmoji = true
+enableRobotsTXT = true
+
+# Suppress warnings about raw HTML in Markdown
+ignoreLogs = ['warning-goldmark-raw-html']
+
+ignoreFiles = [
+  "data/llms/*"
+]
+
+[pagination]
+  pagerSize = 7 # <- Set the desired number of posts per page
