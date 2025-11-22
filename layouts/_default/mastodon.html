@@ -5,11 +5,19 @@
 <link rel="dns-prefetch" href="https://mstd-s3-files.eallion.com">
 <style>
   .mt-content a {
-    text-decoration: none;
+    color: #6364ff;
+    text-decoration: underline;
+    transition: color 0.1s ease, text-decoration 0.1s ease;
   }
 
-  .mt-container a:hover {
-    text-decoration: underline;
+  .mt-container a:hover,
+  .mt-container a:focus {
+    color: #563acc;
+  }
+
+  .mt-container a:focus {
+    outline: 2px solid #44648b;
+    outline-offset: 2px;
   }
 
   .invisible {
@@ -46,7 +54,8 @@
   /* New style for update button (Tailwind classes for basic styling) */
   .mt-update-alert {
     position: sticky;
-    top: 0; /* 贴在顶部 */
+    top: 0;
+    /* 贴在顶部 */
     z-index: 50;
     animation: fadeInDown 0.5s;
   }
@@ -56,6 +65,7 @@
       opacity: 0;
       transform: translateY(-20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -70,6 +80,7 @@
     from {
       transform: rotate(0deg);
     }
+
     to {
       transform: rotate(360deg);
     }
@@ -81,7 +92,8 @@
   .mt-content pre {
     /* One Dark 主背景 */
     background-color: #282C34 !important;
-    color: #ABB2BF !important; /* 默认代码文本颜色 */
+    color: #ABB2BF !important;
+    /* 默认代码文本颜色 */
     /* 基础样式 */
     border-radius: 0.5rem !important;
     padding: 1rem !important;
@@ -107,12 +119,17 @@
 
   /* 3. 重置代码块内的 <code> 样式，以确保它继承 <pre> 的大背景 */
   .mt-content pre code {
-    background-color: transparent !important; /* 移除行内代码背景 */
-    padding: 0 !important; /* 移除行内代码填充 */
-    color: inherit !important; /* 继承 <pre> 的文本颜色 */
-    font-size: 1em !important; /* 保持与 <pre> 容器相同的大小 */
+    background-color: transparent !important;
+    /* 移除行内代码背景 */
+    padding: 0 !important;
+    /* 移除行内代码填充 */
+    color: inherit !important;
+    /* 继承 <pre> 的文本颜色 */
+    font-size: 1em !important;
+    /* 保持与 <pre> 容器相同的大小 */
     border-radius: 0 !important;
-    display: block; /* 确保代码块内容正确排版 */
+    display: block;
+    /* 确保代码块内容正确排版 */
   }
 </style>
 
@@ -143,14 +160,21 @@
                 <img src="/assets/images/mastodon/loading.gif" alt="loading">
               </div>
               <div id="mt-update-button-placeholder" class="mt-update-alert mb-8 hidden">
-                </div>
+              </div>
               <div id="mt-posts-wrapper" class="mt-posts-wrapper">
-                </div>
+              </div>
             </div>
-            <div class="w-fit mx-auto my-8 border dark:border-[#444c56] rounded-full px-6 py-2 hover:bg-zinc-200 dark:hover:bg-[#252a33] cursor-pointer">
-              <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center not-prose gap-1">
-                <div>点击查看更多</div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="inline-block" aria-hidden="true" fill="currentColor" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"></path></svg></a>
+            <div
+              class="w-fit mx-auto my-8 border dark:border-[#444c56] rounded-full px-6 py-2 hover:bg-zinc-200 dark:hover:bg-[#252a33] cursor-pointer">
+              <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer"
+                class="flex items-center justify-center not-prose gap-1">
+                <div>点击 e5n.cc 查看更多</div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="inline-block" aria-hidden="true"
+                  fill="currentColor" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
@@ -165,60 +189,71 @@
 
     <div class="lg:sticky lg:top-8 mb-13">
 
-      <div class="rounded-2xl p-8 text-zinc-700 dark:text-[#adbac7] bg-zinc-100 dark:bg-[#2d333b] mb-10 flex flex-col items-center justify-center gap-0">
+      <div
+        class="rounded-2xl p-8 text-zinc-700 dark:text-[#adbac7] bg-zinc-100 dark:bg-[#2d333b] mb-10 flex flex-col items-center justify-center gap-0">
 
-          <div class="shrink-0">
-              <img class="h-20 w-20 rounded-full object-cover ring-4 ring-gray-200 dark:ring-[#cdd9e51a] shadow-lg" width="144" height="144" alt="Charles Chin" src="/eallion.webp">
-          </div>
+        <div class="shrink-0">
+          <img class="h-20 w-20 rounded-full object-cover ring-4 ring-gray-200 dark:ring-[#cdd9e51a] shadow-lg"
+            width="144" height="144" alt="Charles Chin" src="/eallion.webp">
+        </div>
 
-          <div class="flex items-center justify-center mt-4 text-2xl text-zinc-950 dark:text-[#adbac7] hover:cursor-text">
-            <div class="font-semibold">Charles Chin</div>
-            <div class="flex items-center ml-1"><svg viewBox="0 0 22 22" fill="#1d9bf0" aria-label="认证账号" role="img" class="inline-block" width="1em" height="1em" data-testid="icon-verified"><g><path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"></path></g></svg></div>
-          </div>
+        <div class="flex items-center justify-center mt-4 text-2xl text-zinc-950 dark:text-[#adbac7] hover:cursor-text">
+          <div class="font-semibold">Charles Chin</div>
+          <div class="flex items-center ml-1"><svg viewBox="0 0 22 22" fill="#1d9bf0" aria-label="认证账号" role="img"
+              class="inline-block" width="1em" height="1em" data-testid="icon-verified">
+              <g>
+                <path
+                  d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z">
+                </path>
+              </g>
+            </svg></div>
+        </div>
 
-          <div class="group relative text-xl text-center px-0 mb-4">
-              <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" aria-label="mastodon" class="hover:underline">@eallion@e5n.cc</a>
-          </div>
+        <div class="group relative text-xl text-center px-0 mb-4">
+          <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" aria-label="mastodon"
+            class="hover:underline">@eallion@e5n.cc</a>
+        </div>
 
-          <div class="w-full px-0 pt-2 border-t border-zinc-200 dark:border-[#cdd9e51a]">
+        <div class="w-full px-0 pt-2 border-t border-zinc-200 dark:border-[#cdd9e51a]">
 
-              <div class="p-4">
-                <div class="flex flex-col justify-between">
-                    <p class="text-xl">👋 Welcome!</p>
-                      <ul class="mt-6 mb-2 flex flex-col prose dark:prose-invert">
-                        <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">It's a single mode Mastodon.</li>
-                        <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Registrations closed.</li>
-                        <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Private but public readable.</li>
-                        <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2"><ruby>中文<rt>Chinese</rt></ruby> content.</li>
-                        <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">With a little English mixed in.</li>
-                        <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Talk to myself.</li>
-                        <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">talk about myself.</li>
-                      </ul>
-                </div>
-              </div>
-
-          </div>
-
-          <div class="w-full grid grid-cols-3 gap-4 px-6 pt-4 border-t border-zinc-200 dark:border-[#cdd9e51a]">
-            <div class="flex flex-col items-center">
-              <div class="text-zinc-500 dark:text-[#768390]">关注者</div>
-              <div class="font-semibold flex items-center">
-                <span id="followers">-1</span>
-              </div>
-            </div>
-            <div class="flex flex-col items-center">
-              <div class="text-zinc-500 dark:text-[#768390]">正在关注</div>
-              <div class="font-semibold flex items-center">
-                <span id="following">0</span>
-              </div>
-            </div>
-            <div class="flex flex-col items-center">
-              <div class="text-zinc-500 dark:text-[#768390]">嘟文</div>
-              <div class="font-semibold flex items-center">
-                <span id="statuses">0</span>
-              </div>
+          <div class="p-4">
+            <div class="flex flex-col justify-between">
+              <p class="text-xl">👋 Welcome!</p>
+              <ul class="mt-6 mb-2 ml-4 flex flex-col prose dark:prose-invert">
+                <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">It's a single mode Mastodon.</li>
+                <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Registrations closed.</li>
+                <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Private but public readable.</li>
+                <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2"><ruby>中文<rt>Chinese</rt></ruby>
+                  content.</li>
+                <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">With a little English mixed in.</li>
+                <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Talk to myself.</li>
+                <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">talk about myself.</li>
+              </ul>
             </div>
           </div>
+
+        </div>
+
+        <div class="w-full grid grid-cols-3 gap-4 px-6 pt-4 border-t border-zinc-200 dark:border-[#cdd9e51a]">
+          <div class="flex flex-col items-center">
+            <div class="text-zinc-500 dark:text-[#768390]">关注者</div>
+            <div class="font-semibold flex items-center">
+              <span id="followers">-1</span>
+            </div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="text-zinc-500 dark:text-[#768390]">正在关注</div>
+            <div class="font-semibold flex items-center">
+              <span id="following">0</span>
+            </div>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="text-zinc-500 dark:text-[#768390]">嘟文</div>
+            <div class="font-semibold flex items-center">
+              <span id="statuses">0</span>
+            </div>
+          </div>
+        </div>
 
       </div>
 
@@ -231,7 +266,7 @@
 
 <script>
   // --- Constants and Global Variables ---
-  const API_URL = 'https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=13&exclude_replies=true&exclude_reblogs=true';
+  const API_URL = 'https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=13&exclude_replies=true&exclude_reblogs=true&only_media=true';
   const CACHE_KEY = 'mastodon_cache';
   const PENDING_KEY = 'mastodon_pending_update';
   const CACHE_LIFETIME = 7 * 24 * 60 * 60 * 1000; // 7 天 (首次缓存有效期)
@@ -375,7 +410,7 @@
 
     data.forEach(post => {
       const article = document.createElement('article');
-      article.className = 'bg-white dark:bg-[#2d333b] border dark:border-[#cdd9e51a] rounded-lg mb-8 last:mb-0 p-4 pb-3 shadow-xs hover:shadow-md transition-shadow duration-300';
+      article.className = 'bg-white dark:bg-[#2d333b] border dark:border-[#cdd9e51a] rounded-2xl mb-8 last:mb-0 p-6 pb-4 shadow-sm hover:shadow-md transition-shadow duration-300';
 
       // 判断是否为转发
       if (post.reblog) {
@@ -407,8 +442,8 @@
             <div class="hidden md:flex flex-row items-center gap-1.5 ml-auto px-2 text-sm ">
               <span class="mt-meta-language">
                 ${post.language ?
-                  (post.language.toLowerCase() === 'zh' || post.language.toLowerCase() === 'zh-cn' ? 'zh-CN' : post.language)
-                  : ''}
+          (post.language.toLowerCase() === 'zh' || post.language.toLowerCase() === 'zh-cn' ? 'zh-CN' : post.language)
+          : ''}
               </span>
               ${post.content.includes('http') ? '<span class="mt-meta-link"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="48;0"/></path><path stroke-dasharray="12" stroke-dashoffset="12" d="M13 11l7 -7"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="12;0"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M21 3h-6M21 3v6"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" values="8;0"/></path></g></svg></span>' : ''}
               ${post.media_attachments.length > 0 ? '<span class="mt-meta-image"><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4"><path stroke-linecap="round" d="M5 10C5 8.89543 5.89543 8 7 8L41 8C42.1046 8 43 8.89543 43 10V38C43 39.1046 42.1046 40 41 40H7C5.89543 40 5 39.1046 5 38V10Z" clip-rule="evenodd"/><path stroke-linecap="round" d="M14.5 18C15.3284 18 16 17.3284 16 16.5C16 15.6716 15.3284 15 14.5 15C13.6716 15 13 15.6716 13 16.5C13 17.3284 13.6716 18 14.5 18Z" clip-rule="evenodd"/><path fill="#2f88ff" d="M15 24L20 28L26 21L43 34V38C43 39.1046 42.1046 40 41 40H7C5.89543 40 5 39.1046 5 38V34L15 24Z"/></g></svg></span>' : ''}
@@ -416,9 +451,9 @@
               ${post.reblog ? '<span class="mt-meta-reblog"><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M272 416c17.7 0 32-14.3 32-32s-14.3-32-32-32H160c-17.7 0-32-14.3-32-32V192h32c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-64-64c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-9.2 9.2-11.9 22.9-6.9 34.9S19.1 192 32.1 192h32v128c0 53 43 96 96 96h112zm32-320c-17.7 0-32 14.3-32 32s14.3 32 32 32h112c17.7 0 32 14.3 32 32v128h-32c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l64 64c12.5 12.5 32.8 12.5 45.3 0l64-64c9.2-9.2 11.9-22.9 6.9-34.9S556.9 320 543.9 320h-32V192c0-53-43-96-96-96z"/></svg></span>' : ''}
               <span class="mt-meta-visibility">
                 ${post.visibility === 'direct' ? '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-envelope status__visibility-icon" title="私下提及" aria-label="私下提及" role="img"><path fill="#d32f2f" d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"></path></svg>' :
-                  post.visibility === 'unlisted' ? '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-unlock status__visibility-icon" title="悄悄公开" aria-label="悄悄公开" role="img"><path fill="#388e3c" d="M484-80q-84 0-157.5-32t-128-86.5Q144-253 112-326.5T80-484q0-146 93-257.5T410-880q-18 99 11 193.5T521-521q71 71 165.5 100T880-410q-26 144-138 237T484-80Zm0-80q88 0 163-44t118-121q-86-8-163-43.5T464-465q-61-61-97-138t-43-163q-77 43-120.5 118.5T160-484q0 135 94.5 229.5T484-160Zm-20-305Z"></path></svg>' :
-                  post.visibility === 'private' ? '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-lock status__visibility-icon" title="关注者" aria-label="关注者" role="img"><path fill="#ffa000" d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"></path></svg>' :
-                  '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-globe status__visibility-icon" title="公开" aria-label="公开" role="img"><path fill="#1976d2" d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q41-45 62.5-100.5T800-480q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z"></path></svg>'}
+          post.visibility === 'unlisted' ? '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-unlock status__visibility-icon" title="悄悄公开" aria-label="悄悄公开" role="img"><path fill="#388e3c" d="M484-80q-84 0-157.5-32t-128-86.5Q144-253 112-326.5T80-484q0-146 93-257.5T410-880q-18 99 11 193.5T521-521q71 71 165.5 100T880-410q-26 144-138 237T484-80Zm0-80q88 0 163-44t118-121q-86-8-163-43.5T464-465q-61-61-97-138t-43-163q-77 43-120.5 118.5T160-484q0 135 94.5 229.5T484-160Zm-20-305Z"></path></svg>' :
+            post.visibility === 'private' ? '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-lock status__visibility-icon" title="关注者" aria-label="关注者" role="img"><path fill="#ffa000" d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"></path></svg>' :
+              '<svg xmlns="http://www.w3.org/2000/svg" height="1.1rem" viewBox="0 -960 960 960" width="1.1rem" class="icon icon-globe status__visibility-icon" title="公开" aria-label="公开" role="img"><path fill="#1976d2" d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q41-45 62.5-100.5T800-480q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z"></path></svg>'}
               </span>
             </div>
           </div>
@@ -431,7 +466,7 @@
           ${encodeExternalLinks(post.reblog?.content || post.content)}
 
           ${post.media_attachments.length > 0 ? `
-            <div class="mt-images-container mb-3 aspect-[16/9] rounded-xl overflow-hidden relative">
+            <div class="mt-images-container mt-4 mb-6 aspect-[16/9] rounded-xl overflow-hidden relative">
               ${(post.sensitive || post.reblog?.sensitive) ? `
                 <div class="absolute inset-0 bg-zinc-800 opacity-99 flex flex-col items-center justify-center z-10 rounded-lg cursor-pointer" onclick="this.style.display='none'">
                   <div class="text-white font-bold text-lg mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="8rem" height="8rem" viewBox="0 0 16 16"><path fill="currentColor" d="M1 7a6 6 0 0 1 11.99-.34q.175.194.302.446l.59 1.18Q13.999 7.662 14 7a7 7 0 1 0-7.713 6.964l.484-.968A6 6 0 0 1 1 7m8.854-1.146a.5.5 0 0 0-.708-.708L6.25 8.043L4.854 6.646a.5.5 0 1 0-.708.708l1.75 1.75a.5.5 0 0 0 .708 0zm.749 1.7l-3.496 6.998A1 1 0 0 0 8.002 16h6.996a1 1 0 0 0 .895-1.448l-3.5-6.999a1 1 0 0 0-1.79 0m1.395 1.941v3.002a.5.5 0 1 1-1 0V9.495a.5.5 0 1 1 1 0m-.5 5.504a.5.5 0 1 1 0-1a.5.5 0 0 1 0 1"/></svg></div>
@@ -441,17 +476,17 @@
               ` : ''}
 
               ${(() => {
-                const mediaItems = post.media_attachments;
-                let mediaHtml = '';
+            const mediaItems = post.media_attachments;
+            let mediaHtml = '';
 
-                if (mediaItems.length === 1) {
-                  const singleMedia = mediaItems[0];
-                  const objectFitClass = getImageObjectFitClass(
-                    singleMedia.meta?.small?.width,
-                    singleMedia.meta?.small?.aspect,
-                    true
-                  );
-                  mediaHtml = `
+            if (mediaItems.length === 1) {
+              const singleMedia = mediaItems[0];
+              const objectFitClass = getImageObjectFitClass(
+                singleMedia.meta?.small?.width,
+                singleMedia.meta?.small?.aspect,
+                true
+              );
+              mediaHtml = `
                     <div class="flex flex-row h-full">
                       <div class="relative w-full rounded-xl overflow-hidden">
                         ${singleMedia.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 object-cover" data-blurhash="${singleMedia.blurhash}"></canvas>` : ''}
@@ -464,16 +499,16 @@
                       </div>
                     </div>
                   `;
-                } else if (mediaItems.length === 2) {
-                  mediaHtml = `
+            } else if (mediaItems.length === 2) {
+              mediaHtml = `
                     <div class="flex flex-row h-full gap-2.5">
                       ${mediaItems.map((mediaItem, index) => {
-                        const objectFitClass = getImageObjectFitClass(
-                          mediaItem.meta?.small?.width,
-                          mediaItem.meta?.small?.aspect
-                        );
-                        const alignmentClass = index === 0 ? 'left-0' : 'right-0';
-                        return `
+                const objectFitClass = getImageObjectFitClass(
+                  mediaItem.meta?.small?.width,
+                  mediaItem.meta?.small?.aspect
+                );
+                const alignmentClass = index === 0 ? 'left-0' : 'right-0';
+                return `
                           <div class="relative w-1/2 rounded-xl overflow-hidden">
                             ${mediaItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 object-contain ${alignmentClass}" data-blurhash="${mediaItem.blurhash}"></canvas>` : ''}
                             <a href="${replaceFileUrl(mediaItem.url)}" class="relative z-10">
@@ -484,25 +519,25 @@
                             </a>
                           </div>
                         `;
-                      }).join('')}
+              }).join('')}
                     </div>
                   `;
-                } else if (mediaItems.length === 3) {
-                  const [firstItem, secondItem, thirdItem] = mediaItems;
-                  const firstFitClass = getImageObjectFitClass(
-                    firstItem.meta?.small?.width,
-                    firstItem.meta?.small?.aspect
-                  );
-                  const secondFitClass = getImageObjectFitClass(
-                    secondItem.meta?.small?.width,
-                    secondItem.meta?.small?.aspect
-                  );
-                  const thirdFitClass = getImageObjectFitClass(
-                    thirdItem.meta?.small?.width,
-                    thirdItem.meta?.small?.aspect
-                  );
+            } else if (mediaItems.length === 3) {
+              const [firstItem, secondItem, thirdItem] = mediaItems;
+              const firstFitClass = getImageObjectFitClass(
+                firstItem.meta?.small?.width,
+                firstItem.meta?.small?.aspect
+              );
+              const secondFitClass = getImageObjectFitClass(
+                secondItem.meta?.small?.width,
+                secondItem.meta?.small?.aspect
+              );
+              const thirdFitClass = getImageObjectFitClass(
+                thirdItem.meta?.small?.width,
+                thirdItem.meta?.small?.aspect
+              );
 
-                  mediaHtml = `
+              mediaHtml = `
                     <div class="flex h-full gap-2.5">
                       <div class="relative w-1/2 overflow-hidden rounded-xl">
                         ${firstItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 left-0 object-contain" data-blurhash="${firstItem.blurhash}"></canvas>` : ''}
@@ -535,15 +570,15 @@
                       </div>
                     </div>
                   `;
-                } else {
-                  mediaHtml = `
+            } else {
+              mediaHtml = `
                     <div class="grid grid-cols-2 grid-rows-2 h-full gap-2.5">
-                      ${mediaItems.slice(0,4).map(mediaItem => {
-                        const objectFitClass = getImageObjectFitClass(
-                          mediaItem.meta?.small?.width,
-                          mediaItem.meta?.small?.aspect
-                        );
-                        return `
+                      ${mediaItems.slice(0, 4).map(mediaItem => {
+                const objectFitClass = getImageObjectFitClass(
+                  mediaItem.meta?.small?.width,
+                  mediaItem.meta?.small?.aspect
+                );
+                return `
                           <div class="relative overflow-hidden rounded-xl">
                             ${mediaItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full object-contain" data-blurhash="${mediaItem.blurhash}"></canvas>` : ''}
                             <a href="${replaceFileUrl(mediaItem.url)}" class="relative z-10">
@@ -554,13 +589,13 @@
                             </a>
                           </div>
                         `;
-                      }).join('')}
+              }).join('')}
                     </div>
                   `;
-                }
+            }
 
-                return mediaHtml;
-              })()}
+            return mediaHtml;
+          })()}
             </div>
           ` : ''}
         </div>
@@ -568,7 +603,7 @@
 
       // 底部按钮
       article.innerHTML += `
-        <div class="flex justify-between md:justify-start items-center gap-4 pt-3 border-t border-zinc-300 dark:border-[#cdd9e51a]">
+        <div class="flex justify-between md:justify-start items-center gap-4 pt-4 border-t border-zinc-300 dark:border-[#cdd9e51a]">
           <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7] hover:bg-zinc-300 dark:hover:bg-[#22272e] rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
             <span><svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512"><path fill="currentColor" d="M204.2 18.4c12 5 19.8 16.6 19.8 29.6v80h112c97.2 0 176 78.8 176 176c0 113.3-81.5 163.9-100.2 174.1c-2.5 1.4-5.3 1.9-8.1 1.9c-10.9 0-19.7-8.9-19.7-19.7c0-7.5 4.3-14.4 9.8-19.5c9.4-8.8 22.2-26.4 22.2-56.7c0-53-43-96-96-96h-96v80c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-160-160c-12.5-12.5-12.5-32.8 0-45.3l160-160c9.2-9.2 22.9-11.9 34.9-6.9z" /></svg></span>
             ${post.replies_count ? `<span class="mt-footer-reply">${post.replies_count}</span>` : ''}
@@ -662,11 +697,11 @@
       // 滚动到顶部
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (cachedString) {
-        // 如果用户点击但没有 pending 内容，可能只是需要重新渲染，或者清空按钮
-        const cached = JSON.parse(cachedString);
-        renderContent(cached.data);
-        updateButtonPlaceholder.innerHTML = '';
-        updateButtonPlaceholder.classList.add('hidden');
+      // 如果用户点击但没有 pending 内容，可能只是需要重新渲染，或者清空按钮
+      const cached = JSON.parse(cachedString);
+      renderContent(cached.data);
+      updateButtonPlaceholder.innerHTML = '';
+      updateButtonPlaceholder.classList.add('hidden');
     }
   }
 
@@ -714,17 +749,17 @@
 
         // 确保 Pending 状态也被清除 (内容未变，按钮应消失)
         if (localStorage.getItem(PENDING_KEY)) {
-            localStorage.removeItem(PENDING_KEY);
-            const updateButtonPlaceholder = document.getElementById('mt-update-button-placeholder');
-            if (updateButtonPlaceholder) {
-                updateButtonPlaceholder.innerHTML = '';
-                updateButtonPlaceholder.classList.add('hidden');
-            }
+          localStorage.removeItem(PENDING_KEY);
+          const updateButtonPlaceholder = document.getElementById('mt-update-button-placeholder');
+          if (updateButtonPlaceholder) {
+            updateButtonPlaceholder.innerHTML = '';
+            updateButtonPlaceholder.classList.add('hidden');
+          }
         }
 
         // 更新主缓存的时间戳，延长 7 天有效期 (仅当主缓存存在时)
         if (cachedString) {
-            localStorage.setItem(CACHE_KEY, JSON.stringify({...cached, timestamp: Date.now()}));
+          localStorage.setItem(CACHE_KEY, JSON.stringify({ ...cached, timestamp: Date.now() }));
         }
         return null;
       }
@@ -734,9 +769,9 @@
         const data = await response.json();
         const newEtag = response.headers.get('ETag') || (new Date()).getTime().toString();
         const newCacheItem = {
-            data: data,
-            timestamp: Date.now(),
-            etag: newEtag
+          data: data,
+          timestamp: Date.now(),
+          etag: newEtag
         };
 
         if (isForegroundCheck && cached.data && data.length > 0) {
@@ -746,21 +781,21 @@
           const isNewContent = data[0].id !== cached.data[0].id;
 
           if (isNewContent) {
-              // 存储到 Pending Key
-              localStorage.setItem(PENDING_KEY, JSON.stringify(newCacheItem));
+            // 存储到 Pending Key
+            localStorage.setItem(PENDING_KEY, JSON.stringify(newCacheItem));
 
-              // 粗略计算新嘟文数量
-              const cachedIds = new Set(cached.data.map(post => post.id));
-              let newCount = data.filter(post => !cachedIds.has(post.id)).length;
+            // 粗略计算新嘟文数量
+            const cachedIds = new Set(cached.data.map(post => post.id));
+            let newCount = data.filter(post => !cachedIds.has(post.id)).length;
 
-              showUpdateButton(newCount);
-              console.log(`Mastodon: New content found (${newCount} new posts), showing update button.`);
-              return null; // 不立即渲染
+            showUpdateButton(newCount);
+            console.log(`Mastodon: New content found (${newCount} new posts), showing update button.`);
+            return null; // 不立即渲染
           } else {
-              // 内容相同，更新主缓存的时间戳和 ETag (防止下次立即过期)
-              localStorage.setItem(CACHE_KEY, JSON.stringify(newCacheItem));
-              localStorage.removeItem(PENDING_KEY);
-              return null;
+            // 内容相同，更新主缓存的时间戳和 ETag (防止下次立即过期)
+            localStorage.setItem(CACHE_KEY, JSON.stringify(newCacheItem));
+            localStorage.removeItem(PENDING_KEY);
+            return null;
           }
         } else {
           // 首次加载或缓存过期，直接渲染并更新主缓存
@@ -827,54 +862,54 @@
     const pendingUpdate = localStorage.getItem(PENDING_KEY);
 
     if (cacheValid || pendingUpdate) {
-        // 1. 缓存有效或有待处理更新，立即渲染缓存内容
-        if (cached?.data) {
-            renderContent(cached.data);
-            console.log('Mastodon: Loaded from local cache.');
-        } else if (pendingUpdate) { // 缓存过期，但有 pending，渲染 pending 数据并将其提升为 cache key
-            const pendingItem = JSON.parse(pendingUpdate);
-            renderContent(pendingItem.data);
-            localStorage.setItem(CACHE_KEY, JSON.stringify(pendingItem));
-            localStorage.removeItem(PENDING_KEY);
-            console.log('Mastodon: Cache expired, loaded from pending data.');
-        }
+      // 1. 缓存有效或有待处理更新，立即渲染缓存内容
+      if (cached?.data) {
+        renderContent(cached.data);
+        console.log('Mastodon: Loaded from local cache.');
+      } else if (pendingUpdate) { // 缓存过期，但有 pending，渲染 pending 数据并将其提升为 cache key
+        const pendingItem = JSON.parse(pendingUpdate);
+        renderContent(pendingItem.data);
+        localStorage.setItem(CACHE_KEY, JSON.stringify(pendingItem));
+        localStorage.removeItem(PENDING_KEY);
+        console.log('Mastodon: Cache expired, loaded from pending data.');
+      }
 
-        hideLoadingSpinner();
+      hideLoadingSpinner();
 
-        // 如果有待处理更新，则显示更新按钮 (在渲染完内容后)
-        if (pendingUpdate) {
-            showUpdateButton(1); // 粗略显示有更新
-        }
+      // 如果有待处理更新，则显示更新按钮 (在渲染完内容后)
+      if (pendingUpdate) {
+        showUpdateButton(1); // 粗略显示有更新
+      }
 
-        // 2. 设置 Page Visibility 监听，控制 1 分钟更新
-        document.addEventListener('visibilitychange', toggleUpdateCheck);
-        toggleUpdateCheck(); // 首次启动检查 (会检查是否有新内容，但不渲染)
+      // 2. 设置 Page Visibility 监听，控制 1 分钟更新
+      document.addEventListener('visibilitychange', toggleUpdateCheck);
+      toggleUpdateCheck(); // 首次启动检查 (会检查是否有新内容，但不渲染)
 
     } else {
-        // 3. 缓存过期或不存在，首次发起网络请求，获取最新数据并渲染
-        const newData = await fetchAndCacheData(false); // 首次加载，失败会显示错误
+      // 3. 缓存过期或不存在，首次发起网络请求，获取最新数据并渲染
+      const newData = await fetchAndCacheData(false); // 首次加载，失败会显示错误
 
-        if (newData) {
-          // *** 修复点：添加了对首次获取数据的渲染调用 ***
-          renderContent(newData);
+      if (newData) {
+        // *** 修复点：添加了对首次获取数据的渲染调用 ***
+        renderContent(newData);
 
-          // 渲染成功，设置监听器
-          document.addEventListener('visibilitychange', toggleUpdateCheck);
-          toggleUpdateCheck(); // 启动检查
-        }
+        // 渲染成功，设置监听器
+        document.addEventListener('visibilitychange', toggleUpdateCheck);
+        toggleUpdateCheck(); // 启动检查
+      }
 
-        hideLoadingSpinner();
+      hideLoadingSpinner();
     }
 
     // 原有的 30 秒超时处理，现在只处理首次加载失败的情况
     setTimeout(() => {
-        const hasPosts = document.getElementById('mt-posts-wrapper')?.children.length > 0;
-        const pending = localStorage.getItem(PENDING_KEY);
+      const hasPosts = document.getElementById('mt-posts-wrapper')?.children.length > 0;
+      const pending = localStorage.getItem(PENDING_KEY);
 
-        // 如果页面没有内容，也没有缓存，且加载提示仍显示，则显示超时错误
-        if (!hasPosts && !pending && document.getElementById('mt-loading-spinner').style.display !== 'none') {
-            renderErrorStatus(true);
-        }
+      // 如果页面没有内容，也没有缓存，且加载提示仍显示，则显示超时错误
+      if (!hasPosts && !pending && document.getElementById('mt-loading-spinner').style.display !== 'none') {
+        renderErrorStatus(true);
+      }
     }, 30000);
   });
 </script>
@@ -883,7 +918,7 @@
 <script type="module">
   import { decodeBlurHash } from '{{ $fastBlurhashJS.RelPermalink }}?v=1.1.4';
 
-  window.renderBlurhashCanvases = async function() {
+  window.renderBlurhashCanvases = async function () {
     const canvases = document.querySelectorAll('canvas[data-blurhash]');
 
     for (const canvas of canvases) {
