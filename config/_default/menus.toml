@@ -64,7 +64,7 @@
   post = "external-link"
 [[footer]]
   name = 'RSS'
-  pre = "rss"
+  pre = "rss-square"
   url = '/index.xml'
   weight = 88
 [[footer]]
