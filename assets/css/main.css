@@ -7,14 +7,10 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-400: oklch(70.4% 0.191 22.216);
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-orange-600: oklch(64.6% 0.222 41.116);
     --color-yellow-400: oklch(85.2% 0.199 91.936);
-    --color-green-100: oklch(96.2% 0.044 156.743);
-    --color-green-400: oklch(79.2% 0.209 151.711);
     --color-green-500: oklch(72.3% 0.219 149.579);
-    --color-green-800: oklch(44.8% 0.119 151.328);
     --color-blue-100: oklch(93.2% 0.032 255.585);
     --color-blue-300: oklch(80.9% 0.105 251.813);
     --color-blue-400: oklch(70.7% 0.165 254.624);
@@ -2021,6 +2017,9 @@
   .text-zinc-700 {
     color: var(--color-zinc-700);
   }
+  .text-zinc-800 {
+    color: var(--color-zinc-800);
+  }
   .text-zinc-900 {
     color: var(--color-zinc-900);
   }
@@ -2465,6 +2464,13 @@
     &:hover {
       @media (hover: hover) {
         color: var(--color-zinc-900);
+      }
+    }
+  }
+  .hover\:text-zinc-950 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-zinc-950);
       }
     }
   }
@@ -3177,6 +3183,11 @@
       color: #adbac7;
     }
   }
+  .dark\:text-\[\#e7e9eb\] {
+    &:where(.dark, .dark *) {
+      color: #e7e9eb;
+    }
+  }
   .dark\:text-gray-400 {
     &:where(.dark, .dark *) {
       color: var(--color-gray-400);
@@ -3291,6 +3302,24 @@
       &:hover {
         @media (hover: hover) {
           color: #adbac7;
+        }
+      }
+    }
+  }
+  .dark\:hover\:text-\[\#e7e9eb\] {
+    &:where(.dark, .dark *) {
+      &:hover {
+        @media (hover: hover) {
+          color: #e7e9eb;
+        }
+      }
+    }
+  }
+  .dark\:hover\:text-\[\#fff\] {
+    &:where(.dark, .dark *) {
+      &:hover {
+        @media (hover: hover) {
+          color: #fff;
         }
       }
     }
