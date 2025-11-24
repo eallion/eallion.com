@@ -7,23 +7,8 @@ on:
   schedule:
     - cron: '0 0 1 * *'
   workflow_dispatch:
-    inputs:
-      build_content:
-        description: "选择构建范围："
-        required: true
-        default: 'build-hugo'
-        type: choice
-        options:
-          - 'build-album'
-          - 'build-anynow'
-          - 'build-friendslinks'
-          - 'build-goods'
-          - 'build-hugo'
-          - 'build-mastodon'
-          - 'build-neodb'
-          - 'build-penta'
   repository_dispatch:
-    types: [build-album, build-anynow, build-friendslinks, build-goods, build-hugo, build-mastodon, build-neodb, build-penta]
+    types: [build]
 
 jobs:
   build-deploy:
@@ -102,79 +87,35 @@ jobs:
             --region cn-shanghai \
             --language zh
 
-      - name: Determine Build Type
-        id: build-type
-        run: |
-          BUILD_TYPE="hugo"
-
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            BUILD_TYPE="${{ github.event.inputs.build_content }}"
-          else
-            if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
-              BUILD_TYPE="${{ github.event.action }}"
-            fi
-          fi
-
-          # 统一格式：去掉 "build-" 前缀
-          BUILD_TYPE=${BUILD_TYPE#build-}
-
-          echo "type=$BUILD_TYPE" >> $GITHUB_OUTPUT
-          echo "🔨 Build Type: $BUILD_TYPE"
-
       - name: Build Site
+        id: build
         timeout-minutes: 5
         run: |
-          BUILD_TYPE="${{ steps.build-type.outputs.type }}"
-          echo "🔨 Starting build for: $BUILD_TYPE"
+          echo "🔨 Starting build..."
+          
+          echo "📚 Fetching full site data..."
+          # 使用 set +e 允许命令失败而不立即退出
+          set +e
+          
+          # 执行 fetch 脚本，如果任何一个失败，FETCH_STATUS 将非 0
+          (
+            set -e
+            pnpm run directus:article
+            pnpm run directus:friendslinks
+            pnpm run directus:neodb
+            pnpm run directus:penta
+          )
+          FETCH_STATUS=$?
+          
+          # 恢复 set -e
+          set -e
 
-          # Fetch data based on build type
-          case $BUILD_TYPE in
-            "album")
-              echo "📸 Fetching album data..."
-              pnpm run directus:album
-              ;;
-            "mastodon")
-              echo "🐘 Fetching mastodon data..."
-              pnpm run directus:mastodon
-              pnpm run directus:latest
-              ;;
-            "neodb")
-              echo "🎬 Fetching NeoDB media data..."
-              pnpm run directus:neodb
-              ;;
-            "penta")
-              echo "🎮 Fetching penta stats..."
-              pnpm run directus:penta
-              ;;
-            "goods")
-              echo "🛍️  Fetching goods data..."
-              pnpm run directus:goods
-              ;;
-            "friendslinks")
-              echo "🔗 Fetching friends links..."
-              pnpm run directus:friendslinks
-              ;;
-            "anynow")
-              echo "⏰ Fetching anynow data..."
-              pnpm run directus:latest
-              pnpm run directus:anynow
-              ;;
-            "hugo"|"hugo")
-              echo "📚 Fetching full site data..."
-              pnpm run directus:article
-              pnpm run directus:friendslinks
-              pnpm run directus:neodb
-              pnpm run directus:penta
-              ;;
-            *)
-              echo "⚠️  Unknown build type: $BUILD_TYPE, building full site..."
-              echo "📚 Fetching full site data..."
-              pnpm run directus:article
-              pnpm run directus:friendslinks
-              pnpm run directus:neodb
-              pnpm run directus:penta
-              ;;
-          esac
+          if [ $FETCH_STATUS -ne 0 ]; then
+            echo "⚠️ Data fetching failed. Skipping build and deployment."
+            echo "should_deploy=false" >> $GITHUB_OUTPUT
+            # 正常退出，保持 workflow 为绿色
+            exit 0
+          fi
 
           # Build Hugo site
           echo "🏗️  Building Hugo site..."
@@ -182,10 +123,11 @@ jobs:
           pnpm run build:hugo
           pnpm run build:pagefind
 
-          echo "✅ Build completed for: $BUILD_TYPE"
+          echo "✅ Build completed"
+          echo "should_deploy=true" >> $GITHUB_OUTPUT
 
       - name: Deploy to Aliyun OSS
-        if: steps.build-type.outputs.type == 'hugo'
+        if: steps.build.outputs.should_deploy == 'true'
         uses: docker://ghcr.io/eallion/aliyun-oss-website-action:v1
         env:
           ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
@@ -197,85 +139,10 @@ jobs:
           INCREMENTAL: true
 
       - name: Purge Aliyun ESA
+        if: steps.build.outputs.should_deploy == 'true'
         timeout-minutes: 10
         run: |
-          BUILD_TYPE="${{ steps.build-type.outputs.type }}"
-          echo "🗑️  Purging cache for: $BUILD_TYPE"
-
-          case $BUILD_TYPE in
-            "album")
-              echo "📸 Uploading album index to OSS..."
-              aliyun oss cp public/album/index.html oss://eallion-com/album/index.html --force
-              echo "🌐 Purging ESA cache for album..."
-              aliyun esa PurgeCaches \
-                --SiteId ${{ secrets.ESA_SITE_ID }} \
-                --Type file \
-                --Content '{"Files":["https://www.eallion.com/album/index.html"]}'
-              ;;
-            "mastodon")
-              echo "🐘 Uploading mastodon index to OSS..."
-              aliyun oss cp public/mastodon/index.html oss://eallion-com/mastodon/index.html --force
-              aliyun oss cp public/index.html oss://eallion-com/index.html --force
-              echo "🌐 Purging ESA cache for mastodon..."
-              aliyun esa PurgeCaches \
-                --SiteId ${{ secrets.ESA_SITE_ID }} \
-                --Type file \
-                --Content '{"Files":["https://www.eallion.com/mastodon/index.html", "https://www.eallion.com/index.html"]}'
-              ;;
-            "neodb")
-              echo "🎬 Uploading media index to OSS..."
-              aliyun oss cp public/media/index.html oss://eallion-com/media/index.html --force
-              echo "🌐 Purging ESA cache for media..."
-              aliyun esa PurgeCaches \
-                --SiteId ${{ secrets.ESA_SITE_ID }} \
-                --Type file \
-                --Content '{"Files":["https://www.eallion.com/media/index.html"]}'
-              ;;
-            "penta")
-              echo "🎮 Uploading penta index to OSS..."
-              aliyun oss cp public/penta/index.html oss://eallion-com/penta/index.html --force
-              echo "🌐 Purging ESA cache for penta..."
-              aliyun esa PurgeCaches \
-                --SiteId ${{ secrets.ESA_SITE_ID }} \
-                --Type file \
-                --Content '{"Files":["https://www.eallion.com/penta/index.html"]}'
-              ;;
-            "goods")
-              echo "🛍️  Uploading goods index to OSS..."
-              aliyun oss cp public/goods/index.html oss://eallion-com/goods/index.html --force
-              echo "🌐 Purging ESA cache for goods..."
-              aliyun esa PurgeCaches \
-                --SiteId ${{ secrets.ESA_SITE_ID }} \
-                --Type file \
-                --Content '{"Files":["https://www.eallion.com/goods/index.html"]}'
-              ;;
-            "friendslinks")
-              echo "🔗 Uploading links index to OSS..."
-              aliyun oss cp public/links/index.html oss://eallion-com/links/index.html --force
-              echo "🌐 Purging ESA cache for links..."
-              aliyun esa PurgeCaches \
-                --SiteId ${{ secrets.ESA_SITE_ID }} \
-                --Type file \
-                --Content '{"Files":["https://www.eallion.com/links/index.html"]}'
-              ;;
-            "anynow")
-              echo "⏰ Uploading now index to OSS..."
-              aliyun oss cp public/now/index.html oss://eallion-com/now/index.html --force
-              aliyun oss cp public/index.html oss://eallion-com/index.html --force
-              echo "🌐 Purging ESA cache for now page..."
-              aliyun esa PurgeCaches \
-                --SiteId ${{ secrets.ESA_SITE_ID }} \
-                --Type file \
-                --Content '{"Files":["https://www.eallion.com/now/index.html","https://www.eallion.com/index.html"]}'
-              ;;
-            "hugo"|"hugo")
-              echo "📚 Full site purge - purging all cache..."
-              aliyun esa PurgeCaches --SiteId ${{ secrets.ESA_SITE_ID }} --Type purgeall --Content {"PurgeAll":true}
-              ;;
-            *)
-              echo "⚠️  Unknown build type: $BUILD_TYPE, purging all cache..."
-              aliyun esa PurgeCaches --SiteId ${{ secrets.ESA_SITE_ID }} --Type purgeall --Content {"PurgeAll":true}
-              ;;
-          esac
-
-          echo "✅ Cache purge completed for: $BUILD_TYPE"
+          echo "🗑️  Purging cache..."
+          echo "📚 Full site purge - purging all cache..."
+          aliyun esa PurgeCaches --SiteId ${{ secrets.ESA_SITE_ID }} --Type purgeall --Content '{"PurgeAll":true}'
+          echo "✅ Cache purge completed"

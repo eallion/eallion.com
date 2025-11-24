@@ -25,8 +25,7 @@ async function fetchAllPentaData(offset = 0) {
   const data = await response.json();
 
   if (!data || !data.data) {
-    console.error('Penta API 返回的数据结构不正确。');
-    return [];
+    throw new Error('Penta API 返回的数据结构不正确。');
   }
 
   const pentaItems = data.data;
@@ -82,10 +81,12 @@ async function main() {
       savePentaDataToJson(allPentaData);
       console.log('所有 Penta 数据已成功保存！');
     } else {
-      console.log('未找到任何 Penta 数据。');
+      console.error('未找到任何 Penta 数据。');
+      process.exit(1);
     }
   } catch (error) {
     console.error('获取 Penta 数据时发生错误：', error);
+    process.exit(1);
   }
 }
 

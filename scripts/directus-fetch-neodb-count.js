@@ -27,15 +27,13 @@ async function fetchAllNeoDBData() {
     );
 
     if (!firstPageResponse.ok) {
-      console.error(`NeoDB API 请求失败，状态码：${firstPageResponse.status}`);
-      return [];
+      throw new Error(`NeoDB API 请求失败，状态码：${firstPageResponse.status}`);
     }
 
     const firstPageData = await firstPageResponse.json();
 
     if (!firstPageData || !firstPageData.data) {
-      console.error('NeoDB API 返回的数据结构不正确。');
-      return [];
+      throw new Error('NeoDB API 返回的数据结构不正确。');
     }
 
     // 获取总页数（只用于信息目的）
@@ -46,7 +44,7 @@ async function fetchAllNeoDBData() {
   return firstPageData;
   } catch (error) {
     console.error(`获取 NeoDB 数据时发生错误:`, error);
-    return [];
+    throw error;
   }
 }
 
@@ -86,10 +84,12 @@ async function main() {
     if (hasItems) {
       saveNeoDBDataToJson(result);
     } else {
-      console.log('未找到任何 NeoDB 数据。');
+      console.error('未找到任何 NeoDB 数据。');
+      process.exit(1);
     }
   } catch (error) {
     console.error('获取 NeoDB 数据时发生错误：', error);
+    process.exit(1);
   }
 }
 

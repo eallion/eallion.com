@@ -25,8 +25,7 @@ async function fetchAllFriendsLinksData(offset = 0) {
   const data = await response.json();
 
   if (!data || !data.data) {
-    console.error('Friends Links API 返回的数据结构不正确。');
-    return [];
+    throw new Error('Friends Links API 返回的数据结构不正确。');
   }
 
   const friendsLinksItems = data.data;
@@ -65,10 +64,12 @@ async function main() {
       saveFriendsLinksDataToJson(allFriendsLinksData);
       console.log('所有 Friends Links 数据已成功保存！');
     } else {
-      console.log('未找到任何 Friends Links 数据。');
+      console.error('未找到任何 Friends Links 数据。');
+      process.exit(1);
     }
   } catch (error) {
     console.error('获取 Friends Links 数据时发生错误：', error);
+    process.exit(1);
   }
 }
 

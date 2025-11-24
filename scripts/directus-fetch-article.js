@@ -46,8 +46,7 @@ async function fetchAllArticles() {
       const currentArticles = data.data;
 
       if (!data || !currentArticles) {
-        console.error('API 返回的数据结构不正确。');
-        break;
+        throw new Error('API 返回的数据结构不正确。');
       }
 
       // 仅在第一次请求时，记录 Directus 报告的总数
@@ -70,6 +69,7 @@ async function fetchAllArticles() {
     } while (true);
   } catch (error) {
       console.error('获取文章过程中发生网络或解析错误：', error.message || error);
+      throw error; // 重新抛出错误以便 main 函数捕获
   }
 
   return allArticles;
@@ -183,10 +183,12 @@ async function main() {
     if (allArticles.length > 0) {
       await createMarkdownFiles(allArticles);
     } else {
-      console.log('未找到任何文章数据。');
+      console.error('未找到任何文章数据。');
+      process.exit(1);
     }
   } catch (error) {
     console.error('脚本执行时发生全局错误：', error);
+    process.exit(1);
   }
 }
 
