@@ -153,7 +153,7 @@ function appendToLLMFile(articles) {
       // llms.txt 格式：- [title](url)：summary
       llmContentAppend += `- [${title}](https://www.eallion.com/${slug}/)：${summary}\n`;
       // llms-full.txt 格式：- [title](url)：\n"""""\ncontent\n"""""\n\n
-      llmFullContentAppend += `- [${title}](https://www.eallion.com/${slug}/)：\n"""""\n${content}\n"""""\n\n`;
+      llmFullContentAppend += `"""""\n- [${title}](https://www.eallion.com/${slug}/)：\n${content}\n"""""\n\n`;
     }
   }
 
