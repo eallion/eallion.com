@@ -7,7 +7,7 @@
     "buildTags": "extended"
   },
   "scripts": {
-    "build": "run-s clean directus build:css build:hugo build:pagefind llms",
+    "build": "run-s clean directus build:css gen:llms build:hugo build:pagefind",
     "build:chroma": "\\rm -f assets/css/chroma.css && hugo gen chromastyles --style=github | sed 's/\\./html:not(.dark) ./' >> assets/css/chroma.css && hugo gen chromastyles --style=github-dark | sed 's/\\./html.dark ./' >> assets/css/chroma.css",
     "build:css": "cross-env NODE_ENV=production npx tailwindcss -i ./assets/css/input.css -o ./assets/css/main.css",
     "build:hugo": "hugo --minify --gc",
@@ -20,20 +20,21 @@
     "dev:css": "cross-env NODE_ENV=development npx tailwindcss -i ./assets/css/input.css -o ./assets/css/main.css --watch",
     "dev:hugo": "open-cli http://127.0.0.1:1313 && hugo server -w -D -p 1313 --bind 0.0.0.0 --contentDir content -e production --gc --minify --disableKinds RSS --disableFastRender --renderToMemory --printUnusedTemplates --templateMetrics --templateMetricsHints",
     "dev:pagefind": "npx pagefind --site public --output-subdir pagefind --force-language zh --serve",
-    "directus": "run-p clean directus:article directus:friendslinks directus:neodb directus:penta",
+    "directus": "run-p clean directus:article directus:friendslinks fetch:stats",
     "directus:album": "node scripts/directus-fetch-mastodon-album.js",
     "directus:anynow": "node scripts/directus-fetch-anynow.js",
     "directus:article": "node scripts/directus-fetch-article.js",
     "directus:friendslinks": "node scripts/directus-fetch-friends-links.js",
     "directus:goods": "node scripts/directus-fetch-goods.js",
     "directus:latest": "node scripts/directus-fetch-latest-10-article.js",
-    "directus:mastodon": "node scripts/directus-fetch-mastodon.js",
-    "directus:neodb": "node scripts/directus-fetch-neodb.js",
     "directus:penta": "node scripts/directus-fetch-penta.js",
-    "llms": "node scripts/generate-llms.js",
+    "fetch:mastodon": "node scripts/directus-fetch-mastodon.js",
+    "fetch:neodb": "node scripts/directus-fetch-neodb.js",
+    "fetch:stats": "node scripts/fetch-stats.js",
+    "gen:llms": "node scripts/generate-llms.js",
     "new": "node scripts/new_post.js",
     "theme:init": "git submodule update --init --recursive",
-    "theme:update": "git submodule update --remote --force themes/pehe"
+    "theme:update": "git submodule update --remote --force themes/pehefe"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,7 @@
     "hugo-theme",
     "hugo",
     "m3",
+    "Mastodon",
     "Material Design",
     "MD3",
     "neodb",

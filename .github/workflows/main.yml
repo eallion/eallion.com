@@ -25,12 +25,13 @@ jobs:
       DIRECTUS_S3_URL: ${{ secrets.DIRECTUS_S3_URL }}
       ESA_SITE_ID: ${{ secrets.ESA_SITE_ID }}
       NEODB_ACCESS_TOKEN: ${{ secrets.NEODB_ACCESS_TOKEN }}
+      STEAM_WEB_API_KEY: ${{ secrets.STEAM_WEB_API_KEY }}
 
     steps:
       - uses: actions/checkout@v5
         with:
           submodules: recursive
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -92,21 +93,20 @@ jobs:
         timeout-minutes: 5
         run: |
           echo "🔨 Starting build..."
-          
+
           echo "📚 Fetching full site data..."
           # 使用 set +e 允许命令失败而不立即退出
           set +e
-          
+
           # 执行 fetch 脚本，如果任何一个失败，FETCH_STATUS 将非 0
           (
             set -e
             pnpm run directus:article
             pnpm run directus:friendslinks
-            pnpm run directus:neodb
-            pnpm run directus:penta
+            pnpm run fetch:stats
           )
           FETCH_STATUS=$?
-          
+
           # 恢复 set -e
           set -e
 
@@ -119,7 +119,7 @@ jobs:
 
           # Build Hugo site
           echo "🏗️  Building Hugo site..."
-          pnpm run llms
+          pnpm run gen:llms
           pnpm run build:hugo
           pnpm run build:pagefind
 

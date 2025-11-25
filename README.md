@@ -34,8 +34,6 @@
   <img src="assets/images/github/blog-flow.png">
 </div>
 
-hugo gen chromastyles --style=onedark > assets/css/chroma.css
-
 # 备忘录
 
 ### 📦️ 主仓库
@@ -45,7 +43,7 @@ hugo gen chromastyles --style=onedark > assets/css/chroma.css
 ##### 备份仓库
 
 > <https://gitlab.com/eallion/eallion.com>  
-> <https://codeberg.org/eallion/eallion.com.git>  
+> <https://codeberg.org/eallion/eallion.com>  
 > <https://git.eallion.com/eallion/eallion.com>
 
 ##### 添加备份仓库 Remote
@@ -57,11 +55,11 @@ hugo gen chromastyles --style=onedark > assets/css/chroma.css
 git remote set-url --add --push origin https://id:token@github.com/eallion/eallion.com.git
 
 $ git remote -v
-origin  https://github.com/eallion/eallion.com (fetch)
-origin  https://github.com/eallion/eallion.com (push)
-origin  https://gitlab.com/eallion/eallion.com.git (push)
-origin  https://codeberg.org/eallion/eallion.com.git (push)
-origin  https://git.eallion.com/eallion/eallion.com (push)
+origin	git@github.com:eallion/eallion.com.git (fetch)
+origin	git@github.com:eallion/eallion.com.git (push)
+origin	git@gitlab.com:eallion/eallion.com.git (push)
+origin	git@codeberg.org:eallion/eallion.com.git (push)
+origin	git@git.eallion.com:eallion/eallion.com.git (push)
 ```
 
 ##### 架构备忘
@@ -101,65 +99,93 @@ pnpm run theme:update
 # git submodule update --remote --force themes/pehe
 ```
 
-Pehe 编译 TailwindCSS 的 main.css，位于 [assets/css/main.css](https://github.com/eallion/eallion.com/blob/main/assets/css/main.css)：
+Pehe 编译 TailwindCSS 的
 
 ```bash
-# cd theme/pehe
-# pnpm install
-# cd ../..
+pnpm install
 
-# pnpm run dev
-pnpm run build
+# pnpm dev:css
+pnpm build:css
 ```
 
+- 构建为 `main.css`，位于 [assets/css/main.css](https://github.com/eallion/eallion.com/blob/main/assets/css/main.css)
+- Tailwind CSS 配置入口文件在 [assets/css/input.css](<https://github.com/eallion/eallion.com/blob/main/assets/css/input.css>)
+- 自定义 CSS 在 [assets/css/custom.css](<https://github.com/eallion/eallion.com/blob/main/assets/css/custom.css>)
+- 自定义 JS 在 `assets/js/`，如：[lazyload.iife.min.js](https://github.com/eallion/eallion.com/blob/main/assets/js/lazyload.iife.min.js)
+- 自定义模板，如嘀咕等页面，在 `layouts/_default/`，如：[mastodon.html](https://github.com/eallion/eallion.com/blob/main/layouts/_default/mastodon.html)
+- 页面数据在 `assets/data/`，如书影音数据：[movie.json](https://github.com/eallion/eallion.com/blob/main/assets/data/neodb/movie.json)
+
+### 📚 构建 Chroma CSS
+
+`chroma.css` 位于 `assets/css/chroma.css`，用于代码高亮。
+
+> 主题预览：https://xyproto.github.io/splash/docs/all.html
+
 ```bash
-https://github.com/eallion/eallion.com/blob/main/assets/css/main.css
+pnpm build:chroma
 ```
 
-- 自定义 CSS 在 `assets/css/` 如：[custom.css](<https://github.com/eallion/eallion.com/blob/main/assets/css/custom.css>)：
+等同于：
 
 ```bash
-https://github.com/eallion/eallion.com/blob/main/assets/css/custom.css
+hugo gen chromastyles --style=github | sed 's/\./html:not(.dark) ./' >> assets/css/chroma.css
+hugo gen chromastyles --style=github-dark | sed 's/\./html.dark ./' >> assets/css/chroma.css
 ```
 
-- 自定义 JS 在 `assets/js/` 如：[lazyload.iife.min.js](https://github.com/eallion/eallion.com/blob/main/assets/js/lazyload.iife.min.js)：
+custom.css 覆盖背景颜色：
 
-```bash
-https://github.com/eallion/eallion.com/blob/main/assets/js/lazyload.iife.min.js
-```
+```css
+html:not(.dark) .chroma,
+html:not(.dark) .chroma * {
+  /* GitHub Light */
+  color: #24292f;
+  background-color: #f6f8fa;
+}
 
-- 自定义模板，如嘀咕、书影音等页面，在 `layouts/_default/` 如：[layouts/_default/mastodon.html](https://github.com/eallion/eallion.com/blob/main/layouts/_default/mastodon.html)：
-
-```bash
-https://github.com/eallion/eallion.com/blob/main/layouts/_default/mastodon.html
-```
-
-- 页面数据在 `assets/data/` 如书影音数据：[assets/data/neodb/movie.json](https://github.com/eallion/eallion.com/blob/main/assets/data/neodb/movie.json)：
-
-但是现在是通过 Directus API 获取数据，只有在构建时才创建这个目录和对应的文件。
-
-```bash
-https://github.com/eallion/eallion.com/blob/main/assets/data/neodb/movie.json
+html.dark .chroma,
+html.dark .chroma * {
+  /* GitHub Dark Dimmed */
+  color: #d1d7e0;
+  background-color: #2d333b;
+}
 ```
 
 ### 🧑‍💻 pnpm 命令
 
-- `pnpm run build` 构建 Pehe 的 TailwindCSS `assets/css/main.css`
-- `pnpm run dev` 启动 TailwindCSS 监听
+目前完整构建工作流：
+
+```bash
+pnpm run-s directus:article \
+    directus:friendslinks \
+    llms \
+    build:hugo \
+    build:pagefind
+```
+
+- `pnpm build` 完整构建
+- `pnpm build:chroma` 构建 Chroma 代码高亮 CSS
+- `pnpm build:css` 构建 Pehe 的 TailwindCSS `assets/css/main.css`
+- `pnpm build:hugo` 构建 Hugo
+- `pnpm build:pagefind` 构建 Pagefind 索引
+- `pnpm clean` 清除 Hugo 本地文件以避免 Directus 冲突
+- `pnpm clean:article` 清除文章数据
+- `pnpm clean:data` 清除数据文件
+- `pnpm clean:hugo` 清除 Hugo 本地构建产物
+- `pnpm dev` 启动 TailwindCSS 监听
+- `pnpm dev:css` 启动 TailwindCSS 监听
+- `pnpm dev:hugo` 启动 Hugo server 监听
+- `pnpm dev:pagefind` 启动 Pagefind 4000 端口监听
 - `pnpm run directus`: 获取 Directus 数据
 - `pnpm run directus:album`: 获取 Directus 随手拍数据
 - `pnpm run directus:anynow`: 获取 Directus AnyNow 数据
-- `pnpm run directus:goods`: 获取 Directus 好物推荐数据
+- `pnpm run directus:article`: 获取 Directus 文章数据
 - `pnpm run directus:friendslinks`: 获取 Directus 友情链接数据
+- `pnpm run directus:goods`: 获取 Directus 好物推荐数据
+- `pnpm run directus:latest`: 获取 Directus 最新 10 篇文章数据
 - `pnpm run directus:mastodon`: 获取 Mastodon API 数据
 - `pnpm run directus:neodb`: 获取官方 NeoDB API 数据
 - `pnpm run directus:penta`: 获取 Directus 五杀数据
-- `pnpm run hugo` 构建 Hugo，一般不用，都是交给 CI/CD 构建
-- `pnpm run new` 创建新文章，直接输入文章标题，生成到 example 目录
-- `pnpm run prepare` Git Commit Husky 勾子，目前用于提交时更新各个平台环境变量的 `HUGO_VERSION`
-- `pnpm run preview` 启动 Hugo 服务器，即预览线上生成环境，会重新获取 Directus 数据
-- `pnpm run server` 启动 Hugo 服务器
-- `pnpm run shiki` 生成 Shiki 语法高亮
+- `pnpm run llms` 生成 llms.txt
 - `pnpm run theme:init` 递归更新 Submodule 子项目，一般第一次克隆本项目时使用
 - `pnpm run theme:update` 更新 Submodule 子项目
 
@@ -187,11 +213,11 @@ pnpm run directus # node scripts/directus-fetch-articles.js
 
 # pnpm run directus:latest # Fetch latest 10 articles only
 
-pnpm run preview # Preview Server
+pnpm build # Full Build
 
-pnpm run hugo # Build Hugo
+pnpm build:hugo # Build Hugo
 
-pnpm run build # Build Tailwind CSS main.css
+pnpm build:css # Build Tailwind CSS main.css
 ```
 
 ### 🌐 环境变量
@@ -217,171 +243,6 @@ DIRECTUS_TOKEN=eyJh
 ESA_SITE_ID=
 NEODB_ACCESS_TOKEN=
 ```
-
-<details><summary>
-老方式：<b>DEPRECATED!</b>
-</summary>  
-
-##### 1. **生成新文章**
-
-通过 Hugo 命令 New 一篇新文章模板：  
-现改为 pnpm 命令：
-
-```diff
-- hugo new posts/daily/new_title.md
-+ pnpm run new
-
-# node scripts/new_post.js
-```
-
-如果需要用上 [彩云小译](https://docs.caiyunapp.com/lingocloud-api/) 自动翻译标题为 slug，需要 Token。
-
-导入 Token
-
-```bash
-export CAIYUN_TOKEN=3975l6lr5pcbvidl6jl2
-```
-
-或者：复制 .env.example 为 .env.local
-
-```txt
-CAIYUN_TOKEN=3975l6lr5pcbvidl6jl2
-```
-
-##### 2. **缩略图**
-
-放在文章目录中，命名为 feature*.png，格式建议为 `.png` 和 `.jpg` 。
-
-##### 3. **背景图**
-
-放在文章目录中，命名为 background*.png，格式建议为 `.png` 和 `.jpg` 。
-
-##### 4. **图标 Icon**
-
-Icon 可以从网上下载，放到 `assets/icons` 目录下，格式为 `.svg`，必须添加 `fill="currentColor"` 属性。可通过 Shortcodes `{{< icon "github" >}}`引用
-
-##### 5. **编辑文章**
-
-通过 [Typora](https://typora.io/) 或 [VSCode](https://code.visualstudio.com/) 编辑第一步 `pnpm run new` 出来的文章。  
-这篇文章在 `example/blog/{title}` 目录下，文件名为：`{title}/index.md`，`{title}` 为`pnpm run new` 输入的文字。  
-编辑好之后需要把这个文件复制到 `content/blog` 相应的目录中，再 `git push`。  
-缩略图（OG:Image）放在文章同目录下，命名为：`feature*.png`
-
-##### 6. **修改 Front matter**
-
-- `title` (必填) 自动生成，按需修改
-- `authors`：目录保持默认：`["eallion"]`，其他支持：`["shanzei"]`
-- `categories` (必填) 按需修改
-- `tags` (必填) 按需修改 (约定：本博客单篇文章标签数上限为 4)
-- `slug` (必填) 按需修改，文章网址 URL
-- `summary` (必填) AI 生成摘要
-- `series` （选填）系列
-- `series_weight`（选填）系列中的排序
-- `seriesNavigation`（选填）是否需要显示在系列导航中
-- `draft: true` (必填) 如果需要公开发表，需改为：`draft: false`
-
-##### 7. **生成 AI 提要**
-
-~~写完文章，按 `data` 目录中的 `summary.json` 文件手动生成摘要。~~
-
-Summary 生成 AI 摘要现在添加到 `blog` 目录中的 Markdown 文件中的 Front Matter 中，依然采用手动生成的方式。
-
-##### 8. **生成 缩略图 (OG:image)**
-
-打开 https://cover.eallion.com ([备用](https://github.com/rutikwankhade/CoverView)) 生成缩略图，此缩略图如果命名为 `feature*.png` 也可以当成 [oEmbed](https://oembed.com/)(OG image)，放到博客文章同目录下。
-
-##### 9. **维护其他页面**
-
-注意查看 Layouts 中的模板和 `data` 中的数据文件。
-
-- `嘀咕`：到 [e5n.cc](https://e5n.cc) 发 Toot；
-- `观影`：到 [NeoDB](https://neodb.social) 标记；
-- `友情链接`：数据按 `data` 目录中的 `friends/links.json` 文件更新；
-- `随手拍`：到 [e5n.cc](https://e5n.cc) 发带有 `#ealbum` 标签的 Toot；
-- `好物`：数据按 `data` 目录中的 `goods.json` 文件更新；
-- `Penta`：数据按 `data` 目录中的 `penta.json` 文件更新。
-
-##### 10. **Push**
-
-完成写作后，Push 到 GitHub 仓库会自动构建部署。
-
-```bash
-git add .
-git commit -m "docs: add a new post"
-git push
-```
-
-##### 11. **本地预览** (~~Web Server~~)
-
-> 完全没有必要把 Hugo 当成 Web Server
-
-已添加脚本：
-
-```diff
-- ./server.sh
-+ pnpm run server
-
-# 查看博客实际效果 👇
-# pnpm run preview
-
-# git submodule update --remote --merge && \
-# start http://192.168.0.5:1313 && \
-# hugo server \
-#   -w \
-#   -D \
-#   -p 1313 \
-#   --bind 0.0.0.0 \
-#   --contentDir example \
-#   --minify \
-#   --forceSyncStatic \
-#   --ignoreCache \
-#   --noHTTPCache \
-#   --disableFastRender \
-#   -e production \
-#   --enableGitInfo \
-#   --disableKinds RSS \
-#   --printUnusedTemplates \
-#   --templateMetrics \
-#   --templateMetricsHints
-```
-
-> 运行脚本后会自动打开预览页面：<http://127.0.0.1:1313>
-
-- `hugo server` 把 Hugo 当作 Web 服务器，而非构建静态网页
-- `-w` 有文件变化立即刷新 (默认开启)
-- `-D` 构建草稿，撰写新文章时很有用
-- `-p 1313` 指定端口号 1313 (默认 1313)
-- `-t hello-friend` 使用 hello-friend 主题
-- `-enableGitInfo` 开启 GitIifo
-- `--bind 0.0.0.0` 绑定 IP，局域网其他设备 Debug 时很有用
-- `--contentDir example` 指定文章目录 `example`，默认为 `content`
-- `--cleanDestinationDir` 清空目标目录
-- `--forceSyncStatic` 强制同步静态文件
-- `--ignoreCache` 忽略缓存
-- `--noHTTPCache` 关闭 HTTP 缓存
-- `--renderStaticToDisk` Hugo 0.97.0 新特性，从硬盘渲染静态文件，从内存渲染动态文件
-- `--disableFastRender` DoIt 主题使用了 `.Scratch`，建议开启此参数
-- `-e production` DoIt 的 `评论系统`、`CDN` 和 `fingerprint` 不会在 development 环境下启用
-- `hugo server --help` 查看 server 所有命令
-
-##### 12. **本地构建**
-
-手动构建命令：
-
-```diff
-- hugo --cleanDestinationDir --forceSyncStatic --gc --ignoreCache --minify --enableGitInfo
-+ pnpm run hugo
-```
-
-- `--cleanDestinationDir` 构建前先清理目标目录，即 public
-- `--forceSyncStatic` 强制同步 static 目录
-- `--gc` 构建后执行一些清理任务 (删除掉一些没用的缓存文件)
-- `--ignoreCache` 构建时忽略缓存
-- `--minify` 压缩网页代码
-- `--enableGitInfo` 开启 GitIifo
-- `hugo --help` 查看所有命令
-
-</details>
 
 ### 🖼️ 图片
 
