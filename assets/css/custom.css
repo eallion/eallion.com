@@ -533,3 +533,7 @@ article,
     color: transparent;
     font-weight: bold;
 }
+
+#search-results-container mark {
+  @apply rounded-sm px-1 font-bold;
+}

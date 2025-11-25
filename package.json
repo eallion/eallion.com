@@ -11,7 +11,7 @@
     "build:chroma": "\\rm -f assets/css/chroma.css && hugo gen chromastyles --style=github | sed 's/\\./html:not(.dark) ./' >> assets/css/chroma.css && hugo gen chromastyles --style=github-dark | sed 's/\\./html.dark ./' >> assets/css/chroma.css",
     "build:css": "cross-env NODE_ENV=production npx tailwindcss -i ./assets/css/input.css -o ./assets/css/main.css",
     "build:hugo": "hugo --minify --gc",
-    "build:pagefind": "npx pagefind --site public --output-subdir pagefind --force-language zh",
+    "build:pagefind": "pnpm build:css && pnpm build:hugo && npx pagefind --site public --output-subdir pagefind --force-language zh",
     "clean": "run-p clean:article clean:data clean:hugo",
     "clean:article": "rimraf ./content/blog/*.md",
     "clean:data": "rimraf ./assets/data/*",

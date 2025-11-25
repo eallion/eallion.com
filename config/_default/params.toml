@@ -39,6 +39,9 @@ svg_title = "title"
 # Global Follow to set: | mastodon | newsletter |
 follow = "mastodon"
 
+# Default Feature Image
+defaultFeature = "https://images.eallion.com/directus/files/ce35a8bb-fbda-468c-9aa8-d3599e538566.jpg"
+
 # Site Social Media
 [[social]]
   name = "Mastodon"
