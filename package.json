@@ -34,7 +34,7 @@
     "gen:llms": "node scripts/generate-llms.js",
     "new": "node scripts/new_post.js",
     "theme:init": "git submodule update --init --recursive",
-    "theme:update": "git submodule update --remote --force themes/pehefe"
+    "theme:update": "git submodule update --remote --force themes/pehe"
   },
   "repository": {
     "type": "git",
