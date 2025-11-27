@@ -1,0 +1,134 @@
+/* * ----------------------------------------------------
+ * 自定义 CSS 样式（为了处理 .TableOfContents 渲染的结构）
+ * ----------------------------------------------------
+ */
+
+/* TOC 滚动容器样式优化 */
+.toc-scroll-wrapper {
+  /* 自定义滚动条样式 */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  /* 禁用横向滚动，防止页面抖动 */
+  overflow-x: hidden;
+}
+
+.dark .toc-scroll-wrapper {
+  scrollbar-color: var(--color-bg-dimmed-primary) transparent;
+}
+
+/* TOC 容器默认样式 - JS 会动态设置 max-height */
+@media (min-width: 1024px) {
+  .toc-scroll-wrapper {
+    /* 默认最大高度，防止 JS 加载前布局跳动 */
+    max-height: calc(100vh - 10rem);
+  }
+}
+
+.toc-scroll-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.toc-scroll-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toc-scroll-wrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  transition: background-color 0.2s;
+}
+
+.dark .toc-scroll-wrapper::-webkit-scrollbar-thumb {
+  background-color: var(--color-bg-dimmed-primary);
+}
+
+.toc-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.dark .toc-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-bg-dimmed-primary);
+}
+
+/* 移除默认的 Hugo TOC nav 标签样式 */
+.toc-content-wrapper nav {
+  all: unset;
+  display: block;
+}
+
+/* TOC 内容不超出容器宽度 */
+.toc-content-wrapper {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+/* 重置所有列表样式 */
+.toc-content-wrapper ul {
+  @apply list-none p-0 m-0;
+}
+
+.toc-content-wrapper li {
+  @apply m-0;
+}
+
+/* 一级标题链接（H2） */
+.toc-content-wrapper > nav > ul > li > a {
+  @apply block py-2 px-3 my-1 rounded-lg text-sm font-medium text-zinc-700 dark:text-text-dimmed-secondary transition-all duration-200 ease-in-out;
+  @apply hover:bg-zinc-200/60 dark:hover:bg-bg-dimmed-secondary hover:text-zinc-900 dark:hover:text-text-dimmed-primary hover:translate-x-0.5;
+  position: relative;
+}
+
+/* 一级标题激活状态 */
+.toc-content-wrapper > nav > ul > li > a.active {
+  @apply bg-white dark:bg-bg-dimmed-primary text-zinc-900 dark:text-text-dimmed-primary font-bold shadow-sm;
+  padding-left: calc(0.75rem - 3px);
+}
+
+/* 二级及以下标题容器 */
+.toc-content-wrapper ul ul {
+  @apply pl-4 mt-1 mb-2 border-l border-zinc-200/60 dark:border-border-dimmed-primary/60;
+}
+
+/* 二级标题链接（H3） */
+.toc-content-wrapper ul ul li > a {
+  @apply block py-1.5 px-2 my-0.5 rounded text-xs text-zinc-600 dark:text-text-dimmed-secondary transition-all duration-150 ease-in-out;
+  @apply hover:bg-zinc-100 dark:hover:bg-bg-dimmed-secondary hover:text-zinc-800 dark:hover:text-text-dimmed-primary hover:translate-x-0.5;
+}
+
+/* 二级标题激活状态 */
+.toc-content-wrapper ul ul li > a.active {
+  @apply bg-zinc-50 dark:bg-bg-dimmed-primary text-zinc-800 dark:text-text-dimmed-primary font-semibold;
+}
+
+/* 三级标题链接（H4） */
+.toc-content-wrapper ul ul ul li > a {
+  @apply text-xs text-zinc-500 dark:text-text-dimmed-secondary py-1 px-2;
+  @apply hover:text-zinc-700 dark:hover:text-text-dimmed-primary;
+}
+
+/* 三级标题激活状态 */
+.toc-content-wrapper ul ul ul li > a.active {
+  @apply text-zinc-700 dark:text-text-dimmed-primary font-medium bg-zinc-50/90 dark:bg-bg-dimmed-primary/90;
+}
+
+/* 四级标题链接（H5） */
+.toc-content-wrapper ul ul ul ul li > a {
+  @apply text-xs text-zinc-400 py-0.5 px-2 dark:text-text-dimmed-secondary dark:bg-bg-dimmed-primary;
+  @apply hover:text-zinc-600 dark:hover:text-text-dimmed-primary;
+}
+
+/* 四级标题激活状态 */
+.toc-content-wrapper ul ul ul ul li > a.active {
+  @apply text-zinc-600 dark:text-text-dimmed-primary font-medium;
+}
+
+/* 为激活链接添加平滑的过渡效果 */
+.toc-content-wrapper a {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 鼠标悬停时的轻微缩放效果 */
+.toc-content-wrapper a:hover {
+  transform: translateX(2px);
+}

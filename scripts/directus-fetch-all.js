@@ -581,7 +581,7 @@ async function createMarkdownFiles(articles) {
         continue;
       }
 
-      newSlug = slug
+      let newSlug = slug
         .trim() // 去掉首尾空格或换行符
         .replace(/\s+/g, '-') // 如果中间有空格替换为 -
         .toLowerCase(); // 如果有大写，转换为小写

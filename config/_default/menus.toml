@@ -53,25 +53,25 @@
   pageRef = '/links/'
   weight = 45
 [[footer]]
+  name = 'About'
+  pageRef = '/about'
+  weight = 55
+[[footer]]
+  name = 'llms.txt'
+  url = '/llms.txt'
+  weight = 69
+[[footer]]
   name = 'Status'
   url = 'https://status.eallion.com?rel=www.eallion.com'
   weight = 86
   post = "external-link"
-[[footer]]
-  name = 'DeepWiki'
-  url = 'https://deepwiki.com/eallion/eallion.com?rel=www.eallion.com'
-  weight = 87
-  post = "external-link"
+# [[footer]]
+#   name = 'DeepWiki'
+#   url = 'https://deepwiki.com/eallion/eallion.com?rel=www.eallion.com'
+#   weight = 87
+#   post = "external-link"
 [[footer]]
   name = 'RSS'
   pre = "rss-square"
   url = '/index.xml'
-  weight = 88
-[[footer]]
-  name = 'llms.txt'
-  url = '/llms.txt'
-  weight = 89
-[[footer]]
-  name = 'About'
-  pageRef = '/about'
   weight = 99

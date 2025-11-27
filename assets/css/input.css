@@ -2,8 +2,13 @@
 
 @import 'tailwindcss';
 
+@import './article.css';
 @import './chroma.css';
+@import './toc.css';
+
 @import './custom.css';
+
+/* @plugin 'tailwindcss-github-markdown'; */
 
 @plugin '@tailwindcss/typography';
 
@@ -15,8 +20,56 @@
 
 @source '../../content/**/*.md';
 
+@theme {
+  /* Fonts */
+  --font-mono: "JetBrains Maple Mono", "JetBrainsMono Nerd Font Mono", "JetBrainsMono Nerd Font", "JetBrainsMonoNL Nerd Font", "JetBrainsMono NF", "JetBrains Mono NL", "JetBrains Mono", "Fira Code", "Cascadia Code", "Source Code Pro", "Iosevka", "Menlo", "Consolas", "SF Mono", ui-monospace, monospace;
+
+  /* Colors - GitHub Dark Dimmed */
+  /*
+    .dark: Github Dark Dimmed Theme Colors
+
+    背景
+    canvas-default  #22272e  主背景色 (Body Background)
+    canvas-overlay  #2d333b  弹窗、下拉菜单、以及 Hover 状态
+    canvas-inset  #1c2128  代码块背景、嵌入式面板
+    canvas-subtle  #252a33  侧边栏或次级背景 (有时也用 inset)
+
+    文字
+    fg-default  #adbac7  主文字颜色 (Primary Text)
+    fg-muted  #768390  次要文字、注释、说明
+    fg-subtle  #545d68  占位符、极弱文字
+    fg-on-emphasis  #ffffff  按钮上的文字（高亮背景下）
+
+    边框
+    border-default  #444c56  主要边框颜色 (Cards, Inputs)
+    border-muted  #373e47  次要分割线
+    border-subtle  #cdd9e51a  极淡边框 (10% 透明度)
+  */
+
+  --color-bg-dimmed-primary: #22272e;      /* canvas-default */
+  --color-bg-dimmed-secondary: #2d333b;    /* canvas-overlay */
+  --color-bg-dimmed-inset: #1c2128;        /* canvas-inset */
+  --color-bg-dimmed-subtle: #252a33;       /* canvas-subtle */
+
+  --color-text-dimmed-primary: #adbac7;    /* fg-default */
+  --color-text-dimmed-secondary: #768390;  /* fg-muted */
+  --color-text-dimmed-tertiary: #545d68;   /* fg-subtle */
+  --color-text-dimmed-inverse: #ffffff;    /* fg-on-emphasis */
+
+  --color-border-dimmed-primary: #444c56;  /* border-default */
+  --color-border-dimmed-secondary: #373e47;/* border-muted */
+  --color-border-dimmed-subtle: #cdd9e51a; /* border-subtle */
+
+  /* Additional colors found in code */
+  --color-gh-bg-primary: #f6f8fa;
+  --color-gh-text-primary: #24292f;
+  --color-gh-border-primary: #d0d7de;
+  --color-text-dimmed-highlight: #d1d7e0;
+}
+
 /* GitHub Dark Dimmed Theme - Dark Mode Only */
 @layer base {
+
   /* Enable dark mode color scheme */
   html {
     color-scheme: light dark;
@@ -24,47 +77,7 @@
 }
 
 @variant dark (&:where(.dark, .dark *));
-/* 定义 GitHub Dark Dimmed 的核心颜色变量 (复用上一条回答的数据) */
-
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
-}
 
 @utility insert-link {
   @apply before:absolute before:content-[''] before:z-10 before:top-0 before:right-0 before:left-0 before:bottom-0 before:pointer-events-auto;
-}
-
-@utility close {
-  display: none;
-}
-
-@utility open {
-  display: block;
-}
-
-/* * 🛠️ 解决 Tailwind Typography 导致的行内代码块反引号问题
- * 目标：移除 .prose code::before 和 ::after 插入的字符
- */
-
-@layer components {
-  /* 确保这个选择器足够具体，能够覆盖 Tailwind 插件生成的样式 */
-  .prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::before,
-  .prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::after {
-    content: none !important;
-  }
 }

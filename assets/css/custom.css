@@ -1,68 +1,39 @@
 /* CSS Custom */
 
-/*
-.dark: Github Dark Dimmed Theme Colors
+/* * 🛠️ 解决 Tailwind Typography 导致的行内代码块反引号问题
+ * 目标：移除 .prose code::before 和 ::after 插入的字符
+ */
 
-背景
-canvas-default  #22272e  主背景色 (Body Background)
-canvas-overlay  #2d333b  弹窗、下拉菜单、以及 Hover 状态
-canvas-inset  #1c2128  代码块背景、嵌入式面板
-canvas-subtle  #252a33  侧边栏或次级背景 (有时也用 inset)
-
-文字
-fg-default  #adbac7  主文字颜色 (Primary Text)
-fg-muted  #768390  次要文字、注释、说明
-fg-subtle  #545d68  占位符、极弱文字
-fg-on-emphasis  #ffffff  按钮上的文字（高亮背景下）
-
-边框
-border-default  #444c56  主要边框颜色 (Cards, Inputs)
-border-muted  #373e47  次要分割线
-border-subtle  #cdd9e51a  极淡边框 (10% 透明度)
-*/
-
-code {
-  font-family:
-    "JetBrains Maple Mono",
-    "JetBrainsMono Nerd Font Mono",
-    "JetBrainsMono Nerd Font",
-    "JetBrainsMonoNL Nerd Font",
-    "JetBrainsMono NF",
-    "JetBrains Mono NL",
-    "JetBrains Mono",
-    "Fira Code",
-    "Cascadia Code",
-    "Source Code Pro",
-    "Iosevka",
-    "Menlo",
-    "Consolas",
-    "SF Mono",
-    ui-monospace,
-    monospace;
-  font-size: 0.875em;
+@layer components {
+  /* 确保这个选择器足够具体，能够覆盖 Tailwind 插件生成的样式 */
+  .prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::before,
+  .prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::after {
+    content: none !important;
+  }
 }
 
+/* 添加代码块高亮样式 */
 html:not(.dark) .chroma,
 html:not(.dark) .chroma * {
   /* GitHub Light */
-  color: #24292f;
-  background-color: #f6f8fa;
+  color: var(--color-gh-text-primary);
+  background-color: var(--color-gh-bg-primary);
 }
 
 html.dark .chroma,
 html.dark .chroma * {
   /* GitHub Dark Dimmed */
-  color: #d1d7e0;
-  background-color: #2d333b;
+  color: var(--color-text-dimmed-highlight);
+  background-color: var(--color-bg-dimmed-secondary);
 }
 
 /* Tailwindcss Custom */
 /* 关键：只选择不是 <pre> 标签的直接子元素的 <code> */
 .prose code:not(pre > code) {
   /* GitHub Light */
-  background-color: #f6f8fa;
-  color: #24292f;
-  border: 1px solid #d0d7de;
+  background-color: var(--color-gh-bg-primary);
+  color: var(--color-gh-text-primary);
+  border: 1px solid var(--color-gh-border-primary);
   border-radius: 6px;
   padding: 0.2em 0.4em;
   line-height: normal;
@@ -72,8 +43,8 @@ html.dark .chroma * {
 .dark .prose code:not(pre > code) {
   /* GitHub Dark Dimmed */
   background-color: #656c7633;
-  color: #d1d7e0;
-  border: 1px solid #444c56;
+  color: var(--color-text-dimmed-highlight);
+  border: 1px solid var(--color-border-dimmed-primary);
 }
 
 /* Tailwind CSS Blockquote p */
@@ -100,15 +71,6 @@ html.dark .chroma * {
   /* 默认高度 */
   vertical-align: middle;
   /* 保持图标垂直对齐 */
-}
-
-/* 添加 hr 样式 */
-hr {
-  @apply border-zinc-200;
-}
-
-.dark hr {
-  @apply border-[#444c56];
 }
 
 /* 添加 "not by AI" 徽章 */
@@ -156,338 +118,6 @@ hr {
     background-image: url(/assets/images/nonbot/nonbot_pledged_logo.svg);
 }
 
-/* * ----------------------------------------------------
- * 自定义 CSS 样式（为了处理 .TableOfContents 渲染的结构）
- * ----------------------------------------------------
- */
-
-/* TOC 滚动容器样式优化 */
-.toc-scroll-wrapper {
-  /* 自定义滚动条样式 */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-  /* 禁用横向滚动，防止页面抖动 */
-  overflow-x: hidden;
-}
-
-.dark .toc-scroll-wrapper {
-  scrollbar-color: #22272e transparent;
-}
-
-/* TOC 容器默认样式 - JS 会动态设置 max-height */
-@media (min-width: 1024px) {
-  .toc-scroll-wrapper {
-    /* 默认最大高度，防止 JS 加载前布局跳动 */
-    max-height: calc(100vh - 10rem);
-  }
-}
-
-.toc-scroll-wrapper::-webkit-scrollbar {
-  width: 6px;
-}
-
-.toc-scroll-wrapper::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.toc-scroll-wrapper::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-  transition: background-color 0.2s;
-}
-
-.dark .toc-scroll-wrapper::-webkit-scrollbar-thumb {
-  background-color: #22272e;
-}
-
-.toc-scroll-wrapper::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.dark .toc-scroll-wrapper::-webkit-scrollbar-thumb:hover {
-  background-color: #22272e;
-}
-
-/* 移除默认的 Hugo TOC nav 标签样式 */
-.toc-content-wrapper nav {
-  all: unset;
-  display: block;
-}
-
-/* TOC 内容不超出容器宽度 */
-.toc-content-wrapper {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-}
-
-/* 重置所有列表样式 */
-.toc-content-wrapper ul {
-  @apply list-none p-0 m-0;
-}
-
-.toc-content-wrapper li {
-  @apply m-0;
-}
-
-/* 一级标题链接（H2） */
-.toc-content-wrapper > nav > ul > li > a {
-  @apply block py-2 px-3 my-1 rounded-lg text-sm font-medium text-zinc-700 dark:text-[#768390] transition-all duration-200 ease-in-out;
-  @apply hover:bg-zinc-200/60 dark:hover:bg-[#2d333b] hover:text-zinc-900 dark:hover:text-[#adbac7] hover:translate-x-0.5;
-  position: relative;
-}
-
-/* 一级标题激活状态 */
-.toc-content-wrapper > nav > ul > li > a.active {
-  @apply bg-white dark:bg-[#22272e] text-zinc-900 dark:text-[#adbac7] font-bold shadow-sm;
-  padding-left: calc(0.75rem - 3px);
-}
-
-/* 二级及以下标题容器 */
-.toc-content-wrapper ul ul {
-  @apply pl-4 mt-1 mb-2 border-l border-zinc-200/60 dark:border-[#444c56]/60;
-}
-
-/* 二级标题链接（H3） */
-.toc-content-wrapper ul ul li > a {
-  @apply block py-1.5 px-2 my-0.5 rounded text-xs text-zinc-600 dark:text-[#768390] transition-all duration-150 ease-in-out;
-  @apply hover:bg-zinc-100 dark:hover:bg-[#2d333b] hover:text-zinc-800 dark:hover:text-[#adbac7] hover:translate-x-0.5;
-}
-
-/* 二级标题激活状态 */
-.toc-content-wrapper ul ul li > a.active {
-  @apply bg-zinc-50 dark:bg-[#22272e] text-zinc-800 dark:text-[#adbac7] font-semibold;
-}
-
-/* 三级标题链接（H4） */
-.toc-content-wrapper ul ul ul li > a {
-  @apply text-xs text-zinc-500 dark:text-[#768390] py-1 px-2;
-  @apply hover:text-zinc-700 dark:hover:text-[#adbac7];
-}
-
-/* 三级标题激活状态 */
-.toc-content-wrapper ul ul ul li > a.active {
-  @apply text-zinc-700 dark:text-[#adbac7] font-medium bg-zinc-50/90 dark:bg-[#22272e]/90;
-}
-
-/* 四级标题链接（H5） */
-.toc-content-wrapper ul ul ul ul li > a {
-  @apply text-xs text-zinc-400 py-0.5 px-2 dark:text-[#768390] dark:bg-[#22272e];
-  @apply hover:text-zinc-600 dark:hover:text-[#adbac7];
-}
-
-/* 四级标题激活状态 */
-.toc-content-wrapper ul ul ul ul li > a.active {
-  @apply text-zinc-600 dark:text-[#adbac7] font-medium;
-}
-
-/* 为激活链接添加平滑的过渡效果 */
-.toc-content-wrapper a {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* 鼠标悬停时的轻微缩放效果 */
-.toc-content-wrapper a:hover {
-  transform: translateX(2px);
-}
-
-/* 原生 CSS 中文排版优化 - 替代 Heti JavaScript 方案 */
-/* 基于原生 CSS 属性，无需 JavaScript */
-
-/* =====================================================
- * 1. 基础中文排版优化
- * ===================================================== */
-
-/* 为整个页面启用中文排版优化 */
-html {
-  /* 启用原生的中文标点符号间距优化 */
-  text-spacing: ideograph-alpha ideograph-numeric ideograph-parenthesis;
-  /* 自动字符间距优化 */
-  text-autospace: ideograph;
-}
-
-/* =====================================================
- * 2. 文章内容中文排版优化
- * ===================================================== */
-
-/* 替换 Heti JS 的 CJK 间距优化 */
-article {
-  /* 基础字符间距（适配中文阅读）*/
-  letter-spacing: 0.02em;
-
-  /* 原生中文排版优化 */
-  text-spacing: ideograph-alpha ideograph-numeric ideograph-parenthesis trim-ideograph;
-  text-autospace: ideograph;
-
-  /* 悬挂标点符号优化 */
-  hanging-punctuation: first allow-end;
-
-  /* 文本渲染优化（针对中文） */
-  text-rendering: optimizeLegibility;
-
-  /* 字体特性优化 */
-  font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
-}
-
-/* 排除英文内容和特殊元素 */
-article a {
-  word-break: break-word;
-  overflow-wrap: break-word;
-}
-
-article a,
-article abbr,
-article code,
-article pre,
-article [lang="en"],
-article [lang="en-US"] {
-  letter-spacing: normal;
-  text-spacing: normal;
-  text-autospace: none;
-}
-
-/* =====================================================
- * 3. Tailwind Typography 集成优化
- * ===================================================== */
-
-/* 针对 .prose 元素的中文排版优化 */
-.prose {
-  /* 使用原生 CSS 替代 Heti JS 的标点符号间距处理 */
-  text-spacing: ideograph-alpha ideograph-numeric ideograph-parenthesis trim-ideograph;
-
-  /* 悬挂标点符号（处理中文引号、括号等）*/
-  hanging-punctuation: first allow-end;
-
-  /* 中英混排间距优化 */
-  text-autospace: ideograph;
-}
-
-/* 在 prose 内部的中文段落优化 */
-.prose p:lang(zh),
-.prose p:lang(ja),
-.prose p:lang(ko),
-.prose div:lang(zh) {
-  /* 文本渲染优化 */
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* =====================================================
- * 4. 标点符号挤压优化（替代 Heti-adjacent）
- * ===================================================== */
-
-/* 相邻标点符号间距优化 */
-.prose {
-  /* 控制标点符号之间的间距 */
-  text-spacing:
-    ideograph-alpha
-    ideograph-numeric
-    ideograph-parenthesis
-    trim-ideograph;
-}
-
-/* 针对特殊标点组合的优化 */
-.prose p {
-  /* 优化标点挤压 */
-  text-spacing-trim: trim-ideograph;
-
-  /* 悬挂标点处理 */
-  hanging-punctuation: first allow-end;
-}
-
-/* =====================================================
- * 5. 数字和英文间距优化（替代 Heti-spacing）
- * ===================================================== */
-
-/* 中英文之间自动添加适当间距 - 使用原生 CSS */
-article,
-.prose {
-  /* 启用中英文混排间距自动优化 */
-  text-autospace: ideograph;
-
-  /* 明确指定字符间距优化 */
-  text-spacing: ideograph-alpha;
-}
-
-/* 数字和单位之间的间距优化 */
-.prose {
-  /* 处理数字和单位符号之间的间距 */
-  text-spacing: ideograph-numeric;
-}
-
-/* =====================================================
- * 6. Material Design 3 主题集成
- * ===================================================== */
-
-/* 适配 Material Design 3 的中文排版 */
-.md\\:prose-lg {
-  /* 保持 Material Design 的间距比例，同时优化中文排版 */
-  text-spacing:
-    ideograph-alpha
-    ideograph-numeric
-    ideograph-parenthesis
-    trim-ideograph;
-}
-
-/* =====================================================
- * 7. 响应式中文排版优化
- * ===================================================== */
-
-/* 移动端中文排版优化 */
-@media (max-width: 768px) {
-  article,
-  .prose {
-    /* 移动端略微收紧间距 */
-    letter-spacing: 0.01em;
-    text-spacing: ideograph-alpha;
-  }
-}
-
-/* =====================================================
- * 8. 兼容性保障
- * ===================================================== */
-
-/* 为不支持原生 CSS 特性的浏览器提供降级方案 */
-@supports not (text-spacing: ideograph-alpha) {
-  article,
-  .prose {
-    /* 回退方案：使用 font-feature-settings */
-    font-feature-settings: "kern" 1, "liga" 1;
-  }
-}
-
-@supports not (hanging-punctuation: first) {
-  .prose p {
-    /* 为不支持 hanging-punctuation 的浏览器提供基本优化 */
-    text-indent: 0;
-  }
-}
-
-/* =====================================================
- * 9. 特定内容类型优化
- * ===================================================== */
-
-/* 引用块中文排版优化 */
-.prose blockquote {
-  /* 引用中的中文优化 */
-  text-spacing: ideograph-alpha ideograph-parenthesis;
-  hanging-punctuation: first allow-end;
-}
-
-/* 列表项中文排版优化 */
-.prose li {
-  /* 列表项中的中文优化 */
-  text-spacing: ideograph-alpha;
-  hanging-punctuation: none;
-}
-
-/* 表格中文排版优化 */
-.prose table {
-  /* 表格中的中文优化 */
-  text-spacing: ideograph-alpha;
-}
-
 /* 针对所有在 .timeline 容器内的 h3 元素应用隐藏样式 */
 .timeline h3 {
   /* 目标：视觉隐藏，但在文档流中保留可滚动的位置 */
@@ -520,6 +150,7 @@ article,
     }
 }
 
+/* 添加 Mastodon 渐变样式 */
 .text-gradient-mastodon {
     /* 渐变背景：从 #6364FF 到 #563ACC */
     background: linear-gradient(to bottom, #6364FF, #563ACC);
@@ -534,6 +165,7 @@ article,
     font-weight: bold;
 }
 
+/* Search 结果关键词高亮样式 */
 #search-results-container mark {
   @apply rounded-sm px-1 font-bold;
 }

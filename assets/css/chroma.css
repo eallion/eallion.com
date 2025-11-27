@@ -72,6 +72,7 @@
 /* GenericOutput */ html:not(.dark) .chroma .go { color:#1f2328 }
 /* GenericUnderline */ html:not(.dark) .chroma .gl { text-decoration:underline }
 /* TextWhitespace */ html:not(.dark) .chroma .w { color:#fff }
+
 /* Generated using: hugo gen chromastyles --style=github-dark */
 
 /* Background */ html.dark .bg { color:#e6edf3;background-color:#0d1117; }

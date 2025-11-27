@@ -1,0 +1,196 @@
+/* 原生 CSS 中文排版优化 - 替代 Heti JavaScript 方案 */
+/* 基于原生 CSS 属性，无需 JavaScript */
+
+/* =====================================================
+ * 1. 基础中文排版优化
+ * ===================================================== */
+
+/* 为整个页面启用中文排版优化 */
+html {
+  /* 启用原生的中文标点符号间距优化 */
+  text-spacing: ideograph-alpha ideograph-numeric ideograph-parenthesis;
+  /* 自动字符间距优化 */
+  text-autospace: ideograph;
+}
+
+/* =====================================================
+ * 2. 文章内容中文排版优化
+ * ===================================================== */
+
+/* 替换 Heti JS 的 CJK 间距优化 */
+article {
+  /* 基础字符间距（适配中文阅读）*/
+  letter-spacing: 0.02em;
+
+  /* 原生中文排版优化 */
+  text-spacing: ideograph-alpha ideograph-numeric ideograph-parenthesis trim-ideograph;
+  text-autospace: ideograph;
+
+  /* 悬挂标点符号优化 */
+  hanging-punctuation: first allow-end;
+
+  /* 文本渲染优化（针对中文） */
+  text-rendering: optimizeLegibility;
+
+  /* 字体特性优化 */
+  font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
+}
+
+/* 排除英文内容和特殊元素 */
+article a {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+article a,
+article abbr,
+article code,
+article pre,
+article [lang="en"],
+article [lang="en-US"] {
+  letter-spacing: normal;
+  text-spacing: normal;
+  text-autospace: none;
+}
+
+/* =====================================================
+ * 3. Tailwind Typography 集成优化
+ * ===================================================== */
+
+/* 针对 .prose 元素的中文排版优化 */
+.prose {
+  /* 使用原生 CSS 替代 Heti JS 的标点符号间距处理 */
+  text-spacing: ideograph-alpha ideograph-numeric ideograph-parenthesis trim-ideograph;
+
+  /* 悬挂标点符号（处理中文引号、括号等）*/
+  hanging-punctuation: first allow-end;
+
+  /* 中英混排间距优化 */
+  text-autospace: ideograph;
+}
+
+/* 在 prose 内部的中文段落优化 */
+.prose p:lang(zh),
+.prose p:lang(ja),
+.prose p:lang(ko),
+.prose div:lang(zh) {
+  /* 文本渲染优化 */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =====================================================
+ * 4. 标点符号挤压优化（替代 Heti-adjacent）
+ * ===================================================== */
+
+/* 相邻标点符号间距优化 */
+.prose {
+  /* 控制标点符号之间的间距 */
+  text-spacing:
+    ideograph-alpha
+    ideograph-numeric
+    ideograph-parenthesis
+    trim-ideograph;
+}
+
+/* 针对特殊标点组合的优化 */
+.prose p {
+  /* 优化标点挤压 */
+  text-spacing-trim: trim-ideograph;
+
+  /* 悬挂标点处理 */
+  hanging-punctuation: first allow-end;
+}
+
+/* =====================================================
+ * 5. 数字和英文间距优化（替代 Heti-spacing）
+ * ===================================================== */
+
+/* 中英文之间自动添加适当间距 - 使用原生 CSS */
+article,
+.prose {
+  /* 启用中英文混排间距自动优化 */
+  text-autospace: ideograph;
+
+  /* 明确指定字符间距优化 */
+  text-spacing: ideograph-alpha;
+}
+
+/* 数字和单位之间的间距优化 */
+.prose {
+  /* 处理数字和单位符号之间的间距 */
+  text-spacing: ideograph-numeric;
+}
+
+/* =====================================================
+ * 6. Material Design 3 主题集成
+ * ===================================================== */
+
+/* 适配 Material Design 3 的中文排版 */
+.md\\:prose-lg {
+  /* 保持 Material Design 的间距比例，同时优化中文排版 */
+  text-spacing:
+    ideograph-alpha
+    ideograph-numeric
+    ideograph-parenthesis
+    trim-ideograph;
+}
+
+/* =====================================================
+ * 7. 响应式中文排版优化
+ * ===================================================== */
+
+/* 移动端中文排版优化 */
+@media (max-width: 768px) {
+  article,
+  .prose {
+    /* 移动端略微收紧间距 */
+    letter-spacing: 0.01em;
+    text-spacing: ideograph-alpha;
+  }
+}
+
+/* =====================================================
+ * 8. 兼容性保障
+ * ===================================================== */
+
+/* 为不支持原生 CSS 特性的浏览器提供降级方案 */
+@supports not (text-spacing: ideograph-alpha) {
+  article,
+  .prose {
+    /* 回退方案：使用 font-feature-settings */
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+}
+
+@supports not (hanging-punctuation: first) {
+  .prose p {
+    /* 为不支持 hanging-punctuation 的浏览器提供基本优化 */
+    text-indent: 0;
+  }
+}
+
+/* =====================================================
+ * 9. 特定内容类型优化
+ * ===================================================== */
+
+/* 引用块中文排版优化 */
+.prose blockquote {
+  /* 引用中的中文优化 */
+  text-spacing: ideograph-alpha ideograph-parenthesis;
+  hanging-punctuation: first allow-end;
+}
+
+/* 列表项中文排版优化 */
+.prose li {
+  /* 列表项中的中文优化 */
+  text-spacing: ideograph-alpha;
+  hanging-punctuation: none;
+}
+
+/* 表格中文排版优化 */
+.prose table {
+  /* 表格中的中文优化 */
+  text-spacing: ideograph-alpha;
+}

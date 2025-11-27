@@ -1,16 +1,16 @@
 
-<div id="comment" class="border dark:border-[#444c56] p-8 bg-zinc-100 dark:bg-[#2d333b] rounded-2xl my-8 md:my-14">
+<div id="comment" class="border dark:border-border-dimmed-primary p-8 bg-zinc-100 dark:bg-bg-dimmed-secondary rounded-2xl my-8 md:my-14">
 
 <h2 class="text-xl font-semibold">评论</h2>
 
 <div class="comment-on flex flex-col md:flex-row items-center mt-8 text-base capitalize print:hidden">
-    <div id="load-giscus" class="inline-flex items-center relative border dark:border-[#cdd9e51a] bg-white dark:bg-[#22272e] rounded-full px-4 py-2 hover:bg-zinc-200 dark:hover:bg-[#252a33]">
+    <div id="load-giscus" class="inline-flex items-center relative border dark:border-border-dimmed-subtle bg-white dark:bg-bg-dimmed-primary rounded-full px-4 py-2 hover:bg-zinc-200 dark:hover:bg-bg-dimmed-subtle">
         <span class="cursor-pointer">点击加载</span>
         <span class="ml-2 mr-1 cursor-pointer"><span class="relative block icon">{{ partial "icon.html" (dict "name" "giscus" "class" "") }}</span></span>
         <span class='opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Giscus</span>
     </div>
     <div id="load-giscus-desc" class="block md:inline-block text-sm md:text-base lowercase md:capitalize m-4">或者</div>
-    <div id="link-to-mastodon" class="flex items-center relative border dark:border-[#cdd9e51a] bg-white dark:bg-[#22272e] rounded-full px-4 py-2 hover:bg-zinc-200 dark:hover:bg-[#252a33]">
+    <div id="link-to-mastodon" class="flex items-center relative border dark:border-border-dimmed-subtle bg-white dark:bg-bg-dimmed-primary rounded-full px-4 py-2 hover:bg-zinc-200 dark:hover:bg-bg-dimmed-subtle">
         <span class="cursor-pointer">去</span>
         <span class="ml-2 mr-1 cursor-pointer"><span class="relative block icon">{{ partial "icon.html" (dict "name" "mastodon-color" "class" "") }}</span></span>
         <span class='ml-1 opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>
