@@ -63,6 +63,38 @@ html.dark .chroma * {
   }
 }
 
+/* 添加标题容器与动态标题样式 */
+.feature-title-container {
+  /* 建立容器查询上下文 */
+  container-type: inline-size;
+  width: 100%;
+  /* text-align: center; */
+}
+
+.dynamic-title {
+  /* 使用 cqw (Container Query Width) 实现基于容器宽度的动态缩放
+     公式：font-size = (容器宽度 * 系数) / 字符权重长度
+     例如：65cqw / 10 字符 ≈ 6.5cqw (在 800px 容器中约 52px)
+           65cqw / 20 字符 ≈ 3.25cqw (在 800px 容器中约 26px)
+  */
+  font-size: clamp(
+    1.25rem,
+    calc(90cqw / var(--title-weighted-length)),
+    2.5rem
+  );
+
+  /* 允许换行，最多显示 2 行 */
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* 调整行高，避免多行时太占空间 */
+  line-height: 1.2;
+}
+
 /* icon shortcodes 的宽高限制 */
 .icon svg {
   width: 1em;
