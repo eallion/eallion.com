@@ -13,6 +13,7 @@ icp = "浙ICP备16031768号-2"
 description = 'Gemini, Millennials, Normie, Kōjigen, N24SWD, AIWS, Upekkha. Geeker, Gamer, Blogger.'
 keywords = ["Gemini", "Millennials", "Normie", "Kōjigen", "N24SWD", "AIWS", "Upekkha", "Geeker", "Gamer", "Blogger"]
 mainSections = 'blog'
+archiveSize = 0 # <- Set the desired number of posts per archive page
 
 # 是否开启外链跳转提示
 redirect = true
@@ -34,7 +35,7 @@ nonbot = "https://nonbot.org/submissions/view/9cefed7c-dc57-4832-84ec-197314fda9
 powered_by = "full"
 
 # Save svg_title to 'assets/icons/title.svg'
-svg_title = "title"
+svg_title = "eallion"
 
 # Global Follow to set: | mastodon | newsletter |
 follow = "mastodon"

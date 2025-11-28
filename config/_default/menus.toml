@@ -20,6 +20,10 @@
   pageRef = '/links/'
   weight = 45
 [[main]]
+  name = '归档'
+  pageRef = '/blog/'
+  weight = 89
+[[main]]
   name = 'About'
   pageRef = '/about'
   weight = 99

@@ -169,7 +169,7 @@
               </div>
             </div>
             <div
-              class="w-fit mx-auto my-8 border dark:border-[#444c56] rounded-full px-6 py-2 hover:bg-zinc-200 dark:hover:bg-[#252a33] cursor-pointer">
+              class="w-fit mx-auto my-8 border border-zinc-200 dark:border-[#444c56] rounded-full px-6 py-2 hover:bg-zinc-200 dark:hover:bg-[#252a33] cursor-pointer">
               <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer"
                 class="flex items-center justify-center not-prose gap-1">
                 <div>点击 e5n.cc 查看更多</div>
@@ -543,7 +543,7 @@
 
     data.forEach(post => {
       const article = document.createElement('article');
-      article.className = 'bg-white dark:bg-[#2d333b] border dark:border-[#cdd9e51a] rounded-2xl mb-8 last:mb-0 p-6 pb-4 shadow-sm hover:shadow-md transition-shadow duration-300';
+      article.className = 'bg-white dark:bg-[#2d333b] border border-zinc-200 dark:border-[#cdd9e51a] rounded-2xl mb-8 last:mb-0 p-6 pb-4 shadow-sm hover:shadow-md transition-shadow duration-300';
 
       // 判断是否为转发
       if (post.reblog) {
@@ -611,7 +611,7 @@
         const quotedMediaHtml = renderMediaHtml(s.media_attachments, s.sensitive);
 
         return `
-          <div class="mt-quote mt-4 border dark:border-[#cdd9e51a] bg-zinc-100 dark:bg-[#22272e] p-3 rounded-2xl text-sm shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div class="mt-quote mt-4 border border-zinc-200 dark:border-[#cdd9e51a] bg-zinc-100 dark:bg-[#22272e] p-3 rounded-2xl text-sm shadow-sm hover:shadow-md transition-shadow duration-300">
             <!-- top: avatar | name/acct -->
             <div class="mt-quote-top flex items-center gap-3">
               <div class="flex-shrink-0 w-9 h-9">
@@ -768,7 +768,7 @@
       const countText = newCount > 0 ? `${newCount} 条新嘟文` : '嘟文已更新';
 
       updateButtonPlaceholder.innerHTML = `
-        <div class="flex items-center justify-center w-fit mx-auto bg-zinc-100 dark:bg-[#1c2128] border dark:border-[#444c56] rounded-full px-6 py-2 hover:bg-zinc-200 dark:hover:bg-[#252a33] cursor-pointer" onclick="loadNewContent()">
+        <div class="flex items-center justify-center w-fit mx-auto bg-zinc-100 dark:bg-[#1c2128] border border-zinc-200 dark:border-[#444c56] rounded-full px-6 py-2 hover:bg-zinc-200 dark:hover:bg-[#252a33] cursor-pointer" onclick="loadNewContent()">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="16" stroke-dashoffset="16" d="M12 3c4.97 0 9 4.03 9 9"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="16;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path><path stroke-dasharray="64" stroke-dashoffset="64" stroke-opacity="0.3" d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.2s" values="64;0"/></path></g></svg>
             <span>点击查看 ${countText}</span>
         </div>
