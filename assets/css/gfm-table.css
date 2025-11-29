@@ -1,0 +1,82 @@
+/* -----------------------------------------------------------
+ * 兼容 Prose 的表格样式
+ * 使用 CSS 变量 (var(--tw-prose-*)) 确保颜色与 prose-invert 同步
+ * -----------------------------------------------------------*/
+
+/* -----------------------------------------------------------
+ * 颜色变量定义（用于覆盖默认的 Tailwind Prose 颜色）
+ * -----------------------------------------------------------*/
+
+/*
+ * 在 :root 级别定义亮色模式下的默认颜色。
+ * 在 .dark 级别定义暗色模式下的颜色覆盖。
+ * * 注意：您需要将以下 CSS 颜色定义添加到您的主 CSS 文件中，
+ * 并且确保它能被 Tailwind 的 dark mode 机制识别。
+ */
+
+:root {
+    /* 亮色模式 (Light Theme) */
+    --tw-prose-td-border: #dfe2e5;    /* 单元格边框 */
+    --tw-prose-tr-border: #c6cbd1;    /* 行顶部边框 */
+    --tw-prose-tr-bg: #fff;           /* 奇数行背景 */
+    --tw-prose-tr-alt-bg: #f6f8fa;    /* 偶数行背景 */
+}
+
+/* Tailwind CSS 启用暗黑模式时，将 .dark 类添加到 <html> 或 <body> 上 */
+.dark {
+    /* 暗色模式 (Dark Theme) - 匹配 GitHub Dark */
+    --tw-prose-td-border: #3d444d;
+    --tw-prose-tr-border: #3d444d;
+    --tw-prose-tr-bg: #212830;        /* 深色背景 */
+    --tw-prose-tr-alt-bg: #262c36;    /* 稍亮的深色 */
+}
+
+table {
+  /* 基础表格重置 */
+  width: 100%;
+  overflow: auto;
+  display: block; /* 允许横向滚动 */
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  /* 表格外间距 - 沿用 GitHub 的 16px */
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+/* 单元格和表头单元格的内边距和边框 */
+th,
+td {
+  padding: 6px 13px;
+  /* 边框颜色使用 CSS 变量，确保在亮暗模式下自动切换 */
+  border: 1px solid var(--tw-prose-td-border, #dfe2e5);
+}
+
+/* 表格行的顶部边框和背景色 */
+tr {
+  /* 背景色使用 CSS 变量 */
+  background-color: var(--tw-prose-tr-bg, #fff);
+  /* 顶部边框颜色使用 CSS 变量 */
+  border-top: 1px solid var(--tw-prose-tr-border, #c6cbd1);
+}
+
+/* 偶数行的背景色（隔行变色）*/
+tr:nth-child(2n) {
+  /* 偶数行背景色使用 CSS 变量 */
+  background-color: var(--tw-prose-tr-alt-bg, #f6f8fa);
+}
+
+/* 表格标题单元格的样式 */
+th {
+  font-weight: 600;
+}
+
+/* 移除表格内代码块的特殊样式 */
+table code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  background-color: transparent;
+  border: 0;
+}

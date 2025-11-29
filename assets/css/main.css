@@ -4323,6 +4323,49 @@ html.dark .chroma .gl {
 html.dark .chroma .w {
   color: #6e7681;
 }
+:root {
+  --tw-prose-td-border: #dfe2e5;
+  --tw-prose-tr-border: #c6cbd1;
+  --tw-prose-tr-bg: #fff;
+  --tw-prose-tr-alt-bg: #f6f8fa;
+}
+.dark {
+  --tw-prose-td-border: #3d444d;
+  --tw-prose-tr-border: #3d444d;
+  --tw-prose-tr-bg: #212830;
+  --tw-prose-tr-alt-bg: #262c36;
+}
+table {
+  width: 100%;
+  overflow: auto;
+  display: block;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+th, td {
+  padding: 6px 13px;
+  border: 1px solid var(--tw-prose-td-border, #dfe2e5);
+}
+tr {
+  background-color: var(--tw-prose-tr-bg, #fff);
+  border-top: 1px solid var(--tw-prose-tr-border, #c6cbd1);
+}
+tr:nth-child(2n) {
+  background-color: var(--tw-prose-tr-alt-bg, #f6f8fa);
+}
+th {
+  font-weight: 600;
+}
+table code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  background-color: transparent;
+  border: 0;
+}
 .toc-scroll-wrapper {
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
