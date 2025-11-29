@@ -5,12 +5,13 @@
 ### Custom ###
 
 .edgeone/
-content/blog/*.md
+
+content/
+!content/blog/
+!content/go.md
+!content/_index.md
 
 assets/data/*
-!assets/data/friends/
-!assets/data/neodb/
-!assets/data/penta/
 
 static/llms.txt
 static/llms-full.txt

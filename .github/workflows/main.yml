@@ -103,6 +103,7 @@ jobs:
             set -e
             pnpm run directus:article
             pnpm run directus:friendslinks
+            pnpm run directus:pages
             pnpm run fetch:stats
           )
           FETCH_STATUS=$?
