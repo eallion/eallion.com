@@ -14,17 +14,20 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     env:
-      HUGO_CACHEDIR: /tmp/.hugo_cache
-      HUGOMODS_CACHEDIR: /tmp/.hugo_mods_cache
-      PNPM_CACHEDIR: /tmp/.pnpm-store
       ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
       ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
+      COS_BUCKET: ${{ secrets.COS_CN_BUCKET }}
+      COS_SECRET_ID: ${{ secrets.SECRET_COS_ID }}
+      COS_SECRET_KEY: ${{ secrets.SECRET_COS_KEY }}
       DIRECTUS_ACCESS_TOKEN: ${{ secrets.DIRECTUS_ACCESS_TOKEN }}
       DIRECTUS_API_URL: ${{ secrets.DIRECTUS_API_URL }}
       DIRECTUS_FILES_URL: ${{ secrets.DIRECTUS_FILES_URL }}
       DIRECTUS_S3_URL: ${{ secrets.DIRECTUS_S3_URL }}
       ESA_SITE_ID: ${{ secrets.ESA_SITE_ID }}
+      HUGOMODS_CACHEDIR: /tmp/.hugo_mods_cache
+      HUGO_CACHEDIR: /tmp/.hugo_cache
       NEODB_ACCESS_TOKEN: ${{ secrets.NEODB_ACCESS_TOKEN }}
+      PNPM_CACHEDIR: /tmp/.pnpm-store
       STEAM_WEB_API_KEY: ${{ secrets.STEAM_WEB_API_KEY }}
 
     steps:
@@ -129,15 +132,16 @@ jobs:
 
       - name: Deploy to Aliyun OSS
         if: steps.build.outputs.should_deploy == 'true'
-        uses: docker://ghcr.io/eallion/aliyun-oss-website-action:v1
-        env:
-          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-          ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
-          BUCKET: eallion-com
-          ENDPOINT: oss-cn-shanghai.aliyuncs.com
-          FOLDER: public
-          SKIP_SETTING: true
-          INCREMENTAL: true
+        uses: eallion/s3-deploy-action@dev
+        with:
+            provider: tencent
+            cos_secret_id: ${{ secrets.SECRET_COS_ID }}
+            cos_secret_key: ${{ secrets.SECRET_COS_KEY }}
+            cos_bucket: ${{ secrets.COS_CN_BUCKET }}
+            cos_region: ap-shanghai
+            folder: public
+            incremental: true
+            skipSetting: true
 
       - name: Purge Aliyun ESA
         if: steps.build.outputs.should_deploy == 'true'
