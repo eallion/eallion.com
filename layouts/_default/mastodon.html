@@ -430,10 +430,10 @@
 
       // sensitive overlay
       const sensitiveOverlay = isSensitive ? `
-                <div class="absolute inset-0 bg-zinc-800 flex flex-col items-center justify-center z-50 rounded-lg cursor-pointer" onclick="this.style.display='none'">
+                <div class="absolute inset-0 bg-black/50 backdrop-blur-sm flex flex-col items-center justify-center z-50 rounded-lg cursor-pointer transition-opacity duration-300" onclick="this.style.opacity='0'; setTimeout(() => { this.style.display='none'; }, 300); this.parentNode.querySelectorAll('.sensitive-hidden').forEach(el => { el.classList.remove('opacity-0', 'pointer-events-none'); el.classList.add('opacity-100'); });">
                   <div class="text-white font-bold text-lg mb-2"><svg xmlns="http://www.w3.org/2000/svg" width="8rem" height="8rem" viewBox="0 0 16 16"><path fill="currentColor" d="M1 7a6 6 0 0 1 11.99-.34q.175.194.302.446l.59 1.18Q13.999 7.662 14 7a7 7 0 1 0-7.713 6.964l.484-.968A6 6 0 0 1 1 7m8.854-1.146a.5.5 0 0 0-.708-.708L6.25 8.043L4.854 6.646a.5.5 0 1 0-.708.708l1.75 1.75a.5.5 0 0 0 .708 0zm.749 1.7l-3.496 6.998A1 1 0 0 0 8.002 16h6.996a1 1 0 0 0 .895-1.448l-3.5-6.999a1 1 0 0 0-1.79 0m1.395 1.941v3.002a.5.5 0 1 1-1 0V9.495a.5.5 0 1 1 1 0m-.5 5.504a.5.5 0 1 1 0-1a.5.5 0 0 1 0 1"/></svg></div>
-                  <div class="text-zinc-400 text-3xl mt-4 mb-4">NSFW</div>
-                  <div class="flex items-center text-zinc-400 text-xl"><span class="mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 36 36"><path fill="currentColor" d="M30.4 17.6c-1.8-1.9-4.2-3.2-6.7-3.7q-1.65-.45-3.3-.6c2.8-3.3 2.3-8.3-1-11.1s-8.3-2.3-11.1 1s-2.3 8.3 1 11.1c.6.5 1.2.9 1.8 1.1v2.2l-1.6-1.5c-1.4-1.4-3.7-1.4-5.2 0c-1.4 1.4-1.5 3.6-.1 5l4.6 5.4c.2 1.4.7 2.7 1.4 3.9c.5.9 1.2 1.8 1.9 2.5v1.9c0 .6.4 1 1 1h13.6c.5 0 1-.5 1-1v-2.6c1.9-2.3 2.9-5.2 2.9-8.1v-5.8c.1-.4 0-.6-.2-.7m-22-9.4c0-3.3 2.7-5.9 6-5.8c3.3 0 5.9 2.7 5.8 6c0 1.8-.8 3.4-2.2 4.5v-5a3.4 3.4 0 0 0-3.4-3.2c-1.8-.1-3.4 1.4-3.4 3.2v5.2c-1.7-1-2.7-2.9-2.8-4.9M28.7 24c.1 2.6-.8 5.1-2.5 7.1c-.2.2-.4.4-.4.7v2.1H14.2v-1.4c0-.3-.2-.6-.4-.8c-.7-.6-1.3-1.3-1.8-2.2c-.6-1-1-2.2-1.2-3.4c0-.2-.1-.4-.2-.6l-4.8-5.7c-.3-.3-.5-.7-.5-1.2c0-.4.2-.9.5-1.2c.7-.6 1.7-.6 2.4 0l2.9 2.9v3l1.9-1V7.9c.1-.7.7-1.3 1.5-1.2c.7 0 1.4.5 1.4 1.2v11.5l2 .4v-4.6c.1-.1.2-.1.3-.2c.7 0 1.4.1 2.1.2v5.1l1.6.3v-4.6c.9.4 1.7 1 2.4 1.7z"/></svg></span>点击显示图片</div>
+                  <div class="text-zinc-200 text-3xl mt-4 mb-4">NSFW</div>
+                  <div class="flex items-center text-zinc-200 text-xl"><span class="mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 36 36"><path fill="currentColor" d="M30.4 17.6c-1.8-1.9-4.2-3.2-6.7-3.7q-1.65-.45-3.3-.6c2.8-3.3 2.3-8.3-1-11.1s-8.3-2.3-11.1 1s-2.3 8.3 1 11.1c.6.5 1.2.9 1.8 1.1v2.2l-1.6-1.5c-1.4-1.4-3.7-1.4-5.2 0c-1.4 1.4-1.5 3.6-.1 5l4.6 5.4c.2 1.4.7 2.7 1.4 3.9c.5.9 1.2 1.8 1.9 2.5v1.9c0 .6.4 1 1 1h13.6c.5 0 1-.5 1-1v-2.6c1.9-2.3 2.9-5.2 2.9-8.1v-5.8c.1-.4 0-.6-.2-.7m-22-9.4c0-3.3 2.7-5.9 6-5.8c3.3 0 5.9 2.7 5.8 6c0 1.8-.8 3.4-2.2 4.5v-5a3.4 3.4 0 0 0-3.4-3.2c-1.8-.1-3.4 1.4-3.4 3.2v5.2c-1.7-1-2.7-2.9-2.8-4.9M28.7 24c.1 2.6-.8 5.1-2.5 7.1c-.2.2-.4.4-.4.7v2.1H14.2v-1.4c0-.3-.2-.6-.4-.8c-.7-.6-1.3-1.3-1.8-2.2c-.6-1-1-2.2-1.2-3.4c0-.2-.1-.4-.2-.6l-4.8-5.7c-.3-.3-.5-.7-.5-1.2c0-.4.2-.9.5-1.2c.7-.6 1.7-.6 2.4 0l2.9 2.9v3l1.9-1V7.9c.1-.7.7-1.3 1.5-1.2c.7 0 1.4.5 1.4 1.2v11.5l2 .4v-4.6c.1-.1.2-.1.3-.2c.7 0 1.4.1 2.1.2v5.1l1.6.3v-4.6c.9.4 1.7 1 2.4 1.7z"/></svg></span>点击显示图片</div>
                 </div>` : '';
 
       let innerHtml = '';
@@ -446,7 +446,7 @@
               <div class="flex flex-row h-full">
                 <div class="relative w-full rounded-xl overflow-hidden">
                   ${m.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 object-cover" data-blurhash="${m.blurhash}"></canvas>` : ''}
-                  <a href="${replaceFileUrl(m.url)}" class="relative z-10">
+                  <a href="${replaceFileUrl(m.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
                     <picture class="block w-full h-full ${objectFitClass}">
                       <source srcset="${preview}!mastodon.avif" type="image/avif">
                       <img src="${preview}" alt="${m.description || ''}" class="w-full h-full ${objectFitClass}" loading="lazy" nozoom>
@@ -464,7 +464,7 @@
                   return `
                     <div class="relative w-1/2 rounded-xl overflow-hidden">
                       ${mi.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 object-cover" data-blurhash="${mi.blurhash}"></canvas>` : ''}
-                      <a href="${replaceFileUrl(mi.url)}" class="relative z-10">
+                      <a href="${replaceFileUrl(mi.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
                         <picture class="block w-full h-full ${objectFitClass}">
                           <source srcset="${preview}!mastodon.avif" type="image/avif">
                           <img src="${preview}" alt="${mi.description || ''}" class="w-full h-full ${objectFitClass}" loading="lazy" nozoom>
@@ -483,7 +483,7 @@
               <div class="flex h-full gap-2.5">
                 <div class="relative w-1/2 overflow-hidden rounded-xl">
                   ${firstItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 left-0 object-cover" data-blurhash="${firstItem.blurhash}"></canvas>` : ''}
-                  <a href="${replaceFileUrl(firstItem.url)}" class="relative z-10">
+                  <a href="${replaceFileUrl(firstItem.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
                     <picture class="block w-full h-full ${firstFitClass}">
                       <source srcset="${replaceFileUrl(firstItem.preview_url || firstItem.url)}!mastodon.avif" type="image/avif">
                       <img src="${replaceFileUrl(firstItem.preview_url || firstItem.url)}" alt="${firstItem.description || ''}" class="w-full h-full ${firstFitClass}" loading="lazy" nozoom>
@@ -493,7 +493,7 @@
                 <div class="w-1/2 flex flex-col gap-2.5">
                   <div class="relative h-1/2 overflow-hidden rounded-xl">
                     ${secondItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 right-0 object-cover" data-blurhash="${secondItem.blurhash}"></canvas>` : ''}
-                    <a href="${replaceFileUrl(secondItem.url)}" class="relative z-10">
+                    <a href="${replaceFileUrl(secondItem.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
                       <picture class="block w-full h-full ${secondFitClass}">
                         <source srcset="${replaceFileUrl(secondItem.preview_url || secondItem.url)}!mastodon.avif" type="image/avif">
                         <img src="${replaceFileUrl(secondItem.preview_url || secondItem.url)}" alt="${secondItem.description || ''}" class="w-full h-full ${secondFitClass}" loading="lazy" nozoom>
@@ -502,7 +502,7 @@
                   </div>
                   <div class="relative h-1/2 overflow-hidden rounded-xl">
                     ${thirdItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full bottom-0 right-0 object-cover" data-blurhash="${thirdItem.blurhash}"></canvas>` : ''}
-                    <a href="${replaceFileUrl(thirdItem.url)}" class="relative z-10">
+                    <a href="${replaceFileUrl(thirdItem.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
                       <picture class="block w-full h-full ${thirdFitClass}">
                         <source srcset="${replaceFileUrl(thirdItem.preview_url || thirdItem.url)}!mastodon.avif" type="image/avif">
                         <img src="${replaceFileUrl(thirdItem.preview_url || thirdItem.url)}" alt="${thirdItem.description || ''}" class="w-full h-full ${thirdFitClass}" loading="lazy" nozoom>
@@ -522,7 +522,7 @@
                   return `
                     <div class="relative overflow-hidden rounded-xl">
                       ${mi.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full object-cover" data-blurhash="${mi.blurhash}"></canvas>` : ''}
-                      <a href="${replaceFileUrl(mi.url)}" class="relative z-10">
+                      <a href="${replaceFileUrl(mi.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
                         <picture class="block w-full h-full ${objectFitClass}">
                           <source srcset="${preview}!mastodon.avif" type="image/avif">
                           <img src="${preview}" alt="${mi.description || ''}" class="w-full h-full ${objectFitClass}" loading="lazy" nozoom>
