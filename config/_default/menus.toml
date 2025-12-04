@@ -4,7 +4,7 @@
   pageRef = '/'
   weight = 10
 [[main]]
-  name = '嘀咕'
+  name = '说说'
   pageRef = '/mastodon/'
   weight = 20
 # [[main]]
