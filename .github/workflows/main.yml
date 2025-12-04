@@ -130,7 +130,7 @@ jobs:
           echo "✅ Build completed"
           echo "should_deploy=true" >> $GITHUB_OUTPUT
 
-      - name: Deploy to Aliyun OSS
+      - name: Deploy to Tencent COS
         if: steps.build.outputs.should_deploy == 'true'
         uses: eallion/s3-deploy-action@dev
         with:
@@ -143,11 +143,11 @@ jobs:
             incremental: true
             skipSetting: true
 
-      - name: Purge Aliyun ESA
-        if: steps.build.outputs.should_deploy == 'true'
-        timeout-minutes: 10
-        run: |
-          echo "🗑️  Purging cache..."
-          echo "📚 Full site purge - purging all cache..."
-          aliyun esa PurgeCaches --SiteId ${{ secrets.ESA_SITE_ID }} --Type purgeall --Content '{"PurgeAll":true}'
-          echo "✅ Cache purge completed"
+      # - name: Purge Aliyun ESA
+      #   if: steps.build.outputs.should_deploy == 'true'
+      #   timeout-minutes: 10
+      #   run: |
+      #     echo "🗑️  Purging cache..."
+      #     echo "📚 Full site purge - purging all cache..."
+      #     aliyun esa PurgeCaches --SiteId ${{ secrets.ESA_SITE_ID }} --Type purgeall --Content '{"PurgeAll":true}'
+      #     echo "✅ Cache purge completed"
