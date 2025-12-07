@@ -77,19 +77,11 @@ jobs:
         run: |
           pnpm install
 
-      - name: Setup Aliyun CLI
-        uses: aliyun/setup-aliyun-cli-action@v1
-        with:
-          version: "latest"
 
-      - name: Configure Aliyun CLI
-        run: |
-          aliyun configure set --profile default \
-            --mode "AK" \
-            --access-key-id ${{ secrets.ACCESS_KEY_ID }} \
-            --access-key-secret ${{ secrets.ACCESS_KEY_SECRET }} \
-            --region cn-shanghai \
-            --language zh
+#       - name: Setup Aliyun CLI
+#         uses: aliyun/setup-aliyun-cli-action@v1
+#         with:
+#           version: "latest"
 
       - name: Build Site
         id: build
@@ -130,24 +122,45 @@ jobs:
           echo "✅ Build completed"
           echo "should_deploy=true" >> $GITHUB_OUTPUT
 
-      - name: Deploy to Tencent COS
+      - name: Deploy to Aliyun OSS
         if: steps.build.outputs.should_deploy == 'true'
-        uses: eallion/s3-deploy-action@dev
-        with:
-            provider: tencent
-            cos_secret_id: ${{ secrets.SECRET_COS_ID }}
-            cos_secret_key: ${{ secrets.SECRET_COS_KEY }}
-            cos_bucket: ${{ secrets.COS_CN_BUCKET }}
-            cos_region: ap-shanghai
-            folder: public
-            incremental: true
-            skipSetting: true
+        uses: docker://ghcr.io/eallion/aliyun-oss-website-action:v1
+        env:
+          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+          ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}
+          BUCKET: eallion-com
+          ENDPOINT: oss-cn-shanghai.aliyuncs.com
+          FOLDER: public
+          SKIP_SETTING: true
+          INCREMENTAL: true
 
-      # - name: Purge Aliyun ESA
-      #   if: steps.build.outputs.should_deploy == 'true'
-      #   timeout-minutes: 10
-      #   run: |
-      #     echo "🗑️  Purging cache..."
-      #     echo "📚 Full site purge - purging all cache..."
-      #     aliyun esa PurgeCaches --SiteId ${{ secrets.ESA_SITE_ID }} --Type purgeall --Content '{"PurgeAll":true}'
-      #     echo "✅ Cache purge completed"
+#       - name: Deploy to Tencent COS
+#         if: steps.build.outputs.should_deploy == 'true'
+#         uses: eallion/s3-deploy-action@dev
+#         with:
+#             provider: tencent
+#             cos_secret_id: ${{ secrets.SECRET_COS_ID }}
+#             cos_secret_key: ${{ secrets.SECRET_COS_KEY }}
+#             cos_bucket: ${{ secrets.COS_CN_BUCKET }}
+#             cos_region: ap-shanghai
+#             folder: public
+#             incremental: true
+#             skipSetting: true
+
+#       - name: Configure Aliyun CLI
+#         run: |
+#           aliyun configure set --profile default \
+#             --mode "AK" \
+#             --access-key-id ${{ secrets.ACCESS_KEY_ID }} \
+#             --access-key-secret ${{ secrets.ACCESS_KEY_SECRET }} \
+#             --region cn-shanghai \
+#             --language zh
+#
+#       - name: Purge Aliyun ESA
+#         if: steps.build.outputs.should_deploy == 'true'
+#         timeout-minutes: 10
+#         run: |
+#           echo "🗑️  Purging cache..."
+#           echo "📚 Full site purge - purging all cache..."
+#           aliyun esa PurgeCaches --SiteId ${{ secrets.ESA_SITE_ID }} --Type purgeall --Content '{"PurgeAll":true}'
+#           echo "✅ Cache purge completed"
