@@ -102,9 +102,9 @@
             script.setAttribute('data-category-id', 'DIC_kwDOD6gExM4CS9eF');
             script.setAttribute('data-mapping', 'pathname');
             script.setAttribute('data-strict', '1');
-            script.setAttribute('data-reactions-enabled', '0');
-            script.setAttribute('data-emit-metadata', '0');
-            script.setAttribute('data-input-position', 'bottom');
+            script.setAttribute('data-reactions-enabled', '1');
+            script.setAttribute('data-emit-metadata', '1');
+            script.setAttribute('data-input-position', 'top');
             script.setAttribute('data-lang', 'zh-CN');
             script.setAttribute('data-loading', 'lazy');
             script.setAttribute('crossorigin', 'anonymous');
@@ -158,7 +158,7 @@
                 return;
             }
             
-            // 2. 获取评论详情
+            // 2. 获取评论详情 (Context)
             const contextResponse = await fetch(`https://m.eallion.com/api/v1/statuses/${statusId}/context`, {
                 headers: {
                     'Authorization': 'Bearer ODRMYZAYZTATMTFHYS0ZZMIWLTHJYMMTYJBMZWY2NZKZZWJH'
@@ -167,6 +167,27 @@
             
             if (!contextResponse.ok) {
                 throw new Error(`无法获取评论详情 (HTTP ${contextResponse.status})`);
+            }
+
+            // 2.1 获取 Status 详情 (用于统计数)
+            let reblogsCount = 0;
+            let favouritesCount = 0;
+            let repliesCount = 0;
+
+            try {
+                const statusResponse = await fetch(`https://m.eallion.com/api/v1/statuses/${statusId}`, {
+                    headers: {
+                        'Authorization': 'Bearer ODRMYZAYZTATMTFHYS0ZZMIWLTHJYMMTYJBMZWY2NZKZZWJH'
+                    }
+                });
+                if (statusResponse.ok) {
+                    const statusData = await statusResponse.json();
+                    reblogsCount = statusData.reblogs_count || 0;
+                    favouritesCount = statusData.favourites_count || 0;
+                    repliesCount = statusData.replies_count || 0;
+                }
+            } catch (e) {
+                console.warn('获取 Status 统计数据失败', e);
             }
             
             const context = await contextResponse.json();
@@ -306,8 +327,42 @@
             // 排序状态 keep track
             let sortOrder = 'asc'; // 默认最早 (asc)
 
-            // 构建页面结构（Header + Buttons + Info + Container）
+            // 6. 渲染 Reaction/Status 统计
+            const totalReactions = reblogsCount + favouritesCount;
+            
+            // Icons
+            const iconReblog = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>`;
+            const iconStar = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32"><path fill="#f8312f" d="M21.008 5.162c-2.84.509-5.011 3.905-5.011 3.905s-2.18-3.396-5.012-3.905c-7.012-1.25-9.903 4.993-8.732 9.64c1.73 6.863 10.053 13.014 12.834 14.916c.55.376 1.27.376 1.83 0c2.791-1.902 11.113-8.053 12.834-14.916c1.16-4.647-1.73-10.89-8.743-9.64"/></svg>`;
+
+            // 构建页面结构
             let html = `
+                <div class="mb-6 flex flex-col items-center">
+                    <h3 class="flex items-center justify-center gap-2 text-base font-semibold text-gray-900 dark:text-text-dimmed-primary mb-3">
+                        <span>${totalReactions}</span> <span>${totalReactions === 1 ? 'Boost' : 'Boosts'}</span>
+                    </h3>
+                    
+                    <div class="flex flex-wrap justify-center gap-2">
+                        ${favouritesCount > 0 ? `
+                        <a href="https://api.eallion.com/gts/${slug}" target="_blank" rel="noopener noreferrer" title="喜欢" class="group flex items-center gap-1.5 px-3 py-1 text-sm border border-gray-200 dark:border-border-dimmed-primary bg-zinc-50 dark:bg-bg-dimmed-primary rounded-full text-gray-700 dark:text-text-dimmed-primary cursor-pointer hover:bg-gray-100 dark:hover:bg-bg-dimmed-secondary transition-colors decoration-0 no-underline">
+                            <span class="text-pink-600 dark:text-pink-400">${iconStar}</span>
+                            <span>${favouritesCount}</span>
+                        </a>` : ''}
+
+                        ${reblogsCount > 0 ? `
+                        <a href="https://api.eallion.com/gts/${slug}" target="_blank" rel="noopener noreferrer" title="转发" class="group flex items-center gap-1.5 px-3 py-1 text-sm border border-gray-200 dark:border-border-dimmed-primary bg-zinc-50 dark:bg-bg-dimmed-primary rounded-full text-gray-700 dark:text-text-dimmed-primary cursor-pointer hover:bg-gray-100 dark:hover:bg-bg-dimmed-secondary transition-colors decoration-0 no-underline">
+                            <span class="text-blue-600 dark:text-blue-400">${iconReblog}</span>
+                            <span>${reblogsCount}</span>
+                        </a>` : ''}
+                        
+                        <!-- Reserved for Quotes -->
+                        <!-- 
+                        <a href="https://api.eallion.com/gts/${slug}" target="_blank" rel="noopener noreferrer" title="引用" class="group flex items-center gap-1.5 px-3 py-1 text-sm border border-gray-200 dark:border-border-dimmed-primary bg-zinc-50 dark:bg-bg-dimmed-primary rounded-full text-gray-700 dark:text-text-dimmed-primary cursor-pointer decoration-0 no-underline">
+                             <span>Quotes</span>
+                        </a> 
+                        -->
+                    </div>
+                </div>
+
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4 text-sm font-semibold text-gray-700 dark:text-text-dimmed-primary">
                     <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
                         <div class="flex items-center gap-2">
