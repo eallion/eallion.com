@@ -196,11 +196,6 @@
             // 过滤非公开评论
             comments = comments.filter(c => c.visibility === 'public');
             
-            if (comments.length === 0) {
-                containerMastodon.innerHTML = '<div class="text-center py-4 text-gray-500">暂无评论</div>';
-                return;
-            }
-            
             // 3. 构建评论树结构
             const commentMap = new Map();
             const rootComments = [];
@@ -386,6 +381,11 @@
 
             // 定义渲染列表函数
             function renderList() {
+                if (rootComments.length === 0) {
+                    containerMastodon.querySelector('.mastodon-comments-list').innerHTML = '<div class="text-center py-4 text-gray-500">暂无评论</div>';
+                    return;
+                }
+
                 // 排序 rootComments
                 rootComments.sort((a, b) => {
                     const dateA = new Date(a.created_at);
