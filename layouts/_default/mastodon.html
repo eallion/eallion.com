@@ -1,8 +1,6 @@
 {{ define "main" }}
 <link rel="preconnect" href="https://e5n.cc">
 <link rel="dns-prefetch" href="https://e5n.cc">
-<link rel="preconnect" href="https://mstd-s3-files.eallion.com">
-<link rel="dns-prefetch" href="https://mstd-s3-files.eallion.com">
 <style>
   .mt-content p {
     overflow-wrap: break-word;
@@ -280,7 +278,8 @@
 
   // --- Helper Functions ( extracted from original inline code) ---
 
-  const replaceFileUrl = url => url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+  // const replaceFileUrl = url => url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
+  const replaceFileUrl = url => url;
 
   const getImageObjectFitClass = (imgWidth, imgAspect, containerRatio) => {
     if (!imgAspect) return 'object-cover';
@@ -430,7 +429,7 @@
 
       // sensitive overlay
       // 生成图片描述列表
-      const imageDescriptions = isSensitive && mediaItems.some(m => m.description) 
+      const imageDescriptions = isSensitive && mediaItems.some(m => m.description)
         ? mediaItems.map((m, idx) => m.description ? `${idx + 1}. ${m.description}` : '').filter(d => d).join(' · ')
         : '';
 
