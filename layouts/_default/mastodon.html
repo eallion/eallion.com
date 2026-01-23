@@ -454,10 +454,7 @@
                 <div class="relative w-full rounded-xl overflow-hidden">
                   ${m.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 object-cover" data-blurhash="${m.blurhash}"></canvas>` : ''}
                   <a href="${replaceFileUrl(m.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
-                    <picture class="block w-full h-full ${objectFitClass}">
-                      <source srcset="${preview}!mastodon.avif" type="image/avif">
-                      <img src="${preview}" alt="${m.description || ''}" class="w-full h-full ${objectFitClass}" loading="lazy" nozoom>
-                    </picture>
+                    <img src="${preview}" alt="${m.description || ''}" class="block w-full h-full ${objectFitClass}" loading="lazy" nozoom>
                   </a>
                 </div>
               </div>
@@ -472,10 +469,7 @@
                     <div class="relative w-1/2 rounded-xl overflow-hidden">
                       ${mi.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 object-cover" data-blurhash="${mi.blurhash}"></canvas>` : ''}
                       <a href="${replaceFileUrl(mi.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
-                        <picture class="block w-full h-full ${objectFitClass}">
-                          <source srcset="${preview}!mastodon.avif" type="image/avif">
-                          <img src="${preview}" alt="${mi.description || ''}" class="w-full h-full ${objectFitClass}" loading="lazy" nozoom>
-                        </picture>
+                        <img src="${preview}" alt="${mi.description || ''}" class="block w-full h-full ${objectFitClass}" loading="lazy" nozoom>
                       </a>
                     </div>`;
                 }).join('')}
@@ -491,29 +485,20 @@
                 <div class="relative w-1/2 overflow-hidden rounded-xl">
                   ${firstItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 left-0 object-cover" data-blurhash="${firstItem.blurhash}"></canvas>` : ''}
                   <a href="${replaceFileUrl(firstItem.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
-                    <picture class="block w-full h-full ${firstFitClass}">
-                      <source srcset="${replaceFileUrl(firstItem.preview_url || firstItem.url)}!mastodon.avif" type="image/avif">
-                      <img src="${replaceFileUrl(firstItem.preview_url || firstItem.url)}" alt="${firstItem.description || ''}" class="w-full h-full ${firstFitClass}" loading="lazy" nozoom>
-                    </picture>
+                    <img src="${replaceFileUrl(firstItem.preview_url || firstItem.url)}" alt="${firstItem.description || ''}" class="block w-full h-full ${firstFitClass}" loading="lazy" nozoom>
                   </a>
                 </div>
                 <div class="w-1/2 flex flex-col gap-2.5">
                   <div class="relative h-1/2 overflow-hidden rounded-xl">
                     ${secondItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 right-0 object-cover" data-blurhash="${secondItem.blurhash}"></canvas>` : ''}
                     <a href="${replaceFileUrl(secondItem.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
-                      <picture class="block w-full h-full ${secondFitClass}">
-                        <source srcset="${replaceFileUrl(secondItem.preview_url || secondItem.url)}!mastodon.avif" type="image/avif">
-                        <img src="${replaceFileUrl(secondItem.preview_url || secondItem.url)}" alt="${secondItem.description || ''}" class="w-full h-full ${secondFitClass}" loading="lazy" nozoom>
-                      </picture>
+                      <img src="${replaceFileUrl(secondItem.preview_url || secondItem.url)}" alt="${secondItem.description || ''}" class="block w-full h-full ${secondFitClass}" loading="lazy" nozoom>
                     </a>
                   </div>
                   <div class="relative h-1/2 overflow-hidden rounded-xl">
                     ${thirdItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full bottom-0 right-0 object-cover" data-blurhash="${thirdItem.blurhash}"></canvas>` : ''}
                     <a href="${replaceFileUrl(thirdItem.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
-                      <picture class="block w-full h-full ${thirdFitClass}">
-                        <source srcset="${replaceFileUrl(thirdItem.preview_url || thirdItem.url)}!mastodon.avif" type="image/avif">
-                        <img src="${replaceFileUrl(thirdItem.preview_url || thirdItem.url)}" alt="${thirdItem.description || ''}" class="w-full h-full ${thirdFitClass}" loading="lazy" nozoom>
-                      </picture>
+                      <img src="${replaceFileUrl(thirdItem.preview_url || thirdItem.url)}" alt="${thirdItem.description || ''}" class="block w-full h-full ${thirdFitClass}" loading="lazy" nozoom>
                     </a>
                   </div>
                 </div>
@@ -530,10 +515,7 @@
                     <div class="relative overflow-hidden rounded-xl">
                       ${mi.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full object-cover" data-blurhash="${mi.blurhash}"></canvas>` : ''}
                       <a href="${replaceFileUrl(mi.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
-                        <picture class="block w-full h-full ${objectFitClass}">
-                          <source srcset="${preview}!mastodon.avif" type="image/avif">
-                          <img src="${preview}" alt="${mi.description || ''}" class="w-full h-full ${objectFitClass}" loading="lazy" nozoom>
-                        </picture>
+                        <img src="${preview}" alt="${mi.description || ''}" class="block w-full h-full ${objectFitClass}" loading="lazy" nozoom>
                       </a>
                     </div>`;
                 }).join('')}
