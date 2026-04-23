@@ -307,7 +307,7 @@
     const allowedDomains = ['e5n.cc', 'eallion.com', 'www.eallion.com'];
     const linkRegex = /<a[^>]*href\s*=\s*["']([^"']*)["'][^>]*>/gi;
 
-    return content.replace(linkRegex, (match, url) => {
+    let processedContent = content.replace(linkRegex, (match, url) => {
       try {
         let hostname;
         let pathname;
@@ -342,6 +342,14 @@
         return match;
       }
     });
+
+    // 替换评分 emoji
+    processedContent = processedContent
+      .replace(/:star_solid:/g, '🌕')
+      .replace(/:star_half:/g, '<span style="transform: scaleX(-1); display: inline-block;">🌓</span>')
+      .replace(/:star_empty:/g, '🌑');
+
+    return processedContent;
   }
 
   function getRelativeTime(dateString) {
