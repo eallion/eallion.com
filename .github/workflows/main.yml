@@ -134,6 +134,15 @@ jobs:
           SKIP_SETTING: true
           INCREMENTAL: true
 
+      - name: "刷新多吉云 CDN 缓存"
+        uses: seatonjiang/dogecloud-cdn-action@main
+        with:
+          access_key: ${{ secrets.DOGECLOUD_ACCESS_KEY }}
+          secret_key: ${{ secrets.DOGECLOUD_SECRET_KEY }}
+          type: "path"
+          urls:
+            - "https://www.eallion.com/"
+
 #       - name: Deploy to Tencent COS
 #         if: steps.build.outputs.should_deploy == 'true'
 #         uses: eallion/s3-deploy-action@dev
