@@ -134,7 +134,7 @@ jobs:
           SKIP_SETTING: true
           INCREMENTAL: true
 
-      - name: "刷新多吉云 CDN 缓存"
+      - name: "Purge Dogecloud CDN Cache"
         uses: seatonjiang/dogecloud-cdn-action@main
         with:
           access_key: ${{ secrets.DOGECLOUD_ACCESS_KEY }}
