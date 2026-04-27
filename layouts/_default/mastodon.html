@@ -139,128 +139,130 @@
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14" data-pagefind-ignore="all">
 
-  <article class="md:col-span-2 not-prose">
+	<article class="md:col-span-2 not-prose">
 
-    <header>
+		<header>
 
-      <h1 id="title" class="text-4xl font-bold leading-normal">{{ .Title }}</h1>
+			<h1 id="title" class="text-4xl font-bold leading-normal">{{ .Title }}</h1>
 
-    </header>
+		</header>
 
-    <section class="flex flex-col max-w-full mt-0 prose lg:flex-row dark:prose-invert">
+		<section class="flex flex-col max-w-full mt-0 prose lg:flex-row dark:prose-invert">
 
-      <div class="min-w-0 min-h-0 max-w-fit">
+			<div class="min-w-0 min-h-0 max-w-fit">
 
-        <div id="content" class="prose lg:prose-lg dark:prose-invert w-full">
+				<div id="content" class="prose lg:prose-lg dark:prose-invert w-full">
 
-          {{ .Content }}
+					{{ .Content }}
 
-          <div class="flex w-full mt-10 flex-wrap justify-center gap-5">
-            <div class="mt-container w-full max-w-full p-0">
-              <div id="mt-loading-spinner" class="mt-conatiner-spinner not-prose flex flex-col items-center">
-                <span class="font-semibold">Loading...</span>
-                <img src="/assets/images/mastodon/loading.gif" alt="loading">
-              </div>
-              <div id="mt-update-button-placeholder" class="mt-update-alert mb-8 hidden">
-              </div>
-              <div id="mt-posts-wrapper" class="mt-posts-wrapper">
-              </div>
-            </div>
-            <div
-              class="w-fit mx-auto my-8 border border-zinc-200 dark:border-[#444c56] rounded-full px-6 py-2 hover:bg-zinc-200 dark:hover:bg-[#252a33] cursor-pointer">
-              <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer"
-                class="flex items-center justify-center not-prose gap-1">
-                <div>点击 e5n.cc 查看更多</div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="inline-block" aria-hidden="true"
-                  fill="currentColor" viewBox="0 0 14 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 5h12m0 0L9 1m4 4L9 9"></path>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
+					<div class="flex w-full mt-10 flex-wrap justify-center gap-5">
+						<div class="mt-container w-full max-w-full p-0">
+							<div id="mt-loading-spinner" class="mt-conatiner-spinner not-prose flex flex-col items-center">
+								<span class="font-semibold">Loading...</span>
+								<img src="/assets/images/mastodon/loading.gif" alt="loading">
+							</div>
+							<div id="mt-update-button-placeholder" class="mt-update-alert mb-8 hidden">
+							</div>
+							<div id="mt-posts-wrapper" class="mt-posts-wrapper">
+							</div>
+						</div>
+						<div
+							class="w-fit mx-auto my-8 border border-zinc-200 dark:border-[#444c56] rounded-full px-6 py-2 hover:bg-zinc-200 dark:hover:bg-[#252a33] cursor-pointer">
+							<a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer"
+								class="flex items-center justify-center not-prose gap-1">
+								<div>点击 e5n.cc 查看更多</div>
+								<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="inline-block" aria-hidden="true"
+									fill="currentColor" viewBox="0 0 14 10">
+									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
 
-      </div>
+			</div>
 
-    </section>
+		</section>
 
-  </article>
+	</article>
 
-  <aside class="md:col-span-1">
+	<aside class="md:col-span-1">
 
-    <div class="lg:sticky lg:top-8 mb-13">
+		<div class="lg:sticky lg:top-8 mb-13">
 
-      <div
-        class="rounded-2xl p-8 text-zinc-700 dark:text-[#adbac7] bg-zinc-100 dark:bg-[#2d333b] mb-10 flex flex-col items-center justify-center gap-0">
+			<div
+				class="rounded-2xl p-8 text-zinc-700 dark:text-[#adbac7] bg-zinc-100 dark:bg-[#2d333b] mb-10 flex flex-col items-center justify-center gap-0">
 
-        <div class="shrink-0">
-          <img class="h-20 w-20 rounded-full object-cover ring-4 ring-gray-200 dark:ring-[#cdd9e51a] shadow-lg"
-            width="144" height="144" alt="Charles Chin" src="/eallion.webp">
-        </div>
+				<div class="shrink-0">
+					<img class="h-20 w-20 rounded-full object-cover ring-4 ring-gray-200 dark:ring-[#cdd9e51a] shadow-lg"
+						width="144" height="144" alt="Charles Chin" src="/eallion.webp">
+				</div>
 
-        <div class="flex items-center justify-center mt-4 text-2xl text-zinc-950 dark:text-[#adbac7] hover:cursor-text">
-          <div class="font-semibold">Charles Chin</div>
-          <div class="flex items-center ml-1"><svg viewBox="0 0 22 22" fill="#1d9bf0" aria-label="认证账号" role="img"
-              class="inline-block" width="1em" height="1em" data-testid="icon-verified">
-              <g>
-                <path
-                  d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z">
-                </path>
-              </g>
-            </svg></div>
-        </div>
+				<div class="flex items-center justify-center mt-4 text-2xl text-zinc-950 dark:text-[#adbac7] hover:cursor-text">
+					<div class="font-semibold">Charles Chin</div>
+					<div class="flex items-center ml-1"><svg viewBox="0 0 22 22" fill="#1d9bf0" aria-label="认证账号" role="img"
+							class="inline-block" width="1em" height="1em" data-testid="icon-verified">
+							<g>
+								<path
+									d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z">
+								</path>
+							</g>
+						</svg>
+					</div>
+				</div>
 
-        <div class="group relative text-xl text-center px-0 mb-4">
-          <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" aria-label="mastodon"
-            class="hover:underline">@eallion@e5n.cc</a>
-        </div>
+				<div class="group relative text-xl text-center px-0 mb-4">
+					<a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" aria-label="mastodon"
+						class="hover:underline">@eallion@e5n.cc</a>
+				</div>
 
-        <div class="w-full px-0 pt-2 border-t border-zinc-200 dark:border-[#cdd9e51a]">
+				<div class="w-full px-0 pt-2 border-t border-zinc-200 dark:border-[#cdd9e51a]">
 
-          <div class="p-4">
-            <div class="flex flex-col justify-between">
-              <p class="text-xl">👋 Welcome!</p>
-              <ul class="mt-6 mb-2 ml-4 flex flex-col prose dark:prose-invert">
-                <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">It's a single mode Mastodon.</li>
-                <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Registrations closed.</li>
-                <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Private but public readable.</li>
-                <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2"><ruby>中文<rt>Chinese</rt></ruby>
-                  content.</li>
-                <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">With a little English mixed in.</li>
-                <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Talk to myself.</li>
-                <li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">talk about myself.</li>
-              </ul>
-            </div>
-          </div>
+					<div class="p-4">
+						<div class="flex flex-col justify-between">
+							<p class="text-xl">👋 Welcome!</p>
+							<ul class="mt-6 mb-2 ml-4 flex flex-col prose dark:prose-invert">
+								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">It's a single mode Mastodon.</li>
+								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Registrations closed.</li>
+								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Private but public readable.</li>
+								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2"><ruby>中文<rt>Chinese</rt></ruby>
+									content.
+								</li>
+								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">With a little English mixed in.</li>
+								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Talk to myself.</li>
+								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">talk about myself.</li>
+							</ul>
+						</div>
+					</div>
 
-        </div>
+				</div>
 
-        <div class="w-full grid grid-cols-3 gap-4 px-6 pt-4 border-t border-zinc-200 dark:border-[#cdd9e51a]">
-          <div class="flex flex-col items-center">
-            <div class="text-zinc-500 dark:text-[#768390]">关注者</div>
-            <div class="font-semibold flex items-center">
-              <span id="followers">-1</span>
-            </div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="text-zinc-500 dark:text-[#768390]">正在关注</div>
-            <div class="font-semibold flex items-center">
-              <span id="following">0</span>
-            </div>
-          </div>
-          <div class="flex flex-col items-center">
-            <div class="text-zinc-500 dark:text-[#768390]">嘟文</div>
-            <div class="font-semibold flex items-center">
-              <span id="statuses">0</span>
-            </div>
-          </div>
-        </div>
+				<div class="w-full grid grid-cols-3 gap-4 px-6 pt-4 border-t border-zinc-200 dark:border-[#cdd9e51a]">
+					<div class="flex flex-col items-center">
+						<div class="text-zinc-500 dark:text-[#768390]">关注者</div>
+						<div class="font-semibold flex items-center">
+							<span id="followers">-1</span>
+						</div>
+					</div>
+					<div class="flex flex-col items-center">
+						<div class="text-zinc-500 dark:text-[#768390]">正在关注</div>
+						<div class="font-semibold flex items-center">
+							<span id="following">0</span>
+						</div>
+					</div>
+					<div class="flex flex-col items-center">
+						<div class="text-zinc-500 dark:text-[#768390]">嘟文</div>
+						<div class="font-semibold flex items-center">
+							<span id="statuses">0</span>
+						</div>
+					</div>
+				</div>
 
-      </div>
+			</div>
 
-    </div>
-  </aside>
+		</div>
+	</aside>
 
 </div>
 
@@ -955,57 +957,57 @@
 
 {{ $fastBlurhashJS := resources.Get "js/fast-blurhash.min.js" | fingerprint "sha256" }}
 <script type="module">
-  import { decodeBlurHash } from '{{ $fastBlurhashJS.RelPermalink }}?v=1.1.4';
+	import { decodeBlurHash } from '{{ $fastBlurhashJS.RelPermalink }}?v=1.1.4';
 
-  window.renderBlurhashCanvases = async function () {
-    const canvases = document.querySelectorAll('canvas[data-blurhash]');
+	window.renderBlurhashCanvases = async function () {
+	const canvases = document.querySelectorAll('canvas[data-blurhash]');
 
-    for (const canvas of canvases) {
-      const blurhash = canvas.getAttribute('data-blurhash');
-      if (!blurhash) continue;
+	for (const canvas of canvases) {
+	const blurhash = canvas.getAttribute('data-blurhash');
+	if (!blurhash) continue;
 
-      const pixels = decodeBlurHash(blurhash, 32, 32);
+	const pixels = decodeBlurHash(blurhash, 32, 32);
 
-      canvas.width = 32;
-      canvas.height = 32;
+	canvas.width = 32;
+	canvas.height = 32;
 
-      const ctx = canvas.getContext('2d');
-      const imageData = new ImageData(pixels, 32, 32);
-      ctx.putImageData(imageData, 0, 0);
-    }
-  }
+	const ctx = canvas.getContext('2d');
+	const imageData = new ImageData(pixels, 32, 32);
+	ctx.putImageData(imageData, 0, 0);
+	}
+	}
 
-  function setupObserver() {
-    const observer = new MutationObserver(mutations => {
-      let shouldRender = false;
+	function setupObserver() {
+	const observer = new MutationObserver(mutations => {
+	let shouldRender = false;
 
-      mutations.forEach(mutation => {
-        if (mutation.type !== 'childList') return;
+	mutations.forEach(mutation => {
+	if (mutation.type !== 'childList') return;
 
-        mutation.addedNodes.forEach(node => {
-          if (node.nodeName === 'CANVAS' && node.dataset.blurhash) {
-            shouldRender = true;
-          }
-          if (node.querySelectorAll) {
-            const canvases = node.querySelectorAll('canvas[data-blurhash]');
-            if (canvases.length > 0) shouldRender = true;
-          }
-        });
-      });
+	mutation.addedNodes.forEach(node => {
+	if (node.nodeName === 'CANVAS' && node.dataset.blurhash) {
+	shouldRender = true;
+	}
+	if (node.querySelectorAll) {
+	const canvases = node.querySelectorAll('canvas[data-blurhash]');
+	if (canvases.length > 0) shouldRender = true;
+	}
+	});
+	});
 
-      // 仅在 DOM 更新时触发一次渲染
-      if (shouldRender) window.renderBlurhashCanvases();
-    });
+	// 仅在 DOM 更新时触发一次渲染
+	if (shouldRender) window.renderBlurhashCanvases();
+	});
 
-    observer.observe(document.documentElement, {
-      childList: true,
-      subtree: true
-    });
+	observer.observe(document.documentElement, {
+	childList: true,
+	subtree: true
+	});
 
-    window.renderBlurhashCanvases();
-  }
+	window.renderBlurhashCanvases();
+	}
 
-  document.addEventListener('DOMContentLoaded', setupObserver);
+	document.addEventListener('DOMContentLoaded', setupObserver);
 </script>
 
 {{ $viewJS := resources.Get "js/view-image.min.js" | fingerprint "sha256" }}
