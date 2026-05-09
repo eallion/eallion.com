@@ -15,10 +15,10 @@
 #   name = '里程碑'
 #   pageRef = '/milestone/'
 #   weight = 35
-[[main]]
-  name = '友情链接'
-  pageRef = '/links/'
-  weight = 45
+# [[main]]
+#   name = '友情链接'
+#   pageRef = '/links/'
+#   weight = 45
 [[main]]
   name = '归档'
   pageRef = '/blog/'
@@ -43,19 +43,19 @@
 [[footer]]
   name = '里程碑'
   pageRef = '/milestone/'
-  weight = 35
-[[footer]]
-  name = '版权信息'
-  pageRef = '/copyright/'
-  weight = 36
-[[footer]]
-  name = '隐私政策'
-  pageRef = '/privacy-policy/'
-  weight = 37
+  weight = 26
 [[footer]]
   name = '友情链接'
   pageRef = '/links/'
-  weight = 45
+  weight = 27
+[[footer]]
+  name = '版权信息'
+  pageRef = '/copyright/'
+  weight = 46
+[[footer]]
+  name = '隐私政策'
+  pageRef = '/privacy-policy/'
+  weight = 47
 [[footer]]
   name = 'About'
   pageRef = '/about'
