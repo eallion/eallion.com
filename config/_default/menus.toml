@@ -11,10 +11,10 @@
 #   name = '统计'
 #   pageRef = '/stats/'
 #   weight = 25
-[[main]]
-  name = '里程碑'
-  pageRef = '/milestone/'
-  weight = 35
+# [[main]]
+#   name = '里程碑'
+#   pageRef = '/milestone/'
+#   weight = 35
 [[main]]
   name = '友情链接'
   pageRef = '/links/'
