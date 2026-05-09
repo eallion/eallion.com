@@ -87,6 +87,15 @@ function updateWranglerToml(version) {
     fs.writeFileSync(file, updated);
 }
 
+// 6. 更新 edgeone.json
+function updateEdgeoneJson(version) {
+    const file = 'edgeone.json';
+    const content = fs.readFileSync(file, 'utf8');
+    const data = JSON.parse(content);
+    data.hugoVersion = version;
+    fs.writeFileSync(file, JSON.stringify(data, null, 2) + '\n');
+}
+
 // 6. 更新 .github/workflows/main.yml
 function updateGithubWorkflow(version) {
     const file = '.github/workflows/main.yml';
@@ -105,6 +114,7 @@ function updateGithubWorkflow(version) {
     // updateVercelJson(versions.hugoVersion);
     // updateCnbYml(versions.hugoVersion);
     updateWranglerToml(versions.hugoVersion);
+    updateEdgeoneJson(versions.hugoVersion);
     updateGithubWorkflow(versions.hugoVersion);
     console.log(`已将 Hugo 版本更新为 ${versions.hugoVersion}`);
 })();
