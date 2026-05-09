@@ -33,7 +33,7 @@
   pageRef = '/'
   weight = 10
 [[footer]]
-  name = '嘀咕'
+  name = '说说'
   pageRef = '/mastodon/'
   weight = 20
 [[footer]]
