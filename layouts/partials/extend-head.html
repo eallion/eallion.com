@@ -1,0 +1,9 @@
+<script>
+	(function() {
+		const targetHost = "www.eallion.com";
+		const allowedHosts = [targetHost, "localhost", "127.0.0.1", "0.0.0.0"];
+		if (!allowedHosts.includes(window.location.hostname)) {
+			window.location.replace("https://" + targetHost + window.location.pathname + window.location.search + window.location.hash);
+		}
+	})();
+</script>
