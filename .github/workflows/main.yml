@@ -77,7 +77,6 @@ jobs:
         run: |
           pnpm install
 
-
 #       - name: Setup Aliyun CLI
 #         uses: aliyun/setup-aliyun-cli-action@v1
 #         with:
@@ -134,13 +133,13 @@ jobs:
           SKIP_SETTING: true
           INCREMENTAL: true
 
-      - name: "Purge Dogecloud CDN Cache"
-        uses: seatonjiang/dogecloud-cdn-action@main
-        with:
-          access_key: ${{ secrets.DOGECLOUD_ACCESS_KEY }}
-          secret_key: ${{ secrets.DOGECLOUD_SECRET_KEY }}
-          type: "path"
-          urls: "https://www.eallion.com/"
+#       - name: "Purge Dogecloud CDN Cache"
+#         uses: seatonjiang/dogecloud-cdn-action@main
+#         with:
+#           access_key: ${{ secrets.DOGECLOUD_ACCESS_KEY }}
+#           secret_key: ${{ secrets.DOGECLOUD_SECRET_KEY }}
+#           type: "path"
+#           urls: "https://www.eallion.com/"
 
 #       - name: Deploy to Tencent COS
 #         if: steps.build.outputs.should_deploy == 'true'
