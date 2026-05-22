@@ -49,6 +49,50 @@ showFollow = false
 # Default Feature Image
 defaultFeature = "https://images.eallion.com/directus/files/ce35a8bb-fbda-468c-9aa8-d3599e538566.jpg"
 
+# OG Image URL (for social sharing cards, optional)
+# If set, uses this API URL to generate OG images
+# If not set, falls back to page image or defaultFeature
+ogImageURL = "https://og.eallion.com/api/og?title="
+
+# Mastodon handle (default fallback for follow section)
+mastodonID = "@eallion@e5n.cc"
+
+# Comment system (giscus | waline | utterances | twikoo | disqus)
+[comment]
+  system = "twikoo"
+  autoLoad = true
+
+  [comment.giscus]
+    repo = "eallion/eallion.com"
+    repoID = "MDEwOlJlcG9zaXRvcnkyNjI2Njk1MDg="
+    category = "Giscus"
+    categoryID = "DIC_kwDOD6gExM4CS9eF"
+    lang = "zh-CN"
+
+  [comment.waline]
+    serverURL = ""
+    lang = "zh-CN"
+    pageview = false
+    version = "3.0.0"
+    cdnCSS = ""
+    cdnJS = ""
+
+  [comment.utterances]
+    repo = ""
+    label = "comments"
+    theme = "github-light"
+    darkTheme = "github-dark"
+
+  [comment.twikoo]
+    envID = "twikoo.eallion.com"
+    region = ""
+    lang = "zh-CN"
+    version = "1.7.9"
+    cdn = "https://registry.npmmirror.com/twikoo/1.7.9/files/dist/twikoo.min.js"
+
+  [comment.disqus]
+    shortname = ""
+
 # Site Social Media
 [[social]]
   name = "Mastodon"

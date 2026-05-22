@@ -1,4 +1,4 @@
-/*! tailwindcss v4.2.4 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.3.0 | MIT License | https://tailwindcss.com */
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -325,12 +325,6 @@
   }
   .inset-x-0 {
     inset-inline: calc(var(--spacing) * 0);
-  }
-  .start {
-    inset-inline-start: var(--spacing);
-  }
-  .end {
-    inset-inline-end: var(--spacing);
   }
   .top-0 {
     top: calc(var(--spacing) * 0);
@@ -930,6 +924,9 @@
   .mt-24 {
     margin-top: calc(var(--spacing) * 24);
   }
+  .-mr-1 {
+    margin-right: calc(var(--spacing) * -1);
+  }
   .-mr-4 {
     margin-right: calc(var(--spacing) * -4);
   }
@@ -950,6 +947,9 @@
   }
   .\!mb-0 {
     margin-bottom: calc(var(--spacing) * 0) !important;
+  }
+  .-mb-0\.5 {
+    margin-bottom: calc(var(--spacing) * -0.5);
   }
   .mb-0 {
     margin-bottom: calc(var(--spacing) * 0);
@@ -1380,6 +1380,9 @@
   .resize {
     resize: both;
   }
+  .\[scrollbar-width\:\'none\'\] {
+    scrollbar-width: 'none';
+  }
   .list-disc {
     list-style-type: disc;
   }
@@ -1528,6 +1531,9 @@
       margin-block-end: calc(calc(var(--spacing) * 12) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
+  .gap-x-2 {
+    column-gap: calc(var(--spacing) * 2);
+  }
   .gap-x-6 {
     column-gap: calc(var(--spacing) * 6);
   }
@@ -1544,6 +1550,9 @@
       margin-inline-start: calc(calc(var(--spacing) * 4) * var(--tw-space-x-reverse));
       margin-inline-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-x-reverse)));
     }
+  }
+  .gap-y-1 {
+    row-gap: calc(var(--spacing) * 1);
   }
   .gap-y-10 {
     row-gap: calc(var(--spacing) * 10);
@@ -2167,6 +2176,9 @@
   .text-\[\#0969da\] {
     color: #0969da;
   }
+  .text-blue-500 {
+    color: var(--color-blue-500);
+  }
   .text-blue-600 {
     color: var(--color-blue-600);
   }
@@ -2271,9 +2283,6 @@
   }
   .underline {
     text-decoration-line: underline;
-  }
-  .decoration-0 {
-    text-decoration-thickness: 0px;
   }
   .decoration-2 {
     text-decoration-thickness: 2px;
@@ -2421,9 +2430,6 @@
   }
   .\[-ms-overflow-style\:\'none\'\] {
     -ms-overflow-style: 'none';
-  }
-  .\[scrollbar-width\:\'none\'\] {
-    scrollbar-width: 'none';
   }
   .group-hover\:visible {
     &:is(:where(.group):hover *) {
@@ -3099,11 +3105,6 @@
   .md\:justify-start {
     @media (width >= 48rem) {
       justify-content: flex-start;
-    }
-  }
-  .md\:gap-2 {
-    @media (width >= 48rem) {
-      gap: calc(var(--spacing) * 2);
     }
   }
   .md\:gap-3 {

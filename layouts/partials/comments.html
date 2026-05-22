@@ -1,22 +1,23 @@
-<div id="comment" class="border border-gray-200 dark:border-border-dimmed-primary p-8 bg-zinc-100 dark:bg-bg-dimmed-secondary rounded-2xl my-8 md:my-14">
+<hr class="border-t border-gray-200 dark:border-border-dimmed-subtle my-8 md:my-14">
 
-	<h2 class="text-xl font-semibold">评论</h2>
+{{- /* ========================================
+    Mastodon Comment Section (preserved)
+    ======================================== */ -}}
 
-	<div class="comment-on flex flex-wrap gap-4 items-center mt-8 text-base capitalize print:hidden">
-		<div id="load-giscus" class="inline-flex items-center relative border border-gray-300 dark:border-border-dimmed-subtle bg-white dark:bg-bg-dimmed-primary rounded-full px-4 py-2 hover:bg-zinc-100 dark:hover:bg-bg-dimmed-secondary cursor-pointer">
+<div id="comment-mastodon" class="border border-gray-200 dark:border-border-dimmed-primary p-8 bg-zinc-100 dark:bg-bg-dimmed-secondary rounded-2xl my-8 md:my-14">
+
+	<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mt-4 mb-4 text-base capitalize print:hidden">
+		<div class="flex flex-col md:flex-row md:items-center gap-4">
+			<h2 class="text-xl font-semibold">Fediverse</h2>
+			<div id="load-mastodon-statuses" class="inline-flex items-center relative border border-gray-300 dark:border-border-dimmed-subtle bg-white dark:bg-bg-dimmed-primary rounded-full px-4 py-2 hover:bg-zinc-100 dark:hover:bg-bg-dimmed-secondary cursor-pointer">
 			<span>加载</span>
-			<span class="ml-2 mr-1"><span class="relative block icon"><svg viewBox="0 0 210 180" width="1em" height="1em"><path d="m110.743 169.825 89.951-104.944a7.5 7.5.0 00.226-9.486l-35-45A7.5 7.5.0 00160 7.5H50a7.5 7.5.0 00-5.92 2.895l-35 45a7.5 7.5.0 00.226 9.486l89.951 104.944a7.6 7.6.0 001.958 1.65 7.5 7.5.0 004.364 1.003 7.5 7.5.0 005.164-2.653z" stroke="#000" stroke-width="15" stroke-linejoin="round"></path><path d="M80 15H50L15 60h50z" fill="#BDDDF4"></path><path d="m195 60-35-45h-30l15 45z" fill="#5DADEC"></path><path d="M145 60h50l-90 105z" fill="#4289C1"></path><path d="M65 60H15l90 105zm15-45L65 60h80l-15-45z" fill="#8CCAF7"></path><path d="M105 165 65 60h80z" fill="#5DADEC"></path></svg></span></span>
-			<span class='opacity-75 hover:opacity-100 duration-300 ease-in-out'>Giscus</span>
-			<span class="ml-1">评论</span>
-		</div>
-		<div id="load-mastodon-statuses" class="inline-flex items-center relative border border-gray-300 dark:border-border-dimmed-subtle bg-white dark:bg-bg-dimmed-primary rounded-full px-4 py-2 hover:bg-zinc-100 dark:hover:bg-bg-dimmed-secondary cursor-pointer">
-			<span>加载</span>
-			<span class="ml-2 mr-1"><span class="relative block icon"><svg viewBox="0 0 75 79" width="1em" height="1em"><path d="M73.84 17.49C72.696 9.002 65.3 2.312 56.53 1.016 55.05.797 49.444.0 36.458.0h-.097c-12.99.0-15.776.797-17.256 1.016-8.525 1.26-16.311 7.271-18.2 15.86-.909 4.23-1.006 8.919-.837 13.22.24 6.17.288 12.327.848 18.47a87 87 0 002.022 12.115c1.795 7.361 9.064 13.487 16.185 15.986a43.4 43.4.0 0023.68 1.25 35 35 0 002.562-.701c1.91-.607 4.147-1.285 5.792-2.477a.19.19.0 00.076-.144v-5.953a.175.175.0 00-.216-.17A65.6 65.6.0 0135.65 70.268c-8.906.0-11.301-4.226-11.987-5.985a18.6 18.6.0 01-1.042-4.718.17.17.0 01.136-.178.2.2.0 01.08.002 64.4 64.4.0 0015.115 1.795c1.225.0 2.446.0 3.67-.032 5.121-.144 10.52-.406 15.558-1.39.125-.025.251-.047.359-.079 7.947-1.526 15.51-6.316 16.279-18.445.029-.477.1-5.002.1-5.497.004-1.684.543-11.946-.079-18.251" fill="url(#a)"></path><path d="M61.248 27.026v21.088h-8.356V27.648c0-4.31-1.796-6.507-5.448-6.507-4.015.0-6.026 2.6-6.026 7.735v11.202H33.11V28.875c0-5.134-2.014-7.734-6.03-7.734-3.63.0-5.444 2.198-5.444 6.507v20.466h-8.353V27.026q0-6.462 3.3-10.269c2.27-2.531 5.247-3.831 8.942-3.831 4.278.0 7.51 1.644 9.665 4.93l2.079 3.49 2.083-3.49c2.154-3.286 5.386-4.93 9.657-4.93 3.691.0 6.668 1.3 8.945 3.831q3.297 3.802 3.293 10.27" fill="#fff"></path><defs><linearGradient id="a" x1="37.069" y1="0" x2="37.069" y2="79" gradientUnits="userSpaceOnUse"><stop stop-color="#6364FF"></stop><stop offset="1" stop-color="#563ACC"></stop></linearGradient></defs></svg></span></span>
-			<span class='opacity-75 hover:opacity-100 duration-300 ease-in-out'>Mastodon</span>
-			<span class="ml-1">评论</span>
+			<span>此文的</span>
+			<span class="ml-2 mr-1"><span class="relative block icon"><svg xmlns="http://www.w3.org/2000/svg" width="742.753" height="742.753" viewBox="0 0 196.52 196.52"><path fill="#a730b8" d="M47.924 72.797a18.23 18.23 0 0 1-7.796 7.76l42.799 42.965 10.318-5.23zm56.453 56.67-10.319 5.23 21.686 21.77a18.23 18.23 0 0 1 7.798-7.76z"/><path fill="#5496be" d="m129.665 102.077 1.786 11.427 27.415-13.895a18.23 18.23 0 0 1-4.972-9.812zm-14.066 7.128-57.29 29.034a18.23 18.23 0 0 1 4.973 9.813l54.103-27.42z"/><path fill="#ce3d1a" d="m69.531 91.654 8.162 8.193 29.269-57.139a18.23 18.23 0 0 1-9.787-5.021zm-7.19 14.036L48.34 133.025a18.23 18.23 0 0 1 9.786 5.022l12.378-24.164z"/><path fill="#d0188f" d="M39.89 80.676a18.23 18.23 0 0 1-10.865 1.72l8.176 52.298a18.23 18.23 0 0 1 10.865-1.72z"/><path fill="#5b36e9" d="M63.326 148.31a18.23 18.23 0 0 1-1.732 10.864l52.289 8.39a18.23 18.23 0 0 1 1.732-10.862z"/><path fill="#30b873" d="M134.915 146.918a18.23 18.23 0 0 1 9.788 5.023l24.134-47.117a18.23 18.23 0 0 1-9.787-5.023z"/><path fill="#ebe305" d="M126.133 33.16a18.23 18.23 0 0 1-7.798 7.761l37.377 37.52a18.23 18.23 0 0 1 7.797-7.76z"/><path fill="#f47601" d="M44.77 51.628a18.23 18.23 0 0 1 4.973 9.812L96.99 37.495a18.23 18.23 0 0 1-4.971-9.811z"/><path fill="#57c115" d="M118.25 40.965a18.23 18.23 0 0 1-10.852 1.812l4.185 26.8 11.42 1.832zm-4.234 44.192 9.895 63.363a18.23 18.23 0 0 1 10.88-1.627l-9.355-59.904z"/><path fill="#dbb210" d="M49.776 61.641a18.23 18.23 0 0 1-1.694 10.869l26.82 4.307 5.272-10.294zm45.968 7.382L90.472 79.32l63.371 10.177a18.23 18.23 0 0 1 1.76-10.859z"/><path fill="#ffca00" d="M93.439 23.842a1 1 0 1 0 33.092 1.802 1 1 0 1 0-33.092-1.802"/><path fill="#64ff00" d="M155.314 85.957a1 1 0 1 0 33.092 1.803 1 1 0 1 0-33.092-1.803"/><path fill="#00a3ff" d="M115.347 163.982a1 1 0 1 0 33.092 1.803 1 1 0 1 0-33.092-1.803"/><path fill="#9500ff" d="M28.77 150.09a1 1 0 1 0 33.092 1.802 1 1 0 1 0-33.092-1.802"/><path fill="red" d="M15.23 63.478a1 1 0 1 0 33.092 1.803 1 1 0 1 0-33.092-1.803"/></svg></span></span>
+			<span class='opacity-75 hover:opacity-100 duration-300 ease-in-out'>联邦宇宙</span>
+			<span class="ml-1">详情</span>
 		</div>
 	</div>
-	<div id="comments" class="mt-8"></div>
+</div>
 	<div id="mastodon-comments" class="mt-8"></div>
 	<style>
     /* Mastodon 评论内容样式 */
@@ -58,468 +59,596 @@
     }
 	</style>
 </div>
+
 <script>
-	// 状态管理
-	let isGiscusLoaded = false;
-	let isMastodonLoaded = false;
-	let isLoading = false;
+	(function() {
+		// 状态管理
+		let isMastodonLoaded = false;
+		let isLoading = false;
 
-	// 元素引用
-	const btnGiscus = document.getElementById('load-giscus');
-	const btnMastodon = document.getElementById('load-mastodon-statuses');
-	const containerGiscus = document.getElementById('comments');
-	const containerMastodon = document.getElementById('mastodon-comments');
-	const linkToMastodon = document.getElementById('link-to-mastodon');
+		const btnMastodon = document.getElementById('load-mastodon-statuses');
+		const containerMastodon = document.getElementById('mastodon-comments');
 
-	// 辅助函数：切换可见性
-	function setVisible(element, visible) {
-	if (visible) {
-	element.classList.remove('hidden');
-	element.style.display = '';
-	} else {
-	element.classList.add('hidden');
-	element.style.display = 'none';
+		// 辅助函数
+		function setVisible(element, visible) {
+			if (visible) {
+				element.classList.remove('hidden');
+				element.style.display = '';
+			} else {
+				element.classList.add('hidden');
+				element.style.display = 'none';
+			}
+		}
+
+		function setButtonText(btn, text) {
+			const span = btn.querySelector('span');
+			if (span) span.innerText = text;
+		}
+
+		// 初始化：隐藏评论容器
+		setVisible(containerMastodon, false);
+
+		async function loadMastodonComments() {
+			const slug = '{{ .Params.slug | default .File.TranslationBaseName }}';
+
+			try {
+				containerMastodon.innerHTML = '<div class="text-center py-4">加载中...</div>';
+
+				const gtsResponse = await fetch(`https://api.eallion.com/gts/${slug}`);
+
+				if (!gtsResponse.ok) {
+					throw new Error(`无法获取 Mastodon 状态 (HTTP ${gtsResponse.status})`);
+				}
+
+				const finalUrl = gtsResponse.url;
+				const match = finalUrl.match(/\/statuses\/([A-Z0-9]+)/i);
+				let statusId = match ? match[1] : null;
+
+				if (!statusId) {
+					const html = await gtsResponse.text();
+					const metaMatch = html.match(/<meta\s+property="og:url"\s+content="[^"]*\/statuses\/([A-Z0-9]+)"/i);
+					statusId = metaMatch ? metaMatch[1] : null;
+				}
+
+				if (!statusId) {
+					containerMastodon.innerHTML = '<div class="text-center py-4 text-gray-500">该文章暂无 Mastodon 讨论</div>';
+					return;
+				}
+
+				const contextResponse = await fetch(`https://m.eallion.com/api/v1/statuses/${statusId}/context`, {
+					headers: {
+						'Authorization': 'Bearer ODRMYZAYZTATMTFHYS0ZZMIWLTHJYMMTYJBMZWY2NZKZZWJH'
+					}
+				});
+
+				if (!contextResponse.ok) {
+					throw new Error(`无法获取评论详情 (HTTP ${contextResponse.status})`);
+				}
+
+				let reblogsCount = 0;
+				let favouritesCount = 0;
+				let repliesCount = 0;
+
+				try {
+					const statusResponse = await fetch(`https://m.eallion.com/api/v1/statuses/${statusId}`, {
+						headers: {
+							'Authorization': 'Bearer ODRMYZAYZTATMTFHYS0ZZMIWLTHJYMMTYJBMZWY2NZKZZWJH'
+						}
+					});
+					if (statusResponse.ok) {
+						const statusData = await statusResponse.json();
+						reblogsCount = statusData.reblogs_count || 0;
+						favouritesCount = statusData.favourites_count || 0;
+						repliesCount = statusData.replies_count || 0;
+					}
+				} catch (e) {
+					console.warn('获取 Status 统计数据失败', e);
+				}
+
+				const context = await contextResponse.json();
+				let comments = context.descendants || [];
+				comments = comments.filter(c => c.visibility === 'public');
+
+				const commentMap = new Map();
+				const rootComments = [];
+
+				comments.forEach(comment => {
+					commentMap.set(comment.id, { ...comment, replies: [] });
+				});
+
+				comments.forEach(comment => {
+					const commentNode = commentMap.get(comment.id);
+					if (comment.in_reply_to_id && commentMap.has(comment.in_reply_to_id)) {
+						const parent = commentMap.get(comment.in_reply_to_id);
+						parent.replies.push(commentNode);
+					} else {
+						rootComments.push(commentNode);
+					}
+				});
+
+				function renderComment(comment, level = 0) {
+					const avatar = comment.account.avatar || '';
+					const displayName = comment.account.display_name || comment.account.username;
+					const username = comment.account.acct;
+					const content = comment.content;
+					const createdAt = new Date(comment.created_at);
+					const url = comment.url;
+
+					function getRelativeTime(date) {
+						const now = new Date();
+						const diff = Math.floor((now - date) / 1000);
+						if (diff < 60) return '刚刚';
+						if (diff < 3600) return `${Math.floor(diff / 60)} 分钟前`;
+						if (diff < 86400) return `${Math.floor(diff / 3600)} 小时前`;
+						if (diff < 604800) return `${Math.floor(diff / 86400)} 天前`;
+						return date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+					}
+
+					const relativeTime = getRelativeTime(createdAt);
+					const isRoot = level === 0;
+					const hasReplies = comment.replies && comment.replies.length > 0;
+					const commentClass = (isRoot && hasReplies)
+						? 'mastodon-comment border-b border-gray-200 dark:border-border-dimmed-subtle pb-4 mb-4'
+						: 'mastodon-comment py-2 relative';
+					const textSize = isRoot ? 'text-base' : 'text-sm';
+					const avatarSize = isRoot ? 'w-10 h-10' : 'w-8 h-8';
+					const visualLevel = level > 0 ? 1 : 0;
+					const paddingLeft = visualLevel > 0 ? 'style="padding-left: 2rem;"' : '';
+					const replyLine = !isRoot
+						? `<div class="absolute w-[1px] bg-gray-200 dark:bg-zinc-700 z-10" style="left: 3rem; top: -1rem; bottom: 0; transform: translateX(-50%);"></div>`
+						: '';
+
+					let html = `
+					<div class="${commentClass}" ${paddingLeft}>
+					${replyLine}
+					<div class="flex items-start gap-3 relative z-10">
+					<a href="${comment.account.url}" target="_blank" rel="noopener" class="flex-shrink-0">
+					<img src="${avatar}" alt="${displayName}" class="${avatarSize} rounded-full hover:opacity-80 transition-opacity z-20">
+					</a>
+					<div class="flex-1 min-w-0">
+					<div class="flex items-baseline gap-2 flex-wrap mb-2">
+					<a href="${comment.account.url}" target="_blank" rel="noopener" class="font-semibold text-gray-900 dark:text-gray-100 hover:underline">${displayName}</a>
+					<span class="text-sm text-gray-500 dark:text-gray-400">@${username}</span>
+					<a href="${url}" target="_blank" rel="noopener" class="text-xs text-gray-400 dark:text-gray-500 hover:text-blue-500 dark:hover:text-blue-400">${relativeTime}</a>
+					</div>
+					${(() => {
+					if (comment.sensitive) {
+						const spoiler = comment.spoiler_text ? `<span class="text-xs text-wrap wrap-break-word border border-gray-400 dark:border-gray-500 px-1 py-1 rounded my-4 inline-block">CW: ${comment.spoiler_text}</span>` : '';
+						const eyeCloseIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.343 18.782-1.932-.518.787-2.939a11 11 0 0 1-3.237-1.872l-2.153 2.154l-1.414-1.414l2.153-2.154a10.96 10.96 0 0 1-2.371-5.07l1.968-.359a9.002 9.002 0 0 0 17.713 0l1.968.358a10.96 10.96 0 0 1-2.372 5.071l2.154 2.154l-1.414 1.414l-2.154-2.154a11 11 0 0 1-3.237 1.872l.788 2.94l-1.932.517l-.788-2.94a11 11 0 0 1-3.74 0z"/></svg>`;
+						const eyeOpenIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c5.392 0 9.878 3.88 10.819 9c-.94 5.12-5.427 9-10.819 9s-9.878-3.88-10.818-9C2.122 6.88 6.608 3 12 3m0 16a9.005 9.005 0 0 0 8.778-7a9.005 9.005 0 0 0-17.555 0A9.005 9.005 0 0 0 12 19m0-2.5a4.5 4.5 0 1 1 0-9a4.5 4.5 0 0 1 0 9m0-2a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5"/></svg>`;
+
+						return `
+						<div class="mastodon-content">
+						${spoiler}
+						<div>
+						<button type="button" class="flex items-center rounded-full gap-1.5 px-3 py-1.5 border border-dashed border-gray-400 dark:border-gray-500 hover:bg-gray-100 dark:hover:bg-zinc-800 text-sm font-medium transition-colors text-gray-700 dark:text-gray-200 mb-2 cursor-pointer"
+						onclick="const content = this.parentElement.nextElementSibling; content.classList.toggle('redacted'); const isHidden = content.classList.contains('redacted'); this.querySelector('span:last-child').innerText = isHidden ? '显示内容' : '隐藏内容'; this.querySelector('.icon').innerHTML = isHidden ? '${eyeCloseIcon.replace(/"/g, "&quot;")}' : '${eyeOpenIcon.replace(/"/g, "&quot;")}';">
+						<span class="icon" style="width: 1em; height: 1em;">${eyeCloseIcon}</span>
+						<span>显示内容</span>
+						</button>
+						</div>
+						<div class="sensitive-content redacted transition-colors duration-300 ${textSize} leading-relaxed break-words text-gray-800 dark:text-gray-200">
+						${content}
+						</div>
+						</div>
+						`;
+					} else {
+						return `<div class="text-gray-800 dark:text-gray-200 ${textSize} leading-relaxed break-words mastodon-content">${content}</div>`;
+					}
+					})()}
+					</div>
+					</div>
+					</div>
+					`;
+
+					if (comment.replies && comment.replies.length > 0) {
+						comment.replies.forEach(reply => {
+							html += renderComment(reply, level + 1);
+						});
+					}
+
+					return html;
+				}
+
+				const totalComments = rootComments.length;
+				const totalReplies = comments.length - totalComments;
+				let sortOrder = 'asc';
+
+				const iComment = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`;
+				const iHeart = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32"><path fill="#f8312f" d="M21.008 5.162c-2.84.509-5.011 3.905-5.011 3.905s-2.18-3.396-5.012-3.905c-7.012-1.25-9.903 4.993-8.732 9.64c1.73 6.863 10.053 13.014 12.834 14.916c.55.376 1.27.376 1.83 0c2.791-1.902 11.113-8.053 12.834-14.916c1.16-4.647-1.73-10.89-8.743-9.64"/></svg>`;
+				const iBoost = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>`;
+
+				let html = `
+				<blockquote class="border-l-4 border-gray-300 dark:border-border-dimmed-primary pl-4 py-2 my-4 text-sm italic text-gray-500 dark:text-text-dimmed-secondary leading-relaxed">
+				<span class="inline-block">来自 <span class="relative inline-block icon -mr-1 -mb-0.5"><svg viewBox="0 0 75 79" width="1em" height="1em"><path d="M73.84 17.49C72.696 9.002 65.3 2.312 56.53 1.016 55.05.797 49.444.0 36.458.0h-.097c-12.99.0-15.776.797-17.256 1.016-8.525 1.26-16.311 7.271-18.2 15.86-.909 4.23-1.006 8.919-.837 13.22.24 6.17.288 12.327.848 18.47a87 87 0 002.022 12.115c1.795 7.361 9.064 13.487 16.185 15.986a43.4 43.4.0 0023.68 1.25 35 35 0 002.562-.701c1.91-.607 4.147-1.285 5.792-2.477a.19.19.0 00.076-.144v-5.953a.175.175.0 00-.216-.17A65.6 65.6.0 0135.65 70.268c-8.906.0-11.301-4.226-11.987-5.985a18.6 18.6.0 01-1.042-4.718.17.17.0 01.136-.178.2.2.0 01.08.002 64.4 64.4.0 0015.115 1.795c1.225.0 2.446.0 3.67-.032 5.121-.144 10.52-.406 15.558-1.39.125-.025.251-.047.359-.079 7.947-1.526 15.51-6.316 16.279-18.445.029-.477.1-5.002.1-5.497.004-1.684.543-11.946-.079-18.251" fill="url(#a)"></path><path d="M61.248 27.026v21.088h-8.356V27.648c0-4.31-1.796-6.507-5.448-6.507-4.015.0-6.026 2.6-6.026 7.735v11.202H33.11V28.875c0-5.134-2.014-7.734-6.03-7.734-3.63.0-5.444 2.198-5.444 6.507v20.466h-8.353V27.026q0-6.462 3.3-10.269c2.27-2.531 5.247-3.831 8.942-3.831 4.278.0 7.51 1.644 9.665 4.93l2.079 3.49 2.083-3.49c2.154-3.286 5.386-4.93 9.657-4.93 3.691.0 6.668 1.3 8.945 3.831q3.297 3.802 3.293 10.27" fill="#fff"></path><defs><linearGradient id="a" x1="37.069" y1="0" x2="37.069" y2="79" gradientUnits="userSpaceOnUse"><stop stop-color="#6364FF"></stop><stop offset="1" stop-color="#563ACC"></stop></linearGradient></defs></svg></span> <a href="https://m.eallion.com/@eallion/statuses/${statusId}" target="_blank" rel="noreferrer noopener nofollow" class="no-underline hover:text-[#0969da] dark:hover:text-[#539bf5]">@eallion@eallion.com</a> 的<b>公开</b>讨论。</span><span class="inline-block">去互动： <a href="https://m.eallion.com/@eallion/statuses/${statusId}" target="_blank" rel="noreferrer noopener nofollow" class="underline hover:text-[#0969da] dark:hover:text-[#539bf5]">${statusId}</a></span>
+				</blockquote>
+				<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-2 text-sm font-semibold text-gray-700 dark:text-text-dimmed-primary">
+				<div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+				<span class="inline-flex items-center gap-1 text-base"><span class="text-blue-500 dark:text-blue-400">${iComment}</span>${totalComments} 条评论</span>
+				<span>·</span>
+				<span class="text-base font-normal">(${totalReplies} 条回复)</span>
+				${favouritesCount > 0 ? `<span>·</span><span class="inline-flex items-center gap-1 text-base font-normal"><span class="text-pink-600 dark:text-pink-400">${iHeart}</span>${favouritesCount}</span>` : ''}
+				${reblogsCount > 0 ? `<span>·</span><span class="inline-flex items-center gap-1 text-base font-normal"><span class="text-blue-600 dark:text-blue-400">${iBoost}</span>${reblogsCount}</span>` : ''}
+				</div>
+				<div class="flex items-center bg-transparent gap-1">
+				<button type="button" id="sort-earliest" class="px-3 py-1 text-sm hover:bg-gh-bg-primary dark:hover:bg-bg-dimmed-secondary transition-colors text-gh-text-primary dark:text-text-dimmed-primary font-bold bg-gh-bg-primary dark:bg-bg-dimmed-secondary border border-gh-border-primary dark:border-border-dimmed-primary rounded-md cursor-pointer">最早</button>
+				<button type="button" id="sort-latest" class="px-3 py-1 text-sm hover:bg-gh-bg-primary dark:hover:bg-bg-dimmed-secondary transition-colors text-gray-500 dark:text-text-dimmed-secondary rounded-md cursor-pointer">最新</button>
+				</div>
+				</div>
+				<div class="mastodon-comments-container mt-2 rounded-lg">
+				<div class="mastodon-comments-list"></div>
+				</div>
+				`;
+
+				containerMastodon.innerHTML = html;
+
+				function renderList() {
+					if (rootComments.length === 0) {
+						containerMastodon.querySelector('.mastodon-comments-list').innerHTML = '<div class="text-center py-4 text-gray-500">暂无评论</div>';
+						return;
+					}
+
+					rootComments.sort((a, b) => {
+						const dateA = new Date(a.created_at);
+						const dateB = new Date(b.created_at);
+						return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+					});
+
+					let listHtml = '';
+					rootComments.forEach(comment => {
+						listHtml += `<div class="mastodon-comment-group border-b border-gray-200 dark:border-border-dimmed-subtle last:border-b-0 mb-4 px-4 py-4 rounded-lg last:mb-0 bg-zinc-50 dark:bg-bg-dimmed-primary">`;
+						listHtml += renderComment(comment);
+						listHtml += `</div>`;
+					});
+					containerMastodon.querySelector('.mastodon-comments-list').innerHTML = listHtml;
+				}
+
+				const btnEarliest = containerMastodon.querySelector('#sort-earliest');
+				const btnLatest = containerMastodon.querySelector('#sort-latest');
+
+				function updateButtons() {
+					const activeClasses = ['text-gh-text-primary', 'dark:text-text-dimmed-primary', 'font-bold', 'bg-gh-bg-primary', 'dark:bg-bg-dimmed-secondary', 'border', 'border-gh-border-primary', 'dark:border-border-dimmed-primary'];
+					const inactiveClasses = ['text-gray-500', 'dark:text-text-dimmed-secondary', 'bg-transparent', 'border-transparent'];
+
+					if (sortOrder === 'asc') {
+						btnEarliest.classList.add(...activeClasses);
+						btnEarliest.classList.remove(...inactiveClasses);
+						btnLatest.classList.remove(...activeClasses);
+						btnLatest.classList.add(...inactiveClasses);
+					} else {
+						btnLatest.classList.add(...activeClasses);
+						btnLatest.classList.remove(...inactiveClasses);
+						btnEarliest.classList.remove(...activeClasses);
+						btnEarliest.classList.add(...inactiveClasses);
+					}
+				}
+
+				btnEarliest.addEventListener('click', () => {
+					if (sortOrder !== 'asc') {
+						sortOrder = 'asc';
+						updateButtons();
+						renderList();
+					}
+				});
+
+				btnLatest.addEventListener('click', () => {
+					if (sortOrder !== 'desc') {
+						sortOrder = 'desc';
+						updateButtons();
+						renderList();
+					}
+				});
+
+				updateButtons();
+				renderList();
+
+			} catch (error) {
+				console.error('加载 Mastodon 评论失败:', error);
+				containerMastodon.innerHTML = `<div class="text-center py-4 text-red-500">加载失败：${error.message}</div>`;
+			}
+		}
+
+		btnMastodon.addEventListener('click', async () => {
+			if (isLoading) return;
+
+			const isVisible = !containerMastodon.classList.contains('hidden') && containerMastodon.style.display !== 'none';
+
+			if (isVisible) {
+				setVisible(containerMastodon, false);
+				setButtonText(btnMastodon, '加载');
+				return;
+			}
+
+			isLoading = true;
+			btnMastodon.style.pointerEvents = 'none';
+			btnMastodon.style.opacity = '0.5';
+
+			try {
+				if (!isMastodonLoaded) {
+					await loadMastodonComments();
+					isMastodonLoaded = true;
+				}
+				setVisible(containerMastodon, true);
+				setButtonText(btnMastodon, '隐藏');
+			} catch (e) {
+				console.error(e);
+			} finally {
+				isLoading = false;
+				btnMastodon.style.pointerEvents = '';
+				btnMastodon.style.opacity = '';
+			}
+		});
+	})();
+</script>
+
+<hr class="border-t border-gray-200 dark:border-border-dimmed-subtle my-8 md:my-14">
+
+{{- /* ========================================
+    Pehe Comment System
+    ======================================== */ -}}
+
+{{- $system := site.Params.comment.system -}}
+{{- $autoLoad := site.Params.comment.autoLoad | default false -}}
+{{- if eq $system "giscus" -}}
+  {{- $repo := site.Params.comment.giscus.repo -}}
+  {{- if $repo }}
+<div id="comment" class="rounded-2xl my-8 md:my-14">
+
+	<h2 class="text-xl font-semibold">评论</h2>
+
+	{{- if not $autoLoad }}
+	<div class="comment-on flex flex-col md:flex-row items-center mt-8 text-base capitalize print:hidden">
+		<div id="load-comment" class="inline-flex items-center relative border border-gray-300 dark:border-border-dimmed-subtle bg-white dark:bg-bg-dimmed-primary rounded-full px-4 py-2 hover:bg-zinc-100 dark:hover:bg-bg-dimmed-secondary">
+			<span class="cursor-pointer">点击加载</span>
+			<span class="ml-2 mr-1 cursor-pointer"><span class="relative block icon">{{ partial "icon.html" (dict "name" "giscus" "class" "") }}</span></span>
+			<span class='opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Giscus</span>
+		</div>
+	</div>
+	{{- end }}
+	<div id="comments" class=""></div>
+</div>
+<script>
+	function loadComment() {
+		return new Promise((resolve) => {
+			const script = document.createElement('script');
+			script.src = 'https://giscus.app/client.js';
+			script.setAttribute('data-repo', '{{ $repo }}');
+			script.setAttribute('data-repo-id', '{{ site.Params.comment.giscus.repoID }}');
+			script.setAttribute('data-category', '{{ site.Params.comment.giscus.category }}');
+			script.setAttribute('data-category-id', '{{ site.Params.comment.giscus.categoryID }}');
+			script.setAttribute('data-mapping', 'pathname');
+			script.setAttribute('data-strict', '1');
+			script.setAttribute('data-reactions-enabled', '0');
+			script.setAttribute('data-emit-metadata', '0');
+			script.setAttribute('data-input-position', 'bottom');
+			script.setAttribute('data-lang', '{{ site.Params.comment.giscus.lang | default "zh-CN" }}');
+			script.setAttribute('data-loading', 'lazy');
+			script.setAttribute('crossorigin', 'anonymous');
+			script.async = true;
+
+			const htmlElement = document.documentElement;
+			if (htmlElement.classList.contains('dark')) {
+				script.setAttribute('data-theme', 'dark_dimmed');
+			} else {
+				script.setAttribute('data-theme', 'light');
+			}
+
+			script.addEventListener('load', () => {
+				resolve();
+			});
+
+			document.getElementById('comments').appendChild(script);
+		});
 	}
-	}
 
-	// 辅助函数：设置按钮文字
-	function setButtonText(btn, text) {
-	const span = btn.querySelector('span');
-	if (span) span.innerText = text;
-	}
-
-	// 初始化：确保评论容器隐藏
-	setVisible(containerGiscus, false);
-	setVisible(containerMastodon, false);
-
-	function loadGiscus() {
-	return new Promise((resolve) => {
-	const script = document.createElement('script');
-	script.src = 'https://giscus.app/client.js';
-	script.setAttribute('data-repo', 'eallion/eallion.com');
-	script.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnkyNjI2Njk1MDg=');
-	script.setAttribute('data-category', 'Giscus');
-	script.setAttribute('data-category-id', 'DIC_kwDOD6gExM4CS9eF');
-	script.setAttribute('data-mapping', 'pathname');
-	script.setAttribute('data-strict', '1');
-	script.setAttribute('data-reactions-enabled', '1');
-	script.setAttribute('data-emit-metadata', '1');
-	script.setAttribute('data-input-position', 'top');
-	script.setAttribute('data-lang', 'zh-CN');
-	script.setAttribute('data-loading', 'lazy');
-	script.setAttribute('crossorigin', 'anonymous');
-	script.async = true;
-
-	const htmlElement = document.documentElement;
-	if (htmlElement.classList.contains('dark')) {
-	script.setAttribute('data-theme', 'dark_dimmed');
-	} else {
-	script.setAttribute('data-theme', 'light');
-	}
-
-	script.addEventListener('load', () => {
-	resolve();
+	{{- if $autoLoad }}
+	loadComment();
+	{{- else }}
+	document.getElementById('load-comment').addEventListener('click', async () => {
+		await loadComment();
+		document.getElementById('load-comment').classList.add('hidden!');
 	});
+	{{- end }}
+</script>
+  {{- end }}
+{{- else if eq $system "waline" -}}
+  {{- $serverURL := site.Params.comment.waline.serverURL -}}
+  {{- if $serverURL }}
+  {{- $serverURL = strings.TrimSuffix "/" $serverURL -}}
+  {{- if not (or (strings.HasPrefix $serverURL "http://") (strings.HasPrefix $serverURL "https://")) -}}
+    {{- $serverURL = printf "https://%s" $serverURL -}}
+  {{- end -}}
+{{- $version := site.Params.comment.waline.version | default "3.0.0" -}}
+{{- $cssCDN := site.Params.comment.waline.cdnCSS | default (printf "https://unpkg.com/@waline/client@%s/dist/waline.css" $version) -}}
+{{- $jsCDN := site.Params.comment.waline.cdnJS | default (printf "https://unpkg.com/@waline/client@%s/dist/waline.js" $version) -}}
+<link rel="stylesheet" href="{{ $cssCDN }}" />
+<div id="comment" class="rounded-2xl my-8 md:my-14">
 
-	document.getElementById('comments').appendChild(script);
+	<h2 class="text-xl font-semibold">评论</h2>
+
+	{{- if not $autoLoad }}
+	<div class="comment-on flex flex-col md:flex-row items-center mt-8 text-base capitalize print:hidden">
+		<div id="load-comment" class="inline-flex items-center relative border border-gray-300 dark:border-border-dimmed-subtle bg-white dark:bg-bg-dimmed-primary rounded-full px-4 py-2 hover:bg-zinc-100 dark:hover:bg-bg-dimmed-secondary">
+			<span class="cursor-pointer">点击加载</span>
+			<span class="ml-2 mr-1 cursor-pointer"><span class="relative block icon">{{ partial "icon.html" (dict "name" "chat" "class" "") }}</span></span>
+			<span class='opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Waline</span>
+		</div>
+	</div>
+	{{- end }}
+	<div id="waline"></div>
+</div>
+<script>
+	function loadComment() {
+		return new Promise((resolve) => {
+			const script = document.createElement('script');
+			script.src = '{{ $jsCDN }}';
+			script.onload = () => {
+				Waline.init({
+					el: '#waline',
+					serverURL: '{{ $serverURL }}',
+					lang: '{{ site.Params.comment.waline.lang | default "zh-CN" }}',
+					pageview: {{ site.Params.comment.waline.pageview | default false }},
+					dark: 'html.dark',
+				});
+				resolve();
+			};
+			document.body.appendChild(script);
+		});
+	}
+
+	{{- if $autoLoad }}
+	loadComment();
+	{{- else }}
+	document.getElementById('load-comment').addEventListener('click', async () => {
+		await loadComment();
+		document.getElementById('load-comment').classList.add('hidden!');
 	});
+	{{- end }}
+</script>
+  {{- end }}
+{{- else if eq $system "utterances" -}}
+  {{- $repo := site.Params.comment.utterances.repo -}}
+  {{- if $repo }}
+<div id="comment" class="rounded-2xl my-8 md:my-14">
+
+	<h2 class="text-xl font-semibold">评论</h2>
+
+	{{- if not $autoLoad }}
+	<div class="comment-on flex flex-col md:flex-row items-center mt-8 text-base capitalize print:hidden">
+		<div id="load-comment" class="inline-flex items-center relative border border-gray-300 dark:border-border-dimmed-subtle bg-white dark:bg-bg-dimmed-primary rounded-full px-4 py-2 hover:bg-zinc-100 dark:hover:bg-bg-dimmed-secondary">
+			<span class="cursor-pointer">点击加载</span>
+			<span class="ml-2 mr-1 cursor-pointer"><span class="relative block icon">{{ partial "icon.html" (dict "name" "github" "class" "") }}</span></span>
+			<span class='opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Utterances</span>
+		</div>
+	</div>
+	{{- end }}
+	<div id="utterances"></div>
+</div>
+<script>
+	function loadComment() {
+		return new Promise((resolve) => {
+			const script = document.createElement('script');
+			script.src = 'https://utteranc.es/client.js';
+			script.setAttribute('repo', '{{ $repo }}');
+			script.setAttribute('issue-term', 'pathname');
+			script.setAttribute('label', '{{ site.Params.comment.utterances.label }}');
+			script.setAttribute('theme', '{{ site.Params.comment.utterances.theme | default "github-light" }}');
+			script.setAttribute('crossorigin', 'anonymous');
+			script.async = true;
+
+			const htmlElement = document.documentElement;
+			if (htmlElement.classList.contains('dark')) {
+				script.setAttribute('theme', '{{ site.Params.comment.utterances.darkTheme | default "github-dark" }}');
+			}
+
+			script.addEventListener('load', () => {
+				resolve();
+			});
+
+			document.getElementById('utterances').appendChild(script);
+		});
 	}
 
-	async function loadMastodonComments() {
-	const slug = '{{ .Params.slug | default .File.TranslationBaseName }}';
+	{{- if $autoLoad }}
+	loadComment();
+	{{- else }}
+	document.getElementById('load-comment').addEventListener('click', async () => {
+		await loadComment();
+		document.getElementById('load-comment').classList.add('hidden!');
+	});
+	{{- end }}
+</script>
+  {{- end }}
+{{- else if eq $system "twikoo" -}}
+  {{- $envID := site.Params.comment.twikoo.envID -}}
+  {{- if $envID }}
+  {{- $envID = strings.TrimSuffix "/" $envID -}}
+  {{- if not (or (strings.HasPrefix $envID "http://") (strings.HasPrefix $envID "https://")) -}}
+    {{- $envID = printf "https://%s" $envID -}}
+  {{- end -}}
+<div id="comment" class="rounded-2xl my-8 md:my-14">
 
-	try {
-	// 显示加载中状态
-	containerMastodon.innerHTML = '<div class="text-center py-4">加载中...</div>';
+	<h2 class="text-xl font-semibold">评论</h2>
 
-	// 1. 获取 status ID（跟随重定向后从 URL 中提取）
-	const gtsResponse = await fetch(`https://api.eallion.com/gts/${slug}`);
-
-	// 检查是否成功重定向
-	if (!gtsResponse.ok) {
-	throw new Error(`无法获取 Mastodon 状态 (HTTP ${gtsResponse.status})`);
+	{{- if not $autoLoad }}
+	<div class="comment-on flex flex-col md:flex-row items-center mt-8 text-base capitalize print:hidden">
+		<div id="load-comment" class="inline-flex items-center relative border border-gray-300 dark:border-border-dimmed-subtle bg-white dark:bg-bg-dimmed-primary rounded-full px-4 py-2 hover:bg-zinc-100 dark:hover:bg-bg-dimmed-secondary">
+			<span class="cursor-pointer">点击加载</span>
+			<span class="ml-2 mr-1 cursor-pointer"><span class="relative block icon">{{ partial "icon.html" (dict "name" "chat" "class" "") }}</span></span>
+			<span class='opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Twikoo</span>
+		</div>
+	</div>
+	{{- end }}
+	<div id="twikoo"></div>
+</div>
+<script>
+	function loadComment() {
+		return new Promise((resolve) => {
+			{{- $version := site.Params.comment.twikoo.version | default "1.6.39" -}}
+			{{- $twikooCDN := site.Params.comment.twikoo.cdn | default (printf "https://unpkg.com/twikoo@%s/dist/twikoo.all.min.js" $version) -}}
+			const script = document.createElement('script');
+			script.src = '{{ $twikooCDN }}';
+			script.onload = () => {
+				twikoo.init({
+					envId: '{{ $envID }}',
+					region: '{{ site.Params.comment.twikoo.region }}',
+					lang: '{{ site.Params.comment.twikoo.lang | default "zh-CN" }}',
+				});
+				resolve();
+			};
+			document.body.appendChild(script);
+		});
 	}
 
-	// 从最终的 URL 中提取 status ID
-	const finalUrl = gtsResponse.url;
-	const match = finalUrl.match(/\/statuses\/([A-Z0-9]+)/i);
-	let statusId = match ? match[1] : null;
+	{{- if $autoLoad }}
+	loadComment();
+	{{- else }}
+	document.getElementById('load-comment').addEventListener('click', async () => {
+		await loadComment();
+		document.getElementById('load-comment').classList.add('hidden!');
+	});
+	{{- end }}
+</script>
+  {{- end }}
+{{- else if eq $system "disqus" -}}
+  {{- $shortname := site.Params.comment.disqus.shortname -}}
+  {{- if $shortname }}
+<div id="comment" class="rounded-2xl my-8 md:my-14">
 
-	// 如果 URL 中没有找到，尝试从 HTML 内容的 og:url meta 标签中提取
-	if (!statusId) {
-	const html = await gtsResponse.text();
-	const metaMatch = html.match(/<meta\s+property="og:url"\s+content="[^"]*\/statuses\/([A-Z0-9]+)"/i);
-		statusId = metaMatch ? metaMatch[1] : null;
-		}
+	<h2 class="text-xl font-semibold">评论</h2>
 
-
-		if (!statusId) {
-		containerMastodon.innerHTML = '<div class="text-center py-4 text-gray-500">该文章暂无 Mastodon 讨论</div>';
-		return;
-		}
-
-		// 2. 获取评论详情 (Context)
-		const contextResponse = await fetch(`https://m.eallion.com/api/v1/statuses/${statusId}/context`, {
-		headers: {
-		'Authorization': 'Bearer ODRMYZAYZTATMTFHYS0ZZMIWLTHJYMMTYJBMZWY2NZKZZWJH'
-		}
+	{{- if not $autoLoad }}
+	<div class="comment-on flex flex-col md:flex-row items-center mt-8 text-base capitalize print:hidden">
+		<div id="load-comment" class="inline-flex items-center relative border border-gray-300 dark:border-border-dimmed-subtle bg-white dark:bg-bg-dimmed-primary rounded-full px-4 py-2 hover:bg-zinc-100 dark:hover:bg-bg-dimmed-secondary">
+			<span class="cursor-pointer">点击加载</span>
+			<span class="ml-2 mr-1 cursor-pointer"><span class="relative block icon">{{ partial "icon.html" (dict "name" "comment" "class" "") }}</span></span>
+			<span class='opacity-75 hover:opacity-100 cursor-pointer duration-300 ease-in-out'>Disqus</span>
+		</div>
+	</div>
+	{{- end }}
+	<div id="disqus_thread"></div>
+</div>
+<script>
+	function loadComment() {
+		return new Promise((resolve) => {
+			const script = document.createElement('script');
+			script.src = 'https://{{ $shortname }}.disqus.com/embed.js';
+			script.setAttribute('data-timestamp', +new Date());
+			script.addEventListener('load', () => {
+				resolve();
+			});
+			document.body.appendChild(script);
 		});
+	}
 
-		if (!contextResponse.ok) {
-		throw new Error(`无法获取评论详情 (HTTP ${contextResponse.status})`);
-		}
-
-		// 2.1 获取 Status 详情 (用于统计数)
-		let reblogsCount = 0;
-		let favouritesCount = 0;
-		let repliesCount = 0;
-
-		try {
-		const statusResponse = await fetch(`https://m.eallion.com/api/v1/statuses/${statusId}`, {
-		headers: {
-		'Authorization': 'Bearer ODRMYZAYZTATMTFHYS0ZZMIWLTHJYMMTYJBMZWY2NZKZZWJH'
-		}
-		});
-		if (statusResponse.ok) {
-		const statusData = await statusResponse.json();
-		reblogsCount = statusData.reblogs_count || 0;
-		favouritesCount = statusData.favourites_count || 0;
-		repliesCount = statusData.replies_count || 0;
-		}
-		} catch (e) {
-		console.warn('获取 Status 统计数据失败', e);
-		}
-
-		const context = await contextResponse.json();
-		let comments = context.descendants || [];
-
-		// 过滤非公开评论
-		comments = comments.filter(c => c.visibility === 'public');
-
-		// 3. 构建评论树结构
-		const commentMap = new Map();
-		const rootComments = [];
-
-		// 先创建所有评论的映射
-		comments.forEach(comment => {
-		commentMap.set(comment.id, { ...comment, replies: [] });
-		});
-
-		// 构建树形结构
-		comments.forEach(comment => {
-		const commentNode = commentMap.get(comment.id);
-		if (comment.in_reply_to_id && commentMap.has(comment.in_reply_to_id)) {
-		// 这是一个回复
-		const parent = commentMap.get(comment.in_reply_to_id);
-		parent.replies.push(commentNode);
-		} else {
-		// 这是顶级评论
-		rootComments.push(commentNode);
-		}
-		});
-
-		// 4. 递归渲染评论
-		function renderComment(comment, level = 0) {
-		const avatar = comment.account.avatar || '';
-		const displayName = comment.account.display_name || comment.account.username;
-		const username = comment.account.acct;
-		const content = comment.content;
-		const createdAt = new Date(comment.created_at);
-		const url = comment.url;
-
-		// 计算相对时间
-		function getRelativeTime(date) {
-		const now = new Date();
-		const diff = Math.floor((now - date) / 1000); // 秒
-
-		if (diff < 60) return '刚刚';
-		if (diff < 3600) return `${Math.floor(diff / 60)} 分钟前`;
-		if (diff < 86400) return `${Math.floor(diff / 3600)} 小时前`;
-		if (diff < 604800) return `${Math.floor(diff / 86400)} 天前`;
-
-		return date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
-		}
-
-		const relativeTime = getRelativeTime(createdAt);
-		const isRoot = level === 0;
-		const hasReplies = comment.replies && comment.replies.length > 0;
-		const commentClass = (isRoot && hasReplies)
-		? 'mastodon-comment border-b border-gray-200 dark:border-border-dimmed-subtle pb-4 mb-4'
-		: 'mastodon-comment py-2 relative';
-		const textSize = isRoot ? 'text-base' : 'text-sm';
-		const avatarSize = isRoot ? 'w-10 h-10' : 'w-8 h-8';
-
-		// 统一回复的缩进层级（视觉上只有两级：Root 和 Reply）
-		// 只要是回复 (level > 0)，就使用固定的缩进
-		const visualLevel = level > 0 ? 1 : 0;
-		const paddingLeft = visualLevel > 0 ? 'style="padding-left: 2rem;"' : '';
-
-		// 线条设置：
-		// left: 2rem (缩进) + 1rem (半个头像宽) = 3rem
-		// top: 对于所有回复，都向上延伸 1rem 以连接上一层（因为视觉上都是兄弟/平级，紧挨着的）
-		const replyLine = !isRoot
-		? `<div class="absolute w-[1px] bg-gray-200 dark:bg-zinc-700 z-10" style="left: 3rem; top: -1rem; bottom: 0; transform: translateX(-50%);"></div>`
-		: '';
-
-		let html = `
-		<div class="${commentClass}" ${paddingLeft}>
-		${replyLine}
-		<div class="flex items-start gap-3 relative z-10">
-		<a href="${comment.account.url}" target="_blank" rel="noopener" class="flex-shrink-0">
-		<img src="${avatar}" alt="${displayName}" class="${avatarSize} rounded-full hover:opacity-80 transition-opacity z-20">
-		</a>
-		<div class="flex-1 min-w-0">
-		<div class="flex items-baseline gap-2 flex-wrap mb-2">
-		<a href="${comment.account.url}" target="_blank" rel="noopener" class="font-semibold text-gray-900 dark:text-gray-100 hover:underline">${displayName}</a>
-		<span class="text-sm text-gray-500 dark:text-gray-400">@${username}</span>
-		<a href="${url}" target="_blank" rel="noopener" class="text-xs text-gray-400 dark:text-gray-500 hover:text-blue-500 dark:hover:text-blue-400">${relativeTime}</a>
-		</div>
-		${(() => {
-		if (comment.sensitive) {
-		const spoiler = comment.spoiler_text ? `<span class="text-xs text-wrap wrap-break-word border border-gray-400 dark:border-gray-500 px-1 py-1 rounded my-4 inline-block">CW: ${comment.spoiler_text}</span>` : '';
-		const eyeCloseIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.343 18.782l-1.932-.518l.787-2.939a11 11 0 0 1-3.237-1.872l-2.153 2.154l-1.414-1.414l2.153-2.154a10.96 10.96 0 0 1-2.371-5.07l1.968-.359a9.002 9.002 0 0 0 17.713 0l1.968.358a10.96 10.96 0 0 1-2.372 5.071l2.154 2.154l-1.414 1.414l-2.154-2.154a11 11 0 0 1-3.237 1.872l.788 2.94l-1.932.517l-.788-2.94a11 11 0 0 1-3.74 0z"/></svg>`;
-		const eyeOpenIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c5.392 0 9.878 3.88 10.819 9c-.94 5.12-5.427 9-10.819 9s-9.878-3.88-10.818-9C2.122 6.88 6.608 3 12 3m0 16a9.005 9.005 0 0 0 8.778-7a9.005 9.005 0 0 0-17.555 0A9.005 9.005 0 0 0 12 19m0-2.5a4.5 4.5 0 1 1 0-9a4.5 4.5 0 0 1 0 9m0-2a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5"/></svg>`;
-
-		// 切换显示逻辑：点击按钮，找到下一个 div（内容），切换 redacted 类
-		return `
-		<div class="mastodon-content">
-		${spoiler}
-		<div>
-		<button type="button" class="flex items-center rounded-full gap-1.5 px-3 py-1.5 border border-dashed border-gray-400 dark:border-gray-500 hover:bg-gray-100 dark:hover:bg-zinc-800 text-sm font-medium transition-colors text-gray-700 dark:text-gray-200 mb-2 cursor-pointer"
-		onclick="const content = this.parentElement.nextElementSibling; content.classList.toggle('redacted'); const isHidden = content.classList.contains('redacted'); this.querySelector('span:last-child').innerText = isHidden ? '显示内容' : '隐藏内容'; this.querySelector('.icon').innerHTML = isHidden ? '${eyeCloseIcon.replace(/"/g, "&quot;")}' : '${eyeOpenIcon.replace(/"/g, "&quot;")}';">
-		<span class="icon" style="width: 1em; height: 1em;">${eyeCloseIcon}</span>
-		<span>显示内容</span>
-		</button>
-		</div>
-		<div class="sensitive-content redacted transition-colors duration-300 ${textSize} leading-relaxed break-words text-gray-800 dark:text-gray-200">
-		${content}
-		</div>
-		</div>
-		`;
-		} else {
-		return `<div class="text-gray-800 dark:text-gray-200 ${textSize} leading-relaxed break-words mastodon-content">${content}</div>`;
-		}
-		})()}
-		</div>
-		</div>
-		</div>
-		`;
-
-		// 递归渲染回复
-		if (comment.replies && comment.replies.length > 0) {
-		comment.replies.forEach(reply => {
-		html += renderComment(reply, level + 1);
-		});
-		}
-
-		return html;
-		}
-
-		// 5. 渲染所有顶级评论
-		const totalComments = rootComments.length;
-		const totalReplies = comments.length - totalComments;
-
-		// 排序状态 keep track
-		let sortOrder = 'asc'; // 默认最早 (asc)
-
-		// 6. 渲染 Reaction/Status 统计
-		const totalReactions = reblogsCount + favouritesCount;
-
-		// Icons
-		const iconReblog = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>`;
-		const iconStar = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 32 32"><path fill="#f8312f" d="M21.008 5.162c-2.84.509-5.011 3.905-5.011 3.905s-2.18-3.396-5.012-3.905c-7.012-1.25-9.903 4.993-8.732 9.64c1.73 6.863 10.053 13.014 12.834 14.916c.55.376 1.27.376 1.83 0c2.791-1.902 11.113-8.053 12.834-14.916c1.16-4.647-1.73-10.89-8.743-9.64"/></svg>`;
-
-		// 构建页面结构
-		let html = `
-		<div class="mb-6 flex flex-col items-center">
-		<h3 class="flex items-center justify-center gap-2 text-base font-semibold text-gray-900 dark:text-text-dimmed-primary mb-3">
-		<span>${totalReactions}</span> <span>${totalReactions === 1 ? 'Boost' : 'Boosts'}</span>
-		</h3>
-
-		<div class="flex flex-wrap justify-center gap-2">
-		${favouritesCount > 0 ? `
-		<a href="https://api.eallion.com/gts/${slug}" target="_blank" rel="noopener noreferrer" title="喜欢" class="group flex items-center gap-1.5 px-3 py-1 text-sm border border-gray-200 dark:border-border-dimmed-primary bg-zinc-50 dark:bg-bg-dimmed-primary rounded-full text-gray-700 dark:text-text-dimmed-primary cursor-pointer hover:bg-gray-100 dark:hover:bg-bg-dimmed-secondary transition-colors decoration-0 no-underline">
-		<span class="text-pink-600 dark:text-pink-400">${iconStar}</span>
-		<span>${favouritesCount}</span>
-		</a>` : ''}
-
-		${reblogsCount > 0 ? `
-		<a href="https://api.eallion.com/gts/${slug}" target="_blank" rel="noopener noreferrer" title="转发" class="group flex items-center gap-1.5 px-3 py-1 text-sm border border-gray-200 dark:border-border-dimmed-primary bg-zinc-50 dark:bg-bg-dimmed-primary rounded-full text-gray-700 dark:text-text-dimmed-primary cursor-pointer hover:bg-gray-100 dark:hover:bg-bg-dimmed-secondary transition-colors decoration-0 no-underline">
-		<span class="text-blue-600 dark:text-blue-400">${iconReblog}</span>
-		<span>${reblogsCount}</span>
-		</a>` : ''}
-
-		<!-- Reserved for Quotes -->
-		<!--
-		<a href="https://api.eallion.com/gts/${slug}" target="_blank" rel="noopener noreferrer" title="引用" class="group flex items-center gap-1.5 px-3 py-1 text-sm border border-gray-200 dark:border-border-dimmed-primary bg-zinc-50 dark:bg-bg-dimmed-primary rounded-full text-gray-700 dark:text-text-dimmed-primary cursor-pointer decoration-0 no-underline">
-		<span>Quotes</span>
-		</a>
-		-->
-		</div>
-		</div>
-
-		<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4 text-sm font-semibold text-gray-700 dark:text-text-dimmed-primary">
-		<div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
-		<div class="flex items-center gap-2">
-		<span class="text-base">${totalComments} 条评论</span>
-		<span>·</span>
-		<span class="text-base font-normal">${totalReplies} 条回复</span>
-		</div>
-		<span class="font-normal italic text-gray-500 dark:text-text-dimmed-secondary"><span class="hidden md:inline">– </span>来自 <a href="https://api.eallion.com/gts/${slug}" target="_blank" rel="noreferrer noopener nofollow" class="underline hover:text-[#0969da] dark:hover:text-[#539bf5]">GoToSocial</a> 联邦宇宙公开评论</span>
-		</div>
-		<div class="flex items-center bg-transparent gap-1">
-		<button type="button" id="sort-earliest" class="px-3 py-1 text-sm hover:bg-gh-bg-primary dark:hover:bg-bg-dimmed-secondary transition-colors text-gh-text-primary dark:text-text-dimmed-primary font-bold bg-gh-bg-primary dark:bg-bg-dimmed-secondary border border-gh-border-primary dark:border-border-dimmed-primary rounded-md cursor-pointer">最早</button>
-		<button type="button" id="sort-latest" class="px-3 py-1 text-sm hover:bg-gh-bg-primary dark:hover:bg-bg-dimmed-secondary transition-colors text-gray-500 dark:text-text-dimmed-secondary rounded-md cursor-pointer">最新</button>
-		</div>
-		</div>
-		<div class="mastodon-comments-container mt-6 rounded-lg">
-		<div class="mastodon-comments-list"></div>
-		</div>
-		`;
-
-		containerMastodon.innerHTML = html;
-
-		// 定义渲染列表函数
-		function renderList() {
-		if (rootComments.length === 0) {
-		containerMastodon.querySelector('.mastodon-comments-list').innerHTML = '<div class="text-center py-4 text-gray-500">暂无评论</div>';
-		return;
-		}
-
-		// 排序 rootComments
-		rootComments.sort((a, b) => {
-		const dateA = new Date(a.created_at);
-		const dateB = new Date(b.created_at);
-		return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
-		});
-
-		let listHtml = '';
-		rootComments.forEach(comment => {
-		listHtml += `<div class="mastodon-comment-group border-b border-gray-200 dark:border-border-dimmed-subtle last:border-b-0 mb-4 px-4 py-4 rounded-lg last:mb-0 bg-zinc-50 dark:bg-bg-dimmed-primary">`;
-		listHtml += renderComment(comment);
-		listHtml += `</div>`;
-		});
-		containerMastodon.querySelector('.mastodon-comments-list').innerHTML = listHtml;
-		}
-
-		// 绑定排序按钮事件
-		const btnEarliest = containerMastodon.querySelector('#sort-earliest');
-		const btnLatest = containerMastodon.querySelector('#sort-latest');
-
-		function updateButtons() {
-		// Active State Classes
-		const activeClasses = ['text-gh-text-primary', 'dark:text-text-dimmed-primary', 'font-bold', 'bg-gh-bg-primary', 'dark:bg-bg-dimmed-secondary', 'border', 'border-gh-border-primary', 'dark:border-border-dimmed-primary'];
-		// Inactive State Classes (Text color mainly)
-		const inactiveClasses = ['text-gray-500', 'dark:text-text-dimmed-secondary', 'bg-transparent', 'border-transparent'];
-
-		if (sortOrder === 'asc') {
-		// Earliest is active
-		btnEarliest.classList.add(...activeClasses);
-		btnEarliest.classList.remove(...inactiveClasses);
-
-		btnLatest.classList.remove(...activeClasses);
-		btnLatest.classList.add(...inactiveClasses);
-		} else {
-		// Latest is active
-		btnLatest.classList.add(...activeClasses);
-		btnLatest.classList.remove(...inactiveClasses);
-
-		btnEarliest.classList.remove(...activeClasses);
-		btnEarliest.classList.add(...inactiveClasses);
-		}
-		}
-
-		btnEarliest.addEventListener('click', () => {
-		if (sortOrder !== 'asc') {
-		sortOrder = 'asc';
-		updateButtons();
-		renderList();
-		}
-		});
-
-		btnLatest.addEventListener('click', () => {
-		if (sortOrder !== 'desc') {
-		sortOrder = 'desc';
-		updateButtons();
-		renderList();
-		}
-		});
-
-		// 初始渲染
-		updateButtons(); // Set initial button state
-		renderList();
-
-		} catch (error) {
-		console.error('加载 Mastodon 评论失败:', error);
-		containerMastodon.innerHTML = `<div class="text-center py-4 text-red-500">加载失败：${error.message}</div>`;
-		}
-		}
-
-		// 切换评论系统
-		async function toggleCommentSystem(system) {
-		if (isLoading) return;
-
-		const isGiscus = system === 'giscus';
-		const targetContainer = isGiscus ? containerGiscus : containerMastodon;
-		const targetBtn = isGiscus ? btnGiscus : btnMastodon;
-		const otherContainer = isGiscus ? containerMastodon : containerGiscus;
-		const otherBtn = isGiscus ? btnMastodon : btnGiscus;
-
-		// 判断当前是否可见
-		const isVisible = !targetContainer.classList.contains('hidden') && targetContainer.style.display !== 'none';
-
-		if (isVisible) {
-		// 如果可见，则隐藏
-		setVisible(targetContainer, false);
-		setButtonText(targetBtn, '加载');
-		return;
-		}
-
-		isLoading = true;
-
-		// 设置按钮不可点击
-		btnGiscus.style.pointerEvents = 'none';
-		btnMastodon.style.pointerEvents = 'none';
-		btnGiscus.style.opacity = '0.5';
-		btnMastodon.style.opacity = '0.5';
-
-		try {
-		if (isGiscus) {
-		if (!isGiscusLoaded) {
-		await loadGiscus();
-		isGiscusLoaded = true;
-		}
-		} else {
-		if (!isMastodonLoaded) {
-		await loadMastodonComments();
-		isMastodonLoaded = true;
-		}
-		}
-
-		// 显示当前，隐藏另一个
-		setVisible(targetContainer, true);
-		setVisible(otherContainer, false);
-
-		// 更新按钮文字
-		setButtonText(targetBtn, '隐藏');
-		setButtonText(otherBtn, '加载');
-
-		// 确保按钮都显示（虽然默认是显示的，但为了安全起见）
-		setVisible(targetBtn, true);
-		setVisible(otherBtn, true);
-
-		} catch (e) {
-		console.error(e);
-		} finally {
-		isLoading = false;
-		// 恢复按钮可点击
-		btnGiscus.style.pointerEvents = '';
-		btnMastodon.style.pointerEvents = '';
-		btnGiscus.style.opacity = '';
-		btnMastodon.style.opacity = '';
-		}
-		}
-
-		btnGiscus.addEventListener('click', () => toggleCommentSystem('giscus'));
-		btnMastodon.addEventListener('click', () => toggleCommentSystem('mastodon'));
-		</script>
+	{{- if $autoLoad }}
+	loadComment();
+	{{- else }}
+	document.getElementById('load-comment').addEventListener('click', async () => {
+		await loadComment();
+		document.getElementById('load-comment').classList.add('hidden!');
+	});
+	{{- end }}
+</script>
+  {{- end }}
+{{- end }}
