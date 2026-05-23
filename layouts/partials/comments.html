@@ -566,6 +566,10 @@
   {{- if not (or (strings.HasPrefix $envID "http://") (strings.HasPrefix $envID "https://")) -}}
     {{- $envID = printf "https://%s" $envID -}}
   {{- end -}}
+  {{- $twikooCSS := resources.Get "css/twikoo.css" -}}
+  {{- if $twikooCSS }}
+  <link rel="stylesheet" href="{{ $twikooCSS.RelPermalink }}" />
+  {{- end }}
 <div id="comment" class="rounded-2xl my-8 md:my-14">
 
 	<h2 class="text-xl font-semibold">评论</h2>
