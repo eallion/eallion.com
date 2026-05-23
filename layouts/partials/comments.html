@@ -652,3 +652,34 @@
 </script>
   {{- end }}
 {{- end }}
+
+{{- if site.Params.comment.linkRedirect | default true }}
+<script>
+(function() {
+  var hosts = {{ site.Params.safe_hosts | jsonify | safeJS }};
+  var site = '{{ (urls.Parse site.BaseURL).Host }}';
+  var containers = ['mastodon-comments', 'comment'];
+  containers.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('click', function(e) {
+      var a = e.target.closest('a');
+      if (!a || !a.href) return;
+      var u;
+      try { u = new URL(a.href); } catch { return; }
+      if (u.protocol === 'javascript:' || u.hostname === site) return;
+      for (var i = 0; i < hosts.length; i++) {
+        var h = hosts[i];
+        if (h.indexOf('*.') === 0) {
+          if (u.hostname === h.slice(2) || u.hostname.endsWith('.' + h.slice(2))) return;
+        } else {
+          if (u.hostname === h) return;
+        }
+      }
+      e.preventDefault();
+      window.open('/go/?target=' + btoa(a.href), '_blank');
+    });
+  });
+})();
+</script>
+{{- end }}
