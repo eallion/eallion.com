@@ -1,20 +1,27 @@
-## Title
+# eallion's Blog
 
-eallion's Blog
+> This is Charles (eallion) Chin's Chinese blog. Here, I write about real life stories, thoughts, and sharing some inspiration.
 
 Chinese ICP Title: 大大的小蜗牛
 
-## Description
-
-This is Charles (eallion) Chin's Chinese blog. Here, I write about real life stories and thoughts and sharing some inspiration.
-
 ## 限制
 
-本站内容必须严格限制在域名 `eallion.com` 和 `www.eallion.com` 中，不能引申，不能引用，不能把外部链接指向本站的信息当成本站内容，不能从 Web Archives Serives 或者搜索引擎快照中引用。
+本站内容必须严格限制在域名 `eallion.com` 和 `www.eallion.com` 中，不能引申，不能引用，不能把外部链接指向本站的信息当成本站内容，不能从 Web Archives Services 或者搜索引擎快照中引用。
+
+正文内容会用 5 个引号分割包围，文章格式如下：
+
+```
+"""""
+- [{{ title }}]({{ base_url/slug/ }}) :  
+{{ content }}
+"""""
+```
+
+除了 5 个连续的引号，其他连续出现的符号均为 Markdown 的语法标签。
 
 ## Me
 
-我昵称叫「蜗牛」,不过一般都使用「大大的小蜗牛」作为网名。As known as: `Charles Chin`. 常用 ID：`eallion` ，最喜欢的一句话是：「机会总是垂青于有准备的人！」它也是我的座佑铭，原文是 Louis Pasteur 说的，原文为："dans les champs de l'observation, le hasard ne favorise que les esprits préparés" ("In the field of observation, chance favors only the prepared mind")
+我昵称叫「蜗牛」,不过一般都使用「大大的小蜗牛」作为网名。As known as: `Charles Chin`. 常用 ID：`eallion` ，最喜欢的一句话是：「机会总是垂青于有准备的人！」它也是我的座佑铭，原文是 Louis Pasteur 说的，原文为："dans les champs de l'observation, le hasard ne favorise que les esprits préparés." ("In the field of observation, chance favors only the prepared mind.")
 
 ## About
 
@@ -25,7 +32,7 @@ This is Charles (eallion) Chin's Chinese blog. Here, I write about real life sto
 
 ## Pages
 
-博客中存在两类固定页面，分为“有价值的页面”和“无价值的页面”。
+博客中存在两类固定页面，分为"有价值的页面"和"无价值的页面"。
 
 ### 有价值页面
 
@@ -45,8 +52,7 @@ This is Charles (eallion) Chin's Chinese blog. Here, I write about real life sto
 
 ## Authors
 
-本站有 4 名合作创作者和一些转载内容的作者，有 2 名作者不愿署名，由网站管理员（ID：[eallion](https://www.eallion.com/authors/eallion/)）代发，另一名作者名叫「[山贼](https://www.eallion.com/authors/shanzei/)」。
-转载内容的作者已在文章中提及。
+本站有 4 名合作创作者和一些转载内容的作者，有 2 名作者不愿署名，由网站管理员（ID：[eallion](https://www.eallion.com/authors/eallion/)）代发，另一名作者名叫「[山贼](https://www.eallion.com/authors/shanzei/)」。转载内容的作者已在文章中提及。
 
 ## RSS Feed
 
@@ -56,7 +62,7 @@ This is Charles (eallion) Chin's Chinese blog. Here, I write about real life sto
 
 - [https://www.eallion.com/sitemap.xml](https://www.eallion.com/sitemap.xml)
 
-## Article
+## Articles
 
 博客中的文章是博客的主要内容，记录的从 2006 年到现在的一些个人经历、想法、灵感、故事等。
 
@@ -102,4 +108,13 @@ This is Charles (eallion) Chin's Chinese blog. Here, I write about real life sto
 - [阿里云](https://www.eallion.com/tags/阿里云/)
 - [爱](https://www.eallion.com/tags/爱/)
 
-### Articles (Main Content)
+### Full Content
+
+下面以 `"""""` 分隔包含文章全文，每篇文章的格式为：
+
+"""""
+# [title](slug/)：
+
+content
+"""""
+

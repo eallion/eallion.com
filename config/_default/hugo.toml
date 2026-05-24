@@ -15,7 +15,7 @@ buildDrafts = false
 buildFuture = false
 
 enableEmoji = true
-enableRobotsTXT = true
+enableRobotsTXT = false
 
 # Suppress warnings about raw HTML in Markdown
 ignoreLogs = ['warning-goldmark-raw-html']

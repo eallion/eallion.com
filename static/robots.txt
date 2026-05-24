@@ -1,0 +1,95 @@
+Sitemap: https://www.eallion.com/sitemap.xml
+
+# Allow general crawlers
+User-agent: *
+Allow: /
+
+# AI training bots: only allowed to access /llms.txt
+User-agent: GPTBot
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: ClaudeBot
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: Google-Extended
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: Google-CloudVertexBot
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: PerplexityBot
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: CCBot
+Disallow: /
+Allow: /llms.txt$
+
+# Other known AI crawlers
+User-agent: Amazon Kendra
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: Anchor Browser
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: atlassian-bot
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: AwarioSmartBot
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: bigsur.ai
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: Cotoyogi
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: Factset_spyderbot
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: GoogleOther
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: Google NotebookLM
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: pangu
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: Liner Bot
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: Novellum AI Crawl
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: ShapBot
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: QualifiedBot
+Disallow: /
+Allow: /llms.txt$
+
+User-agent: WARDBot
+Disallow: /
+Allow: /llms.txt$
