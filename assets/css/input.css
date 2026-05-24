@@ -16,10 +16,11 @@
 @source '../../layouts/**/*.html';
 @source '../../layouts/**/*.js';
 
-@source '../../themes/pehtheme/layouts/**/*.html';
-@source '../../themes/pehtheme/layouts/**/*.js';
+@source '../../themes/pehe/layouts/**/*.html';
+@source '../../themes/pehe/layouts/**/*.js';
 
 @source '../../content/**/*.md';
+@source '../../hugo_stats.json';
 
 @theme {
   /* Fonts */

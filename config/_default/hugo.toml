@@ -26,3 +26,6 @@ ignoreFiles = [
 
 [pagination]
   pagerSize = 7 # <- Set the desired number of posts per page
+
+[build]
+  writeStats = true
