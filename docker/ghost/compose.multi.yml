@@ -1,0 +1,105 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/main/schema/compose-spec.json
+# Multi-site variant: run two Ghost instances sharing one MySQL.
+# Usage: docker compose -f compose.multi.yml up -d
+services:
+  ghost:
+    image: eallion/ghost:latest
+    container_name: ghost
+    restart: always
+    ports:
+      - "2368:2368"
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      url: https://ghost.eallion.com
+      labs__activitypub: false
+      labs__publicAPI: true
+      settings__is_private: true
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: ${DATABASE_USER:-ghost}
+      database__connection__password: ${DATABASE_PASSWORD:?DATABASE_PASSWORD environment variable is required}
+      database__connection__database: ghost
+      storage__active: ghost-cos
+      storage__ghost-cos__SecretId: ${COS_SECRET_ID}
+      storage__ghost-cos__SecretKey: ${COS_SECRET_KEY}
+      storage__ghost-cos__Bucket: ${COS_BUCKET}
+      storage__ghost-cos__Region: ${COS_REGION}
+      storage__ghost-cos__baseUrl: ${CDN_URL:-}
+      storage__ghost-cos__basePath: /ghost/content/images/
+      storage__ghost-cos__rename: false
+      storage__ghost-cos__forcePathStyle: false
+    volumes:
+      - ${UPLOAD_LOCATION:-./data/ghost}:/var/lib/ghost/content
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - ghost_network
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+
+  ghost-site2:
+    image: ghost:6-alpine
+    container_name: ghost-site2
+    restart: always
+    ports:
+      - "2369:2368"
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      url: ${SITE2_URL:?SITE2_URL environment variable is required}
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: ${SITE2_DATABASE_USER:-ghost}
+      database__connection__password: ${SITE2_DATABASE_PASSWORD:?SITE2_DATABASE_PASSWORD environment variable is required}
+      database__connection__database: ${SITE2_DATABASE_NAME:-ghost_site2}
+      storage__active: local
+    volumes:
+      - ${SITE2_UPLOAD_LOCATION:-./data/ghost-site2}:/var/lib/ghost/content
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - ghost_network
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-ghost
+    restart: always
+    expose:
+      - "3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD:?DATABASE_ROOT_PASSWORD environment variable is required}
+      MYSQL_USER: ${DATABASE_USER:-ghost}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD:?DATABASE_PASSWORD environment variable is required}
+      MYSQL_DATABASE: ghost
+      MYSQL_MULTIPLE_DATABASES: ghost,${SITE2_DATABASE_NAME:-ghost_site2}
+    volumes:
+      - ${MYSQL_DATA_LOCATION:-./data/mysql}:/var/lib/mysql
+      - ./mysql-config/my.cnf:/etc/mysql/conf.d/my.cnf:ro
+      - ./mysql-init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: mysqladmin ping -p$$MYSQL_ROOT_PASSWORD -h 127.0.0.1
+      interval: 1s
+      start_period: 30s
+      start_interval: 10s
+      retries: 120
+    networks:
+      - ghost_network
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+
+networks:
+  ghost_network:

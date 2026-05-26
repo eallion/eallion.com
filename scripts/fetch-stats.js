@@ -37,81 +37,63 @@ const DIRECTUS_ACCESS_TOKEN = process.env.DIRECTUS_ACCESS_TOKEN;
  * Fetch Mastodon Stats
  */
 async function fetchMastodonStats() {
-    try {
-        const response = await fetch(MASTODON_API_URL);
-        if (!response.ok) throw new Error(`Mastodon API failed: ${response.status}`);
-        const data = await response.json();
-        if (data && data.length > 0 && data[0].account) {
-            return {
-                followers: data[0].account.followers_count,
-                following: data[0].account.following_count,
-                statuses: data[0].account.statuses_count
-            };
-        }
-    } catch (error) {
-        console.error('Error fetching Mastodon stats:', error.message);
+    const response = await fetch(MASTODON_API_URL);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    if (data && data.length > 0 && data[0].account) {
+        return {
+            followers: data[0].account.followers_count,
+            following: data[0].account.following_count,
+            statuses: data[0].account.statuses_count
+        };
     }
-    return null;
+    throw new Error('unexpected response format');
 }
 
 /**
  * Fetch Steam Stats
  */
 async function fetchSteamStats() {
-    try {
-        const response = await fetch(STEAM_API_URL);
-        if (!response.ok) throw new Error(`Steam API failed: ${response.status}`);
-        const data = await response.json();
-        if (data && data.response && data.response.game_count) {
-            return data.response.game_count;
-        }
-    } catch (error) {
-        console.error('Error fetching Steam stats:', error.message);
+    const response = await fetch(STEAM_API_URL);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    if (data && data.response && data.response.game_count) {
+        return data.response.game_count;
     }
-    return null;
+    throw new Error('unexpected response format');
 }
 
 /**
  * Fetch NeoDB Stats
  */
 async function fetchNeoDBStats() {
-    try {
-        const response = await fetch(NEODB_API_URL, {
-            headers: {
-                'Authorization': `Bearer ${NEODB_ACCESS_TOKEN}`,
-                'Content-Type': 'application/json'
-            }
-        });
-        if (!response.ok) throw new Error(`NeoDB API failed: ${response.status}`);
-        const data = await response.json();
-        if (data && data.count !== undefined) {
-            return data.count;
+    const response = await fetch(NEODB_API_URL, {
+        headers: {
+            'Authorization': `Bearer ${NEODB_ACCESS_TOKEN}`,
+            'Content-Type': 'application/json'
         }
-    } catch (error) {
-        console.error('Error fetching NeoDB stats:', error.message);
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    if (data && data.count !== undefined) {
+        return data.count;
     }
-    return null;
+    throw new Error('unexpected response format');
 }
 
 /**
  * Fetch LoL Penta Stats
  */
 async function fetchPentaStats() {
-    try {
-        const response = await fetch(PENTA_API_URL, {
-            headers: {
-                'Authorization': `Bearer ${DIRECTUS_ACCESS_TOKEN}`
-            }
-        });
-        if (!response.ok) throw new Error(`Penta API failed: ${response.status}`);
-        const data = await response.json();
-        if (data && data.data && data.data.length > 0 && data.data[0].count) {
-            return data.data[0].count;
-        }
-    } catch (error) {
-        console.error('Error fetching Penta stats:', error.message);
+    const response = await fetch(PENTA_API_URL, {
+        headers: { 'Authorization': `Bearer ${DIRECTUS_ACCESS_TOKEN}` }
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    if (data && data.data && data.data.length > 0 && data.data[0].count) {
+        return data.data[0].count;
     }
-    return null;
+    throw new Error('unexpected response format');
 }
 
 /**
@@ -146,11 +128,19 @@ function fetchGitStats() {
 async function main() {
     console.log('Starting stats fetch...');
 
+    const failed = [];
+
+    const wrap = (name, fn) => fn().then(r => r, err => {
+        console.error(`  ✗ ${name}: ${err.message}`);
+        failed.push(name);
+        return null;
+    });
+
     const [mastodon, steam, neodb, penta] = await Promise.all([
-        fetchMastodonStats(),
-        fetchSteamStats(),
-        fetchNeoDBStats(),
-        fetchPentaStats()
+        wrap('Mastodon', fetchMastodonStats),
+        wrap('Steam', fetchSteamStats),
+        wrap('NeoDB', fetchNeoDBStats),
+        wrap('Penta', fetchPentaStats),
     ]);
 
     const gitStats = fetchGitStats();
@@ -173,6 +163,14 @@ async function main() {
     const dir = path.dirname(STATS_JSON_PATH);
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
+    }
+
+    // 输出失败汇总
+    if (failed.length > 0) {
+        console.log(`\n⚠ ${failed.length} API(s) failed, using defaults:`);
+        failed.forEach(name => console.log(`  - ${name}`));
+    } else {
+        console.log('\n✓ All APIs OK');
     }
 
     fs.writeFileSync(STATS_JSON_PATH, JSON.stringify(stats, null, 2));

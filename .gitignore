@@ -5,16 +5,17 @@
 ### Custom ###
 
 .claude/
+
 .codex
+.codex/
 
 .edgeone/
 
-content/
-!content/blog/
-!content/go.md
-!content/_index.md
+/content/*
+!/content/go.md
+!/content/_index.md
 
-assets/data/*
+assets/data/stats/
 
 static/llms.txt
 static/llms-full.txt
@@ -36,7 +37,7 @@ hugo.linux
 
 # Temporary lock file while building
 
-/.hugo_build.lock
+.hugo_build.lock
 hugo_build.lock
 
 # Executables

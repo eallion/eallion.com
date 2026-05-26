@@ -1,0 +1,11 @@
+services:
+  twikoo:
+    image: imaegoo/twikoo
+    container_name: twikoo
+    restart: unless-stopped
+    ports:
+      - 58080:8080
+    environment:
+      TWIKOO_THROTTLE: 1000
+    volumes:
+      - ./data:/app/data

@@ -88,8 +88,8 @@ mastodonID = "@eallion@e5n.cc"
     envID = "twikoo.eallion.com"
     region = ""
     lang = "zh-CN"
-    version = "1.7.9"
-    cdn = "https://registry.npmmirror.com/twikoo/1.7.9/files/dist/twikoo.min.js"
+    version = "1.7.11"
+    cdn = "https://registry.npmmirror.com/twikoo/1.7.11/files/dist/twikoo.min.js"
 
   [comment.disqus]
     shortname = ""
@@ -138,16 +138,16 @@ enableStyleName = true
 [StyleName]
   # CDN 里的处理处理样式，如：https://cloud.tencent.com/document/product/436/42214
   delimiter = "!"
-  format = "avif"
-  style = "hugo.avif"
-  featured = "hugo_featured.avif"
-  card = "hugo_card.avif"
-  list = "hugo_list.avif"
-  alt_format = "webp"
-  alt_style = "hugo.webp"
-  alt_featured = "hugo_featured.webp"
-  alt_card = "hugo_card.webp"
-  alt_list = "hugo_list.webp"
+  format = "webp"
+  style = "hugo.webp"
+  featured = "hugo_featured.webp"
+  card = "hugo_card.webp"
+  list = "hugo_list.webp"
+  alt_format = "avif"
+  alt_style = "hugo.avif"
+  alt_featured = "hugo_featured.avif"
+  alt_card = "hugo_card.avif"
+  alt_list = "hugo_list.avif"
 
 [verification]
   google = "9Mvl_9FEM5JphVmp-u9ljtlChFohWuBBFjlSS89QKVU"

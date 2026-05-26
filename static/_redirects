@@ -1,3 +1,9 @@
 /rss*	/index.xml	301
 /feed*	/index.xml	301
 /atom*	/index.xml	301
+/index.rss	/index.xml	301
+/index.atom	/index.xml	301
+/blog.xml	/index.xml	301
+/posts.xml	/index.xml	301
+/posts.rss	/index.xml	301
+/posts.atom	/index.xml	301

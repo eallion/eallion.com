@@ -1,3 +1,50 @@
 {
-  "hugoVersion": "0.161.1"
+  "hugoVersion": "0.162.1",
+  "redirects": [
+    {
+      "source": "/rss*",
+      "destination": "/index.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/feed*",
+      "destination": "/index.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/atom*",
+      "destination": "/index.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/index.rss",
+      "destination": "/index.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/index.atom",
+      "destination": "/index.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog.xml",
+      "destination": "/index.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts.xml",
+      "destination": "/index.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts.rss",
+      "destination": "/index.xml",
+      "statusCode": 301
+    },
+    {
+      "source": "/posts.atom",
+      "destination": "/index.xml",
+      "statusCode": 301
+    }
+  ]
 }
