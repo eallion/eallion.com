@@ -59,8 +59,9 @@ mastodonID = "@eallion@e5n.cc"
 
 # Comment system (giscus | waline | utterances | twikoo | disqus)
 [comment]
+  enable = false
   system = "twikoo"
-  autoLoad = true
+  autoLoad = false
   linkRedirect = true
 
   [comment.giscus]

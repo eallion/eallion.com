@@ -264,11 +264,11 @@
 				</blockquote>
 				<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-2 text-sm font-semibold text-gray-700 dark:text-text-dimmed-primary">
 				<div class="flex flex-wrap items-center gap-x-2 gap-y-1">
-				<span class="inline-flex items-center gap-1 text-base"><span class="text-blue-500 dark:text-blue-400">${iComment}</span>${totalComments} 条评论</span>
+				<span class="inline-flex items-center gap-1 text-base"><span class="text-blue-500 dark:text-blue-400">${iComment}</span><a href="https://m.eallion.com/@eallion/statuses/${statusId}" target="_blank" rel="noreferrer noopener nofollow" class="no-underline">${totalComments} 条评论</a></span>
 				<span>·</span>
-				<span class="text-base font-normal">(${totalReplies} 条回复)</span>
-				${favouritesCount > 0 ? `<span>·</span><span class="inline-flex items-center gap-1 text-base font-normal"><span class="text-pink-600 dark:text-pink-400">${iHeart}</span>${favouritesCount}</span>` : ''}
-				${reblogsCount > 0 ? `<span>·</span><span class="inline-flex items-center gap-1 text-base font-normal"><span class="text-blue-600 dark:text-blue-400">${iBoost}</span>${reblogsCount}</span>` : ''}
+				<span class="text-base font-normal"><a href="https://m.eallion.com/@eallion/statuses/${statusId}" target="_blank" rel="noreferrer noopener nofollow" class="no-underline">(${totalReplies} 条回复)</a></span>
+				${favouritesCount > 0 ? `<span>·</span><span class="inline-flex items-center gap-1 text-base font-normal"><span class="text-pink-600 dark:text-pink-400">${iHeart}</span><a href="https://m.eallion.com/@eallion/statuses/${statusId}" target="_blank" rel="noreferrer noopener nofollow" class="no-underline">${favouritesCount}</a></span>` : ''}
+				${reblogsCount > 0 ? `<span>·</span><span class="inline-flex items-center gap-1 text-base font-normal"><span class="text-blue-600 dark:text-blue-400">${iBoost}</span><a href="https://m.eallion.com/@eallion/statuses/${statusId}" target="_blank" rel="noreferrer noopener nofollow" class="no-underline">${reblogsCount}</a></span>` : ''}
 				</div>
 				<div class="flex items-center bg-transparent gap-1">
 				<button type="button" id="sort-earliest" class="px-3 py-1 text-sm hover:bg-gh-bg-primary dark:hover:bg-bg-dimmed-secondary transition-colors text-gh-text-primary dark:text-text-dimmed-primary font-bold bg-gh-bg-primary dark:bg-bg-dimmed-secondary border border-gh-border-primary dark:border-border-dimmed-primary rounded-md cursor-pointer">最早</button>
