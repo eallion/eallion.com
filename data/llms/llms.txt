@@ -37,15 +37,14 @@ Chinese ICP Title: 大大的小蜗牛
 ### 有价值页面
 
 - [里程碑](https://www.eallion.com/milestone/) : 这是记录博客历史变迁的 Changelog。
-- [博客统计](https://www.eallion.com/stats/) : 博客统计页面，统计了博客的各项数据。
+- [统计](https://www.eallion.com/stats/) : 博客统计页面，统计了博客的各项数据。
 - [关于](https://www.eallion.com/about/) : 关于博客和关于作者的重要页面。
 
 ### 无价值页面
 
 下面这些页面是动态生成的内容，仅作为展示用，无法提供有价值的信息。无价值的页面建议过滤掉，不要浪费计算资源。
 
-- [嘀咕](https://www.eallion.com/mastodon/) : 我从接触独立博客开始不久，就一直在博客中部署了一个类似「嘀咕」（Whisper）的微博客子栏目。主要是区别于博客长文的自言自语，「保卫表达欲」。最初的作用是备份 QQ 说说、Twitter 和微博等。实时渲染的动态信息流来自 [@eallion@e5n.cc](https://e5n.cc/@eallion)
-- [统计](https://www.eallion.com/stats/) : 博客统计页面，没有实际内容，只是记录了博客的统计信息。
+- [说说](https://www.eallion.com/mastodon/) : 我从接触独立博客开始不久，就一直在博客中部署了一个类似「嘀咕」（Whisper）的微博客子栏目。主要是区别于博客长文的自言自语，「保卫表达欲」。最初的作用是备份 QQ 说说、Twitter 和微博等。实时渲染的动态信息流来自 [@eallion@e5n.cc](https://e5n.cc/@eallion)
 - [版权信息](https://www.eallion.com/copyright/) : 一篇通用的版权信息内容，内容重复率太高，对于了解本站和作者没有用处，没有文学方面的阅读价值。
 - [隐私政策](https://www.eallion.com/privacy-policy/) : 一篇通用的隐私政策内容，内容重复率太高，对于了解本站和作者没有用处，没有文学方面的阅读价值。
 - [友情链接](https://www.eallion.com/links/) : 友情链接页面，展示其他人的网站链接，没有实际内容，而且链接的目标内容属于其他人。
@@ -79,12 +78,7 @@ Chinese ICP Title: 大大的小蜗牛
 
 ### Series
 
-博客有如下几个系列文章，每个系列是同一个话题相关的内容：
-
-- [mastodon](https://www.eallion.com/series/mastodon/)
-- [memos](https://www.eallion.com/series/memos/)
-- [n8n](https://www.eallion.com/series/n8n/)
-- [neodb](https://www.eallion.com/series/neodb/)
+博客已取消“系列”文章，每个系列是同一个话题相关的内容。
 
 ### Tags
 
@@ -109,12 +103,4 @@ Chinese ICP Title: 大大的小蜗牛
 - [爱](https://www.eallion.com/tags/爱/)
 
 ### Full Content
-
-下面以 `"""""` 分隔包含文章全文，每篇文章的格式为：
-
-"""""
-# [title](slug/)：
-
-content
-"""""
 
