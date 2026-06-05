@@ -23,8 +23,7 @@ safe_hosts = [
   "*.e5n.cc",
   "*.eallion.com",
   "github.com",
-  "gov.cn",
-  "kubaicai.com"
+  "gov.cn"
 ]
 
 not_by_ai = true
@@ -47,7 +46,7 @@ follow = "mastodon"
 showFollow = false
 
 # Default Feature Image
-defaultFeature = "https://images.eallion.com/directus/files/ce35a8bb-fbda-468c-9aa8-d3599e538566.jpg"
+defaultFeature = "https://images.eallion.com/ghost/content/images/custom/ce35a8bb-fbda-468c-9aa8-d3599e538566.jpg"
 
 # OG Image URL (for social sharing cards, optional)
 # If set, uses this API URL to generate OG images
