@@ -1,3 +1,58 @@
+## V6.0.2 (2026-06-05)
+
+### New feature
+
+- comment mastodon([`7a5c40a`](https://github.com/eallion/eallion.com/commit/7a5c40a6de42c1c05cc0a45908882c311d23575b)) (by Charles Chin)
+- migrate to ghost for headless cms([`e57a343`](https://github.com/eallion/eallion.com/commit/e57a3437f8736a11d2edad4892bc9c2d0204c795)) (by Charles Chin)
+- **edge-functions**: add dynamic author redirect logic([`f14dd73`](https://github.com/eallion/eallion.com/commit/f14dd735fb49d1ccc7f84f8db33de624187e7663)) (by Charles Chin)
+- **css**: add smooth scrolling behavior([`2eb8702`](https://github.com/eallion/eallion.com/commit/2eb8702ba27ba1a8998e79ce35b1ff06adea1025)) (by Charles Chin)
+- **llms**: update llms content and format([`a4dbf1a`](https://github.com/eallion/eallion.com/commit/a4dbf1ac811d07633f765cc4797e4a85d46a7266)) (by Charles Chin)
+- **comments**: add twikoo css integration for comments([`2bd683f`](https://github.com/eallion/eallion.com/commit/2bd683f0d4457e2e4bf846846a1a98a3261460be)) (by Charles Chin)
+- **footer, head**: add extend-footer and extend-head partials([`277b2c2`](https://github.com/eallion/eallion.com/commit/277b2c28c2f9c5eccbcafd0203239fe92108d6e2)) (by Charles Chin)
+- **edgeone**: add edgeone.json for hugo version([`c36fd3f`](https://github.com/eallion/eallion.com/commit/c36fd3f28e82fbdfecd2f6b38ba2f6bb95a62080)) (by Charles Chin)
+- **cdn**: add dogecloud cdn cache refresh step([`82d93e8`](https://github.com/eallion/eallion.com/commit/82d93e899dd1487f43963161e4109d7576d5f194)) (by Charles Chin)
+- mastodon comment meta([`b0f595a`](https://github.com/eallion/eallion.com/commit/b0f595a1998ba0da78a7fbda47d8ca95ab6b5fdc)) (by Charles Chin)
+- anti mirror([`b1b1f3e`](https://github.com/eallion/eallion.com/commit/b1b1f3e0049e080c0003501e42ad6504b3da0dba)) (by Charles Chin)
+- cloudflare 404 error page([`ffa99a8`](https://github.com/eallion/eallion.com/commit/ffa99a8795900f60e099d4c50833d1c612f94847)) (by Charles Chin)
+- mastodon comment boosts([`fd6e4a5`](https://github.com/eallion/eallion.com/commit/fd6e4a5028cddb804e3437e4181ac9ffd53f562b)) (by Charles Chin)
+- mastodon comments system([`d3679ce`](https://github.com/eallion/eallion.com/commit/d3679ceba23f0197ea19a8be539809e05389d21b)) (by Charles Chin)
+- mastodon nsfw([`3b2fb45`](https://github.com/eallion/eallion.com/commit/3b2fb450fdca03cbfc2ae955e62adbaa58481300)) (by Charles Chin)
+- rename mastodon page([`3c32855`](https://github.com/eallion/eallion.com/commit/3c32855d4400a6e33f57d4d0fc487f94de789309)) (by Charles Chin)
+- mastodon nsfw blurhash canvas([`db76f35`](https://github.com/eallion/eallion.com/commit/db76f35bd31988420da398d9c07983ec6efd579c)) (by Charles Chin)
+- mastodon media attachment([`a327320`](https://github.com/eallion/eallion.com/commit/a3273200ec820fc54b7f908b66908f991d039df4)) (by Charles Chin)
+- directus pages([`2d2f0b5`](https://github.com/eallion/eallion.com/commit/2d2f0b54860c547951bd7ca8c573a30d98fad15f)) (by Charles Chin)
+- **toc**: add custom styles for table of contents([`289d3c5`](https://github.com/eallion/eallion.com/commit/289d3c53dde9e6d609179907eb6669a6e68c15c1)) (by Charles Chin)
+- **css**: add new margin and border utilities([`4daf26f`](https://github.com/eallion/eallion.com/commit/4daf26ff8223e7c421ee03b2a6935ebf4cf06af6)) (by Charles Chin)
+- **css**: add styles for search results container and responsive text sizes([`c8d05e1`](https://github.com/eallion/eallion.com/commit/c8d05e140a38e46e42808aa7e3b4323f0037c251)) (by Charles Chin)
+- **directus**: update directus tasks and add fetch stats script([`4fc1890`](https://github.com/eallion/eallion.com/commit/4fc18905d6bea15b8a56e2469c14db561867768a)) (by Charles Chin)
+- update styles and improve mastodon link([`b85da90`](https://github.com/eallion/eallion.com/commit/b85da901000002096d4fd1b2896f4b034eda25b9)) (by Charles Chin)
+- **css**: add new color variables and spacing utilities([`2c88238`](https://github.com/eallion/eallion.com/commit/2c882384a4d0506aac8aa0cb4c1417e6e8b32530)) (by Charles Chin)
+- config for standard theme & remove unused files & clean up code([`73c985c`](https://github.com/eallion/eallion.com/commit/73c985c1df2d3b7e219a63b0eac70df606214669)) (by Charles Chin)
+- mastodon cache local storage([`9b22331`](https://github.com/eallion/eallion.com/commit/9b22331b0989f4da1578fa5f088b42671177ef88)) (by Charles Chin)
+- config cdn image style name([`94be754`](https://github.com/eallion/eallion.com/commit/94be7548f48fdeb3626817a8f4d2b67975c0432c)) (by Charles Chin)
+
+### Bugs fixed
+
+- stats([`b1a24c5`](https://github.com/eallion/eallion.com/commit/b1a24c529fd8423174b9ead8de381956c7d1dc71)) (by Charles Chin)
+- **config**: update hugo.toml and package.json for consistency([`fd0c3c9`](https://github.com/eallion/eallion.com/commit/fd0c3c999720a95a885d463f781032ddaa57933d)) (by Charles Chin)
+- **menus**: update footer name from digu to shuoshuo([`aa94990`](https://github.com/eallion/eallion.com/commit/aa94990dd3a72ebe2f9667a68e118326c7a46197)) (by Charles Chin)
+- **menus**: update link weights and comment out entry([`9c15d4f`](https://github.com/eallion/eallion.com/commit/9c15d4fe54cb92ee9db8c8b5096f1806421cace1)) (by Charles Chin)
+- **menus**: comment out milestone menu entry([`6b7e90f`](https://github.com/eallion/eallion.com/commit/6b7e90f51548d6829f3c67857be81b31896e42aa)) (by Charles Chin)
+- **edgeone**: update hugo version to 0.161.1([`27f6a19`](https://github.com/eallion/eallion.com/commit/27f6a19924546496216f910f4e191423ea30139b)) (by Charles Chin)
+- **gitmodules**: update pehe submodule url to https([`6bbd9fa`](https://github.com/eallion/eallion.com/commit/6bbd9fabc0f7ff2839a817a825099fb38e458c39)) (by Charles Chin)
+- **cdn**: update dogecloud cdn cache purge step name([`2048004`](https://github.com/eallion/eallion.com/commit/2048004e03e893b0926b9df6d5b33c9b28250253)) (by Charles Chin)
+- **cdn**: update dogecloud cdn cache urls format([`e4125c0`](https://github.com/eallion/eallion.com/commit/e4125c0fff9ffc5fe179f3ae59522e7e2ca7132a)) (by Charles Chin)
+- **mastodon**: update link processing and replace emoji([`d5714f2`](https://github.com/eallion/eallion.com/commit/d5714f21da81fe734139b606cd3ec02c74cf61dc)) (by Charles Chin)
+- **mastodon**: remove unused preconnect links and update url handling([`4e8ca6c`](https://github.com/eallion/eallion.com/commit/4e8ca6c62d786fe74590634a7711899e4580a1bd)) (by Charles Chin)
+- **package**: correct theme update script path([`c88e215`](https://github.com/eallion/eallion.com/commit/c88e2159506c99791583cb1583414fac4e384344)) (by Charles Chin)
+- **workflow**: simplify build triggers and error handling([`b75e1c2`](https://github.com/eallion/eallion.com/commit/b75e1c26096d01b854aaf8ed394ee89733fb64cd)) (by Charles Chin)
+- mastodon link([`f84bc92`](https://github.com/eallion/eallion.com/commit/f84bc9249402a2998090d203c4a000066221628d)) (by Charles Chin)
+- darkmode for stats page([`db01700`](https://github.com/eallion/eallion.com/commit/db01700c65cc0640b20c81216f61da645cf40fb8)) (by Charles Chin)
+
+### Performance improves
+
+- config author and follow([`d590145`](https://github.com/eallion/eallion.com/commit/d590145835abaf46a30b76ad97ce418f43c51c0f)) (by Charles Chin)
+
 ## v6.0.1 (2025-11-20)
 
 ### New feature
