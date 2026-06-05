@@ -12,26 +12,26 @@ const MASTODON_API_URL = 'https://e5n.cc/api/v1/accounts/111136231674527355/stat
 const STEAM_WEB_API_KEY = process.env.STEAM_WEB_API_KEY;
 const STEAM_API_URL = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${STEAM_WEB_API_KEY}&steamid=76561197989210276&include_appinfo=true&include_played_free_games=true&format=json`;
 const NEODB_API_URL = 'https://neodb.social/api/me/shelf/complete?page=1';
-const PENTA_API_URL = `${process.env.DIRECTUS_API_URL}items/Penta?aggregate[count]=*`;
+const PENTA_API_URL = 'https://penta.eallion.com/api/pentas/stats';
 
 // Default Values
 const DEFAULTS = {
     mastodon_follower: '-1',
-    mastodon_following: '332',
-    mastodon_statuses: '3383',
+    mastodon_following: '366',
+    mastodon_statuses: '8827',
     steam_game_owner_count: '149',
-    neodb_marked: '390',
+    neodb_marked: '415',
     lol_penta: '111',
-    github_commits: '2304',
-    github_last_commit: '2025-11-25T10:59:54+08:00',
-    github_hash_long: '69d6ffe319557706dcf4150e960e7b7e21a37d9f',
-    github_hash_short: '69d6ffe',
-    github_repo_size: '71532'
+    github_commits: '2361',
+    github_last_commit: '2026-06-04T14:09:56Z',
+    github_hash_long: 'e57a3437f8736a11d2edad4892bc9c2d0204c795',
+    github_hash_short: 'e57a343',
+    github_repo_size: '87524'
 };
 
 // Environment Variables
 const NEODB_ACCESS_TOKEN = process.env.NEODB_ACCESS_TOKEN;
-const DIRECTUS_ACCESS_TOKEN = process.env.DIRECTUS_ACCESS_TOKEN;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 /**
  * Fetch Mastodon Stats
@@ -85,13 +85,11 @@ async function fetchNeoDBStats() {
  * Fetch LoL Penta Stats
  */
 async function fetchPentaStats() {
-    const response = await fetch(PENTA_API_URL, {
-        headers: { 'Authorization': `Bearer ${DIRECTUS_ACCESS_TOKEN}` }
-    });
+    const response = await fetch(PENTA_API_URL);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
-    if (data && data.data && data.data.length > 0 && data.data[0].count) {
-        return data.data[0].count;
+    if (data && typeof data.total === 'number') {
+        return data.total;
     }
     throw new Error('unexpected response format');
 }
@@ -122,6 +120,36 @@ function fetchGitStats() {
     return null;
 }
 
+async function fetchGitHubStats() {
+    const headers = { 'Accept': 'application/vnd.github.v3+json' };
+    if (GITHUB_TOKEN) headers['Authorization'] = `Bearer ${GITHUB_TOKEN}`;
+
+    const [commitsRes, repoRes] = await Promise.all([
+        fetch('https://api.github.com/repos/eallion/eallion.com/commits?per_page=1', { headers }),
+        fetch('https://api.github.com/repos/eallion/eallion.com', { headers }),
+    ]);
+    if (!commitsRes.ok) throw new Error(`commits API HTTP ${commitsRes.status}`);
+    if (!repoRes.ok) throw new Error(`repo API HTTP ${repoRes.status}`);
+
+    const link = commitsRes.headers.get('Link') || '';
+    const match = link.match(/page=(\d+)>; rel="last"/);
+    if (!match) throw new Error('cannot determine commit count from Link header');
+    const total = parseInt(match[1], 10);
+
+    const commits = await commitsRes.json();
+    const latest = commits?.[0];
+    if (!latest?.sha || !latest?.commit?.committer?.date) {
+        throw new Error('unexpected commits response format');
+    }
+
+    return {
+        commits: total,
+        lastCommit: latest.commit.committer.date,
+        hashLong: latest.sha,
+        hashShort: latest.sha.slice(0, 7),
+    };
+}
+
 /**
  * Main Function
  */
@@ -136,11 +164,12 @@ async function main() {
         return null;
     });
 
-    const [mastodon, steam, neodb, penta] = await Promise.all([
+    const [mastodon, steam, neodb, penta, githubStats] = await Promise.all([
         wrap('Mastodon', fetchMastodonStats),
         wrap('Steam', fetchSteamStats),
         wrap('NeoDB', fetchNeoDBStats),
         wrap('Penta', fetchPentaStats),
+        wrap('GitHub', fetchGitHubStats),
     ]);
 
     const gitStats = fetchGitStats();
@@ -152,10 +181,10 @@ async function main() {
         "steam_game_owner_count": steam ? String(steam) : DEFAULTS.steam_game_owner_count,
         "neodb_marked": neodb ? String(neodb) : DEFAULTS.neodb_marked,
         "lol_penta": penta ? String(penta) : DEFAULTS.lol_penta,
-        "github_commits": gitStats ? String(gitStats.commits) : DEFAULTS.github_commits,
-        "github_last_commit": gitStats ? String(gitStats.lastCommit) : DEFAULTS.github_last_commit,
-        "github_hash_long": gitStats ? String(gitStats.hashLong) : DEFAULTS.github_hash_long,
-        "github_hash_short": gitStats ? String(gitStats.hashShort) : DEFAULTS.github_hash_short,
+        "github_commits": githubStats ? String(githubStats.commits) : (gitStats ? String(gitStats.commits) : DEFAULTS.github_commits),
+        "github_last_commit": githubStats ? String(githubStats.lastCommit) : (gitStats ? String(gitStats.lastCommit) : DEFAULTS.github_last_commit),
+        "github_hash_long": githubStats ? String(githubStats.hashLong) : (gitStats ? String(gitStats.hashLong) : DEFAULTS.github_hash_long),
+        "github_hash_short": githubStats ? String(githubStats.hashShort) : (gitStats ? String(gitStats.hashShort) : DEFAULTS.github_hash_short),
         "github_repo_size": gitStats ? String(gitStats.size) : DEFAULTS.github_repo_size
     };
 
