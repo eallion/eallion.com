@@ -31,7 +31,7 @@ not_by_ai = true
 # 是否全站显示作者信息
 showAuthor = false
 
-nonbot = "https://nonbot.org/submissions/view/9cefed7c-dc57-4832-84ec-197314fda979"
+nonbot = "https://nonbot.org/pledged/view/9cefed7c-dc57-4832-84ec-197314fda979"
 
 # Powered_by to set: | hugo | theme | full |
 powered_by = "full"
