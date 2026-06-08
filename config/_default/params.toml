@@ -42,6 +42,9 @@ svg_title = "eallion"
 # Global Follow to set: | mastodon | newsletter |
 follow = "mastodon"
 
+# Mastodon handle (default fallback for follow section)
+mastodonID = "@eallion@e5n.cc"
+
 # 是否显示 Follow/Newsletter 区域
 showFollow = false
 
@@ -53,12 +56,9 @@ defaultFeature = "https://images.eallion.com/ghost/content/images/custom/ce35a8b
 # If not set, falls back to page image or defaultFeature
 ogImageURL = "https://og.eallion.com/api/og?title="
 
-# Mastodon handle (default fallback for follow section)
-mastodonID = "@eallion@e5n.cc"
-
 # Comment system (giscus | waline | utterances | twikoo | disqus)
 [comment]
-  enable = false
+  enable = true
   system = "twikoo"
   autoLoad = false
   linkRedirect = true

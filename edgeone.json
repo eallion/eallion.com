@@ -1,5 +1,5 @@
 {
-  "hugoVersion": "0.162.1",
+  "hugoVersion": "0.163.0",
   "redirects": [
     {
       "source": "/rss*",
