@@ -15,7 +15,9 @@
 <div align="center">
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_shield) ![GitHub repo size](https://img.shields.io/github/repo-size/eallion/eallion.com) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/eallion/eallion.com) ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/eallion/eallion.com/v6.0.2/main) ![GitHub last commit](https://img.shields.io/github/last-commit/eallion/eallion.com) [![Better Uptime Badge](https://status.eallion.com/api/badge/2/uptime/168)](https://status.eallion.com/)
+
 </div>
+
 <div align="center">
 
 [![GitHub issues](https://img.shields.io/github/issues/eallion/eallion.com?logo=GitHub&color=4ec100&style=flat)](https://github.com/eallion/eallion.com/issues/new) [![](https://img.shields.io/badge/eallion.s+blog@gmail.com-4ec100?labelColor=555&logo=gmail&label=Gmail&link=mailto:eallion.s+blog@gmail.com&logoColor=fff&style=flat)](mailto:eallion.s+blog@gmail.com) <a href="https://keyoxide.org/E685DDDDDDDDDDDD" target="_blank" rel="noopener noreferrer">
@@ -25,7 +27,7 @@
 
 <div align="center">
 
-✨Live Preview：<https://www.eallion.com> ✨
+✨ Live Preview：<https://www.eallion.com> ✨
 
 </div>
 
@@ -64,62 +66,187 @@ origin	git@git.eallion.com:eallion/eallion.com.git (push)
 
 ##### 架构备忘
 
-- 国内：部署至阿里云 [OSS](https://www.aliyun.com/product/oss) (Jul 20, 2024)
-- 境外：部署至 [Cloudflare Pages](https://pages.cloudflare.com/) (Jul 20, 2024)
+- 国内、境外：统一部署至腾讯云 [EdgeOne Pages](https://edgeone.ai/)
 
-##### GitHub Actions
+---
 
-> Update: Jul 20, 2024
+## Content Pipeline
 
-- https://github.com/eallion/eallion.com/blob/main/.github/workflows/main.yml
-
-### 🎨 主题 [Pehe](https://github.com/eallion/pehe)
-
-> Update: Nov 19, 2025
-
-本博客使用主题为：[Pehe](https://github.com/eallion/pehe)
-
-此次更新，主题使用 `git submodule` 的方式引入，不破坏原主题任何文件结构，所有自定义样式不再在 Theme 目录下修改。
-
-```bash
-git submodule add https://github.com/eallion/pehe.git themes/pehe
+```txt
+Ghost Admin API → ghost-fetch-*.js → Markdown (content/blog/) → Hugo → Pagefind → Deploy
 ```
 
-克隆博客后同时克隆子模块：
+- **Ghost 6** 作为 Headless CMS 管理文章内容
+- `scripts/ghost-fetch-posts.js` 通过 Admin API 拉取文章，转换为 Hugo Markdown
+- `scripts/ghost-fetch-pages.js` 拉取页面（about、links、stats 等）
+- `scripts/fetch-stats.js` 聚合外部 API 数据（Mastodon、Steam、NeoDB、Penta、GitHub）
+- `scripts/generate-llms.js` 生成 `LLMs.txt` 供 AI 工具使用
+- **Hugo** 构建静态站点，**Pagefind** 构建搜索索引
+
+---
+
+## pnpm 命令
 
 ```bash
-pnpm run theme:init
-# git submodule update --init --recursive
+# 完整构建
+pnpm build
+
+# 仅拉取 Ghost 内容 + 构建
+pnpm run fetch:ghost && pnpm run gen:llms && pnpm run build:hugo && pnpm run build:pagefind
 ```
 
-如果上游更新，更新项目中的子模块：
+### Ghost 内容拉取
 
 ```bash
-pnpm run theme:update
-# git submodule update --remote --force themes/pehe
+# 拉取所有文章+页面+统计数据
+pnpm run fetch:ghost
+
+# 仅文章
+pnpm run fetch:ghost:posts
+
+# 仅页面
+pnpm run fetch:ghost:pages
+
+# 仅统计数据
+pnpm run fetch:stats
 ```
 
-Pehe 编译 TailwindCSS 的
+两个抓取脚本支持 CLI 参数：
 
 ```bash
-pnpm install
+node scripts/ghost-fetch-posts.js --slug=chrome-extensions,italians --dry-run
+node scripts/ghost-fetch-posts.js --limit=3
+node scripts/ghost-fetch-pages.js --slug=about --dry-run
+```
 
-# pnpm dev:css
+| 参数          | 简写     | 说明                       |
+| ------------- | -------- | -------------------------- |
+| `--slug <s>`  | `-s <s>` | 按 slug 过滤，逗号分隔多个 |
+| `--limit <n>` | `-n <n>` | 限制获取数量               |
+| `--dry-run`   | —        | 仅预览，不写文件           |
+
+### 构建步骤
+
+```bash
+# TailwindCSS
 pnpm build:css
+
+# Chroma 代码高亮 CSS
+pnpm build:chroma
+
+# Hugo 静态站点
+pnpm build:hugo
+
+# Pagefind 搜索索引
+pnpm build:pagefind
+
+# LLMs.txt
+pnpm gen:llms
 ```
 
-- 构建为 `main.css`，位于 [assets/css/main.css](https://github.com/eallion/eallion.com/blob/main/assets/css/main.css)
-- Tailwind CSS 配置入口文件在 [assets/css/input.css](<https://github.com/eallion/eallion.com/blob/main/assets/css/input.css>)
-- 自定义 CSS 在 [assets/css/custom.css](<https://github.com/eallion/eallion.com/blob/main/assets/css/custom.css>)
-- 自定义 JS 在 `assets/js/`，如：[lazyload.iife.min.js](https://github.com/eallion/eallion.com/blob/main/assets/js/lazyload.iife.min.js)
-- 自定义模板，如嘀咕等页面，在 `layouts/_default/`，如：[mastodon.html](https://github.com/eallion/eallion.com/blob/main/layouts/_default/mastodon.html)
-- 页面数据在 `assets/data/`，如书影音数据：[movie.json](https://github.com/eallion/eallion.com/blob/main/assets/data/neodb/movie.json)
+### 开发
 
-### 📚 构建 Chroma CSS
+```bash
+# Tailwind 监听 + Hugo server
+pnpm dev
 
-`chroma.css` 位于 `assets/css/chroma.css`，用于代码高亮。
+# 本地搜索预览
+pnpm dev:pagefind
+```
 
-> 主题预览：https://xyproto.github.io/splash/docs/all.html
+### 清理
+
+```bash
+pnpm clean
+```
+
+### 主题管理
+
+```bash
+# 首次初始化子模块
+pnpm theme:init
+
+# 更新子模块
+pnpm theme:update
+```
+
+---
+
+## Ghost API 细节
+
+- **必须使用 Admin API**（非 Content API）—— 导入的文章 `visibility: paid`，Content API 不返回正文
+- 分页：`?page=N&limit=50`，响应含 `meta.pagination`
+- 格式：`?formats=html,lexical`，同时拉取 HTML 和 Lexical JSON
+- Lexical Markdown card：`{ root: { children: [{ type: 'markdown', version: 1, markdown: "..." }] } }`
+- 脚本自动处理 Lexical 扁平索引和 Markdown card 提取，回退到 Turndown HTML→Markdown 转换
+
+---
+
+## 主题 Pehe
+
+博客使用主题 [Pehe](https://github.com/eallion/pehe)，通过 `git submodule` 引入。
+
+- Tailwind CSS 入口：`assets/css/input.css`
+- 自定义样式：`assets/css/custom.css`
+- 代码高亮：`assets/css/chroma.css`（`pnpm build:chroma` 生成）
+- 自定义模板：`layouts/_default/`（嘀咕页、统计页等）
+- 页面数据：`assets/data/`（书影音、友情链接等）
+
+---
+
+## 嘀咕页面
+
+嘀咕页面 [`/mastodon`](https://www.eallion.com/mastodon/) 展示 Mastodon 个人实例 [`e5n.cc/@eallion`](https://e5n.cc/@eallion) 的数据。
+
+博客评论系统也基于 Mastodon，通过 Mastodon API 拉取嘟文回复作为文章评论。
+
+---
+
+## 写新文章
+
+在 **Ghost 后台** 撰写文章，保存发布后运行：
+
+```bash
+pnpm run fetch:ghost:posts
+# 或完整构建
+pnpm build
+```
+
+抓取脚本会从 Ghost Admin API 拉取文章，自动处理 Lexical Markdown 转换，并给 CDN 图片 URL 追加 stylename（`!hugo.webp`，代码块内不处理）。
+
+---
+
+## 环境变量
+
+复制 `.env.example` 为 `.env.local`：
+
+```bash
+cp .env.example .env.local
+```
+
+| 变量                  | 说明                 |
+| --------------------- | -------------------- |
+| `GHOST_ADMIN_API_KEY` | Ghost Admin API 密钥 |
+| `GHOST_ADMIN_API_URL` | Ghost API 地址       |
+| `STEAM_WEB_API_KEY`   | Steam API 密钥       |
+| `NEODB_ACCESS_TOKEN`  | NeoDB API 访问令牌   |
+| `DEEPSEEK_API_KEY`    | DeepSeek API 密钥    |
+
+---
+
+## 图片
+
+### 文章题图
+
+通过 Ghost 后台的图片上传功能上传，文章中直接引用图片 CDN URL。如果没有设置题图，可在 `config/params.toml` 中提供默认图片。
+
+### 文章配图
+
+- **图床**：先上传到图床，获取 URL 后插入文章内容
+
+---
+
+## 构建 Chroma CSS
 
 ```bash
 pnpm build:chroma
@@ -132,160 +259,17 @@ hugo gen chromastyles --style=github | sed 's/\./html:not(.dark) ./' >> assets/c
 hugo gen chromastyles --style=github-dark | sed 's/\./html.dark ./' >> assets/css/chroma.css
 ```
 
-custom.css 覆盖背景颜色：
+---
 
-```css
-html:not(.dark) .chroma,
-html:not(.dark) .chroma * {
-  /* GitHub Light */
-  color: #24292f;
-  background-color: #f6f8fa;
-}
+## License
 
-html.dark .chroma,
-html.dark .chroma * {
-  /* GitHub Dark Dimmed */
-  color: #d1d7e0;
-  background-color: #2d333b;
-}
-```
-
-### 🧑‍💻 pnpm 命令
-
-目前完整构建工作流：
-
-```bash
-pnpm run-s directus:article \
-    directus:friendslinks \
-    llms \
-    build:hugo \
-    build:pagefind
-```
-
-- `pnpm build` 完整构建
-- `pnpm build:chroma` 构建 Chroma 代码高亮 CSS
-- `pnpm build:css` 构建 Pehe 的 TailwindCSS `assets/css/main.css`
-- `pnpm build:hugo` 构建 Hugo
-- `pnpm build:pagefind` 构建 Pagefind 索引
-- `pnpm clean` 清除 Hugo 本地文件以避免 Directus 冲突
-- `pnpm clean:article` 清除文章数据
-- `pnpm clean:data` 清除数据文件
-- `pnpm clean:hugo` 清除 Hugo 本地构建产物
-- `pnpm dev` 启动 TailwindCSS 监听
-- `pnpm dev:css` 启动 TailwindCSS 监听
-- `pnpm dev:hugo` 启动 Hugo server 监听
-- `pnpm dev:pagefind` 启动 Pagefind 4000 端口监听
-- `pnpm run directus`: 获取 Directus 数据
-- `pnpm run directus:album`: 获取 Directus 随手拍数据
-- `pnpm run directus:anynow`: 获取 Directus AnyNow 数据
-- `pnpm run directus:article`: 获取 Directus 文章数据
-- `pnpm run directus:friendslinks`: 获取 Directus 友情链接数据
-- `pnpm run directus:goods`: 获取 Directus 好物推荐数据
-- `pnpm run directus:latest`: 获取 Directus 最新 10 篇文章数据
-- `pnpm run directus:mastodon`: 获取 Mastodon API 数据
-- `pnpm run directus:neodb`: 获取官方 NeoDB API 数据
-- `pnpm run directus:penta`: 获取 Directus 五杀数据
-- `pnpm run llms` 生成 llms.txt
-- `pnpm run theme:init` 递归更新 Submodule 子项目，一般第一次克隆本项目时使用
-- `pnpm run theme:update` 更新 Submodule 子项目
-
-### 🔊 嘀咕页面
-
-嘀咕页面 [`https://www.eallion.com/mastodon`](https://www.eallion.com/mastodon/) 为 Mastodon 个人实例 [`e5n.cc`](https://e5n.cc/@eallion) 的数据展示。  
-目前是自己写的页面样式。  
-
-但也可以利用 [mastodon-embed-timeline](https://gitlab.com/idotj/mastodon-embed-timeline) 这个项目集成到博客页面。
-
-### ✏️ 写新文章
-
-> Breaking Change
-
-现在用 Directus 管理文章，不再用 Hugo 命令生成。
-
-写新文章，直接在 Directus 后台创建文章即可。
-
-在 CI/CD 或本地预览时通过下面命令拉取 Directus 文章数据：
-
-```bash
-# pnpm install
-
-pnpm run directus # node scripts/directus-fetch-articles.js
-
-# pnpm run directus:latest # Fetch latest 10 articles only
-
-pnpm build # Full Build
-
-pnpm build:hugo # Build Hugo
-
-pnpm build:css # Build Tailwind CSS main.css
-```
-
-### 🌐 环境变量
-
-复制 `.env.example` 为 `.env.local`
-
-```bash
-cp .env.example .env.local
-cat .env.local
-```
-
-```txt
-ACCESS_KEY_ID=
-ACCESS_KEY_SECRET=
-CAIYUN_TOKEN=
-DEEPSEEK_API_KEY=sk-
-DIRECTUS_ACCESS_TOKEN=Lcd9-
-DIRECTUS_API_URL=https://directus.example.com/
-DIRECTUS_EMAIL=directus@example.com
-DIRECTUS_PASSWORD=
-DIRECTUS_S3_URL=https://images.example.com/directus/files/
-DIRECTUS_TOKEN=eyJh
-ESA_SITE_ID=
-NEODB_ACCESS_TOKEN=
-```
-
-### 🖼️ 图片
-
-> 因为 jsDelivr Aug 15,2020 的‘[新政策](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)’，现在没有用 GitHub + jsDelivr 当图床了。
-
-#### **文章配图**
-
-目前方案是上传到 CDN 图床，文章中引用图片 URL。
-
-#### **文章题图 (Feature Image)**
-
-- **Method 1：远程图片**
-
-> 不通过 Hugo 处理图片，直接用远程图片 URL 作为题图。
-
-`config/params.toml` 中设置：
-
-```toml
-hotlinkFeatureImage = true
-```
-
-文章 Frontmatter 里的 `featureImage` 支持远程图片 URL。
-
-- **Method 2：本地图片**
-
-> 通过 Hugo 处理图片，生成不同尺寸的图片。
-
-把题图放在文章同目录下，命名为 `feature*.png` 或 `feature*.jpg`。
-
-#### **文章页背景图**
-
-默认引用 `featureImage` 支持远程图片 URL 作为背景图。  
-或者：把背景图放在文章同目录下，命名为 `background*.png` 或 `background*.jpg`。
-
-### 📄 LICENSE
-
-This project is licensed under [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN)
-Hugo is licensed under [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE)
-Theme Pehe is licensed under [MIT](https://github.com/eallion/pehe/blob/main/LICENSE)  
+This project is licensed under [GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN)  
+Hugo is licensed under [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE)  
+Theme Pehe is licensed under [MIT](https://github.com/eallion/pehe/blob/main/LICENSE)
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feallion%2Feallion.com.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feallion%2Feallion.com?ref=badge_large)
 
-```license
+```txt
 GLWT（Good Luck With That，祝你好运）公共许可证
             版权所有© 除作者外的所有人
 
@@ -294,7 +278,6 @@ GLWT（Good Luck With That，祝你好运）公共许可证
 
 作者对这个项目中的代码的行为一无所知。
 代码处于可用或不可用状态，没有第三种可能
-
 
                 祝你好运公共许可证
             复制、分发和修改的条款和条件
