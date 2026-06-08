@@ -7,6 +7,7 @@ const { stringify } = require('smol-toml');
 const TurndownService = require('turndown');
 const { gfm } = require('turndown-plugin-gfm');
 
+const IMAGE_STYLENAME = '!hugo.webp';
 const GHOST_API_URL = process.env.GHOST_ADMIN_API_URL || 'https://ghost.eallion.com';
 const GHOST_ADMIN_API_KEY = process.env.GHOST_ADMIN_API_KEY;
 const CONTENT_DIR = path.join(__dirname, '..', 'content');
@@ -42,6 +43,21 @@ const SPECIAL_LAYOUTS = {
   milestone: 'timeline',
   stats: 'stats'
 };
+
+function addImageStylename(md) {
+  const blocks = [];
+  let result = md.replace(/(```[\s\S]*?```|~~~[\s\S]*?~~~)/g, m => {
+    blocks.push(m);
+    return `\x00BLOCK${blocks.length - 1}\x00`;
+  });
+
+  result = result.replace(
+    /https?:\/\/images\.eallion\.com\/[^\s)"'<>]+/g,
+    url => url.endsWith(IMAGE_STYLENAME) ? url : url + IMAGE_STYLENAME
+  );
+
+  return result.replace(/\x00BLOCK(\d+)\x00/g, (_, i) => blocks[parseInt(i)]);
+}
 
 function parseLexical(lexical) {
   if (!lexical) return null;
@@ -129,7 +145,7 @@ async function main() {
 
   for (const page of pages) {
     const fm = buildFrontmatter(page);
-    const markdown = extractLexicalMarkdown(page.lexical) || turndown.turndown(page.html || '');
+    const markdown = addImageStylename(extractLexicalMarkdown(page.lexical) || turndown.turndown(page.html || ''));
 
     const frontmatter = stringify(fm);
     const content = `+++\n${frontmatter}+++\n\n${markdown}\n`;

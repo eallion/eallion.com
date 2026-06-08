@@ -11,6 +11,7 @@ const GHOST_API_URL = process.env.GHOST_ADMIN_API_URL || 'https://ghost.eallion.
 const GHOST_ADMIN_API_KEY = process.env.GHOST_ADMIN_API_KEY;
 const BLOG_DIR = path.join(__dirname, '..', 'content', 'blog');
 
+const IMAGE_STYLENAME = '!hugo.webp';
 const KNOWN_CATEGORIES = new Set(['日志', '代码', '分享', '山贼', '精选', '演讲']);
 
 const turndown = new TurndownService({
@@ -35,6 +36,21 @@ function cleanupMarkdown(md) {
       (_m, text, url, extra) =>
         '[' + text + '](' + url.replace(/\/$/, '') + '/' + extra + ')'
     );
+}
+
+function addImageStylename(md) {
+  const blocks = [];
+  let result = md.replace(/(```[\s\S]*?```|~~~[\s\S]*?~~~)/g, m => {
+    blocks.push(m);
+    return `\x00BLOCK${blocks.length - 1}\x00`;
+  });
+
+  result = result.replace(
+    /https?:\/\/images\.eallion\.com\/[^\s)"'<>]+/g,
+    url => url.endsWith(IMAGE_STYLENAME) ? url : url + IMAGE_STYLENAME
+  );
+
+  return result.replace(/\x00BLOCK(\d+)\x00/g, (_, i) => blocks[parseInt(i)]);
 }
 
 function parseLexical(lexical) {
@@ -134,7 +150,7 @@ async function main() {
   let written = 0;
   for (const post of posts) {
     const fm = buildFrontmatter(post);
-    const markdown = extractLexicalMarkdown(post.lexical) || turndown.turndown(post.html || '');
+    const markdown = addImageStylename(extractLexicalMarkdown(post.lexical) || turndown.turndown(post.html || ''));
 
     const frontmatter = stringify(fm);
     const content = `+++\n${frontmatter}+++\n\n${markdown}\n`;
