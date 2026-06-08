@@ -14,6 +14,18 @@ const BLOG_DIR = path.join(__dirname, '..', 'content', 'blog');
 const IMAGE_STYLENAME = '!hugo.webp';
 const KNOWN_CATEGORIES = new Set(['日志', '代码', '分享', '山贼', '精选', '演讲']);
 
+const args = parseArgs();
+function parseArgs() {
+  const argv = process.argv.slice(2);
+  const opts = { slug: '', limit: 0, dryRun: false };
+  for (let i = 0; i < argv.length; i++) {
+    if (argv[i] === '--slug' || argv[i] === '-s') opts.slug = argv[++i] || '';
+    else if (argv[i] === '--limit' || argv[i] === '-n') opts.limit = parseInt(argv[++i]) || 0;
+    else if (argv[i] === '--dry-run') opts.dryRun = true;
+  }
+  return opts;
+}
+
 const turndown = new TurndownService({
   headingStyle: 'atx',
   codeBlockStyle: 'fenced',
@@ -140,8 +152,23 @@ async function main() {
   }
 
   console.log('Fetching posts from Ghost...');
-  const posts = await fetchAllPosts();
+  let posts = await fetchAllPosts();
+  if (args.slug) {
+    const slugs = args.slug.split(',').map(s => s.trim());
+    posts = posts.filter(p => slugs.includes(p.slug));
+  }
+  if (args.limit > 0) posts = posts.slice(0, args.limit);
   console.log(`Total: ${posts.length} posts\n`);
+
+  if (args.dryRun) {
+    for (const post of posts) {
+      const fm = buildFrontmatter(post);
+      const markdown = addImageStylename(extractLexicalMarkdown(post.lexical) || turndown.turndown(post.html || ''));
+      console.log(`  ${post.slug}.md (${markdown.length} chars)`);
+    }
+    console.log(`\nDry-run: ${posts.length} posts would be written.`);
+    return;
+  }
 
   fs.mkdirSync(BLOG_DIR, { recursive: true });
 

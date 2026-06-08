@@ -12,6 +12,18 @@ const GHOST_API_URL = process.env.GHOST_ADMIN_API_URL || 'https://ghost.eallion.
 const GHOST_ADMIN_API_KEY = process.env.GHOST_ADMIN_API_KEY;
 const CONTENT_DIR = path.join(__dirname, '..', 'content');
 
+const args = parseArgs();
+function parseArgs() {
+  const argv = process.argv.slice(2);
+  const opts = { slug: '', limit: 0, dryRun: false };
+  for (let i = 0; i < argv.length; i++) {
+    if (argv[i] === '--slug' || argv[i] === '-s') opts.slug = argv[++i] || '';
+    else if (argv[i] === '--limit' || argv[i] === '-n') opts.limit = parseInt(argv[++i]) || 0;
+    else if (argv[i] === '--dry-run') opts.dryRun = true;
+  }
+  return opts;
+}
+
 const turndown = new TurndownService({
   headingStyle: 'atx',
   codeBlockStyle: 'fenced',
@@ -140,8 +152,22 @@ async function main() {
   }
 
   console.log('Fetching pages from Ghost...');
-  const pages = await fetchAllPages();
+  let pages = await fetchAllPages();
+  if (args.slug) {
+    const slugs = args.slug.split(',').map(s => s.trim());
+    pages = pages.filter(p => slugs.includes(p.slug));
+  }
+  if (args.limit > 0) pages = pages.slice(0, args.limit);
   console.log(`Total: ${pages.length} pages\n`);
+
+  if (args.dryRun) {
+    for (const page of pages) {
+      const markdown = addImageStylename(extractLexicalMarkdown(page.lexical) || turndown.turndown(page.html || ''));
+      console.log(`  ${page.slug}/index.md (${markdown.length} chars)`);
+    }
+    console.log(`\nDry-run: ${pages.length} pages would be written.`);
+    return;
+  }
 
   for (const page of pages) {
     const fm = buildFrontmatter(page);
