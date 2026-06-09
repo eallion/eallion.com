@@ -10,6 +10,7 @@
 .codex/
 
 .edgeone/
+.opencode/
 
 /content/*
 !/content/go.md
