@@ -1,134 +1,308 @@
-/* * ----------------------------------------------------
- * 自定义 CSS 样式（为了处理 .TableOfContents 渲染的结构）
- * ----------------------------------------------------
- */
+/* TOC — Fumadocs Default Style */
 
-/* TOC 滚动容器样式优化 */
-.toc-scroll-wrapper {
-  /* 自定义滚动条样式 */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-  /* 禁用横向滚动，防止页面抖动 */
-  overflow-x: hidden;
+/* ============================================
+   Scroll Area
+   ============================================ */
+.toc-scroll-area {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  mask: linear-gradient(to bottom, transparent, white 16px, white calc(100% - 16px), transparent);
+  max-height: calc(100vh - 10rem);
 }
 
-.dark .toc-scroll-wrapper {
-  scrollbar-color: var(--color-bg-dimmed-primary) transparent;
+.toc-scroll-area::-webkit-scrollbar {
+  display: none;
 }
 
-/* TOC 容器默认样式 - JS 会动态设置 max-height */
-@media (min-width: 1024px) {
-  .toc-scroll-wrapper {
-    /* 默认最大高度，防止 JS 加载前布局跳动 */
-    max-height: calc(100vh - 10rem);
-  }
+/* ============================================
+   toc-inner: positioned container for SVG + links
+   ============================================ */
+.toc-inner {
+  position: relative;
+  padding-left: 8px; /* space for the track line */
 }
 
-.toc-scroll-wrapper::-webkit-scrollbar {
-  width: 6px;
-}
-
-.toc-scroll-wrapper::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.toc-scroll-wrapper::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-  transition: background-color 0.2s;
-}
-
-.dark .toc-scroll-wrapper::-webkit-scrollbar-thumb {
-  background-color: var(--color-bg-dimmed-primary);
-}
-
-.toc-scroll-wrapper::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.dark .toc-scroll-wrapper::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-bg-dimmed-primary);
-}
-
-/* 移除默认的 Hugo TOC nav 标签样式 */
-.toc-content-wrapper nav {
+/* ============================================
+   Hugo TOC nav reset
+   ============================================ */
+.toc-inner nav {
   all: unset;
   display: block;
 }
 
-/* TOC 内容不超出容器宽度 */
-.toc-content-wrapper {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
+.toc-inner ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* 重置所有列表样式 */
-.toc-content-wrapper ul {
-  @apply list-none p-0 m-0;
+.toc-inner li {
+  margin: 0;
 }
 
-.toc-content-wrapper li {
-  @apply m-0;
+/* ============================================
+   SVG Track (inactive line)
+   ============================================ */
+.toc-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
 }
 
-/* 一级标题链接（H2） */
-.toc-content-wrapper > nav > ul > li > a {
-  @apply block py-2 px-3 my-1 rounded-lg text-sm font-medium text-zinc-700 dark:text-text-dimmed-secondary transition-all duration-200 ease-in-out;
-  @apply hover:bg-zinc-200/60 dark:hover:bg-bg-dimmed-secondary hover:text-zinc-900 dark:hover:text-text-dimmed-primary hover:translate-x-0.5;
-  position: relative;
+.toc-track path {
+  fill: none;
+  stroke: #d4d4d8; /* zinc-300 */
+  stroke-width: 1;
 }
 
-/* 一级标题激活状态 */
-.toc-content-wrapper > nav > ul > li > a.active {
-  @apply bg-white dark:bg-bg-dimmed-primary text-zinc-900 dark:text-text-dimmed-primary font-bold shadow-sm;
-  padding-left: calc(0.75rem - 3px);
+:where(.dark) .toc-track path {
+  stroke: #444c56; /* border-dimmed-primary */
 }
 
-/* 二级及以下标题容器 */
-.toc-content-wrapper ul ul {
-  @apply pl-4 mt-1 mb-2 border-l border-zinc-200/60 dark:border-border-dimmed-primary/60;
+/* ============================================
+   SVG Indicator (active range highlight)
+   ============================================ */
+.toc-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 二级标题链接（H3） */
-.toc-content-wrapper ul ul li > a {
-  @apply block py-1.5 px-2 my-0.5 rounded text-xs text-zinc-600 dark:text-text-dimmed-secondary transition-all duration-150 ease-in-out;
-  @apply hover:bg-zinc-100 dark:hover:bg-bg-dimmed-secondary hover:text-zinc-800 dark:hover:text-text-dimmed-primary hover:translate-x-0.5;
+.toc-indicator path {
+  fill: none;
+  stroke: #18181b; /* zinc-900 */
+  stroke-width: 1;
 }
 
-/* 二级标题激活状态 */
-.toc-content-wrapper ul ul li > a.active {
-  @apply bg-zinc-50 dark:bg-bg-dimmed-primary text-zinc-800 dark:text-text-dimmed-primary font-semibold;
+:where(.dark) .toc-indicator path {
+  stroke: #adbac7; /* text-dimmed-primary */
 }
 
-/* 三级标题链接（H4） */
-.toc-content-wrapper ul ul ul li > a {
-  @apply text-xs text-zinc-500 dark:text-text-dimmed-secondary py-1 px-2;
-  @apply hover:text-zinc-700 dark:hover:text-text-dimmed-primary;
+/* ============================================
+   Moving Dot
+   ============================================ */
+.toc-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: #18181b; /* zinc-900 */
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  transition: opacity 0.2s ease, offset-distance 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 三级标题激活状态 */
-.toc-content-wrapper ul ul ul li > a.active {
-  @apply text-zinc-700 dark:text-text-dimmed-primary font-medium bg-zinc-50/90 dark:bg-bg-dimmed-primary/90;
+:where(.dark) .toc-dot {
+  background: #adbac7; /* text-dimmed-primary */
 }
 
-/* 四级标题链接（H5） */
-.toc-content-wrapper ul ul ul ul li > a {
-  @apply text-xs text-zinc-400 py-0.5 px-2 dark:text-text-dimmed-secondary dark:bg-bg-dimmed-primary;
-  @apply hover:text-zinc-600 dark:hover:text-text-dimmed-primary;
+/* ============================================
+   TOC Links
+   ============================================ */
+.toc-inner a {
+  display: block;
+  padding: 6px 8px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #71717a; /* zinc-500 */
+  border-radius: 6px;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: color 0.15s ease;
 }
 
-/* 四级标题激活状态 */
-.toc-content-wrapper ul ul ul ul li > a.active {
-  @apply text-zinc-600 dark:text-text-dimmed-primary font-medium;
+:where(.dark) .toc-inner a {
+  color: #768390; /* text-dimmed-secondary */
 }
 
-/* 为激活链接添加平滑的过渡效果 */
-.toc-content-wrapper a {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+.toc-inner a:hover {
+  color: #18181b; /* zinc-900 */
 }
 
-/* 鼠标悬停时的轻微缩放效果 */
-.toc-content-wrapper a:hover {
-  transform: translateX(2px);
+:where(.dark) .toc-inner a:hover {
+  color: #adbac7; /* text-dimmed-primary */
+}
+
+.toc-inner a[data-active="true"] {
+  color: #18181b; /* zinc-900 */
+  font-weight: 500;
+}
+
+:where(.dark) .toc-inner a[data-active="true"] {
+  color: #adbac7; /* text-dimmed-primary */
+}
+
+/* ============================================
+   Depth indentation
+   ============================================ */
+.toc-inner a[data-depth="0"] {
+  padding-left: 4px;
+}
+
+.toc-inner a[data-depth="1"] {
+  padding-left: 20px;
+}
+
+.toc-inner a[data-depth="2"] {
+  padding-left: 36px;
+}
+
+.toc-inner a[data-depth="3"] {
+  padding-left: 52px;
+}
+
+/* ============================================
+   Mobile TOC Trigger
+   ============================================ */
+.toc-mobile-trigger {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid #e4e4e7; /* zinc-200 */
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 13px;
+  font-weight: 500;
+  color: #3f3f46; /* zinc-700 */
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+
+:where(.dark) .toc-mobile-trigger {
+  border-color: #444c56; /* border-dimmed-primary */
+  background: rgba(34, 39, 46, 0.9); /* bg-dimmed-primary */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #adbac7; /* text-dimmed-primary */
+}
+
+.toc-mobile-trigger:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+:where(.dark) .toc-mobile-trigger:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 1023px) {
+  .toc-mobile-trigger {
+    display: inline-flex;
+  }
+}
+
+/* ============================================
+   Mobile TOC Dialog
+   ============================================ */
+.toc-mobile-dialog {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  width: 100%;
+  max-height: 70vh;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.15);
+  color: #27272a; /* zinc-800 */
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.toc-mobile-dialog[open] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+:where(.dark) .toc-mobile-dialog {
+  background: #22272e; /* bg-dimmed-primary */
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.4);
+  color: #adbac7; /* text-dimmed-primary */
+}
+
+.toc-mobile-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.toc-mobile-content {
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh;
+}
+
+.toc-mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e4e4e7; /* zinc-200 */
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+:where(.dark) .toc-mobile-header {
+  border-bottom-color: #444c56; /* border-dimmed-primary */
+}
+
+.toc-mobile-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.toc-mobile-close:hover {
+  background: #f4f4f5; /* zinc-100 */
+}
+
+:where(.dark) .toc-mobile-close:hover {
+  background: #2d333b; /* bg-dimmed-secondary */
+}
+
+.toc-mobile-list {
+  overflow-y: auto;
+  padding: 8px 12px 24px;
+  scrollbar-width: none;
+}
+
+.toc-mobile-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================
+   Desktop: hide mobile trigger
+   ============================================ */
+@media (min-width: 1024px) {
+  .toc-mobile-trigger {
+    display: none !important;
+  }
 }

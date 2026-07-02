@@ -26,6 +26,6 @@
   style = 'github'
 
 [tableOfContents]
-  endLevel = 5
+  endLevel = 6
   ordered = false
-  startLevel = 3
+  startLevel = 2

@@ -6,7 +6,7 @@ dateFormat = "Jan 2, 2006"
 logo = "/eallion.webp"
 slogan = "Chance favors the prepared mind!"
 slogan_hover = "机会总是垂青于有准备的人！"
-preconnect = "https://images.eallion.com"
+preconnect = ["https://e.content-delivery-network.cn", "https://images.eallion.com"]
 creativecommons = "by-sa"
 copyright_name = "eallion.com"
 icp = "浙ICP备16031768号-2"
@@ -49,7 +49,7 @@ mastodonID = "@eallion@e5n.cc"
 showFollow = false
 
 # Default Feature Image
-defaultFeature = "https://images.eallion.com/ghost/content/images/custom/ce35a8bb-fbda-468c-9aa8-d3599e538566.jpg"
+defaultFeature = "https://e.content-delivery-network.cn/ghost/content/images/custom/ce35a8bb-fbda-468c-9aa8-d3599e538566.jpg"
 
 # OG Image URL (for social sharing cards, optional)
 # If set, uses this API URL to generate OG images
@@ -105,7 +105,7 @@ ogImageURL = "https://og.eallion.com/api/og?title="
   icon = "github"
 [[social]]
   name = "Twitter"
-  url = "https://x.com/eallion"
+  url = "https://twitter.com/eallion"
   icon = "twitter"
 [[social]]
   name = "Steam"
