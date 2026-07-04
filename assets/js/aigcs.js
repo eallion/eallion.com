@@ -1013,6 +1013,9 @@ var AIGCS=(function(){var e={"zh-hans":{title:`评 论`,fediTitle:`联邦宇宙�
 
 .aigcs-comment-reply {
   position: relative;
+}
+
+.aigcs-comment-reply > .aigcs-comment-floor {
   margin-left: 0.5rem;
 }
 
