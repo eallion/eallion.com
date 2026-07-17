@@ -12,6 +12,8 @@
 .edgeone/
 .opencode/
 
+.idea/
+
 /content/*
 !/content/go.md
 !/content/_index.md
