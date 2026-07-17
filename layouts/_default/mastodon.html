@@ -232,6 +232,8 @@
 								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">With a little English mixed in.</li>
 								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Talk to myself.</li>
 								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">talk about myself.</li>
+								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Embedded from <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" aria-label="mastodon"
+						class="hover:underline">e5n.cc</a>.</li>
 							</ul>
 						</div>
 					</div>
@@ -280,8 +282,7 @@
 
   // --- Helper Functions ( extracted from original inline code) ---
 
-  // const replaceFileUrl = url => url.replace('https://files.e5n.cc/', 'https://mstd-s3-files.eallion.com/');
-  const replaceFileUrl = url => url;
+  const replaceFileUrl = url => url ? url.replace('https://files.e5n.cc/', 'https://e5n-s3.content-delivery-network.cn/') : url;
 
   const getImageObjectFitClass = (imgWidth, imgAspect, containerRatio) => {
     if (!imgAspect) return 'object-cover';
