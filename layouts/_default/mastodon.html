@@ -5,6 +5,29 @@
   .mt-content p {
     overflow-wrap: break-word;
     word-break: break-word;
+    margin-top: 0.35em !important;
+    margin-bottom: 0.35em !important;
+  }
+  .mt-content p:first-child {
+    margin-top: 0 !important;
+  }
+  .mt-content p:last-child {
+    margin-bottom: 0 !important;
+  }
+  .mt-text-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .mt-images-container img {
+    margin: 0 !important;
+  }
+  .mt-content img,
+  .mt-quote img,
+  .mt-quote-top img {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
   .mt-content a {
     color: #6364ff;
@@ -137,148 +160,66 @@
 
 {{- partial "content/breadcrumb.html" . -}}
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14" data-pagefind-ignore="all">
+<div class="w-full px-2 py-4 md:py-8" data-pagefind-ignore="all">
 
-	<article class="md:col-span-2 not-prose">
+	<div class="px-4 mb-8">
+		<h1 id="title" class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">{{ .Title }}</h1>
+		<p class="text-gray-500 dark:text-gray-400 text-sm md:text-base">
+			Follow <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" class="text-gray-900 dark:text-gray-100 font-medium hover:underline">@eallion@e5n.cc</a> on Mastodon for more!
+		</p>
+	</div>
 
-		<header>
-
-			<h1 id="title" class="text-4xl font-bold leading-normal">{{ .Title }}</h1>
-
-		</header>
-
-		<section class="flex flex-col max-w-full mt-0 prose lg:flex-row dark:prose-invert">
-
-			<div class="min-w-0 min-h-0 max-w-fit">
-
-				<div id="content" class="prose lg:prose-lg dark:prose-invert w-full">
-
-					{{ .Content }}
-
-					<div class="flex w-full mt-10 flex-wrap justify-center gap-5">
-						<div class="mt-container w-full max-w-full p-0">
-							<div id="mt-loading-spinner" class="mt-conatiner-spinner not-prose flex flex-col items-center">
-								<span class="font-semibold">Loading...</span>
-								<img src="/assets/images/mastodon/loading.gif" alt="loading">
-							</div>
-							<div id="mt-update-button-placeholder" class="mt-update-alert mb-8 hidden">
-							</div>
-							<div id="mt-posts-wrapper" class="mt-posts-wrapper">
-							</div>
-						</div>
-						<div
-							class="w-fit mx-auto my-8 border border-zinc-200 dark:border-[#444c56] rounded-full px-6 py-2 hover:bg-zinc-200 dark:hover:bg-[#252a33] cursor-pointer">
-							<a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer"
-								class="flex items-center justify-center not-prose gap-1">
-								<div>点击 e5n.cc 查看更多</div>
-								<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="inline-block" aria-hidden="true"
-									fill="currentColor" viewBox="0 0 14 10">
-									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-										d="M1 5h12m0 0L9 1m4 4L9 9"></path>
-								</svg>
-							</a>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-		</section>
-
-	</article>
-
-	<aside class="md:col-span-1">
-
-		<div class="lg:sticky lg:top-8 mb-13">
-
-			<div
-				class="rounded-2xl p-8 text-zinc-700 dark:text-[#adbac7] bg-zinc-100 dark:bg-[#2d333b] mb-10 flex flex-col items-center justify-center gap-0">
-
-				<div class="shrink-0">
-					<img class="h-20 w-20 rounded-full object-cover ring-4 ring-gray-200 dark:ring-[#cdd9e51a] shadow-lg"
-						width="144" height="144" alt="Charles Chin" src="/eallion.webp">
-				</div>
-
-				<div class="flex items-center justify-center mt-4 text-2xl text-zinc-950 dark:text-[#adbac7] hover:cursor-text">
-					<div class="font-semibold">Charles Chin</div>
-					<div class="flex items-center ml-1"><svg viewBox="0 0 22 22" fill="#1d9bf0" aria-label="认证账号" role="img"
-							class="inline-block" width="1em" height="1em" data-testid="icon-verified">
-							<g>
-								<path
-									d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z">
-								</path>
-							</g>
-						</svg>
-					</div>
-				</div>
-
-				<div class="group relative text-xl text-center px-0 mb-4">
-					<a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" aria-label="mastodon"
-						class="hover:underline">@eallion@e5n.cc</a>
-				</div>
-
-				<div class="w-full px-0 pt-2 border-t border-zinc-200 dark:border-[#cdd9e51a]">
-
-					<div class="p-4">
-						<div class="flex flex-col justify-between">
-							<p class="text-xl">👋 Welcome!</p>
-							<ul class="mt-6 mb-2 ml-4 flex flex-col prose dark:prose-invert">
-								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">It's a single mode Mastodon.</li>
-								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Registrations closed.</li>
-								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Private but public readable.</li>
-								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2"><ruby>中文<rt>Chinese</rt></ruby>
-									content.
-								</li>
-								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">With a little English mixed in.</li>
-								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Talk to myself.</li>
-								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">talk about myself.</li>
-								<li class="before:content-['•'] before:mr-2 before:opacity-50 my-2">Embedded from <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" aria-label="mastodon"
-						class="hover:underline">e5n.cc</a>.</li>
-							</ul>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="w-full grid grid-cols-3 gap-4 px-6 pt-4 border-t border-zinc-200 dark:border-[#cdd9e51a]">
-					<div class="flex flex-col items-center">
-						<div class="text-zinc-500 dark:text-[#768390]">关注者</div>
-						<div class="font-semibold flex items-center">
-							<span id="followers">-1</span>
-						</div>
-					</div>
-					<div class="flex flex-col items-center">
-						<div class="text-zinc-500 dark:text-[#768390]">正在关注</div>
-						<div class="font-semibold flex items-center">
-							<span id="following">0</span>
-						</div>
-					</div>
-					<div class="flex flex-col items-center">
-						<div class="text-zinc-500 dark:text-[#768390]">嘟文</div>
-						<div class="font-semibold flex items-center">
-							<span id="statuses">0</span>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
+	<div class="mt-container w-full max-w-full p-0">
+		<div id="mt-loading-spinner" class="mt-conatiner-spinner not-prose flex flex-col items-center py-12">
+			<span class="font-semibold text-gray-500 dark:text-gray-400 mb-2">Loading...</span>
+			<img src="/assets/images/mastodon/loading.gif" alt="loading" class="h-8 w-8">
 		</div>
-	</aside>
+		<div id="mt-update-button-placeholder" class="mt-update-alert mb-8 hidden">
+		</div>
+		<div id="mt-posts-wrapper" class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+		</div>
+	</div>
+
+	<!-- 无限滚动 Sentinel 与 Spinner -->
+	<div id="mt-sentinel" class="w-full flex flex-col items-center py-8">
+		<div id="mt-infinite-spinner" class="hidden flex flex-col items-center gap-2">
+			<span class="text-xs text-gray-400 font-medium">正在加载更多...</span>
+			<img src="/assets/images/mastodon/loading.gif" alt="loading" class="h-6 w-6">
+		</div>
+		<div id="mt-no-more" class="hidden text-xs text-gray-400 font-medium py-4">
+			— 已加载全部动态 —
+		</div>
+	</div>
 
 </div>
 
 {{ partial "content/mastodon-follow.html" . }}
 
+{{ $viewJS := resources.Get "js/view-image.min.js" | fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $viewJS.RelPermalink }}" integrity="{{ $viewJS.Data.Integrity }}"></script>
+
 <script>
   // --- Constants and Global Variables ---
-  const API_URL = 'https://e5n.cc/api/v1/accounts/111136231674527355/statuses?limit=13&exclude_replies=true&exclude_reblogs=false';
+  const BASE_API_URL = 'https://e5n.cc/api/v1/accounts/111136231674527355/statuses?exclude_replies=true&exclude_reblogs=false';
+  const FIRST_PAGE_LIMIT = 15; // 首屏请求 15 条 (3 列各 5 条)
+  const NEXT_PAGE_LIMIT = 12;  // 之后每次请求 12 条 (3 列各 4 条)
+  const API_URL = `${BASE_API_URL}&limit=${FIRST_PAGE_LIMIT}`;
   const CACHE_KEY = 'mastodon_cache';
   const PENDING_KEY = 'mastodon_pending_update';
   const CACHE_LIFETIME = 7 * 24 * 60 * 60 * 1000; // 7 天 (首次缓存有效期)
   const UPDATE_INTERVAL = 60 * 1000; // 1 分钟 (前台激活时检查频率)
 
+  // --- 防刷与阻尼加载配置 ---
+  const MIN_FETCH_INTERVAL = 1200; // 请求最小冷却间隔 1.2 秒
+  const DAMPING_DELAY = 450;      // 阻尼加载缓冲延迟 450ms
+
   let updateTimer = null; // 定时器句柄
+  let currentMaxId = null; // 用于分页的 statuses max_id
+  let isLoadingMore = false; // 加载锁
+  let hasMore = true; // 是否还有更多数据
+  let globalPostIndex = 0; // 全局嘟文计数，用于 3 列分发 order
+  let lastFetchTime = 0; // 上次成功发请求的时间戳
+  let consecutiveErrorCount = 0; // 连续请求失败计数
 
   // --- Helper Functions ( extracted from original inline code) ---
 
@@ -405,203 +346,139 @@
     setTimeout(updateRelativeTimes, 60000);
   }
 
-  // --- Rendering Functions ---
+  // --- Dynamic Column Balancing Helper ---
+  function getTargetColumnIndex(cols, defaultIndex) {
+    if (!cols || !cols[0]) return defaultIndex % 3;
 
-  /**
-   * 渲染帖子内容和计数
-   * @param {Array} data - Mastodon 嘟文数据
-   */
-  function renderContent(data) {
+    // 精确读取每列容器的真实物理高度
+    const colHeights = cols.map(c => c ? (c.offsetHeight || c.getBoundingClientRect().height || 0) : 0);
+    const minHeight = Math.min(...colHeights);
+    const maxHeight = Math.max(...colHeights);
+
+    // 以 5 行卡片预估高度 (约 140px)，1.5 倍卡片高度阈值设定为 210px
+    const HEIGHT_THRESHOLD = 210;
+
+    // 当最长列与最短列高度差大于等于 1.5 个卡片高度时，优先填充最短的列
+    if (maxHeight - minHeight >= HEIGHT_THRESHOLD) {
+      return colHeights.indexOf(minHeight);
+    }
+
+    // 高度差在容差范围内时，保持从左向右轮流分配
+    return defaultIndex % 3;
+  }
+
+  // --- Rendering Functions ---
+  function renderContent(data, isAppend = false) {
     const postsWrapper = document.getElementById('mt-posts-wrapper');
     const followers = document.getElementById('followers');
     const following = document.getElementById('following');
     const statuses = document.getElementById('statuses');
 
-    // 清空现有内容
-    postsWrapper.innerHTML = '';
+    let cols = [
+      document.getElementById('mt-col-0'),
+      document.getElementById('mt-col-1'),
+      document.getElementById('mt-col-2')
+    ];
 
-    // 更新侧边栏计数
-    if (data.length > 0) {
-      followers.textContent = data[0].account.followers_count;
-      following.textContent = data[0].account.following_count;
-      statuses.textContent = data[0].account.statuses_count;
-    } else {
-      // API 返回空数组，可能是没有嘟文
-      followers.textContent = '-1';
-      following.textContent = '0';
-      statuses.textContent = '0';
+    if (!isAppend || !cols[0]) {
+      postsWrapper.innerHTML = `
+        <div id="mt-col-0" class="flex flex-col gap-6 w-full"></div>
+        <div id="mt-col-1" class="flex flex-col gap-6 w-full"></div>
+        <div id="mt-col-2" class="flex flex-col gap-6 w-full"></div>
+      `;
+      cols = [
+        document.getElementById('mt-col-0'),
+        document.getElementById('mt-col-1'),
+        document.getElementById('mt-col-2')
+      ];
+      globalPostIndex = 0;
     }
 
-    // Helper: render media container for a given media_attachments array
+    // 更新侧边栏计数与记录 max_id
+    if (data.length > 0) {
+      if (followers) followers.textContent = data[0].account.followers_count;
+      if (following) following.textContent = data[0].account.following_count;
+      if (statuses) statuses.textContent = data[0].account.statuses_count;
+
+      // 记录最后一篇嘟文 ID 作为 max_id
+      currentMaxId = data[data.length - 1].id;
+    }
+
+    // Helper: render media container as pure blurhash canvas icon thumbnails
     function renderMediaHtml(mediaItems = [], isSensitive = false) {
       if (!mediaItems || mediaItems.length === 0) return '';
 
-      const count = mediaItems.length;
+      const sensitiveBadge = isSensitive ? `
+        <span class="inline-flex items-center gap-1 text-[11px] px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 font-medium leading-none flex-shrink-0" title="敏感内容">
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>NSFW</span>
+        </span>
+      ` : '';
 
-      // sensitive overlay
-      // 生成图片描述列表
-      const imageDescriptions = isSensitive && mediaItems.some(m => m.description)
-        ? mediaItems.map((m, idx) => m.description ? `${idx + 1}. ${m.description}` : '').filter(d => d).join(' · ')
-        : '';
+      const thumbsHtml = mediaItems.map(m => {
+        const fullUrl = replaceFileUrl(m.url);
+        const altText = m.description || '点击查看大图';
 
-      const sensitiveOverlay = isSensitive ? `
-                <div class="absolute inset-0 bg-black/50 backdrop-blur-sm flex flex-col items-center justify-center z-50 rounded-lg cursor-pointer transition-opacity duration-300 px-4" onclick="this.style.opacity='0'; setTimeout(() => { this.style.display='none'; }, 300); this.parentNode.querySelectorAll('.sensitive-hidden').forEach(el => { el.classList.remove('opacity-0', 'pointer-events-none'); el.classList.add('opacity-100'); });">
-                  <div class="flex items-center gap-2 md:gap-3 mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-32 md:h-32 text-white flex-shrink-0" viewBox="0 0 16 16"><path fill="currentColor" d="M1 7a6 6 0 0 1 11.99-.34q.175.194.302.446l.59 1.18Q13.999 7.662 14 7a7 7 0 1 0-7.713 6.964l.484-.968A6 6 0 0 1 1 7m8.854-1.146a.5.5 0 0 0-.708-.708L6.25 8.043L4.854 6.646a.5.5 0 1 0-.708.708l1.75 1.75a.5.5 0 0 0 .708 0zm.749 1.7l-3.496 6.998A1 1 0 0 0 8.002 16h6.996a1 1 0 0 0 .895-1.448l-3.5-6.999a1 1 0 0 0-1.79 0m1.395 1.941v3.002a.5.5 0 1 1-1 0V9.495a.5.5 0 1 1 1 0m-.5 5.504a.5.5 0 1 1 0-1a.5.5 0 0 1 0 1"/></svg>
-                    <div class="text-zinc-200 text-2xl md:text-3xl font-bold">NSFW</div>
-                  </div>
-                  <div class="flex items-center text-zinc-200 text-base md:text-xl mb-2"><span class="mr-2"><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 36 36"><path fill="currentColor" d="M30.4 17.6c-1.8-1.9-4.2-3.2-6.7-3.7q-1.65-.45-3.3-.6c2.8-3.3 2.3-8.3-1-11.1s-8.3-2.3-11.1 1s-2.3 8.3 1 11.1c.6.5 1.2.9 1.8 1.1v2.2l-1.6-1.5c-1.4-1.4-3.7-1.4-5.2 0c-1.4 1.4-1.5 3.6-.1 5l4.6 5.4c.2 1.4.7 2.7 1.4 3.9c.5.9 1.2 1.8 1.9 2.5v1.9c0 .6.4 1 1 1h13.6c.5 0 1-.5 1-1v-2.6c1.9-2.3 2.9-5.2 2.9-8.1v-5.8c.1-.4 0-.6-.2-.7m-22-9.4c0-3.3 2.7-5.9 6-5.8c3.3 0 5.9 2.7 5.8 6c0 1.8-.8 3.4-2.2 4.5v-5a3.4 3.4 0 0 0-3.4-3.2c-1.8-.1-3.4 1.4-3.4 3.2v5.2c-1.7-1-2.7-2.9-2.8-4.9M28.7 24c.1 2.6-.8 5.1-2.5 7.1c-.2.2-.4.4-.4.7v2.1H14.2v-1.4c0-.3-.2-.6-.4-.8c-.7-.6-1.3-1.3-1.8-2.2c-.6-1-1-2.2-1.2-3.4c0-.2-.1-.4-.2-.6l-4.8-5.7c-.3-.3-.5-.7-.5-1.2c0-.4.2-.9.5-1.2c.7-.6 1.7-.6 2.4 0l2.9 2.9v3l1.9-1V7.9c.1-.7.7-1.3 1.5-1.2c.7 0 1.4.5 1.4 1.2v11.5l2 .4v-4.6c.1-.1.2-.1.3-.2c.7 0 1.4.1 2.1.2v5.1l1.6.3v-4.6c.9.4 1.7 1 2.4 1.7z"/></svg></span>点击显示图片</div>
-                  ${imageDescriptions ? `<div class="text-zinc-300 text-xs md:text-sm mt-2 text-center line-clamp-2">${imageDescriptions}</div>` : ''}
-                </div>` : '';
-
-      let innerHtml = '';
-
-      if (count === 1) {
-        const m = mediaItems[0];
-        const objectFitClass = getImageObjectFitClass(m.meta?.small?.width, m.meta?.small?.aspect, 1.777);
-        const preview = replaceFileUrl(m.preview_url || m.url);
-        innerHtml = `
-              <div class="flex flex-row h-full">
-                <div class="relative w-full rounded-xl overflow-hidden">
-                  ${m.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 object-cover" data-blurhash="${m.blurhash}"></canvas>` : ''}
-                  <a href="${replaceFileUrl(m.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
-                    <img src="${preview}" alt="${m.description || ''}" class="block w-full h-full ${objectFitClass}" loading="lazy" nozoom>
-                  </a>
-                </div>
+        return `
+          <div class="relative size-7 rounded-md overflow-hidden border border-gray-300/80 dark:border-gray-600 flex-shrink-0 group shadow-2xs hover:scale-105 transition-all duration-150 cursor-pointer" title="${altText}">
+            <canvas class="block size-full object-cover" data-blurhash="${m.blurhash || ''}"></canvas>
+            <a href="${fullUrl}" class="view-image-link absolute inset-0 z-10 block ${isSensitive ? 'opacity-20 hover:opacity-100 transition-opacity' : ''}">
+              <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-white pointer-events-none z-20">
+                <svg xmlns="http://www.w3.org/2000/svg" class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
               </div>
-          `;
-      } else if (count === 2) {
-        innerHtml = `
-              <div class="flex flex-row h-full gap-2.5">
-                ${mediaItems.map((mi, idx) => {
-                  const objectFitClass = getImageObjectFitClass(mi.meta?.small?.width, mi.meta?.small?.aspect, 0.888);
-                  const preview = replaceFileUrl(mi.preview_url || mi.url);
-                  return `
-                    <div class="relative w-1/2 rounded-xl overflow-hidden">
-                      ${mi.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 object-cover" data-blurhash="${mi.blurhash}"></canvas>` : ''}
-                      <a href="${replaceFileUrl(mi.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
-                        <img src="${preview}" alt="${mi.description || ''}" class="block w-full h-full ${objectFitClass}" loading="lazy" nozoom>
-                      </a>
-                    </div>`;
-                }).join('')}
-              </div>
-          `;
-      } else if (count === 3) {
-        const [firstItem, secondItem, thirdItem] = mediaItems;
-        const firstFitClass = getImageObjectFitClass(firstItem.meta?.small?.width, firstItem.meta?.small?.aspect, 0.888);
-        const secondFitClass = getImageObjectFitClass(secondItem.meta?.small?.width, secondItem.meta?.small?.aspect, 1.777);
-        const thirdFitClass = getImageObjectFitClass(thirdItem.meta?.small?.width, thirdItem.meta?.small?.aspect, 1.777);
-        innerHtml = `
-              <div class="flex h-full gap-2.5">
-                <div class="relative w-1/2 overflow-hidden rounded-xl">
-                  ${firstItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 left-0 object-cover" data-blurhash="${firstItem.blurhash}"></canvas>` : ''}
-                  <a href="${replaceFileUrl(firstItem.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
-                    <img src="${replaceFileUrl(firstItem.preview_url || firstItem.url)}" alt="${firstItem.description || ''}" class="block w-full h-full ${firstFitClass}" loading="lazy" nozoom>
-                  </a>
-                </div>
-                <div class="w-1/2 flex flex-col gap-2.5">
-                  <div class="relative h-1/2 overflow-hidden rounded-xl">
-                    ${secondItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full top-0 right-0 object-cover" data-blurhash="${secondItem.blurhash}"></canvas>` : ''}
-                    <a href="${replaceFileUrl(secondItem.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
-                      <img src="${replaceFileUrl(secondItem.preview_url || secondItem.url)}" alt="${secondItem.description || ''}" class="block w-full h-full ${secondFitClass}" loading="lazy" nozoom>
-                    </a>
-                  </div>
-                  <div class="relative h-1/2 overflow-hidden rounded-xl">
-                    ${thirdItem.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full bottom-0 right-0 object-cover" data-blurhash="${thirdItem.blurhash}"></canvas>` : ''}
-                    <a href="${replaceFileUrl(thirdItem.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
-                      <img src="${replaceFileUrl(thirdItem.preview_url || thirdItem.url)}" alt="${thirdItem.description || ''}" class="block w-full h-full ${thirdFitClass}" loading="lazy" nozoom>
-                    </a>
-                  </div>
-                </div>
-              </div>
-          `;
-      } else {
-        // 4 or more -> grid 2x2, show first 4
-        innerHtml = `
-              <div class="grid grid-cols-2 grid-rows-2 h-full gap-2.5">
-                ${mediaItems.slice(0, 4).map(mi => {
-                  const objectFitClass = getImageObjectFitClass(mi.meta?.small?.width, mi.meta?.small?.aspect, 1.777);
-                  const preview = replaceFileUrl(mi.preview_url || mi.url);
-                  return `
-                    <div class="relative overflow-hidden rounded-xl">
-                      ${mi.blurhash ? `<canvas class="absolute inset-0 z-0 w-full h-full object-cover" data-blurhash="${mi.blurhash}"></canvas>` : ''}
-                      <a href="${replaceFileUrl(mi.url)}" class="relative z-10 ${isSensitive ? 'opacity-0 pointer-events-none sensitive-hidden transition-opacity duration-300' : ''}">
-                        <img src="${preview}" alt="${mi.description || ''}" class="block w-full h-full ${objectFitClass}" loading="lazy" nozoom>
-                      </a>
-                    </div>`;
-                }).join('')}
-              </div>
-          `;
-      }
+            </a>
+          </div>
+        `;
+      }).join('');
 
       return `
-        <div class="mt-images-container mt-4 mb-6 aspect-[16/9] rounded-xl overflow-hidden relative">
-          ${sensitiveOverlay}
-          ${innerHtml}
+        <div class="mt-images-container not-prose mt-2.5 flex items-center gap-1.5 p-1 rounded-lg bg-gray-100/70 dark:bg-gray-800/60 border border-gray-200/60 dark:border-gray-700/60 w-fit" view-image>
+          <div class="flex items-center text-gray-400 dark:text-gray-500 pl-1 pr-0.5" title="图片附件">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          </div>
+          ${sensitiveBadge}
+          ${thumbsHtml}
         </div>
       `;
     }
 
-    data.forEach(post => {
+    data.forEach((post) => {
       const article = document.createElement('article');
-      article.className = 'bg-white dark:bg-[#2d333b] border border-zinc-200 dark:border-[#cdd9e51a] rounded-2xl mb-8 last:mb-0 p-6 pb-4 shadow-sm hover:shadow-md transition-shadow duration-300';
+      article.style.order = globalPostIndex;
+      article.className = 'bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 px-5 py-4 flex flex-col gap-2 hover:shadow-md transition-all duration-200';
 
       // 判断是否为转发
       if (post.reblog) {
         article.innerHTML += `
-          <div class="mt-reblog flex items-center gap-2 mb-2 text-zinc-500 text-sm">
-            <span class="text-green-500 dark:text-[#768390]">🔄</span>
+          <div class="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-medium">
+            <span>🔄</span>
             <span>Charles Chin 转发了</span>
           </div>
         `;
       }
-        // (quote label is inserted later, before the quoted content - keep header area clean)
 
-      // 头像部分
-      // 是否包含 quote（用于在右上角 meta 行显示 mt-meta-quote）
-      const hasQuoteTop = (post.quote && post.quote.quoted_status) || (post.reblog && post.reblog.quote && post.reblog.quote.quoted_status);
+      // 账号与顶部元数据 (tangled.org 风格 Header)
+      const avatarSrc = post.reblog ? replaceFileUrl(post.reblog.account.avatar) : '/eallion.webp';
+      const displayName = post.reblog ? post.reblog.account.display_name : 'Charles Chin';
+      const acctHandle = post.reblog ? `@${post.reblog.account.acct}` : '@eallion@e5n.cc';
+
       article.innerHTML += `
-        <div class="flex items-center flex-row gap-2">
-          <div class="mt-reblog-avatar w-12 h-12 mr-3 flex-shrink-0 relative">
-            <img src="${post.reblog ? replaceFileUrl(post.reblog.account.avatar) : '/eallion.webp'}" alt="头像" class="w-full h-full object-cover rounded-lg no-view nozoom outline-1 outline-zinc-400 dark:outline-[#cdd9e51a]" no-view onerror="this.src='/assets/images/mastodon/missing.png'">
-            ${post.reblog ? '<div class="mt-reblog-avatar-overlay absolute -bottom-1 -right-1 w-2/3 h-2/3 no-view"><img src="/favicon-32x32.png" alt="Boost" class="w-full h-full mt-0 mb-0 object-cover nozoom" no-view></div>' : ''}
-          </div>
-          <div class="flex-1 flex flex-row items-start min-w-0">
-            <div class="flex flex-col flex-wrap items-start gap-0 mb-1">
-              <span class="mt-accout-name font-semibold hover:font-extrabold text-zinc-700 dark:text-[#e7e9eb] hover:text-zinc-900 dark:hover:text-[#fff] line-clamp-1">${post.reblog ? post.reblog.account.display_name : 'Charles Chin'}</span>
-              <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" class="mt-accout-id text-base decoration-auto no-underline hover:underline text-zinc-800 dark:text-[#adbac7] hover:text-zinc-950 dark:hover:text-[#e7e9eb]">${post.reblog ? post.reblog.account.acct : '@eallion@e5n.cc'}</a>
-            </div>
-            <div class="inline md:hidden px-2 py-1.5 text-zinc-700 hover:text-zinc-900 text-sm ml-auto">
-              <span class="mt-footer-date" data-created-at="${post.created_at}">
-                <a href="${post.url || 'https://e5n.cc/@eallion'}" target="_blank" rel="noopener noreferrer" class="no-underline text-zinc-600 hover:text-zinc-900">-</a>
-              </span>
-            </div>
-            <div class="hidden md:flex flex-row items-center gap-1.5 ml-auto px-2 text-sm ">
-              <span class="mt-meta-language" title="语言">
-                ${post.language ?
-          (post.language.toLowerCase() === 'zh' || post.language.toLowerCase() === 'zh-cn' ? 'zh-CN' : post.language)
-          : ''}
-              </span>
-              ${post.content.includes('http') ? '<span class="mt-meta-link" title="外链"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="48" stroke-dashoffset="48" d="M11 5h-6v14h14v-6"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.6s" values="48;0"/></path><path stroke-dasharray="12" stroke-dashoffset="12" d="M13 11l7 -7"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="12;0"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M21 3h-6M21 3v6"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.8s" dur="0.2s" values="8;0"/></path></g></svg></span>' : ''}
-              ${hasQuoteTop ? '<span class="mt-meta-quote" title="引用"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M9 22c-.6 0-1-.4-1-1v-3H4c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2h-6.1l-3.7 3.7c-.2.2-.4.3-.7.3zm1-6v3.1l3.1-3.1H20V4H4v12zm6.3-10l-1.4 3H17v4h-4V8.8L14.3 6zm-6 0L8.9 9H11v4H7V8.8L8.3 6z"/></svg></span>' : ''}
-              ${post.media_attachments.length > 0 ? '<span class="mt-meta-image" title="图片"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4"><path stroke-linecap="round" d="M5 10C5 8.89543 5.89543 8 7 8L41 8C42.1046 8 43 8.89543 43 10V38C43 39.1046 42.1046 40 41 40H7C5.89543 40 5 39.1046 5 38V10Z" clip-rule="evenodd"/><path stroke-linecap="round" d="M14.5 18C15.3284 18 16 17.3284 16 16.5C16 15.6716 15.3284 15 14.5 15C13.6716 15 13 15.6716 13 16.5C13 17.3284 13.6716 18 14.5 18Z" clip-rule="evenodd"/><path fill="currentColor" d="M15 24L20 28L26 21L43 34V38C43 39.1046 42.1046 40 41 40H7C5.89543 40 5 39.1046 5 38V34L15 24Z"/></g></svg></span>' : ''}
-              ${post.in_reply_to_id ? '<span class="mt-meta-reply" title="回复"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 23a1 1 0 0 1-1-1v-3H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-4.1l-3.7 3.71c-.2.18-.44.29-.7.29zm-9-8H1V3a2 2 0 0 1 2-2h16v2H3z"/></svg></span>' : ''}
-              ${post.reblog ? '<span class="mt-meta-reblog" title="转嘟"><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M272 416c17.7 0 32-14.3 32-32s-14.3-32-32-32H160c-17.7 0-32-14.3-32-32V192h32c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-64-64c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-9.2 9.2-11.9 22.9-6.9 34.9S19.1 192 32.1 192h32v128c0 53 43 96 96 96h112zm32-320c-17.7 0-32 14.3-32 32s14.3 32 32 32h112c17.7 0 32 14.3 32 32v128h-32c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l64 64c12.5 12.5 32.8 12.5 45.3 0l64-64c9.2-9.2 11.9-22.9 6.9-34.9S556.9 320 543.9 320h-32V192c0-53-43-96-96-96z"/></svg></span>' : ''}
-              <span class="mt-meta-visibility" title="可见性">
-                ${post.visibility === 'direct' ? '<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 -960 960 960" width="1em" class="icon icon-envelope status__visibility-icon" title="私下提及" aria-label="私下提及" role="img"><path fill="#d32f2f" d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"></path></svg>' :
-          post.visibility === 'unlisted' ? '<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 -960 960 960" width="1em" class="icon icon-unlock status__visibility-icon" title="悄悄公开" aria-label="悄悄公开" role="img"><path fill="currentColor" d="M484-80q-84 0-157.5-32t-128-86.5Q144-253 112-326.5T80-484q0-146 93-257.5T410-880q-18 99 11 193.5T521-521q71 71 165.5 100T880-410q-26 144-138 237T484-80Zm0-80q88 0 163-44t118-121q-86-8-163-43.5T464-465q-61-61-97-138t-43-163q-77 43-120.5 118.5T160-484q0 135 94.5 229.5T484-160Zm-20-305Z"></path></svg>' :
-            post.visibility === 'private' ? '<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 -960 960 960" width="1em" class="icon icon-lock status__visibility-icon" title="关注者" aria-label="关注者" role="img"><path fill="currentColor" d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"></path></svg>' :
-              '<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 -960 960 960" width="1em" class="icon icon-globe status__visibility-icon" title="公开" aria-label="公开" role="img"><path fill="currentColor" d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q41-45 62.5-100.5T800-480q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z"></path></svg>'}
-              </span>
-            </div>
+        <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+          <a href="https://e5n.cc/@eallion" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 no-underline hover:no-underline min-w-0">
+            <img src="${avatarSrc}" alt="avatar" class="rounded-full h-6 w-6 border border-gray-300 dark:border-gray-700 object-cover flex-shrink-0" onerror="this.src='/assets/images/mastodon/missing.png'">
+            <span class="font-medium text-gray-900 dark:text-gray-100 truncate">${displayName}</span>
+            <span class="text-xs text-gray-500 dark:text-gray-400 truncate hidden sm:inline">${acctHandle}</span>
+          </a>
+          <div class="flex items-center gap-2 flex-shrink-0 text-xs">
+            <span class="mt-footer-date" data-created-at="${post.created_at}">
+              <a href="${post.url || 'https://e5n.cc/@eallion'}" target="_blank" rel="noopener noreferrer" class="no-underline text-gray-500 dark:text-gray-400 hover:underline">-</a>
+            </span>
           </div>
         </div>
       `;
 
-      // 内容部分
-      // 处理正文及可能的 quote（只支持一层引用）
+      // 正文与引用
       const mainContentHtml = encodeExternalLinks(post.reblog?.content || post.content);
-      // 支持两种来源的 quote：直接在顶层 post.quote，或在转发中 post.reblog.quote（但只支持单层引用）
       const quoteSource = post.quote?.quoted_status ? post.quote : (post.reblog?.quote?.quoted_status ? post.reblog.quote : null);
       const cleanedMainContent = quoteSource
         ? mainContentHtml.replace(/<p[^>]*class=["']quote-inline["'][^>]*>[\s\S]*?<\/p>/i, '')
@@ -610,23 +487,17 @@
       const quotedHtml = quoteSource ? (() => {
         const s = quoteSource.quoted_status;
         const quotedMediaHtml = renderMediaHtml(s.media_attachments, s.sensitive);
+        const quoteUrl = s.url || 'https://e5n.cc/@eallion';
 
         return `
-          <div class="mt-quote mt-4 border border-zinc-200 dark:border-[#cdd9e51a] bg-zinc-100 dark:bg-[#22272e] p-3 rounded-2xl text-sm shadow-sm hover:shadow-md transition-shadow duration-300">
-            <!-- top: avatar | name/acct -->
-            <div class="mt-quote-top flex items-center gap-3">
-              <div class="flex-shrink-0 w-9 h-9">
-                <img src="${replaceFileUrl(s.account.avatar)}" alt="avatar" class="w-full h-full rounded-md object-cover" onerror="this.src='/assets/images/mastodon/missing.png'">
-              </div>
-              <div class="flex-1 min-w-0">
-                <div class="text-sm font-semibold text-zinc-800 dark:text-[#e7e9eb] truncate">${s.account.display_name}</div>
-                <div class="text-xs text-zinc-500 dark:text-[#9aa4b2] truncate">${s.account.acct}</div>
-              </div>
+          <div onclick="window.open('${quoteUrl}', '_blank')" class="mt-quote mt-3 border border-gray-200 dark:border-gray-700 bg-gray-50/80 dark:bg-gray-800/60 p-3 rounded-lg text-sm cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700/80 hover:border-gray-300 dark:hover:border-gray-600 transition-all">
+            <div class="mt-quote-top not-prose flex items-center gap-2 mb-2">
+              <img src="${replaceFileUrl(s.account.avatar)}" alt="avatar" class="w-5 h-5 rounded-full object-cover border border-gray-300 dark:border-gray-700 m-0 my-0" onerror="this.src='/assets/images/mastodon/missing.png'">
+              <span class="font-medium text-gray-900 dark:text-gray-100 text-xs truncate">${s.account.display_name}</span>
+              <span class="text-xs text-gray-500 dark:text-gray-400 truncate">${s.account.acct}</span>
             </div>
-
-            <!-- bottom: content + media -->
-            <div class="mt-quote-bottom mt-3">
-              <div class="text-sm prose dark:prose-invert">${encodeExternalLinks(s.content)}</div>
+            <div class="mt-quote-bottom">
+              <div class="text-xs text-gray-800 dark:text-gray-200 prose dark:prose-invert max-w-none">${encodeExternalLinks(s.content)}</div>
               ${quotedMediaHtml}
             </div>
           </div>
@@ -634,46 +505,47 @@
       })() : '';
 
       article.innerHTML += `
-        <div class="mt-content my-4 prose dark:prose-invert">
-          ${cleanedMainContent}
+        <div class="mt-content text-gray-900 dark:text-gray-100 text-base leading-relaxed break-words prose dark:prose-invert max-w-none my-2.5">
+          <div class="relative mt-text-wrapper">
+            <div class="mt-text-body">
+              ${cleanedMainContent}
+              ${quotedHtml}
+            </div>
+          </div>
 
           ${post.media_attachments.length > 0 ? renderMediaHtml(post.media_attachments, (post.sensitive || post.reblog?.sensitive)) : ''}
-
-          ${quotedHtml ? (`<div class="mt-quote-label flex items-center gap-2 mt-3 mb-2 text-zinc-500 text-sm"><span>📜引用的嘟文：</span></div>` + quotedHtml) : ''}
         </div>
       `;
 
-      // 底部按钮
+      // 底部 Mastodon 互动按钮 (Line 线条风格)
       article.innerHTML += `
-        <div class="flex justify-between md:justify-start items-center gap-4 pt-4 border-t border-zinc-300 dark:border-[#cdd9e51a]">
-          <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7] hover:bg-zinc-300 dark:hover:bg-[#22272e] rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512"><path fill="currentColor" d="M204.2 18.4c12 5 19.8 16.6 19.8 29.6v80h112c97.2 0 176 78.8 176 176c0 113.3-81.5 163.9-100.2 174.1c-2.5 1.4-5.3 1.9-8.1 1.9c-10.9 0-19.7-8.9-19.7-19.7c0-7.5 4.3-14.4 9.8-19.5c9.4-8.8 22.2-26.4 22.2-56.7c0-53-43-96-96-96h-96v80c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-160-160c-12.5-12.5-12.5-32.8 0-45.3l160-160c9.2-9.2 22.9-11.9 34.9-6.9z" /></svg></span>
-            ${post.replies_count ? `<span class="mt-footer-reply">${post.replies_count}</span>` : ''}
-          </button>
-          <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7] hover:bg-zinc-300 dark:hover:bg-[#22272e] rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M118.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-9.2 9.2-11.9 22.9-6.9 34.9S19.1 160 32 160h32v224c0 53 43 96 96 96h128c17.7 0 32-14.3 32-32s-14.3-32-32-32H160c-17.7 0-32-14.3-32-32V160h32c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-64-64zm338.8 429.2c12.5 12.5 32.8 12.5 45.3 0l64-64c9.2-9.2 11.9-22.9 6.9-34.9S556.9 352 544 352h-32V128c0-53-43-96-96-96H288c-17.7 0-32 14.3-32 32s14.3 32 32 32h128c17.7 0 32 14.3 32 32v224h-32c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l64 64z" /></svg></span>
-            ${post.reblogs_count ? `<span class="mt-footer-reblog">${post.reblogs_count}</span>` : ''}
-          </button>
-          <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7] hover:bg-zinc-300 dark:hover:bg-[#22272e] rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="1.13rem" height="1rem" viewBox="0 0 576 512"><path fill="currentColor" d="M309.5-18.9c-4.1-8-12.4-13.1-21.4-13.1s-17.3 5.1-21.4 13.1l-73.6 144.2l-159.9 25.4c-8.9 1.4-16.3 7.7-19.1 16.3s-.5 18 5.8 24.4l114.4 114.5l-25.2 159.9c-1.4 8.9 2.3 17.9 9.6 23.2s16.9 6.1 25 2l144.4-73.4L432.4 491c8 4.1 17.7 3.3 25-2s11-14.2 9.6-23.2l-25.3-159.9l114.4-114.5c6.4-6.4 8.6-15.8 5.8-24.4s-10.1-14.9-19.1-16.3L383 125.3z" /></svg></span>
-            ${post.favourites_count ? `<span class="mt-footer-favourit">${post.favourites_count}</span>` : ''}
-          </button>
-          <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7] hover:bg-zinc-300 dark:hover:bg-[#22272e] rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="0.75rem" height="1rem" viewBox="0 0 384 512"><path fill="currentColor" d="M64 0C28.7 0 0 28.7 0 64v416c0 11.5 6.2 22.2 16.2 27.8s22.3 5.5 32.2-.4L192 421.3l143.5 86.1c9.9 5.9 22.2 6.1 32.2.4S384 491.5 384 480V64c0-35.3-28.7-64-64-64z" /></svg></span>
-            ${post.bookmarked ? `<span class="mt-footer-favourit">${post.bookmarked}</span>` : ''}
-          </button>
-          <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1 px-2 py-1.5 text-zinc-700 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7] hover:bg-zinc-300 dark:hover:bg-[#22272e] rounded-md transition-all duration-200 text-sm hover:cursor-pointer">
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="0.88rem" height="1rem" viewBox="0 0 448 512"><path fill="currentColor" d="M0 256a56 56 0 1 1 112 0a56 56 0 1 1-112 0m168 0a56 56 0 1 1 112 0a56 56 0 1 1-112 0m224-56a56 56 0 1 1 0 112a56 56 0 1 1 0-112" /></svg></span>
-          </button>
-          <div class="hidden md:inline px-2 py-1.5 text-zinc-700 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7] text-sm ml-auto">
-            <span class="mt-footer-date" data-created-at="${post.created_at}">
-              <a href="${post.url || 'https://e5n.cc/@eallion'}" target="_blank" rel="noopener noreferrer" class="no-underline text-zinc-600 dark:text-[#768390] hover:text-zinc-900 dark:hover:text-[#adbac7]">-</a>
-            </span>
+        <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 pt-2.5 border-t border-gray-100 dark:border-gray-700/60 mt-auto">
+          <div class="flex items-center gap-1 sm:gap-2">
+            <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1.5 px-2 py-1 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700/60 rounded-md transition-colors cursor-pointer" title="回复">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="size-3.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              ${post.replies_count ? `<span class="font-medium text-xs">${post.replies_count}</span>` : ''}
+            </button>
+            <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1.5 px-2 py-1 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700/60 rounded-md transition-colors cursor-pointer" title="转嘟">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="size-3.5"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+              ${post.reblogs_count ? `<span class="font-medium text-xs">${post.reblogs_count}</span>` : ''}
+            </button>
+            <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1.5 px-2 py-1 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700/60 rounded-md transition-colors cursor-pointer" title="喜欢">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="size-3.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              ${post.favourites_count ? `<span class="font-medium text-xs">${post.favourites_count}</span>` : ''}
+            </button>
+            <button onclick="window.open('${post.url || "https://e5n.cc/@eallion"}', '_blank')" class="flex items-center gap-1.5 px-2 py-1 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700/60 rounded-md transition-colors cursor-pointer" title="书签">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="size-3.5"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
+            </button>
           </div>
+          <a href="${post.url || 'https://e5n.cc/@eallion'}" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 dark:hover:text-gray-200 transition-colors flex-shrink-0 ml-auto p-1" title="在 Mastodon 打开">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="size-3.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
       `;
 
-      postsWrapper.appendChild(article);
+      const targetColIndex = getTargetColumnIndex(cols, globalPostIndex);
+      cols[targetColIndex].appendChild(article);
+      globalPostIndex++;
     });
 
     // 触发 blurhash 渲染
@@ -681,9 +553,114 @@
     // 刷新相对时间
     updateRelativeTimes();
 
+    // 检测 5 行正文并生成折叠/显示全部按钮
+    checkAndSetupExpandButtons();
+
     // 触发 ViewImage 初始化
-    window.ViewImage?.init('.mt-images-container a');
+    initViewImage();
   }
+
+  function initViewImage() {
+    if (window.ViewImage) {
+      window.ViewImage.init('.mt-images-container a, [view-image] a');
+    } else {
+      setTimeout(initViewImage, 150);
+    }
+  }
+
+  let currentlyExpandedWrapper = null;
+  let currentlyExpandedTextBody = null;
+  let currentlyExpandedOverlay = null;
+  let currentlyExpandedBtn = null;
+
+  function expandPost(wrapperEl, textBodyEl, overlayEl, btnEl) {
+    if (currentlyExpandedTextBody && currentlyExpandedTextBody !== textBodyEl) {
+      collapsePost(currentlyExpandedWrapper, currentlyExpandedTextBody, currentlyExpandedOverlay, currentlyExpandedBtn);
+    }
+
+    textBodyEl.classList.remove('mt-text-clamp');
+    if (overlayEl) {
+      overlayEl.className = 'mt-expand-overlay flex justify-center my-2';
+    }
+    if (btnEl) {
+      btnEl.innerHTML = `<span>收起正文</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-3"><path d="m18 15-6-6-6 6"/></svg>`;
+    }
+    currentlyExpandedWrapper = wrapperEl;
+    currentlyExpandedTextBody = textBodyEl;
+    currentlyExpandedOverlay = overlayEl;
+    currentlyExpandedBtn = btnEl;
+  }
+
+  function collapsePost(wrapperEl, textBodyEl, overlayEl, btnEl) {
+    if (!textBodyEl) return;
+    textBodyEl.classList.add('mt-text-clamp');
+    if (overlayEl) {
+      overlayEl.className = 'mt-expand-overlay absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-gray-800 dark:via-gray-800/80 flex items-end justify-center pointer-events-none pb-0.5';
+    }
+    if (btnEl) {
+      btnEl.innerHTML = `<span>显示全文</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-3"><path d="m6 9 6 6 6-6"/></svg>`;
+    }
+    if (currentlyExpandedTextBody === textBodyEl) {
+      currentlyExpandedWrapper = null;
+      currentlyExpandedTextBody = null;
+      currentlyExpandedOverlay = null;
+      currentlyExpandedBtn = null;
+    }
+  }
+
+  function checkAndSetupExpandButtons() {
+    const textWrappers = document.querySelectorAll('#mt-posts-wrapper .mt-text-wrapper');
+    textWrappers.forEach(wrapperEl => {
+      if (wrapperEl.dataset.expandSetup) return;
+
+      const textBodyEl = wrapperEl.querySelector('.mt-text-body');
+      if (!textBodyEl) return;
+
+      // 默认尝试加上 5 行限制
+      textBodyEl.classList.add('mt-text-clamp');
+
+      // 如果真实高度大于截断高度，说明正文超过了 5 行
+      if (textBodyEl.scrollHeight > textBodyEl.clientHeight + 4) {
+        wrapperEl.dataset.expandSetup = 'true';
+
+        const overlayEl = document.createElement('div');
+        overlayEl.className = 'mt-expand-overlay absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-gray-800 dark:via-gray-800/80 flex items-end justify-center pointer-events-none pb-0.5';
+
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'pointer-events-auto border border-gray-200 dark:border-gray-700 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full px-5 py-1.5 text-xs font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors shadow-sm cursor-pointer flex items-center gap-1.5 focus:outline-none';
+        toggleBtn.innerHTML = `<span>显示全文</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-3"><path d="m6 9 6 6 6-6"/></svg>`;
+
+        toggleBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isClamped = textBodyEl.classList.contains('mt-text-clamp');
+          if (isClamped) {
+            expandPost(wrapperEl, textBodyEl, overlayEl, toggleBtn);
+          } else {
+            collapsePost(wrapperEl, textBodyEl, overlayEl, toggleBtn);
+          }
+        });
+
+        overlayEl.appendChild(toggleBtn);
+        wrapperEl.appendChild(overlayEl);
+      } else {
+        textBodyEl.classList.remove('mt-text-clamp');
+      }
+    });
+  }
+
+  // 页面滚动时检测当前已展开的卡片，仅当卡片完全滑出视窗区域后才自动收起
+  window.addEventListener('scroll', () => {
+    if (currentlyExpandedWrapper) {
+      const article = currentlyExpandedWrapper.closest('article');
+      if (article) {
+        const rect = article.getBoundingClientRect();
+        // 当卡片底部彻底高于视窗顶端 (rect.bottom < 0) 或 卡片顶部彻底低于视窗底端 (rect.top > innerHeight) 时，判定离屏并收起
+        if (rect.bottom < 0 || rect.top > (window.innerHeight || document.documentElement.clientHeight)) {
+          collapsePost(currentlyExpandedWrapper, currentlyExpandedTextBody, currentlyExpandedOverlay, currentlyExpandedBtn);
+        }
+      }
+    }
+  }, { passive: true });
 
   /**
    * 显示错误状态（复用原有的加载指示器）
@@ -886,6 +863,100 @@
   }
 
 
+  // --- Infinite Scroll Pagination (带防刷与阻尼感) ---
+  async function fetchNextPage() {
+    const now = Date.now();
+
+    // 1. 防刷限制：距上次发请求未满 1.2 秒则拦截
+    if (now - lastFetchTime < MIN_FETCH_INTERVAL) return;
+
+    // 2. 状态锁与 API 熔断保护
+    if (isLoadingMore || !hasMore || !currentMaxId) return;
+    if (consecutiveErrorCount >= 3) {
+      console.warn('Mastodon API 异常冷却中，暂时暂停请求。');
+      setTimeout(() => { consecutiveErrorCount = 0; }, 10000);
+      return;
+    }
+
+    isLoadingMore = true;
+    lastFetchTime = now;
+
+    const infiniteSpinner = document.getElementById('mt-infinite-spinner');
+    const noMoreEl = document.getElementById('mt-no-more');
+
+    // 显示阻尼 Spinner 动态加载反馈
+    if (infiniteSpinner) infiniteSpinner.classList.remove('hidden');
+
+    try {
+      const fetchUrl = `${BASE_API_URL}&limit=${NEXT_PAGE_LIMIT}&max_id=${currentMaxId}`;
+
+      // 3. 阻尼感核心：网络 Fetch 与 450ms 缓冲延迟并行，塑造极佳的阻尼加载视觉期待感
+      const [response] = await Promise.all([
+        fetch(fetchUrl),
+        new Promise(resolve => setTimeout(resolve, DAMPING_DELAY))
+      ]);
+
+      if (!response.ok) throw new Error(`API 返回状态码 ${response.status}`);
+
+      const newPosts = await response.json();
+      consecutiveErrorCount = 0; // 成功即重置错误计数
+
+      if (!newPosts || newPosts.length === 0) {
+        hasMore = false;
+        if (noMoreEl) noMoreEl.classList.remove('hidden');
+        return;
+      }
+
+      // 4. 追加渲染新嘟文
+      renderContent(newPosts, true);
+
+      if (newPosts.length < NEXT_PAGE_LIMIT) {
+        hasMore = false;
+        if (noMoreEl) noMoreEl.classList.remove('hidden');
+      }
+    } catch (err) {
+      consecutiveErrorCount++;
+      console.error('加载下一页 statuses 失败:', err);
+    } finally {
+      isLoadingMore = false;
+      if (infiniteSpinner) infiniteSpinner.classList.add('hidden');
+    }
+  }
+
+  function setupInfiniteScroll() {
+    const sentinel = document.getElementById('mt-sentinel');
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && hasMore && !isLoadingMore) {
+          fetchNextPage();
+        }
+      });
+    }, {
+      rootMargin: '100px 0px', // 触底边缘 100px 时才感知触发，避免过于灵敏
+      threshold: 0.1
+    });
+
+    observer.observe(sentinel);
+  }
+
+  // --- Lightbox Scroll Lock Helper ---
+  function setupLightboxScrollLock() {
+    const observer = new MutationObserver(() => {
+      const hasLightbox = document.querySelector('.view-image') !== null;
+      if (hasLightbox) {
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+      }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+
   // --- Page Initialization ---
   document.addEventListener('DOMContentLoaded', async () => {
     let cached = null;
@@ -942,6 +1013,12 @@
 
       hideLoadingSpinner();
     }
+
+    // 初始化无限滚动监听
+    setupInfiniteScroll();
+
+    // 初始化灯箱背景滚动锁定监听
+    setupLightboxScrollLock();
 
     // 原有的 30 秒超时处理，现在只处理首次加载失败的情况
     setTimeout(() => {
@@ -1010,8 +1087,5 @@
 
 	document.addEventListener('DOMContentLoaded', setupObserver);
 </script>
-
-{{ $viewJS := resources.Get "js/view-image.min.js" | fingerprint "sha256" }}
-<script type="text/javascript" src="{{ $viewJS.RelPermalink }}" integrity="{{ $viewJS.Data.Integrity }}"></script>
 
 {{ end }}
