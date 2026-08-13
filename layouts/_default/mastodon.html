@@ -2,6 +2,79 @@
 <link rel="preconnect" href="https://e5n.cc">
 <link rel="dns-prefetch" href="https://e5n.cc">
 <style>
+  /* ============================================================
+   * Mastodon API 内容 盒模型隔离 Reset
+   * ------------------------------------------------------------
+   * Mastodon content 是第三方 HTML。字体样式（字号/字重/行高/
+   * 链接色等）继续复用博客 single 正文的 Typography (.prose) 样式，
+   * 这里只重置盒模型与空白边距（margin / padding），避免 prose 的
+   * 文章级大间距（段落 1.25em、标题大 margin 等）套进卡片。
+   *
+   * 设计要点：
+   * 1. 选择器用 :where() / :not(:where()) 保持 0 特异性，
+   *    现有 .mt-content 定向规则（含 !important）可正常覆盖；
+   * 2. 页面 <style> 为未分层样式，优先级高于 Tailwind 输出到
+   *    @layer components / base 的 prose 与 preflight 规则；
+   * 3. 用 :not(:where()) 排除卡片自身 UI 容器（头像、缩略图、
+   *    展开按钮、文本截断容器等带 Tailwind class 的部分）。
+   * ============================================================ */
+
+  /* 1) 正文内所有块级标签：清空 prose 的文章级 margin / padding */
+  .mt-content :where(
+    address, blockquote, dd, div, dl, dt, figcaption, figure, h1, h2,
+    h3, h4, h5, h6, hr, li, ol, p, pre, table, tbody, td, th, thead,
+    tr, ul
+  ):not(:where(
+    .mt-text-wrapper, .mt-text-body, .mt-quote, .mt-quote-top,
+    .mt-quote-top *, .mt-quote-content, .mt-quote-bottom,
+    .mt-images-container, .mt-images-container *,
+    .mt-expand-overlay, .mt-expand-overlay *
+  )) {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 2) 正文内图片（Mastodon 自定义 emoji 等）：恢复内联布局，
+     避免 Preflight 的 display: block 让 emoji 独占一行 */
+  .mt-content :where(img):not(:where(
+    .mt-quote-top *, .mt-images-container *
+  )) {
+    display: inline;
+    vertical-align: middle;
+  }
+
+  /* 3) 紧凑间距：reset 后为正文定义适合卡片的间距，
+     与现有 .mt-content p 的 0.35em 节奏保持一致 */
+  .mt-content ul,
+  .mt-content ol {
+    padding-left: 1.5em;
+    margin: 0.5em 0;
+  }
+  .mt-content li {
+    margin: 0.25em 0;
+  }
+  .mt-content blockquote {
+    margin: 0.5em 0;
+    padding: 0 0 0 0.75em;
+    border-left: 3px solid #cdd9e5;
+  }
+  .mt-content h1,
+  .mt-content h2,
+  .mt-content h3,
+  .mt-content h4,
+  .mt-content h5,
+  .mt-content h6 {
+    margin: 0.35em 0 0.35em;
+  }
+  .mt-content hr {
+    margin: 0.75em 0;
+    border: 0;
+    border-top: 1px solid #cdd9e5;
+  }
+  .mt-content figure {
+    margin: 0.5em 0;
+  }
+
   .mt-content p {
     overflow-wrap: break-word;
     word-break: break-word;
@@ -186,13 +259,16 @@
 
 	<!-- 无限滚动 Sentinel 与 Spinner -->
 	<div id="mt-sentinel" class="w-full flex flex-col items-center py-8">
-		<div id="mt-infinite-spinner" class="hidden flex flex-col items-center gap-2">
-			<span class="text-xs text-gray-400 font-medium">正在加载更多...</span>
-			<img src="/assets/images/mastodon/loading.gif" alt="loading" class="h-6 w-6">
+		<div id="mt-infinite-spinner" class="hidden flex flex-col items-center gap-3 py-2">
+			<span class="text-base text-gray-500 dark:text-gray-400 font-medium">正在加载更多...</span>
+			<img src="/assets/images/mastodon/loading.gif" alt="loading" class="h-25 w-25">
 		</div>
-		<div id="mt-no-more" class="hidden text-xs text-gray-400 font-medium py-4">
-			— 已加载全部动态 —
-		</div>
+	<button id="mt-load-more-button" type="button" class="hidden mt-1 px-6 py-2 text-sm font-medium text-gray-500 dark:text-gray-300 border border-gray-300 dark:border-zinc-700 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer select-none">
+		加载更多
+	</button>
+	<div id="mt-no-more" class="hidden text-xs text-gray-400 font-medium py-4">
+		— 已加载全部动态 —
+	</div>
 	</div>
 
 </div>
@@ -214,8 +290,9 @@
   const UPDATE_INTERVAL = 60 * 1000; // 1 分钟 (前台激活时检查频率)
 
   // --- 防刷与阻尼加载配置 ---
-  const MIN_FETCH_INTERVAL = 1200; // 请求最小冷却间隔 1.2 秒
-  const DAMPING_DELAY = 450;      // 阻尼加载缓冲延迟 450ms
+  const MIN_FETCH_INTERVAL = 1800; // 请求最小冷却间隔 1.8 秒 (滚动触发更克制)
+  const DAMPING_DELAY = 600;      // 阻尼加载缓冲延迟 600ms
+  const MAX_SCROLL_LOADS = 5;     // 滚动自动加载次数上限，达到后切换为手动「加载更多」
 
   let updateTimer = null; // 定时器句柄
   let currentMaxId = null; // 用于分页的 statuses max_id
@@ -224,6 +301,7 @@
   let globalPostIndex = 0; // 全局嘟文计数，用于 3 列分发 order
   let lastFetchTime = 0; // 上次成功发请求的时间戳
   let consecutiveErrorCount = 0; // 连续请求失败计数
+  let scrollLoadCount = 0;       // 已通过滚动自动加载的次数 (达到 MAX_SCROLL_LOADS 后改为手动)
 
   // --- Helper Functions ( extracted from original inline code) ---
 
@@ -501,7 +579,7 @@
               <span class="text-xs text-gray-500 dark:text-gray-400 truncate">${s.account.acct}</span>
             </div>
             <div class="mt-quote-bottom">
-              <div class="text-xs text-gray-800 dark:text-gray-200 prose dark:prose-invert max-w-none">${encodeExternalLinks(s.content)}</div>
+              <div class="mt-quote-content text-xs text-gray-800 dark:text-gray-200 prose dark:prose-invert max-w-none">${encodeExternalLinks(s.content)}</div>
               ${quotedMediaHtml}
             </div>
           </div>
@@ -868,13 +946,59 @@
 
 
   // --- Infinite Scroll Pagination (带防刷与阻尼感) ---
-  async function fetchNextPage() {
+  // 滚动自动加载达到上限后，切换为手动「加载更多」按钮
+  function showLoadMoreButton() {
+    const loadMoreBtn = document.getElementById('mt-load-more-button');
+    if (!loadMoreBtn) return;
+    if (hasMore && !isLoadingMore) {
+      loadMoreBtn.classList.remove('hidden');
+    } else {
+      loadMoreBtn.classList.add('hidden');
+    }
+  }
+
+  /**
+   * 视口填充检查：处理「刷新后已停在 footer / 高分辨率屏内容不足一屏」的场景。
+   *
+   * 背景：IntersectionObserver 只在 sentinel 元素进出视口时回调。若页面加载后
+   * sentinel 已处于视口内（内容不足一屏），observer 初始化时的首次回调往往
+   * 发生在 currentMaxId 就绪之前而被拦截；之后 sentinel 的 intersection 状态
+   * 不再变化（滚动也无法让它重新进入视口），导致永远无法触发加载。
+   *
+   * 此函数主动用 getBoundingClientRect() 检查 sentinel 是否已贴近视口底部，
+   * 是则立即加载下一页，实现「刷新后向下滚动 / 高分辨率屏」的加载填充。
+   */
+  function autoLoadIfSentinelVisible(bypassCooldown = false) {
+    if (!hasMore || isLoadingMore || !currentMaxId) return;
+    if (scrollLoadCount >= MAX_SCROLL_LOADS) {
+      showLoadMoreButton();
+      return;
+    }
+    const sentinel = document.getElementById('mt-sentinel');
+    if (!sentinel) return;
+    const rect = sentinel.getBoundingClientRect();
+    const viewportH = window.innerHeight || document.documentElement.clientHeight;
+    // sentinel 顶部已进入视口底部 100px 缓冲区（与 observer 的 rootMargin 一致）
+    if (rect.top <= viewportH + 100) {
+      fetchNextPage(false, { bypassCooldown });
+    }
+  }
+
+  async function fetchNextPage(isManual = false, opts = {}) {
     const now = Date.now();
+    const bypassCooldown = !!opts.bypassCooldown;
 
-    // 1. 防刷限制：距上次发请求未满 1.2 秒则拦截
-    if (now - lastFetchTime < MIN_FETCH_INTERVAL) return;
+    // 1. 防刷限制：距上次发请求未满 1.8 秒则拦截
+    //    (手动点击 / 首次视口填充可绕过，保证即时响应)
+    if (!isManual && !bypassCooldown && now - lastFetchTime < MIN_FETCH_INTERVAL) return;
 
-    // 2. 状态锁与 API 熔断保护
+    // 2. 滚动自动加载次数上限：达到后停止自动加载，改为手动点击
+    if (!isManual && scrollLoadCount >= MAX_SCROLL_LOADS) {
+      showLoadMoreButton();
+      return;
+    }
+
+    // 3. 状态锁与 API 熔断保护
     if (isLoadingMore || !hasMore || !currentMaxId) return;
     if (consecutiveErrorCount >= 3) {
       console.warn('Mastodon API 异常冷却中，暂时暂停请求。');
@@ -884,6 +1008,7 @@
 
     isLoadingMore = true;
     lastFetchTime = now;
+    let success = false; // 本次请求是否成功渲染
 
     const infiniteSpinner = document.getElementById('mt-infinite-spinner');
     const noMoreEl = document.getElementById('mt-no-more');
@@ -894,7 +1019,7 @@
     try {
       const fetchUrl = `${BASE_API_URL}&limit=${NEXT_PAGE_LIMIT}&max_id=${currentMaxId}`;
 
-      // 3. 阻尼感核心：网络 Fetch 与 450ms 缓冲延迟并行，塑造极佳的阻尼加载视觉期待感
+      // 3. 阻尼感核心：网络 Fetch 与 600ms 缓冲延迟并行，塑造极佳的阻尼加载视觉期待感
       const [response] = await Promise.all([
         fetch(fetchUrl),
         new Promise(resolve => setTimeout(resolve, DAMPING_DELAY))
@@ -913,6 +1038,7 @@
 
       // 4. 追加渲染新嘟文
       renderContent(newPosts, true);
+      success = true;
 
       if (newPosts.length < NEXT_PAGE_LIMIT) {
         hasMore = false;
@@ -924,6 +1050,19 @@
     } finally {
       isLoadingMore = false;
       if (infiniteSpinner) infiniteSpinner.classList.add('hidden');
+      // 滚动自动加载计数：成功渲染后才 +1
+      if (!isManual && success) scrollLoadCount++;
+      // 达到上限或手动模式时，统一在此刷新「加载更多」按钮显隐
+      // (isLoadingMore 已复位，showLoadMoreButton 内部条件成立)
+      if (isManual || scrollLoadCount >= MAX_SCROLL_LOADS) {
+        showLoadMoreButton();
+      }
+      // 视口续填：非手动加载成功后，若内容仍不足一屏（高分辨率屏 / 长视口），
+      // 等待冷却结束后自动检查并继续填充，直到 sentinel 移出视口底部或达上限。
+      // (手动按钮点击后不自动续填，保持「点一次加载一页」的语义)
+      if (!isManual && success && scrollLoadCount < MAX_SCROLL_LOADS) {
+        setTimeout(() => autoLoadIfSentinelVisible(), MIN_FETCH_INTERVAL);
+      }
     }
   }
 
@@ -933,8 +1072,13 @@
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting && hasMore && !isLoadingMore) {
+        if (!entry.isIntersecting) return;
+        if (hasMore && !isLoadingMore && scrollLoadCount < MAX_SCROLL_LOADS) {
+          // 滚动自动加载（未达上限）
           fetchNextPage();
+        } else if (scrollLoadCount >= MAX_SCROLL_LOADS) {
+          // 滚动自动加载已达上限，切换为手动「加载更多」
+          showLoadMoreButton();
         }
       });
     }, {
@@ -943,6 +1087,20 @@
     });
 
     observer.observe(sentinel);
+
+    // 「加载更多」按钮：手动加载一页（点击后继续保留按钮，直到全部加载完）
+    const loadMoreBtn = document.getElementById('mt-load-more-button');
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', () => {
+        loadMoreBtn.classList.add('hidden');
+        fetchNextPage(true);
+      });
+    }
+
+    // 数据就绪后首次主动检查：覆盖「刷新后已停在 footer / 内容不足一屏」
+    // 的场景。此时 observer 的初始化回调可能已被 currentMaxId 未就绪拦截，
+    // 且 sentinel 已在视口内不会再触发，需主动探测一次（绕过冷却即时生效）。
+    autoLoadIfSentinelVisible(true);
   }
 
   // --- Lightbox Scroll Lock Helper ---
