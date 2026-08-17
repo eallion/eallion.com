@@ -52,6 +52,7 @@ const SPECIAL_LAYOUTS = {
   links: 'links',
   'privacy-policy': 'privacy-policy',
   mastodon: 'mastodon',
+  whisper: 'whisper',
   milestone: 'timeline',
   stats: 'stats'
 };

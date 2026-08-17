@@ -2,7 +2,7 @@ baseURL = 'https://www.eallion.com/'
 defaultContentLanguage = "zh-cn"
 locale = 'zh-cn'
 label = "简体中文"
-title = "eallion's Blog"
+title = "大大的小蜗牛"
 theme = 'pehe'
 
 summaryLength = 20 # <- 20 words are approximately 160 characters
@@ -25,7 +25,7 @@ ignoreFiles = [
 ]
 
 [pagination]
-  pagerSize = 7 # <- Set the desired number of posts per page
+  pagerSize = 10 # <- Set the desired number of posts per page
 
 [build]
   writeStats = true

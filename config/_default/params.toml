@@ -1,4 +1,5 @@
 hero = true
+heroStyle = "dsh" # hero 风格："dsh" (DeepSeek Harness 动态流体风格) | "pehe" (原版简约头像风格)
 selection_category = "精选"
 isoCode = "zh-cn"
 rtl = false
@@ -10,8 +11,8 @@ preconnect = ["https://e.content-delivery-network.cn", "https://images.eallion.c
 creativecommons = "by-sa"
 copyright_name = "eallion.com"
 icp = "浙ICP备16031768号-2"
-description = 'Gemini, Millennials, Normie, Kōjigen, N24SWD, AIWS, Upekkha. Geeker, Gamer, Blogger.'
-keywords = ["Gemini", "Millennials", "Normie", "Kōjigen", "N24SWD", "AIWS", "Upekkha", "Geeker", "Gamer", "Blogger"]
+description = 'Gemini, Millennials, Tiger, Normie, Kōjigen, N24SWD, AIWS, Upekkha. Geeker, Gamer, Blogger.'
+keywords = ["Gemini", "Millennials", "Tiger", "Normie", "Kōjigen", "N24SWD", "AIWS", "Upekkha", "Geeker", "Gamer", "Blogger"]
 mainSections = 'blog'
 archiveSize = 0 # <- Set the desired number of posts per archive page
 
@@ -107,6 +108,10 @@ ogImageURL = "https://og.eallion.com/api/og?title="
   name = "Twitter"
   url = "https://twitter.com/eallion"
   icon = "twitter"
+[[social]]
+  name = "Reddit"
+  url = "https://www.reddit.com/user/eallion"
+  icon = "reddit"
 [[social]]
   name = "Steam"
   url = "https://steamcommunity.com/id/eallion"

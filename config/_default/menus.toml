@@ -5,26 +5,26 @@
   weight = 10
 [[main]]
   name = '说说'
-  pageRef = '/mastodon/'
+  pageRef = '/whisper/'
   weight = 20
-# [[main]]
-#   name = '统计'
-#   pageRef = '/stats/'
-#   weight = 25
-# [[main]]
-#   name = '里程碑'
-#   pageRef = '/milestone/'
-#   weight = 35
-# [[main]]
-#   name = '友情链接'
-#   pageRef = '/links/'
-#   weight = 45
 [[main]]
-  name = '归档'
+  name = '统计'
+  pageRef = '/stats/'
+  weight = 25
+[[main]]
+  name = '里程碑'
+  pageRef = '/milestone/'
+  weight = 35
+[[main]]
+  name = '友情链接'
+  pageRef = '/links/'
+  weight = 45
+[[main]]
+  name = '文章归档'
   pageRef = '/blog/'
   weight = 89
 [[main]]
-  name = 'About'
+  name = '关于'
   pageRef = '/about'
   weight = 99
 
