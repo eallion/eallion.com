@@ -99,7 +99,8 @@ ogImageURL = "https://og.eallion.com/api/og?title="
 [[social]]
   name = "Mastodon"
   url = "https://e5n.cc/@eallion"
-  icon = "mastodon"
+  icon = "mastodon-color"
+  action = "关注" # 可选，显式指定 "关注" 或 "查看"
 [[social]]
   name = "GitHub"
   url = "https://github.com/eallion"
@@ -107,11 +108,11 @@ ogImageURL = "https://og.eallion.com/api/og?title="
 [[social]]
   name = "Twitter"
   url = "https://twitter.com/eallion"
-  icon = "twitter"
+  icon = "twitter-color"
 [[social]]
   name = "Reddit"
   url = "https://www.reddit.com/user/eallion"
-  icon = "reddit"
+  icon = "reddit-color"
 [[social]]
   name = "Steam"
   url = "https://steamcommunity.com/id/eallion"
