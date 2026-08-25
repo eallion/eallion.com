@@ -1,5 +1,13 @@
 hero = true
-heroStyle = "dsh" # hero 风格："dsh" (DeepSeek Harness 动态流体风格) | "pehe" (原版简约头像风格)
+heroStyle = "video" # hero 风格："pehe" (原版简约头像风格) | "dsh" (DeepSeek Harness 动态流体风格) | "image" (静态图片背景) | "video" (动态视频背景)
+imageUrl = "https://api.eallion.com/bing?type=image" # heroStyle = "image" 时的背景图片地址
+heroStyleFmt = "dogecloud" # heroStyle = "video" 时的视频格式："mp4" | "dogecloud"
+videoURL = "/videos/hero-bg.mp4" # 当 heroStyleFmt = "mp4" 时的视频文件地址
+heroStyleDogecloudUserId = 5123 # 多吉云用户 ID (可根据个人信息控制台填入，默认 1)
+heroStyleDogecloudVcode = "c1e7ae0d02223b03" # 当 heroStyleFmt = "dogecloud" 时的多吉云视频 vcode (视频 ID)
+# heroStyleDogecloudPlayToken = "" # 开启防盗链时的播放 Token（可选）
+# heroStyleDogecloudVtype = 5 # 指定多吉云默认清晰度 ID（可选）
+
 selection_category = "精选"
 isoCode = "zh-cn"
 rtl = false
@@ -9,6 +17,7 @@ slogan = "Chance favors the prepared mind!"
 slogan_hover = "机会总是垂青于有准备的人！"
 preconnect = ["https://e.content-delivery-network.cn", "https://images.eallion.com"]
 creativecommons = "by-sa"
+startYear = 2006
 copyright_name = "eallion.com"
 icp = "浙ICP备16031768号-2"
 description = 'Gemini, Millennials, Tiger, Normie, Kōjigen, N24SWD, AIWS, Upekkha. Geeker, Gamer, Blogger.'
