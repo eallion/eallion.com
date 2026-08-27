@@ -1,8 +1,14 @@
 <script>
-	(function() {
+	(function () {
 		const targetHost = "www.eallion.com";
-		const allowedHosts = [targetHost, "localhost", "127.0.0.1", "0.0.0.0"];
-		if (!allowedHosts.includes(window.location.hostname)) {
+		const host = window.location.hostname;
+		const allowedExact = [targetHost, "localhost", "127.0.0.1", "0.0.0.0"];
+
+		const isAllowed =
+			allowedExact.includes(host) ||
+			host.startsWith("192.168.");
+
+		if (!isAllowed) {
 			window.location.replace("https://" + targetHost + window.location.pathname + window.location.search + window.location.hash);
 		}
 	})();
