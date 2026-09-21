@@ -26,6 +26,8 @@ heroStyleUrl = "https://api.eallion.com/bing?type=image"
 # heroStyleTencentFileId = "" # 腾讯云点播媒体 FileID
 # heroStyleTencentPsign = "" # 腾讯云播放器签名 (psign，可选)
 # heroStyleTencentLicenseUrl = "" # 腾讯云 Web 播放器 License URL (可选)
+# 是否开启返回顶部按钮（带环形阅读进度条）：true | false（默认 true）
+backToTop = true
 
 selection_category = "精选"
 isoCode = "zh-cn"
