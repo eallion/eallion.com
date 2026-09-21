@@ -80,8 +80,7 @@ Ghost Admin API → ghost-fetch-*.js → Markdown (content/blog/) → Hugo → P
 - `scripts/ghost-fetch-posts.js` 通过 Admin API 拉取文章，转换为 Hugo Markdown
 - `scripts/ghost-fetch-pages.js` 拉取页面（about、links、stats 等）
 - `scripts/fetch-stats.js` 聚合外部 API 数据（Mastodon、Steam、NeoDB、Penta、GitHub）
-- `scripts/generate-llms.js` 生成 `LLMs.txt` 供 AI 工具使用
-- **Hugo** 构建静态站点，**Pagefind** 构建搜索索引
+- **Hugo** 构建静态站点并原生生成 `llms.txt` 和 `llms-full.txt`，**Pagefind** 构建搜索索引
 
 ---
 
@@ -92,23 +91,23 @@ Ghost Admin API → ghost-fetch-*.js → Markdown (content/blog/) → Hugo → P
 pnpm build
 
 # 仅拉取 Ghost 内容 + 构建
-pnpm run fetch:ghost && pnpm run gen:llms && pnpm run build:hugo && pnpm run build:pagefind
+pnpm fetch:ghost && pnpm fetch:stats && pnpm build:hugo && pnpm build:pagefind
 ```
 
 ### Ghost 内容拉取
 
 ```bash
 # 拉取所有文章+页面+统计数据
-pnpm run fetch:ghost
+pnpm fetch:ghost
 
 # 仅文章
-pnpm run fetch:ghost:posts
+pnpm fetch:ghost:posts
 
 # 仅页面
-pnpm run fetch:ghost:pages
+pnpm fetch:ghost:pages
 
 # 仅统计数据
-pnpm run fetch:stats
+pnpm fetch:stats
 ```
 
 两个抓取脚本支持 CLI 参数：
@@ -139,9 +138,6 @@ pnpm build:hugo
 
 # Pagefind 搜索索引
 pnpm build:pagefind
-
-# LLMs.txt
-pnpm gen:llms
 ```
 
 ### 开发
@@ -207,7 +203,7 @@ pnpm theme:update
 在 **Ghost 后台** 撰写文章，保存发布后运行：
 
 ```bash
-pnpm run fetch:ghost:posts
+pnpm fetch:ghost:posts
 # 或完整构建
 pnpm build
 ```

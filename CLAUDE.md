@@ -20,76 +20,71 @@ This is a Hugo static site blog (eallion.com) that uses the "pehtheme" theme and
 
 ```bash
 # Start development server with live reload
-pnpm run dev
+pnpm dev
 
 # Build for production (full pipeline)
-pnpm run build
+pnpm build
 
 # Clean all generated files
-pnpm run clean
+pnpm clean
 ```
 
 ### Production Build (actual pipeline used online)
 
 ```bash
-pnpm run fetch:ghost && pnpm run gen:llms && pnpm run build:hugo && pnpm run build:pagefind
+pnpm fetch:ghost && pnpm gen:llms && pnpm build:hugo && pnpm build:pagefind
 ```
 
 ### Content Fetching
 
 ```bash
 # Fetch all Ghost content (posts + pages)
-pnpm run fetch:ghost
+pnpm fetch:ghost
 
 # Fetch Ghost posts only
-pnpm run fetch:ghost:posts
+pnpm fetch:ghost:posts
 
 # Fetch Ghost pages only
-pnpm run fetch:ghost:pages
+pnpm fetch:ghost:pages
 
 # Fetch stats from all external APIs
-pnpm run fetch:stats
+pnpm fetch:stats
 ```
 
 ### Build Steps (individual)
 
 ```bash
 # Ghost content + stats
-pnpm run fetch:ghost
-
-# Generate LLMs.txt for AI context
-pnpm run gen:llms
+pnpm fetch:ghost
 
 # Build Hugo static site
-pnpm run build:hugo
+pnpm build:hugo
 
 # Build Pagefind search index
-pnpm run build:pagefind
+pnpm build:pagefind
 
 # Syntax highlighting theme
-pnpm run build:chroma
+pnpm build:chroma
 
 # Local search preview
-pnpm run dev:pagefind
+pnpm dev:pagefind
 ```
 
 ### Theme Management
 
 ```bash
 # Initialize git submodules for theme
-pnpm run theme:init
+pnpm theme:init
 
 # Update theme to latest version
-pnpm run theme:update
+pnpm theme:update
 ```
 
 ## Architecture
 
 ### Content Flow
 
-1. **Headless CMS**: Ghost 6 manages blog content, fetched via Admin API (requires API key)
-2. **LLMs Generation**: `generate-llms.js` produces `LLMs.txt` for AI tool context
-3. **Static Generation**: Hugo builds static site from fetched markdown content
+2. **Static Generation**: Hugo builds static site and native LLMs (`llms.txt`, `llms-full.txt`) from fetched markdown content
 4. **CSS Pipeline**: TailwindCSS v4 compiles from `assets/css/input.css` to `assets/css/main.css`
 5. **Pagefind**: Build search index after Hugo output
 6. **Deployment**: GitHub Actions deploy to Cloudflare Pages + Alibaba Cloud OSS
@@ -106,7 +101,6 @@ pnpm run theme:update
   - `ghost-fetch-posts.js`: Fetch posts from Ghost Admin API
   - `ghost-fetch-pages.js`: Fetch pages from Ghost Admin API
   - `fetch-stats.js`: Multi-API stats aggregator (5 services)
-  - `generate-llms.js`: Generate LLMs.txt for AI tool context
 - `layouts/`: Hugo template overrides
   - `_default/mastodon.html`: 嘀咕 Mastodon timeline page
   - `_default/stats.html`: Site stats page
@@ -152,9 +146,8 @@ pnpm run theme:update
 2. **Ghost Fetch**: Pull posts and pages from Ghost Admin API, generate markdown with TOML frontmatter
 3. **Stats Fetch**: Aggregate data from Mastodon, Steam, NeoDB, Penta, GitHub (per-API failure logging with `✗` prefix)
 4. **CSS Build**: TailwindCSS v4 processes `assets/css/input.css`
-5. **LLMs Generation**: `generate-llms.js` produces `LLMs.txt`
-6. **Hugo Build**: Static site generation with minification
-7. **Pagefind**: Build search index
+5. **Hugo Build**: Static site generation with native `llms.txt` and `llms-full.txt`
+6. **Pagefind**: Build search index
 
 ## Key Files to Understand
 
@@ -164,7 +157,6 @@ pnpm run theme:update
 - `scripts/ghost-fetch-posts.js`: Fetch posts from Ghost with lexical Markdown card extraction
 - `scripts/ghost-fetch-pages.js`: Fetch pages from Ghost (same logic as posts)
 - `scripts/fetch-stats.js`: Multi-API stats aggregator (5 external services)
-- `scripts/generate-llms.js`: Generate LLMs.txt for AI tool context
 - `layouts/partials/comments.html`: Mastodon-powered blog comments (fetches context/replies from Mastodon API)
 - `layouts/_default/mastodon.html`: 嘀咕 Mastodon timeline page
 - `assets/css/input.css`: TailwindCSS entry point

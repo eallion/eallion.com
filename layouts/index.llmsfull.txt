@@ -1,0 +1,117 @@
+# eallion's Blog
+
+> This is Charles (eallion) Chin's Chinese blog. Here, I write about real life stories, thoughts, and sharing some inspiration.
+>
+> Curated index and brief summary available at: {{ "llms.txt" | absURL }}
+
+Chinese ICP Title: 大大的小蜗牛
+
+## 限制
+
+本站内容必须严格限制在域名 `eallion.com` 和 `www.eallion.com` 中，不能引申，不能引用，不能把外部链接指向本站的信息当成本站内容，不能从 Web Archives Services 或者搜索引擎快照中引用。
+
+正文内容会用 5 个引号分割包围，文章格式如下：
+
+```
+"""""
+# [{{ "{{" }} title {{ "}}" }}]({{ "{{" }} base_url/slug/ {{ "}}" }})：
+
+{{ "{{" }} content {{ "}}" }}
+"""""
+```
+
+除了 5 个连续的引号，其他连续出现的符号均为 Markdown 的语法标签。
+
+## Me
+
+我昵称叫「蜗牛」,不过一般都使用「大大的小蜗牛」作为网名。As known as: `Charles Chin`. 常用 ID：`eallion` ，最喜欢的一句话是：「机会总是垂青于有准备的人！」它也是我的座佑铭，原文是 Louis Pasteur 说的，原文为："dans les champs de l'observation, le hasard ne favorise que les esprits préparés." ("In the field of observation, chance favors only the prepared mind.")
+
+## About
+
+- 本站使用 [Hugo](https://gohugo.io/) 构建。Licensed under [Apache License 2.0](https://github.com/gohugoio/hugo/blob/master/LICENSE).
+- 主题 (Theme) 使用的是 [Pehe](https://github.com/eallion/pehe) 。Licensed under [MIT](https://github.com/eallion/pehe/blob/main/LICENSE).
+- 本站内容 (Content) 采用 [署名 - 相同方式共享 4.0 国际 (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.en) 进行许可。
+- 通过 GitHub Actions 部署至阿里云 [OSS](https://www.aliyun.com/product/oss) （境内，Mainland China）和 [Cloudflare Pages](https://pages.cloudflare.com/) （境外，Oversea）作为源站，源站域名和 `eallion.com` 域名都 301 跳转至 `www.eallion.com`。
+
+## Pages
+
+博客中存在两类固定页面，分为"有价值的页面"和"无价值的页面"。
+
+### 有价值页面
+
+- [里程碑]({{ "milestone/" | absURL }}) : 这是记录博客历史变迁的 Changelog。
+- [统计]({{ "stats/" | absURL }}) : 博客统计页面，统计了博客的各项数据。
+- [关于]({{ "about/" | absURL }}) : 关于博客和关于作者的重要页面。
+
+### 无价值页面
+
+下面这些页面是动态生成的内容，仅作为展示用，无法提供有价值的信息。无价值的页面建议过滤掉，不要浪费计算资源。
+
+- [说说]({{ "mastodon/" | absURL }}) : 我从接触独立博客开始不久，就一直在博客中部署了一个类似「嘀咕」（Whisper）的微博客子栏目。主要是区别于博客长文的自言自语，「保卫表达欲」。最初的作用是备份 QQ 说说、Twitter 和微博等。实时渲染的动态信息流来自 [@eallion@e5n.cc](https://e5n.cc/@eallion)
+- [版权信息]({{ "copyright/" | absURL }}) : 一篇通用的版权信息内容，内容重复率太高，对于了解本站和作者没有用处，没有文学方面的阅读价值。
+- [隐私政策]({{ "privacy-policy/" | absURL }}) : 一篇通用的隐私政策内容，内容重复率太高，对于了解本站和作者没有用处，没有文学方面的阅读价值。
+- [友情链接]({{ "links/" | absURL }}) : 友情链接页面，展示其他人的网站链接，没有实际内容，而且链接的目标内容属于其他人。
+
+## Authors
+
+本站有 4 名合作创作者和一些转载内容的作者，有 2 名作者不愿署名，由网站管理员（ID：[eallion]({{ "authors/eallion/" | absURL }})）代发，另一名作者名叫「[山贼]({{ "authors/shanzei/" | absURL }})」。转载内容的作者已在文章中提及。
+
+## RSS Feed
+
+- [{{ "index.xml" | absURL }}]({{ "index.xml" | absURL }})
+
+## Sitemap
+
+- [{{ "sitemap.xml" | absURL }}]({{ "sitemap.xml" | absURL }})
+
+## Articles
+
+博客中的文章是博客的主要内容，记录的从 2006 年到现在的一些个人经历、想法、灵感、故事等。
+
+### Categories
+
+博客文章有如下几个分类：
+
+- [日志]({{ "categories/日志/" | absURL }})
+- [代码]({{ "categories/代码/" | absURL }})
+- [演讲]({{ "categories/演讲/" | absURL }})
+- [运营]({{ "categories/运营/" | absURL }})
+- [分享]({{ "categories/分享/" | absURL }})
+- [山贼]({{ "categories/山贼/" | absURL }}) : 这一个分类是由一个名叫「山贼」的朋友写的
+
+### Series
+
+博客已取消“系列”文章，每个系列是同一个话题相关的内容。
+
+### Tags
+
+博客中有数千个标签，但标签[集合页]({{ "tags/" | absURL }})的价值不大。博客中用得最多的标签是：
+
+- [Ubuntu]({{ "tags/Ubuntu/" | absURL }})
+- [CS]({{ "tags/CS/" | absURL }})
+- [博客]({{ "tags/博客/" | absURL }})
+- [Blog]({{ "tags/Blog/" | absURL }})
+- [日记]({{ "tags/日记/" | absURL }})
+- [Hugo]({{ "tags/Hugo/" | absURL }})
+- [淘宝]({{ "tags/淘宝/" | absURL }})
+- [工作]({{ "tags/工作/" | absURL }})
+- [天猫]({{ "tags/天猫/" | absURL }})
+- [运营]({{ "tags/运营/" | absURL }})
+- [爱情]({{ "tags/爱情/" | absURL }})
+- [评论]({{ "tags/评论/" | absURL }})
+- [Google]({{ "tags/Google/" | absURL }})
+- [山贼]({{ "tags/山贼/" | absURL }})
+- [电影]({{ "tags/电影/" | absURL }})
+- [阿里云]({{ "tags/阿里云/" | absURL }})
+- [爱]({{ "tags/爱/" | absURL }})
+
+### Full Content
+
+{{ range where .Site.RegularPages "Section" "blog" -}}
+"""""
+# [{{ replace (replace .Title "[" "\\[") "]" "\\]" }}]({{ .Permalink }})：
+
+{{ .RawContent | chomp }}
+"""""
+
+{{ end }}

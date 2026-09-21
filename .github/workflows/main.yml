@@ -112,7 +112,6 @@ jobs:
 
           # Build Hugo site
           echo "🏗️  Building Hugo site..."
-          pnpm run gen:llms
           pnpm run build:hugo
           pnpm run build:pagefind
 

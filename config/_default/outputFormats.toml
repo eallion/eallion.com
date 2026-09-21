@@ -1,0 +1,11 @@
+[llms]
+  baseName = "llms"
+  mediaType = "text/plain"
+  isPlainText = true
+  notAlternative = true
+
+[llmsfull]
+  baseName = "llms-full"
+  mediaType = "text/plain"
+  isPlainText = true
+  notAlternative = true

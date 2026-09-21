@@ -7,7 +7,7 @@
     "buildTags": "extended"
   },
   "scripts": {
-    "build": "run-s clean fetch:ghost fetch:stats build:css gen:llms build:hugo build:pagefind",
+    "build": "run-s clean fetch:ghost fetch:stats build:css build:hugo build:pagefind",
     "build:chroma": "\\rm -f themes/pehe/assets/css/chroma.css && hugo gen chromastyles --style=github | sed 's/\\./html:not(.dark) ./' >> themes/pehe/assets/css/chroma.css && hugo gen chromastyles --style=github-dark | sed 's/\\./html.dark ./' >> themes/pehe/assets/css/chroma.css",
     "build:css": "cross-env NODE_ENV=production tailwindcss -i ./themes/pehe/assets/css/input.css -o ./themes/pehe/assets/css/main.css",
     "build:hugo": "hugo --minify --gc",
@@ -24,7 +24,6 @@
     "fetch:ghost:pages": "node scripts/ghost-fetch-pages.js",
     "fetch:ghost:posts": "node scripts/ghost-fetch-posts.js",
     "fetch:stats": "node scripts/fetch-stats.js",
-    "gen:llms": "node scripts/generate-llms.js",
     "theme:init": "git submodule update --init --recursive",
     "theme:update": "git submodule update --remote --force themes/pehe"
   },

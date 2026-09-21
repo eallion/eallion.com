@@ -1,4 +1,4 @@
-home = ["HTML", "RSS"]
+home = ["HTML", "RSS", "llms", "llmsfull"]
 page = ["HTML"]
 section = ["HTML"]
 taxonomy = ["HTML"]
