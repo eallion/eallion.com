@@ -1,12 +1,31 @@
 hero = true
-heroStyle = "image" # hero 风格："pehe" (原版简约头像风格) | "dsh" (DeepSeek Harness 动态流体风格) | "image" (静态图片背景) | "video" (动态视频背景)
-imageUrl = "https://api.eallion.com/bing?type=image" # heroStyle = "image" 时的背景图片地址
-heroStyleFmt = "dogecloud" # heroStyle = "video" 时的视频格式："mp4" | "dogecloud"
-videoURL = "/videos/hero-bg.mp4" # 当 heroStyleFmt = "mp4" 时的视频文件地址
-heroStyleDogecloudUserId = 5123 # 多吉云用户 ID (可根据个人信息控制台填入，默认 1)
-heroStyleDogecloudVcode = "c1e7ae0d02223b03" # 当 heroStyleFmt = "dogecloud" 时的多吉云视频 vcode (视频 ID)
-# heroStyleDogecloudPlayToken = "" # 开启防盗链时的播放 Token（可选）
-# heroStyleDogecloudVtype = 5 # 指定多吉云默认清晰度 ID（可选）
+
+# hero 风格："pehe" | "dsh" | "video" | "image" | "bing"
+heroStyle = "bing"
+
+# hero 媒体格式："mp4" | "dogecloud" | "aliyun" | "tencent" | "image" | "bing"
+heroStyleFmt = "bing"
+
+# hero 媒体资源地址，对应 heroStyleFmt，支持图片地址，图片 API，视频地址
+heroStyleUrl = "https://api.eallion.com/bing?type=image"
+
+# hero 右下角说明信息（支持 HTML。可覆盖 Bing 每日一图自动获取的标题，也可为 video/image/dsh/pehe 等风格提供自定义说明）
+# heroStyleInfo = ""
+
+# 多吉云视频点播配置 (当 heroStyleFmt = "dogecloud" 时)
+# heroStyleDogecloudUserId = 5123 # 多吉云用户 ID
+# heroStyleDogecloudVcode = "c1e7ae0d02223b03" # 多吉云视频 vcode
+
+# 阿里云视频点播配置 (当 heroStyleFmt = "aliyun" 时)
+# heroStyleAliyunVid = "" # 阿里云点播媒体 ID (vid)
+# heroStyleAliyunPlayAuth = "" # 阿里云点播播放凭证 (PlayAuth，可选)
+# heroStyleAliyunLicenseKey = "" # 阿里云 Web 播放器 LicenseKey (可选)
+
+# 腾讯云云点播配置 (当 heroStyleFmt = "tencent" 时)
+# heroStyleTencentAppId = "" # 腾讯云账号 AppID
+# heroStyleTencentFileId = "" # 腾讯云点播媒体 FileID
+# heroStyleTencentPsign = "" # 腾讯云播放器签名 (psign，可选)
+# heroStyleTencentLicenseUrl = "" # 腾讯云 Web 播放器 License URL (可选)
 
 selection_category = "精选"
 isoCode = "zh-cn"
@@ -33,6 +52,7 @@ safe_hosts = [
   "creativecommons.org",
   "*.e5n.cc",
   "*.eallion.com",
+  "*.eallion.cn",
   "github.com",
   "gov.cn"
 ]
