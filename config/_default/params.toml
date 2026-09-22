@@ -29,6 +29,9 @@ heroStyleUrl = "https://api.eallion.com/bing?type=image"
 # 是否开启返回顶部按钮（带环形阅读进度条）：true | false（默认 true）
 backToTop = true
 
+# 是否在顶部导航栏显示搜索图标按钮：true | false（默认 true。若在 menus.toml 中配置了文本“搜索”并希望隐藏此图标，可设为 false）
+headerSearchIcon = false
+
 selection_category = "精选"
 isoCode = "zh-cn"
 rtl = false

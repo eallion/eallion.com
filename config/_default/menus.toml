@@ -24,6 +24,10 @@
   pageRef = '/blog/'
   weight = 89
 [[main]]
+  name = '搜索'
+  url = '/search/'
+  weight = 98
+[[main]]
   name = '关于'
   pageRef = '/about'
   weight = 99
