@@ -89,14 +89,152 @@ function parseLexical(lexical) {
   return null;
 }
 
+function serializeInlineNode(node) {
+  if (!node) return '';
+  if (node.type === 'text') {
+    let text = node.text || '';
+    if (!text) return '';
+    const format = node.format || 0;
+    if (format & 16) text = `\`${text}\``;
+    if (format & 1) text = `**${text}**`;
+    if (format & 2) text = `*${text}*`;
+    if (format & 4) text = `~~${text}~~`;
+    if (format & 8) text = `<u>${text}</u>`;
+    return text;
+  }
+  if (node.type === 'link') {
+    const text = (node.children || []).map(serializeInlineNode).join('') || node.url || '';
+    return `[${text}](${node.url || ''})`;
+  }
+  if (node.type === 'linebreak') {
+    return '\n';
+  }
+  if (Array.isArray(node.children)) {
+    return node.children.map(serializeInlineNode).join('');
+  }
+  return node.text || '';
+}
+
+function serializeLexicalNode(node) {
+  if (!node) return '';
+
+  switch (node.type) {
+    case 'markdown':
+      return node.markdown ? node.markdown.trimEnd() : '';
+
+    case 'html':
+      return node.html ? node.html.trim() : '';
+
+    case 'code': {
+      const lang = node.language || '';
+      const code = node.code || '';
+      const caption = node.caption ? `\n*${node.caption}*` : '';
+      return '```' + lang + '\n' + code.trim() + '\n```' + caption;
+    }
+
+    case 'horizontalrule':
+    case 'horizontal-rule':
+    case 'divider':
+      return '---';
+
+    case 'image': {
+      const alt = node.alt || node.caption || '';
+      const caption = node.caption ? `\n*${node.caption}*` : '';
+      return `![${alt}](${node.src})${caption}`;
+    }
+
+    case 'embed': {
+      if (node.html) return node.html.trim();
+      if (node.url) return `<iframe src="${node.url}" loading="lazy"></iframe>`;
+      return '';
+    }
+
+    case 'callout': {
+      const emoji = node.calloutEmoji ? `${node.calloutEmoji} ` : '';
+      const text = (node.calloutText || '').split('\n').join('\n> ');
+      return `> ${emoji}${text}`;
+    }
+
+    case 'toggle': {
+      const heading = node.heading || '';
+      const content = node.content || '';
+      return `<details>\n<summary>${heading}</summary>\n\n${content}\n\n</details>`;
+    }
+
+    case 'button': {
+      const url = node.buttonUrl || '#';
+      const text = node.buttonText || 'Link';
+      return `<p><a href="${url}" target="_blank" rel="noopener noreferrer" class="btn">${text}</a></p>`;
+    }
+
+    case 'audio': {
+      const title = node.title ? `<p><strong>${node.title}</strong></p>\n` : '';
+      return `${title}<audio controls src="${node.src}"></audio>`;
+    }
+
+    case 'video': {
+      const caption = node.caption ? `\n*${node.caption}*` : '';
+      return `<video controls src="${node.src}"></video>${caption}`;
+    }
+
+    case 'file': {
+      const name = node.fileTitle || node.fileName || 'Attachment';
+      return `[${name}](${node.src})`;
+    }
+
+    case 'bookmark': {
+      const title = node.metadata?.title || node.caption || node.url;
+      const desc = node.metadata?.description ? `\n> ${node.metadata.description}` : '';
+      return `> [${title}](${node.url})${desc}`;
+    }
+
+    case 'heading': {
+      const level = node.tag ? parseInt(node.tag.replace(/^h/i, '')) || 2 : 2;
+      const text = (node.children || []).map(serializeInlineNode).join('').trim();
+      return text ? `${'#'.repeat(level)} ${text}` : '';
+    }
+
+    case 'quote': {
+      const text = (node.children || []).map(serializeInlineNode).join('').trim();
+      return text ? `> ${text.split('\n').join('\n> ')}` : '';
+    }
+
+    case 'paragraph': {
+      return (node.children || []).map(serializeInlineNode).join('').trim();
+    }
+
+    case 'list': {
+      const isOrdered = node.listType === 'number';
+      return (node.children || [])
+        .map((item, idx) => {
+          const prefix = isOrdered ? `${idx + 1}. ` : '- ';
+          const content = (item.children || []).map(serializeInlineNode).join('').trim();
+          return `${prefix}${content}`;
+        })
+        .join('\n');
+    }
+
+    default:
+      if (Array.isArray(node.children) && node.children.length > 0) {
+        return node.children.map(serializeInlineNode).join('').trim();
+      }
+      return '';
+  }
+}
+
 function extractLexicalMarkdown(lexical) {
   const parsed = parseLexical(lexical);
-  if (!parsed?.root?.children) return null;
-  const first = parsed.root.children[0];
-  if (first?.type === 'markdown' && first.markdown) {
-    return first.markdown;
+  if (!parsed?.root?.children || parsed.root.children.length === 0) return null;
+
+  const parts = [];
+  for (const child of parsed.root.children) {
+    const serialized = serializeLexicalNode(child);
+    if (serialized && serialized.trim().length > 0) {
+      parts.push(serialized.trim());
+    }
   }
-  return null;
+
+  return parts.length > 0 ? parts.join('\n\n') : null;
 }
 
 function generateToken() {
