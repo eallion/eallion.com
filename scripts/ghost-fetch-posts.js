@@ -50,6 +50,24 @@ function cleanupMarkdown(md) {
     );
 }
 
+function restoreGhostRelativeUrls(content) {
+  if (!content) return content;
+  const urls = [
+    GHOST_API_URL,
+    process.env.GHOST_ADMIN_API_URL,
+    'https://admin.eallion.com',
+    'https://ghost.eallion.com'
+  ].filter(Boolean);
+
+  const uniqueUrls = [...new Set(urls.map(u => u.replace(/\/$/, '')))];
+  let result = content;
+  for (const u of uniqueUrls) {
+    const escaped = u.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    result = result.replace(new RegExp(escaped + '(?=/)', 'g'), '');
+  }
+  return result;
+}
+
 function addImageStylename(md) {
   const blocks = [];
   let result = md.replace(/(```[\s\S]*?```|~~~[\s\S]*?~~~)/g, m => {
@@ -301,7 +319,8 @@ async function main() {
   if (args.dryRun) {
     for (const post of posts) {
       const fm = buildFrontmatter(post);
-      const markdown = addImageStylename(extractLexicalMarkdown(post.lexical) || turndown.turndown(post.html || ''));
+      const rawMd = extractLexicalMarkdown(post.lexical) || turndown.turndown(post.html || '');
+      const markdown = addImageStylename(restoreGhostRelativeUrls(rawMd));
       console.log(`  ${post.slug}.md (${markdown.length} chars)`);
     }
     console.log(`\nDry-run: ${posts.length} posts would be written.`);
@@ -315,7 +334,8 @@ async function main() {
   let written = 0;
   for (const post of posts) {
     const fm = buildFrontmatter(post);
-    const markdown = addImageStylename(extractLexicalMarkdown(post.lexical) || turndown.turndown(post.html || ''));
+    const rawMd = extractLexicalMarkdown(post.lexical) || turndown.turndown(post.html || '');
+    const markdown = addImageStylename(restoreGhostRelativeUrls(rawMd));
 
     const frontmatter = stringify(fm);
     const content = `+++\n${frontmatter}+++\n\n${markdown}\n`;

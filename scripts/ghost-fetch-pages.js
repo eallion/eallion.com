@@ -57,6 +57,24 @@ const SPECIAL_LAYOUTS = {
   stats: 'stats'
 };
 
+function restoreGhostRelativeUrls(content) {
+  if (!content) return content;
+  const urls = [
+    GHOST_API_URL,
+    process.env.GHOST_ADMIN_API_URL,
+    'https://admin.eallion.com',
+    'https://ghost.eallion.com'
+  ].filter(Boolean);
+
+  const uniqueUrls = [...new Set(urls.map(u => u.replace(/\/$/, '')))];
+  let result = content;
+  for (const u of uniqueUrls) {
+    const escaped = u.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    result = result.replace(new RegExp(escaped + '(?=/)', 'g'), '');
+  }
+  return result;
+}
+
 function addImageStylename(md) {
   const blocks = [];
   let result = md.replace(/(```[\s\S]*?```|~~~[\s\S]*?~~~)/g, m => {
@@ -301,7 +319,8 @@ async function main() {
 
   if (args.dryRun) {
     for (const page of pages) {
-      const markdown = addImageStylename(extractLexicalMarkdown(page.lexical) || turndown.turndown(page.html || ''));
+      const rawMd = extractLexicalMarkdown(page.lexical) || turndown.turndown(page.html || '');
+      const markdown = addImageStylename(restoreGhostRelativeUrls(rawMd));
       console.log(`  ${page.slug}/index.md (${markdown.length} chars)`);
     }
     console.log(`\nDry-run: ${pages.length} pages would be written.`);
@@ -310,7 +329,8 @@ async function main() {
 
   for (const page of pages) {
     const fm = buildFrontmatter(page);
-    const markdown = addImageStylename(extractLexicalMarkdown(page.lexical) || turndown.turndown(page.html || ''));
+    const rawMd = extractLexicalMarkdown(page.lexical) || turndown.turndown(page.html || '');
+    const markdown = addImageStylename(restoreGhostRelativeUrls(rawMd));
 
     const frontmatter = stringify(fm);
     const content = `+++\n${frontmatter}+++\n\n${markdown}\n`;
