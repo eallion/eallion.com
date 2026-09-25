@@ -1,0 +1,62 @@
+{{ define "main" }}
+
+{{- partial "content/breadcrumb.html" . -}}
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-0 md:mb-14" data-pagefind-ignore="all">
+
+  <article class="md:col-span-2 prose lg:prose-lg dark:prose-invert">
+
+    <header class="not-prose">
+
+      <h1 id="title" class="text-4xl font-bold leading-normal">{{ .Title }}</h1>
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose lg:flex-row dark:prose-invert">
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+
+        <div id="content" class="prose lg:prose-lg dark:prose-invert w-full">
+
+          {{ .Content }}
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </article>
+
+  <!-- Aside -->
+  <aside class="md:col-span-1">
+    <div class="lg:sticky lg:top-8 mb-13" data-pagefind-ignore="all">
+
+      {{- partial "content/aside-banner.html" . -}}
+
+    </div>
+  </aside>
+</div>
+
+<div id="links"
+  data-style="detailed"
+  data-shuffle="true"
+  data-columns="auto"
+  data-show-switcher="true"
+  data-show-unions="true"
+  data-show-links="true"
+  data-theme="auto"
+  data-limit="0"></div>
+<script src="https://links.eallion.com/js/embed.js" defer></script>
+
+{{ $lazyloadJS := resources.Get "js/lazyload.iife.min.js" | fingerprint "sha256" }}
+<script type="text/javascript" src="{{ $lazyloadJS.RelPermalink }}"
+  integrity="{{ $lazyloadJS.Data.Integrity }}"></script>
+
+<script>
+  var lazyLoadInstance = new LazyLoad({
+    // Your custom settings go here
+  });
+</script>
+
+{{ end }}
