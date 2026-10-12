@@ -3,6 +3,9 @@
   "version": "v6.0.2",
   "description": "eallion.com hugo blog theme by pehtheme",
   "private": true,
+  "engines": {
+    "node": ">=26"
+  },
   "hugo-bin": {
     "buildTags": "extended"
   },
