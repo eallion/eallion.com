@@ -4,7 +4,7 @@
   "description": "eallion.com hugo blog theme by pehtheme",
   "private": true,
   "engines": {
-    "node": ">=26"
+    "node": ">=24"
   },
   "hugo-bin": {
     "buildTags": "extended"
